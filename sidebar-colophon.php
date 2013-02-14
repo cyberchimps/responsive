@@ -23,6 +23,7 @@ if ( !defined('ABSPATH')) exit;
 	    )
             return;
     ?>
+	<?php responsive_widgets_before(); // above widgets container hook ?>
     <div id="colophon-widget" class="grid col-940">
         <?php responsive_widgets(); // above widgets hook ?>
         
@@ -34,3 +35,4 @@ if ( !defined('ABSPATH')) exit;
 
         <?php responsive_widgets_end(); // after widgets hook ?>
     </div><!-- end of #colophon-widget -->
+	<?php responsive_widgets_after(); // after widgets container hook ?>

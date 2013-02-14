@@ -25,8 +25,10 @@ if ( !defined('ABSPATH')) exit;
 <?php if (have_posts()) : ?>
 
 		<?php while (have_posts()) : the_post(); ?>
-          
-            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        
+			<?php responsive_entry_before(); ?>
+			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>       
+				<?php responsive_entry_top(); ?>
                 <h1 class="post-title"><?php the_title(); ?></h1>
                 <p><?php _e('&#8249; Return to', 'responsive'); ?> <a href="<?php echo get_permalink($post->post_parent); ?>" rel="gallery"><?php echo get_the_title($post->post_parent); ?></a></p>
 
@@ -60,10 +62,15 @@ if ( !defined('ABSPATH')) exit;
                 </div><!-- end of .post-data -->
                 <?php endif; ?>             
 
-            <div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div>             
-            </div><!-- end of #post-<?php the_ID(); ?> -->
+				<div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div> 
+								
+				<?php responsive_entry_bottom(); ?>      
+			</div><!-- end of #post-<?php the_ID(); ?> -->       
+			<?php responsive_entry_after(); ?>
             
+			<?php responsive_comments_before(); ?>
 			<?php comments_template( '', true ); ?>
+			<?php responsive_comments_after(); ?>
             
         <?php endwhile; ?>  
 

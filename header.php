@@ -29,24 +29,12 @@ if ( !defined('ABSPATH')) exit;
 <meta charset="<?php bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-<title>
-<?php
-if ( defined( 'WPSEO_VERSION' ) ) {
-    // WordPress SEO is activated
-        wp_title();
-
-} else {
-	
-    // WordPress SEO is not activated
-	wp_title( '&#124;', true, 'right' );
-}
-?>
-</title>
+<title><?php wp_title('&#124;', true, 'right'); ?></title>
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-<?php wp_enqueue_style('responsive-style', get_stylesheet_uri(), false, '1.8.9');?>
+<?php wp_enqueue_style('responsive-style', get_stylesheet_uri(), false, '1.8.7');?>
 
 <?php wp_head(); ?>
 </head>
@@ -58,6 +46,8 @@ if ( defined( 'WPSEO_VERSION' ) ) {
          
     <?php responsive_header(); // before header hook ?>
     <div id="header">
+
+		<?php responsive_header_top(); // before header content hook ?>
     
         <?php if (has_nav_menu('top-menu', 'responsive')) { ?>
 	        <?php wp_nav_menu(array(
@@ -104,10 +94,13 @@ if ( defined( 'WPSEO_VERSION' ) ) {
 					); 
 				?>
             <?php } ?>
+
+			<?php responsive_header_bottom(); // after header content hook ?>
  
     </div><!-- end of #header -->
-    <?php responsive_header_end(); // after header hook ?>
+    <?php responsive_header_end(); // after header container hook ?>
     
-	<?php responsive_wrapper(); // before wrapper ?>
+	<?php responsive_wrapper(); // before wrapper container hook ?>
     <div id="wrapper" class="clearfix">
-    <?php responsive_in_wrapper(); // wrapper hook ?>
+		<?php responsive_wrapper_top(); // before wrapper content hook ?>
+		<?php responsive_in_wrapper(); // wrapper hook ?>

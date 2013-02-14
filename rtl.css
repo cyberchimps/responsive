@@ -186,11 +186,6 @@ ul {
 
 /* =Primary Menu
 -------------------------------------------------------------- */
-.menu ul {
-    right: 0;
-    left: auto
-}
-
 .menu li {
     float: right;
 }

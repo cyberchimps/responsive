@@ -18,6 +18,7 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 ?>  
+	<?php responsive_widgets_before(); // above widgets container hook ?>
     <div id="widgets" class="home-widgets">
         <div class="grid col-300">
         <?php responsive_widgets(); // above widgets hook ?>
@@ -64,3 +65,4 @@ if ( !defined('ABSPATH')) exit;
         <?php responsive_widgets_end(); // after widgets hook ?>
         </div><!-- end of .col-300 fit -->
     </div><!-- end of #widgets -->
+	<?php responsive_widgets_after(); // after widgets container hook ?>

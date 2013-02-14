@@ -508,7 +508,9 @@ jQuery(document).ready(function ($) {
         "iframe[src*='player.vimeo.com']",
         "iframe[src*='www.youtube.com']",
         "iframe[src*='www.youtube-nocookie.com']",
+        "iframe[src*='www.kickstarter.com']",
 		"iframe[src*='fast.wistia.com']",
+        "object",
         "embed"
       ];
 
@@ -721,13 +723,13 @@ jQuery(document).ready(function ($) {
 			}
 			
 			sbHolder = $("<div>", {
-				"id": "sbHolder_" + inst.uid,
+				"id": "sb-holder_" + inst.uid,
 				"class": inst.settings.classHolder,
 				"tabindex": $target.attr("tabindex")
 			});
 			
 			sbSelector = $("<a>", {
-				"id": "sbSelector_" + inst.uid,
+				"id": "sb-selector_" + inst.uid,
 				"href": "#",
 				"class": inst.settings.classSelector,
 				"click": function (e) {
@@ -743,7 +745,7 @@ jQuery(document).ready(function ($) {
 			});
 			
 			sbToggle = $("<a>", {
-				"id": "sbToggle_" + inst.uid,
+				"id": "sb-toggle_" + inst.uid,
 				"href": "#",
 				"class": inst.settings.classToggle,
 				"click": function (e) {
@@ -760,7 +762,7 @@ jQuery(document).ready(function ($) {
 			sbToggle.appendTo(sbHolder);
 
 			sbOptions = $("<ul>", {
-				"id": "sbOptions_" + inst.uid,
+				"id": "sb-options_" + inst.uid,
 				"class": inst.settings.classOptions,
 				"css": {
 					"display": "none"
@@ -861,7 +863,7 @@ jQuery(document).ready(function ($) {
 							$next = $f.parent().prevAll("li:has(a)").eq(0).find("a");
 							if ($next.length > 0) {
 								$next.addClass(inst.settings.classFocus).focus();
-								$("#sbSelector_" + uid).text($next.text());
+								$("#sb-selector_" + uid).text($next.text());
 							}
 						}
 						break;
@@ -876,7 +878,7 @@ jQuery(document).ready(function ($) {
 						}
 						if ($next.length > 0) {
 							$next.addClass(inst.settings.classFocus).focus();
-							$("#sbSelector_" + uid).text($next.text());
+							$("#sb-selector_" + uid).text($next.text());
 						}
 						break;				
 					case 13: //Enter
@@ -937,7 +939,7 @@ jQuery(document).ready(function ($) {
 			if (!inst) {
 				return FALSE;
 			}
-			$("#sbHolder_" + inst.uid).remove();
+			$("#sb-holder_" + inst.uid).remove();
 			$.data(target, PROP_NAME, null);
 			$(target).show();			
 		},
@@ -953,7 +955,7 @@ jQuery(document).ready(function ($) {
 				inst = this._getInst(target);
 			if (inst) {
 				onChange = this._get(inst, 'onChange');
-				$("#sbSelector_" + inst.uid).text(text);
+				$("#sb-selector_" + inst.uid).text(text);
 			}
 			value = value.replace(/\'/g, "\\'");
 			$(target).find("option[value='" + value + "']").attr("selected", TRUE);
@@ -973,7 +975,7 @@ jQuery(document).ready(function ($) {
 			if (!inst || !inst.isDisabled) {
 				return FALSE;
 			}
-			$("#sbHolder_" + inst.uid).removeClass(inst.settings.classHolderDisabled);
+			$("#sb-holder_" + inst.uid).removeClass(inst.settings.classHolderDisabled);
 			inst.isDisabled = FALSE;
 			$.data(target, PROP_NAME, inst);
 		},
@@ -987,7 +989,7 @@ jQuery(document).ready(function ($) {
 			if (!inst || inst.isDisabled) {
 				return FALSE;
 			}
-			$("#sbHolder_" + inst.uid).addClass(inst.settings.classHolderDisabled);
+			$("#sb-holder_" + inst.uid).addClass(inst.settings.classHolderDisabled);
 			inst.isDisabled = TRUE;
 			$.data(target, PROP_NAME, inst);
 		},
@@ -1018,9 +1020,9 @@ jQuery(document).ready(function ($) {
 			if (!inst || inst.isOpen || inst.isDisabled) {
 				return;
 			}
-			var	el = $("#sbOptions_" + inst.uid),
-				viewportHeight = parseInt($(window).height(), 50),
-				offset = $("#sbHolder_" + inst.uid).offset(),
+			var	el = $("#sb-options_" + inst.uid),
+				viewportHeight = parseInt($(window).height(), 10),
+				offset = $("#sb-holder_" + inst.uid).offset(),
 				scrollTop = $(window).scrollTop(),
 				height = el.prev().height(),
 				diff = viewportHeight - (offset.top - scrollTop) - height / 2,
@@ -1030,7 +1032,7 @@ jQuery(document).ready(function ($) {
 				"maxHeight": (diff - height) + "px"
 			});
 			inst.settings.effect === "fade" ? el.fadeIn(inst.settings.speed) : el.slideDown(inst.settings.speed);
-			$("#sbToggle_" + inst.uid).addClass(inst.settings.classToggleOpen);
+			$("#sb-toggle_" + inst.uid).addClass(inst.settings.classToggleOpen);
 			this._state[inst.uid] = TRUE;
 			inst.isOpen = TRUE;
 			if (onOpen) {
@@ -1050,8 +1052,8 @@ jQuery(document).ready(function ($) {
 				return;
 			}
 			var onClose = this._get(inst, 'onClose');
-			inst.settings.effect === "fade" ? $("#sbOptions_" + inst.uid).fadeOut(inst.settings.speed) : $("#sbOptions_" + inst.uid).slideUp(inst.settings.speed);
-			$("#sbToggle_" + inst.uid).removeClass(inst.settings.classToggleOpen);
+			inst.settings.effect === "fade" ? $("#sb-options_" + inst.uid).fadeOut(inst.settings.speed) : $("#sb-options_" + inst.uid).slideUp(inst.settings.speed);
+			$("#sb-toggle_" + inst.uid).removeClass(inst.settings.classToggleOpen);
 			this._state[inst.uid] = FALSE;
 			inst.isOpen = FALSE;
 			if (onClose) {

@@ -1,9 +1,9 @@
 /* 
 Theme Name: Responsive 
 Theme URI: http://themeid.com/responsive-theme/ 
-Description: Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 40 languages. Cross-Browser compatible and yes even the IE7. No paid memberships or clubs to get a FREE/Responsive Support you need. http://themeid.com/help/
+Description: Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 40 languages. Cross-Browser compatible and yes even the IE7. No paid memberships or clubs to get a FREE/Responsive Support you need. http://themeid.com/support/
 
-Version: 1.8.9.3
+Version: 1.9.0RC
 Author: ThemeID 
 Author URI: http://themeid.com
 Tags: white, black, gray, light, custom-menu, custom-header, custom-background, one-column, two-columns, left-sidebar, right-sidebar, flexible-width, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, flexible-width, rtl-language-support
@@ -38,8 +38,8 @@ WordPress and ThemeID highly recommends Child Theme.
 Read More:
  
 - http://codex.wordpress.org/Child_Themes  
-- http://themeid.com/help/discussion/505/child-theme-example/
-- http://themeid.com/help/categories/responsive-documentation
+- http://themeid.com/forum/topic/505/child-theme-example/
+- http://themeid.com/forum/forum/12/responsive-documentation/
 
 --------------------------------------------------------------
 	
@@ -529,6 +529,7 @@ input[type='submit']:hover {
 	border: 1px solid #ddd;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 	color: #333;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f1f1f1);
 }
 
 button:active, 
@@ -546,6 +547,7 @@ input[type='submit']:active {
 	background-image: -o-linear-gradient(top, #f9f9f9, #f1f1f1);
 	background-image: linear-gradient(top, #f9f9f9, #f1f1f1);
     box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#f1f1f1);
 }
 
 /* =Buttons (Call to Action)
@@ -1255,7 +1257,7 @@ form div {
 	position: relative;
 }
 
-.home #wrapper {
+.home.page-template-default #wrapper {
 	background-color: transparent;
 	border: none;
 	margin: 20px auto 20px auto;
@@ -1512,7 +1514,7 @@ form div {
 	margin-top: 40px;
 }
 
-.home #widgets {
+.home.page-template-default #widgets {
 	margin-top: 0;
 }
 
@@ -1829,7 +1831,7 @@ form div {
 	background-color: #343434;
 }
 
-.home .menu .current_page_item a {
+.home.page-template-default .menu .current_page_item a {
     background: none;
 	background-color: transparent;
     background-image: none;
@@ -2747,7 +2749,7 @@ BDO[DIR="rtl"] {
 }
 
 /*	Retina (HiDPI) Display
-    http://www.quirksmode.org/blog/archives/2012/06/devicepixelrati.html
+    http://www.quirksmode.org/blog/archives/2013/06/devicepixelrati.html
 -------------------------------------------------------------- */
 @media 
     only screen and (-moz-min-device-pixel-ratio:1.5), 
@@ -2773,12 +2775,12 @@ BDO[DIR="rtl"] {
 	    margin: 20px 0 0 0;
     }
 	
-	.home #widgets {
+	.home.page-template-default #widgets {
 		margin-top: 40px;
 	}
     
     .top-widget,
-    .home .top-widget {
+    .home.page-template-default .top-widget {
         margin-top: 0 !important;
     }
     
