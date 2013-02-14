@@ -1,0 +1,565 @@
+Changelog Legend:
+----
+
+[+] = Added
+[*] = Changed
+[^] = Moved
+[=] = No Changes
+[x] = Deleted
+[!] = Bugs
+
+(02/04/2013) - Minor Bug Release - Version 1.8.9.2
+
+[!] TinyNav [object]
+[^] MS filter is back in.
+
+----
+
+(02/03/2013) - Maintenance and Minor Bug Release - Version 1.8.9.1
+
+[!] Title Tag while AIOSEOP not activated.
+[!] SB Holder for landing page templates.
+
+----
+
+(02/03/2013) - Maintenance and Minor Bug Release - Version 1.8.9
+
+[x] IE filters for buttons. This also removes the conflict with
+    video plugins. (props Ulrich Pogson)
+	
+[*] FitVids [object] removal. (props Ulrich Pogson)
+    @see: https://github.com/davatron5000/FitVids.js/pull/90
+	
+[+] Functions to check whether or not All in One SEO and WordPress 
+    SEO are activated. In: /includes/functions.php and header.php 
+	for WP SEO. If AIOSEOP, we will remove the Responsive's wp_title
+	filter. And use wp_title() only for WP SEO. Pretty nice stuff.
+	
+[*] Theme Options info buttons. Changed "Donate Now" to more visible
+    blue color and removed Responsive classes.
+
+----
+
+(01/27/2013) - Maintenance and Minor Bug Release - Version 1.8.8
+
+[!] SelectBox for Android and iPhone
+[*] SelectBox style.css improvements
+[*] quirksmode.org link fix
+[*] Support link for style.css
+[x] Arabic language duplicates
+[+] Hindi language
+
+----
+
+(01/06/2013) - Improvements - Version 1.8.7
+
+----
+Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
+----
+[*] Copyright date change to 2013
+[+] New and improved Responsive menu style updates in:
+    - /js/responsive-scripts.js
+	- /js/responsive-plugins.js
+	- style.css
+	- rtl.css	
+[*] Language updates for:
+    - responsive.pot
+	- Italian
+	- Dutch
+	- Estonian
+[+] SEO Improvements
+    - Highly recommended wp_title filter added in functions.php
+	-- http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
+	-- http://yoast.com/wordpress-themes-page-title/
+[+] Unique function class for custom menus in widgets
+
+----
+
+(12/23/2012) - Maintenance and Improvements - Version 1.8.6
+[+] Localization
+    - responsive.pot
+    - Languages improvements 
+    - New Languages (40 total)
+    - Arabic
+    - Estonian
+    - Hindi
+    - Korean
+    - Turkish
+	
+[+] If statement for breadcrumb lists and code formatting 
+[+] Breadcrumb lists to Blog and Blog Excerpt Template
+[*] CSS Improvements
+[*] Twitter Icon to comply with https://twitter.com/logo guidelines
+[*] New screenshot.png for Retina displays
+
+----
+
+(12/09/2012) - Maintenance and Improvements - Version 1.8.4.1
+[!] Sidebar Half Page - rtl.css
+
+----
+
+(11/25/2012) - Maintenance and Improvements - Version 1.8.4
+[*] blog-excerpt.php Template now uses a default sidebar
+[*] content-sidebar-page.php Template is now the only 
+    Template where right sidebar is assigned to.
+[*] IE9+ Conditionals
+[x] IE6 Conditionals
+[+] IE Conditionals to target non-ie browsers.
+[+] FitVids support for YouTube's "privacy-enhanced" mode.
+[+] Border Radius and improvements for Author's Box.
+[!] <pre> code fix
+
+----
+
+(11/14/2012) - Maintenance and Improvements - Version 1.8.3
+[*] TinyNav Update - https://github.com/viljamis/TinyNav.js
+[*] CSS Fix for TinyNav on the landing page template
+
+----
+
+(11/07/2012) - Maintenance and Improvements - Version 1.8.2
+[*] Localization Improvements
+[*] TinyNav Update
+[*] CSS Improvements
+
+(10/11/2012) - IE Fix - Version 1.8.0.1
+[!] IE Current Page Item Fix
+
+----
+
+(10/09/2012) - Maintenance and Improvements - Version 1.8.0
+[*] W3C Markup Validation
+[!] Android Squares in Menus
+[*] All New CSS Button Gradients
+[*] New Default Logo
+[*] New TinyNav Background
+[*] New Screenshot
+[*] CSS Improvements
+
+----
+
+(09/30/2012) - Quick Bug Fixes - Version 1.7.9.1
+[!] Partial Localization
+[!] Top Widget Form
+[!] Error 404 Forms
+[x] (temporary) Previously added 4 languages
+	- Indonesian
+	- Welsh
+	- Turkish
+	- Romanian	
+----
+
+(09/27/2012) - Maintenance and Improvements - Version 1.7.9
+[*] Localization and Languages
+    - Global Localization Improvements
+	- New responsive.pot re-generated
+	- New Languages (32 total):
+	- Indonesian
+	- Welsh
+	- Turkish
+	- Romanian
+[*] style.css
+    - Pretty Indentation
+	- Better Form Responsiveness
+[!] style.css
+    - <hr />
+	- IE7 dropdown menu
+[x]
+    - #widgets ID from top-widget not needed
+    - X-UA-Compatible from header.php not needed 
+[+] W3C Markup Validation
+[+] RTL Support
+
+----
+
+
+(09/09/2012) - Maintenance and Improvements - Version 1.7.8
+[*] Language Revisions
+    - responsive.pot
+	- Japanese
+	- Finish
+	- Lithuanian
+[*] Script Updates
+[*] style.css
+    - IE image fixes
+	- pre code improvements
+	- general improvements and clean-ups
+[x] no-title, substituted with dates only
+[+] Retina (HiDPI) Display Support
+    - Media Queries
+[+] TinyNav - page/post select box intends
+[+] Top Widget
+
+----
+
+(08/27/2012) - IE7 Bug Fix - Version 1.7.7
+[+] Theme Options, support links hook
+[+] New Languages
+    - Czech
+    - Hungarian
+    - Greek
+[*] responsive.pot
+[*] tinynav.js jQuery 1.8.0 compatibility
+
+(08/21/2012) - IE7 Bug Fix - Version 1.7.6
+[!] widget clearfix
+
+----
+
+(08/19/2012) - Maintenance and Improvements - Version 1.7.5
+[+] Shortcode support for home and featured areas
+[+] Colophon widget (on-demand)
+[x] style.css
+    - Table blocks for 480px
+	- Margins for old widgets
+[*] style.css
+    - Description
+[x] Old action hook
+[*] Modernizr 2.6.1 (update)
+
+
+(08/06/2012) - Improvements - Version 1.7.3/4
+[+] WooCommerce Compatible
+[+] New Languages
+    - Japanese
+	- Chinese (Taiwan)
+[*] responsive.pot
+[*] style.css for WooCommerce Compatibility 
+
+----
+
+(07/19/2012) - Improvements - Version 1.7.2
+[+] Multilingual Ready (wmpl.org)
+[+] style.css
+    - b,i,iframe,embed and object
+
+----
+
+(07/09/2012) - Improvements and Maintenance - Version 1.7.0/1
+[+] New Languages
+    - Chinese
+    - Dutch
+    - Finish
+    - Icelandic
+[*] responsive.pot
+[+] class for all post titles
+[+] post navigation links
+[*] global CSS improvements
+[+] Theme Options support links
+
+----
+
+(07/02/2012) - Footer Bug Fix - Version 1.6.8/9
+[!] footer items did not align properly
+    while there was no menu or icons
+
+(07/01/2012) - Improvements, Maintenance - Version 1.6.8
+[+] New Languages
+    - Russian
+    - Lithuanian
+    - Danish
+    - Slovenian
+[!] Yelp icon
+[*] CSS page load improvements
+[*] Icons optimizations
+[+] FitVids support for HTTPS
+[!] IE7 JS tinynav
+[*] Dummy content revisions
+
+----
+
+(06/24/2012) - Bug fix - Version 1.6.7
+[!] Unformatted form fields
+[+] Polish Language
+
+----
+
+(06/24/2012) - Improvements - Version 1.6.6
+[+] missing social icons added in previous version
+[!] tinynav.js 
+
+----
+
+(06/23/2012) - Improvements - Version 1.6.3/4/5
+[+] Theme Options
+[+] Serbian and Persian languages
+[+] New media queries 240 and 320
+[x] JS Dev removal of duplicates
+[+] Tinynav CSS
+[+] Icons Yelp, Vimeo and foursquare
+[*] FitVids support for Wistia
+[!] Missing select image
+[+] Placing back modernizer.js DEV
+
+----
+
+(06/11/2012)
+[*] Improvement in Theme Options
+[*] Tinynav to show Home instead of Navigation
+
+----
+
+(06/08/2012) - Maintenance - Version 1.6.0/1
+[!] /includes/version.php
+[!] fallback_cb for all but main menu
+[!] admin-head-callback < 3.4
+[*] code beautifying 
+
+----
+
+(06/07/2012) - Maintenance - Version 1.5.9
+[x] Theme Option redirect upon activation
+[*] /includes/version.php 3.4 compatibility
+[*] Theme Option name < 3.4 compatibility
+[+] menu hover color
+[+] antialiased CSS
+[x] body background image CSS
+[+] minimized responsive menu
+
+----
+
+(06/03/2012) - Version 1.5.8
+[!] missing search query from search.php
+
+----
+
+(06/02/2012) - Version 1.5.6/7
+[*] all* language updates
+[+] new languages
+    - Croatian
+	- Serbian (Latin)
+[+] featured image support for archive.php
+[+] overflow auto for blockquote
+[*] improved search.php
+
+----
+
+(05/26/2012) - Version 1.5.4/5
+[+] new languages
+    - Bulgarian
+	- Norwegian
+[*] all* language updates
+[+] direct script access disallowed
+[*] featured-image.png
+[*] screenshot.png
+[x] Google Font removed for non-English
+    language compatibility
+[+] all* "Helvetica Neue", Helvetica, Arial, sans-serif;
+[*] search.php text
+[*] all* not found arrows
+[x] breadcrumbs for search.php
+[*] reduced font-size in theme-options.css
+[*] more precise responsive grids
+[*] style.css maintenance
+
+----
+
+(05/17/2012) - Version 1.5.3
+[+] new languages
+    - Malay
+    - Catalan
+    - Spanish
+[*] CSS tutorial link changed to
+    https://developer.mozilla.org/en/CSS
+
+----
+
+(05/13/2012) - Quick Bug Fixes Version 1.5.2
+[*] comment counts in comments.php
+[*] help-links in /includes/theme-options.php
+[+] new .pot generated
+[+] new languages
+    - Swedish
+[*] CSS buttons
+
+----
+
+(05/10/2012) - Bug Fixes/Maintenance Version 1.5.1
+[!] missing textdomain in
+    - comments.php
+	- home.php (CTA button)
+	- /includes/functions.php
+	- /includes/theme-options.php
+[!] function prefix missmatch in
+    - /includes/functions.php
+[+] new .pot generated
+[*] new German language generated
+[+] new languages
+    - Portuguese
+	- French
+	- Italian
+[*] screenshot.png
+
+----
+
+(05/01/2012) - Maintenance Version 1.5.0
+[+] missing textdomain for 'powered by' footer.php
+[*] featured-image DIV end (comment only) home.php
+[+] Instagram and Pinterest icons
+[+] custom styles in Theme Options
+[+] German translation
+[*] theme-options.css
+
+----
+
+(04/24/2012) - Bug Fixes/Maintenance Version 1.4.8/9
+[!] dropdown menu clear background
+[!] no breadcrumb chevron on page levels
+[+] Class for breadcrumb lists CSS
+[+] form-allowed-tags element
+[*] search.php post-meta rearrangement 
+[*] default logo
+[*] featured image 
+[*] localization
+[*] reset input class CSS
+
+
+(04/21/2012) - Bug Fix
+[!] Breadcrumb List chevron was not displaying
+    correctly on Windows based systems
+
+----
+
+(04/18/2012) - Maintenance Version 1.4.5/6
+[!] social icons px fix
+[+] WP 3.4 add_theme_support('custom-background') w/backward compatibilities
+[+] WP 3.4 add_theme_support('custom-header') w/backward compatibilities
+[+] new breadcrumb lists
+[*] featured-image.png
+[*] screenshot.png
+
+----
+
+(04/14/2012) - Maintenance Version 1.4.4
+[!] blog.php and blog-excerpt.php while frontpage fix
+[+] image dimensions for social icons
+[-] image dimension for social icons CSS 
+[*] PHP sidebar-left headings
+[x] unnecessary theme options functions.php
+[x] sub-header-menu border-radius
+
+----
+
+(04/05/2012) - Maintenance Version 1.4.2/3
+[x] widgets ul styles CSS
+[*] widgets a padding CSS
+[^] widgets ul styles to widget-wrapper and widget-wrapper-left
+[!] widgets were breaking styles CSS/functions.php
+[!] main menu current_page_item CSS
+[*] margins for widget titles CSS
+[!] featured-title line-height CSS
+[*] featured-subtitle padding CSS
+[+] clearfix to widget-wrapper
+[+] footer a color CSS
+[+] post-data a color CSS and font-weight
+[+] comment-meta font-size CSS
+[x] global links underline
+[*] Theme description in style.css
+[*] headimg background-repeat none /includes/functions.php
+[*] read-more font-weight CSS
+[+] widget-wrapper DIV to all default sidebars
+
+----
+
+(04/01/2012) - Maintenance Version 1.4.0/1
+[x] ul children for better CSS efficiency
+[x] ul widget a color
+[x] form div margins
+[+] ID/class for all widgetized areas
+[*] author-meta margins
+[*] WP-Core image alignments
+[*] top-menu CSS
+[*] featured div comments
+[!] extra ; in .address CSS
+[+] word-wrap to all p's and headings CSS
+[x] paddings for global a's CSS
+[+] margin-bottom for site-description CSS
+[+] font-weight for site-name CSS
+[x] header search-box CSS
+[x] featured-button CSS
+[*] jQuery version in theme-options.php
+[x] border in pre CSS
+[*] blockquote's CSS
+[*] author-meta CSS
+
+----
+
+(03/27/2012) - Maintenance Version 1.3.8
+[*] description typo in style.css
+[+] link color in style.css for better visibility
+[*] load_theme_textdomain in /includes/functions.php
+
+----
+
+(03/22/2012) - Maintenance Version 1.3.6
+[x] #widgets #s padding in style.css
+[+] bbPress breadcrumb compatibility patch by Dan Smith keystonedatabase.com
+[+] localization support
+
+----
+
+(03/21/2012) - Maintenance Version 1.3.4
+[!] #widgets p border bug
+[x] #widgets p
+[+] .textwidget for demo only
+[x] .widget-title, .widget-title-home h3 height:23px
+[!] Responsive videos
+
+----
+
+(03/17/2012) - Maintenance Version 1.3.2
+[+] jquery.fitvids.js for responsive videos
+[*] respond.js for responsive videos
+[^] CSS featured to featured Content
+[+] Additional JS authors added
+[*] CSS featured-image
+[*] comments_popup_link search.php
+[*] CSS heading word-wrap:break-word
+[*] CSS aligncenter margins
+[*] sitemap.php
+[+] CSS pre margin
+[*] comments cite
+[*] CSS forms
+[*] posts_per_page=-1 sitemap.php
+
+----
+
+(03/15/2012) - Version 1.3.1
+[+] CSS formatting
+[x] the_excerpt
+
+----
+
+(03/15/2012) - Version 1.3.0
+[!] Prefix inconstancy for comment reply function
+[+] wp_enqueue_scripts instead of wp_print_scripts
+[+] wp_enqueue_style for Google Fonts replaced with a static link
+[+] translation function in:
+    - comments.php
+	- functions.php
+	- home.php
+	- sidebar-home.php
+	- sidebar-gallery.php
+	- single.php
+	- search.php
+[+] wp_filter_post_kses changed to esc_url_raw in theme-options.php
+[+] CTA references changed to Call to Action followed 
+    by option renaming for the same in theme-option.php
+	and home.php
+[+] class for home #widgets
+[^] titles just after #widgets
+[^] widget-title-home h3 in .widget-title
+[x] widget-title-home h3 a
+[*] read more
+[x] gallery-meta
+[+] CSS source formatting
+[+] social-icons center align for responsive layout
+[x] post thumbnail CSS
+[+] See more to Read more in all files
+[+] global $more; $more = 0; for pages with _excerpt
+
+----
+
+(03/12/2012)
+Initial Release

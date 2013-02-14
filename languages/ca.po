@@ -1,0 +1,942 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
+"PO-Revision-Date: 2012-12-07 23:20:30 UTC\n"
+"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
+"Language-Team: Catalan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WebTranslateIt.com\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: 404.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; Que estrany que ens trobem aquí!"
+
+#: image.php
+#: index.php
+#: page.php
+#: landing-page.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: 404.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
+msgstr "No t&#39;espantis, ens espavilarem. Vegem les opcions a continuació."
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: 404.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Pots tornar a l&#39; %s o cercar el que estàs buscant."
+
+#: page.php
+#: landing-page.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: 404.php
+#: image.php
+#: index.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+#: includes/functions.php
+msgid "Home"
+msgstr "Inici"
+
+#: 404.php
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "&larr; Home"
+msgstr "&larr; Inici"
+
+#: archive.php
+msgid "Daily Archives: %s"
+msgstr "Arxius diaris: %s"
+
+#: archive.php
+msgid "Monthly Archives: %s"
+msgstr "Arxius mensuals: %s"
+
+#: archive.php
+msgid "Yearly Archives: %s"
+msgstr "Arxius anuals: %s"
+
+#: archive.php
+msgid "Blog Archives"
+msgstr "Arxius del blog"
+
+#: index.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: search.php
+#: sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Enllaç permanent a %s"
+
+#: page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+msgid "No Comments &darr;"
+msgstr "Sense comentaris &darr;"
+
+#: single.php
+#: sidebar-content-page.php
+#: sidebar-content-half-page.php
+#: search.php
+#: page.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: index.php
+msgid "1 Comment &darr;"
+msgstr "1 comentari &darr;"
+
+#: single.php
+#: sidebar-content-page.php
+#: sidebar-content-half-page.php
+#: search.php
+#: page.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: index.php
+msgid "% Comments &darr;"
+msgstr "% comentaris &darr;"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "Pages:"
+msgstr "Pàgines:"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+msgid "Tagged with:"
+msgstr "Etiquetat amb:"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+msgid "Posted in %s"
+msgstr "Publicat a %s"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "Edit"
+msgstr "Edita"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "&#8249; Older posts"
+msgstr "&#8249; Publicacions més antigues"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "Newer posts &#8250;"
+msgstr "Publicacions més noves &#8250;"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: image.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: includes/functions.php
+msgid "Read more &#8250;"
+msgstr "Continua llegint &#8250;"
+
+#: comments.php
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Aquesta publicació està protegida per contrasenya. Introdueix la contrasenya per veure els comentaris."
+
+#: comments.php
+#: comments.php
+msgid "&#8249; Older comments"
+msgstr "&#8249; Comentaris més antics"
+
+#: comments.php
+#: comments.php
+msgid "Newer comments &#8250;"
+msgstr "Comentaris més nous &#8250;"
+
+#: comments.php
+msgid "Pings&#47;Trackbacks"
+msgstr "Pings&#47;Retroenllaços"
+
+#: comments.php
+msgid "%1$d %2$s for \"%3$s\""
+msgstr "%1$d %2$s per a \"%3$s\""
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "Un comentari a &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s comentaris a &ldquo;%2$s&rdquo;"
+
+#: comments.php
+msgid "Name"
+msgstr "Nom"
+
+#: comments.php
+msgid "E-mail"
+msgstr "Correu electrònic"
+
+#: comments.php
+msgid "Website"
+msgstr "Lloc web"
+
+#: footer.php
+msgid "&copy;"
+msgstr "&copy;"
+
+#: footer.php
+msgid "scroll to top"
+msgstr "vés cap amunt"
+
+#: footer.php
+msgid "&uarr;"
+msgstr "&uarr;"
+
+#: footer.php
+msgid "http://themeid.com/responsive-theme/"
+msgstr "http://themeid.com/responsive-theme/"
+
+#: footer.php
+msgid "Responsive Theme"
+msgstr "Responsive Theme"
+
+#: footer.php
+msgid "powered by"
+msgstr "potenciat per"
+
+#: footer.php
+msgid "http://wordpress.org/"
+msgstr "http://ca.wordpress.org/"
+
+#: footer.php
+msgid "WordPress"
+msgstr "WordPress"
+
+#: home.php
+msgid "Hello, World!"
+msgstr "Hola, món!"
+
+#: home.php
+msgid "Your H2 subheadline here"
+msgstr "La teva capçalera H2 aquí"
+
+#: home.php
+msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
+msgstr "El títol, subtítol i aquest mateix contingut són editables des de les Opcions del tema. El botó de crida a l'acció i el seu enllaç també. La imatge de la dreta pot ser una imatge o fins i tot un vídeo de YouTube si vols."
+
+#: home.php
+msgid "Call to Action"
+msgstr "Crida a l'acció"
+
+#: image.php
+msgid "&#8249; Return to"
+msgstr "&#8249; Torna a"
+
+#: search.php
+#: includes/functions.php
+msgid "Search results for: %s"
+msgstr "Resultats de la cerca per a: %s"
+
+#: search.php
+msgid "Your search for %s did not match any entries."
+msgstr "La teva cerca per a %s no ha obtingut cap resultat."
+
+#: searchform.php
+msgid "search here &hellip;"
+msgstr "cerca aquí &hellip;"
+
+#: searchform.php
+msgid "Go"
+msgstr "Vés"
+
+#: sidebar-gallery.php
+msgid "Image Information"
+msgstr "Informació de la imatge"
+
+#: sidebar-gallery.php
+msgid "Full Size:"
+msgstr "Mida completa:"
+
+#: sidebar-gallery.php
+msgid "Aperture: f&#47;"
+msgstr "Obertura: f&#47;"
+
+#: sidebar-gallery.php
+msgid "Focal Length:"
+msgstr "Distància focal:"
+
+#: sidebar-gallery.php
+msgid "mm"
+msgstr "mm"
+
+#: sidebar-gallery.php
+msgid "ISO:"
+msgstr "ISO:"
+
+#: sidebar-gallery.php
+msgid "Shutter:"
+msgstr "Obturador:"
+
+#: sidebar-gallery.php
+msgid "Camera:"
+msgstr "Càmera:"
+
+#: sidebar.php
+#: sidebar-right.php
+#: sidebar-right-half.php
+#: sidebar-left.php
+#: sidebar-left-half.php
+#: sidebar-half-left.php
+msgid "In Archive"
+msgstr "A l'arxiu"
+
+#: sidebar-home.php
+#: includes/functions.php
+msgid "Home Widget 1"
+msgstr "Giny de l'inici 1"
+
+#: sidebar-home.php
+msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area six called Home Widget 1. Title is also manageable from widgets as well."
+msgstr "Aquesta és la capsa del teu primer giny de l'inici. Per editar-lo, vés a Aparença > Ginys i escull el sisè giny des de dalt, a la sisena àrea, anomenat Giny de l'inici 1. El títol també es pot administrar des dels ginys."
+
+#: sidebar-home.php
+#: includes/functions.php
+msgid "Home Widget 2"
+msgstr "Giny de l'inici 2"
+
+#: sidebar-home.php
+msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area seven called Home Widget 2. Title is also manageable from widgets as well."
+msgstr "Aquesta és la capsa del teu segon giny de l'inici. Per editar-lo, vés a Aparença > Ginys i escull el setè giny des de dalt, a la setena àrea, anomenat Giny de l'inici 2. El títol també es pot administrar des dels ginys."
+
+#: sidebar-home.php
+#: includes/functions.php
+msgid "Home Widget 3"
+msgstr "Giny de l'inici 3"
+
+#: sidebar-home.php
+msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area eight called Home Widget 3. Title is also manageable from widgets as well."
+msgstr "Aquesta és la capsa del teu tercer giny de l'inici. Per editar-lo, vés a Aparença > Ginys i escull el vuitè giny des de dalt, a la vuitena àrea, anomenat Giny de l'inici 3. El títol també es pot administrar des dels ginys."
+
+#: single.php
+msgid "About"
+msgstr "Quant a"
+
+#: sitemap.php
+msgid "Categories"
+msgstr "Categories"
+
+#: sitemap.php
+msgid "Latest Posts"
+msgstr "Últimes publicacions"
+
+#: sitemap.php
+msgid "Pages"
+msgstr "Pàgines"
+
+#: includes/functions.php
+msgid "Top Menu"
+msgstr "Menú superior"
+
+#: includes/functions.php
+msgid "Header Menu"
+msgstr "Menú de la capçalera"
+
+#: includes/functions.php
+msgid "Sub-Header Menu"
+msgstr "Menú de la subcapçalera"
+
+#: includes/functions.php
+msgid "Footer Menu"
+msgstr "Menú del peu"
+
+#: includes/functions.php
+msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
+msgstr "<span class=\"%1$s\">Publicat el </span>%2$s<span class=\"%3$s\"> per </span>%4$s"
+
+#: includes/functions.php
+msgid "View all posts by %s"
+msgstr "Mostra totes les publicacions de %s"
+
+#: includes/functions.php
+msgid "Archive for %s"
+msgstr "Arxiu de %s"
+
+#: includes/functions.php
+msgid "Posts tagged %s"
+msgstr "Publicacions etiquetades amb %s"
+
+#: includes/functions.php
+msgid "Error 404 "
+msgstr "Error 404 "
+
+#: includes/functions.php
+msgid "Page"
+msgstr "Pàgina"
+
+#: includes/functions.php
+msgid "http://themeid.com/support/"
+msgstr "http://themeid.com/support/"
+
+#: includes/functions.php
+#: includes/functions.php
+msgid "Theme Support"
+msgstr "Suport del tema"
+
+#: includes/functions.php
+msgid "http://themeid.com/themes/"
+msgstr "http://themeid.com/themes/"
+
+#: includes/functions.php
+#: includes/functions.php
+msgid "More Themes"
+msgstr "Més temes"
+
+#: includes/functions.php
+msgid "http://themeid.com/showcase/"
+msgstr "http://themeid.com/showcase/"
+
+#: includes/functions.php
+#: includes/functions.php
+msgid "Showcase"
+msgstr "Mostra de dissenys"
+
+#: includes/functions.php
+msgid "http://themeid.com/donate/"
+msgstr "http://themeid.com/donate/"
+
+#: includes/functions.php
+#: includes/functions.php
+msgid "Donate Now"
+msgstr "Fes una donació"
+
+#: includes/functions.php
+msgid "Main Sidebar"
+msgstr "Barra lateral principal"
+
+#: includes/functions.php
+msgid "Area 1 - sidebar.php"
+msgstr "Àrea 1 - sidebar.php"
+
+#: includes/functions.php
+msgid "Right Sidebar"
+msgstr "Barra lateral de la dreta"
+
+#: includes/functions.php
+msgid "Area 2 - sidebar-right.php"
+msgstr "Àrea 2 - sidebar-right.php"
+
+#: includes/functions.php
+msgid "Left Sidebar"
+msgstr "Barra lateral de l'esquerra"
+
+#: includes/functions.php
+msgid "Area 3 - sidebar-left.php"
+msgstr "Àrea 3 - sidebar-left.php"
+
+#: includes/functions.php
+msgid "Left Sidebar Half Page"
+msgstr "Barra lateral de l'esquerra a mitja pàgina"
+
+#: includes/functions.php
+msgid "Area 4 - sidebar-left-half.php"
+msgstr "Àrea 4 - sidebar-left-half.php"
+
+#: includes/functions.php
+msgid "Right Sidebar Half Page"
+msgstr "Barra lateral de la dreta a mitja pàgina"
+
+#: includes/functions.php
+msgid "Area 5 - sidebar-right-half.php"
+msgstr "Àrea 5 - sidebar-right-half.php"
+
+#: includes/functions.php
+msgid "Area 6 - sidebar-home.php"
+msgstr "Àrea 6 - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 7 - sidebar-home.php"
+msgstr "Àrea 7 - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 8 - sidebar-home.php"
+msgstr "Àrea 8 - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Gallery Sidebar"
+msgstr "Barra lateral de la galeria"
+
+#: includes/functions.php
+msgid "Area 9 - sidebar-gallery.php"
+msgstr "Àrea 9 - sidebar-gallery.php"
+
+#: includes/functions.php
+msgid "Colophon Widget"
+msgstr "Giny de colofó"
+
+#: includes/functions.php
+msgid "Area 10 - sidebar-colophon.php"
+msgstr "Àrea 10 - sidebar-colophon.php"
+
+#: includes/functions.php
+msgid "Top Widget"
+msgstr "Giny superior"
+
+#: includes/functions.php
+msgid "Area 11 - sidebar-top.php"
+msgstr "Àrea 11 - sidebar-top.php"
+
+#: includes/theme-options.php
+msgid "Theme Options"
+msgstr "Opcions del tema"
+
+#: includes/theme-options.php
+msgid "Options Saved"
+msgstr "S'han desat les opcions"
+
+#: includes/theme-options.php
+msgid "Theme Elements"
+msgstr "Elements del tema"
+
+#: includes/theme-options.php
+msgid "Disable Breadcrumb Lists?"
+msgstr "Desactiva els fils d'Ariadna"
+
+#: includes/theme-options.php
+#: includes/theme-options.php
+msgid "Check to disable"
+msgstr "Marca per deshabilitar"
+
+#: includes/theme-options.php
+msgid "Disable Call to Action Button?"
+msgstr "Desactiva el botó de crida a l'acció"
+
+#: includes/theme-options.php
+#: includes/theme-options.php
+#: includes/theme-options.php
+#: includes/theme-options.php
+#: includes/theme-options.php
+msgid "Save Options"
+msgstr "Desa les opcions"
+
+#: includes/theme-options.php
+msgid "Logo Upload"
+msgstr "Carrega un logo"
+
+#: includes/theme-options.php
+msgid "Custom Header"
+msgstr "Capçalera personalitzada"
+
+#: includes/theme-options.php
+msgid "Need to replace or remove default logo?"
+msgstr "Necessites reemplaçar o eliminar el logo per defecte?"
+
+#: includes/theme-options.php
+msgid "<a href=\"%s\">Click here</a>."
+msgstr "<a href=\"%s\">Fes clic aquí</a>."
+
+#: includes/theme-options.php
+msgid "Home Page"
+msgstr "Pàgina d'inici"
+
+#: includes/theme-options.php
+msgid "Headline"
+msgstr "Títol"
+
+#: includes/theme-options.php
+msgid "Enter your headline"
+msgstr "Introdueix el títol"
+
+#: includes/theme-options.php
+msgid "Subheadline"
+msgstr "Subtítol"
+
+#: includes/theme-options.php
+msgid "Enter your subheadline"
+msgstr "Introdueix el subtítol"
+
+#: includes/theme-options.php
+msgid "Content Area"
+msgstr "Àrea de contingut"
+
+#: includes/theme-options.php
+msgid "Enter your content"
+msgstr "Introdueix el contingut"
+
+#: includes/theme-options.php
+msgid "Call to Action (URL)"
+msgstr "Crida a l'acció (URL)"
+
+#: includes/theme-options.php
+msgid "Enter your call to action URL"
+msgstr "Introdueix l'URL de crida a l'acció"
+
+#: includes/theme-options.php
+msgid "Call to Action (Text)"
+msgstr "Crida a l'acció (text)"
+
+#: includes/theme-options.php
+msgid "Enter your call to action text"
+msgstr "Introdueix el text de crida a l'acció"
+
+#: includes/theme-options.php
+msgid "Featured Content"
+msgstr "Contingut destacat"
+
+#: includes/theme-options.php
+msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
+msgstr "http://themeid.com/forum/topic/510/theme-options-featured-content/"
+
+#: includes/theme-options.php
+msgid "See Docs"
+msgstr "Vegeu la documentació"
+
+#: includes/theme-options.php
+msgid "Paste your shortcode, video or image source"
+msgstr "Enganxa el teu codi curt, vídeo o recurs d'imatge"
+
+#: includes/theme-options.php
+msgid "Webmaster Tools"
+msgstr "Eines per a desenvolupadors web"
+
+#: includes/theme-options.php
+msgid "Google Site Verification"
+msgstr "Verificació de lloc del Google"
+
+#: includes/theme-options.php
+msgid "Enter your Google ID number only"
+msgstr "Només l'identificador de Google"
+
+#: includes/theme-options.php
+msgid "Bing Site Verification"
+msgstr "Verificació de lloc del Bing"
+
+#: includes/theme-options.php
+msgid "Enter your Bing ID number only"
+msgstr "Només l'identificador de Bing"
+
+#: includes/theme-options.php
+msgid "Yahoo Site Verification"
+msgstr "Verificació de lloc del Yahoo"
+
+#: includes/theme-options.php
+msgid "Enter your Yahoo ID number only"
+msgstr "Només l'identificador de Yahoo"
+
+#: includes/theme-options.php
+msgid "Site Statistics Tracker"
+msgstr "Rastrejador d'estadístiques del lloc"
+
+#: includes/theme-options.php
+msgid "Leave blank if plugin handles your webmaster tools"
+msgstr "Deixa-ho en blanc si hi ha una extensió que s'encarrega de les eines de desenvolupador"
+
+#: includes/theme-options.php
+msgid "Google Analytics, StatCounter, any other or all of them."
+msgstr "Google Analytics, StatCounter, qualsevol altre o tots ells."
+
+#: includes/theme-options.php
+msgid "Social Icons"
+msgstr "Icones socials"
+
+#: includes/theme-options.php
+msgid "Twitter"
+msgstr "Twitter"
+
+#: includes/theme-options.php
+msgid "Enter your Twitter URL"
+msgstr "Introdueix la teva URL del Twitter"
+
+#: includes/theme-options.php
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/theme-options.php
+msgid "Enter your Facebook URL"
+msgstr "Introdueix la teva URL del Facebook"
+
+#: includes/theme-options.php
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: includes/theme-options.php
+msgid "Enter your LinkedIn URL"
+msgstr "Introdueix la teva URL del LinkedIn"
+
+#: includes/theme-options.php
+msgid "YouTube"
+msgstr "YouTube"
+
+#: includes/theme-options.php
+msgid "Enter your YouTube URL"
+msgstr "Introdueix la teva URL del YouTube"
+
+#: includes/theme-options.php
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: includes/theme-options.php
+msgid "Enter your StumbleUpon URL"
+msgstr "Introdueix la teva URL del StumbleUpon"
+
+#: includes/theme-options.php
+msgid "RSS Feed"
+msgstr "Font RSS"
+
+#: includes/theme-options.php
+msgid "Enter your RSS Feed URL"
+msgstr "Introdueix l'URL de la teva font RSS"
+
+#: includes/theme-options.php
+msgid "Google+"
+msgstr "Google+"
+
+#: includes/theme-options.php
+msgid "Enter your Google+ URL"
+msgstr "Introdueix la teva URL del Google+"
+
+#: includes/theme-options.php
+msgid "Instagram"
+msgstr "Instagram"
+
+#: includes/theme-options.php
+msgid "Enter your Instagram URL"
+msgstr "Introdueix la teva URL de l'Instagram"
+
+#: includes/theme-options.php
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: includes/theme-options.php
+msgid "Enter your Pinterest URL"
+msgstr "Introdueix la teva URL del Pinterest"
+
+#: includes/theme-options.php
+msgid "Yelp!"
+msgstr "Yelp!"
+
+#: includes/theme-options.php
+msgid "Enter your Yelp! URL"
+msgstr "Introdueix la teva URL del Yelp!"
+
+#: includes/theme-options.php
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: includes/theme-options.php
+msgid "Enter your Vimeo URL"
+msgstr "Introdueix la teva URL del Vimeo"
+
+#: includes/theme-options.php
+msgid "foursquare"
+msgstr "foursquare"
+
+#: includes/theme-options.php
+msgid "Enter your foursquare URL"
+msgstr "Introdueix la teva URL del foursquare"
+
+#: includes/theme-options.php
+#: includes/theme-options.php
+msgid "Custom CSS Styles"
+msgstr "Estils CSS personalitzats"
+
+#: includes/theme-options.php
+msgid "https://developer.mozilla.org/en/CSS"
+msgstr "https://developer.mozilla.org/ca/CSS"
+
+#: includes/theme-options.php
+msgid "CSS Tutorial"
+msgstr "Tutorial de CSS"
+
+#: includes/theme-options.php
+msgid "Enter your custom CSS styles."
+msgstr "Introdueix els teus estils CSS personalitzats."
+
+#: includes/theme-options.php
+msgid "Custom Scripts"
+msgstr "Scripts personalitzats"
+
+#: includes/theme-options.php
+msgid "Custom Scripts for Header and Footer"
+msgstr "Scripts personalitzats per a la capçalera i el peu"
+
+#: includes/theme-options.php
+msgid "http://codex.wordpress.org/Using_Javascript"
+msgstr "http://codex.wordpress.org/Using_Javascript"
+
+#: includes/theme-options.php
+#: includes/theme-options.php
+msgid "Quick Tutorial"
+msgstr "Tutorial ràpid"
+
+#: includes/theme-options.php
+msgid "Embeds to header.php &darr;"
+msgstr "S'incrusta a header.php &darr;"
+
+#: includes/theme-options.php
+msgid "Enter your custom header script."
+msgstr "Introdueix el teu script personalitzat per a la capçalera"
+
+#: includes/theme-options.php
+msgid "Embeds to footer.php &darr;"
+msgstr "S'incrusta a footer.php &darr;"
+
+#: includes/theme-options.php
+msgid "Enter your custom footer script."
+msgstr "Introdueix el teu script personalitzat per al peu"

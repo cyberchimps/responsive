@@ -1,0 +1,801 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
+"PO-Revision-Date: 2012-12-18 21:52+0100\n"
+"Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
+"Language-Team: Russian, Russia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php 404.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; Страница не найдена!"
+
+#: image.php index.php page.php landing-page.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php 404.php search.php
+#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: sitemap.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Страница, которую Вы ищете, не существует или просто перемещена. Не "
+"волнуйтесь, рассмотрите предлагаемые варианты."
+
+#: page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php 404.php search.php
+#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: sitemap.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr ""
+"Вы можете вернуться %s или воспользоваться поиском и найти нужную Вам "
+"страницу"
+
+#: page.php landing-page.php full-width-page.php content-sidebar-page.php
+#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php 404.php
+#: image.php index.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php includes/functions.php
+msgid "Home"
+msgstr "Главная"
+
+#: 404.php page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "&larr; Home"
+msgstr "&larr; на Главную"
+
+#: archive.php
+msgid "Daily Archives: %s"
+msgstr "Архивы за день: %s"
+
+#: archive.php
+msgid "Monthly Archives: %s"
+msgstr "Архивы за месяц: %s"
+
+#: archive.php
+msgid "Yearly Archives: %s"
+msgstr "Архивы за год: %s"
+
+#: archive.php
+msgid "Blog Archives"
+msgstr "Архивы блога"
+
+#: index.php blog.php blog-excerpt.php archive.php search.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Постоянная ссылка на %s"
+
+#: page.php index.php image.php full-width-page.php content-sidebar-page.php
+#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
+#: search.php sidebar-content-half-page.php sidebar-content-page.php
+#: single.php
+msgid "No Comments &darr;"
+msgstr "Комментариев нет &darr;"
+
+#: single.php sidebar-content-page.php sidebar-content-half-page.php
+#: search.php page.php image.php full-width-page.php content-sidebar-page.php
+#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
+#: index.php
+msgid "1 Comment &darr;"
+msgstr "1 комментарий &darr;"
+
+#: single.php sidebar-content-page.php sidebar-content-half-page.php
+#: search.php page.php image.php full-width-page.php content-sidebar-page.php
+#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
+#: index.php
+msgid "% Comments &darr;"
+msgstr "Комментариев: % &darr;"
+
+#: page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "Pages:"
+msgstr "Страницы:"
+
+#: page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php
+msgid "Tagged with:"
+msgstr "Метки:"
+
+#: page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php
+msgid "Posted in %s"
+msgstr "Опубликовано в %s"
+
+#: page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "Edit"
+msgstr "Редактировать"
+
+#: page.php landing-page.php index.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "&#8249; Older posts"
+msgstr "&#8249; Ранние публикации"
+
+#: page.php landing-page.php index.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "Newer posts &#8250;"
+msgstr "Новые публикации &#8250;"
+
+#: page.php landing-page.php index.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
+#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: includes/functions.php
+msgid "Read more &#8250;"
+msgstr "Подробнее &#8250;"
+
+#: comments.php
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Эта публикация защищена паролем. Введите пароль для просмотра комментариев."
+
+#: comments.php
+msgid "&#8249; Older comments"
+msgstr "&#8249; Ранние комментарии"
+
+#: comments.php
+msgid "Newer comments &#8250;"
+msgstr "Новые комментарии &#8250;"
+
+#: comments.php
+msgid "Pings&#47;Trackbacks"
+msgstr "Пинги&#47;Обратные ссылки"
+
+#: comments.php
+msgid "%1$d %2$s for \"%3$s\""
+msgstr "%1$d %2$s для \"%3$s\""
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "1 комментарий на &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s комментария на &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s комментариев на &ldquo;%2$s&rdquo;"
+
+#: comments.php
+msgid "Name"
+msgstr "Имя"
+
+#: comments.php
+msgid "E-mail"
+msgstr "E-mail"
+
+#: comments.php
+msgid "Website"
+msgstr "Сайт"
+
+#: footer.php
+msgid "&copy;"
+msgstr "&copy;"
+
+#: footer.php
+msgid "scroll to top"
+msgstr "прокрутка наверх"
+
+#: footer.php
+msgid "&uarr;"
+msgstr "&uarr;"
+
+#: footer.php
+msgid "http://themeid.com/responsive-theme/"
+msgstr "http://themeid.com/responsive-theme/"
+
+#: footer.php
+msgid "Responsive Theme"
+msgstr "Тема Responsive"
+
+#: footer.php
+msgid "powered by"
+msgstr "работает на"
+
+#: footer.php
+msgid "http://wordpress.org/"
+msgstr "http://ru.wordpress.org/"
+
+#: footer.php
+msgid "WordPress"
+msgstr "WordPress"
+
+#: home.php
+msgid "Hello, World!"
+msgstr "Привет, мир!"
+
+#: home.php
+msgid "Your H2 subheadline here"
+msgstr "здесь Ваш &#060;H2&#062; подзаголовок"
+
+#: home.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Ваш заголовок, подзаголовок и это содержимое можно отредактировать в "
+"Параметрах темы. А также, кнопку призыва к действию и ссылку его назначения. "
+"Справа от Вас может быть изображение или при желании, видео с YouTube."
+
+#: home.php
+msgid "Call to Action"
+msgstr "Призыв к действию"
+
+#: image.php
+msgid "&#8249; Return to"
+msgstr "&#8249; Вернуться на"
+
+#: search.php includes/functions.php
+msgid "Search results for: %s"
+msgstr "Результаты по запросу: %s"
+
+#: search.php
+msgid "Your search for %s did not match any entries."
+msgstr "Ваш поисковый запрос &laquo; %s &raquo; не нашел ни одной публикаций."
+
+#: searchform.php
+msgid "search here &hellip;"
+msgstr "искать здесь &hellip;"
+
+#: searchform.php
+msgid "Go"
+msgstr "Найти"
+
+#: sidebar-gallery.php
+msgid "Image Information"
+msgstr "Информация об изображении"
+
+#: sidebar-gallery.php
+msgid "Full Size:"
+msgstr "Полный размер:"
+
+#: sidebar-gallery.php
+msgid "Aperture: f&#47;"
+msgstr "Диафрагма: f&#47;"
+
+#: sidebar-gallery.php
+msgid "Focal Length:"
+msgstr "Фокусное расстояние:"
+
+#: sidebar-gallery.php
+msgid "mm"
+msgstr "мм"
+
+#: sidebar-gallery.php
+msgid "ISO:"
+msgstr "ISO:"
+
+#: sidebar-gallery.php
+msgid "Shutter:"
+msgstr "Затвор:"
+
+#: sidebar-gallery.php
+msgid "Camera:"
+msgstr "Камера:"
+
+#: sidebar.php sidebar-right.php sidebar-right-half.php sidebar-left.php
+#: sidebar-left-half.php sidebar-half-left.php
+msgid "In Archive"
+msgstr "Архивы"
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 1"
+msgstr "Виджет №1 на Главной"
+
+#: sidebar-home.php
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area six called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Это окно Вашего Виджета №1 на Главной. Для редактирования перейдите по "
+"ссылке Внешний вид > Виджеты и выберите 6-й виджет сверху с названием Виджет "
+"№1 на Главной. Название также управляется из виджетов."
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 2"
+msgstr "Виджет №2 на Главной"
+
+#: sidebar-home.php
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area seven called Home Widget "
+"2. Title is also manageable from widgets as well."
+msgstr ""
+"Это окно Вашего Виджета №2 на Главной. Для редактирования перейдите по "
+"ссылке Внешний вид > Виджеты и выберите 7-й виджет сверху с названием Виджет "
+"№2 на Главной. Название также управляется из виджетов."
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 3"
+msgstr "Виджет №3 на Главной"
+
+#: sidebar-home.php
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area eight called Home Widget "
+"3. Title is also manageable from widgets as well."
+msgstr ""
+"Это окно Вашего Виджета №3 на Главной. Для редактирования перейдите по "
+"ссылке Внешний вид > Виджеты и выберите 8-й виджет сверху с названием Виджет "
+"№3 на Главной. Название также управляется из виджетов."
+
+#: single.php
+msgid "About"
+msgstr "О нас"
+
+#: sitemap.php
+msgid "Categories"
+msgstr "Рубрики"
+
+#: sitemap.php
+msgid "Latest Posts"
+msgstr "Последние публикации"
+
+#: sitemap.php
+msgid "Pages"
+msgstr "Страницы"
+
+#: includes/functions.php
+msgid "Top Menu"
+msgstr "Верхнее меню"
+
+#: includes/functions.php
+msgid "Header Menu"
+msgstr "Заголовок меню"
+
+#: includes/functions.php
+msgid "Sub-Header Menu"
+msgstr "Подзаголовок меню"
+
+#: includes/functions.php
+msgid "Footer Menu"
+msgstr "Нижнее меню"
+
+#: includes/functions.php
+msgid ""
+"<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
+"%4$s"
+msgstr ""
+"<span class=\"%1$s\">Опубликовано </span>%2$s<span class=\"%3$s\"> Автор: </"
+"span>%4$s"
+
+#: includes/functions.php
+msgid "View all posts by %s"
+msgstr "Показать все публикации автора: %s"
+
+#: includes/functions.php
+msgid "Archive for %s"
+msgstr "Архив для %s"
+
+#: includes/functions.php
+msgid "Posts tagged %s"
+msgstr "Публикации с метками %s"
+
+#: includes/functions.php
+msgid "Error 404 "
+msgstr "Ошибка 404 "
+
+#: includes/functions.php
+msgid "Page"
+msgstr "Страница"
+
+#: includes/functions.php
+msgid "http://themeid.com/support/"
+msgstr "http://themeid.com/support/"
+
+#: includes/functions.php
+msgid "Theme Support"
+msgstr "Поддержка темы"
+
+#: includes/functions.php
+msgid "http://themeid.com/themes/"
+msgstr "http://themeid.com/themes/"
+
+#: includes/functions.php
+msgid "More Themes"
+msgstr "Другие темы"
+
+#: includes/functions.php
+msgid "http://themeid.com/showcase/"
+msgstr "http://themeid.com/showcase/"
+
+#: includes/functions.php
+msgid "Showcase"
+msgstr "Витрина"
+
+#: includes/functions.php
+msgid "http://themeid.com/donate/"
+msgstr "http://themeid.com/donate/"
+
+#: includes/functions.php
+msgid "Donate Now"
+msgstr "Пожертвовать"
+
+#: includes/functions.php
+msgid "Main Sidebar"
+msgstr "Основной сайдбар"
+
+#: includes/functions.php
+msgid "Area 1 - sidebar.php"
+msgstr "1-я область - sidebar.php"
+
+#: includes/functions.php
+msgid "Right Sidebar"
+msgstr "Сайдбар справа"
+
+#: includes/functions.php
+msgid "Area 2 - sidebar-right.php"
+msgstr "2-я область - sidebar-right.php"
+
+#: includes/functions.php
+msgid "Left Sidebar"
+msgstr "Сайдбар слева"
+
+#: includes/functions.php
+msgid "Area 3 - sidebar-left.php"
+msgstr "3-я область - sidebar-left.php"
+
+#: includes/functions.php
+msgid "Left Sidebar Half Page"
+msgstr "Левый сайдбар полстраницы"
+
+#: includes/functions.php
+msgid "Area 4 - sidebar-left-half.php"
+msgstr "4-я область - sidebar-left-half.php"
+
+#: includes/functions.php
+msgid "Right Sidebar Half Page"
+msgstr "Правый сайдбар полстраницы"
+
+#: includes/functions.php
+msgid "Area 5 - sidebar-right-half.php"
+msgstr "5-я область - sidebar-right-half.php"
+
+#: includes/functions.php
+msgid "Area 6 - sidebar-home.php"
+msgstr "6-я область - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 7 - sidebar-home.php"
+msgstr "7-я область - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 8 - sidebar-home.php"
+msgstr "8-я область - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Gallery Sidebar"
+msgstr "Сайдбар галерея"
+
+#: includes/functions.php
+msgid "Area 9 - sidebar-gallery.php"
+msgstr "9-я область - sidebar-gallery.php"
+
+#: includes/functions.php
+msgid "Colophon Widget"
+msgstr "Нижний виджет"
+
+#: includes/functions.php
+msgid "Area 10 - sidebar-colophon.php"
+msgstr "10-я область - sidebar-colophon.php"
+
+#: includes/functions.php
+msgid "Top Widget"
+msgstr "Верхний виджет"
+
+#: includes/functions.php
+msgid "Area 11 - sidebar-top.php"
+msgstr "11-я область - sidebar-top.php"
+
+#: includes/theme-options.php
+msgid "Theme Options"
+msgstr "Параметры темы"
+
+#: includes/theme-options.php
+msgid "Options Saved"
+msgstr "Параметры сохранены"
+
+#: includes/theme-options.php
+msgid "Theme Elements"
+msgstr "Элементы темы"
+
+#: includes/theme-options.php
+msgid "Disable Breadcrumb Lists?"
+msgstr "Отключить список Хлебные крошки?"
+
+#: includes/theme-options.php
+msgid "Check to disable"
+msgstr "Отметьте для отключения"
+
+#: includes/theme-options.php
+msgid "Disable Call to Action Button?"
+msgstr "Отключить кнопку Призыв к действию?"
+
+#: includes/theme-options.php
+msgid "Save Options"
+msgstr "Сохранить параметры"
+
+#: includes/theme-options.php
+msgid "Logo Upload"
+msgstr "Загрузка логотипа"
+
+#: includes/theme-options.php
+msgid "Custom Header"
+msgstr "Собственный заголовок"
+
+#: includes/theme-options.php
+msgid "Need to replace or remove default logo?"
+msgstr "Хотите заменить или удалить стандартный логотип?"
+
+#: includes/theme-options.php
+msgid "<a href=\"%s\">Click here</a>."
+msgstr "<a href=\"%s\">Нажмите здесь</a>."
+
+#: includes/theme-options.php
+msgid "Home Page"
+msgstr "Главная страница"
+
+#: includes/theme-options.php
+msgid "Headline"
+msgstr "Заголовок"
+
+#: includes/theme-options.php
+msgid "Enter your headline"
+msgstr "Введите свой заголовок"
+
+#: includes/theme-options.php
+msgid "Subheadline"
+msgstr "Подзаголовок"
+
+#: includes/theme-options.php
+msgid "Enter your subheadline"
+msgstr "Введите свой подзаголовок"
+
+#: includes/theme-options.php
+msgid "Content Area"
+msgstr "Область содержимого"
+
+#: includes/theme-options.php
+msgid "Enter your content"
+msgstr "Введите свое содержимое"
+
+#: includes/theme-options.php
+msgid "Call to Action (URL)"
+msgstr "Призыв к действию (URL)"
+
+#: includes/theme-options.php
+msgid "Enter your call to action URL"
+msgstr "Введите свой URL призыва к действию"
+
+#: includes/theme-options.php
+msgid "Call to Action (Text)"
+msgstr "Привыв к действию (Текст)"
+
+#: includes/theme-options.php
+msgid "Enter your call to action text"
+msgstr "Введите свой текст призыва к действию"
+
+#: includes/theme-options.php
+msgid "Featured Content"
+msgstr "Популярные публикации"
+
+#: includes/theme-options.php
+msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
+msgstr "http://themeid.com/forum/topic/510/theme-options-featured-content/"
+
+#: includes/theme-options.php
+msgid "See Docs"
+msgstr "Cм. документацию"
+
+#: includes/theme-options.php
+msgid "Paste your shortcode, video or image source"
+msgstr "Вставьте Ваш шорткод, источник на видео или изображение"
+
+#: includes/theme-options.php
+msgid "Webmaster Tools"
+msgstr "Инструменты веб-мастера"
+
+#: includes/theme-options.php
+msgid "Google Site Verification"
+msgstr "Подтверждение сайта в Google"
+
+#: includes/theme-options.php
+msgid "Enter your Google ID number only"
+msgstr "Введите только номер Google ID"
+
+#: includes/theme-options.php
+msgid "Bing Site Verification"
+msgstr "Подтверждение сайта в Bing"
+
+#: includes/theme-options.php
+msgid "Enter your Bing ID number only"
+msgstr "Введите только номер Bing ID"
+
+#: includes/theme-options.php
+msgid "Yahoo Site Verification"
+msgstr "Подтверждение сайта в Yahoo"
+
+#: includes/theme-options.php
+msgid "Enter your Yahoo ID number only"
+msgstr "Введите только номер Yahoo ID"
+
+#: includes/theme-options.php
+msgid "Site Statistics Tracker"
+msgstr "Статистика отслеживания сайта"
+
+#: includes/theme-options.php
+msgid "Leave blank if plugin handles your webmaster tools"
+msgstr "Оставьте пустым, если инструменты вебмастера обрабатывает плагин"
+
+#: includes/theme-options.php
+msgid "Google Analytics, StatCounter, any other or all of them."
+msgstr "Google Analytics, StatCounter, любой другой или все из них."
+
+#: includes/theme-options.php
+msgid "Social Icons"
+msgstr "Социальные иконки"
+
+#: includes/theme-options.php
+msgid "Twitter"
+msgstr "Twitter"
+
+#: includes/theme-options.php
+msgid "Enter your Twitter URL"
+msgstr "Введите Ваш URL адрес в Twitter"
+
+#: includes/theme-options.php
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/theme-options.php
+msgid "Enter your Facebook URL"
+msgstr "Введите Ваш URL адрес в Facebook"
+
+#: includes/theme-options.php
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: includes/theme-options.php
+msgid "Enter your LinkedIn URL"
+msgstr "Введите Ваш URL адрес в LinkedIn"
+
+#: includes/theme-options.php
+msgid "YouTube"
+msgstr "YouTube"
+
+#: includes/theme-options.php
+msgid "Enter your YouTube URL"
+msgstr "Введите Ваш URL адрес в YouTube"
+
+#: includes/theme-options.php
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: includes/theme-options.php
+msgid "Enter your StumbleUpon URL"
+msgstr "Введите Ваш URL адрес в StumbleUpon"
+
+#: includes/theme-options.php
+msgid "RSS Feed"
+msgstr "RSS канал"
+
+#: includes/theme-options.php
+msgid "Enter your RSS Feed URL"
+msgstr "Введите Ваш URL адрес RSS канала"
+
+#: includes/theme-options.php
+msgid "Google+"
+msgstr "Google+"
+
+#: includes/theme-options.php
+msgid "Enter your Google+ URL"
+msgstr "Введите Ваш URL адрес в Google+"
+
+#: includes/theme-options.php
+msgid "Instagram"
+msgstr "Instagram"
+
+#: includes/theme-options.php
+msgid "Enter your Instagram URL"
+msgstr "Введите Ваш URL адрес в Instagram"
+
+#: includes/theme-options.php
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: includes/theme-options.php
+msgid "Enter your Pinterest URL"
+msgstr "Введите Ваш URL адрес в Pinterest"
+
+#: includes/theme-options.php
+msgid "Yelp!"
+msgstr "Yelp!"
+
+#: includes/theme-options.php
+msgid "Enter your Yelp! URL"
+msgstr "Введите Ваш URL адрес в Yelp!"
+
+#: includes/theme-options.php
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: includes/theme-options.php
+msgid "Enter your Vimeo URL"
+msgstr "Введите Ваш URL адрес в Vimeo"
+
+#: includes/theme-options.php
+msgid "foursquare"
+msgstr "foursquare"
+
+#: includes/theme-options.php
+msgid "Enter your foursquare URL"
+msgstr "Введите Ваш URL адрес в foursquare"
+
+#: includes/theme-options.php
+msgid "Custom CSS Styles"
+msgstr "Собственные CSS стили"
+
+#: includes/theme-options.php
+msgid "https://developer.mozilla.org/en/CSS"
+msgstr "http://htmlbook.ru/css"
+
+#: includes/theme-options.php
+msgid "CSS Tutorial"
+msgstr "Учебник CSS"
+
+#: includes/theme-options.php
+msgid "Enter your custom CSS styles."
+msgstr "Введите Ваши собственные CSS стили. "
+
+#: includes/theme-options.php
+msgid "Custom Scripts"
+msgstr "Собственные скрипты"
+
+#: includes/theme-options.php
+msgid "Custom Scripts for Header and Footer"
+msgstr "Собственные скрипты для шапки и подвала"
+
+#: includes/theme-options.php
+msgid "http://codex.wordpress.org/Using_Javascript"
+msgstr "http://codex.wordpress.org/Using_Javascript"
+
+#: includes/theme-options.php
+msgid "Quick Tutorial"
+msgstr "Краткое руководство"
+
+#: includes/theme-options.php
+msgid "Embeds to header.php &darr;"
+msgstr "Встраивается в header.php &darr;"
+
+#: includes/theme-options.php
+msgid "Enter your custom header script."
+msgstr "Введите Ваши собственные скрипты в шапке."
+
+#: includes/theme-options.php
+msgid "Embeds to footer.php &darr;"
+msgstr "Встраивается в footer.php &darr;"
+
+#: includes/theme-options.php
+msgid "Enter your custom footer script."
+msgstr "Введите Ваши собственные скрипты в подвале."
