@@ -404,7 +404,8 @@ fieldset {
 
 select,
 input[type="text"], 
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     -moz-box-sizing: border-box;
 	-moz-border-radius: 2px;
 	-webkit-box-sizing: border-box;
@@ -472,8 +473,9 @@ input[type='password'] {
 .ie7 select,
 .ie7 textarea,
 .ie7 input[type="text"], 
-.ie7 input[type="password"] {
-    width: 96%;
+.ie7 input[type="password"],
+.ie7 input[type="email"] {
+	width: 96%;
 }
 
 /* =Buttons
@@ -1506,8 +1508,9 @@ form div {
 
 .widget-wrapper select,
 .widget-wrapper input[type="text"], 
-.widget-wrapper input[type="password"] {
-    width: 75%;
+.widget-wrapper input[type="password"],
+.widget-wrapper  input[type="email"] {
+	width: 75%;
 }
 
 #widgets {
@@ -1597,7 +1600,8 @@ form div {
 
 .colophon-widget select,
 .colophon-widget input[type="text"], 
-.colophon-widget input[type="password"] {
+.colophon-widget input[type="password"],
+.colophon-widget input[type="email"] {
 	width: 100%;
 }
 
@@ -1620,7 +1624,8 @@ form div {
 
 .top-widget select, 
 .top-widget input[type="text"], 
-.top-widget input[type="password"] {
+.top-widget input[type="password"],
+.top-widget input[type="email"] {
     width: auto;
 }
 
@@ -1673,8 +1678,9 @@ form div {
 -------------------------------------------------------------- */
 .error404 select, 
 .error404 input[type="text"], 
-.error404 input[type="password"] {
-    width: auto;
+.error404 input[type="password"],
+.error404 input[type="email"] {
+	width: auto;
 }
 
 /* =Top Menu
@@ -2687,20 +2693,20 @@ table.cart td.actions .coupon .input-text {
 #container:before,
 .widget-wrapper:after,
 .widget-wrapper:before {
-    content: ' ';
-    display: table;
+	content: ' ';
+	display: table;
 }
 
 .clearfix:after,
 #container:after,
 .widget-wrapper:after {
-    clear: both;
+	clear: both;
 }
 
 .ie7 .clearfix,
 .ie7 #container,
 .ie7 .widget-wrapper {
-    zoom: 1;
+	zoom: 1;
 }
 
 .clear {
@@ -2720,13 +2726,13 @@ BDO[DIR="rtl"] {
 }
 
 [DIR="ltr"] {
-   direction: ltr;
-   unicode-bidi: embed;
+	direction: ltr;
+	unicode-bidi: embed;
 }
 
 [DIR="rtl"] {
-   direction: rtl;
-   unicode-bidi: embed;
+	direction: rtl;
+	unicode-bidi: embed;
 }
 
 /* =Media Print
@@ -2735,275 +2741,276 @@ BDO[DIR="rtl"] {
 -------------------------------------------------------------- */
 @media print {
 
-    h1 {
-	    page-break-before: always;
-    }
+	h1 {
+		page-break-before: always;
+	}
 
-    h1,  h2,  h3,  h4,  h5,  h6 {
-	    page-break-after: avoid;
-    }
+	h1,  h2,  h3,  h4,  h5,  h6 {
+		page-break-after: avoid;
+	}
 
-    ul,  ol,  dl {
-	    page-break-before: avoid;
-    }
+	ul,  ol,  dl {
+		page-break-before: avoid;
+	}
 }
 
 /*	Retina (HiDPI) Display
     http://www.quirksmode.org/blog/archives/2013/06/devicepixelrati.html
 -------------------------------------------------------------- */
 @media 
-    only screen and (-moz-min-device-pixel-ratio:1.5), 
-    only screen and (-o-min-device-pixel-ratio:3/2), 
-    only screen and (-webkit-min-device-pixel-ratio:1.5), 
-    only screen and (min-device-pixel-ratio:1.5) {
-    
-    body {}
+	only screen and (-moz-min-device-pixel-ratio:1.5), 
+	only screen and (-o-min-device-pixel-ratio:3/2), 
+	only screen and (-webkit-min-device-pixel-ratio:1.5), 
+	only screen and (min-device-pixel-ratio:1.5) {
+	
+	body {}
 }
 
 /* =Responsive (Mobile) Design
 -------------------------------------------------------------- */
 @media screen and (max-width: 980px) {
 
-    body {}
+	body {}
 	
-    .grid, 
+	.grid, 
 	.grid-right {
-	    float: none;
-    }
+		float: none;
+	}
 	
 	#featured-image .fluid-width-video-wrapper {
-	    margin: 20px 0 0 0;
-    }
+		margin: 20px 0 0 0;
+	}
 	
 	.home.page-template-default #widgets {
 		margin-top: 40px;
 	}
-    
-    .top-widget,
-    .home.page-template-default .top-widget {
-        margin-top: 0 !important;
-    }
-    
-    .hide-980 {
-        display: none;
-    }
-    
-    .show-980 {
-        display: block;
-    }
-    
+	
+	.top-widget,
+	.home.page-template-default .top-widget {
+		margin-top: 0 !important;
+	}
+	
+	.hide-980 {
+		display: none;
+	}
+	
+	.show-980 {
+		display: block;
+	}
+	
 }
 
 @media screen and (max-width: 650px) {
 
-    body {}
+	body {}
 
-    #logo {
-	    float: none;
-        margin: 0;
-	    text-align: center;
-    }
+	#logo {
+		float: none;
+		margin: 0;
+		text-align: center;
+	}
 
-    .grid, 
+	.grid, 
 	.grid-right {
-	    float: none;
-    }
+		float: none;
+	}
 
 	#featured-image .fluid-width-video-wrapper {
-	    margin: 20px 0 0 0;
-    }
-    
-    .top-widget {
-        float: none;
-        margin: 0 auto 10px auto;
-        position: relative;
-        text-align: center;
-        width: auto;
-    }
-    
-    .top-widget .widget-title {
-        text-align: center;
-    }
+		margin: 20px 0 0 0;
+	}
 	
-    .js .menu,
+	.top-widget {
+		float: none;
+		margin: 0 auto 10px auto;
+		position: relative;
+		text-align: center;
+		width: auto;
+	}
+	
+	.top-widget .widget-title {
+		text-align: center;
+	}
+	
+	.js .menu,
 	.js .sub-header-menu {
 		display: none;
 	}
 	
 	.top-menu, 
 	.footer-menu li {
-	    float: none;
-        font-size: 11px;
-	    text-align: center;
-    }
+		float: none;
+		font-size: 11px;
+		text-align: center;
+	}
 	
 	.tinynav {
-        display: block;
-    }
-    
-    .sb-holder {
-        display: block;
-    }
-    
-    #author-meta {
-        padding: 20px;
-    }
-    
-    .hide-650 {
-        display: none;
-    }
-    
-    .show-650 {
-        display: block;
-    }
-    
-    #footer {
-	    text-align: center;
-    }
+		display: block;
+	}
+	
+	.sb-holder {
+		display: block;
+	}
+	
+	#author-meta {
+		padding: 20px;
+	}
+	
+	.hide-650 {
+		display: none;
+	}
+	
+	.show-650 {
+		display: block;
+	}
+	
+	#footer {
+		text-align: center;
+	}
 
-    #footer .social-icons {
-        padding-bottom: 10px;
-	    text-align: center;
-    }
+	#footer .social-icons {
+		padding-bottom: 10px;
+		text-align: center;
+	}
 }
 
 @media screen and (max-width: 480px) {
 
-    body {}
+	body {}
 
-    #logo {
-	    float: none;
-	    text-align: center;
-    }
+	#logo {
+		float: none;
+		text-align: center;
+	}
 
-    .grid, 
+	.grid, 
 	.grid-right {
-	    float: none;
-    }
+		float: none;
+	}
 	
 	#featured-image .fluid-width-video-wrapper {
-	    margin: 20px 0 0 0;
+		margin: 20px 0 0 0;
 	}
 	
 	.featured-title {
-	    font-size: 40px;
-	    padding: 40px 20px 0 20px
-    }
-    
-    .featured-subtitle {
-        font-size: 24px;
-    }
-    
-    .navigation .next,
-    .navigation .previous {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-    }
+		font-size: 40px;
+		padding: 40px 20px 0 20px
+	}
 	
-    .menu ul, 
+	.featured-subtitle {
+		font-size: 24px;
+	}
+	
+	.navigation .next,
+	.navigation .previous {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	.menu ul, 
 	.menu li, 
 	.top-menu, 
 	.footer-menu li, 
 	.sub-header-menu li {
-	    float: none;
-	    text-align: center;
-        text-rendering: optimizeSpeed;
-    }
+		float: none;
+		text-align: center;
+		text-rendering: optimizeSpeed;
+	}
 	
-    .hide-480 {
-        display: none;
-    }
-    
-    .show-480 {
-        display: block;
-    }
-    
-    #footer {
-	    text-align: center;
-    }
+	.hide-480 {
+		display: none;
+	}
+	
+	.show-480 {
+		display: block;
+	}
+	
+	#footer {
+		text-align: center;
+	}
 
-    #footer .social-icons {
-	    text-align: center;
-    }
+	#footer .social-icons {
+		text-align: center;
+	}
 }
 
 @media screen and (max-width: 320px) {
-    
-    body {}
+	
+	body {}
 	
 	#featured p {
-	    font-size: 12px;
+		font-size: 12px;
 		line-height: 1.5em;
-    }
+	}
 
-    .featured-title {
-	    font-size: 35px;
-    }
+	.featured-title {
+		font-size: 35px;
+	}
 	
 	.featured-subtitle {
 		font-size: 15px;
 	}
 
-    .call-to-action a.button {
-	    font-size: 14px;
-	    padding: 7px 17px;
-    }
+	.call-to-action a.button {
+		font-size: 14px;
+		padding: 7px 17px;
+	}
 
-    .hide-320 {
-        display: none;
-    }
-    
-    .show-320 {
-        display: block;
-    }
+	.hide-320 {
+		display: none;
+	}
+	
+	.show-320 {
+		display: block;
+	}
 }
 
 @media screen and (max-width: 240px) {
-    
-    body {}
+	
+	body {}
 	
 	#featured p {
-	    font-size: 11px;
+		font-size: 11px;
 		line-height: 1.5em;
-    }
+	}
 
-    .featured-title {
-	    font-size: 20px;
-    }
+	.featured-title {
+		font-size: 20px;
+	}
 	
 	.featured-subtitle {
 		font-size: 11px;
 	}
 
-    .call-to-action a.button {
-	    font-size: 12px;
-	    padding: 5px 15px;
-    }
-    
-    .top-widget area,
-    .top-widget select,
-    .top-widget textarea,
-    .top-widget input[type="text"], 
-    .top-widget input[type="password"] {
-        width: 75%;
-    }
-    
-    .widget-title,
-    .widget-title-home h3 {
-        font-size: 14px;
-        height: 13px;
-        line-height: 13px;
-        text-align: left;
-    }
-    
-    .hide-240 {
-        display: none;
-    }
-    
-    .show-240 {
-        display: block;
-    }
+	.call-to-action a.button {
+		font-size: 12px;
+		padding: 5px 15px;
+	}
+	
+	.top-widget area,
+	.top-widget select,
+	.top-widget textarea,
+	.top-widget input[type="text"], 
+	.top-widget input[type="password"],
+	.top-widget input[type="email"] {
+		width: 75%;
+	}
+	
+	.widget-title,
+	.widget-title-home h3 {
+		font-size: 14px;
+		height: 13px;
+		line-height: 13px;
+		text-align: left;
+	}
+	
+	.hide-240 {
+		display: none;
+	}
+	
+	.show-240 {
+		display: block;
+	}
 }
 
 /*The last 29 days of the month are the hardest."- Nikola Tesla*/
