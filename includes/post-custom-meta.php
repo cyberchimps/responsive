@@ -173,17 +173,6 @@ function responsive_add_layout_meta_box( $post ) {
 		$context, 
 		$priority 
 	);
-	if ( 'page' == $post->post_type && 'default' == get_post_meta( $post->ID, '_wp_page_template', true ) ) {
-		add_meta_box( 
-			'responsive_layout', 
-			__( 'Layout', 'responsive' ), 
-			'responsive_layout_meta_box', 
-			'page', 
-			$context, 
-			$priority 
-		);
-	}
-	
 }
 // Hook meta boxes into 'add_meta_boxes'
 add_action( 'add_meta_boxes', 'responsive_add_layout_meta_box' );
