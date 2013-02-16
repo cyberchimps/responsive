@@ -314,38 +314,38 @@ sub {
 /* =Visibility
 -------------------------------------------------------------- */
 .hidden {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 .visible {
-    visibility: visible;
+	visibility: visible;
 }
 
 .none {
-    display: none;
+	display: none;
 }
 
 .hide-desktop {
-    display: none;
+	display: none;
 }
 
 .show-desktop {
-    display: block;
+	display: block;
 }
 
 /* =Responsive Images
 -------------------------------------------------------------- */
 img {
-    -ms-interpolation-mode: bicubic;
-    border: 0;
+	-ms-interpolation-mode: bicubic;
+	border: 0;
 	height: auto;
 	max-width: 100%;
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .ie8 img {
-    height: auto; 
-    width: auto\9; 
+	height: auto; 
+	width: auto\9; 
 }
 
 .ie8 img.size-large {
@@ -361,7 +361,7 @@ object {
 }
 
 svg:not(:root) {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 /* =Links
@@ -376,13 +376,13 @@ a:hover,
 a:focus,
 a:active {
 	color: #444;
-    outline: 0;
+	outline: 0;
 	text-decoration: none;
 }
 
 ::selection {
 	background: #999;
-    color: #fff;
+	color: #fff;
 	text-shadow: none;
 }
 
@@ -408,7 +408,7 @@ select,
 input[type="text"], 
 input[type="password"],
 input[type="email"] {
-    -moz-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	-moz-border-radius: 2px;
 	-webkit-box-sizing: border-box;
 	-webkit-border-radius: 2px;
@@ -439,7 +439,7 @@ textarea {
 	-webkit-border-radius: 2px;
 	-webkit-box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
+	background-color: #fff;
 	box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
 	box-sizing: border-box;
 	border: 1px solid #aaa;
@@ -482,14 +482,13 @@ input[type='password'] {
 
 /* =Buttons
 -------------------------------------------------------------- */
-button, 
 a.button,
 input[type='reset'], 
 input[type='button'], 
 input[type='submit'] {
 	-moz-border-radius: 2px;
-    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 	-webkit-border-radius: 2px;
 	background-color: #f9f9f9; /* Alabaster */
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f1f1f1));
@@ -504,10 +503,10 @@ input[type='submit'] {
 	color: #333;
 	cursor: pointer;
 	display: inline-block;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#f1f1f1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#f1f1f1);
 	font-size: 14px;
 	font-weight: 700;
-    line-height: 20px;
+	line-height: 20px;
 	margin: 0;
 	padding: 4px 10px;
 	text-decoration: none;
@@ -516,13 +515,12 @@ input[type='submit'] {
 	white-space: nowrap;
 }
 
-button:hover, 
 a.button:hover,
 input[type='reset']:hover, 
 input[type='button']:hover, 
 input[type='submit']:hover {
-    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 	background-color: #fff;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f1f1f1));
 	background-image: -webkit-linear-gradient(top, #fff, #f1f1f1);
@@ -531,18 +529,17 @@ input[type='submit']:hover {
 	background-image: -o-linear-gradient(top, #fff, #f1f1f1);
 	background-image: linear-gradient(top, #fff, #f1f1f1);
 	border: 1px solid #ddd;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
 	color: #333;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f1f1f1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f1f1f1);
 }
 
-button:active, 
 a.button:active,
 input[type='reset']:active, 
 input[type='button']:active, 
 input[type='submit']:active {
-    -moz-box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
 	background-color: #f9f9f9;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f1f1f1));
 	background-image: -webkit-linear-gradient(top, #f9f9f9, #f1f1f1);
@@ -550,8 +547,8 @@ input[type='submit']:active {
 	background-image: -ms-linear-gradient(top, #f9f9f9, #f1f1f1);
 	background-image: -o-linear-gradient(top, #f9f9f9, #f1f1f1);
 	background-image: linear-gradient(top, #f9f9f9, #f1f1f1);
-    box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#f1f1f1);
+	box-shadow: 0 1px 0 #fff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#f1f1f1);
 }
 
 /* =Buttons (Call to Action)
@@ -570,7 +567,7 @@ input[type='submit']:active {
 }
 
 .ie7 .call-to-action a.button {
-    padding: 11px 35px 19px 35px;
+	padding: 11px 35px 19px 35px;
 }
 
 /* =Buttons (Sizes)
