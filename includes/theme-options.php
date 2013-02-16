@@ -342,6 +342,74 @@ function responsive_theme_options_do_page() {
                 </div><!-- end of .rwd-block -->
             </div><!-- end of .rwd-container -->
 
+            <h3 class="rwd-toggle"><a href="#"><?php _e('Default Layouts', 'responsive'); ?></a></h3>
+            <div class="rwd-container">
+                <div class="rwd-block"> 
+                               
+                <?php
+                /**
+                 * Default Static Page Layout
+                 */
+                ?>
+                <div class="grid col-300"><?php _e( 'Default Static Page Layout', 'responsive' ); ?></div><!-- end of .grid col-300 -->
+				<div class="grid col-620 fit">
+					<?php $valid_options = responsive_get_valid_layouts(); 	?>
+					<select id="responsive_theme_options[static_page_layout_default]" name="responsive_theme_options[static_page_layout_default]">
+					<?php 
+					foreach ( $valid_options as $slug => $name ) {
+						?>
+						<option <?php selected( $slug == $responsive_options['static_page_layout_default'] ); ?> value="<?php echo $slug; ?>"><?php echo $name; ?></option>
+						<?php
+					}
+					?>
+					</select>
+				</div><!-- end of .grid col-620 -->
+                               
+                <?php
+                /**
+                 * Default Single Blog Post Layout
+                 */
+                ?>
+                <div class="grid col-300"><?php _e( 'Default Single Blog Post Layout', 'responsive' ); ?></div><!-- end of .grid col-300 -->
+				<div class="grid col-620 fit">
+					<?php $valid_options = responsive_get_valid_layouts(); 	?>
+					<select id="responsive_theme_options[single_post_layout_default]" name="responsive_theme_options[single_post_layout_default]">
+					<?php 
+					foreach ( $valid_options as $slug => $name ) {
+						?>
+						<option <?php selected( $slug == $responsive_options['single_post_layout_default'] ); ?> value="<?php echo $slug; ?>"><?php echo $name; ?></option>
+						<?php
+					}
+					?>
+					</select>
+				</div><!-- end of .grid col-620 -->
+                               
+                <?php
+                /**
+                 * Default Blog Posts Index Layout
+                 */
+                ?>
+                <div class="grid col-300"><?php _e( 'Default Blog Posts Index Layout', 'responsive' ); ?></div><!-- end of .grid col-300 -->
+				<div class="grid col-620 fit">
+					<?php $valid_options = responsive_get_valid_layouts(); 	?>
+					<select id="responsive_theme_options[blog_posts_index_layout_default]" name="responsive_theme_options[blog_posts_index_layout_default]">
+					<?php 
+					foreach ( $valid_options as $slug => $name ) {
+						?>
+						<option <?php selected( $slug == $responsive_options['blog_posts_index_layout_default'] ); ?> value="<?php echo $slug; ?>"><?php echo $name; ?></option>
+						<?php
+					}
+					?>
+					</select>
+                        <p class="submit">
+						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
+						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
+                        </p>
+				</div><!-- end of .grid col-620 -->
+                                    
+                </div><!-- end of .rwd-block -->
+            </div><!-- end of .rwd-container -->
+
             <h3 class="rwd-toggle"><a href="#"><?php _e('Webmaster Tools', 'responsive'); ?></a></h3>
             <div class="rwd-container">
                 <div class="rwd-block"> 
@@ -548,74 +616,6 @@ function responsive_theme_options_do_page() {
                 </div><!-- end of .rwd-block -->
             </div><!-- end of .rwd-container -->
 
-            <h3 class="rwd-toggle"><a href="#"><?php _e('Layouts', 'responsive'); ?></a></h3>
-            <div class="rwd-container">
-                <div class="rwd-block"> 
-                               
-                <?php
-                /**
-                 * Default Static Page Layout
-                 */
-                ?>
-                <div class="grid col-300"><?php _e( 'Default Static Page Layout', 'responsive' ); ?></div><!-- end of .grid col-300 -->
-				<div class="grid col-620 fit">
-					<?php $valid_options = responsive_get_valid_layouts(); 	?>
-					<select id="responsive_theme_options[static_page_layout_default]" name="responsive_theme_options[static_page_layout_default]">
-					<?php 
-					foreach ( $valid_options as $slug => $name ) {
-						?>
-						<option <?php selected( $slug == $responsive_options['static_page_layout_default'] ); ?> value="<?php echo $slug; ?>"><?php echo $name; ?></option>
-						<?php
-					}
-					?>
-					</select>
-				</div><!-- end of .grid col-620 -->
-                               
-                <?php
-                /**
-                 * Default Single Blog Post Layout
-                 */
-                ?>
-                <div class="grid col-300"><?php _e( 'Default Single Blog Post Layout', 'responsive' ); ?></div><!-- end of .grid col-300 -->
-				<div class="grid col-620 fit">
-					<?php $valid_options = responsive_get_valid_layouts(); 	?>
-					<select id="responsive_theme_options[single_post_layout_default]" name="responsive_theme_options[single_post_layout_default]">
-					<?php 
-					foreach ( $valid_options as $slug => $name ) {
-						?>
-						<option <?php selected( $slug == $responsive_options['single_post_layout_default'] ); ?> value="<?php echo $slug; ?>"><?php echo $name; ?></option>
-						<?php
-					}
-					?>
-					</select>
-				</div><!-- end of .grid col-620 -->
-                               
-                <?php
-                /**
-                 * Default Blog Posts Index Layout
-                 */
-                ?>
-                <div class="grid col-300"><?php _e( 'Default Blog Posts Index Layout', 'responsive' ); ?></div><!-- end of .grid col-300 -->
-				<div class="grid col-620 fit">
-					<?php $valid_options = responsive_get_valid_layouts(); 	?>
-					<select id="responsive_theme_options[blog_posts_index_layout_default]" name="responsive_theme_options[blog_posts_index_layout_default]">
-					<?php 
-					foreach ( $valid_options as $slug => $name ) {
-						?>
-						<option <?php selected( $slug == $responsive_options['blog_posts_index_layout_default'] ); ?> value="<?php echo $slug; ?>"><?php echo $name; ?></option>
-						<?php
-					}
-					?>
-					</select>
-                        <p class="submit">
-						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
-						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
-                        </p>
-				</div><!-- end of .grid col-620 -->
-                                    
-                </div><!-- end of .rwd-block -->
-            </div><!-- end of .rwd-container -->
-            
             </div><!-- end of .grid col-940 -->
         </form>
     </div>
