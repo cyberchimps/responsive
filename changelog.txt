@@ -8,9 +8,53 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+
+
+(02/04/2013) - Minor Bug Release - Version 1.8.9.2/3
+
+[!] TinyNav [object]
+[^] MS filter is back in.
+
 ----
 
-(02/06/2013) - Improvements - Version 1.8.7
+(02/03/2013) - Maintenance and Minor Bug Release - Version 1.8.9.1
+
+[!] Title Tag while AIOSEOP not activated.
+[!] SB Holder for landing page templates.
+
+----
+
+(02/03/2013) - Maintenance and Minor Bug Release - Version 1.8.9
+
+[x] IE filters for buttons. This also removes the conflict with
+    video plugins. (props Ulrich Pogson)
+
+[*] FitVids [object] removal. (props Ulrich Pogson)
+    @see: https://github.com/davatron5000/FitVids.js/pull/90
+
+[+] Functions to check whether or not All in One SEO and WordPress 
+    SEO are activated. In: /includes/functions.php and header.php 
+    for WP SEO. If AIOSEOP, we will remove the Responsive's wp_title
+    filter. And use wp_title() only for WP SEO. Pretty nice stuff.
+
+[*] Theme Options info buttons. Changed "Donate Now" to more visible
+    blue color and removed Responsive classes.
+
+----
+
+(01/27/2013) - Maintenance and Minor Bug Release - Version 1.8.8
+
+[!] SelectBox for Android and iPhone
+[*] SelectBox style.css improvements
+[*] quirksmode.org link fix
+[*] Support link for style.css
+[x] Arabic language duplicates
+[+] Hindi language
+
+----
+
+(01/06/2013) - Improvements - Version 1.8.7
+
 ----
 Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 ----
