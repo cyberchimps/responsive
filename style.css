@@ -1353,6 +1353,7 @@ form div {
 .page-template-landing-page-php .menu, 
 .page-template-landing-page-php .top-menu,
 .page-template-landing-page-php .tinynav,
+.page-template-landing-page-php .sb-holder ,
 .page-template-landing-page-php .footer-menu, 
 .page-template-landing-page-php .sub-header-menu {
 	display: none;
@@ -1361,15 +1362,15 @@ form div {
 /* =Author Meta (Author's Box)
 -------------------------------------------------------------- */
 #author-meta {
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
 	background: #f9f9f9;
 	border: 1px solid #d6d6d6;
-    border-radius: 4px;
+	border-radius: 4px;
 	clear: both;
 	display: block;
 	margin: 30px 0 40px 0;
-    padding: 10px;
+	padding: 10px;
 	overflow: hidden;
 }
 
@@ -1902,62 +1903,63 @@ form div {
     TinyNav + SelectBox
 -------------------------------------------------------------- */
 .tinynav { 
-    display: none 
+	display: none 
 }
 
 .sb-holder {
 	background-color: #3d3d3d;
-    display: none;
-    height: 30px;
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
+	display: none;
+	height: 30px;
+	margin: 0 auto;
+	position: relative;
+	width: 100%;
+	z-index: 999;
 }
 
 .sb-holder:focus .sb-selector {}
 
 .sb-selector {
-    display: block;
-    height: 30px;
-    left: 0;
-    line-height: 30px;
-    outline: none;
-    overflow: hidden;
-    position: absolute;
-    text-indent: 10px;
-    top: 0;
-    width: 100%;
+	display: block;
+	height: 30px;
+	left: 0;
+	line-height: 30px;
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 10px;
+	top: 0;
+	width: 100%;
 }
 
 .sb-selector:link,
 .sb-selector:visited,
 .sb-selector:hover {
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    outline: none;
-    text-decoration: none;
-    text-shadow: 0 -1px 0 #000;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	outline: none;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 #000;
 }
 
 .sb-toggle {
-    background: url(images/select-icons.png) 0 6px no-repeat;
-    display: block;
-    height: 30px;
-    outline: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 30px;
+	background: url(images/select-icons.png) 0 6px no-repeat;
+	display: block;
+	height: 30px;
+	outline: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30px;
 }
 
 .sb-toggle-open {
-    background: url(images/select-icons.png) 0 -45px no-repeat;
+	background: url(images/select-icons.png) 0 -45px no-repeat;
 }
 
 .sb-holder-disabled {
-    background-color: #3c3c3c;
-    border: 1px solid #515151;
+	background-color: #3c3c3c;
+	border: 1px solid #515151;
 }
 
 .sb-holder-disabled .sb-holder {}
@@ -1965,65 +1967,65 @@ form div {
 .sb-holder-disabled .sb-toggle {}
 
 .sb-options {
-    background-color: #fff;
-    list-style: none;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 30px;
-    width: 100%;
-    z-index: 1;
-    overflow-y: auto;
+	background-color: #fff;
+	list-style: none;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 30px;
+	width: 100%;
+	z-index: 1;
+	overflow-y: auto;
 }
 
 .sb-options li {
-    padding: 0;
+	padding: 0;
 }
 
 .sb-options a {
-    border-bottom: 1px solid #e5e5e5;
-    display: block;
-    font-size: 11px;
-    outline: none;
-    padding: 4px;
-    text-indent: 4px;
+	border-bottom: 1px solid #e5e5e5;
+	display: block;
+	font-size: 11px;
+	outline: none;
+	padding: 4px;
+	text-indent: 4px;
 }
 
 .sb-options a:link,
 .sb-options a:visited {
-    color: #444;
-    text-decoration: none;
+	color: #444;
+	text-decoration: none;
 }
 
 .sb-options a:hover,
 .sb-options a:focus,
 .sb-options a.sb-focus {
-    background-color: #f5f5f5;
-    color: #444;
+	background-color: #f5f5f5;
+	color: #444;
 }
 
 .sb-options li.last a {
-    border-bottom: none;
+	border-bottom: none;
 }
 
 .sb-options .sb-disabled {
-    border-bottom: dotted 1px #515151;
-    color: #999;
-    display: block;
-    padding: 7px 0 7px 3px;
+	border-bottom: dotted 1px #515151;
+	color: #999;
+	display: block;
+	padding: 7px 0 7px 3px;
 }
 
 .sb-options .sb-group {
-    border-bottom: dotted 1px #515151;
-    color: #ebb52d;
-    display: block;
-    font-weight: 700;
-    padding: 7px 0 7px 3px;
+	border-bottom: dotted 1px #515151;
+	color: #ebb52d;
+	display: block;
+	font-weight: 700;
+	padding: 7px 0 7px 3px;
 }
 
 .sb-options .sb-sub {
-    padding-left: 17px;
+	padding-left: 17px;
 }
 
 /* =Sub-Header Menu
