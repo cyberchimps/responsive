@@ -27,7 +27,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-	
+
 --------------------------------------------------------------
 WARNING: (BEFORE YOU MAKE ANY CHANGES)
 --------------------------------------------------------------
@@ -38,13 +38,13 @@ as soon as you update Responsive.
 WordPress and ThemeID highly recommends Child Theme.
 
 Read More:
- 
+
 - http://codex.wordpress.org/Child_Themes  
 - http://themeid.com/help/discussion/505/child-theme-example/
 - http://themeid.com/help/categories/responsive-documentation/
 
 --------------------------------------------------------------
-	
+
 CSS Rules: Sorted alphabetically for better organization.
 
 
@@ -1321,13 +1321,17 @@ form div {
 	margin-bottom: 20px;
 }
 
+.home #content-blog {
+	margin-top: 40px;
+}
+
 #content-images {
 	margin-bottom: 20px;
 }
 
 #content-search {
-    margin-bottom: 20px;
-    margin-top: 20px;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 #content-archive {
@@ -2763,7 +2767,7 @@ BDO[DIR="rtl"] {
 	only screen and (-o-min-device-pixel-ratio:3/2), 
 	only screen and (-webkit-min-device-pixel-ratio:1.5), 
 	only screen and (min-device-pixel-ratio:1.5) {
-	
+
 	body {}
 }
 
@@ -2772,33 +2776,33 @@ BDO[DIR="rtl"] {
 @media screen and (max-width: 980px) {
 
 	body {}
-	
+
 	.grid, 
 	.grid-right {
 		float: none;
 	}
-	
+
 	#featured-image .fluid-width-video-wrapper {
 		margin: 20px 0 0 0;
 	}
-	
+
 	.home.page-template-default #widgets {
 		margin-top: 40px;
 	}
-	
+
 	.top-widget,
 	.home.page-template-default .top-widget {
 		margin-top: 0 !important;
 	}
-	
+
 	.hide-980 {
 		display: none;
 	}
-	
+
 	.show-980 {
 		display: block;
 	}
-	
+
 }
 
 @media screen and (max-width: 650px) {
