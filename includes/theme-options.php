@@ -237,7 +237,7 @@ function responsive_theme_options_do_page() {
 						<label class="description" for="responsive_theme_options[cta_button]"><?php _e('Check to disable', 'responsive'); ?></label>
                         <p class="submit">
 						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
-						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
+						<?php submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
                         </p>
                     </div><!-- end of .grid col-620 -->
                                     
@@ -335,7 +335,7 @@ function responsive_theme_options_do_page() {
                         <label class="description" for="responsive_theme_options[featured_content]"><?php _e('Paste your shortcode, video or image source', 'responsive'); ?></label>
                         <p class="submit">
 						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
-						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
+						<?php submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
                         </p>
                     </div><!-- end of .grid col-620 -->
                     
@@ -403,7 +403,7 @@ function responsive_theme_options_do_page() {
 					</select>
                         <p class="submit">
 						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
-						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
+						<?php submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
                         </p>
 				</div><!-- end of .grid col-620 -->
                                     
@@ -462,7 +462,7 @@ function responsive_theme_options_do_page() {
                         <label class="description" for="responsive_theme_options[site_statistics_tracker]"><?php _e('Google Analytics, StatCounter, any other or all of them.', 'responsive'); ?></label>
                         <p class="submit">
 						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
-						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
+						<?php submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
                         </p>
                     </div><!-- end of .grid col-620 -->
                 
@@ -550,7 +550,7 @@ function responsive_theme_options_do_page() {
                         <label class="description" for="responsive_theme_options[foursquare_uid]"><?php _e('Enter your foursquare URL', 'responsive'); ?></label>
                         <p class="submit">
 						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
-						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
+						<?php submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
                         </p>
                     </div><!-- end of .grid col-620 -->
 
@@ -577,7 +577,7 @@ function responsive_theme_options_do_page() {
                         <label class="description" for="responsive_theme_options[responsive_inline_css]"><?php _e('Enter your custom CSS styles.', 'responsive'); ?></label>
                         <p class="submit">
 						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
-						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
+						<?php submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
                         </p>
                     </div><!-- end of .grid col-620 -->
                                     
@@ -609,7 +609,7 @@ function responsive_theme_options_do_page() {
                         <label class="description" for="responsive_theme_options[responsive_inline_js_footer]"><?php _e('Enter your custom footer script.', 'responsive'); ?></label>
                         <p class="submit">
 						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
-						<?php submit_button( __( 'Reset Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
+						<?php submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false ); ?>
                         </p>
                     </div><!-- end of .grid col-620 -->
                                     
