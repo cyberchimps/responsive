@@ -1726,7 +1726,7 @@ form div {
 	background-image: -o-linear-gradient(top, #585858, #3d3d3d);
 	background-image: linear-gradient(top, #585858, #3d3d3d);
 	clear: both;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#585858, endColorstr=#3d3d3d);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#585858, endColorstr=#3d3d3d);
 	margin: 0 auto;
 }
 
@@ -1811,7 +1811,7 @@ form div {
 .menu a {
 	border-left: 1px solid #585858;
 	color: #fff;
-    cursor: pointer;
+	cursor: pointer;
 	display: block;
 	font-size: 13px;
 	font-weight: 700;
@@ -1833,7 +1833,19 @@ form div {
 	background-image: -o-linear-gradient(top, #808080, #363636);
 	background-image: linear-gradient(top, #808080, #363636);
 	color: #fff;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#808080, endColorstr=#363636);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#808080, endColorstr=#363636);
+}
+
+ul.menu > li:hover {
+	background-color: #808080;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#808080), to(#363636));
+	background-image: -webkit-linear-gradient(top, #808080, #363636);
+	background-image: -moz-linear-gradient(top, #808080, #363636);
+	background-image: -ms-linear-gradient(top, #808080, #363636);
+	background-image: -o-linear-gradient(top, #808080, #363636);
+	background-image: linear-gradient(top, #808080, #363636);
+	color: #fff;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#808080, endColorstr=#363636);
 }
 
 .menu .current_page_item a,
@@ -1842,10 +1854,10 @@ form div {
 }
 
 .home.page-template-default .menu .current_page_item a {
-    background: none;
+	background: none;
 	background-color: transparent;
-    background-image: none;
-    filter: none;
+	background-image: none;
+	filter: none;
 }
 
 .menu li li {
@@ -1854,7 +1866,7 @@ form div {
 	border: 1px solid #e5e5e5;
 	color: #444;
 	filter: none;
-    margin: -1px 0 1px 0;
+	margin: -1px 0 1px 0;
 	width: auto;
 }
 
@@ -1877,6 +1889,11 @@ form div {
 	background-image: none;
 	border: none;
 	color: #444;
+	filter: none;
+}
+
+.menu li li:hover {
+	background: #f5f5f5 !important;
 	filter: none;
 }
 
