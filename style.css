@@ -2634,6 +2634,31 @@ table.cart td.actions .coupon .input-text {
 	cursor: text;
 }
 
+/* =WPML
+-------------------------------------------------------------- */
+.icl_languages_selector{
+	float: right;
+	text-align: left
+}
+.rtl .icl_languages_selector{
+	float: left;
+	text-align: right
+}
+
+@media screen and (max-width: 650px){
+	.icl_languages_selector,
+	.rtl .icl_languages_selector {
+		float: none;
+	}
+}
+
+/* =Polylang
+-------------------------------------------------------------- */
+.widget_polylang li{
+	display: inline;
+	list-style-type: none;
+}
+
 /* =Footer
 -------------------------------------------------------------- */
 #footer {
