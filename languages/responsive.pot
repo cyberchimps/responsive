@@ -629,10 +629,6 @@ msgstr ""
 msgid "Featured Content"
 msgstr ""
 
-#: includes/theme-options.php:330
-msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-msgstr ""
-
 #: includes/theme-options.php:330 includes/theme-options.php:331
 msgid "See Docs"
 msgstr ""
