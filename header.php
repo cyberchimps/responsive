@@ -34,7 +34,7 @@ if ( !defined('ABSPATH')) exit;
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-<?php wp_enqueue_style('responsive-style', get_stylesheet_uri(), false, '1.8.7');?>
+<?php wp_enqueue_style('responsive-style', get_stylesheet_uri(), false, '1.9.0');?>
 
 <?php wp_head(); ?>
 </head>
