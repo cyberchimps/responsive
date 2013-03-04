@@ -72,34 +72,19 @@ if ( !defined('ABSPATH')) exit;
 			<?php responsive_comments_before(); ?>
 			<?php comments_template( '', true ); ?>
 			<?php responsive_comments_after(); ?>
-            
-        <?php endwhile; ?> 
-        
-        <?php if (  $wp_query->max_num_pages > 1 ) : ?>
-        <div class="navigation">
-			<div class="previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ) ); ?></div>
-            <div class="next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ) ); ?></div>
-		</div><!-- end of .navigation -->
-        <?php endif; ?>
 
-	    <?php else : ?>
+	<?php 
+	endwhile;
 
-        <h1 class="title-404"><?php _e('404 &#8212; Fancy meeting you here!', 'responsive'); ?></h1>
-                    
-        <p><?php _e('Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive'); ?></p>
-                    
-        <h6><?php printf( __('You can return %s or search for the page you were looking for.', 'responsive'),
-	            sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
-		            esc_url( get_home_url() ),
-		            esc_attr__('Home', 'responsive'),
-		            esc_attr__('&larr; Home', 'responsive')
-	                )); 
-			 ?></h6>
-                    
-        <?php get_search_form(); ?>
+		get_template_part( 'loop-nav' );
 
-<?php endif; ?>  
-      
+	else :
+
+		get_template_part( 'loop-no-posts' );
+
+	endif;
+	?>
+
         </div><!-- end of #content -->
 
 <?php get_sidebar('left'); ?>
