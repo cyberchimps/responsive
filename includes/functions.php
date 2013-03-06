@@ -66,6 +66,12 @@ if (!function_exists('responsive_setup')):
          */
         add_theme_support('post-thumbnails');
 
+		/**
+		 * This feature enables woocommerce support for a theme.
+		 * @see http://www.woothemes.com/2013/02/last-call-for-testing-woocommerce-2-0-coming-march-4th/
+		 */
+		add_theme_support( 'woocommerce' );
+
         /**
          * This feature enables custom-menus support for a theme.
          * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
