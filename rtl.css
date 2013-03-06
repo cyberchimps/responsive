@@ -190,6 +190,11 @@ ul {
 	left: auto
 }
 
+.menu li li:hover > ul {
+	left: auto;
+	right: 100%;
+}
+
 .menu li {
 	float: right;
 }
