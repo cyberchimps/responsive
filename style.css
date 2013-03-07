@@ -2824,6 +2824,12 @@ BDO[DIR="rtl"] {
 		float: none;
 	}
 
+	.copyright,
+	.scroll-top,
+	.powered {
+		float: left;
+	}
+
 	#featured-image .fluid-width-video-wrapper {
 		margin: 20px 0 0 0;
 	}
