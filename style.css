@@ -353,6 +353,14 @@ img {
 	width: auto;
 }
 
+/* =Responsive Videos
+-------------------------------------------------------------- */
+video {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
 /* =Responsive Embeds/Objects
 -------------------------------------------------------------- */
 embed,
