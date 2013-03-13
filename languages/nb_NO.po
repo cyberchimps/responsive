@@ -3,139 +3,33 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2012-12-18 21:37+0100\n"
+"PO-Revision-Date: 2013-03-13 23:04+0100\n"
 "Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
 "Language-Team: Norwegian Bokmål, Norway\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 &#8212; Hyggelig å se deg her!"
-
-#: image.php index.php page.php landing-page.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid ""
-"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
-"options here."
-msgstr ""
-"Ikke få panikk, vi skal få til dette sammen. La oss se på alternativene."
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Du kan gå tilbake %s eller søke etter siden du leter etter"
-
-#: page.php landing-page.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php 404.php
-#: image.php index.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php includes/functions.php
-msgid "Home"
-msgstr "Hjem"
-
-#: 404.php page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "&larr; Home"
-msgstr "&larr; Hjem"
-
-#: archive.php
-msgid "Daily Archives: %s"
-msgstr "Daglige Arkiv: %s"
-
-#: archive.php
-msgid "Monthly Archives: %s"
-msgstr "Månedlige Arkiv: %s"
-
-#: archive.php
-msgid "Yearly Archives: %s"
-msgstr "Årlige Arkiv: %s"
-
-#: archive.php
-msgid "Blog Archives"
-msgstr "Bloggarkiv"
-
-#: index.php blog.php blog-excerpt.php archive.php search.php sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Permanent Link til %s"
-
-#: page.php index.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: search.php sidebar-content-half-page.php sidebar-content-page.php
-#: single.php
-msgid "No Comments &darr;"
-msgstr "Ingen Kommentarer &darr;"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "1 Comment &darr;"
-msgstr "1 Kommentar &darr;"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "% Comments &darr;"
-msgstr "% Kommentarer &darr;"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php
 #: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
 #: sidebar-content-page.php single.php sitemap.php
 msgid "Pages:"
 msgstr "Sider:"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Tagged with:"
-msgstr "Tagget med:"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Posted in %s"
-msgstr "Postet i %s"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "Edit"
-msgstr "Rediger"
-
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "&#8249; Older posts"
 msgstr "&#8249; Eldre innlegg"
 
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "Newer posts &#8250;"
 msgstr "Nyere innlegg &#8250;"
 
-#: page.php landing-page.php index.php full-width-page.php
+#: home.php page.php landing-page.php index.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
 #: sidebar-content-half-page.php sidebar-content-page.php single.php
 #: includes/functions.php
@@ -164,12 +58,6 @@ msgstr "Pinger&#47;Trashbacks"
 #: comments.php
 msgid "%1$d %2$s for \"%3$s\""
 msgstr "%1$d %2$s for \"%3$s\""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "En kommentar på “%2$s”"
-msgstr[1] "%1$s kommentarer på “%2$s”"
 
 #: comments.php
 msgid "Name"
@@ -215,39 +103,101 @@ msgstr "http://sv.wordpress.org/"
 msgid "WordPress"
 msgstr "WordPress"
 
-#: home.php
-msgid "Hello, World!"
-msgstr "Hei, Verden!"
-
-#: home.php
-msgid "Your H2 subheadline here"
-msgstr "Din H2 - overskrift her"
-
-#: home.php
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-"Din title, mellomtittel og dette viktige innholdet kan redigeres fra "
-"Temainstillninger. Call to Action og dens destinasjons link også. Kan være "
-"et bilde eller en Youtube video."
-
-#: home.php
-msgid "Call to Action"
-msgstr "Call to Action"
-
 #: image.php
 msgid "&#8249; Return to"
 msgstr "&#8249; Gå tilbake til"
 
-#: search.php includes/functions.php
-msgid "Search results for: %s"
-msgstr "Søkeresultatet for: %s"
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "Ingen Kommentarer &darr;"
 
-#: search.php
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1 Kommentar &darr;"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "% Kommentarer &darr;"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "En kommentar på “%2$s”"
+msgstr[1] "%1$s kommentarer på “%2$s”"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "Tagget med:"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "Postet i %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "Rediger"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; Hyggelig å se deg her!"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Ikke få panikk, vi skal få til dette sammen. La oss se på alternativene."
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Du kan gå tilbake %s eller søke etter siden du leter etter"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "Hjem"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "&larr; Hjem"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "Daglige Arkiv: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "Månedlige Arkiv: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "Årlige Arkiv: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "Bloggarkiv"
+
+#: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
 msgstr "Du søkte etter %s samsvarte ikke med noen oppføringer"
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Permanent Link til %s"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "Søkeresultatet for: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
@@ -301,7 +251,7 @@ msgstr "Hjem Widget 1"
 #: sidebar-home.php
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
-"Widgets and choose 6th widget from the top in area six called Home Widget 1. "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
 "Dette er din første hjem-widget-box For å redigere, gå til Utseende > "
@@ -315,8 +265,8 @@ msgstr "Hjem Widget 2"
 #: sidebar-home.php
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
-"Widgets and choose 7th widget from the top in area seven called Home Widget "
-"2. Title is also manageable from widgets as well."
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "Dette er din andre hjem.widget-box. For å redigere, gå til Utseesnde > "
 "Widgets og velg den sjuende widgeten fra toppen i omrede sju ved navn Hjem "
@@ -329,8 +279,8 @@ msgstr "Hjem Widget 3"
 #: sidebar-home.php
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
-"Widgets and choose 8th widget from the top in area eight called Home Widget "
-"3. Title is also manageable from widgets as well."
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "Dette er din tredje hjem-widget-box. For å redigere, gå til Utseende > "
 "Widgets og velg åttende widgeten fra toppen i morådet åtte med navn Hjem "
@@ -369,6 +319,10 @@ msgid "Footer Menu"
 msgstr "Fot Meny"
 
 #: includes/functions.php
+msgid "Page %s"
+msgstr ""
+
+#: includes/functions.php
 msgid ""
 "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
 "%4$s"
@@ -389,7 +343,7 @@ msgid "Posts tagged %s"
 msgstr "Innlegg tagget %s"
 
 #: includes/functions.php
-msgid "Error 404 "
+msgid "Error 404"
 msgstr "Feil 404 "
 
 #: includes/functions.php
@@ -504,6 +458,72 @@ msgstr ""
 msgid "Area 11 - sidebar-top.php"
 msgstr ""
 
+#: blog.php
+msgid "Blog (full posts)"
+msgstr ""
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr ""
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr ""
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr ""
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr ""
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr ""
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr ""
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr ""
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Hei, Verden!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "Din H2 - overskrift her"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Din title, mellomtittel og dette viktige innholdet kan redigeres fra "
+"Temainstillninger. Call to Action og dens destinasjons link også. Kan være "
+"et bilde eller en Youtube video."
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "Call to Action"
+
 #: includes/theme-options.php
 msgid "Theme Options"
 msgstr "Tema innstillninger"
@@ -531,6 +551,10 @@ msgstr "Innaktiver Call to Action-knappen?"
 #: includes/theme-options.php
 msgid "Save Options"
 msgstr "Lagre innstillninger"
+
+#: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr ""
 
 #: includes/theme-options.php
 msgid "Logo Upload"
@@ -597,15 +621,27 @@ msgid "Featured Content"
 msgstr "Presentert Innhold"
 
 #: includes/theme-options.php
-msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-msgstr "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-
-#: includes/theme-options.php
 msgid "See Docs"
 msgstr "Se Dokumentasjonen"
 
 #: includes/theme-options.php
 msgid "Paste your shortcode, video or image source"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
 msgstr ""
 
 #: includes/theme-options.php

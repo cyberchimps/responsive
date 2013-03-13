@@ -3,140 +3,34 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2012-12-18 21:55+0100\n"
+"PO-Revision-Date: 2013-03-13 23:12+0100\n"
 "Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
 "Language-Team: Serbian (Cyrillic)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 — Лепо је што смо се срели овде!"
-
-#: image.php index.php page.php landing-page.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid ""
-"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
-"options here."
-msgstr ""
-"Без панике, заједно ћемо решити ово. Да видимо које су нам могућности овде."
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Можете се вратити %s или потражите страницу коју сте тражили"
-
-#: page.php landing-page.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php 404.php
-#: image.php index.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php includes/functions.php
-msgid "Home"
-msgstr "Почетна"
-
-#: 404.php page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "&larr; Home"
-msgstr "← Почетна"
-
-#: archive.php
-msgid "Daily Archives: %s"
-msgstr "Дневна архива: %s"
-
-#: archive.php
-msgid "Monthly Archives: %s"
-msgstr "Месечна архива: %s"
-
-#: archive.php
-msgid "Yearly Archives: %s"
-msgstr "Годишња архива: %s"
-
-#: archive.php
-msgid "Blog Archives"
-msgstr "Архива блога"
-
-#: index.php blog.php blog-excerpt.php archive.php search.php sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Стална веза ка %s"
-
-#: page.php index.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: search.php sidebar-content-half-page.php sidebar-content-page.php
-#: single.php
-msgid "No Comments &darr;"
-msgstr "Нема коментара ↓"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "1 Comment &darr;"
-msgstr "1 коментар ↓"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "% Comments &darr;"
-msgstr "% коментара ↓"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php
 #: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
 #: sidebar-content-page.php single.php sitemap.php
 msgid "Pages:"
 msgstr "Странице:"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Tagged with:"
-msgstr "Означено са:"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Posted in %s"
-msgstr "Објављено у %s"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "Edit"
-msgstr "Уреди"
-
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "&#8249; Older posts"
 msgstr "‹ Старији чланци"
 
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "Newer posts &#8250;"
 msgstr "Новији чланци ›"
 
-#: page.php landing-page.php index.php full-width-page.php
+#: home.php page.php landing-page.php index.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
 #: sidebar-content-half-page.php sidebar-content-page.php single.php
 #: includes/functions.php
@@ -164,13 +58,6 @@ msgstr "Поврати пингови/повратне везе"
 #: comments.php
 msgid "%1$d %2$s for \"%3$s\""
 msgstr "%1$d %2$s за \"%3$s\""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "Један коментар на “%2$s”"
-msgstr[1] "%1$s коментара на “%2$s”"
-msgstr[2] "%1$s коментара на “%2$s”"
 
 #: comments.php
 msgid "Name"
@@ -216,39 +103,102 @@ msgstr "http://sr.wordpress.org/"
 msgid "WordPress"
 msgstr "Вордпрес"
 
-#: home.php
-msgid "Hello, World!"
-msgstr "Здраво, свете!"
-
-#: home.php
-msgid "Your H2 subheadline here"
-msgstr "Ваш H2 поднаслов овде"
-
-#: home.php
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-"Ваш наслов, поднаслов и овај садржај могу да се уређују под Могућности теме. "
-"Такође и дугме Позив на радњу и циљ везе дугмета. Слика са ваше десне стране "
-"може бити слика или ако желите чак и видео са Јутјуба."
-
-#: home.php
-msgid "Call to Action"
-msgstr "Позив на радњу"
-
 #: image.php
 msgid "&#8249; Return to"
 msgstr "‹ Повратак ка"
 
-#: search.php includes/functions.php
-msgid "Search results for: %s"
-msgstr "Резултати претраге за: %s"
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "Нема коментара ↓"
 
-#: search.php
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1 коментар ↓"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "% коментара ↓"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "Један коментар на “%2$s”"
+msgstr[1] "%1$s коментара на “%2$s”"
+msgstr[2] "%1$s коментара на “%2$s”"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "Означено са:"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "Објављено у %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "Уреди"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 — Лепо је што смо се срели овде!"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Без панике, заједно ћемо решити ово. Да видимо које су нам могућности овде."
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Можете се вратити %s или потражите страницу коју сте тражили"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "Почетна"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "← Почетна"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "Дневна архива: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "Месечна архива: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "Годишња архива: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "Архива блога"
+
+#: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
 msgstr "Ваша претрага за %s не подудара се ни са једним уносом."
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Стална веза ка %s"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "Резултати претраге за: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
@@ -302,7 +252,7 @@ msgstr "Виџет на почетној 1"
 #: sidebar-home.php
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
-"Widgets and choose 6th widget from the top in area six called Home Widget 1. "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
 "Ово је ваша прва кутијица за виџете почетне странице. За уређивање молимо "
@@ -316,8 +266,8 @@ msgstr "Виџет на почетној 2"
 #: sidebar-home.php
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
-"Widgets and choose 7th widget from the top in area seven called Home Widget "
-"2. Title is also manageable from widgets as well."
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "Ово је ваша друга кутијица за виџете почетне странице. За уређивање молимо "
 "вас да идете на Изглед > Виџети и изаберете седми виџет од врха у простору "
@@ -330,8 +280,8 @@ msgstr "Виџет на почетној 3"
 #: sidebar-home.php
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
-"Widgets and choose 8th widget from the top in area eight called Home Widget "
-"3. Title is also manageable from widgets as well."
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "Ово је ваша трећа кутијица за виџете почетне странице. За уређивање молимо "
 "вас да идете на Изглед > Виџети и изаберете осми виџет од врха у простору "
@@ -370,6 +320,10 @@ msgid "Footer Menu"
 msgstr "Изборник у подножју"
 
 #: includes/functions.php
+msgid "Page %s"
+msgstr "Страна %s"
+
+#: includes/functions.php
 msgid ""
 "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
 "%4$s"
@@ -390,7 +344,7 @@ msgid "Posts tagged %s"
 msgstr "Чланци означени %s"
 
 #: includes/functions.php
-msgid "Error 404 "
+msgid "Error 404"
 msgstr "Грешка 404"
 
 #: includes/functions.php
@@ -505,6 +459,72 @@ msgstr "Виџет на врху"
 msgid "Area 11 - sidebar-top.php"
 msgstr "Простор једанаест - sidebar-top.php"
 
+#: blog.php
+msgid "Blog (full posts)"
+msgstr "Блог (цели чланци)"
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr "Исечак блога (сажетак)"
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr "Садржај/бочна трака"
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr "Бочна трака/садржај"
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr "Садржај/бочна трака половина странице"
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr "Бочна трака/садржај половина странице"
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr "Пуна ширина странице (без бочне траке)"
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr "Долазна страна (нема изборник)"
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr "Мапа веб места"
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr "Распоред"
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr "Подразумевано"
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Здраво, свете!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "Ваш H2 поднаслов овде"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Ваш наслов, поднаслов и овај садржај могу да се уређују под Могућности теме. "
+"Такође и дугме Позив на радњу и циљ везе дугмета. Слика са ваше десне стране "
+"може бити слика или ако желите чак и видео са Јутјуба."
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "Позив на радњу"
+
 #: includes/theme-options.php
 msgid "Theme Options"
 msgstr "Могућности теме"
@@ -532,6 +552,10 @@ msgstr "Искључити дугме Позив за радњу?"
 #: includes/theme-options.php
 msgid "Save Options"
 msgstr "Сачувај могућности"
+
+#: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr "Поврати подразумевано"
 
 #: includes/theme-options.php
 msgid "Logo Upload"
@@ -598,16 +622,28 @@ msgid "Featured Content"
 msgstr "Истакнути садржај"
 
 #: includes/theme-options.php
-msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-msgstr "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-
-#: includes/theme-options.php
 msgid "See Docs"
 msgstr "Погледајте документацију"
 
 #: includes/theme-options.php
 msgid "Paste your shortcode, video or image source"
 msgstr "Налепите свој кратки код, извор видео записа или слике"
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr "Подразумевани распореди"
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr "Подразумевани распоред непокретне стране"
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr "Подразумевани распоред појединачног чланка блога"
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
+msgstr "Подразумевани распоред индеска чланака блога"
 
 #: includes/theme-options.php
 msgid "Webmaster Tools"

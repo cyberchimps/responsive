@@ -3,138 +3,33 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2012-12-18 21:35+0100\n"
+"PO-Revision-Date: 2013-03-13 23:03+0100\n"
 "Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 — Mukava tavata sinut täällä!"
-
-#: image.php index.php page.php landing-page.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid ""
-"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
-"options here."
-msgstr "Ei hätää, selviämme tästä yhdessä. Tutkikaamme vaihtoehtoja."
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Voit palata %s tai hakea etsimääsi sivua"
-
-#: page.php landing-page.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php 404.php
-#: image.php index.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php includes/functions.php
-msgid "Home"
-msgstr "Alkuun"
-
-#: 404.php page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "&larr; Home"
-msgstr "← Alkuun"
-
-#: archive.php
-msgid "Daily Archives: %s"
-msgstr "Arkistot päivittäin: %s"
-
-#: archive.php
-msgid "Monthly Archives: %s"
-msgstr "Arkistot kuukausittain: %s"
-
-#: archive.php
-msgid "Yearly Archives: %s"
-msgstr "Arkistot vuosittain: %s"
-
-#: archive.php
-msgid "Blog Archives"
-msgstr "Blogiarkistot"
-
-#: index.php blog.php blog-excerpt.php archive.php search.php sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Pysyvä linkki sivulle %s"
-
-#: page.php index.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: search.php sidebar-content-half-page.php sidebar-content-page.php
-#: single.php
-msgid "No Comments &darr;"
-msgstr "Ei kommentteja ↓"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "1 Comment &darr;"
-msgstr "1 kommentti ↓"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "% Comments &darr;"
-msgstr "% kommenttia ↓"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php
 #: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
 #: sidebar-content-page.php single.php sitemap.php
 msgid "Pages:"
 msgstr "Sivut:"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Tagged with:"
-msgstr "Merkitty:"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Posted in %s"
-msgstr "Julkaistu kohteessa %s"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "Edit"
-msgstr "Muokkaa"
-
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "&#8249; Older posts"
 msgstr "‹ Vanhemmat julkaisut"
 
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "Newer posts &#8250;"
 msgstr "Uudemmat julkaisut ›"
 
-#: page.php landing-page.php index.php full-width-page.php
+#: home.php page.php landing-page.php index.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
 #: sidebar-content-half-page.php sidebar-content-page.php single.php
 #: includes/functions.php
@@ -162,12 +57,6 @@ msgstr "Yhteydet/Seurannat"
 #: comments.php
 msgid "%1$d %2$s for \"%3$s\""
 msgstr "%1$d %2$s varten \"%3$s\""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "Yksi kommentti kohteessa “%2$s”"
-msgstr[1] "%1$s kommenttia kohteessa “%2$s”"
 
 #: comments.php
 msgid "Name"
@@ -213,39 +102,100 @@ msgstr "http://fi.wordpress.org/"
 msgid "WordPress"
 msgstr "WordPress"
 
-#: home.php
-msgid "Hello, World!"
-msgstr "Terve, maailma!"
-
-#: home.php
-msgid "Your H2 subheadline here"
-msgstr "H2-alaotsikkosi tähän"
-
-#: home.php
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-"Otsikkosi, alaotsikkosi ja sisältösi ovat muokattavissa Teeman asetuksissa, "
-"kuin myös Call to Action -nappi ja sen osoite. Kuvasi oikealla voi olla "
-"valokuva tai jopa YouTube-video jos niin tahdot."
-
-#: home.php
-msgid "Call to Action"
-msgstr "Toimintokutsu"
-
 #: image.php
 msgid "&#8249; Return to"
 msgstr "‹ Palaa"
 
-#: search.php includes/functions.php
-msgid "Search results for: %s"
-msgstr "Etsi tuloksia haulle: %s"
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "Ei kommentteja ↓"
 
-#: search.php
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1 kommentti ↓"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "% kommenttia ↓"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "Yksi kommentti kohteessa “%2$s”"
+msgstr[1] "%1$s kommenttia kohteessa “%2$s”"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "Merkitty:"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "Julkaistu kohteessa %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 — Mukava tavata sinut täällä!"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr "Ei hätää, selviämme tästä yhdessä. Tutkikaamme vaihtoehtoja."
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Voit palata %s tai hakea etsimääsi sivua"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "Alkuun"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "← Alkuun"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "Arkistot päivittäin: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "Arkistot kuukausittain: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "Arkistot vuosittain: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "Blogiarkistot"
+
+#: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
 msgstr "Hakusi %s ei vastaavia hakutuloksia"
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Pysyvä linkki sivulle %s"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "Etsi tuloksia haulle: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
@@ -299,7 +249,7 @@ msgstr "Koti Widgetti 1"
 #: sidebar-home.php
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
-"Widgets and choose 6th widget from the top in area six called Home Widget 1. "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
 "Tämä on ensimmäinen kotiwidgetti-laatikkosi. Muokataksesi mene Ulkoasu > "
@@ -313,8 +263,8 @@ msgstr "Koti Widgetti 2"
 #: sidebar-home.php
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
-"Widgets and choose 7th widget from the top in area seven called Home Widget "
-"2. Title is also manageable from widgets as well."
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "Tämä on toinen kotiwidgetti-laatikkosi. Muokataksesi mene Ulkoasu > Widgetit "
 "ja valitse seitsemäs widgetti ylhäältä alueella seitsemän nimeltään Koti "
@@ -327,8 +277,8 @@ msgstr "Koti Widgetti 3"
 #: sidebar-home.php
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
-"Widgets and choose 8th widget from the top in area eight called Home Widget "
-"3. Title is also manageable from widgets as well."
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "Tämä on kolmas kotiwidgetti-laatikkosi. Muokataksesi mene Ulkoasu > Widgetit "
 "ja valitse kahdeksas widgetti ylhäältä alueella kahdeksan nimeltään Koti "
@@ -367,6 +317,10 @@ msgid "Footer Menu"
 msgstr "Alatunnistevalikko"
 
 #: includes/functions.php
+msgid "Page %s"
+msgstr ""
+
+#: includes/functions.php
 msgid ""
 "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
 "%4$s"
@@ -387,7 +341,7 @@ msgid "Posts tagged %s"
 msgstr "Merkityt julkaisut %s"
 
 #: includes/functions.php
-msgid "Error 404 "
+msgid "Error 404"
 msgstr "Virhe 404"
 
 #: includes/functions.php
@@ -502,6 +456,72 @@ msgstr ""
 msgid "Area 11 - sidebar-top.php"
 msgstr ""
 
+#: blog.php
+msgid "Blog (full posts)"
+msgstr ""
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr ""
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr ""
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr ""
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr ""
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr ""
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr ""
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr ""
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Terve, maailma!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "H2-alaotsikkosi tähän"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Otsikkosi, alaotsikkosi ja sisältösi ovat muokattavissa Teeman asetuksissa, "
+"kuin myös Call to Action -nappi ja sen osoite. Kuvasi oikealla voi olla "
+"valokuva tai jopa YouTube-video jos niin tahdot."
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "Toimintokutsu"
+
 #: includes/theme-options.php
 msgid "Theme Options"
 msgstr "Teeman asetukset"
@@ -529,6 +549,10 @@ msgstr "Estetäänkö toimintokutsunappi?"
 #: includes/theme-options.php
 msgid "Save Options"
 msgstr "Tallenna asetukset"
+
+#: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr ""
 
 #: includes/theme-options.php
 msgid "Logo Upload"
@@ -595,15 +619,27 @@ msgid "Featured Content"
 msgstr "Valittua sisältöä"
 
 #: includes/theme-options.php
-msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-msgstr "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-
-#: includes/theme-options.php
 msgid "See Docs"
 msgstr "Katso dokumenteista"
 
 #: includes/theme-options.php
 msgid "Paste your shortcode, video or image source"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
 msgstr ""
 
 #: includes/theme-options.php

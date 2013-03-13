@@ -3,139 +3,33 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2012-12-18 21:36+0100\n"
+"PO-Revision-Date: 2013-03-13 23:04+0100\n"
 "Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
 "Language-Team: Japanese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 &#8212; お探しのページが見つかりません。"
-
-#: image.php index.php page.php landing-page.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid ""
-"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
-"options here."
-msgstr ""
-"落ち着いてください、大丈夫です。他のオプションを一緒に考えてみましょう。"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "%sホームに戻るか、探していたページを検索"
-
-#: page.php landing-page.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php 404.php
-#: image.php index.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php includes/functions.php
-msgid "Home"
-msgstr "ホーム"
-
-#: 404.php page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "&larr; Home"
-msgstr "&larr; ホーム"
-
-#: archive.php
-msgid "Daily Archives: %s"
-msgstr "日別アーカイブ: %s"
-
-#: archive.php
-msgid "Monthly Archives: %s"
-msgstr "月別アーカイブ: %s"
-
-#: archive.php
-msgid "Yearly Archives: %s"
-msgstr "年別アーカイブ: %s"
-
-#: archive.php
-msgid "Blog Archives"
-msgstr "ブログアーカイブ"
-
-#: index.php blog.php blog-excerpt.php archive.php search.php sitemap.php
-msgid "Permanent Link to %s"
-msgstr "%s のパーマリンク"
-
-#: page.php index.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: search.php sidebar-content-half-page.php sidebar-content-page.php
-#: single.php
-msgid "No Comments &darr;"
-msgstr "コメントはありません &darr;"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "1 Comment &darr;"
-msgstr "1件のコメント &darr;"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "% Comments &darr;"
-msgstr "%件のコメント &darr;"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php
 #: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
 #: sidebar-content-page.php single.php sitemap.php
 msgid "Pages:"
 msgstr "ページ:"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Tagged with:"
-msgstr "タグ:"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Posted in %s"
-msgstr "カテゴリー: %s"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "Edit"
-msgstr "編集"
-
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "&#8249; Older posts"
 msgstr "&#8249; 古い投稿"
 
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "Newer posts &#8250;"
 msgstr "新しい投稿 &#8250;"
 
-#: page.php landing-page.php index.php full-width-page.php
+#: home.php page.php landing-page.php index.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
 #: sidebar-content-half-page.php sidebar-content-page.php single.php
 #: includes/functions.php
@@ -164,11 +58,6 @@ msgstr "トラックバック・ピンバック"
 #: comments.php
 msgid "%1$d %2$s for \"%3$s\""
 msgstr "\"%3$s\" に %1$d %2$s"
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "&ldquo;%2$s&rdquo; への1件のコメント"
 
 #: comments.php
 msgid "Name"
@@ -200,7 +89,7 @@ msgstr "http://themeid.com/responsive-theme/"
 
 #: footer.php
 msgid "Responsive Theme"
-msgstr "Responsive Theme"
+msgstr "Responsive テーマ"
 
 #: footer.php
 msgid "powered by"
@@ -214,39 +103,100 @@ msgstr "http://ja.wordpress.org/"
 msgid "WordPress"
 msgstr "WordPress"
 
-#: home.php
-msgid "Hello, World!"
-msgstr "Hello, World!"
-
-#: home.php
-msgid "Your H2 subheadline here"
-msgstr "H2 サブヘッドラインがここに表示されます"
-
-#: home.php
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-"タイトル、サブタイトル、このコンテンツはテーマ設定から編集できます。アクショ"
-"ン喚起ボタンとリンク先も同様です。右側の画像は、お好みの画像や YouTube などの"
-"動画を指定できます。"
-
-#: home.php
-msgid "Call to Action"
-msgstr "いますぐ登録！"
-
 #: image.php
 msgid "&#8249; Return to"
 msgstr "&#8249; 戻る:"
 
-#: search.php includes/functions.php
-msgid "Search results for: %s"
-msgstr "検索結果: %s"
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "コメントはありません &darr;"
 
-#: search.php
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1件のコメント &darr;"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "%件のコメント &darr;"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "&ldquo;%2$s&rdquo; への1件のコメント"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "タグ:"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "カテゴリー: %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "編集"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; お探しのページが見つかりません。"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"落ち着いてください、大丈夫です。他のオプションを一緒に考えてみましょう。"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "%sに戻るか、探していたページを検索してみましょう"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "ホーム"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "&larr; ホーム"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "日別アーカイブ: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "月別アーカイブ: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "年別アーカイブ: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "ブログアーカイブ"
+
+#: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
 msgstr "「%s」に一致する検索結果が見つかりませんでした。"
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "%s のパーマリンク"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "検索結果: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
@@ -258,7 +208,7 @@ msgstr "Go"
 
 #: sidebar-gallery.php
 msgid "Image Information"
-msgstr "画像の情報"
+msgstr "画像情報"
 
 #: sidebar-gallery.php
 msgid "Full Size:"
@@ -300,7 +250,7 @@ msgstr "ホームウィジェット 1"
 #: sidebar-home.php
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
-"Widgets and choose 6th widget from the top in area six called Home Widget 1. "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
 "1つ目のホームウィジェットボックスです。編集するには、「外観 > ウィジェット」"
@@ -314,8 +264,8 @@ msgstr "ホームウィジェット 2"
 #: sidebar-home.php
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
-"Widgets and choose 7th widget from the top in area seven called Home Widget "
-"2. Title is also manageable from widgets as well."
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "2つ目のホームウィジェットボックスです。編集するには、「外観 > ウィジェット」"
 "画面で上から7つめにある「ホームウィジェット 2」（エリア 7）を選んでください。"
@@ -328,8 +278,8 @@ msgstr "ホームウィジェット 3"
 #: sidebar-home.php
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
-"Widgets and choose 8th widget from the top in area eight called Home Widget "
-"3. Title is also manageable from widgets as well."
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "3つ目のホームウィジェットボックスです。編集するには、「外観 > ウィジェット」"
 "画面で上から8つめにある「ホームウィジェット 3」（エリア 8）を選んでください。"
@@ -368,6 +318,10 @@ msgid "Footer Menu"
 msgstr "フッターメニュー"
 
 #: includes/functions.php
+msgid "Page %s"
+msgstr "ページ %s"
+
+#: includes/functions.php
 msgid ""
 "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
 "%4$s"
@@ -388,7 +342,7 @@ msgid "Posts tagged %s"
 msgstr "タグのついた記事 %s"
 
 #: includes/functions.php
-msgid "Error 404 "
+msgid "Error 404"
 msgstr "404 エラー"
 
 #: includes/functions.php
@@ -409,7 +363,7 @@ msgstr "http://themeid.com/themes/"
 
 #: includes/functions.php
 msgid "More Themes"
-msgstr "テーマをもっと見てみる"
+msgstr "テーマをもっと見る"
 
 #: includes/functions.php
 msgid "http://themeid.com/showcase/"
@@ -489,11 +443,11 @@ msgstr "エリア 9 - sidebar-gallery.php"
 
 #: includes/functions.php
 msgid "Colophon Widget"
-msgstr ""
+msgstr "サイト情報ウィジェット"
 
 #: includes/functions.php
 msgid "Area 10 - sidebar-colophon.php"
-msgstr ""
+msgstr "エリア 10 - sidebar-colophon.php"
 
 #: includes/functions.php
 msgid "Top Widget"
@@ -501,7 +455,73 @@ msgstr ""
 
 #: includes/functions.php
 msgid "Area 11 - sidebar-top.php"
+msgstr "エリア 11 - sidebar-top.php"
+
+#: blog.php
+msgid "Blog (full posts)"
+msgstr "ブログ (全文)"
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr "ブログ抜粋"
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr "コンテンツ/サイドバー"
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr "サイドバー/コンテンツ"
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr "コンテンツ/サイドバー半ページ"
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr "サイドバー/コンテンツ半ページ"
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr "全幅ページ (サイドバーなし)"
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr "ランディングページ (メニューなし)"
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr "サイトマップ"
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr "レイアウト"
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr "デフォルト"
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Hello, World!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "H2 サブヘッドラインがここに表示されます"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
 msgstr ""
+"タイトル、サブタイトル、このコンテンツはテーマ設定から編集できます。アクショ"
+"ン喚起ボタンとリンク先も同様です。右側の画像は、お好みの画像や YouTube などの"
+"動画を指定できます。"
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "いますぐ登録！"
 
 #: includes/theme-options.php
 msgid "Theme Options"
@@ -530,6 +550,10 @@ msgstr "アクション喚起ボタンを非表示にしますか ?"
 #: includes/theme-options.php
 msgid "Save Options"
 msgstr "設定を保存"
+
+#: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr "デフォルトに戻す"
 
 #: includes/theme-options.php
 msgid "Logo Upload"
@@ -596,16 +620,28 @@ msgid "Featured Content"
 msgstr "おすすめコンテンツ"
 
 #: includes/theme-options.php
-msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-msgstr "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-
-#: includes/theme-options.php
 msgid "See Docs"
 msgstr "ドキュメンテーションを見る"
 
 #: includes/theme-options.php
 msgid "Paste your shortcode, video or image source"
-msgstr ""
+msgstr "ショートコード、動画または画像のソース URL を入力してください。"
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr "デフォルトレイアウト"
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr "デフォルト固定ページレイアウト"
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr "デフォルト個別ブログ投稿レイアウト"
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
+msgstr "デフォルトブログ投稿一覧ページレイアウト"
 
 #: includes/theme-options.php
 msgid "Webmaster Tools"
@@ -767,32 +803,32 @@ msgstr "独自のカスタム CSS スタイルを入力してください。"
 
 #: includes/theme-options.php
 msgid "Custom Scripts"
-msgstr ""
+msgstr "カスタムスクリプト"
 
 #: includes/theme-options.php
 msgid "Custom Scripts for Header and Footer"
-msgstr ""
+msgstr "ヘッダー・フッター用のカスタムスクリプト"
 
 #: includes/theme-options.php
 msgid "http://codex.wordpress.org/Using_Javascript"
-msgstr ""
+msgstr "http://codex.wordpress.org/Using_Javascript"
 
 #: includes/theme-options.php
 msgid "Quick Tutorial"
-msgstr ""
+msgstr "クイックチュートリアル"
 
 #: includes/theme-options.php
 msgid "Embeds to header.php &darr;"
-msgstr ""
+msgstr "header.php への埋め込み ↓"
 
 #: includes/theme-options.php
 msgid "Enter your custom header script."
-msgstr ""
+msgstr "カスタムヘッダースクリプトを入力してください。"
 
 #: includes/theme-options.php
 msgid "Embeds to footer.php &darr;"
-msgstr ""
+msgstr "footer.php への埋め込み ↓"
 
 #: includes/theme-options.php
 msgid "Enter your custom footer script."
-msgstr ""
+msgstr "カスタムフッタースクリプトを入力してください。"

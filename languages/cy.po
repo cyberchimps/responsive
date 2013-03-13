@@ -3,141 +3,34 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2012-12-18 21:48+0100\n"
+"PO-Revision-Date: 2013-03-13 23:02+0100\n"
 "Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
 "Language-Team: Welsh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : (n != 8 || n != 11) ? "
 "2 : 3;\n"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 &#8212; Wel, helo!"
-
-#: image.php index.php page.php landing-page.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid ""
-"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
-"options here."
-msgstr ""
-"Paid becso, nawn ni ffeindio ein ffordd rhywsut. Gad i ni edrych ar ein "
-"dewisiadau fan hyn."
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Gallwch ddychwelyd %s neu edrych am y dudalen roeddech chi eisiau"
-
-#: page.php landing-page.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php 404.php
-#: image.php index.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php includes/functions.php
-msgid "Home"
-msgstr "Adref"
-
-#: 404.php page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "&larr; Home"
-msgstr "&larr; Adref"
-
-#: archive.php
-msgid "Daily Archives: %s"
-msgstr "Archifau Dyddiol: %s"
-
-#: archive.php
-msgid "Monthly Archives: %s"
-msgstr "Archifau Misol: %s"
-
-#: archive.php
-msgid "Yearly Archives: %s"
-msgstr "Archifau Blynyddol: %s"
-
-#: archive.php
-msgid "Blog Archives"
-msgstr "Archifau Blog"
-
-#: index.php blog.php blog-excerpt.php archive.php search.php sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Dolen Barhaol i %s"
-
-#: page.php index.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: search.php sidebar-content-half-page.php sidebar-content-page.php
-#: single.php
-msgid "No Comments &darr;"
-msgstr "Dim Sylwadau &darr;"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "1 Comment &darr;"
-msgstr "1 Sylw &darr;"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "% Comments &darr;"
-msgstr "% Sylw &darr;"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php
 #: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
 #: sidebar-content-page.php single.php sitemap.php
 msgid "Pages:"
 msgstr "Tudalennau:"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Tagged with:"
-msgstr "Tagiwyd:"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Posted in %s"
-msgstr "Postiwyd yn %s"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "Edit"
-msgstr "Golygu"
-
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "&#8249; Older posts"
 msgstr "&#8249; Postiadau hŷn"
 
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "Newer posts &#8250;"
 msgstr "Postiadau mwy diweddar &#8250;"
 
-#: page.php landing-page.php index.php full-width-page.php
+#: home.php page.php landing-page.php index.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
 #: sidebar-content-half-page.php sidebar-content-page.php single.php
 #: includes/functions.php
@@ -166,14 +59,6 @@ msgstr "Pingiau&#47; Ôl-lwybrau"
 #: comments.php
 msgid "%1$d %2$s for \"%3$s\""
 msgstr "%1$d %2$s ar gyfer \"%3$s\""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "Un sylw ar &ldquo;%2$s&rdquo;"
-msgstr[1] "Dau sylw ar &ldquo;%2$s&rdquo;"
-msgstr[2] "%1$s sylw ar &ldquo;%2$s&rdquo;"
-msgstr[3] "%1$s sylw ar &ldquo;%2$s&rdquo;"
 
 #: comments.php
 msgid "Name"
@@ -219,39 +104,104 @@ msgstr "http://cy.wordpress.org/"
 msgid "WordPress"
 msgstr "WordPress"
 
-#: home.php
-msgid "Hello, World!"
-msgstr "Helo, Fyd!"
-
-#: home.php
-msgid "Your H2 subheadline here"
-msgstr "Eich is-bennawd H2 yma"
-
-#: home.php
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-"Gallwch olygu eich teitl, is-deitl a'r cynnwys hwn o ddewisiadau'r Thema, a "
-"hefyd y botwm Galw Ynghyd a'r lleoliad pen ei daith. Gall y ddelwedd ar y "
-"dde fod yn ddelwedd wahanol neu hyd yn oed fideo YouTube."
-
-#: home.php
-msgid "Call to Action"
-msgstr "Galw Ynghyd"
-
 #: image.php
 msgid "&#8249; Return to"
 msgstr "&#8249; Dychwelyd at"
 
-#: search.php includes/functions.php
-msgid "Search results for: %s"
-msgstr "Canlyniadau Chwilio ar gyfer: %s"
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "Dim Sylwadau &darr;"
 
-#: search.php
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1 Sylw &darr;"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "% Sylw &darr;"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "Un sylw ar &ldquo;%2$s&rdquo;"
+msgstr[1] "Dau sylw ar &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s sylw ar &ldquo;%2$s&rdquo;"
+msgstr[3] "%1$s sylw ar &ldquo;%2$s&rdquo;"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "Tagiwyd:"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "Postiwyd yn %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "Golygu"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; Wel, helo!"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Paid becso, nawn ni ffeindio ein ffordd rhywsut. Gad i ni edrych ar ein "
+"dewisiadau fan hyn."
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Gallwch ddychwelyd %s neu edrych am y dudalen roeddech chi eisiau"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "Adref"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "&larr; Adref"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "Archifau Dyddiol: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "Archifau Misol: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "Archifau Blynyddol: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "Archifau Blog"
+
+#: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
 msgstr "Eich chwiliad ar gyfer %s na wnaeth cydfynd ag unrhyw gofnod"
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Dolen Barhaol i %s"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "Canlyniadau Chwilio ar gyfer: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
@@ -305,7 +255,7 @@ msgstr "Teclyn Cartref 1"
 #: sidebar-home.php
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
-"Widgets and choose 6th widget from the top in area six called Home Widget 1. "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
 "Dyma blwch teclyn gyntaf eich hafan. I'w olygu, ewch i Appearance > Widgets "
@@ -319,8 +269,8 @@ msgstr "Teclyn Cartref 2"
 #: sidebar-home.php
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
-"Widgets and choose 7th widget from the top in area seven called Home Widget "
-"2. Title is also manageable from widgets as well."
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "Dyma ail flwch teclyn eich hafan. I'w olygu, ewch i Appearance > Widgets a "
 "dewiswch y 7fed teclyn o'r brig yn ardal chwech a enwir yn Teclyn Hafan 2. "
@@ -333,8 +283,8 @@ msgstr "Teclyn Cartref 3"
 #: sidebar-home.php
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
-"Widgets and choose 8th widget from the top in area eight called Home Widget "
-"3. Title is also manageable from widgets as well."
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
 msgstr ""
 "Dyma trydydd blwch teclyn eich hafan. I'w olygu, ewch i Appearance > Widgets "
 "a dewiswch yr 8fed teclyn o'r brig yn ardal chwech a enwir yn Teclyn Hafan "
@@ -373,6 +323,10 @@ msgid "Footer Menu"
 msgstr "Dewislen y Troedyn"
 
 #: includes/functions.php
+msgid "Page %s"
+msgstr ""
+
+#: includes/functions.php
 msgid ""
 "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
 "%4$s"
@@ -393,7 +347,7 @@ msgid "Posts tagged %s"
 msgstr "Postiau a dagiwyd %s"
 
 #: includes/functions.php
-msgid "Error 404 "
+msgid "Error 404"
 msgstr "Gwall 404"
 
 #: includes/functions.php
@@ -508,6 +462,72 @@ msgstr "Teclyn ar y Brig"
 msgid "Area 11 - sidebar-top.php"
 msgstr "Ardal Deuddeg - sidebar-top.php"
 
+#: blog.php
+msgid "Blog (full posts)"
+msgstr ""
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr ""
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr ""
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr ""
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr ""
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr ""
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr ""
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr ""
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Helo, Fyd!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "Eich is-bennawd H2 yma"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Gallwch olygu eich teitl, is-deitl a'r cynnwys hwn o ddewisiadau'r Thema, a "
+"hefyd y botwm Galw Ynghyd a'r lleoliad pen ei daith. Gall y ddelwedd ar y "
+"dde fod yn ddelwedd wahanol neu hyd yn oed fideo YouTube."
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "Galw Ynghyd"
+
 #: includes/theme-options.php
 msgid "Theme Options"
 msgstr "Dewisiadau'r Thema"
@@ -535,6 +555,10 @@ msgstr "Analluogi'r Botwm Galw Ynghyd?"
 #: includes/theme-options.php
 msgid "Save Options"
 msgstr "Arbed Dewisiadau"
+
+#: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr ""
 
 #: includes/theme-options.php
 msgid "Logo Upload"
@@ -601,16 +625,28 @@ msgid "Featured Content"
 msgstr "Cynnwys Blaenllaw"
 
 #: includes/theme-options.php
-msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-msgstr "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-
-#: includes/theme-options.php
 msgid "See Docs"
 msgstr "Gweld Dogfennau"
 
 #: includes/theme-options.php
 msgid "Paste your shortcode, video or image source"
 msgstr "Gludwch eich côd byr, fideo neu ffynhonnell eich delwedd"
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
+msgstr ""
 
 #: includes/theme-options.php
 msgid "Webmaster Tools"

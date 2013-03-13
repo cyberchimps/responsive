@@ -3,138 +3,33 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2013-01-03 17:53+0100\n"
+"PO-Revision-Date: 2013-03-13 23:04+0100\n"
 "Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
 "Language-Team: Dutch, Netherlands\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 &#8212; Leuk om je hier tegen te komen!"
-
-#: image.php index.php page.php landing-page.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid ""
-"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
-"options here."
-msgstr "Niet in paniek raken. Laten we kijken wat de mogelijkheden hier zijn."
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php 404.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
-#: sitemap.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Je kan teruggaan naar %s of naar de pagina zoeken die je zocht"
-
-#: page.php landing-page.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php 404.php
-#: image.php index.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php includes/functions.php
-msgid "Home"
-msgstr "Thuis"
-
-#: 404.php page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "&larr; Home"
-msgstr "&larr; Thuis"
-
-#: archive.php
-msgid "Daily Archives: %s"
-msgstr "Dagelijks archief: %s"
-
-#: archive.php
-msgid "Monthly Archives: %s"
-msgstr "Maandelijks archief: %s"
-
-#: archive.php
-msgid "Yearly Archives: %s"
-msgstr "Jaarlijks archief: %s"
-
-#: archive.php
-msgid "Blog Archives"
-msgstr "Blog archief"
-
-#: index.php blog.php blog-excerpt.php archive.php search.php sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Permanente Link naar %s"
-
-#: page.php index.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: search.php sidebar-content-half-page.php sidebar-content-page.php
-#: single.php
-msgid "No Comments &darr;"
-msgstr "Geen Reacties &darr;"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "1 Comment &darr;"
-msgstr "1 Reactie &darr;"
-
-#: single.php sidebar-content-page.php sidebar-content-half-page.php
-#: search.php page.php image.php full-width-page.php content-sidebar-page.php
-#: content-sidebar-half-page.php blog.php blog-excerpt.php archive.php
-#: index.php
-msgid "% Comments &darr;"
-msgstr "% Reacties &darr;"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php
 #: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
 #: sidebar-content-page.php single.php sitemap.php
 msgid "Pages:"
 msgstr "Pagina&#39;s"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Tagged with:"
-msgstr "Getagd met"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php
-msgid "Posted in %s"
-msgstr "Geplaatst in %s"
-
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
-msgid "Edit"
-msgstr "Bewerken"
-
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "&#8249; Older posts"
 msgstr "&#8249; Oudere berichten"
 
-#: page.php landing-page.php index.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
-#: sidebar-content-page.php single.php sitemap.php
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
 msgid "Newer posts &#8250;"
 msgstr "Nieuwere berichten &#8250;"
 
-#: page.php landing-page.php index.php full-width-page.php
+#: home.php page.php landing-page.php index.php full-width-page.php
 #: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
 #: sidebar-content-half-page.php sidebar-content-page.php single.php
 #: includes/functions.php
@@ -163,12 +58,6 @@ msgstr "Pings&#47;Trackbacks"
 #: comments.php
 msgid "%1$d %2$s for \"%3$s\""
 msgstr "%1$d %2$s op \"%3$s\""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "1 Reactie op &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s reacties op &ldquo;%2$s&rdquo;"
 
 #: comments.php
 msgid "Name"
@@ -200,7 +89,7 @@ msgstr "http://themeid.com/responsive-theme/"
 
 #: footer.php
 msgid "Responsive Theme"
-msgstr "Responsive Theme"
+msgstr "Responsive Thema"
 
 #: footer.php
 msgid "powered by"
@@ -214,39 +103,100 @@ msgstr "http://nl.wordpress.org/"
 msgid "WordPress"
 msgstr "WordPress"
 
-#: home.php
-msgid "Hello, World!"
-msgstr "Hallo, Wereld!"
-
-#: home.php
-msgid "Your H2 subheadline here"
-msgstr "Je H2 subkoptekst hier"
-
-#: home.php
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-"Je titel, subtitel en deze inhoud zijn te bewerken vanuit Thema Keuze. "
-"Evenals de Actie knop en de bestemmingslink. Afbeelding aan de rechterkant "
-"kan een afbeelding zijn of zelfs een Youtube video als je dat wil."
-
-#: home.php
-msgid "Call to Action"
-msgstr "Actie"
-
 #: image.php
 msgid "&#8249; Return to"
 msgstr "&#8249; Keer terug naar"
 
-#: search.php includes/functions.php
-msgid "Search results for: %s"
-msgstr "Zoekresultaten voor: %s"
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "Geen Reacties &darr;"
 
-#: search.php
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1 Reactie &darr;"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "% Reacties &darr;"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "1 Reactie op &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s reacties op &ldquo;%2$s&rdquo;"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "Getagd met"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "Geplaatst in %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "Bewerken"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; Leuk om je hier tegen te komen!"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr "Niet in paniek raken. Laten we kijken wat de mogelijkheden hier zijn."
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Je kan teruggaan naar %s of naar de pagina zoeken die je zocht"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "Thuis"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "&larr; Thuis"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "Dagelijks archief: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "Maandelijks archief: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "Jaarlijks archief: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "Blog archief"
+
+#: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
 msgstr "Je zoektocht naar %s heeft geen uitkomsten opgeleverd"
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Permanente Link naar %s"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "Zoekresultaten voor: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
@@ -357,15 +307,19 @@ msgstr "Bovenste Menu"
 
 #: includes/functions.php
 msgid "Header Menu"
-msgstr "Header Menu"
+msgstr "Kop Menu"
 
 #: includes/functions.php
 msgid "Sub-Header Menu"
-msgstr "Sub-Header Menu"
+msgstr "Sub-Kop Menu"
 
 #: includes/functions.php
 msgid "Footer Menu"
 msgstr "Voettekst Menu"
+
+#: includes/functions.php
+msgid "Page %s"
+msgstr "Pagina %s"
 
 #: includes/functions.php
 msgid ""
@@ -377,7 +331,7 @@ msgstr ""
 
 #: includes/functions.php
 msgid "View all posts by %s"
-msgstr "Bekijken alle berichten geplaatst door %s"
+msgstr "Bekijk alle berichten geplaatst door %s"
 
 #: includes/functions.php
 msgid "Archive for %s"
@@ -388,7 +342,7 @@ msgid "Posts tagged %s"
 msgstr "Berichten getagd met %s"
 
 #: includes/functions.php
-msgid "Error 404 "
+msgid "Error 404"
 msgstr "Fout 404 "
 
 #: includes/functions.php
@@ -429,7 +383,7 @@ msgstr "Doneer Nu"
 
 #: includes/functions.php
 msgid "Main Sidebar"
-msgstr "Hoofd Sidebar"
+msgstr "Hoofd Zijbalk"
 
 #: includes/functions.php
 msgid "Area 1 - sidebar.php"
@@ -437,7 +391,7 @@ msgstr "Gebied Een - sidebar.php"
 
 #: includes/functions.php
 msgid "Right Sidebar"
-msgstr "Rechter Sidebar"
+msgstr "Rechter Zijbalk"
 
 #: includes/functions.php
 msgid "Area 2 - sidebar-right.php"
@@ -445,7 +399,7 @@ msgstr "Gebied Twee - sidebar-right.php"
 
 #: includes/functions.php
 msgid "Left Sidebar"
-msgstr "Linker Sidebar"
+msgstr "Linker Zijbalk"
 
 #: includes/functions.php
 msgid "Area 3 - sidebar-left.php"
@@ -453,7 +407,7 @@ msgstr "Gebied Drie - sidebar-left.php"
 
 #: includes/functions.php
 msgid "Left Sidebar Half Page"
-msgstr "Linker Sidebar Halverwege Pagina"
+msgstr "Linker Zijbalk Halverwege Pagina"
 
 #: includes/functions.php
 msgid "Area 4 - sidebar-left-half.php"
@@ -461,7 +415,7 @@ msgstr "Gebied Vier - sidebar-left-half.php"
 
 #: includes/functions.php
 msgid "Right Sidebar Half Page"
-msgstr "Rechter Sidebar Halverwege Pagina"
+msgstr "Rechter Zijbalk Halverwege Pagina"
 
 #: includes/functions.php
 msgid "Area 5 - sidebar-right-half.php"
@@ -481,7 +435,7 @@ msgstr "Gebied Acht - sidebar-home.php"
 
 #: includes/functions.php
 msgid "Gallery Sidebar"
-msgstr "Galerij Sidebar"
+msgstr "Galerij Zijbalk"
 
 #: includes/functions.php
 msgid "Area 9 - sidebar-gallery.php"
@@ -502,6 +456,72 @@ msgstr "Bovenste Widget"
 #: includes/functions.php
 msgid "Area 11 - sidebar-top.php"
 msgstr "Gebied Elf - sidebar-top.php"
+
+#: blog.php
+msgid "Blog (full posts)"
+msgstr "Blog (volledige berichten)"
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr "Blog Fragment (samenvatting)"
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr "Inhoud/Zijbalk"
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr "Zijbalk/Inhoud"
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr "Inhoud/Zijbalk Halverwege Pagina"
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr "Zijbalk/Inhoud Halverwege Pagina"
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr "Volledige Breedte Pagina (geen zijbalk)"
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr "Landingspagina (geen menu)"
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr "Sitemap"
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr "Layout"
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr "Standaard"
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Hallo, Wereld!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "Je H2 subkoptekst hier"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Je titel, subtitel en deze inhoud zijn te bewerken vanuit Thema Keuze. "
+"Evenals de Actie knop en de bestemmingslink. Afbeelding aan de rechterkant "
+"kan een afbeelding zijn of zelfs een Youtube video als je dat wil."
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "Actie"
 
 #: includes/theme-options.php
 msgid "Theme Options"
@@ -532,12 +552,16 @@ msgid "Save Options"
 msgstr "Bewaar Opties"
 
 #: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr "Herstel de Standaard waardes"
+
+#: includes/theme-options.php
 msgid "Logo Upload"
 msgstr "Logo Upload"
 
 #: includes/theme-options.php
 msgid "Custom Header"
-msgstr "Aangepaste Header"
+msgstr "Aangepaste Kop"
 
 #: includes/theme-options.php
 msgid "Need to replace or remove default logo?"
@@ -553,19 +577,19 @@ msgstr "Thuis Pagina"
 
 #: includes/theme-options.php
 msgid "Headline"
-msgstr "Kopzin"
+msgstr "Koptekst"
 
 #: includes/theme-options.php
 msgid "Enter your headline"
-msgstr "Vul je kopzin in"
+msgstr "Vul je koptekst in"
 
 #: includes/theme-options.php
 msgid "Subheadline"
-msgstr "Subkopzin"
+msgstr "Subkoptekst"
 
 #: includes/theme-options.php
 msgid "Enter your subheadline"
-msgstr "Vul je subkopzin in"
+msgstr "Vul je subkoptekst in"
 
 #: includes/theme-options.php
 msgid "Content Area"
@@ -596,16 +620,28 @@ msgid "Featured Content"
 msgstr "Uitgelichte Inhoud"
 
 #: includes/theme-options.php
-msgid "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-msgstr "http://themeid.com/forum/topic/510/theme-options-featured-content/"
-
-#: includes/theme-options.php
 msgid "See Docs"
 msgstr "Zie Docs"
 
 #: includes/theme-options.php
 msgid "Paste your shortcode, video or image source"
 msgstr "Plak je shortcode, video of afbeeldingsbron"
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr "Standaard Layouts"
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr "Standaard Statische Pagina Layout"
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr "Standaard Enkel Blog Bericht Layout"
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
+msgstr "Standaard Blog Berichten Index Layout"
 
 #: includes/theme-options.php
 msgid "Webmaster Tools"
