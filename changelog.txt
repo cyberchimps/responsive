@@ -24,6 +24,18 @@ Changelog Legend:
 [*] Improve translations
 [*] Language updates for:
     - responsive.pot
+    - Slovak
+    - Japanese
+    - Slovenian
+    - German
+    - German Formal
+    - French
+    - Russian
+    - Catalan
+    - Dutch
+    - Danish
+    - Portuguese, Brazil
+    - Serbian
 [!] Hide mobile menu on landing page template
 [!] RTL menu fixs
 
