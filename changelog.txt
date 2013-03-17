@@ -8,7 +8,26 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/13/2013) - Major Improvemnts - Version 1.9.0
 
+[+] Layout templates for posts
+[+] Default layout templates for Pages, Posts and blog page
+[+] Added theme templates for code that is used in multiple files
+[+] Added class for the title on the archiv page
+[+] Add css for support for responsive html5 video
+[+] Basic WPML and Polylang styling
+[+] Hover effect on the parent item when dropdown is hovered on
+[*] Basic support for WooCommerce 2.0
+[*] Updated breadcrumbs code
+[*] Change the way setting the custom home page. Now conforms with WordPress default reading setting
+[*] Improved theme options default settings
+[*] Improve translations
+[*] Language updates for:
+    - responsive.pot
+[!] Hide mobile menu on landing page template
+[!] RTL menu fixs
+
+----
 
 (02/04/2013) - Minor Bug Release - Version 1.8.9.2/3
 
