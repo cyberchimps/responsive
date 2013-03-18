@@ -4,10 +4,9 @@
 This and any other Theme provided by ThemeID should
 be free of bugs, however do note that we're only humans
 and if you spot a bug do us a favor and report here
-http://themeid.com/forum
+http://cyberchimps.com/forum/free/responsive/
 
-Our forum is FREE and dedicated as well, if something
-goes wrong, or you need our assistance with anything
+If something goes wrong, or you need our assistance with anything
 just register and post your question(s).
 
 -------------------------------------------------------
@@ -74,6 +73,3 @@ this Theme as well as third-party add-ons as listed above.
 All derivative Themes must be much different from the original
 work, which includes the Theme design as well as all the codes
 from Responsive Theme.
-
-Show us your appreciation by donating and supporting the free
-open source projects http://themeid.com/donate
