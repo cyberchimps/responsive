@@ -1853,7 +1853,6 @@ ul.menu > li:hover {
 	background-image: -o-linear-gradient(top, #808080, #363636);
 	background-image: linear-gradient(top, #808080, #363636);
 	color: #fff;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#808080, endColorstr=#363636);
 }
 
 .menu .current_page_item a,
