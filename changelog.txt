@@ -8,7 +8,17 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(03/13/2013) - Major Improvemnts - Version 1.9.0
+
+(03/24/2013) - Bug Fixes - Version 1.9.1
+
+[!] Readded - Title Tag while AIOSEOP not activated.
+[!] Fix hover effect on the parent item when dropdown is hovered on for IE
+[!] Fix older posts link for blog templates
+[!] Breadcrumbs on blog
+
+----
+
+(03/19/2013) - Major Improvemnts - Version 1.9.0
 
 [+] Layout templates for posts
 [+] Default layout templates for Pages, Posts and blog page

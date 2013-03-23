@@ -401,7 +401,7 @@ function responsive_breadcrumb_lists() {
 	$after       = '</span>'; // tag after the current crumb
 	/* === END OF OPTIONS === */
 
-	global $post;
+	global $post, $paged, $page;
 	$homeLink = get_bloginfo('url') . '/';
 	$linkBefore = '<span typeof="v:Breadcrumb">';
 	$linkAfter = '</span>';
@@ -505,7 +505,7 @@ function responsive_breadcrumb_lists() {
 
 		}if ( get_query_var('paged') ) {
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
-			echo __('Page','responsive') . ' ' . get_query_var('paged');
+			echo $delimiter . sprintf( __( 'Page %s', 'responsive' ), max( $paged, $page ) );
 			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
 		}
 

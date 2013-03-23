@@ -29,12 +29,24 @@ if ( !defined('ABSPATH')) exit;
 <meta charset="<?php bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-<title><?php wp_title('&#124;', true, 'right'); ?></title>
+<title>
+<?php
+if ( defined( 'WPSEO_VERSION' ) ) {
+    // WordPress SEO is activated
+        wp_title();
+
+} else {
+	
+    // WordPress SEO is not activated
+	wp_title( '&#124;', true, 'right' );
+}
+?>
+</title>
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-<?php wp_enqueue_style('responsive-style', get_stylesheet_uri(), false, '1.9.0');?>
+<?php wp_enqueue_style('responsive-style', get_stylesheet_uri(), false, '1.9.1');?>
 
 <?php wp_head(); ?>
 </head>
