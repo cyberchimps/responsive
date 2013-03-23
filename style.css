@@ -1846,12 +1846,6 @@ form div {
 
 ul.menu > li:hover {
 	background-color: #363636;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#808080), to(#363636));
-	background-image: -webkit-linear-gradient(top, #808080, #363636);
-	background-image: -moz-linear-gradient(top, #808080, #363636);
-	background-image: -ms-linear-gradient(top, #808080, #363636);
-	background-image: -o-linear-gradient(top, #808080, #363636);
-	background-image: linear-gradient(top, #808080, #363636);
 	color: #fff;
 }
 
