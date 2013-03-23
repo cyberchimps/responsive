@@ -402,7 +402,7 @@ function responsive_breadcrumb_lists() {
 	/* === END OF OPTIONS === */
 
 	global $post, $paged, $page;
-	$homeLink = get_bloginfo('url') . '/';
+	$homeLink = home_url('/');
 	$linkBefore = '<span typeof="v:Breadcrumb">';
 	$linkAfter = '</span>';
 	$linkAttr = ' rel="v:url" property="v:title"';
