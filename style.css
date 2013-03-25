@@ -1266,6 +1266,13 @@ form div {
 	position: relative;
 }
 
+.home #wrapper {
+	background-color: transparent;
+	border: none;
+	margin: 20px auto 20px auto;
+	padding: 0;
+}
+
 .home.page-template-default #wrapper {
 	background-color: transparent;
 	border: none;
