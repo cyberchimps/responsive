@@ -689,4 +689,20 @@ endif;
     }
 	
     add_action('widgets_init', 'responsive_widgets_init');
+		
+/**
+* Front Page function starts here. The Front page overides WP's show_on_front option. So when show_on_front option changes it sets the themes front_page to 0 therefore displaying the new option
+*/
+		
+function responsive_front_page_override( $new, $orig ) {
+	global $responsive_options;
+	
+	if( $orig !== $new ) {
+		$responsive_options['front_page'] = 0;
+		
+		update_option( 'responsive_theme_options', $responsive_options );
+	}
+	return $new;
+}
+add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override', 10, 2 );
 ?>

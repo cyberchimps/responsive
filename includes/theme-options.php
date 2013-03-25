@@ -49,6 +49,7 @@ function responsive_get_option_defaults() {
 	$defaults = array(
 		'breadcrumb' => false,
 		'cta_button' => false,
+		'front_page' => 1,
 		'home_headline' => __('Hello, World!','responsive'),
 		'home_subheadline' => __('Your H2 subheadline here','responsive'),
 		'home_content_area' => __('Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.','responsive'),
@@ -265,6 +266,16 @@ function responsive_theme_options_do_page() {
             <h3 class="rwd-toggle"><a href="#"><?php _e('Home Page', 'responsive'); ?></a></h3>
             <div class="rwd-container">
                 <div class="rwd-block">
+                <?php
+                /**
+                 * Front Page Override Checkbox
+                 */
+                ?>
+                <div class="grid col-300"><?php _e('Front Page', 'responsive'); ?></div><!-- end of .grid col-300 -->
+                    <div class="grid col-620 fit">
+                        <input id="responsive_theme_options[front_page]" name="responsive_theme_options[front_page]" type="checkbox" value="1" <?php checked( '1', $responsive_options['front_page'], true ); ?> />
+                        <label class="description" for="responsive_theme_options[home_headline]"><?php _e('Override the Wordpress front page option', 'responsive'); ?></label>
+                    </div><!-- end of .grid col-620 -->
                 <?php
                 /**
                  * Homepage Headline
@@ -639,7 +650,8 @@ function responsive_theme_options_validate($input) {
 		// checkbox value is either 0 or 1
 		foreach (array(
 			'breadcrumb',
-			'cta_button'
+			'cta_button',
+			'front_page'
 			) as $checkbox) {
 			if (!isset($input[$checkbox]))
 				$input[$checkbox] = null;
