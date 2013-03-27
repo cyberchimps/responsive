@@ -537,6 +537,7 @@ endif;
 			wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/responsive-modernizr.js', array('jquery'), '2.6.1', false);
             wp_enqueue_script('responsive-scripts', get_template_directory_uri() . '/js/responsive-scripts.js', array('jquery'), '1.2.2', true);
 			wp_enqueue_script('responsive-plugins', get_template_directory_uri() . '/js/responsive-plugins.js', array('jquery'), '1.2.2', true);
+			wp_enqueue_script('responsive', get_template_directory_uri() . '/js/responsive.js', array('jquery'), '1.0.0', true);
         }
 
     }
