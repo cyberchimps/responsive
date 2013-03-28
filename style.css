@@ -1923,6 +1923,10 @@ ul.menu > li:hover {
 	display: none;
 }
 
+.main-nav #responsive_current_menu_item {
+	display: none;
+}
+
 /* =Primary Main Menu IE Fixes
 -------------------------------------------------------------- */
 .ie7 .menu ul {
@@ -3002,6 +3006,7 @@ BDO[DIR="rtl"] {
 	
 	.js .main-nav #responsive_current_menu_item {
 		position: absolute;
+		display: block;
 		top: 5px;
 		left: 15px;
 		color: #fff;
