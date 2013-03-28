@@ -35,7 +35,7 @@ endif;
  */
 if ( is_archive() ) {
 	?>
-	<h6 class"title-archive">
+	<h6 class="title-archive">
 		<?php 
 		if ( is_day() ) : 
 			printf( __( 'Daily Archives: %s', 'responsive' ), '<span>' . get_the_date() . '</span>' ); 
