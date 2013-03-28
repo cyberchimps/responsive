@@ -1,7 +1,16 @@
 jQuery(document).ready(function($) {
+	var current = $('.main-nav li.current-menu-item a').html();
 	$('.main-nav').append('<a id="responsive_menu_button" href="#"></a>');
+	$('.main-nav').prepend('<div id="responsive_current_menu_item">' + current + '</div>');
 	$('a#responsive_menu_button').click(function(){
-		$('.js .main-nav .menu').slideToggle();			
+		$('.js .main-nav .menu').slideToggle( function() {
+			if( $(this).is(':visible') ) {
+				$('a#responsive_menu_button').addClass('responsive-toggle-open');
+			}
+			else {
+				$('a#responsive_menu_button').removeClass('responsive-toggle-open');
+			}
+		});		
 });
 });
 /*! Responsive JS Library v1.2.2 */
