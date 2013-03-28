@@ -94,6 +94,7 @@ if ( defined( 'WPSEO_VERSION' ) ) {
 				<?php wp_nav_menu(array(
 				    'container'       => 'div',
 						'container_class'	=> 'main-nav',
+						'fallback_cb'	  =>  'responsive_fallback_menu',
 						'theme_location'  => 'header-menu')
 					); 
 				?>

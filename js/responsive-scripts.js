@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
-	var current = $('.main-nav li.current-menu-item a').html();
+	var current = $('.main-nav li.current_page_item a').html();
+	if( typeof current == 'undefined' ) { current = ' ' };
 	$('.main-nav').append('<a id="responsive_menu_button" href="#"></a>');
 	$('.main-nav').prepend('<div id="responsive_current_menu_item">' + current + '</div>');
 	$('a#responsive_menu_button').click(function(){
