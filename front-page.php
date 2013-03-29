@@ -41,6 +41,17 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 } else { 
 
 	get_header(); 
+	
+	// If theme option front page toggle is on then add a class to body to have css.
+	If( $responsive_options['front_page'] == 1 ) {
+	?>
+		<script>
+			jQuery(function () {
+				jQuery('body.home').addClass('front-page');
+			});
+		</script>
+	<?php
+	}
 	?>
 
 	<div id="featured" class="grid col-940">
