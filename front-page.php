@@ -36,8 +36,10 @@ $responsive_options = responsive_get_options();
  */
 if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page'] != 1 ) {
 	get_template_part( 'home' );
-} elseif ( $responsive_options['front_page'] != 1 && 'default' != get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true ) ) {
-	locate_template( get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true ), true );
+} elseif ( 'page' == get_option( 'show_on_front' ) && $responsive_options['front_page'] != 1 ) {
+	$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
+	$template = ( $template == 'default' ) ? 'index.php' : $template;
+	locate_template( $template, true );
 } else { 
 
 	get_header();

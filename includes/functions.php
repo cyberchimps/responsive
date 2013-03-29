@@ -732,15 +732,15 @@ add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override',
 * Funtion to add CSS class to body
 */
 function responsive_add_class( $classes ) {
-
+	
 	// Get Responsive theme option.
-	$responsive_options = responsive_get_options();
-	If( $responsive_options['front_page'] == 1 ) {
+	global $responsive_options;
+	if( $responsive_options['front_page'] == 1 && is_front_page() ) {
 		$classes[] = 'front-page';
 	}
 	
 	return $classes;
 }
 
-add_filter('body_class','responsive_add_class');
+add_filter( 'body_class','responsive_add_class' );
 ?>

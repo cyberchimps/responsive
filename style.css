@@ -1530,10 +1530,6 @@ form div {
 	margin-top: 40px;
 }
 
-.home.page-template-default #widgets {
-	margin-top: 0;
-}
-
 #widgets a {
 	display: inline-block;
 	margin: 0;
