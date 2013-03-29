@@ -727,4 +727,20 @@ function responsive_front_page_override( $new, $orig ) {
 	return $new;
 }
 add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override', 10, 2 );
+
+/**
+* Funtion to add CSS class to body
+*/
+function responsive_add_class( $classes ) {
+
+	// Get Responsive theme option.
+	$responsive_options = responsive_get_options();
+	If( $responsive_options['front_page'] == 1 ) {
+		$classes[] = 'front-page';
+	}
+	
+	return $classes;
+}
+
+add_filter('body_class','responsive_add_class');
 ?>

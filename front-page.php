@@ -40,18 +40,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 	locate_template( get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true ), true );
 } else { 
 
-	get_header(); 
-	
-	// If theme option front page toggle is on then add a class to body to have css.
-	If( $responsive_options['front_page'] == 1 ) {
-	?>
-		<script>
-			jQuery(function () {
-				jQuery('body.home').addClass('front-page');
-			});
-		</script>
-	<?php
-	}
+	get_header();
 	?>
 
 	<div id="featured" class="grid col-940">
