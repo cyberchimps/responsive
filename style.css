@@ -2937,6 +2937,7 @@ BDO[DIR="rtl"] {
 		border: none;
 		border-bottom: 1px solid #f5f5f5;
 		text-shadow: none;
+		text-align: left;
 	}
 	
 	.js .main-nav .menu li.current_page_item,
