@@ -13,6 +13,9 @@ jQuery(document).ready(function($) {
 			if( $('body').hasClass('single') ) {
 				current = $('h1.post-title a').html();
 			}
+			else if( $('body').hasClass('archive') ) {
+				current = $('h6.title-archive span').html();
+			}
 			else {
 				current = $('h1.post-title').html();
 			}
