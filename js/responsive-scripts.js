@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 				current = $('h1.post-title a').html();
 			}
 			else if( $('body').hasClass('archive') ) {
-				current = $('h6.title-archive span').html();
+				current = $('h6.title-archive').html();
 			}
 			else {
 				current = $('h1.post-title').html();
