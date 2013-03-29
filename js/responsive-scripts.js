@@ -1,6 +1,23 @@
 jQuery(document).ready(function($) {
 	var current = $('.main-nav li.current_page_item a').html();
-	if( typeof current == 'undefined' ) { current = ' ' };
+	if( typeof current == 'undefined' ) {
+		if( $('body').hasClass('home') ) {
+			if( $('#logo span').hasClass('site-name') ) {
+				current = $('#logo .site-name a').html();
+			}
+			else {
+				current = $('#logo img').attr('alt');
+			}
+		}
+		else{
+			if( $('body').hasClass('single') ) {
+				current = $('h1.post-title a').html();
+			}
+			else {
+				current = $('h1.post-title').html();
+			}
+		}
+	};
 	$('.main-nav').append('<a id="responsive_menu_button" href="#"></a>');
 	$('.main-nav').prepend('<div id="responsive_current_menu_item">' + current + '</div>');
 	$('a#responsive_menu_button').click(function(){
