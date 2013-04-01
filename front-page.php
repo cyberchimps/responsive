@@ -53,7 +53,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 			
 			<h2 class="featured-subtitle"><?php echo $responsive_options['home_subheadline']; ?></h2>
 			
-			<p><?php echo $responsive_options['home_content_area']; ?></p>
+			<p><?php echo do_shortcode( $responsive_options['home_content_area'] ); ?></p>
 			
 			<?php if ($responsive_options['cta_button'] == 0): ?>  
    
