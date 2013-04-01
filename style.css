@@ -1318,20 +1318,18 @@ form div {
 /* =Content
 -------------------------------------------------------------- */
 #content {
+	margin-top: 40px;
 	margin-bottom: 20px;
 }
 
 #content-full {
+	margin-top: 40px;
 	margin-bottom: 20px;
 }
 
 #content-blog {
-	margin-bottom: 20px;
-}
-
-.home #content,
-.home #content-blog {
 	margin-top: 40px;
+	margin-bottom: 20px;
 }
 
 #content-images {
@@ -1344,6 +1342,7 @@ form div {
 }
 
 #content-archive {
+	margin-top: 40px;
 	margin-bottom: 20px;
 }
 
@@ -2312,7 +2311,6 @@ ul.menu > li:hover {
 -------------------------------------------------------------- */
 .breadcrumb-list {
 	font-size: 12px;
-	padding: 40px 0 0 0;
 }
 
 /* =Comments
@@ -2622,6 +2620,7 @@ img.attachment-thumbnail {
 }
 
 #content-woocommerce {
+	margin-top: 40px;
 	margin-bottom: 20px;
 }
 
