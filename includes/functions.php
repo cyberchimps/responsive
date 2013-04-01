@@ -162,12 +162,22 @@ if (!function_exists('responsive_setup')):
 		
 	    }
 			
-			//if you are upgarding your theme we set our front page override to 0 so as not to effect your front page
-			$responsive_options = get_option( 'responsive_theme_options' );
-			if( $responsive_options && isset( $_GET['activated'] ) ) {
-				$responsive_options['front_page'] = 0;
-				update_option( 'responsive_theme_options', $responsive_options );
+		// While upgrading set theme option front page toggle not to affect old setup.
+		$responsive_options = get_option( 'responsive_theme_options' );
+		if( $responsive_options && isset( $_GET['activated'] ) ) {
+		
+			// Get template of page which is set as static front page
+			$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
+			
+			// If static front page template is set to default then set front page toggle of theme option to 1
+			if( 'page' == get_option( 'show_on_front' ) && $template == 'default' ) {
+				$responsive_options['front_page'] = 1;
 			}
+			else {
+				$responsive_options['front_page'] = 0;
+			}
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
     }
 
 endif;
