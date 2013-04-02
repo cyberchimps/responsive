@@ -166,17 +166,21 @@ if (!function_exists('responsive_setup')):
 		$responsive_options = get_option( 'responsive_theme_options' );
 		if( $responsive_options && isset( $_GET['activated'] ) ) {
 		
-			// Get template of page which is set as static front page
-			$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
+			// If front_page is not in theme option previously then set it.
+			if( !isset( $responsive_options['front_page'] )) {
 			
-			// If static front page template is set to default then set front page toggle of theme option to 1
-			if( 'page' == get_option( 'show_on_front' ) && $template == 'default' ) {
-				$responsive_options['front_page'] = 1;
+				// Get template of page which is set as static front page
+				$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
+				
+				// If static front page template is set to default then set front page toggle of theme option to 1
+				if( 'page' == get_option( 'show_on_front' ) && $template == 'default' ) {
+					$responsive_options['front_page'] = 1;
+				}
+				else {
+					$responsive_options['front_page'] = 0;
+				}
+				update_option( 'responsive_theme_options', $responsive_options );
 			}
-			else {
-				$responsive_options['front_page'] = 0;
-			}
-			update_option( 'responsive_theme_options', $responsive_options );
 		}
     }
 
