@@ -271,10 +271,10 @@ function responsive_theme_options_do_page() {
                  * Front Page Override Checkbox
                  */
                 ?>
-                <div class="grid col-300"><?php _e('Front Page', 'responsive'); ?></div><!-- end of .grid col-300 -->
+                <div class="grid col-300"><?php _e('Custom Front Page', 'responsive'); ?></div><!-- end of .grid col-300 -->
                     <div class="grid col-620 fit">
                         <input id="responsive_theme_options[front_page]" name="responsive_theme_options[front_page]" type="checkbox" value="1" <?php checked( '1', $responsive_options['front_page'], true ); ?> />
-                        <label class="description" for="responsive_theme_options[home_headline]"><?php _e('Override the Wordpress front page option', 'responsive'); ?></label>
+                        <label class="description" for="responsive_theme_options[home_headline]"><?php _e('Uncheck to disable', 'responsive'); ?></label>
                     </div><!-- end of .grid col-620 -->
                 <?php
                 /**
