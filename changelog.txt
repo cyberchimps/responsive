@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/02/13) - Improvements - Version 1.9.2
+[*] Correct homelink in breadcrumbs
+[*] Static page margin
+[*] New way to set front page from theme options
+[+] New mobile menu
+
+----
 
 (03/24/2013) - Bug Fixes - Version 1.9.1
 
