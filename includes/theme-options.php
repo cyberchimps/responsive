@@ -274,7 +274,7 @@ function responsive_theme_options_do_page() {
                 <div class="grid col-300"><?php _e('Enable Custom Front Page', 'responsive'); ?></div><!-- end of .grid col-300 -->
                     <div class="grid col-620 fit">
                         <input id="responsive_theme_options[front_page]" name="responsive_theme_options[front_page]" type="checkbox" value="1" <?php checked( '1', $responsive_options['front_page'], true ); ?> />
-                        <label class="description" for="responsive_theme_options[home_headline]"><?php printf( __('Overrides the Wordpress %1sfront page option%2s', 'responsive'), '<a href="options-reading.php">', '</a>'); ?></label>
+                        <label class="description" for="responsive_theme_options[home_headline]"><?php printf( __('Overrides the WordPress %1sfront page option%2s', 'responsive'), '<a href="options-reading.php">', '</a>'); ?></label>
                     </div><!-- end of .grid col-620 -->
                 <?php
                 /**
