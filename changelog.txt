@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/02/13) - Improvements - Version 1.9.3
+[*] Update pot
+[!] Fix navigation on blog templates when set as front page
+
+----
+
 (04/02/13) - Improvements - Version 1.9.2
 [*] Correct homelink in breadcrumbs
 [*] Static page margin
