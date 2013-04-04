@@ -1266,7 +1266,7 @@ form div {
 	position: relative;
 }
 
-.home.front-page #wrapper {
+.front-page #wrapper {
 	background-color: transparent;
 	border: none;
 	margin: 20px auto 20px auto;
@@ -1850,7 +1850,7 @@ ul.menu > li:hover {
 	background-color: #343434;
 }
 
-.home.page-template-default .menu .current_page_item a {
+.front-page .menu .current_page_item a {
 	background: none;
 	background-color: transparent;
 	background-image: none;
@@ -2839,12 +2839,12 @@ BDO[DIR="rtl"] {
 		margin: 20px 0 0 0;
 	}
 
-	.home.page-template-default #widgets {
+	.front-page  #widgets {
 		margin-top: 40px;
 	}
 
 	.top-widget,
-	.home.page-template-default .top-widget {
+	.front-page  .top-widget {
 		margin-top: 0 !important;
 	}
 
