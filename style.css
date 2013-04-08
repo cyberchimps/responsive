@@ -1733,6 +1733,10 @@ form div {
 	margin: 0 auto;
 }
 
+.main-nav {
+	clear:both;
+}
+
 .menu, 
 .menu ul {
 	display: block;
