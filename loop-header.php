@@ -33,7 +33,7 @@ endif;
 /**
  * Display archive information
  */
-if ( is_archive() ) {
+if ( is_archive() && bp_is_blog_page() ) {
 	?>
 	<h6 class="title-archive">
 		<?php 
