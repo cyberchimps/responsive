@@ -2951,6 +2951,7 @@ BDO[DIR="rtl"] {
 		border-bottom: 1px solid #f5f5f5;
 		text-shadow: none;
 		text-align: left;
+		cursor: pointer;
 	}
 	
 	.js .main-nav .menu li.current_page_item,
@@ -3008,12 +3009,11 @@ BDO[DIR="rtl"] {
 	}
 	
 	.js .main-nav #responsive_current_menu_item {
-		position: absolute;
 		display: block;
-		top: 5px;
-		left: 15px;
+		padding: 5px 40px 5px 10px;
 		color: #fff;
 		font-weight: 700;
+		cursor: pointer;
 	}
 	
 	.js .main-nav a#responsive_menu_button {

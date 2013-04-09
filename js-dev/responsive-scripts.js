@@ -561,7 +561,7 @@ jQuery(document).ready(function ($) {
 	};
 	$('.main-nav').append('<a id="responsive_menu_button" href="#"></a>');
 	$('.main-nav').prepend('<div id="responsive_current_menu_item">' + current + '</div>');
-	$('a#responsive_menu_button').click(function(){
+	$('a#responsive_menu_button, #responsive_current_menu_item').click(function(){
 		$('.js .main-nav .menu').slideToggle( function() {
 			if( $(this).is(':visible') ) {
 				$('a#responsive_menu_button').addClass('responsive-toggle-open');
