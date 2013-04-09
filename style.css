@@ -1918,6 +1918,10 @@ ul.menu > li:hover {
 	display: none;
 }
 
+.js .main-nav .menu {
+	display: block;
+}
+
 /* =Primary Main Menu IE Fixes
 -------------------------------------------------------------- */
 .ie7 .menu ul {
@@ -2823,6 +2827,13 @@ BDO[DIR="rtl"] {
 
 /* =Responsive (Mobile) Design
 -------------------------------------------------------------- */
+
+@media screen and (min-width: 651px) {
+	.js .main-nav .menu {
+		display: block !important;
+	}
+}
+
 @media screen and (max-width: 980px) {
 
 	body {}
