@@ -50,7 +50,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 			<h1 class="featured-title">
 				<?php
-				if ( isset( $responsive_options['home_headline'] ) && !empty( $responsive_options['home_headline'] ) )
+				if ( $responsive_options['home_headline'] )
 					echo $responsive_options['home_headline'];
 				else
 					_e( 'Hello, World!', 'responsive' );
@@ -82,7 +82,12 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 				<div class="call-to-action">
 
 					<a href="<?php echo $responsive_options['cta_url']; ?>" class="blue button">
-						<?php echo $responsive_options['cta_text']; ?>
+						<?php 
+						if( $responsive_options['cta_text'] )
+							echo $responsive_options['cta_text']; 
+						else
+							_e('Call to Action','responsive');
+						?>
 					</a>
 				
 				</div><!-- end of .call-to-action -->
