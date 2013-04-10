@@ -42,6 +42,9 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 } else { 
 
 	get_header();
+	
+	//test for first install no database
+	$db = get_option( 'responsive_theme_options' );
 	?>
 
 	<div id="featured" class="grid col-940">
@@ -50,7 +53,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 			<h1 class="featured-title">
 				<?php
-				if ( $responsive_options['home_headline'] )
+				if ( isset( $responsive_options['home_headline'] ) && $db )
 					echo $responsive_options['home_headline'];
 				else
 					_e( 'Hello, World!', 'responsive' );
@@ -59,7 +62,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 			
 			<h2 class="featured-subtitle">
 				<?php
-				if ( isset( $responsive_options['home_subheadline'] ) && !empty( $responsive_options['home_subheadline'] ) )
+				if ( isset( $responsive_options['home_subheadline'] ) && $db )
 					echo $responsive_options['home_subheadline'];
 				else
 					_e( 'Your H2 subheadline here', 'responsive' );
@@ -68,7 +71,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 			
 			<p>
 				<?php
-				if ( isset( $responsive_options['home_content_area'] ) && !empty( $responsive_options['home_content_area'] ) )
+				if ( isset( $responsive_options['home_content_area'] ) && $db )
 					echo do_shortcode( $responsive_options['home_content_area'] );
 				else
 					_e( 'Your title, subtitle and this very content is editable from Theme Option.
@@ -83,7 +86,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 					<a href="<?php echo $responsive_options['cta_url']; ?>" class="blue button">
 						<?php 
-						if( $responsive_options['cta_text'] )
+						if( isset( $responsive_options['cta_text'] ) && $db )
 							echo $responsive_options['cta_text']; 
 						else
 							_e('Call to Action','responsive');
