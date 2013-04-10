@@ -34,8 +34,7 @@ endif;
  * Display archive information
  */
 
-$buddypress = ( function_exists( 'bp_is_active' ) ) ? TRUE : FALSE;
-if ( is_archive() || ( is_archive() && $buddypress && bp_is_blog_page() ) ) {
+if ( is_category() || is_tag() || is_author() || is_date() ) {
 	?>
 	<h6 class="title-archive">
 		<?php 
