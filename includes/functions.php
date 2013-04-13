@@ -586,22 +586,27 @@ endif;
      */	
     function responsive_theme_support () {
     ?>
-    
-    <div id="info-box-wrapper" class="grid col-940">
-        <div class="info-box notice">
-            <a class="blue button" href="<?php echo esc_url(__('http://themeid.com/support/','responsive')); ?>" title="<?php esc_attr_e('Theme Support', 'responsive'); ?>" target="_blank">
-            <?php printf(__('Theme Support','responsive')); ?></a>
-            
-            <a class="gray button" href="<?php echo esc_url(__('http://themeid.com/themes/','responsive')); ?>" title="<?php esc_attr_e('More Themes', 'responsive'); ?>" target="_blank">
-            <?php printf(__('More Themes','responsive')); ?></a>
-            
-            <a class="gray button" href="<?php echo esc_url(__('http://themeid.com/showcase/','responsive')); ?>" title="<?php esc_attr_e('Showcase', 'responsive'); ?>" target="_blank">
-            <?php printf(__('Showcase','responsive')); ?></a>
-            
-            <a class="gold button" href="<?php echo esc_url(__('http://themeid.com/donate/','responsive')); ?>" title="<?php esc_attr_e('Donate Now', 'responsive'); ?>" target="_blank">
-            <?php printf(__('Donate Now','responsive')); ?></a>
-        </div>
-    </div>
+
+	<div id="info-box-wrapper" class="grid col-940">
+		<div class="info-box notice">
+
+			<a class="button" href="<?php echo esc_url(__('http://themeid.com/docs/','responsive')); ?>" title="<?php esc_attr_e('Documentation', 'responsive'); ?>" target="_blank">
+			<?php printf(__('Documentation','responsive')); ?></a>
+
+			<a class="button button-primary" href="<?php echo esc_url(__('http://themeid.com/support/','responsive')); ?>" title="<?php esc_attr_e('Theme Support', 'responsive'); ?>" target="_blank">
+			<?php printf(__('Theme Support','responsive')); ?></a>
+
+			<a class="button" href="<?php echo esc_url(__('https://webtranslateit.com/en/projects/3598-Responsive-Theme','responsive')); ?>" title="<?php esc_attr_e('Translate', 'responsive'); ?>" target="_blank">
+			<?php printf(__('Translate','responsive')); ?></a>
+
+			<a class="button" href="<?php echo esc_url(__('http://themeid.com/showcase/','responsive')); ?>" title="<?php esc_attr_e('Showcase', 'responsive'); ?>" target="_blank">
+			<?php printf(__('Showcase','responsive')); ?></a>
+
+			<a class="button" href="<?php echo esc_url(__('http://themeid.com/themes/','responsive')); ?>" title="<?php esc_attr_e('More Themes', 'responsive'); ?>" target="_blank">
+			<?php printf(__('More Themes','responsive')); ?></a>
+
+		</div>
+	</div>
 
     <?php }
  
