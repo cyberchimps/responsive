@@ -383,7 +383,7 @@ if (!function_exists('responsive_post_meta_data')) :
 function responsive_post_meta_data() {
 	printf( __( '<span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
 	'meta-prep meta-prep-author posted', 
-	sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="timestamp">%3$s</span></a>',
+	sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><span class="timestamp updated">%3$s</span></a>',
 		esc_url( get_permalink() ),
 		esc_attr( get_the_time() ),
 		esc_html( get_the_date() )
