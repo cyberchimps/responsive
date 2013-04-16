@@ -18,7 +18,7 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 
-<h1 class="post-title"><?php the_title(); ?></h1>
+<h1 class="entry-title post-title"><?php the_title(); ?></h1>
 
 <?php if ( comments_open() ) : ?>               
 <div class="post-meta">
