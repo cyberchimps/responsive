@@ -19,6 +19,70 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 <?php
+/*
+ * Globalize Theme options
+ */
+global $responsive_options;
+$responsive_options = responsive_get_options();
+
+/*
+ * Hook options
+ */
+add_action('admin_init', 'responsive_theme_options_init');
+add_action('admin_menu', 'responsive_theme_options_add_page');
+
+/**
+ * Retrieve Theme option settings
+ */
+function responsive_get_options() {
+  // Globalize the variable that holds the Theme options
+  global $responsive_options;
+  // Parse array of option defaults against user-configured Theme options
+  $responsive_options = wp_parse_args( get_option( 'responsive_theme_options', array() ), responsive_get_option_defaults() );
+  // Return parsed args array
+  return $responsive_options;
+}
+
+/**
+ * Responsive Theme option defaults
+ */
+function responsive_get_option_defaults() {
+  $defaults = array(
+    'breadcrumb' => false,
+    'cta_button' => false,
+    'front_page' => 1,
+    'home_headline' => false,
+    'home_subheadline' => false,
+    'home_content_area' => false,
+    'cta_text' => false,
+    'cta_url' => '#nogo',
+    'featured_content' => '<img class="aligncenter" src="' . get_template_directory_uri() . '/images/featured-image.png" width="440" height="300" alt="" />',
+    'google_site_verification' => '',
+    'bing_site_verification' => '',
+    'yahoo_site_verification' => '',
+    'site_statistics_tracker' => '',
+    'twitter_uid' => '',
+    'facebook_uid' => '',
+    'linkedin_uid' => '',
+    'youtube_uid' => '',
+    'stumble_uid' => '',
+    'rss_uid' => '',
+    'google_plus_uid' => '',
+    'instagram_uid' => '',
+    'pinterest_uid' => '',
+    'yelp_uid' => '',
+    'vimeo_uid' => '',
+    'foursquare_uid' => '',
+    'responsive_inline_css' => '',
+    'responsive_inline_js_head' => '',
+    'responsive_inline_css_js_footer' => '',
+    'static_page_layout_default' => 'content-sidebar-page',
+    'single_post_layout_default' => 'content-sidebar-page',
+    'blog_posts_index_layout_default' => 'content-sidebar-page',
+  );
+  return apply_filters( 'responsive_option_defaults', $defaults );
+}
+
 /**
  * Fire up the engines boys and girls let's start theme setup.
  */
