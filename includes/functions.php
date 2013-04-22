@@ -22,7 +22,6 @@ if ( !defined('ABSPATH')) exit;
 /*
  * Globalize Theme options
  */
-global $responsive_options;
 $responsive_options = responsive_get_options();
 
 /*
@@ -55,8 +54,8 @@ function responsive_get_option_defaults() {
     'home_subheadline' => false,
     'home_content_area' => false,
     'cta_text' => false,
-    'cta_url' => '#nogo',
-    'featured_content' => '<img class="aligncenter" src="' . get_template_directory_uri() . '/images/featured-image.png" width="440" height="300" alt="" />',
+    'cta_url' => false,
+    'featured_content' => false,
     'google_site_verification' => '',
     'bing_site_verification' => '',
     'yahoo_site_verification' => '',
