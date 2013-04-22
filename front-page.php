@@ -25,7 +25,7 @@ if ( !defined('ABSPATH')) exit;
 /**
  * Globalize Theme Options
  */
-global $responsive_options;
+$responsive_options = responsive_get_options();
 /**
  * If front page is set to display the
  * blog posts index, include home.php;
