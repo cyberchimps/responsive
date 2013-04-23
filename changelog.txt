@@ -8,6 +8,18 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/24/13) - Improvements - Version 1.9.3.1
+
+http://themeid.com/docs/update-1-9-3-1/
+
+[!] Multiple fixes for the menu mobile menu
+[!] Fix custom front page for Polylang
+[!] Fix title when using All in One SEO plugin
+[+] Add support for hatom-entry: entry title and updated
+[x] Removed link from title in single posts
+
+----
+
 (04/02/13) - Improvements - Version 1.9.3
 [*] Update pot
 [!] Fix navigation on blog templates when set as front page
