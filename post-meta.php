@@ -22,7 +22,7 @@ if ( !defined( 'ABSPATH' ) )
 <?php if ( is_single() ): ?>
 				<h1 class="entry-title post-title"><?php the_title( ); ?></h1>
 <?php else: ?>
-				<h1 class="entry-title post-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title( ); ?></a></h1>
+				<h1 class="entry-title post-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title( ); ?></a></h1>
 <?php endif; ?>
 
 <div class="post-meta">
