@@ -548,8 +548,8 @@ jQuery(document).ready(function ($) {
 			}
 		}
 		else{
-			if( $('body').hasClass('single') ) {
-				current = $('h1.post-title a').html();
+			if( $('body').hasClass('woocommerce') ) {
+				current = $('h1.page-title').html();
 			}
 			else if( $('body').hasClass('archive') ) {
 				current = $('h6.title-archive').html();
