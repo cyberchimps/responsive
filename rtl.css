@@ -339,7 +339,13 @@ ul {
 
 	.grid,
 	.grid-right {
-		float:none;
+		float: none;
+	}
+
+	.copyright,
+	.scroll-top,
+	.powered {
+		float: right;
 	}
 
 	.page-template-content-sidebar-page-php .col-60,
