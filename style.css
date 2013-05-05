@@ -2830,12 +2830,6 @@ BDO[DIR="rtl"] {
 /* =Responsive (Mobile) Design
 -------------------------------------------------------------- */
 
-@media screen and (min-width: 651px) {
-	.js .main-nav .menu {
-		display: block !important;
-	}
-}
-
 @media screen and (max-width: 980px) {
 
 	body {}
@@ -3031,6 +3025,7 @@ BDO[DIR="rtl"] {
 		width: 23px;
 		margin-left: -30px;
 		background: url('images/select-icons.png') 0 5px no-repeat;
+		cursor: pointer;
 	}
 	
 	.js .main-nav a#responsive_menu_button.responsive-toggle-open {
