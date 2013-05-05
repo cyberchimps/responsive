@@ -252,7 +252,7 @@ function responsive_theme_options_do_page() {
                 ?>
                 <div class="grid col-300"><?php _e('Call to Action (URL)', 'responsive'); ?></div><!-- end of .grid col-300 -->
                     <div class="grid col-620 fit">
-                        <input id="responsive_theme_options[cta_url]" class="regular-text" type="text" name="responsive_theme_options[cta_url]" placeholder="#nogo">
+                        <input id="responsive_theme_options[cta_url]" class="regular-text" type="text" name="responsive_theme_options[cta_url]" placeholder="#nogo" value="<?php if (!empty($responsive_options['cta_url'])) echo esc_attr($responsive_options['cta_url']); ?>">
                         <label class="description" for="responsive_theme_options[cta_url]"><?php _e('Enter your call to action URL', 'responsive'); ?></label>
                     </div><!-- end of .grid col-620 -->
                 
