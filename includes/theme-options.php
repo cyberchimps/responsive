@@ -278,7 +278,7 @@ function responsive_theme_options_do_page() {
                     <?php printf(__('See Docs','responsive')); ?></a>
                 </div><!-- end of .grid col-300 -->
                     <div class="grid col-620 fit">
-                        <textarea id="responsive_theme_options[featured_content]" class="large-text" cols="50" rows="10" name="responsive_theme_options[featured_content]" placeholder="<img class='aligncenter' src='<?php get_stylesheet_directory_uri(); ?>/images/featured-image.png' width='440' height='300' alt='' />"><?php if (!empty($responsive_options['featured_content'])) echo esc_html($responsive_options['featured_content']); ?></textarea>
+                        <textarea id="responsive_theme_options[featured_content]" class="large-text" cols="50" rows="10" name="responsive_theme_options[featured_content]" placeholder="<img class='aligncenter' src='<?php get_template_directory_uri(); ?>/images/featured-image.png' width='440' height='300' alt='' />"><?php if (!empty($responsive_options['featured_content'])) echo esc_html($responsive_options['featured_content']); ?></textarea>
                         <label class="description" for="responsive_theme_options[featured_content]"><?php _e('Paste your shortcode, video or image source', 'responsive'); ?></label>
                         <p class="submit">
 						<?php submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ); ?>
