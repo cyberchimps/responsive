@@ -557,6 +557,9 @@ jQuery(document).ready(function ($) {
 			else if( $('body').hasClass('archive') ) {
 				current = $('h6.title-archive').html();
 			}
+			else if( $('body').hasClass('search-results') ) {
+				current = $('h6.title-search-results').html();
+			}
 			else {
 				current = $('h1.post-title').html();
 			}
@@ -573,6 +576,6 @@ jQuery(document).ready(function ($) {
 				$('a#responsive_menu_button').removeClass('responsive-toggle-open');
 				$('.js .main-nav .menu').removeAttr('style'); 
 			}
-		});		
+		});
 });
 })(jQuery);
