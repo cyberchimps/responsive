@@ -8,6 +8,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/07/13) - Improvements - Version 1.9.3.2
+
+http://themeid.com/docs/update-1-9-3-2/
+
+[!] Multiple fixes for the menu mobile menu
+[!] Fix blog templates to change layout
+
+----
+
 (04/24/13) - Improvements - Version 1.9.3.1
 
 http://themeid.com/docs/update-1-9-3-1/
