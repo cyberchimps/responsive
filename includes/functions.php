@@ -653,7 +653,26 @@ endif;
      */	
     function responsive_theme_support () {
     ?>
-
+	
+	<div class="upgrade-callout">
+		<p><img src="<?php echo get_template_directory_uri() ;?>/includes/images/chimp.png" alt="CyberChimps" />
+			<?php printf( __( 'Welcome to %1$s! Learn more about our other', 'responsive' ) . ' <a href="%2$s" target="_blank" title="%3$s">%3$s</a> ' . __( 'today.', 'responsive' ),
+			apply_filters( 'cyberchimps_current_theme_name', 'Responsive' ),
+			apply_filters( 'cyberchimps_upgrade_link', 'http://cyberchimps.com' ),
+			apply_filters( 'cyberchimps_upgrade_pro_title', 'Responsive Themes' )
+			); ?>	
+		</p>
+		<div class="social-container">
+			<div class="social">
+				<a href="https://twitter.com/cyberchimps" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @cyberchimps</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
+			<div class="social">
+				<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcyberchimps.com%2F&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
+			</div>
+		</div>
+	</div>
+	
 	<div id="info-box-wrapper" class="grid col-940">
 		<div class="info-box notice">
 

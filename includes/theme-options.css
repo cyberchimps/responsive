@@ -258,3 +258,54 @@ div.updated {}
 .rtl .info-box {
     text-align: right;
 }
+
+/*************** Upgrade bar ****************/
+
+.upgrade-callout {
+	background: #81c7ef;
+	padding: 0 10px 10px 10px;
+	margin-top: 10px;
+	font-size: 1.5em;
+	border: 1px solid #5ba9d3;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	overflow: hidden;
+}
+.upgrade-callout p {
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 1.4em;
+	font-weight: bold;
+	margin: 5px 0 0;
+}
+.upgrade-callout p img {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin-right: 5px;
+}
+.upgrade-callout a:link {
+	color: #006da8;
+}
+.upgrade-callout a:visited {
+	color: #006da8;
+}
+.upgrade-callout a:hover {
+	color: #0085cf;
+}
+.upgrade-callout div.social-container {
+	position: relative;
+	left:50%;
+	height: 20px;
+	margin-top: 10px;
+	margin-left: -100px;
+}
+.upgrade-callout div.social {
+	float: left;
+}
+.upgrade-callout div.social .twitter-follow-button {
+	height: 21px!important;
+}
+.upgrade-callout div.social:last-child {
+	margin-left: 10px;
+}
