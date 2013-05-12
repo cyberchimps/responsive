@@ -2673,6 +2673,13 @@ table.cart td.actions .coupon .input-text {
 	list-style-type: none;
 }
 
+/* =Accessibility
+-------------------------------------------------------------- */
+.screen-reader-text{
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
 /* =Footer
 -------------------------------------------------------------- */
 #footer {
