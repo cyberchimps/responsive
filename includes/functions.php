@@ -323,7 +323,7 @@ add_filter('wp_page_menu', 'responsive_wp_page_menu');
  * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
  *
  */
-if (!function_exists('responsive_post_meta_data') && ! defined( 'AIOSEOP_VERSION' ) ) :
+if ( !function_exists('responsive_wp_title') && !defined( 'AIOSEOP_VERSION' ) ) :
 
 	function responsive_wp_title( $title, $sep ) {
 		global $paged, $page;
