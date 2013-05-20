@@ -506,7 +506,7 @@ function responsive_breadcrumb_lists() {
 
 	global $post, $paged, $page;
 	$homeLink = home_url('/');
-	$linkBefore = '<span typeof="v:Breadcrumb">';
+	$linkBefore = '<span class="breadcrumb" typeof="v:Breadcrumb">';
 	$linkAfter = '</span>';
 	$linkAttr = ' rel="v:url" property="v:title"';
 	$link = $linkBefore . '<a' . $linkAttr . ' href="%1$s">%2$s</a>' . $linkAfter;
