@@ -619,6 +619,20 @@ function responsive_breadcrumb_lists() {
 
 endif;
 
+	/**
+	 * A safe way of adding stylesheets to a WordPress generated page.
+	 */
+	if (!is_admin())
+		add_action('wp_enqueue_scripts', 'responsive_css');
+
+	if (!function_exists('responsive_css')) {
+
+		function responsive_js() {
+		wp_enqueue_style('responsive-style', get_stylesheet_uri(), false, '1.9.3.2');
+		}
+
+	}
+
     /**
      * A safe way of adding JavaScripts to a WordPress generated page.
      */
