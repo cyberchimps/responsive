@@ -2776,7 +2776,6 @@ BDO[DIR="rtl"] {
 	
 	.js .main-nav {
 		position: relative;
-		height: 30px;
 		background-color: #585858;
 		background-image: -webkit-gradient(linear, left top, left bottom, from(#585858), to(#3d3d3d));
 		background-image: -webkit-linear-gradient(top, #585858, #3d3d3d);
@@ -2974,7 +2973,6 @@ BDO[DIR="rtl"] {
 		margin: 0 auto;
 		text-align: center;
 	}
-	
 	.menu ul, 
 	.menu li, 
 	.top-menu, 
