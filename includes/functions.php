@@ -627,7 +627,7 @@ endif;
 
 	if (!function_exists('responsive_css')) {
 
-		function responsive_js() {
+		function responsive_css() {
 		wp_enqueue_style('responsive-style', get_stylesheet_uri(), false, '1.9.3.2');
 		}
 
