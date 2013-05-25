@@ -619,23 +619,40 @@ function responsive_breadcrumb_lists() {
 
 endif;
 
-    /**
-     * A safe way of adding JavaScripts to a WordPress generated page.
-     */
-    if (!is_admin())
-        add_action('wp_enqueue_scripts', 'responsive_js');
+	/**
+	 * A safe way of adding JavaScripts to a WordPress generated page.
+	 */
+	if (!is_admin())
+		add_action('wp_enqueue_scripts', 'responsive_js');
 
-    if (!function_exists('responsive_js')) {
+	if (!function_exists('responsive_js')) {
 
-        function responsive_js() {
-			// JS at the bottom for fast page loading. 
-			// except for Modernizr which enables HTML5 elements & feature detects.
+		function responsive_js() {
+			// JS at the bottom for fast page loading except for Modernizr which enables HTML5 elements & feature detects.
 			wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/responsive-modernizr.js', array('jquery'), '2.6.1', false);
-      wp_enqueue_script('responsive-scripts', get_template_directory_uri() . '/js/responsive-scripts.js', array('jquery'), '1.2.3', true);
 			wp_enqueue_script('responsive-plugins', get_template_directory_uri() . '/js/responsive-plugins.js', array('jquery'), '1.2.3', true);
-        }
+		}
 
-    }
+	}
+
+	/**
+	 * Adding short JavaScript to the head for two JavaScripts to work.
+	 */
+	function responsive_js_plugins() {
+		echo '<script>
+// Placeholder
+jQuery(function () {
+	jQuery("input[placeholder], textarea[placeholder]").placeholder();
+});
+// FitVids
+jQuery(document).ready(function () {
+	// Target your #container, #wrapper etc.
+	jQuery("#wrapper").fitVids();
+});
+		</script>';
+	}
+	add_action('wp_head', 'responsive_js_plugins');
+
 
     /**
      * A comment reply.
