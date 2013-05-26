@@ -638,8 +638,10 @@ endif;
 	/**
 	 * Adding short JavaScript to the head for two JavaScripts to work.
 	 */
-	function responsive_js_plugins() {
-		echo '<script>
+	if ( !function_exists( 'responsive_js_plugins' ) ) {
+
+		function responsive_js_plugins() {
+			echo '<script>
 // Placeholder
 jQuery(function () {
 	jQuery("input[placeholder], textarea[placeholder]").placeholder();
@@ -649,9 +651,11 @@ jQuery(document).ready(function () {
 	// Target your #container, #wrapper etc.
 	jQuery("#wrapper").fitVids();
 });
-		</script>';
+			</script>';
+		}
+		add_action( 'wp_head', 'responsive_js_plugins' );
+
 	}
-	add_action('wp_head', 'responsive_js_plugins');
 
 
     /**
