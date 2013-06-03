@@ -2729,6 +2729,14 @@ BDO[DIR="rtl"] {
 		margin-top: 0 !important;
 	}
 
+	.hide-desktop {
+		display: block;
+	}
+
+	.show-desktop {
+		display: none;
+	}
+
 	.hide-980 {
 		display: none;
 	}
@@ -2929,7 +2937,11 @@ BDO[DIR="rtl"] {
 	.show-650 {
 		display: block;
 	}
-	
+
+	.hide-mobile {
+		display: none;
+	}
+
 	#footer {
 		text-align: center;
 	}
