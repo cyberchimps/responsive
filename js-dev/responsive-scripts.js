@@ -541,7 +541,7 @@ jQuery(document).ready(function ($) {
 */
 (function($) {
 	var current = $('.main-nav li.current_page_item a').html();
-	if( typeof current == 'undefined' ) {
+	if( typeof current == 'undefined' ||  current === null) {
 		if( $('body').hasClass('home') ) {
 			if( $('#logo span').hasClass('site-name') ) {
 				current = $('#logo .site-name a').html();
