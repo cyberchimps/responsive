@@ -57,51 +57,51 @@ $responsive_options = responsive_get_options();
                 echo '<ul class="social-icons">';
 					
                 if (!empty($responsive_options['twitter_uid'])) echo '<li class="twitter-icon"><a href="' . $responsive_options['twitter_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/twitter-icon.png" width="24" height="24" alt="Twitter">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/twitter-icon.png" width="24" height="24" alt="Twitter">'
                     .'</a></li>';
 
                 if (!empty($responsive_options['facebook_uid'])) echo '<li class="facebook-icon"><a href="' . $responsive_options['facebook_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/facebook-icon.png" width="24" height="24" alt="Facebook">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/facebook-icon.png" width="24" height="24" alt="Facebook">'
                     .'</a></li>';
   
                 if (!empty($responsive_options['linkedin_uid'])) echo '<li class="linkedin-icon"><a href="' . $responsive_options['linkedin_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/linkedin-icon.png" width="24" height="24" alt="LinkedIn">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/linkedin-icon.png" width="24" height="24" alt="LinkedIn">'
                     .'</a></li>';
 					
                 if (!empty($responsive_options['youtube_uid'])) echo '<li class="youtube-icon"><a href="' . $responsive_options['youtube_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/youtube-icon.png" width="24" height="24" alt="YouTube">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/youtube-icon.png" width="24" height="24" alt="YouTube">'
                     .'</a></li>';
 					
                 if (!empty($responsive_options['stumble_uid'])) echo '<li class="stumble-upon-icon"><a href="' . $responsive_options['stumble_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/stumble-upon-icon.png" width="24" height="24" alt="StumbleUpon">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/stumble-upon-icon.png" width="24" height="24" alt="StumbleUpon">'
                     .'</a></li>';
 					
                 if (!empty($responsive_options['rss_uid'])) echo '<li class="rss-feed-icon"><a href="' . $responsive_options['rss_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/rss-feed-icon.png" width="24" height="24" alt="RSS Feed">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/rss-feed-icon.png" width="24" height="24" alt="RSS Feed">'
                     .'</a></li>';
        
                 if (!empty($responsive_options['google_plus_uid'])) echo '<li class="google-plus-icon"><a href="' . $responsive_options['google_plus_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/googleplus-icon.png" width="24" height="24" alt="Google Plus">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/googleplus-icon.png" width="24" height="24" alt="Google Plus">'
                     .'</a></li>';
 					
                 if (!empty($responsive_options['instagram_uid'])) echo '<li class="instagram-icon"><a href="' . $responsive_options['instagram_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/instagram-icon.png" width="24" height="24" alt="Instagram">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/instagram-icon.png" width="24" height="24" alt="Instagram">'
                     .'</a></li>';
 					
                 if (!empty($responsive_options['pinterest_uid'])) echo '<li class="pinterest-icon"><a href="' . $responsive_options['pinterest_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/pinterest-icon.png" width="24" height="24" alt="Pinterest">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/pinterest-icon.png" width="24" height="24" alt="Pinterest">'
                     .'</a></li>';
 					
                 if (!empty($responsive_options['yelp_uid'])) echo '<li class="yelp-icon"><a href="' . $responsive_options['yelp_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/yelp-icon.png" width="24" height="24" alt="Yelp!">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/yelp-icon.png" width="24" height="24" alt="Yelp!">'
                     .'</a></li>';
 					
                 if (!empty($responsive_options['vimeo_uid'])) echo '<li class="vimeo-icon"><a href="' . $responsive_options['vimeo_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/vimeo-icon.png" width="24" height="24" alt="Vimeo">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/vimeo-icon.png" width="24" height="24" alt="Vimeo">'
                     .'</a></li>';
 					
                 if (!empty($responsive_options['foursquare_uid'])) echo '<li class="foursquare-icon"><a href="' . $responsive_options['foursquare_uid'] . '">'
-                    .'<img src="' . get_stylesheet_directory_uri() . '/icons/foursquare-icon.png" width="24" height="24" alt="foursquare">'
+                    .'<img src="' . get_stylesheet_directory_uri() . '/core/icons/foursquare-icon.png" width="24" height="24" alt="foursquare">'
                     .'</a></li>';
              
                 echo '</ul><!-- end of .social-icons -->';

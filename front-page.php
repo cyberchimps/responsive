@@ -100,7 +100,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 		<div id="featured-image" class="grid col-460 fit">
 		  
-		  <?php $featured_content = ( !empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/images/featured-image.png" width="440" height="300" alt="" />'; ?>
+		  <?php $featured_content = ( !empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.png" width="440" height="300" alt="" />'; ?>
 							
 			<?php echo do_shortcode( $featured_content ); ?>
 									

@@ -1369,7 +1369,7 @@ ul.menu > li:hover {
 /* =Primary Main Menu IE Fixes
 -------------------------------------------------------------- */
 .ie7 .menu ul {
-	background: url(images/ie7-fix.gif) repeat;
+	background: url(core/images/ie7-fix.gif) repeat;
 }
 
 .ie7 .menu li li a  {
@@ -1546,7 +1546,7 @@ ul.menu > li:hover {
 /* =Sub Header Menu IE Fixes
 -------------------------------------------------------------- */
 .ie7 .sub-header-menu ul {
-	background: url(images/ie7-fix.gif) repeat;
+	background: url(core/images/ie7-fix.gif) repeat;
 }
 
 .ie7 .sub-header-menu li li a  {
@@ -2902,12 +2902,12 @@ BDO[DIR="rtl"] {
 		height: 30px;
 		width: 23px;
 		margin-left: -30px;
-		background: url('images/select-icons.png') 0 5px no-repeat;
+		background: url('core/images/select-icons.png') 0 5px no-repeat;
 		cursor: pointer;
 	}
 	
 	.js .main-nav a#responsive_menu_button.responsive-toggle-open {
-		background: url('images/select-icons.png') 0 -46px no-repeat;
+		background: url('core/images/select-icons.png') 0 -46px no-repeat;
 	}
 		
 	

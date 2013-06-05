@@ -9,9 +9,9 @@ if ( !defined('ABSPATH')) exit;
  *
  * load the theme function files
  */
-require ( get_template_directory() . '/includes/functions.php' );
-require ( get_template_directory() . '/includes/theme-options.php' );
-require ( get_template_directory() . '/includes/post-custom-meta.php' );
-require ( get_template_directory() . '/includes/tha-theme-hooks.php' );
-require ( get_template_directory() . '/includes/hooks.php' );
-require ( get_template_directory() . '/includes/version.php' );
+require ( get_template_directory() . '/core/includes/functions.php' );
+require ( get_template_directory() . '/core/includes/theme-options.php' );
+require ( get_template_directory() . '/core/includes/post-custom-meta.php' );
+require ( get_template_directory() . '/core/includes/tha-theme-hooks.php' );
+require ( get_template_directory() . '/core/includes/hooks.php' );
+require ( get_template_directory() . '/core/includes/version.php' );
