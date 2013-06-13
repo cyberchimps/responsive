@@ -1,0 +1,831 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
+"PO-Revision-Date: 2013-03-13 23:02+0100\n"
+"Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
+"Language-Team: Czech, Czech Republic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : (n >= 2 && n <= 4) ? 1 : 2;\n"
+
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "Pages:"
+msgstr "Stránky"
+
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&#8249; Older posts"
+msgstr "&#8249; Starší příspěvky"
+
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Newer posts &#8250;"
+msgstr "Novější příspěvky &#8250;"
+
+#: home.php page.php landing-page.php index.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
+#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: includes/functions.php
+msgid "Read more &#8250;"
+msgstr "Dozvědět se víc &#8250;"
+
+#: comments.php
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr "Tento příspěvek je zaheslován."
+
+#: comments.php
+msgid "&#8249; Older comments"
+msgstr "&#8249; Starší komentáře"
+
+#: comments.php
+msgid "Newer comments &#8250;"
+msgstr "Novější komentáře &#8250;"
+
+#: comments.php
+msgid "Pings&#47;Trackbacks"
+msgstr "Pings&#47;Trackbacks"
+
+#: comments.php
+msgid "%1$d %2$s for \"%3$s\""
+msgstr "%1$d %2$s pro \"%3$s\""
+
+#: comments.php
+msgid "Name"
+msgstr "Jméno"
+
+#: comments.php
+msgid "E-mail"
+msgstr "E-mail"
+
+#: comments.php
+msgid "Website"
+msgstr "Web"
+
+#: footer.php
+msgid "&copy;"
+msgstr "&copy;"
+
+#: footer.php
+msgid "scroll to top"
+msgstr "Skrolovat nahoru"
+
+#: footer.php
+msgid "&uarr;"
+msgstr "&uarr;"
+
+#: footer.php
+msgid "http://themeid.com/responsive-theme/"
+msgstr "http://themeid.com/responsive-theme/"
+
+#: footer.php
+msgid "Responsive Theme"
+msgstr "Responsive Theme"
+
+#: footer.php
+msgid "powered by"
+msgstr "powered by"
+
+#: footer.php
+msgid "http://wordpress.org/"
+msgstr "http://hr.wordpress.org/"
+
+#: footer.php
+msgid "WordPress"
+msgstr "WordPress"
+
+#: image.php
+msgid "&#8249; Return to"
+msgstr "&#8249; Vrátit se do"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "Žádné komentáře &darr;"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1 komentář &darr;"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "% komentáře &darr;"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "Jeden komentář “%2$s”"
+msgstr[1] "%1$s komentáře “%2$s”"
+msgstr[2] "%1$s komentářů “%2$s”"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "Označeno s:"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "Označeno v %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "Upravit"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 - pracujeme na tom"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr "V klidu"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Můžete se vrátit %s nebo hledat stránku, kterou jste hledali"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "Domů"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "Domů"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "Denní Archiv %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "Měsíční Archiv %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "Roční Archiv %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "Archiv Blogu"
+
+#: loop-no-posts.php
+msgid "Your search for %s did not match any entries."
+msgstr "Vaše hledání %s Nenalezeno"
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Trvalý odkaz %s"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "Výsledky hledání pro: %s"
+
+#: searchform.php
+msgid "search here &hellip;"
+msgstr "hledat zde &hellip;"
+
+#: searchform.php
+msgid "Go"
+msgstr "Hledat"
+
+#: sidebar-gallery.php
+msgid "Image Information"
+msgstr "Informace o obrázku"
+
+#: sidebar-gallery.php
+msgid "Full Size:"
+msgstr "Původní velikost:"
+
+#: sidebar-gallery.php
+msgid "Aperture: f&#47;"
+msgstr "Aperture: f&#47;"
+
+#: sidebar-gallery.php
+msgid "Focal Length:"
+msgstr "Ohnisková vzdálenost:"
+
+#: sidebar-gallery.php
+msgid "mm"
+msgstr "mm"
+
+#: sidebar-gallery.php
+msgid "ISO:"
+msgstr "ISO:"
+
+#: sidebar-gallery.php
+msgid "Shutter:"
+msgstr "Shutter:"
+
+#: sidebar-gallery.php
+msgid "Camera:"
+msgstr "Fotoaparát:"
+
+#: sidebar.php sidebar-right.php sidebar-right-half.php sidebar-left.php
+#: sidebar-left-half.php sidebar-half-left.php
+msgid "In Archive"
+msgstr "V Archivu"
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 1"
+msgstr "Domů Widget 1"
+
+#: sidebar-home.php
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area six called Home Widget 1. "
+"Title is also manageable from widgets as well."
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 2"
+msgstr "Home Widget 2"
+
+#: sidebar-home.php
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area seven called Home Widget "
+"2. Title is also manageable from widgets as well."
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 3"
+msgstr "Home Widget 3"
+
+#: sidebar-home.php
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area eight called Home Widget "
+"3. Title is also manageable from widgets as well."
+
+#: single.php
+msgid "About"
+msgstr "O"
+
+#: sitemap.php
+msgid "Categories"
+msgstr "Kategorie"
+
+#: sitemap.php
+msgid "Latest Posts"
+msgstr "Nejnovější příspěvky"
+
+#: sitemap.php
+msgid "Pages"
+msgstr "Stránky"
+
+#: includes/functions.php
+msgid "Top Menu"
+msgstr "Hlavní menu"
+
+#: includes/functions.php
+msgid "Header Menu"
+msgstr "Horní menu"
+
+#: includes/functions.php
+msgid "Sub-Header Menu"
+msgstr "Pod-horní menu"
+
+#: includes/functions.php
+msgid "Footer Menu"
+msgstr "Footer menu"
+
+#: includes/functions.php
+msgid "Page %s"
+msgstr ""
+
+#: includes/functions.php
+msgid ""
+"<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
+"%4$s"
+msgstr ""
+"<span class=\"%1$s\">Publikováno </span>%2$s<span class=\"%3$s\"> uživatelem "
+"</span>%4$s"
+
+#: includes/functions.php
+msgid "View all posts by %s"
+msgstr "Zobrazit všechny příspěvky %s"
+
+#: includes/functions.php
+msgid "Archive for %s"
+msgstr "Archiv pro %s"
+
+#: includes/functions.php
+msgid "Posts tagged %s"
+msgstr "Označené příspěvky %s"
+
+#: includes/functions.php
+msgid "Error 404"
+msgstr "Chyba 404"
+
+#: includes/functions.php
+msgid "Page"
+msgstr "Stránka"
+
+#: includes/functions.php
+msgid "http://themeid.com/support/"
+msgstr "http://themeid.com/support/"
+
+#: includes/functions.php
+msgid "Theme Support"
+msgstr "Podpora šablony"
+
+#: includes/functions.php
+msgid "http://themeid.com/themes/"
+msgstr "http://themeid.com/themes/"
+
+#: includes/functions.php
+msgid "More Themes"
+msgstr "Více šablon"
+
+#: includes/functions.php
+msgid "http://themeid.com/showcase/"
+msgstr "http://themeid.com/showcase/"
+
+#: includes/functions.php
+msgid "Showcase"
+msgstr "Ukázky"
+
+#: includes/functions.php
+msgid "http://themeid.com/donate/"
+msgstr "http://themeid.com/donate/"
+
+#: includes/functions.php
+msgid "Donate Now"
+msgstr "Podpořit nyní"
+
+#: includes/functions.php
+msgid "Main Sidebar"
+msgstr "Main Sidebar"
+
+#: includes/functions.php
+msgid "Area 1 - sidebar.php"
+msgstr "Oblast 1 - sidebar.php"
+
+#: includes/functions.php
+msgid "Right Sidebar"
+msgstr "Postranní panel vpravo"
+
+#: includes/functions.php
+msgid "Area 2 - sidebar-right.php"
+msgstr "Oblast 2 - sidebar-right.php"
+
+#: includes/functions.php
+msgid "Left Sidebar"
+msgstr "Postranní panel vlevo"
+
+#: includes/functions.php
+msgid "Area 3 - sidebar-left.php"
+msgstr "Oblast 3 - sidebar-left.php"
+
+#: includes/functions.php
+msgid "Left Sidebar Half Page"
+msgstr "Levý panel Half Page"
+
+#: includes/functions.php
+msgid "Area 4 - sidebar-left-half.php"
+msgstr "Oblast 4 - sidebar-left-half.php"
+
+#: includes/functions.php
+msgid "Right Sidebar Half Page"
+msgstr "Pravý panel Half Page"
+
+#: includes/functions.php
+msgid "Area 5 - sidebar-right-half.php"
+msgstr "Oblast 5 - sidebar-right-half.php"
+
+#: includes/functions.php
+msgid "Area 6 - sidebar-home.php"
+msgstr "Oblast 6 - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 7 - sidebar-home.php"
+msgstr "Oblast 7 - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 8 - sidebar-home.php"
+msgstr "Oblast 8 - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Gallery Sidebar"
+msgstr "Panel Galerie"
+
+#: includes/functions.php
+msgid "Area 9 - sidebar-gallery.php"
+msgstr "Oblast 9 Area Eight - sidebar-gallery.php"
+
+#: includes/functions.php
+msgid "Colophon Widget"
+msgstr ""
+
+#: includes/functions.php
+msgid "Area 10 - sidebar-colophon.php"
+msgstr ""
+
+#: includes/functions.php
+msgid "Top Widget"
+msgstr ""
+
+#: includes/functions.php
+msgid "Area 11 - sidebar-top.php"
+msgstr ""
+
+#: blog.php
+msgid "Blog (full posts)"
+msgstr ""
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr ""
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr ""
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr ""
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr ""
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr ""
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr ""
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr ""
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Ahoj všichni!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "H2 nadpis"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "Zavolat do akce"
+
+#: includes/theme-options.php
+msgid "Theme Options"
+msgstr "Nastavení Šablony"
+
+#: includes/theme-options.php
+msgid "Options Saved"
+msgstr "Nastavení bylo uloženo."
+
+#: includes/theme-options.php
+msgid "Theme Elements"
+msgstr "Prvky šablony"
+
+#: includes/theme-options.php
+msgid "Disable Breadcrumb Lists?"
+msgstr "Deaktivovat seznam Breadcrump? "
+
+#: includes/theme-options.php
+msgid "Check to disable"
+msgstr "Zaklikněte pro deaktivaci"
+
+#: includes/theme-options.php
+msgid "Disable Call to Action Button?"
+msgstr "Deaktivovat akční tlačítko"
+
+#: includes/theme-options.php
+msgid "Save Options"
+msgstr "Uložit nastavení"
+
+#: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Logo Upload"
+msgstr "Nahrání loga"
+
+#: includes/theme-options.php
+msgid "Custom Header"
+msgstr "Vlastní záhlaví"
+
+#: includes/theme-options.php
+msgid "Need to replace or remove default logo?"
+msgstr "Potřebuje nahradit nebo smazat logo?"
+
+#: includes/theme-options.php
+msgid "<a href=\"%s\">Click here</a>."
+msgstr "<a href=\"%s\">Klikněte zde</a>."
+
+#: includes/theme-options.php
+msgid "Home Page"
+msgstr "Hlavní stránka"
+
+#: includes/theme-options.php
+msgid "Headline"
+msgstr "Nadpis"
+
+#: includes/theme-options.php
+msgid "Enter your headline"
+msgstr "Vložte nadpis"
+
+#: includes/theme-options.php
+msgid "Subheadline"
+msgstr "Podnadpis"
+
+#: includes/theme-options.php
+msgid "Enter your subheadline"
+msgstr "Vložte podnadpis"
+
+#: includes/theme-options.php
+msgid "Content Area"
+msgstr "Oblast textu"
+
+#: includes/theme-options.php
+msgid "Enter your content"
+msgstr "Vložte text"
+
+#: includes/theme-options.php
+msgid "Call to Action (URL)"
+msgstr "Akční tlačítko (URL)"
+
+#: includes/theme-options.php
+msgid "Enter your call to action URL"
+msgstr "Vložte URL akčního tlačítka"
+
+#: includes/theme-options.php
+msgid "Call to Action (Text)"
+msgstr "Text Akčního tlačítka"
+
+#: includes/theme-options.php
+msgid "Enter your call to action text"
+msgstr "Vložte text akčního tlačítka"
+
+#: includes/theme-options.php
+msgid "Featured Content"
+msgstr "Featured Content"
+
+#: includes/theme-options.php
+msgid "See Docs"
+msgstr "Zobrazit Dokumenty"
+
+#: includes/theme-options.php
+msgid "Paste your shortcode, video or image source"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Webmaster Tools"
+msgstr "Nastroje pro webmastery"
+
+#: includes/theme-options.php
+msgid "Google Site Verification"
+msgstr "Ověření stránky Googlem"
+
+#: includes/theme-options.php
+msgid "Enter your Google ID number only"
+msgstr "Vložte jen Google ID"
+
+#: includes/theme-options.php
+msgid "Bing Site Verification"
+msgstr "Ověření stránky Bingem"
+
+#: includes/theme-options.php
+msgid "Enter your Bing ID number only"
+msgstr "Vložte jen Bing ID"
+
+#: includes/theme-options.php
+msgid "Yahoo Site Verification"
+msgstr "Ověření stránky Yahoo"
+
+#: includes/theme-options.php
+msgid "Enter your Yahoo ID number only"
+msgstr "Vložte jen Yahoo ID"
+
+#: includes/theme-options.php
+msgid "Site Statistics Tracker"
+msgstr "Návštěvnost stránky"
+
+#: includes/theme-options.php
+msgid "Leave blank if plugin handles your webmaster tools"
+msgstr "Nechte prázdné pokud používáte jiné pluginy"
+
+#: includes/theme-options.php
+msgid "Google Analytics, StatCounter, any other or all of them."
+msgstr "Google Analytics"
+
+#: includes/theme-options.php
+msgid "Social Icons"
+msgstr "Sociální ikony"
+
+#: includes/theme-options.php
+msgid "Twitter"
+msgstr "Twitter"
+
+#: includes/theme-options.php
+msgid "Enter your Twitter URL"
+msgstr "Vložte Twitter URL"
+
+#: includes/theme-options.php
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/theme-options.php
+msgid "Enter your Facebook URL"
+msgstr "Vložte Facebook URL"
+
+#: includes/theme-options.php
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: includes/theme-options.php
+msgid "Enter your LinkedIn URL"
+msgstr "Vložte LinkedIn URL"
+
+#: includes/theme-options.php
+msgid "YouTube"
+msgstr "YouTube"
+
+#: includes/theme-options.php
+msgid "Enter your YouTube URL"
+msgstr "Vložte Youtube URL"
+
+#: includes/theme-options.php
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: includes/theme-options.php
+msgid "Enter your StumbleUpon URL"
+msgstr "Vložte StumbleUpon URL"
+
+#: includes/theme-options.php
+msgid "RSS Feed"
+msgstr "RSS kanál"
+
+#: includes/theme-options.php
+msgid "Enter your RSS Feed URL"
+msgstr "Vložte RSS URL"
+
+#: includes/theme-options.php
+msgid "Google+"
+msgstr "Google+"
+
+#: includes/theme-options.php
+msgid "Enter your Google+ URL"
+msgstr "Vložte Google+ URL"
+
+#: includes/theme-options.php
+msgid "Instagram"
+msgstr "Instagram"
+
+#: includes/theme-options.php
+msgid "Enter your Instagram URL"
+msgstr "Vložte Instagram URL"
+
+#: includes/theme-options.php
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: includes/theme-options.php
+msgid "Enter your Pinterest URL"
+msgstr "Vložte Pinterest URL"
+
+#: includes/theme-options.php
+msgid "Yelp!"
+msgstr "YELP!"
+
+#: includes/theme-options.php
+msgid "Enter your Yelp! URL"
+msgstr "Vložte YELP URL"
+
+#: includes/theme-options.php
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: includes/theme-options.php
+msgid "Enter your Vimeo URL"
+msgstr "Vložte Vimeo URL"
+
+#: includes/theme-options.php
+msgid "foursquare"
+msgstr "foursquare"
+
+#: includes/theme-options.php
+msgid "Enter your foursquare URL"
+msgstr "Vložte foursquare URL"
+
+#: includes/theme-options.php
+msgid "Custom CSS Styles"
+msgstr "Vlastní CSS Styl"
+
+#: includes/theme-options.php
+msgid "https://developer.mozilla.org/en/CSS"
+msgstr "https://developer.mozilla.org/en/CSS"
+
+#: includes/theme-options.php
+msgid "CSS Tutorial"
+msgstr "CSS návod"
+
+#: includes/theme-options.php
+msgid "Enter your custom CSS styles."
+msgstr "Vložte vlastní CSS styl"
+
+#: includes/theme-options.php
+msgid "Custom Scripts"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Custom Scripts for Header and Footer"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "http://codex.wordpress.org/Using_Javascript"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Quick Tutorial"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Embeds to header.php &darr;"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Enter your custom header script."
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Embeds to footer.php &darr;"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Enter your custom footer script."
+msgstr ""

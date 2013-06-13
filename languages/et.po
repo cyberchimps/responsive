@@ -1,0 +1,831 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
+"PO-Revision-Date: 2013-03-13 23:03+0100\n"
+"Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
+"Language-Team: Estonian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "Pages:"
+msgstr "Leheküljed:"
+
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&#8249; Older posts"
+msgstr "&#8249; Vanemad postitused"
+
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Newer posts &#8250;"
+msgstr "Uuemad postitused &#8250;"
+
+#: home.php page.php landing-page.php index.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
+#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: includes/functions.php
+msgid "Read more &#8250;"
+msgstr "Loe veel &#8250;"
+
+#: comments.php
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"See postitus on parooliga kaitstud. Sisesta parool, et kommentaare lugeda."
+
+#: comments.php
+msgid "&#8249; Older comments"
+msgstr "&#8249; Vanemad kommentaarid"
+
+#: comments.php
+msgid "Newer comments &#8250;"
+msgstr "Uuemad kommentaarid &#8250;"
+
+#: comments.php
+msgid "Pings&#47;Trackbacks"
+msgstr "Pings&#47; Trackbacks"
+
+#: comments.php
+msgid "%1$d %2$s for \"%3$s\""
+msgstr "%1$d %2$s järgnevaks \"%3$s\""
+
+#: comments.php
+msgid "Name"
+msgstr "Nimi"
+
+#: comments.php
+msgid "E-mail"
+msgstr "E-post"
+
+#: comments.php
+msgid "Website"
+msgstr "Veebileht"
+
+#: footer.php
+msgid "&copy;"
+msgstr "&copy;"
+
+#: footer.php
+msgid "scroll to top"
+msgstr "keri üles"
+
+#: footer.php
+msgid "&uarr;"
+msgstr "&uarr;"
+
+#: footer.php
+msgid "http://themeid.com/responsive-theme/"
+msgstr "http://themeid.com/responsive-theme/"
+
+#: footer.php
+msgid "Responsive Theme"
+msgstr "Responsive Theme"
+
+#: footer.php
+msgid "powered by"
+msgstr "Toetaja"
+
+#: footer.php
+msgid "http://wordpress.org/"
+msgstr "http://et.wordpress.org/"
+
+#: footer.php
+msgid "WordPress"
+msgstr "WordPress"
+
+#: image.php
+msgid "&#8249; Return to"
+msgstr "&#8249; Pöördu tagasi"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "Ei ole kommentaare &darr;"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1 kommentaar &darr;"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "% Kommentaarid &darr;"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "Üks kommentaar &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s kommentaari &ldquo;%2$s&rdquo;"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "Sildid"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "Postitatud %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "Muuda"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; Tore sind siin trehvata!"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Ära paanitse, me saame sellest koos jagu. Vaatame, mis meil siin teha annab."
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Pöördu tagasi %s või otsi lehekülge"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "Kodu"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "&larr; Kodu"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "Päeva arhiiv: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "Kuu arhiiv: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "Aasta arhiiv: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "Blogi arhiiv"
+
+#: loop-no-posts.php
+msgid "Your search for %s did not match any entries."
+msgstr "Otsi %s ei leidnud ühtegi sobivat vastet"
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Püsilink %s"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "Otsingutulemused: %s"
+
+#: searchform.php
+msgid "search here &hellip;"
+msgstr "otsi siin &hellip;"
+
+#: searchform.php
+msgid "Go"
+msgstr "Mine"
+
+#: sidebar-gallery.php
+msgid "Image Information"
+msgstr "Pildi info"
+
+#: sidebar-gallery.php
+msgid "Full Size:"
+msgstr "Täissuurus"
+
+#: sidebar-gallery.php
+msgid "Aperture: f&#47;"
+msgstr "Apertuur: f&#47;"
+
+#: sidebar-gallery.php
+msgid "Focal Length:"
+msgstr "Fookuskaugus"
+
+#: sidebar-gallery.php
+msgid "mm"
+msgstr "mm"
+
+#: sidebar-gallery.php
+msgid "ISO:"
+msgstr "ISO:"
+
+#: sidebar-gallery.php
+msgid "Shutter:"
+msgstr "Katik:"
+
+#: sidebar-gallery.php
+msgid "Camera:"
+msgstr "Kaamera"
+
+#: sidebar.php sidebar-right.php sidebar-right-half.php sidebar-left.php
+#: sidebar-left-half.php sidebar-half-left.php
+msgid "In Archive"
+msgstr "Arhiivis"
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 1"
+msgstr "Kodu vidin 1"
+
+#: sidebar-home.php
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"See on sinu esimense koduvidina kast. Muutmiseks mine palun Välimus > "
+"Vidinad ja vali ülevalt 6-s vidin alas kuus nimega Kodu vidin 2. Ka pealkiri "
+"on muudetav vidinatest"
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 2"
+msgstr "Kodu vidin 2"
+
+#: sidebar-home.php
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"See on su teine koduvidina kast. Muutmiseks mine palun Välimus > Vidinad ja "
+"vali ülevalt 7-s vidin alas seitse nimega Kodu vidin 2. Ka pealkiri on "
+"muudetav vidinatest"
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 3"
+msgstr "Kodu vidin 3"
+
+#: sidebar-home.php
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"See on sinu kolmas koduvidina kast. Muutmiseks mine palun Välimus > Vidinad "
+"ja vali ülevalt 8-s vidin nimega Kodu vidin 3. Ka pealkiri on muudetav "
+"vidinatest"
+
+#: single.php
+msgid "About"
+msgstr "Meie kohta"
+
+#: sitemap.php
+msgid "Categories"
+msgstr "Rubriigid"
+
+#: sitemap.php
+msgid "Latest Posts"
+msgstr "Viimaseid postitusi"
+
+#: sitemap.php
+msgid "Pages"
+msgstr "Leheküljed"
+
+#: includes/functions.php
+msgid "Top Menu"
+msgstr "Peamenüü"
+
+#: includes/functions.php
+msgid "Header Menu"
+msgstr "Päise menüü"
+
+#: includes/functions.php
+msgid "Sub-Header Menu"
+msgstr "Alampäise menüü"
+
+#: includes/functions.php
+msgid "Footer Menu"
+msgstr "Jaluse menüü"
+
+#: includes/functions.php
+msgid "Page %s"
+msgstr ""
+
+#: includes/functions.php
+msgid ""
+"<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
+"%4$s"
+msgstr ""
+"<span class=\"%1$s\">Autor </span>%2$s<span class=\"%3$s\"> on </span>%4$s"
+
+#: includes/functions.php
+msgid "View all posts by %s"
+msgstr "Vaata kõiki %s postitusi "
+
+#: includes/functions.php
+msgid "Archive for %s"
+msgstr "Ahriiv %s"
+
+#: includes/functions.php
+msgid "Posts tagged %s"
+msgstr "Taggitud positused %s"
+
+#: includes/functions.php
+msgid "Error 404"
+msgstr "Viga 404"
+
+#: includes/functions.php
+msgid "Page"
+msgstr "Lehekülg"
+
+#: includes/functions.php
+msgid "http://themeid.com/support/"
+msgstr "http://themeid.com/support/"
+
+#: includes/functions.php
+msgid "Theme Support"
+msgstr "Teema tugi"
+
+#: includes/functions.php
+msgid "http://themeid.com/themes/"
+msgstr "http://themeid.com/themes/"
+
+#: includes/functions.php
+msgid "More Themes"
+msgstr "Rohkem teemasid"
+
+#: includes/functions.php
+msgid "http://themeid.com/showcase/"
+msgstr "http://themeid.com/showcase/"
+
+#: includes/functions.php
+msgid "Showcase"
+msgstr "Näidis"
+
+#: includes/functions.php
+msgid "http://themeid.com/donate/"
+msgstr "http://themeid.com/donate/"
+
+#: includes/functions.php
+msgid "Donate Now"
+msgstr "Anneta nüüd"
+
+#: includes/functions.php
+msgid "Main Sidebar"
+msgstr "Peamine külgpaan"
+
+#: includes/functions.php
+msgid "Area 1 - sidebar.php"
+msgstr "Ala üks - sidebar.php"
+
+#: includes/functions.php
+msgid "Right Sidebar"
+msgstr "Parem külgpaan"
+
+#: includes/functions.php
+msgid "Area 2 - sidebar-right.php"
+msgstr "Ala kaks - sidebar-right.php"
+
+#: includes/functions.php
+msgid "Left Sidebar"
+msgstr "Vasak külgpaan"
+
+#: includes/functions.php
+msgid "Area 3 - sidebar-left.php"
+msgstr "Ala kolm - sidebar-left.php"
+
+#: includes/functions.php
+msgid "Left Sidebar Half Page"
+msgstr "Vasak külgpaan pool lehekülge"
+
+#: includes/functions.php
+msgid "Area 4 - sidebar-left-half.php"
+msgstr "Ala neli - sidebar-left-half.php"
+
+#: includes/functions.php
+msgid "Right Sidebar Half Page"
+msgstr "Parem külgpaan pool lehekülge"
+
+#: includes/functions.php
+msgid "Area 5 - sidebar-right-half.php"
+msgstr "Ala viis - sidebar-right-half.php"
+
+#: includes/functions.php
+msgid "Area 6 - sidebar-home.php"
+msgstr "Ala kuus - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 7 - sidebar-home.php"
+msgstr "Ala seitse - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 8 - sidebar-home.php"
+msgstr "Ala kaheksa -  sidebar-home.php"
+
+#: includes/functions.php
+msgid "Gallery Sidebar"
+msgstr "Galerii külgpaan"
+
+#: includes/functions.php
+msgid "Area 9 - sidebar-gallery.php"
+msgstr "Ala üheksa - sidebar-gallery.php"
+
+#: includes/functions.php
+msgid "Colophon Widget"
+msgstr "Salvesta moodul"
+
+#: includes/functions.php
+msgid "Area 10 - sidebar-colophon.php"
+msgstr "Ala 10 - sidebar-colophon.php"
+
+#: includes/functions.php
+msgid "Top Widget"
+msgstr "Ülemine vidin"
+
+#: includes/functions.php
+msgid "Area 11 - sidebar-top.php"
+msgstr "Ala 11 - sidebar-top.php"
+
+#: blog.php
+msgid "Blog (full posts)"
+msgstr ""
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr ""
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr ""
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr ""
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr ""
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr ""
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr ""
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr ""
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr ""
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Tere, maailm!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "Sinu H2 alampealkiri siin"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Pealkiri, alampealkiri ja sisu saad toimetada Teema Valikud alt. \"Kutsu "
+"tegutsema\" nupp ja selle taga olev link samuti. Pilt paremal võib olla pilt "
+"või näiteks YouTube video."
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "Kutsu tegutsema"
+
+#: includes/theme-options.php
+msgid "Theme Options"
+msgstr "Teemavalikud"
+
+#: includes/theme-options.php
+msgid "Options Saved"
+msgstr "Salvestatud seaded"
+
+#: includes/theme-options.php
+msgid "Theme Elements"
+msgstr "Teema elemendid"
+
+#: includes/theme-options.php
+msgid "Disable Breadcrumb Lists?"
+msgstr "Blokeeri breadcrumbs listid?"
+
+#: includes/theme-options.php
+msgid "Check to disable"
+msgstr "Kontrolli, et blokeerida"
+
+#: includes/theme-options.php
+msgid "Disable Call to Action Button?"
+msgstr "Blokeeri \"Kutsu tegutsema\" nupp"
+
+#: includes/theme-options.php
+msgid "Save Options"
+msgstr "Salvesta võimalused"
+
+#: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Logo Upload"
+msgstr "Logo üleslaadimine"
+
+#: includes/theme-options.php
+msgid "Custom Header"
+msgstr "Kohandatud päis"
+
+#: includes/theme-options.php
+msgid "Need to replace or remove default logo?"
+msgstr "Tahad vahetada või eemaldada vaikimisi logo?"
+
+#: includes/theme-options.php
+msgid "<a href=\"%s\">Click here</a>."
+msgstr "<a href=\"%s\">Kliki siia</a>."
+
+#: includes/theme-options.php
+msgid "Home Page"
+msgstr "Koduleht"
+
+#: includes/theme-options.php
+msgid "Headline"
+msgstr "Pealkiri"
+
+#: includes/theme-options.php
+msgid "Enter your headline"
+msgstr "Sisesta oma pealkiri"
+
+#: includes/theme-options.php
+msgid "Subheadline"
+msgstr "Alampealkiri"
+
+#: includes/theme-options.php
+msgid "Enter your subheadline"
+msgstr "Sisesta oma almpealkiri"
+
+#: includes/theme-options.php
+msgid "Content Area"
+msgstr "Sisuala"
+
+#: includes/theme-options.php
+msgid "Enter your content"
+msgstr "Sisesta oma sisu"
+
+#: includes/theme-options.php
+msgid "Call to Action (URL)"
+msgstr "Kutsu tegutsema (URL)"
+
+#: includes/theme-options.php
+msgid "Enter your call to action URL"
+msgstr "Sisesta \"Kutsu tegutsema\" URL"
+
+#: includes/theme-options.php
+msgid "Call to Action (Text)"
+msgstr "Kutsu tegutsema tekst"
+
+#: includes/theme-options.php
+msgid "Enter your call to action text"
+msgstr "Sisesta oma \"Kutsu tegutsema\" tekst"
+
+#: includes/theme-options.php
+msgid "Featured Content"
+msgstr "Esiletoodud sisu"
+
+#: includes/theme-options.php
+msgid "See Docs"
+msgstr "Vaata dokumente"
+
+#: includes/theme-options.php
+msgid "Paste your shortcode, video or image source"
+msgstr "Aseta kood, video või pildi allikas"
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
+msgstr ""
+
+#: includes/theme-options.php
+msgid "Webmaster Tools"
+msgstr "Veebimeistri tööriistad"
+
+#: includes/theme-options.php
+msgid "Google Site Verification"
+msgstr "Google lehe ehtsuse kontroll"
+
+#: includes/theme-options.php
+msgid "Enter your Google ID number only"
+msgstr "Sisesta oma Google ID number"
+
+#: includes/theme-options.php
+msgid "Bing Site Verification"
+msgstr "Bing lehe ehtsuse kontroll"
+
+#: includes/theme-options.php
+msgid "Enter your Bing ID number only"
+msgstr "Sisesta oma Bing ID number"
+
+#: includes/theme-options.php
+msgid "Yahoo Site Verification"
+msgstr "Yahoo lehe ehtsuse kontroll"
+
+#: includes/theme-options.php
+msgid "Enter your Yahoo ID number only"
+msgstr "Sisesta oma Yahoo ID number"
+
+#: includes/theme-options.php
+msgid "Site Statistics Tracker"
+msgstr "Lehe statistika jälgija"
+
+#: includes/theme-options.php
+msgid "Leave blank if plugin handles your webmaster tools"
+msgstr "Jäta tühjaks kui plugin kontrollib sinu veebimeistri tööriistu"
+
+#: includes/theme-options.php
+msgid "Google Analytics, StatCounter, any other or all of them."
+msgstr "Google Analytics, StatCounter, üks või mõlemad nendest"
+
+#: includes/theme-options.php
+msgid "Social Icons"
+msgstr "Sotsiaalmeedia ikoonid"
+
+#: includes/theme-options.php
+msgid "Twitter"
+msgstr "Twitter"
+
+#: includes/theme-options.php
+msgid "Enter your Twitter URL"
+msgstr "Sisesta oma Twitteri URL"
+
+#: includes/theme-options.php
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/theme-options.php
+msgid "Enter your Facebook URL"
+msgstr "Sisesta oma Facebooki URL"
+
+#: includes/theme-options.php
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: includes/theme-options.php
+msgid "Enter your LinkedIn URL"
+msgstr "Sisesta oma LinkedIn URL"
+
+#: includes/theme-options.php
+msgid "YouTube"
+msgstr "YouTube"
+
+#: includes/theme-options.php
+msgid "Enter your YouTube URL"
+msgstr "Sisesta oma YouTube URL"
+
+#: includes/theme-options.php
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: includes/theme-options.php
+msgid "Enter your StumbleUpon URL"
+msgstr "Sisesta oma StumbleUpon URL"
+
+#: includes/theme-options.php
+msgid "RSS Feed"
+msgstr "RSS voog"
+
+#: includes/theme-options.php
+msgid "Enter your RSS Feed URL"
+msgstr "Sisesta oma RSS voo URL"
+
+#: includes/theme-options.php
+msgid "Google+"
+msgstr "Google+"
+
+#: includes/theme-options.php
+msgid "Enter your Google+ URL"
+msgstr "Sisesta oma Google+ URL"
+
+#: includes/theme-options.php
+msgid "Instagram"
+msgstr "Instagram"
+
+#: includes/theme-options.php
+msgid "Enter your Instagram URL"
+msgstr "Sisesta oma Instagram URL"
+
+#: includes/theme-options.php
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: includes/theme-options.php
+msgid "Enter your Pinterest URL"
+msgstr "Sisesta oma Pinterest URL"
+
+#: includes/theme-options.php
+msgid "Yelp!"
+msgstr "Yelp!"
+
+#: includes/theme-options.php
+msgid "Enter your Yelp! URL"
+msgstr "Sisesta oma Yelp! URL"
+
+#: includes/theme-options.php
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: includes/theme-options.php
+msgid "Enter your Vimeo URL"
+msgstr "Sisesta Vimeo URL"
+
+#: includes/theme-options.php
+msgid "foursquare"
+msgstr "foursquare"
+
+#: includes/theme-options.php
+msgid "Enter your foursquare URL"
+msgstr "Sisesta foursquare URL"
+
+#: includes/theme-options.php
+msgid "Custom CSS Styles"
+msgstr "Kohanda CSS stiile"
+
+#: includes/theme-options.php
+msgid "https://developer.mozilla.org/en/CSS"
+msgstr "https://developer.mozilla.org/en/CSS"
+
+#: includes/theme-options.php
+msgid "CSS Tutorial"
+msgstr "CSS käsiraamat"
+
+#: includes/theme-options.php
+msgid "Enter your custom CSS styles."
+msgstr "Sisesta oma kohandatud CSS stiilid."
+
+#: includes/theme-options.php
+msgid "Custom Scripts"
+msgstr "Kohandatud skriptid"
+
+#: includes/theme-options.php
+msgid "Custom Scripts for Header and Footer"
+msgstr "Kohandatud skriptid Päisele ja Jalusele"
+
+#: includes/theme-options.php
+msgid "http://codex.wordpress.org/Using_Javascript"
+msgstr "http://codex.wordpress.org/Using_Javascript"
+
+#: includes/theme-options.php
+msgid "Quick Tutorial"
+msgstr "Kiire abiõpik"
+
+#: includes/theme-options.php
+msgid "Embeds to header.php &darr;"
+msgstr "Sisestab header.php &darr;"
+
+#: includes/theme-options.php
+msgid "Enter your custom header script."
+msgstr "Sisesta oma kohandatud päise skript"
+
+#: includes/theme-options.php
+msgid "Embeds to footer.php &darr;"
+msgstr "Sisestab footer.php &darr;"
+
+#: includes/theme-options.php
+msgid "Enter your custom footer script."
+msgstr "Sisesta oma kohandatud jaluse skript"

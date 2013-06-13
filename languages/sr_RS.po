@@ -1,0 +1,834 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
+"PO-Revision-Date: 2013-03-13 23:12+0100\n"
+"Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
+"Language-Team: Serbian (Cyrillic)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: home.php page.php landing-page.php index.php image.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php
+#: blog-excerpt.php archive.php search.php sidebar-content-half-page.php
+#: sidebar-content-page.php single.php sitemap.php
+msgid "Pages:"
+msgstr "Странице:"
+
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&#8249; Older posts"
+msgstr "‹ Старији чланци"
+
+#: loop-nav.php blog.php blog-excerpt.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Newer posts &#8250;"
+msgstr "Новији чланци ›"
+
+#: home.php page.php landing-page.php index.php full-width-page.php
+#: content-sidebar-page.php content-sidebar-half-page.php blog.php image.php
+#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: includes/functions.php
+msgid "Read more &#8250;"
+msgstr "Прочитајте више ›"
+
+#: comments.php
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Овај чланак је заштићен лозинком. Унесите лозинку да бисте видели коментаре."
+
+#: comments.php
+msgid "&#8249; Older comments"
+msgstr "‹ Старији коментари"
+
+#: comments.php
+msgid "Newer comments &#8250;"
+msgstr "Новији коментари ›"
+
+#: comments.php
+msgid "Pings&#47;Trackbacks"
+msgstr "Поврати пингови/повратне везе"
+
+#: comments.php
+msgid "%1$d %2$s for \"%3$s\""
+msgstr "%1$d %2$s за \"%3$s\""
+
+#: comments.php
+msgid "Name"
+msgstr "Име"
+
+#: comments.php
+msgid "E-mail"
+msgstr "Е-пошта"
+
+#: comments.php
+msgid "Website"
+msgstr "Веб место"
+
+#: footer.php
+msgid "&copy;"
+msgstr "©"
+
+#: footer.php
+msgid "scroll to top"
+msgstr "на врх странице"
+
+#: footer.php
+msgid "&uarr;"
+msgstr "↑"
+
+#: footer.php
+msgid "http://themeid.com/responsive-theme/"
+msgstr "http://themeid.com/responsive-theme/"
+
+#: footer.php
+msgid "Responsive Theme"
+msgstr "Responsive Theme"
+
+#: footer.php
+msgid "powered by"
+msgstr "покреће"
+
+#: footer.php
+msgid "http://wordpress.org/"
+msgstr "http://sr.wordpress.org/"
+
+#: footer.php
+msgid "WordPress"
+msgstr "Вордпрес"
+
+#: image.php
+msgid "&#8249; Return to"
+msgstr "‹ Повратак ка"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "Нема коментара ↓"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "1 коментар ↓"
+
+#: post-meta.php post-meta-page.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "% коментара ↓"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "Један коментар на “%2$s”"
+msgstr[1] "%1$s коментара на “%2$s”"
+msgstr[2] "%1$s коментара на “%2$s”"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "Означено са:"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "Објављено у %s"
+
+#: post-data.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php sitemap.php
+msgid "Edit"
+msgstr "Уреди"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 — Лепо је што смо се срели овде!"
+
+#: loop-no-posts.php sidebar-content-half-page.php sidebar-content-page.php
+#: image.php
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Без панике, заједно ћемо решити ово. Да видимо које су нам могућности овде."
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "Можете се вратити %s или потражите страницу коју сте тражили"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php includes/functions.php
+msgid "Home"
+msgstr "Почетна"
+
+#: loop-no-posts.php image.php sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "&larr; Home"
+msgstr "← Почетна"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "Дневна архива: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "Месечна архива: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "Годишња архива: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "Архива блога"
+
+#: loop-no-posts.php
+msgid "Your search for %s did not match any entries."
+msgstr "Ваша претрага за %s не подудара се ни са једним уносом."
+
+#: post-meta.php sitemap.php
+msgid "Permanent Link to %s"
+msgstr "Стална веза ка %s"
+
+#: includes/functions.php search.php
+msgid "Search results for: %s"
+msgstr "Резултати претраге за: %s"
+
+#: searchform.php
+msgid "search here &hellip;"
+msgstr "тражите овде ..."
+
+#: searchform.php
+msgid "Go"
+msgstr "Крените"
+
+#: sidebar-gallery.php
+msgid "Image Information"
+msgstr "Подаци о слици"
+
+#: sidebar-gallery.php
+msgid "Full Size:"
+msgstr "Пуна величина:"
+
+#: sidebar-gallery.php
+msgid "Aperture: f&#47;"
+msgstr "Отвор објектива: f/"
+
+#: sidebar-gallery.php
+msgid "Focal Length:"
+msgstr "Фокусна дужина:"
+
+#: sidebar-gallery.php
+msgid "mm"
+msgstr "мм"
+
+#: sidebar-gallery.php
+msgid "ISO:"
+msgstr "ИСО:"
+
+#: sidebar-gallery.php
+msgid "Shutter:"
+msgstr "Бленда:"
+
+#: sidebar-gallery.php
+msgid "Camera:"
+msgstr "Фото апарат:"
+
+#: sidebar.php sidebar-right.php sidebar-right-half.php sidebar-left.php
+#: sidebar-left-half.php sidebar-half-left.php
+msgid "In Archive"
+msgstr "У архиви"
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 1"
+msgstr "Виџет на почетној 1"
+
+#: sidebar-home.php
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Ово је ваша прва кутијица за виџете почетне странице. За уређивање молимо "
+"вас да идете на Изглед > Виџети и изаберете шести виџет од врха у простору "
+"шест назван Виџет на почетној 1. Наслов је такође управљив са виџета."
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 2"
+msgstr "Виџет на почетној 2"
+
+#: sidebar-home.php
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Ово је ваша друга кутијица за виџете почетне странице. За уређивање молимо "
+"вас да идете на Изглед > Виџети и изаберете седми виџет од врха у простору "
+"седам назван Виџет на почетној 2. Наслов је такође управљив са виџета."
+
+#: sidebar-home.php includes/functions.php
+msgid "Home Widget 3"
+msgstr "Виџет на почетној 3"
+
+#: sidebar-home.php
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Ово је ваша трећа кутијица за виџете почетне странице. За уређивање молимо "
+"вас да идете на Изглед > Виџети и изаберете осми виџет од врха у простору "
+"осам назван Виџет на почетној 3. Наслов је такође управљив са виџета."
+
+#: single.php
+msgid "About"
+msgstr "О"
+
+#: sitemap.php
+msgid "Categories"
+msgstr "Категорије"
+
+#: sitemap.php
+msgid "Latest Posts"
+msgstr "Најновији чланци"
+
+#: sitemap.php
+msgid "Pages"
+msgstr "Стране"
+
+#: includes/functions.php
+msgid "Top Menu"
+msgstr "Изборник на врху"
+
+#: includes/functions.php
+msgid "Header Menu"
+msgstr "Изборник у заглављу"
+
+#: includes/functions.php
+msgid "Sub-Header Menu"
+msgstr "Изборник у подзаглављу"
+
+#: includes/functions.php
+msgid "Footer Menu"
+msgstr "Изборник у подножју"
+
+#: includes/functions.php
+msgid "Page %s"
+msgstr "Страна %s"
+
+#: includes/functions.php
+msgid ""
+"<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
+"%4$s"
+msgstr ""
+"<span class=\"%1$s\">Објављено </span>%2$s<span class=\"%3$s\"> од </span>"
+"%4$s"
+
+#: includes/functions.php
+msgid "View all posts by %s"
+msgstr "Прегледајте све чланке од %s"
+
+#: includes/functions.php
+msgid "Archive for %s"
+msgstr "Архива за %s"
+
+#: includes/functions.php
+msgid "Posts tagged %s"
+msgstr "Чланци означени %s"
+
+#: includes/functions.php
+msgid "Error 404"
+msgstr "Грешка 404"
+
+#: includes/functions.php
+msgid "Page"
+msgstr "Страна"
+
+#: includes/functions.php
+msgid "http://themeid.com/support/"
+msgstr "http://themeid.com/support/"
+
+#: includes/functions.php
+msgid "Theme Support"
+msgstr "Подршка теме"
+
+#: includes/functions.php
+msgid "http://themeid.com/themes/"
+msgstr "http://themeid.com/themes/"
+
+#: includes/functions.php
+msgid "More Themes"
+msgstr "Још тема"
+
+#: includes/functions.php
+msgid "http://themeid.com/showcase/"
+msgstr "http://themeid.com/showcase/"
+
+#: includes/functions.php
+msgid "Showcase"
+msgstr "Витрина"
+
+#: includes/functions.php
+msgid "http://themeid.com/donate/"
+msgstr "http://themeid.com/donate/"
+
+#: includes/functions.php
+msgid "Donate Now"
+msgstr "Донирајте одмах"
+
+#: includes/functions.php
+msgid "Main Sidebar"
+msgstr "Главнa бочна трака"
+
+#: includes/functions.php
+msgid "Area 1 - sidebar.php"
+msgstr "Простор један - sidebar.php"
+
+#: includes/functions.php
+msgid "Right Sidebar"
+msgstr "Десна бочна трака"
+
+#: includes/functions.php
+msgid "Area 2 - sidebar-right.php"
+msgstr "Простор два - sidebar-right.php"
+
+#: includes/functions.php
+msgid "Left Sidebar"
+msgstr "Лева бочна трака"
+
+#: includes/functions.php
+msgid "Area 3 - sidebar-left.php"
+msgstr "Простор три - sidebar-left.php"
+
+#: includes/functions.php
+msgid "Left Sidebar Half Page"
+msgstr "Лева бочна трака половина странице"
+
+#: includes/functions.php
+msgid "Area 4 - sidebar-left-half.php"
+msgstr "Простор четири - sidebar-left-half.php"
+
+#: includes/functions.php
+msgid "Right Sidebar Half Page"
+msgstr "Десна бочна трака половина странице"
+
+#: includes/functions.php
+msgid "Area 5 - sidebar-right-half.php"
+msgstr "Простор пет - sidebar-right-half.php"
+
+#: includes/functions.php
+msgid "Area 6 - sidebar-home.php"
+msgstr "Простор шест - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 7 - sidebar-home.php"
+msgstr "Простор седам - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Area 8 - sidebar-home.php"
+msgstr "Простор осам - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Gallery Sidebar"
+msgstr "Бочна трака галерије"
+
+#: includes/functions.php
+msgid "Area 9 - sidebar-gallery.php"
+msgstr "Простор девет - sidebar-home.php"
+
+#: includes/functions.php
+msgid "Colophon Widget"
+msgstr "Виџет у колофону"
+
+#: includes/functions.php
+msgid "Area 10 - sidebar-colophon.php"
+msgstr "Простор десет - sidebar-colophon.php"
+
+#: includes/functions.php
+msgid "Top Widget"
+msgstr "Виџет на врху"
+
+#: includes/functions.php
+msgid "Area 11 - sidebar-top.php"
+msgstr "Простор једанаест - sidebar-top.php"
+
+#: blog.php
+msgid "Blog (full posts)"
+msgstr "Блог (цели чланци)"
+
+#: blog-excerpt.php
+msgid "Blog Excerpt (summary)"
+msgstr "Исечак блога (сажетак)"
+
+#: content-sidebar-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar"
+msgstr "Садржај/бочна трака"
+
+#: sidebar-content-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content"
+msgstr "Бочна трака/садржај"
+
+#: content-sidebar-half-page.php includes/post-custom-meta.php
+msgid "Content/Sidebar Half Page"
+msgstr "Садржај/бочна трака половина странице"
+
+#: sidebar-content-half-page.php includes/post-custom-meta.php
+msgid "Sidebar/Content Half Page"
+msgstr "Бочна трака/садржај половина странице"
+
+#: full-width-page.php includes/post-custom-meta.php
+msgid "Full Width Page (no sidebar)"
+msgstr "Пуна ширина странице (без бочне траке)"
+
+#: landing-page.php
+msgid "Landing Page (no menu)"
+msgstr "Долазна страна (нема изборник)"
+
+#: sitemap.php
+msgid "Sitemap"
+msgstr "Мапа веб места"
+
+#: includes/post-custom-meta.php
+msgid "Layout"
+msgstr "Распоред"
+
+#: includes/post-custom-meta.php
+msgid "Default"
+msgstr "Подразумевано"
+
+#: includes/theme-options.php
+msgid "Hello, World!"
+msgstr "Здраво, свете!"
+
+#: includes/theme-options.php
+msgid "Your H2 subheadline here"
+msgstr "Ваш H2 поднаслов овде"
+
+#: includes/theme-options.php
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Ваш наслов, поднаслов и овај садржај могу да се уређују под Могућности теме. "
+"Такође и дугме Позив на радњу и циљ везе дугмета. Слика са ваше десне стране "
+"може бити слика или ако желите чак и видео са Јутјуба."
+
+#: includes/theme-options.php
+msgid "Call to Action"
+msgstr "Позив на радњу"
+
+#: includes/theme-options.php
+msgid "Theme Options"
+msgstr "Могућности теме"
+
+#: includes/theme-options.php
+msgid "Options Saved"
+msgstr "Могућности су сачуване"
+
+#: includes/theme-options.php
+msgid "Theme Elements"
+msgstr "Елементи теме"
+
+#: includes/theme-options.php
+msgid "Disable Breadcrumb Lists?"
+msgstr "Искључити спискове кретања?"
+
+#: includes/theme-options.php
+msgid "Check to disable"
+msgstr "Штиклирајте за искључивање"
+
+#: includes/theme-options.php
+msgid "Disable Call to Action Button?"
+msgstr "Искључити дугме Позив за радњу?"
+
+#: includes/theme-options.php
+msgid "Save Options"
+msgstr "Сачувај могућности"
+
+#: includes/theme-options.php
+msgid "Restore Defaults"
+msgstr "Поврати подразумевано"
+
+#: includes/theme-options.php
+msgid "Logo Upload"
+msgstr "Отпремање логотипа"
+
+#: includes/theme-options.php
+msgid "Custom Header"
+msgstr "Прилагођено заглавље"
+
+#: includes/theme-options.php
+msgid "Need to replace or remove default logo?"
+msgstr "Желите да замените или одстраните подразумевани логотип?"
+
+#: includes/theme-options.php
+msgid "<a href=\"%s\">Click here</a>."
+msgstr "<a href=\"%s\">Притисните овде</a>."
+
+#: includes/theme-options.php
+msgid "Home Page"
+msgstr "Почетна страница"
+
+#: includes/theme-options.php
+msgid "Headline"
+msgstr "Наслов"
+
+#: includes/theme-options.php
+msgid "Enter your headline"
+msgstr "Унесите свој наслов"
+
+#: includes/theme-options.php
+msgid "Subheadline"
+msgstr "Поднаслов"
+
+#: includes/theme-options.php
+msgid "Enter your subheadline"
+msgstr "Унесите свој поднаслов"
+
+#: includes/theme-options.php
+msgid "Content Area"
+msgstr "Простор за садржај"
+
+#: includes/theme-options.php
+msgid "Enter your content"
+msgstr "Унесите свој садржај"
+
+#: includes/theme-options.php
+msgid "Call to Action (URL)"
+msgstr "Позив на радњу (URL)"
+
+#: includes/theme-options.php
+msgid "Enter your call to action URL"
+msgstr "Унесите свој URL за позив на радњу"
+
+#: includes/theme-options.php
+msgid "Call to Action (Text)"
+msgstr "Позив на радњу (текст)"
+
+#: includes/theme-options.php
+msgid "Enter your call to action text"
+msgstr "Унесите свој текст позива на радњу"
+
+#: includes/theme-options.php
+msgid "Featured Content"
+msgstr "Истакнути садржај"
+
+#: includes/theme-options.php
+msgid "See Docs"
+msgstr "Погледајте документацију"
+
+#: includes/theme-options.php
+msgid "Paste your shortcode, video or image source"
+msgstr "Налепите свој кратки код, извор видео записа или слике"
+
+#: includes/theme-options.php
+msgid "Default Layouts"
+msgstr "Подразумевани распореди"
+
+#: includes/theme-options.php
+msgid "Default Static Page Layout"
+msgstr "Подразумевани распоред непокретне стране"
+
+#: includes/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr "Подразумевани распоред појединачног чланка блога"
+
+#: includes/theme-options.php
+msgid "Default Blog Posts Index Layout"
+msgstr "Подразумевани распоред индеска чланака блога"
+
+#: includes/theme-options.php
+msgid "Webmaster Tools"
+msgstr "Алатке за вебмастере"
+
+#: includes/theme-options.php
+msgid "Google Site Verification"
+msgstr "Потврђивање веб места на Гуглу"
+
+#: includes/theme-options.php
+msgid "Enter your Google ID number only"
+msgstr "Унесите само свој Гуглов ID број"
+
+#: includes/theme-options.php
+msgid "Bing Site Verification"
+msgstr "Потврђивање веб места на Бингу"
+
+#: includes/theme-options.php
+msgid "Enter your Bing ID number only"
+msgstr "Унесите само свој Бингов ID број"
+
+#: includes/theme-options.php
+msgid "Yahoo Site Verification"
+msgstr "Потврђивање веб места на Јахуу"
+
+#: includes/theme-options.php
+msgid "Enter your Yahoo ID number only"
+msgstr "Унесите само свој Јахуов ID број"
+
+#: includes/theme-options.php
+msgid "Site Statistics Tracker"
+msgstr "Пратилац статистика веб места"
+
+#: includes/theme-options.php
+msgid "Leave blank if plugin handles your webmaster tools"
+msgstr "Оставите празно ако додатак рукује вашим алаткама за вебмастере"
+
+#: includes/theme-options.php
+msgid "Google Analytics, StatCounter, any other or all of them."
+msgstr "Google Analytics, StatCounter, било који други или сви наведени."
+
+#: includes/theme-options.php
+msgid "Social Icons"
+msgstr "Друштвене иконице"
+
+#: includes/theme-options.php
+msgid "Twitter"
+msgstr "Твитер"
+
+#: includes/theme-options.php
+msgid "Enter your Twitter URL"
+msgstr "Унесите свој Твитеров URL"
+
+#: includes/theme-options.php
+msgid "Facebook"
+msgstr "Фејсбук"
+
+#: includes/theme-options.php
+msgid "Enter your Facebook URL"
+msgstr "Унесите свој Фејсбуков URL"
+
+#: includes/theme-options.php
+msgid "LinkedIn"
+msgstr "Линкедин"
+
+#: includes/theme-options.php
+msgid "Enter your LinkedIn URL"
+msgstr "Унесите свој Линкединов URL"
+
+#: includes/theme-options.php
+msgid "YouTube"
+msgstr "Јутјуб"
+
+#: includes/theme-options.php
+msgid "Enter your YouTube URL"
+msgstr "Унесите свој Јутјубов URL"
+
+#: includes/theme-options.php
+msgid "StumbleUpon"
+msgstr "Стамблапон"
+
+#: includes/theme-options.php
+msgid "Enter your StumbleUpon URL"
+msgstr "Унесите свој Стамблапонов URL"
+
+#: includes/theme-options.php
+msgid "RSS Feed"
+msgstr "RSS довод"
+
+#: includes/theme-options.php
+msgid "Enter your RSS Feed URL"
+msgstr "Унесите URL свог RSS довода"
+
+#: includes/theme-options.php
+msgid "Google+"
+msgstr "Гугл+"
+
+#: includes/theme-options.php
+msgid "Enter your Google+ URL"
+msgstr "Унесите свој Гугл+ URL"
+
+#: includes/theme-options.php
+msgid "Instagram"
+msgstr "Инстаграм"
+
+#: includes/theme-options.php
+msgid "Enter your Instagram URL"
+msgstr "Унесите свој Инстаграмов URL"
+
+#: includes/theme-options.php
+msgid "Pinterest"
+msgstr "Пинтерест"
+
+#: includes/theme-options.php
+msgid "Enter your Pinterest URL"
+msgstr "Унесите свој Пинтерестов URL"
+
+#: includes/theme-options.php
+msgid "Yelp!"
+msgstr "Јелп"
+
+#: includes/theme-options.php
+msgid "Enter your Yelp! URL"
+msgstr "Унесите свој Јелпов URL"
+
+#: includes/theme-options.php
+msgid "Vimeo"
+msgstr "Вимео"
+
+#: includes/theme-options.php
+msgid "Enter your Vimeo URL"
+msgstr "Унесите свој Вимеов URL"
+
+#: includes/theme-options.php
+msgid "foursquare"
+msgstr "Форсквер"
+
+#: includes/theme-options.php
+msgid "Enter your foursquare URL"
+msgstr "Унесите свој Форсверов URL"
+
+#: includes/theme-options.php
+msgid "Custom CSS Styles"
+msgstr "Прилагоћени CSS стилови"
+
+#: includes/theme-options.php
+msgid "https://developer.mozilla.org/en/CSS"
+msgstr "https://developer.mozilla.org/en/CSS"
+
+#: includes/theme-options.php
+msgid "CSS Tutorial"
+msgstr "CSS упутство"
+
+#: includes/theme-options.php
+msgid "Enter your custom CSS styles."
+msgstr "Унесите своје прилагођене CSS стилове."
+
+#: includes/theme-options.php
+msgid "Custom Scripts"
+msgstr "Прилагођене скрипте"
+
+#: includes/theme-options.php
+msgid "Custom Scripts for Header and Footer"
+msgstr "Прилагођене скрипте за заглавље и подножје"
+
+#: includes/theme-options.php
+msgid "http://codex.wordpress.org/Using_Javascript"
+msgstr "http://codex.wordpress.org/Using_Javascript"
+
+#: includes/theme-options.php
+msgid "Quick Tutorial"
+msgstr "Брзи водич"
+
+#: includes/theme-options.php
+msgid "Embeds to header.php &darr;"
+msgstr "Угнежђивања у header.php &darr;"
+
+#: includes/theme-options.php
+msgid "Enter your custom header script."
+msgstr "Унесите своју прилагођену скрипту за заглавље."
+
+#: includes/theme-options.php
+msgid "Embeds to footer.php &darr;"
+msgstr "Угнежђивања у footer.php &darr;"
+
+#: includes/theme-options.php
+msgid "Enter your custom footer script."
+msgstr "Унесите своју прилагођену скрипту за заглавље."
