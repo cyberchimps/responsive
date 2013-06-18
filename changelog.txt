@@ -8,6 +8,26 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/18/13) - Improvements - Version 1.9.3.3
+
+http://themeid.com/docs/update-1-9-3-3/
+
+[+] Upgrade bar
+[+] Breadcrumb class to single breadcrumb
+[+] Utility classes
+[+] Created core folder
+[*] Function exists responsive_wp_title
+[*] Mobile menu set height removed for pages with longer title
+[*] Link to http://www.quirksmode.org/blog/archives/2013/06/devicepixelrati.html
+[^] Buttons and info box lower
+[^] Parent style enqueue
+[^] Media queries into the core
+[x] Old menu styles
+[x] ie7 compatibility text from style.css
+[x] Print css h1 page breaks
+
+----
+
 (05/07/13) - Improvements - Version 1.9.3.2
 
 http://themeid.com/docs/update-1-9-3-2/
