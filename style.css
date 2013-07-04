@@ -1364,9 +1364,9 @@ ul.menu > li:hover {
   display: none;
 }
 
-.js .main-nav .menu {
-  display: block;
-}
+/*.js .main-nav .menu {*/
+  /*display: block;*/
+/*}*/
 
 /* =Primary Main Menu IE Fixes
 -------------------------------------------------------------- */
@@ -1483,7 +1483,7 @@ ul.menu > li:hover {
 }
 
 .sub-header-menu a:hover {
-  -moz-background-clip: padding;
+  -moz-background-clip: padding-box;
   -webkit-background-clip: padding-box;
   background-color: #f9f9f9;
   background-clip: padding-box;
