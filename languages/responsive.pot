@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-03 22:59+0100\n"
-"PO-Revision-Date: 2013-04-03 22:59+0100\n"
+"POT-Creation-Date: 2013-07-06 08:51+0100\n"
+"PO-Revision-Date: 2013-07-06 08:51+0100\n"
 "Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,10 +13,10 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: archive.php:44 blog-excerpt.php:55 blog.php:57
+#: archive.php:44 blog-excerpt.php:63 blog.php:65
 #: content-sidebar-half-page.php:40 content-sidebar-page.php:40
 #: full-width-page.php:40 home.php:46 image.php:50 index.php:42
 #: landing-page.php:38 page.php:39 search.php:39
@@ -25,18 +25,18 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: blog-excerpt.php:70 blog.php:72 loop-nav.php:27
+#: blog-excerpt.php:78 blog.php:80 loop-nav.php:27
 msgid "&#8249; Older posts"
 msgstr ""
 
-#: blog-excerpt.php:71 blog.php:73 loop-nav.php:28
+#: blog-excerpt.php:79 blog.php:81 loop-nav.php:28
 msgid "Newer posts &#8250;"
 msgstr ""
 
-#: blog.php:56 content-sidebar-half-page.php:39 content-sidebar-page.php:39
+#: blog.php:64 content-sidebar-half-page.php:39 content-sidebar-page.php:39
 #: full-width-page.php:39 home.php:45 image.php:49 index.php:41
 #: landing-page.php:37 page.php:38 sidebar-content-half-page.php:55
-#: sidebar-content-page.php:55 single.php:38 includes/functions.php:331
+#: sidebar-content-page.php:55 single.php:38 core/includes/functions.php:400
 msgid "Read more &#8250;"
 msgstr ""
 
@@ -111,21 +111,40 @@ msgstr ""
 msgid "WordPress"
 msgstr ""
 
+#: front-page.php:60 core/includes/theme-options.php:225
+msgid "Hello, World!"
+msgstr ""
+
+#: front-page.php:69 core/includes/theme-options.php:236
+msgid "Your H2 subheadline here"
+msgstr ""
+
+#: front-page.php:78 core/includes/theme-options.php:247
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+
+#: front-page.php:91 core/includes/theme-options.php:269
+msgid "Call to Action"
+msgstr ""
+
 #: image.php:33
 msgid "&#8249; Return to"
 msgstr ""
 
-#: image.php:41 post-meta-page.php:30 post-meta.php:29
+#: image.php:41 post-meta-page.php:30 post-meta.php:34
 #: sidebar-content-half-page.php:48 sidebar-content-page.php:48
 msgid "No Comments &darr;"
 msgstr ""
 
-#: image.php:41 post-meta-page.php:30 post-meta.php:29
+#: image.php:41 post-meta-page.php:30 post-meta.php:34
 #: sidebar-content-half-page.php:48 sidebar-content-page.php:48
 msgid "1 Comment &darr;"
 msgstr ""
 
-#: image.php:41 post-meta-page.php:30 post-meta.php:29
+#: image.php:41 post-meta-page.php:30 post-meta.php:34
 #: sidebar-content-half-page.php:48 sidebar-content-page.php:48
 msgid "% Comments &darr;"
 msgstr ""
@@ -146,22 +165,22 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: loop-header.php:41
+#: loop-header.php:42
 #, php-format
 msgid "Daily Archives: %s"
 msgstr ""
 
-#: loop-header.php:43
+#: loop-header.php:44
 #, php-format
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: loop-header.php:45
+#: loop-header.php:46
 #, php-format
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: loop-header.php:47
+#: loop-header.php:48
 msgid "Blog Archives"
 msgstr ""
 
@@ -185,7 +204,7 @@ msgstr ""
 msgid "You can return %s or search for the page you were looking for."
 msgstr ""
 
-#: loop-no-posts.php:35 includes/functions.php:425
+#: loop-no-posts.php:35 core/includes/functions.php:495
 msgid "Home"
 msgstr ""
 
@@ -193,12 +212,7 @@ msgstr ""
 msgid "&larr; Home"
 msgstr ""
 
-#: post-meta.php:21 sitemap.php:48
-#, php-format
-msgid "Permanent Link to %s"
-msgstr ""
-
-#: search.php:27 includes/functions.php:427
+#: search.php:27 core/includes/functions.php:497
 #, php-format
 msgid "Search results for: %s"
 msgstr ""
@@ -215,31 +229,31 @@ msgstr ""
 msgid "Image Information"
 msgstr ""
 
-#: sidebar-gallery.php:31
+#: sidebar-gallery.php:33
 msgid "Full Size:"
 msgstr ""
 
-#: sidebar-gallery.php:34
+#: sidebar-gallery.php:39
 msgid "Aperture: f&#47;"
 msgstr ""
 
-#: sidebar-gallery.php:38
+#: sidebar-gallery.php:43
 msgid "Focal Length:"
 msgstr ""
 
-#: sidebar-gallery.php:38
+#: sidebar-gallery.php:43
 msgid "mm"
 msgstr ""
 
-#: sidebar-gallery.php:42
+#: sidebar-gallery.php:47
 msgid "ISO:"
 msgstr ""
 
-#: sidebar-gallery.php:46
+#: sidebar-gallery.php:51
 msgid "Shutter:"
 msgstr ""
 
-#: sidebar-gallery.php:63
+#: sidebar-gallery.php:68
 msgid "Camera:"
 msgstr ""
 
@@ -248,7 +262,7 @@ msgstr ""
 msgid "In Archive"
 msgstr ""
 
-#: sidebar-home.php:29 includes/functions.php:666
+#: sidebar-home.php:29 core/includes/functions.php:802
 msgid "Home Widget 1"
 msgstr ""
 
@@ -259,7 +273,7 @@ msgid ""
 "Title is also manageable from widgets as well."
 msgstr ""
 
-#: sidebar-home.php:44 includes/functions.php:676
+#: sidebar-home.php:44 core/includes/functions.php:812
 msgid "Home Widget 2"
 msgstr ""
 
@@ -270,7 +284,7 @@ msgid ""
 "Title is also manageable from widgets as well."
 msgstr ""
 
-#: sidebar-home.php:59 includes/functions.php:686
+#: sidebar-home.php:59 core/includes/functions.php:822
 msgid "Home Widget 3"
 msgstr ""
 
@@ -293,162 +307,160 @@ msgstr ""
 msgid "Latest Posts"
 msgstr ""
 
+#: sitemap.php:48
+#, php-format
+msgid "Permanent Link to %s"
+msgstr ""
+
 #: sitemap.php:55
 msgid "Pages"
 msgstr ""
 
-#: includes/functions.php:80
+#: core/includes/functions.php:145
 msgid "Top Menu"
 msgstr ""
 
-#: includes/functions.php:81
+#: core/includes/functions.php:146
 msgid "Header Menu"
 msgstr ""
 
-#: includes/functions.php:82
+#: core/includes/functions.php:147
 msgid "Sub-Header Menu"
 msgstr ""
 
-#: includes/functions.php:83
+#: core/includes/functions.php:148
 msgid "Footer Menu"
 msgstr ""
 
-#: includes/functions.php:279 includes/functions.php:543
+#: core/includes/functions.php:346 core/includes/functions.php:621
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: includes/functions.php:383
+#: core/includes/functions.php:453
 #, php-format
 msgid ""
 "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
 "%4$s"
 msgstr ""
 
-#: includes/functions.php:393 includes/functions.php:429
+#: core/includes/functions.php:463 core/includes/functions.php:499
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
-#: includes/functions.php:426
+#: core/includes/functions.php:496
 #, php-format
 msgid "Archive for %s"
 msgstr ""
 
-#: includes/functions.php:428
+#: core/includes/functions.php:498
 #, php-format
 msgid "Posts tagged %s"
 msgstr ""
 
-#: includes/functions.php:430
+#: core/includes/functions.php:500
 msgid "Error 404"
 msgstr ""
 
-#: includes/functions.php:591
-msgid "http://themeid.com/support/"
+#: core/includes/functions.php:685
+#, php-format
+msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
 
-#: includes/functions.php:591 includes/functions.php:592
-msgid "Theme Support"
+#: core/includes/functions.php:724 core/includes/functions.php:725
+msgid "Instructions"
 msgstr ""
 
-#: includes/functions.php:594
-msgid "http://themeid.com/themes/"
+#: core/includes/functions.php:727 core/includes/functions.php:728
+msgid "Help"
 msgstr ""
 
-#: includes/functions.php:594 includes/functions.php:595
-msgid "More Themes"
+#: core/includes/functions.php:730 core/includes/functions.php:731
+msgid "Translate"
 msgstr ""
 
-#: includes/functions.php:597
-msgid "http://themeid.com/showcase/"
-msgstr ""
-
-#: includes/functions.php:597 includes/functions.php:598
+#: core/includes/functions.php:733 core/includes/functions.php:734
 msgid "Showcase"
 msgstr ""
 
-#: includes/functions.php:600
-msgid "http://themeid.com/donate/"
+#: core/includes/functions.php:736 core/includes/functions.php:737
+msgid "More Themes"
 msgstr ""
 
-#: includes/functions.php:600 includes/functions.php:601
-msgid "Donate Now"
-msgstr ""
-
-#: includes/functions.php:616
+#: core/includes/functions.php:752
 msgid "Main Sidebar"
 msgstr ""
 
-#: includes/functions.php:617
+#: core/includes/functions.php:753
 msgid "Area 1 - sidebar.php"
 msgstr ""
 
-#: includes/functions.php:626
+#: core/includes/functions.php:762
 msgid "Right Sidebar"
 msgstr ""
 
-#: includes/functions.php:627
+#: core/includes/functions.php:763
 msgid "Area 2 - sidebar-right.php"
 msgstr ""
 
-#: includes/functions.php:636
+#: core/includes/functions.php:772
 msgid "Left Sidebar"
 msgstr ""
 
-#: includes/functions.php:637
+#: core/includes/functions.php:773
 msgid "Area 3 - sidebar-left.php"
 msgstr ""
 
-#: includes/functions.php:646
+#: core/includes/functions.php:782
 msgid "Left Sidebar Half Page"
 msgstr ""
 
-#: includes/functions.php:647
+#: core/includes/functions.php:783
 msgid "Area 4 - sidebar-left-half.php"
 msgstr ""
 
-#: includes/functions.php:656
+#: core/includes/functions.php:792
 msgid "Right Sidebar Half Page"
 msgstr ""
 
-#: includes/functions.php:657
+#: core/includes/functions.php:793
 msgid "Area 5 - sidebar-right-half.php"
 msgstr ""
 
-#: includes/functions.php:667
+#: core/includes/functions.php:803
 msgid "Area 6 - sidebar-home.php"
 msgstr ""
 
-#: includes/functions.php:677
+#: core/includes/functions.php:813
 msgid "Area 7 - sidebar-home.php"
 msgstr ""
 
-#: includes/functions.php:687
+#: core/includes/functions.php:823
 msgid "Area 8 - sidebar-home.php"
 msgstr ""
 
-#: includes/functions.php:696
+#: core/includes/functions.php:832
 msgid "Gallery Sidebar"
 msgstr ""
 
-#: includes/functions.php:697
+#: core/includes/functions.php:833
 msgid "Area 9 - sidebar-gallery.php"
 msgstr ""
 
-#: includes/functions.php:706
+#: core/includes/functions.php:842
 msgid "Colophon Widget"
 msgstr ""
 
-#: includes/functions.php:707
+#: core/includes/functions.php:843
 msgid "Area 10 - sidebar-colophon.php"
 msgstr ""
 
-#: includes/functions.php:716
+#: core/includes/functions.php:852
 msgid "Top Widget"
 msgstr ""
 
-#: includes/functions.php:717
+#: core/includes/functions.php:853
 msgid "Area 11 - sidebar-top.php"
 msgstr ""
 
@@ -461,27 +473,27 @@ msgid "Blog Excerpt (summary)"
 msgstr ""
 
 #: content-sidebar-page.php
-#: includes/post-custom-meta.php
+#: core/includes/post-custom-meta.php:147
 msgid "Content/Sidebar"
 msgstr ""
 
 #: sidebar-content-page.php
-#: includes/post-custom-meta.php
+#: core/includes/post-custom-meta.php:148
 msgid "Sidebar/Content"
 msgstr ""
 
 #: content-sidebar-half-page.php
-#: includes/post-custom-meta.php
+#: core/includes/post-custom-meta.php:149
 msgid "Content/Sidebar Half Page"
 msgstr ""
 
 #: sidebar-content-half-page.php
-#: includes/post-custom-meta.php
+#: core/includes/post-custom-meta.php:150
 msgid "Sidebar/Content Half Page"
 msgstr ""
 
 #: full-width-page.php
-#: includes/post-custom-meta.php
+#: core/includes/post-custom-meta.php:151
 msgid "Full Width Page (no sidebar)"
 msgstr ""
 
@@ -493,353 +505,330 @@ msgstr ""
 msgid "Sitemap"
 msgstr ""
 
-#: includes/post-custom-meta.php
+#: core/includes/post-custom-meta.php:170
 msgid "Layout"
 msgstr ""
 
-#: includes/post-custom-meta.php
+#: core/includes/post-custom-meta.php:204
 msgid "Default"
 msgstr ""
 
-#: includes/theme-options.php:53
-msgid "Hello, World!"
-msgstr ""
-
-#: includes/theme-options.php:54
-msgid "Your H2 subheadline here"
-msgstr ""
-
-#: includes/theme-options.php:55
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-
-#: includes/theme-options.php:56
-msgid "Call to Action"
-msgstr ""
-
-#: includes/theme-options.php:105 includes/theme-options.php:200
+#: core/includes/theme-options.php:43 core/includes/theme-options.php:138
 msgid "Theme Options"
 msgstr ""
 
-#: includes/theme-options.php:204
+#: core/includes/theme-options.php:142
 msgid "Options Saved"
 msgstr ""
 
-#: includes/theme-options.php:215
+#: core/includes/theme-options.php:153
 msgid "Theme Elements"
 msgstr ""
 
-#: includes/theme-options.php:224
+#: core/includes/theme-options.php:162
 msgid "Disable Breadcrumb Lists?"
 msgstr ""
 
-#: includes/theme-options.php:227 includes/theme-options.php:238
+#: core/includes/theme-options.php:165 core/includes/theme-options.php:176
 msgid "Check to disable"
 msgstr ""
 
-#: includes/theme-options.php:235
+#: core/includes/theme-options.php:173
 msgid "Disable Call to Action Button?"
 msgstr ""
 
-#: includes/theme-options.php:240 includes/theme-options.php:348
-#: includes/theme-options.php:416 includes/theme-options.php:475
-#: includes/theme-options.php:563 includes/theme-options.php:590
-#: includes/theme-options.php:622
+#: core/includes/theme-options.php:178 core/includes/theme-options.php:287
+#: core/includes/theme-options.php:356 core/includes/theme-options.php:416
+#: core/includes/theme-options.php:505 core/includes/theme-options.php:533
+#: core/includes/theme-options.php:566
 msgid "Save Options"
 msgstr ""
 
-#: includes/theme-options.php:241 includes/theme-options.php:349
-#: includes/theme-options.php:417 includes/theme-options.php:476
-#: includes/theme-options.php:564 includes/theme-options.php:591
-#: includes/theme-options.php:623
+#: core/includes/theme-options.php:179 core/includes/theme-options.php:288
+#: core/includes/theme-options.php:357 core/includes/theme-options.php:417
+#: core/includes/theme-options.php:506 core/includes/theme-options.php:534
+#: core/includes/theme-options.php:567
 msgid "Restore Defaults"
 msgstr ""
 
-#: includes/theme-options.php:248
+#: core/includes/theme-options.php:187
 msgid "Logo Upload"
 msgstr ""
 
-#: includes/theme-options.php:256
+#: core/includes/theme-options.php:195
 msgid "Custom Header"
 msgstr ""
 
-#: includes/theme-options.php:259
+#: core/includes/theme-options.php:198
 msgid "Need to replace or remove default logo?"
 msgstr ""
 
-#: includes/theme-options.php:259
+#: core/includes/theme-options.php:198
 #, php-format
 msgid "<a href=\"%s\">Click here</a>."
 msgstr ""
 
-#: includes/theme-options.php:266
+#: core/includes/theme-options.php:205
 msgid "Home Page"
 msgstr ""
 
-#: includes/theme-options.php:274
+#: core/includes/theme-options.php:213
 msgid "Enable Custom Front Page"
 msgstr ""
 
-#: includes/theme-options.php:277
+#: core/includes/theme-options.php:216
 #, php-format
 msgid "Overrides the WordPress %1sfront page option%2s"
 msgstr ""
 
-#: includes/theme-options.php:284
+#: core/includes/theme-options.php:223
 msgid "Headline"
 msgstr ""
 
-#: includes/theme-options.php:287
+#: core/includes/theme-options.php:226
 msgid "Enter your headline"
 msgstr ""
 
-#: includes/theme-options.php:295
+#: core/includes/theme-options.php:234
 msgid "Subheadline"
 msgstr ""
 
-#: includes/theme-options.php:298
+#: core/includes/theme-options.php:237
 msgid "Enter your subheadline"
 msgstr ""
 
-#: includes/theme-options.php:306
+#: core/includes/theme-options.php:245
 msgid "Content Area"
 msgstr ""
 
-#: includes/theme-options.php:309
+#: core/includes/theme-options.php:248
 msgid "Enter your content"
 msgstr ""
 
-#: includes/theme-options.php:317
+#: core/includes/theme-options.php:256
 msgid "Call to Action (URL)"
 msgstr ""
 
-#: includes/theme-options.php:320
+#: core/includes/theme-options.php:259
 msgid "Enter your call to action URL"
 msgstr ""
 
-#: includes/theme-options.php:328
+#: core/includes/theme-options.php:267
 msgid "Call to Action (Text)"
 msgstr ""
 
-#: includes/theme-options.php:331
+#: core/includes/theme-options.php:270
 msgid "Enter your call to action text"
 msgstr ""
 
-#: includes/theme-options.php:340
+#: core/includes/theme-options.php:279
 msgid "Featured Content"
 msgstr ""
 
-#: includes/theme-options.php:341 includes/theme-options.php:342
+#: core/includes/theme-options.php:280 core/includes/theme-options.php:281
 msgid "See Docs"
 msgstr ""
 
-#: includes/theme-options.php:346
+#: core/includes/theme-options.php:285
 msgid "Paste your shortcode, video or image source"
 msgstr ""
 
-#: includes/theme-options.php:356
+#: core/includes/theme-options.php:296
 msgid "Default Layouts"
 msgstr ""
 
-#: includes/theme-options.php:365
+#: core/includes/theme-options.php:305
 msgid "Default Static Page Layout"
 msgstr ""
 
-#: includes/theme-options.php:384
+#: core/includes/theme-options.php:324
 msgid "Default Single Blog Post Layout"
 msgstr ""
 
-#: includes/theme-options.php:403
+#: core/includes/theme-options.php:343
 msgid "Default Blog Posts Index Layout"
 msgstr ""
 
-#: includes/theme-options.php:424
+#: core/includes/theme-options.php:365
 msgid "Webmaster Tools"
 msgstr ""
 
-#: includes/theme-options.php:433
+#: core/includes/theme-options.php:374
 msgid "Google Site Verification"
 msgstr ""
 
-#: includes/theme-options.php:436
+#: core/includes/theme-options.php:377
 msgid "Enter your Google ID number only"
 msgstr ""
 
-#: includes/theme-options.php:444
+#: core/includes/theme-options.php:385
 msgid "Bing Site Verification"
 msgstr ""
 
-#: includes/theme-options.php:447
+#: core/includes/theme-options.php:388
 msgid "Enter your Bing ID number only"
 msgstr ""
 
-#: includes/theme-options.php:455
+#: core/includes/theme-options.php:396
 msgid "Yahoo Site Verification"
 msgstr ""
 
-#: includes/theme-options.php:458
+#: core/includes/theme-options.php:399
 msgid "Enter your Yahoo ID number only"
 msgstr ""
 
-#: includes/theme-options.php:467
+#: core/includes/theme-options.php:408
 msgid "Site Statistics Tracker"
 msgstr ""
 
-#: includes/theme-options.php:468
+#: core/includes/theme-options.php:409
 msgid "Leave blank if plugin handles your webmaster tools"
 msgstr ""
 
-#: includes/theme-options.php:473
+#: core/includes/theme-options.php:414
 msgid "Google Analytics, StatCounter, any other or all of them."
 msgstr ""
 
-#: includes/theme-options.php:483
+#: core/includes/theme-options.php:425
 msgid "Social Icons"
 msgstr ""
 
-#: includes/theme-options.php:492
+#: core/includes/theme-options.php:434
 msgid "Twitter"
 msgstr ""
 
-#: includes/theme-options.php:495
+#: core/includes/theme-options.php:437
 msgid "Enter your Twitter URL"
 msgstr ""
 
-#: includes/theme-options.php:498
+#: core/includes/theme-options.php:440
 msgid "Facebook"
 msgstr ""
 
-#: includes/theme-options.php:501
+#: core/includes/theme-options.php:443
 msgid "Enter your Facebook URL"
 msgstr ""
 
-#: includes/theme-options.php:504
+#: core/includes/theme-options.php:446
 msgid "LinkedIn"
 msgstr ""
 
-#: includes/theme-options.php:507
+#: core/includes/theme-options.php:449
 msgid "Enter your LinkedIn URL"
 msgstr ""
 
-#: includes/theme-options.php:510
+#: core/includes/theme-options.php:452
 msgid "YouTube"
 msgstr ""
 
-#: includes/theme-options.php:513
+#: core/includes/theme-options.php:455
 msgid "Enter your YouTube URL"
 msgstr ""
 
-#: includes/theme-options.php:516
+#: core/includes/theme-options.php:458
 msgid "StumbleUpon"
 msgstr ""
 
-#: includes/theme-options.php:519
+#: core/includes/theme-options.php:461
 msgid "Enter your StumbleUpon URL"
 msgstr ""
 
-#: includes/theme-options.php:522
+#: core/includes/theme-options.php:464
 msgid "RSS Feed"
 msgstr ""
 
-#: includes/theme-options.php:525
+#: core/includes/theme-options.php:467
 msgid "Enter your RSS Feed URL"
 msgstr ""
 
-#: includes/theme-options.php:528
+#: core/includes/theme-options.php:470
 msgid "Google+"
 msgstr ""
 
-#: includes/theme-options.php:531
+#: core/includes/theme-options.php:473
 msgid "Enter your Google+ URL"
 msgstr ""
 
-#: includes/theme-options.php:534
+#: core/includes/theme-options.php:476
 msgid "Instagram"
 msgstr ""
 
-#: includes/theme-options.php:537
+#: core/includes/theme-options.php:479
 msgid "Enter your Instagram URL"
 msgstr ""
 
-#: includes/theme-options.php:540
+#: core/includes/theme-options.php:482
 msgid "Pinterest"
 msgstr ""
 
-#: includes/theme-options.php:543
+#: core/includes/theme-options.php:485
 msgid "Enter your Pinterest URL"
 msgstr ""
 
-#: includes/theme-options.php:546
+#: core/includes/theme-options.php:488
 msgid "Yelp!"
 msgstr ""
 
-#: includes/theme-options.php:549
+#: core/includes/theme-options.php:491
 msgid "Enter your Yelp! URL"
 msgstr ""
 
-#: includes/theme-options.php:552
+#: core/includes/theme-options.php:494
 msgid "Vimeo"
 msgstr ""
 
-#: includes/theme-options.php:555
+#: core/includes/theme-options.php:497
 msgid "Enter your Vimeo URL"
 msgstr ""
 
-#: includes/theme-options.php:558
+#: core/includes/theme-options.php:500
 msgid "foursquare"
 msgstr ""
 
-#: includes/theme-options.php:561
+#: core/includes/theme-options.php:503
 msgid "Enter your foursquare URL"
 msgstr ""
 
-#: includes/theme-options.php:571 includes/theme-options.php:581
+#: core/includes/theme-options.php:514 core/includes/theme-options.php:524
 msgid "Custom CSS Styles"
 msgstr ""
 
-#: includes/theme-options.php:582
+#: core/includes/theme-options.php:525
 msgid "https://developer.mozilla.org/en/CSS"
 msgstr ""
 
-#: includes/theme-options.php:582 includes/theme-options.php:583
+#: core/includes/theme-options.php:525 core/includes/theme-options.php:526
 msgid "CSS Tutorial"
 msgstr ""
 
-#: includes/theme-options.php:588
+#: core/includes/theme-options.php:531
 msgid "Enter your custom CSS styles."
 msgstr ""
 
-#: includes/theme-options.php:598
+#: core/includes/theme-options.php:542
 msgid "Custom Scripts"
 msgstr ""
 
-#: includes/theme-options.php:608
+#: core/includes/theme-options.php:552
 msgid "Custom Scripts for Header and Footer"
 msgstr ""
 
-#: includes/theme-options.php:609
-msgid "http://codex.wordpress.org/Using_Javascript"
-msgstr ""
-
-#: includes/theme-options.php:609 includes/theme-options.php:610
+#: core/includes/theme-options.php:553 core/includes/theme-options.php:554
 msgid "Quick Tutorial"
 msgstr ""
 
-#: includes/theme-options.php:614
+#: core/includes/theme-options.php:558
 msgid "Embeds to header.php &darr;"
 msgstr ""
 
-#: includes/theme-options.php:616
+#: core/includes/theme-options.php:560
 msgid "Enter your custom header script."
 msgstr ""
 
-#: includes/theme-options.php:618
+#: core/includes/theme-options.php:562
 msgid "Embeds to footer.php &darr;"
 msgstr ""
 
-#: includes/theme-options.php:620
+#: core/includes/theme-options.php:564
 msgid "Enter your custom footer script."
 msgstr ""
