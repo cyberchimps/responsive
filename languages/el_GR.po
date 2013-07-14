@@ -5,7 +5,7 @@ msgstr ""
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
 "PO-Revision-Date: 2013-07-14 19:46+0100\n"
 "Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
-"Language-Team: Estonian\n"
+"Language-Team: Greek, Greece\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,64 +18,65 @@ msgstr ""
 #: sidebar-content-half-page.php sidebar-content-page.php single.php
 #: sitemap.php
 msgid "Pages:"
-msgstr "Leheküljed:"
+msgstr "Σελίδες:"
 
 #: blog-excerpt.php blog.php loop-nav.php
 msgid "&#8249; Older posts"
-msgstr "&#8249; Vanemad postitused"
+msgstr "&#8249; Παλαιότερα άρθρα"
 
 #: blog-excerpt.php blog.php loop-nav.php
 msgid "Newer posts &#8250;"
-msgstr "Uuemad postitused &#8250;"
+msgstr "Πρόσφατα άρθρα &#8250;"
 
 #: blog.php content-sidebar-half-page.php content-sidebar-page.php
 #: full-width-page.php home.php image.php index.php landing-page.php page.php
 #: sidebar-content-half-page.php sidebar-content-page.php single.php
 #: core/includes/functions.php
 msgid "Read more &#8250;"
-msgstr "Loe veel &#8250;"
+msgstr "Περισσότερα &#8250;"
 
 #: comments.php
 msgid ""
 "This post is password protected. Enter the password to view any comments."
 msgstr ""
-"See postitus on parooliga kaitstud. Sisesta parool, et kommentaare lugeda."
+"Το άρθρο είναι προστατευμένο με συνθηματικό. Πληκτρολόγησε το συνθηματικό, "
+"για να δεις τα σχόλια."
 
 #: comments.php
 msgid "&#8249; Older comments"
-msgstr "&#8249; Vanemad kommentaarid"
+msgstr "&#8249; Παλαιότερα σχόλια"
 
 #: comments.php
 msgid "Newer comments &#8250;"
-msgstr "Uuemad kommentaarid &#8250;"
+msgstr "Νεότερα σχόλια &#8250;"
 
 #: comments.php
 msgid "Pings&#47;Trackbacks"
-msgstr "Pings&#47; Trackbacks"
+msgstr "Pings&#47;Trackbacks"
 
 #: comments.php
 msgid "%1$d %2$s for \"%3$s\""
-msgstr "%1$d %2$s järgnevaks \"%3$s\""
+msgstr "%1$d %2$s για \"%3$s\""
 
 #: comments.php
 msgid "Name"
-msgstr "Nimi"
+msgstr "Όνομα"
 
 #: comments.php
 msgid "E-mail"
-msgstr "E-post"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
 
 #: comments.php
 msgid "Website"
-msgstr "Veebileht"
+msgstr "Ιστοσελίδα"
 
 #: footer.php
 msgid "&copy;"
-msgstr "&copy;"
+msgstr "©"
 
 #: footer.php
 msgid "scroll to top"
-msgstr "keri üles"
+msgstr "πίσω στην κορυφή"
 
 #: footer.php
 msgid "&uarr;"
@@ -91,11 +92,11 @@ msgstr "Responsive Theme"
 
 #: footer.php
 msgid "powered by"
-msgstr "Toetaja"
+msgstr "κατασκευασμένο από"
 
 #: footer.php
 msgid "http://wordpress.org/"
-msgstr "http://et.wordpress.org/"
+msgstr "http://wordpress.org/"
 
 #: footer.php
 msgid "WordPress"
@@ -103,122 +104,123 @@ msgstr "WordPress"
 
 #: image.php
 msgid "&#8249; Return to"
-msgstr "&#8249; Pöördu tagasi"
+msgstr "&#8249; Επιστροφή στην"
 
 #: image.php post-meta-page.php post-meta.php sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "No Comments &darr;"
-msgstr "Ei ole kommentaare &darr;"
+msgstr "Δεν υπάρχουν σχόλια &darr;"
 
 #: post-meta-page.php post-meta.php image.php sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "1 Comment &darr;"
-msgstr "1 kommentaar &darr;"
+msgstr "1 Σχόλιο &darr;"
 
 #: post-meta-page.php post-meta.php image.php sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "% Comments &darr;"
-msgstr "% Kommentaarid &darr;"
+msgstr "% Σχόλια &darr;"
 
 #: comments.php
 msgid "One comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "Üks kommentaar &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s kommentaari &ldquo;%2$s&rdquo;"
+msgstr[0] "Ένα σχόλιο στο &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s σχόλια στα “%2$s&rdquo;"
 
 #: image.php post-data.php sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "Tagged with:"
-msgstr "Sildid"
+msgstr "Με ετικέτα:"
 
 #: image.php post-data.php sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "Posted in %s"
-msgstr "Postitatud %s"
+msgstr "Δημοσιεύτηκε στο %s"
 
 #: image.php post-data.php sidebar-content-half-page.php
 #: sidebar-content-page.php sitemap.php
 msgid "Edit"
-msgstr "Muuda"
+msgstr "Επεξεργασία"
 
 #: loop-no-posts.php
 msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 &#8212; Tore sind siin trehvata!"
+msgstr "404 — Πώς κι από δω;..."
 
 #: loop-no-posts.php
 msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
 msgstr ""
-"Ära paanitse, me saame sellest koos jagu. Vaatame, mis meil siin teha annab."
+"Μην πανικοβάλλεσαι, θα το ξεπεράσουμε μαζί. Ας δούμε τι επιλογές έχουμε."
 
 #: loop-no-posts.php
 msgid "You can return %s or search for the page you were looking for."
-msgstr "Pöördu tagasi %s või otsi lehekülge"
+msgstr ""
+"Μπορείς να επιστρέψεις στην %s ή να αναζητήσεις τη σελίδα που σε ενδιαφέρει."
 
 #: loop-no-posts.php core/includes/functions.php
 msgid "Home"
-msgstr "Kodu"
+msgstr "Αρχή"
 
 #: loop-no-posts.php
 msgid "&larr; Home"
-msgstr "&larr; Kodu"
+msgstr "&larr; Αρχή"
 
 #: loop-header.php
 msgid "Daily Archives: %s"
-msgstr "Päeva arhiiv: %s"
+msgstr "Ημερήσια αρχεία: %s"
 
 #: loop-header.php
 msgid "Monthly Archives: %s"
-msgstr "Kuu arhiiv: %s"
+msgstr "Μηνιαία αρχεία: %s"
 
 #: loop-header.php
 msgid "Yearly Archives: %s"
-msgstr "Aasta arhiiv: %s"
+msgstr "Ετήσια αρχεία: %s"
 
 #: loop-header.php
 msgid "Blog Archives"
-msgstr "Blogi arhiiv"
+msgstr "Αρχεία ιστολογίου"
 
 #: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
-msgstr "Otsi %s ei leidnud ühtegi sobivat vastet"
+msgstr "Η αναζήτησή σας για %s δεν ταιριάζει με καμία καταχώρηση."
 
 #: sitemap.php
 msgid "Permanent Link to %s"
-msgstr "Püsilink %s"
+msgstr "Μόνιμος σύνδεσμος προς %s"
 
 #: search.php core/includes/functions.php
 msgid "Search results for: %s"
-msgstr "Otsingutulemused: %s"
+msgstr "Αποτελέσματα Αναζήτησης για: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
-msgstr "otsi siin &hellip;"
+msgstr "Αναζήτηση εδώ &hellip;"
 
 #: searchform.php
 msgid "Go"
-msgstr "Mine"
+msgstr "Μετάβαση"
 
 #: sidebar-gallery.php
 msgid "Image Information"
-msgstr "Pildi info"
+msgstr "Πληροφορίες Εικόνας"
 
 #: sidebar-gallery.php
 msgid "Full Size:"
-msgstr "Täissuurus"
+msgstr "Πλήρες Μέγεθος:"
 
 #: sidebar-gallery.php
 msgid "Aperture: f&#47;"
-msgstr "Apertuur: f&#47;"
+msgstr "Διάφραγμα: f&#47;"
 
 #: sidebar-gallery.php
 msgid "Focal Length:"
-msgstr "Fookuskaugus"
+msgstr "Εστιακό Μήκος:"
 
 #: sidebar-gallery.php
 msgid "mm"
-msgstr "mm"
+msgstr "χλστ."
 
 #: sidebar-gallery.php
 msgid "ISO:"
@@ -226,20 +228,20 @@ msgstr "ISO:"
 
 #: sidebar-gallery.php
 msgid "Shutter:"
-msgstr "Katik:"
+msgstr "Ταχύτητα:"
 
 #: sidebar-gallery.php
 msgid "Camera:"
-msgstr "Kaamera"
+msgstr "Κάμερα:"
 
 #: sidebar.php sidebar-right.php sidebar-right-half.php sidebar-left.php
 #: sidebar-left-half.php sidebar-half-left.php
 msgid "In Archive"
-msgstr "Arhiivis"
+msgstr "Στο Αρχείο"
 
 #: sidebar-home.php core/includes/functions.php
 msgid "Home Widget 1"
-msgstr "Kodu vidin 1"
+msgstr "Αρχική Μονάδα 1"
 
 #: sidebar-home.php
 msgid ""
@@ -247,13 +249,14 @@ msgid ""
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"See on sinu esimense koduvidina kast. Muutmiseks mine palun Välimus > "
-"Vidinad ja vali ülevalt 6-s vidin alas kuus nimega Kodu vidin 2. Ka pealkiri "
-"on muudetav vidinatest"
+"Αυτή είναι η πρώτη μονάδα (widget) της αρχικής σελίδας. Για να την "
+"επεξεργαστείς πήγαινε Εμφάνιση > Μονάδες και επίλεξε την 6η μονάδα από την "
+"κορυφή που λέγεται Αρχική Μονάδα 1. Στις μονάδες μπορείς επίσης να "
+"διαχειριστείς τον τίτλο."
 
 #: sidebar-home.php core/includes/functions.php
 msgid "Home Widget 2"
-msgstr "Kodu vidin 2"
+msgstr "Αρχική Μονάδα 2"
 
 #: sidebar-home.php
 msgid ""
@@ -261,13 +264,14 @@ msgid ""
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"See on su teine koduvidina kast. Muutmiseks mine palun Välimus > Vidinad ja "
-"vali ülevalt 7-s vidin alas seitse nimega Kodu vidin 2. Ka pealkiri on "
-"muudetav vidinatest"
+"Αυτή είναι η δεύτερη μονάδα (widget) της αρχικής σελίδας. Για να την "
+"επεξεργαστείς πήγαινε Εμφάνιση > Μονάδες και επίλεξε την 7η μονάδα από την "
+"κορυφή, που λέγεται Αρχική Μονάδα 2. Στις μονάδες μπορείς επίσης να "
+"διαχειριστείς τον τίτλο."
 
 #: sidebar-home.php core/includes/functions.php
 msgid "Home Widget 3"
-msgstr "Kodu vidin 3"
+msgstr "Αρχική Μονάδα 3"
 
 #: sidebar-home.php
 msgid ""
@@ -275,204 +279,206 @@ msgid ""
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"See on sinu kolmas koduvidina kast. Muutmiseks mine palun Välimus > Vidinad "
-"ja vali ülevalt 8-s vidin nimega Kodu vidin 3. Ka pealkiri on muudetav "
-"vidinatest"
+"Αυτή είναι η τρίτη μονάδα (widget) της αρχικής σελίδας. Για να την "
+"επεξεργαστείς πήγαινε Εμφάνιση > Μονάδες και επίλεξε την 8η μονάδα από την "
+"κορυφή, που λέγεται Αρχική Μονάδα 3. Στις μονάδες μπορείς επίσης να "
+"διαχειριστείς τον τίτλο."
 
 #: single.php
 msgid "About"
-msgstr "Meie kohta"
+msgstr "Περί"
 
 #: sitemap.php
 msgid "Categories"
-msgstr "Rubriigid"
+msgstr "Κατηγορίες"
 
 #: sitemap.php
 msgid "Latest Posts"
-msgstr "Viimaseid postitusi"
+msgstr "Τελευταίες Δημοσιεύσεις"
 
 #: sitemap.php
 msgid "Pages"
-msgstr "Leheküljed"
+msgstr "Σελίδες"
 
 #: core/includes/functions.php
 msgid "Top Menu"
-msgstr "Peamenüü"
+msgstr "Μενού Κορυφής"
 
 #: core/includes/functions.php
 msgid "Header Menu"
-msgstr "Päise menüü"
+msgstr "Μενού Κεφαλίδας"
 
 #: core/includes/functions.php
 msgid "Sub-Header Menu"
-msgstr "Alampäise menüü"
+msgstr "Μενού Υποκεφαλίδας"
 
 #: core/includes/functions.php
 msgid "Footer Menu"
-msgstr "Jaluse menüü"
+msgstr "Μενού Υποσέλιδου"
 
 #: core/includes/functions.php
 msgid "Page %s"
-msgstr ""
+msgstr "Σελίδα %s"
 
 #: core/includes/functions.php
 msgid ""
 "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
 "%4$s"
 msgstr ""
-"<span class=\"%1$s\">Autor </span>%2$s<span class=\"%3$s\"> on </span>%4$s"
+"<span class=\"%1$s\">Δημοσιεύτηκε στις </span>%2$s<span class=\"%3$s\"> από "
+"</span>%4$s"
 
 #: core/includes/functions.php
 msgid "View all posts by %s"
-msgstr "Vaata kõiki %s postitusi "
+msgstr "Προβολή όλων των άρθρων του %s"
 
 #: core/includes/functions.php
 msgid "Archive for %s"
-msgstr "Ahriiv %s"
+msgstr "Αρχείο για %s"
 
 #: core/includes/functions.php
 msgid "Posts tagged %s"
-msgstr "Taggitud positused %s"
+msgstr "Άρθρα με ετικέτα %s"
 
 #: core/includes/functions.php
 msgid "Error 404"
-msgstr "Viga 404"
+msgstr "Σφάλμα 404 "
 
 #: core/includes/functions.php
 msgid "More Themes"
-msgstr "Rohkem teemasid"
+msgstr "Περισσότερα Θέματα"
 
 #: core/includes/functions.php
 msgid "Showcase"
-msgstr "Näidis"
+msgstr "Ιστότοποι που χρησιμοποιούν το θέμα μας"
 
 #: core/includes/functions.php
 msgid "Main Sidebar"
-msgstr "Peamine külgpaan"
+msgstr "Πρωτεύων Πλευρικό Πάνελ"
 
 #: core/includes/functions.php
 msgid "Area 1 - sidebar.php"
-msgstr "Ala üks - sidebar.php"
+msgstr "Περιοχή Ένα - sidebar.php"
 
 #: core/includes/functions.php
 msgid "Right Sidebar"
-msgstr "Parem külgpaan"
+msgstr "Δεξιό Πάνελ"
 
 #: core/includes/functions.php
 msgid "Area 2 - sidebar-right.php"
-msgstr "Ala kaks - sidebar-right.php"
+msgstr "Περιοχή Δύο - sidebar-right.php"
 
 #: core/includes/functions.php
 msgid "Left Sidebar"
-msgstr "Vasak külgpaan"
+msgstr "Αριστερό Πάνελ"
 
 #: core/includes/functions.php
 msgid "Area 3 - sidebar-left.php"
-msgstr "Ala kolm - sidebar-left.php"
+msgstr "Περιοχή Τρία - sidebar-left.php"
 
 #: core/includes/functions.php
 msgid "Left Sidebar Half Page"
-msgstr "Vasak külgpaan pool lehekülge"
+msgstr "Αριστερό Πάνελ Μισής Σελίδας"
 
 #: core/includes/functions.php
 msgid "Area 4 - sidebar-left-half.php"
-msgstr "Ala neli - sidebar-left-half.php"
+msgstr "Περιοχή Τέσσερα - sidebar-left-half.php"
 
 #: core/includes/functions.php
 msgid "Right Sidebar Half Page"
-msgstr "Parem külgpaan pool lehekülge"
+msgstr "Δεξιό Πάνελ Μισής Σελίδας"
 
 #: core/includes/functions.php
 msgid "Area 5 - sidebar-right-half.php"
-msgstr "Ala viis - sidebar-right-half.php"
+msgstr "Περιοχή Πέντε - sidebar-right-half.php"
 
 #: core/includes/functions.php
 msgid "Area 6 - sidebar-home.php"
-msgstr "Ala kuus - sidebar-home.php"
+msgstr "Περιοχή Έξι - sidebar-home.php"
 
 #: core/includes/functions.php
 msgid "Area 7 - sidebar-home.php"
-msgstr "Ala seitse - sidebar-home.php"
+msgstr "Περιοχή Εφτά - sidebar-home.php"
 
 #: core/includes/functions.php
 msgid "Area 8 - sidebar-home.php"
-msgstr "Ala kaheksa -  sidebar-home.php"
+msgstr "Περιοχή Οχτώ - sidebar-home.php"
 
 #: core/includes/functions.php
 msgid "Gallery Sidebar"
-msgstr "Galerii külgpaan"
+msgstr "Πάνελ Γκαλερί"
 
 #: core/includes/functions.php
 msgid "Area 9 - sidebar-gallery.php"
-msgstr "Ala üheksa - sidebar-gallery.php"
+msgstr "Περιοχή Εννέα - sidebar-gallery.php"
 
 #: core/includes/functions.php
 msgid "Colophon Widget"
-msgstr "Salvesta moodul"
+msgstr "Καταληκτική Μονάδα"
 
 #: core/includes/functions.php
 msgid "Area 10 - sidebar-colophon.php"
-msgstr "Ala 10 - sidebar-colophon.php"
+msgstr "Περιοχή Δέκα - sidebar-colophon.php"
 
 #: core/includes/functions.php
 msgid "Top Widget"
-msgstr "Ülemine vidin"
+msgstr "Κορυφαία Μονάδα"
 
 #: core/includes/functions.php
 msgid "Area 11 - sidebar-top.php"
-msgstr "Ala 11 - sidebar-top.php"
+msgstr "Περιοχή Έντεκα - sidebar-top.php"
 
 #: blog.php
 msgid "Blog (full posts)"
-msgstr ""
+msgstr "Άρθρα Ιστολόγιου (πλήρης δημοσιεύσεις)"
 
 #: blog-excerpt.php
 msgid "Blog Excerpt (summary)"
-msgstr ""
+msgstr "Αποσπάσματα Άρθρων Ιστολόγιου (περίληψη)"
 
 #: content-sidebar-page.php core/includes/post-custom-meta.php
 msgid "Content/Sidebar"
-msgstr ""
+msgstr "Περιεχόμενο / Πλαϊνό Πάνελ"
 
 #: sidebar-content-page.php core/includes/post-custom-meta.php
 msgid "Sidebar/Content"
-msgstr ""
+msgstr "Πλαϊνό Πάνελ / Περιεχόμενο"
 
 #: content-sidebar-half-page.php core/includes/post-custom-meta.php
 msgid "Content/Sidebar Half Page"
-msgstr ""
+msgstr "Περιεχόμενο / Πλαϊνό Πάνελ μισής σελίδας"
 
 #: sidebar-content-half-page.php core/includes/post-custom-meta.php
 msgid "Sidebar/Content Half Page"
-msgstr ""
+msgstr "Πλαϊνό Πάνελ / Περιεχόμενο μισής σελίδας"
 
 #: full-width-page.php core/includes/post-custom-meta.php
 msgid "Full Width Page (no sidebar)"
-msgstr ""
+msgstr "Πλάτος Πλήρους Σελίδας (χωρίς Πλαϊνό Πάνελ)"
 
 #: landing-page.php
 msgid "Landing Page (no menu)"
-msgstr ""
+msgstr "Καταληκτική σελίδα (χωρίς μενού)"
 
 #: sitemap.php
 msgid "Sitemap"
-msgstr ""
+msgstr "Χάρτης ιστοσελίδας"
 
 #: core/includes/post-custom-meta.php
 msgid "Layout"
-msgstr ""
+msgstr "Διάταξη"
 
 #: core/includes/post-custom-meta.php
 msgid "Default"
-msgstr ""
+msgstr "Προεπιλογή"
 
 #: front-page.php core/includes/theme-options.php
 msgid "Hello, World!"
-msgstr "Tere, maailm!"
+msgstr "Γεια σου Κόσμε!"
 
 #: front-page.php core/includes/theme-options.php
 msgid "Your H2 subheadline here"
-msgstr "Sinu H2 alampealkiri siin"
+msgstr "Εδώ βάλτε τον υπότιτλο H2"
 
 #: front-page.php core/includes/theme-options.php
 msgid ""
@@ -480,177 +486,180 @@ msgid ""
 "Call to Action button and its destination link as well. Image on your right "
 "can be an image or even YouTube video if you like."
 msgstr ""
-"Pealkiri, alampealkiri ja sisu saad toimetada Teema Valikud alt. \"Kutsu "
-"tegutsema\" nupp ja selle taga olev link samuti. Pilt paremal võib olla pilt "
-"või näiteks YouTube video."
+"Μπορείς να επεξεργαστείς τον τίτλο, τον υπότιτλο, το περιεχόμενο, όπως "
+"επίσης και το κουμπί Κάλεσμα σε Δράση από το μενού Επιλογές Θέματος. Το "
+"γραφικό στα δεξιά μπορεί να είναι μια εικόνα ή ακόμα και βίντεο του Youtube "
+"αν προτιμάς."
 
 #: front-page.php core/includes/theme-options.php
 msgid "Call to Action"
-msgstr "Kutsu tegutsema"
+msgstr "Κάλεσμα σε Δράση"
 
 #: core/includes/theme-options.php
 msgid "Theme Options"
-msgstr "Teemavalikud"
+msgstr "Επιλογές Θέματος"
 
 #: core/includes/theme-options.php
 msgid "Options Saved"
-msgstr "Salvestatud seaded"
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν"
 
 #: core/includes/theme-options.php
 msgid "Theme Elements"
-msgstr "Teema elemendid"
+msgstr "Στοιχεία θέματος"
 
 #: core/includes/theme-options.php
 msgid "Disable Breadcrumb Lists?"
-msgstr "Blokeeri breadcrumbs listid?"
+msgstr "Απενεργοποίηση λιστών ιχνηλάτησης; (breadcrumb)"
 
 #: core/includes/theme-options.php
 msgid "Check to disable"
-msgstr "Kontrolli, et blokeerida"
+msgstr "Επιλογή για απενεργοποίηση"
 
 #: core/includes/theme-options.php
 msgid "Disable Call to Action Button?"
-msgstr "Blokeeri \"Kutsu tegutsema\" nupp"
+msgstr "Απενεργοποίηση κουμπιού Κάλεσμα σε Δράση;"
 
 #: core/includes/theme-options.php
 msgid "Save Options"
-msgstr "Salvesta võimalused"
+msgstr "Αποθήκευση Ρυθμίσεων"
 
 #: core/includes/theme-options.php
 msgid "Restore Defaults"
-msgstr ""
+msgstr "Επαναφορά Προεπιλογών"
 
 #: core/includes/theme-options.php
 msgid "Logo Upload"
-msgstr "Logo üleslaadimine"
+msgstr "Μεταφόρτωση Λογότυπου"
 
 #: core/includes/theme-options.php
 msgid "Custom Header"
-msgstr "Kohandatud päis"
+msgstr "Προσαρμοσμένη Κεφαλίδα"
 
 #: core/includes/theme-options.php
 msgid "Need to replace or remove default logo?"
-msgstr "Tahad vahetada või eemaldada vaikimisi logo?"
+msgstr "Θες να αντικαταστήσεις ή να απομακρύνεις το προεπιλεγμένο λογότυπο;"
 
 #: core/includes/theme-options.php
 msgid "<a href=\"%s\">Click here</a>."
-msgstr "<a href=\"%s\">Kliki siia</a>."
+msgstr "<a href=\"%s\">Κάνε κλικ εδώ</a>."
 
 #: core/includes/theme-options.php
 msgid "Home Page"
-msgstr "Koduleht"
+msgstr "Αρχική Σελίδα"
 
 #: core/includes/theme-options.php
 msgid "Headline"
-msgstr "Pealkiri"
+msgstr "Επικεφαλίδα"
 
 #: core/includes/theme-options.php
 msgid "Enter your headline"
-msgstr "Sisesta oma pealkiri"
+msgstr "Συμπλήρωσε την επικεφαλίδα σου"
 
 #: core/includes/theme-options.php
 msgid "Subheadline"
-msgstr "Alampealkiri"
+msgstr "Υποεπικεφαλίδα"
 
 #: core/includes/theme-options.php
 msgid "Enter your subheadline"
-msgstr "Sisesta oma almpealkiri"
+msgstr "Συμπλήρωσε την υποεπικεφαλίδα σου"
 
 #: core/includes/theme-options.php
 msgid "Content Area"
-msgstr "Sisuala"
+msgstr "Περιοχή Περιεχομένου"
 
 #: core/includes/theme-options.php
 msgid "Enter your content"
-msgstr "Sisesta oma sisu"
+msgstr "Συμπλήρωσε το περιεχόμενο σου"
 
 #: core/includes/theme-options.php
 msgid "Call to Action (URL)"
-msgstr "Kutsu tegutsema (URL)"
+msgstr "Κάλεσμα σε Δράση (URL)"
 
 #: core/includes/theme-options.php
 msgid "Enter your call to action URL"
-msgstr "Sisesta \"Kutsu tegutsema\" URL"
+msgstr "Βάλε τη διεύθυνση URL για το Κάλεσμα σε Δράση"
 
 #: core/includes/theme-options.php
 msgid "Call to Action (Text)"
-msgstr "Kutsu tegutsema tekst"
+msgstr "Κάλεσμα σε Δράση (Κείμενο)"
 
 #: core/includes/theme-options.php
 msgid "Enter your call to action text"
-msgstr "Sisesta oma \"Kutsu tegutsema\" tekst"
+msgstr "Βάλε το κείμενο για το κουμπί Κάλεσμα σε Δράση"
 
 #: core/includes/theme-options.php
 msgid "Featured Content"
-msgstr "Esiletoodud sisu"
+msgstr "Προτεινόμενο Περιεχόμενο"
 
 #: core/includes/theme-options.php
 msgid "See Docs"
-msgstr "Vaata dokumente"
+msgstr "Βλ. Έγγραφα"
 
 #: core/includes/theme-options.php
 msgid "Paste your shortcode, video or image source"
-msgstr "Aseta kood, video või pildi allikas"
+msgstr "Επικόλληση σύντομου κωδικού, βίντεο ή προέλευσης εικόνας"
 
 #: core/includes/theme-options.php
 msgid "Default Layouts"
-msgstr ""
+msgstr "Προεπιλεγμένες Διατάξεις"
 
 #: core/includes/theme-options.php
 msgid "Default Static Page Layout"
-msgstr ""
+msgstr "Προεπιλεγμένη Διάταξη των Στατικών σελίδων"
 
 #: core/includes/theme-options.php
 msgid "Default Single Blog Post Layout"
-msgstr ""
+msgstr "Προεπιλεγμένη Διάταξη των Δημοσιευμένων Άρθρων"
 
 #: core/includes/theme-options.php
 msgid "Default Blog Posts Index Layout"
-msgstr ""
+msgstr "Προεπιλεγμένη Διάταξη καταλόγων των Δημοσιευμένων Άρθρων"
 
 #: core/includes/theme-options.php
 msgid "Webmaster Tools"
-msgstr "Veebimeistri tööriistad"
+msgstr "Εργαλεία Διαχειριστή"
 
 #: core/includes/theme-options.php
 msgid "Google Site Verification"
-msgstr "Google lehe ehtsuse kontroll"
+msgstr "Επαλήθευση Google Site"
 
 #: core/includes/theme-options.php
 msgid "Enter your Google ID number only"
-msgstr "Sisesta oma Google ID number"
+msgstr "Βάλε μόνο τον αριθμό σου ταυτοποίησης του Google"
 
 #: core/includes/theme-options.php
 msgid "Bing Site Verification"
-msgstr "Bing lehe ehtsuse kontroll"
+msgstr "Επαλήθευση Bing Site"
 
 #: core/includes/theme-options.php
 msgid "Enter your Bing ID number only"
-msgstr "Sisesta oma Bing ID number"
+msgstr "Βάλε μόνο τον αριθμό σου ταυτοποίησης του Bing"
 
 #: core/includes/theme-options.php
 msgid "Yahoo Site Verification"
-msgstr "Yahoo lehe ehtsuse kontroll"
+msgstr "Επαλήθευση Yahoo! Site"
 
 #: core/includes/theme-options.php
 msgid "Enter your Yahoo ID number only"
-msgstr "Sisesta oma Yahoo ID number"
+msgstr "Βάλε μόνο τον αριθμό σου ταυτοποίησης του Yahoo!"
 
 #: core/includes/theme-options.php
 msgid "Site Statistics Tracker"
-msgstr "Lehe statistika jälgija"
+msgstr "Ανιχνευτής στατιστικών του site"
 
 #: core/includes/theme-options.php
 msgid "Leave blank if plugin handles your webmaster tools"
-msgstr "Jäta tühjaks kui plugin kontrollib sinu veebimeistri tööriistu"
+msgstr ""
+"Άφησέ το κενό αν έχεις κάποιο πρόσθετο (plugin) που διαχειρίζεται τα "
+"εργαλεία διαχειριστή"
 
 #: core/includes/theme-options.php
 msgid "Google Analytics, StatCounter, any other or all of them."
-msgstr "Google Analytics, StatCounter, üks või mõlemad nendest"
+msgstr "Google Analytics, StatCounter, κάποιο άλλο ή όλα μαζί."
 
 #: core/includes/theme-options.php
 msgid "Social Icons"
-msgstr "Sotsiaalmeedia ikoonid"
+msgstr "Εικονίδια κοινωνικής δικτύωσης"
 
 #: core/includes/theme-options.php
 msgid "Twitter"
@@ -658,7 +667,7 @@ msgstr "Twitter"
 
 #: core/includes/theme-options.php
 msgid "Enter your Twitter URL"
-msgstr "Sisesta oma Twitteri URL"
+msgstr "Συμπλήρωσε το URL σου του Twitter"
 
 #: core/includes/theme-options.php
 msgid "Facebook"
@@ -666,7 +675,7 @@ msgstr "Facebook"
 
 #: core/includes/theme-options.php
 msgid "Enter your Facebook URL"
-msgstr "Sisesta oma Facebooki URL"
+msgstr "Συμπλήρωσε το URL σου του Facebook"
 
 #: core/includes/theme-options.php
 msgid "LinkedIn"
@@ -674,7 +683,7 @@ msgstr "LinkedIn"
 
 #: core/includes/theme-options.php
 msgid "Enter your LinkedIn URL"
-msgstr "Sisesta oma LinkedIn URL"
+msgstr "Συμπλήρωσε το URL σου του LinkedIn"
 
 #: core/includes/theme-options.php
 msgid "YouTube"
@@ -682,7 +691,7 @@ msgstr "YouTube"
 
 #: core/includes/theme-options.php
 msgid "Enter your YouTube URL"
-msgstr "Sisesta oma YouTube URL"
+msgstr "Συμπλήρωσε το URL σου του YouTube"
 
 #: core/includes/theme-options.php
 msgid "StumbleUpon"
@@ -690,15 +699,15 @@ msgstr "StumbleUpon"
 
 #: core/includes/theme-options.php
 msgid "Enter your StumbleUpon URL"
-msgstr "Sisesta oma StumbleUpon URL"
+msgstr "Συμπλήρωσε το URL σου του StumbleUpon"
 
 #: core/includes/theme-options.php
 msgid "RSS Feed"
-msgstr "RSS voog"
+msgstr "RSS Feed"
 
 #: core/includes/theme-options.php
 msgid "Enter your RSS Feed URL"
-msgstr "Sisesta oma RSS voo URL"
+msgstr "Συμπλήρωσε το URL σου του RSS Feed"
 
 #: core/includes/theme-options.php
 msgid "Google+"
@@ -706,7 +715,7 @@ msgstr "Google+"
 
 #: core/includes/theme-options.php
 msgid "Enter your Google+ URL"
-msgstr "Sisesta oma Google+ URL"
+msgstr "Συμπλήρωσε το URL σου του Google+"
 
 #: core/includes/theme-options.php
 msgid "Instagram"
@@ -714,7 +723,7 @@ msgstr "Instagram"
 
 #: core/includes/theme-options.php
 msgid "Enter your Instagram URL"
-msgstr "Sisesta oma Instagram URL"
+msgstr "Συμπλήρωσε το URL σου του Instagram"
 
 #: core/includes/theme-options.php
 msgid "Pinterest"
@@ -722,7 +731,7 @@ msgstr "Pinterest"
 
 #: core/includes/theme-options.php
 msgid "Enter your Pinterest URL"
-msgstr "Sisesta oma Pinterest URL"
+msgstr "Συμπλήρωσε το URL σου του Pinterest"
 
 #: core/includes/theme-options.php
 msgid "Yelp!"
@@ -730,7 +739,7 @@ msgstr "Yelp!"
 
 #: core/includes/theme-options.php
 msgid "Enter your Yelp! URL"
-msgstr "Sisesta oma Yelp! URL"
+msgstr "Συμπλήρωσε το URL σου του Yelp!"
 
 #: core/includes/theme-options.php
 msgid "Vimeo"
@@ -738,7 +747,7 @@ msgstr "Vimeo"
 
 #: core/includes/theme-options.php
 msgid "Enter your Vimeo URL"
-msgstr "Sisesta Vimeo URL"
+msgstr "Συμπλήρωσε το URL σου του Vimeo"
 
 #: core/includes/theme-options.php
 msgid "foursquare"
@@ -746,11 +755,11 @@ msgstr "foursquare"
 
 #: core/includes/theme-options.php
 msgid "Enter your foursquare URL"
-msgstr "Sisesta foursquare URL"
+msgstr "Συμπλήρωσε το URL σου του foursquare"
 
 #: core/includes/theme-options.php
 msgid "Custom CSS Styles"
-msgstr "Kohanda CSS stiile"
+msgstr "Προσαρμοσμένα στυλ CSS"
 
 #: core/includes/theme-options.php
 msgid "https://developer.mozilla.org/en/CSS"
@@ -758,39 +767,39 @@ msgstr "https://developer.mozilla.org/en/CSS"
 
 #: core/includes/theme-options.php
 msgid "CSS Tutorial"
-msgstr "CSS käsiraamat"
+msgstr "Βοήθημα CSS"
 
 #: core/includes/theme-options.php
 msgid "Enter your custom CSS styles."
-msgstr "Sisesta oma kohandatud CSS stiilid."
+msgstr "Καταχώρησε τα δικά σου προσαρμοσμένα στυλ CSS"
 
 #: core/includes/theme-options.php
 msgid "Custom Scripts"
-msgstr "Kohandatud skriptid"
+msgstr "Προσαρμοσμένες Δέσμες ενεργειών"
 
 #: core/includes/theme-options.php
 msgid "Custom Scripts for Header and Footer"
-msgstr "Kohandatud skriptid Päisele ja Jalusele"
+msgstr "Προσαρμοσμένες Δέσμες ενεργειών κεφαλίδας και υποσέλιδου"
 
 #: core/includes/theme-options.php
 msgid "Quick Tutorial"
-msgstr "Kiire abiõpik"
+msgstr "Σύντομη Εκμάθηση"
 
 #: core/includes/theme-options.php
 msgid "Embeds to header.php &darr;"
-msgstr "Sisestab header.php &darr;"
+msgstr "Ενσωματώσεις σε header.php ↓"
 
 #: core/includes/theme-options.php
 msgid "Enter your custom header script."
-msgstr "Sisesta oma kohandatud päise skript"
+msgstr "Εισαγάγετε προσαρμοσμένες δέσμες ενεργειών στην κεφαλίδα."
 
 #: core/includes/theme-options.php
 msgid "Embeds to footer.php &darr;"
-msgstr "Sisestab footer.php &darr;"
+msgstr "Ενσωματώσεις σε footer.php ↓"
 
 #: core/includes/theme-options.php
 msgid "Enter your custom footer script."
-msgstr "Sisesta oma kohandatud jaluse skript"
+msgstr "Εισαγάγετε προσαρμοσμένες δέσμες ενεργειών στο υποσέλιδο."
 
 #: core/includes/theme-options.php
 msgid "Enable Custom Front Page"
