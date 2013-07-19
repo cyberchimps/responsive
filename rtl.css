@@ -222,6 +222,16 @@ ul {
 	border-left: medium none;
 }
 
+.sub-header-menu ul {
+	right: 0;
+	left: auto;
+}
+
+.sub-header-menu li li:hover > ul {
+	left: auto;
+	right: 100%;
+}
+
 /* =Footer Menu
 -------------------------------------------------------------- */
 .footer-menu {
