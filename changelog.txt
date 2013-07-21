@@ -8,6 +8,24 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/22/13) - Improvements - Version 1.9.3.4
+
+http://cyberchimps.com/guide/update-1-9-3-4/
+
+[+] Allow pinch to zoom
+[+] Close mobile menu by clicking anywhere on the page
+[+] Add waring when reseting options to defaults
+[+] Translation can be loaded from the the WordPress language folder or child theme
+[*] Update Translations
+[*] Allow pinch to zoom
+[*] Improvments for loading of title for mobile menu
+[*] Support for jQuery 1.9
+[!] RTL Sub-Header Menu fix
+[!] Fix errors on image atachment page
+[!] Fix breadcrumb errors
+
+----
+
 (06/18/13) - Improvements - Version 1.9.3.3
 
 http://themeid.com/docs/update-1-9-3-3/
