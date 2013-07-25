@@ -24,9 +24,9 @@ global $responsive_options;
 $responsive_options = responsive_get_options(); 
 
 /**
- * Display breadcrumb
+ * Display breadcrumb except on search page
  */
-if ( 0 == $responsive_options['breadcrumb'] ) :
+if ( 0 == $responsive_options['breadcrumb'] && !is_search() ) :
 	echo responsive_breadcrumb_lists();
 endif; 
 
@@ -50,4 +50,14 @@ if ( is_category() || is_tag() || is_author() || is_date() ) {
 		?>
 	</h6>
 	<?php
+}
+
+/**
+ * Display Search information
+ */
+
+if( is_search() ) {
+    ?>
+    <h6 class="title-search-results"><?php printf(__('Search results for: %s', 'responsive' ), '<span>' . get_search_query() . '</span>'); ?></h6>
+    <?php
 }

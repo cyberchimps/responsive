@@ -24,7 +24,7 @@ get_header(); ?>
 
 <?php if (have_posts()) : ?>
 
-    <h6 class="title-search-results"><?php printf(__('Search results for: %s', 'responsive' ), '<span>' . get_search_query() . '</span>'); ?></h6>
+    <?php get_template_part( 'loop-header' ); ?>
 
 		<?php while (have_posts()) : the_post(); ?>  
         
