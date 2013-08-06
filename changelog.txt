@@ -8,6 +8,22 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+
+(08/06/13) - Improvements - Version 1.9.3.5
+
+http://cyberchimps.com/guide/update-1-9-3-5/
+
+[+] Added rtl css support.
+[+] Added cyberchimps logo to footer.
+[+] Added option class to define theme options.
+[+] Added support for companion plugin.
+[*] Changed post title tag of blog post from h1 to h2.
+[x] Removed google-site-verification etc as per WP rules.
+[!] Fixed css loading sequence.
+[!] Fixed customizer redirection issue.
+
+----
+
 (07/22/13) - Improvements - Version 1.9.3.4
 
 http://cyberchimps.com/guide/update-1-9-3-4/
