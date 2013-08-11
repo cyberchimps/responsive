@@ -85,7 +85,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 					<a href="<?php echo $responsive_options['cta_url']; ?>" class="blue button">
 						<?php 
-						if( isset( $responsive_options['cta_text'] ) && $db && $empty )
+						if( isset( $responsive_options['cta_text'] ) && $db )
 							echo $responsive_options['cta_text']; 
 						else
 							_e('Call to Action','responsive');
