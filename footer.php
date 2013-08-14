@@ -120,8 +120,6 @@ $responsive_options = responsive_get_options();
         <div class="grid col-300 scroll-top"><a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a></div>
         
         <div class="grid col-300 fit powered">
-            <img src="<?php echo get_template_directory_uri() ?>/core/images/achimps.png" alt="<?php esc_attr_e( 'Cyberchimps Responsive Wordpress Themes',
-                                                                                                                 'responsive' ); ?>" class="cyberchimps-footer-logo"/>
             <a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e('Responsive Theme', 'responsive'); ?>">
                     Responsive Theme</a>
             <?php esc_attr_e('powered by', 'responsive'); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e('WordPress', 'responsive'); ?>">
