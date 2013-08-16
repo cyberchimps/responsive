@@ -8,6 +8,16 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/06/13) - Improvements - Version 1.9.3.6
+
+http://cyberchimps.com/guide/update-1-9-3-6/
+
+[!] Fixed support and forum links.
+[^] Moved plugin from theme to wordpress plugin repo.
+[+] Added ability to add classes to options.
+[*] Allowed call to action update without home content.
+
+----
 
 (08/06/13) - Improvements - Version 1.9.3.5
 
