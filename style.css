@@ -428,6 +428,7 @@ input[type="email"] {
   border: 1px solid #aaaaaa;
   border-bottom-color: #cccccc;
   border-radius: 2px;
+  cursor: text;
   margin: 0;
   outline: none;
   padding: 6px 8px;
