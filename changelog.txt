@@ -8,10 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(08/06/13) - Improvements - Version 1.9.3.6
+(08/21/13) - Improvements - Version 1.9.3.6
 
 http://cyberchimps.com/guide/update-1-9-3-6/
 
+[+] Themes page to appearance menu
 [!] Fixed support and forum links.
 [^] Moved plugin from theme to wordpress plugin repo.
 [+] Added ability to add classes to options.
