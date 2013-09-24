@@ -33,5 +33,5 @@ if ( !defined( 'ABSPATH' ) )
 		<span class="mdash">&mdash;</span>
 	<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
 		</span>
-	<?php endif; ?> 
+	<?php endif; ?>
 </div><!-- end of .post-meta -->

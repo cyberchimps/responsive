@@ -12,8 +12,8 @@ if ( !defined('ABSPATH')) exit;
  *                 http://themeid.com/forum/topic/505/child-theme-example/
  *
  * @file           front-page.php
- * @package        Responsive 
- * @author         Emil Uzelac 
+ * @package        Responsive
+ * @author         Emil Uzelac
  * @copyright      2003 - 2013 ThemeID
  * @license        license.txt
  * @version        Release: 1.0
@@ -38,10 +38,10 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 	$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
 	$template = ( $template == 'default' ) ? 'index.php' : $template;
 	locate_template( $template, true );
-} else { 
+} else {
 
 	get_header();
-	
+
 	//test for first install no database
 	$db = get_option( 'responsive_theme_options' );
     //test if all options are empty so we can display default text if they are
@@ -49,7 +49,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 	?>
 
 	<div id="featured" class="grid col-940">
-	
+
 		<div class="grid col-460">
 
 			<h1 class="featured-title">
@@ -60,7 +60,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 					_e( 'Hello, World!', 'responsive' );
 				?>
 			</h1>
-			
+
 			<h2 class="featured-subtitle">
 				<?php
 				if ( isset( $responsive_options['home_subheadline'] ) && $db && $empty )
@@ -69,7 +69,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 					_e( 'Your H2 subheadline here', 'responsive' );
 				?>
 			</h2>
-			
+
 			<p>
 				<?php
 				if ( isset( $responsive_options['home_content_area'] ) && $db && $empty )
@@ -78,38 +78,38 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 					_e( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.','responsive' );
 				?>
 			</p>
-			
-			<?php if ($responsive_options['cta_button'] == 0): ?>  
-   
+
+			<?php if ($responsive_options['cta_button'] == 0): ?>
+
 				<div class="call-to-action">
 
 					<a href="<?php echo $responsive_options['cta_url']; ?>" class="blue button">
-						<?php 
+						<?php
 						if( isset( $responsive_options['cta_text'] ) && $db )
-							echo $responsive_options['cta_text']; 
+							echo $responsive_options['cta_text'];
 						else
 							_e('Call to Action','responsive');
 						?>
 					</a>
-				
+
 				</div><!-- end of .call-to-action -->
 
-			<?php endif; ?>         
-			
+			<?php endif; ?>
+
 		</div><!-- end of .col-460 -->
 
 		<div id="featured-image" class="grid col-460 fit">
-		  
+
 		  <?php $featured_content = ( !empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.png" width="440" height="300" alt="" />'; ?>
-							
+
 			<?php echo do_shortcode( $featured_content ); ?>
-									
-		</div><!-- end of #featured-image --> 
-	
+
+		</div><!-- end of #featured-image -->
+
 	</div><!-- end of #featured -->
-               
-	<?php 
+
+	<?php
 	get_sidebar('home');
-	get_footer(); 
+	get_footer();
 }
 ?>

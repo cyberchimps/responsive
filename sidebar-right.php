@@ -8,8 +8,8 @@ if ( !defined('ABSPATH')) exit;
  *
  *
  * @file           sidebar.php
- * @package        Responsive 
- * @author         Emil Uzelac 
+ * @package        Responsive
+ * @author         Emil Uzelac
  * @copyright      2003 - 2013 ThemeID
  * @license        license.txt
  * @version        Release: 1.0
@@ -21,10 +21,10 @@ if ( !defined('ABSPATH')) exit;
 		<?php responsive_widgets_before(); // above widgets container hook ?>
         <div id="widgets" class="grid col-300 fit">
         <?php responsive_widgets(); // above widgets hook ?>
-            
+
             <?php if (!dynamic_sidebar('right-sidebar')) : ?>
             <div class="widget-wrapper">
-            
+
                 <div class="widget-title"><?php _e('In Archive', 'responsive'); ?></div>
 					<ul>
 						<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>

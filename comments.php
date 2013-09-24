@@ -8,8 +8,8 @@ if ( !defined('ABSPATH')) exit;
  *
  *
  * @file           comments.php
- * @package        Responsive 
- * @author         Emil Uzelac 
+ * @package        Responsive
+ * @author         Emil Uzelac
  * @copyright      2010 - 2013 ThemeID
  * @license        license.txt
  * @version        Release: 1.0
@@ -20,7 +20,7 @@ if ( !defined('ABSPATH')) exit;
 ?>
 <?php if (post_password_required()) { ?>
     <p class="nocomments"><?php _e('This post is password protected. Enter the password to view any comments.', 'responsive'); ?></p>
-    
+
 	<?php return; } ?>
 
 <?php if (have_comments()) : ?>
@@ -41,7 +41,7 @@ if ( !defined('ABSPATH')) exit;
     <ol class="commentlist">
         <?php wp_list_comments('avatar_size=60&type=comment'); ?>
     </ol>
-    
+
     <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
     <div class="navigation">
         <div class="previous"><?php previous_comments_link(__( '&#8249; Older comments','responsive' )); ?></div><!-- end of .previous -->
