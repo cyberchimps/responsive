@@ -8,8 +8,8 @@ if ( !defined('ABSPATH')) exit;
  *
  *
  * @file           image.php
- * @package        Responsive 
- * @author         Emil Uzelac 
+ * @package        Responsive
+ * @author         Emil Uzelac
  * @copyright      2003 - 2013 ThemeID
  * @license        license.txt
  * @version        Release: 1.1
@@ -21,28 +21,28 @@ if ( !defined('ABSPATH')) exit;
 <?php get_header(); ?>
 
         <div id="content-images" class="grid col-620">
-        
+
 <?php if (have_posts()) : ?>
 
 		<?php while (have_posts()) : the_post(); ?>
-        
+
 			<?php responsive_entry_before(); ?>
-			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>       
+			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php responsive_entry_top(); ?>
                 <h1 class="post-title"><?php the_title(); ?></h1>
                 <p><?php _e('&#8249; Return to', 'responsive'); ?> <a href="<?php echo get_permalink($post->post_parent); ?>" rel="gallery"><?php echo get_the_title($post->post_parent); ?></a></p>
 
                 <div class="post-meta">
                 <?php responsive_post_meta_data(); ?>
-                
+
 				    <?php if ( comments_open() ) : ?>
                         <span class="comments-link">
                         <span class="mdash">&mdash;</span>
                     <?php comments_popup_link(__('No Comments &darr;', 'responsive'), __('1 Comment &darr;', 'responsive'), __('% Comments &darr;', 'responsive')); ?>
                         </span>
-                    <?php endif; ?> 
+                    <?php endif; ?>
                 </div><!-- end of .post-meta -->
-                                
+
                 <div class="attachment-entry">
                     <a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php echo wp_get_attachment_image( $post->ID, 'large' ); ?></a>
 					<?php if ( !empty($post->post_excerpt) ) the_excerpt(); ?>
@@ -54,25 +54,25 @@ if ( !defined('ABSPATH')) exit;
 	               <div class="previous"><?php previous_image_link( 'thumbnail' ); ?></div>
 			      <div class="next"><?php next_image_link( 'thumbnail' ); ?></div>
 		       </div><!-- end of .navigation -->
-                        
+
                 <?php if ( comments_open() ) : ?>
                 <div class="post-data">
-				    <?php the_tags(__('Tagged with:', 'responsive') . ' ', ', ', '<br />'); ?> 
-                    <?php the_category(__('Posted in %s', 'responsive') . ', '); ?> 
+				    <?php the_tags(__('Tagged with:', 'responsive') . ' ', ', ', '<br />'); ?>
+                    <?php the_category(__('Posted in %s', 'responsive') . ', '); ?>
                 </div><!-- end of .post-data -->
-                <?php endif; ?>             
+                <?php endif; ?>
 
-				<div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div> 
-								
-				<?php responsive_entry_bottom(); ?>      
-			</div><!-- end of #post-<?php the_ID(); ?> -->       
+				<div class="post-edit"><?php edit_post_link(__('Edit', 'responsive')); ?></div>
+
+				<?php responsive_entry_bottom(); ?>
+			</div><!-- end of #post-<?php the_ID(); ?> -->
 			<?php responsive_entry_after(); ?>
-            
+
 			<?php responsive_comments_before(); ?>
 			<?php comments_template( '', true ); ?>
 			<?php responsive_comments_after(); ?>
 
-	<?php 
+	<?php
 	endwhile;
 
 		get_template_part( 'loop-nav' );

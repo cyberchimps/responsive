@@ -8,8 +8,8 @@ if ( !defined('ABSPATH')) exit;
  *
  *
  * @file           404.php
- * @package        Responsive 
- * @author         Emil Uzelac 
+ * @package        Responsive
+ * @author         Emil Uzelac
  * @copyright      2003 - 2013 ThemeID
  * @license        license.txt
  * @version        Release: 1.0
@@ -21,19 +21,19 @@ if ( !defined('ABSPATH')) exit;
 <?php get_header(); ?>
 
         <div id="content-full" class="grid col-940">
-        
+
 			<?php responsive_entry_before(); ?>
-			<div id="post-0" class="error404">       
+			<div id="post-0" class="error404">
 				<?php responsive_entry_top(); ?>
 
                 <div class="post-entry">
-                
+
                     <?php get_template_part( 'loop-no-posts' ); ?>
-                    
+
                 </div><!-- end of .post-entry -->
-				               
-				<?php responsive_entry_bottom(); ?>      
-			</div><!-- end of #post-0 -->       
+
+				<?php responsive_entry_bottom(); ?>
+			</div><!-- end of #post-0 -->
 			<?php responsive_entry_after(); ?>
 
         </div><!-- end of #content-full -->
