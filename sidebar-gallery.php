@@ -8,8 +8,8 @@ if ( !defined('ABSPATH')) exit;
  *
  *
  * @file           sidebar-gallery.php
- * @package        Responsive 
- * @author         Emil Uzelac 
+ * @package        Responsive
+ * @author         Emil Uzelac
  * @copyright      2003 - 2013 ThemeID
  * @license        license.txt
  * @version        Release: 1.0
@@ -22,16 +22,16 @@ if ( !defined('ABSPATH')) exit;
         <div id="widgets" class="grid col-300 fit gallery-meta">
         <?php responsive_widgets(); // above widgets hook ?>
             <div class="widget-wrapper">
-        
+
                 <div class="widget-title"><?php _e('Image Information', 'responsive'); ?></div>
                     <ul>
 						<?php
 						$responsive_data = get_post_meta($post->ID, '_wp_attachment_metadata', true);
-						
+
 						if( is_array( $responsive_data ) ) {
 						?>
 							<span class="full-size"><?php _e('Full Size:','responsive'); ?> <a href="<?php echo wp_get_attachment_url($post->ID); ?>"><?php echo $responsive_data['width'] . '&#215;' . $responsive_data['height']; ?></a>px</span>
-							
+
 							<?php
 							if( is_array( $responsive_data['image_meta'] ) ) {
 							?>
@@ -68,7 +68,7 @@ if ( !defined('ABSPATH')) exit;
 								<span class="camera"><?php _e('Camera:','responsive'); ?> <?php echo $responsive_data['image_meta']['camera']; ?></span>
 								<?php
 								}
-							}	
+							}
 						}
 						?>
                     </ul>
@@ -81,13 +81,13 @@ if ( !defined('ABSPATH')) exit;
             <?php if (is_active_sidebar('gallery-widget')) : ?>
 
         <div id="widgets" class="grid col-300 fit">
-        
+
 			<?php responsive_widgets(); // above widgets hook ?>
-            
+
                 <?php dynamic_sidebar('gallery-widget'); ?>
-                
+
 			<?php responsive_widgets_end(); // after widgets hook ?>
         </div><!-- end of #widgets -->
 		<?php responsive_widgets_after(); // after widgets container hook ?>
-        
+
         <?php endif; ?>
