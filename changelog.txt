@@ -8,6 +8,17 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/26/13) - Improvements - Version 1.9.3.7
+
+http://cyberchimps.com/guide/update-1-9-3-7/
+
+[*] Set up icon links with new responsive_child_uri() function.
+[+] Added function responsive_free_get_option() to get value of individual free option.
+[+] Added title to blog post page.
+[x] Removed trailing blank spaces.
+[+] Added editor option type for Content area and Featured content options.
+
+
 (08/21/13) - Improvements - Version 1.9.3.6
 
 http://cyberchimps.com/guide/update-1-9-3-6/
