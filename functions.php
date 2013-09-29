@@ -22,13 +22,13 @@ require ( $template_directory . '/core/includes/upsell/theme-upsell.php' );
 
 // Return value of the supplied responsive free theme option.
 function responsive_free_get_option( $option, $default = false ) {
-    global $responsive_options;
+	global $responsive_options;
 
-    // If the option is set then return it's value, otherwise return false.
-    if( isset( $responsive_options[$option] ) ) {
-        return $responsive_options[$option];
-    }
+	// If the option is set then return it's value, otherwise return false.
+	if( isset( $responsive_options[$option] ) ) {
+		return $responsive_options[$option];
+	}
 
-    return $default;
+	return $default;
 }
 ?>

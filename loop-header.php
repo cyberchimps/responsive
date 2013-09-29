@@ -57,7 +57,7 @@ if ( is_category() || is_tag() || is_author() || is_date() ) {
  */
 
 if( is_search() ) {
-    ?>
-    <h6 class="title-search-results"><?php printf(__('Search results for: %s', 'responsive' ), '<span>' . get_search_query() . '</span>'); ?></h6>
-    <?php
+	?>
+	<h6 class="title-search-results"><?php printf(__('Search results for: %s', 'responsive' ), '<span>' . get_search_query() . '</span>'); ?></h6>
+	<?php
 }

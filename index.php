@@ -52,7 +52,7 @@ get_header(); ?>
 			<?php comments_template( '', true ); ?>
 			<?php responsive_comments_after(); ?>
 
-        <?php
+		<?php
 		endwhile;
 
 		get_template_part( 'loop-nav' );

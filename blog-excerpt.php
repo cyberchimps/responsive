@@ -51,28 +51,28 @@ get_header();
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php responsive_entry_top(); ?>
 
-                <?php get_template_part( 'post-meta' ); ?>
+				<?php get_template_part( 'post-meta' ); ?>
 
-                <div class="post-entry">
-                    <?php if ( has_post_thumbnail()) : ?>
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                    <?php the_post_thumbnail(); ?>
-                        </a>
-                    <?php endif; ?>
-                    <?php the_excerpt(); ?>
-                    <?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsive'), 'after' => '</div>')); ?>
-                </div><!-- end of .post-entry -->
+				<div class="post-entry">
+					<?php if ( has_post_thumbnail()) : ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+					<?php the_post_thumbnail(); ?>
+						</a>
+					<?php endif; ?>
+					<?php the_excerpt(); ?>
+					<?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsive'), 'after' => '</div>')); ?>
+				</div><!-- end of .post-entry -->
 
-                <?php get_template_part( 'post-data' ); ?>
+				<?php get_template_part( 'post-data' ); ?>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
 			<?php responsive_entry_after(); ?>
 
-        <?php
+		<?php
 		endwhile;
 
-        if (  $wp_query->max_num_pages > 1 ) :
+		if (  $wp_query->max_num_pages > 1 ) :
 			?>
 			<div class="navigation">
 				<div class="previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $wp_query->max_num_pages ); ?></div>

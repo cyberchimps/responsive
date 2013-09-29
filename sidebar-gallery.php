@@ -19,12 +19,12 @@ if ( !defined('ABSPATH')) exit;
  */
 ?>
 		<?php responsive_widgets_before(); // above widgets container hook ?>
-        <div id="widgets" class="grid col-300 fit gallery-meta">
-        <?php responsive_widgets(); // above widgets hook ?>
-            <div class="widget-wrapper">
+		<div id="widgets" class="grid col-300 fit gallery-meta">
+		<?php responsive_widgets(); // above widgets hook ?>
+			<div class="widget-wrapper">
 
-                <div class="widget-title"><?php _e('Image Information', 'responsive'); ?></div>
-                    <ul>
+				<div class="widget-title"><?php _e('Image Information', 'responsive'); ?></div>
+					<ul>
 						<?php
 						$responsive_data = get_post_meta($post->ID, '_wp_attachment_metadata', true);
 
@@ -71,23 +71,23 @@ if ( !defined('ABSPATH')) exit;
 							}
 						}
 						?>
-                    </ul>
+					</ul>
 
-            </div><!-- end of .widget-wrapper -->
-        </div><!-- end of #widgets -->
+			</div><!-- end of .widget-wrapper -->
+		</div><!-- end of #widgets -->
 
-            <?php if (!is_active_sidebar('gallery-widget')) return; ?>
+			<?php if (!is_active_sidebar('gallery-widget')) return; ?>
 
-            <?php if (is_active_sidebar('gallery-widget')) : ?>
+			<?php if (is_active_sidebar('gallery-widget')) : ?>
 
-        <div id="widgets" class="grid col-300 fit">
+		<div id="widgets" class="grid col-300 fit">
 
 			<?php responsive_widgets(); // above widgets hook ?>
 
-                <?php dynamic_sidebar('gallery-widget'); ?>
+				<?php dynamic_sidebar('gallery-widget'); ?>
 
 			<?php responsive_widgets_end(); // after widgets hook ?>
-        </div><!-- end of #widgets -->
+		</div><!-- end of #widgets -->
 		<?php responsive_widgets_after(); // after widgets container hook ?>
 
-        <?php endif; ?>
+		<?php endif; ?>
