@@ -44,8 +44,8 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 	//test for first install no database
 	$db = get_option( 'responsive_theme_options' );
-    //test if all options are empty so we can display default text if they are
-    $empty = ( empty( $responsive_options['home_headline'] ) && empty( $responsive_options['home_subheadline'] ) && empty( $responsive_options['home_content_area'] ) ) ? false : true;
+	//test if all options are empty so we can display default text if they are
+	$empty = ( empty( $responsive_options['home_headline'] ) && empty( $responsive_options['home_subheadline'] ) && empty( $responsive_options['home_content_area'] ) ) ? false : true;
 	?>
 
 	<div id="featured" class="grid col-940">

@@ -31,12 +31,12 @@ get_header(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php responsive_entry_top(); ?>
 
-                <h1 class="post-title"><?php the_title(); ?></h1>
+				<h1 class="post-title"><?php the_title(); ?></h1>
 
-                <div class="post-entry">
-                    <?php the_content(__('Read more &#8250;', 'responsive')); ?>
-                    <?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsive'), 'after' => '</div>')); ?>
-                </div><!-- end of .post-entry -->
+				<div class="post-entry">
+					<?php the_content(__('Read more &#8250;', 'responsive')); ?>
+					<?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsive'), 'after' => '</div>')); ?>
+				</div><!-- end of .post-entry -->
 
 				<?php get_template_part( 'post-data' ); ?>
 
@@ -44,7 +44,7 @@ get_header(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
 			<?php responsive_entry_after(); ?>
 
-        <?php
+		<?php
 		endwhile;
 
 		get_template_part( 'loop-nav' );

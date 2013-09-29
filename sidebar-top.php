@@ -18,21 +18,21 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 ?>
-    <?php
-        if (! is_active_sidebar('top-widget')
-	    )
-            return;
-    ?>
+	<?php
+		if (! is_active_sidebar('top-widget')
+		)
+			return;
+	?>
 	<?php responsive_widgets_before(); // above widgets container hook ?>
-    <div id="top-widget" class="top-widget">
-        <?php responsive_widgets(); // above widgets hook ?>
+	<div id="top-widget" class="top-widget">
+		<?php responsive_widgets(); // above widgets hook ?>
 
-            <?php if (is_active_sidebar('top-widget')) : ?>
+			<?php if (is_active_sidebar('top-widget')) : ?>
 
-            <?php dynamic_sidebar('top-widget'); ?>
+			<?php dynamic_sidebar('top-widget'); ?>
 
-            <?php endif; //end of top-widget ?>
+			<?php endif; //end of top-widget ?>
 
-        <?php responsive_widgets_end(); // after widgets hook ?>
-    </div><!-- end of #top-widget -->
+		<?php responsive_widgets_end(); // after widgets hook ?>
+	</div><!-- end of #top-widget -->
 	<?php responsive_widgets_after(); // after widgets container hook ?>
