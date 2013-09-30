@@ -1,7 +1,9 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if( !defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Archive Template
@@ -22,35 +24,36 @@ get_header(); ?>
 
 <div id="content-archive" class="<?php echo implode( ' ', responsive_get_content_classes() ); ?>">
 
-	<?php if (have_posts()) : ?>
+	<?php if( have_posts() ) : ?>
 
-        <?php get_template_part( 'loop-header' ); ?>
+		<?php get_template_part( 'loop-header' ); ?>
 
-        <?php while (have_posts()) : the_post(); ?>
+		<?php while( have_posts() ) : the_post(); ?>
 
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php responsive_entry_top(); ?>
 
-                <?php get_template_part( 'post-meta' ); ?>
+				<?php get_template_part( 'post-meta' ); ?>
 
-                <div class="post-entry">
-                    <?php if ( has_post_thumbnail()) : ?>
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                    <?php the_post_thumbnail('thumbnail', array('class' => 'alignleft')); ?>
-                        </a>
-                    <?php endif; ?>
-                    <?php the_excerpt(); ?>
-                    <?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsive'), 'after' => '</div>')); ?>
-                </div><!-- end of .post-entry -->
+				<div class="post-entry">
+					<?php if( has_post_thumbnail() ) : ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php the_post_thumbnail( 'thumbnail', array( 'class' => 'alignleft' ) ); ?>
+						</a>
+					<?php endif; ?>
+					<?php the_excerpt(); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+				</div>
+				<!-- end of .post-entry -->
 
-                <?php get_template_part( 'post-data' ); ?>
+				<?php get_template_part( 'post-data' ); ?>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
 			<?php responsive_entry_after(); ?>
 
-        <?php
+		<?php
 		endwhile;
 
 		get_template_part( 'loop-nav' );

@@ -1,7 +1,9 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if( !defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Main Widget Template
@@ -21,26 +23,26 @@ if ( !defined('ABSPATH')) exit;
 /*
  * If this is a full-width page, exit
  */
-if ( 'full-width-page' == responsive_get_layout() ) {
+if( 'full-width-page' == responsive_get_layout() ) {
 	return;
 }
 ?>
 
 <?php responsive_widgets_before(); // above widgets container hook ?>
-<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>">
-	<?php responsive_widgets(); // above widgets hook ?>
+	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>">
+		<?php responsive_widgets(); // above widgets hook ?>
 
-		<?php if (!dynamic_sidebar('main-sidebar')) : ?>
-		<div class="widget-wrapper">
+		<?php if( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
+			<div class="widget-wrapper">
 
-			<div class="widget-title"><?php _e('In Archive', 'responsive'); ?></div>
+				<div class="widget-title"><?php _e( 'In Archive', 'responsive' ); ?></div>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
 
-		</div><!-- end of .widget-wrapper -->
+			</div><!-- end of .widget-wrapper -->
 		<?php endif; //end of main-sidebar ?>
 
-	<?php responsive_widgets_end(); // after widgets hook ?>
-</div><!-- end of #widgets -->
+		<?php responsive_widgets_end(); // after widgets hook ?>
+	</div><!-- end of #widgets -->
 <?php responsive_widgets_after(); // after widgets container hook ?>

@@ -1,12 +1,14 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if( !defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Full Content Template
  *
-   Template Name:  Full Width Page (no sidebar)
+Template Name:  Full Width Page (no sidebar)
  *
  * @file           full-width-page.php
  * @package        Responsive
@@ -23,22 +25,23 @@ get_header(); ?>
 
 <div id="content-full" class="grid col-940">
 
-	<?php if (have_posts()) : ?>
+	<?php if( have_posts() ) : ?>
 
-		<?php while (have_posts()) : the_post(); ?>
+		<?php while( have_posts() ) : the_post(); ?>
 
-        <?php get_template_part( 'loop-header' ); ?>
+			<?php get_template_part( 'loop-header' ); ?>
 
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php responsive_entry_top(); ?>
 
-                <?php get_template_part( 'post-meta-page' ); ?>
+				<?php get_template_part( 'post-meta-page' ); ?>
 
-                <div class="post-entry">
-                    <?php the_content(__('Read more &#8250;', 'responsive')); ?>
-                    <?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsive'), 'after' => '</div>')); ?>
-                </div><!-- end of .post-entry -->
+				<div class="post-entry">
+					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+				</div>
+				<!-- end of .post-entry -->
 
 				<?php get_template_part( 'post-data' ); ?>
 
@@ -50,7 +53,7 @@ get_header(); ?>
 			<?php comments_template( '', true ); ?>
 			<?php responsive_comments_after(); ?>
 
-        <?php
+		<?php
 		endwhile;
 
 		get_template_part( 'loop-nav' );

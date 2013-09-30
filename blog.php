@@ -1,12 +1,14 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if( !defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Blog Template
  *
-   Template Name: Blog (full posts)
+Template Name: Blog (full posts)
  *
  * @file           blog.php
  * @package        Responsive
@@ -21,7 +23,8 @@ if ( !defined('ABSPATH')) exit;
 
 get_header();
 
-global $more; $more = 0;
+global $more;
+$more = 0;
 ?>
 
 <div id="content-blog" class="<?php echo implode( ' ', responsive_get_content_classes() ); ?>">
@@ -44,28 +47,29 @@ global $more; $more = 0;
 	$wp_query = null;
 	$wp_query = $blog_query;
 
-	if ( $blog_query->have_posts() ) :
+	if( $blog_query->have_posts() ) :
 
-			while ( $blog_query->have_posts() ) : $blog_query->the_post();
-				?>
+		while( $blog_query->have_posts() ) : $blog_query->the_post();
+			?>
 
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php responsive_entry_top(); ?>
 
-					<?php get_template_part( 'post-meta' ); ?>
+				<?php get_template_part( 'post-meta' ); ?>
 
-					<div class="post-entry">
-						<?php if ( has_post_thumbnail()) : ?>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-						<?php the_post_thumbnail(); ?>
-							</a>
-						<?php endif; ?>
-						<?php the_content(__('Read more &#8250;', 'responsive')); ?>
-						<?php wp_link_pages(array('before' => '<div class="pagination">' . __('Pages:', 'responsive'), 'after' => '</div>')); ?>
-					</div><!-- end of .post-entry -->
+				<div class="post-entry">
+					<?php if( has_post_thumbnail() ) : ?>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php the_post_thumbnail(); ?>
+						</a>
+					<?php endif; ?>
+					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+				</div>
+				<!-- end of .post-entry -->
 
-					<?php get_template_part( 'post-data' ); ?>
+				<?php get_template_part( 'post-data' ); ?>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
@@ -74,13 +78,13 @@ global $more; $more = 0;
 		<?php
 		endwhile;
 
-        if (  $wp_query->max_num_pages > 1 ) :
+		if( $wp_query->max_num_pages > 1 ) :
 			?>
 			<div class="navigation">
 				<div class="previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $wp_query->max_num_pages ); ?></div>
 				<div class="next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ), $wp_query->max_num_pages ); ?></div>
 			</div><!-- end of .navigation -->
-			<?php
+		<?php
 		endif;
 
 	else :

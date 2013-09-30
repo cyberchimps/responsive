@@ -1,7 +1,9 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined('ABSPATH')) exit;
+if( !defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Sidebar Right Half Template
@@ -18,21 +20,21 @@ if ( !defined('ABSPATH')) exit;
  * @since          available since Release 1.0
  */
 ?>
-		<?php responsive_widgets_before(); // above widgets container hook ?>
-        <div id="widgets" class="grid col-460 fit">
-        <?php responsive_widgets(); // above widgets hook ?>
+<?php responsive_widgets_before(); // above widgets container hook ?>
+	<div id="widgets" class="grid col-460 fit">
+		<?php responsive_widgets(); // above widgets hook ?>
 
-            <?php if (!dynamic_sidebar('right-sidebar-half')) : ?>
-            <div class="widget-wrapper">
+		<?php if( !dynamic_sidebar( 'right-sidebar-half' ) ) : ?>
+			<div class="widget-wrapper">
 
-                <div class="widget-title"><?php _e('In Archive', 'responsive'); ?></div>
-					<ul>
-						<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-					</ul>
+				<div class="widget-title"><?php _e( 'In Archive', 'responsive' ); ?></div>
+				<ul>
+					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+				</ul>
 
-            </div><!-- end of .widget-wrapper -->
-			<?php endif; //end of sidebar-right-half ?>
+			</div><!-- end of .widget-wrapper -->
+		<?php endif; //end of sidebar-right-half ?>
 
-        <?php responsive_widgets_end(); // after widgets hook ?>
-        </div><!-- end of #widgets -->
-		<?php responsive_widgets_after(); // after widgets container hook ?>
+		<?php responsive_widgets_end(); // after widgets hook ?>
+	</div><!-- end of #widgets -->
+<?php responsive_widgets_after(); // after widgets container hook ?>
