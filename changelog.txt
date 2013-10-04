@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/04/13) - Improvements - Version 1.9.3.8
+
+[*] Spaces for indentation have been swapped out for tabs in the code
+[!] Fixed javascript bug that was preventing other javascripts from working correctly
+
 (09/26/13) - Improvements - Version 1.9.3.7
 
 http://cyberchimps.com/guide/update-1-9-3-7/
