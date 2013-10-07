@@ -37,6 +37,8 @@ $responsive_options = responsive_get_options();
 
 	<div id="footer-wrapper">
 
+		<?php get_sidebar( 'footer' ); ?>
+
 		<div class="grid col-940">
 
 			<div class="grid col-540">
@@ -140,8 +142,6 @@ $responsive_options = responsive_get_options();
 		</div>
 		<!-- end of col-940 -->
 		<?php get_sidebar( 'colophon' ); ?>
-		
-		<?php get_sidebar( 'footer' ); ?>
 
 		<div class="grid col-300 copyright">
 			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php _e( date( 'Y' ) ); ?><a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
