@@ -26,7 +26,7 @@ if( !is_active_sidebar( 'footer-widget' ) ) {
 }
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="footer-widget" class="grid col-940">
+	<div id="footer_widget" class="grid col-940">
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php if( is_active_sidebar( 'footer-widget' ) ) : ?>

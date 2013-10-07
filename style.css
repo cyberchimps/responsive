@@ -2582,9 +2582,8 @@ table.cart td.actions .coupon .input-text {
 	text-align: right;
 }
 
-#footer-widget .col-300 {
-	margin-left: 2%;
-	width: 26%;
+#footer_widget .col-300:nth-child(3n+3) {
+	margin-right: 0;
 }
 
 /* =Social Icons
