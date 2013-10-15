@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) ) {
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
 	<div id="widgets" class="home-widgets">
-		<div class="grid col-300">
+		<div id="home_widget_1" class="grid col-300">
 			<?php responsive_widgets(); // above widgets hook ?>
 
 			<?php if( !dynamic_sidebar( 'home-widget-1' ) ) : ?>
@@ -39,7 +39,7 @@ if( !defined( 'ABSPATH' ) ) {
 		</div>
 		<!-- end of .col-300 -->
 
-		<div class="grid col-300">
+		<div id="home_widget_2" class="grid col-300">
 			<?php responsive_widgets(); // responsive above widgets hook ?>
 
 			<?php if( !dynamic_sidebar( 'home-widget-2' ) ) : ?>
@@ -56,7 +56,7 @@ if( !defined( 'ABSPATH' ) ) {
 		</div>
 		<!-- end of .col-300 -->
 
-		<div class="grid col-300 fit">
+		<div id="home_widget_3" class="grid col-300 fit">
 			<?php responsive_widgets(); // above widgets hook ?>
 
 			<?php if( !dynamic_sidebar( 'home-widget-3' ) ) : ?>
