@@ -433,11 +433,12 @@ input[type="email"] {
 	outline: none;
 	padding: 6px 8px;
 	vertical-align: middle;
+	max-width: 100%;
 }
 
 select {
 	height: auto;
-	width: 100%;
+	max-width: 100%;
 }
 
 area,
@@ -458,7 +459,7 @@ textarea {
 	margin: 0;
 	outline: none;
 	padding: 8px 10px;
-	width: 100%;
+	max-width: 100%;
 }
 
 input,
