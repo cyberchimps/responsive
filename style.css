@@ -462,6 +462,11 @@ textarea {
 	max-width: 100%;
 }
 
+map area {
+	padding: 0px;
+	border: 0px;
+}
+
 input,
 select {
 	cursor: pointer;
@@ -1101,7 +1106,7 @@ form div {
 	text-align: center;
 }
 
-.widget-title,
+.widget-title h3,
 .widget-title-home h3 {
 	display: block;
 	font-size: 24px;
@@ -1112,7 +1117,7 @@ form div {
 	text-align: left;
 }
 
-.top-widget .widget-title {
+.top-widget .widget-title h3 {
 	font-size: 14px;
 	padding: 0;
 	text-align: right;

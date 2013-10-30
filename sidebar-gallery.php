@@ -25,7 +25,7 @@ if( !defined( 'ABSPATH' ) ) {
 		<?php responsive_widgets(); // above widgets hook ?>
 		<div class="widget-wrapper">
 
-			<div class="widget-title"><?php _e( 'Image Information', 'responsive' ); ?></div>
+			<div class="widget-title"><h3><?php _e( 'Image Information', 'responsive' ); ?></h3></div>
 			<ul>
 				<?php
 				$responsive_data = get_post_meta( $post->ID, '_wp_attachment_metadata', true );

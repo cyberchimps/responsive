@@ -3,49 +3,72 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2013-07-14 19:47+0100\n"
-"Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
+"PO-Revision-Date: 2013-10-27 09:08:06 UTC\n"
+"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Hungarian, Hungary\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: WebTranslateIt.com\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php home.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: home.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
 #: sitemap.php
 msgid "Pages:"
 msgstr "Oldal:"
 
-#: blog-excerpt.php blog.php loop-nav.php
+#: blog-excerpt.php
+#: blog.php
+#: loop-nav.php
 msgid "&#8249; Older posts"
 msgstr "&#8249; Korábbi bejegyzések"
 
-#: blog-excerpt.php blog.php loop-nav.php
+#: blog-excerpt.php
+#: blog.php
+#: loop-nav.php
 msgid "Newer posts &#8250;"
 msgstr "Újabb bejegyzések &#8250;"
 
-#: blog.php content-sidebar-half-page.php content-sidebar-page.php
-#: full-width-page.php home.php image.php index.php landing-page.php page.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: blog.php
+#: content-sidebar-half-page.php
+#: content-sidebar-page.php
+#: full-width-page.php
+#: home.php
+#: image.php
+#: index.php
+#: landing-page.php
+#: page.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
 #: core/includes/functions.php
 msgid "Read more &#8250;"
 msgstr "Tovább ›"
 
 #: comments.php
-msgid ""
-"This post is password protected. Enter the password to view any comments."
-msgstr ""
-"Ez a bejegyzés jelszóval védett! A hozzászólások megtekintéséhez meg kell "
-"adni a jelszót."
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Ez a bejegyzés jelszóval védett! A hozzászólások megtekintéséhez meg kell adni a jelszót."
 
+#: comments.php
 #: comments.php
 msgid "&#8249; Older comments"
 msgstr "&#8249; Régebbi hozzászólások"
 
+#: comments.php
 #: comments.php
 msgid "Newer comments &#8250;"
 msgstr "Újabb hozzászólások &#8250;"
@@ -106,17 +129,26 @@ msgstr "WordPress"
 msgid "&#8249; Return to"
 msgstr "‹ Vissza"
 
-#: image.php post-meta-page.php post-meta.php sidebar-content-half-page.php
+#: image.php
+#: post-meta-page.php
+#: post-meta.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "No Comments &darr;"
 msgstr "Nincs hozzászólás &darr;"
 
-#: post-meta-page.php post-meta.php image.php sidebar-content-half-page.php
+#: post-meta-page.php
+#: post-meta.php
+#: image.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "1 Comment &darr;"
 msgstr "1 hozzászólás &darr;"
 
-#: post-meta-page.php post-meta.php image.php sidebar-content-half-page.php
+#: post-meta-page.php
+#: post-meta.php
+#: image.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "% Comments &darr;"
 msgstr "% hozzászólás &darr;"
@@ -126,18 +158,25 @@ msgid "One comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
 msgstr[0] "%1$s hozzászólás &ldquo;%2$s&rdquo;"
 
-#: image.php post-data.php sidebar-content-half-page.php
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "Tagged with:"
 msgstr "Címke:"
 
-#: image.php post-data.php sidebar-content-half-page.php
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "Posted in %s"
 msgstr "Kategória: %s"
 
-#: image.php post-data.php sidebar-content-half-page.php
-#: sidebar-content-page.php sitemap.php
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: sitemap.php
 msgid "Edit"
 msgstr "Szerkesztés"
 
@@ -146,16 +185,15 @@ msgid "404 &#8212; Fancy meeting you here!"
 msgstr "404 — Jó, hogy találkoztunk!"
 
 #: loop-no-posts.php
-msgid ""
-"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
-"options here."
-msgstr "Ne pánikolj, megoldjuk. Nézzük meg a lehetőségeket."
+msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
+msgstr "Ne aggódj, együtt túljutunk ezen is! Nézzük meg, milyen lehetőségeink vannak."
 
 #: loop-no-posts.php
 msgid "You can return %s or search for the page you were looking for."
 msgstr "Visszatérhetsz %s vagy keresd meg az oldalt, amit szeretnél"
 
-#: loop-no-posts.php core/includes/functions.php
+#: loop-no-posts.php
+#: core/includes/functions.php
 msgid "Home"
 msgstr "Kezdőlap"
 
@@ -187,7 +225,8 @@ msgstr "A keresés %s nem talált egyezést egy bejegyzéssel sem."
 msgid "Permanent Link to %s"
 msgstr "Állandó link ehhez %s"
 
-#: search.php core/includes/functions.php
+#: search.php
+#: core/includes/functions.php
 msgid "Search results for: %s"
 msgstr "Keresés eredménye a következő kifejezésre: %s"
 
@@ -231,52 +270,41 @@ msgstr "Zár:"
 msgid "Camera:"
 msgstr "Kamera:"
 
-#: sidebar.php sidebar-right.php sidebar-right-half.php sidebar-left.php
-#: sidebar-left-half.php sidebar-half-left.php
+#: sidebar.php
+#: sidebar-right.php
+#: sidebar-right-half.php
+#: sidebar-left.php
+#: sidebar-left-half.php
+#: sidebar-half-left.php
 msgid "In Archive"
 msgstr "Az archívumban"
 
-#: sidebar-home.php core/includes/functions.php
+#: sidebar-home.php
+#: core/includes/functions.php
 msgid "Home Widget 1"
 msgstr "Kezdőlap Widget 1"
 
 #: sidebar-home.php
-msgid ""
-"This is your first home widget box. To edit please go to Appearance > "
-"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
-"Title is also manageable from widgets as well."
-msgstr ""
-"Ez az első főoldali widget doboz. Szerkeszteni a Megjelenés > Widgetek "
-"menüpont alatt lehet, jobb oldalon felülről a hatodik widget. A widget címét "
-"is itt adhatod meg."
+msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
+msgstr "Ez az első főoldali widget doboz. Szerkeszteni a Megjelenés > Widgetek menüpont alatt lehet, jobb oldalon felülről a hatodik widget. A widget címét is itt adhatod meg."
 
-#: sidebar-home.php core/includes/functions.php
+#: sidebar-home.php
+#: core/includes/functions.php
 msgid "Home Widget 2"
 msgstr "Kezdőlap Widget 2"
 
 #: sidebar-home.php
-msgid ""
-"This is your second home widget box. To edit please go to Appearance > "
-"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
-"Title is also manageable from widgets as well."
-msgstr ""
-"Ez a második főoldali widget doboz. Szerkeszteni a Megjelenés > Widgetek "
-"menüpont alatt lehet, jobb oldalon felülről a hetedik widget. A widget címét "
-"is itt adhatod meg."
+msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
+msgstr "Ez a második főoldali widget doboz. Szerkeszteni a Megjelenés > Widgetek menüpont alatt lehet, jobb oldalon felülről a hetedik widget. A widget címét is itt adhatod meg."
 
-#: sidebar-home.php core/includes/functions.php
+#: sidebar-home.php
+#: core/includes/functions.php
 msgid "Home Widget 3"
 msgstr "Kezdőlap Widget 3"
 
 #: sidebar-home.php
-msgid ""
-"This is your third home widget box. To edit please go to Appearance > "
-"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
-"Title is also manageable from widgets as well."
-msgstr ""
-"Ez a harmadik főoldali widget doboz. Szerkeszteni a Megjelenés > Widgetek "
-"menüpont alatt lehet, jobb oldalon felülről a nyolcadik widget. A widget "
-"címét is itt adhatod meg."
+msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
+msgstr "Ez a harmadik főoldali widget doboz. Szerkeszteni a Megjelenés > Widgetek menüpont alatt lehet, jobb oldalon felülről a nyolcadik widget. A widget címét is itt adhatod meg."
 
 #: single.php
 msgid "About"
@@ -311,17 +339,15 @@ msgid "Footer Menu"
 msgstr "Lábléc menü"
 
 #: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Page %s"
-msgstr ""
+msgstr "%s. oldal"
 
 #: core/includes/functions.php
-msgid ""
-"<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
-"%4$s"
-msgstr ""
-"<span class=\"%1$s\">Bejegyezve </span>%2$s<span class=\"%3$s\"> Szerző </"
-"span>%4$s"
+msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
+msgstr "<span class=\"%1$s\">Bejegyezve </span>%2$s<span class=\"%3$s\"> Szerző </span>%4$s"
 
+#: core/includes/functions.php
 #: core/includes/functions.php
 msgid "View all posts by %s"
 msgstr "%s összes bejegyzése"
@@ -339,9 +365,11 @@ msgid "Error 404"
 msgstr "404-es hiba "
 
 #: core/includes/functions.php
+#: core/includes/functions.php
 msgid "More Themes"
 msgstr "További témák"
 
+#: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Showcase"
 msgstr "Kirakat"
@@ -424,70 +452,74 @@ msgstr ""
 
 #: blog.php
 msgid "Blog (full posts)"
-msgstr ""
+msgstr "Blog (teljes bejegyzések)"
 
 #: blog-excerpt.php
 msgid "Blog Excerpt (summary)"
-msgstr ""
+msgstr "Blog kivonat (összegzés)"
 
-#: content-sidebar-page.php core/includes/post-custom-meta.php
+#: content-sidebar-page.php
+#: core/includes/post-custom-meta.php
 msgid "Content/Sidebar"
-msgstr ""
+msgstr "Tartalom/Oldalsáv"
 
-#: sidebar-content-page.php core/includes/post-custom-meta.php
+#: sidebar-content-page.php
+#: core/includes/post-custom-meta.php
 msgid "Sidebar/Content"
-msgstr ""
+msgstr "Oldalsáv/Tartalom"
 
-#: content-sidebar-half-page.php core/includes/post-custom-meta.php
+#: content-sidebar-half-page.php
+#: core/includes/post-custom-meta.php
 msgid "Content/Sidebar Half Page"
 msgstr ""
 
-#: sidebar-content-half-page.php core/includes/post-custom-meta.php
+#: sidebar-content-half-page.php
+#: core/includes/post-custom-meta.php
 msgid "Sidebar/Content Half Page"
 msgstr ""
 
-#: full-width-page.php core/includes/post-custom-meta.php
+#: full-width-page.php
+#: core/includes/post-custom-meta.php
 msgid "Full Width Page (no sidebar)"
-msgstr ""
+msgstr "Teljes szélességű oldal (nincs oldalsáv)"
 
 #: landing-page.php
 msgid "Landing Page (no menu)"
-msgstr ""
+msgstr "Landing page (nincs menü)"
 
 #: sitemap.php
 msgid "Sitemap"
-msgstr ""
+msgstr "Oldaltérkép"
 
 #: core/includes/post-custom-meta.php
 msgid "Layout"
-msgstr ""
+msgstr "Elrendezés"
 
 #: core/includes/post-custom-meta.php
 msgid "Default"
-msgstr ""
+msgstr "Alapértelmezett"
 
-#: front-page.php core/includes/theme-options.php
+#: front-page.php
+#: core/includes/theme-options.php
 msgid "Hello, World!"
 msgstr "Helló Világ!"
 
-#: front-page.php core/includes/theme-options.php
+#: front-page.php
+#: core/includes/theme-options.php
 msgid "Your H2 subheadline here"
-msgstr "H2 alcím ide"
+msgstr "A H2 alcímed ide jön"
 
-#: front-page.php core/includes/theme-options.php
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-"A cím, az alcím és a tartalom szerkeszthető a téma opcióknál. A "
-"\"cselekvésre ösztönző (Call to action)\" gomb felirata és linkje is onnan "
-"szerkeszthető. A jobb oldali kép lehet kép vagy youtube videó."
+#: front-page.php
+#: core/includes/theme-options.php
+msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
+msgstr "A cím, az alcím és a tartalom szerkeszthető a téma opcióknál. A \"cselekvésre ösztönző (Call to action)\" gomb felirata és linkje is onnan szerkeszthető. A jobb oldali kép lehet kép vagy youtube videó."
 
-#: front-page.php core/includes/theme-options.php
+#: front-page.php
+#: core/includes/theme-options.php
 msgid "Call to Action"
 msgstr "Cselekvésre ösztönzés"
 
+#: core/includes/theme-options.php
 #: core/includes/theme-options.php
 msgid "Theme Options"
 msgstr "Téma beállítások"
@@ -505,6 +537,7 @@ msgid "Disable Breadcrumb Lists?"
 msgstr "Kikapcsolod az útvonalkövetést?"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "Check to disable"
 msgstr "Kattints a kikapcsoláshoz"
 
@@ -513,12 +546,24 @@ msgid "Disable Call to Action Button?"
 msgstr "Kikapcsolod a \"Cselekvésre ösztönzés (Call to Action)\" gombot?"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "Save Options"
 msgstr "Beállítások mentése"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "Restore Defaults"
-msgstr ""
+msgstr "Alapértelmezések visszaállítása"
 
 #: core/includes/theme-options.php
 msgid "Logo Upload"
@@ -530,11 +575,11 @@ msgstr "Egyedi fejléc"
 
 #: core/includes/theme-options.php
 msgid "Need to replace or remove default logo?"
-msgstr "Alapértelmezett logó cseréje?"
+msgstr "Szereretnéd lecserélni, vagy eltávolítani az alapértelmezett logót?"
 
 #: core/includes/theme-options.php
 msgid "<a href=\"%s\">Click here</a>."
-msgstr "<a href=\"%s\">katt ide</a>"
+msgstr "<a href=\"%s\">kattints ide</a>"
 
 #: core/includes/theme-options.php
 msgid "Home Page"
@@ -585,6 +630,7 @@ msgid "Featured Content"
 msgstr "Kiemelt tartalom"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "See Docs"
 msgstr "Lásd a dokumentációt"
 
@@ -594,19 +640,19 @@ msgstr ""
 
 #: core/includes/theme-options.php
 msgid "Default Layouts"
-msgstr ""
+msgstr "Alapértelmezett elrendezés"
 
 #: core/includes/theme-options.php
 msgid "Default Static Page Layout"
-msgstr ""
+msgstr "Alapértelmezett oldal elrendezés"
 
 #: core/includes/theme-options.php
 msgid "Default Single Blog Post Layout"
-msgstr ""
+msgstr "Alapértelmezett bejegyzés elrendezés"
 
 #: core/includes/theme-options.php
 msgid "Default Blog Posts Index Layout"
-msgstr ""
+msgstr "Alapértelmezett bejegyzéseket listázó oldal elrendezése"
 
 #: core/includes/theme-options.php
 msgid "Webmaster Tools"
@@ -646,8 +692,7 @@ msgstr "Hagyd üresen, ha plugin kezeli a webmester eszközöket"
 
 #: core/includes/theme-options.php
 msgid "Google Analytics, StatCounter, any other or all of them."
-msgstr ""
-"Google Analytics, StatCounter, egyik vagy az összes a felsoroltak közül."
+msgstr "Google Analytics, StatCounter, egyik vagy az összes a felsoroltak közül."
 
 #: core/includes/theme-options.php
 msgid "Social Icons"
@@ -750,6 +795,7 @@ msgid "Enter your foursquare URL"
 msgstr "Add meg a foursquare profilod linkjét"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "Custom CSS Styles"
 msgstr "Egyedi CSS stílusok"
 
@@ -758,63 +804,69 @@ msgid "https://developer.mozilla.org/en/CSS"
 msgstr "https://developer.mozilla.org/en/CSS"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "CSS Tutorial"
-msgstr "CSS Segédlet"
+msgstr "CSS segédlet"
 
 #: core/includes/theme-options.php
 msgid "Enter your custom CSS styles."
-msgstr "Írd ide a saját CSS stílusokat."
+msgstr "Írd ide a saját CSS stílusaidat."
 
 #: core/includes/theme-options.php
 msgid "Custom Scripts"
-msgstr ""
+msgstr "Egyéni szkriptek"
 
 #: core/includes/theme-options.php
 msgid "Custom Scripts for Header and Footer"
-msgstr ""
+msgstr "Egyéni szkriptek a fejlécbe és láblécbe"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "Quick Tutorial"
-msgstr ""
+msgstr "Gyorstalpaló"
 
 #: core/includes/theme-options.php
 msgid "Embeds to header.php &darr;"
-msgstr ""
+msgstr "Beágyazza a header.php-be &darr;"
 
 #: core/includes/theme-options.php
 msgid "Enter your custom header script."
-msgstr ""
+msgstr "Írd be az egyéni fejléc szkriptedet."
 
 #: core/includes/theme-options.php
 msgid "Embeds to footer.php &darr;"
-msgstr ""
+msgstr "Beágyazza a footer.php-ba &darr;"
 
 #: core/includes/theme-options.php
 msgid "Enter your custom footer script."
-msgstr ""
+msgstr "Írd be az egyéni lábléc szkriptedet."
 
 #: core/includes/theme-options.php
 msgid "Enable Custom Front Page"
-msgstr ""
+msgstr "Egyéni címplap engedélyezése"
 
+#: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Help"
-msgstr ""
+msgstr "Súgó"
 
 #: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Instructions"
-msgstr ""
+msgstr "Instrukciók"
 
 #: core/includes/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr ""
+msgstr "Felülírja a WordPress %1skezdőoldal beállítását%2s"
 
+#: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Translate"
-msgstr ""
+msgstr "Fordítás"
 
-# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
-#. Welcome to Responsive! Upgrade to Responsive Pro today.
 #: core/includes/functions.php
+#. Welcome to Responsive! Upgrade to Responsive Pro today.
+# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr ""
+msgstr "Üdv a %1$s sablonban! Frissíts még ma a %2$s-ra!"
+

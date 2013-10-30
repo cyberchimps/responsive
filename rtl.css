@@ -157,7 +157,7 @@ ul {
 
 /* =Titles
 -------------------------------------------------------------- */
-.widget-title,
+.widget-title h3,
 .widget-title-home h3 {
 	text-align: right;
 }

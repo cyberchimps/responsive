@@ -3,49 +3,72 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2013-07-14 19:46+0100\n"
-"Last-Translator: Ulrich Pogson <grapplerulrich@gmail.com>\n"
+"PO-Revision-Date: 2013-07-22 22:03:29 UTC\n"
+"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Spanish, Spain\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: WebTranslateIt.com\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: page.php landing-page.php index.php image.php full-width-page.php
-#: content-sidebar-page.php content-sidebar-half-page.php blog.php
-#: blog-excerpt.php archive.php home.php search.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: home.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
 #: sitemap.php
 msgid "Pages:"
 msgstr "P&aacute;ginas:"
 
-#: blog-excerpt.php blog.php loop-nav.php
+#: blog-excerpt.php
+#: blog.php
+#: loop-nav.php
 msgid "&#8249; Older posts"
 msgstr "‹ Entradas m&aacute;s antiguas"
 
-#: blog-excerpt.php blog.php loop-nav.php
+#: blog-excerpt.php
+#: blog.php
+#: loop-nav.php
 msgid "Newer posts &#8250;"
 msgstr "Entradas m&aacute;s recientes ›"
 
-#: blog.php content-sidebar-half-page.php content-sidebar-page.php
-#: full-width-page.php home.php image.php index.php landing-page.php page.php
-#: sidebar-content-half-page.php sidebar-content-page.php single.php
+#: blog.php
+#: content-sidebar-half-page.php
+#: content-sidebar-page.php
+#: full-width-page.php
+#: home.php
+#: image.php
+#: index.php
+#: landing-page.php
+#: page.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
 #: core/includes/functions.php
 msgid "Read more &#8250;"
 msgstr "Leer más ›"
 
 #: comments.php
-msgid ""
-"This post is password protected. Enter the password to view any comments."
-msgstr ""
-"Esta entrada est&aacute; protegida. Introduce la contraseña para ver los "
-"comentarios."
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Esta entrada est&aacute; protegida. Introduce la contraseña para ver los comentarios."
 
+#: comments.php
 #: comments.php
 msgid "&#8249; Older comments"
 msgstr "‹ Comentarios m&aacute;s antiguos"
 
+#: comments.php
 #: comments.php
 msgid "Newer comments &#8250;"
 msgstr "Comentarios m&aacute;s recientes ›"
@@ -106,17 +129,26 @@ msgstr "WordPress"
 msgid "&#8249; Return to"
 msgstr "&#8249; Volver a"
 
-#: image.php post-meta-page.php post-meta.php sidebar-content-half-page.php
+#: image.php
+#: post-meta-page.php
+#: post-meta.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "No Comments &darr;"
 msgstr "Sin Comentarios ↓"
 
-#: post-meta-page.php post-meta.php image.php sidebar-content-half-page.php
+#: post-meta-page.php
+#: post-meta.php
+#: image.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "1 Comment &darr;"
 msgstr "1 Comentario &darr;"
 
-#: post-meta-page.php post-meta.php image.php sidebar-content-half-page.php
+#: post-meta-page.php
+#: post-meta.php
+#: image.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "% Comments &darr;"
 msgstr "% Comentarios &darr;"
@@ -127,18 +159,25 @@ msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
 msgstr[0] "Un comentario sobre “%2$s”"
 msgstr[1] "%1$s comentarios sobre “%2$s”"
 
-#: image.php post-data.php sidebar-content-half-page.php
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "Tagged with:"
 msgstr "Etiquetado con:"
 
-#: image.php post-data.php sidebar-content-half-page.php
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
 #: sidebar-content-page.php
 msgid "Posted in %s"
 msgstr "Publicado en: %s"
 
-#: image.php post-data.php sidebar-content-half-page.php
-#: sidebar-content-page.php sitemap.php
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: sitemap.php
 msgid "Edit"
 msgstr "Editar"
 
@@ -147,18 +186,15 @@ msgid "404 &#8212; Fancy meeting you here!"
 msgstr "404 &#8212; Qu&eacute; raro encontrarnos aqu&iacute;!"
 
 #: loop-no-posts.php
-msgid ""
-"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
-"options here."
-msgstr ""
-"No te preocupes, vamos a salir de esto juntos. Vamos a explorar nuestras "
-"opciones aqu&iacute;."
+msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
+msgstr "No te preocupes, vamos a salir de esto juntos. Vamos a explorar nuestras opciones aqu&iacute;."
 
 #: loop-no-posts.php
 msgid "You can return %s or search for the page you were looking for."
 msgstr "Puedes regresar %s o busca la p&aacute;gina que necesitabas"
 
-#: loop-no-posts.php core/includes/functions.php
+#: loop-no-posts.php
+#: core/includes/functions.php
 msgid "Home"
 msgstr "Inicio"
 
@@ -190,7 +226,8 @@ msgstr "Tu b&uacute;squeda para %s no ha encontrado ninguna entrada"
 msgid "Permanent Link to %s"
 msgstr "Enlace Permanente a %s"
 
-#: search.php core/includes/functions.php
+#: search.php
+#: core/includes/functions.php
 msgid "Search results for: %s"
 msgstr "Resultados de la b&uacute;squeda para: %s"
 
@@ -234,53 +271,41 @@ msgstr "Obturador:"
 msgid "Camera:"
 msgstr "C&aacute;mara:"
 
-#: sidebar.php sidebar-right.php sidebar-right-half.php sidebar-left.php
-#: sidebar-left-half.php sidebar-half-left.php
+#: sidebar.php
+#: sidebar-right.php
+#: sidebar-right-half.php
+#: sidebar-left.php
+#: sidebar-left-half.php
+#: sidebar-half-left.php
 msgid "In Archive"
 msgstr "En archivo"
 
-#: sidebar-home.php core/includes/functions.php
+#: sidebar-home.php
+#: core/includes/functions.php
 msgid "Home Widget 1"
 msgstr "Widget 1 de la p&aacute;gina inicial"
 
 #: sidebar-home.php
-msgid ""
-"This is your first home widget box. To edit please go to Appearance > "
-"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
-"Title is also manageable from widgets as well."
-msgstr ""
-"Este es tu primer widget de la p&aacute;gina de inicio. Para editarlo, por "
-"favor, vete a Apariencia> Widgets y elige el sexto widget, llamado Widget 1 "
-"de la p&aacute;gina inicial. Su t&iacute;tulo tambi&eacute;n es editable."
+msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
+msgstr "Este es tu primer widget de la p&aacute;gina de inicio. Para editarlo, por favor, vete a Apariencia> Widgets y elige el sexto widget, llamado Widget 1 de la p&aacute;gina inicial. Su t&iacute;tulo tambi&eacute;n es editable."
 
-#: sidebar-home.php core/includes/functions.php
+#: sidebar-home.php
+#: core/includes/functions.php
 msgid "Home Widget 2"
 msgstr "Widget 2 de la p&aacute;gina inicial"
 
 #: sidebar-home.php
-msgid ""
-"This is your second home widget box. To edit please go to Appearance > "
-"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
-"Title is also manageable from widgets as well."
-msgstr ""
-"Este es tu segundo widget de la p&aacute;gina de inicio. Para editarlo, por "
-"favor, vete a Apariencia> Widgets y elige el s&eacute;ptimo widget, llamado "
-"Widget 2 de la p&aacute;gina inicial. Su t&iacute;tulo tambi&eacute;n es "
-"editable."
+msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
+msgstr "Este es tu segundo widget de la p&aacute;gina de inicio. Para editarlo, por favor, vete a Apariencia> Widgets y elige el s&eacute;ptimo widget, llamado Widget 2 de la p&aacute;gina inicial. Su t&iacute;tulo tambi&eacute;n es editable."
 
-#: sidebar-home.php core/includes/functions.php
+#: sidebar-home.php
+#: core/includes/functions.php
 msgid "Home Widget 3"
 msgstr "Widget 3 de la p&aacute;gina inicial"
 
 #: sidebar-home.php
-msgid ""
-"This is your third home widget box. To edit please go to Appearance > "
-"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
-"Title is also manageable from widgets as well."
-msgstr ""
-"Este es tu tercer widget de la p&aacute;gina de inicio. Para editarlo, por "
-"favor, vete a Apariencia> Widgets y elige el octavo widget, llamado Widget 3 "
-"de la p&aacute;gina inicial. Su t&iacute;tulo tambi&eacute;n es editable."
+msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
+msgstr "Este es tu tercer widget de la p&aacute;gina de inicio. Para editarlo, por favor, vete a Apariencia> Widgets y elige el octavo widget, llamado Widget 3 de la p&aacute;gina inicial. Su t&iacute;tulo tambi&eacute;n es editable."
 
 #: single.php
 msgid "About"
@@ -315,17 +340,15 @@ msgid "Footer Menu"
 msgstr "Men&uacute; del pie de p&aacute;gina"
 
 #: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Page %s"
 msgstr "Página %s"
 
 #: core/includes/functions.php
-msgid ""
-"<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>"
-"%4$s"
-msgstr ""
-"<span class=\"%1$s\">Publicado en </span>%2$s<span class=\"%3$s\"> por </"
-"span>%4$s"
+msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
+msgstr "<span class=\"%1$s\">Publicado en </span>%2$s<span class=\"%3$s\"> por </span>%4$s"
 
+#: core/includes/functions.php
 #: core/includes/functions.php
 msgid "View all posts by %s"
 msgstr "Ver todas las entradas de %s"
@@ -343,9 +366,11 @@ msgid "Error 404"
 msgstr "Error 404 "
 
 #: core/includes/functions.php
+#: core/includes/functions.php
 msgid "More Themes"
 msgstr "M&aacute;s temas"
 
+#: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Showcase"
 msgstr "Escaparate"
@@ -434,23 +459,28 @@ msgstr "Blog (publicaciones completas)"
 msgid "Blog Excerpt (summary)"
 msgstr "Blog resumido (sólo resúmenes)"
 
-#: content-sidebar-page.php core/includes/post-custom-meta.php
+#: content-sidebar-page.php
+#: core/includes/post-custom-meta.php
 msgid "Content/Sidebar"
 msgstr "Contenido/Lateral"
 
-#: sidebar-content-page.php core/includes/post-custom-meta.php
+#: sidebar-content-page.php
+#: core/includes/post-custom-meta.php
 msgid "Sidebar/Content"
 msgstr "Lateral/Contenido"
 
-#: content-sidebar-half-page.php core/includes/post-custom-meta.php
+#: content-sidebar-half-page.php
+#: core/includes/post-custom-meta.php
 msgid "Content/Sidebar Half Page"
 msgstr "Contenido/Lateral media página"
 
-#: sidebar-content-half-page.php core/includes/post-custom-meta.php
+#: sidebar-content-half-page.php
+#: core/includes/post-custom-meta.php
 msgid "Sidebar/Content Half Page"
 msgstr "Lateral/Contenido media página"
 
-#: full-width-page.php core/includes/post-custom-meta.php
+#: full-width-page.php
+#: core/includes/post-custom-meta.php
 msgid "Full Width Page (no sidebar)"
 msgstr "Página de ancho completo (sin lateral)"
 
@@ -470,29 +500,27 @@ msgstr "Distribución"
 msgid "Default"
 msgstr "Por defecto"
 
-#: front-page.php core/includes/theme-options.php
+#: front-page.php
+#: core/includes/theme-options.php
 msgid "Hello, World!"
 msgstr "¡Hola, Mundo!"
 
-#: front-page.php core/includes/theme-options.php
+#: front-page.php
+#: core/includes/theme-options.php
 msgid "Your H2 subheadline here"
 msgstr "Subt&iacute;tulo H2"
 
-#: front-page.php core/includes/theme-options.php
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image or even YouTube video if you like."
-msgstr ""
-"Tu t&iacute;tulo, subt&iacute;tulo y este contenido son editables en "
-"Opciones del tema. El bot&oacute;n Llamada a la acci&oacute;n y su enlace de "
-"destino tambi&eacute;n. La imagen a su derecha puede ser una imagen o un "
-"v&iacute;deo de YouTube si lo prefieres."
+#: front-page.php
+#: core/includes/theme-options.php
+msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
+msgstr "Tu t&iacute;tulo, subt&iacute;tulo y este contenido son editables en Opciones del tema. El bot&oacute;n Llamada a la acci&oacute;n y su enlace de destino tambi&eacute;n. La imagen a su derecha puede ser una imagen o un v&iacute;deo de YouTube si lo prefieres."
 
-#: front-page.php core/includes/theme-options.php
+#: front-page.php
+#: core/includes/theme-options.php
 msgid "Call to Action"
 msgstr "Llamada a la acci&oacute;n"
 
+#: core/includes/theme-options.php
 #: core/includes/theme-options.php
 msgid "Theme Options"
 msgstr "Opciones del tema"
@@ -510,6 +538,7 @@ msgid "Disable Breadcrumb Lists?"
 msgstr "Desactivar ruta breadcrumb?"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "Check to disable"
 msgstr "Seleccionar para desactivarlo"
 
@@ -518,9 +547,21 @@ msgid "Disable Call to Action Button?"
 msgstr "Desactivar el bot&oacute;n Llamada a la acci&oacute;n?"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "Save Options"
 msgstr "Guardar opciones"
 
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
+#: core/includes/theme-options.php
 #: core/includes/theme-options.php
 msgid "Restore Defaults"
 msgstr "Restaurar valores por defecto"
@@ -590,6 +631,7 @@ msgid "Featured Content"
 msgstr "Contenido destacado"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "See Docs"
 msgstr "Ver documentaci&oacute;n"
 
@@ -647,8 +689,7 @@ msgstr "Gestor de estad&iacute;sticas del sitio"
 
 #: core/includes/theme-options.php
 msgid "Leave blank if plugin handles your webmaster tools"
-msgstr ""
-"Deja en blanco si un plugin gestiona tus herramientas de webm&aacute;ster"
+msgstr "Deja en blanco si un plugin gestiona tus herramientas de webm&aacute;ster"
 
 #: core/includes/theme-options.php
 msgid "Google Analytics, StatCounter, any other or all of them."
@@ -755,6 +796,7 @@ msgid "Enter your foursquare URL"
 msgstr "Introduce tu URL de Foursquare"
 
 #: core/includes/theme-options.php
+#: core/includes/theme-options.php
 msgid "Custom CSS Styles"
 msgstr "Estilos CSS personalizados"
 
@@ -762,6 +804,7 @@ msgstr "Estilos CSS personalizados"
 msgid "https://developer.mozilla.org/en/CSS"
 msgstr "https://developer.mozilla.org/es/CSS"
 
+#: core/includes/theme-options.php
 #: core/includes/theme-options.php
 msgid "CSS Tutorial"
 msgstr "Tutorial de CSS"
@@ -778,6 +821,7 @@ msgstr "Scripts personalizados"
 msgid "Custom Scripts for Header and Footer"
 msgstr "Scripts personalizados para la cabecera y el pie de p&aacute;gina"
 
+#: core/includes/theme-options.php
 #: core/includes/theme-options.php
 msgid "Quick Tutorial"
 msgstr "Tutorial r&aacute;pido"
@@ -803,9 +847,11 @@ msgid "Enable Custom Front Page"
 msgstr ""
 
 #: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Help"
 msgstr ""
 
+#: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Instructions"
 msgstr ""
@@ -815,11 +861,13 @@ msgid "Overrides the WordPress %1sfront page option%2s"
 msgstr ""
 
 #: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Translate"
 msgstr ""
 
-# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
-#. Welcome to Responsive! Upgrade to Responsive Pro today.
 #: core/includes/functions.php
+#. Welcome to Responsive! Upgrade to Responsive Pro today.
+# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
+
