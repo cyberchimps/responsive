@@ -8,6 +8,19 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/28/13) - Improvements - Version 1.9.3.9
+
+[+] Added footer widget area.
+[+] Added Id's to home widgets.
+[+] Added h3 tags to widgets.
+[X] Removed 100% width from input form fields.
+[*] Plugin notification is made to be displayed only to admin.
+[*] Updated language files
+[!] Fixed if else structure.
+[!] Fixed Image map area.
+[*] Widgets - Added better descriptions.
+
+
 (10/04/13) - Improvements - Version 1.9.3.8
 
 [*] Spaces for indentation have been swapped out for tabs in the code

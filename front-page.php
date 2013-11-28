@@ -78,7 +78,7 @@ else {
 			<p>
 				<?php
 				if( isset( $responsive_options['home_content_area'] ) && $db && $empty )
-					echo do_shortcode( $responsive_options['home_content_area'] );
+					echo do_shortcode( wpautop( $responsive_options['home_content_area'] ) );
 				else
 					_e( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' );
 				?>
@@ -108,7 +108,7 @@ else {
 
 			<?php $featured_content = ( !empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.png" width="440" height="300" alt="" />'; ?>
 
-			<?php echo do_shortcode( $featured_content ); ?>
+			<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
 
 		</div>
 		<!-- end of #featured-image -->
