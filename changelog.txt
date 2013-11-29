@@ -8,23 +8,38 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/29/13) - Improvements - Version 1.9.4.0
+
+[+] Added front page setting notification to reading settings.
+[+] Added support for paragraphs for the front page areas.
+[*] Update German Translation.
+[!] Fix placeholder + IE8 + The Event Calendar issue.
+[*] Improve mobile menu title.
+
+----
+
 (10/28/13) - Improvements - Version 1.9.3.9
 
 [+] Added footer widget area.
 [+] Added Id's to home widgets.
 [+] Added h3 tags to widgets.
-[X] Removed 100% width from input form fields.
+[x] Removed 100% width from input form fields.
 [*] Plugin notification is made to be displayed only to admin.
-[*] Updated language files
+[*] Updated language files.
 [!] Fixed if else structure.
 [!] Fixed Image map area.
 [*] Widgets - Added better descriptions.
 
+----
 
 (10/04/13) - Improvements - Version 1.9.3.8
 
-[*] Spaces for indentation have been swapped out for tabs in the code
-[!] Fixed javascript bug that was preventing other javascripts from working correctly
+http://cyberchimps.com/guide/update-1-9-3-8/
+
+[*] Spaces for indentation have been swapped out for tabs in the code.
+[!] Fixed javascript bug that was preventing other javascripts from working correctly.
+
+----
 
 (09/26/13) - Improvements - Version 1.9.3.7
 
@@ -36,6 +51,7 @@ http://cyberchimps.com/guide/update-1-9-3-7/
 [x] Removed trailing blank spaces.
 [+] Added editor option type for Content area and Featured content options.
 
+----
 
 (08/21/13) - Improvements - Version 1.9.3.6
 
