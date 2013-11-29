@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -34,15 +34,13 @@ $responsive_options = responsive_get_options();
  * otherwise, display static front page
  * content
  */
-if( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page'] != 1 ) {
+if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page'] != 1 ) {
 	get_template_part( 'home' );
-}
-elseif( 'page' == get_option( 'show_on_front' ) && $responsive_options['front_page'] != 1 ) {
+} elseif ( 'page' == get_option( 'show_on_front' ) && $responsive_options['front_page'] != 1 ) {
 	$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
 	$template = ( $template == 'default' ) ? 'index.php' : $template;
 	locate_template( $template, true );
-}
-else {
+} else {
 
 	get_header();
 
@@ -58,9 +56,9 @@ else {
 
 			<h1 class="featured-title">
 				<?php
-				if( isset( $responsive_options['home_headline'] ) && $db && $empty )
+				if ( isset( $responsive_options['home_headline'] ) && $db && $empty ) {
 					echo $responsive_options['home_headline'];
-				else {
+				} else {
 					_e( 'Hello, World!', 'responsive' );
 				}
 				?>
@@ -68,29 +66,34 @@ else {
 
 			<h2 class="featured-subtitle">
 				<?php
-				if( isset( $responsive_options['home_subheadline'] ) && $db && $empty )
+				if ( isset( $responsive_options['home_subheadline'] ) && $db && $empty )
 					echo $responsive_options['home_subheadline'];
-				else
+				else {
 					_e( 'Your H2 subheadline here', 'responsive' );
+				}
 				?>
 			</h2>
 
-			<p>
-				<?php
-				if( isset( $responsive_options['home_content_area'] ) && $db && $empty )
-					echo do_shortcode( $responsive_options['home_content_area'] );
-				else
-					_e( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' );
+			<?php
+			if ( isset( $responsive_options['home_content_area'] ) && $db && $empty ) {
+				echo do_shortcode( wpautop( $responsive_options['home_content_area'] ) );
+			} else {
 				?>
-			</p>
+				<p>
+					<?php _e( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image
+					or even YouTube video if you like.', 'responsive' ); ?>
+				</p>
 
-			<?php if( $responsive_options['cta_button'] == 0 ): ?>
+			<?php
+			}
+
+			if ( $responsive_options['cta_button'] == 0 ): ?>
 
 				<div class="call-to-action">
 
 					<a href="<?php echo $responsive_options['cta_url']; ?>" class="blue button">
 						<?php
-						if( isset( $responsive_options['cta_text'] ) && $db )
+						if ( isset( $responsive_options['cta_text'] ) && $db )
 							echo $responsive_options['cta_text'];
 						else
 							_e( 'Call to Action', 'responsive' );
@@ -108,7 +111,7 @@ else {
 
 			<?php $featured_content = ( !empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.png" width="440" height="300" alt="" />'; ?>
 
-			<?php echo do_shortcode( $featured_content ); ?>
+			<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
 
 		</div>
 		<!-- end of #featured-image -->

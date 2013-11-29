@@ -857,7 +857,7 @@ msgid "Instructions"
 msgstr "Anleitung"
 
 msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr "Überschreibt die WordPress %1sStartseite Option%2"
+msgstr "Überschreibt die WordPress %1sStartseite Option%2s"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
