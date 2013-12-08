@@ -52,7 +52,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 
 	<div id="featured" class="grid col-940">
 
-		<div class="grid col-460">
+		<div id="featured-content" class="grid col-460">
 
 			<h1 class="featured-title">
 				<?php
