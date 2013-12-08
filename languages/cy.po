@@ -195,10 +195,8 @@ msgstr "Paid becso, nawn ni ffeindio ein ffordd rhywsut. Gad i ni edrych ar ein 
 msgid "You can return %s or search for the page you were looking for."
 msgstr "Gallwch ddychwelyd %s neu edrych am y dudalen roeddech chi eisiau"
 
-#: loop-no-posts.php
-#: core/includes/functions.php
 msgid "Home"
-msgstr "Adref"
+msgstr "Hafan"
 
 #: loop-no-posts.php
 msgid "&larr; Home"
@@ -228,10 +226,8 @@ msgstr "Eich chwiliad ar gyfer %s na wnaeth cydfynd ag unrhyw gofnod"
 msgid "Permanent Link to %s"
 msgstr "Dolen Barhaol i %s"
 
-#: search.php
-#: core/includes/functions.php
 msgid "Search results for: %s"
-msgstr "Canlyniadau Chwilio ar gyfer: %s"
+msgstr "Canlyniadau chwilio ar gyfer: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
@@ -341,10 +337,8 @@ msgstr "Dewislen yr Is-Bennawd"
 msgid "Footer Menu"
 msgstr "Dewislen y Troedyn"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Page %s"
-msgstr ""
+msgstr "Tudalen %s"
 
 #: core/includes/functions.php
 msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
@@ -490,17 +484,14 @@ msgstr ""
 msgid "Landing Page (no menu)"
 msgstr ""
 
-#: sitemap.php
 msgid "Sitemap"
-msgstr ""
+msgstr "Map o'r safle"
 
-#: core/includes/post-custom-meta.php
 msgid "Layout"
-msgstr ""
+msgstr "Cynllun"
 
-#: core/includes/post-custom-meta.php
 msgid "Default"
-msgstr ""
+msgstr "Diofyn"
 
 #: front-page.php
 #: core/includes/theme-options.php
@@ -548,15 +539,8 @@ msgstr "Ticio i analluogi"
 msgid "Disable Call to Action Button?"
 msgstr "Analluogi'r Botwm Galw Ynghyd?"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
 msgid "Save Options"
-msgstr "Arbed Dewisiadau"
+msgstr "Cadw Dewisiadau"
 
 #: core/includes/theme-options.php
 #: core/includes/theme-options.php
@@ -853,23 +837,18 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Instructions"
-msgstr ""
+msgstr "Cyfarwyddiadau"
 
 #: core/includes/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
 msgstr ""
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Translate"
-msgstr ""
+msgstr "Cyfieithu"
 
 #: core/includes/functions.php
 #. Welcome to Responsive! Upgrade to Responsive Pro today.
 # INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
-

@@ -843,32 +843,22 @@ msgstr "Встраивается в footer.php &#8681;"
 msgid "Enter your custom footer script."
 msgstr "Введите Ваши собственные скрипты в подвале."
 
-#: core/includes/theme-options.php
 msgid "Enable Custom Front Page"
-msgstr ""
+msgstr "Включить пользовательскую главную страницу"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Help"
-msgstr ""
+msgstr "Помощь"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Instructions"
-msgstr ""
+msgstr "Инструкции"
 
-#: core/includes/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr ""
+msgstr "Переопределяет %1sпараметр главной страницы%2s WordPress"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Translate"
-msgstr ""
+msgstr "Перевести"
 
-#: core/includes/functions.php
 #. Welcome to Responsive! Upgrade to Responsive Pro today.
 # INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr ""
-
+msgstr "Добро пожаловать в %1$s! Обновитесь сегодня до %2$s."
