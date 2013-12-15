@@ -26,16 +26,14 @@ global $responsive_options;
 $responsive_options = responsive_get_options();
 
 /**
- * Display breadcrumb except on search page
+ * Display breadcrumb
  */
-if( 0 == $responsive_options['breadcrumb'] && !is_search() ) :
-	echo responsive_breadcrumb_lists();
-endif;
+responsive_breadcrumb_lists();
+
 
 /**
  * Display archive information
  */
-
 if( is_category() || is_tag() || is_author() || is_date() ) {
 	?>
 	<h6 class="title-archive">
