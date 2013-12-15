@@ -6,7 +6,7 @@ Description: Responsive Theme is a flexible foundation with fluid grid system th
 Version: 1.9.4.1
 Author: CyberChimps.com
 Author URI: http://cyberchimps.com
-Tags: white, black, gray, light, custom-menu, custom-header, custom-background, one-column, two-columns, left-sidebar, right-sidebar, flexible-width, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, flexible-width, rtl-language-support
+Tags: white, black, gray, light, custom-menu, custom-header, custom-background, one-column, two-columns, left-sidebar, right-sidebar, flexible-width, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, flexible-width, rtl-language-support, responsive-layout, fluid-layout
 
 Text Domain: responsive
 
@@ -39,9 +39,9 @@ WordPress and ThemeID highly recommends Child Theme.
 
 Read More:
 
-- http://codex.wordpress.org/Child_Themes  
-- http://themeid.com/docs/child-theme-example/
-- http://themeid.com/docs/category/child-theme/
+- http://codex.wordpress.org/Child_Themes
+- http://cyberchimps.com/guide/child-theme-example/
+- http://cyberchimps.com/guide-tags/child-theme-2/
 
 --------------------------------------------------------------
 
@@ -229,7 +229,7 @@ sub {
 }
 
 /* =Responsive 12 Column Grid
-    http://themeid.com/responsive-grid/
+    http://demos.cyberchimps.com/responsivepro/responsive-grid/
 -------------------------------------------------------------- */
 .grid {
 	float: left;
@@ -1139,6 +1139,13 @@ form div {
 .error404 input[type="password"],
 .error404 input[type="email"] {
 	width: auto;
+}
+
+/* =Accessibility
+-------------------------------------------------------------- */
+.screen-reader-text{
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
 }
 
 /* =Top Menu
