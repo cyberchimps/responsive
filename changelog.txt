@@ -8,6 +8,16 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/15/13) - Improvements - Version 1.9.4.2
+
+[+] Made search form accessible
+[*] Updated screenshot to 880x660px
+[*] Moved breadcrumb check from template to functions.php
+[*] Updated responsive.pot
+[*] Updated links from themeid.com to cyberchimps.com
+
+----
+
 (12/08/13) - Improvements - Version 1.9.4.1
 
 [+] Added `featured-content` id to front-page.
