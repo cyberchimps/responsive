@@ -8,6 +8,16 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/22/13) - Improvements - Version 1.9.4.3
+
+[+] Allow switching minified scripts with SCRIPT_DEBUG
+[x] Removed code for Backward Compatibility of WP 3.4
+[*] Improved responsive_widget_menu_class as suggested by markoheijnen
+[*] Allow Stylesheet version update automatically.
+[!] Fix disabling breadcrumbs
+
+----
+
 (12/15/13) - Improvements - Version 1.9.4.2
 
 [+] Made search form accessible
