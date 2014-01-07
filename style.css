@@ -31,8 +31,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --------------------------------------------------------------
 WARNING: (BEFORE YOU MAKE ANY CHANGES)
 --------------------------------------------------------------
-Please do not edit style.css or any other Theme files or 
-Templates directly. If you do, your customizations will be lost 
+Please do not edit style.css or any other Theme files or
+Templates directly. If you do, your customizations will be lost
 as soon as you update Responsive.
 
 WordPress and ThemeID highly recommends Child Theme.
@@ -1132,7 +1132,7 @@ form div {
 	color: #993333;
 }
 
-/* =404 Page 
+/* =404 Page
 -------------------------------------------------------------- */
 .error404 select,
 .error404 input[type="text"],
@@ -1792,6 +1792,97 @@ ul.menu > li:hover {
 	text-align: center;
 }
 
+/* Gallery */
+.gallery br[style] {
+	clear: none!important;
+}
+
+.gallery br:nth-last-child(1) {
+	clear: both!important;
+}
+
+/* Normal */
+.gallery-columns-1 .gallery-item {
+	max-width: 600px;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 300px;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 200px;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 150px;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 120px;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 100px;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 85px;
+}
+.gallery-columns-8 .gallery-item {
+	max-width: 75px;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 66px;
+}
+
+/* Full Width */
+.page-template-full-width-page-php .gallery-columns-1 .gallery-item,
+.page-template-landing-page.php .gallery-columns-1 .gallery-item {
+	max-width: 900px;
+}
+
+.page-template-full-width-page-php .gallery-columns-2 .gallery-item,
+.page-template-landing-page.php .gallery-columns-2 .gallery-item {
+	max-width: 450px;
+}
+
+.page-template-full-width-page-php .gallery-columns-3 .gallery-item,
+.page-template-landing-page.php .gallery-columns-3 .gallery-item {
+	max-width: 300px;
+}
+
+.page-template-full-width-page-php .gallery-columns-4 .gallery-item,
+.page-template-landing-page.php .gallery-columns-4 .gallery-item {
+	max-width: 225px;
+}
+
+.page-template-full-width-page-php .gallery-columns-5 .gallery-item,
+.page-template-landing-page.php .gallery-columns-5.gallery-item {
+	max-width: 180px;
+}
+
+.page-template-full-width-page-php .gallery-columns-6 .gallery-item,
+.page-template-landing-page.php .gallery-columns-6 .gallery-item {
+	max-width: 150px;
+}
+
+.page-template-full-width-page-php .gallery-columns-7 .gallery-item,
+.page-template-landing-page.php .gallery-columns-7 .gallery-item {
+	max-width: 125px;
+}
+
+.page-template-full-width-page-php .gallery-columns-8 .gallery-item,
+.page-template-landing-page.php .gallery-columns-8 .gallery-item {
+	max-width: 112.5px;
+}
+
+.page-template-full-width-page-php .gallery-columns-9 .gallery-item,
+.page-template-landing-page.php .gallery-columns-9 .gallery-item {
+	max-width: 100px;
+}
+
 /* =WordPress Core
 -------------------------------------------------------------- */
 .alignnone {
@@ -1929,7 +2020,7 @@ img.wp-smiley {
 	display: block;
 }
 
-/* =Post Thumbnails 
+/* =Post Thumbnails
 -------------------------------------------------------------- */
 img.wp-post-image,
 img.attachment-full,
