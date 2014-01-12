@@ -12,7 +12,7 @@ if( !defined( 'ABSPATH' ) ) {
  * @file           comments.php
  * @package        Responsive
  * @author         Emil Uzelac
- * @copyright      2010 - 2013 ThemeID
+ * @copyright      2010 - 2014 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/comments.php

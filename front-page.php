@@ -16,7 +16,7 @@ if ( !defined( 'ABSPATH' ) ) {
  * @file           front-page.php
  * @package        Responsive
  * @author         Emil Uzelac
- * @copyright      2003 - 2013 ThemeID
+ * @copyright      2003 - 2014 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/front-page.php
