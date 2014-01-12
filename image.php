@@ -12,7 +12,7 @@ if( !defined( 'ABSPATH' ) ) {
  * @file           image.php
  * @package        Responsive
  * @author         Emil Uzelac
- * @copyright      2003 - 2013 ThemeID
+ * @copyright      2003 - 2014 CyberChimps
  * @license        license.txt
  * @version        Release: 1.1
  * @filesource     wp-content/themes/responsive/image.php

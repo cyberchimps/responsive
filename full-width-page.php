@@ -13,7 +13,7 @@ Template Name:  Full Width Page (no sidebar)
  * @file           full-width-page.php
  * @package        Responsive
  * @author         Emil Uzelac
- * @copyright      2003 - 2011 ThemeID
+ * @copyright      2003 - 2014 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/full-width-page.php
