@@ -20,16 +20,9 @@ if( !defined( 'ABSPATH' ) ) {
  */
 
 /**
- * Globalize Theme Options
- */
-global $responsive_options;
-$responsive_options = responsive_get_options();
-
-/**
  * Display breadcrumb
  */
-responsive_breadcrumb_lists();
-
+get_responsive_breadcrumb_lists();
 
 /**
  * Display archive information

@@ -29,7 +29,7 @@ Template Name:  Sidebar/Content
 
 		<?php while( have_posts() ) : the_post(); ?>
 
-			<?php responsive_breadcrumb_lists(); ?>
+			<?php get_responsive_breadcrumb_lists(); ?>
 
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
