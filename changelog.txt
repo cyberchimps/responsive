@@ -8,6 +8,14 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(01/19/14) - Improvements - Version 1.9.4.6
+
+[*] Improved Responsive Breadcrumbs
+[+] Added support for Breadcrumb NavXT, Breadcrum Trail and Yoast SEO
+breadcrumbs.
+
+----
+
 (01/12/14) - Improvements - Version 1.9.4.5
 
 [*] Made Theme Options responsive
