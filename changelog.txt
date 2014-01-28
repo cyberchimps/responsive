@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(01/28/14) - Improvements - Version 1.9.4.7
+
+[*] Allow for gallery image size can be defined
+[!] Fixed disabling breadcrumbs
+
+----
+
 (01/19/14) - Improvements - Version 1.9.4.6
 
 [*] Improved Responsive Breadcrumbs
