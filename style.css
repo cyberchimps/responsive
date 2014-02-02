@@ -2700,6 +2700,7 @@ table.cart td.actions .coupon .input-text {
 	text-align: right;
 }
 
+#footer .rss-icon,
 #footer .yelp-icon,
 #footer .vimeo-icon,
 #footer .youtube-icon,
@@ -2710,7 +2711,9 @@ table.cart td.actions .coupon .input-text {
 #footer .instagram-icon,
 #footer .pinterest-icon,
 #footer .foursquare-icon,
+#footer .googleplus-icon,
 #footer .google-plus-icon,
+#footer .stumbleupon-icon,
 #footer .stumble-upon-icon {
 	display: inline;
 	margin: 1px;
