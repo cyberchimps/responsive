@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/02/14) - Improvements - Version 1.9.4.9
+
+[+] Added new social icon function
+
+----
+
 (01/28/14) - Improvements - Version 1.9.4.7-8
 
 [*] Allow for gallery image size can be defined
