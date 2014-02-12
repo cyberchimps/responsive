@@ -8,9 +8,19 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/09/14) - Improvements - Version 1.9.5.0
+
+[+] Added support for minified css version
+[*] Restructured CSS files - moved styles to core/css/
+[*] Dispaly plugin install notification only on theme.php
+[*] Customized theme activation notice
+[^] Moved sidebar functions in functions-sidebar.php
+
+----
+
 (02/02/14) - Improvements - Version 1.9.4.9
 
-[+] Added new social icon function
+[+] Updated to new social icon function
 
 ----
 
