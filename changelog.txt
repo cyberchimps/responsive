@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/13/14) - Improvements - Version 1.9.5.1
+
+[!] Fixed widget bug
+
 (02/09/14) - Improvements - Version 1.9.5.0
 
 [+] Added support for minified css version
