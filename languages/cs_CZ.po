@@ -182,9 +182,8 @@ msgstr "Označeno v %s"
 msgid "Edit"
 msgstr "Upravit"
 
-#: loop-no-posts.php
 msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 - Zvláštní pocit, settat se zde s vámi!"
+msgstr "404 - Zvláštní pocit, setkat se zde s vámi!"
 
 #: loop-no-posts.php
 msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
@@ -489,9 +488,8 @@ msgstr ""
 msgid "Landing Page (no menu)"
 msgstr ""
 
-#: sitemap.php
 msgid "Sitemap"
-msgstr ""
+msgstr "Mapa webu"
 
 #: core/includes/post-custom-meta.php
 msgid "Layout"
@@ -843,32 +841,24 @@ msgstr "Vložte vlastní skript do footer.php"
 msgid "Enter your custom footer script."
 msgstr "Vložte vlastní skript do Patičky"
 
-#: core/includes/theme-options.php
 msgid "Enable Custom Front Page"
-msgstr ""
+msgstr "Povolit vlastní titulní stránku"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Help"
-msgstr ""
+msgstr "Nápověda"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Instructions"
-msgstr ""
+msgstr "Instrukce"
 
 #: core/includes/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
 msgstr ""
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Translate"
-msgstr ""
+msgstr "Překlad"
 
 #: core/includes/functions.php
 #. Welcome to Responsive! Upgrade to Responsive Pro today.
 # INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
-

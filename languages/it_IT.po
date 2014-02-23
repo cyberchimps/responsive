@@ -856,9 +856,8 @@ msgstr "Aiuto"
 msgid "Instructions"
 msgstr "Istruzioni"
 
-#: core/includes/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr "Sovrascrivi le opzion%2s della pagina di copertina di WordPress"
+msgstr "Sovrascrivi le %1opzion della pagina%2s di copertina di WordPress"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -870,4 +869,3 @@ msgstr "Traduci"
 # INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr "Benvenuto a %1$s! Passa a %2$s oggi stesso."
-
