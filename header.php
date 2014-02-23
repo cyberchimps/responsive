@@ -47,7 +47,7 @@ if( !defined( 'ABSPATH' ) ) {
 <body <?php body_class(); ?>>
 
 <?php responsive_container(); // before container hook ?>
-<div id="container" <?php responsive_container_class(); ?>>
+<div id="container" class="hfeed">
 
 <?php responsive_header(); // before header hook ?>
 	<div id="header">
