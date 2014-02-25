@@ -198,9 +198,8 @@ msgstr "Du kannst zurückkehren %s oder suchst du die Seite die du gesucht hast"
 msgid "Home"
 msgstr "Startseite"
 
-#: loop-no-posts.php
 msgid "&larr; Home"
-msgstr "&larr; Sartseite"
+msgstr "&larr; Startseite"
 
 #: loop-header.php
 msgid "Daily Archives: %s"

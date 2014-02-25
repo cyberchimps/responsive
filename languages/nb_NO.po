@@ -851,15 +851,13 @@ msgstr "Hjelp"
 msgid "Instructions"
 msgstr "Instruksjoner"
 
-#: core/includes/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr ""
+msgstr "Dette vil overstyre%1sførstesidevalg%2s"
 
 msgid "Translate"
 msgstr "Oversett"
 
-#: core/includes/functions.php
 #. Welcome to Responsive! Upgrade to Responsive Pro today.
 # INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr ""
+msgstr "Velkommen til %1$s! Oppgrader til %2$s i dag."

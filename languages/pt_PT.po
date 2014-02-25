@@ -466,9 +466,8 @@ msgstr "Barra lateral/Conte&#250;do no meio da p&#225;gina"
 msgid "Full Width Page (no sidebar)"
 msgstr "P&#225;gina de largura inteira (sem barra lateral)"
 
-#: landing-page.php
 msgid "Landing Page (no menu)"
-msgstr ""
+msgstr "Página de entrada (sem menu)"
 
 msgid "Sitemap"
 msgstr "Mapa do site"

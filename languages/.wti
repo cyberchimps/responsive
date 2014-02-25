@@ -19,10 +19,11 @@ ignore_locales:
  - :ur_PK
  - :gsw
  - :sr_Latn
+ - :bn_IN
 
 # Optional
 # before_pull: "echo 'some unix command'"   # Command executed before pulling files
-after_pull:  "I: & cd I:/Work/GitHub/responsive/languages & c:/cygwin64/bin/bash -c /cygdrive/i/Work/GitHub/potomo.sh"      # Command executed after pulling files for Ulrich
+# after_pull:  "I: & cd I:/Work/GitHub/responsive/languages & c:/cygwin64/bin/bash -c /cygdrive/i/Work/GitHub/potomo.sh"      # Command executed after pulling files for Ulrich
 # after_pull:  for file in `/usr/bin/find . -name '*.po'` ; do /usr/bin/msgfmt -o ${file/.po/.mo} $file ; done                # Command executed after pulling files for Mac
 #
 # before_push: "echo 'some unix command'"   # Command executed before pushing files

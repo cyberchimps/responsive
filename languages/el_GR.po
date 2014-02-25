@@ -89,9 +89,8 @@ msgstr "E-mail"
 msgid "Website"
 msgstr "Ιστότοπος"
 
-#: footer.php
 msgid "&copy;"
-msgstr "©"
+msgstr "&copy;"
 
 #: footer.php
 msgid "scroll to top"
