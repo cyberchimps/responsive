@@ -8,9 +8,24 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+
+(02/25/14) - Improvements - Version 1.9.5.2
+
+[+] Added admin notice for when Responsive 2.0 releases
+[+] Added missing text domain
+[+] Added skip link
+[*] Changed widget menu class to WordPress standards
+[*] Tweeked "Posted on" time info
+[*] Updated screenshot
+[*] Updated translations
+
+----
+
 (02/13/14) - Improvements - Version 1.9.5.1
 
 [!] Fixed widget bug
+
+----
 
 (02/09/14) - Improvements - Version 1.9.5.0
 
