@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 1.9.5.3\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2014-04-01 20:01:29+00:00\n"
+"POT-Creation-Date: 2014-04-01 20:17:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -127,314 +127,6 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:155
-msgid "Install Required Plugins"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:156
-msgid "Install Plugins"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:157
-#: core/includes/functions.php:884
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:158
-msgid "Something went wrong."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:159
-#: core/includes/functions.php:886
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:160
-#: core/includes/functions.php:887
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:161
-#: core/includes/functions.php:888
-msgid ""
-"Sorry, but you do not have the correct permissions to install the %s "
-"plugin. Contact the administrator of this site for help on getting the "
-"plugin installed."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins installed."
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:162
-#: core/includes/functions.php:889
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:163
-#: core/includes/functions.php:890
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:164
-#: core/includes/functions.php:891
-msgid ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugin. Contact the administrator of this site for help on getting the "
-"plugin activated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins activated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:165
-#: core/includes/functions.php:892
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:166
-#: core/includes/functions.php:893
-msgid ""
-"Sorry, but you do not have the correct permissions to update the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"updated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins updated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:167
-#: core/includes/functions.php:894
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:168
-#: core/includes/functions.php:895
-msgid "Activate installed plugin"
-msgid_plural "Activate installed plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:169
-#: core/includes/functions.php:896
-msgid "Return to Required Plugins Installer"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:170
-msgid "Return to the dashboard"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:171
-#: core/includes/classes/class-tgm-plugin-activation.php:1933
-#: core/includes/functions.php:897
-msgid "Plugin activated successfully."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:172
-#: core/includes/classes/class-tgm-plugin-activation.php:1616
-msgid "The following plugin was activated successfully:"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:173
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:174
-msgid "Dismiss this notice"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1129
-msgid "External Link"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1134
-msgid "Private Repository"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1138
-msgid "Pre-Packaged"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1143
-msgid "WordPress Repository"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1146
-msgid "Required"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1146
-msgid "Recommended"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1149
-msgid "Not Installed"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1152
-msgid "Installed But Not Activated"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1333
-msgid ""
-"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
-"Dashboard\">Return to the Dashboard</a>"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1349
-msgid "Plugin"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1350
-msgid "Source"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1351
-msgid "Type"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1352
-msgid "Status"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1370
-msgid "Install"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1371
-msgid "Activate"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1916
-msgid "Install package not available."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1917
-msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1918
-msgid "Unpacking the package&#8230;"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1919
-msgid "Installing the plugin&#8230;"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1920
-msgid "Plugin install failed."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1921
-msgid "Plugin installed successfully."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:1932
-msgid "Plugin activation failed."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2045
-msgid ""
-"The installation and activation process is starting. This process may take "
-"a while on some hosts, so please be patient."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2046
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2046
-#: core/includes/classes/class-tgm-plugin-activation.php:2055
-msgid "Show Details"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2046
-#: core/includes/classes/class-tgm-plugin-activation.php:2055
-msgid "Hide Details"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2047
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2048
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2052
-msgid ""
-"The installation process is starting. This process may take a while on some "
-"hosts, so please be patient."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2053
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2054
-msgid "The installation of %1$s failed."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2055
-msgid "%1$s installed successfully."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2056
-msgid "All installations have been completed."
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2057
-msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: core/includes/classes/class-tgm-plugin-activation.php:2150
-msgid "Return to the Dashboard"
-msgstr ""
-
-#: core/includes/functions-install.php:31
-msgid "Settings saved and %s activated successfully."
-msgstr ""
-
-#: core/includes/functions-install.php:33
-msgid "%s activated successfully."
-msgstr ""
-
-#: core/includes/functions-install.php:35
-msgid "Visit site"
-msgstr ""
-
-#: core/includes/functions-install.php:37
-#: core/includes/theme-options/theme-options.php:51
-#: core/includes/theme-options/theme-options.php:104
-msgid "Theme Options"
-msgstr ""
-
-#: core/includes/functions-install.php:38 core/includes/functions.php:797
-#: core/includes/functions.php:798
-msgid "Help"
 msgstr ""
 
 #: core/includes/functions-sidebar.php:27
@@ -611,6 +303,10 @@ msgstr ""
 msgid "Instructions"
 msgstr ""
 
+#: core/includes/functions.php:797 core/includes/functions.php:798
+msgid "Help"
+msgstr ""
+
 #: core/includes/functions.php:800 core/includes/functions.php:801
 msgid "Translate"
 msgstr ""
@@ -623,96 +319,85 @@ msgstr ""
 msgid "More Themes"
 msgstr ""
 
-#: core/includes/functions.php:882
-msgid "Responsive Add Features"
-msgstr ""
-
-#: core/includes/functions.php:883
-msgid "Activate Add Ons"
-msgstr ""
-
-#: core/includes/functions.php:885
-msgid "Something went wrong with the plugin API."
-msgstr ""
-
-#: core/includes/functions.php:898
-msgid "All plugins installed and activated successfully. %s"
-msgstr ""
-
-#: core/includes/functions.php:922
+#: core/includes/functions.php:861
 msgid ""
 "The Custom Front Page is enabled. You can disable it in the <a "
 "href=\"%1$s\">theme settings</a>."
 msgstr ""
 
-#: core/includes/functions.php:924
+#: core/includes/functions.php:863
 msgid ""
 "The Custom Front Page is disabled. You can enable it in the <a "
 "href=\"%1$s\">theme settings</a>."
 msgstr ""
 
-#: core/includes/functions.php:1047
+#: core/includes/functions.php:986
 #: core/includes/theme-options/theme-options.php:333
 msgid "Twitter"
 msgstr ""
 
-#: core/includes/functions.php:1048
+#: core/includes/functions.php:987
 #: core/includes/theme-options/theme-options.php:342
 msgid "Facebook"
 msgstr ""
 
-#: core/includes/functions.php:1049
+#: core/includes/functions.php:988
 #: core/includes/theme-options/theme-options.php:351
 msgid "LinkedIn"
 msgstr ""
 
-#: core/includes/functions.php:1050
+#: core/includes/functions.php:989
 #: core/includes/theme-options/theme-options.php:360
 msgid "YouTube"
 msgstr ""
 
-#: core/includes/functions.php:1051
+#: core/includes/functions.php:990
 #: core/includes/theme-options/theme-options.php:369
 msgid "StumbleUpon"
 msgstr ""
 
-#: core/includes/functions.php:1052
+#: core/includes/functions.php:991
 #: core/includes/theme-options/theme-options.php:378
 msgid "RSS Feed"
 msgstr ""
 
-#: core/includes/functions.php:1053
+#: core/includes/functions.php:992
 #: core/includes/theme-options/theme-options.php:387
 msgid "Google+"
 msgstr ""
 
-#: core/includes/functions.php:1054
+#: core/includes/functions.php:993
 #: core/includes/theme-options/theme-options.php:396
 msgid "Instagram"
 msgstr ""
 
-#: core/includes/functions.php:1055
+#: core/includes/functions.php:994
 #: core/includes/theme-options/theme-options.php:405
 msgid "Pinterest"
 msgstr ""
 
-#: core/includes/functions.php:1056
+#: core/includes/functions.php:995
 #: core/includes/theme-options/theme-options.php:414
 msgid "Yelp!"
 msgstr ""
 
-#: core/includes/functions.php:1057
+#: core/includes/functions.php:996
 #: core/includes/theme-options/theme-options.php:423
 msgid "Vimeo"
 msgstr ""
 
-#: core/includes/functions.php:1058
+#: core/includes/functions.php:997
 #: core/includes/theme-options/theme-options.php:432
 msgid "foursquare"
 msgstr ""
 
 #: core/includes/post-custom-meta.php:189
 msgid "Layout"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php:51
+#: core/includes/theme-options/theme-options.php:104
+msgid "Theme Options"
 msgstr ""
 
 #: core/includes/theme-options/theme-options.php:108
