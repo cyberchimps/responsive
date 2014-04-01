@@ -93,6 +93,7 @@ grunt.initConfig({
 				mainFile: 'style.css',      // Main project file.
 				potFilename: 'responsive.pot',   // Name of the POT file.
 				type: 'wp-theme',  // Type of project (wp-plugin or wp-theme).
+				exclude: ['core/includes/classes/class-tgm-plugin-activation.php', 'core/includes/functions-install.php'],       // List of files or directories to ignore.
 				processPot: function( pot, options ) {
 					pot.headers['report-msgid-bugs-to'] = 'https://cyberchimps.com/forum/free/responsive/';
 					pot.headers['plural-forms'] = 'nplurals=2; plural=n != 1;';
