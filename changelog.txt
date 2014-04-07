@@ -8,6 +8,14 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/08/14) - Improvements - Version 1.9.5.4
+
+[*] Updated POT file
+[*] Added logo to featured image
+[!] Fixed check if Yoast SEO breadcrumbs activated
+[!] Fixed image links in admin area
+
+----
 (03/14/14) - Improvements - Version 1.9.5.3
 
 [*] Updated other cyberchimps page
