@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/16/14) - Improvements - Version 1.9.5.5
+
+[*] Change post layout selection from radio buttons to dropdown menu
+[!] Fixed "Default" showing twice on post layout
+
+----
+
 (04/08/14) - Improvements - Version 1.9.5.4
 
 [*] Updated POT file
@@ -16,6 +23,7 @@ Changelog Legend:
 [!] Fixed image links in admin area
 
 ----
+
 (03/14/14) - Improvements - Version 1.9.5.3
 
 [*] Updated other cyberchimps page
