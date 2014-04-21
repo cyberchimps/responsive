@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2013-07-22 22:03:33 UTC\n"
+"PO-Revision-Date: 2014-04-21 08:47:09 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Chinese, Taiwan\n"
 "MIME-Version: 1.0\n"
@@ -106,20 +106,12 @@ msgid "&uarr;"
 msgstr "&uarr;"
 
 #: footer.php
-msgid "http://themeid.com/responsive-theme/"
-msgstr "http://themeid.com/responsive-theme/"
-
-#: footer.php
 msgid "Responsive Theme"
 msgstr "Responsive Theme"
 
 #: footer.php
 msgid "powered by"
 msgstr "採用"
-
-#: footer.php
-msgid "http://wordpress.org/"
-msgstr "http://tw.wordpress.org/"
 
 #: footer.php
 msgid "WordPress"
@@ -152,11 +144,6 @@ msgstr "1 個迴響 &darr;"
 #: sidebar-content-page.php
 msgid "% Comments &darr;"
 msgstr "% 個迴響 &darr;"
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "一個迴響在 \"%2$s\""
 
 #: image.php
 #: post-data.php
@@ -225,8 +212,8 @@ msgstr "您搜尋的 %s 沒有搜尋到相應內容"
 msgid "Permanent Link to %s"
 msgstr "固定連結 %s"
 
-#: search.php
 #: core/includes/functions.php
+#: loop-header.php
 msgid "Search results for: %s"
 msgstr "搜尋結果: %s"
 
@@ -279,8 +266,8 @@ msgstr "相機:"
 msgid "In Archive"
 msgstr "歸檔"
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 1"
 msgstr "首頁模組 1"
 
@@ -288,8 +275,8 @@ msgstr "首頁模組 1"
 msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
 msgstr "這是首頁上第一個模組，請在控制台 > 外觀 > 模組中修改此處的文字。"
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 2"
 msgstr "首頁模組 2"
 
@@ -297,8 +284,8 @@ msgstr "首頁模組 2"
 msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
 msgstr "這是首頁上第二個模組，請在控制台 > 外觀 > 控制台中修改此處的文字。"
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 3"
 msgstr "首頁模組 3"
 
@@ -374,120 +361,94 @@ msgstr "更多佈景主題"
 msgid "Showcase"
 msgstr "成果展示"
 
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Main Sidebar"
 msgstr "主邊欄"
 
-#: core/includes/functions.php
-msgid "Area 1 - sidebar.php"
-msgstr "1 號區域 - sidebar.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar"
 msgstr "右側邊欄"
 
-#: core/includes/functions.php
-msgid "Area 2 - sidebar-right.php"
-msgstr "2 號區域 - sidebar-right.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar"
 msgstr "左側邊欄"
 
-#: core/includes/functions.php
-msgid "Area 3 - sidebar-left.php"
-msgstr "3 號區域 - sidebar-left.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar Half Page"
 msgstr "半頁左側邊欄"
 
-#: core/includes/functions.php
-msgid "Area 4 - sidebar-left-half.php"
-msgstr "4 號區域 - sidebar-left-half.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar Half Page"
 msgstr "半頁右側邊欄"
 
-#: core/includes/functions.php
-msgid "Area 5 - sidebar-right-half.php"
-msgstr "5 號區域 - sidebar-right-half.php"
-
-#: core/includes/functions.php
-msgid "Area 6 - sidebar-home.php"
-msgstr "6 號區域 - sidebar-home.php"
-
-#: core/includes/functions.php
-msgid "Area 7 - sidebar-home.php"
-msgstr "7 號區域 - sidebar-home.php"
-
-#: core/includes/functions.php
-msgid "Area 8 - sidebar-home.php"
-msgstr "8 號區域 - sidebar-home.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Gallery Sidebar"
 msgstr "相簿邊欄"
 
-#: core/includes/functions.php
-msgid "Area 9 - sidebar-gallery.php"
-msgstr "9 號區域 - sidebar-gallery.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Colophon Widget"
 msgstr "頁尾模組"
 
-#: core/includes/functions.php
-msgid "Area 10 - sidebar-colophon.php"
-msgstr "10 號區域 - sidebar-colophon.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Top Widget"
 msgstr "頁首模組"
 
-#: core/includes/functions.php
-msgid "Area 11 - sidebar-top.php"
-msgstr "12 號區域 - sidebar-top.php"
-
 #: blog.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog (full posts)"
 msgstr "網誌 (全文)"
 
 #: blog-excerpt.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog Excerpt (summary)"
 msgstr "網誌片段 (摘要)"
 
 #: content-sidebar-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar"
 msgstr "內容/邊欄"
 
 #: sidebar-content-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content"
 msgstr "邊欄/內容"
 
 #: content-sidebar-half-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar Half Page"
 msgstr "內容/邊欄 半頁"
 
 #: sidebar-content-half-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content Half Page"
 msgstr "邊欄/內容 半頁"
 
 #: full-width-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
 msgstr "全寬頁 (無邊欄)"
 
 #: landing-page.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Landing Page (no menu)"
 msgstr "到達頁面 (無選單)"
 
 #: sitemap.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sitemap"
 msgstr "網站地圖"
 
@@ -495,354 +456,412 @@ msgstr "網站地圖"
 msgid "Layout"
 msgstr "樣式"
 
+#: core/includes/classes/Responsive_Options.php
 #: core/includes/post-custom-meta.php
 msgid "Default"
 msgstr "預設"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Hello, World!"
 msgstr "哈囉，世界！"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your H2 subheadline here"
 msgstr "這是您的 H2 副標題"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
 msgstr "您可以在主題設置編輯標題、副標題，以及“開始行動”按鈕， 右側可以放置圖片或者影片。"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Call to Action"
 msgstr "開始行動"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Options"
 msgstr "主題選項"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Options Saved"
 msgstr "選項已儲存"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Elements"
 msgstr "主題元素"
 
-#: core/includes/theme-options.php
-msgid "Disable Breadcrumb Lists?"
-msgstr "取消路徑導覽？"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-msgid "Check to disable"
-msgstr "勾選以取消"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Disable Call to Action Button?"
 msgstr "取消“開始行動”按鈕？"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Save Options"
 msgstr "儲存選項"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Restore Defaults"
 msgstr "還原預設"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Logo Upload"
 msgstr "上傳 Logo"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Header"
 msgstr "自訂 Header"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Need to replace or remove default logo?"
 msgstr "需要取代或移除預設 Logo？"
 
-#: core/includes/theme-options.php
-msgid "<a href=\"%s\">Click here</a>."
-msgstr "<a href=\"%s\">點此</a>。"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Home Page"
 msgstr "首頁"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Headline"
 msgstr "標題"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your headline"
 msgstr "輸入標題"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Subheadline"
 msgstr "副標題"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your subheadline"
 msgstr "輸入副標題"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Content Area"
 msgstr "正文"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your content"
 msgstr "輸入正文"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (URL)"
 msgstr "開始行動 (連結)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action URL"
 msgstr "輸入“開始行動”按鈕的連結"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (Text)"
 msgstr "開始行動 (文字)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action text"
 msgstr "輸入“開始行動”按鈕的文字"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Featured Content"
 msgstr "右側內容"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "See Docs"
 msgstr "查閱說明文件"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Paste your shortcode, video or image source"
 msgstr "貼上您的短碼、影片或圖片原始碼"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Layouts"
 msgstr "預設版面"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Static Page Layout"
 msgstr "預設固定頁面樣式"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Single Blog Post Layout"
 msgstr "預設單一網誌文章樣式"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Blog Posts Index Layout"
 msgstr "預設網誌文章目錄樣式"
 
-#: core/includes/theme-options.php
-msgid "Webmaster Tools"
-msgstr "站長工具"
-
-#: core/includes/theme-options.php
-msgid "Google Site Verification"
-msgstr "Google 站長工具"
-
-#: core/includes/theme-options.php
-msgid "Enter your Google ID number only"
-msgstr "輸入您的 Google ID"
-
-#: core/includes/theme-options.php
-msgid "Bing Site Verification"
-msgstr "Bing 站長工具"
-
-#: core/includes/theme-options.php
-msgid "Enter your Bing ID number only"
-msgstr "輸入您的 Bing ID"
-
-#: core/includes/theme-options.php
-msgid "Yahoo Site Verification"
-msgstr "Yahoo 站長工具"
-
-#: core/includes/theme-options.php
-msgid "Enter your Yahoo ID number only"
-msgstr "輸入您的 Yahoo ID"
-
-#: core/includes/theme-options.php
-msgid "Site Statistics Tracker"
-msgstr "網站統計工具"
-
-#: core/includes/theme-options.php
-msgid "Leave blank if plugin handles your webmaster tools"
-msgstr "如果有外掛程式接管該功能請留空"
-
-#: core/includes/theme-options.php
-msgid "Google Analytics, StatCounter, any other or all of them."
-msgstr "Google Analytics、StatCounter 以及類似的東西。"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Social Icons"
 msgstr "社交網路圖示"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Twitter URL"
 msgstr "輸入您的 Twitter 網址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Facebook URL"
 msgstr "輸入您的 Facebook 位址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your LinkedIn URL"
 msgstr "輸入您的 LinkedIn 位址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your YouTube URL"
 msgstr "輸入您的 YouTube 位址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your StumbleUpon URL"
 msgstr "輸入您的 StumbleUpon 位址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "RSS Feed"
 msgstr "RSS Feed"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your RSS Feed URL"
 msgstr "輸入您的 RSS Feed 位址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Google+"
 msgstr "Google+"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Google+ URL"
 msgstr "輸入您的 Google+ 網址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Instagram URL"
 msgstr "輸入您的 Instagram 網址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Pinterest URL"
 msgstr "輸入您的 Pinterest 網址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Yelp!"
 msgstr "Yelp!"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Yelp! URL"
 msgstr "輸入您的 Yelp! 網址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Vimeo URL"
 msgstr "輸入您的 Vimeo 網址"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "foursquare"
 msgstr "foursquare"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your foursquare URL"
 msgstr "輸入你的 foursquare 網址"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom CSS Styles"
 msgstr "自訂 CSS 樣式"
 
-#: core/includes/theme-options.php
-msgid "https://developer.mozilla.org/en/CSS"
-msgstr "https://developer.mozilla.org/zh_tw/CSS"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "CSS Tutorial"
 msgstr "CSS 自訂指南"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom CSS styles."
 msgstr "輸入自訂的 CSS 樣式。"
 
-#: core/includes/theme-options.php
-msgid "Custom Scripts"
-msgstr "自訂程序"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Scripts for Header and Footer"
 msgstr "頁首及頁尾自訂程序"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Quick Tutorial"
 msgstr "快速教學"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to header.php &darr;"
 msgstr "嵌入至 header.php &darr;"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom header script."
 msgstr "輸入您的自訂頁首程序。"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to footer.php &darr;"
 msgstr "嵌入至 footer.php &darr;"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom footer script."
 msgstr "輸入您的自訂頁尾程序。"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+msgid "Activate Add Ons"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "All theme settings will be lost!"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog"
+msgstr ""
+
+#: core/includes/functions-update.php
+msgid "blog post"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog Title Toggle"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
+msgid "check to disable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "check to enable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Click here"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Click OK to Restore."
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "CSS Styles"
+msgstr ""
+
+#. Author of the plugin/theme
+# INSTRUCTION: Author of the plugin/theme
+msgid "CyberChimps.com"
+msgstr "CyberChimps.com"
+
+#: header.php
+msgid "&darr; Skip to Main Content"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Disable breadcrumb list?"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Do you want to restore?"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enable minified css?"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Footer Widget"
 msgstr ""
 
 #: core/includes/functions.php
@@ -850,13 +869,83 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+#. Author URI of the plugin/theme
+# INSTRUCTION: Author URI of the plugin/theme
+msgid "http://cyberchimps.com"
+msgstr "http://cyberchimps.com"
+
+#. Theme URI of the plugin/theme
+# INSTRUCTION: Theme URI of the plugin/theme
+msgid "http://cyberchimps.com/responsive-theme/"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Installing Plugin: %s"
+msgstr ""
+
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Instructions"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Plugin activated successfully."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+# INSTRUCTION: Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Responsive Add Features"
+msgstr ""
+
+#. Description of the plugin/theme
+# INSTRUCTION: Description of the plugin/theme
+msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Scripts"
+msgstr ""
+
+#: searchform.php
+msgid "Search for:"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: core/includes/functions-update.php
+#. Translators: This is a big update. Please read the blog post beforeupdating.
+# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
+msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/upsell/theme-upsell.php
+msgid "Themes You Can Trust"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Title Text"
 msgstr ""
 
 #: core/includes/functions.php
@@ -864,9 +953,11 @@ msgstr ""
 msgid "Translate"
 msgstr ""
 
+#: core/includes/classes/Responsive_Options.php
+msgid "Upgrade"
+msgstr ""
+
 #: core/includes/functions.php
-#. Welcome to Responsive! Upgrade to Responsive Pro today.
-# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
 

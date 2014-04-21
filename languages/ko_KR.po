@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2013-07-22 22:03:31 UTC\n"
+"PO-Revision-Date: 2014-04-21 08:47:18 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Korean, South Korea\n"
 "MIME-Version: 1.0\n"
@@ -106,20 +106,12 @@ msgid "&uarr;"
 msgstr "&uarr;"
 
 #: footer.php
-msgid "http://themeid.com/responsive-theme/"
-msgstr "http://themeid.com/responsive-theme/"
-
-#: footer.php
 msgid "Responsive Theme"
 msgstr "Responsive Theme"
 
 #: footer.php
 msgid "powered by"
 msgstr "powered by"
-
-#: footer.php
-msgid "http://wordpress.org/"
-msgstr "http://kr.wordpress.org/"
 
 #: footer.php
 msgid "WordPress"
@@ -152,11 +144,6 @@ msgstr "1 댓글 &darr;"
 #: sidebar-content-page.php
 msgid "% Comments &darr;"
 msgstr "% 댓글 &darr;"
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s 에 한 댓글이 있습니다. &ldquo;%2$s&rdquo; 上"
 
 #: image.php
 #: post-data.php
@@ -225,8 +212,8 @@ msgstr "원하시는 검색어를 %s 찾을 수 없습니다."
 msgid "Permanent Link to %s"
 msgstr "%s 로 가는 영구적인 링크"
 
-#: search.php
 #: core/includes/functions.php
+#: loop-header.php
 msgid "Search results for: %s"
 msgstr "검색결과： %s"
 
@@ -279,8 +266,8 @@ msgstr "사진기:"
 msgid "In Archive"
 msgstr "보관소에 있음"
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 1"
 msgstr "홈 위젯 1"
 
@@ -288,8 +275,8 @@ msgstr "홈 위젯 1"
 msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
 msgstr "이것이 첫 홈 위젯 상자입니다. 수정하시려면 외모 > 위젯으로 가셔서 위에서 6째 위젯 곧 홈 위젯 1 번을 선택하세요. 제목은 위젯에서 수정할 수 있습니다."
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 2"
 msgstr "홈 위젯 2"
 
@@ -297,8 +284,8 @@ msgstr "홈 위젯 2"
 msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
 msgstr "이것이 두 번째 홈 위젯 상자입니다. 수정하시려면 외모 > 위젯으로 가셔서 위에서 7째 위젯 곧 홈 위젯 2 번을 선택하세요. 제목은 위젯에서 수정할 수 있습니다."
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 3"
 msgstr "홈 위젯 3"
 
@@ -374,120 +361,94 @@ msgstr "테마 더 보기"
 msgid "Showcase"
 msgstr "진열장"
 
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Main Sidebar"
 msgstr "주 사이드 바"
 
-#: core/includes/functions.php
-msgid "Area 1 - sidebar.php"
-msgstr "1부분 사이드바 - sidebar.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar"
 msgstr "우측 사이드바"
 
-#: core/includes/functions.php
-msgid "Area 2 - sidebar-right.php"
-msgstr "2부분 사이드바 - sidebar-right.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar"
 msgstr "좌측 사이드바"
 
-#: core/includes/functions.php
-msgid "Area 3 - sidebar-left.php"
-msgstr "3부분 사이드바 - sidebar-left.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar Half Page"
 msgstr "좌측 측면 해설 반 페이지"
 
-#: core/includes/functions.php
-msgid "Area 4 - sidebar-left-half.php"
-msgstr "4부분 사이드바 - sidebar-left-half.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar Half Page"
 msgstr "우측 사이드바 반 페이지"
 
-#: core/includes/functions.php
-msgid "Area 5 - sidebar-right-half.php"
-msgstr "5부분 사이드바 - sidebar-right-half.php"
-
-#: core/includes/functions.php
-msgid "Area 6 - sidebar-home.php"
-msgstr "6부분 사이드바 - sidebar-home.php"
-
-#: core/includes/functions.php
-msgid "Area 7 - sidebar-home.php"
-msgstr "7부분 사이드바 - sidebar-home.php"
-
-#: core/includes/functions.php
-msgid "Area 8 - sidebar-home.php"
-msgstr "8부분 사이드바 - sidebar-home.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Gallery Sidebar"
 msgstr "갤러리 사이드 바"
 
-#: core/includes/functions.php
-msgid "Area 9 - sidebar-gallery.php"
-msgstr "9부분 사이드바 - sidebar-gallery.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Colophon Widget"
 msgstr "판권 위젯"
 
-#: core/includes/functions.php
-msgid "Area 10 - sidebar-colophon.php"
-msgstr "10 부분 사이드바 - sidebar-colophon.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Top Widget"
 msgstr "상단 위젯"
 
-#: core/includes/functions.php
-msgid "Area 11 - sidebar-top.php"
-msgstr "11 부분 사이드바 - sidebar-top.php"
-
 #: blog.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog (full posts)"
 msgstr ""
 
 #: blog-excerpt.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog Excerpt (summary)"
 msgstr ""
 
 #: content-sidebar-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar"
 msgstr ""
 
 #: sidebar-content-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content"
 msgstr ""
 
 #: content-sidebar-half-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar Half Page"
 msgstr ""
 
 #: sidebar-content-half-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content Half Page"
 msgstr ""
 
 #: full-width-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
 msgstr ""
 
 #: landing-page.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Landing Page (no menu)"
 msgstr ""
 
 #: sitemap.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sitemap"
 msgstr ""
 
@@ -495,354 +456,412 @@ msgstr ""
 msgid "Layout"
 msgstr ""
 
+#: core/includes/classes/Responsive_Options.php
 #: core/includes/post-custom-meta.php
 msgid "Default"
 msgstr ""
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Hello, World!"
 msgstr "안녕! 세계여!"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your H2 subheadline here"
 msgstr "H2 부 제목을 입력하세요"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
 msgstr "제목, 부제목, 그리고 콘텐츠를 테마 옵션에서 편집할 수 있습니다. 작전 개시 버튼과 이에 해당하는 링크도 편집 가능합니다. 오른쪽 이미지는 다른 이미지로 교체하거나 유튜브 비디오를 삽입할 수 있습니다."
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Call to Action"
 msgstr "작전 개시"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Options"
 msgstr "테마 옵션"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Options Saved"
 msgstr "옵션 저장"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Elements"
 msgstr "테마 구성 요소"
 
-#: core/includes/theme-options.php
-msgid "Disable Breadcrumb Lists?"
-msgstr "Breadcrumb Lists 해제?"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-msgid "Check to disable"
-msgstr "해제하려면 클릭"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Disable Call to Action Button?"
 msgstr "작전 개시 버튼 해제?"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Save Options"
 msgstr "옵션 저장"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Restore Defaults"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Logo Upload"
 msgstr "로고 올리기"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Header"
 msgstr "맞춤형 헤더"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Need to replace or remove default logo?"
 msgstr "기본 로고 바꾸거나 삭제하기"
 
-#: core/includes/theme-options.php
-msgid "<a href=\"%s\">Click here</a>."
-msgstr "<a href=\"%s\">클릭하세요</a>."
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Home Page"
 msgstr "홈 페이지"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Headline"
 msgstr "헤드라인"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your headline"
 msgstr "헤드라인 입력"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Subheadline"
 msgstr "부제목 헤드라인)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your subheadline"
 msgstr "부제목 헤드라인 입력"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Content Area"
 msgstr "내용 부분"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your content"
 msgstr "내용을 입력하세요"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (URL)"
 msgstr "작전 개시 (URL)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action URL"
 msgstr "링크를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (Text)"
 msgstr "링크 텍스트 (Text)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action text"
 msgstr "텍스트를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Featured Content"
 msgstr "특색 기사"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "See Docs"
 msgstr "See Docs"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Paste your shortcode, video or image source"
 msgstr "코드, 비디오 혹은 사진 소스를 붙여넣으세요."
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Layouts"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Static Page Layout"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Single Blog Post Layout"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Blog Posts Index Layout"
 msgstr ""
 
-#: core/includes/theme-options.php
-msgid "Webmaster Tools"
-msgstr "웹 마스터 도구"
-
-#: core/includes/theme-options.php
-msgid "Google Site Verification"
-msgstr "Google Site Verification"
-
-#: core/includes/theme-options.php
-msgid "Enter your Google ID number only"
-msgstr "구글 ID 숫자만 입력하세요."
-
-#: core/includes/theme-options.php
-msgid "Bing Site Verification"
-msgstr "Bing Site Verification"
-
-#: core/includes/theme-options.php
-msgid "Enter your Bing ID number only"
-msgstr "Bing ID 숫자만 입력하세요."
-
-#: core/includes/theme-options.php
-msgid "Yahoo Site Verification"
-msgstr "Yahoo Site Verification"
-
-#: core/includes/theme-options.php
-msgid "Enter your Yahoo ID number only"
-msgstr "Yahoo ID 숫자만 입력하세요."
-
-#: core/includes/theme-options.php
-msgid "Site Statistics Tracker"
-msgstr "사이트 통계 추적(Tracker)"
-
-#: core/includes/theme-options.php
-msgid "Leave blank if plugin handles your webmaster tools"
-msgstr "플러그인이 웹 마스터 도구를 대신한다면 공백으로 놔두세요."
-
-#: core/includes/theme-options.php
-msgid "Google Analytics, StatCounter, any other or all of them."
-msgstr "Google Analytics, StatCounter, 그외 다른 사이트 통계 추적기"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Social Icons"
 msgstr "소셜 아이콘"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Twitter URL"
 msgstr "트위터 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Facebook URL"
 msgstr "페이스북 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your LinkedIn URL"
 msgstr "LinkedIn 주소를 입력하세요"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your YouTube URL"
 msgstr "유튜브 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your StumbleUpon URL"
 msgstr "StumbleUpon 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "RSS Feed"
 msgstr "RSS Feed"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your RSS Feed URL"
 msgstr "RSS Feed 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Google+"
 msgstr "Google +"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Google+ URL"
 msgstr "구글 플러스 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Instagram URL"
 msgstr "Instagram 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Pinterest URL"
 msgstr "Pinterest 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Yelp!"
 msgstr "Yelp!"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Yelp! URL"
 msgstr "Yelp! 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Vimeo URL"
 msgstr "Vimeo 주소를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "foursquare"
 msgstr "foursquare"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your foursquare URL"
 msgstr "foursquare 주소를 입력하세요."
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom CSS Styles"
 msgstr "맞춤 제작한 CSS 스타일"
 
-#: core/includes/theme-options.php
-msgid "https://developer.mozilla.org/en/CSS"
-msgstr "https://developer.mozilla.org/en/CSS"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "CSS Tutorial"
 msgstr "CSS 지도서"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom CSS styles."
 msgstr "맞춤 제작한 CSS 스타일을 입력하세요."
 
-#: core/includes/theme-options.php
-msgid "Custom Scripts"
-msgstr "맞춤형 웹 스크립트"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Scripts for Header and Footer"
 msgstr "헤더나 웹 페이지 푸터  맞춤형 웹 스크립트"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Quick Tutorial"
 msgstr "간단 설명서"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to header.php &darr;"
 msgstr "헤더 부분에 박아 넣기 &darr;"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom header script."
 msgstr "웹 페이지 헤더 부분을 위한 맞춤형 스크립트를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to footer.php &darr;"
 msgstr "웹 페이지 하단 부분에 박아 넣기 &darr;"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom footer script."
 msgstr "웹 페이지 하단 부분을 위한 맞춤형 스크립트를 입력하세요."
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+msgid "Activate Add Ons"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "All theme settings will be lost!"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog"
+msgstr ""
+
+#: core/includes/functions-update.php
+msgid "blog post"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog Title Toggle"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
+msgid "check to disable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "check to enable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Click here"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Click OK to Restore."
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "CSS Styles"
+msgstr ""
+
+#. Author of the plugin/theme
+# INSTRUCTION: Author of the plugin/theme
+msgid "CyberChimps.com"
+msgstr "CyberChimps.com"
+
+#: header.php
+msgid "&darr; Skip to Main Content"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Disable breadcrumb list?"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Do you want to restore?"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enable minified css?"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Footer Widget"
 msgstr ""
 
 #: core/includes/functions.php
@@ -850,13 +869,83 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+#. Author URI of the plugin/theme
+# INSTRUCTION: Author URI of the plugin/theme
+msgid "http://cyberchimps.com"
+msgstr "http://cyberchimps.com"
+
+#. Theme URI of the plugin/theme
+# INSTRUCTION: Theme URI of the plugin/theme
+msgid "http://cyberchimps.com/responsive-theme/"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Installing Plugin: %s"
+msgstr ""
+
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Instructions"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Plugin activated successfully."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+# INSTRUCTION: Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Responsive Add Features"
+msgstr ""
+
+#. Description of the plugin/theme
+# INSTRUCTION: Description of the plugin/theme
+msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Scripts"
+msgstr ""
+
+#: searchform.php
+msgid "Search for:"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: core/includes/functions-update.php
+#. Translators: This is a big update. Please read the blog post beforeupdating.
+# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
+msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/upsell/theme-upsell.php
+msgid "Themes You Can Trust"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Title Text"
 msgstr ""
 
 #: core/includes/functions.php
@@ -864,9 +953,11 @@ msgstr ""
 msgid "Translate"
 msgstr ""
 
+#: core/includes/classes/Responsive_Options.php
+msgid "Upgrade"
+msgstr ""
+
 #: core/includes/functions.php
-#. Welcome to Responsive! Upgrade to Responsive Pro today.
-# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
 

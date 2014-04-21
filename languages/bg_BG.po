@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2013-07-22 22:03:35 UTC\n"
+"PO-Revision-Date: 2014-04-21 08:47:10 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Bulgarian, Bulgaria\n"
 "MIME-Version: 1.0\n"
@@ -73,6 +73,7 @@ msgstr "‹ По-стари коментари"
 msgid "Newer comments &#8250;"
 msgstr "По-нови коментари ›"
 
+#: comments.php
 msgid "Pings&#47;Trackbacks"
 msgstr "Пингове / Проследяващи връзки"
 
@@ -84,6 +85,7 @@ msgstr "%1$d %2$s за \"%3$s\""
 msgid "Name"
 msgstr "Име"
 
+#: comments.php
 msgid "E-mail"
 msgstr "Имейл"
 
@@ -104,19 +106,12 @@ msgid "&uarr;"
 msgstr "↑"
 
 #: footer.php
-msgid "http://themeid.com/responsive-theme/"
-msgstr "http://themeid.com/responsive-theme/"
-
 msgid "Responsive Theme"
 msgstr "Responsive Theme"
 
 #: footer.php
 msgid "powered by"
 msgstr "задвижвана от"
-
-#: footer.php
-msgid "http://wordpress.org/"
-msgstr "http://bg.wordpress.org/"
 
 #: footer.php
 msgid "WordPress"
@@ -149,12 +144,6 @@ msgstr "1 коментар ↓"
 #: sidebar-content-page.php
 msgid "% Comments &darr;"
 msgstr "% коментара ↓"
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "Един коментар по “%2$s”"
-msgstr[1] "%1$s коментара по “%2$s”"
 
 #: image.php
 #: post-data.php
@@ -223,6 +212,8 @@ msgstr "Търсенето за %s не откри съвпадения"
 msgid "Permanent Link to %s"
 msgstr "Постоянна връзка към %s"
 
+#: core/includes/functions.php
+#: loop-header.php
 msgid "Search results for: %s"
 msgstr "Резултати от търсенето за: %s"
 
@@ -234,9 +225,11 @@ msgstr "търсене..."
 msgid "Go"
 msgstr "ОК"
 
+#: sidebar-gallery.php
 msgid "Image Information"
 msgstr "Информация за  изображението"
 
+#: sidebar-gallery.php
 msgid "Full Size:"
 msgstr "Пълен размер:"
 
@@ -273,27 +266,30 @@ msgstr "Модел на фотоапарата:"
 msgid "In Archive"
 msgstr "В архив"
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 1"
 msgstr "Начална джаджа 1"
 
+#: sidebar-home.php
 msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
 msgstr "Това е вашата първа начална джаджа. За да редактирате моля отидете на Външен вид > Джаджи и изберете джаджа наречена \"Начална джаджа 1\". Заглавието също може да се редактира."
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 2"
 msgstr "Начална джаджа 2"
 
+#: sidebar-home.php
 msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
 msgstr "Това е вашата втора начална джаджа. За да редактирате моля отидете на Външен вид > Джаджи и изберете джаджа наречена \"Начална джаджа 2\". Заглавието също може да се редактира."
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 3"
 msgstr "Начална джаджа 3"
 
+#: sidebar-home.php
 msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
 msgstr "Това е вашата трета начална джаджа. За да редактирате моля отидете на Външен вид > Джаджи и изберете джаджа наречена \"Начална джаджа 3\". Заглавието също може да се редактира."
 
@@ -329,6 +325,8 @@ msgstr "Подзаглавно меню"
 msgid "Footer Menu"
 msgstr "Меню във фуутъра"
 
+#: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Page %s"
 msgstr "Страница %s"
 
@@ -363,412 +361,603 @@ msgstr "Още теми"
 msgid "Showcase"
 msgstr "Демонстрация"
 
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Main Sidebar"
 msgstr "Главна странична лента"
 
-msgid "Area 1 - sidebar.php"
-msgstr "Зона 1 - sidebar.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar"
 msgstr "Дясна странична лента"
 
-msgid "Area 2 - sidebar-right.php"
-msgstr "Зона 2 - sidebar-right.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar"
 msgstr "Лява странична лента"
 
-msgid "Area 3 - sidebar-left.php"
-msgstr "Зона 3 - sidebar-left.php"
-
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar Half Page"
 msgstr "Лява странична лента на половин страница"
 
-msgid "Area 4 - sidebar-left-half.php"
-msgstr "Зона 4 - sidebar-left-half.php"
-
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar Half Page"
 msgstr "Дясна странична лента на половин страница"
 
-msgid "Area 5 - sidebar-right-half.php"
-msgstr "Зона 5 - sidebar-right-half.php"
-
-msgid "Area 6 - sidebar-home.php"
-msgstr "Зона 6 - sidebar-home.php"
-
-msgid "Area 7 - sidebar-home.php"
-msgstr "Зона 7 - sidebar-home.php"
-
-msgid "Area 8 - sidebar-home.php"
-msgstr "Зона 8 - sidebar-home.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Gallery Sidebar"
 msgstr "Странична лента \"Галерия\""
 
-msgid "Area 9 - sidebar-gallery.php"
-msgstr "Зона 9 - sidebar-gallery.php"
-
+#: core/includes/functions-sidebar.php
 msgid "Colophon Widget"
 msgstr "Colophon джаджа"
 
-msgid "Area 10 - sidebar-colophon.php"
-msgstr "Зона 10 - sidebar-colophon.php"
-
+#: core/includes/functions-sidebar.php
 msgid "Top Widget"
 msgstr "Горна джаджа"
 
-msgid "Area 11 - sidebar-top.php"
-msgstr "Зона11 - sidebar-top.php"
-
+#: blog.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog (full posts)"
 msgstr "Блог (пълни публикации)"
 
+#: blog-excerpt.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog Excerpt (summary)"
 msgstr "Блог Откъс (обобщение)"
 
+#: content-sidebar-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar"
 msgstr "Съдържание/Странична лента"
 
+#: sidebar-content-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content"
 msgstr "Странична лента/Съдържание"
 
+#: content-sidebar-half-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar Half Page"
 msgstr "Съдържание/Странична лента половин страница"
 
+#: sidebar-content-half-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content Half Page"
 msgstr "Странична лента/Съдържание половин страница"
 
+#: full-width-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
 msgstr "Страница на пълна ширина (без странична лента)"
 
+#: landing-page.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Landing Page (no menu)"
 msgstr "Целева страница (без меню)"
 
+#: sitemap.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sitemap"
 msgstr "Карта на сайта"
 
+#: core/includes/post-custom-meta.php
 msgid "Layout"
 msgstr "Изглед"
 
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/post-custom-meta.php
 msgid "Default"
 msgstr "По подразбиране"
 
+#: core/includes/theme-options/theme-options.php
+#: front-page.php
 msgid "Hello, World!"
 msgstr "Здравей свят!"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your H2 subheadline here"
 msgstr "Н2 подзаглавие"
 
+#: core/includes/theme-options/theme-options.php
+#: front-page.php
 msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
 msgstr "Заглавието, подзаглавието и това съдържание могат да се редактират от настройките на темата. Също както и бутонът Действие и връзката към него. Изображението отдясно може да бъде снимка или дори видео от YouTube ако искате."
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Call to Action"
 msgstr "Действие"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Options"
 msgstr "Настройки на темата"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Options Saved"
 msgstr "Настройките са запазени"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Elements"
 msgstr "Елементи на темата"
 
-#: core/includes/theme-options.php
-msgid "Disable Breadcrumb Lists?"
-msgstr "Изключване на Breadcrumb навигацията?"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-msgid "Check to disable"
-msgstr "Отбележете, за да изключите"
-
+#: core/includes/theme-options/theme-options.php
 msgid "Disable Call to Action Button?"
 msgstr "Изключване на бутона Действие?"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Save Options"
 msgstr "Запазване на настройките"
 
+#: core/includes/classes/Responsive_Options.php
 msgid "Restore Defaults"
 msgstr "По подразбиране"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Logo Upload"
 msgstr "Качване на лого"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Header"
 msgstr "Потребителски  хедър"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Need to replace or remove default logo?"
 msgstr "Искате ли да смените или премахнете станартното лого?"
 
-#: core/includes/theme-options.php
-msgid "<a href=\"%s\">Click here</a>."
-msgstr "<a href=\"%s\">натиснете тук</a>."
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Home Page"
 msgstr "Начална страница"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Headline"
 msgstr "Заглавие"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your headline"
 msgstr "Въведете заглавие"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Subheadline"
 msgstr "Подзаглавие"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your subheadline"
 msgstr "Въведете подзаглавие"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Content Area"
 msgstr "Област за съдържание"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your content"
 msgstr "Въведете съдържание"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (URL)"
 msgstr "Действие (уеб адрес)"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action URL"
 msgstr "Уеб адрес за бутона Действие"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (Text)"
 msgstr "Текст за бутона Действие"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action text"
 msgstr "Въведете текст за бутона Действие"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Featured Content"
 msgstr "Избрано съдържание"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "See Docs"
 msgstr "Вижте документацията"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Paste your shortcode, video or image source"
 msgstr "поставете кратък код, видео или изображение"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Default Layouts"
 msgstr "Изглед по подразбиране"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Default Static Page Layout"
 msgstr "Изглед по подразбиране за статична страница"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Default Single Blog Post Layout"
 msgstr "Изглед по подразбиране единична публикация в блога"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Default Blog Posts Index Layout"
 msgstr "Изглед по подразбиране за публикации в блога"
 
-msgid "Webmaster Tools"
-msgstr "Инструменти за уеб администратори 	"
-
-msgid "Google Site Verification"
-msgstr "Google сайт проверка"
-
-msgid "Enter your Google ID number only"
-msgstr "Въведете Goole ID (само номера)"
-
-msgid "Bing Site Verification"
-msgstr "Bing сайт проверка"
-
-msgid "Enter your Bing ID number only"
-msgstr "Въведете Bing ID (само номера)"
-
-msgid "Yahoo Site Verification"
-msgstr "Yahoo сайт проверка"
-
-msgid "Enter your Yahoo ID number only"
-msgstr "Въведете Yahoo ID(само номера)"
-
-msgid "Site Statistics Tracker"
-msgstr "Сайт за проследяване на статистиката"
-
-msgid "Leave blank if plugin handles your webmaster tools"
-msgstr "Оставете полето празно ако използвате плъгин за вашите инструменти за уеб администратори"
-
-msgid "Google Analytics, StatCounter, any other or all of them."
-msgstr "Google Анализ , StatCounter или всеки друг подобен."
-
+#: core/includes/theme-options/theme-options.php
 msgid "Social Icons"
 msgstr "Социални икони"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Twitter URL"
 msgstr "Адрес на профила Ви в Twitter"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Facebook URL"
 msgstr "Адрес на профила Ви във Facebook"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your LinkedIn URL"
 msgstr "Адрес на профила Ви в LinkedIn"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your YouTube URL"
 msgstr "Адрес на профила Ви в YouTube"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your StumbleUpon URL"
 msgstr "Адрес на профила Ви в StumbleUpon"
 
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "RSS Feed"
 msgstr "RSS емисия"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your RSS Feed URL"
 msgstr "Адрес на RSS емисията"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Google+"
 msgstr "Google+"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Google+ URL"
 msgstr "Адрес на Google+ профила Ви"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Instagram URL"
 msgstr "Адрес на Instagram профила Ви"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Pinterest URL"
 msgstr "Адрес на Pinterest профила Ви"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Yelp!"
 msgstr "Yelp!"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Yelp! URL"
 msgstr "Адрес на профила Ви в Yelp!"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Vimeo URL"
 msgstr "Адрес на профила Ви във Vimeo"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "foursquare"
 msgstr "foursquare"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your foursquare URL"
 msgstr "Адрес на профила Ви във foursquare"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Custom CSS Styles"
 msgstr "Потребителски CSS стилове"
 
-#: core/includes/theme-options.php
-msgid "https://developer.mozilla.org/en/CSS"
-msgstr "https://developer.mozilla.org/en/CSS"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "CSS Tutorial"
 msgstr "Обяснение на CSS (на английски)"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom CSS styles."
 msgstr "Въведете вашите персонализирани CSS стилове"
 
-msgid "Custom Scripts"
-msgstr "Потребителски скриптове"
-
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Scripts for Header and Footer"
 msgstr "Потребителски скриптове за хедър и футър"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Quick Tutorial"
 msgstr "Кратка инструкция"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to header.php &darr;"
 msgstr "Вграждане в header.php →"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom header script."
 msgstr "Въведете вашия персонализиран хедър скрипт."
 
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to footer.php &darr;"
 msgstr "Вграждане в footer.php →"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom footer script."
 msgstr "Въведете вашия персонализиран скрипт за футъра."
 
+#: core/includes/functions.php
+msgid "Activate Add Ons"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "All theme settings will be lost!"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog"
+msgstr ""
+
+#: core/includes/functions-update.php
+msgid "blog post"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog Title Toggle"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
+msgid "check to disable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "check to enable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Click here"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Click OK to Restore."
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "CSS Styles"
+msgstr ""
+
+#. Author of the plugin/theme
+# INSTRUCTION: Author of the plugin/theme
+msgid "CyberChimps.com"
+msgstr "CyberChimps.com"
+
+#: header.php
+msgid "&darr; Skip to Main Content"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Disable breadcrumb list?"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Do you want to restore?"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
 msgstr "Разреши персонализирана заглавна страница"
 
+#: core/includes/theme-options/theme-options.php
+msgid "Enable minified css?"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Footer Widget"
+msgstr ""
+
+#: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Help"
 msgstr "Помощ"
 
+#. Author URI of the plugin/theme
+# INSTRUCTION: Author URI of the plugin/theme
+msgid "http://cyberchimps.com"
+msgstr "http://cyberchimps.com"
+
+#. Theme URI of the plugin/theme
+# INSTRUCTION: Theme URI of the plugin/theme
+msgid "http://cyberchimps.com/responsive-theme/"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Instructions"
 msgstr "Инструкции"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
 msgstr "Презапиши WordPress %1sначална страница опция%2s"
 
+#: core/includes/functions.php
+msgid "Plugin activated successfully."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+# INSTRUCTION: Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Responsive Add Features"
+msgstr ""
+
+#. Description of the plugin/theme
+# INSTRUCTION: Description of the plugin/theme
+msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Scripts"
+msgstr ""
+
+#: searchform.php
+msgid "Search for:"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: core/includes/functions-update.php
+#. Translators: This is a big update. Please read the blog post beforeupdating.
+# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
+msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/upsell/theme-upsell.php
+msgid "Themes You Can Trust"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Title Text"
+msgstr ""
+
+#: core/includes/functions.php
+#: core/includes/functions.php
 msgid "Translate"
 msgstr "Преведи"
 
-#. Welcome to Responsive! Upgrade to Responsive Pro today.
-# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
+#: core/includes/classes/Responsive_Options.php
+msgid "Upgrade"
+msgstr ""
+
+#: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr "Добре дошли в %1$s! Надстройте до %2$s днес."
+

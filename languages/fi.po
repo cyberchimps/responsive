@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2013-07-22 22:03:32 UTC\n"
+"PO-Revision-Date: 2014-04-21 08:47:14 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -106,19 +106,12 @@ msgid "&uarr;"
 msgstr "↑"
 
 #: footer.php
-msgid "http://themeid.com/responsive-theme/"
-msgstr "http://themeid.com/responsive-theme/"
-
-#: footer.php
 msgid "Responsive Theme"
 msgstr "Responsive Theme"
 
 #: footer.php
 msgid "powered by"
 msgstr "mukana"
-
-msgid "http://wordpress.org/"
-msgstr "http://fi.wordpress.org/"
 
 #: footer.php
 msgid "WordPress"
@@ -152,12 +145,6 @@ msgstr "1 kommentti ↓"
 msgid "% Comments &darr;"
 msgstr "% kommenttia ↓"
 
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "Yksi kommentti kohteessa “%2$s”"
-msgstr[1] "%1$s kommenttia kohteessa “%2$s”"
-
 #: image.php
 #: post-data.php
 #: sidebar-content-half-page.php
@@ -180,6 +167,7 @@ msgstr "Julkaistu kohteessa %s"
 msgid "Edit"
 msgstr "Muokkaa"
 
+#: loop-no-posts.php
 msgid "404 &#8212; Fancy meeting you here!"
 msgstr "404 — Hienoa tavata sinut täällä!"
 
@@ -187,9 +175,12 @@ msgstr "404 — Hienoa tavata sinut täällä!"
 msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
 msgstr "Ei hätää, selviämme tästä yhdessä. Tutkikaamme vaihtoehtoja."
 
+#: loop-no-posts.php
 msgid "You can return %s or search for the page you were looking for."
 msgstr "Voit palata %s tai etsiä hakemaasi sivua"
 
+#: loop-no-posts.php
+#: core/includes/functions.php
 msgid "Home"
 msgstr "Koti"
 
@@ -213,6 +204,7 @@ msgstr "Arkistot vuosittain: %s"
 msgid "Blog Archives"
 msgstr "Blogiarkistot"
 
+#: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
 msgstr "Ei hakuasi %s vastaavia hakutuloksia"
 
@@ -220,8 +212,8 @@ msgstr "Ei hakuasi %s vastaavia hakutuloksia"
 msgid "Permanent Link to %s"
 msgstr "Pysyvä linkki sivulle %s"
 
-#: search.php
 #: core/includes/functions.php
+#: loop-header.php
 msgid "Search results for: %s"
 msgstr "Etsi tuloksia haulle: %s"
 
@@ -274,21 +266,30 @@ msgstr "Kamera:"
 msgid "In Archive"
 msgstr "Arkistossa"
 
+#: core/includes/functions-sidebar.php
+#: sidebar-home.php
 msgid "Home Widget 1"
 msgstr "Koti-Vempain 1"
 
+#: sidebar-home.php
 msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
 msgstr "Tämä on ensimmäinen kotivempain-laatikkosi. Muokataksesi mene Ulkoasu > Widgetit ja valitse kuudes widgetti ylhäältä alueella kuusi nimeltään Koti Widgetti 1. Otsikko on myös muokattavissa kohdasta Widgetit."
 
+#: core/includes/functions-sidebar.php
+#: sidebar-home.php
 msgid "Home Widget 2"
 msgstr "Koti-Vempain 2"
 
+#: sidebar-home.php
 msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
 msgstr "Tämä on toinen kotivempain-laatikkosi. Muokataksesi mene Ulkoasu > Widgetit ja valitse seitsemäs widgetti ylhäältä alueella seitsemän nimeltään Koti Widgetti 2. Otsikko on myös muokattavissa kohdasta Widgetit."
 
+#: core/includes/functions-sidebar.php
+#: sidebar-home.php
 msgid "Home Widget 3"
 msgstr "Koti-Vempain 3"
 
+#: sidebar-home.php
 msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
 msgstr "Tämä on kolmas kotivempain-laatikkosi. Muokataksesi mene Ulkoasu > Widgetit ja valitse kahdeksas widgetti ylhäältä alueella kahdeksan nimeltään Koti Widgetti 3. Otsikko on myös muokattavissa kohdasta Widgetit."
 
@@ -296,6 +297,7 @@ msgstr "Tämä on kolmas kotivempain-laatikkosi. Muokataksesi mene Ulkoasu > Wid
 msgid "About"
 msgstr "Tietoa"
 
+#: sitemap.php
 msgid "Categories"
 msgstr "Luokat"
 
@@ -359,109 +361,94 @@ msgstr "Lisää teemoja"
 msgid "Showcase"
 msgstr "Portfolio"
 
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Main Sidebar"
 msgstr "Pää-sivupalkki"
 
-msgid "Area 1 - sidebar.php"
-msgstr "Alue yksi - sivupalkki.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar"
 msgstr "Oikea sivupalkki"
 
-msgid "Area 2 - sidebar-right.php"
-msgstr "Alue kaksi - oikeanpuoleinen sivupalkki.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar"
 msgstr "Vasen sivupalkki"
 
-msgid "Area 3 - sidebar-left.php"
-msgstr "Alue kolme - vasemmanpuoleinen sivupalkki.php"
-
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar Half Page"
 msgstr "Vasen sivupalkki puolessavälissä sivua"
 
-msgid "Area 4 - sidebar-left-half.php"
-msgstr "Alue neljä - sivupalkki vasen puoli.php"
-
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar Half Page"
 msgstr "Oikea sivupalkki puolessavälissä sivua"
 
-msgid "Area 5 - sidebar-right-half.php"
-msgstr "Alue viisi - sivupalkki oikea puoli.php"
-
-msgid "Area 6 - sidebar-home.php"
-msgstr "Alue kuusi - sivupalkki-koti.php"
-
-msgid "Area 7 - sidebar-home.php"
-msgstr "Alue seitsemän - sivupalkki-koti.php"
-
-msgid "Area 8 - sidebar-home.php"
-msgstr "Alue kahdeksan - sivupalkki-koti.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Gallery Sidebar"
 msgstr "Gallerian sivupalkki"
 
-msgid "Area 9 - sidebar-gallery.php"
-msgstr "Alue yhdeksän - sivupalkki-galleria.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Colophon Widget"
 msgstr ""
 
-#: core/includes/functions.php
-msgid "Area 10 - sidebar-colophon.php"
-msgstr ""
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Top Widget"
 msgstr ""
 
-#: core/includes/functions.php
-msgid "Area 11 - sidebar-top.php"
-msgstr ""
-
 #: blog.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog (full posts)"
 msgstr ""
 
 #: blog-excerpt.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog Excerpt (summary)"
 msgstr ""
 
 #: content-sidebar-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar"
 msgstr ""
 
 #: sidebar-content-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content"
 msgstr ""
 
 #: content-sidebar-half-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar Half Page"
 msgstr ""
 
 #: sidebar-content-half-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content Half Page"
 msgstr ""
 
 #: full-width-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
 msgstr ""
 
 #: landing-page.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Landing Page (no menu)"
 msgstr ""
 
 #: sitemap.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sitemap"
 msgstr ""
 
@@ -469,338 +456,412 @@ msgstr ""
 msgid "Layout"
 msgstr ""
 
+#: core/includes/classes/Responsive_Options.php
 #: core/includes/post-custom-meta.php
 msgid "Default"
 msgstr ""
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Hello, World!"
 msgstr "Terve, maailma!"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your H2 subheadline here"
 msgstr "H2-alaotsikkosi tähän"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
 msgstr "Otsikkosi, alaotsikkosi ja sisältösi ovat muokattavissa Teeman asetuksissa, kuin myös Call to Action -nappi ja sen osoite. Kuvasi oikealla voi olla valokuva tai jopa YouTube-video jos niin tahdot."
 
+#: core/includes/theme-options/theme-options.php
+#: front-page.php
 msgid "Call to Action"
 msgstr "Kutsu Toimintaan"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Options"
 msgstr "Teeman asetukset"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Options Saved"
 msgstr "Asetukset tallennettu"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Elements"
 msgstr "Teeman osat"
 
-msgid "Disable Breadcrumb Lists?"
-msgstr "Piilota opastelistat?"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-msgid "Check to disable"
-msgstr "Valitse estääksesi"
-
+#: core/includes/theme-options/theme-options.php
 msgid "Disable Call to Action Button?"
 msgstr "Estetäänkö toimintaankutsu-nappi?"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Save Options"
 msgstr "Tallenna asetukset"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Restore Defaults"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Logo Upload"
 msgstr "Lataa logo"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Header"
 msgstr "Mukautettu otsikko"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Need to replace or remove default logo?"
 msgstr "Haluatko korvata tai poistaa oletuslogon?"
 
-#: core/includes/theme-options.php
-msgid "<a href=\"%s\">Click here</a>."
-msgstr "<a href=\"%s\">Klikkaa tästä</a>."
-
+#: core/includes/theme-options/theme-options.php
 msgid "Home Page"
 msgstr "Kotisivu"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Headline"
 msgstr "Otsikko"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your headline"
 msgstr "Syötä otsikko"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Subheadline"
 msgstr "Alaotsikko"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your subheadline"
 msgstr "Syötä alaotsikko"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Content Area"
 msgstr "Sisältö-alue"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your content"
 msgstr "Syötä sisältö"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (URL)"
 msgstr "Toimintaan-kutsu (URL)"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action URL"
 msgstr "Täytä toimintaan-kutsu URL-linkki"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (Text)"
 msgstr "Toimintaan-kutsu (Teksti)"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action text"
 msgstr "Syötä Toimintaan-kutsu tekstisi"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Featured Content"
 msgstr "Suositeltua sisältöä"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "See Docs"
 msgstr "Katso dokumenteista"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Paste your shortcode, video or image source"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Layouts"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Static Page Layout"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Single Blog Post Layout"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Blog Posts Index Layout"
 msgstr ""
 
-#: core/includes/theme-options.php
-msgid "Webmaster Tools"
-msgstr "Ylläpitäjän työkalut"
-
-msgid "Google Site Verification"
-msgstr "Google-sivuston varmennus"
-
-#: core/includes/theme-options.php
-msgid "Enter your Google ID number only"
-msgstr "Syötä ainoastaan Google ID -numerosi"
-
-msgid "Bing Site Verification"
-msgstr "Bing-sivuston varmennus"
-
-#: core/includes/theme-options.php
-msgid "Enter your Bing ID number only"
-msgstr "Syötä ainoastaan Bing ID -numerosi"
-
-msgid "Yahoo Site Verification"
-msgstr "Yahoo-sivuston varmennus"
-
-#: core/includes/theme-options.php
-msgid "Enter your Yahoo ID number only"
-msgstr "Syötä ainoastaan Yahoo ID -numerosi"
-
-#: core/includes/theme-options.php
-msgid "Site Statistics Tracker"
-msgstr "Sivuston tilastojen seuranta"
-
-#: core/includes/theme-options.php
-msgid "Leave blank if plugin handles your webmaster tools"
-msgstr "Jätä tyhjäksi jos liitännäinen käsittelee ylläpitäjän työkalujasi"
-
-msgid "Google Analytics, StatCounter, any other or all of them."
-msgstr "Google Analytics, StatCounter, joku muu tai kaikki edelllämainitut."
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Social Icons"
 msgstr "Sosiaaliset kuvakkeet"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Twitter URL"
 msgstr "Syötä Twitter-sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Facebook URL"
 msgstr "Syötä Facebook-sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your LinkedIn URL"
 msgstr "Syötä LinkedIn-sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your YouTube URL"
 msgstr "Syötä YouTube-sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your StumbleUpon URL"
 msgstr "Syötä StumbleUpon-sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "RSS Feed"
 msgstr "RSS-syöte"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your RSS Feed URL"
 msgstr "Syötä RSS-syötteesi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Google+"
 msgstr "Google+"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Google+ URL"
 msgstr "Syötä Google+ -sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Instagram URL"
 msgstr "Syötä instagram-sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Pinterest URL"
 msgstr "Syötä Pinterest-sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Yelp!"
 msgstr "Yelp!"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Yelp! URL"
 msgstr "Syötä Yelp! -sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Vimeo URL"
 msgstr "Syötä Vimeo-sivusi URL"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "foursquare"
 msgstr "foursquare"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your foursquare URL"
 msgstr "Syötä forsquare-sivusi URL"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom CSS Styles"
 msgstr "Mukautetut CSS-tyylit"
 
-#: core/includes/theme-options.php
-msgid "https://developer.mozilla.org/en/CSS"
-msgstr "http://www.puolustusvoimat.fi"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "CSS Tutorial"
 msgstr "CSS-opastus"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom CSS styles."
 msgstr "Syötä mukautetut CSS-tyylit."
 
-#: core/includes/theme-options.php
-msgid "Custom Scripts"
-msgstr ""
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Scripts for Header and Footer"
 msgstr ""
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Quick Tutorial"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to header.php &darr;"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom header script."
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to footer.php &darr;"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom footer script."
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+msgid "Activate Add Ons"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "All theme settings will be lost!"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog"
+msgstr ""
+
+#: core/includes/functions-update.php
+msgid "blog post"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog Title Toggle"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
+msgid "check to disable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "check to enable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Click here"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Click OK to Restore."
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "CSS Styles"
+msgstr ""
+
+#. Author of the plugin/theme
+# INSTRUCTION: Author of the plugin/theme
+msgid "CyberChimps.com"
+msgstr "CyberChimps.com"
+
+#: header.php
+msgid "&darr; Skip to Main Content"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Disable breadcrumb list?"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Do you want to restore?"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enable minified css?"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Footer Widget"
 msgstr ""
 
 #: core/includes/functions.php
@@ -808,13 +869,83 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+#. Author URI of the plugin/theme
+# INSTRUCTION: Author URI of the plugin/theme
+msgid "http://cyberchimps.com"
+msgstr "http://cyberchimps.com"
+
+#. Theme URI of the plugin/theme
+# INSTRUCTION: Theme URI of the plugin/theme
+msgid "http://cyberchimps.com/responsive-theme/"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Installing Plugin: %s"
+msgstr ""
+
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Instructions"
 msgstr ""
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Plugin activated successfully."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+# INSTRUCTION: Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Responsive Add Features"
+msgstr ""
+
+#. Description of the plugin/theme
+# INSTRUCTION: Description of the plugin/theme
+msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Scripts"
+msgstr ""
+
+#: searchform.php
+msgid "Search for:"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: core/includes/functions-update.php
+#. Translators: This is a big update. Please read the blog post beforeupdating.
+# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
+msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/upsell/theme-upsell.php
+msgid "Themes You Can Trust"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Title Text"
 msgstr ""
 
 #: core/includes/functions.php
@@ -822,8 +953,11 @@ msgstr ""
 msgid "Translate"
 msgstr ""
 
+#: core/includes/classes/Responsive_Options.php
+msgid "Upgrade"
+msgstr ""
+
 #: core/includes/functions.php
-#. Welcome to Responsive! Upgrade to Responsive Pro today.
-# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
+

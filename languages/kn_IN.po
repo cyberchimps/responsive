@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2013-09-24 20:18:40 UTC\n"
+"PO-Revision-Date: 2014-04-21 08:47:18 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Kannada, India\n"
 "MIME-Version: 1.0\n"
@@ -106,20 +106,12 @@ msgid "&uarr;"
 msgstr "&uarr;"
 
 #: footer.php
-msgid "http://themeid.com/responsive-theme/"
-msgstr "http://themeid.com/responsive-theme/"
-
-#: footer.php
 msgid "Responsive Theme"
 msgstr "Responsive Theme"
 
 #: footer.php
 msgid "powered by"
 msgstr "ಇವರಿಂದ ನಡೆಸಲ್ಪಡುತ್ತಿದೆ"
-
-#: footer.php
-msgid "http://wordpress.org/"
-msgstr "http://wordpress.org/"
 
 #: footer.php
 msgid "WordPress"
@@ -152,11 +144,6 @@ msgstr "1 ಪ್ರತಿಕ್ರಿಯೆ &darr;"
 #: sidebar-content-page.php
 msgid "% Comments &darr;"
 msgstr "% ಪ್ರತಿಕ್ರಿಯೆಗಳು &darr;"
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "&ldquo; ಮೇಲೆ %1$s ಪ್ರತಿಕ್ರಿಯೆಗಳು; %2$s &rdquo;"
 
 #: image.php
 #: post-data.php
@@ -225,8 +212,8 @@ msgstr "ನೀವು ಹುಡುಕಲ್ಪಟ್ಟ %s ಯಾವುದೆ�
 msgid "Permanent Link to %s"
 msgstr "ಶಾಶ್ವತ ಕೊಂಡಿ (ಲಿಂಕ್): %s"
 
-#: search.php
 #: core/includes/functions.php
+#: loop-header.php
 msgid "Search results for: %s"
 msgstr "%s : ನ ಹುಡುಕಲಾದ ಫಲಿತಾಂಶ"
 
@@ -279,8 +266,8 @@ msgstr "ಕ್ಯಾಮೆರಾ:"
 msgid "In Archive"
 msgstr "ಹಿಂದಿನ ದಾಖಲೆಗಳು"
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 1"
 msgstr "ಮುಖಪುಟ ವಿಡ್ಜೆಟ್ 1"
 
@@ -288,8 +275,8 @@ msgstr "ಮುಖಪುಟ ವಿಡ್ಜೆಟ್ 1"
 msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
 msgstr "ಇದು ನಿಮ್ಮ ಮೊದಲ ಮುಖಪುಟ ವಿಜೆಟ್ ಪೆಟ್ಟಿಗೆ. ಇದನ್ನು ಪರಿಷ್ಕರಿಸಲು Appearance > Widgets ಗೆ ಹೋಗಿ Home ವಿಜೆಟ್ 1 ಎಂಬ ಪ್ರದೇಶ-6ರ ಮೇಲಿನಿಂದ 6ನೆ ವಿಜೆಟ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಶೀರ್ಷಿಕೆಯನ್ನು ಕೂಡ Widgets ನಲ್ಲಿಯೆ ನಿರ್ವಹಣೆ ಮಾಡಬಹುದು."
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 2"
 msgstr "ಮುಖಪುಟ ವಿಡ್ಜೆಟ್ 2"
 
@@ -297,8 +284,8 @@ msgstr "ಮುಖಪುಟ ವಿಡ್ಜೆಟ್ 2"
 msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
 msgstr "ಇದು ನಿಮ್ಮ ಎರಡನೆಯ ಮುಖಪುಟ ವಿಜೆಟ್ ಪೆಟ್ಟಿಗೆ. ಇದನ್ನು ಪರಿಷ್ಕರಿಸಲು Appearance > Widgets ಗೆ ಹೋಗಿ Home ವಿಜೆಟ್ 2 ಎಂಬ ಪ್ರದೇಶ-7ರ ಮೇಲಿನಿಂದ 7ನೆ ವಿಜೆಟ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಶೀರ್ಷಿಕೆಯನ್ನು ಕೂಡ Widgets ನಲ್ಲಿಯೆ ನಿರ್ವಹಣೆ ಮಾಡಬಹುದು."
 
+#: core/includes/functions-sidebar.php
 #: sidebar-home.php
-#: core/includes/functions.php
 msgid "Home Widget 3"
 msgstr "ಮುಖಪುಟ ವಿಡ್ಜೆಟ್ 3"
 
@@ -374,120 +361,94 @@ msgstr "ಇನ್ನಷ್ಟು ಥೀಮ್ ಗಳು"
 msgid "Showcase"
 msgstr "ಪ್ರದರ್ಶಿಸಲು"
 
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Main Sidebar"
 msgstr "ಮುಖ್ಯ ಪಾರ್ಶ್ವಪಟ್ಟಿ(ಸೈಡ್ಬಾರ್)"
 
-#: core/includes/functions.php
-msgid "Area 1 - sidebar.php"
-msgstr "ಪ್ರದೇಶ 1 - sidebar.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar"
 msgstr "ಬಲ ಪಾರ್ಶ್ವಪಟ್ಟಿ"
 
-#: core/includes/functions.php
-msgid "Area 2 - sidebar-right.php"
-msgstr "ಪ್ರದೇಶ 2 - sidebar-right.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar"
 msgstr "ಎಡ ಪಾರ್ಶ್ವಪಟ್ಟಿ"
 
-#: core/includes/functions.php
-msgid "Area 3 - sidebar-left.php"
-msgstr "ಪ್ರದೇಶ 3 - sidebar-left.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Left Sidebar Half Page"
 msgstr "ಎಡ ಪಾರ್ಶ್ವಪಟ್ಟಿ ಅರ್ಧ ಪುಟ"
 
-#: core/includes/functions.php
-msgid "Area 4 - sidebar-left-half.php"
-msgstr "ಪ್ರದೇಶ 4 - sidebar-left-half.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Right Sidebar Half Page"
 msgstr "ಬಲ ಪಾರ್ಶ್ವಪಟ್ಟಿ ಅರ್ಧ ಪುಟ"
 
-#: core/includes/functions.php
-msgid "Area 5 - sidebar-right-half.php"
-msgstr "ಪ್ರದೇಶ 5 - sidebar-right-half.php"
-
-#: core/includes/functions.php
-msgid "Area 6 - sidebar-home.php"
-msgstr "ಪ್ರದೇಶ 6 - sidebar-home.php"
-
-#: core/includes/functions.php
-msgid "Area 7 - sidebar-home.php"
-msgstr "ಪ್ರದೇಶ 7 - sidebar-home.php"
-
-#: core/includes/functions.php
-msgid "Area 8 - sidebar-home.php"
-msgstr "ಪ್ರದೇಶ 8 - sidebar-home.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Gallery Sidebar"
 msgstr "ಚಿತ್ರ ಗ್ಯಾಲರಿ ಪಾರ್ಶ್ವಪಟ್ಟಿ"
 
-#: core/includes/functions.php
-msgid "Area 9 - sidebar-gallery.php"
-msgstr "ಪ್ರದೇಶ 9 - sidebar-gallery.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Colophon Widget"
 msgstr "Colophon ವಿಜೆಟ್"
 
-#: core/includes/functions.php
-msgid "Area 10 - sidebar-colophon.php"
-msgstr "ಪ್ರದೇಶ 10 - sidebar-colophon.php"
-
-#: core/includes/functions.php
+#: core/includes/functions-sidebar.php
 msgid "Top Widget"
 msgstr "ಮೇಲಿನ ವಿಜೆಟ್"
 
-#: core/includes/functions.php
-msgid "Area 11 - sidebar-top.php"
-msgstr "ಪ್ರದೇಶ 10 - sidebar-top.php"
-
 #: blog.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog (full posts)"
 msgstr "ಬ್ಲಾಗ್(ಪೂರ್ತಿ ಲೇಖನ)"
 
 #: blog-excerpt.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog Excerpt (summary)"
 msgstr "ಬ್ಲಾಗ್ ನ ಆಯ್ದ ಭಾಗ(ಸಾರಾಂಶ)"
 
 #: content-sidebar-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar"
 msgstr "ವಿಷಯ/ಪಾರ್ಶ್ವಪಟ್ಟಿ"
 
 #: sidebar-content-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content"
 msgstr "ಪಾರ್ಶ್ವಪಟ್ಟಿ/ವಿಷಯ"
 
 #: content-sidebar-half-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar Half Page"
 msgstr "ವಿಷಯ/ಪಾರ್ಶ್ವಪಟ್ಟಿ ಅರ್ಧ ಪುಟ"
 
 #: sidebar-content-half-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content Half Page"
 msgstr "ಪಾರ್ಶ್ವಪಟ್ಟಿ/ವಿಷಯ ಅರ್ಧ ಪುಟ"
 
 #: full-width-page.php
 #: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
 msgstr "ಪೂರ್ಣ ಅಗಲದ ಲೇಖನ"
 
 #: landing-page.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Landing Page (no menu)"
 msgstr "ಇಳಿದಾಣ (ಸಲಹಾಕಾರವಿಲ್ಲ)"
 
 #: sitemap.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
 msgid "Sitemap"
 msgstr "ಜಾಲತಾಣ ನಕ್ಷೆ"
 
@@ -495,378 +456,508 @@ msgstr "ಜಾಲತಾಣ ನಕ್ಷೆ"
 msgid "Layout"
 msgstr "ವಿನ್ಯಾಸ"
 
+#: core/includes/classes/Responsive_Options.php
 #: core/includes/post-custom-meta.php
 msgid "Default"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Hello, World!"
 msgstr "ಹೆಲ್ಲೊ, ಗೆಳಯರೆ!"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your H2 subheadline here"
 msgstr "ನಿಮ್ಮ H2 ಉಪ ಶೀರ್ಷಿಕೆ ಇಲ್ಲಿ"
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
 msgstr "ನಿಮ್ಮ ಶೀರ್ಷಿಕೆ, ಉಪಶೀರ್ಷಿಕೆಯನ್ನು ಮತ್ತು ಇದೇ ಪ್ರಸ್ತುತ ವಿಷಯವನ್ನು ಕೂಡ ಥೀಮ್ ನ ಆಯ್ಕೆಗಳಿಂದ ಪರಿಷ್ಕರಿಸಬಹುದು. ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳುವ ಬಟನ್ ಮತ್ತು ಅದರ ತಾಣ ಸಹ.ನಿಮ್ಮ ಬಲಗಡೆ ಇರುವ ಚಿತ್ರವು, ನಿಮ್ಮ ಬಯಕೆಗೆ ತಕ್ಕಂತೆ ಚಿತ್ರ ಇಲ್ಲವೆ YouTube ವೀಡಿಯೊ ಆಗಿರಬಹುದು."
 
+#: core/includes/theme-options/theme-options.php
 #: front-page.php
-#: core/includes/theme-options.php
 msgid "Call to Action"
 msgstr "ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳಲು"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Options"
 msgstr "ಥೀಮ್ ನ ಆಯ್ಕೆಗಳು"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Options Saved"
 msgstr "ಉಳಿಸಲಾದ ಆಯ್ಕೆಗಳು"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Theme Elements"
 msgstr "ಥೀಮ್ ನ ಅಂಶಗಳು"
 
-#: core/includes/theme-options.php
-msgid "Disable Breadcrumb Lists?"
-msgstr "ಬ್ರೆಡ್ಕ್ರಂಬ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು?"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-msgid "Check to disable"
-msgstr "ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಆಯ್ಕೆಮಾಡಿ"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Disable Call to Action Button?"
 msgstr "ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳುವ ಬಟನ್ ಅನ್ನುನಿಷ್ಕ್ರಿಯಗೊಳಿಸು?"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Save Options"
 msgstr "ಆಯ್ಕೆಗಳನ್ನು ಉಳಿಸಿ"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/classes/Responsive_Options.php
 msgid "Restore Defaults"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತಗಳನ್ನು ಪುನಃಸ್ಥಾಪಿಸಲು"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Logo Upload"
 msgstr "ಲಾಂಛನ(ಲೋಗೋ) ಅಪ್ಲೋಡ್ ಮಾಡಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Header"
 msgstr "ಗ್ರಾಹಕೀಕರಿಸಿದ(ಕಸ್ಟಮ್) ಶೀರ್ಷಿಕೆ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Need to replace or remove default logo?"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಲಾಂಛನವನ್ನು ತೆಗೆದುಹಾಕಿ ಅಥವಾ ಬದಲಾಯಿಸಿ?"
 
-#: core/includes/theme-options.php
-msgid "<a href=\"%s\">Click here</a>."
-msgstr "<a href=\"%s\">ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</a>"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Home Page"
 msgstr "ಮುಖಪುಟ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Headline"
 msgstr "ತಲೆಪಂಕ್ತಿ(ಹೆಡ್ಲೈನ್)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your headline"
 msgstr "ನಿಮ್ಮ ತಲೆಪಂಕ್ತಿಯನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Subheadline"
 msgstr "ಉಪತಲೆಪಂಕ್ತಿ(ಸಬ್ ಹೆಡ್ಲೈನ್)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your subheadline"
 msgstr "ನಿಮ್ಮ ಉಪತಲೆಪಂಕ್ತಿಯನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Content Area"
 msgstr "ವಿಷಯದ ಪ್ರದೇಶ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your content"
 msgstr "ನಿಮ್ಮ ವಿಷಯವನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (URL)"
 msgstr "ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳಿ(URL)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action URL"
 msgstr "ನಿಮ್ಮ ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳುವ URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Call to Action (Text)"
 msgstr "ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳಿ(ಹೇಳಿಕೆ/Text)"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your call to action text"
 msgstr "ನಿಮ್ಮ ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳುವ ಹೇಳಿಕೆಯನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Featured Content"
 msgstr "ವೈಶಿಷ್ಟ್ಯವಾದ ವಿಷಯ"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "See Docs"
 msgstr "ದಾಖಲೆಗಳನ್ನು ನೋಡಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Paste your shortcode, video or image source"
 msgstr "ನಿಮ್ಮ shortcode, ವೀಡಿಯೊ ಅಥವಾ ಚಿತ್ರದ ಮೂಲವನ್ನು ಇಲ್ಲಿ ಅಂಟಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Layouts"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ವಿನ್ಯಾಸಗಳು"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Static Page Layout"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಸ್ಥಾಯಿ ಪುಟ ವಿನ್ಯಾಸ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Single Blog Post Layout"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಏಕ ಬ್ಲಾಗ್ ಲೇಖನ ವಿನ್ಯಾಸ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Default Blog Posts Index Layout"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ ಬ್ಲಾಗ್ ಲೇಖನದ ಸೂಚ್ಯಂಕದ ವಿನ್ಯಾಸ"
 
-#: core/includes/theme-options.php
-msgid "Webmaster Tools"
-msgstr "ಪರಿಣಿತರ(ವೆಬ್ಮಾಸ್ಟರ್) ಉಪಕರಣಗಳು"
-
-#: core/includes/theme-options.php
-msgid "Google Site Verification"
-msgstr "Google ಜಾಲತಾಣ ಪ್ರಮಾಣೀಕರಣ"
-
-#: core/includes/theme-options.php
-msgid "Enter your Google ID number only"
-msgstr "ನಿಮ್ಮ Google ID ಯನ್ನು ಮಾತ್ರ ನಮೂದಿಸಿ"
-
-#: core/includes/theme-options.php
-msgid "Bing Site Verification"
-msgstr "Bing ಜಾಲತಾಣ ಪ್ರಮಾಣೀಕರಣ"
-
-#: core/includes/theme-options.php
-msgid "Enter your Bing ID number only"
-msgstr "ನಿಮ್ಮ Bing ID ಯನ್ನು ಮಾತ್ರ ನಮೂದಿಸಿ"
-
-#: core/includes/theme-options.php
-msgid "Yahoo Site Verification"
-msgstr "Yahoo ಜಾಲತಾಣ ಪ್ರಮಾಣೀಕರಣ"
-
-#: core/includes/theme-options.php
-msgid "Enter your Yahoo ID number only"
-msgstr "ನಿಮ್ಮ Yahoo ID ಯನ್ನು ಮಾತ್ರ ನಮೂದಿಸಿ"
-
-#: core/includes/theme-options.php
-msgid "Site Statistics Tracker"
-msgstr "ಜಾಲತಾಣ ಅಂಕಿಅಂಶ ಪತ್ತೆಹಚ್ಚಲು"
-
-#: core/includes/theme-options.php
-msgid "Leave blank if plugin handles your webmaster tools"
-msgstr "ನಿಮ್ಮ ಪರಿಣಿತರ(ವೆಬ್ಮಾಸ್ಟರ್) ಉಪಕರಣಗಳನ್ನು(Tools) ಪ್ಲಗ್ಗಿನ್(plugin) ನಿಭಾಯಿಸುತ್ತದೆಯಾದರೆ, ಇದನ್ನು ಖಾಲಿ ಬಿಡಿ"
-
-#: core/includes/theme-options.php
-msgid "Google Analytics, StatCounter, any other or all of them."
-msgstr "Google Analytics, StatCounter, ಇತರೆ ಯಾವುದಾದರು ಅಥವಾ ಎಲ್ಲಾ"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Social Icons"
 msgstr "ಸಾಮಾಜಿಕ ಲಾಂಛನಗಳು"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Twitter URL"
 msgstr "ನಿಮ್ಮ Twitter URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Facebook URL"
 msgstr "ನಿಮ್ಮ Facebook URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your LinkedIn URL"
 msgstr "ನಿಮ್ಮ LinkedIn URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your YouTube URL"
 msgstr "ನಿಮ್ಮ YouTube URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your StumbleUpon URL"
 msgstr "ನಿಮ್ಮ StumbleUpon URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "RSS Feed"
 msgstr "RSS Feed"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your RSS Feed URL"
 msgstr "ನಿಮ್ಮ RSS Feed URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Google+"
 msgstr "Google+"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Google+ URL"
 msgstr "ನಿಮ್ಮ Google+ URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Instagram URL"
 msgstr "ನಿಮ್ಮ Instagram URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Pinterest URL"
 msgstr "ನಿಮ್ಮ Pinterest URL ಅನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Yelp!"
 msgstr "Yelp!"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Yelp! URL"
 msgstr "ನಿಮ್ಮ Yelp! ಜಾಲತಾಣ ವಿಳಾಸವನ್ನು(URL) ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your Vimeo URL"
 msgstr "ನಿಮ್ಮ Vimeo ಜಾಲತಾಣ ವಿಳಾಸವನ್ನು(URL) ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
 msgid "foursquare"
 msgstr "foursquare"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your foursquare URL"
 msgstr "ನಿಮ್ಮ foursquare ಜಾಲತಾಣ ವಿಳಾಸವನ್ನು(URL) ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom CSS Styles"
 msgstr "ಇಚ್ಛೆಯ CSS ಶೈಲಿಗಳು"
 
-#: core/includes/theme-options.php
-msgid "https://developer.mozilla.org/en/CSS"
-msgstr "https://developer.mozilla.org/en/CSS"
-
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "CSS Tutorial"
 msgstr "CSS ತರಬೇತಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom CSS styles."
 msgstr "ನಿಮ್ಮ ಇಚ್ಛೆಯ CSS ಶೈಲಿಗಳನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
-msgid "Custom Scripts"
-msgstr "ಇಚ್ಛೆಯ Script ಗಳು"
-
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Custom Scripts for Header and Footer"
 msgstr "ಶೀರ್ಷಿಕೆ ಮತ್ತು ಅಡಿಟಿಪ್ಪಣಿಗಳಿಗೆ ಇಚ್ಛೆಯ Script ಗಳು"
 
-#: core/includes/theme-options.php
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Quick Tutorial"
 msgstr "ತ್ವರಿತ ತರಬೇತಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to header.php &darr;"
 msgstr "header.php ಗೆ ಸೇರಿಸಲು (Embeds) &darr;"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom header script."
 msgstr "ನಿಮ್ಮ ಇಚ್ಛೆಯ ಶೀರ್ಷಿಕೆ Script ಗಳನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Embeds to footer.php &darr;"
 msgstr "footer.php ಗೆ ಸೇರಿಸಲು(Embeds) &darr;"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Enter your custom footer script."
 msgstr "ನಿಮ್ಮ ಇಚ್ಛೆಯ ಅಡಿಟಿಪ್ಪಣಿ Script ಗಳನ್ನು ನಮೂದಿಸಿ"
 
-#: core/includes/theme-options.php
+#: core/includes/functions.php
+msgid "Activate Add Ons"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "All theme settings will be lost!"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog"
+msgstr ""
+
+#: core/includes/functions-update.php
+msgid "blog post"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog Title Toggle"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
+msgid "check to disable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "check to enable"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Click here"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Click OK to Restore."
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "CSS Styles"
+msgstr ""
+
+#. Author of the plugin/theme
+# INSTRUCTION: Author of the plugin/theme
+msgid "CyberChimps.com"
+msgstr "CyberChimps.com"
+
+#: header.php
+msgid "&darr; Skip to Main Content"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Disable breadcrumb list?"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Do you want to restore?"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
 msgstr "ಐಚ್ಛಿಕ ಮುಂದಿನ ಪುಟವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enable minified css?"
+msgstr ""
+
+#: core/includes/functions-sidebar.php
+msgid "Footer Widget"
+msgstr ""
 
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Help"
 msgstr "ನೆರವು"
 
+#. Author URI of the plugin/theme
+# INSTRUCTION: Author URI of the plugin/theme
+msgid "http://cyberchimps.com"
+msgstr "http://cyberchimps.com"
+
+#. Theme URI of the plugin/theme
+# INSTRUCTION: Theme URI of the plugin/theme
+msgid "http://cyberchimps.com/responsive-theme/"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Installing Plugin: %s"
+msgstr ""
+
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Instructions"
 msgstr "ಸೂಚನೆಗಳು"
 
-#: core/includes/theme-options.php
+#: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
 msgstr "WordPress ನ %1s ಮುಂದಿನ ಪುಟದ ಆಯ್ಕೆಗಳನ್ನು %2s ಅತಿಕ್ರಮಿಸುತ್ತದೆ"
+
+#: core/includes/functions.php
+msgid "Plugin activated successfully."
+msgstr ""
+
+#. Theme Name of the plugin/theme
+# INSTRUCTION: Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Responsive Add Features"
+msgstr ""
+
+#. Description of the plugin/theme
+# INSTRUCTION: Description of the plugin/theme
+msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Scripts"
+msgstr ""
+
+#: searchform.php
+msgid "Search for:"
+msgstr ""
+
+#: core/includes/functions.php
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: core/includes/functions-update.php
+#. Translators: This is a big update. Please read the blog post beforeupdating.
+# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
+msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr ""
+
+#: core/includes/upsell/theme-upsell.php
+msgid "Themes You Can Trust"
+msgstr ""
+
+#: core/includes/theme-options/theme-options.php
+msgid "Title Text"
+msgstr ""
 
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Translate"
 msgstr "ಭಾಷಾಂತರಿಸಿ"
 
+#: core/includes/classes/Responsive_Options.php
+msgid "Upgrade"
+msgstr ""
+
 #: core/includes/functions.php
-#. Welcome to Responsive! Upgrade to Responsive Pro today.
-# INSTRUCTION: Welcome to Responsive! Upgrade to Responsive Pro today.
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr "%1$s ಗೆ ಸ್ವಾಗತ! ಇಂದೇ %2$s ಗೆ ನವೀಕರಿಸಿ"
 
