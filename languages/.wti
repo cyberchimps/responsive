@@ -20,6 +20,9 @@ ignore_locales:
  - :gsw
  - :sr_Latn
  - :bn_IN
+ - :yo_NG
+ - :te_IN
+ - :eo
 
 # Optional
 # before_pull: "echo 'some unix command'"   # Command executed before pulling files
