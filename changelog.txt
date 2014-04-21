@@ -8,6 +8,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/22/14) - Improvements - Version 1.9.5.6
+
+[*] Update POT File
+[*] Update translations
+[*] Improve strings for i18n
+[!] Fixed wp_editor issue with WordPress 3.9
+
+----
+
 (04/16/14) - Improvements - Version 1.9.5.5
 
 [*] Change post layout selection from radio buttons to dropdown menu
