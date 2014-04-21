@@ -80,8 +80,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 			} else {
 				?>
 				<p>
-					<?php _e( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image
-					or even YouTube video if you like.', 'responsive' ); ?>
+					<?php _e( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ); ?>
 				</p>
 
 			<?php
