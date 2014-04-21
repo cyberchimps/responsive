@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 1.9.5.3\n"
+"Project-Id-Version: Responsive 1.9.5.5\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2014-04-01 20:17:05+00:00\n"
+"POT-Creation-Date: 2014-04-21 07:54:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -85,10 +85,17 @@ msgstr ""
 
 #: core/includes/classes/Responsive_Options.php:38
 #: core/includes/theme-options/theme-options.php:98
-msgid ""
-"Do you want to restore? \\n"
-"All theme settings will be lost! \\n"
-"Click OK to Restore."
+msgid "Do you want to restore?"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php:38
+#: core/includes/theme-options/theme-options.php:98
+msgid "All theme settings will be lost!"
+msgstr ""
+
+#: core/includes/classes/Responsive_Options.php:38
+#: core/includes/theme-options/theme-options.php:98
+msgid "Click OK to Restore."
 msgstr ""
 
 #: core/includes/classes/Responsive_Options.php:240
@@ -105,7 +112,6 @@ msgstr ""
 
 #: core/includes/classes/Responsive_Options.php:255
 #: core/includes/post-custom-meta.php:165
-#: core/includes/post-custom-meta.php:220
 msgid "Default"
 msgstr ""
 
@@ -261,7 +267,7 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: core/includes/functions.php:341 core/includes/functions.php:670
+#: core/includes/functions.php:341 core/includes/functions.php:671
 msgid "Page %s"
 msgstr ""
 
@@ -271,127 +277,237 @@ msgid ""
 "</span>%4$s"
 msgstr ""
 
-#: core/includes/functions.php:467 core/includes/functions.php:525
+#: core/includes/functions.php:467 core/includes/functions.php:526
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions.php:521 loop-no-posts.php:37
+#: core/includes/functions.php:522 loop-no-posts.php:37
 msgid "Home"
 msgstr ""
 
-#: core/includes/functions.php:522
+#: core/includes/functions.php:523
 msgid "Archive for %s"
 msgstr ""
 
-#: core/includes/functions.php:523 loop-header.php:54
+#: core/includes/functions.php:524 loop-header.php:54
 msgid "Search results for: %s"
 msgstr ""
 
-#: core/includes/functions.php:524
+#: core/includes/functions.php:525
 msgid "Posts tagged %s"
 msgstr ""
 
-#: core/includes/functions.php:526
+#: core/includes/functions.php:527
 msgid "Error 404"
 msgstr ""
 
-#: core/includes/functions.php:752
+#: core/includes/functions.php:753
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
 
-#: core/includes/functions.php:794 core/includes/functions.php:795
+#: core/includes/functions.php:795 core/includes/functions.php:796
 msgid "Instructions"
 msgstr ""
 
-#: core/includes/functions.php:797 core/includes/functions.php:798
+#: core/includes/functions.php:798 core/includes/functions.php:799
 msgid "Help"
 msgstr ""
 
-#: core/includes/functions.php:800 core/includes/functions.php:801
+#: core/includes/functions.php:801 core/includes/functions.php:802
 msgid "Translate"
 msgstr ""
 
-#: core/includes/functions.php:803 core/includes/functions.php:804
+#: core/includes/functions.php:804 core/includes/functions.php:805
 msgid "Showcase"
 msgstr ""
 
-#: core/includes/functions.php:806 core/includes/functions.php:807
+#: core/includes/functions.php:807 core/includes/functions.php:808
 msgid "More Themes"
 msgstr ""
 
-#: core/includes/functions.php:861
+#: core/includes/functions.php:888
+msgid "Responsive Add Features"
+msgstr ""
+
+#: core/includes/functions.php:889
+msgid "Activate Add Ons"
+msgstr ""
+
+#: core/includes/functions.php:890
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: core/includes/functions.php:891
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: core/includes/functions.php:892
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:893
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:894
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin installed."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:895
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:896
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:897
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:898
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:899
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"updated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:900
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:901
+msgid "Activate installed plugin"
+msgid_plural "Activate installed plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: core/includes/functions.php:902
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: core/includes/functions.php:903
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: core/includes/functions.php:904
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: core/includes/functions.php:928
 msgid ""
 "The Custom Front Page is enabled. You can disable it in the <a "
 "href=\"%1$s\">theme settings</a>."
 msgstr ""
 
-#: core/includes/functions.php:863
+#: core/includes/functions.php:930
 msgid ""
 "The Custom Front Page is disabled. You can enable it in the <a "
 "href=\"%1$s\">theme settings</a>."
 msgstr ""
 
-#: core/includes/functions.php:986
+#: core/includes/functions.php:1053
 #: core/includes/theme-options/theme-options.php:333
 msgid "Twitter"
 msgstr ""
 
-#: core/includes/functions.php:987
+#: core/includes/functions.php:1054
 #: core/includes/theme-options/theme-options.php:342
 msgid "Facebook"
 msgstr ""
 
-#: core/includes/functions.php:988
+#: core/includes/functions.php:1055
 #: core/includes/theme-options/theme-options.php:351
 msgid "LinkedIn"
 msgstr ""
 
-#: core/includes/functions.php:989
+#: core/includes/functions.php:1056
 #: core/includes/theme-options/theme-options.php:360
 msgid "YouTube"
 msgstr ""
 
-#: core/includes/functions.php:990
+#: core/includes/functions.php:1057
 #: core/includes/theme-options/theme-options.php:369
 msgid "StumbleUpon"
 msgstr ""
 
-#: core/includes/functions.php:991
+#: core/includes/functions.php:1058
 #: core/includes/theme-options/theme-options.php:378
 msgid "RSS Feed"
 msgstr ""
 
-#: core/includes/functions.php:992
+#: core/includes/functions.php:1059
 #: core/includes/theme-options/theme-options.php:387
 msgid "Google+"
 msgstr ""
 
-#: core/includes/functions.php:993
+#: core/includes/functions.php:1060
 #: core/includes/theme-options/theme-options.php:396
 msgid "Instagram"
 msgstr ""
 
-#: core/includes/functions.php:994
+#: core/includes/functions.php:1061
 #: core/includes/theme-options/theme-options.php:405
 msgid "Pinterest"
 msgstr ""
 
-#: core/includes/functions.php:995
+#: core/includes/functions.php:1062
 #: core/includes/theme-options/theme-options.php:414
 msgid "Yelp!"
 msgstr ""
 
-#: core/includes/functions.php:996
+#: core/includes/functions.php:1063
 #: core/includes/theme-options/theme-options.php:423
 msgid "Vimeo"
 msgstr ""
 
-#: core/includes/functions.php:997
+#: core/includes/functions.php:1064
 #: core/includes/theme-options/theme-options.php:432
 msgid "foursquare"
 msgstr ""
 
-#: core/includes/post-custom-meta.php:189
+#: core/includes/post-custom-meta.php:190
 msgid "Layout"
 msgstr ""
 
@@ -474,7 +590,7 @@ msgid "Need to replace or remove default logo?"
 msgstr ""
 
 #: core/includes/theme-options/theme-options.php:225
-msgid " <a href=\"%s\">Click here</a>."
+msgid "Click here"
 msgstr ""
 
 #: core/includes/theme-options/theme-options.php:232
@@ -517,7 +633,7 @@ msgstr ""
 msgid "Enter your content"
 msgstr ""
 
-#: core/includes/theme-options/theme-options.php:265
+#: core/includes/theme-options/theme-options.php:265 front-page.php:83
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -540,7 +656,7 @@ msgstr ""
 msgid "Enter your call to action text"
 msgstr ""
 
-#: core/includes/theme-options/theme-options.php:283 front-page.php:99
+#: core/includes/theme-options/theme-options.php:283 front-page.php:98
 msgid "Call to Action"
 msgstr ""
 
@@ -679,14 +795,6 @@ msgstr ""
 
 #: footer.php:79
 msgid "WordPress"
-msgstr ""
-
-#: front-page.php:83
-msgid ""
-"Your title, subtitle and this very content is editable from Theme Option. "
-"Call to Action button and its destination link as well. Image on your right "
-"can be an image\r\n"
-"\t\t\t\t\tor even YouTube video if you like."
 msgstr ""
 
 #: header.php:54
