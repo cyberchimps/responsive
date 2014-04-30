@@ -36,5 +36,3 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
-
-?>
