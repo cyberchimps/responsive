@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/09/14) - Improvements - Version 1.9.5.8
+
+[*] Readded default logo
+[*] Updated translations
+
 (04/30/14) - Improvements - Version 1.9.5.7
 
 [+] Added new recommended Plugin
