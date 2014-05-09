@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-04-21 08:47:18 UTC\n"
+"PO-Revision-Date: 2014-05-09 06:09:56 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Japanese\n"
 "MIME-Version: 1.0\n"
@@ -802,7 +802,7 @@ msgstr ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog"
-msgstr ""
+msgstr "ブログ"
 
 #: core/includes/functions-update.php
 msgid "blog post"
@@ -810,20 +810,20 @@ msgstr ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog Title Toggle"
-msgstr ""
+msgstr "ブログタイトルの切り替え"
 
 #: core/includes/theme-options/theme-options.php
 #: core/includes/theme-options/theme-options.php
 msgid "check to disable"
-msgstr ""
+msgstr "チェックして無効化"
 
 #: core/includes/theme-options/theme-options.php
 msgid "check to enable"
-msgstr ""
+msgstr "チェックして有効化"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Click here"
-msgstr ""
+msgstr "ここをクリック"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
@@ -832,7 +832,7 @@ msgstr ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "CSS Styles"
-msgstr ""
+msgstr "CSS スタイル"
 
 #. Author of the plugin/theme
 # INSTRUCTION: Author of the plugin/theme
@@ -854,11 +854,11 @@ msgstr ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
-msgstr ""
+msgstr "カスタムフロントページを有効化"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable minified css?"
-msgstr ""
+msgstr "CSS Minify を有効化しますか ?"
 
 #: core/includes/functions-sidebar.php
 msgid "Footer Widget"
@@ -867,7 +867,7 @@ msgstr ""
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Help"
-msgstr ""
+msgstr "ヘルプ"
 
 #. Author URI of the plugin/theme
 # INSTRUCTION: Author URI of the plugin/theme
@@ -877,29 +877,84 @@ msgstr "http://cyberchimps.com"
 #. Theme URI of the plugin/theme
 # INSTRUCTION: Theme URI of the plugin/theme
 msgid "http://cyberchimps.com/responsive-theme/"
-msgstr ""
+msgstr "http://cyberchimps.com/responsive-theme/"
 
 #: core/includes/functions.php
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "プラグインをインストール中: %s"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Instructions"
-msgstr ""
+msgstr "手順"
+
+#: core/includes/functions.php
+msgid "Activate installed plugin"
+msgid_plural "Activate installed plugins"
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr ""
+msgstr "WordPress の%1sフロントページオプション%2sを上書きします"
 
 #: core/includes/functions.php
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "プラグインを有効化しました。"
 
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
 msgid "Responsive"
-msgstr ""
+msgstr "Responsive"
 
 #: core/includes/functions.php
 msgid "Responsive Add Features"
@@ -912,11 +967,11 @@ msgstr ""
 
 #: core/includes/functions.php
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "必須プラグインのインストーラーに戻る"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Scripts"
-msgstr ""
+msgstr "スクリプト"
 
 #: searchform.php
 msgid "Search for:"
@@ -946,18 +1001,18 @@ msgstr ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Title Text"
-msgstr ""
+msgstr "タイトルテキスト"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Translate"
-msgstr ""
+msgstr "翻訳"
 
 #: core/includes/classes/Responsive_Options.php
 msgid "Upgrade"
-msgstr ""
+msgstr "アップグレード"
 
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr ""
+msgstr "%1$s へようこそ。%2$s にアップグレードしませんか。"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-04-21 08:47:21 UTC\n"
+"PO-Revision-Date: 2014-05-09 06:09:58 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Portuguese, Portugal\n"
 "MIME-Version: 1.0\n"
@@ -35,13 +35,13 @@ msgstr "P&#225;ginas:"
 #: blog.php
 #: loop-nav.php
 msgid "&#8249; Older posts"
-msgstr "&#8249; Posts mais antigos"
+msgstr "Publicações mais antigas"
 
 #: blog-excerpt.php
 #: blog.php
 #: loop-nav.php
 msgid "Newer posts &#8250;"
-msgstr "Posts mais recentes &#8250;"
+msgstr "Publicações mais recentes"
 
 #: blog.php
 #: content-sidebar-half-page.php
@@ -61,7 +61,7 @@ msgstr "Ler mais &#8250;"
 
 #: comments.php
 msgid "This post is password protected. Enter the password to view any comments."
-msgstr "Este post &#233; protegido por senha. Insira a senha para ver todos os coment&#225;rios."
+msgstr "Esta publicação está protegida por senha. Insira a senha para ver todos os coment&#225;rios."
 
 #: comments.php
 #: comments.php
@@ -87,15 +87,15 @@ msgstr "Nome"
 
 #: comments.php
 msgid "E-mail"
-msgstr "E-mail"
+msgstr "e-mail"
 
 #: comments.php
 msgid "Website"
-msgstr "Site"
+msgstr "Site da Web"
 
 #: footer.php
 msgid "&copy;"
-msgstr "&copy;"
+msgstr "copiar"
 
 #: footer.php
 msgid "scroll to top"
@@ -107,7 +107,7 @@ msgstr "&uarr;"
 
 #: footer.php
 msgid "Responsive Theme"
-msgstr "Responsive Theme"
+msgstr "Tema Responsive"
 
 #: footer.php
 msgid "powered by"
@@ -173,11 +173,11 @@ msgstr "404 &#8212; Interessante encontrarmo-nos por aqui!"
 
 #: loop-no-posts.php
 msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
-msgstr "N&#227;o entre em p&#226;nico, vamos passar por isto juntos. Vamos explorar as nossas op&#231;&#245;es aqui."
+msgstr "N&#227;o entre em p&#226;nico, nós vamos passar por isto juntos. Vamos explorar as nossas op&#231;&#245;es aqui."
 
 #: loop-no-posts.php
 msgid "You can return %s or search for the page you were looking for."
-msgstr "Pode voltar %s ou pesquise pela p&#225;gina que procura"
+msgstr "Pode voltar a %s ou procure pela página pretendida."
 
 #: loop-no-posts.php
 #: core/includes/functions.php
@@ -202,7 +202,7 @@ msgstr "Arquivos Anuais: %s"
 
 #: loop-header.php
 msgid "Blog Archives"
-msgstr "Arquivos do Blog"
+msgstr "Arquivos do Blogue"
 
 #: loop-no-posts.php
 msgid "Your search for %s did not match any entries."
@@ -210,7 +210,7 @@ msgstr "Pesquisa para %s não tem correspondências"
 
 #: sitemap.php
 msgid "Permanent Link to %s"
-msgstr "Link Permanente para %s"
+msgstr "Hiperligação Permanente para %s"
 
 #: core/includes/functions.php
 #: loop-header.php
@@ -219,7 +219,7 @@ msgstr "Resultados da Pesquisa para: %s"
 
 #: searchform.php
 msgid "search here &hellip;"
-msgstr "Pesquise aqui &hellip;"
+msgstr "Procurar aqui"
 
 #: searchform.php
 msgid "Go"
@@ -337,7 +337,7 @@ msgstr "<span class=\"%1$s\">Publicado em </span>%2$s<span class=\"%3$s\"> por <
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "View all posts by %s"
-msgstr "Ver todos os posts de %s"
+msgstr "Ver todos as publicações de %s"
 
 #: core/includes/functions.php
 msgid "Archive for %s"
@@ -349,7 +349,7 @@ msgstr "Artigos marcados com %s"
 
 #: core/includes/functions.php
 msgid "Error 404"
-msgstr "Erro 404 - Não foi possível encontrar a postagem/página"
+msgstr "Erro 404 - Não foi possível encontrar a publicação/página"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -363,15 +363,15 @@ msgstr "Amostra"
 
 #: core/includes/functions-sidebar.php
 msgid "Main Sidebar"
-msgstr "Barra lateral principal"
+msgstr "Barra Lateral Principal"
 
 #: core/includes/functions-sidebar.php
 msgid "Right Sidebar"
-msgstr "Barra lateral direita"
+msgstr "Barra Lateral Direita"
 
 #: core/includes/functions-sidebar.php
 msgid "Left Sidebar"
-msgstr "Barra lateral esquerda"
+msgstr "Barra Lateral Esquerda"
 
 #: core/includes/functions-sidebar.php
 msgid "Left Sidebar Half Page"
@@ -383,7 +383,7 @@ msgstr "Barra lateral direita (meia p&#225;gina)"
 
 #: core/includes/functions-sidebar.php
 msgid "Gallery Sidebar"
-msgstr "Barra lateral de Galeria"
+msgstr "Barra Lateral da Galeria"
 
 #: core/includes/functions-sidebar.php
 msgid "Colophon Widget"
@@ -488,7 +488,7 @@ msgstr "Op&#231;&#245;es do Tema"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Options Saved"
-msgstr "Op&#231;&#245;es guardadas"
+msgstr "Op&#231;&#245;es Guardadas"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Theme Elements"
@@ -508,7 +508,7 @@ msgstr "Restaurar Padrões"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Logo Upload"
-msgstr "Enviar Logo"
+msgstr "Enviar Logótipo"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Custom Header"
@@ -524,11 +524,11 @@ msgstr "P&#225;gina Inicial"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Headline"
-msgstr "T&#237;tulo"
+msgstr "Cabeçalho"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enter your headline"
-msgstr "Escreva o seu t&#237;tulo"
+msgstr "Escreva o seu cabeçalho"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Subheadline"
@@ -577,7 +577,7 @@ msgstr "Cole a fonte do seu shortcode, v&#237;deo ou imagem"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Default Layouts"
-msgstr "Disposi&#231;&#245;es padr&#245;es"
+msgstr "Disposi&#231;&#245;es padr&#227;o"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Default Static Page Layout"
@@ -611,7 +611,7 @@ msgstr "Facebook"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enter your Facebook URL"
-msgstr "Escreva o seu URL do Facebook"
+msgstr "Insira o seu URL do Facebook"
 
 #: core/includes/functions.php
 #: core/includes/theme-options/theme-options.php
@@ -725,32 +725,32 @@ msgstr "Tutorial r&#225;pido"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Embeds to header.php &darr;"
-msgstr "Incorporar Ao header.php"
+msgstr "Incorporar no header.php"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enter your custom header script."
-msgstr "Entre com seu script de cabe&#231;alho personalizado."
+msgstr "Insira o seu script de cabe&#231;alho personalizado."
 
 #: core/includes/theme-options/theme-options.php
 msgid "Embeds to footer.php &darr;"
-msgstr "Incorporar ao footer.php"
+msgstr "Incorporar no footer.php"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enter your custom footer script."
-msgstr "Entre com seu script de rodap&#233; personalizado."
+msgstr "Insira o seu script de rodap&#233; personalizado."
 
 #: core/includes/functions.php
 msgid "Activate Add Ons"
-msgstr ""
+msgstr "Ativar Add-ons"
 
 #: core/includes/functions.php
 msgid "All plugins installed and activated successfully. %s"
-msgstr ""
+msgstr "Os plug-ins foram todos instalados e ativados com sucesso. %s"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "All theme settings will be lost!"
-msgstr ""
+msgstr "Irá perder todas as definições do tema!"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
@@ -802,11 +802,11 @@ msgstr ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog"
-msgstr ""
+msgstr "Blogue"
 
 #: core/includes/functions-update.php
 msgid "blog post"
-msgstr ""
+msgstr "publicar no blogue"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog Title Toggle"
@@ -819,20 +819,20 @@ msgstr ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "check to enable"
-msgstr ""
+msgstr "marque para ativar"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Click here"
-msgstr ""
+msgstr "Clique aqui"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "Click OK to Restore."
-msgstr ""
+msgstr "Clique em 'CONFIRMAR' para Restaurar."
 
 #: core/includes/theme-options/theme-options.php
 msgid "CSS Styles"
-msgstr ""
+msgstr "Estilos CSS"
 
 #. Author of the plugin/theme
 # INSTRUCTION: Author of the plugin/theme
@@ -841,7 +841,7 @@ msgstr "CyberChimps.com"
 
 #: header.php
 msgid "&darr; Skip to Main Content"
-msgstr ""
+msgstr "&darr; Ir para o Conteúdo Principal"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Disable breadcrumb list?"
@@ -850,7 +850,7 @@ msgstr ""
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "Do you want to restore?"
-msgstr ""
+msgstr "Deseja restaurar?"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
@@ -862,7 +862,7 @@ msgstr ""
 
 #: core/includes/functions-sidebar.php
 msgid "Footer Widget"
-msgstr ""
+msgstr "Widget de Rodapé"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -881,12 +881,67 @@ msgstr ""
 
 #: core/includes/functions.php
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "A instalar plugin: %s"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Instructions"
 msgstr "Instruções"
+
+#: core/includes/functions.php
+msgid "Activate installed plugin"
+msgid_plural "Activate installed plugins"
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
@@ -894,7 +949,7 @@ msgstr "Substitui a opção de página do WordPress % 1sfront % 2s"
 
 #: core/includes/functions.php
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "Plugin activado com sucesso."
 
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
@@ -912,7 +967,7 @@ msgstr ""
 
 #: core/includes/functions.php
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "Voltar ao Instalador de Plug-ins Necessários"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Scripts"
@@ -920,11 +975,11 @@ msgstr ""
 
 #: searchform.php
 msgid "Search for:"
-msgstr ""
+msgstr "Pesquisar por:"
 
 #: core/includes/functions.php
 msgid "Something went wrong with the plugin API."
-msgstr ""
+msgstr "Ocorreu algo com o plug-in API."
 
 #: core/includes/functions-update.php
 #. Translators: This is a big update. Please read the blog post beforeupdating.
@@ -942,11 +997,11 @@ msgstr ""
 
 #: core/includes/upsell/theme-upsell.php
 msgid "Themes You Can Trust"
-msgstr ""
+msgstr "Temas Que Pode Confiar"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Title Text"
-msgstr ""
+msgstr "Texto do título"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -955,7 +1010,7 @@ msgstr "Traduzir"
 
 #: core/includes/classes/Responsive_Options.php
 msgid "Upgrade"
-msgstr ""
+msgstr "Actualizar"
 
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."

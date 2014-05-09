@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-04-21 08:47:20 UTC\n"
+"PO-Revision-Date: 2014-05-09 06:09:57 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Norwegian Bokmål, Norway\n"
 "MIME-Version: 1.0\n"
@@ -766,15 +766,15 @@ msgstr ""
 
 #: core/includes/functions-sidebar.php
 msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
-msgstr ""
+msgstr "Område 1 - sidebar.php - Vil vises som standard, Blog, Blog utrag side\nmaler"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
-msgstr ""
+msgstr "Område 2 - sidebar-right.php - Vises under innhold/Sidebar side maler"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
-msgstr ""
+msgstr "Område 3 - sidebar-left-php - Vises under sidebar/innhold side\nmaler"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
@@ -881,12 +881,67 @@ msgstr ""
 
 #: core/includes/functions.php
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "Installer Tillegg: %s"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
 msgid "Instructions"
 msgstr "Instruksjoner"
+
+#: core/includes/functions.php
+msgid "Activate installed plugin"
+msgid_plural "Activate installed plugins"
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural ""
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+
+#: core/includes/functions.php
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
@@ -894,7 +949,7 @@ msgstr "Dette vil overstyre%1sførstesidevalg%2s"
 
 #: core/includes/functions.php
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "Tillegg ble aktivert"
 
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
@@ -912,7 +967,7 @@ msgstr ""
 
 #: core/includes/functions.php
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "Gå tilbake til installasjon av tillegg"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Scripts"
@@ -955,7 +1010,7 @@ msgstr "Oversett"
 
 #: core/includes/classes/Responsive_Options.php
 msgid "Upgrade"
-msgstr ""
+msgstr "Oppgrader"
 
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
