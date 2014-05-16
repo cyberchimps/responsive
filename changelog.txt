@@ -8,10 +8,19 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/09/14) - Improvements - Version 1.9.5.9
+
+[*] Updated new landing page for Responsive 2.o
+[*] Updated Danish Translation
+
+----
+
 (05/09/14) - Improvements - Version 1.9.5.8
 
 [*] Readded default logo
 [*] Updated translations
+
+----
 
 (04/30/14) - Improvements - Version 1.9.5.7
 
@@ -19,6 +28,8 @@ Changelog Legend:
 [*] Updated logo
 [*] Changed some code styling
 [!] Fixed translations files
+
+----
 
 (04/22/14) - Improvements - Version 1.9.5.6
 
