@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-09 06:09:52 UTC\n"
+"PO-Revision-Date: 2014-05-16 06:06:45 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Danish, Denmark\n"
 "MIME-Version: 1.0\n"
@@ -741,98 +741,98 @@ msgstr "Indtast dit brugerdefinerede footer-script."
 
 #: core/includes/functions.php
 msgid "Activate Add Ons"
-msgstr ""
+msgstr "Aktiver tilføjelser"
 
 #: core/includes/functions.php
 msgid "All plugins installed and activated successfully. %s"
-msgstr ""
+msgstr "Alle plugins blev installeret og aktiveret. %s"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "All theme settings will be lost!"
-msgstr ""
+msgstr "Alle temaindstillinger vil gå tabt!"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr ""
+msgstr "Område 10 - sidebar-colophon.php, 100% bredde footer-widgets"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr ""
+msgstr "Område 11 - sidebar-top.php - Vises til højre på headeren"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
-msgstr ""
+msgstr "Område 12 - sidebar-footer.php - Max 3 widgets pr. række"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
-msgstr ""
+msgstr "Område 1 - sidebar.php - Vises på siderne Standard, Blog, Bloguddrag"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
-msgstr ""
+msgstr "Område 2 - sidebar-right.php - Vises på siden Indhold/Panel"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
-msgstr ""
+msgstr "Område 3 - sidebar-left.php - Vises på siden Panel/Indhold"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
-msgstr ""
+msgstr "Område 4 - sidebar-left-half.php - Vises på siden Panel/Indhold halv side"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
-msgstr ""
+msgstr "Område 5 - sidebar-right-half.php - Vises på siden Panel/Indhold halv side"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+msgstr "Område 6 - sidebar-home.php - Vises på forsiden"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+msgstr "Område 7 - sidebar-home.php - Vises på forsiden"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+msgstr "Område 8 - sidebar-home.php - Vises på forsiden"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
-msgstr ""
+msgstr "Område 9 - sidebar-gallery.php - Vises på siden efter et billede er blevet klikket på i et galleri"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: core/includes/functions-update.php
 msgid "blog post"
-msgstr ""
+msgstr "blogindlægget"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog Title Toggle"
-msgstr ""
+msgstr "Blogtitel til/fra"
 
 #: core/includes/theme-options/theme-options.php
 #: core/includes/theme-options/theme-options.php
 msgid "check to disable"
-msgstr ""
+msgstr "klik for at deaktivere"
 
 #: core/includes/theme-options/theme-options.php
 msgid "check to enable"
-msgstr ""
+msgstr "klik for at aktivere"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Click here"
-msgstr ""
+msgstr "Klik her"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "Click OK to Restore."
-msgstr ""
+msgstr "Klik OK for at gendanne."
 
 #: core/includes/theme-options/theme-options.php
 msgid "CSS Styles"
-msgstr ""
+msgstr "CSS-styles"
 
 #. Author of the plugin/theme
 # INSTRUCTION: Author of the plugin/theme
@@ -841,16 +841,16 @@ msgstr "CyberChimps.com"
 
 #: header.php
 msgid "&darr; Skip to Main Content"
-msgstr ""
+msgstr "&darr; Hop til hovedindhold"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Disable breadcrumb list?"
-msgstr ""
+msgstr "Slå hierarkisk liste fra?"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "Do you want to restore?"
-msgstr ""
+msgstr "Ønsker du at gendanne?"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
@@ -858,11 +858,11 @@ msgstr "Aktivér brugerdefineret forside"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable minified css?"
-msgstr ""
+msgstr "Aktiver minificeret css?"
 
 #: core/includes/functions-sidebar.php
 msgid "Footer Widget"
-msgstr ""
+msgstr "Footer-widget"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -877,11 +877,11 @@ msgstr "http://cyberchimps.com"
 #. Theme URI of the plugin/theme
 # INSTRUCTION: Theme URI of the plugin/theme
 msgid "http://cyberchimps.com/responsive-theme/"
-msgstr ""
+msgstr "http://cyberchimps.com/responsive-theme/"
 
 #: core/includes/functions.php
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "Installerer plugin: %s"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -891,57 +891,68 @@ msgstr "Instruktioner"
 #: core/includes/functions.php
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
-msgstr[0] ""
+msgstr[0] "Aktiver det installerede plugin"
+msgstr[1] "Aktiver de installerede plugins"
 
 #: core/includes/functions.php
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
-msgstr[0] ""
+msgstr[0] "Installer plugin"
+msgstr[1] "Installer plugins"
 
 #: comments.php
 msgid "One comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
+msgstr[0] "En kommentar til &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s kommentarer til &ldquo;%2$s&rdquo;"
 
 #: core/includes/functions.php
 msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
 msgid_plural ""
-msgstr[0] ""
+msgstr[0] "Beklager, du ikke har de korrekte tilladelser til at aktivere plugin'et %s. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'et aktiveret."
+msgstr[1] "Beklager, du ikke har de korrekte tilladelser til at aktivere plugin'erne. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'erne aktiveret."
 
 #: core/includes/functions.php
 msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
 msgid_plural ""
-msgstr[0] ""
+msgstr[0] "Beklager, du ikke har de korrekte tilladelser til at installere plugin'et %s. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'et installeret."
+msgstr[1] "Beklager, du ikke har de korrekte tilladelser til at installere plugin'erne. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'erne installeret."
 
 #: core/includes/functions.php
 msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
 msgid_plural ""
-msgstr[0] ""
+msgstr[0] "Beklager, du ikke har de korrekte tilladelser til at opdatere plugin'et %s. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'et opdateret."
+msgstr[1] "Beklager, du ikke har de korrekte tilladelser til at opdatere plugin'erne. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'erne opdateret."
 
 #: core/includes/functions.php
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
 msgid_plural ""
-msgstr[0] ""
+msgstr[0] "Følgende plugin skal opdateres til den seneste version for at sikre maksimal kompatibilitet med dette tema: %1$s."
+msgstr[1] "Følgende plugins skal opdateres til den seneste version for at sikre maksimal kompatibilitet med dette tema: %1$s."
 
 #: core/includes/functions.php
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
+msgstr[0] "Det følgende anbefalede plugin er deaktiveret: %1$s."
+msgstr[1] "De følgende anbefalede plugins er deaktiveret: %1$s."
 
 #: core/includes/functions.php
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
+msgstr[0] "Det følgende krævede plugin er deaktiveret: %1$s."
+msgstr[1] "De følgende krævede plugins er deaktiveret: %1$s."
 
 #: core/includes/functions.php
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
+msgstr[0] "Dette tema anbefaler det følgende plugin: %1$s."
+msgstr[1] "Dette tema anbefaler de følgende plugins: %1$s."
 
 #: core/includes/functions.php
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
+msgstr[0] "Dette tema kræver det følgende plugin: %1$s."
+msgstr[1] "Dette tema kræver de følgende plugins: %1$s."
 
 #: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
@@ -949,59 +960,59 @@ msgstr "Tilsidesætter WordPress %1sforsideindstillinger%2s"
 
 #: core/includes/functions.php
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "Plugin aktiveret."
 
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
 msgid "Responsive"
-msgstr ""
+msgstr "Responsive"
 
 #: core/includes/functions.php
 msgid "Responsive Add Features"
-msgstr ""
+msgstr "Responsive tilføj funktioner"
 
 #. Description of the plugin/theme
 # INSTRUCTION: Description of the plugin/theme
 msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
-msgstr ""
+msgstr "Responsive Theme er et fleksibelt fundament med et flydende grid-system, der tilpasser din hjemmeside til mobile enheder, computer eller ethvert andet visningsmiljø. Temaet har 9 sideskabeloner, 11 widget-områder, 6 skabelon-layouts, 4 menupositioner og meget mere. Kraftfulde men simple temaindstillinger for fuld CMS-kontrol med let logo-upload, social networking og Webmaster Tools osv. Responsive er WooCommerce-kompatibel, klar til flersprogethed (WPML), har RTL-sprogunderstøttelse, er Retina-klar, søgemaskineoptimeret, W3C Markup-valideret og i øjeblikket oversat til 45 sprog. Cross-browser kompatibel. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Officielt support-forum</a> (http://cyberchimps.com/forum/free/responsive/)"
 
 #: core/includes/functions.php
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "Tilbage til installationen af påkrævede plugins"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Scripts"
-msgstr ""
+msgstr "Scripts"
 
 #: searchform.php
 msgid "Search for:"
-msgstr ""
+msgstr "Søg efter:"
 
 #: core/includes/functions.php
 msgid "Something went wrong with the plugin API."
-msgstr ""
+msgstr "Noget gik galt med plugin-API'et"
 
 #: core/includes/functions-update.php
 #. Translators: This is a big update. Please read the blog post beforeupdating.
 # INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
 msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
-msgstr ""
+msgstr "<strong>Advarsel:</strong> Der er en stor <strong>Responsive Theme</strong> opdatering tilgængelig. Læs venligst %1$s før du opdaterer."
 
 #: core/includes/functions.php
 msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+msgstr "Den brugerdefinerede forside er slået fra. Du kan slå den til i <a href=\"%1$s\">temaindstillingerne</a>"
 
 #: core/includes/functions.php
 msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+msgstr "Den brugerdefinerede forside er slået til. Du kan slå den fra i <a href=\"%1$s\">temaindstillingerne</a>"
 
 #: core/includes/upsell/theme-upsell.php
 msgid "Themes You Can Trust"
-msgstr ""
+msgstr "Temaer du kan stole på"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Title Text"
-msgstr ""
+msgstr "Titeltekst"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -1010,7 +1021,7 @@ msgstr "Overæt"
 
 #: core/includes/classes/Responsive_Options.php
 msgid "Upgrade"
-msgstr ""
+msgstr "Opgrader"
 
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
