@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/09/14) - Improvements - Version 1.9.6.0
+
+[*] Updated Hungarian Translation
+[+] Added new Canadian French Translation
+
+----
 (05/09/14) - Improvements - Version 1.9.5.9
 
 [*] Updated new landing page for Responsive 2.o
