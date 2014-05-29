@@ -123,10 +123,8 @@ module.exports = function(grunt) {
 
 	});
 
-
-	grunt.registerTask( 'i18n', [ 'checktextdomain', 'makepot', 'exec', 'po2mo' ] );
-
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };
