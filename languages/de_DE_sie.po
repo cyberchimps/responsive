@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-09 06:09:53 UTC\n"
+"PO-Revision-Date: 2014-05-28 15:30:11 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: German Germany (Formal)\n"
 "MIME-Version: 1.0\n"
@@ -741,16 +741,16 @@ msgstr "Ihre individuelles Fußzeilen Skript eingeben"
 
 #: core/includes/functions.php
 msgid "Activate Add Ons"
-msgstr ""
+msgstr "Add-Ons aktivieren"
 
 #: core/includes/functions.php
 msgid "All plugins installed and activated successfully. %s"
-msgstr ""
+msgstr "Alle Plugins wurden erfolgreich installiert und aktiviert. %s"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "All theme settings will be lost!"
-msgstr ""
+msgstr "Alle Theme-Einstellungen gehen verloren!"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
@@ -762,7 +762,7 @@ msgstr ""
 
 #: core/includes/functions-sidebar.php
 msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
-msgstr ""
+msgstr "Seitenfusszeile.php - Maximal 3 Widgets pro Reihe"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
@@ -806,7 +806,7 @@ msgstr ""
 
 #: core/includes/functions-update.php
 msgid "blog post"
-msgstr ""
+msgstr "Blogartikel"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog Title Toggle"
@@ -823,12 +823,12 @@ msgstr ""
 
 #: core/includes/theme-options/theme-options.php
 msgid "Click here"
-msgstr ""
+msgstr "Hier klicken"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "Click OK to Restore."
-msgstr ""
+msgstr "Klick OK zum Zurücksetzen."
 
 #: core/includes/theme-options/theme-options.php
 msgid "CSS Styles"
@@ -850,7 +850,7 @@ msgstr ""
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "Do you want to restore?"
-msgstr ""
+msgstr "Möchten Sie das zurücksetzen?"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
@@ -862,7 +862,7 @@ msgstr ""
 
 #: core/includes/functions-sidebar.php
 msgid "Footer Widget"
-msgstr ""
+msgstr "Fusszeile"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -877,11 +877,11 @@ msgstr "http://cyberchimps.com"
 #. Theme URI of the plugin/theme
 # INSTRUCTION: Theme URI of the plugin/theme
 msgid "http://cyberchimps.com/responsive-theme/"
-msgstr ""
+msgstr "http://cyberchimps.com/responsive-theme/"
 
 #: core/includes/functions.php
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "Installiere Plugin: %s"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -891,12 +891,14 @@ msgstr "Anleitung"
 #: core/includes/functions.php
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
-msgstr[0] ""
+msgstr[0] "Aktiviere installiertes Plugin"
+msgstr[1] "Aktiviere installierte Plugins"
 
 #: core/includes/functions.php
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
-msgstr[0] ""
+msgstr[0] "Beginne mit der Installation des Plugins."
+msgstr[1] "Beginne mit der Installation der Plugins."
 
 #: comments.php
 msgid "One comment on &ldquo;%2$s&rdquo;"
@@ -926,22 +928,26 @@ msgstr[0] ""
 #: core/includes/functions.php
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
+msgstr[0] "Das nachfolgend empfohlene Plugin ist zurzeit inaktiv: %1$s"
+msgstr[1] "Die nachfolgend empfohlenen Plugins sind zurzeit nicht aktiv: %1$s"
 
 #: core/includes/functions.php
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
+msgstr[0] "Das folgende benötigte Plugin ist zurzeit inaktiv: %1$s"
+msgstr[1] "Die folgenden benötigten Plugins sind zurzeit nicht aktiv: %1$s"
 
 #: core/includes/functions.php
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
+msgstr[0] "Dieses Theme empfiehlt folgendendes Plugin: %1$s"
+msgstr[1] "Dieses Theme empfiehlt folgende Plugins: %1$s"
 
 #: core/includes/functions.php
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
+msgstr[0] "Dieses Theme benötigt folgendes Plugin: %1$s"
+msgstr[1] "Dieses Theme benötigt folgende Plugins: %1$s"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
@@ -949,12 +955,12 @@ msgstr "Überschreibt die WordPress %1sStartseite Option%2s"
 
 #: core/includes/functions.php
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "Plugin erfolgreich aktiviert."
 
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
 msgid "Responsive"
-msgstr ""
+msgstr "Responsive"
 
 #: core/includes/functions.php
 msgid "Responsive Add Features"
@@ -963,7 +969,7 @@ msgstr ""
 #. Description of the plugin/theme
 # INSTRUCTION: Description of the plugin/theme
 msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
-msgstr ""
+msgstr "Responsive Theme ist eine flexible Grundlage, welche deine Webseite an mobile Geräte und den Desktop sowie jede beliebe Ausgabegröße anpasst. Dieses Theme beinhaltet 9 Seiten-Templates, 11 Widget Bereiche, 6 Template Layouts, 4 Menuepositionen und mehr. Leistungsfähige aber einfache Theme Optionen fuer volle CSS-Kontrolle mit einfachem Logo-Upload, soziales Netzwerken und Webmaster Tools etc. Das Responsive Theme ist kompatibel zu WooCommerce, Mehrsprachigkeit (WPML), RTL-Sprach Support, Retina-bereit, suchmaschinenoptimiert, W3C Markup konform and aktuell in 45 Sprachen uebersetzt. Cross-Browser kompatibel. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Offizielles Support Forum</a> (http://cyberchimps.com/forum/free/responsive/)"
 
 #: core/includes/functions.php
 msgid "Return to Required Plugins Installer"
@@ -975,17 +981,17 @@ msgstr ""
 
 #: searchform.php
 msgid "Search for:"
-msgstr ""
+msgstr "Suche nach:"
 
 #: core/includes/functions.php
 msgid "Something went wrong with the plugin API."
-msgstr ""
+msgstr "Mit der Plugin API ist etwas schief gelaufen."
 
 #: core/includes/functions-update.php
 #. Translators: This is a big update. Please read the blog post beforeupdating.
 # INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
 msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
-msgstr ""
+msgstr "<strong>WARNUNG:</strong> Es ist ein großes <strong>Responsive Theme</strong> Update verfuegbar. Lies bitte die %1$s bevor du mit dem Update beginnst."
 
 #: core/includes/functions.php
 msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
@@ -997,7 +1003,7 @@ msgstr ""
 
 #: core/includes/upsell/theme-upsell.php
 msgid "Themes You Can Trust"
-msgstr ""
+msgstr "Themes, denen Sie vertrauen können."
 
 #: core/includes/theme-options/theme-options.php
 msgid "Title Text"
@@ -1010,7 +1016,7 @@ msgstr "Übersetzen"
 
 #: core/includes/classes/Responsive_Options.php
 msgid "Upgrade"
-msgstr ""
+msgstr "Upgrade"
 
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-09 06:09:55 UTC\n"
+"PO-Revision-Date: 2014-05-28 06:06:35 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Hindi, India\n"
 "MIME-Version: 1.0\n"
@@ -452,14 +452,11 @@ msgstr ""
 msgid "Sitemap"
 msgstr ""
 
-#: core/includes/post-custom-meta.php
 msgid "Layout"
-msgstr ""
+msgstr "ख़ाका"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/post-custom-meta.php
 msgid "Default"
-msgstr ""
+msgstr "पूर्वतय"
 
 #: core/includes/theme-options/theme-options.php
 #: front-page.php
@@ -502,9 +499,8 @@ msgstr "क्रिया बटन को निष्क्रिय कर�
 msgid "Save Options"
 msgstr "सहेजें विकल्प"
 
-#: core/includes/classes/Responsive_Options.php
 msgid "Restore Defaults"
-msgstr ""
+msgstr "पूर्वतय पुनस्थापित करें"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Logo Upload"
@@ -575,9 +571,8 @@ msgstr "लेख्य पत्र देखे"
 msgid "Paste your shortcode, video or image source"
 msgstr "कृप्या अपना shortcode, video या छवि यहाँ लिखे"
 
-#: core/includes/theme-options/theme-options.php
 msgid "Default Layouts"
-msgstr ""
+msgstr "पूर्वतय खाका"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Default Static Page Layout"
@@ -821,9 +816,8 @@ msgstr ""
 msgid "check to enable"
 msgstr ""
 
-#: core/includes/theme-options/theme-options.php
 msgid "Click here"
-msgstr ""
+msgstr "यहाँ क्लिक करें"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
@@ -969,9 +963,8 @@ msgstr ""
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: core/includes/theme-options/theme-options.php
 msgid "Scripts"
-msgstr ""
+msgstr "स्क्रिप्ट्स"
 
 #: searchform.php
 msgid "Search for:"
@@ -1008,11 +1001,9 @@ msgstr ""
 msgid "Translate"
 msgstr ""
 
-#: core/includes/classes/Responsive_Options.php
 msgid "Upgrade"
-msgstr ""
+msgstr "उन्नत करें"
 
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
-

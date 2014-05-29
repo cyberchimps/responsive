@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-09 06:10:00 UTC\n"
+"PO-Revision-Date: 2014-05-28 06:06:39 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Ukrainian, Ukraine\n"
 "MIME-Version: 1.0\n"
@@ -745,12 +745,12 @@ msgstr ""
 
 #: core/includes/functions.php
 msgid "All plugins installed and activated successfully. %s"
-msgstr ""
+msgstr "Всі плагіни успішно встановлено й активовано. %s"
 
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "All theme settings will be lost!"
-msgstr ""
+msgstr "Налаштування теми будуть втрачені."
 
 #: core/includes/functions-sidebar.php
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: core/includes/functions-sidebar.php
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr ""
+msgstr "Область 11 - sidebar-top.php - відображається в правій частині шапки"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
@@ -786,40 +786,40 @@ msgstr ""
 
 #: core/includes/functions-sidebar.php
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+msgstr "Область 6 - sidebar-home.php - відображається на домашній сторінці"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+msgstr "Область 7 - sidebar-home.php - відображається на домашній сторінці"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+msgstr "Область 8 - sidebar-home.php - відображається на домашній сторінці"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
-msgstr ""
+msgstr "Область 9 - sidebar-gallery.php - відображається на сторінках після зображення, що було обране в галереї"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog"
-msgstr ""
+msgstr "Блог"
 
 #: core/includes/functions-update.php
 msgid "blog post"
-msgstr ""
+msgstr "публікація"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog Title Toggle"
-msgstr ""
+msgstr "Змінити назву сайту"
 
 #: core/includes/theme-options/theme-options.php
 #: core/includes/theme-options/theme-options.php
 msgid "check to disable"
-msgstr ""
+msgstr "вимкнути"
 
 #: core/includes/theme-options/theme-options.php
 msgid "check to enable"
-msgstr ""
+msgstr "увімкнути"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Click here"
@@ -828,11 +828,11 @@ msgstr ""
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "Click OK to Restore."
-msgstr ""
+msgstr "Натисніть OK для відновлення."
 
 #: core/includes/theme-options/theme-options.php
 msgid "CSS Styles"
-msgstr ""
+msgstr "Таблиці стилів"
 
 #. Author of the plugin/theme
 # INSTRUCTION: Author of the plugin/theme
@@ -850,7 +850,7 @@ msgstr ""
 #: core/includes/classes/Responsive_Options.php
 #: core/includes/theme-options/theme-options.php
 msgid "Do you want to restore?"
-msgstr ""
+msgstr "Бажаєте відновити?"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable Custom Front Page"
@@ -858,7 +858,7 @@ msgstr "Встановіть власний формат Домашньої ст
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable minified css?"
-msgstr ""
+msgstr "Використовувати мінімізовані таблиці стилів?"
 
 #: core/includes/functions-sidebar.php
 msgid "Footer Widget"
@@ -877,11 +877,11 @@ msgstr "http://cyberchimps.com"
 #. Theme URI of the plugin/theme
 # INSTRUCTION: Theme URI of the plugin/theme
 msgid "http://cyberchimps.com/responsive-theme/"
-msgstr ""
+msgstr "http://cyberchimps.com/responsive-theme/"
 
 #: core/includes/functions.php
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "Встановлення плагіна: %s"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -891,17 +891,21 @@ msgstr "Інструкції"
 #: core/includes/functions.php
 msgid "Activate installed plugin"
 msgid_plural "Activate installed plugins"
-msgstr[0] ""
+msgstr[0] "Активувати встановлений плагін"
+msgstr[1] "Активувати встановлені плагіни"
 
 #: core/includes/functions.php
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
-msgstr[0] ""
+msgstr[0] "Початок встановлення плагіна"
+msgstr[1] "Початок встановлення плагінів"
 
 #: comments.php
 msgid "One comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
+msgstr[0] "Один коментар в &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s коментарі в &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s коментарів в &ldquo;%2$s&rdquo;"
 
 #: core/includes/functions.php
 msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
@@ -921,7 +925,8 @@ msgstr[0] ""
 #: core/includes/functions.php
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
 msgid_plural ""
-msgstr[0] ""
+msgstr[0] "Наступний плагін потребує оновлення до останньої версії для повної сумісності з цією темою: %1$s."
+msgstr[1] "Наступний плагіни потребують оновлення до останньої версії для повної сумісності з цією темою: %1$s."
 
 #: core/includes/functions.php
 msgid "The following recommended plugin is currently inactive: %1$s."
@@ -941,7 +946,8 @@ msgstr[0] ""
 #: core/includes/functions.php
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
+msgstr[0] "Ця тема потребує наступного плагіна: %1$s."
+msgstr[1] "Ця тема потребує наступних плагінів: %1$s."
 
 #: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
@@ -949,12 +955,12 @@ msgstr "Примусово змінює"
 
 #: core/includes/functions.php
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "Плагін успішно активовано."
 
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
 msgid "Responsive"
-msgstr ""
+msgstr "Responsive"
 
 #: core/includes/functions.php
 msgid "Responsive Add Features"
@@ -967,11 +973,11 @@ msgstr ""
 
 #: core/includes/functions.php
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "Повернутися до встановлення важливих плагінів"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Scripts"
-msgstr ""
+msgstr "Скрипти"
 
 #: searchform.php
 msgid "Search for:"
@@ -979,7 +985,7 @@ msgstr ""
 
 #: core/includes/functions.php
 msgid "Something went wrong with the plugin API."
-msgstr ""
+msgstr "Виникли помилки з інтерфейсом плагіна."
 
 #: core/includes/functions-update.php
 #. Translators: This is a big update. Please read the blog post beforeupdating.
@@ -997,11 +1003,11 @@ msgstr ""
 
 #: core/includes/upsell/theme-upsell.php
 msgid "Themes You Can Trust"
-msgstr ""
+msgstr "Довірені теми"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Title Text"
-msgstr ""
+msgstr "Текст заголовка"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
