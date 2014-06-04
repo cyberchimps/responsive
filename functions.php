@@ -37,19 +37,10 @@ function responsive_free_get_option( $option, $default = false ) {
 	return $default;
 }
 
-// Stops updates from WPORG.
-function remove_theme_updates( $value ){
-
-	global $wp_version;
-	
-	if( isset( $value->response['responsive']) ) {
-		unset( $value->response['responsive'] );
-    }
-	
-	return $value;
-}
-
-// Check if stop_responsive2 toggle is on, if on then stop updates from WPORG.
+// Check if stop_responsive2 toggle is on, if on then include update class from wp-updates.com
 if( responsive_free_get_option( 'stop_responsive2' ) ) {
-	add_filter('site_transient_update_themes', 'remove_theme_updates');
+	
+	// Notify user of theme update on "Updates" page in Dashboard.
+	require_once( get_template_directory() . '/wp-updates-theme.php' );
+	new WPUpdatesThemeUpdater_797( 'http://wp-updates.com/api/2/theme', basename(get_template_directory()) );
 }
