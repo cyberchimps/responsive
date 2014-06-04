@@ -36,3 +36,20 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
+
+// Stops updates from WPORG.
+function remove_theme_updates( $value ){
+
+	global $wp_version;
+	
+	if( isset( $value->response['responsive']) ) {
+		unset( $value->response['responsive'] );
+    }
+	
+	return $value;
+}
+
+// Check if stop_responsive2 toggle is on, if on then stop updates from WPORG.
+if( responsive_free_get_option( 'stop_responsive2' ) ) {
+	add_filter('site_transient_update_themes', 'remove_theme_updates');
+}
