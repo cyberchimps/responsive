@@ -8,10 +8,18 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/07/14) - Improvements - Version 1.9.6.2
+
+[*] Updated Hindi Translation
+[*] Updated FitVids.js in minified version
+[*] Changed some codestyling
+
+----
+
 (05/30/14) - Improvements - Version 1.9.6.1
 
 [*] Updated Ukrainian, Bulgarian, German, French(Canada), Hindi and Dutch Translation
-[*] Updated FitVids.js
+[*] Updated FitVids.js in development version
 
 ----
 
