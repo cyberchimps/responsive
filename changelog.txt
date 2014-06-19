@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/20/14) - Improvements - Version 1.9.6.4-5
+
+[+] Change page templates when reverting from Responsive v2.0
+[*] Move tags under categories under posts
+
+----
+
 (06/11/14) - Improvements - Version 1.9.6.3
 
 [*] Fix minified js
