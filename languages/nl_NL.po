@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-29 17:14:21 UTC\n"
+"PO-Revision-Date: 2014-05-29 20:16:36 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: Dutch, Netherlands\n"
 "MIME-Version: 1.0\n"
@@ -747,12 +747,14 @@ msgstr "Schakel add-ons in"
 msgid "All plugins installed and activated successfully. %s"
 msgstr "Alle plugins werden met succes geïnstalleerd en geactiveerd. %s"
 
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
 msgid "All theme settings will be lost!"
 msgstr "Alle thema-instellingen zullen verloren gaan!"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr "Gebied 10 - sidebar-colophon.php, footer widget van volledige (100%) breedte"
+msgstr "Gebied 10 - sidebar-colophon.php, voettekst widget van volledige (100%) breedte"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
@@ -776,19 +778,19 @@ msgstr "Gebied 3 - sidebar-left.php - Wordt weergegeven op zijbalk/inhoud pagina
 
 #: core/includes/functions-sidebar.php
 msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
-msgstr "Gebied 4 - sidebar-left-half.php - Wordt weergegeven op de Zijbalk halve paginabreedte/Inhoud paginasjablonen"
+msgstr "Gebied 4 - sidebar-left-half.php - Wordt weergegeven op de Zijbalk halverwege pagina/Inhoud paginasjablonen"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
-msgstr "Gebied 5 - sidebar-right-half.php - Wordt weergegeven op de Inhoud/Zijbalk halve paginabreedte paginasjablonen"
+msgstr "Gebied 5 - sidebar-right-half.php - Wordt weergegeven op de Inhoud/Zijbalk halverwege pagina paginasjablonen"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr "Gebied 6 - sidebar-home.php - Wordt weergegeven op de homepage"
+msgstr "Gebied 6 - sidebar-home.php - Wordt op de homepagina weergegeven"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr "Gebied 7 - sidebar-home.php - Wordt op de hompage weergegeven"
+msgstr "Gebied 7 - sidebar-home.php - Wordt op de hompagina weergegeven"
 
 #: core/includes/functions-sidebar.php
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
@@ -856,11 +858,11 @@ msgstr "Schakel aangepaste frontpagina in"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Enable minified css?"
-msgstr "Activeer gecomprimeerde css?"
+msgstr "Gecomprimeerde css inschakelen?"
 
 #: core/includes/functions-sidebar.php
 msgid "Footer Widget"
-msgstr "Footer widget"
+msgstr "Voettekst widget"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -952,9 +954,8 @@ msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] "Dit thema heeft volgende plugin nodig: %1$s."
 msgstr[1] "Dit thema heeft volgende plugins nodig: %1$s."
 
-#: core/includes/theme-options/theme-options.php
 msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr "Overschrijft de Wordpress %1sfrontpaginaoptie"
+msgstr "Overschrijft de Wordpress %1sfrontpaginaoptie%2s"
 
 #: core/includes/functions.php
 msgid "Plugin activated successfully."
@@ -972,7 +973,7 @@ msgstr "Responsive functies toevoegen"
 #. Description of the plugin/theme
 # INSTRUCTION: Description of the plugin/theme
 msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
-msgstr "Het Responsive thema is een flexibele basis met een veerkrachtig rastersysteem dat de weergave van uw website aanpast aan elk platform (Desktop, tablet, smartphone, enz.). Het thema heeft 9 paginasjablonen, 11 widget-gebieden, 6 sjabloonlayouts, 4 menuposities en meer. Krachtige maar eenvoudige themaopties voor volledige CMS-controle met eenvoudige logo-upload, hulpmiddelen voor sociale netwerken en webmasters enz. Responsive is compatibel met WooCommerce, meertalig (WPML), ondersteuning voor talen die van rechts naar links (RTL) worden geschreven, Retina-klaar, zoekmachinevriendelijk, validatie van W3C opmaak en momenteel vertaald naar 45 talen. Cross-browser compatibel.  <a href=\"http://cyberchimps.com/forum/free/responsive/\">Officieel ondersteuningsforum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgstr "Het Responsive thema is een flexibele basis met een veerkrachtig rastersysteem dat de weergave van uw website aanpast aan elk platform (Desktop, tablet, smartphone, enz.). Het thema heeft 9 paginasjablonen, 11 widget-gebieden, 6 sjabloonlayouts, 4 menuposities en meer. Krachtige maar eenvoudige themaopties voor volledige CMS-controle met eenvoudige logo-upload, hulpmiddelen voor sociale netwerken en webmasters enz. Responsive is compatibel met WooCommerce, meertalig (WPML), ondersteuning voor talen die van rechts naar links (RTL) worden geschreven, Retina-ready, zoekmachinevriendelijk, W3C-opmaak gevalideerd en momenteel vertaald naar 45 talen. Cross-browser compatibel.  <a href=\"http://cyberchimps.com/forum/free/responsive/\">Officieel ondersteuningsforum</a> (http://cyberchimps.com/forum/free/responsive/)"
 
 #: core/includes/functions.php
 msgid "Return to Required Plugins Installer"
@@ -1004,9 +1005,11 @@ msgstr "De aangepaste frontpagina is uitgeschakeld. U kunt deze inschakelen in d
 msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
 msgstr "De aangepaste frontpagina is ingeschakeld. U kunt deze uitschakelen in de <a href=\"%1$s\"> thema-instellingen</a>."
 
+#: core/includes/upsell/theme-upsell.php
 msgid "Themes You Can Trust"
 msgstr "Thema's waarop u kunt vertrouwen"
 
+#: core/includes/theme-options/theme-options.php
 msgid "Title Text"
 msgstr "Titel tekst"
 
