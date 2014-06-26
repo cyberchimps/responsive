@@ -8,6 +8,14 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/27/14) - Improvements - Version 1.9.6.6
+
+[!] Update NL translation to fix theme options bug
+[*] Improve page template switch from Responsive v2.0
+[*] Enclose add_image_size within a function
+
+----
+
 (06/20/14) - Improvements - Version 1.9.6.4-5
 
 [+] Change page templates when reverting from Responsive v2.0
