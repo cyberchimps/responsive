@@ -433,12 +433,10 @@ msgstr ""
 msgid "Sidebar/Content Half Page"
 msgstr ""
 
-#: full-width-page.php
-#: core/includes/post-custom-meta.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
-msgstr ""
+msgstr "Plná šířka stránka (bez postranního panelu)"
 
 #: landing-page.php
 #. Template Name of the plugin/theme
@@ -804,9 +802,8 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: core/includes/functions-update.php
 msgid "blog post"
-msgstr ""
+msgstr "příspěvky na blogu"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Blog Title Toggle"
@@ -879,9 +876,8 @@ msgstr "http://cyberchimps.com"
 msgid "http://cyberchimps.com/responsive-theme/"
 msgstr ""
 
-#: core/includes/functions.php
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "Nainstalovat plugin: %s"
 
 #: core/includes/functions.php
 #: core/includes/functions.php
@@ -947,9 +943,8 @@ msgstr[0] ""
 msgid "Overrides the WordPress %1sfront page option%2s"
 msgstr ""
 
-#: core/includes/functions.php
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "Plugin byl úspěšně aktivován."
 
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
@@ -1008,11 +1003,8 @@ msgstr ""
 msgid "Translate"
 msgstr "Překlad"
 
-#: core/includes/classes/Responsive_Options.php
 msgid "Upgrade"
-msgstr ""
+msgstr "Aktualizace"
 
-#: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr ""
-
+msgstr "Vítejte v %1$s! Proveďte dnes aktualizaci na %2$s."
