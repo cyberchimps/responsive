@@ -36,8 +36,7 @@ if( !defined( 'ABSPATH' ) ) {
 			<?php endif; //end of home-widget-1 ?>
 
 			<?php responsive_widgets_end(); // responsive after widgets hook ?>
-		</div>
-		<!-- end of .col-300 -->
+		</div><!-- end of .col-300 -->
 
 		<div id="home_widget_2" class="grid col-300">
 			<?php responsive_widgets(); // responsive above widgets hook ?>
@@ -53,8 +52,7 @@ if( !defined( 'ABSPATH' ) ) {
 			<?php endif; //end of home-widget-2 ?>
 
 			<?php responsive_widgets_end(); // after widgets hook ?>
-		</div>
-		<!-- end of .col-300 -->
+		</div><!-- end of .col-300 -->
 
 		<div id="home_widget_3" class="grid col-300 fit">
 			<?php responsive_widgets(); // above widgets hook ?>
@@ -70,7 +68,6 @@ if( !defined( 'ABSPATH' ) ) {
 			<?php endif; //end of home-widget-3 ?>
 
 			<?php responsive_widgets_end(); // after widgets hook ?>
-		</div>
-		<!-- end of .col-300 fit -->
+		</div><!-- end of .col-300 fit -->
 	</div><!-- end of #widgets -->
 <?php responsive_widgets_after(); // after widgets container hook ?>

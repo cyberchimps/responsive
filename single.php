@@ -52,14 +52,12 @@ get_header(); ?>
 					<?php endif; // no description, no author's meta ?>
 
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
-				</div>
-				<!-- end of .post-entry -->
+				</div><!-- end of .post-entry -->
 
 				<div class="navigation">
 					<div class="previous"><?php previous_post_link( '&#8249; %link' ); ?></div>
 					<div class="next"><?php next_post_link( '%link &#8250;' ); ?></div>
-				</div>
-				<!-- end of .navigation -->
+				</div><!-- end of .navigation -->
 
 				<?php get_template_part( 'post-data' ); ?>
 

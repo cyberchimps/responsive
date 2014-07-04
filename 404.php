@@ -32,12 +32,10 @@ if( !defined( 'ABSPATH' ) ) {
 
 			<?php get_template_part( 'loop-no-posts' ); ?>
 
-		</div>
-		<!-- end of .post-entry -->
+		</div><!-- end of .post-entry -->
 
 		<?php responsive_entry_bottom(); ?>
-	</div>
-	<!-- end of #post-0 -->
+	</div><!-- end of #post-0 -->
 	<?php responsive_entry_after(); ?>
 
 </div><!-- end of #content-full -->
