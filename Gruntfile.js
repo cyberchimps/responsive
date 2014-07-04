@@ -80,6 +80,26 @@ module.exports = function(grunt) {
 			},
 		},
 
+		dirs: {
+			lang: 'languages',
+		},
+
+		potomo: {
+			dist: {
+				options: {
+					poDel: false
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= dirs.lang %>',
+					src: ['*.po'],
+					dest: '<%= dirs.lang %>',
+					ext: '.mo',
+					nonull: true
+				}]
+			}
+		},
+
 		//Compress build directory into <name>.zip and <name>-<version>.zip
 		compress: {
 			main: {

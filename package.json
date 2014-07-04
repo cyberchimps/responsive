@@ -17,6 +17,7 @@
     "grunt-contrib-cssmin": "~0.8.0",
     "grunt-contrib-csslint": "~0.2.0",
     "grunt-checktextdomain": "~0.1.0",
-    "grunt-contrib-compress": "~0.5.2"
+    "grunt-contrib-compress": "~0.5.2",
+    "grunt-potomo": "~0.1.7"
   }
 }
