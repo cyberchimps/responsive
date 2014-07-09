@@ -42,7 +42,12 @@ if( is_category() || is_tag() || is_author() || is_date() ) {
 		endif;
 		?>
 	</h6>
-<?php
+	<?php
+		// Show an optional term description.
+		$term_description = term_description();
+		if ( ! empty( $term_description ) ) {
+			printf( '<div class="taxonomy-description">%s</div>', $term_description );
+		}
 }
 
 /**
