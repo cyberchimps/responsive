@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/11/14) - Improvements - Version 1.9.6.8
+
+[*] Add taxonomy description to archive page
+[*] Seperate featured area from front page
+
+----
+
 (07/04/14) - Improvements - Version 1.9.6.7
 
 [*] Update cs_CZ translation
