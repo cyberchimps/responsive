@@ -43,7 +43,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 } else {
 	get_header();
 
-	get_template_part( 'template-parts/featured-area', $responsive_options['featured_area_layout'] );
+	get_template_part( 'template-parts/featured-area' );
 
 	get_sidebar( 'home' );
 
