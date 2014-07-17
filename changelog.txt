@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/11/14) - Improvements - Version 1.9.6.9
+
+[!] Fix very long submenu items
+[!] Fix path to ie7-fix.gif
+[!] Fix front page error message
+
+----
 (07/11/14) - Improvements - Version 1.9.6.8
 
 [*] Add taxonomy description to archive page
