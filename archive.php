@@ -44,8 +44,7 @@ get_header(); ?>
 					<?php endif; ?>
 					<?php the_excerpt(); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
-				</div>
-				<!-- end of .post-entry -->
+				</div><!-- end of .post-entry -->
 
 				<?php get_template_part( 'post-data' ); ?>
 

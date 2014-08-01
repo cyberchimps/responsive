@@ -62,8 +62,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 		<?php endif; ?>
 
-	</div>
-	<!-- end of .col-460 -->
+	</div><!-- end of .col-460 -->
 
 	<div id="featured-image" class="grid col-460 fit">
 
@@ -71,7 +70,6 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 		<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
 
-	</div>
-	<!-- end of #featured-image -->
+	</div><!-- end of #featured-image -->
 
 </div><!-- end of #featured -->
