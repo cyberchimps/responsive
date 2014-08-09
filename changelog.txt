@@ -8,6 +8,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/10/14) - Improvements - Version 1.9.7.1
+
+[*] Improve the organisation of the functions
+[*] Clean up code
+[!] Fix screen reader link
+[+] Add filter `responsive_number_footer_widgets` to change when the `fit` class is added in the footer widgets.
+
+----
+
 (07/25/14) - Improvements - Version 1.9.7.0
 
 [!] Improve Responsive Grid
