@@ -8,6 +8,14 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/24/14) - Improvements - Version 1.9.7.2
+
+[!] Fix stray p tag in activation notice
+[+] Add wrapper for Breadcrumb NavXT
+[+] Define content width depending on page template
+
+----
+
 (08/10/14) - Improvements - Version 1.9.7.1
 
 [*] Improve the organisation of the functions
