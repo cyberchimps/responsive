@@ -8,6 +8,14 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/06/14) - Improvements - Version 1.9.7.3
+
+[+] Add iFeatured Slider as recommended plugin
+[*] Escape variables to improve security
+[*] Small code improvements
+
+----
+
 (08/24/14) - Improvements - Version 1.9.7.2
 
 [!] Fix stray p tag in activation notice
