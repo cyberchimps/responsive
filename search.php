@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="content-search" class="<?php echo implode( ' ', responsive_get_content_classes() ); ?>">
+<div id="content-search" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php if( have_posts() ) : ?>
 

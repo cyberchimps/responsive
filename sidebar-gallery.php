@@ -32,23 +32,22 @@ if( !defined( 'ABSPATH' ) ) {
 
 				if( is_array( $responsive_data ) ) {
 					?>
-					<span class="full-size"><?php _e( 'Full Size:', 'responsive' ); ?> <a
-							href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo $responsive_data['width'] . '&#215;' . $responsive_data['height']; ?></a>px</span>
+					<span class="full-size"><?php _e( 'Full Size:', 'responsive' ); ?> <a href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo esc_attr( $responsive_data['width'] ) . '&#215;' . esc_attr( $responsive_data['height'] ); ?></a>px</span>
 
 					<?php
 					if( is_array( $responsive_data['image_meta'] ) ) {
 						?>
 						<?php if( $responsive_data['image_meta']['aperture'] ) { ?>
-							<span class="aperture"><?php _e( 'Aperture: f&#47;', 'responsive' ); ?><?php echo $responsive_data['image_meta']['aperture']; ?></span>
+							<span class="aperture"><?php _e( 'Aperture: f&#47;', 'responsive' ); ?><?php echo esc_attr( $responsive_data['image_meta']['aperture'] ); ?></span>
 						<?php } ?>
 
 						<?php if( $responsive_data['image_meta']['focal_length'] ) { ?>
 							<span
-								class="focal-length"><?php _e( 'Focal Length:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['focal_length']; ?><?php _e( 'mm', 'responsive' ); ?></span>
+								class="focal-length"><?php _e( 'Focal Length:', 'responsive' ); ?> <?php echo esc_attr( $responsive_data['image_meta']['focal_length'] ); ?><?php _e( 'mm', 'responsive' ); ?></span>
 						<?php } ?>
 
 						<?php if( $responsive_data['image_meta']['iso'] ) { ?>
-							<span class="iso"><?php _e( 'ISO:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['iso']; ?></span>
+							<span class="iso"><?php _e( 'ISO:', 'responsive' ); ?> <?php echo esc_attr( $responsive_data['image_meta']['iso'] ); ?></span>
 						<?php } ?>
 
 						<?php if( $responsive_data['image_meta']['shutter_speed'] ) { ?>
@@ -56,22 +55,22 @@ if( !defined( 'ABSPATH' ) ) {
 								<?php
 								if( ( 1 / $responsive_data['image_meta']['shutter_speed'] ) > 1 ) {
 									echo "1/";
-									if( number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 1 ) == number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 0 ) ) {
-										echo number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 0, '.', '' ) . ' sec';
+									if( number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1 ) == number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0 ) ) {
+										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0, '.', '' ) . ' ' . __( 'sec', 'responsive' );
 									}
 									else {
-										echo number_format( ( 1 / $responsive_data['image_meta']['shutter_speed'] ), 1, '.', '' ) . ' sec';
+										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1, '.', '' ) . ' ' . __( 'sec', 'responsive' );
 									}
 								}
 								else {
-									echo $responsive_data['image_meta']['shutter_speed'] . ' sec';
+									echo esc_attr( $responsive_data['image_meta']['shutter_speed'] ) . ' ' . __( 'sec', 'responsive' );
 								}
 								?>
 								</span>
 						<?php } ?>
 
 						<?php if( $responsive_data['image_meta']['camera'] ) { ?>
-							<span class="camera"><?php _e( 'Camera:', 'responsive' ); ?> <?php echo $responsive_data['image_meta']['camera']; ?></span>
+							<span class="camera"><?php _e( 'Camera:', 'responsive' ); ?> <?php echo esc_attr( $responsive_data['image_meta']['camera'] ); ?></span>
 						<?php
 						}
 					}
@@ -79,8 +78,7 @@ if( !defined( 'ABSPATH' ) ) {
 				?>
 			</ul>
 
-		</div>
-		<!-- end of .widget-wrapper -->
+		</div><!-- end of .widget-wrapper -->
 	</div><!-- end of #widgets -->
 
 <?php if( !is_active_sidebar( 'gallery-widget' ) ) {
