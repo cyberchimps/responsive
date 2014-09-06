@@ -55,7 +55,7 @@ Template Name: Sitemap
 
 						<div class="grid col-300 fit">
 							<div class="widget-title"><h3><?php _e( 'Pages', 'responsive' ); ?></h3></div>
-							<ul><?php wp_list_pages( "title_li=" ); ?></ul>
+							<ul><?php wp_list_pages( 'title_li=' ); ?></ul>
 						</div><!-- end of .col-300 fit -->
 
 					</div><!-- end of #widgets -->
