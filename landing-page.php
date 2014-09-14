@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -25,7 +25,7 @@ get_header(); ?>
 
 <div id="content-full" class="grid col-940">
 
-	<?php if( have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
 		<?php while( have_posts() ) : the_post(); ?>
 
@@ -40,7 +40,7 @@ get_header(); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div><!-- end of .post-entry -->
 
-				<?php get_template_part( 'post-data' ); ?>
+				<?php get_template_part( 'post-data', get_post_type() ); ?>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
@@ -49,11 +49,11 @@ get_header(); ?>
 		<?php
 		endwhile;
 
-		get_template_part( 'loop-nav' );
+		get_template_part( 'loop-nav', get_post_type() );
 
 	else :
 
-		get_template_part( 'loop-no-posts' );
+		get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
 	?>

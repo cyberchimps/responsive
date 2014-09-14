@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -28,13 +28,13 @@ $more = 0;
 	<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 		<!-- Blog page title -->
-		<?php if( responsive_free_get_option( 'blog_post_title_toggle' ) ) { ?>
+		<?php if ( responsive_free_get_option( 'blog_post_title_toggle' ) ) { ?>
 			<h1> <?php echo responsive_free_get_option( 'blog_post_title_text' ); ?> </h1>
 		<?php } ?>
 
-		<?php get_template_part( 'loop-header' ); ?>
+		<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
-		<?php if( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
 			<?php while( have_posts() ) : the_post(); ?>
 
@@ -42,10 +42,10 @@ $more = 0;
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php responsive_entry_top(); ?>
 
-					<?php get_template_part( 'post-meta' ); ?>
+					<?php get_template_part( 'post-meta', get_post_type() ); ?>
 
 					<div class="post-entry">
-						<?php if( has_post_thumbnail() ) : ?>
+						<?php if ( has_post_thumbnail() ) : ?>
 							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 								<?php the_post_thumbnail(); ?>
 							</a>
@@ -55,7 +55,7 @@ $more = 0;
 					</div>
 					<!-- end of .post-entry -->
 
-					<?php get_template_part( 'post-data' ); ?>
+					<?php get_template_part( 'post-data', get_post_type() ); ?>
 
 					<?php responsive_entry_bottom(); ?>
 				</div><!-- end of #post-<?php the_ID(); ?> -->
@@ -64,11 +64,11 @@ $more = 0;
 			<?php
 			endwhile;
 
-			get_template_part( 'loop-nav' );
+			get_template_part( 'loop-nav', get_post_type() );
 
 		else :
 
-			get_template_part( 'loop-no-posts' );
+			get_template_part( 'loop-no-posts', get_post_type() );
 
 		endif;
 		?>

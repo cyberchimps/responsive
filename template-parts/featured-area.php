@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -20,7 +20,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 		<h1 class="featured-title">
 			<?php
-			if( isset( $responsive_options['home_headline'] ) && $db && $empty )
+			if ( isset( $responsive_options['home_headline'] ) && $db && $empty )
 				echo $responsive_options['home_headline'];
 			else {
 				_e( 'Hello, World!', 'responsive' );
@@ -30,7 +30,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 		<h2 class="featured-subtitle">
 			<?php
-			if( isset( $responsive_options['home_subheadline'] ) && $db && $empty )
+			if ( isset( $responsive_options['home_subheadline'] ) && $db && $empty )
 				echo $responsive_options['home_subheadline'];
 			else
 				_e( 'Your H2 subheadline here', 'responsive' );
@@ -45,13 +45,13 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		} ?>
 
 
-		<?php if( $responsive_options['cta_button'] == 0 ): ?>
+		<?php if ( $responsive_options['cta_button'] == 0 ): ?>
 
 			<div class="call-to-action">
 
 				<a href="<?php echo $responsive_options['cta_url']; ?>" class="blue button">
 					<?php
-					if( isset( $responsive_options['cta_text'] ) && $db && $emtpy_cta )
+					if ( isset( $responsive_options['cta_text'] ) && $db && $emtpy_cta )
 						echo $responsive_options['cta_text'];
 					else
 						_e( 'Call to Action', 'responsive' );

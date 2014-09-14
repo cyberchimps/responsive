@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -42,7 +42,7 @@ $responsive_options = responsive_get_options();
 		<div class="grid col-940">
 
 			<div class="grid col-540">
-				<?php if( has_nav_menu( 'footer-menu', 'responsive' ) ) {
+				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu( array(
 						'container'      => '',
 						'fallback_cb'    => false,

@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -33,7 +33,7 @@ function responsive_free_get_option( $option, $default = false ) {
 	global $responsive_options;
 
 	// If the option is set then return it's value, otherwise return false.
-	if( isset( $responsive_options[$option] ) ) {
+	if ( isset( $responsive_options[$option] ) ) {
 		return $responsive_options[$option];
 	}
 

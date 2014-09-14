@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -24,7 +24,7 @@ if( !defined( 'ABSPATH' ) ) {
 	<div id="widgets" class="grid-right col-460 rtl-fit">
 		<?php responsive_widgets(); // above widgets hook ?>
 
-		<?php if( !dynamic_sidebar( 'left-sidebar-half' ) ) : ?>
+		<?php if ( !dynamic_sidebar( 'left-sidebar-half' ) ) : ?>
 			<div class="widget-wrapper">
 
 				<div class="widget-title"><h3><?php _e( 'In Archive', 'responsive' ); ?></h3></div>

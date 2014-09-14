@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -25,7 +25,7 @@ Template Name:  Sidebar/Content
 
 <div id="content" class="grid-right col-620 fit">
 
-	<?php if( have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
 		<?php while( have_posts() ) : the_post(); ?>
 
@@ -37,11 +37,11 @@ Template Name:  Sidebar/Content
 
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
-				<?php if( comments_open() ) : ?>
+				<?php if ( comments_open() ) : ?>
 					<div class="post-meta">
 						<?php responsive_post_meta_data(); ?>
 
-						<?php if( comments_open() ) : ?>
+						<?php if ( comments_open() ) : ?>
 							<span class="comments-link">
                         <span class="mdash">&mdash;</span>
 								<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
@@ -56,7 +56,7 @@ Template Name:  Sidebar/Content
 				</div>
 				<!-- end of .post-entry -->
 
-				<?php if( comments_open() ) : ?>
+				<?php if ( comments_open() ) : ?>
 					<div class="post-data">
 						<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
 						<?php the_category( __( 'Posted in %s', 'responsive' ) . ', ' ); ?>
@@ -76,11 +76,11 @@ Template Name:  Sidebar/Content
 		<?php
 		endwhile;
 
-		get_template_part( 'loop-nav' );
+		get_template_part( 'loop-nav', get_post_type() );
 
 	else :
 
-		get_template_part( 'loop-no-posts' );
+		get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
 	?>

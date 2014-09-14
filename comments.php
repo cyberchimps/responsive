@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -20,13 +20,13 @@ if( !defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 ?>
-<?php if( post_password_required() ) { ?>
+<?php if ( post_password_required() ) { ?>
 	<p class="nocomments"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'responsive' ); ?></p>
 
 	<?php return;
 } ?>
 
-<?php if( have_comments() ) : ?>
+<?php if ( have_comments() ) : ?>
 	<h6 id="comments">
 		<?php
 		printf( _n( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'responsive' ),
@@ -34,7 +34,7 @@ if( !defined( 'ABSPATH' ) ) {
 		?>
 	</h6>
 
-	<?php if( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<div class="navigation">
 			<div class="previous"><?php previous_comments_link( __( '&#8249; Older comments', 'responsive' ) ); ?></div>
 			<!-- end of .previous -->
@@ -47,7 +47,7 @@ if( !defined( 'ABSPATH' ) ) {
 		<?php wp_list_comments( 'avatar_size=60&type=comment' ); ?>
 	</ol>
 
-	<?php if( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<div class="navigation">
 			<div class="previous"><?php previous_comments_link( __( '&#8249; Older comments', 'responsive' ) ); ?></div>
 			<!-- end of .previous -->
@@ -61,7 +61,7 @@ if( !defined( 'ABSPATH' ) ) {
 <?php endif; ?>
 
 <?php
-if( !empty( $comments_by_type['pings'] ) ) : // let's seperate pings/trackbacks from comments
+if ( !empty( $comments_by_type['pings'] ) ) : // let's seperate pings/trackbacks from comments
 	$count = count( $comments_by_type['pings'] );
 	( $count !== 1 ) ? $txt = __( 'Pings&#47;Trackbacks', 'responsive' ) : $txt = __( 'Pings&#47;Trackbacks', 'responsive' );
 	?>
@@ -75,7 +75,7 @@ if( !empty( $comments_by_type['pings'] ) ) : // let's seperate pings/trackbacks 
 
 <?php endif; ?>
 
-<?php if( comments_open() ) : ?>
+<?php if ( comments_open() ) : ?>
 
 	<?php
 	$fields = array(

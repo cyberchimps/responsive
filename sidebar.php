@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -50,7 +50,7 @@ switch ( $layout ) {
 	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>">
 		<?php responsive_widgets(); // above widgets hook ?>
 
-		<?php if( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
+		<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
 			<div class="widget-wrapper">
 
 				<div class="widget-title"><h3><?php _e( 'In Archive', 'responsive' ); ?></h3></div>

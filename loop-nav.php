@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) ) {
 /**
  * Output Prev/Next Posts Links
  */
-if( $wp_query->max_num_pages > 1 ) :
+if ( $wp_query->max_num_pages > 1 ) :
 	?>
 
 	<div class="navigation">

@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -21,7 +21,7 @@ if( !defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php
-if( !is_active_sidebar( 'colophon-widget' )
+if ( !is_active_sidebar( 'colophon-widget' )
 ) {
 	return;
 }
@@ -30,7 +30,7 @@ if( !is_active_sidebar( 'colophon-widget' )
 	<div id="colophon-widget" class="grid col-940">
 		<?php responsive_widgets(); // above widgets hook ?>
 
-		<?php if( is_active_sidebar( 'colophon-widget' ) ) : ?>
+		<?php if ( is_active_sidebar( 'colophon-widget' ) ) : ?>
 
 			<?php dynamic_sidebar( 'colophon-widget' ); ?>
 

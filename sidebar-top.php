@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -21,7 +21,7 @@ if( !defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php
-if( !is_active_sidebar( 'top-widget' )
+if ( !is_active_sidebar( 'top-widget' )
 ) {
 	return;
 }
@@ -30,7 +30,7 @@ if( !is_active_sidebar( 'top-widget' )
 	<div id="top-widget" class="top-widget">
 		<?php responsive_widgets(); // above widgets hook ?>
 
-		<?php if( is_active_sidebar( 'top-widget' ) ) : ?>
+		<?php if ( is_active_sidebar( 'top-widget' ) ) : ?>
 
 			<?php dynamic_sidebar( 'top-widget' ); ?>
 

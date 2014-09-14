@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -21,7 +21,7 @@ if( !defined( 'ABSPATH' ) ) {
  */
 
 
-if( !is_active_sidebar( 'footer-widget' ) ) {
+if ( !is_active_sidebar( 'footer-widget' ) ) {
 	return;
 }
 ?>
@@ -29,7 +29,7 @@ if( !is_active_sidebar( 'footer-widget' ) ) {
 	<div id="footer_widget" class="grid col-940">
 		<?php responsive_widgets(); // above widgets hook ?>
 
-		<?php if( is_active_sidebar( 'footer-widget' ) ) : ?>
+		<?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
 
 			<?php dynamic_sidebar( 'footer-widget' ); ?>
 

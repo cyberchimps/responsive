@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( !defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -24,7 +24,7 @@ if( !defined( 'ABSPATH' ) ) {
 
 <div id="content-images" class="grid col-620">
 
-	<?php if( have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
 		<?php while( have_posts() ) : the_post(); ?>
 
@@ -39,7 +39,7 @@ if( !defined( 'ABSPATH' ) ) {
 				<div class="post-meta">
 					<?php responsive_post_meta_data(); ?>
 
-					<?php if( comments_open() ) : ?>
+					<?php if ( comments_open() ) : ?>
 						<span class="comments-link">
                         <span class="mdash">&mdash;</span>
 							<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
@@ -50,7 +50,7 @@ if( !defined( 'ABSPATH' ) ) {
 
 				<div class="attachment-entry">
 					<a href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo wp_get_attachment_image( $post->ID, 'large' ); ?></a>
-					<?php if( !empty( $post->post_excerpt ) ) {
+					<?php if ( !empty( $post->post_excerpt ) ) {
 						the_excerpt();
 					} ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
@@ -64,7 +64,7 @@ if( !defined( 'ABSPATH' ) ) {
 				</div>
 				<!-- end of .navigation -->
 
-				<?php if( comments_open() ) : ?>
+				<?php if ( comments_open() ) : ?>
 					<div class="post-data">
 						<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
 						<?php the_category( __( 'Posted in %s', 'responsive' ) . ', ' ); ?>
@@ -84,11 +84,11 @@ if( !defined( 'ABSPATH' ) ) {
 		<?php
 		endwhile;
 
-		get_template_part( 'loop-nav' );
+		get_template_part( 'loop-nav', get_post_type() );
 
 	else :
 
-		get_template_part( 'loop-no-posts' );
+		get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
 	?>
