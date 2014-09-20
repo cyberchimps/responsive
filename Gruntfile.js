@@ -7,6 +7,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
+		dirs: {
+			lang: 'languages',
+		},
+
 		checktextdomain: {
 			options:{
 				text_domain: '<%= pkg.name %>',
@@ -78,10 +82,6 @@ module.exports = function(grunt) {
 					src: 'languages/*.po',
 				expand: true,
 			},
-		},
-
-		dirs: {
-			lang: 'languages',
 		},
 
 		potomo: {
