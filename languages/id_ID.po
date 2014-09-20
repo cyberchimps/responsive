@@ -446,11 +446,10 @@ msgstr ""
 msgid "Landing Page (no menu)"
 msgstr ""
 
-#: sitemap.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Sitemap"
-msgstr ""
+msgstr "Daftar isi"
 
 #: core/includes/post-custom-meta.php
 msgid "Layout"
@@ -1015,4 +1014,3 @@ msgstr ""
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
-

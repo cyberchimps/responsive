@@ -271,27 +271,24 @@ msgstr "I arkiv"
 msgid "Home Widget 1"
 msgstr "Hjemmewidget 1"
 
-#: sidebar-home.php
 msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
-msgstr "Dette er din første widget boks på forsiden. For at redigere den skal du gå til Udseende> Widgets og vælge den 6. Widget fra toppen i område seks kaldet Hjem Widget 1. Titlen kan også ændres."
+msgstr "Dette er din første widget-boks på forsiden. For at redigere den skal du gå til Udseende > Widgets og vælge den 6. widget fra toppen i område seks kaldet Hjemmewidget 1. Titlen kan også ændres."
 
 #: core/includes/functions-sidebar.php
 #: sidebar-home.php
 msgid "Home Widget 2"
 msgstr "Hjemmewidget 2"
 
-#: sidebar-home.php
 msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
-msgstr "Dette er din anden widget boks på forsiden. For at redigere den skal du gå til Udseende> Widgets og vælge den 7. Widget fra toppen i område seks kaldet Hjem Widget 2. Titlen kan også ændres."
+msgstr "Dette er din anden widget-boks på forsiden. For at redigere den skal du gå til Udseende > Widgets og vælge den 7. widget fra toppen i område seks kaldet Hjemmewidget 2. Titlen kan også ændres."
 
 #: core/includes/functions-sidebar.php
 #: sidebar-home.php
 msgid "Home Widget 3"
 msgstr "Hjemmewidget 3"
 
-#: sidebar-home.php
 msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
-msgstr "Dette er din trejde widget boks på forsiden. For at redigere den skal du gå til Udseende> Widgets og vælge den 8. Widget fra toppen i område seks kaldet Hjem Widget 3. Titlen kan også ændres."
+msgstr "Dette er din trejde widget-boks på forsiden. For at redigere den skal du gå til Udseende > Widgets og vælge den 8. widget fra toppen i område seks kaldet Hjemmewidget 3. Titlen kan også ændres."
 
 #: single.php
 msgid "About"
@@ -1026,4 +1023,3 @@ msgstr "Opgrader"
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr "Velkommen til %1$s! Opgrader til %2$s i dag."
-

@@ -93,9 +93,8 @@ msgstr "e-mail"
 msgid "Website"
 msgstr "Site da Web"
 
-#: footer.php
 msgid "&copy;"
-msgstr "copiar"
+msgstr "©"
 
 #: footer.php
 msgid "scroll to top"
@@ -1015,4 +1014,3 @@ msgstr "Actualizar"
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr "Bem vindo ao %1$s! Faz o upgrade para o %2$s já hoje!"
-

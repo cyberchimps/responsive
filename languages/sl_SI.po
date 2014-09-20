@@ -864,10 +864,8 @@ msgstr ""
 msgid "Footer Widget"
 msgstr ""
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Help"
-msgstr ""
+msgstr "Pomoč"
 
 #. Author URI of the plugin/theme
 # INSTRUCTION: Author URI of the plugin/theme
@@ -883,10 +881,8 @@ msgstr ""
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Instructions"
-msgstr ""
+msgstr "Navodila"
 
 #: core/includes/functions.php
 msgid "Activate installed plugin"
@@ -1015,4 +1011,3 @@ msgstr ""
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
-

@@ -325,10 +325,8 @@ msgstr "תפריט בתת-כותרת עליונה"
 msgid "Footer Menu"
 msgstr "תפריט בתחתית הדף"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
 msgid "Page %s"
-msgstr ""
+msgstr "עמוד %s"
 
 #: core/includes/functions.php
 msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
@@ -393,52 +391,40 @@ msgstr "ווידג'ט Colophon"
 msgid "Top Widget"
 msgstr "ווידג'ט עליון"
 
-#: blog.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog (full posts)"
-msgstr ""
+msgstr "בלוג (עמודים מלאים)"
 
-#: blog-excerpt.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Blog Excerpt (summary)"
-msgstr ""
+msgstr "קטע מבלוג (תקציר)"
 
-#: content-sidebar-page.php
-#: core/includes/post-custom-meta.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar"
-msgstr ""
+msgstr "תוכן/עמוד-צד"
 
-#: sidebar-content-page.php
-#: core/includes/post-custom-meta.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content"
-msgstr ""
+msgstr "סרגל-צד/תוכן"
 
-#: content-sidebar-half-page.php
-#: core/includes/post-custom-meta.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Content/Sidebar Half Page"
-msgstr ""
+msgstr "תוכן/סרגל-צד חצי עמוד"
 
-#: sidebar-content-half-page.php
-#: core/includes/post-custom-meta.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Sidebar/Content Half Page"
-msgstr ""
+msgstr "סרגל-צד/תוכן חצי עמוד"
 
-#: full-width-page.php
-#: core/includes/post-custom-meta.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
-msgstr ""
+msgstr "עמוד מלא (ללא סרגל-צד)"
 
 #: landing-page.php
 #. Template Name of the plugin/theme
@@ -446,20 +432,16 @@ msgstr ""
 msgid "Landing Page (no menu)"
 msgstr ""
 
-#: sitemap.php
 #. Template Name of the plugin/theme
 # INSTRUCTION: Template Name of the plugin/theme
 msgid "Sitemap"
-msgstr ""
+msgstr "מפת-אתר"
 
-#: core/includes/post-custom-meta.php
 msgid "Layout"
-msgstr ""
+msgstr "פריסה"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/post-custom-meta.php
 msgid "Default"
-msgstr ""
+msgstr "ברירת-מחדל"
 
 #: core/includes/theme-options/theme-options.php
 #: front-page.php
@@ -502,9 +484,8 @@ msgstr "להפוך את כפתור הקריאה לפעולה ללא זמין?"
 msgid "Save Options"
 msgstr "שמור אפשרויות"
 
-#: core/includes/classes/Responsive_Options.php
 msgid "Restore Defaults"
-msgstr ""
+msgstr "שחזור ברירת-מחדל"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Logo Upload"
@@ -575,17 +556,14 @@ msgstr "ראה תיעוד"
 msgid "Paste your shortcode, video or image source"
 msgstr "הדבק Shortcode, וידאו או מקור לתמונה"
 
-#: core/includes/theme-options/theme-options.php
 msgid "Default Layouts"
-msgstr ""
+msgstr "פריסת ברירת-מחדל"
 
-#: core/includes/theme-options/theme-options.php
 msgid "Default Static Page Layout"
-msgstr ""
+msgstr "פריסת ברירת-מחדל עמוד סטטי"
 
-#: core/includes/theme-options/theme-options.php
 msgid "Default Single Blog Post Layout"
-msgstr ""
+msgstr "פריסת ברירת-מחדל עמוד בלוג"
 
 #: core/includes/theme-options/theme-options.php
 msgid "Default Blog Posts Index Layout"
@@ -954,7 +932,7 @@ msgstr ""
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
 msgid "Responsive"
-msgstr ""
+msgstr "רספונסיבי"
 
 #: core/includes/functions.php
 msgid "Responsive Add Features"
@@ -1015,4 +993,3 @@ msgstr ""
 #: core/includes/functions.php
 msgid "Welcome to %1$s! Upgrade to %2$s today."
 msgstr ""
-

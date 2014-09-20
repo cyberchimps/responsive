@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Responsive Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-28 06:06:32 UTC\n"
+"PO-Revision-Date: 2014-09-20 14:36:12 UTC\n"
 "Last-Translator: Web Translate It <support@webtranslateit.com>\n"
 "Language-Team: German, Germany\n"
 "MIME-Version: 1.0\n"
@@ -954,7 +954,7 @@ msgstr ""
 #. Theme Name of the plugin/theme
 # INSTRUCTION: Theme Name of the plugin/theme
 msgid "Responsive"
-msgstr ""
+msgstr "Responsive"
 
 #: core/includes/functions.php
 msgid "Responsive Add Features"
