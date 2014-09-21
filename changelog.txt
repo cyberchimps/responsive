@@ -8,6 +8,14 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/20/14) - Improvements - Version 1.9.7.4
+
+[+] Added `get_post_type()` to all `get_template_part()` so that CPT can have a differnt template in the child theme.
+[*] Improve comply to coding standards
+[*] Update Translations
+
+----
+
 (09/06/14) - Improvements - Version 1.9.7.3
 
 [+] Add iFeatured Slider as recommended plugin
