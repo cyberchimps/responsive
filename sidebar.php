@@ -25,6 +25,11 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 $layout = responsive_get_layout();
 switch ( $layout ) {
+	case 'content-sidebar-page':
+		get_sidebar( 'right' );
+		return;
+		break;
+		
 	case 'sidebar-content-page':
 		get_sidebar( 'left' );
 		return;
