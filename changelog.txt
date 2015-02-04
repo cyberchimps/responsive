@@ -9,6 +9,10 @@ Changelog Legend:
 [!] = Bugs
 
 (10/05/14) - Improvements - Version 1.9.7.5
+[+] - Added new plugin suggestion.
+[!] - Fix on turkish translation.
+
+(10/05/14) - Improvements - Version 1.9.7.5
 
 [*] Minify all backend scripts and styles
 [*] Improve comply to coding standards
