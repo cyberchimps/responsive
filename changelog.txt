@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(10/05/14) - Improvements - Version 1.9.7.5
+(02/04/15) - Improvements - Version 1.9.7.5
 [+] - Added new plugin suggestion.
 [!] - Fix on turkish translation.
 
