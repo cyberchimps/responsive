@@ -8,6 +8,14 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/04/15) - Improvements - Version 1.9.7.7
+
+[+] - Added options to customizer as per wordpress.org guidelines
+[+] - Added new plugin suggestion.
+
+
+----
+
 (02/04/15) - Improvements - Version 1.9.7.5
 [+] - Added new plugin suggestion.
 [!] - Fix on turkish translation.
