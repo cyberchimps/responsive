@@ -122,6 +122,10 @@ module.exports = function(grunt) {
 		// Copy the theme into the build directory
 		copy: {
 			main: {
+                files: [
+                {
+                    expand: true,
+                    dot: true,
 				src:  [
 					'**',
 					'!node_modules/**',
@@ -138,9 +142,10 @@ module.exports = function(grunt) {
 					'!**/*~'
 				],
 				dest: 'build/<%= pkg.name %>/'
-			}
+			},
+            ],
 		},
-
+    },
 	});
 
 	// Default task(s).
