@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/02/16) - Improvements - Version 1.9.7.8
+
+[!] - Fixed CSS validation errors
+
+
+----
+
 (02/04/15) - Improvements - Version 1.9.7.7
 
 [+] - Added options to customizer as per wordpress.org guidelines
