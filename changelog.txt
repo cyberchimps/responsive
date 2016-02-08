@@ -15,7 +15,7 @@ Changelog Legend:
 
 ----
 
-(02/04/15) - Improvements - Version 1.9.7.7
+(07/17/15) - Improvements - Version 1.9.7.7
 
 [+] - Added options to customizer as per wordpress.org guidelines
 [+] - Added new plugin suggestion.
