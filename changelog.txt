@@ -8,7 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(08/02/16) - Improvements - Version 1.9.7.8
+(02/25/16) - Improvements - Version 1.9.7.9
+
+[+] - Added an option to customize copyright text in footer.
+
+----
+
+(02/08/16) - Improvements - Version 1.9.7.8
 
 [!] - Fixed CSS validation errors
 
