@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/21/16) - Improvements - Version 1.9.8.0
+
+[+] - Fixed Bug of 'Default Copyright Text' not getting saved.
+
+----
+
 (02/26/16) - Improvements - Version 1.9.7.9
 
 [+] - Added an option to customize copyright text in footer.
@@ -29,7 +35,7 @@ Changelog Legend:
 
 ----
 
-(02/04/15) - Improvements - Version 1.9.7.5
+(02/04/15) - Improvements - Version 1.9.7.6
 [+] - Added new plugin suggestion.
 [!] - Fix on turkish translation.
 
