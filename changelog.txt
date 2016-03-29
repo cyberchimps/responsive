@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/29/16) - Improvements - Version 1.9.8.1
+
+[+] - PHP 7 compatible
+
+----
+
 (03/21/16) - Improvements - Version 1.9.8.0
 
 [+] - Fixed Bug of 'Default Copyright Text' not getting saved.
