@@ -40,3 +40,16 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
+function responsive_free_setup() {
+   add_theme_support( 'title-tag' );
+}
+add_action( 'after_setup_theme', 'responsive_free_setup' );
+
+if ( ! function_exists( '_wp_render_title_tag' ) ) :
+    function responsive_free_render_title() {
+?>
+<title><?php wp_title( '|', true, 'right' ); ?></title>
+<?php
+    }
+    add_action( 'wp_head', 'responsive_free_render_title' );
+endif;
