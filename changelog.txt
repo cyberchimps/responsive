@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/07/16) - Improvements - Version 1.9.8.4
+
+[!] - Minor fix for the link display on sinlge pages.
+
+----
+
 (05/27/16) - Improvements - Version 1.9.8.3
 
 [!] - Fixed link display for pages on search page.
