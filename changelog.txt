@@ -10,7 +10,7 @@ Changelog Legend:
 
 (06/07/16) - Improvements - Version 1.9.8.4
 
-[!] - Minor fix for the link display on sinlge pages.
+[!] - Minor fix for the link display on single pages.
 
 ----
 
