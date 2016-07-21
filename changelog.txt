@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/21/16) - Improvements - Version 1.9.8.5
+
+[*] - Improved Admin Dashboard appearance.
+[!] - Fixed warning;
+----
 (06/07/16) - Improvements - Version 1.9.8.4
 
 [!] - Minor fix for the link display on single pages.
