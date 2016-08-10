@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/10/16) - Improvements - Version 1.9.8.6
+
+[!] - Fixed social icon label
+
+----
+
 (07/21/16) - Improvements - Version 1.9.8.5
 
 [*] - Improved Admin Dashboard appearance.
