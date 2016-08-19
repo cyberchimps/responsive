@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/19/16) - Improvements - Version 1.9.8.7
+
+[*] - Improved default settings
+
+
 (08/10/16) - Improvements - Version 1.9.8.6
 
 [!] - Fixed social icon label
