@@ -1,0 +1,21 @@
+/* CSS for CyberChimps account page */
+.panel-primary {
+	margin-top: 15px; border: 1px solid rgb(200, 200, 200); width: 94%; padding: 20px;
+}
+.panel-body {
+	padding: 20px; border: 1px solid rgb(205, 205, 205); display: inline-block; background: none repeat scroll 0% 0% rgb(255, 255, 255);
+	width: 30%;
+}
+.form-group input {
+	width: 240px; padding: 5px; display: inline-block; height: 30px; border-radius: 0px; border: 1px solid rgb(200, 200, 200); box-shadow: none; color: rgb(147, 147, 147);margin-bottom:20px;	
+	}
+.form-group input[type="password"] {margin-left: 9px;}
+.panel-heading{
+	background:linear-gradient(to bottom, #FEFEFE 0%, #EDEDED 100%) repeat scroll 0% 0% transparent;
+	border:solid 1px #cdcdcd; width:94%;
+	padding: 0 20px; margin: 10px 0;
+}
+.panel-heading h3 {font-size: 20px;}
+.updateres { font-size:1.1em; margin-bottom: 15px;display: block;color: #005580;}
+.ccinfo { font-size:1.1em; margin-bottom: 15px;display: block;}
+.form-group label {margin-right: 10px;}
