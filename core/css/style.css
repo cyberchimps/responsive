@@ -2794,3 +2794,7 @@ BDO[DIR="rtl"] {
 		page-break-before: avoid;
 	}
 }
+
+.author-gravtar img{
+border-radius: 50%;
+}

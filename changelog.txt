@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/19/16) - Improvements - Version 1.9.8.8
+
+[+] - Added author gravtar for post pages
+
 (08/19/16) - Improvements - Version 1.9.8.7
 
 [*] - Improved default settings

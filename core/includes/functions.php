@@ -367,10 +367,11 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 						 esc_html( get_the_date() )
 				),
 				'byline',
-				sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s">%3$s</a></span>',
+				sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s"><span class="author-gravtar">%4$s</span>%3$s</a></span>',
 						 get_author_posts_url( get_the_author_meta( 'ID' ) ),
 						 sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
-						 esc_attr( get_the_author() )
+						 esc_attr( get_the_author() ),
+						 get_avatar( get_the_author_meta( 'ID' ), 32)
 				)
 		);
 	}
