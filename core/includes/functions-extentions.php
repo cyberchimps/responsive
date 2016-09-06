@@ -342,6 +342,8 @@ function responsive_get_social_icons() {
 	}
 	$html .= '</ul><!-- .social-icons -->';
 
+	$html = apply_filters( 'responsive_social_skin' , $html );
+
 	return $html;
 
 }
