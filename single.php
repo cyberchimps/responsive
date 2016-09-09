@@ -37,7 +37,11 @@ get_header(); ?>
 				<?php get_template_part( 'post-meta', get_post_type() ); ?>
 
 				<div class="post-entry">
-					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+					<?php 
+					if( is_plugin_active('responsivepro-plugin/index.php')){
+					responsivepro_plugin_featured_image();
+					}
+					the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 
 					<?php if ( get_the_author_meta( 'description' ) != '' ) : ?>
 

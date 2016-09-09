@@ -27,7 +27,13 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php endif; ?>
 
 <div class="post-meta">
-	<?php responsive_post_meta_data(); ?>
+	<?php 
+	if( is_plugin_active('responsivepro-plugin/index.php')){
+		responsivepro_plugin_posted_on();
+		responsivepro_plugin_posted_by();
+		responsivepro_plugin_comments_link();
+	}else{	
+	responsive_post_meta_data(); ?>
 
 	<?php if ( comments_open() ) : ?>
 		<span class="comments-link">
