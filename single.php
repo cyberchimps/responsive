@@ -37,7 +37,8 @@ get_header(); ?>
 				<?php get_template_part( 'post-meta', get_post_type() ); ?>
 
 				<div class="post-entry">
-					<?php 
+					<?php
+					include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
 					if( is_plugin_active('responsivepro-plugin/index.php')){
 					responsivepro_plugin_featured_image();
 					}

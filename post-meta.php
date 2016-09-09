@@ -27,7 +27,8 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php endif; ?>
 
 <div class="post-meta">
-	<?php 
+	<?php
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
 	if( is_plugin_active('responsivepro-plugin/index.php')){
 		responsivepro_plugin_posted_on();
 		responsivepro_plugin_posted_by();
@@ -40,5 +41,6 @@ if ( !defined( 'ABSPATH' ) ) {
 		<span class="mdash">&mdash;</span>
 			<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
 		</span>
-	<?php endif; ?>
+	<?php endif; 
+	} ?>
 </div><!-- end of .post-meta -->
