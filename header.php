@@ -51,7 +51,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#content"><?php _e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
-	<div id="header">
+	<div id="header" role="banner">
 
 		<?php responsive_header_top(); // before header content hook ?>
 

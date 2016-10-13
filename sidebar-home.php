@@ -21,7 +21,7 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="home-widgets">
+	<div id="widgets" class="home-widgets" role="complementary">
 		<div id="home_widget_1" class="grid col-300">
 			<?php responsive_widgets(); // above widgets hook ?>
 

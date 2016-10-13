@@ -23,7 +23,7 @@ Template Name:  Sidebar/Content
 ?>
 <?php get_header(); ?>
 
-<div id="content" class="grid-right col-620 fit">
+<div id="content" class="grid-right col-620 fit" role="main">
 
 	<?php if ( have_posts() ) : ?>
 
