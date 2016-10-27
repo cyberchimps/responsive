@@ -1096,6 +1096,10 @@ form div {
 	position: absolute !important;
 	clip: rect(1px, 1px, 1px, 1px);
 }
+.screen-reader-text:focus
+{
+	clip:auto;
+}
 
 /* =Skip Links
 -------------------------------------------------------------- */
@@ -1122,6 +1126,7 @@ form div {
 .skip-link:active,
 .skip-link:focus {
 	border: 1px solid #666;
+	margin-left:-20%;
 }
 
 .custom-background .site {

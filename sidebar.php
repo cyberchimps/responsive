@@ -47,7 +47,7 @@ switch ( $layout ) {
 ?>
 
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>">
+	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>

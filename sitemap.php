@@ -35,7 +35,7 @@ Template Name: Sitemap
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
 				<div class="post-entry">
-					<div id="widgets">
+					<div id="widgets" role="complementary">
 
 						<div class="grid col-300">
 							<div class="widget-title"><h3><?php _e( 'Categories', 'responsive' ); ?></h3></div>

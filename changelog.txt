@@ -8,6 +8,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/27/16) - Improvements - Version 1.9.9.0
+
+[x] - Deprecated tags removed
+[*] - Archive functions replaced with core WordPress functions
+[!] - Minor bug fixes
+[+] - ARIA landmark roles added
+[+] - Enhanced skip link CSS 
+[+] - Escape functions added to improve security
+
 (08/26/16) - Improvements - Version 1.9.8.9
 
 [*] - Corrected aspect ratio of screenshot

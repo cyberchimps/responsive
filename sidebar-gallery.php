@@ -21,7 +21,7 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="grid col-300 fit gallery-meta">
+	<div id="widgets" class="grid col-300 fit gallery-meta" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 		<div class="widget-wrapper">
 
@@ -87,7 +87,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 <?php if ( is_active_sidebar( 'gallery-widget' ) ) : ?>
 
-	<div id="widgets" class="grid col-300 fit">
+	<div id="widgets" class="grid col-300 fit" role="complementary">
 
 		<?php responsive_widgets(); // above widgets hook ?>
 

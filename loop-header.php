@@ -28,26 +28,10 @@ get_responsive_breadcrumb_lists();
  * Display archive information
  */
 if ( is_category() || is_tag() || is_author() || is_date() ) {
-	?>
-	<h6 class="title-archive">
-		<?php
-		if ( is_day() ) :
-			printf( __( 'Daily Archives: %s', 'responsive' ), '<span>' . get_the_date() . '</span>' );
-		elseif ( is_month() ) :
-			printf( __( 'Monthly Archives: %s', 'responsive' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
-		elseif ( is_year() ) :
-			printf( __( 'Yearly Archives: %s', 'responsive' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-		else :
-			_e( 'Blog Archives', 'responsive' );
-		endif;
-		?>
-	</h6>
-	<?php
-		// Show an optional term description.
-		$term_description = term_description();
-		if ( ! empty( $term_description ) ) {
-			printf( '<div class="taxonomy-description">%s</div>', $term_description );
-		}
+	
+	// Replaced old code using new WP core functions
+	the_archive_title( '<h6 class="title-archive">', '</h6>' ); 
+	the_archive_description( '<div class="taxonomy-description">', '</div>' );
 }
 
 /**
