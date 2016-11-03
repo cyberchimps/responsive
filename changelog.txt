@@ -13,7 +13,7 @@ Changelog Legend:
 [x] - Deprecated tags removed
 [*] - Archive functions replaced with core WordPress functions
 [!] - Minor bug fixes
-[+] - ARIA landmark roles added
+[+] - Accessibility - ARIA landmark roles added
 [+] - Enhanced skip link CSS 
 [+] - Escape functions added to improve security
 
