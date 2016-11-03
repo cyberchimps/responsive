@@ -45,7 +45,7 @@ function responsive_upgrade_bar() {
 	</div>
 	<div class="updated">
 		<p><strong><?php _e('<a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> allows you to create Sliders using 13 Dynamic Sources like YouTube, Vimeo, Pinterest and more.
-Upgrade to <a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> Today.','responsive'); ?></strong></p>
+Upgrade to <a href="https://cyberchimps.com/responsive2pro" target="_blank" title="Responsive Pro">Responsive Pro</a> Today.','responsive'); ?></strong></p>
 	</div>
 <?php
 }
