@@ -47,10 +47,53 @@ Class Responsive_Options {
 	 */
 	public function render_display() {
 		$html = '';
+		$i=1;
+		foreach( $this->sections as $section ) {
+			$this->display_title( $section['id'], $section['title'],$i++);
+		}
+		$i=1;
+		echo '<ul>';
 		foreach( $this->sections as $section ) {
 			$sub = $this->options[$section['id']];
-			$this->container( $section['title'], $sub );
+			$this->display_data($section['id'],$sub,$i++);
 		}
+		echo '</ul>';
+	}
+	
+	protected function display_title( $id, $title ,$i ) {
+	
+		$check ='';
+		if ($i == '1')
+			$check = 'checked=checked';
+	
+		echo '<input type="radio"' . $check . ' name="sky-tabs" id="sky-'. $id .'"  class="sky-tab-content-' . $i . '">';
+		echo '<label for="sky-' . $id . '"><span><span><i class="fa fa-bolt"></i>' . esc_html ($title) . ' </span></span></label>';
+	
+	}
+	
+	/**
+	 * Creates main sections title and container
+	 *
+	 * Loops through the options array
+	 *
+	 * @param $title string
+	 * @param $sub array
+	 *
+	 * @return string
+	 */
+	protected function display_data( $id, $sub, $i ) {
+	
+		echo '<li class="sky-tab-content-'. $i . '">
+			  <div class="typography">';
+		//echo '<p>';
+		foreach( $sub as $opt ) {
+			echo $this->sub_heading( $this->parse_args( $opt ) );
+			echo $this->section( $this->parse_args( $opt ) );
+		}
+		echo $this->save();
+		//echo '</p>';
+		echo '</div>	 </li>';
+	
 	}
 
 	/**

@@ -34,6 +34,9 @@ function responsive_admin_enqueue_scripts( $hook_suffix ) {
 
 	wp_enqueue_style( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options' . $suffix . '.css', false, '1.0' );
 	wp_enqueue_script( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options' . $suffix . '.js', array( 'jquery' ), '1.0' );
+	wp_enqueue_script( 'responsive-skytabs', $template_directory_uri . '/core/includes/theme-options/sky-tabs-ie8.js');	
+	wp_enqueue_style('responsive-skytabs', $template_directory_uri . '/core/includes/theme-options/sky-tabs.css');
+	wp_enqueue_script ('jquery');
 }
 
 add_action( 'admin_print_styles-appearance_page_theme_options', 'responsive_admin_enqueue_scripts' );
@@ -501,12 +504,14 @@ function responsive_theme_options_do_page() {
 		<?php settings_fields( 'responsive_options' ); ?>
 		<?php global $responsive_options; ?>
 
-		<div id="rwd" class="grid col-940">
+		<div class="body">		
+			<!-- tabs -->
+			<div class="sky-tabs sky-tabs-pos-left sky-tabs-anim-flip sky-tabs-response-to-icons">
 			<?php
 			$display->render_display();
 			?>
-		</div>
-		<!-- end of .grid col-940 -->
+			</div>
+		</div>		
 	</form>
 	</div><!-- wrap -->
 <?php

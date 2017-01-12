@@ -518,3 +518,7 @@ color: #e9f253;
 p{
 font-size: 14px;
 }
+.description {
+ padding: 5px 0px; display: block; color : #999;
+}
+.sky-tabs ul li .col-300 {margin-bottom: 2%}
