@@ -13,38 +13,17 @@ function responsive_upgrade_bar() {
 
 	<div class="upgrade-callout">
 		<p class="responsivepro-offer"><img src="<?php echo get_template_directory_uri(); ?>/core/includes/theme-options/images/chimp.png" alt="CyberChimps"/>
-			<?php printf( __( 'Get %1$s off on %2$s using Coupon Code <span class="coupon-code">RESPONSIVE30</span>', 'responsive' ),
-						  '30%',
-						  ' <a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> '
+			<?php printf( __( '%1$s Such Free Themes By CyberChimps</span>', 'responsive' ),
+						    ' <a href="https://cyberchimps.com/10-free-responsive-wordpress-themes/?utm_source=orgwpresponsive" target="_blank" title="CyberChimps Free Themes">Get More</a> '
 			); ?>
 		</p>
                 <!-- <p class="responsivepro-offer">Get 30% off on Responsive Pro using Coupon Code RESPONSIVE30</p> -->
-
-		<div class="social-container">
-			<div class="social">
-				<a href="https://twitter.com/cyberchimps" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @cyberchimps</a>
-				<script>!function (d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (!d.getElementById(id)) {
-							js = d.createElement(s);
-							js.id = id;
-							js.src = "//platform.twitter.com/widgets.js";
-							fjs.parentNode.insertBefore(js, fjs);
-						}
-					}(document, "script", "twitter-wjs");</script>
-			</div>
-			<div class="social">
-				<iframe
-					src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcyberchimps.com%2F&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21"
-					scrolling="no" frameborder="0"
-					style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
-			</div>
-		</div>
+		
 		
 	
 	</div>
 	<div class="updated">
-		<p><strong><?php _e('<a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> allows you to create Sliders using 13 Dynamic Sources like YouTube, Vimeo, Pinterest and more.
+		<p><strong><?php _e('<a href="http://cyberchimps.com/store/responsivepro/?utm_source=orgwpresponsive" target="_blank" title="Responsive Pro">Responsive Pro</a> allows you to create Sliders using 13 Dynamic Sources like YouTube, Vimeo, Pinterest and more.
 Upgrade to <a href="https://cyberchimps.com/responsive2pro" target="_blank" title="Responsive Pro">Responsive Pro</a> Today.','responsive'); ?></strong></p>
 	</div>
 <?php
