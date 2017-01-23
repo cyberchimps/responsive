@@ -525,9 +525,13 @@ p
 {
 	padding: 5px 0;
 	display: block;
-	color: #999}
-
-
+	color: #999
+}
 .sky-tabs ul li .grid {
 	margin-bottom: 2%;
 }
+.sky-tabs p .upgrade {text-decoration: none!important;}
+.sky-tabs p { font-size: 13px ;}
+.sky-tabs p .button { margin-right : 4px; }
+//.sky-tabs input, .sky-tabs textarea { border : 1px solid #c1c1c1;  }
+.sky-tabs .wp-editor-container  { border : 1px solid #ddd; }
