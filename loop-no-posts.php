@@ -23,11 +23,25 @@ if ( !defined( 'ABSPATH' ) ) {
  * If there are no posts in the loop,
  * display default content
  */
+
 $title = ( is_search() ? sprintf( __( 'Your search for %s did not match any entries.', 'responsive' ), get_search_query() ) : __( '404 &#8212; Fancy meeting you here!', 'responsive' ) );
+
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if( is_plugin_active('responsivepro-plugin/index.php')){
+	if (responsivepro_plugin_get_option ('404_title'))
+		$title = responsivepro_plugin_get_option ('404_title');
+}
+
 ?>
 
 	<h1 class="title-404"><?php echo $title; ?></h1>
 
+<?php 
+if( is_plugin_active('responsivepro-plugin/index.php')){
+	if (responsivepro_plugin_get_option ('404_content'))
+		echo '<p>' . responsivepro_plugin_get_option( '404_content' ) . '</p>';
+   else { 		
+?>
 	<p><?php _e( 'Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive' ); ?></p>
 
 	<h6><?php
@@ -40,4 +54,7 @@ $title = ( is_search() ? sprintf( __( 'Your search for %s did not match any entr
 		);
 		?></h6>
 
-<?php get_search_form(); ?>
+<?php get_search_form(); 
+	}
+}
+?>
