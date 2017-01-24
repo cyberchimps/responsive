@@ -21,12 +21,20 @@ if ( !defined( 'ABSPATH' ) ) {
 ?>
 
 <?php if ( !is_page() && !is_search() ) { ?>
-
+<?php if( is_plugin_active('responsivepro-plugin/index.php')){  ?>
+			<div class="post-data">
+			<?php responsivepro_plugin_posted_in(); ?>
+			<br/>
+			<?php responsivepro_plugin_pro_post_tags(); ?>
+			<br/>
+			<?php responsivepro_plugin_post_author_bio(); ?>
+		</div><!-- end of .post-data -->
+<?php } else { ?>
 	<div class="post-data">
 		<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
 		<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
 	</div><!-- end of .post-data -->
-
+<?php } ?>
 <?php } ?>
 
 <div class="post-edit"><?php edit_post_link( __( 'Edit', 'responsive' ) ); ?></div>

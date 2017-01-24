@@ -23,6 +23,7 @@ get_header();
 
 global $more;
 $more = 0;
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 ?>
 
 	<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
@@ -45,12 +46,34 @@ $more = 0;
 					<?php get_template_part( 'post-meta', get_post_type() ); ?>
 
 					<div class="post-entry">
+					<?php if( is_plugin_active('responsivepro-plugin/index.php')){  
+							if (responsivepro_plugin_get_option ('blog_featured_images')) 
+								responsivepro_plugin_featured_image();
+					?>
+					<?php } else { ?>
 						<?php if ( has_post_thumbnail() ) : ?>
 							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 								<?php the_post_thumbnail(); ?>
 							</a>
 						<?php endif; ?>
+					<?php } ?>	
+						
+						<?php						
+						if( is_plugin_active('responsivepro-plugin/index.php')){ 
+							if (responsivepro_plugin_get_option ('blog_post_excerpts')) { 
+								add_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
+								add_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
+								the_excerpt();
+								remove_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
+								remove_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
+							}	
+							else {
+								the_content( __( 'Read more &#8250;', 'responsive' ) ); }
+						}
+						else {
+				?>
 						<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+				<?php }?>		 
 						<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 					</div>
 					<!-- end of .post-entry -->

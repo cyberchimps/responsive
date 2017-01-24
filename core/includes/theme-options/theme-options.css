@@ -521,14 +521,8 @@ p
 	font-size: 14px}
 
 
-.description
-{
-	padding: 5px 0;
-	display: block;
-	color: #999
-}
 .sky-tabs ul li .grid {
-	margin-bottom: 2%;
+	margin-bottom: 3.6%;
 }
 .sky-tabs p .upgrade {text-decoration: none!important;}
 .sky-tabs p { font-size: 13px ;}
