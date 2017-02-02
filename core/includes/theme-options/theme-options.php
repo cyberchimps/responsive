@@ -108,6 +108,7 @@ function responsive_theme_options_do_page() {
 
 
 	<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
+ <?php error_log ('r ' . print_r ( $_POST , 1 ));?>			
 		<div class="updated fade"><p><strong><?php _e( 'Options Saved', 'responsive' ); ?></strong></p></div>
 	<?php endif; ?>
 
@@ -173,7 +174,7 @@ function responsive_theme_options_do_page() {
 	 */
 	$options = apply_filters( 'responsive_options_filter', array(
 		'theme_elements' => array(
-			array(
+				array(
 				'title'       => __( 'Disable breadcrumb list?', 'responsive' ),
 				'subtitle'    => '',
 				'heading'     => '',
@@ -501,6 +502,7 @@ function responsive_theme_options_do_page() {
 
 	?>
 	<form method="post" action="options.php">
+		
 		<?php settings_fields( 'responsive_options' ); ?>
 		<?php global $responsive_options; ?>
 
@@ -584,4 +586,20 @@ function responsive_theme_options_validate( $input ) {
 	}
 
 	return $input;
+}
+add_action('wp_head','wp_ajax_url');
+function wp_ajax_url(){
+error_log( 'in' );
+	error_log ( admin_url('admin-ajax.php') );
+	?>
+		<script type="text/javascript">
+		var ajax_url = '<?php echo admin_url('admin-ajax.php'); ?>';
+		</script>
+	<?php 	
+	
+}
+add_action('wp_ajax_ajax_save_tab','responsive_ajax_save_tab');
+function responsive_ajax_save_tab() {
+	update_option('res_tab_select', $_POST['tabselect']);
+ wp_die();		
 }

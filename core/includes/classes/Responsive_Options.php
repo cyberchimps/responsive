@@ -48,6 +48,7 @@ Class Responsive_Options {
 	public function render_display() {
 		$html = '';
 		$i=1;
+		
 		foreach( $this->sections as $section ) {
 			$this->display_title( $section['id'], $section['title'],$i++);
 		}
@@ -63,8 +64,15 @@ Class Responsive_Options {
 	protected function display_title( $id, $title ,$i ) {
 	
 		$check ='';
-		if ($i == '1')
+		if ( get_option ('res_tab_select') && get_option ('res_tab_select') != "")
+			$preid = get_option ('res_tab_select');
+		
+		if ( 'sky-'.$id == $preid) {
 			$check = 'checked=checked';
+			delete_option ( 'res_tab_select' );
+		}
+		else if ($i == '1')
+			$check = 'checked=checked';		
 	
 		echo '<input type="radio"' . $check . ' name="sky-tabs" id="sky-'. $id .'"  class="sky-tab-content-' . $i . '">';
 		echo '<label for="sky-' . $id . '"><span><span><i class="fa fa-bolt"></i>' . esc_html ($title) . ' </span></span></label>';

@@ -8,8 +8,22 @@ jQuery(function()
 	});	
 	
 	jQuery('.sky-tabs > label').on('click', function()
-	{ 
+	{ 				
 		jQuery(this).addClass('active').siblings().removeClass('active');
-		jQuery(this).siblings('ul').find('.' + jQuery(this).prev().attr('class')).show().siblings().hide();		
+		jQuery(this).siblings('ul').find('.' + jQuery(this).prev().attr('class')).show().siblings().hide();
+		var tabselect=jQuery(this).attr("for");		
+		 jQuery.ajax({
+             type: "POST",
+             url: ajaxurl,
+             data: {
+                 'action':'ajax_save_tab',
+                 'tabselect':tabselect,
+                 
+                 },
+             success: function(res) {
+               
+             }
+         });
+		
 	});
 });
