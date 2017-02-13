@@ -527,5 +527,11 @@ p
 .sky-tabs p .upgrade {text-decoration: none!important;}
 .sky-tabs p { font-size: 13px ;}
 .sky-tabs p .button { margin-right : 4px; }
-//.sky-tabs input, .sky-tabs textarea { border : 1px solid #c1c1c1;  }
 .sky-tabs .wp-editor-container  { border : 1px solid #ddd; }
+.sky-tabs div.formsuccess { width: 73%;
+margin: 1% 0 0 25%;
+color: #01AA42;
+background:none repeat scroll 0% 0% #F4FCEF; 
+border: none;
+border-radius: 4px;padding: 10px 12px;}
+.sky-tabs.formsuccess p { font-size: 14px;}

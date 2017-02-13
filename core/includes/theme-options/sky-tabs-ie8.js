@@ -10,20 +10,41 @@ jQuery(function()
 	jQuery('.sky-tabs > label').on('click', function()
 	{ 				
 		jQuery(this).addClass('active').siblings().removeClass('active');
-		jQuery(this).siblings('ul').find('.' + jQuery(this).prev().attr('class')).show().siblings().hide();
-		var tabselect=jQuery(this).attr("for");		
-		 jQuery.ajax({
-             type: "POST",
-             url: ajaxurl,
-             data: {
-                 'action':'ajax_save_tab',
-                 'tabselect':tabselect,
-                 
-                 },
-             success: function(res) {
-               
-             }
-         });
+		jQuery(this).siblings('ul').find('.' + jQuery(this).prev().attr('class')).show().siblings().hide();		
+		
 		
 	});
+});
+jQuery(document).ready(function ($) {
+	jQuery('#form').submit( function (e) {		
+	    if (e.originalEvent.explicitOriginalTarget.id == "responsive_theme_options[submit]") {
+	        var b =  $(this).serialize();	       
+	        jQuery.post( 'options.php', b ).error( 
+	            function() {
+	                
+	            }).success( function() {
+	            	//alert ('w');
+	            	var html = '<div class="formsuccess"><p><strong>Options Saved</strong></p></div>';
+	            	$(html).hide().appendTo(".sky-tabs").fadeIn(400).delay(1000).fadeOut(600);	            	
+           	            	
+	            });
+	            return false;   
+	    } 
+	    else 
+	    {
+	    var b =  $(this).serialize(); 
+	    b=b+'&responsive_theme_options%5Breset%5D=Restore Defaults'; 	    
+    	jQuery.post( 'options.php', b ).error( 
+        function() {            
+        }).success( function() {
+        	var html = '<div class="formsuccess"><p><strong>Options Reset</strong></p></div>';
+        	$(html).hide().appendTo(".sky-tabs").fadeIn(400).delay(1000).fadeOut(600);
+        	setTimeout(function(){
+        	    location.reload();
+        	},900);
+        	
+        });
+        return false; 
+	    }
+        });
 });

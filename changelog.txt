@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(01/17/16) - Improvements - Version 2.0
+(02/13/17) - Improvements - Version 2.0
 [*] - Improved look & feel of admin dashboard 
 
 (10/27/16) - Improvements - Version 1.9.9.0

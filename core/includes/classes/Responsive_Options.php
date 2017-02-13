@@ -64,16 +64,10 @@ Class Responsive_Options {
 	protected function display_title( $id, $title ,$i ) {
 	
 		$check ='';
-		if ( get_option ('res_tab_select') && get_option ('res_tab_select') != "")
-			$preid = get_option ('res_tab_select');
 		
-		if ( 'sky-'.$id == $preid) {
+		if ($i == '1')
 			$check = 'checked=checked';
-			delete_option ( 'res_tab_select' );
-		}
-		else if ($i == '1')
-			$check = 'checked=checked';		
-	
+			
 		echo '<input type="radio"' . $check . ' name="sky-tabs" id="sky-'. $id .'"  class="sky-tab-content-' . $i . '">';
 		echo '<label for="sky-' . $id . '"><span><span><i class="fa fa-bolt"></i>' . esc_html ($title) . ' </span></span></label>';
 	
@@ -291,7 +285,7 @@ Class Responsive_Options {
 				' . get_submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ) .
 			get_submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false, $this->attributes ) . '
                 <a href="http://cyberchimps.com/store/responsivepro/" class="button upgrade">' . __( 'Upgrade', 'responsive' ) . '</a>
-                </p>
+                </p>                
                 </div>';
 
 	}
