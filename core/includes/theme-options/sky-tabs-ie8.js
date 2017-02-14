@@ -25,7 +25,7 @@ jQuery(document).ready(function ($) {
 	            }).success( function() {
 	            	//alert ('w');
 	            	var html = '<div class="formsuccess"><p><strong>Options Saved</strong></p></div>';
-	            	$(html).hide().appendTo(".sky-tabs").fadeIn(400).delay(1000).fadeOut(600);	            	
+	            	$(html).hide().appendTo(".sky-tabs").fadeIn(400).delay(1200).fadeOut(600);	            	
            	            	
 	            });
 	            return false;   
@@ -38,7 +38,7 @@ jQuery(document).ready(function ($) {
         function() {            
         }).success( function() {
         	var html = '<div class="formsuccess"><p><strong>Options Reset</strong></p></div>';
-        	$(html).hide().appendTo(".sky-tabs").fadeIn(400).delay(1000).fadeOut(600);
+        	$(html).hide().appendTo(".sky-tabs").fadeIn(400).delay(1200).fadeOut(600);
         	setTimeout(function(){
         	    location.reload();
         	},900);
