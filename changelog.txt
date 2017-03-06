@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/06/17) - Bug fix - Version 2.1
+[!] - Fixed issue with theme options not getting saved in Chrome   
+
 (02/13/17) - Improvements - Version 2.0
 [*] - Improved look & feel of admin dashboard 
 
