@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/07/17) - Bug fix - Version 2.1.1
+[!] - Fixed incorrect message and update link   
+
 (03/06/17) - Bug fix - Version 2.1
 [!] - Fixed issue with theme options not getting saved in Chrome   
 

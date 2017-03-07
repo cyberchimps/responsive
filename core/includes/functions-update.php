@@ -93,24 +93,3 @@ function responsive_theme_query() {
 	return false;
 
 }
-
-/**
- * Responsive 2.0 update warning message
- *
- * Displays warning message in the update notice
- */
-function responsive_admin_update_notice(){
-	global $pagenow;
-	// Add plugin notification only if the current user is admin and on theme.php
-	if ( responsive_theme_query() && current_user_can( 'update_themes' ) && ( 'themes.php' == $pagenow || 'update-core.php' == $pagenow ) ) {
-		$html = '<div class="error"><p>';
-		$html .= sprintf(
-				/* Translators: This is a big update. Please read the blog post before updating. */
-				__( '<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating.', 'responsive' ),
-				'<a href="' . esc_url( 'http://content.cyberchimps.com/responsive-2-migration' ) . '">' . __( 'update page', 'responsive' ) . '</a>'
-			);
-		$html .= '</p></div>';
-		echo $html;
-	}
-}
-add_action( 'admin_notices', 'responsive_admin_update_notice' );
