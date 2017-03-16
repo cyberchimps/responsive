@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/16/17) - Bug fix - Version 2.2
+[!] - Fixed issue with tinyMCE editor value not getting saved   
+
 (03/07/17) - Bug fix - Version 2.1.1
 [!] - Fixed incorrect message and update link   
 
