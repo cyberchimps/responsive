@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/30/17) - Bug fix - Version 2.3
+[!] - Fixed theme options issue for Safari browser
+
 (03/16/17) - Bug fix - Version 2.2
 [!] - Fixed issue with tinyMCE editor value not getting saved   
 
