@@ -278,7 +278,9 @@ function responsive_customize_register( $wp_customize ) {
 /*--------------------------------------------------------------
 	// CSS Styles
 --------------------------------------------------------------*/
-
+$wp_version = get_bloginfo('version');
+if (!($wp_version >= 4.7))
+{	
 	$wp_customize->add_section( 'css_styles', array(
 		'title'                 => __( 'CSS Styles', 'responsive' ),
 		'priority'              => 30
@@ -290,6 +292,7 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_theme_options[responsive_inline_css]',
 		'type'                  => 'textarea'
 	) );
+}
 	
 /*--------------------------------------------------------------
 	// Scripts
@@ -299,7 +302,7 @@ function responsive_customize_register( $wp_customize ) {
 		'title'                 => __( 'Scripts', 'responsive' ),
 		'priority'              => 30
 	) );
-	$wp_customize->add_setting( 'responsive_theme_options[responsive_inline_js_head]',array( 'sanitize_callback' => 'wp_filter_nohtml_kses', 'type' => 'option' ) );
+	$wp_customize->add_setting( 'responsive_theme_options[responsive_inline_js_head]',array( 'sanitize_callback' => 'wp_kses_stripslashes', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_responsive_inline_js_head', array(
 		'label'                 => __( 'Embeds to header.php', 'responsive' ),
 		'section'               => 'scripts',
@@ -307,7 +310,7 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'textarea'
 	) );
 
-	$wp_customize->add_setting( 'responsive_theme_options[responsive_inline_js_footer]',array( 'sanitize_callback' => 'wp_filter_nohtml_kses', 'type' => 'option' ));
+	$wp_customize->add_setting( 'responsive_theme_options[responsive_inline_js_footer]',array( 'sanitize_callback' => 'wp_kses_stripslashes', 'type' => 'option' ));
 	$wp_customize->add_control( 'res_responsive_inline_js_footer', array(
 		'label'                 => __( 'Embeds to footer.php', 'responsive' ),
 		'section'               => 'scripts',

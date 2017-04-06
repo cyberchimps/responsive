@@ -121,6 +121,9 @@ function responsive_theme_options_do_page() {
 	 * @Title The display title
 	 * @id The id that the option array references so the options display in the correct section
 	 */
+	$wp_version = get_bloginfo('version');
+	if ($wp_version >= 4.7)
+	{
 	$sections = apply_filters( 'responsive_option_sections_filter', array(
 																	  array(
 																		  'title' => __( 'Theme Elements', 'responsive' ),
@@ -143,11 +146,7 @@ function responsive_theme_options_do_page() {
 																	  array(
 																		  'title' => __( 'Social Icons', 'responsive' ),
 																		  'id'    => 'social'
-																	  ),
-																	  array(
-																		  'title' => __( 'CSS Styles', 'responsive' ),
-																		  'id'    => 'css'
-																	  ),
+																	  ),																	 
 																	  array(
 																		  'title' => __( 'Scripts', 'responsive' ),
 																		  'id'    => 'scripts'
@@ -156,6 +155,45 @@ function responsive_theme_options_do_page() {
 																  )
 
 	);
+	}
+	else 
+	{
+		$sections = apply_filters( 'responsive_option_sections_filter', array(
+				array(
+						'title' => __( 'Theme Elements', 'responsive' ),
+						'id'    => 'theme_elements'
+				),
+		
+				array(
+						'title' => __( 'Logo Upload', 'responsive' ),
+						'id'    => 'logo_upload'
+				),
+				array(
+						'title' => __( 'Home Page', 'responsive' ),
+						'id'    => 'home_page'
+				)
+				,
+				array(
+						'title' => __( 'Default Layouts', 'responsive' ),
+						'id'    => 'layouts'
+				),
+				array(
+						'title' => __( 'Social Icons', 'responsive' ),
+						'id'    => 'social'
+				),
+				array(
+						'title' => __( 'CSS Styles', 'responsive' ),
+						'id'    => 'css'
+				),
+				array(
+						'title' => __( 'Scripts', 'responsive' ),
+						'id'    => 'scripts'
+				)
+		
+		)
+		
+		);
+	}
 
 	/**
 	 * Creates and array of options that get added to the relevant sections

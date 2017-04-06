@@ -103,6 +103,7 @@ if ( !function_exists( 'responsive_setup' ) ):
 	function responsive_setup() {
 
 		global $content_width;
+		global $responsive_options;
 
 		$template_directory = get_template_directory();
 
@@ -111,6 +112,23 @@ if ( !function_exists( 'responsive_setup' ) ):
 		 */
 		if ( !isset( $content_width ) ) {
 			$content_width = 605;
+		}
+		
+		// WordPress V4.7 or greater
+		if ( function_exists( 'wp_update_custom_css_post' ) ) { 		
+			$responsive_custom_css = isset($responsive_options['responsive_inline_css']) ?$responsive_options['responsive_inline_css']:'';
+			
+			if ($responsive_custom_css) { 
+		
+				$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
+				$return = wp_update_custom_css_post( $core_css . $responsive_custom_css );
+				if ( ! is_wp_error( $return ) ) {
+									
+					//Set css to blank									
+						$responsive_options['responsive_inline_css'] = '';
+						update_option( 'responsive_theme_options', $responsive_options );					
+				}
+			}
 		}
 
 		/**

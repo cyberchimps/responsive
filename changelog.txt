@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/07/17) - Bug fix - Version 2.4
+[!] - Fixed script option not working issue in customizer
+[*] - Theme's Custom CSS merged with WordPress additional css 
+(Note: Advisable to take backup of Custom css before upgrading. Go to Appearance - Theme options - CSS Styles to take backup)
+
 (03/30/17) - Bug fix - Version 2.3
 [!] - Fixed theme options issue for Safari browser
 

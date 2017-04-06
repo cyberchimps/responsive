@@ -23,8 +23,8 @@ function responsive_upgrade_bar() {
 	
 	</div>
 	<div class="updated">
-		<p><strong><?php _e('<a href="http://cyberchimps.com/store/responsivepro/?utm_source=orgwpresponsive" target="_blank" title="Responsive Pro">Responsive Pro</a> allows you to create Sliders using 13 Dynamic Sources like YouTube, Vimeo, Pinterest and more.
-Upgrade to <a href="https://cyberchimps.com/responsive2pro" target="_blank" title="Responsive Pro">Responsive Pro</a> Today.','responsive'); ?></strong></p>
+		<p><strong><?php _e('Looking for More Features?','responsive');?></strong></p>
+		<p><strong><?php _e('Check out <a href="https://cyberchimps.com/store/responsivepro/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Responsive Pro</a> & <a href="https://cyberchimps.com/product-category/upgradefromresponsive/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Premium Child Themes</a> for your Responsive Theme.','responsive'); ?></strong></p>
 	</div>
 <?php
 }

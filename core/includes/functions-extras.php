@@ -112,7 +112,6 @@ function responsive_custom_excerpt_more( $output ) {
 	if ( has_excerpt() && !is_attachment() ) {
 		$output .= responsive_read_more();
 	}
-
 	return $output;
 }
 
