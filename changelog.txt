@@ -9,7 +9,7 @@ Changelog Legend:
 [!] = Bugs
 
 (04/13/17) - Bug fix - Version 2.5
-[!] - Fixed link issue for importing google font
+[!] - Fixed issue with importing google font
 
 (04/07/17) - Bug fix - Version 2.4
 [!] - Fixed script option not working issue in customizer
