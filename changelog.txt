@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/13/17) - Bug fix - Version 2.5
+[!] - Fixed issue with importing google font
+
 (04/07/17) - Bug fix - Version 2.4
 [!] - Fixed script option not working issue in customizer
 [*] - Theme's Custom CSS merged with WordPress additional css 
