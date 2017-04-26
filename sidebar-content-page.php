@@ -51,6 +51,7 @@ Template Name:  Sidebar/Content
 				<?php endif; ?>
 
 				<div class="post-entry">
+					<?php responsivepro_page_featured_image(); ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div>

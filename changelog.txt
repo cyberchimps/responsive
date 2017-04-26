@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/26/17) - Bug fix - Version 2.6
+[!] - Fixed featured image issue for pages
+
 (04/13/17) - Bug fix - Version 2.5
 [!] - Fixed issue with importing google font
 
