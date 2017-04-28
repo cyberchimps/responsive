@@ -26,6 +26,16 @@ function responsive_upgrade_bar() {
 		<p><strong><?php _e('Looking for More Features?','responsive');?></strong></p>
 		<p><strong><?php _e('Check out <a href="https://cyberchimps.com/store/responsivepro/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Responsive Pro</a> & <a href="https://cyberchimps.com/product-category/upgradefromresponsive/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Premium Child Themes</a> for your Responsive Theme.','responsive'); ?></strong></p>
 	</div>
+<h4 class="notice notice-info is-dismissible" style="margin-top:15px;">
+<p>
+<?php 
+	$utm_link="https://cyberchimps.com/free-download-50-stock-images-use-please/?utm_source=responsive";
+ 	$utm_text="Get 50 Free High-Resolution Stock Images by CyberChimps";
+	printf('<a href="' . $utm_link . '" target="_blank" style="text-decoration:none;font-size:18px;">' . $utm_text . '</a> ');
+?>	 
+</p>
+</h4>
+
 <?php
 }
 
