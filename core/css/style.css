@@ -2156,6 +2156,13 @@ a.blue:hover {
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7db7f0, endColorstr=#1874cd)";
 	text-shadow: 0 -1px 0 #115290;
 }
+/* Begin: Flat button style  */
+a.blue.flat {
+	background-image: none;
+	border: none;
+        background-color: #1874cd;
+}
+/* End: Flat button style  */
 
 a.red {
 	background-color: #cd0000; /* Red 4 */
