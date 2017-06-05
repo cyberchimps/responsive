@@ -49,15 +49,14 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 			<div class="call-to-action">
                            <?php 
-                            if($responsive_options['button_style_flat'] == '1')
+                           if($responsive_options['button_style'] == 'default')
                             {
-                                $button_class = "blue button flat";
+                              $button_class = "blue button";
                             }
-                            else
+                           else  if($responsive_options['button_style'] == 'flat_style')
                             {
-                                $button_class = "blue button";
+                               $button_class = "blue button flat";
                             }
-                            
                             ?>
 				<a href="<?php echo $responsive_options['cta_url']; ?>" class="<?php echo $button_class; ?>">
 					<?php

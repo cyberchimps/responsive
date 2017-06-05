@@ -113,6 +113,27 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_theme_options[cta_text]',
 		'type'                  => 'text'
 	) );
+        
+        // Call to action button style
+	$wp_customize->add_setting( 'responsive_theme_options[button_style]', array(
+		'default'           => 'Gradient',
+		'type'              => 'option',
+		'sanitize_callback' => ''
+	) );
+
+	// Call to action button style
+        $wp_customize->add_control( 'static_page_layout_default', array(
+		'label'    => __( 'Call to Action Button Style', 'responsive' ),
+		'section'  => 'home_page',
+		'settings' => 'responsive_theme_options[button_style]',
+		'type'     => 'select',
+		'choices'  => array(
+			'default'      => __( 'Gradient', 'responsive' ),
+			'flat_style'      => __( 'Flat', 'responsive' )
+			
+		),
+            'priority' => 15
+	) );
 
 	$wp_customize->add_setting( 'responsive_theme_options[featured_content]', array( 'sanitize_callback' => 'responsive_sanitize_textarea', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_featured_content', array(
@@ -120,7 +141,8 @@ function responsive_customize_register( $wp_customize ) {
 		'section'               => 'home_page',
 		'settings'              => 'responsive_theme_options[featured_content]',
 		'type'                  => 'textarea',
-		'description'           => __( 'Paste your shortcode, video or image source', 'responsive' )
+		'description'           => __( 'Paste your shortcode, video or image source', 'responsive' ),
+                'priority'              => 20
 	) );
 
 
