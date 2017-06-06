@@ -211,7 +211,16 @@ function responsive_theme_options_do_page() {
 	 */
 	$options = apply_filters( 'responsive_options_filter', array(
 		'theme_elements' => array(
-				array(
+			array(
+				'title'       => __( 'Enable Featured images?', 'responsive' ),
+				'subtitle'    => '',
+				'heading'     => '',
+				'type'        => 'checkbox',
+				'id'          => 'featured_images',
+				'description' => __( 'Check to enable', 'responsive' ),
+				'placeholder' => ''
+			),
+			array(
 				'title'       => __( 'Disable breadcrumb list?', 'responsive' ),
 				'subtitle'    => '',
 				'heading'     => '',
@@ -570,6 +579,7 @@ function responsive_theme_options_validate( $input ) {
 		// checkbox value is either 0 or 1
 		foreach( array(
 					'breadcrumb',
+					'featured_images',
 					'cta_button',
 					'front_page'
 				) as $checkbox ) {

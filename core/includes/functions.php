@@ -55,6 +55,7 @@ function responsive_get_options() {
  */
 function responsive_get_option_defaults() {
 	$defaults = array(
+		'featured_images'                 => false,
 		'breadcrumb'                      => false,
 		'cta_button'                      => false,
 		'minified_css'                    => false,

@@ -23,6 +23,13 @@ function responsive_customize_register( $wp_customize ) {
 		'title'                 => __( 'Theme Elements', 'responsive' ),
 		'priority'              => 30
 	) );
+	$wp_customize->add_setting( 'responsive_theme_options[featured_images]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_featured_images', array(
+		'label'                 => __( 'Enable featured images?', 'responsive' ),
+		'section'               => 'theme_elements',
+		'settings'              => 'responsive_theme_options[featured_images]',
+		'type'                  => 'checkbox'
+	) );
 	$wp_customize->add_setting( 'responsive_theme_options[breadcrumb]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_breadcrumb', array(
 		'label'                 => __( 'Disable breadcrumb list?', 'responsive' ),
