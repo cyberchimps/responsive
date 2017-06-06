@@ -36,7 +36,7 @@ get_header(); ?>
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
 				<div class="post-entry">
-					<?php responsivepro_page_featured_image(); ?>
+					<?php responsive_page_featured_image(); ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div><!-- end of .post-entry -->

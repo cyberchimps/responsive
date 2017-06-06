@@ -54,11 +54,12 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) :
     add_action( 'wp_head', 'responsive_free_render_title' );
 endif;
 
-if( !function_exists('responsivepro_page_featured_image') ) :
+if( !function_exists('responsive_page_featured_image') ) :
 
-	function responsivepro_page_featured_image() {
+	function responsive_page_featured_image() {
 					// check if the page has a Post Thumbnail assigned to it.
-					if ( has_post_thumbnail() ) { ?>
+					$responsive_options = responsive_get_options();
+					if ( has_post_thumbnail() && 1 == $responsive_options['featured_images'] ) { ?>
 						<div class="featured-image">
 							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 								<?php	the_post_thumbnail(); ?>
