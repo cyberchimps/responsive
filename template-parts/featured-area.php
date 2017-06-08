@@ -48,8 +48,17 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		<?php if ( $responsive_options['cta_button'] == 0 ): ?>
 
 			<div class="call-to-action">
-
-				<a href="<?php echo $responsive_options['cta_url']; ?>" class="blue button">
+                           <?php 
+                           if($responsive_options['button_style'] == 'default')
+                            {
+                              $button_class = "blue button";
+                            }
+                           else  if($responsive_options['button_style'] == 'flat_style')
+                            {
+                               $button_class = "blue button flat";
+                            }
+                            ?>
+				<a href="<?php echo $responsive_options['cta_url']; ?>" class="<?php echo $button_class; ?>">
 					<?php
 					if ( isset( $responsive_options['cta_text'] ) && $db && $emtpy_cta )
 						echo $responsive_options['cta_text'];
