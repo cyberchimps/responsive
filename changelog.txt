@@ -10,6 +10,7 @@ Changelog Legend:
 
 (06/09/17) - Added New Feature - Version 2.6
 [+] - Choose to display or turn off Featured Images For Pages
+[+] - Choose between two styles (Flat or Gradient) for Call to Action button
 
 (04/13/17) - Bug fix - Version 2.5
 [!] - Fixed issue with importing google font
