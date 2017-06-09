@@ -125,7 +125,7 @@ function responsive_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'responsive_theme_options[button_style]', array(
 		'default'           => 'Gradient',
 		'type'              => 'option',
-		'sanitize_callback' => ''
+		'sanitize_callback' => 'responsive_pro_button_style_validate'
 	) );
 
 	// Call to action button style
@@ -303,6 +303,28 @@ function responsive_customize_register( $wp_customize ) {
 		'section'           => 'responsive_social_media',
 		'settings'          => 'responsive_theme_options[foursquare_uid]'
 	) ) );
+        
+        /**
+ * Validates the Call to Action Button styles
+ *
+ * @param $input select
+ *
+ * @return string
+ */
+function responsive_pro_button_style_validate( $input ) {
+	// An array of valid results
+	//$valid = responsive_get_valid_featured_area_layouts();
+         $valid = array(
+             'default' => 'Gradient',
+             'flat_style' => 'Flat'
+         );                       
+
+	if( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+}
 
 /*--------------------------------------------------------------
 	// CSS Styles
