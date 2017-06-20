@@ -111,7 +111,7 @@ function responsive_install_plugins() {
 }
 </style>
 <?php 	
-	$count = '<span class="addon-count">2</span>';
+	$count = '<span class="addon-count">3</span>';
 	
 	$config = array(
 		'domain'           => $theme_text_domain, // Text domain - likely want to be the same as your theme.
