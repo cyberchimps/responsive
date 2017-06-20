@@ -271,6 +271,9 @@ if ( !class_exists( 'TGM_Plugin_Activation' ) ) {
 			if ( !$this->is_tgmpa_page() ) {
 				return;
 			}
+?>
+<style>body{font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;}</style>
+<?php 			
 
 			if ( isset( $_REQUEST['tab'] ) && 'plugin-information' == $_REQUEST['tab'] ) {
 				require_once ABSPATH . 'wp-admin/includes/plugin-install.php'; // Need for install_plugin_information()

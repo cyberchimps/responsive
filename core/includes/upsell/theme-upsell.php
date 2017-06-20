@@ -25,7 +25,6 @@ function cyberchimps_upsell_style() {
 	wp_enqueue_style( 'bootstrap', $directory_uri . '/core/includes/upsell/bootstrap/css/bootstrap' . $suffix . '.css' );
 	wp_enqueue_style( 'bootstrap-responsive', $directory_uri . '/core/includes/upsell/bootstrap/css/bootstrap-responsive' . $suffix . '.css', 'bootstrap' );
 	wp_enqueue_style( 'cyberchimps-responsive', $directory_uri . '/core/includes/upsell/bootstrap/css/cyberchimps-responsive' . $suffix . '.css', array( 'bootstrap', 'bootstrap-responsive' ) );
-
 	wp_enqueue_style( 'upsell_style', get_template_directory_uri() . '/core/includes/upsell/css/upsell' . $suffix . '.css' );
 }
 
@@ -109,6 +108,7 @@ function cyberchimps_display_upsell() {
 
 					// For all other themes.
 					foreach ( $themes->themes as $theme ) {
+						if ($theme->slug != 'response') {
 						if ( $active_theme != $theme->name ) {
 
 							// Set the argument array with author name.
@@ -125,9 +125,14 @@ function cyberchimps_display_upsell() {
 							);
 
 							$theme_details = cyberchimps_get_themes( $request );
+							if ($counter % 3 == 1 && $theme->slug !='droidpress')
+								$class = 'no-left-megin';
+							else 
+								$class ='';
+							
 							?>
 
-							<div id="<?php echo $theme->slug; ?>" class="theme-container span4 <?php echo $counter % 3 == 1 ? 'no-left-megin' : ""; ?>">
+							<div id="<?php echo $theme->slug; ?>" class="theme-container span4 <?php echo $class; ?>">
 								<div class="image-container">
 									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
 
@@ -167,6 +172,7 @@ function cyberchimps_display_upsell() {
 							<?php
 							$counter++;
 						}
+					}
 					}?>
 				</div>
 			</div>

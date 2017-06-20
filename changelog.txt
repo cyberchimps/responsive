@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/22/17) - Added New Feature - Version 2.7
+[*] - Minor changes in admin look & feel
+[+] - Highlighted edit links in the customizer preview
+
 (06/09/17) - Added New Feature - Version 2.6
 [+] - Choose to display or turn off Featured Images For Pages
 [+] - Choose between two styles (Flat or Gradient) for Call to Action button

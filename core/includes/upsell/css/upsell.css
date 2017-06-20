@@ -5,7 +5,7 @@
 /************************************************************************************************************/
 
 body {
-	background-color: transparent;
+	background-color: #f1f1f1;
 }
 
 ul, ol {
@@ -113,3 +113,10 @@ ul, ol {
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
+#setting-error-tgmpa {font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;}
+#setting-error-tgmpa strong {font-weight: 400;}
+#setting-error-tgmpa p {font-size:14px ;font-weight: 400;}
+div.updated {box-shadow :none;}
+#droidpress {height:310px;}
+#droidpress .theme-details {margin-top: 37px;}
+#upsell_container {font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;}
