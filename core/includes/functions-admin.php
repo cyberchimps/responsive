@@ -62,6 +62,9 @@ function responsive_theme_support() {
 add_action( 'responsive_theme_options', 'responsive_theme_support', 2 );
 
 function responsive_install_plugins() {
+
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 	$plugins = array(
 
 		// This is an example of how to include a plugin pre-packaged with a theme
@@ -81,6 +84,16 @@ function responsive_install_plugins() {
 			'required' => false
 		)
 	);
+
+	$activeplugin = 0;
+
+	if ( !is_plugin_active( 'ifeature-slider/ifeatureslider.php' ) ) 
+		$activeplugin += 1; 
+	if ( !is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) )
+		$activeplugin += 1;
+	if ( !is_plugin_active( 'slidedeck3/slidedeck2-lite.php' ) )
+		$activeplugin += 1;	
+
 
 	// Change this to your theme text domain, used for internationalising strings
 	$theme_text_domain = 'responsive';
@@ -111,7 +124,7 @@ function responsive_install_plugins() {
 }
 </style>
 <?php 	
-	$count = '<span class="addon-count">3</span>';
+	$count = '<span class="addon-count">'.$activeplugin.'</span>';
 	
 	$config = array(
 		'domain'           => $theme_text_domain, // Text domain - likely want to be the same as your theme.
