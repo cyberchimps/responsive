@@ -178,7 +178,7 @@ function cyberchimps_display_about() {
 			</table>
 		</div>
 		<div class="buy">
-		<a class="button button-primary buylink" href="http://cyberchimps.com/store/responsivepro/">Buy Responsive Pro</a>
+		<a class="button button-primary buylink" target="_blank" href="http://cyberchimps.com/store/responsivepro/?utm_source=about">Buy Responsive Pro</a>
 		</div>
 	</div>
 <?php
