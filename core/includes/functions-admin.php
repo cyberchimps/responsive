@@ -106,25 +106,10 @@ function responsive_install_plugins() {
 	 * end of each line for what each argument will be.
 	 */
 ?>
-<style>
-.addon-count {
-    display: inline-block;
-    z-index: 26;
-    margin: 1px 0 0 2px;
-    margin-top: 1px;
-    margin-left: 5px;
-    padding: 0 6px;
-    border-radius: 10px;
-    color: #fff;
-    background-color: #d54e21;
-    font-size: 9px;
-    font-weight: 600;
-    line-height: 17px;
-    vertical-align: top;
-}
-</style>
+
 <?php 	
-	$count = '<span class="addon-count">'.$activeplugin.'</span>';
+	$style = 'display: inline-block;z-index: 26;margin: 1px 0 0 5px;padding: 0 6px;border-radius: 10px; color: #fff;background-color: #d54e21;font-size: 9px;line-height: 17px;vertical-align: top;';
+	$count = '<span style="'.$style.'" class="addon-count">'.$activeplugin.'</span>';
 	
 	$config = array(
 		'domain'           => $theme_text_domain, // Text domain - likely want to be the same as your theme.

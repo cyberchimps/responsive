@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/22/17) - Bug fix - Version 2.7.1
+[!] - Fixed bug with media page not getting displayed
+
 (06/22/17) - Added New Feature - Version 2.7
 [*] - Minor changes in admin look & feel
 [+] - Highlighted edit links in the customizer preview
