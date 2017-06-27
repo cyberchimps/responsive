@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/25/17) - Bug fix - Version 2.7.2
+[!] - Cannot modify header issue resolved
+
 (06/22/17) - Bug fix - Version 2.7.1
 [!] - Fixed bug with media page not getting displayed
 

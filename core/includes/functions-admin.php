@@ -105,9 +105,7 @@ function responsive_install_plugins() {
 	 * Some of the strings are added into a sprintf, so see the comments at the
 	 * end of each line for what each argument will be.
 	 */
-?>
 
-<?php 	
 	$style = 'display: inline-block;z-index: 26;margin: 1px 0 0 5px;padding: 0 6px;border-radius: 10px; color: #fff;background-color: #d54e21;font-size: 9px;line-height: 17px;vertical-align: top;';
 	$count = '<span style="'.$style.'" class="addon-count">'.$activeplugin.'</span>';
 	
