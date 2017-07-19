@@ -56,6 +56,19 @@ function responsive_admin_css() { ?>
 	.themes-php div.activation a {
 		text-decoration: none;
 	}
+	.addon-count
+	{
+		display:inline-block;
+		z-index:26;
+		margin:1px 0 0 5px;
+		padding:0 6px;
+		border-radius:10px;
+		color:#fff;
+		background-color:#d54e21;
+		font-size:9px;
+		line-height:17px;
+		vertical-align:top;
+	}
 	</style>
 <?php }
 add_action( 'admin_head', 'responsive_admin_css' );
