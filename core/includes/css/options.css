@@ -1,0 +1,33 @@
+/* CSS for CyberChimps account page */
+.panel-primary {
+	margin-top: 15px; border: 1px solid rgb(200, 200, 200); width: 94%; padding: 20px;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+.panel-body {
+	padding: 20px; border: 1px solid rgb(205, 205, 205); display: inline-block; background: none repeat scroll 0% 0% rgb(255, 255, 255);
+	width: 34%;
+}
+.form-group label {font-size:14px;display: block; margin: 10px 0;}
+.form-group textarea {width: 70%;height: 100px;}
+.form-group input {
+	width: 260px; padding: 5px; display: inline-block; height: 30px; border-radius: 0px; border: 1px solid rgb(200, 200, 200); box-shadow: none; color: rgb(147, 147, 147);margin-bottom:20px;	
+	}
+#ccfeature-error, #ccemail-error {
+	margin: 0px 0px 10px;
+	border: medium none;
+	box-shadow: none;
+	padding-left: 0px;
+	color: #ff0000;
+}
+.form-group input[type="password"] {margin-left: 9px;}
+.panel-heading{
+	font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+	background:linear-gradient(to bottom, #FEFEFE 0%, #EDEDED 100%) repeat scroll 0% 0% transparent;
+	border:solid 1px #cdcdcd; width:94%;
+	padding: 0 20px; margin: 10px 0;
+}
+
+.panel-heading h3 {font-size: 20px;}
+.updateres { line-height: 23px;font-size:1.2em; margin-top: 15px;margin-bottom: 15px;display: block;color: #005580;}
+.ccinfo { font-size:1.2em; margin-bottom: 15px;display: block;line-height: 24px;}
+.form-group label {margin-right: 10px;}

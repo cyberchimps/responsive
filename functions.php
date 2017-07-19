@@ -14,6 +14,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 $template_directory = get_template_directory();
 
+require( $template_directory . '/core/includes/functions-feedback.php' );
 require( $template_directory . '/core/includes/functions.php' );
 require( $template_directory . '/core/includes/functions-update.php' );
 require( $template_directory . '/core/includes/functions-about.php' );

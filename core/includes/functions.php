@@ -66,6 +66,7 @@ function responsive_get_option_defaults() {
 		'cta_text'                        => null,
 		'cta_url'                         => null,
 		'featured_content'                => null,
+		'testimonials'					  => 0,		
 		'google_site_verification'        => '',
 		'bing_site_verification'          => '',
 		'yahoo_site_verification'         => '',
