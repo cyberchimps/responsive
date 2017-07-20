@@ -646,6 +646,7 @@ function responsive_theme_options_validate( $input ) {
 					'cta_text',
 					'cta_url',
 					'featured_content',
+					'testimonial_title',
 				) as $content ) {
 			$input[$content] = ( in_array( $input[$content], array( $defaults[$content], '' ) ) ? $defaults[$content] : wp_kses_stripslashes( $input[$content] ) );
 		}

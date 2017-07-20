@@ -14,7 +14,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 $template_directory = get_template_directory();
 
-require( $template_directory . '/core/includes/functions-feedback.php' );
+//require( $template_directory . '/core/includes/functions-feedback.php' );
 require( $template_directory . '/core/includes/functions.php' );
 require( $template_directory . '/core/includes/functions-update.php' );
 require( $template_directory . '/core/includes/functions-about.php' );
@@ -24,6 +24,7 @@ require( $template_directory . '/core/includes/functions-admin.php' );
 require( $template_directory . '/core/includes/functions-extras.php' );
 require( $template_directory . '/core/includes/functions-extentions.php' );
 require( $template_directory . '/core/includes/theme-options/theme-options.php' );
+require( $template_directory . '/core/includes/functions-feedback.php' );
 require( $template_directory . '/core/includes/post-custom-meta.php' );
 require( $template_directory . '/core/includes/tha-theme-hooks.php' );
 require( $template_directory . '/core/includes/hooks.php' );
@@ -76,9 +77,13 @@ function responsiveedit_customize_register( $wp_customize ){
 	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[banner_image]', array(
 			'selector' => '#featured',
 	) );
+$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[testimonial_title]', array(
+		'selector' => '.section_title',
+) );
 	$wp_customize->selective_refresh->add_partial( 'nav_menu_locations[top]', array(
 			'selector' => '.main-nav',
 	) );
+
 	$wp_customize->selective_refresh->add_partial( 'sidebars_widgets[home-widget-1]', array(
 			'selector' => '#home_widget_1',
 			 

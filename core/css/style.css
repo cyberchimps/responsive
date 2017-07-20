@@ -2854,9 +2854,8 @@ width: 99.893617021277%;
 }
 .testimonial_main_div .testimonial_author {    
     font-weight: 700;
-    font-size: 18px;
-    text-transform: uppercase;   
-    margin-bottom: 0;
+    font-size: 18px;      
+    margin-bottom: 4px;
     text-align: center;
     margin-top: 1em;
 }
