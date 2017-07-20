@@ -93,6 +93,12 @@ add_action( 'wp_footer', 'responsive_inline_js_footer' );
  * Create the options page
  */
 function responsive_theme_options_do_page() {
+	$options_posts = array();
+	$options_posts_obj = get_posts('posts_per_page=-1');
+	$options_posts[''] = esc_html(__( 'Choose Post', 'compact-one-pro' ));
+	foreach ( $options_posts_obj as $posts ) {
+		$options_posts[$posts->ID] = $posts->post_title;
+	}
 	
 	if ( !isset( $_REQUEST['settings-updated'] ) ) {
 		$_REQUEST['settings-updated'] = false;
@@ -209,6 +215,7 @@ function responsive_theme_options_do_page() {
 	 * @placeholder The placeholder for text and textarea
 	 * @options array used by select dropdown lists
 	 */
+	
 	$options = apply_filters( 'responsive_options_filter', array(
 		'theme_elements' => array(
 			array(
@@ -370,8 +377,34 @@ function responsive_theme_options_do_page() {
 				'id'          => 'featured_content',
 				'description' => __( 'Paste your shortcode, video or image source', 'responsive' ),
 				'placeholder' => "<img class='aligncenter' src='" . get_template_directory_uri() . "'/core/images/featured-image.png' width='440' height='300' alt='' />"
-			)
-
+			),
+			array(
+					'title'       => __( 'Enable Testimonial Section', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'testimonials',					
+					'placeholder' => ''
+			),
+			array(
+					'title'       => __( 'Testimonial Title', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'testimonial_title',
+					'description' => __( 'Enter your testimonial title', 'responsive' ),
+					'placeholder' => __( 'Testimonial', 'responsive' )
+			),
+			array(
+					'title'       => __( 'Select Post for testimonial', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'testimonial_val',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => $options_posts
+			),
 		),
 		'layouts' => array(
 			array(
