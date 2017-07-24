@@ -289,7 +289,16 @@ Class Responsive_Options {
                 </div>';
 
 	}
-
+	public static function options_posts() {
+		$options_posts = array();
+		$options_posts_obj = get_posts('posts_per_page=-1');
+		$options_posts[''] = esc_html(__( 'Choose Post', 'responsive' ));
+		foreach ( $options_posts_obj as $posts ) {
+			$options_posts[$posts->ID] = $posts->post_title;
+		}
+		
+		return $options_posts;
+	}
 	/**
 	 * Default layouts static function
 	 *

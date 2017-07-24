@@ -41,6 +41,14 @@ function cyberchimps_add_feedback() {
 
 add_action( 'admin_menu', 'cyberchimps_add_feedback' );
 
+function responsive_sender_email($sent_from)
+{
+	return $_POST['ccemail'];
+}
+function responsive_mail_name ($sent_from)
+{
+	return $_POST['ccemail']; 
+}
 function cyberchimps_display_feedback() {
 	$strResponseMessage ='';
 	$to = 'hello@cyberchimps.com';
@@ -49,9 +57,12 @@ function cyberchimps_display_feedback() {
 		//Send mail
 		if(!empty($_POST['ccfeature']) && !empty($_POST['ccemail']))
 		{
-			$subject = "Feature Request for Responsive";
-			$headers = 'From: '.'<'.$_POST['ccemail'].'>'. "\r\n";
+			$subject = "Feature Request for Responsive Free Theme";
+			$headers = 'From: '.'<'.$_POST['ccemail'].'>'. "\r\n";			
 			$feature = wp_kses_stripslashes ($_POST['ccfeature']);
+			
+			add_filter( 'wp_mail_from', 'responsive_sender_email' );
+			add_filter( 'wp_mail_from_name', 'responsive_mail_name' );
 			
 			if(wp_mail($to, $subject, $feature, $headers)) {
 				$strResponseMessage = "Thanks, your note is on its way to us now. Be sure to whitelist our mail id hello@cyberchimps.com so that our reply doesn't end up in your spam folder. Have a lovely day ahead !";

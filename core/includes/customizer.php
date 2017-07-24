@@ -74,7 +74,7 @@ function responsive_customize_register( $wp_customize ) {
 	/* Option list of all post */
 	$options_posts = array();
 	$options_posts_obj = get_posts('posts_per_page=-1');
-	$options_posts[''] = esc_html(__( 'Choose Post', 'compact-one-pro' ));
+	$options_posts[''] = esc_html(__( 'Choose Post', 'responsive' ));
 	foreach ( $options_posts_obj as $posts ) {
 		$options_posts[$posts->ID] = $posts->post_title;
 	}
@@ -449,7 +449,7 @@ function responsive_sanitize_posts( $input ) {
 	$output = '';
 	$options_posts = array();
 	$options_posts_obj = get_posts('posts_per_page=-1');
-	$options_posts[''] = esc_html(__( 'Choose Post', 'compact-one-pro' ));
+	$options_posts[''] = esc_html(__( 'Choose Post', 'responsive' ));
 	foreach ( $options_posts_obj as $posts ) {
 		$options_posts[$posts->ID] = $posts->post_title;
 	}

@@ -95,7 +95,7 @@ add_action( 'wp_footer', 'responsive_inline_js_footer' );
 function responsive_theme_options_do_page() {
 	$options_posts = array();
 	$options_posts_obj = get_posts('posts_per_page=-1');
-	$options_posts[''] = esc_html(__( 'Choose Post', 'compact-one-pro' ));
+	$options_posts[''] = esc_html(__( 'Choose Post', 'responsive' ));
 	foreach ( $options_posts_obj as $posts ) {
 		$options_posts[$posts->ID] = $posts->post_title;
 	}
@@ -403,7 +403,7 @@ function responsive_theme_options_do_page() {
 					'id'          => 'testimonial_val',
 					'description' => '',
 					'placeholder' => '',
-					'options'     => $options_posts
+					'options'     => Responsive_Options::options_posts()
 			),
 		),
 		'layouts' => array(
