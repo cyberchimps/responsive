@@ -134,6 +134,12 @@ function cyberchimps_display_about() {
 			<td class="featureno"><span class='dashicons-before dashicons-yes'></span></td>				
 			</tr>
 			<tr>
+			<tr>
+			<td class="feature">Testimonial element for home page</td>
+			<td class="featureyes">1</td>
+			<td class="featureno">Unlimited</td>				
+			</tr>
+			<tr>
 			<td class="feature">Ability to choose different Site-Wide layouts 
 				<p>Default,Full-width & Boxed</p> </td>
 			<td class="featureyes"><span class="dashicons-before dashicons-no-alt"></span></td>
