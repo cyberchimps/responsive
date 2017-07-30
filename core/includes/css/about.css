@@ -16,7 +16,8 @@ border-collapse:collapse;
 }
 .features-table .dashicons-yes {color: #259e58;}
 .features-table .dashicons-no-alt {color:#ff0000;}
-.featureyes { //background: url('../../icons/icon-tick.png') center no-repeat;text-align: center;}
+.child-themes {display:block; margin-top: 70px;font-size:1.1em;font-weight:bold; }
+.featureyes { text-align: center;}
 .featureno { //background: url('../../icons/icon-cross.png') 0 5px no-repeat;text-align: center;}
 .features-table .dashicons-before::before {
 	font-size: 30px;	

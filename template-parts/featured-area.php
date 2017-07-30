@@ -90,6 +90,10 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		$responsive_testimonial_id = $responsive_options['testimonial_val'];
 		$responsive_testimonial_desc = get_post($responsive_testimonial_id);
 		$responsive_testimonial_img        = wp_get_attachment_url( get_post_thumbnail_id( $responsive_testimonial_id ) );
+		$image_id = responsive_get_attachment_id_from_url($responsive_testimonial_img);
+		$responsive_testimonial_alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+		if ($responsive_testimonial_alt_text == "")
+			$responsive_testimonial_alt_text = get_the_title( $responsive_testimonial_id );
 		$responsive_testimonial_name      = get_the_title( $responsive_testimonial_id );
 		$responsive_testimonial_desc_content = $responsive_testimonial_desc->post_content;
 		
@@ -98,7 +102,8 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 			<span><?php echo esc_html($responsive_testimonial_title); ?></span>
 	</h2>
 	<div class="testimonial_main_div">
-		<div class="testimonial_img"><img src="<?php echo esc_url($responsive_testimonial_img); ?>" alt="<?php echo esc_attr($responsive_testimonial_name); ?>"/></div>
+		<div class="testimonial_img"><img src="<?php echo esc_url($responsive_testimonial_img); ?>" alt="<?php echo esc_attr($responsive_testimonial_alt_text); ?>"/></div>
+		
 		<div class="testimonial_main_text">
 		<p class="testimonial_author"><?php echo esc_html($responsive_testimonial_name); ?></p>		
 		<p class="testimonial_text"><?php echo esc_html($responsive_testimonial_desc_content); ?></p>
@@ -106,4 +111,116 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	</div>	
 </div>
 
+<?php }?>
+<?php if ( isset( $responsive_options['team']) && $responsive_options['team'] == '1') { ?>
+<div id="team_div" class="grid">
+	<?php 
+	$responsive_team_title = isset( $responsive_options['team_title']) ?  $responsive_options['team_title'] : 'Team';
+	
+	$responsive_team1_post_id = $responsive_options['teammember1'];
+	$responsive_team1_post = get_post($responsive_team1_post_id);
+	$responsive_team1_desc = $responsive_team1_post->post_content;
+	$team1_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_team1_post_id ) );
+	$team1_showcase_title = get_the_title( $responsive_team1_post_id );
+	$team1_showcase_designation = get_post_meta($responsive_team1_post_id, 'responsive_meta_box_designation', true);
+	$team1_showcase_facebook = get_post_meta($responsive_team1_post_id, 'responsive_meta_box_facebook', true);
+	$team1_showcase_twitter = get_post_meta($responsive_team1_post_id, 'responsive_meta_box_twitter', true);
+	$team1_showcase_googleplus = get_post_meta($responsive_team1_post_id, 'responsive_meta_box_googleplus', true);
+	$team1_showcase_linkedin = get_post_meta($responsive_team1_post_id, 'responsive_meta_box_text_linkedin', true);
+	$image_id = responsive_get_attachment_id_from_url($team1_showcase_img);
+	$responsive_alt1_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+	if ($responsive_alt1_text == "")
+		$responsive_alt1_text = get_the_title( $responsive_team1_post_id );
+	
+	$responsive_team2_post_id = $responsive_options['teammember2'];
+	$responsive_team2_post = get_post($responsive_team2_post_id);
+	$responsive_team2_desc = $responsive_team2_post->post_content;
+	$team2_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_team2_post_id ) );
+	$team2_showcase_title = get_the_title( $responsive_team2_post_id );
+	$team2_showcase_designation = get_post_meta($responsive_team2_post_id, 'responsive_meta_box_designation', true);
+	$team2_showcase_facebook = get_post_meta($responsive_team2_post_id, 'responsive_meta_box_facebook', true);
+	$team2_showcase_twitter = get_post_meta($responsive_team2_post_id, 'responsive_meta_box_twitter', true);
+	$team2_showcase_googleplus = get_post_meta($responsive_team2_post_id, 'responsive_meta_box_googleplus', true);
+	$team2_showcase_linkedin = get_post_meta($responsive_team2_post_id, 'responsive_meta_box_text_linkedin', true);
+	$image_id = responsive_get_attachment_id_from_url($team2_showcase_img);
+	$responsive_alt2_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+	if ($responsive_alt2_text == "")
+		$responsive_alt2_text = get_the_title( $responsive_team2_post_id );
+	
+	$responsive_team3_post_id = $responsive_options['teammember3'];
+	$responsive_team3_post = get_post($responsive_team3_post_id);
+	$responsive_team3_desc = $responsive_team3_post->post_content;
+	$team3_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_team3_post_id ) );
+	$team3_showcase_title = get_the_title( $responsive_team3_post_id );
+	$team3_showcase_designation = get_post_meta($responsive_team3_post_id, 'responsive_meta_box_designation', true);
+	$team3_showcase_facebook = get_post_meta($responsive_team3_post_id, 'responsive_meta_box_facebook', true);
+	$team3_showcase_twitter = get_post_meta($responsive_team3_post_id, 'responsive_meta_box_twitter', true);
+	$team3_showcase_googleplus = get_post_meta($responsive_team3_post_id, 'responsive_meta_box_googleplus', true);
+	$team3_showcase_linkedin = get_post_meta($responsive_team3_post_id, 'responsive_meta_box_text_linkedin', true);
+	$image_id = responsive_get_attachment_id_from_url($team3_showcase_img);
+	$responsive_alt3_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+	if ($responsive_alt3_text == "")
+		$responsive_alt3_text = get_the_title( $responsive_team2_post_id );
+	?>
+	<h2 class="section_title"> 
+			<span><?php echo esc_html($responsive_team_title); ?></span>
+	</h2>
+	
+	<div class="team_main_div">
+		<div class="section-team grid">
+			<div class="team_img"><img src="<?php echo esc_url($team1_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt1_text); ?>"/></div>
+			<span class="team_member"><?php echo esc_html($team1_showcase_title); ?></span>
+			<span class="team_designation"><?php echo esc_html($team1_showcase_designation); ?></span>
+			<div class="social">
+			<?php if(!empty($team1_showcase_facebook)) { ?>
+						<a class="tw_showcase_facebook" href="<?php echo esc_url($team1_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team1_showcase_twitter)) { ?>
+						<a class="tw_showcase_twitter" href="<?php echo esc_url($team1_showcase_twitter); ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team1_showcase_googleplus)) { ?>
+					<a class="tw_showcase_googleplus" href="<?php echo esc_url($team1_showcase_googleplus); ?>" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team1_showcase_linkedin)) { ?>
+					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team1_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<?php } ?></div><div class="team_desc"><?php echo esc_html($responsive_team1_desc); ?></div>
+		</div>
+		<div class="section-team grid">
+			<div class="team_img"><img src="<?php echo esc_url($team2_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt2_text); ?>"/></div>
+			<span class="team_member"><?php echo esc_html($team2_showcase_title); ?></span>
+			<span class="team_designation"><?php echo esc_html($team2_showcase_designation); ?></span>
+			<div class="social">
+			<?php if(!empty($team2_showcase_facebook)) { ?>
+						<a class="tw_showcase_facebook" href="<?php echo esc_url($team2_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team2_showcase_twitter)) { ?>
+						<a class="tw_showcase_twitter" href="<?php echo esc_url($team2_showcase_twitter); ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team2_showcase_googleplus)) { ?>
+					<a class="tw_showcase_googleplus" href="<?php echo esc_url($team2_showcase_googleplus); ?>" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team2_showcase_linkedin)) { ?>
+					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team2_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<?php } ?></div><div class="team_desc"><?php echo esc_html($responsive_team2_desc); ?></div>
+		</div>
+		<div class="section-team grid">
+			<div class="team_img"><img src="<?php echo esc_url($team3_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt3_text); ?>"/></div>
+			<span class="team_member"><?php echo esc_html($team3_showcase_title); ?></span>
+			<span class="team_designation"><?php echo esc_html($team3_showcase_designation); ?></span>
+			<div class="social">
+			<?php if(!empty($team3_showcase_facebook)) { ?>
+						<a class="tw_showcase_facebook" href="<?php echo esc_url($team3_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team3_showcase_twitter)) { ?>
+						<a class="tw_showcase_twitter" href="<?php echo esc_url($team3_showcase_twitter); ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team3_showcase_googleplus)) { ?>
+					<a class="tw_showcase_googleplus" href="<?php echo esc_url($team3_showcase_googleplus); ?>" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+			<?php } ?>
+			<?php if(!empty($team3_showcase_linkedin)) { ?>
+					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team3_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<?php } ?></div><div class="team_desc"><?php echo esc_html($responsive_team3_desc); ?></div>
+		</div>
+	</div>
+</div>
 <?php }?>

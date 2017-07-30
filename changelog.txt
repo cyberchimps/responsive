@@ -8,7 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(06/26/17) - Added New Feature - Version 2.8
+(07/31/17) - Added New Feature - Version 2.9
+[+] - Team element (for home page) added
+
+(07/26/17) - Added New Feature - Version 2.8
 [+] - Testimonial element added
 
 (06/25/17) - Bug fix - Version 2.7.2

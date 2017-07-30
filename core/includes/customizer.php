@@ -184,6 +184,53 @@ function responsive_customize_register( $wp_customize ) {
 			'choices'               => $options_posts,
 			'priority' => 35
 	) );
+	$wp_customize->add_setting( 'responsive_theme_options[team]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'team_front_page', array(
+			'label'                 => __( 'Enable Team Section', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[team]',
+			'type'                  => 'checkbox',
+			'priority' => 36
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[team_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Team', 'responsive' ), 'type' => 'option' ));
+	$wp_customize->add_control( 'team_title', array(
+			'label'                 => __( 'Team Title', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[team_title]',
+			'type'                  => 'text',
+			'priority' => 37
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[teammember1]', array( 'sanitize_callback' => 'responsive_sanitize_posts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'teammember1', array(
+			'label'                 => __( 'Select post for team member1', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[teammember1]',
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+			'type'                  => 'select',
+			'choices'               => $options_posts,
+			'priority' => 38
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[teammember2]', array( 'sanitize_callback' => 'responsive_sanitize_posts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'teammember2', array(
+			'label'                 => __( 'Select post for team member2', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[teammember2]',
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+			'type'                  => 'select',
+			'choices'               => $options_posts,
+			'priority' => 39
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[teammember3]', array( 'sanitize_callback' => 'responsive_sanitize_posts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'teammember3', array(
+			'label'                 => __( 'Select post for team member3', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[teammember3]',
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+			'type'                  => 'select',
+			'choices'               => $options_posts,
+			'priority' => 40
+	) );
+	
 
 /*--------------------------------------------------------------
 	// Default Layouts
