@@ -405,6 +405,54 @@ function responsive_theme_options_do_page() {
 					'placeholder' => '',
 					'options'     => Responsive_Options::options_posts()
 			),
+			array(
+					'title'       => __( 'Enable Team Section', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'team',
+					'placeholder' => ''
+			),
+			array(
+					'title'       => __( 'Team Title', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'team_title',
+					'description' => __( 'Enter your team title', 'responsive' ),
+					'placeholder' => __( 'Team', 'responsive' )
+			),
+			array(
+					'title'       => __( 'Select Post for team member1', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'teammember1',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::options_posts()
+			),
+			array(
+					'title'       => __( 'Select Post for team member2', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'teammember2',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::options_posts()
+			),
+			array(
+					'title'       => __( 'Select Post for team member3', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'teammember3',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::options_posts()
+			),
+			
 		),
 		'layouts' => array(
 			array(
