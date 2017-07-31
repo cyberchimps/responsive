@@ -171,6 +171,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 			<div class="team_img"><img src="<?php echo esc_url($team1_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt1_text); ?>"/></div>
 			<span class="team_member"><?php echo esc_html($team1_showcase_title); ?></span>
 			<span class="team_designation"><?php echo esc_html($team1_showcase_designation); ?></span>
+			<div class="team_desc"><?php echo esc_html($responsive_team1_desc); ?></div>
 			<div class="social">
 			<?php if(!empty($team1_showcase_facebook)) { ?>
 						<a class="tw_showcase_facebook" href="<?php echo esc_url($team1_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -183,7 +184,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 			<?php } ?>
 			<?php if(!empty($team1_showcase_linkedin)) { ?>
 					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team1_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-			<?php } ?></div><div class="team_desc"><?php echo esc_html($responsive_team1_desc); ?></div>
+			<?php } ?></div>
 		</div>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url($team2_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt2_text); ?>"/></div>

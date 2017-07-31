@@ -2892,22 +2892,20 @@ width: 99.893617021277%;
 	-webkit-border-radius:100%;
 	-moz-border-radius:100%;
 	border-radius:100%;
-	font-size:1.2em;
+	font-size:1em;
 	line-height:31x;
 	outline:0;
 	color:#fff;
 	background-color:#222;
+	box-sizing: border-box;
+	padding-top: 4px;
 	-webkit-transition:all .3s;
 	-moz-transition:all .3s;
 	-o-transition:all .3s;
 	transition:all .3s;
 }
 .section-team {width: 32%;}
-.team_desc {
-	display: none;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    background-color: rgba(34, 50, 63, 0.85);
+.team_desc {   
+    text-align: center;  
     padding: 0 10px 10px;
 }

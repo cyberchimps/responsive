@@ -194,8 +194,8 @@ function cyberchimps_display_about() {
 		<td>Responsive Blog </td>
 		</tr>
 		<tr>
-		<td><a href="https://cyberchimps.com/store/responsive-business/" target="_blank"><img width="400px" height="300px" src="<?php echo $directory_uri ?>/core/images/responsive_business.jpg"></a></td>
-		<td><a href="https://cyberchimps.com/store/responsive-blog/" target="_blank"><img width="400px" height="300px" src="<?php echo $directory_uri ?>/core/images/responsive_blog.jpg"></a></td>
+		<td><a href="https://cyberchimps.com/store/responsive-business/" target="_blank"><img  src="<?php echo $directory_uri ?>/core/images/responsive_business.jpg"></a></td>
+		<td><a href="https://cyberchimps.com/store/responsive-blog/" target="_blank"><img src="<?php echo $directory_uri ?>/core/images/responsive_blog.jpg"></a></td>
 		</tr>
 		</table>
 		</div>
