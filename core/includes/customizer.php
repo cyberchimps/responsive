@@ -192,7 +192,8 @@ function responsive_customize_register( $wp_customize ) {
 			'type'                  => 'checkbox',
 			'priority' => 36
 	) );
-	$wp_customize->add_setting( 'responsive_theme_options[team_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Team', 'responsive' ), 'type' => 'option' ));
+	//$wp_customize->add_setting( 'responsive_theme_options[team_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Team', 'responsive' ), 'type' => 'option' ));
+	$wp_customize->add_setting( 'responsive_theme_options[team_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'team', 'responsive' ), 'type' => 'option' ));
 	$wp_customize->add_control( 'team_title', array(
 			'label'                 => __( 'Team Title', 'responsive' ),
 			'section'               => 'home_page',

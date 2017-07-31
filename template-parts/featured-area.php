@@ -116,8 +116,9 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 <div id="team_div" class="grid">
 	<?php 
 	$responsive_team_title = isset( $responsive_options['team_title']) ?  $responsive_options['team_title'] : 'Team';
-	
+		
 	$responsive_team1_post_id = $responsive_options['teammember1'];
+	if (!$responsive_team1_post_id ==''){
 	$responsive_team1_post = get_post($responsive_team1_post_id);
 	$responsive_team1_desc = $responsive_team1_post->post_content;
 	$team1_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_team1_post_id ) );
@@ -131,8 +132,9 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	$responsive_alt1_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 	if ($responsive_alt1_text == "")
 		$responsive_alt1_text = get_the_title( $responsive_team1_post_id );
-	
+	}
 	$responsive_team2_post_id = $responsive_options['teammember2'];
+	if (!$responsive_team2_post_id ==''){
 	$responsive_team2_post = get_post($responsive_team2_post_id);
 	$responsive_team2_desc = $responsive_team2_post->post_content;
 	$team2_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_team2_post_id ) );
@@ -146,8 +148,9 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	$responsive_alt2_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 	if ($responsive_alt2_text == "")
 		$responsive_alt2_text = get_the_title( $responsive_team2_post_id );
-	
+	}
 	$responsive_team3_post_id = $responsive_options['teammember3'];
+	if (!$responsive_team3_post_id ==''){
 	$responsive_team3_post = get_post($responsive_team3_post_id);
 	$responsive_team3_desc = $responsive_team3_post->post_content;
 	$team3_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_team3_post_id ) );
@@ -161,12 +164,14 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	$responsive_alt3_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 	if ($responsive_alt3_text == "")
 		$responsive_alt3_text = get_the_title( $responsive_team2_post_id );
+	}
 	?>
 	<h2 class="section_title"> 
 			<span><?php echo esc_html($responsive_team_title); ?></span>
 	</h2>
 	
 	<div class="team_main_div">
+		<?php if (!$responsive_team1_post_id ==''){?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url($team1_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt1_text); ?>"/></div>
 			<span class="team_member"><?php echo esc_html($team1_showcase_title); ?></span>
@@ -186,6 +191,8 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team1_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 			<?php } ?></div>
 		</div>
+		<?php }?>
+		<?php if (!$responsive_team2_post_id ==''){?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url($team2_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt2_text); ?>"/></div>
 			<span class="team_member"><?php echo esc_html($team2_showcase_title); ?></span>
@@ -204,6 +211,8 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team2_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 			<?php } ?></div><div class="team_desc"><?php echo esc_html($responsive_team2_desc); ?></div>
 		</div>
+		<?php }?>
+		<?php if (!$responsive_team3_post_id ==''){?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url($team3_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt3_text); ?>"/></div>
 			<span class="team_member"><?php echo esc_html($team3_showcase_title); ?></span>
@@ -222,6 +231,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team3_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 			<?php } ?></div><div class="team_desc"><?php echo esc_html($responsive_team3_desc); ?></div>
 		</div>
+		<?php }?>
 	</div>
 </div>
 <?php }?>

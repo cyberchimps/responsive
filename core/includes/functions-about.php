@@ -140,6 +140,11 @@ function cyberchimps_display_about() {
 			<td class="featureno">Unlimited</td>				
 			</tr>
 			<tr>
+			<td class="feature">Team element for home page</td>
+			<td class="featureyes">3 team members</td>
+			<td class="featureno">Unlimited</td>				
+			</tr>
+			<tr>
 			<td class="feature">Ability to choose different Site-Wide layouts 
 				<p>Default,Full-width & Boxed</p> </td>
 			<td class="featureyes"><span class="dashicons-before dashicons-no-alt"></span></td>

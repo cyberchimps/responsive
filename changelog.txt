@@ -9,7 +9,8 @@ Changelog Legend:
 [!] = Bugs
 
 (07/31/17) - Added New Feature - Version 2.9
-[+] - Team element (for home page) added
+[+] Team element (for home page) added
+[*] Improved SEO - ALT tags
 
 (07/26/17) - Added New Feature - Version 2.8
 [+] - Testimonial element added

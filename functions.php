@@ -80,7 +80,7 @@ function responsiveedit_customize_register( $wp_customize ){
 $wp_customize->selective_refresh->add_partial( 'responsive_theme_options[testimonial_title]', array(
 		'selector' => '#testimonial_div .section_title',
 ) );
-$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[team]', array(
+$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[team_title]', array(
 		'selector' => '#team_div .section_title',
 ) );
 	$wp_customize->selective_refresh->add_partial( 'nav_menu_locations[top]', array(
