@@ -21,7 +21,10 @@
 	margin: -1em 0 0 0;
 	line-height:1.5;
 	min-height:1em;
-	background-color:#585858;
+	background-color:rgba(255, 0, 0, 0.8);
+	right: 13px;
+    	top: 2em;
+    	padding:7px;
 }
 
 /* To align the title, price, and add to cart button. */
@@ -47,10 +50,25 @@
 
 .woocommerce ul.products li.product .button
 {
+	color:#77a464;
 	margin-top:0;
+	background-color:inherit;
+	font-size:1.6em;
+	padding:0.418em 0.6em;
+}
+
+.woocommerce ul.products li.product .price
+{
+	font-size: 1.1em;
+}
+
+.woocommerce ul.products li.product .button:hover
+{
+	color:#585858;
 }
 
 .products > li:nth-of-type(2n+1), .products > div > div > li:nth-of-type(2n+1)
 {
 clear:both;
 }
+

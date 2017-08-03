@@ -177,7 +177,6 @@ $link = '/cart/?add-to-cart=' . $product->get_ID();
 	$responsive_options = responsive_get_options();
 	if ( 1 == $responsive_options['override_woo'] )
 	{
-	echo'<div class="prod_wrap_right"><a href="'.$link.'"><button class="button"><i class="fa fa-shopping-basket" aria-hidden="true"></i>
-	</button></a></div>';
+	echo'<div class="prod_wrap_right"><a href="'.$link.'"><button class="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a></div>';
 	}
 }
