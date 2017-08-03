@@ -219,6 +219,15 @@ function responsive_theme_options_do_page() {
 	$options = apply_filters( 'responsive_options_filter', array(
 		'theme_elements' => array(
 			array(
+				'title'       => __( 'Override WooCommerce Templates( Shop page template )?', 'responsive' ),
+				'subtitle'    => '',
+				'heading'     => '',
+				'type'        => 'checkbox',
+				'id'          => 'override_woo',
+				'description' => __( 'Check to enable', 'responsive' ),
+				'placeholder' => ''
+			),
+			array(
 				'title'       => __( 'Enable Featured images?', 'responsive' ),
 				'subtitle'    => '',
 				'heading'     => '',

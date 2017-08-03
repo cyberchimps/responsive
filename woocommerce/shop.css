@@ -1,0 +1,56 @@
+#custom_shop .woocommerce ul.products li.product, .woocommerce-page ul.products li.product
+{
+ border: 1px solid #cfcfcf;
+ width:46%;
+ padding:2%;
+ box-sizing: border-box;
+ margin-bottom:2em;
+}
+
+
+@media only screen and (max-width: 450px) {
+	#custom_shop .woocommerce ul.products li.product, .woocommerce-page ul.products li.product
+	{
+		width:100%;
+	}
+}
+
+#custom_shop .woocommerce ul.products li.product .onsale, .woocommerce-page ul.products li.product .onsale
+{
+	border-radius:0;
+	margin: -1em 0 0 0;
+	line-height:1.5;
+	min-height:1em;
+	background-color:#585858;
+}
+
+/* To align the title, price, and add to cart button. */
+.product_wrapper {
+    position: relative;
+}
+.prod_wrap_left {
+    padding-right: 55px;
+}
+.prod_wrap_right {
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+}
+
+.woocommerce ul.products li.product .price del, .woocommerce ul.products li.product .price ins
+{
+	display:inline-block;
+	padding-right:5px;
+}
+
+.woocommerce ul.products li.product .button
+{
+	margin-top:0;
+}
+
+.products > li:nth-of-type(2n+1), .products > div > div > li:nth-of-type(2n+1)
+{
+clear:both;
+}
