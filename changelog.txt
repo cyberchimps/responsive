@@ -8,9 +8,6 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(08/04/17) - Added New Feature - Version 3.0
-[+] New WooCommerce template (for shop page) added
-
 (07/31/17) - Added New Feature - Version 2.9
 [+] Team element (for home page) added
 [*] Improved SEO - ALT tags
