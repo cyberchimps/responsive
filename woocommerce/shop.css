@@ -35,11 +35,9 @@
     padding-right: 55px;
 }
 .prod_wrap_right {
-    height: 50px;
     position: absolute;
     right: 0;
-    top: 0;
-    width: 50px;
+    bottom: 0;
 }
 
 .woocommerce ul.products li.product .price del, .woocommerce ul.products li.product .price ins
@@ -53,8 +51,8 @@
 	color:#77a464;
 	margin-top:0;
 	background-color:inherit;
-	font-size:1.6em;
-	padding:0.418em 0.6em;
+	font-size:2em;
+	padding:0.418em 0 0 0.6em;
 }
 
 .woocommerce ul.products li.product .price
