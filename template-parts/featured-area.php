@@ -101,14 +101,19 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	<h2 class="section_title"> 
 			<span><?php echo esc_html($responsive_testimonial_title); ?></span>
 	</h2>
-	<div class="testimonial_main_div">
-		<div class="testimonial_img"><img src="<?php echo esc_url($responsive_testimonial_img); ?>" alt="<?php echo esc_attr($responsive_testimonial_alt_text); ?>"/></div>
-		
-		<div class="testimonial_main_text">
-		<p class="testimonial_author"><?php echo esc_html($responsive_testimonial_name); ?></p>		
-		<p class="testimonial_text"><?php echo esc_html($responsive_testimonial_desc_content); ?></p>
+	<div id="testimonial-img" class="grid col-300">
+		<div class="testimonial_main_div">
+			<div class="testimonial_img"><img src="<?php echo esc_url($responsive_testimonial_img); ?>" alt="<?php echo esc_attr($responsive_testimonial_alt_text); ?>"/></div>
 		</div>
 	</div>	
+	
+	<div class="grid col-620 fit">	
+		<div class="testimonial_main_text">		
+		<p class="testimonial_text"><?php echo esc_html($responsive_testimonial_desc_content); ?></p>
+		<p class="testimonial_author"><?php echo esc_html($responsive_testimonial_name); ?></p>		
+		</div>
+	</div>	
+		
 </div>
 
 <?php }?>
@@ -174,8 +179,8 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		<?php if (!$responsive_team1_post_id ==''){?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url($team1_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt1_text); ?>"/></div>
-			<span class="team_member"><?php echo esc_html($team1_showcase_title); ?></span>
-			<span class="team_designation"><?php echo esc_html($team1_showcase_designation); ?></span>
+			<div class="team_member"><?php echo esc_html($team1_showcase_title); ?></div>
+			<div class="team_designation"><?php echo esc_html($team1_showcase_designation); ?></div>
 			<div class="team_desc"><?php echo esc_html($responsive_team1_desc); ?></div>
 			<div class="social">
 			<?php if(!empty($team1_showcase_facebook)) { ?>
@@ -195,9 +200,10 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		<?php if (!$responsive_team2_post_id ==''){?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url($team2_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt2_text); ?>"/></div>
-			<span class="team_member"><?php echo esc_html($team2_showcase_title); ?></span>
-			<span class="team_designation"><?php echo esc_html($team2_showcase_designation); ?></span>
-			<div class="social">
+			<div class="team_member"><?php echo esc_html($team2_showcase_title); ?></div>
+			<div class="team_designation"><?php echo esc_html($team2_showcase_designation); ?></div>
+			<div class="team_desc"><?php echo esc_html($responsive_team2_desc); ?></div>
+			<div class="social">			
 			<?php if(!empty($team2_showcase_facebook)) { ?>
 						<a class="tw_showcase_facebook" href="<?php echo esc_url($team2_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			<?php } ?>
@@ -209,14 +215,15 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 			<?php } ?>
 			<?php if(!empty($team2_showcase_linkedin)) { ?>
 					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team2_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-			<?php } ?></div><div class="team_desc"><?php echo esc_html($responsive_team2_desc); ?></div>
+			<?php } ?></div>
 		</div>
 		<?php }?>
 		<?php if (!$responsive_team3_post_id ==''){?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url($team3_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt3_text); ?>"/></div>
-			<span class="team_member"><?php echo esc_html($team3_showcase_title); ?></span>
-			<span class="team_designation"><?php echo esc_html($team3_showcase_designation); ?></span>
+			<div class="team_member"><?php echo esc_html($team3_showcase_title); ?></div>
+			<div class="team_designation"><?php echo esc_html($team3_showcase_designation); ?></div>
+			<div class="team_desc"><?php echo esc_html($responsive_team3_desc); ?></div>
 			<div class="social">
 			<?php if(!empty($team3_showcase_facebook)) { ?>
 						<a class="tw_showcase_facebook" href="<?php echo esc_url($team3_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -229,7 +236,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 			<?php } ?>
 			<?php if(!empty($team3_showcase_linkedin)) { ?>
 					<a class="tw_showcase_linkedin" href="<?php echo esc_url($team3_showcase_linkedin); ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-			<?php } ?></div><div class="team_desc"><?php echo esc_html($responsive_team3_desc); ?></div>
+			<?php } ?></div>
 		</div>
 		<?php }?>
 	</div>

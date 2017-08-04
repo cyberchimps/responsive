@@ -8,12 +8,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/07/17) - Added New Feature - Version 3.02.9
+[*] Improved look & feel of Team and Testimonial element
+
 (07/31/17) - Added New Feature - Version 2.9
 [+] Team element (for home page) added
 [*] Improved SEO - ALT tags
 
 (07/26/17) - Added New Feature - Version 2.8
-[+] - Testimonial element added
+[+] - Testimonial element(for home page) added
 
 (06/25/17) - Bug fix - Version 2.7.2
 [!] - Cannot modify header issue resolved

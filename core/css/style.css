@@ -2817,17 +2817,16 @@ border-radius: 50%;
     padding-right:40px;
     margin-top: 17px;
     margin-bottom: 0;
-    font-size: 34px;
-    color: #333333;
-    font-weight: normal;
+    font-size: 2.250em;    
+    font-weight: 700;
 }
 .testimonial_main_div .testimonial_img,.team_main_div .team_img{
 	text-align: center;
 	margin-top: 40px;
 }
 .testimonial_main_div .testimonial_img img,.team_main_div .team_img img {
-  width: 164px;
-  height: 164px;
+  width: 178px;
+  height: 178px;
   border: 4px solid #fff;
   padding: 4px; 
 }
@@ -2838,11 +2837,11 @@ border-radius: 50%;
             border-radius: 100%;
     max-height: 12em; 
 }
-.testimonial_main_div .testimonial_main_text {
-    font-size: 18px;
-	font-weight: 200;
+.testimonial_main_text {
+    font-size: 18px;	
+    margin-top: 46px;
 	line-height: 27px;
-    padding-left: 40px;
+	background: url(../../images/testimonial_icon.png) no-repeat;   
     padding-right: 40px;    
 }
 #testimonial_div, #team_div 
@@ -2855,30 +2854,44 @@ border-radius: 4px;
 padding-bottom: 40px;
 width: 99.893617021277%;
 }
-.testimonial_main_div .testimonial_author {    
-    font-weight: 700;
-    font-size: 18px;      
-    margin-bottom: 4px;
-    text-align: center;
-    margin-top: 1em;
+#testimonial_div .section_title:after, #team_div .section_title:after{
+	border-bottom: solid 2px #555555;
+	width: 60px;
+	text-align: center;
+	position: absolute;
+	content: "";
+	left: 0;
+	right: 0;
+	margin: 50px auto auto auto;
 }
-.testimonial_main_div .testimonial_text {
-    margin-top: 0px;
+.testimonial_author {    
+    font-weight: bold;
+    font-size: 18px;      
+    margin-bottom: 4px;   
+    margin: 10px  0 0 29px;
+}
+.testimonial_text {
+    margin: 0 0 0 29px;
     font-style: normal;
-    font-size: inherit;
-    text-align: center;   
+    font-size: inherit;    
     margin-bottom: 1em;
+    padding-top: 22px;
+}
+.team_main_div {
+	text-align: center;
 }
 .team_main_div .team_member {
-	font-size: 1.2em;
+	font-size: 18px;
 	font-weight: bold;
 	display:block;
 	text-align: center;
+	margin-top: 10px;
 }
 .team_main_div .team_designation{
 	text-align: center;
 	font-size: 1.1em;
 	margin-top: 10px;
+	font-style: italic; 
 	display:block;
 }
 .team_main_div .social {
@@ -2904,8 +2917,18 @@ width: 99.893617021277%;
 	-o-transition:all .3s;
 	transition:all .3s;
 }
-.section-team {width: 33.12%;}
+.section-team {
+width: 33%;
+float: none;
+box-sizing: border-box;
+display: inline-block;
+vertical-align: top;
+}
 .team_desc {   
     text-align: center;  
     padding: 0 10px 10px;
+    margin-top: 14px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 27px;
 }

@@ -179,7 +179,7 @@ function responsive_customize_register( $wp_customize ) {
 			'label'                 => __( 'Select Post', 'responsive' ),
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[testimonial_val]',
-			'description'           => __( 'The featured image, title and content from the posts will be used to display the client testimonials. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the client testimonials. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
 			'type'                  => 'select',
 			'choices'               => $options_posts,
 			'priority' => 35
@@ -206,7 +206,7 @@ function responsive_customize_register( $wp_customize ) {
 			'label'                 => __( 'Select post for team member1', 'responsive' ),
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[teammember1]',
-			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
 			'type'                  => 'select',
 			'choices'               => $options_posts,
 			'priority' => 38
@@ -216,7 +216,7 @@ function responsive_customize_register( $wp_customize ) {
 			'label'                 => __( 'Select post for team member2', 'responsive' ),
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[teammember2]',
-			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
 			'type'                  => 'select',
 			'choices'               => $options_posts,
 			'priority' => 39
@@ -226,7 +226,7 @@ function responsive_customize_register( $wp_customize ) {
 			'label'                 => __( 'Select post for team member3', 'responsive' ),
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[teammember3]',
-			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 164 x 164px', 'responsive' ),
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
 			'type'                  => 'select',
 			'choices'               => $options_posts,
 			'priority' => 40
