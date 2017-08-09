@@ -93,7 +93,7 @@ function responsive_get_sidebar_classes() {
  */
 function responsive_get_layout() {
 	/* 404 pages */
-	if ( is_404() ) {
+	if ( is_404() || is_shop() ) {
 		return 'default';
 	}
 	$layout = '';

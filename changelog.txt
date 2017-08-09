@@ -8,7 +8,8 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(08/07/17) - Added New Feature - Version 3.02.9
+(08/09/17) - Added New Feature - Version 3.0
+[+] New WooCommerce template (for shop page) added
 [*] Improved look & feel of Team and Testimonial element
 
 (07/31/17) - Added New Feature - Version 2.9
