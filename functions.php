@@ -177,6 +177,9 @@ $link = get_home_url() . '/cart/?add-to-cart=' . $product->get_ID();
 	$responsive_options = responsive_get_options();
 	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
 	{
-	echo'<div class="prod_wrap_right"><a href="'.$link.'"><button class="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a></div>';
+	if ( ! $product->managing_stock() && ! $product->is_in_stock() )
+        	echo '<div class="prod_wrap_right" style="color:#ff0000">out of stock</div>';
+        else
+		echo'<div class="prod_wrap_right"><a href="'.$link.'"><button class="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a></div>';
 	}
 }
