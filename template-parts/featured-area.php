@@ -86,9 +86,9 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 <div id="testimonial_div" class="grid col-940">
 	<?php 
 	
-		$responsive_testimonial_title = isset( $responsive_options['testimonial_title']) ?  $responsive_options['testimonial_title'] : 'Testimonial';
-		if ($responsive_testimonial_id != ''){
+		$responsive_testimonial_title = isset( $responsive_options['testimonial_title']) ?  $responsive_options['testimonial_title'] : 'Testimonial';		
 		$responsive_testimonial_id = $responsive_options['testimonial_val'];
+		if ($responsive_testimonial_id != ''){
 		$responsive_testimonial_desc = get_post($responsive_testimonial_id);
 		$responsive_testimonial_img        = wp_get_attachment_url( get_post_thumbnail_id( $responsive_testimonial_id ) );
 		$image_id = responsive_get_attachment_id_from_url($responsive_testimonial_img);
