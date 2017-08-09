@@ -87,6 +87,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	<?php 
 	
 		$responsive_testimonial_title = isset( $responsive_options['testimonial_title']) ?  $responsive_options['testimonial_title'] : 'Testimonial';
+		if ($responsive_testimonial_id != ''){
 		$responsive_testimonial_id = $responsive_options['testimonial_val'];
 		$responsive_testimonial_desc = get_post($responsive_testimonial_id);
 		$responsive_testimonial_img        = wp_get_attachment_url( get_post_thumbnail_id( $responsive_testimonial_id ) );
@@ -96,11 +97,12 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 			$responsive_testimonial_alt_text = get_the_title( $responsive_testimonial_id );
 		$responsive_testimonial_name      = get_the_title( $responsive_testimonial_id );
 		$responsive_testimonial_desc_content = $responsive_testimonial_desc->post_content;
-		
+		}
 	?>
 	<h2 class="section_title"> 
 			<span><?php echo esc_html($responsive_testimonial_title); ?></span>
 	</h2>
+	<?php if($responsive_testimonial_id != '') {?>
 	<div id="testimonial-img" class="grid col-300">
 		<div class="testimonial_main_div">
 			<div class="testimonial_img"><img src="<?php echo esc_url($responsive_testimonial_img); ?>" alt="<?php echo esc_attr($responsive_testimonial_alt_text); ?>"/></div>
@@ -113,6 +115,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		<p class="testimonial_author"><?php echo esc_html($responsive_testimonial_name); ?></p>		
 		</div>
 	</div>	
+	<?php }?>
 		
 </div>
 

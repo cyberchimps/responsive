@@ -2841,7 +2841,7 @@ border-radius: 50%;
     font-size: 18px;	
     margin-top: 46px;
 	line-height: 27px;
-	background: url(../../images/testimonial_icon.png) no-repeat;   
+	background: url(../../images/testimonial_icon.png) no-repeat 4px 0px;   
     padding-right: 40px;    
 }
 #testimonial_div, #team_div 

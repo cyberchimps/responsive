@@ -75,14 +75,20 @@ function responsive_install_plugins() {
 		),
 		array(
 			'name'     => 'SlideDeck', // The plugin name
-			'slug'     => 'slidedeck3', // The plugin slug (typically the folder name)
+			'slug'     => 'slidedeck', // The plugin slug (typically the folder name)
 			'required' => false
 		),
 		array(
 			'name'     => 'iFeature Slider', // The plugin name
 			'slug'     => 'ifeature-slider', // The plugin slug (typically the folder name)
 			'required' => false
+		),
+		array(
+			'name'     => 'WPForms Lite', // The plugin name
+			'slug'     => 'wpforms-lite', // The plugin slug (typically the folder name)
+			'required' => false
 		)
+			
 	);
 
 	$activeplugin = 0;
@@ -91,7 +97,9 @@ function responsive_install_plugins() {
 		$activeplugin += 1; 
 	if ( !is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) )
 		$activeplugin += 1;
-	if ( !is_plugin_active( 'slidedeck3/slidedeck2-lite.php' ) )
+	if ( !is_plugin_active( 'slidedeck/slidedeck.php' ) )
+		$activeplugin += 1;	
+	if ( !is_plugin_active( 'wpforms-lite/wpforms.php' ) )
 		$activeplugin += 1;	
 
 
