@@ -23,9 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header( 'shop' ); 
 
 	$responsive_options = responsive_get_options();
-	if ( 1 == $responsive_options['override_woo'] )
+	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
 	{
 	wp_enqueue_style( 'custom_shop_style', get_template_directory_uri() . '/woocommerce/shop.css' );
+	wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0');
 	
 	?>
 <div id="custom_shop">
@@ -134,7 +135,7 @@ get_header( 'shop' );
 		 */
 		do_action( 'woocommerce_sidebar' );
 	
-	if ( 1 == $responsive_options['override_woo'] )
+	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
 	{
 	?>
 </div>
