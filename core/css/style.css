@@ -2830,7 +2830,6 @@ border-radius: 50%;
   border: 4px solid #fff;
   padding: 4px; 
 }
-//.team_main_div .team_img img {border: 4px solid #ccc}
 .testimonial_main_div .testimonial_img img ,.team_main_div .team_img img{
     -webkit-border-radius: 100%;
        -moz-border-radius: 100%;
@@ -2932,3 +2931,95 @@ vertical-align: top;
 	font-weight: 200;
 	line-height: 27px;
 }
+.contact_div .fa{
+	font-size: 2em;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+}
+.contact_div .fa-envelope
+{
+	font-size: 1.7em;
+}
+.contact_right p {margin:10px 10px;}
+.contact_left span {font-size: 1.1em;
+padding-left: 12px;
+padding-bottom: 24px;
+padding-bottom: 39px;
+display: inline-block;
+}
+.contact_div {	
+	font-size: 14px;
+	padding: 20px;
+	-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+background-color: #ffffff;
+border: 1px solid #e5e5e5;
+border-radius: 4px;
+width: 96%;
+background: url('../../core/images/default-contact.jpg');
+color: #ffffff;
+}
+.contact_subtitle {text-align: center;margin: 17px 0 17px 0;font-size: 18px}
+.contact_title { 
+	text-align: center;
+	text-transform: uppercase;
+padding-left: 40px;
+padding-right: 40px;
+margin-top: 17px;
+margin-bottom: 0;
+font-size: 2.250em;
+font-weight: 700;
+}
+.contact_right label {font-weight: normal;}
+.contact_right textarea {
+height: 70px;
+background-color: transparent;
+border-radius: 0;
+box-shadow: none;
+border-width: 0;
+border-bottom-color: #cec9c4;
+border-bottom-width: 3px;
+}
+.contact_right .wpcf7-submit {
+	background-color: #1874cd; /* Dodger Blue */
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#4f9eea), to(#1874cd));
+	background-image: -webkit-linear-gradient(top, #4f9eea, #1874cd);
+	background-image: -moz-linear-gradient(top, #4f9eea, #1874cd);
+	background-image: -ms-linear-gradient(top, #4f9eea, #1874cd);
+	background-image: -o-linear-gradient(top, #4f9eea, #1874cd);
+	background-image: linear-gradient(to top, #4f9eea, #1874cd);
+	border: 1px solid #115290;
+	color: #ffffff;	
+	line-height: 20px;
+	padding: 15px 35px;
+	box-shadow:none;
+	font-weight:normal;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4f9eea, endColorstr=#1874cd)";
+	text-shadow: 0 -1px 0 #115290;
+}
+.contact_right .wpcf7-submit:hover {
+background-color: #7db7f0;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#7db7f0), to(#1874cd));
+	background-image: -webkit-linear-gradient(top, #7db7f0, #1874cd);
+	background-image: -moz-linear-gradient(top, #7db7f0, #1874cd);
+	background-image: -ms-linear-gradient(top, #7db7f0, #1874cd);
+	background-image: -o-linear-gradient(top, #7db7f0, #1874cd);
+	background-image: linear-gradient(to top, #7db7f0, #1874cd);
+	border: 1px solid #115290;
+	color: #ffffff;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7db7f0, endColorstr=#1874cd)";
+}
+.contact_right form { margin-bottom: 0;}
+.contact_left {margin-top: 20px; }
+.contact_right select, input[type="text"], input[type="password"], input[type="email"] {
+	width: 90%;
+	padding: 2px 2px 2px 0px;
+	background-color: transparent;
+border-radius: 0;
+box-shadow: none;
+border-width: 0;
+border-bottom-width: 3px;
+border-bottom-color: #cec9c4;
+	}
+	

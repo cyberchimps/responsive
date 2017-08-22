@@ -239,6 +239,7 @@ function responsive_customize_register( $wp_customize ) {
 			'priority' => 40
 	) );
 	
+	
 
 /*--------------------------------------------------------------
 	// Default Layouts
@@ -470,7 +471,8 @@ $wp_customize->add_section( 'footer_section', array(
 		'label'                 => __( 'Copyright text', 'responsive' ),
 		'section'               => 'footer_section',
 		'settings'              => 'responsive_theme_options[copyright_textbox]',
-		'type'                  => 'text'
+		'type'                  => 'text',
+		'priority' => 1
 	) );
 
 	$wp_customize->add_setting( 'responsive_theme_options[poweredby_link]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
@@ -478,7 +480,65 @@ $wp_customize->add_section( 'footer_section', array(
 		'label'                 => __( 'Display Powered By WordPress Link', 'responsive' ),
 		'section'               => 'footer_section',
 		'settings'              => 'responsive_theme_options[poweredby_link]',
-		'type'                  => 'checkbox'
+		'type'                  => 'checkbox',
+		'priority' => 2	
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[contact]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'contact_front_page', array(
+			'label'                 => __( 'Enable Contact Section', 'responsive' ),
+			'section'               => 'footer_section',
+			'settings'              => 'responsive_theme_options[contact]',
+			'type'                  => 'checkbox',
+			'priority' => 3
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[contact_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Contact Us', 'responsive' ), 'type' => 'option' ));
+	$wp_customize->add_control( 'contact_title', array(
+			'label'                 => __( 'Contact section Title', 'responsive' ),
+			'section'               => 'footer_section',
+			'settings'              => 'responsive_theme_options[contact_title]',
+			'type'                  => 'text',
+			'priority' => 4
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[contact_subtitle]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Contact subtitle', 'responsive' ), 'type' => 'option' ));
+	$wp_customize->add_control( 'contact_subtitle', array(
+			'label'                 => __( 'Contact section Subtitle', 'responsive' ),
+			'section'               => 'footer_section',
+			'settings'              => 'responsive_theme_options[contact_subtitle]',
+			'type'                  => 'text',
+			'priority' => 5
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[contact_add]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage', 'type' => 'option' ));
+	$wp_customize->add_control( 'contact_add', array(
+			'label'                 => __( 'Address', 'responsive' ),
+			'section'               => 'footer_section',
+			'settings'              => 'responsive_theme_options[contact_add]',
+			'type'                  => 'text',
+			'priority' => 6
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[contact_email]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage', 'type' => 'option' ));
+	$wp_customize->add_control( 'contact_email', array(
+			'label'                 => __( 'Email', 'responsive' ),
+			'section'               => 'footer_section',
+			'settings'              => 'responsive_theme_options[contact_email]',
+			'type'                  => 'text',
+			'priority' => 9
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[contact_ph]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage', 'type' => 'option' ));
+	$wp_customize->add_control( 'contact_ph', array(
+			'label'                 => __( 'Phone no', 'responsive' ),
+			'section'               => 'footer_section',
+			'settings'              => 'responsive_theme_options[contact_ph]',
+			'type'                  => 'text',
+			'priority' => 10
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[contact_content]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
+	$wp_customize->add_control( 'contact_content', array(
+			'label'                 => __( 'Contact form shortcode', 'responsive' ),
+			'section'               => 'footer_section',
+			'settings'              => 'responsive_theme_options[contact_content]',
+			'description'           => __( 'You can put Contact Form 7 shortcode here.', 'responsive' ),
+			'type'                  => 'text',
+			'priority' => 11
 	) );
 
 

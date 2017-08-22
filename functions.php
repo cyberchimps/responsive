@@ -111,6 +111,30 @@ $wp_customize->selective_refresh->add_partial( 'responsive_theme_options[team_ti
 			'selector' => '.copyright',
 			 
 	) );
+	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[contact_title]', array(
+			'selector' => '.contact_title',
+	
+	) );
+	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[contact_subtitle]', array(
+			'selector' => '.contact_subtitle',
+	
+	) );
+	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[contact_add]', array(
+			'selector' => '.contact_add',
+	
+	) );
+	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[contact_email]', array(
+			'selector' => '.contact_email',
+	
+	) );
+	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[contact_ph]', array(
+			'selector' => '.contact_ph',
+	
+	) );
+	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[contact_content]', array(
+			'selector' => '.contact_right',
+	
+	) );
 	$wp_customize->selective_refresh->add_partial( 'header_image', array(
 			'selector' => '#logo',
 			 
