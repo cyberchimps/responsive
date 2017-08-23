@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/23/17) - Added New Feature - Version 3.1
+[+] About box (for home page) added
+[+] Contact section (for footer) added 
+
 (08/09/17) - Added New Feature - Version 3.0
 [+] New WooCommerce template (for shop page) added
 [*] Improved look & feel of Team and Testimonial element

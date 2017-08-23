@@ -82,6 +82,31 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	</div><!-- end of #featured-image -->
 
 </div><!-- end of #featured -->
+
+<?php if ( isset( $responsive_options['about']) && $responsive_options['about'] == '1') { ?>
+<div id="about_div" class="grid">
+	
+	<div class="about-content grid col-700 fit" >
+	<?php 
+		$responsive_about_title = isset( $responsive_options['about_title']) ?  $responsive_options['about_title'] : 'About Box Title';
+		$responsive_about_text = isset( $responsive_options['about_text']) ?  $responsive_options['about_text'] : '';
+	?>
+	<h3 class="about-title"><?php echo esc_html($responsive_about_title);?></h3>
+	<p class="about_text"><?php echo esc_html( $responsive_about_text ) ; ?></p>
+	</div>
+	<div class="about-cta grid col-140">
+		<a href="<?php echo $responsive_options['about_cta_url']; ?>" class="about-cta-button <?php echo $button_class; ?>">
+			<?php
+			if ( isset( $responsive_options['about_cta_text'] ) )
+				echo $responsive_options['about_cta_text'];
+			
+			?>
+		</a>
+	</div>
+		
+</div>
+<?php }?>
+
 <?php if ( isset( $responsive_options['testimonials']) && $responsive_options['testimonials'] == '1') { ?>
 <div id="testimonial_div" class="grid col-940">
 	<?php 

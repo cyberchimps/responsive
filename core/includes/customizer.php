@@ -165,6 +165,46 @@ function responsive_customize_register( $wp_customize ) {
 		'description'           => __( 'Paste your shortcode, video or image source', 'responsive' ),
                 'priority'              => 20
 	) );
+	$wp_customize->add_setting( 'responsive_theme_options[about]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'about', array(
+			'label'                 => __( 'Enable About Section', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[about]',
+			'type'                  => 'checkbox',
+			'priority' => 22
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[about_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'About Box Title', 'responsive' ), 'type' => 'option' ));
+	$wp_customize->add_control( 'about_title', array(
+			'label'                 => __( 'About Title', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[about_title]',
+			'type'                  => 'text',
+			'priority' => 22
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[about_text]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage', 'type' => 'option' ));
+	$wp_customize->add_control( 'about_text', array(
+			'label'                 => __( 'About Text', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[about_text]',
+			'type'                  => 'text',
+			'priority' => 22
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[about_cta_text]', array( 'sanitize_callback' => 'sanitize_text_field', 'default' => 'Call to Action','transport' => 'postMessage', 'type' => 'option') );
+	$wp_customize->add_control( 'about_cta_text', array(
+			'label'                 => __( 'Call to Action (Text)', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[about_cta_text]',
+			'type'                  => 'text',
+			'priority' => 22
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[about_cta_url]', array( 'sanitize_callback' => 'esc_url_raw','default' => '#','transport' => 'postMessage', 'type' => 'option' ) );
+	$wp_customize->add_control( 'about_cta_url', array(
+			'label'                 => __( 'Call to Action (URL)', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[about_cta_url]',
+			'type'                  => 'text',
+			'priority' => 22
+	) );	
 	$wp_customize->add_setting( 'responsive_theme_options[testimonials]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'testimonial_front_page', array(
 			'label'                 => __( 'Enable Testimonial Section', 'responsive' ),
