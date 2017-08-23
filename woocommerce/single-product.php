@@ -59,7 +59,7 @@ get_header( 'shop' );
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
 		 */
-	if ( !isset($responsive_options['override_woo']) && 1 !== $responsive_options['override_woo'] )
+	if ( !isset($responsive_options['override_woo']) && 1 !== isset($responsive_options['override_woo']) )
 	{
 		//removed sidebar from single product page
 		do_action( 'woocommerce_sidebar' );

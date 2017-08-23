@@ -217,3 +217,12 @@ $link = get_home_url() . '/cart/?add-to-cart=' . $product->get_ID();
 		echo'<div class="prod_wrap_right"><a href="'.$link.'"><button class="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a></div>';
 	}
 }
+
+/* Lightbox support for woocommerce templates */
+	$responsive_options = responsive_get_options();
+	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
+	{
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
+	}
