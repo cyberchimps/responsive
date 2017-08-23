@@ -2853,26 +2853,18 @@ border-radius: 4px;
 padding-bottom: 40px;
 width: 99.893617021277%;
 }
-#about_div {
-	
-}
-#about_div .about-title {	
-	padding-left: 80px;
-}
-#about_div .about-cta{
-	margin-top: 4em;	
-}
 #about_div .about_text {	
-	padding-left: 80px;
 	font-size: 18px;
+	text-align: center;
 font-weight: 200;
 line-height: 27px
 }
-.about-cta a {
+#about_div {text-align: center;}
+.about-content a {
 	font-size: 20px;
 	padding: 15px 15px;
 }
-#testimonial_div .section_title:after, #team_div .section_title:after{
+#testimonial_div .section_title:after, #team_div .section_title:after,#about_div .section_title:after{
 	border-bottom: solid 2px #555555;
 	width: 60px;
 	text-align: center;
@@ -2977,11 +2969,13 @@ border: 1px solid #e5e5e5;
 border-radius: 4px;
 width: 96%;
 background: url('../../core/images/default-contact.jpg');
+background-size:cover;
 color: #ffffff;
 }
 .contact_subtitle {text-align: center;margin: 17px 0 17px 0;font-size: 18px}
 .contact_title { 
 	text-align: center;
+	line-height: 1em;
 	text-transform: uppercase;
 padding-left: 40px;
 padding-right: 40px;
@@ -3011,7 +3005,7 @@ border-bottom-width: 3px;
 	border: 1px solid #115290;
 	color: #ffffff;	
 	line-height: 20px;
-	padding: 15px 35px;
+	padding: 10px 22px;
 	box-shadow:none;
 	font-weight:normal;
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4f9eea, endColorstr=#1874cd)";
@@ -3033,6 +3027,7 @@ background-color: #7db7f0;
 .contact_left {margin-top: 20px; }
 .contact_right select, input[type="text"], input[type="password"], input[type="email"] {
 	width: 90%;
+	color: #f2f2f2;
 	padding: 2px 2px 2px 0px;
 	background-color: transparent;
 border-radius: 0;

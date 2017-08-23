@@ -322,7 +322,7 @@
 	body {
 	}
 
-	#featured p {
+	#featured p, #about_div .about_text {
 		font-size: 12px;
 		line-height: 1.5em;
 	}
@@ -340,7 +340,7 @@
 		font-size: 15px;
 	}
 
-	.call-to-action a.button {
+	.call-to-action a.button, .about-content a {
 		font-size: 14px;
 		padding: 7px 17px;
 	}

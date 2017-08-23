@@ -86,22 +86,23 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 <?php if ( isset( $responsive_options['about']) && $responsive_options['about'] == '1') { ?>
 <div id="about_div" class="grid">
 	
-	<div class="about-content grid col-700 fit" >
+	<div class="about-content">
 	<?php 
 		$responsive_about_title = isset( $responsive_options['about_title']) ?  $responsive_options['about_title'] : 'About Box Title';
 		$responsive_about_text = isset( $responsive_options['about_text']) ?  $responsive_options['about_text'] : '';
+		$responsive_about_cta_url = isset( $responsive_options['about_cta_url']) ?  $responsive_options['about_cta_url'] : '';
 	?>
-	<h3 class="about-title"><?php echo esc_html($responsive_about_title);?></h3>
+	<h2 class="section_title"><?php echo esc_html($responsive_about_title);?></h2>
 	<p class="about_text"><?php echo esc_html( $responsive_about_text ) ; ?></p>
-	</div>
-	<div class="about-cta grid col-140">
-		<a href="<?php echo $responsive_options['about_cta_url']; ?>" class="about-cta-button <?php echo $button_class; ?>">
+	<span class="about_cta">
+			<a href="<?php echo $responsive_about_cta_url; ?>" class="about-cta-button <?php echo $button_class; ?>">
 			<?php
 			if ( isset( $responsive_options['about_cta_text'] ) )
 				echo $responsive_options['about_cta_text'];
 			
 			?>
 		</a>
+	</span>	
 	</div>
 		
 </div>

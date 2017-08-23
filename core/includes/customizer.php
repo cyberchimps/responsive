@@ -201,6 +201,7 @@ function responsive_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'about_cta_url', array(
 			'label'                 => __( 'Call to Action (URL)', 'responsive' ),
 			'section'               => 'home_page',
+			'description'           => __( 'Enter url as http://www.example.com', 'responsive' ),
 			'settings'              => 'responsive_theme_options[about_cta_url]',
 			'type'                  => 'text',
 			'priority' => 22
