@@ -219,7 +219,7 @@ function responsive_theme_options_do_page() {
 	$options = apply_filters( 'responsive_options_filter', array(
 		'theme_elements' => array(
 			array(
-				'title'       => __( 'Override WooCommerce Templates( Shop page template )?', 'responsive' ),
+				'title'       => __( 'Override WooCommerce Templates( Shop & Single Product page templates )?', 'responsive' ),
 				'subtitle'    => '',
 				'heading'     => '',
 				'type'        => 'checkbox',

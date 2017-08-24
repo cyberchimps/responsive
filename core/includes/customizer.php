@@ -25,7 +25,7 @@ function responsive_customize_register( $wp_customize ) {
 	) );
 	$wp_customize->add_setting( 'responsive_theme_options[override_woo]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_override_woo', array(
-		'label'                 => __( 'Override WooCommerce Templates( Shop page template )?', 'responsive' ),
+		'label'                 => __( 'Override WooCommerce Templates( Shop & Single Product page templates )?', 'responsive' ),
 		'section'               => 'theme_elements',
 		'settings'              => 'responsive_theme_options[override_woo]',
 		'type'                  => 'checkbox'

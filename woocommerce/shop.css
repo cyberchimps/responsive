@@ -134,3 +134,8 @@ clear:both;
 {
 	left:auto;
 }
+
+.woocommerce div.product div.summary h1
+{
+	margin-top:10px;
+}
