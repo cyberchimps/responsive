@@ -2962,12 +2962,12 @@ display: inline-block;
 .contact_div {	
 	font-size: 14px;
 	padding: 20px;
+	box-sizing: border-box;
 	-moz-border-radius: 4px;
 -webkit-border-radius: 4px;
 background-color: #ffffff;
 border: 1px solid #e5e5e5;
 border-radius: 4px;
-width: 96%;
 background: url('../../core/images/default-contact.jpg');
 background-size:cover;
 color: #ffffff;
