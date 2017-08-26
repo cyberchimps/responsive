@@ -2952,7 +2952,7 @@ vertical-align: top;
 {
 	font-size: 1.7em;
 }
-.contact_right p {margin:10px 10px;}
+.contact_right p {margin:10px 0px 10px 16%;}
 .contact_left span {font-size: 1.1em;
 padding-left: 12px;
 padding-bottom: 24px;
@@ -2985,10 +2985,16 @@ font-size: 2.250em;
 font-weight: 700;
 }
 .contact_right label {font-weight: normal;}
+.contact_right .wpcf7{
+	width: 100%;
+}
 .contact_right textarea {
 height: 70px;
+padding: 12px 42px 0px 0px;
+color: #f2f2f2;
 background-color: transparent;
 border-radius: 0;
+width: 100%;
 box-shadow: none;
 border-width: 0;
 border-bottom-color: #cec9c4;
@@ -3010,6 +3016,12 @@ border-bottom-width: 3px;
 	font-weight:normal;
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4f9eea, endColorstr=#1874cd)";
 	text-shadow: 0 -1px 0 #115290;
+	border-radius: 2px;
+	display: inline-block;
+	font-weight: 700;
+	margin: 0;
+	vertical-align: middle;
+	white-space: nowrap;
 }
 .contact_right .wpcf7-submit:hover {
 background-color: #7db7f0;
@@ -3022,13 +3034,19 @@ background-color: #7db7f0;
 	border: 1px solid #115290;
 	color: #ffffff;
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#7db7f0, endColorstr=#1874cd)";
+	border-radius: 2px;
+	display: inline-block;
+	font-weight: 700;
+	margin: 0;
+	vertical-align: middle;
+	white-space: nowrap;
 }
 .contact_right form { margin-bottom: 0;}
 .contact_left {margin-top: 20px; }
 .contact_right select, input[type="text"], input[type="password"], input[type="email"] {
-	width: 90%;
+	width: 100%;
 	color: #f2f2f2;
-	padding: 2px 2px 2px 0px;
+	padding: 12px 2px 2px 0px;
 	background-color: transparent;
 border-radius: 0;
 box-shadow: none;

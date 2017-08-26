@@ -48,7 +48,8 @@
 	.show-980 {
 		display: block;
 	}
-
+	.contact_div .contact_right {margin-left: 0%;}
+	.contact_div .contact_left, .contact_div .contact_right {text-align: center;}
 }
 
 @media screen and (max-width: 650px) {
