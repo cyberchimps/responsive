@@ -482,6 +482,7 @@ function responsive_theme_options_do_page() {
 					'subtitle'    => '',
 					'heading'     => '',
 					'type'        => 'text',
+					'description' => __('Enter url as http://www.example.com','responsive'),
 					'id'          => 'about_cta_url'					
 			),
 			array(

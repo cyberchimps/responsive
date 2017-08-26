@@ -299,7 +299,7 @@ if ( !function_exists( 'responsive_css' ) ) {
 		if ( is_child_theme() ) {
 			wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
 		}
-		if ($responsive_options['front_page'] == 1 && (isset( $responsive_options['team']) && $responsive_options['team'] == '1') || (isset( $responsive_options['contact']) && $responsive_options['contact'] == '1')) 
+		if ($responsive_options['front_page'] == 1 && (isset( $responsive_options['team']) && $responsive_options['team'] == '1' || isset( $responsive_options['contact']) && $responsive_options['contact'] == '1')) 
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0');
 	}
 

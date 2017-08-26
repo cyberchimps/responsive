@@ -2961,8 +2961,8 @@ display: inline-block;
 }
 .contact_div {	
 	font-size: 14px;
-	padding: 20px;
 	box-sizing: border-box;
+	padding: 20px;	
 	-moz-border-radius: 4px;
 -webkit-border-radius: 4px;
 background-color: #ffffff;
