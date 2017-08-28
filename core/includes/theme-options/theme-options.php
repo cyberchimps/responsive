@@ -486,6 +486,53 @@ function responsive_theme_options_do_page() {
 					'id'          => 'about_cta_url'					
 			),
 			array(
+					'title'       => __( 'Enable Feature Section', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'feature',
+					'placeholder' => ''
+			),
+			array(
+					'title'       => __( 'Feature', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'feature_title',
+					'description' => __( 'Enter your feature title', 'responsive' ),
+					'placeholder' => __( 'Feature', 'responsive' )
+			),
+			array(
+					'title'       => __( 'Select Post for feature 1', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'feature1',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::options_posts()
+			),
+			array(
+					'title'       => __( 'Select Post for feature 2', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'feature2',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::options_posts()
+			),
+			array(
+					'title'       => __( 'Select Post for feature 3', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'feature3',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => Responsive_Options::options_posts()
+			),
+			array(
 					'title'       => __( 'Enable Testimonial Section', 'responsive' ),
 					'subtitle'    => '',
 					'heading'     => '',
