@@ -10,6 +10,7 @@ Changelog Legend:
 
 (08/29/17) - Added New Feature - Version 3.1
 [+] About box (for home page) added
+[+] Features section (for home page) added
 [+] Contact section (for footer) added
 [+] New WooCommerce template (for single product page) added 
 
