@@ -111,40 +111,52 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 <div id="feature_div" class="grid">
 	<?php 
 	$responsive_feature_title = isset( $responsive_options['feature_title']) ?  $responsive_options['feature_title'] : 'Features';
-		
-	$responsive_feature1_post_id = $responsive_options['feature1'];
-	if (!$responsive_feature1_post_id ==''){
-	$responsive_feature1_post = get_post($responsive_feature1_post_id);
-	$responsive_feature1_desc = $responsive_feature1_post->post_content;
-	$feature1_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature1_post_id ) );
-	$feature1_showcase_title = get_the_title( $responsive_feature1_post_id );
-	$image_id = responsive_get_attachment_id_from_url($feature1_showcase_img);
-	$responsive_alt1_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-	if ($responsive_alt1_text == "")
-		$responsive_alt1_text = get_the_title( $responsive_feature1_post_id );
+
+	if (isset ($responsive_options['feature1'])) {
+		$responsive_feature1_post_id = $responsive_options['feature1'];
+		if (!$responsive_feature1_post_id ==''){
+		$responsive_feature1_post = get_post($responsive_feature1_post_id);
+		$responsive_feature1_desc = $responsive_feature1_post->post_content;
+		$feature1_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature1_post_id ) );
+		$feature1_showcase_title = get_the_title( $responsive_feature1_post_id );
+		$image_id = responsive_get_attachment_id_from_url($feature1_showcase_img);
+		$responsive_alt1_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+		if ($responsive_alt1_text == "")
+			$responsive_alt1_text = get_the_title( $responsive_feature1_post_id );
+		}
 	}
+	else 
+		$responsive_feature1_post_id='';	
+	if (isset ($responsive_options['feature2'])) {
 	$responsive_feature2_post_id = $responsive_options['feature2'];
-	if (!$responsive_feature2_post_id ==''){
-		$responsive_feature2_post = get_post($responsive_feature2_post_id);
-		$responsive_feature2_desc = $responsive_feature2_post->post_content;
-		$feature2_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature2_post_id ) );
-		$feature2_showcase_title = get_the_title( $responsive_feature2_post_id );
-		$image_id = responsive_get_attachment_id_from_url($feature2_showcase_img);
-		$responsive_alt2_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-		if ($responsive_alt2_text == "")
-			$responsive_alt2_text = get_the_title( $responsive_feature2_post_id );
+		if (!$responsive_feature2_post_id ==''){
+			$responsive_feature2_post = get_post($responsive_feature2_post_id);
+			$responsive_feature2_desc = $responsive_feature2_post->post_content;
+			$feature2_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature2_post_id ) );
+			$feature2_showcase_title = get_the_title( $responsive_feature2_post_id );
+			$image_id = responsive_get_attachment_id_from_url($feature2_showcase_img);
+			$responsive_alt2_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+			if ($responsive_alt2_text == "")
+				$responsive_alt2_text = get_the_title( $responsive_feature2_post_id );
+		}
 	}
+	else
+		$responsive_feature2_post_id='';	
+	if (isset ($responsive_options['feature3'])) {
 	$responsive_feature3_post_id = $responsive_options['feature3'];
-	if (!$responsive_feature3_post_id ==''){
-		$responsive_feature3_post = get_post($responsive_feature3_post_id);
-		$responsive_feature3_desc = $responsive_feature3_post->post_content;
-		$feature3_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature3_post_id ) );
-		$feature3_showcase_title = get_the_title( $responsive_feature3_post_id );
-		$image_id = responsive_get_attachment_id_from_url($feature3_showcase_img);
-		$responsive_alt3_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-		if ($responsive_alt3_text == "")
-			$responsive_alt3_text = get_the_title( $responsive_feature3_post_id );
-	}	
+		if (!$responsive_feature3_post_id ==''){
+			$responsive_feature3_post = get_post($responsive_feature3_post_id);
+			$responsive_feature3_desc = $responsive_feature3_post->post_content;
+			$feature3_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature3_post_id ) );
+			$feature3_showcase_title = get_the_title( $responsive_feature3_post_id );
+			$image_id = responsive_get_attachment_id_from_url($feature3_showcase_img);
+			$responsive_alt3_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+			if ($responsive_alt3_text == "")
+				$responsive_alt3_text = get_the_title( $responsive_feature3_post_id );
+		}	
+	}
+	else
+		$responsive_feature3_post_id='';
 	?>
 	<h2 class="section_title"> 
 			<span><?php echo esc_html($responsive_feature_title); ?></span>
@@ -219,7 +231,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 <div id="team_div" class="grid">
 	<?php 
 	$responsive_team_title = isset( $responsive_options['team_title']) ?  $responsive_options['team_title'] : 'Team';
-		
+	if (isset ($responsive_options['teammember1'])) {	
 	$responsive_team1_post_id = $responsive_options['teammember1'];
 	if (!$responsive_team1_post_id ==''){
 	$responsive_team1_post = get_post($responsive_team1_post_id);
@@ -236,6 +248,10 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	if ($responsive_alt1_text == "")
 		$responsive_alt1_text = get_the_title( $responsive_team1_post_id );
 	}
+	}
+	else 
+	$responsive_team1_post_id='';
+	if (isset ($responsive_options['teammember2'])) {
 	$responsive_team2_post_id = $responsive_options['teammember2'];
 	if (!$responsive_team2_post_id ==''){
 	$responsive_team2_post = get_post($responsive_team2_post_id);
@@ -252,6 +268,9 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	if ($responsive_alt2_text == "")
 		$responsive_alt2_text = get_the_title( $responsive_team2_post_id );
 	}
+	}
+	$responsive_team2_post_id='';
+	if (isset ($responsive_options['teammember3'])) {
 	$responsive_team3_post_id = $responsive_options['teammember3'];
 	if (!$responsive_team3_post_id ==''){
 	$responsive_team3_post = get_post($responsive_team3_post_id);
@@ -268,6 +287,9 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	if ($responsive_alt3_text == "")
 		$responsive_alt3_text = get_the_title( $responsive_team2_post_id );
 	}
+	}
+	else
+		$responsive_team3_post_id='';
 	?>
 	<h2 class="section_title"> 
 			<span><?php echo esc_html($responsive_team_title); ?></span>
