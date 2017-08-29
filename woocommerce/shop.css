@@ -152,3 +152,30 @@ clear:both;
     display: list-item;
     list-style: outside none none;
 }
+
+/* related products */
+.single-product .related .products > li:nth-of-type(2n+1), .single-product .related .products > div > div > li:nth-of-type(2n+1)
+{
+	clear:none;
+}
+.single-product .related
+{
+	clear: both;
+}
+@media only screen and (max-width: 480px) {
+	.single-product #content-woocommerce .related ul.products li.product
+	{
+		width:100%;
+	}
+}
+@media all and (min-width:481px) and (max-width:991px)
+{
+	.single-product #content-woocommerce .related ul.products li.product
+	{
+		width:46%;
+	}
+	.single-product .related .products > li:nth-of-type(2n+1), .single-product .related .products > div > div > li:nth-of-type(2n+1)
+	{
+		clear:both;
+	}
+}
