@@ -135,6 +135,12 @@ function cyberchimps_display_about() {
 			</tr>
 			<tr>
 			<tr>
+			<td class="feature">Features area for home page</td>
+			<td class="featureyes">3 features</td>
+			<td class="featureno">Unlimited</td>				
+			</tr>
+			<tr>
+			<tr>
 			<td class="feature">Testimonial element for home page</td>
 			<td class="featureyes">1</td>
 			<td class="featureno">Unlimited</td>				
