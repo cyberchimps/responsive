@@ -107,6 +107,75 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		
 </div>
 <?php }?>
+<?php if ( isset( $responsive_options['feature']) && $responsive_options['feature'] == '1') { ?>
+<div id="feature_div" class="grid">
+	<?php 
+	$responsive_feature_title = isset( $responsive_options['feature_title']) ?  $responsive_options['feature_title'] : 'Features';
+		
+	$responsive_feature1_post_id = $responsive_options['feature1'];
+	if (!$responsive_feature1_post_id ==''){
+	$responsive_feature1_post = get_post($responsive_feature1_post_id);
+	$responsive_feature1_desc = $responsive_feature1_post->post_content;
+	$feature1_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature1_post_id ) );
+	$feature1_showcase_title = get_the_title( $responsive_feature1_post_id );
+	$image_id = responsive_get_attachment_id_from_url($feature1_showcase_img);
+	$responsive_alt1_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+	if ($responsive_alt1_text == "")
+		$responsive_alt1_text = get_the_title( $responsive_feature1_post_id );
+	}
+	$responsive_feature2_post_id = $responsive_options['feature2'];
+	if (!$responsive_feature2_post_id ==''){
+		$responsive_feature2_post = get_post($responsive_feature2_post_id);
+		$responsive_feature2_desc = $responsive_feature2_post->post_content;
+		$feature2_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature2_post_id ) );
+		$feature2_showcase_title = get_the_title( $responsive_feature2_post_id );
+		$image_id = responsive_get_attachment_id_from_url($feature2_showcase_img);
+		$responsive_alt2_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+		if ($responsive_alt2_text == "")
+			$responsive_alt2_text = get_the_title( $responsive_feature2_post_id );
+	}
+	$responsive_feature3_post_id = $responsive_options['feature3'];
+	if (!$responsive_feature3_post_id ==''){
+		$responsive_feature3_post = get_post($responsive_feature3_post_id);
+		$responsive_feature3_desc = $responsive_feature3_post->post_content;
+		$feature3_showcase_img = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature3_post_id ) );
+		$feature3_showcase_title = get_the_title( $responsive_feature3_post_id );
+		$image_id = responsive_get_attachment_id_from_url($feature3_showcase_img);
+		$responsive_alt3_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+		if ($responsive_alt3_text == "")
+			$responsive_alt3_text = get_the_title( $responsive_feature3_post_id );
+	}	
+	?>
+	<h2 class="section_title"> 
+			<span><?php echo esc_html($responsive_feature_title); ?></span>
+	</h2>
+	
+	<div class="feature_main_div">
+		<?php if (!$responsive_feature1_post_id ==''){?>
+		<div class="section-feature grid">
+			<div class="feature_img"><img src="<?php echo esc_url($feature1_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt1_text); ?>"/></div>
+			<div class="feature_title"><?php echo esc_html($feature1_showcase_title); ?></div>			
+			<div class="feature_desc"><?php echo esc_html($responsive_feature1_desc); ?></div>			
+		</div>
+		<?php }?>
+		<?php if (!$responsive_feature2_post_id ==''){?>
+		<div class="section-feature grid">
+			<div class="feature_img"><img src="<?php echo esc_url($feature2_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt2_text); ?>"/></div>
+			<div class="feature_title"><?php echo esc_html($feature2_showcase_title); ?></div>			
+			<div class="feature_desc"><?php echo esc_html($responsive_feature2_desc); ?></div>			
+		</div>
+		<?php }?>
+		<?php if (!$responsive_feature3_post_id ==''){?>
+		<div class="section-feature grid">
+			<div class="feature_img"><img src="<?php echo esc_url($feature3_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt3_text); ?>"/></div>
+			<div class="feature_title"><?php echo esc_html($feature3_showcase_title); ?></div>			
+			<div class="feature_desc"><?php echo esc_html($responsive_feature3_desc); ?></div>			
+		</div>
+		<?php }?>
+	</div>
+	</div>
+		
+<?php } ?>
 
 <?php if ( isset( $responsive_options['testimonials']) && $responsive_options['testimonials'] == '1') { ?>
 <div id="testimonial_div" class="grid col-940">

@@ -165,13 +165,60 @@ function responsive_customize_register( $wp_customize ) {
 		'description'           => __( 'Paste your shortcode, video or image source', 'responsive' ),
                 'priority'              => 20
 	) );
+	$wp_customize->add_setting( 'responsive_theme_options[feature]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'feature_front_page', array(
+			'label'                 => __( 'Enable Feature Section', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[feature]',
+			'type'                  => 'checkbox',
+			'priority' => 22
+	) );
+	
+	$wp_customize->add_setting( 'responsive_theme_options[feature_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'Features', 'responsive' ), 'type' => 'option' ));
+	$wp_customize->add_control( 'feature_title', array(
+			'label'                 => __( 'Feature Title', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[feature_title]',
+			'type'                  => 'text',
+			'priority' => 22
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[feature1]', array( 'sanitize_callback' => 'responsive_sanitize_posts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'feature1', array(
+			'label'                 => __( 'Select post for feature 1', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[feature1]',
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+			'type'                  => 'select',
+			'choices'               => $options_posts,
+			'priority' => 22
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[feature2]', array( 'sanitize_callback' => 'responsive_sanitize_posts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'feature2', array(
+			'label'                 => __( 'Select post for feature 2', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[feature2]',
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+			'type'                  => 'select',
+			'choices'               => $options_posts,
+			'priority' => 22
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[feature3]', array( 'sanitize_callback' => 'responsive_sanitize_posts', 'type' => 'option' ) );
+	$wp_customize->add_control( 'feature3', array(
+			'label'                 => __( 'Select post for feature 3', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[feature3]',
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+			'type'                  => 'select',
+			'choices'               => $options_posts,
+			'priority' => 22
+	) );
 	$wp_customize->add_setting( 'responsive_theme_options[about]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'about', array(
 			'label'                 => __( 'Enable About Section', 'responsive' ),
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[about]',
 			'type'                  => 'checkbox',
-			'priority' => 22
+			'priority' => 23
 	) );
 	$wp_customize->add_setting( 'responsive_theme_options[about_title]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'About Box Title', 'responsive' ), 'type' => 'option' ));
 	$wp_customize->add_control( 'about_title', array(
@@ -179,7 +226,7 @@ function responsive_customize_register( $wp_customize ) {
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[about_title]',
 			'type'                  => 'text',
-			'priority' => 22
+			'priority' => 23
 	) );
 	$wp_customize->add_setting( 'responsive_theme_options[about_text]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage', 'type' => 'option' ));
 	$wp_customize->add_control( 'about_text', array(
@@ -187,7 +234,7 @@ function responsive_customize_register( $wp_customize ) {
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[about_text]',
 			'type'                  => 'text',
-			'priority' => 22
+			'priority' => 23
 	) );
 	$wp_customize->add_setting( 'responsive_theme_options[about_cta_text]', array( 'sanitize_callback' => 'sanitize_text_field', 'default' => 'Call to Action','transport' => 'postMessage', 'type' => 'option') );
 	$wp_customize->add_control( 'about_cta_text', array(
@@ -195,7 +242,7 @@ function responsive_customize_register( $wp_customize ) {
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[about_cta_text]',
 			'type'                  => 'text',
-			'priority' => 22
+			'priority' => 23
 	) );
 	$wp_customize->add_setting( 'responsive_theme_options[about_cta_url]', array( 'sanitize_callback' => 'esc_url_raw','default' => '#','transport' => 'postMessage', 'type' => 'option' ) );
 	$wp_customize->add_control( 'about_cta_url', array(
@@ -204,7 +251,7 @@ function responsive_customize_register( $wp_customize ) {
 			'description'           => __( 'Enter url as http://www.example.com', 'responsive' ),
 			'settings'              => 'responsive_theme_options[about_cta_url]',
 			'type'                  => 'text',
-			'priority' => 22
+			'priority' => 23
 	) );	
 	$wp_customize->add_setting( 'responsive_theme_options[testimonials]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'testimonial_front_page', array(

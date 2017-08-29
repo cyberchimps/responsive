@@ -85,7 +85,10 @@ function responsiveedit_customize_register( $wp_customize ){
 	) );
 	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[about_cta_text]', array(
 			'selector' => '.about-cta-button',
-	) );		
+	) );
+	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[feature_title]', array(
+			'selector' => '#feature_div .section_title',
+	) );	
 $wp_customize->selective_refresh->add_partial( 'responsive_theme_options[testimonial_title]', array(
 		'selector' => '#testimonial_div .section_title',
 ) );
