@@ -187,7 +187,7 @@ function responsive_customize_register( $wp_customize ) {
 			'label'                 => __( 'Select post for feature 1', 'responsive' ),
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[feature1]',
-			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
 			'type'                  => 'select',
 			'choices'               => $options_posts,
 			'priority' => 22
@@ -197,7 +197,7 @@ function responsive_customize_register( $wp_customize ) {
 			'label'                 => __( 'Select post for feature 2', 'responsive' ),
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[feature2]',
-			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
 			'type'                  => 'select',
 			'choices'               => $options_posts,
 			'priority' => 22
@@ -207,7 +207,7 @@ function responsive_customize_register( $wp_customize ) {
 			'label'                 => __( 'Select post for feature 3', 'responsive' ),
 			'section'               => 'home_page',
 			'settings'              => 'responsive_theme_options[feature3]',
-			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+			'description'           => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
 			'type'                  => 'select',
 			'choices'               => $options_posts,
 			'priority' => 22
