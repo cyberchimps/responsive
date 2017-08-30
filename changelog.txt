@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/30/17) - Added New Feature - Version 3.2
+[+] New WooCommerce templates (for cart, checkout, and my account pages) added
+[!] Fixed Team Member not getting display issue
+[!] Improved features section look
+
 (08/29/17) - Added New Feature - Version 3.1
 [+] About box (for home page) added
 [+] Features section (for home page) added
