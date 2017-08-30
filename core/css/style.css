@@ -2824,7 +2824,8 @@ border-radius: 50%;
 	text-align: center;
 	margin-top: 40px;
 }
-.testimonial_main_div .testimonial_img img,.team_main_div .team_img img,.feature_main_div .feature_img img {
+.feature_main_div .feature_img img {  width: 130px;  height: 130px;border: 6px solid #ccc; }
+.testimonial_main_div .testimonial_img img,.team_main_div .team_img img {
   width: 178px;
   height: 178px;
   border: 4px solid #fff;
