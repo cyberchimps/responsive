@@ -347,3 +347,6 @@ clear:both;
 	width:22.05%;
 }
 
+.input-text.qty.text {
+    padding: 6px;
+}
