@@ -8,10 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(08/30/17) - Added New Feature - Version 3.2
+(08/31/17) - Added New Feature - Version 3.2
 [+] New WooCommerce templates (for cart, checkout, and my account pages) added
+
+(08/30/17) - Bug fix - Version 3.1.1
 [!] Fixed Team Member not getting display issue
-[!] Improved features section look
+[*] Features section image size reduced and added border
+[*] Contact form increased bottom margin
 
 (08/29/17) - Added New Feature - Version 3.1
 [+] About box (for home page) added
