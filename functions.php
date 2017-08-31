@@ -195,31 +195,6 @@ function responsive_get_attachment_id_from_url( $attachment_url = '' ) {
 endif;
 
 
-function remove_loop_button(){
-	$responsive_options = responsive_get_options();
-	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
-	{
-		remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-	}
-}
-add_action('init','remove_loop_button');
-
-add_action('woocommerce_after_shop_loop_item_title','replace_add_to_cart');
-function replace_add_to_cart() {
-global $product;
-
-$link = get_home_url() . '/cart/?add-to-cart=' . $product->get_ID();
-
-	$responsive_options = responsive_get_options();
-	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
-	{
-	if ( ! $product->managing_stock() && ! $product->is_in_stock() )
-        	echo '<div class="prod_wrap_right" style="color:#ff0000">out of stock</div>';
-        else
-		echo'<div class="prod_wrap_right"><a href="'.$link.'"><button class="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button></a></div>';
-	}
-}
-
 /* Lightbox support for woocommerce templates */
 	$responsive_options = responsive_get_options();
 	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
