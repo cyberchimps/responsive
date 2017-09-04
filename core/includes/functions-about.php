@@ -64,6 +64,19 @@ function cyberchimps_display_about() {
 			); ?>
 		</div>
 		
+		<div class="child-themes">
+		<h2>Responsive Child Themes</h2>
+		<table class="features-table">
+		<tr>
+		<td>Responsive Business</td>
+		<td>Responsive Blog </td>
+		</tr>
+		<tr style="border-bottom:none;">
+		<td><a href="https://cyberchimps.com/store/responsive-business/" target="_blank"><img  src="<?php echo $directory_uri ?>/core/images/responsive_business.jpg"></a><a class="button button-primary buylink" target="_blank" href="https://cyberchimps.com/store/responsive-business/?utm_source=about">View Details</a></td>
+		<td><a href="https://cyberchimps.com/store/responsive-blog/" target="_blank"><img src="<?php echo $directory_uri ?>/core/images/responsive_blog.jpg"></a><a class="button button-primary buylink" target="_blank" href="https://cyberchimps.com/store/responsive-blog/?utm_source=about">View Details</a></td>
+		</tr>		
+		</table>
+		</div>
 		<div class="features">
 			<table class="features-table">
 			<thead>
@@ -197,19 +210,7 @@ function cyberchimps_display_about() {
 		<div class="buy">
 		<a class="button button-primary buylink" target="_blank" href="http://cyberchimps.com/store/responsivepro/?utm_source=about">Buy Responsive Pro</a>
 		</div>
-		<div class="child-themes">
-		<h2>Responsive Child Themes</h2>
-		<table class="features-table">
-		<tr>
-		<td>Responsive Business</td>
-		<td>Responsive Blog </td>
-		</tr>
-		<tr>
-		<td><a href="https://cyberchimps.com/store/responsive-business/" target="_blank"><img  src="<?php echo $directory_uri ?>/core/images/responsive_business.jpg"></a></td>
-		<td><a href="https://cyberchimps.com/store/responsive-blog/" target="_blank"><img src="<?php echo $directory_uri ?>/core/images/responsive_blog.jpg"></a></td>
-		</tr>
-		</table>
-		</div>
+		
 	</div>
 <?php
 }

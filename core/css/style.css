@@ -3050,7 +3050,7 @@ background-color: #7db7f0;
 }
 .contact_right form { margin-bottom: 0;}
 .contact_left {margin-top: 20px; }
-.contact_right select, input[type="text"], input[type="password"], input[type="email"] {
+.contact_right select, .contact_right input[type="text"], .contact_right input[type="password"], .contact_right input[type="email"] {
 	width: 100%;
 	color: #f2f2f2;
 	padding: 12px 2px 2px 0px;

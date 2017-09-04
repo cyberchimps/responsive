@@ -78,7 +78,7 @@ function responsiveedit_customize_register( $wp_customize ){
 			'selector' => '#featured',
 	) );
 	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[about_title]', array(
-			'selector' => '.about-title',
+			'selector' => '#about_div .section_title',
 	) );
 	$wp_customize->selective_refresh->add_partial( 'responsive_theme_options[about_text]', array(
 			'selector' => '.about_text',
