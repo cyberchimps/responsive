@@ -1205,8 +1205,11 @@ form div {
 .main-nav {
 	clear: both;
 }
-
-.menu,
+.menu {
+	display: block;
+	list-style-type: none;
+	padding: 0;
+}
 .menu ul {
 	display: block;
 	list-style-type: none;

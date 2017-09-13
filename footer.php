@@ -38,9 +38,9 @@ $responsive_options = responsive_get_options();
 	<?php responsive_footer_top(); ?>
 
 	<div id="footer-wrapper">
-
+	<div id="content-outer">
 		<?php get_sidebar( 'footer' ); ?>
-		
+		</div>
 		<?php if ( isset( $responsive_options['contact']) && $responsive_options['contact'] == '1') { ?>
 			<div class="contact_div grid col-940">
 			<div id="content-outer">

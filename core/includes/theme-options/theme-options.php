@@ -246,6 +246,19 @@ function responsive_theme_options_do_page() {
 				'placeholder' => ''
 			),
 			array(
+				'title'       => __( 'Choose Site Layout', 'responsive' ),
+				'subtitle'    => '',
+				'heading'     => '',
+				'type'        => 'select',
+				'id'          => 'site_layout_option',
+				'description' => '',
+				'placeholder' => '',
+				'options'     => array(
+						'default-layout'  => __( 'Default', 'responsive' ),
+						'full-width-layout' => __( 'Full Width Layout', 'responsive' )
+				)
+			),
+			array(
 				'title'       => __( 'Disable Call to Action Button?', 'responsive' ),
 				'subtitle'    => '',
 				'heading'     => '',
