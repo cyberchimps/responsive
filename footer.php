@@ -28,6 +28,8 @@ $responsive_options = responsive_get_options();
 ?>
 <?php responsive_wrapper_bottom(); // after wrapper content hook ?>
 </div><!-- end of #wrapper -->
+
+</div>
 <?php responsive_wrapper_end(); // after wrapper hook ?>
 </div><!-- end of #container -->
 <?php responsive_container_end(); // after container hook ?>
@@ -41,6 +43,7 @@ $responsive_options = responsive_get_options();
 		
 		<?php if ( isset( $responsive_options['contact']) && $responsive_options['contact'] == '1') { ?>
 			<div class="contact_div grid col-940">
+			<div id="content-outer">
 			
 		<?php 
 			$responsive_contact_title = isset( $responsive_options['contact_title']) ?  $responsive_options['contact_title'] : 'contact';
@@ -69,9 +72,10 @@ $responsive_options = responsive_get_options();
 			<?php echo do_shortcode(wp_kses_post($responsive_contact_content)); ?>
 			</div>
 		</div>
+		</div>
 		
 		<?php }?> <!--   main-->
-
+		<div id="content-outer">
 		<div class="grid col-940">
 
 			<div class="grid col-540">
@@ -105,7 +109,7 @@ $responsive_options = responsive_get_options();
 			<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
 				WordPress</a>
 		</div><!-- end .powered -->
-
+	</div>
 	</div><!-- end #footer-wrapper -->
 
 	<?php responsive_footer_bottom(); ?>

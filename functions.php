@@ -57,7 +57,21 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) :
     add_action( 'wp_head', 'responsive_free_render_title' );
 endif;
 
+add_filter( 'body_class', 'add_site_layout_classes' );
 
+function add_site_layout_classes( $classes ){
+
+	global $responsive_options;
+
+	if ( !empty( $responsive_options['site_layout_option'] ) ) :
+
+		$classes[] = $responsive_options['site_layout_option'];
+		
+	endif;
+
+	return $classes;
+
+}
 function responsiveedit_customize_register( $wp_customize ){
 	$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector' => '.site-name a'

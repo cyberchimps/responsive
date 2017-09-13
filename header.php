@@ -68,19 +68,22 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		<?php if ( get_header_image() != '' ) : ?>
 
-			<div id="logo">
+		<div id="content-outer">
+
+		<div id="logo">
 				<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
 			</div><!-- end of #logo -->
+		</div>	
 
 		<?php endif; // header image was removed ?>
 
 		<?php if ( !get_header_image() ) : ?>
-
+<div id="content-outer">
 			<div id="logo">
 				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
 				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
 			</div><!-- end of #logo -->
-
+</div>
 		<?php endif; // header image was removed (again) ?>
 
 		<?php get_sidebar( 'top' ); ?>
@@ -93,7 +96,8 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		<?php if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
 			wp_nav_menu( array(
-				'container'      => '',
+				'container'      => 'div',
+				'container_class' => 'sub-nav',
 				'menu_class'     => 'sub-header-menu',
 				'theme_location' => 'sub-header-menu'
 			) );
@@ -105,6 +109,7 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php responsive_header_end(); // after header container hook ?>
 
 <?php responsive_wrapper(); // before wrapper container hook ?>
+<div id="content-outer">
 	<div id="wrapper" class="clearfix">
 <?php responsive_wrapper_top(); // before wrapper content hook ?>
 <?php responsive_in_wrapper(); // wrapper hook ?>

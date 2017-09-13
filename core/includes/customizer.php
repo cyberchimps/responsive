@@ -44,6 +44,17 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_theme_options[breadcrumb]',
 		'type'                  => 'checkbox'
 	) );
+	$wp_customize->add_setting( 'responsive_theme_options[site_layout_option]', array( 'sanitize_callback' => 'responsive_validate_site_layout', 'type' => 'option' ) );
+	$wp_customize->add_control( 'site_layout_option', array(
+			'label'                 => __( 'Choose Site Layout', 'responsive' ),
+			'section'               => 'theme_elements',
+			'settings'              => 'responsive_theme_options[site_layout_option]',
+			'type'                  => 'select',
+			'choices'               => array(
+								'default-layout'  => __('Default','responsive'),
+					            'full-width-layout' => __('Full Width Layout','responsive'),   
+							)	 
+			));
 	$wp_customize->add_setting( 'responsive_theme_options[cta_button]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_cta_button', array(
 		'label'                 => __( 'Disable Call to Action Button?', 'responsive' ),
@@ -496,6 +507,21 @@ function responsive_pro_button_style_validate( $input ) {
              'default' => 'Gradient',
              'flat_style' => 'Flat'
          );                       
+
+	if( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+}
+
+function responsive_validate_site_layout( $input ) {
+	// An array of valid results
+	
+	$valid = array(
+			'default-layout' => 'Default',
+			'full-width-layout' => 'Full Width Layout'
+	);
 
 	if( array_key_exists( $input, $valid ) ) {
 		return $input;
