@@ -67,7 +67,7 @@ function add_site_layout_classes( $classes ){
 
 		$classes[] = $responsive_options['site_layout_option'];
 		
-	endif;
+	endif;	
 
 	return $classes;
 

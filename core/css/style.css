@@ -28,6 +28,12 @@ body.full-width-layout #content-outer, body.default-layout #content-outer {
 		max-width: 960px;
 margin: 0 auto;	
 }
+.full-width-home #wrapper {
+	//margin: 0 auto 20px auto ;
+}
+body.full-width-home #wrapper {
+	margin: 0 auto 20px auto ;
+}	
 body.full-width-layout div#container, body.full-width-layout div#footer {
     width: 100%;
     max-width: 100%;
@@ -2849,6 +2855,7 @@ BDO[DIR="rtl"] {
 .author-gravtar img{
 border-radius: 50%;
 }
+	
 .section_title {
     text-align: center;
     text-transform: uppercase;
@@ -2859,6 +2866,7 @@ border-radius: 50%;
     font-size: 2.250em;    
     font-weight: 700;
 }
+
 .testimonial_main_div .testimonial_img,.team_main_div .team_img,.feature_main_div .feature_img{
 	text-align: center;
 	margin-top: 40px;

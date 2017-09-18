@@ -145,6 +145,10 @@ function responsive_theme_options_do_page() {
 																		  'id'    => 'home_page'
 																	  )
 																  ,
+																	array(
+																			'title' => __( 'Full width Home Page', 'responsive' ),
+																			'id'    => 'full_width_home_page'
+																	),
 																	  array(
 																		  'title' => __( 'Default Layouts', 'responsive' ),
 																		  'id'    => 'layouts'
@@ -179,6 +183,10 @@ function responsive_theme_options_do_page() {
 						'id'    => 'home_page'
 				)
 				,
+				array(
+						'title' => __( 'Full width Home Page', 'responsive' ),
+						'id'    => 'full_width_home_page'
+				),
 				array(
 						'title' => __( 'Default Layouts', 'responsive' ),
 						'id'    => 'layouts'
@@ -621,6 +629,34 @@ function responsive_theme_options_do_page() {
 			),
 			
 		),
+		'full_width_home_page' => array(
+				array(
+						'title'       => __( 'Enable Full width Home Page', 'responsive' ),
+						'subtitle'    => '',
+						'heading'     => '',
+						'type'        => 'checkbox',
+						'id'          => 'enable_full_home',
+						'description' => __( 'Overrides the WordPress front page option.Choose this if you want full width home page', 'responsive' ),
+						'placeholder' => ''
+				), 
+				array(
+						'title'       => __( 'Enable Slider Home Page', 'responsive' ),
+						'subtitle'    => '',  
+						'heading'     => '',
+						'type'        => 'checkbox',
+						'id'          => 'enable_slider',
+						'description' => '' ,
+						'placeholder' => ''
+				),
+				array(
+						'title'       => __( 'Slidedeck shortcode', 'responsive' ),
+						'subtitle'    => '',
+						'id'          => 'home_slider',
+						'heading'     => '',
+						'type'        => 'text',
+						'description' => __( 'Create slider using Slidedeck', 'responsive' ),						
+				),
+			),
 		'layouts' => array(
 			array(
 				'title'       => __( 'Default Static Page Layout', 'responsive' ),

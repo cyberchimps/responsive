@@ -340,8 +340,39 @@ function responsive_customize_register( $wp_customize ) {
 			'priority' => 40
 	) );
 	
+	/*--------------------------------------------------------------
+	 // Full width Home Page
+	--------------------------------------------------------------*/	
+	$wp_customize->add_section( 'full_home_page', array(
+			'title'                 => __( 'Full Width Home Page', 'responsive' ),
+			'priority'              => 30
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[enable_full_home]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'enable_full_home', array(
+			'label'                 => __( 'Enable Full Width Home Page', 'responsive' ),
+			'section'               => 'full_home_page',
+			'settings'              => 'responsive_theme_options[enable_full_home]',
+			'type'                  => 'checkbox',
+			'description'           => __( 'Overrides the WordPress front page option. Choose this if you want full width home page', 'responsive' )
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[enable_slider]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'enable_slider', array(
+			'label'                 => __( 'Enable Slider Home Page', 'responsive' ),
+			'section'               => 'full_home_page',
+			'settings'              => 'responsive_theme_options[enable_slider]',
+			'type'                  => 'checkbox'			
+	) );	
+	$wp_customize->add_setting( 'responsive_theme_options[home_slider]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
+	//$wp_customize->add_setting( 'responsive_theme_options[contact_content]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
+	$wp_customize->add_control( 'home_slider', array(
+			'label'                 => __( 'Slidedeck shortcode', 'responsive' ),
+			'section'               => 'full_home_page',
+			'settings'              => 'responsive_theme_options[home_slider]',
+			'description'           => __( 'Create slider using Slidedeck', 'responsive' ),
+			'type'                  => 'text'			
+	) );
 	
-
+	
 /*--------------------------------------------------------------
 	// Default Layouts
 --------------------------------------------------------------*/
