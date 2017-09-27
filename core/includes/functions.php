@@ -428,9 +428,7 @@ add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override',
 function responsive_add_class( $classes ) {
 
 	// Get Responsive theme option.
-	global $responsive_options;
-	if ( !empty( $responsive_options['enable_full_home']) && $responsive_options['enable_full_home'] ==1)
-		$classes[] = 'full-width-home';
+	global $responsive_options;	
 	if ( $responsive_options['front_page'] == 1 && is_front_page() ) {
 		$classes[] = 'front-page';
 	}

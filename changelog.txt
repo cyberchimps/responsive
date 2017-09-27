@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/29/17) - Added New Feature - Version 3.4
+[+] Added Full-width Without Boxes Site layout option
+
 (09/13/17) - Added New Feature - Version 3.3
 [+] Added Full-width Site layout option
 

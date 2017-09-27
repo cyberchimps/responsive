@@ -52,7 +52,8 @@ function responsive_customize_register( $wp_customize ) {
 			'type'                  => 'select',
 			'choices'               => array(
 								'default-layout'  => __('Default','responsive'),
-					            'full-width-layout' => __('Full Width Layout','responsive'),   
+					            'full-width-layout' => __('Full Width Layout','responsive'),
+								'full-width-no-box'  => __('Full Width Without boxes','responsive'),
 							)	 
 			));
 	$wp_customize->add_setting( 'responsive_theme_options[cta_button]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
@@ -108,6 +109,22 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_theme_options[front_page]',
 		'type'                  => 'checkbox',
 		'description'           => __( 'Overrides the WordPress front page option', 'responsive' )
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[enable_slider]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'enable_slider', array(
+			'label'                 => __( 'Enable Slider on Home Page', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[enable_slider]',
+			'type'                  => 'checkbox',			
+	) );
+	$wp_customize->add_setting( 'responsive_theme_options[home_slider]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
+	//$wp_customize->add_setting( 'responsive_theme_options[contact_content]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
+	$wp_customize->add_control( 'home_slider', array(
+			'label'                 => __( 'Slidedeck shortcode', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[home_slider]',
+			'description'           => __( 'Create slider using Slidedeck', 'responsive' ),
+			'type'                  => 'text',			
 	) );
 	$wp_customize->add_setting( 'responsive_theme_options[home_headline]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'HAPPINESS', 'responsive' ), 'type' => 'option' ));
 	$wp_customize->add_control( 'res_home_headline', array(
@@ -175,7 +192,8 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'textarea',
 		'description'           => __( 'Paste your shortcode, video or image source', 'responsive' ),
                 'priority'              => 20
-	) );
+	) );	
+	
 	$wp_customize->add_setting( 'responsive_theme_options[about]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'about', array(
 			'label'                 => __( 'Enable About Section', 'responsive' ),
@@ -340,37 +358,6 @@ function responsive_customize_register( $wp_customize ) {
 			'priority' => 40
 	) );
 	
-	/*--------------------------------------------------------------
-	 // Full width Home Page
-	--------------------------------------------------------------*/	
-	$wp_customize->add_section( 'full_home_page', array(
-			'title'                 => __( 'Full Width Home Page', 'responsive' ),
-			'priority'              => 30
-	) );
-	$wp_customize->add_setting( 'responsive_theme_options[enable_full_home]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
-	$wp_customize->add_control( 'enable_full_home', array(
-			'label'                 => __( 'Enable Full Width Home Page', 'responsive' ),
-			'section'               => 'full_home_page',
-			'settings'              => 'responsive_theme_options[enable_full_home]',
-			'type'                  => 'checkbox',
-			'description'           => __( 'Overrides the WordPress front page option. Choose this if you want full width home page', 'responsive' )
-	) );
-	$wp_customize->add_setting( 'responsive_theme_options[enable_slider]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
-	$wp_customize->add_control( 'enable_slider', array(
-			'label'                 => __( 'Enable Slider Home Page', 'responsive' ),
-			'section'               => 'full_home_page',
-			'settings'              => 'responsive_theme_options[enable_slider]',
-			'type'                  => 'checkbox'			
-	) );	
-	$wp_customize->add_setting( 'responsive_theme_options[home_slider]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
-	//$wp_customize->add_setting( 'responsive_theme_options[contact_content]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
-	$wp_customize->add_control( 'home_slider', array(
-			'label'                 => __( 'Slidedeck shortcode', 'responsive' ),
-			'section'               => 'full_home_page',
-			'settings'              => 'responsive_theme_options[home_slider]',
-			'description'           => __( 'Create slider using Slidedeck', 'responsive' ),
-			'type'                  => 'text'			
-	) );
 	
 	
 /*--------------------------------------------------------------
@@ -551,7 +538,8 @@ function responsive_validate_site_layout( $input ) {
 	
 	$valid = array(
 			'default-layout' => 'Default',
-			'full-width-layout' => 'Full Width Layout'
+			'full-width-layout' => 'Full Width Layout',
+			'full-width-no-box' =>'Full Width Without boxes' 
 	);
 
 	if( array_key_exists( $input, $valid ) ) {

@@ -21,6 +21,7 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
+<div id="content-outer">
 	<div id="widgets" class="home-widgets" role="complementary">
 		<div id="home_widget_1" class="grid col-300">
 			<?php responsive_widgets(); // above widgets hook ?>
@@ -77,4 +78,5 @@ if ( !defined( 'ABSPATH' ) ) {
 			<?php responsive_widgets_end(); // after widgets hook ?>
 		</div><!-- end of .col-300 fit -->
 	</div><!-- end of #widgets -->
+</div>	
 <?php responsive_widgets_after(); // after widgets container hook ?>

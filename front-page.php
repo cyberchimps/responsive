@@ -40,18 +40,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && $responsive_options['front_page
 	$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
 	$template = ( $template == 'default' ) ? 'index.php' : $template;
 	locate_template( $template, true );
-} elseif ($responsive_options['enable_full_home'] == '1') {
-	
-	get_header();
-?>
-	
-<?php 		
-	get_template_part( 'template-parts/full_width_home' );
-	get_footer();
-
-?>
-	
-<?php } 
+} 
 else {
 	get_header();
 

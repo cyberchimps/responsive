@@ -29,7 +29,7 @@ $responsive_options = responsive_get_options();
 <?php responsive_wrapper_bottom(); // after wrapper content hook ?>
 </div><!-- end of #wrapper -->
 
-</div>
+<!--</div>-->
 <?php responsive_wrapper_end(); // after wrapper hook ?>
 </div><!-- end of #container -->
 <?php responsive_container_end(); // after container hook ?>

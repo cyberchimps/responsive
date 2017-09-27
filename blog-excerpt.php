@@ -23,7 +23,7 @@ Template Name: Blog Excerpt (summary)
 
 get_header();
 ?>
-
+<div id="content-outer">
 <div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -95,3 +95,4 @@ get_header();
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
+</div>

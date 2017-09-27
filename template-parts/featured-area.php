@@ -13,7 +13,19 @@ $empty     = ( empty( $responsive_options['home_headline'] ) && empty( $responsi
 $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 ?>
-
+<?php
+	$responsive_options = responsive_get_options();
+	
+	$display_slider = (! empty ($responsive_options['enable_slider']))?$responsive_options['enable_slider']:0;
+	
+	if ($display_slider == 1) {
+		$slider_content = $responsive_options['home_slider'];
+	?>
+	<div class='slider'><?php echo do_shortcode($slider_content); ?></div>
+<?php
+}
+?>
+<div id="content-outer">
 <div id="featured" class="grid col-940">
 
 	<div id="featured-content" class="grid col-460">
@@ -82,10 +94,11 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 	</div><!-- end of #featured-image -->
 
 </div><!-- end of #featured -->
+</div>
 
 <?php if ( isset( $responsive_options['about']) && $responsive_options['about'] == '1') { ?>
 <div id="about_div" class="grid">
-	
+	<div id="content-outer">
 	<div class="about-content">
 	<?php 
 		$responsive_about_title = isset( $responsive_options['about_title']) ?  $responsive_options['about_title'] : 'About Box Title';
@@ -104,10 +117,14 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		</a>
 	</span>	
 	</div>
+	
+</div> <!--  -->
 		
 </div>
 <?php }?>
+
 <?php if ( isset( $responsive_options['feature']) && $responsive_options['feature'] == '1') { ?>
+<div id="content-outer">
 <div id="feature_div" class="grid">
 	<?php 
 	$responsive_feature_title = isset( $responsive_options['feature_title']) ?  $responsive_options['feature_title'] : 'Features';
@@ -186,11 +203,12 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		<?php }?>
 	</div>
 	</div>
-		
+</div>		
 <?php } ?>
 
 <?php if ( isset( $responsive_options['testimonials']) && $responsive_options['testimonials'] == '1') { ?>
 <div id="testimonial_div" class="grid col-940">
+<div id="content-outer">
 	<?php 
 	
 		$responsive_testimonial_title = isset( $responsive_options['testimonial_title']) ?  $responsive_options['testimonial_title'] : 'Testimonial';		
@@ -223,11 +241,12 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		</div>
 	</div>	
 	<?php }?>
-		
+</div>		
 </div>
 
 <?php }?>
 <?php if ( isset( $responsive_options['team']) && $responsive_options['team'] == '1') { ?>
+<div id="content-outer">
 <div id="team_div" class="grid">
 	<?php 
 	$responsive_team_title = isset( $responsive_options['team_title']) ?  $responsive_options['team_title'] : 'Team';
@@ -363,5 +382,6 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 		</div>
 		<?php }?>
 	</div>
+</div>
 </div>
 <?php }?>

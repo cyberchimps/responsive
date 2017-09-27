@@ -22,7 +22,7 @@ Template Name:  Sidebar/Content Half Page
  */
 ?>
 <?php get_header(); ?>
-
+<div id="content-outer">
 <div id="content" class="grid-right col-460 fit" role="main">
 
 	<?php if ( have_posts() ) : ?>
@@ -90,3 +90,4 @@ Template Name:  Sidebar/Content Half Page
 
 <?php get_sidebar( 'left-half' ); ?>
 <?php get_footer(); ?>
+</div>

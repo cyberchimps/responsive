@@ -22,7 +22,7 @@ Template Name:  Content/Sidebar Half Page
  */
 
 get_header(); ?>
-
+<div id="content-outer">
 <div id="content" class="grid col-460" role="main">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -69,3 +69,4 @@ get_header(); ?>
 
 <?php get_sidebar( 'right-half' ); ?>
 <?php get_footer(); ?>
+</div>

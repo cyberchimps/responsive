@@ -22,7 +22,7 @@ Template Name: Sitemap
  */
 ?>
 <?php get_header(); ?>
-
+<div id="content-outer">
 <div id="content-sitemap" class="grid col-940">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -80,3 +80,4 @@ Template Name: Sitemap
 </div><!-- end of #content-sitemap -->
 
 <?php get_footer(); ?>
+</div>
