@@ -108,7 +108,13 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php responsive_header_end(); // after header container hook ?>
 
 <?php responsive_wrapper(); // before wrapper container hook ?>
-<!--  <div id="content-outer" >-->
+
+<?php global $responsive_options;
+$responsive_options = responsive_get_options(); 
+if ( isset($responsive_options['site_layout_option']) && ($responsive_options['site_layout_option'] == 'full-width-layout') && (!( is_home() || is_front_page() ))) {
+error_log('qw');?>
+	  <div id="content-outer" >
+<?php } ?>	  
 	<div id="wrapper" class="clearfix">
 <?php responsive_wrapper_top(); // before wrapper content hook ?>
 <?php responsive_in_wrapper(); // wrapper hook ?>

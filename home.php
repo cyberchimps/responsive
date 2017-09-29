@@ -25,7 +25,7 @@ global $more;
 $more = 0;
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 ?>
-
+<div id="content-outer">
 	<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 		<!-- Blog page title -->
@@ -100,3 +100,4 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
+</div>
