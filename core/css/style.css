@@ -28,12 +28,10 @@ body.full-width-layout #content-outer, body.default-layout #content-outer,body.f
 		max-width: 960px;
 margin: 0 auto;	
 }
-.full-width-home #wrapper {
-	//margin: 0 auto 20px auto ;
-}
 body.full-width-home #wrapper {
 	margin: 0 auto 20px auto ;
-}	
+}
+body.full-width-layout #wrapper{margin: 0 auto 20px auto; }
 body.full-width-layout div#container, body.full-width-layout div#footer, body.full-width-no-box div#container, body.full-width-no-box div#footer {
     width: 100%;
     max-width: 100%;
@@ -44,6 +42,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 	margin: 10px 0;
 }
 .full-width-no-box #header {background-color: #585858;	}
+.full-width-no-box .top-menu {margin: 0; padding-top: 4px;}
 .full-width-no-box .main-nav  {
 	background-color: #585858;
 	background-image: none;
@@ -53,7 +52,8 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 }
 .full-width-no-box .top-menu li a:hover { 
 color:#f2efef; 
-} 
+}
+.full-width-layout #testimonial_div, .full-width-layout #team_div,.full-width-layout #about_div,.full-width-layout #feature_div {padding-bottom:0px; }
 .full-width-no-box .menu a:hover {
 	background-color: #585858;background-image: none;
 	color: #f4f2f2;	
@@ -83,11 +83,13 @@ color:#f2efef;
 	border-radius: 0;
 	color: #fff;
 }
-.full-width-layout #about_div {border: none; }
+.full-width-layout #about_div {border: none; background-color: inherit;}
+.full-width-layout #testimonial_div {border: none;background-color:inherit;}
 .full-width-no-box #testimonial_div {border: none;}
-.full-width-layout #about_div #content-outer {border: 1px solid #e5e5e5;}
+.full-width-layout #about_div #content-outer { border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;border-radius:4px;}
+.full-width-layout #testimonial_div #content-outer {border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;border-radius:4px;display:table;width: 100%;}
 .full-width-layout .about-content {padding-bottom: 40px;}
-
+.full-width-no-box .site-name a {color: #ffffff;}
 /*HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -883,6 +885,7 @@ form div {
 	background-color: #ffffff;
 	border: 1px solid #e5e5e5;
 	border-radius: 4px;
+	margin-top:20px;
 	padding-bottom: 40px;
 	width: 99.893617021277%;
 }
@@ -1462,6 +1465,7 @@ ul.menu > li:hover {
 .full-width-no-box #wrapper {
 	margin: 0 auto 20px auto ; 
 }
+
 
 /* =Sub-Header Menu
 -------------------------------------------------------------- */

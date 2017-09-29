@@ -57,9 +57,9 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) :
     add_action( 'wp_head', 'responsive_free_render_title' );
 endif;
 
-add_filter( 'body_class', 'add_site_layout_classes' );
+add_filter( 'body_class', 'responsive_add_site_layout_classes' );
 
-function add_site_layout_classes( $classes ){
+function responsive_add_site_layout_classes( $classes ){
 
 	global $responsive_options;
 

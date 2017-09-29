@@ -10,6 +10,7 @@ Changelog Legend:
 
 (09/29/17) - Added New Feature - Version 3.4
 [+] Added Full-width Without Boxes Site layout option
+[+] Added option to include SlideDeck slider on home page
 
 (09/13/17) - Added New Feature - Version 3.3
 [+] Added Full-width Site layout option

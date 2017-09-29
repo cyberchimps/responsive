@@ -84,6 +84,11 @@ function responsive_install_plugins() {
 			'required' => false
 		),
 		array(
+			'name'     => ' WP Legal Pages', // The plugin name
+			'slug'     => 'wplegalpages', // The plugin slug (typically the folder name)
+			'required' => false
+		),
+		array(
 			'name'     => 'WPForms Lite', // The plugin name
 			'slug'     => 'wpforms-lite', // The plugin slug (typically the folder name)
 			'required' => false
