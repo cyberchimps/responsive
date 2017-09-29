@@ -32,6 +32,9 @@ $responsive_options = responsive_get_options();
 </div>
 <?php } ?>	
 <?php responsive_wrapper_end(); // after wrapper hook ?>
+<?php if ( is_home() && ! is_front_page() ) {?>
+</div>
+<?php } ?>	 
 </div><!-- end of #container -->
 <?php responsive_container_end(); // after container hook ?>
 
