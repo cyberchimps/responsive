@@ -82,6 +82,15 @@ color:#f2efef;
 	border-radius: 0;
 	color: #fff;
 }
+#about_div .about-content h2 {
+	position: relative;
+}
+#about_div .about-content { display: inline-block; vertical-align: middle;display:grid;}
+#about_div .about_cta{
+	display: inline-block; 
+	vertical-align: middle;
+	margin-top: 86px;
+}
 .full-width-layout #about_div {border: none; background-color: inherit;}
 .full-width-layout #testimonial_div {border: none;background-color:inherit;}
 .full-width-no-box #testimonial_div {border: none;}
@@ -254,6 +263,23 @@ sup {
 
 sub {
 	vertical-align: sub;
+}
+.sticky-header {
+	position: fixed;
+	top: 0;
+	left: 0px;
+	z-index: 200;
+	width: 100%;
+	background-color: #fff;
+	margin: 0 !important;
+	opacity:0.9;	
+	-webkit-transition: all 0.8s ease-in-out 0s;
+	-moz-transition: all 0.8s ease-in-out 0s;
+	-o-transition: all 0.8s ease-in-out 0s;
+	transition: all 0.8s ease-in-out 0s;
+}
+.admin-bar .sticky-header{
+	top:30px;
 }
 
 /* =Responsive 12 Column Grid
@@ -2822,7 +2848,8 @@ table.cart td.actions .coupon .input-text {
 #footer .googleplus-icon,
 #footer .google-plus-icon,
 #footer .stumbleupon-icon,
-#footer .stumble-upon-icon {
+#footer .stumble-upon-icon,
+#footer .email-icon {
 	display: inline;
 	margin: 1px;
 	padding-left: 3px;
@@ -3037,6 +3064,32 @@ line-height: 27px
 	-moz-transition:all .3s;
 	-o-transition:all .3s;
 	transition:all .3s;
+}
+#scroll-to-top {
+	background: #484848;
+	padding: 5px 9px;
+	animation-play-state: paused;
+	margin-bottom: 1%;
+	color:#fff;
+	width:20px;
+	height:26px;
+	font-size:24px;
+	text-align:center;	
+	cursor: pointer;
+	border-radius: 50%;
+	position: fixed;
+	right: 35px;
+	bottom: 50px;
+	-webkit-animation: mymove 5s infinite;
+	animation: mymove 5s infinite;
+}
+.section-blog {
+width: 33%;
+float: none;
+text-align: center;
+box-sizing: border-box;
+display: inline-block;
+vertical-align: top;
 }
 .section-team,.section-feature {
 width: 33%;

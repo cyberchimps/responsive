@@ -30,6 +30,13 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_theme_options[override_woo]',
 		'type'                  => 'checkbox'
 	) );
+	$wp_customize->add_setting( 'responsive_theme_options[sticky-header]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'res_sticky-header', array(
+			'label'                 => __( 'Enable Sticky Header?', 'responsive' ),
+			'section'               => 'theme_elements',
+			'settings'              => 'responsive_theme_options[sticky-header]',
+			'type'                  => 'checkbox'
+	) );
 	$wp_customize->add_setting( 'responsive_theme_options[featured_images]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_featured_images', array(
 		'label'                 => __( 'Enable featured images?', 'responsive' ),
@@ -509,6 +516,12 @@ function responsive_customize_register( $wp_customize ) {
 		'label'             => __( 'Foursquare', 'responsive' ),
 		'section'           => 'responsive_social_media',
 		'settings'          => 'responsive_theme_options[foursquare_uid]'
+	) ) );
+	$wp_customize->add_setting( 'responsive_theme_options[email_uid]' , array( 'sanitize_callback' => 'esc_url_raw', 'type' => 'option' ));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'email_uid', array(
+			'label'             => __( 'Email Address', 'responsive' ),
+			'section'           => 'responsive_social_media',
+			'settings'          => 'responsive_theme_options[email_uid]'
 	) ) );
         
         /**

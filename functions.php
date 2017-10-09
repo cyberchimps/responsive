@@ -72,6 +72,28 @@ function responsive_add_site_layout_classes( $classes ){
 	return $classes;
 
 }
+$responsive_options = get_option( 'responsive_theme_options' );
+if (isset($responsive_options['sticky-header']) && $responsive_options['sticky-header'] =='1' ){
+	add_action( 'wp_footer', 'responsive_fixed_menu_onscroll' );
+	function responsive_fixed_menu_onscroll()
+	{
+		?>
+	<script type="text/javascript">
+	jQuery(document).ready(function($){
+		$(window).scroll(function()  {
+			if ($(this).scrollTop() > 0) {
+				$('#header_section').addClass("sticky-header");
+			}
+			else{
+				$('#header_section').removeClass("sticky-header");
+			}
+
+		});
+	});		
+	</script>
+	<?php
+}
+}
 function responsiveedit_customize_register( $wp_customize ){
 	$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector' => '.site-name a'

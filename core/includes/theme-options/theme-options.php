@@ -226,6 +226,15 @@ function responsive_theme_options_do_page() {
 				'placeholder' => ''
 			),
 			array(
+			'title'       => __( 'Enable Sticky Header?', 'responsive' ),
+			'subtitle'    => '',
+			'heading'     => '',
+			'type'        => 'checkbox',
+			'id'          => 'sticky-header',
+			'description' => __( 'Check to enable', 'responsive' ),
+			'placeholder' => ''
+			),
+			array(
 				'title'       => __( 'Enable Featured images?', 'responsive' ),
 				'subtitle'    => '',
 				'heading'     => '',
@@ -777,6 +786,15 @@ function responsive_theme_options_do_page() {
 				'type'        => 'text',
 				'id'          => 'foursquare_uid',
 				'description' => __( 'Enter your foursquare URL', 'responsive' ),
+				'placeholder' => ''
+			),
+			array(
+				'title'       => __( 'Email Address', 'responsive' ),
+				'subtitle'    => '',
+				'heading'     => '',
+				'type'        => 'text',
+				'id'          => 'email_uid',
+				'description' => __( 'Enter your Email Address', 'responsive' ),
 				'placeholder' => ''
 			)
 

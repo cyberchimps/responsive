@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/09/17) - Added New Feature - Version 3.4
+[+] Sticky header option added
+[+] Email social option added
+[+] New Blog layout with 3 Column added
+[*] Improved scroll to top button look
+[*] Changed About box look
+
 (09/29/17) - Added New Feature - Version 3.4
 [+] Added Full-width Without Boxes Site layout option
 [+] Added option to include SlideDeck slider on home page

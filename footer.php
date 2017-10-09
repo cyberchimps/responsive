@@ -106,7 +106,8 @@ $responsive_options = responsive_get_options();
 			</a>
 		</div><!-- end of .copyright -->
 
-		<div class="grid col-300 scroll-top"><a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a></div>
+		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
+		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
 
 		<div class="grid col-300 fit powered">
 			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow">Responsive Theme</a>
@@ -119,6 +120,7 @@ $responsive_options = responsive_get_options();
 	<?php responsive_footer_bottom(); ?>
 </div><!-- end #footer -->
 <?php responsive_footer_after(); ?>
+<div id="scroll-to-top"><i class="fa fa-arrow-up" aria-hidden='true'></i></div>	
 
 <?php wp_footer(); ?>
 </body>
