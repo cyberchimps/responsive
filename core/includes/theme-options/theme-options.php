@@ -226,6 +226,15 @@ function responsive_theme_options_do_page() {
 				'placeholder' => ''
 			),
 			array(
+					'title'       => __( 'Enable Sticky Header?', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'sticky-header',
+					'description' => __( 'Check to enable', 'responsive' ),
+					'placeholder' => ''
+			),
+			array(
 				'title'       => __( 'Enable Featured images?', 'responsive' ),
 				'subtitle'    => '',
 				'heading'     => '',
@@ -778,6 +787,15 @@ function responsive_theme_options_do_page() {
 				'id'          => 'foursquare_uid',
 				'description' => __( 'Enter your foursquare URL', 'responsive' ),
 				'placeholder' => ''
+			),
+			array(
+				'title'       => __( 'Email Address', 'responsive' ),
+				'subtitle'    => '',
+				'heading'     => '',
+				'type'        => 'text',
+				'id'          => 'email_uid',
+				'description' => __( 'Enter your Email Address', 'responsive' ),
+				'placeholder' => ''
 			)
 
 		),
@@ -897,7 +915,7 @@ function responsive_theme_options_validate( $input ) {
 		$input['yelp_uid']                    = esc_url_raw( $input['yelp_uid'] );
 		$input['vimeo_uid']                   = esc_url_raw( $input['vimeo_uid'] );
 		$input['foursquare_uid']              = esc_url_raw( $input['foursquare_uid'] );
-		$input['email_uid']                   = esc_url_raw( $input['email_uid'] );
+		$input['email_uid']                   = sanitize_email( $input['email_uid'] );
 		$input['responsive_inline_css']       = wp_kses_stripslashes( isset($input['responsive_inline_css']) );
 		$input['responsive_inline_js_head']   = wp_kses_stripslashes( $input['responsive_inline_js_head'] );
 		$input['responsive_inline_js_footer'] = wp_kses_stripslashes( $input['responsive_inline_js_footer'] );

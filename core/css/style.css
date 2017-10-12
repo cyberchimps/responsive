@@ -99,7 +99,7 @@ color:#f2efef;
 .full-width-layout #about_div {border: none; background-color: inherit;}
 .full-width-layout #testimonial_div {border: none;background-color:inherit;}
 .full-width-no-box #testimonial_div {border: none;}
-.full-width-layout #about_div #content-outer { border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;border-radius:4px;}
+.full-width-layout #about_div #content-outer { border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;display: table;width: 100%;border-radius:4px;}
 .full-width-layout #testimonial_div #content-outer {border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;border-radius:4px;display:table;width: 100%;}
 .full-width-layout .about-content {padding-bottom: 40px;}
 .full-width-no-box .site-name a {color: #ffffff;}
@@ -2873,7 +2873,21 @@ table.cart td.actions .coupon .input-text {
 	color: #ffffff;
 	background-color:inherit;
 }
-
+.full-width-no-box #footer .social-icons li {
+	list-style: none;
+display: inline-block;
+padding: 9px 10px;
+border: solid 2px #ffffff;
+border-radius: 50%;
+color: #ffffff;
+width: 30px;
+height: 30px;
+margin: 10px;
+font-size: 26px;
+}
+.full-width-no-box #footer .social-icons li a{
+color:#fff;
+}
 /* =Social Icons
 -------------------------------------------------------------- */
 #footer .social-icons {
@@ -3155,6 +3169,8 @@ display: inline-block;
 vertical-align: top;
 padding: 0 12px; 
 }
+
+.blogtitle { margin-top:0;text-align: center;}
 .blog-3-col .read-more a{
 	background-color: #1874cd; /* Dodger Blue */
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#4f9eea), to(#1874cd));
@@ -3175,7 +3191,6 @@ margin: 0;
 padding: 5px;
 vertical-align: middle;
 }	
-.blogtitle { text-align: center;}
 .section-team,.section-feature {
 width: 33%;
 float: none;

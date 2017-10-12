@@ -97,6 +97,16 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 </div>
 
 <?php if ( isset( $responsive_options['about']) && $responsive_options['about'] == '1') { ?>
+<?php 
+if($responsive_options['button_style'] == 'default')
+{
+	$button_class = "blue button";
+}
+else  if($responsive_options['button_style'] == 'flat_style')
+{
+	$button_class = "blue button flat";
+}
+?>
 <div id="about_div" class="grid col-940">
 	<div id="content-outer">
 	<div class="about-content grid col-620">

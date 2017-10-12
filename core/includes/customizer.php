@@ -517,7 +517,7 @@ function responsive_customize_register( $wp_customize ) {
 		'section'           => 'responsive_social_media',
 		'settings'          => 'responsive_theme_options[foursquare_uid]'
 	) ) );
-	$wp_customize->add_setting( 'responsive_theme_options[email_uid]' , array( 'sanitize_callback' => 'esc_url_raw', 'type' => 'option' ));
+	$wp_customize->add_setting( 'responsive_theme_options[email_uid]' , array( 'sanitize_callback' => 'sanitize_email', 'type' => 'option' ));
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'email_uid', array(
 			'label'             => __( 'Email Address', 'responsive' ),
 			'section'           => 'responsive_social_media',

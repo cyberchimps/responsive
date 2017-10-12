@@ -142,7 +142,13 @@
 		text-align: left;
 		cursor: pointer;
 	}
-
+	#about_div .about_text {
+		padding: 0 20px 0 20px;
+	}
+	#about_div .about_cta {margin-top: 0;}
+	#about_div .section_title {
+		padding-left:20px; 
+	}	
 	.js .main-nav .menu li.current_page_item,
 	.js .menu .current_page_item a,
 	.js .menu .current-menu-item a {
@@ -258,6 +264,7 @@
 
 	#footer .social-icons {
 		padding-bottom: 10px;
+		padding-top:10px;
 		text-align: center;
 	}
 	.powered {text-align:center;padding: 0;}
