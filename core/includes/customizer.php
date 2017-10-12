@@ -391,13 +391,13 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'select',
 		'choices'               => Responsive_Options::valid_layouts()
 	) );
-	$wp_customize->add_setting( 'responsive_theme_options[blog_posts_index_layout_default]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
+	$wp_customize->add_setting( 'responsive_theme_options[blog_posts_index_layout_default]', array( 'sanitize_callback' => 'responsive_sanitize_blog_default_layouts', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_hblog_posts_index_layout_default', array(
 		'label'                 => __( 'Default Blog Posts Index Layout', 'responsive' ),
 		'section'               => 'default_layouts',
 		'settings'              => 'responsive_theme_options[blog_posts_index_layout_default]',
 		'type'                  => 'select',
-		'choices'               => Responsive_Options::valid_layouts()
+		'choices'               => Responsive_Options::blog_valid_layouts()
 	) );
 
 /*--------------------------------------------------------------
@@ -729,6 +729,14 @@ function responsive_sanitize_default_layouts( $input ) {
 	if ( array_key_exists( $input, $option ) ) {	
 		$output = $input;	
 	}	
+	return $output;
+}
+function responsive_sanitize_blog_default_layouts( $input ) {
+	$output = '';
+	$option = Responsive_Options::blog_valid_layouts();
+	if ( array_key_exists( $input, $option ) ) {
+		$output = $input;
+	}
 	return $output;
 }
 

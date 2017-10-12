@@ -316,6 +316,24 @@ Class Responsive_Options {
 
 		return apply_filters( 'responsive_valid_layouts', $layouts );
 	}
+	/**
+	 * Default blog layouts static function
+	 *
+	 * @return array
+	 */
+	public static function blog_valid_layouts() {
+		$bloglayouts = array(
+				'default'                   => __( 'Default', 'responsive' ),
+				'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive' ),
+				'sidebar-content-page'      => __( 'Sidebar/Content', 'responsive' ),
+				'content-sidebar-half-page' => __( 'Content/Sidebar Half Page', 'responsive' ),
+				'sidebar-content-half-page' => __( 'Sidebar/Content Half Page', 'responsive' ),
+				'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' ),
+				'blog-3-col'      			=> __( 'Blog 3 Column', 'responsive' )
+		);
+	
+		return apply_filters( 'responsive_blog_valid_layouts', $bloglayouts );
+	}
 
 	/**
 	 * Makes sure that every option has all the required args

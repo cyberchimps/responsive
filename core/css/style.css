@@ -89,7 +89,12 @@ color:#f2efef;
 #about_div .about_cta{
 	display: inline-block; 
 	vertical-align: middle;
-	margin-top: 86px;
+	margin-top: 69px;
+	text-align: center;
+}
+#about_div .about_cta a {
+	font-size: 20px;
+	padding: 15px 15px;
 }
 .full-width-layout #about_div {border: none; background-color: inherit;}
 .full-width-layout #testimonial_div {border: none;background-color:inherit;}
@@ -2823,6 +2828,51 @@ table.cart td.actions .coupon .input-text {
 #footer_widget .col-300:nth-child(3n+3) {
 	margin-right: 0;
 }
+.social_div {
+	background-color:#c9c7c7;
+	padding: 2% 0;
+}
+.full-width-no-box #footer-wrapper .footer_div {
+	background-color: #585858;
+	padding: 2% 0;
+	margin-bottom: 10px;
+}
+#scroll {
+	position:fixed;
+	right:2%;
+	bottom:10px;
+	cursor:pointer;
+	width:50px;
+	height:50px;
+	background-color:#a8a6a6;
+	text-indent:-9999px;
+	display:none;
+	z-index:99999999;
+	-webkit-border-radius:60px;
+	-moz-border-radius:60px;
+	border-radius:60px
+}
+#scroll span {
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-8px;
+	margin-top:-12px;
+	height:0;
+	width:0;
+	border:8px solid transparent;
+	border-bottom-color:#fff
+}
+#scroll:hover {background-color:#d1cfcf;}
+.full-width-no-box #footer-wrapper .contact_div {margin-bottom: 0!important;}
+.full-width-no-box #footer .social-icons { text-align: center;}
+.full-width-no-box #footer_widget a {color: #ffffff;}
+.full-width-no-box #footer_widget a:hover {color:edeaea;} 
+.full-width-no-box #footer_widget .widget-wrapper {
+	border: none;
+	color: #ffffff;
+	background-color:inherit;
+}
 
 /* =Social Icons
 -------------------------------------------------------------- */
@@ -2991,18 +3041,29 @@ padding-bottom: 40px;
 width: 99.893617021277%;
 }
 #about_div .about_text {	
-	font-size: 18px;
-	text-align: center;
-	padding: 0 10px 0 10px;
+	font-size: 18px;	
+	padding: 0 10px 0 59px;
 font-weight: 200;
-line-height: 27px
+line-height: 27px;
 }
-#about_div {text-align: center;}
+//#about_div {text-align: center;}
+#about_div .section_title:after{
+	margin-left: 60px;
+	border-bottom: solid 2px #555555;
+	width: 60px;
+	text-align: center;
+	position: absolute;
+	content: "";
+	left: 0;
+	right: 0;
+	margin: 50px auto auto 60px;
+}
+#about_div .section_title {text-align: left;padding-left: 60px;}
 .about-content a {
 	font-size: 20px;
 	padding: 15px 15px;
 }
-#testimonial_div .section_title:after, #team_div .section_title:after,#feature_div .section_title:after,#about_div .section_title:after{
+#testimonial_div .section_title:after, #team_div .section_title:after,#feature_div .section_title:after{
 	border-bottom: solid 2px #555555;
 	width: 60px;
 	text-align: center;
@@ -3065,7 +3126,7 @@ line-height: 27px
 	-o-transition:all .3s;
 	transition:all .3s;
 }
-#scroll-to-top {
+/*#scroll-to-top {
 	background: #484848;
 	padding: 5px 9px;
 	animation-play-state: paused;
@@ -3082,15 +3143,39 @@ line-height: 27px
 	bottom: 50px;
 	-webkit-animation: mymove 5s infinite;
 	animation: mymove 5s infinite;
+}*/
+.page-template-blog-3-col .post-data {
+	margin-top:0px; 
 }
 .section-blog {
 width: 33%;
 float: none;
-text-align: center;
 box-sizing: border-box;
 display: inline-block;
 vertical-align: top;
+padding: 0 12px; 
 }
+.blog-3-col .read-more a{
+	background-color: #1874cd; /* Dodger Blue */
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#4f9eea), to(#1874cd));
+	background-image: -webkit-linear-gradient(top, #4f9eea, #1874cd);
+	background-image: -moz-linear-gradient(top, #4f9eea, #1874cd);
+	background-image: -ms-linear-gradient(top, #4f9eea, #1874cd);
+	background-image: -o-linear-gradient(top, #4f9eea, #1874cd);
+	background-image: linear-gradient(to top, #4f9eea, #1874cd);
+	border: 1px solid #115290;
+	color: #ffffff;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4f9eea, endColorstr=#1874cd)";
+	text-shadow: 0 -1px 0 #115290;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+border-radius: 2px;
+display: inline-block;
+line-height: 20px;
+margin: 0;
+padding: 5px;
+vertical-align: middle;
+}	
+.blogtitle { text-align: center;}
 .section-team,.section-feature {
 width: 33%;
 float: none;

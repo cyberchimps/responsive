@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(10/09/17) - Added New Feature - Version 3.4
+(10/09/17) - Added New Feature - Version 3.5
 [+] Sticky header option added
 [+] Email social option added
 [+] New Blog layout with 3 Column added

@@ -332,12 +332,18 @@ function responsive_get_social_icons() {
 		'yelp'        => __( 'Yelp!', 'responsive' ),
 		'vimeo'       => __( 'Vimeo', 'responsive' ),
 		'foursquare'  => __( 'foursquare', 'responsive' ),
+		'email' => __( 'Email', 'responsive' ),
 	);
 
 	$html = '<ul class="social-icons">';
 	foreach( $sites as $key => $value ) {
 		if ( !empty( $responsive_options[$key . '_uid'] ) ) {
-			$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_options[$key . '_uid'] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
+			if ($key == 'email') {
+				$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="mailto:' . $responsive_options[$key . '_uid'] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
+			}
+			else{
+				$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_options[$key . '_uid'] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
+			}
 		}
 	}
 	$html .= '</ul><!-- .social-icons -->';

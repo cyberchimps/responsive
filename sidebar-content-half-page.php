@@ -89,5 +89,5 @@ Template Name:  Sidebar/Content Half Page
 </div><!-- end of #content -->
 
 <?php get_sidebar( 'left-half' ); ?>
-<?php get_footer(); ?>
 </div>
+<?php get_footer(); ?>

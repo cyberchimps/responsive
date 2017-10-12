@@ -116,13 +116,13 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 			
 			?>
 		</a>
-	<!--  </span>-->
+	
 	</div>	
 	</div>
 	
 </div> <!--  -->
 		
-</div>
+<!--  </div>-->
 <?php }?>
 
 <?php if ( isset( $responsive_options['feature']) && $responsive_options['feature'] == '1') { ?>

@@ -49,7 +49,7 @@ if ( !defined( 'ABSPATH' ) ) {
 global $responsive_options;
 $responsive_options = responsive_get_options(); 
 if ( isset($responsive_options['site_layout_option']) && ($responsive_options['site_layout_option'] == 'full-width-layout') && (is_home() && ! is_front_page()) ) {
-error_log('er');?>
+?>
 	<div id="content-outer" >
 <?php } ?>	  	
 <div id="container" class="hfeed">
@@ -58,6 +58,7 @@ error_log('er');?>
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#content"><?php _e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
+	<div id="header_section">
 	<div id="header" role="banner">
 
 		<?php responsive_header_top(); // before header content hook ?>
@@ -112,6 +113,7 @@ error_log('er');?>
 		<?php responsive_header_bottom(); // after header content hook ?>
 
 	</div><!-- end of #header -->
+	</div>
 <?php responsive_header_end(); // after header container hook ?>
 
 <?php responsive_wrapper(); // before wrapper container hook ?>

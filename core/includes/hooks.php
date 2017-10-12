@@ -282,9 +282,11 @@ add_action( 'woocommerce_before_main_content', 'responsive_woocommerce_wrapper',
 add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_end', 10 );
 
 function responsive_woocommerce_wrapper() {
+	echo '<div id="content-outer">';
 	echo '<div id="content-woocommerce" class="grid col-620">';
 }
 
 function responsive_woocommerce_wrapper_end() {
 	echo '</div><!-- end of #content-woocommerce -->';
+	echo '</div>';
 }

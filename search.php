@@ -63,5 +63,5 @@ get_header(); ?>
 </div><!-- end of #content-search -->
 
 <?php get_sidebar(); ?>
-<?php get_footer(); ?>
 </div>
+<?php get_footer(); ?>

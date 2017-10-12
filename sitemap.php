@@ -78,6 +78,5 @@ Template Name: Sitemap
 	?>
 
 </div><!-- end of #content-sitemap -->
-
-<?php get_footer(); ?>
 </div>
+<?php get_footer(); ?>

@@ -69,5 +69,5 @@ get_header(); ?>
 </div><!-- end of #content -->
 
 <?php get_sidebar( 'right' ); ?>
-<?php get_footer(); ?>
 </div>
+<?php get_footer(); ?>

@@ -89,5 +89,5 @@ Template Name:  Sidebar/Content
 </div><!-- end of #content -->
 
 <?php get_sidebar( 'left' ); ?>
-<?php get_footer(); ?>
 </div>
+<?php get_footer(); ?>

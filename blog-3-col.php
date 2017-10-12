@@ -11,7 +11,7 @@ if ( !defined( 'ABSPATH' ) ) {
  *
  Template Name: Blog 3 Column
  *
- * @file           blog.php
+ * @file           blog-3-col.php
  * @package        Responsive
  
  */
@@ -63,14 +63,13 @@ $more = 0;
 			
 			<?php responsive_entry_top(); ?>
 					
-			<?php get_template_part( 'post-meta', get_post_type() ); ?>
+			<?php get_template_part( 'post-meta-3-col', get_post_type() ); ?>
+			<?php get_template_part( 'post-data', get_post_type() ); ?>			
 			
 			<?php the_excerpt( __( 'Read more &#8250;', 'responsive' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 			
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>				
-				
-				<?php get_template_part( 'post-data', get_post_type() ); ?>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
@@ -101,7 +100,6 @@ $more = 0;
 	?>
 
 </div>
-
-<?php //get_sidebar(); ?>
-<?php get_footer(); ?>
 </div>
+
+<?php get_footer(); ?>

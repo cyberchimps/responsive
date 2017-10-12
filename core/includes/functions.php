@@ -59,6 +59,7 @@ function responsive_get_option_defaults() {
 		'breadcrumb'                      => false,
 		'cta_button'                      => false,
 		'minified_css'                    => false,
+		'sticky-header'                   => false,
 		'front_page'                      => 1,
 		'home_headline'                   => null,
 		'home_subheadline'                => null,
@@ -84,6 +85,14 @@ function responsive_get_option_defaults() {
 		'yelp_uid'                        => '',
 		'vimeo_uid'                       => '',
 		'foursquare_uid'                  => '',
+		'email_uid'						  => '',
+		'testimonial_val'				  => '',
+		'teammember1'					  => '',
+		'teammember2'					  => '',
+		'teammember3'					  => '',
+		'feature1'					  	  => '',	
+		'feature2'						  => '',
+		'feature3'				  		  => '',
 		'responsive_inline_css'           => '',
 		'responsive_inline_js_head'       => '',
 		'responsive_inline_js_footer' => '',
@@ -91,6 +100,7 @@ function responsive_get_option_defaults() {
 		'static_page_layout_default'      => 'default',
 		'single_post_layout_default'      => 'default',
 		'blog_posts_index_layout_default' => 'default',
+		'site_layout_option'			  => 'default-layout',	
                 'button_style'                    => 'default'
 	);
 
