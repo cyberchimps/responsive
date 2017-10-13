@@ -77,8 +77,11 @@ color:#f2efef;
 	border-radius: 0;
 	color: #fff;
 }
+.full-width-no-box #about_div .section_title::after {border-bottom: solid 2px #fff;}
+.full-width-no-box #testimonial_div .section_title::after {border-bottom: solid 2px #fff;}
 .full-width-no-box #about_div  {
 	background-color:#585858;
+	padding-bottom: 20px;
 	border-radius: 0;
 	color: #fff;
 }

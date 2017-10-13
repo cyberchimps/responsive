@@ -52,6 +52,11 @@
 	.show-980 {
 		display: block;
 	}
+	.full-width-no-box #testimonial_div .section_title {padding-top: 17px;}
+	#about_div .section_title::after {margin: 0 auto;top:40px;}
+	#about_div .section_title {text-align: center;}
+	#about_div .about-content {text-align: center;}
+	#about_div .about_cta {margin-top: 0;}
 	.contact_div .contact_right {margin-left: 0%;}
 	.contact_right p {margin: 0;}
 	.contact_div .contact_left, .contact_div .contact_right {text-align: center;}

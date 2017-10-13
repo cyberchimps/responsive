@@ -155,7 +155,8 @@ else  if($responsive_options['button_style'] == 'flat_style')
 		}
 	}
 	else 
-		$responsive_feature1_post_id='';	
+		$responsive_feature1_post_id='';
+		
 	if (isset ($responsive_options['feature2'])) {
 	$responsive_feature2_post_id = $responsive_options['feature2'];
 		if (!$responsive_feature2_post_id ==''){

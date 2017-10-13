@@ -369,7 +369,7 @@ function responsive_get_social_icons_new() {
 				<?php if ( !empty( $responsive_options['yelp_uid'] ) ){?><li><a href="<?php echo $responsive_options['yelp_uid'];?>" target="_blank"><i class="fa fa-yelp" aria-hidden="true"></i></a></li><?php }?>
 				<?php if ( !empty( $responsive_options['vimeo_uid'] ) ){?><li><a href="<?php echo $responsive_options['vimeo_uid'];?>" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li><?php }?>
 				<?php if ( !empty( $responsive_options['foursquare_uid'] ) ){?><li><a href="<?php echo $responsive_options['foursquare_uid'];?>" target="_blank"><i class="fa fa-foursquare" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['email_uid'] ) ){?><li><a href="<?php echo $responsive_options['email_uid'];?>" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li><?php }?>
+				<?php if ( !empty( $responsive_options['email_uid'] ) ){?><li><a href="mailto:<?php echo $responsive_options['email_uid'];?>" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li><?php }?>
 		
 	</ul>
 <?php 
