@@ -54,7 +54,7 @@ $responsive_options = responsive_get_options();
 			$responsive_contact_email = isset( $responsive_options['contact_email']) ?  $responsive_options['contact_email'] : '';
 			$responsive_contact_ph = isset( $responsive_options['contact_ph']) ?  $responsive_options['contact_ph'] : '';
 			$responsive_contact_content = isset( $responsive_options['contact_content']) ?  $responsive_options['contact_content'] : 'Contact form can be displayed here';
-			
+		
 		?>	
 			<div class="contact_title"><?php echo esc_html($responsive_contact_title); ?></div>
 			<div class="contact_subtitle"><?php echo esc_html($responsive_contact_subtitle); ?></div>
@@ -80,7 +80,7 @@ $responsive_options = responsive_get_options();
 	<?php if (isset($responsive_options['site_layout_option']) && ($responsive_options['site_layout_option'] == 'full-width-no-box')) {?>
 		<div class="social_div grid col-940">
 			<div id="content-outer">
-			<?php echo responsive_get_social_icons() ?>	
+			<?php echo responsive_get_social_icons_new() ?>	
 		</div>
 		</div>	
 		<div class="footer_div grid col-940">
