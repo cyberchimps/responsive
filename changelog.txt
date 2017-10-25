@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/25/17) - Added New Feature - Version 3.6
+[+] Option added to filter categories from Blog page
+[+] Option added to enable/disable home page widgets
+[*] Improved single post design
+
 (10/09/17) - Added New Feature - Version 3.5
 [+] Sticky header option added
 [+] Email social option added
