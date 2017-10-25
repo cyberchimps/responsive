@@ -192,6 +192,39 @@ $wp_customize->selective_refresh->add_partial( 'responsive_theme_options[team_ti
 add_action( 'customize_register', 'responsiveedit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );
 
+function responsive_custom_category_widget( $arg ) {
+	$cat = get_theme_mod( 'exclude_post_cat' );
+
+	if( $cat ){
+		$cat = array_diff( array_unique( $cat ), array('') );
+		$arg["exclude"] = $cat;
+	}
+	return $arg;
+}
+add_filter( "widget_categories_args", "responsive_custom_category_widget" );
+add_filter( "widget_categories_dropdown_args", "responsive_custom_category_widget" );
+
+function responsive_exclude_post_cat_recentpost_widget(){
+	$s = '';
+	$i = 1;
+	$cat = get_theme_mod( 'exclude_post_cat' );
+
+	if( $cat ){
+		$cat = array_diff( array_unique( $cat ), array('') );
+		foreach( $cat as $c ){
+			$i++;
+			$s .= '-'.$c;
+			if( count($cat) >= $i )
+				$s .= ', ';
+		}
+	}
+
+	$exclude = array( 'cat' => $s );
+
+	return $exclude;
+}
+add_filter( "widget_posts_args", "responsive_exclude_post_cat_recentpost_widget" );
+
 if( !function_exists('responsive_page_featured_image') ) :
 
 	function responsive_page_featured_image() {
@@ -207,6 +240,25 @@ if( !function_exists('responsive_page_featured_image') ) :
 	}
 
 endif;
+
+/**
+ * Exclude post with Category from blog and archive page.
+ */
+if( !function_exists('responsive_exclude_post_cat') ) : 	
+function responsive_exclude_post_cat( $query ){
+	$responsive_options = responsive_get_options();
+	//$cat = $responsive_options['exclude_post_cat'];
+	$cat = get_theme_mod( 'exclude_post_cat' );
+
+	if( $cat && ! is_admin() && $query->is_main_query() ){
+		$cat = array_diff( array_unique( $cat ), array('') );
+		if( $query->is_home() || $query->is_archive() ) {
+			$query->set( 'category__not_in', $cat );
+		}
+	}
+}
+endif;	
+add_filter( 'pre_get_posts', 'responsive_exclude_post_cat' );
 
 if( !function_exists('responsive_get_attachment_id_from_url') ) :
 function responsive_get_attachment_id_from_url( $attachment_url = '' ) {

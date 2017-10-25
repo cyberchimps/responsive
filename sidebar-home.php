@@ -20,6 +20,10 @@ if ( !defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 ?>
+<?php 
+	$responsive_options = responsive_get_options();	
+	if ($responsive_options['home-widgets'] != '1') {
+?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
 <div id="content-outer">
 	<div id="widgets" class="home-widgets" role="complementary">
@@ -79,4 +83,6 @@ if ( !defined( 'ABSPATH' ) ) {
 		</div><!-- end of .col-300 fit -->
 	</div><!-- end of #widgets -->
 </div>	
-<?php responsive_widgets_after(); // after widgets container hook ?>
+<?php responsive_widgets_after(); // after widgets container hook 
+} 
+?>

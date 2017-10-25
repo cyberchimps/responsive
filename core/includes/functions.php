@@ -30,6 +30,12 @@ $responsive_options = responsive_get_options();
  * Add plugin automation file
  */
 require_once( dirname( __FILE__ ) . '/classes/class-tgm-plugin-activation.php' );
+//require_once( dirname( __FILE__ ) . '/control-checkbox-multiple.php' );
+function responsive_load_customize_controls() {
+
+    require_once( trailingslashit( get_template_directory() ) . 'core/includes/control-checkbox-multiple.php' );
+}
+add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
 
 /*
  * Hook options
@@ -458,7 +464,7 @@ add_filter( 'body_class', 'responsive_add_class' );
 if ( !function_exists( 'responsive_post_meta_data' ) ) {
 
 	function responsive_post_meta_data() {
-		printf( __( '<span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
+		printf( __( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
 				'meta-prep meta-prep-author posted',
 				sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
 						 esc_url( get_permalink() ),
@@ -474,6 +480,12 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 						 get_avatar( get_the_author_meta( 'ID' ), 32)
 				)
 		);
+?>
+		<span class='posted-in'>
+<?php 		printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+		</span>
+<?php 
+
 	}
 
 }

@@ -644,6 +644,14 @@ function responsive_theme_options_do_page() {
 					'placeholder' => '',
 					'options'     => Responsive_Options::options_posts()
 			),
+			array(
+					'title'       => __( 'Click to disable home page widgets', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'home-widgets',					
+					'placeholder' => ''
+			),
 			
 		),		
 		'layouts' => array(

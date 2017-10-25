@@ -36,9 +36,6 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
     max-width: 100%;
     padding: 0;
 }
-//body.full-width-layout #wrapper {border: none; background-color: transparent;}
-//body.full-width-layout #wrapper #content-outer {background-color: #ffffff; display: table;width: 70%;padding: 22px;border: 1px solid #e5e5e5;-moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius:4px;
-}
 .full-width-no-box .skip-container { padding: 0px;}
 .full-width-no-box #header {background-color: #585858;	}
 .full-width-no-box .top-menu {margin: 0; padding-top: 4px;}
@@ -106,6 +103,37 @@ color:#f2efef;
 .full-width-layout #testimonial_div #content-outer {border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;border-radius:4px;display:table;width: 100%;}
 .full-width-layout .about-content {padding-bottom: 40px;}
 .full-width-no-box .site-name a {color: #ffffff;}
+.post-meta .fa-calendar {
+	margin-right: 6px;
+}
+.post-meta .posted-in{
+	padding-left: 9px;
+}
+.post-meta .timestamp, .post-meta .vcard {
+	border-right: solid 1px #7E7E7E;
+	padding-right: 9px;
+	display: inline;
+}
+.post-meta .byline {
+	padding-left: 9px;
+}
+.breadcrumb {
+    padding-right: 4px;
+    padding-left: 4px;
+}	
+.breadcrumb-current{padding-left: 4px;}
+#content h1 { position: relative;}
+#content h1::after {
+   	border-bottom: solid 2px #7c7b7b;
+	width: 100px;
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom: -9px;
+	right: 0;
+}
+.default-layout .sticky-header .main-nav{background-color:inherit; background-image: none;}
+
 /*HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -970,7 +998,7 @@ form div {
 
 .post-meta {
 	clear: both;
-	color: #9f9f9f;
+	color: #7E7E7E;
 	font-size: 12px;
 	margin-bottom: 10px;
 }

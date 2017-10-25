@@ -97,6 +97,26 @@ function responsive_customize_register( $wp_customize ) {
 /*--------------------------------------------------------------
 	// Home Page
 --------------------------------------------------------------*/
+	$args = array(
+			'type'         => 'post',
+			'orderby'      => 'name',
+			'order'        => 'ASC',
+			'hide_empty'   => 1,
+			'hierarchical' => 1,
+			'taxonomy'     => 'category',
+	);
+	$option_categories = array();
+	$category_lists = get_categories( $args );
+	$option_categories[''] = esc_html( __( 'Choose Category', 'compact-one' ) );
+	foreach ( $category_lists as $category ) {
+		$option_categories[ $category->term_id ] = $category->name;
+	}
+	
+	$option_all_post_cat = array();
+	foreach( $category_lists as $category ){
+		$option_all_post_cat[$category->term_id] = $category->name;
+	}
+	
 	/* Option list of all post */
 	$options_posts = array();
 	$options_posts_obj = get_posts('posts_per_page=-1');
@@ -364,7 +384,14 @@ function responsive_customize_register( $wp_customize ) {
 			'choices'               => $options_posts,
 			'priority' => 40
 	) );
-	
+	$wp_customize->add_setting( 'responsive_theme_options[home-widgets]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
+	$wp_customize->add_control( 'home-widgets', array(
+			'label'                 => __( 'Click to disable home page widgets', 'responsive' ),
+			'section'               => 'home_page',
+			'settings'              => 'responsive_theme_options[home-widgets]',
+			'type'                  => 'checkbox',			
+			'priority' => 41
+	) );
 	
 	
 /*--------------------------------------------------------------
@@ -399,7 +426,29 @@ function responsive_customize_register( $wp_customize ) {
 		'type'                  => 'select',
 		'choices'               => Responsive_Options::blog_valid_layouts()
 	) );
+	
 
+
+/* Blog page setting */
+	$wp_customize->add_section( 'blog_page', array(
+			'title'    => __( 'Blog page Settings', 'responsive' ),			
+	) );
+	$wp_customize->add_setting( 'exclude_post_cat', array( 'sanitize_callback' => 'responsive_sanitize_multiple_checkboxes') );
+	$wp_customize->add_control(
+			new responsive_Customize_Control_Checkbox_Multiple(
+					$wp_customize,
+					'exclude_post_cat',
+					array(
+							'section'       => 'blog_page',
+							'label'         => __( 'Exclude Categories from Blog page', 'responsive' ),
+							'description'   => __( 'Please choose the post categories that should not be displayed on the blog page', 'compact-one' ),
+							'settings'      => 'exclude_post_cat',
+							'choices'       => $option_all_post_cat
+					)
+			)
+	);	
+	
+	
 /*--------------------------------------------------------------
 	// SOCIAL MEDIA SECTION
 --------------------------------------------------------------*/
@@ -728,7 +777,8 @@ function responsive_sanitize_default_layouts( $input ) {
 	$option = Responsive_Options::valid_layouts();
 	if ( array_key_exists( $input, $option ) ) {	
 		$output = $input;	
-	}	
+	}
+	error_log('default lau'.$output);
 	return $output;
 }
 function responsive_sanitize_blog_default_layouts( $input ) {
@@ -736,8 +786,15 @@ function responsive_sanitize_blog_default_layouts( $input ) {
 	$option = Responsive_Options::blog_valid_layouts();
 	if ( array_key_exists( $input, $option ) ) {
 		$output = $input;
-	}
+	}	
 	return $output;
+}
+function responsive_sanitize_multiple_checkboxes( $values ) {
+
+	$multi_values = !is_array( $values ) ? explode( ',', $values ) : $values;
+	!empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
+	error_log(print_r($multi_values,1));
+	return !empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
 }
 
 
