@@ -778,7 +778,7 @@ function responsive_sanitize_default_layouts( $input ) {
 	if ( array_key_exists( $input, $option ) ) {	
 		$output = $input;	
 	}
-	error_log('default lau'.$output);
+	
 	return $output;
 }
 function responsive_sanitize_blog_default_layouts( $input ) {
@@ -791,9 +791,8 @@ function responsive_sanitize_blog_default_layouts( $input ) {
 }
 function responsive_sanitize_multiple_checkboxes( $values ) {
 
-	$multi_values = !is_array( $values ) ? explode( ',', $values ) : $values;
-	!empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
-	error_log(print_r($multi_values,1));
+	$multi_values = !is_array( $values ) ? explode( ',', $values ) : $values;	
+	
 	return !empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
 }
 
