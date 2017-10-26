@@ -122,8 +122,8 @@ color:#f2efef;
     padding-left: 4px;
 }	
 .breadcrumb-current{padding-left: 4px;}
-#content h1 { position: relative;}
-#content h1::after {
+#content .responsive { position: relative;}
+#content .responsive::after {
    	border-bottom: solid 2px #7c7b7b;
 	width: 100px;
 	position: absolute;

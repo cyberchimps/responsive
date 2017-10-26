@@ -45,13 +45,7 @@ if ( !defined( 'ABSPATH' ) ) {
 <body <?php body_class(); ?>>
 
 <?php responsive_container(); // before container hook ?>
-<?php 
-global $responsive_options;
-$responsive_options = responsive_get_options(); 
-if ( isset($responsive_options['site_layout_option']) && ($responsive_options['site_layout_option'] == 'full-width-layout') && (is_home() && ! is_front_page()) ) {
-?>
-	<div id="content-outer" >
-<?php } ?>	  	
+  	
 <div id="container" class="hfeed">
 
 <?php responsive_header(); // before header hook ?>

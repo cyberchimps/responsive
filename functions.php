@@ -251,9 +251,10 @@ function responsive_exclude_post_cat( $query ){
 	$cat = get_theme_mod( 'exclude_post_cat' );
 
 	if( $cat && ! is_admin() && $query->is_main_query() ){
-		$cat = array_diff( array_unique( $cat ), array('') );
+		$cat = array_diff( array_unique( $cat ), array('') ); 		
 		if( $query->is_home() || $query->is_archive() ) {
 			$query->set( 'category__not_in', $cat );
+			//$query->set( 'cat', '-5,-6,-65,-66' );
 		}
 	}
 }
