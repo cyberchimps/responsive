@@ -107,7 +107,8 @@ function responsive_get_option_defaults() {
 		'single_post_layout_default'      => 'default',
 		'blog_posts_index_layout_default' => 'default',
 		'site_layout_option'			  => 'default-layout',	
-                'button_style'                    => 'default'
+                'button_style'                    => 'default',
+			'home-widgets'				=> false
 	);
 
 	return apply_filters( 'responsive_option_defaults', $defaults );
@@ -315,7 +316,7 @@ if ( !function_exists( 'responsive_css' ) ) {
 		if ( is_child_theme() ) {
 			wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
 		}
-		if ($responsive_options['front_page'] == 1 && (isset( $responsive_options['team']) && $responsive_options['team'] == '1' || isset( $responsive_options['contact']) && $responsive_options['contact'] == '1') || isset($responsive_options['site_layout_option']) && ($responsive_options['site_layout_option'] == 'full-width-no-box')) 
+		 
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0');
 	}
 

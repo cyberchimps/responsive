@@ -22,7 +22,7 @@ if ( !defined( 'ABSPATH' ) ) {
 ?>
 <?php 
 	$responsive_options = responsive_get_options();	
-	if ($responsive_options['home-widgets'] != '1') {
+	if (isset($responsive_options['home-widgets']) && $responsive_options['home-widgets'] != '1') {
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
 <div id="content-outer">

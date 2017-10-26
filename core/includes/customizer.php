@@ -107,7 +107,7 @@ function responsive_customize_register( $wp_customize ) {
 	);
 	$option_categories = array();
 	$category_lists = get_categories( $args );
-	$option_categories[''] = esc_html( __( 'Choose Category', 'compact-one' ) );
+	$option_categories[''] = esc_html( __( 'Choose Category', 'responsive' ) );
 	foreach ( $category_lists as $category ) {
 		$option_categories[ $category->term_id ] = $category->name;
 	}
@@ -783,8 +783,8 @@ function responsive_sanitize_default_layouts( $input ) {
 }
 function responsive_sanitize_blog_default_layouts( $input ) {
 	$output = '';
-	$option = Responsive_Options::blog_valid_layouts();
-	if ( array_key_exists( $input, $option ) ) {
+	$option = Responsive_Options::blog_valid_layouts();	
+	if ( array_key_exists( $input, $option ) ) {		
 		$output = $input;
 	}	
 	return $output;
