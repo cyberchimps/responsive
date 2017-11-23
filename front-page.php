@@ -47,6 +47,40 @@ else {
 	get_template_part( 'template-parts/featured-area' );
 
 	get_sidebar( 'home' );
-
+	
+	if ( isset( $responsive_options['contact']) && $responsive_options['contact'] == '1') { ?> 
+				<div class="contact_div grid col-940">
+				<div id="content-outer">
+				
+			<?php 
+				$responsive_contact_title = isset( $responsive_options['contact_title']) ?  $responsive_options['contact_title'] : 'contact';
+				$responsive_contact_subtitle = isset( $responsive_options['contact_subtitle']) ?  $responsive_options['contact_subtitle'] : '';
+				$responsive_contact_add = isset( $responsive_options['contact_add']) ?  $responsive_options['contact_add'] : '';
+				$responsive_contact_email = isset( $responsive_options['contact_email']) ?  $responsive_options['contact_email'] : '';
+				$responsive_contact_ph = isset( $responsive_options['contact_ph']) ?  $responsive_options['contact_ph'] : '';
+				$responsive_contact_content = isset( $responsive_options['contact_content']) ?  $responsive_options['contact_content'] : 'Contact form can be displayed here';
+			
+			?>	
+				<div class="contact_title"><?php echo esc_html($responsive_contact_title); ?></div>
+				<div class="contact_subtitle"><?php echo esc_html($responsive_contact_subtitle); ?></div>
+				
+				<div class="contact_left grid col-460 fit">
+				<?php if ($responsive_contact_add != '') {?>
+				<div><i class="fa fa-map-marker" aria-hidden="true"></i><span class="contact_add"><?php echo esc_html($responsive_contact_add); ?></span></div>
+				<?php }?>
+				<?php if ($responsive_contact_email != '') {?>
+				<div><i class="fa fa-envelope" aria-hidden="true"></i><span class="contact_email"><?php echo esc_html($responsive_contact_email); ?></span></div>
+				<?php }?>
+				<?php if ($responsive_contact_ph != '') {?>
+				<div><i class="fa fa-phone" aria-hidden="true"></i><span class="contact_ph"><?php echo esc_html($responsive_contact_ph); ?></span></div>
+				<?php }?>
+				</div>
+				<div class="contact_right grid col-460" >
+				<?php echo do_shortcode(wp_kses_post($responsive_contact_content)); ?>
+				</div>
+			</div>
+			</div>				
+			<?php }
+			
 	get_footer();
 }

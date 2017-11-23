@@ -25,6 +25,7 @@ border-collapse:collapse;
 .featureyes td  {text-align: center;}
 #wpcontent { background-color: #f1f1f1;}
 .features-table td {padding: 20px 0;}
+.heading {width:88%;float: left;}
 .features-table tr { border-bottom: 1px solid #cccccc;}
 img {max-width: 100%;}
 .about-info p {font-size: 16px; }

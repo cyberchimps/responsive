@@ -13,7 +13,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.6.0
+ * @version 3.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,13 +21,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+
 $responsive_options = responsive_get_options();
 if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
 {
 	wp_enqueue_style( 'custom_shop_style', get_template_directory_uri() . '/woocommerce/shop.css' );
 }
-
 ?>
+
 <?php wc_print_notices(); ?>
 
 <?php do_action( 'woocommerce_before_customer_login_form' ); ?>
@@ -42,7 +43,7 @@ if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['ove
 
 		<h2><?php _e( 'Login', 'responsive' ); ?></h2>
 
-		<form class="woocomerce-form woocommerce-form-login login" method="post">
+		<form class="woocommerce-form woocommerce-form-login login" method="post">
 
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
@@ -107,15 +108,16 @@ if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['ove
 
 			<?php endif; ?>
 
-			<!-- Spam Trap -->
-			<div style="<?php echo ( ( is_rtl() ) ? 'right' : 'left' ); ?>: -999em; position: absolute;"><label for="trap"><?php _e( 'Anti-spam', 'responsive' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" autocomplete="off" /></div>
-
 			<?php do_action( 'woocommerce_register_form' ); ?>
 
-			<p class="woocomerce-FormRow form-row">
+			<p class="woocommerce-FormRow form-row">
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'responsive' ); ?>" />
 			</p>
+
+		<!-- Spam Trap -->
+			<div style="<?php echo ( ( is_rtl() ) ? 'right' : 'left' ); ?>: -999em; position: absolute;"><label for="trap"><?php _e( 'Anti-spam', 'responsive' ); ?></label><input type="text" name="email_2" id="trap" tabindex="-1" autocomplete="off" /></div>
+
 
 			<?php do_action( 'woocommerce_register_form_end' ); ?>
 

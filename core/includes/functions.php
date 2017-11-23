@@ -528,3 +528,38 @@ add_action('wp_head','fetch_copyright');
 /**
  * Added the footer copyright setting to the theme customizer - ends
  */
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
+
+function responsive_add_pro_button() {
+$upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
+?>
+<script type="text/javascript">
+		jQuery( document ).ready( function( $ ) {
+			jQuery( '#customize-info .accordion-section-title' ).append( '<a target="_blank" class="button btn-upgrade" href="<?php echo esc_url( $upgrade_link ); ?>"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>' );
+			jQuery( '#customize-info .btn-upgrade' ).click( function( event ) {
+				event.stopPropagation();
+			} );
+		} );
+	</script>
+	<style>
+		.wp-core-ui .btn-upgrade {
+			color: #fff;
+			background: none repeat scroll 0 0 #5BC0DE;
+			border-color: #CCCCCC;
+			box-shadow: 0 1px 0 #5BC0DE inset, 0 1px 0 rgba(0, 0, 0, 0.08);
+			float: right;
+			margin-top: -23px;
+		}
+		.wp-core-ui .btn-upgrade:hover {
+			color: #fff;
+			background: none repeat scroll 0 0 #39B3D7;
+			box-shadow: 0 1px 0 #39B3D7 inset, 0 1px 0 rgba(0, 0, 0, 0.08);
+		}
+		.wp-core-ui #customize-info .theme-name{
+					word-break: break-all;
+					padding-right: 120px;
+		}
+	</style>
+<?php 
+}

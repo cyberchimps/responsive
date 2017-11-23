@@ -318,67 +318,7 @@ function responsive_theme_options_do_page() {
 				'id'          => 'poweredby_link',
 				'description' => '',
 				'placeholder' => ''
-			),
-			array(
-					'title'       => __( 'Enable Contact Section', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'checkbox',
-					'id'          => 'contact',
-					'description' => '',
-					'placeholder' => ''
-			),
-			array(
-					'title'       => __( 'Contact section Title', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_title',
-					'description' => '',
-					'placeholder' => __( 'Contact', 'responsive' )
-			),
-			array(
-					'title'       => __( 'Contact section Subtitle', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_subtitlet',
-					'description' => '',
-					'placeholder' => __( 'Contact subtitle', 'responsive' )
-			),
-			array(
-					'title'       => __( 'Address', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_add',
-					'description' => '',					
-			),
-			array(
-					'title'       => __( 'Email', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_email',
-					'description' => '',					
-			),
-			array(
-					'title'       => __( 'Phone no', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_ph',
-					'description' => '',					
-			),
-			array(
-					'title'       => __( 'Contact form shortcode', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'text',
-					'id'          => 'contact_content',
-					'description' => __( 'You can put Contact Form 7 shortcode here', 'responsive' ),
-					'placeholder' => ''
-			)
+			)			
 		),
 		'logo_upload' => array(
 			array(
@@ -652,7 +592,66 @@ function responsive_theme_options_do_page() {
 					'id'          => 'home-widgets',					
 					'placeholder' => ''
 			),
-			
+			array(
+					'title'       => __( 'Enable Contact Section', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'checkbox',
+					'id'          => 'contact',
+					'description' => '',
+					'placeholder' => ''
+			),
+			array(
+					'title'       => __( 'Contact section Title', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_title',
+					'description' => '',
+					'placeholder' => __( 'Contact', 'responsive' )
+			),
+			array(
+					'title'       => __( 'Contact section Subtitle', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_subtitlet',
+					'description' => '',
+					'placeholder' => __( 'Contact subtitle', 'responsive' )
+			),
+			array(
+					'title'       => __( 'Address', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_add',
+					'description' => '',
+			),
+			array(
+					'title'       => __( 'Email', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_email',
+					'description' => '',
+			),
+			array(
+					'title'       => __( 'Phone no', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_ph',
+					'description' => '',
+			),
+			array(
+					'title'       => __( 'Contact form shortcode', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'text',
+					'id'          => 'contact_content',
+					'description' => __( 'You can put Contact Form 7 shortcode here', 'responsive' ),
+					'placeholder' => ''
+			)
 		),		
 		'layouts' => array(
 			array(
