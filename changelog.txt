@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(10/26/17) - Added New Feature - Version 3.6
+(10/26/17) - Added New Feature - Version 3.7
 [+] Option added to filter categories from Blog page
 [+] Option added to enable/disable home page widgets
 [*] Improved single post design
