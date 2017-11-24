@@ -14,6 +14,7 @@ body.full-width-layout #content-outer, body.default-layout #content-outer,body.f
 	margin: 0 auto;
 	max-width: 960px;	
 }
+body.full-width-no-box #wrapper {margin-bottom: 0px;}
 .main-nav {
 	background-color: #585858;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#585858), to(#3d3d3d));
@@ -31,6 +32,7 @@ margin: 0 auto;
 body.home #wrapper {
 	margin: 0 auto 20px auto ;
 }
+body.full-width-no-box #wrapper {margin-bottom: 0px;}
 body.full-width-layout div#container, body.full-width-layout div#footer, body.full-width-no-box div#container, body.full-width-no-box div#footer {
     width: 100%;
     max-width: 100%;
@@ -2783,7 +2785,7 @@ table.shop_table {
 
 @media screen and (max-width:400px) {
 	table.shop_table {
-		font-size: 8px;
+		font-size: 10px;
 	}
 }
 
@@ -3200,7 +3202,7 @@ display: inline-block;
 vertical-align: top;
 padding: 0 12px; 
 }
-
+.woocommerce-cart-form input[type="submit"]:hover ,.woocommerce-cart-form a.button:hover{border:none;}
 .blogtitle { margin-top:0;text-align: center;}
 .blog-3-col .read-more a{
 	background-color: #1874cd; /* Dodger Blue */
@@ -3262,6 +3264,7 @@ display: inline-block;
 background-color: #ffffff;
 border: 1px solid #e5e5e5;
 border-radius: 4px;
+margin-bottom: 0px;
 background: url('../../core/images/default-contact.jpg');
 background-size:cover;
 color: #ffffff;

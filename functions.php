@@ -204,7 +204,7 @@ function responsive_custom_category_widget( $arg ) {
 add_filter( "widget_categories_args", "responsive_custom_category_widget" );
 add_filter( "widget_categories_dropdown_args", "responsive_custom_category_widget" );
 
-function responsive_exclude_post_cat_recentpost_widget(){
+function responsive_exclude_post_cat_recentpost_widget($array){
 	$s = '';
 	$i = 1;
 	$cat = get_theme_mod( 'exclude_post_cat' );
@@ -218,10 +218,10 @@ function responsive_exclude_post_cat_recentpost_widget(){
 				$s .= ', ';
 		}
 	}
+	
+	$array['cat']=array($s);
 
-	$exclude = array( 'cat' => $s );
-
-	return $exclude;
+	return $array;
 }
 add_filter( "widget_posts_args", "responsive_exclude_post_cat_recentpost_widget" );
 

@@ -8,7 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(10/26/17) - Added New Feature - Version 3.7
+(11/27/17) - Changed - Version 3.7
+[*] Contact form will be available only on home page 
+[*] Updated WooCommerce template
+
+(10/26/17) - Added New Feature - Version 3.6
 [+] Option added to filter categories from Blog page
 [+] Option added to enable/disable home page widgets
 [*] Improved single post design
