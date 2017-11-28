@@ -3202,7 +3202,7 @@ display: inline-block;
 vertical-align: top;
 padding: 0 12px; 
 }
-.woocommerce-cart-form input[type="submit"]:hover ,.woocommerce-cart-form a.button:hover{border:none;}
+.woocommerce-cart-form input[type="submit"]:hover ,.woocommerce a.button.alt:hover{border:none;}
 .blogtitle { margin-top:0;text-align: center;}
 .blog-3-col .read-more a{
 	background-color: #1874cd; /* Dodger Blue */
