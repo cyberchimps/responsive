@@ -33,7 +33,7 @@ img {max-width: 100%;}
 .about-info span { position: absolute; right: 0; top: 0; width: 250px;padding-top: 40px;}
 .features th { text-align: center;font-size: 18px;}
 .features-table p { font-weight: normal;}
-.features-table .feature {font-size: 18px;font-weight: bold;}
+.features-table .feature {font-size: 17px;font-weight: bold;}
 .about-container .buy {margin-top: 20px;float: right;}
 #setting-error-tgmpa p {font-size: 14px;}
 #setting-error-tgmpa strong {font-weight: 400;}

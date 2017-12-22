@@ -81,6 +81,7 @@ function cyberchimps_display_about() {
 		</table>
 		</div>
 		<div class="features">
+		<h2>Why upgrade to Pro?</h2>
 			<table class="features-table">
 			<thead>
 			<tr>
@@ -89,7 +90,7 @@ function cyberchimps_display_about() {
 				<th>Responsive Pro</th>
 			</tr>
 			<tr>
-			<td class="feature">Responsive layout <p>Works on every device</p></td>
+			<td class="feature">Responsive layout</td>
 			<td class="featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 			<td class="featureyes"><span class='dashicons-before dashicons-yes'></span></td>				
 			</tr>			
@@ -194,8 +195,7 @@ function cyberchimps_display_about() {
 			<td class="featureno"><span class='dashicons-before dashicons-yes'></span></td>				
 			</tr>
 			<tr>
-			<td class="feature">Typography 
-			<p>(Supports Google Fonts , option available for changing header & text font)</p></td>
+			<td class="feature">Typography</td>
 			<td class="featureyes"><span class="dashicons-before dashicons-no-alt"></span></td>
 			<td class="featureno"><span class='dashicons-before dashicons-yes'></span></td>				
 			</tr>

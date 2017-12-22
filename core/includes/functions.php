@@ -548,8 +548,12 @@ $upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
 			background: none repeat scroll 0 0 #5BC0DE;
 			border-color: #CCCCCC;
 			box-shadow: 0 1px 0 #5BC0DE inset, 0 1px 0 rgba(0, 0, 0, 0.08);
-			float: right;
-			margin-top: -23px;
+			float: right;			
+			margin-top: 15px;
+			font-size: 14px;
+			height: 30px;
+			margin-bottom: 15px;
+
 		}
 		.wp-core-ui .btn-upgrade:hover {
 			color: #fff;
@@ -560,6 +564,8 @@ $upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
 					word-break: break-all;
 					padding-right: 120px;
 		}
+	 	.wp-full-overlay-sidebar-content #customize-info {background-color: #fff;}
+			
 	</style>
 <?php 
 }
