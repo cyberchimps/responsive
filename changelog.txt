@@ -8,8 +8,8 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(12/22/17) - Changed - Version 3.8
-[*] Updated look and feel of admin dashboard
+(12/26/17) - Changed - Version 3.8
+[*] Visual Improvements to the Admin Dashboard
 
 (11/27/17) - Changed - Version 3.7
 [*] Contact form will be available only on home page 
