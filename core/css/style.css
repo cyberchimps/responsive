@@ -1345,6 +1345,7 @@ form div {
 	margin: 0;
 	padding: 0;
 	position: relative;
+	padding: 0 2px;
 	z-index: 5;
 }
 
@@ -3173,6 +3174,8 @@ line-height: 27px;
 	-o-transition:all .3s;
 	transition:all .3s;
 }
+.team_main_div .social a:hover {background-color:#4C4C4C;}
+
 /*#scroll-to-top {
 	background: #484848;
 	padding: 5px 9px;
@@ -3351,3 +3354,24 @@ border-width: 0;
 border-bottom-width: 3px;
 border-bottom-color: #cec9c4;
 	}	
+.sub-menu .menu-item-has-children::after {
+	position: absolute;
+    font-family: FontAwesome;
+    content: "\f105";
+    top: 6px;
+    right: 7px;
+    color: #585858;
+}
+.menu-item-has-children::after {
+    position: absolute;
+    font-family: FontAwesome;
+    content: "\f107";
+    top: 12px;
+    right: 0px;
+    color: #ffffff;
+    font-size: 15px;
+}
+.menu-item-has-children {
+	position: relative;
+}
+#footer .social-icons img:hover{opacity: 0.8;}
