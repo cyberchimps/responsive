@@ -197,21 +197,21 @@ else  if($responsive_options['button_style'] == 'flat_style')
 		<div class="section-feature grid">
 			<div class="feature_img"><img src="<?php echo esc_url($feature1_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt1_text); ?>"/></div>
 			<div class="feature_title"><?php echo esc_html($feature1_showcase_title); ?></div>			
-			<div class="feature_desc"><?php echo esc_html($responsive_feature1_desc); ?></div>			
+			<div class="feature_desc"><?php echo $responsive_feature1_desc; ?></div>			
 		</div>
 		<?php }?>
 		<?php if (!$responsive_feature2_post_id ==''){?>
 		<div class="section-feature grid">
 			<div class="feature_img"><img src="<?php echo esc_url($feature2_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt2_text); ?>"/></div>
 			<div class="feature_title"><?php echo esc_html($feature2_showcase_title); ?></div>			
-			<div class="feature_desc"><?php echo esc_html($responsive_feature2_desc); ?></div>			
+			<div class="feature_desc"><?php echo $responsive_feature2_desc; ?></div>			
 		</div>
 		<?php }?>
 		<?php if (!$responsive_feature3_post_id ==''){?>
 		<div class="section-feature grid">
 			<div class="feature_img"><img src="<?php echo esc_url($feature3_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt3_text); ?>"/></div>
 			<div class="feature_title"><?php echo esc_html($feature3_showcase_title); ?></div>			
-			<div class="feature_desc"><?php echo esc_html($responsive_feature3_desc); ?></div>			
+			<div class="feature_desc"><?php echo $responsive_feature3_desc; ?></div>			
 		</div>
 		<?php }?>
 	</div>
@@ -249,7 +249,7 @@ else  if($responsive_options['button_style'] == 'flat_style')
 	
 	<div class="grid col-620 fit">	
 		<div class="testimonial_main_text">		
-		<p class="testimonial_text"><?php echo esc_html($responsive_testimonial_desc_content); ?></p>
+		<p class="testimonial_text"><?php echo $responsive_testimonial_desc_content; ?></p>
 		<p class="testimonial_author"><?php echo esc_html($responsive_testimonial_name); ?></p>		
 		</div>
 	</div>	
@@ -336,7 +336,7 @@ else  if($responsive_options['button_style'] == 'flat_style')
 			<div class="team_img"><img src="<?php echo esc_url($team1_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt1_text); ?>"/></div>
 			<div class="team_member"><?php echo esc_html($team1_showcase_title); ?></div>
 			<div class="team_designation"><?php echo esc_html($team1_showcase_designation); ?></div>
-			<div class="team_desc"><?php echo esc_html($responsive_team1_desc); ?></div>
+			<div class="team_desc"><?php echo $responsive_team1_desc; ?></div>
 			<div class="social">
 			<?php if(!empty($team1_showcase_facebook)) { ?>
 						<a class="tw_showcase_facebook" href="<?php echo esc_url($team1_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -357,7 +357,7 @@ else  if($responsive_options['button_style'] == 'flat_style')
 			<div class="team_img"><img src="<?php echo esc_url($team2_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt2_text); ?>"/></div>
 			<div class="team_member"><?php echo esc_html($team2_showcase_title); ?></div>
 			<div class="team_designation"><?php echo esc_html($team2_showcase_designation); ?></div>
-			<div class="team_desc"><?php echo esc_html($responsive_team2_desc); ?></div>
+			<div class="team_desc"><?php echo $responsive_team2_desc; ?></div>
 			<div class="social">			
 			<?php if(!empty($team2_showcase_facebook)) { ?>
 						<a class="tw_showcase_facebook" href="<?php echo esc_url($team2_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -378,7 +378,7 @@ else  if($responsive_options['button_style'] == 'flat_style')
 			<div class="team_img"><img src="<?php echo esc_url($team3_showcase_img); ?>" alt="<?php echo esc_attr($responsive_alt3_text); ?>"/></div>
 			<div class="team_member"><?php echo esc_html($team3_showcase_title); ?></div>
 			<div class="team_designation"><?php echo esc_html($team3_showcase_designation); ?></div>
-			<div class="team_desc"><?php echo esc_html($responsive_team3_desc); ?></div>
+			<div class="team_desc"><?php echo $responsive_team3_desc; ?></div>
 			<div class="social">
 			<?php if(!empty($team3_showcase_facebook)) { ?>
 						<a class="tw_showcase_facebook" href="<?php echo esc_url($team3_showcase_facebook); ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
