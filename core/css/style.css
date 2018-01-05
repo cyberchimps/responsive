@@ -2919,6 +2919,9 @@ height: 30px;
 margin: 10px;
 font-size: 26px;
 }
+.full-width-no-box #footer .social-icons li:hover {
+	background-color: rgba(255,255,255,0.4);
+}
 .full-width-no-box #footer .social-icons li a{
 color:#fff;
 }
@@ -3173,8 +3176,9 @@ line-height: 27px;
 	-moz-transition:all .3s;
 	-o-transition:all .3s;
 	transition:all .3s;
+	border: 1px solid #222222;
 }
-.team_main_div .social a:hover {background-color:#4C4C4C;}
+.team_main_div .social a:hover {background-color:#fff;color: #222;border-color: #222222;border: 1px solid;}
 
 /*#scroll-to-top {
 	background: #484848;
