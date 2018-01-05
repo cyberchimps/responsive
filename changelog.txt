@@ -10,6 +10,7 @@ Changelog Legend:
 
 (01/05/18) - Changed - Version 3.9
 [*] Enhanced top menu look
+[*] Now Html is allowed in Features, Testimonial & Team section
 [*] Look and feel of social icons changed (Team section and footer) 
 
 (12/26/17) - Changed - Version 3.8
