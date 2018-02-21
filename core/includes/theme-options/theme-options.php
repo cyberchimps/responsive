@@ -328,7 +328,7 @@ function responsive_theme_options_do_page() {
 					'description' => '',
 					'placeholder' => '',
 					'options'     => array(
-							'footer-default-layout'  => __( 'Default (3 column)', 'responsive' ),
+							'footer-3-col'  => __( 'Default (3 column)', 'responsive' ),
 							'footer-2-col' => __( '2 Column Layout', 'responsive' ),							
 					)
 			),
