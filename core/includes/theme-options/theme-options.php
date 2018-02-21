@@ -318,7 +318,21 @@ function responsive_theme_options_do_page() {
 				'id'          => 'poweredby_link',
 				'description' => '',
 				'placeholder' => ''
-			)			
+			),
+			array(
+					'title'       => __( 'Choose Footer Widgets Layout', 'responsive' ),
+					'subtitle'    => '',
+					'heading'     => '',
+					'type'        => 'select',
+					'id'          => 'site_footer_option',
+					'description' => '',
+					'placeholder' => '',
+					'options'     => array(
+							'footer-default-layout'  => __( 'Default (3 column)', 'responsive' ),
+							'footer-2-col' => __( '2 Column Layout', 'responsive' ),							
+					)
+			),
+						
 		),
 		'logo_upload' => array(
 			array(

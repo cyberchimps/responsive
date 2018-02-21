@@ -149,17 +149,33 @@ add_action( 'widgets_init', 'responsive_widgets_init' );
 function responsive_footer_widgets( $params ) {
 
 	global $footer_widget_num; //Our widget counter variable
-
+	
+	$responsive_options = responsive_get_options();
+	if(isset($responsive_options['site_footer_option']) && $responsive_options['site_footer_option'] != '')
+		$layout = $responsive_options['site_footer_option'];
+	
 	//Check if we are displaying "Footer Sidebar"
 	if ( $params[0]['id'] == 'footer-widget' ) {
 		$footer_widget_num++;
-		$divider = 3;
+		
+		//Check which footer layout is selcted
+		if ($layout == 'footer-2-col') 
+		{
+			// This is 2-col layout	
+			$class                      = 'class="col-460 ';
+			$divider = 2;
+			$params[0]['before_widget'] = preg_replace('/class="/', $class, $params[0]['before_widget'],1 );
+		}
+		else 			
+			$divider = 3;
+		
 		$divider = apply_filters( 'responsive_number_footer_widgets', $divider ); //This is number of widgets that should fit in one row
 
 		//If it's third widget, add last class to it
 		if ( $footer_widget_num % $divider == 0 ) {
-			$class                      = 'class="fit ';
+			$class                      = 'class="fit ';				
 			$params[0]['before_widget'] = str_replace( 'class="', $class, $params[0]['before_widget'] );
+			
 		}
 
 	}

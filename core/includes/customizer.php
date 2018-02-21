@@ -92,6 +92,17 @@ function responsive_customize_register( $wp_customize ) {
 		'settings'              => 'responsive_theme_options[blog_post_title_text]',
 		'type'                  => 'text'
 	) );
+	$wp_customize->add_setting( 'responsive_theme_options[site_footer_option]', array( 'sanitize_callback' => 'responsive_validate_site_footer_layout', 'type' => 'option' ) );
+	$wp_customize->add_control( 'site_footer_option', array(
+			'label'                 => __( 'Choose Footer Widgets Layout', 'responsive' ),
+			'section'               => 'theme_elements',
+			'settings'              => 'responsive_theme_options[site_footer_option]',
+			'type'                  => 'select',
+			'choices'               => array(
+					'footer-default-layout'  => __('Default','responsive'),
+					'footer-2-col' => __('2 Column Layout','responsive'),					
+			)
+	));
 
 
 /*--------------------------------------------------------------
@@ -794,6 +805,21 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
 	$multi_values = !is_array( $values ) ? explode( ',', $values ) : $values;	
 	
 	return !empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
+}
+
+function responsive_validate_site_footer_layout( $input ) {
+	// An array of valid results
+
+	$valid = array(
+			'footer-default-layout' => 'Default (3 column)',
+			'footer-2-col' => '2 Column Layout',			
+	);
+
+	if( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
 }
 
 

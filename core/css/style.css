@@ -2860,7 +2860,7 @@ table.cart td.actions .coupon .input-text {
 }
 
 #footer_widget .col-300:nth-child(3n+3) {
-	margin-right: 0;
+	//margin-right: 0;
 }
 .social_div {
 	background-color:#c9c7c7;
