@@ -40,5 +40,5 @@ if ( !defined( 'ABSPATH' ) ) {
 
 </div><!-- end of #content-full -->
 
-<?php get_footer(); ?>
 </div>
+<?php get_footer(); ?>

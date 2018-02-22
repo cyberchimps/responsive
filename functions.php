@@ -94,6 +94,10 @@ if (isset($responsive_options['sticky-header']) && $responsive_options['sticky-h
 	<?php
 }
 }
+
+if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
+	define( 'ELEMENTOR_PARTNER_ID', 2126 );
+}
 function responsiveedit_customize_register( $wp_customize ){
 	$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector' => '.site-name a'

@@ -108,7 +108,8 @@ function responsive_get_option_defaults() {
 		'blog_posts_index_layout_default' => 'default',
 		'site_layout_option'			  => 'default-layout',	
                 'button_style'                    => 'default',
-			'home-widgets'				=> false
+			'home-widgets'				=> false,
+		'site_footer_option'            => 'footer-3-col' 	
 	);
 
 	return apply_filters( 'responsive_option_defaults', $defaults );

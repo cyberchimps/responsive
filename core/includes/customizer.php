@@ -99,7 +99,7 @@ function responsive_customize_register( $wp_customize ) {
 			'settings'              => 'responsive_theme_options[site_footer_option]',
 			'type'                  => 'select',
 			'choices'               => array(
-					'footer-3-col'  => __('Default','responsive'),
+					'footer-3-col'  => __('Default (3 column)','responsive'),
 					'footer-2-col' => __('2 Column Layout','responsive'),					
 			)
 	));

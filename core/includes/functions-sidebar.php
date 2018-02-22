@@ -153,6 +153,8 @@ function responsive_footer_widgets( $params ) {
 	$responsive_options = responsive_get_options();
 	if(isset($responsive_options['site_footer_option']) && $responsive_options['site_footer_option'] != '')
 		$layout = $responsive_options['site_footer_option'];
+	else
+		$layout = '';
 	
 	//Check if we are displaying "Footer Sidebar"
 	if ( $params[0]['id'] == 'footer-widget' ) {
