@@ -91,6 +91,11 @@ function responsive_install_plugins() {
 			'required' => false
 		),
 		array(
+			'name'     => 'Elementor', // The plugin name
+			'slug'     => 'elementor', // The plugin slug (typically the folder name)
+			'required' => false
+		),
+		array(
 			'name'     => 'WPForms Lite', // The plugin name
 			'slug'     => 'wpforms-lite', // The plugin slug (typically the folder name)
 			'required' => false
@@ -108,6 +113,8 @@ function responsive_install_plugins() {
 		$activeplugin += 1;	
 	if ( !is_plugin_active( 'wpforms-lite/wpforms.php' ) )
 		$activeplugin += 1;	
+	if ( !is_plugin_active( 'elementor/elementor.php' ) )
+		$activeplugin += 1;
 
 
 	// Change this to your theme text domain, used for internationalising strings
