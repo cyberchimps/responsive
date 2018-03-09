@@ -13,7 +13,7 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     3.0.0
+ * @version     3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,29 +22,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 
-	$responsive_options = responsive_get_options();
-	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
-	{
+$responsive_options = responsive_get_options();
+if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
+{
+	
 	echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-		sprintf( '<div class="prod_wrap_right"><a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>',
-			esc_url( $product->add_to_cart_url() ),
-			esc_attr( isset( $quantity ) ? $quantity : 1 ),
-			esc_attr( $product->get_id() ),
-			esc_attr( $product->get_sku() ),
-			esc_attr( isset( $class ) ? $class : 'button' )
-		),
-	$product );
-	}
-	else
-	{
-		echo apply_filters( 'woocommerce_loop_add_to_cart_link',
-		sprintf( '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s">%s</a>',
-			esc_url( $product->add_to_cart_url() ),
-			esc_attr( isset( $quantity ) ? $quantity : 1 ),
-			esc_attr( $product->get_id() ),
-			esc_attr( $product->get_sku() ),
-			esc_attr( isset( $class ) ? $class : 'button' ),
-			esc_html( $product->add_to_cart_text() )
-		),
-	$product );
-	}
+			sprintf( '<div class="prod_wrap_right"><a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>',
+					esc_url( $product->add_to_cart_url() ),
+					esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),					
+					esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),
+					isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : ''
+			),
+			$product, $args );
+}
+else {
+echo apply_filters( 'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
+	sprintf( '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
+		esc_url( $product->add_to_cart_url() ),
+		esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
+		esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),
+		isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
+		esc_html( $product->add_to_cart_text() )
+	),
+$product, $args );
+}

@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/12/18) - Changed - Version 3.11
+[*] - Updated WooCommerce templates
+
 (02/22/18) - Changed - Version 3.10
 [+] - Added new 2 column layout for footer widgets area 
 

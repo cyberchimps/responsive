@@ -13,7 +13,7 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.0.0
+ * @version     3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,7 +29,7 @@ get_header( 'shop' );
 	wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0');
 	
 	?>
-<div id="custom_shop">
+
 	<?php
 	}
 		/**
@@ -62,7 +62,7 @@ get_header( 'shop' );
 
     </header>
 
-		<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) { ?>
 
 			<?php
 				/**
@@ -73,63 +73,48 @@ get_header( 'shop' );
 				 * @hooked woocommerce_catalog_ordering - 30
 				 */
 				do_action( 'woocommerce_before_shop_loop' );
-			?>
+				
+				woocommerce_product_loop_start();
+				
+				if ( wc_get_loop_prop( 'total' ) ) {
+						
+					while ( have_posts() ) { 
+						the_post(); 
 
-			<?php woocommerce_product_loop_start(); ?>
-
-				<?php woocommerce_product_subcategories(); ?>
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
 						/**
 						 * woocommerce_shop_loop hook.
 						 *
 						 * @hooked WC_Structured_Data::generate_product_data() - 10
 						 */
 						do_action( 'woocommerce_shop_loop' );
-					?>
-
-					<?php wc_get_template_part( 'content', 'product' ); ?>
-
-				<?php endwhile; // end of the loop. ?>
-
-			<?php woocommerce_product_loop_end(); ?>
-
-			<?php
+						wc_get_template_part( 'content', 'product' );
+					}
+				}
+				woocommerce_product_loop_end();
+			
 				/**
 				 * woocommerce_after_shop_loop hook.
 				 *
 				 * @hooked woocommerce_pagination - 10
 				 */
 				do_action( 'woocommerce_after_shop_loop' );
-			?>
+		}else {
+	/**
+	 * Hook: woocommerce_no_products_found.
+	 *
+	 * @hooked wc_no_products_found - 10
+	 */
+		do_action( 'woocommerce_no_products_found' );
+	}
 
-		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
-
-			<?php
-				/**
-				 * woocommerce_no_products_found hook.
-				 *
-				 * @hooked wc_no_products_found - 10
-				 */
-				do_action( 'woocommerce_no_products_found' );
-			?>
-
-		<?php endif; ?>
-
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
+		/** Hook: woocommerce_after_main_content hook.
 		 *
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
 		do_action( 'woocommerce_after_main_content' );
-	?>
-
-	<?php
+	
 		/**
-		 * woocommerce_sidebar hook.
+		 *  Hook: woocommerce_sidebar hook.
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
 		 */
@@ -138,6 +123,6 @@ get_header( 'shop' );
 	if ( isset($responsive_options['override_woo']) && 1 == $responsive_options['override_woo'] )
 	{
 	?>
-</div>
+
 <?php } ?>
 <?php get_footer( 'shop' ); ?>
