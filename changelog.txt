@@ -8,22 +8,25 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/25/18) - Changed - Version 3.12
+[*] - Updated WooCommerce templates
+
 (03/12/18) - Changed - Version 3.11
 [*] - Updated WooCommerce templates
 
 (02/22/18) - Changed - Version 3.10
-[+] - Added new 2 column layout for footer widgets area 
+[+] - Added new 2 column layout for footer widgets area
 
 (01/05/18) - Changed - Version 3.9
 [*] Enhanced top menu look
 [*] Now Html is allowed in Features, Testimonial & Team section
-[*] Look and feel of social icons changed (Team section and footer) 
+[*] Look and feel of social icons changed (Team section and footer)
 
 (12/26/17) - Changed - Version 3.8
 [*] Visual Improvements to the Admin Dashboard
 
 (11/27/17) - Changed - Version 3.7
-[*] Contact form will be available only on home page 
+[*] Contact form will be available only on home page
 [*] Updated WooCommerce template
 
 (10/26/17) - Added New Feature - Version 3.6
@@ -60,7 +63,7 @@ Changelog Legend:
 [+] About box (for home page) added
 [+] Features section (for home page) added
 [+] Contact section (for footer) added
-[+] New WooCommerce template (for single product page) added 
+[+] New WooCommerce template (for single product page) added
 
 (08/09/17) - Added New Feature - Version 3.0
 [+] New WooCommerce template (for shop page) added
@@ -92,23 +95,23 @@ Changelog Legend:
 
 (04/07/17) - Bug fix - Version 2.4
 [!] - Fixed script option not working issue in customizer
-[*] - Theme's Custom CSS merged with WordPress additional css 
+[*] - Theme's Custom CSS merged with WordPress additional css
 (Note: Advisable to take backup of Custom css before upgrading. Go to Appearance - Theme options - CSS Styles to take backup)
 
 (03/30/17) - Bug fix - Version 2.3
 [!] - Fixed theme options issue for Safari browser
 
 (03/16/17) - Bug fix - Version 2.2
-[!] - Fixed issue with tinyMCE editor value not getting saved   
+[!] - Fixed issue with tinyMCE editor value not getting saved
 
 (03/07/17) - Bug fix - Version 2.1.1
-[!] - Fixed incorrect message and update link   
+[!] - Fixed incorrect message and update link
 
 (03/06/17) - Bug fix - Version 2.1
-[!] - Fixed issue with theme options not getting saved in Chrome   
+[!] - Fixed issue with theme options not getting saved in Chrome
 
 (02/13/17) - Improvements - Version 2.0
-[*] - Improved look & feel of admin dashboard 
+[*] - Improved look & feel of admin dashboard
 
 (10/27/16) - Improvements - Version 1.9.9.0
 
@@ -116,7 +119,7 @@ Changelog Legend:
 [*] - Archive functions replaced with core WordPress functions
 [!] - Minor bug fixes
 [+] - Accessibility - ARIA landmark roles added
-[+] - Enhanced skip link CSS 
+[+] - Enhanced skip link CSS
 [+] - Escape functions added to improve security
 
 (08/26/16) - Improvements - Version 1.9.8.9
@@ -671,8 +674,8 @@ http://themeid.com/docs/update-1-9-3-1/
 [*] FitVids [object] removal. (props Ulrich Pogson)
     @see: https://github.com/davatron5000/FitVids.js/pull/90
 
-[+] Functions to check whether or not All in One SEO and WordPress 
-    SEO are activated. In: /includes/functions.php and header.php 
+[+] Functions to check whether or not All in One SEO and WordPress
+    SEO are activated. In: /includes/functions.php and header.php
     for WP SEO. If AIOSEOP, we will remove the Responsive's wp_title
     filter. And use wp_title() only for WP SEO. Pretty nice stuff.
 
@@ -702,7 +705,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
     - /js/responsive-scripts.js
 	- /js/responsive-plugins.js
 	- style.css
-	- rtl.css	
+	- rtl.css
 [*] Language updates for:
     - responsive.pot
 	- Italian
@@ -719,15 +722,15 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 (12/23/2012) - Maintenance and Improvements - Version 1.8.6
 [+] Localization
     - responsive.pot
-    - Languages improvements 
+    - Languages improvements
     - New Languages (40 total)
     - Arabic
     - Estonian
     - Hindi
     - Korean
     - Turkish
-	
-[+] If statement for breadcrumb lists and code formatting 
+
+[+] If statement for breadcrumb lists and code formatting
 [+] Breadcrumb lists to Blog and Blog Excerpt Template
 [*] CSS Improvements
 [*] Twitter Icon to comply with https://twitter.com/logo guidelines
@@ -742,7 +745,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 
 (11/25/2012) - Maintenance and Improvements - Version 1.8.4
 [*] blog-excerpt.php Template now uses a default sidebar
-[*] content-sidebar-page.php Template is now the only 
+[*] content-sidebar-page.php Template is now the only
     Template where right sidebar is assigned to.
 [*] IE9+ Conditionals
 [x] IE6 Conditionals
@@ -788,7 +791,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 	- Indonesian
 	- Welsh
 	- Turkish
-	- Romanian	
+	- Romanian
 ----
 
 (09/27/2012) - Maintenance and Improvements - Version 1.7.9
@@ -808,7 +811,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 	- IE7 dropdown menu
 [x]
     - #widgets ID from top-widget not needed
-    - X-UA-Compatible from header.php not needed 
+    - X-UA-Compatible from header.php not needed
 [+] W3C Markup Validation
 [+] RTL Support
 
@@ -866,7 +869,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
     - Japanese
 	- Chinese (Taiwan)
 [*] responsive.pot
-[*] style.css for WooCommerce Compatibility 
+[*] style.css for WooCommerce Compatibility
 
 ----
 
@@ -918,7 +921,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 
 (06/24/2012) - Improvements - Version 1.6.6
 [+] missing social icons added in previous version
-[!] tinynav.js 
+[!] tinynav.js
 
 ----
 
@@ -945,7 +948,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 [!] /includes/version.php
 [!] fallback_cb for all but main menu
 [!] admin-head-callback < 3.4
-[*] code beautifying 
+[*] code beautifying
 
 ----
 
@@ -1049,9 +1052,9 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 [!] no breadcrumb chevron on page levels
 [+] Class for breadcrumb lists CSS
 [+] form-allowed-tags element
-[*] search.php post-meta rearrangement 
+[*] search.php post-meta rearrangement
 [*] default logo
-[*] featured image 
+[*] featured image
 [*] localization
 [*] reset input class CSS
 
@@ -1075,7 +1078,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 (04/14/2012) - Maintenance Version 1.4.4
 [!] blog.php and blog-excerpt.php while frontpage fix
 [+] image dimensions for social icons
-[-] image dimension for social icons CSS 
+[-] image dimension for social icons CSS
 [*] PHP sidebar-left headings
 [x] unnecessary theme options functions.php
 [x] sub-header-menu border-radius
@@ -1185,7 +1188,7 @@ Please see: http://themeid.com/forum/topic/4780/responsive-version-187/
 	- single.php
 	- search.php
 [+] wp_filter_post_kses changed to esc_url_raw in theme-options.php
-[+] CTA references changed to Call to Action followed 
+[+] CTA references changed to Call to Action followed
     by option renaming for the same in theme-option.php
 	and home.php
 [+] class for home #widgets
