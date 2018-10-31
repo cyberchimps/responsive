@@ -12,7 +12,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 body.full-width-layout #content-outer, body.default-layout #content-outer,body.full-width-no-box #content-outer {
 	margin: 0 auto;
-	max-width: 960px;	
+	max-width: 960px;
 }
 body.full-width-no-box #wrapper {margin-bottom: 0px;}
 .main-nav {
@@ -27,7 +27,7 @@ body.full-width-no-box #wrapper {margin-bottom: 0px;}
 }
 #menu-header, .menu {
 		max-width: 960px;
-margin: 0 auto;	
+margin: 0 auto;
 }
 body.home #wrapper {
 	margin: 0 auto 20px auto ;
@@ -48,13 +48,13 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 .full-width-no-box .top-menu li a {
 	color: #edeaea;
 }
-.full-width-no-box .top-menu li a:hover { 
-color:#f2efef; 
+.full-width-no-box .top-menu li a:hover {
+color:#f2efef;
 }
 .full-width-layout #testimonial_div, .full-width-layout #team_div,.full-width-layout #about_div,.full-width-layout #feature_div {padding-bottom:0px; }
 .full-width-no-box .menu a:hover {
 	background-color: #585858;background-image: none;
-	color: #f4f2f2;	
+	color: #f4f2f2;
 }
 .full-width-no-box .menu li li a:hover {
 	color: #444444;
@@ -89,7 +89,7 @@ color:#f2efef;
 }
 #about_div .about-content { display: inline-block; vertical-align: middle;display:grid;}
 #about_div .about_cta{
-	display: inline-block; 
+	display: inline-block;
 	vertical-align: middle;
 	margin-top: 69px;
 	text-align: center;
@@ -122,7 +122,7 @@ color:#f2efef;
 .breadcrumb {
     padding-right: 4px;
     padding-left: 4px;
-}	
+}
 .breadcrumb-current{padding-left: 4px;}
 #content .responsive { position: relative;}
 #content .responsive::after {
@@ -310,7 +310,7 @@ sub {
 	width: 100%;
 	background-color: #fff;
 	margin: 0 !important;
-	opacity:0.9;	
+	opacity:0.9;
 	-webkit-transition: all 0.8s ease-in-out 0s;
 	-moz-transition: all 0.8s ease-in-out 0s;
 	-o-transition: all 0.8s ease-in-out 0s;
@@ -1527,7 +1527,7 @@ ul.menu > li:hover {
 	min-width: 100%;
 }
 .full-width-no-box #wrapper {
-	margin: 0 auto 20px auto ; 
+	margin: 0 auto 20px auto ;
 }
 
 
@@ -2901,7 +2901,7 @@ table.cart td.actions .coupon .input-text {
 .full-width-no-box #footer-wrapper .contact_div {margin-bottom: 0!important;}
 .full-width-no-box #footer .social-icons { text-align: center;}
 .full-width-no-box #footer_widget a {color: #ffffff;}
-.full-width-no-box #footer_widget a:hover {color:edeaea;} 
+.full-width-no-box #footer_widget a:hover {color:edeaea;}
 .full-width-no-box #footer_widget .widget-wrapper {
 	border: none;
 	color: #ffffff;
@@ -3038,7 +3038,7 @@ BDO[DIR="rtl"] {
 .author-gravtar img{
 border-radius: 50%;
 }
-	
+
 .section_title {
     text-align: center;
     text-transform: uppercase;
@@ -3046,7 +3046,7 @@ border-radius: 50%;
     padding-right:40px;
     margin-top: 17px;
     margin-bottom: 0;
-    font-size: 2.250em;    
+    font-size: 2.250em;
     font-weight: 700;
 }
 
@@ -3059,29 +3059,29 @@ border-radius: 50%;
   width: 178px;
   height: 178px;
   border: 4px solid #fff;
-  padding: 4px; 
+  padding: 4px;
 }
 .testimonial_main_div .testimonial_img img ,.team_main_div .team_img img,.feature_main_div .feature_img img{
     -webkit-border-radius: 100%;
        -moz-border-radius: 100%;
             border-radius: 100%;
-    max-height: 12em; 
+    max-height: 12em;
 }
 .testimonial_main_text {
-    font-size: 18px;	
+    font-size: 18px;
     margin-top: 46px;
 	line-height: 27px;
-	background: url(../../images/testimonial_icon.png) no-repeat 4px 0px;   
-    padding-right: 40px;    
+	background: url(../../images/testimonial_icon.png) no-repeat 4px 0px;
+    padding-right: 40px;
 }
 .full-width-no-box .testimonial_main_text {
-    font-size: 18px;	
+    font-size: 18px;
     margin-top: 46px;
 	line-height: 27px;
-	background: url(../../images/testimonial_icon-other.png) no-repeat 4px 0px;   
-    padding-right: 40px;    
-} 
-#testimonial_div, #team_div, #about_div, #feature_div  
+	background: url(../../images/testimonial_icon-other.png) no-repeat 4px 0px;
+    padding-right: 40px;
+}
+#testimonial_div, #team_div, #about_div, #feature_div
 {
 	-moz-border-radius: 4px;
 -webkit-border-radius: 4px;
@@ -3091,8 +3091,8 @@ border-radius: 4px;
 padding-bottom: 40px;
 width: 99.893617021277%;
 }
-#about_div .about_text {	
-	font-size: 18px;	
+#about_div .about_text {
+	font-size: 18px;
 	padding: 0 10px 0 59px;
 font-weight: 200;
 line-height: 27px;
@@ -3124,16 +3124,16 @@ line-height: 27px;
 	right: 0;
 	margin: 50px auto auto auto;
 }
-.testimonial_author {    
+.testimonial_author {
     font-weight: bold;
-    font-size: 18px;      
-    margin-bottom: 4px;   
+    font-size: 18px;
+    margin-bottom: 4px;
     margin: 10px  0 0 29px;
 }
 .testimonial_text {
     margin: 0 0 0 29px;
     font-style: normal;
-    font-size: inherit;    
+    font-size: inherit;
     margin-bottom: 1em;
     padding-top: 22px;
 }
@@ -3151,7 +3151,7 @@ line-height: 27px;
 	text-align: center;
 	font-size: 1.1em;
 	margin-top: 10px;
-	font-style: italic; 
+	font-style: italic;
 	display:block;
 }
 .team_main_div .social {
@@ -3189,7 +3189,7 @@ line-height: 27px;
 	width:20px;
 	height:26px;
 	font-size:24px;
-	text-align:center;	
+	text-align:center;
 	cursor: pointer;
 	border-radius: 50%;
 	position: fixed;
@@ -3199,7 +3199,7 @@ line-height: 27px;
 	animation: mymove 5s infinite;
 }*/
 .page-template-blog-3-col .post-data {
-	margin-top:0px; 
+	margin-top:0px;
 }
 .section-blog {
 width: 33%;
@@ -3207,7 +3207,7 @@ float: none;
 box-sizing: border-box;
 display: inline-block;
 vertical-align: top;
-padding: 0 12px; 
+padding: 0 12px;
 }
 .woocommerce-cart-form input[type="submit"]:hover ,.woocommerce a.button.alt:hover{border:none;}
 .blogtitle { margin-top:0;text-align: center;}
@@ -3230,7 +3230,7 @@ line-height: 20px;
 margin: 0;
 padding: 5px;
 vertical-align: middle;
-}	
+}
 .section-team,.section-feature {
 width: 33%;
 float: none;
@@ -3238,8 +3238,8 @@ box-sizing: border-box;
 display: inline-block;
 vertical-align: top;
 }
-.team_desc,.feature_desc {   
-    text-align: center;  
+.team_desc,.feature_desc {
+    text-align: center;
     padding: 0 10px 10px;
     margin-top: 14px;
 	font-size: 18px;
@@ -3262,10 +3262,10 @@ padding-left: 12px;
 padding-bottom: 39px;
 display: inline-block;
 }
-.contact_div {	
+.contact_div {
 	font-size: 14px;
 	box-sizing: border-box;
-	padding: 20px;	
+	padding: 20px;
 	-moz-border-radius: 4px;
 -webkit-border-radius: 4px;
 background-color: #ffffff;
@@ -3277,7 +3277,7 @@ background-size:cover;
 color: #ffffff;
 }
 .contact_subtitle {text-align: center;margin: 17px 0 17px 0;font-size: 18px}
-.contact_title { 
+.contact_title {
 	text-align: center;
 	line-height: 1em;
 	text-transform: uppercase;
@@ -3313,7 +3313,7 @@ border-bottom-width: 3px;
 	background-image: -o-linear-gradient(top, #4f9eea, #1874cd);
 	background-image: linear-gradient(to top, #4f9eea, #1874cd);
 	border: 1px solid #115290;
-	color: #ffffff;	
+	color: #ffffff;
 	line-height: 20px;
 	padding: 10px 22px;
 	box-shadow:none;
@@ -3357,7 +3357,7 @@ box-shadow: none;
 border-width: 0;
 border-bottom-width: 3px;
 border-bottom-color: #cec9c4;
-	}	
+	}
 .sub-menu .menu-item-has-children::after {
 	position: absolute;
     font-family: FontAwesome;
@@ -3379,3 +3379,54 @@ border-bottom-color: #cec9c4;
 	position: relative;
 }
 #footer .social-icons img:hover{opacity: 0.8;}
+
+
+
+/*
+	changes according gutenberg plugin --START
+ */
+
+ /**
+  * figure audio style
+  *
+  */
+ figure.wp-block-audio.aligncenter{
+ 	text-align: center;
+ }
+
+ figure.wp-block-audio.aligncenter audio{
+ 	width: 100%;
+ }
+
+ .wp-block-cover.aligncenter{
+	 clear: both;
+ }
+
+ div .wp-block-cover-text{
+  	position: absolute;
+     color: #fff;
+     font-size: 2em;
+     line-height: 1.25;
+     margin-bottom: 0;
+     max-width: 610px;
+     padding: 14px;
+     text-align: center;
+     z-index: 1;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+ 	width: 100%;
+
+ }
+
+ .wp-block-image {
+     margin-bottom: 20px;
+ }
+
+ .wp-block-gallery .blocks-gallery-item figcaption{
+	 padding: 40px 0 5px;
+ }
+
+/*
+	changes according gutenberg plugin -- END
+ */
