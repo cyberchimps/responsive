@@ -20,6 +20,11 @@ if ( !defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
+$responsive_options = responsive_get_options();
+if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) && is_product() ) {
+	return;
+}
+
 /*
  * Load the correct sidebar according to the page layout
  */

@@ -73,8 +73,8 @@ function responsive_get_option_defaults() {
 		'cta_text'                        => null,
 		'cta_url'                         => null,
 		'featured_content'                => null,
-		'testimonials'					  => 0,	
-		'testimonial_title'               => null, 		
+		'testimonials'					  => 0,
+		'testimonial_title'               => null,
 		'google_site_verification'        => '',
 		'bing_site_verification'          => '',
 		'yahoo_site_verification'         => '',
@@ -96,7 +96,7 @@ function responsive_get_option_defaults() {
 		'teammember1'					  => null,
 		'teammember2'					  => null,
 		'teammember3'					  => null,
-		'feature1'					  	  => null,	
+		'feature1'					  	  => null,
 		'feature2'						  => null,
 		'feature3'				  		  => null,
 		'responsive_inline_css'           => '',
@@ -106,10 +106,10 @@ function responsive_get_option_defaults() {
 		'static_page_layout_default'      => 'default',
 		'single_post_layout_default'      => 'default',
 		'blog_posts_index_layout_default' => 'default',
-		'site_layout_option'			  => 'default-layout',	
+		'site_layout_option'			  => 'default-layout',
                 'button_style'                    => 'default',
 			'home-widgets'				=> false,
-		'site_footer_option'            => 'footer-3-col' 	
+		'site_footer_option'            => 'footer-3-col'
 	);
 
 	return apply_filters( 'responsive_option_defaults', $defaults );
@@ -135,20 +135,20 @@ if ( !function_exists( 'responsive_setup' ) ):
 		if ( !isset( $content_width ) ) {
 			$content_width = 605;
 		}
-		
+
 		// WordPress V4.7 or greater
-		if ( function_exists( 'wp_update_custom_css_post' ) ) { 		
+		if ( function_exists( 'wp_update_custom_css_post' ) ) {
 			$responsive_custom_css = isset($responsive_options['responsive_inline_css']) ?$responsive_options['responsive_inline_css']:'';
-			
-			if ($responsive_custom_css) { 
-		
+
+			if ($responsive_custom_css) {
+
 				$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
 				$return = wp_update_custom_css_post( $core_css . $responsive_custom_css );
 				if ( ! is_wp_error( $return ) ) {
-									
-					//Set css to blank									
+
+					//Set css to blank
 						$responsive_options['responsive_inline_css'] = '';
-						update_option( 'responsive_theme_options', $responsive_options );					
+						update_option( 'responsive_theme_options', $responsive_options );
 				}
 			}
 		}
@@ -317,7 +317,11 @@ if ( !function_exists( 'responsive_css' ) ) {
 		if ( is_child_theme() ) {
 			wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
 		}
-		 
+
+		if ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) {
+			wp_enqueue_style( 'responsive-shop', get_template_directory_uri() . '/core/css/shop.css', false, $responsive['Version'] );
+		}
+
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0');
 	}
 
@@ -362,7 +366,7 @@ function responsive_team_meta_box_cb()
 	$responsive_meta_box_twitter = isset( $values['responsive_meta_box_twitter'] ) ? $values['responsive_meta_box_twitter'][0] : '';
 	$responsive_meta_box_googleplus = isset( $values['responsive_meta_box_googleplus'] ) ? $values['responsive_meta_box_googleplus'][0] : '';
 	$responsive_meta_box_linkedin = isset( $values['responsive_meta_box_text_linkedin'] ) ? $values['responsive_meta_box_text_linkedin'][0] : '';
-	
+
 	wp_nonce_field( 'responsive_meta_box_nonce', 'meta_box_nonce' );
 	?>
 	<p><?php echo esc_html(__("To use this post for front page's team section, please enter below details:",'responsive')); ?>
@@ -370,37 +374,37 @@ function responsive_team_meta_box_cb()
 	<p>
         <label for="responsive_meta_box_designation"><?php echo esc_html(__('Member designation','responsive')); ?></label>
         <input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo $responsive_meta_box_designation; ?>" />
-    </p> 
+    </p>
 	<p>
         <label for="responsive_meta_box_facebook"><?php echo esc_html(__('Facebook Link','responsive')); ?></label>
         <input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo $responsive_meta_box_facebook; ?>" />
-    </p> 
+    </p>
 	<p>
         <label for="responsive_meta_box_twitter"><?php echo esc_html(__('Twitter Link','responsive')); ?></label>
         <input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo $responsive_meta_box_twitter; ?>" />
-    </p> 
+    </p>
 	<p>
         <label for="responsive_meta_box_googleplus"><?php echo esc_html(__('GooglePlus Link','responsive')); ?></label>
         <input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo $responsive_meta_box_googleplus; ?>" />
-    </p> 
+    </p>
 	<p>
         <label for="responsive_meta_box_text_linkedin"><?php echo esc_html(__('LinkedIn Link','responsive')); ?></label>
         <input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo $responsive_meta_box_linkedin; ?>" />
-    </p> 
-  
-<?php 
+    </p>
+
+<?php
 }
-add_action( 'save_post', 'responsive_team_meta_box_save' ); 
+add_action( 'save_post', 'responsive_team_meta_box_save' );
 function responsive_team_meta_box_save( $post_id )
 {
-	$allowed = array( 
+	$allowed = array(
         'a' => array( // on allow a tags
             'href' => array() // and those anchors can only have href attribute
         )
     );
-	
+
 	if( isset( $_POST['responsive_meta_box_designation'] ) )
-        update_post_meta( $post_id, 'responsive_meta_box_designation', wp_kses( $_POST['responsive_meta_box_designation'], $allowed ) ); 
+        update_post_meta( $post_id, 'responsive_meta_box_designation', wp_kses( $_POST['responsive_meta_box_designation'], $allowed ) );
 	if( isset( $_POST['responsive_meta_box_facebook'] ) )
         update_post_meta( $post_id, 'responsive_meta_box_facebook', wp_kses( $_POST['responsive_meta_box_facebook'], $allowed ) );
 	if( isset( $_POST['responsive_meta_box_twitter'] ) )
@@ -408,7 +412,7 @@ function responsive_team_meta_box_save( $post_id )
 	if( isset( $_POST['responsive_meta_box_googleplus'] ) )
         update_post_meta( $post_id, 'responsive_meta_box_googleplus', wp_kses( $_POST['responsive_meta_box_googleplus'], $allowed ) );
 	if( isset( $_POST['responsive_meta_box_text_linkedin'] ) )
-        update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_kses( $_POST['responsive_meta_box_text_linkedin'], $allowed ) );	
+        update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_kses( $_POST['responsive_meta_box_text_linkedin'], $allowed ) );
 }
 
 
@@ -446,7 +450,7 @@ add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override',
 function responsive_add_class( $classes ) {
 
 	// Get Responsive theme option.
-	global $responsive_options;	
+	global $responsive_options;
 	if ( $responsive_options['front_page'] == 1 && is_front_page() ) {
 		$classes[] = 'front-page';
 	}
@@ -486,7 +490,7 @@ if ( !function_exists( 'responsive_post_meta_data' ) ) {
 		<span class='posted-in'>
 <?php 		printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
 		</span>
-<?php 
+<?php
 
 	}
 
@@ -504,12 +508,12 @@ function fetch_copyright(){
 		jQuery(document).ready(function(){
 		var copyright_text = "<?php if (isset($responsive_options['copyright_textbox'])) { echo $responsive_options['copyright_textbox']; } ?>";
 		var cyberchimps_link = "<?php if (isset($responsive_options['poweredby_link'])) { echo $responsive_options['poweredby_link']; } ?>";
-		var siteurl = "<?php echo site_url(); ?>"; 
+		var siteurl = "<?php echo site_url(); ?>";
 		if(copyright_text == "")
 		{
 			jQuery(".copyright #copyright_link").text(" "+"Default copyright text");
 		}
-		else{ 
+		else{
 			jQuery(".copyright #copyright_link").text(" "+copyright_text);
 		}
 		jQuery(".copyright #copyright_link").attr('href',siteurl);
@@ -549,7 +553,7 @@ $upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
 			background: none repeat scroll 0 0 #5BC0DE;
 			border-color: #CCCCCC;
 			box-shadow: 0 1px 0 #5BC0DE inset, 0 1px 0 rgba(0, 0, 0, 0.08);
-			float: right;			
+			float: right;
 			margin-top: 15px;
 			font-size: 14px;
 			height: 30px;
@@ -566,7 +570,7 @@ $upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
 					padding-right: 120px;
 		}
 	 	.wp-full-overlay-sidebar-content #customize-info {background-color: #fff;}
-			
+
 	</style>
-<?php 
+<?php
 }
