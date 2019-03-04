@@ -21,7 +21,7 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 
 $responsive_options = responsive_get_options();
-if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) && is_product() ) {
+if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) && in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) && is_product() ) {
 	return;
 }
 
