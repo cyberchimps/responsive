@@ -8,8 +8,8 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(05/03/19) = Added - Version 3.14
-[*] Updated WooCommerce templates
+(03/05/19) = Added - Version 3.14
+[*] Fixed WooCommerce templates issue
 
 (11/01/18) = Added - Version 3.13
 [+] Added Gutenberg Compatability
