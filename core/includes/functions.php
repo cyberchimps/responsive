@@ -202,7 +202,7 @@ if ( !function_exists( 'responsive_setup' ) ):
 			'footer-menu'     => __( 'Footer Menu', 'responsive' )
 		) );
 
-		add_theme_support( 'custom-background' );
+		//add_theme_support( 'custom-background' );
 
 		add_theme_support( 'custom-header', array(
 			// Header text display default

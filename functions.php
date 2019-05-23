@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) {
 $template_directory = get_template_directory();
 
 //require( $template_directory . '/core/includes/functions-feedback.php' );
+require($template_directory . '/core/inc/extra.php');
 require($template_directory . '/core/includes/functions.php');
 require($template_directory . '/core/includes/functions-update.php');
 require($template_directory . '/core/includes/functions-about.php');
@@ -31,6 +32,7 @@ require($template_directory . '/core/includes/hooks.php');
 require($template_directory . '/core/includes/version.php');
 require($template_directory . '/core/includes/upsell/theme-upsell.php');
 require($template_directory . '/core/includes/customizer.php');
+require($template_directory . '/core/inc/customizer/class-responsive-customizer.php');
 
 // Return value of the supplied responsive free theme option.
 function responsive_free_get_option($option, $default = false)
