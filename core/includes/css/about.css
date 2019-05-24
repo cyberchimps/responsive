@@ -1,0 +1,41 @@
+/* Defines css*/
+
+body {
+	background-color: #f1f1f1;
+}
+.about-container {
+	position: relative;
+	margin: 40px 40px 0px 16px;
+	font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;	
+	font-size: 14px;
+}
+.features-table {
+width: 100%;
+border-spacing: 0px;
+border-collapse:collapse;
+}
+.features-table .dashicons-yes {color: #259e58;}
+.features-table .dashicons-no-alt {color:#ff0000;}
+.child-themes {display:block; margin-top: 70px;font-size:1.1em;font-weight:bold; }
+.featureyes { text-align: center;}
+.featureno { //background: url('../../icons/icon-cross.png') 0 5px no-repeat;text-align: center;}
+.features-table .dashicons-before::before {
+	font-size: 30px;	
+}
+.featureyes td  {text-align: center;}
+#wpcontent { background-color: #f1f1f1;}
+.features-table td {padding: 20px 0;}
+.heading {width:88%;float: left;}
+.features-table tr { border-bottom: 1px solid #cccccc;}
+img {max-width: 100%;}
+.about-info p {font-size: 16px; }
+.about-info { position: relative; padding-right: 290px; text-align: justify;}
+.about-info span { position: absolute; right: 0; top: 0; width: 250px;padding-top: 40px;}
+.features th { text-align: center;font-size: 18px;}
+.features-table p { font-weight: normal;}
+.features-table .feature {font-size: 17px;font-weight: bold;}
+.about-container .buy {margin-top: 20px;float: right;}
+#setting-error-tgmpa p {font-size: 14px;}
+#setting-error-tgmpa strong {font-weight: 400;}
+#setting-error-tgmpa {font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;}
+.about-container .buylink {padding-top: 6px; height: 40px;}

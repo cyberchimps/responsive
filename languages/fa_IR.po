@@ -1,0 +1,985 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsive Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
+"PO-Revision-Date: 2014-08-24 02:01:38 UTC\n"
+"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
+"Language-Team: Persian, Iran\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WebTranslateIt.com\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: page.php
+#: landing-page.php
+#: index.php
+#: image.php
+#: full-width-page.php
+#: content-sidebar-page.php
+#: content-sidebar-half-page.php
+#: blog.php
+#: blog-excerpt.php
+#: archive.php
+#: home.php
+#: search.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: sitemap.php
+msgid "Pages:"
+msgstr "صفحات:"
+
+#: blog-excerpt.php
+#: blog.php
+#: loop-nav.php
+msgid "&#8249; Older posts"
+msgstr "&#8249; نوشته‌های قدیمی‌تر"
+
+#: blog-excerpt.php
+#: blog.php
+#: loop-nav.php
+msgid "Newer posts &#8250;"
+msgstr "نوشته‌های جدیدتر &#8250;"
+
+#: blog.php
+#: content-sidebar-half-page.php
+#: content-sidebar-page.php
+#: full-width-page.php
+#: home.php
+#: image.php
+#: index.php
+#: landing-page.php
+#: page.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: single.php
+#: core/includes/functions.php
+msgid "Read more &#8250;"
+msgstr "بیشتر بخوانید &#8250;"
+
+#: comments.php
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "این نوشته با رمز محافظت شده است. رمز را وارد کنید تا بتوانید نظرات را ببنید."
+
+#: comments.php
+#: comments.php
+msgid "&#8249; Older comments"
+msgstr "نظرات قدیمی‌تر"
+
+#: comments.php
+#: comments.php
+msgid "Newer comments &#8250;"
+msgstr "نظرات جدیدتر"
+
+msgid "Pings&#47;Trackbacks"
+msgstr "پینگ ها &#47; بازتاب ها"
+
+#: comments.php
+msgid "%1$d %2$s for \"%3$s\""
+msgstr "%1$d %2$s برای \"%3$s‎\""
+
+#: comments.php
+msgid "Name"
+msgstr "نام"
+
+#: comments.php
+msgid "E-mail"
+msgstr "پست الکترونیک"
+
+#: comments.php
+msgid "Website"
+msgstr "وب سایت"
+
+#: footer.php
+msgid "&copy;"
+msgstr "&copy; کپی‌رایت"
+
+#: footer.php
+msgid "scroll to top"
+msgstr "بازگشت به بالای صفحه"
+
+#: footer.php
+msgid "&uarr;"
+msgstr "&uarr;"
+
+#: footer.php
+msgid "Responsive Theme"
+msgstr "Responsive Theme"
+
+#: footer.php
+msgid "powered by"
+msgstr "قدرت گرفته از"
+
+#: footer.php
+msgid "WordPress"
+msgstr "WordPress"
+
+#: image.php
+msgid "&#8249; Return to"
+msgstr "&#8249; بازگشت به"
+
+#: image.php
+#: post-meta-page.php
+#: post-meta.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "No Comments &darr;"
+msgstr "بدون نظر"
+
+#: post-meta-page.php
+#: post-meta.php
+#: image.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "1 Comment &darr;"
+msgstr "۱ نظر"
+
+#: post-meta-page.php
+#: post-meta.php
+#: image.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "% Comments &darr;"
+msgstr "نظرات"
+
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Tagged with:"
+msgstr "با برچسب:"
+
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+msgid "Posted in %s"
+msgstr "پست شده در %s"
+
+#: image.php
+#: post-data.php
+#: sidebar-content-half-page.php
+#: sidebar-content-page.php
+#: sitemap.php
+msgid "Edit"
+msgstr "ویرایش"
+
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "۴۰۴ &#8212; خوشحال شدیم از دیدارتون در اینجا!"
+
+#: loop-no-posts.php
+msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
+msgstr "نترسید! با هم درستش می‌کنیم. بیاین با هم گزینه‌هایی رو که در پیش‌رو دارید بررسی کنیم."
+
+#: loop-no-posts.php
+msgid "You can return %s or search for the page you were looking for."
+msgstr "شما می‌توانید به %s برگردید و یا صفحه‌ی مورد نظرتان را جستجو کنید."
+
+#: loop-no-posts.php
+#: core/includes/functions.php
+msgid "Home"
+msgstr "صفحه اصلی"
+
+#: loop-no-posts.php
+msgid "&larr; Home"
+msgstr "صفحه اصلی"
+
+#: loop-header.php
+msgid "Daily Archives: %s"
+msgstr "بایگانی روزانه: %s"
+
+#: loop-header.php
+msgid "Monthly Archives: %s"
+msgstr "بایگانی ماهیانه: %s"
+
+#: loop-header.php
+msgid "Yearly Archives: %s"
+msgstr "بایگانی سالیانه: %s"
+
+#: loop-header.php
+msgid "Blog Archives"
+msgstr "بایگانی وبلاگ"
+
+#: loop-no-posts.php
+msgid "Your search for %s did not match any entries."
+msgstr "جستجوی شما برای %s نتیجه‌ای در بر نداشت"
+
+#: sitemap.php
+msgid "Permanent Link to %s"
+msgstr "پیوند یکتا به %s"
+
+#: core/includes/functions.php
+#: loop-header.php
+msgid "Search results for: %s"
+msgstr "نتیجهٔ جستجو برای: %s"
+
+#: searchform.php
+msgid "search here &hellip;"
+msgstr "اینجا جستجو کنید &hellip;"
+
+#: searchform.php
+msgid "Go"
+msgstr "برو"
+
+#: sidebar-gallery.php
+msgid "Image Information"
+msgstr "اطلاعات عکس"
+
+#: sidebar-gallery.php
+msgid "Full Size:"
+msgstr "سایز کامل:"
+
+#: sidebar-gallery.php
+msgid "Aperture: f&#47;"
+msgstr "دريچه ديافراگم: f&#47;"
+
+#: sidebar-gallery.php
+msgid "Focal Length:"
+msgstr "فاصله‌ی کانونی:"
+
+#: sidebar-gallery.php
+msgid "mm"
+msgstr "میلیمتر"
+
+#: sidebar-gallery.php
+msgid "ISO:"
+msgstr "ایزو:"
+
+#: sidebar-gallery.php
+msgid "Shutter:"
+msgstr "شاتر:"
+
+#: sidebar-gallery.php
+msgid "Camera:"
+msgstr "دوربین:"
+
+#: sidebar.php
+#: sidebar-right.php
+#: sidebar-right-half.php
+#: sidebar-left.php
+#: sidebar-left-half.php
+#: sidebar-half-left.php
+msgid "In Archive"
+msgstr "در بایگانی"
+
+#: core/includes/functions-sidebar.php
+#: sidebar-home.php
+msgid "Home Widget 1"
+msgstr "ابزارک صفحه اصلی ۱"
+
+msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
+msgstr "این جعبه اولین ابزارک صفحه اصلی شما است. لطفاً برای تغییر این ابزارک به مسیر نمایش&larr;ابزارک‌ها بروید و ششمین ابزارک از بالا به اسم ابزارک صفحه اصلی ۱ را انتخاب کنید. عنوان ابزارک نیز از همان جا قابل تغییر است."
+
+#: core/includes/functions-sidebar.php
+#: sidebar-home.php
+msgid "Home Widget 2"
+msgstr "ابزارک صفحه اصلی ۲"
+
+msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
+msgstr "این جعبه دومین ابزارک صفحه اصلی شما است. لطفاً برای تغییر این ابزارک به مسیر نمایش&rarrابزارک‌ها بروید و ششمین ابزارک از بالا به اسم ابزارک صفحه اصلی ۲ را انتخاب کنید. عنوان ابزارک نیز از همان جا قابل تغییر است."
+
+#: core/includes/functions-sidebar.php
+#: sidebar-home.php
+msgid "Home Widget 3"
+msgstr "ابزارک صفحه اصلی ۳"
+
+msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
+msgstr "این جعبه سومین ابزارک صفحه اصلی شما است. لطفاً برای تغییر این ابزارک به مسیر نمایش&rarrابزارک‌ها بروید و ششمین ابزارک از بالا به اسم ابزارک صفحه اصلی ۳ را انتخاب کنید. عنوان ابزارک نیز از همان جا قابل تغییر است."
+
+#: single.php
+msgid "About"
+msgstr "درباره"
+
+#: sitemap.php
+msgid "Categories"
+msgstr "دسته‌ها"
+
+#: sitemap.php
+msgid "Latest Posts"
+msgstr "نوشته‌های تازه"
+
+#: sitemap.php
+msgid "Pages"
+msgstr "صفحات"
+
+#: core/includes/functions.php
+msgid "Top Menu"
+msgstr "منوی بالا"
+
+#: core/includes/functions.php
+msgid "Header Menu"
+msgstr "منوی سربرگ"
+
+#: core/includes/functions.php
+msgid "Sub-Header Menu"
+msgstr "منوی زیر سربرگ"
+
+#: core/includes/functions.php
+msgid "Footer Menu"
+msgstr "منوی پانوشت"
+
+#: core/includes/functions.php
+#: core/includes/functions.php
+msgid "Page %s"
+msgstr "صفحه ‎%s‎"
+
+#: core/includes/functions.php
+msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
+msgstr "<span class=\"%1$s\">ارسال شده در </span>%2$s<span class=\"%3$s\"> توسط </span>%4$s‎"
+
+#: core/includes/functions.php
+#: core/includes/functions.php
+msgid "View all posts by %s"
+msgstr "نمایش تمام نوشته‌ها توسط %s"
+
+#: core/includes/functions.php
+msgid "Archive for %s"
+msgstr "بایگانی برای %s"
+
+msgid "Posts tagged %s"
+msgstr "نوشته‌ها با برچسب %s"
+
+#: core/includes/functions.php
+msgid "Error 404"
+msgstr "خطای ۴۰۴ "
+
+#: core/includes/functions.php
+#: core/includes/functions.php
+msgid "More Themes"
+msgstr "پوسته‌های بیشتر"
+
+#: core/includes/functions.php
+#: core/includes/functions.php
+msgid "Showcase"
+msgstr "ویترین"
+
+#: core/includes/functions-sidebar.php
+msgid "Main Sidebar"
+msgstr "ستون کناری اصلی"
+
+#: core/includes/functions-sidebar.php
+msgid "Right Sidebar"
+msgstr "ستون‌کناری راست"
+
+#: core/includes/functions-sidebar.php
+msgid "Left Sidebar"
+msgstr "ستون‌کناری چپ"
+
+#: core/includes/functions-sidebar.php
+msgid "Left Sidebar Half Page"
+msgstr "ستون‌کناری چپ نیم‌صفحه"
+
+#: core/includes/functions-sidebar.php
+msgid "Right Sidebar Half Page"
+msgstr "ستون‌کناری راست نیم‌صفحه"
+
+#: core/includes/functions-sidebar.php
+msgid "Gallery Sidebar"
+msgstr "ستون‌کناری گالری"
+
+msgid "Colophon Widget"
+msgstr "ابزارک انتهای صفحه"
+
+#: core/includes/functions-sidebar.php
+msgid "Top Widget"
+msgstr "ابزارک فوقانی"
+
+#: blog.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Blog (full posts)"
+msgstr "وبلاگ (تمام نوشته ها)"
+
+#: blog-excerpt.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Blog Excerpt (summary)"
+msgstr "چکیده وبلاگ (خلاصه مطلب)"
+
+#: content-sidebar-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Content/Sidebar"
+msgstr "محتوا/ستون کناری"
+
+#: sidebar-content-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Sidebar/Content"
+msgstr "ستون کناری/محتوا"
+
+#: content-sidebar-half-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Content/Sidebar Half Page"
+msgstr "محتوا/ستون کناری نیم صفحه"
+
+#: sidebar-content-half-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Sidebar/Content Half Page"
+msgstr "ستون کناری/محتوا نیم صفحه"
+
+#: full-width-page.php
+#: core/includes/post-custom-meta.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Full Width Page (no sidebar)"
+msgstr "صفحه با عرض کامل (بدون ستون کناری)"
+
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Landing Page (no menu)"
+msgstr "صفحه تک بازاریابی (بدون منو)"
+
+#: sitemap.php
+#. Template Name of the plugin/theme
+# INSTRUCTION: Template Name of the plugin/theme
+msgid "Sitemap"
+msgstr "نقشه سایت"
+
+#: core/includes/post-custom-meta.php
+msgid "Layout"
+msgstr "چینش"
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/post-custom-meta.php
+msgid "Default"
+msgstr "پیش فرض"
+
+#: core/includes/theme-options/theme-options.php
+#: front-page.php
+msgid "Hello, World!"
+msgstr "سلام دنیا!"
+
+#: core/includes/theme-options/theme-options.php
+#: front-page.php
+msgid "Your H2 subheadline here"
+msgstr "جای زیر عنوان۲ شما"
+
+msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
+msgstr "عنوان، زیرعنوان و این متن را می‌توانید در قسمت تنظیمات پوسته تغییر دهید. کلید «فراخوانی برای اقدام» و لینک‌اش را هم می‌توانید در همان بخش تغییر دهید. تصویر سمت چپ می‌تواند یک تصویر و یا حتی ویدویی در یوتیوب باشد."
+
+#: core/includes/theme-options/theme-options.php
+#: front-page.php
+msgid "Call to Action"
+msgstr "فراخوانی برای اقدام"
+
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
+msgid "Theme Options"
+msgstr "تنظیمات پوسته"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Options Saved"
+msgstr "تنظیمات ذخیره شد"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Theme Elements"
+msgstr "عناصر پوسته"
+
+msgid "Disable Call to Action Button?"
+msgstr "کلید «فراخوانی برای اقدام» غیر فعال شود؟"
+
+#: core/includes/classes/Responsive_Options.php
+msgid "Save Options"
+msgstr "ذخیره تنظیمات"
+
+#: core/includes/classes/Responsive_Options.php
+msgid "Restore Defaults"
+msgstr "بازگرداندن مقادیر پیش‌فرض"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Logo Upload"
+msgstr "بارگذاری لوگو"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Custom Header"
+msgstr "سربرگ دلخواه"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Need to replace or remove default logo?"
+msgstr "می‌خواهید لوگوی پیش‌فرض را جانشین و یا حذف کنید؟"
+
+msgid "Home Page"
+msgstr "صفحه اصلی"
+
+msgid "Headline"
+msgstr "عنوان اصلی"
+
+msgid "Enter your headline"
+msgstr "عنوان اصلی خود را وارد کنید"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Subheadline"
+msgstr "زیر عنوان"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your subheadline"
+msgstr "زیر عنوان خود را وارد کنید"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Content Area"
+msgstr "ناحیه محتوا"
+
+msgid "Enter your content"
+msgstr "محتوای اصلی را وارد کنید"
+
+msgid "Call to Action (URL)"
+msgstr "«فراخوانی برای اقدام» (URL)"
+
+msgid "Enter your call to action URL"
+msgstr "URL «فراخوانی برای اقدام» خود را وارد کنید"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Call to Action (Text)"
+msgstr "«فراخوانی برای اقدام» (متن)"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your call to action text"
+msgstr "متن «فراخوانی برای اقدام» خود را وارد کنید"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Featured Content"
+msgstr "محتوای برجسته"
+
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
+msgid "See Docs"
+msgstr "مستندات را ببنید"
+
+msgid "Paste your shortcode, video or image source"
+msgstr "کد کوتاه، آدرس ویدیو و یا تصویر خود را اینجا کپی کنید."
+
+#: core/includes/theme-options/theme-options.php
+msgid "Default Layouts"
+msgstr "چینش پیش فرض"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Default Static Page Layout"
+msgstr "صفحه ثابت با چینش پیش فرض"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Default Single Blog Post Layout"
+msgstr "چینش پیش فرض تک نوشته وبلاگ"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Default Blog Posts Index Layout"
+msgstr "قالب پیش فرض چینش لیست نوشته های وبلاگ"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Social Icons"
+msgstr "آیکون‌های اجتماعی"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "Twitter"
+msgstr "توییتر"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your Twitter URL"
+msgstr "آدرس توییتر خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "Facebook"
+msgstr "فیس‌بوک"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your Facebook URL"
+msgstr "آدرس فیس‌بوک خود را وارد کنید"
+
+msgid "LinkedIn"
+msgstr "لینکدین"
+
+msgid "Enter your LinkedIn URL"
+msgstr "آدرس لینکدین خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "YouTube"
+msgstr "یوتیوب"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your YouTube URL"
+msgstr "آدرس یوتیوب خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your StumbleUpon URL"
+msgstr "آدرس StumbleUpon خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "RSS Feed"
+msgstr "خوراک RSS"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your RSS Feed URL"
+msgstr "آدرس خوراک RSS خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "Google+"
+msgstr "گوگل+"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your Google+ URL"
+msgstr "آدرس گوگل+ خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "Instagram"
+msgstr "اینستاگرام"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your Instagram URL"
+msgstr "آدرس اینستاگرام خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your Pinterest URL"
+msgstr "آدرس Pinterest خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "Yelp!"
+msgstr "Yelp!"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your Yelp! URL"
+msgstr "آدرس Yelp! خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your Vimeo URL"
+msgstr "آدرس Vimeo خود را وارد کنید"
+
+#: core/includes/functions.php
+#: core/includes/theme-options/theme-options.php
+msgid "foursquare"
+msgstr "foursquare"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your foursquare URL"
+msgstr "آدرس foursquare خود را وارد کنید"
+
+msgid "Custom CSS Styles"
+msgstr "CSS دلخواه"
+
+#: core/includes/theme-options/theme-options.php
+msgid "CSS Tutorial"
+msgstr "خودآموز CSS"
+
+msgid "Enter your custom CSS styles."
+msgstr "CSS دلخواه خود را وارد کنید."
+
+#: core/includes/theme-options/theme-options.php
+msgid "Custom Scripts for Header and Footer"
+msgstr "اسکریپت‌های سفارشی برای سربرگ و پانوشت"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Quick Tutorial"
+msgstr "خودآموز سریع"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Embeds to header.php &darr;"
+msgstr "در header.php جاسازی کن &darr;"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your custom header script."
+msgstr "اسکریپت سربرگ سفارشی خود را وارد کنید."
+
+#: core/includes/theme-options/theme-options.php
+msgid "Embeds to footer.php &darr;"
+msgstr "در footer.php جاسازی کن &darr;"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enter your custom footer script."
+msgstr "اسکریپت پانوشت سفارشی خود را وارد کنید."
+
+#: core/includes/functions.php
+msgid "Activate Add Ons"
+msgstr "فعال کردن امکانات اضافی"
+
+#: core/includes/functions.php
+msgid "All plugins installed and activated successfully. %s"
+msgstr "تمام افزونه ها نصب و فعال گردید. ‎%s‎"
+
+#: core/includes/classes/Responsive_Options.php
+#: core/includes/theme-options/theme-options.php
+msgid "All theme settings will be lost!"
+msgstr "تمام تنظیمات پوسته از بین خواهد رفت!"
+
+#: core/includes/functions-sidebar.php
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr "منطقه 10 - sidebar-colophon.php - ابزارک های پانوشت با عرض 100%"
+
+#: core/includes/functions-sidebar.php
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr "منطقه 11 - sidebar-top.php - سمت راست سر برگ نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
+msgstr "منطقه 12 - sidebar-footer.php - حداکثر 3 ابزارک در هر ردیف"
+
+#: core/includes/functions-sidebar.php
+msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr "منطقه 1 - sidebar.php - در حالت های پیش فرض، وبلاگ و قالب های صفحه چکیده وبلاگ نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
+msgstr "منطقه 2 - sidebar-right.php - در حالت قالب های محتوا/ستون کناری نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
+msgstr "منطقه 3 - sidebar-left.php - در حالت قالب های ستون کناری/محتوا نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
+msgstr "منطقه 4 - sidebar-left-half.php - در صفحات با قالب ستون کناری نیم صفحه/محتوا نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
+msgstr "منظقه 5 - sidebar-right-half.php - در صفحات با قالب محتوا/ستون کناری نیم صفحه نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr "منطقه 6 - sidebar-home.php - در صفحه اصلی نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr "منطقه 7 - sidebar-home.php - در صفحه اصلی نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr "منطقه 8 - sidebar-home.php - در صفحه اصلی نمایش داده خواهد شد."
+
+#: core/includes/functions-sidebar.php
+msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
+msgstr "منطقه 9 - sidebar-gallery.php - در صفحه ای که بعد از کلیک روی عکس در گالری نمایش داده میشود، نمایش داده خواهد شد."
+
+#: core/includes/theme-options/theme-options.php
+msgid "Blog"
+msgstr "وبلاگ"
+
+#: core/includes/functions-update.php
+msgid "blog post"
+msgstr "نوشته وبلاگ"
+
+msgid "Blog Title Toggle"
+msgstr "مخفی کردن عنوان وبلاگ"
+
+#: core/includes/theme-options/theme-options.php
+#: core/includes/theme-options/theme-options.php
+msgid "check to disable"
+msgstr "برای غیر فعال کردن انتخاب کنید"
+
+#: core/includes/theme-options/theme-options.php
+msgid "check to enable"
+msgstr "برای فعال کردن انتخاب کنید"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Click here"
+msgstr "اینجا کلیک کنید"
+
+msgid "Click OK to Restore."
+msgstr "برای بازیافت روی OK کلیک کنید."
+
+#: core/includes/theme-options/theme-options.php
+msgid "CSS Styles"
+msgstr "استایل CSS"
+
+#. Author of the plugin/theme
+# INSTRUCTION: Author of the plugin/theme
+msgid "CyberChimps.com"
+msgstr "CyberChimps.com"
+
+msgid "&darr; Skip to Main Content"
+msgstr "&darr; برو به محتوای اصلی"
+
+msgid "Disable breadcrumb list?"
+msgstr "منو رهگیری غیر فعال گردد؟"
+
+msgid "Do you want to restore?"
+msgstr "آیا می خواهید بازیافت کنید؟"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enable Custom Front Page"
+msgstr "فعال کردن صفحه اصلی سفارشی"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Enable minified css?"
+msgstr "css فشرده فعال شود؟"
+
+#: core/includes/functions-sidebar.php
+msgid "Footer Widget"
+msgstr "ابزارک های پانوشت"
+
+#: core/includes/functions.php
+#: core/includes/functions.php
+msgid "Help"
+msgstr "راهنما"
+
+#. Author URI of the plugin/theme
+# INSTRUCTION: Author URI of the plugin/theme
+msgid "http://cyberchimps.com"
+msgstr "http://cyberchimps.com"
+
+#. Theme URI of the plugin/theme
+# INSTRUCTION: Theme URI of the plugin/theme
+msgid "http://cyberchimps.com/responsive-theme/"
+msgstr "http://cyberchimps.com/responsive-theme/"
+
+#: core/includes/functions.php
+msgid "Installing Plugin: %s"
+msgstr "در حال نصب افزونه: ‎%s‎"
+
+#: core/includes/functions.php
+#: core/includes/functions.php
+msgid "Instructions"
+msgstr "دستورالعمل ها"
+
+#: core/includes/functions.php
+msgid "Activate installed plugin"
+msgid_plural "Activate installed plugins"
+msgstr[0] "افزونه های نصب شده را فعال کن"
+
+#: core/includes/functions.php
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "نصب اقزونه ها را شروع کن"
+
+#: comments.php
+msgid "One comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s نظر برای &ldquo;%2$s&rdquo;"
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural ""
+msgstr[0] "با عرض پوزش، شما مجوزهای لازم برای فعال کردن افزونه s% را ندارید. برای کمک به فعال کردن این افزونه با مدیریت سایت تماس بگیرید."
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural ""
+msgstr[0] "با عرض پوزش، شما مجوزهای لازم برای نصب افزونه s% را ندارید. برای کمک به نصب این افزونه با مدیریت سایت تماس بگیرید."
+
+#: core/includes/functions.php
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural ""
+msgstr[0] "با عرض پوزش، شما مجوزهای لازم برای ارتقاء افزونه s% را ندارید. برای کمک به ارتقاء این افزونه با مدیریت سایت تماس بگیرید."
+
+#: core/includes/functions.php
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural ""
+msgstr[0] "برای تطابق با این پوسته این افزونه ها نیاز به ارتقاء به آخرین نسخه را دارند: %1$s"
+
+#: core/includes/functions.php
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "این افزونه های پیشنهادی غیر فعال هستند: %1$s"
+
+#: core/includes/functions.php
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "این افزونه های مورد نیاز غیر فعال هستند: %1$s"
+
+#: core/includes/functions.php
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "این پوسته این افزونه ها را پیشنهاد می کند: ‎%1$s‎"
+
+#: core/includes/functions.php
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "این پوسته به این افزونه ها نیاز دارد: ‎%1$s‎"
+
+msgid "Overrides the WordPress %1sfront page option%2s"
+msgstr "%1تنظیمات مربوط به صفحه اصلی %2s وردپرس را بازنویسی کن"
+
+#: core/includes/functions.php
+msgid "Plugin activated successfully."
+msgstr "افزونه با موفقیت فعال گردید."
+
+#. Theme Name of the plugin/theme
+# INSTRUCTION: Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr "Responsive"
+
+#: core/includes/functions.php
+msgid "Responsive Add Features"
+msgstr "امکانات اضافی Responsive"
+
+#. Description of the plugin/theme
+# INSTRUCTION: Description of the plugin/theme
+msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgstr "پوسته Responsive از سیستم پیکربندی قابل انعطاف همراه با grid شناور بهره میگیرد و سایت شما را با موبایل، دسکتاپ و یا هر صفحه نمایش دیگری تطابق می دهد. این پوسته 9 قالب برای نمایش صفحات، 11 منطقه برای نمایش ابزارک ها، 6 قالب برای چینش، 4 محل برای نمایش منو و امکانات بسیار دیگری دارد. بسیار قدرتمند و در عین حال دارای امکانات ساده برای کنترل یک CMS کامل با امکان بارگزاری لوگو، شبکه های اجتماعی، ابزار Webmaster و غیره می باشد. Responsive با WooCommerce تطابق کامل دارد، چند زبانه است، از زبان های راست به چپ و صفحه نمایش Retina پشتیبانی می کند، با موتورهای جستجو عملکرد خوبی دارد، کد آن مورد تائید W3C است، هم اکنون به 45 زبان دنیا ترجمه می شود و با تمام مرورگرها نیز تطابق دارد. <a href=\"http://cyberchimps.com/forum/free/responsive/\">انجمن رسمی پشتیبانی</a> (http://cyberchimps.com/forum/free/responsive/)"
+
+#: core/includes/functions.php
+msgid "Return to Required Plugins Installer"
+msgstr "به نصب کننده افزونه الزامی برگردید"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Scripts"
+msgstr "اسکریپت"
+
+#: searchform.php
+msgid "Search for:"
+msgstr "جستجو برای:"
+
+#: core/includes/functions.php
+msgid "Something went wrong with the plugin API."
+msgstr "رابط برنامه‌نویسی افزونه دچار مشکل شده است"
+
+#. Translators: This is a big update. Please read the blog post beforeupdating.
+# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
+msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
+msgstr "<strong>هشدار:</strong> این یک ارتقاء ضروری برای پوسته  <strong>Responsive</strong> است. لطفا قبل از ارتقاء %1$s را مطالعه کنید."
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr "صفحه اصلی سفارشی غیر فعال است. برای فعال کردن به <a href=\"%1$s\">تنظیمات پوسته</a>مراجعه کنید."
+
+#: core/includes/functions.php
+msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
+msgstr "صفحه اصلی سفارشی فعال گردید. برای غیر فعال کردن به <a href=\"%1$s\">تنظیمات پوسته</a>مراجعه کنید."
+
+#: core/includes/upsell/theme-upsell.php
+msgid "Themes You Can Trust"
+msgstr "پوسته های قابل اعتماد"
+
+#: core/includes/theme-options/theme-options.php
+msgid "Title Text"
+msgstr "متن عنوان"
+
+#: core/includes/functions.php
+#: core/includes/functions.php
+msgid "Translate"
+msgstr "ترجمه"
+
+#: core/includes/classes/Responsive_Options.php
+msgid "Upgrade"
+msgstr "ارتقاء"
+
+#: core/includes/functions.php
+msgid "Welcome to %1$s! Upgrade to %2$s today."
+msgstr "خوش آمدید به ‎%1$s‎! به ‎%2$s‎ ارتقاء دهید امروز."

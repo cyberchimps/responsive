@@ -1,0 +1,126 @@
+/* Defines styles for upsell page */
+
+/************************************************************************************************************/
+/********************************************* WP FIXES *****************************************************/
+/************************************************************************************************************/
+
+body {
+	background-color: #f1f1f1;
+}
+
+ul, ol {
+	margin: 0;
+	padding: 0;
+}
+
+/************************************************************************************************************/
+/********************************************* STYLING ******************************************************/
+/************************************************************************************************************/
+
+#upsell_container a {
+	text-decoration: none;
+}
+
+#upsell_header {
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.theme-container {
+	margin-bottom: 40px;
+	border: 1px solid #cccccc;
+}
+
+.theme-container .theme-image img {
+	padding: 3px;
+	border: 5px solid #aaaaaa;
+}
+
+.image-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.theme-exists {
+	margin-left: 10px;
+}
+
+.theme-name {
+	float: left;
+}
+
+.no-left-megin {
+	margin-left: 0px !important;
+}
+
+.theme-details {
+	padding: 10px;
+	height: 25px;
+	border-top: 1px solid #cccccc;
+	background: none repeat scroll 0 0 #ffffff;
+	font-size: 18px;
+}
+
+.theme-details.active {
+	background: none repeat scroll 0 0 #2B5F87;
+	color: #fff;
+}
+
+.preview {
+	margin-right: 3px !important;
+}
+
+#response {
+	display: none;
+}
+
+/********* theme description style ***********/
+.theme-description {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	overflow: auto;
+	box-sizing: border-box;
+	padding: 0;
+	max-width: 100%;
+	height: 100%;
+	border-top: 5px solid #FFFFFF;
+	border-right: 5px solid #ffffff;
+	border-left: 5px solid #FFFFFF;
+	background-color: #000000;
+	color: #ffffff;
+	-webkit-transition: all 300ms ease-out;
+	-moz-transition: all 300ms ease-out;
+	-ms-transition: all 300ms ease-out;
+	-o-transition: all 300ms ease-out;
+	transition: all 300ms ease-out;
+	-webkit-transition-delay: 500ms;
+	-moz-transition-delay: 500ms;
+	-ms-transition-delay: 500ms;
+	-o-transition-delay: 500ms;
+	transition-delay: 500ms;
+}
+
+.image-container:hover .theme-description {
+	top: 0;
+	display: block;
+	padding: 0 15px;
+	opacity: 0.8;
+}
+
+.theme-description p {
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#setting-error-tgmpa {font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;}
+#setting-error-tgmpa strong {font-weight: 400;}
+#setting-error-tgmpa p {font-size:14px ;font-weight: 400;}
+div.updated {box-shadow :none;}
+#droidpress {height:310px;margin-left: 0}
+#droidpress .theme-details {margin-top: 37px;}
+#upsell_themes > div:nth-of-type(3n+1) 
+{
+clear:both;
+}
+#upsell_container {font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;}
