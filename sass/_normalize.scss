@@ -1,0 +1,94 @@
+/* =Visibility
+-------------------------------------------------------------- */
+.hidden {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.none {
+	display: none;
+}
+
+.hide-desktop {
+	display: none;
+}
+
+.show-desktop {
+	display: block;
+}
+
+/* =Responsive Images
+-------------------------------------------------------------- */
+img {
+	-ms-interpolation-mode: bicubic;
+	border: 0;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.ie8 img {
+	height: auto;
+	width: auto;
+}
+
+.ie8 img.size-large {
+	max-width: 60%;
+	width: auto;
+}
+
+/* =Responsive Videos
+-------------------------------------------------------------- */
+video {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+/* =Responsive Embeds/Objects
+-------------------------------------------------------------- */
+embed,
+object {
+	max-width: 100%;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+/* =Links
+-------------------------------------------------------------- */
+a {
+	color: #0066cc;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: #444444;
+	outline: 0;
+	text-decoration: none;
+}
+
+a::-moz-selection {
+	background: #999999;
+	color: #ffffff;
+	text-shadow: none;
+}
+/* =Symbols
+-------------------------------------------------------------- */
+.ellipsis {
+	color: #aaaaaa;
+	font-size: 18px;
+	margin-left: 5px;
+}
+
+.form-allowed-tags {
+	display: none;
+	font-size: 10px;
+}

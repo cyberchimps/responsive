@@ -13,7 +13,7 @@ if ( !defined( 'ABSPATH' ) ) {
  *
  * @file           blog-3-col.php
  * @package        Responsive
- 
+
  */
 
 get_header();
@@ -41,35 +41,35 @@ $more = 0;
 	$wp_query = $blog_query;
 
 	if ( $blog_query->have_posts() ) :
-	
+
 	?>
 	<div class="blog_main_div">
-	<?php 
+	<?php
 
 		while( $blog_query->have_posts() ) : $blog_query->the_post();
 			?>
 	<div class="section-blog grid">
 
 		<?php responsive_entry_before(); ?>
-		
+
 		<div class="post-entry">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 						<?php the_post_thumbnail(); ?>
 					</a>
 				<?php endif; ?>
-				
+
 			</div><!-- end of .post-entry -->
-			
+
 			<?php responsive_entry_top(); ?>
-					
+
 			<?php get_template_part( 'post-meta-3-col', get_post_type() ); ?>
-			<?php get_template_part( 'post-data', get_post_type() ); ?>			
-			
+			<?php get_template_part( 'post-data', get_post_type() ); ?>
+
 			<?php the_excerpt( __( 'Read more &#8250;', 'responsive' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
-			
-			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>				
+
+			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
@@ -93,7 +93,7 @@ $more = 0;
 		get_template_part( 'loop-no-posts' );
 ?>
 </div>
-<?php 	
+<?php
 	endif;
 	$wp_query = $temp_query;
 	wp_reset_postdata();

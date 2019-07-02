@@ -1,0 +1,22 @@
+.blog .posted-on {
+    z-index: 1;
+}
+
+.ast-blog-featured-section .posted-on {
+    width: 5.714285714em;
+    height: 5.714285714em;
+    padding: 0.7em;
+
+    .date-month,
+    .date-year {
+        font-size: 0.8571428571em;
+        line-height: 1em;
+    }
+
+    .date-day {
+        font-size: 2.5em;
+        line-height: .9em;
+        font-weight: 900;
+        margin: .1em 0;
+    }
+}

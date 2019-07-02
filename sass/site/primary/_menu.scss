@@ -1,0 +1,224 @@
+/* =Top Menu
+-------------------------------------------------------------- */
+.top-menu {
+	float: right;
+	margin: 10px 0;
+	padding: 0;
+}
+
+.top-menu li {
+	display: inline;
+	list-style-type: none;
+}
+
+.top-menu li a {
+	border-left: 1px solid #cccccc;
+	color: #333333;
+	font-size: 11px;
+	padding: 0 4px 0 8px;
+}
+
+.top-menu > li:first-child > a {
+	border-left: none;
+}
+
+.top-menu li a:hover {
+	color: #333333;
+}
+/* =Primary Main Menu IE Fixes
+-------------------------------------------------------------- */
+.ie7 .menu ul {
+	background: url(../../core/images/ie7-fix.gif) repeat;
+}
+
+.ie7 .menu li li a {
+	min-width: 100%;
+}
+.full-width-no-box #wrapper {
+	margin: 0 auto 20px auto ;
+}
+/* =Sub-Header Menu
+-------------------------------------------------------------- */
+.sub-header-menu {
+	background-color: #ffffff;
+	//border: 1px solid #e5e5e5;
+	//border-top: none;
+	//clear: both;
+	max-width: 960px;
+	margin: 0 auto;
+	display: block;
+	padding: 0;
+	list-style-type: none;
+}
+.sub-nav{
+	background-color: #ffffff;
+	border: 1px solid #e5e5e5;
+	border-top: none;
+	clear: both;
+}
+.sub-header-menu ul {
+	display: block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.sub-header-menu li {
+	border: 0;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	z-index: 5;
+}
+
+.sub-header-menu li:hover {
+	white-space: normal;
+	z-index: 10000;
+}
+
+.sub-header-menu li li {
+	float: none;
+}
+
+.sub-header-menu ul {
+	left: 0;
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	z-index: 10;
+}
+
+.sub-header-menu li:hover > ul {
+	top: 100%;
+	visibility: visible;
+}
+
+.sub-header-menu li li:hover > ul {
+	left: 100%;
+	top: 0;
+}
+
+.sub-header-menu:after,
+.sub-header-menu ul:after {
+	clear: both;
+	content: '.';
+	display: block;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.sub-header-menu,
+.sub-header-menu ul {
+	min-height: 0;
+}
+
+.sub-header-menu ul,
+.sub-header-menu ul ul {
+	margin: 0;
+	padding: 0;
+}
+
+.sub-header-menu ul li a:hover,
+.sub-header-menu li li a:hover {
+	color: #484848;
+	text-decoration: none;
+}
+
+.sub-header-menu ul {
+	margin-top: 1px;
+	min-width: 15em;
+	width: auto;
+}
+
+.sub-header-menu a {
+	border-left: 1px solid #e5e5e5;
+	color: #333333;
+	cursor: pointer;
+	display: block;
+	font-size: 12px;
+	font-weight: 400;
+	height: 35px;
+	line-height: 35px;
+	margin: 0;
+	padding: 0 0.9em;
+	position: relative;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+.sub-header-menu a:hover {
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-color: #f9f9f9;
+	background-clip: padding-box;
+}
+
+.sub-header-menu .current_page_item a,
+.sub-header-menu .current-menu-item a {
+	background-color: #f9f9f9;
+}
+
+.sub-header-menu li li {
+	background: #ffffff;
+	background-image: none;
+	border: 1px solid #e5e5e5;
+	color: #444444;
+	filter: none;
+	margin: -1px 0 1px 0;
+	width: auto;
+}
+
+.sub-header-menu li li a {
+	border: none;
+	color: #444444;
+	font-size: 12px;
+	font-weight: 400;
+	height: auto;
+	height: 20px;
+	line-height: 20px;
+	padding: 5px 10px;
+	text-shadow: none;
+	white-space: nowrap;
+}
+
+.sub-header-menu li li a:hover {
+	background: #f9f9f9;
+	background-image: none;
+	border: none;
+	color: #444444;
+	filter: none;
+}
+
+.sub-header-menu ul > li + li {
+	border-top: 0;
+}
+
+.sub-header-menu li li:hover > ul {
+	left: 100%;
+	top: 0;
+}
+
+.sub-header-menu > li:first-child > a {
+	border-left: none;
+}
+
+.sub-header-menu ul.children a,
+.sub-header-menu .current_page_ancestor,
+.sub-header-menu .current_page_ancestor ul a {
+	background: none;
+	background-image: none;
+	filter: none;
+}
+
+/* =Sub Header Menu IE Fixes
+-------------------------------------------------------------- */
+.ie7 .sub-header-menu ul {
+	background: url(../../core/images/ie7-fix.gif) repeat;
+}
+
+.ie7 .sub-header-menu li li a {
+	min-width: 100%;
+}

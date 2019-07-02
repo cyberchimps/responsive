@@ -1,0 +1,126 @@
+/***************************/
+   //Fullwith Layout styling
+/**************************/
+
+@include default;
+
+body.full-width-layout #content-outer,body.full-width-no-box #content-outer {
+	margin: 0 auto;
+	max-width: 960px;
+}
+body.full-width-no-box #wrapper {
+	margin-bottom: 0px;
+}
+body.full-width-no-box #wrapper {
+	margin-bottom: 0px;
+}
+body.full-width-layout div#container, body.full-width-layout div#footer, body.full-width-no-box div#container, body.full-width-no-box div#footer {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+ .full-width-no-box .skip-container {
+ 	padding: 0px;
+ }
+ .full-width-no-box #header {
+ 	background-color: #585858;
+ }
+ .full-width-no-box .top-menu {
+ 	margin: 0; padding-top: 4px;
+ }
+ .full-width-no-box .main-nav  {
+ 	background-color: #585858;
+ 	background-image: none;
+ }
+ .full-width-no-box .top-menu li a {
+ 	color: #edeaea;
+ }
+ .full-width-no-box .top-menu li a:hover {
+ 	color:#f2efef;
+ }
+ .full-width-layout #testimonial_div,
+ .full-width-layout #team_div,
+ .full-width-layout #about_div,
+ .full-width-layout #feature_div {
+ 	padding-bottom:0px;
+ }
+ .full-width-no-box .menu a:hover {
+ 	background-color: #585858;background-image: none;
+ 	color: #f4f2f2;
+ }
+ .full-width-no-box .menu li li a:hover {
+ 	color: #444444;
+ }
+ .full-width-no-box ul.menu > li:hover {
+ 	background-color: #585858;
+ 	color: #ffffff;
+ }
+ .full-width-no-box .menu .current_page_item a,
+ .full-width-no-box .menu .current-menu-item a {
+ 	background-color: #585858;
+ }
+ .full-width-no-box .menu {
+ 	background-color: #585858;
+ 	background-image: none;
+ }
+ .full-width-no-box #featured {
+ 	border: none;
+ }
+ .full-width-no-box #feature_div {
+ 	border: none;
+ }
+ .full-width-no-box #team_div {
+ 	border: none;
+ }
+ .full-width-no-box #testimonial_div  {
+ 	background-color:#585858;
+ 	border-radius: 0;
+ 	color: #fff;
+ }
+ .full-width-no-box #about_div .section_title::after {
+ 	border-bottom: solid 2px #fff;
+ }
+ .full-width-no-box #testimonial_div .section_title::after {
+ 	border-bottom: solid 2px #fff;
+ }
+ .full-width-no-box #about_div  {
+ 	background-color:#585858;
+ 	padding-bottom: 20px;
+ 	border-radius: 0;
+ 	color: #fff;
+ }
+ .full-width-layout #about_div {
+ 	border: none;
+ 	background-color: inherit;
+ }
+ .full-width-layout #testimonial_div {
+ 	border: none;
+ 	background-color:inherit;
+ }
+ .full-width-no-box #testimonial_div {
+ 	border: none;
+ }
+ .full-width-layout #about_div #content-outer {
+ 	border: 1px solid #e5e5e5;
+ 	-moz-border-radius: 4px;
+ 	background-color: #ffffff;
+ 	-webkit-border-radius: 4px;
+ 	display: table;
+ 	width: 100%;
+ 	border-radius:4px;
+ }
+ .full-width-layout #testimonial_div #content-outer {
+ 	border: 1px solid #e5e5e5;
+ 	-moz-border-radius: 4px;
+ 	background-color: #ffffff;
+ 	-webkit-border-radius: 4px;
+ 	border-radius:4px;
+ 	display:table;
+ 	width: 100%;
+ }
+ .full-width-layout .about-content {
+ 	padding-bottom: 40px;
+ }
+ .full-width-no-box .site-name a {
+ 	color: #ffffff;
+ }

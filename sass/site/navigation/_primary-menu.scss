@@ -1,0 +1,233 @@
+.astra-search-icon::before {
+	content: "\e8b6";
+	font-family: 'Astra';
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.ast-search-icon .astra-search-icon {
+	font-size: 1.3em;
+}
+
+.main-navigation {
+	display: inline-flex;
+	height: 100%;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		position: relative;
+	}
+}
+
+.main-header-menu {
+
+	a {
+		text-decoration: none;
+		padding: 0 1em;
+		display: inline-block;
+		@include ast-transition();
+	}
+
+	li {
+		position: relative;
+
+		&:hover > ul,
+		&.focus > ul {
+			right: auto;
+			left: 0;
+		}
+	}
+
+	.ast-left-align-sub-menu:hover > .sub-menu,
+	.ast-left-align-sub-menu.focus > .sub-menu {
+		right: 0;
+		left: auto;	
+	}
+
+	@media (min-width: $col-md) {
+		.ast-sub-menu-goes-outside:hover > .sub-menu,
+		.ast-sub-menu-goes-outside.focus > .sub-menu {
+		    left: -100%;
+		}
+
+		.ast-left-align-sub-menu {
+			.sub-menu {
+				.menu-item {
+					&:hover > .sub-menu,
+					&.focus > .sub-menu {
+						left: -100%;
+					}
+				}
+			}
+		}
+	}
+
+	.sub-menu {
+		width: 240px;
+		background: $color-background-header-submenu;
+		left: -999em;
+		position: absolute;
+		top: 100%;
+		z-index: 99999;
+
+		@media (min-width: $col-md) {
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+					right: auto;
+				}
+
+			}
+			
+			.ast-left-align-sub-menu:hover > .sub-menu,
+			.ast-left-align-sub-menu.focus > .sub-menu,
+			.ast-left-align-sub-menu:hover * .sub-menu,
+			.ast-left-align-sub-menu:focus * .sub-menu {
+				left: -100%;
+			}
+
+			.main-header-menu .ast-sub-menu-goes-outside:hover > .sub-menu,
+			.main-header-menu .ast-sub-menu-goes-outside.focus > .sub-menu {
+			    left: -100%;
+			}
+		}
+
+
+		a {
+			padding: 0.9em 1em;
+			display: block;
+			word-wrap: break-word;
+		}
+
+		li.page_item_has_children > a:after,
+		li.menu-item-has-children > a:after {
+			position: absolute;
+			right: 1em;
+			top: 50%;
+			transform: translate(0, -50%) rotate(270deg);
+		}
+
+	}
+
+}
+
+.main-header-menu {
+	ul {
+		ul{
+			top: 0px;
+		}
+	}
+}
+
+.submenu-with-border {
+	.sub-menu {
+		border-width: 1px;
+		border-style: solid;
+
+		a {
+			border-width: 0 0 1px;
+			border-style: solid;
+		}
+		.sub-menu{
+			top: -1px;
+		}
+	}
+}
+/* Remove the last anchor border for desktop devices */
+.ast-desktop{
+	.submenu-with-border{
+		.sub-menu {
+			> li:last-child{
+				> a{
+					border-bottom-width: 0;
+				}
+			}
+		}
+	}
+}
+
+.ast-header-break-point {
+	.main-navigation {
+		padding-left: 0;
+
+		ul {
+			li,
+			.button-custom-menu-item {
+				a {
+					padding: 0 20px;
+					display: inline-block;
+					width: 100%;
+					border-bottom-width: 1px;
+					border-style: solid;
+					border-color: #eaeaea;
+				}
+			}
+			&.children li a,
+			&.sub-menu li a {
+			    padding-left: 30px;
+			    &:before{
+			    	content: "\e900";
+				    font-family: 'Astra';
+				    font-size: .65em;
+				    text-decoration: inherit;
+				    display: inline-block;
+				    transform: translate(0, -2px) rotateZ(270deg);
+    				margin-right: 5px;
+			    }
+			}
+			&.children li li a,
+			&.sub-menu li li a {
+			    padding-left: 40px;
+			}
+			&.children li li li a,
+			&.sub-menu li li li a {
+			    padding-left: 50px;
+			}
+			&.children li li li li a,
+			&.sub-menu li li li li a {
+			    padding-left: 60px;
+			}
+		}
+	}
+	.ast-header-custom-item {
+		background-color: $color-background-nav-mobile;
+	}
+
+	.main-header-menu{
+		background-color: $color-background-nav-mobile;
+	}
+
+	.main-header-menu {
+		ul {
+			background-color: $color-background-nav-mobile;
+			position: static;
+			opacity: 1;
+			visibility: visible;
+			border: 0;
+			width: auto;
+		}
+		.sub-menu {
+			.ast-left-align-sub-menu:hover > .sub-menu,
+			.ast-left-align-sub-menu.focus > .sub-menu {
+				left: 0;
+			}
+		}
+		.ast-sub-menu-goes-outside:hover > .sub-menu,
+		.ast-sub-menu-goes-outside.focus > .sub-menu {
+		    left: 0;
+		}
+	}
+
+	.submenu-with-border {
+		.sub-menu {
+			border: 0;
+		}
+	}
+}

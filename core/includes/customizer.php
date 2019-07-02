@@ -11,7 +11,7 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function responsive_customize_register( $wp_customize ) {
-	//$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
 
@@ -19,10 +19,10 @@ function responsive_customize_register( $wp_customize ) {
 	// Theme Elements
 --------------------------------------------------------------*/
 
-	// $wp_customize->add_section( 'theme_elements', array(
-	// 	'title'                 => __( 'Theme Elements', 'responsive' ),
-	// 	'priority'              => 30
-	// ) );
+	$wp_customize->add_section( 'theme_elements', array(
+		'title'                 => __( 'Theme Elements', 'responsive' ),
+		'priority'              => 30
+	) );
 	$wp_customize->add_setting( 'responsive_theme_options[override_woo]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 	$wp_customize->add_control( 'res_override_woo', array(
 		'label'                 => __( 'Override WooCommerce Templates?', 'responsive' ),

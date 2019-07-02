@@ -1,0 +1,20 @@
+.sub-menu .menu-item-has-children::after {
+	position: absolute;
+    font-family: FontAwesome;
+    content: "\f105";
+    top: 6px;
+    right: 7px;
+    color: #585858;
+}
+.menu-item-has-children::after {
+    position: absolute;
+    font-family: FontAwesome;
+    content: "\f107";
+    top: 12px;
+    right: 0px;
+    color: #ffffff;
+    font-size: 15px;
+}
+.menu-item-has-children {
+	position: relative;
+}

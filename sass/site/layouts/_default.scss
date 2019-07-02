@@ -1,0 +1,54 @@
+/******************************/
+	//Default layout styling
+/*****************************/
+
+body.default-layout #content-outer {
+	margin: 0 auto;
+	max-width: 960px;
+}
+/* =Content
+-------------------------------------------------------------- */
+#content {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#content-full {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#content-blog {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#content-images {
+	margin-bottom: 20px;
+}
+
+#content-search {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#content-archive {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#content-sitemap {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+#content-sitemap a {
+	font-size: 12px;
+}
+
+#content .sticky {
+	clear: both;
+}
+
+#content .sticky p {
+}

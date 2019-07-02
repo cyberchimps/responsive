@@ -1,11 +1,22 @@
-header {
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	margin: 0;
-	padding: 0;
-	vertical-align: baseline;
-}
-.full-width-no-box #header {
-	background-color: #585858;
-}
+/**
+ * 	Header
+ *
+ * @import
+ * 1 - Header Layouts
+ * 3 - Header Layout Common
+ * 4 - Header Main
+ * 5 - Header Top Bar
+ * 7 - Header Toggle Buttons
+*/
+
+/* 1 - Header Layouts  */
+@import "header-layouts";
+
+/* 3 - Header Common  */
+@import "header-common";
+
+/* 4 - Header Main */
+@import "header-main";
+
+/* 7 - Header Toggle Buttons */
+@import "header-toggle-buttons.scss";

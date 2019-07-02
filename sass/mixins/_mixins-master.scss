@@ -1,0 +1,16 @@
+
+@mixin webkits($prop, $value) {
+   -webkit-#{$prop}: #{$value};
+   -moz-#{$prop}: #{$value};
+   -ms-#{$prop}: #{$value};
+   -o-#{$prop}: #{$value};
+   #{$prop}: #{$value};
+}
+@mixin background-image($a, $b, $c, $d, $e, $f) {
+	background-image: -webkit-gradient(#{$a}, #{$b}, #{$c}, from(#{$d}), to(#{$e}));
+	background-image: -webkit-linear-gradient(#{$f}, #{$d}, #{$e});
+	background-image: -moz-linear-gradient(#{$f}, #{$d}, #{$e});
+	background-image: -ms-linear-gradient(#{$f}, #{$d}, #{$e});
+	background-image: -o-linear-gradient(#{$f}, #{$d}, #{$e});
+	background-image: linear-gradient(to #{$f}, #{$d}, #{$e});
+}

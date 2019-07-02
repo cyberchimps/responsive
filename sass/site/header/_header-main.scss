@@ -1,0 +1,76 @@
+/**
+ *  Header Sections
+ *
+ *  All sections within the header.
+ *
+ * Contents
+ * 1 - Common
+ * 2 - Social Follow
+ * 3 - Site Logo
+ * 4 - Search Form
+ *
+ * # Responsive
+*/
+header {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	display: block;
+}
+.full-width-no-box #header {
+	background-color: #585858;
+}
+.default-layout .sticky-header .main-nav {
+	background-color:inherit;
+	background-image: none;
+}
+.sticky-header {
+	position: fixed;
+	top: 0;
+	left: 0px;
+	z-index: 200;
+	width: 100%;
+	background-color: #fff;
+	margin: 0 !important;
+	opacity:0.9;
+	@include webkits(transition, all 0.8s ease-in-out 0s );
+	// -webkit-transition: all 0.8s ease-in-out 0s;
+	// -moz-transition: all 0.8s ease-in-out 0s;
+	// -o-transition: all 0.8s ease-in-out 0s;
+	// transition: all 0.8s ease-in-out 0s;
+}
+.admin-bar .sticky-header{
+	top:30px;
+}
+.admin-bar .sticky-header{
+	top:30px;
+}
+#header {
+	margin: 0;
+}
+#logo {
+	float: left;
+	margin: 0;
+}
+
+.site-name {
+	display: block;
+	font-size: 2.063em; /* = 33px */
+	line-height: 1.0em;
+	padding-top: 20px;
+}
+
+.site-name a {
+	color: #333333;
+	font-weight: 700;
+}
+
+.site-description {
+	color: #afafaf;
+	display: block;
+	font-size: 0.875em; /* = 14px */
+	margin: 10px 0;
+}

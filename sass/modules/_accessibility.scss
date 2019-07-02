@@ -1,0 +1,10 @@
+/* =Accessibility
+-------------------------------------------------------------- */
+.screen-reader-text{
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+.screen-reader-text:focus
+{
+	clip:auto;
+}

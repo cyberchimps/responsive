@@ -1,0 +1,150 @@
+/**
+ * 	Navigations
+ *
+ * @import
+ * 1 - Primary Menus
+ * 2 - Secondary Menus
+ * 3 - Header Top Menus
+ * 
+ * Contents
+ * 1 - Toggle Button
+ * 
+*/
+
+/**
+ * @import
+ */
+
+/* 1 - Primary Menus */
+@import "primary-menu";
+
+/**
+ * Contents
+ */
+
+.ast-mobile-menu-buttons {
+	display: none;
+}
+
+/* Toggle Button */
+.ast-button-wrap {
+    display: inline-block;
+    
+    button {
+		box-shadow: none;
+		border: none;
+	}
+
+	.menu-toggle {
+		padding: 0;
+		width: 2.2em;
+		height: 2.1em;
+		font-size: 1.5em;
+		font-weight: normal;
+		border-radius: 2px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	    border-radius: 2px;
+	    vertical-align: middle;
+	    line-height: 1.85714285714286;
+	    
+	    &.main-header-menu-toggle{
+		    padding: 0 .5em;
+		    width: auto;
+		    text-align: center;
+	    	.mobile-menu{
+	    		font-size: 15px;
+	    		font-size: 1rem;
+	    		font-weight: 600;
+	    	}
+	    }
+	    .menu-toggle-icon {
+			font-style: normal;
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 2.05;
+    
+	    	&:before {
+		    	content: "\e5d2";
+				font-family: 'Astra';
+				text-decoration: inherit;
+			}
+		}
+		&.toggled{
+			.menu-toggle-icon {
+		    	&:before {
+			    	content: "\e5cd";
+				}
+			}
+		}
+		.mobile-menu-wrap{
+			display: inline-block;
+		}
+	}
+}
+
+.main-header-bar-navigation {
+	flex: 1;
+}
+
+.header-main-layout-1 {
+	.ast-main-header-bar-alignment {
+		margin-left: auto;
+	}
+}
+
+.header-main-layout-3 {
+	.ast-main-header-bar-alignment {
+		margin-right: auto;
+	}
+}
+
+#site-navigation {
+	height: 100%;
+}
+
+/* Responsive Screen */
+.ast-header-break-point {
+
+	.user-select {
+		clear: both;
+	}
+
+	.ast-mobile-menu-buttons {
+		display: block;
+		align-self: center;
+	}
+
+	.main-header-bar-navigation {
+		flex: auto;
+	}
+	.ast-main-header-bar-alignment {
+		display: block;
+	    width: 100%;
+	    flex: auto;
+	    order: 4;
+	}
+}
+
+/**
+ * Post/Page Navigation
+ */
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous,
+	.nav-next {
+		width: 50%;
+		display: inline-block;
+	}
+	
+	.nav-next {
+		text-align: right;
+	}
+}

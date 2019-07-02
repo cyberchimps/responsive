@@ -1,3 +1,5 @@
+@import "social";
+
 #footer {
 	clear: both;
 	margin: 0 auto;
@@ -111,4 +113,30 @@
 }
 .full-width-no-box #footer .social-icons li a{
 	color:#fff;
+}
+/* =Footer Menu
+-------------------------------------------------------------- */
+.footer-menu {
+	margin-left: 0;
+	padding: 0;
+}
+
+.footer-menu li {
+	display: inline;
+	list-style-type: none;
+}
+
+.footer-menu li a {
+	border-left: 1px solid #cccccc;
+	color: #333333;
+	padding: 0 8px;
+}
+
+.footer-menu li a:hover {
+	color: #222222;
+}
+
+.footer-menu > li:first-child > a {
+	border-left: none;
+	padding: 0 8px 0 0;
 }

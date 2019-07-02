@@ -1,0 +1,95 @@
+/* =Buttons
+-------------------------------------------------------------- */
+a.button,
+input[type='reset'],
+input[type='button'],
+input[type='submit'] {
+	-moz-border-radius: 2px;
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-border-radius: 2px;
+	background-color: $color-background-button; /* Alabaster */
+	background-image(linear,)
+	@include background-image( linear, left top, left bottom, $color-background-button, #f1f1f1, top );
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	border: 1px solid #dddddd;
+	border-radius: 2px;
+	color: #333333;
+	cursor: pointer;
+	display: inline-block;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#f1f1f1)";
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	margin: 0;
+	padding: 4px 10px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #ffffff;
+	vertical-align: middle;
+
+	&:hover,
+	&:focus {
+		color: #fff;
+		border-color: $color-border-button-hover;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color-border-button-focus;
+		outline:none;
+	}
+}
+a.button,
+input[type='reset'],
+input[type='button'],
+input[type='submit'] {
+	-moz-border-radius: 2px;
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-border-radius: 2px;
+	background-color: $color-background-button; /* Alabaster */
+	background-image(linear,)
+	@include background-image( linear, left top, left bottom, $color-background-button, #f1f1f1, top );
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	border: 1px solid #dddddd;
+	border-radius: 2px;
+	color: #333333;
+	cursor: pointer;
+	display: inline-block;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#f1f1f1)";
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	margin: 0;
+	padding: 4px 10px;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #ffffff;
+	vertical-align: middle;
+}
+
+a.button:hover,
+input[type='reset']:hover,
+input[type='button']:hover,
+input[type='submit']:hover {
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	background-color: #ffffff;
+	@include background-image( linear, left top, left bottom, #ffffff, #f1f1f1, top );
+	border: 1px solid #dddddd;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+	color: #333333;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#f1f1f1)";
+}
+
+a.button:active,
+input[type='reset']:active,
+input[type='button']:active,
+input[type='submit']:active {
+	-moz-box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	background-color: $color-background-button;
+	@include background-image( linear, left top, left bottom, $color-background-button, #f1f1f1, top );
+
+	box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.1);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#f9f9f9, endColorstr=#f1f1f1)";
+}

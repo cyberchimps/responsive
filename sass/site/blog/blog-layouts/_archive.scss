@@ -1,0 +1,81 @@
+/* ============================================================
+  Archive Blogs
+============================================================ */
+.ast-author-box{
+	img.avatar {
+	    border-radius: 50%;
+	    margin: 0 0 0 20px;
+	}
+}
+
+.ast-archive-description{
+	margin-bottom: 2.5em;
+	padding-bottom: 1.3333em;
+	border-bottom: 1px solid $color-border-content;
+	.ast-archive-title{
+    	margin-bottom: 4px;
+    	font-size: 40px;
+    	font-size: 2.85714rem;
+    	font-weight: 300;
+	}
+	p{
+		margin-bottom:0;
+		font-size: 20px;
+    	font-size: 1.42857rem;
+		line-height: 1.65;
+		font-weight: 300;
+	}
+}
+@media (min-width: $col-md) {
+	.ast-author-box{
+		display: flex;
+	}
+	.ast-author-bio{
+		flex:1;
+	}
+}
+
+@media (max-width: $mx-col-md) {
+	.ast-author-box{
+		img.avatar {
+		    margin: 20px 0 0 0;
+		}
+	}
+}
+
+.ast-separate-container {
+	.ast-author-box,
+	.ast-archive-description{
+		background-color: $color-background-page-header;
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+}
+.ast-separate-container{
+	@media (max-width: $mx-col-xl) {
+		.ast-archive-description{
+		    margin: 0;
+		    padding: 3.34em 2.4em;
+		}
+	}
+	@media (max-width: $mx-col-lg) {
+		.ast-archive-description{
+		    padding: 2.14em;
+		}
+	}
+	@media (max-width: $mx-col-sm) {
+		.ast-archive-description{
+		    padding: 1.5em 1em;
+		}
+	}
+}
+
+@media (min-width: $col-xl) {
+	.ast-separate-container{
+		.ast-author-box,
+		.ast-archive-description{
+		    margin: 0;
+		    padding: 5em 6.67em 3.33333em;
+		}
+	}
+}

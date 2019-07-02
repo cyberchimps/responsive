@@ -1,0 +1,30 @@
+select,
+input {
+    line-height: 1;
+}
+
+body,
+button,
+input[type="button"],
+input[type="submit"],
+textarea { 
+    line-height: 1.85714285714286;
+}
+
+.site-title a {
+	line-height: $line-height-h1;
+}
+
+.site-header .site-description {
+    line-height: 1.5;
+}
+
+.ast-single-post .entry-title,
+.ast-single-post .entry-title a {
+    line-height: 1.2;
+}
+
+.entry-title,
+.entry-title a {
+	font-weight: normal;
+}

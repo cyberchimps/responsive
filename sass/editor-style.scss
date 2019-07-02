@@ -1,0 +1,149 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+    ## Posts and pages
+	## Asides
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+# Bootstrap Grid
+--------------------------------------------------------------*/
+@import "grid/bootstrap.scss";
+
+/*--------------------------------------------------------------
+# Site Variables
+--------------------------------------------------------------*/
+@import "variables-site/variables-site";
+
+/*--------------------------------------------------------------
+# Mixins
+--------------------------------------------------------------*/
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "elements/elements";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+@import "forms/forms";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@import "modules/modules";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/media";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "site/mixins/mixins-master";
+@import "site/variables-site/colors";
+@import "site/variables-site/structure";
+@import "site/variables-site/typography";
+@import "site/site-normalize/site-normalize";
+@import "site/site-normalize/typography";
+@import "site/media/galleries";
+
+
+body {
+	margin: 20px;
+	vertical-align: baseline;
+	color: $color-text-main;
+}
+
+a {
+	color: $color-link;
+}
+
+a:hover,
+a:focus {
+	color: $color-text-main;
+}
+
+h1,
+.entry-content h1,
+h2,
+.entry-content h2,
+h3,
+.entry-content h3,
+h4,
+.entry-content h4,
+h5,
+.entry-content h5,
+h6,
+.entry-content h6 {
+	font-weight: bold;
+	line-height: 1.6;
+}
+
+p {
+ margin-bottom: 1em;
+}
+
+h1,
+.entry-content h1,
+h2,
+.entry-content h2,
+h3,
+.entry-content h3,
+h4,
+.entry-content h4,
+h5,
+.entry-content h5,
+h6,
+.entry-content h6 {
+	color: $color-text-main;
+}
+
+/**
+ * Table
+ */
+.mce-item-table,
+.mce-item-table td,
+.mce-item-table th,
+.mce-item-table caption {
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.0980392);
+}
+.mce-item-table td,
+.mce-item-table th {
+    border-width: 0 1px 1px 0;
+}
+.mce-item-table {
+    border-right-width: 0;
+    border-bottom-width: 0;
+}
