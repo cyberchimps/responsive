@@ -38,11 +38,11 @@ get_header(); ?>
 
 				<div class="post-entry">
 					<?php
-					include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); 
+					include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 					if( is_plugin_active('responsivepro-plugin/index.php')){
 					responsivepro_plugin_featured_image();
 					}
-					the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+					//the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 
 					<?php if ( get_the_author_meta( 'description' ) != '' ) : ?>
 

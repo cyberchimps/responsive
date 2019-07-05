@@ -266,17 +266,7 @@ if ( ! class_exists( 'Responsive_theme_options_Customizer' ) ) :
 					'settings'              => 'responsive_theme_options[blog_post_title_text]',
 					'type'                  => 'text'
 				) );
-				$wp_customize->add_setting( 'responsive_theme_options[site_footer_option]', array( 'sanitize_callback' => 'responsive_validate_site_footer_layout', 'type' => 'option' ) );
-				$wp_customize->add_control( 'site_footer_option', array(
-						'label'                 => __( 'Choose Footer Widgets Layout', 'responsive' ),
-						'section'               => 'theme_elements',
-						'settings'              => 'responsive_theme_options[site_footer_option]',
-						'type'                  => 'select',
-						'choices'               => array(
-								'footer-3-col'  => __('Default (3 column)','responsive'),
-								'footer-2-col' => __('2 Column Layout','responsive'),
-						)
-				));
+
 				/*--------------------------------------------------------------
 					// Scripts
 				--------------------------------------------------------------*/
@@ -284,7 +274,7 @@ if ( ! class_exists( 'Responsive_theme_options_Customizer' ) ) :
 				$wp_customize->add_section( 'scripts', array(
 					'title'                 => __( 'Scripts', 'responsive' ),
 					'panel'             => 'responsive-theme-options',
-					'priority'              => 30
+					'priority'              => 300
 				) );
 				$wp_customize->add_setting( 'responsive_theme_options[responsive_inline_js_head]',array( 'sanitize_callback' => 'wp_kses_stripslashes', 'type' => 'option' ) );
 				$wp_customize->add_control( 'res_responsive_inline_js_head', array(
