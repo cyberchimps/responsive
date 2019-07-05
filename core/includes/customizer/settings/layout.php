@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 				array(
 			 		'title' => __( 'Layout' ),
 			 		'description' => 'Layout Options', // Include html tags such as <p>.
-			 		'priority' => 200, // Mixed with top-level-section hierarchy.
+			 		'priority' => 21, // Mixed with top-level-section hierarchy.
 				)
 			);
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_layout_section',
 				array(
-					'title'    => esc_html__( 'Layout', 'responsive' ),
+					'title'    => esc_html__( 'Container', 'responsive' ),
 					'panel'    => 'responsive-layout-options',
 					'priority' => 200,
 				)
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 					$wp_customize,
 					'responsive_layout_styles',
 					array(
-						'label'    => __( 'Container', 'responsive' ),
+						'label'    => __( 'Layout', 'responsive' ),
 						'settings' => 'responsive_layout_styles',
 						'priority' => 10,
 						'section'  => 'responsive_layout_section',
@@ -113,32 +113,6 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 					)
 				)
 			);
-			// $wp_customize->add_setting(
-			// 	'responsive_single_post_sidebar_position',
-			// 	array(
-			// 		'transport' => 'postMessage',
-			// 		'default'   => 'no-sidebar',
-			// 	)
-			// );
-			// $wp_customize->add_control(
-			// 	new WP_Customize_Control(
-			// 		$wp_customize,
-			// 		'responsive_single_post_sidebar_position',
-			// 		array(
-			// 			'label'    => __( 'Sidebar Position', 'responsive' ),
-			// 			'settings' => 'responsive_single_post_sidebar_position',
-			// 			'priority' => 10,
-			// 			'section'  => 'responsive_single_post_section',
-			// 			'type'     => 'select',
-			// 			'choices'  => array(
-			// 				'no-sidebar'         => 'No Sidebar',
-			// 				'left-sidebar'       => 'Left Sidebar',
-			// 				'right-sidebar'      => 'Right Sidebar',
-			// 				'left-right-sidebar' => 'Left & Right Sidebar',
-			// 			),
-			// 		)
-			// 	)
-			// );
 			$wp_customize->add_setting( 'responsive_theme_options[single_post_layout_default]',
 				array(
 					'sanitize_callback' => 'responsive_sanitize_default_layouts',
@@ -211,7 +185,245 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 					)
 				)
 			);
+			/**
+			 * Section
+			 */
+			$wp_customize->add_section(
+				'responsive_blog_entries_section',
+				array(
+					'title'    => esc_html__( 'Blog Entries', 'responsive' ),
+					'panel'    => 'responsive-layout-options',
+					'priority' => 207,
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_blog_entries_layout',
+				array(
+					'transport' => 'postMessage',
+					'default'   => 'minimal',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'responsive_blog_entries_layout',
+					array(
+						'label'    => __( 'Layout', 'responsive' ),
+						'settings' => 'responsive_blog_entries_layout',
+						'priority' => 10,
+						'section'  => 'responsive_blog_entries_section',
+						'type'     => 'select',
+						'choices'  => array(
+							'minimal'       => 'Minimal',
+							'boxed'         => 'Boxed',
+							'content-boxed' => 'Content Boxed',
+						),
+					)
+				)
+			);
+			// $wp_customize->add_setting(
+			// 	'responsive_blog_entires_sidebar_position',
+			// 	array(
+			// 		'transport' => 'postMessage',
+			// 		'default'   => 'no-sidebar',
+			// 	)
+			// );
+			// $wp_customize->add_control(
+			// 	new WP_Customize_Control(
+			// 		$wp_customize,
+			// 		'responsive_blog_entires_sidebar_position',
+			// 		array(
+			// 			'label'    => __( 'Sidebar Position', 'responsive' ),
+			// 			'settings' => 'responsive_blog_entires_sidebar_position',
+			// 			'priority' => 10,
+			// 			'section'  => 'responsive_blog_entries_section',
+			// 			'type'     => 'select',
+			// 			'choices'  => array(
+			// 				'no-sidebar'         => 'No Sidebar',
+			// 				'left-sidebar'       => 'Left Sidebar',
+			// 				'right-sidebar'      => 'Right Sidebar',
+			// 				'left-right-sidebar' => 'Left & Right Sidebar',
+			// 			),
+			// 		)
+			// 	)
+			// );
+			$wp_customize->add_setting(
+				'responsive_theme_options[blog_posts_index_layout_default]',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_blog_default_layouts',
+					'type' => 'option'
+				)
+			);
+			$wp_customize->add_control(
+				'res_hblog_posts_index_layout_default',
+				array(
+					'label'                 => __( 'Default Blog Posts Index Layout', 'responsive' ),
+					'section'               => 'responsive_blog_entries_section',
+					'settings'              => 'responsive_theme_options[blog_posts_index_layout_default]',
+					'type'                  => 'select',
+					'choices'               => Responsive_Options::blog_valid_layouts()
+				)
+			);
+			/**
+			 * Blog Entries Elements Positioning
+			 */
+			$wp_customize->add_setting(
+				'responsive_blog_entry_elements_positioning',
+				array(
+					'default'           => array( 'featured_image', 'title', 'meta', 'content' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+				)
+			);
 
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_blog_entry_elements_positioning',
+					array(
+						'label'           => esc_html__( 'Post Elements', 'responsive' ),
+						'section'         => 'responsive_blog_entries_section',
+						'settings'        => 'responsive_blog_entry_elements_positioning',
+						'priority'        => 10,
+						'choices'         => responsive_blog_entry_elements(),
+						'active_callback' => 'responsive_cac_hasnt_thumbnail_blog_style',
+					)
+				)
+			);
+
+			/**
+			 * Blog Entries Meta
+			 */
+			$wp_customize->add_setting(
+				'responsive_blog_entry_meta',
+				array(
+					'default'           => apply_filters( 'responsive_blog_meta_default', array( 'author', 'date', 'categories', 'comments' ) ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_blog_entry_meta',
+					array(
+						'label'           => esc_html__( 'Post Meta', 'responsive' ),
+						'section'         => 'responsive_blog_entries_section',
+						'settings'        => 'responsive_blog_entry_meta',
+						'priority'        => 10,
+						'choices'         => apply_filters(
+							'responsive_blog_meta_choices',
+							array(
+								'author'     => esc_html__( 'Author', 'responsive' ),
+								'date'       => esc_html__( 'Date', 'responsive' ),
+								'categories' => esc_html__( 'Categories', 'responsive' ),
+								'comments'   => esc_html__( 'Comments', 'responsive' ),
+							)
+						),
+						'active_callback' => 'responsive_cac_hasnt_thumbnail_blog_style',
+					)
+				)
+			);
+
+			$wp_customize->add_section(
+				'responsive_page_section',
+				array(
+					'title'    => esc_html__( 'Page', 'responsive' ),
+					'panel'    => 'responsive-layout-options',
+					'priority' => 209,
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_page_layout',
+				array(
+					'transport' => 'postMessage',
+					'default'   => 'minimal',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'responsive_page_layout',
+					array(
+						'label'    => __( 'Layout', 'responsive' ),
+						'settings' => 'responsive_page_layout',
+						'priority' => 10,
+						'section'  => 'responsive_page_section',
+						'type'     => 'select',
+						'choices'  => array(
+							'minimal'       => 'Minimal',
+							'boxed'         => 'Boxed',
+							'content-boxed' => 'Content Boxed',
+						),
+					)
+				)
+			);
+			// $wp_customize->add_setting(
+			// 	'responsive_sidebar_position',
+			// 	array(
+			// 		'transport' => 'postMessage',
+			// 		'default'   => 'no-sidebar',
+			// 	)
+			// );
+			// $wp_customize->add_control(
+			// 	new WP_Customize_Control(
+			// 		$wp_customize,
+			// 		'responsive_sidebar_position',
+			// 		array(
+			// 			'label'    => __( 'Sidebar Position', 'responsive' ),
+			// 			'settings' => 'responsive_sidebar_position',
+			// 			'priority' => 10,
+			// 			'section'  => 'responsive_page_section',
+			// 			'type'     => 'select',
+			// 			'choices'  => array(
+			// 				'no-sidebar'         => 'No Sidebar',
+			// 				'left-sidebar'       => 'Left Sidebar',
+			// 				'right-sidebar'      => 'Right Sidebar',
+			// 				'left-right-sidebar' => 'Left & Right Sidebar',
+			// 			),
+			// 		)
+			// 	)
+			// );
+			$wp_customize->add_setting(
+				'responsive_theme_options[static_page_layout_default]',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_default_layouts',
+					'type'              => 'option'
+				)
+			);
+			$wp_customize->add_control(
+				'res_static_page_layout_default',
+				array(
+					'label'    => __( 'Sidebar Position', 'responsive' ),
+					'section'  => 'responsive_page_section',
+					'settings' => 'responsive_theme_options[static_page_layout_default]',
+					'type'     => 'select',
+					'choices'  => Responsive_Options::valid_layouts()
+				)
+			);
+			/**
+			 * Blog Single Elements Positioning
+			 */
+			$wp_customize->add_setting(
+				'responsive_page_single_elements_positioning',
+				array(
+					'default'           => array( 'title', 'featured_image', 'content' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_page_single_elements_positioning',
+					array(
+						'label'    => esc_html__( 'Post Elements', 'responsive' ),
+						'section'  => 'responsive_page_section',
+						'settings' => 'responsive_page_single_elements_positioning',
+						'priority' => 10,
+						'choices'  => responsive_blog_single_elements(),
+					)
+				)
+			);
 		}
 
 

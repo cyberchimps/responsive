@@ -37,7 +37,7 @@ if ( ! class_exists( 'Responsive_theme_options_Customizer' ) ) :
 			$wp_customize->add_panel( 'responsive-theme-options', array(
 			  'title' => __( 'Theme Options' ),
 			  'description' => 'All Misc Options', // Include html tags such as <p>.
-			  'priority' => 300, // Mixed with top-level-section hierarchy.
+			  'priority' => 199, // Mixed with top-level-section hierarchy.
 			) );
 
 			/*--------------------------------------------------------------
