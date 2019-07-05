@@ -238,6 +238,7 @@ function register_options() {
 		'layout',
 		'home-page',
 		'links',
+		'footer',
 	);
 
 	foreach ( $files as $key ) {
@@ -300,3 +301,13 @@ function custom_controls( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'custom_controls' );
+
+/**
+ * Adds customizer helpers
+ *
+ */
+function controls_helpers() {
+	//require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/customizer-helpers.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/sanitization-callbacks.php';
+}
+add_action( 'customize_register', 'controls_helpers' );

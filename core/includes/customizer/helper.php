@@ -169,3 +169,28 @@
 
  	}
  }
+ /**
+  * Default color picker palettes
+  *
+  * @since 1.4.9
+  */
+ if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
+
+ 	function responsive_default_color_palettes() {
+		error_log('responsive_default_color_palettes');
+ 		$palettes = array(
+ 			'#000000',
+ 			'#ffffff',
+ 			'#dd3333',
+ 			'#dd9933',
+ 			'#eeee22',
+ 			'#81d742',
+ 			'#1e73be',
+ 			'#8224e3',
+ 		);
+
+ 		// Apply filters and return
+ 		return apply_filters( 'responsive_default_color_palettes', $palettes );
+
+ 	}
+ }

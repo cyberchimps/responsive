@@ -74,22 +74,7 @@ if ( ! class_exists( 'Responsive_home_page_Customizer' ) ) :
 					'type'                  => 'checkbox',
 					'description'           => __( 'Overrides the WordPress front page option', 'responsive' )
 				) );
-				$wp_customize->add_setting( 'responsive_theme_options[enable_slider]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
-				$wp_customize->add_control( 'enable_slider', array(
-						'label'                 => __( 'Enable Slider on Home Page', 'responsive' ),
-						'section'               => 'static_front_page',
-						'settings'              => 'responsive_theme_options[enable_slider]',
-						'type'                  => 'checkbox',
-				) );
-				$wp_customize->add_setting( 'responsive_theme_options[home_slider]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
-				//$wp_customize->add_setting( 'responsive_theme_options[contact_content]', array( 'sanitize_callback' => 'sanitize_text_field','transport' => 'postMessage', 'type' => 'option' ) );
-				$wp_customize->add_control( 'home_slider', array(
-						'label'                 => __( 'Slidedeck shortcode', 'responsive' ),
-						'section'               => 'static_front_page',
-						'settings'              => 'responsive_theme_options[home_slider]',
-						'description'           => __( 'Create slider using Slidedeck', 'responsive' ),
-						'type'                  => 'text',
-				) );
+				
 				$wp_customize->add_setting( 'responsive_theme_options[home_headline]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'HAPPINESS', 'responsive' ), 'type' => 'option' ));
 				$wp_customize->add_control( 'res_home_headline', array(
 					'label'                 => __( 'Headline', 'responsive' ),

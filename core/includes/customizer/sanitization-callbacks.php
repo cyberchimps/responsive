@@ -9,15 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Checkbox sanitization callback
- *
- * @since 1.2.1
- */
-function responsive_sanitize_checkbox( $checked ) {
-	// Boolean check.
-	return ( ( isset( $checked ) && true == $checked ) ? true : false );
-}
 
 /**
  * Multicheck sanitization callback

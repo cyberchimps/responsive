@@ -285,7 +285,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 						'settings'        => 'responsive_blog_entry_elements_positioning',
 						'priority'        => 10,
 						'choices'         => responsive_blog_entry_elements(),
-						'active_callback' => 'responsive_cac_hasnt_thumbnail_blog_style',
+						//'active_callback' => 'responsive_cac_hasnt_thumbnail_blog_style',
 					)
 				)
 			);
@@ -319,7 +319,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 								'comments'   => esc_html__( 'Comments', 'responsive' ),
 							)
 						),
-						'active_callback' => 'responsive_cac_hasnt_thumbnail_blog_style',
+						//'active_callback' => 'responsive_cac_hasnt_thumbnail_blog_style',
 					)
 				)
 			);
