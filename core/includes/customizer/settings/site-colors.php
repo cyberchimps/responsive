@@ -58,20 +58,6 @@ if ( ! class_exists( 'Responsive_site_colors_Customizer' ) ) :
 							'color' => '#333333',
 						),
 					),
-					'link-color'         => array(
-						'label'    => esc_html__( 'Link Color', 'responsive' ),
-						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
-						'defaults' => array(
-							'color' => '#078ce1',
-						),
-					),
-					'link-hover-color'   => array(
-						'label'    => esc_html__( 'Link Hover Color', 'responsive' ),
-						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
-						'defaults' => array(
-							'color' => '#10659c',
-						),
-					),
 				)
 			);
 
@@ -93,16 +79,16 @@ if ( ! class_exists( 'Responsive_site_colors_Customizer' ) ) :
 			if ( empty( $elements ) ) {
 				return;
 			}
-			/**
-			 * Section
-			 */
-			$wp_customize->add_section(
-				'responsive_site_colors_section',
-				array(
-					'title'    => esc_html__( 'Site Colors', 'responsive' ),
-					'priority' => 201,
-				)
-			);
+			// /**
+			//  * Section
+			//  */
+			// $wp_customize->add_section(
+			// 	'responsive_site_colors_section',
+			// 	array(
+			// 		'title'    => esc_html__( 'Site Colors', 'responsive' ),
+			// 		'priority' => 201,
+			// 	)
+			// );
 
 			// Lopp through elements.
 			$count = '1';
@@ -150,7 +136,7 @@ if ( ! class_exists( 'Responsive_site_colors_Customizer' ) ) :
 							$element,
 							array(
 								'label'           => $label,
-								'section'         => 'responsive_site_colors_section',
+								'section'         => 'colors',
 								'settings'        => $element,
 								'priority'        => 10,
 								'active_callback' => $active_callback,

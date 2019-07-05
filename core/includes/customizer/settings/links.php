@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_button_Customizer' ) ) :
+if ( ! class_exists( 'Responsive_links_Customizer' ) ) :
 
-	class Responsive_button_Customizer {
+	class Responsive_links_Customizer {
 
 		/**
 		 * Setup class.
@@ -33,54 +33,20 @@ if ( ! class_exists( 'Responsive_button_Customizer' ) ) :
 
 			// Return settings.
 			return apply_filters(
-				'responsive_button_settings',
+				'responsive_links_settings',
 				array(
-					'button-color'         => array(
-						'label'    => esc_html__( 'Button Color', 'responsive' ),
+					'link-color'   => array(
+						'label'    => esc_html__( 'Link Color', 'responsive' ),
+						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'defaults' => array(
-							'color' => '#333333',
+							'color' => '#078ce1',
 						),
 					),
-					'button-hover-color' => array(
-						'label'    => esc_html__( 'Button hover Color', 'responsive' ),
-						'defaults' => array(
-							'color' => '#333333',
-						),
-					),
-					'button-text-color'         => array(
-						'label'    => esc_html__( 'Button Text Color', 'responsive' ),
-						'defaults' => array(
-							'color' => '#ffffff',
-						),
-					),
-					'label-color'   => array(
-						'label'    => esc_html__( 'Label Color', 'responsive' ),
+					'link-hover-color'   => array(
+						'label'    => esc_html__( 'Link Hover Color', 'responsive' ),
+						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'defaults' => array(
 							'color' => '#10659c',
-						),
-					),
-					'input-background-color'   => array(
-						'label'    => esc_html__( 'Input Background Color', 'responsive' ),
-						'defaults' => array(
-							'color' => '#ffffff',
-						),
-					),
-					'input-border-color'   => array(
-						'label'    => esc_html__( 'Input Border Color', 'responsive' ),
-						'defaults' => array(
-							'color' => '#eaeaea',
-						),
-					),
-					'input-border-color-focus'   => array(
-						'label'    => esc_html__( 'Input Border Color Focus', 'responsive' ),
-						'defaults' => array(
-							'color' => '#eaeaea',
-						),
-					),
-					'input-text-color'   => array(
-						'label'    => esc_html__( 'Input Text Color', 'responsive' ),
-						'defaults' => array(
-							'color' => '#333333',
 						),
 					),
 				)
@@ -106,11 +72,11 @@ if ( ! class_exists( 'Responsive_button_Customizer' ) ) :
 			 * Section
 			 */
 			$wp_customize->add_section(
-				'responsive_button_section',
+				'responsive_links_section',
 				array(
-					'title'    => esc_html__( 'Buttons', 'responsive' ),
-					'panel'             => 'responsive-theme-options',
-					'priority' => 202,
+					'title'    => esc_html__( 'Links', 'responsive' ),
+					'panel'    => 'responsive_typography_panel',
+					'priority' => 203,
 				)
 			);
 
@@ -147,7 +113,7 @@ if ( ! class_exists( 'Responsive_button_Customizer' ) ) :
 							$element,
 							array(
 								'label'           => $label,
-								'section'         => 'responsive_button_section',
+								'section'         => 'responsive_links_section',
 								'settings'        => $element,
 								'priority'        => 10,
 								'active_callback' => $active_callback,
@@ -162,4 +128,4 @@ if ( ! class_exists( 'Responsive_button_Customizer' ) ) :
 
 endif;
 
-return new Responsive_button_Customizer();
+return new Responsive_links_Customizer();
