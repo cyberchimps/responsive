@@ -17,8 +17,8 @@ function responsive_upgrade_bar() {
 						    ' <a href="https://cyberchimps.com/10-free-responsive-wordpress-themes/?utm_source=orgwpresponsive" target="_blank" title="CyberChimps Free Themes">Get More</a> '
 			); ?>
 		</p>
-        <!-- <p class="responsivepro-offer">Get 30% off on Responsive Pro using Coupon Code RESPONSIVE30</p> -->		
-	
+        <!-- <p class="responsivepro-offer">Get 30% off on Responsive Pro using Coupon Code RESPONSIVE30</p> -->
+
 	<!--</div>-->
 	<div class="updated">
 		<p><?php _e('Looking for More Features?','responsive');?></p>
@@ -42,18 +42,18 @@ function responsive_theme_support() {
 				<?php _e( 'Instructions', 'responsive' ); ?></a>
 
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Help', 'responsive' ); ?></a>			
+				<?php _e( 'Help', 'responsive' ); ?></a>
 
-				
+
 			<a class="button button-primary" href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post/' ); ?>" title="<?php esc_attr_e( 'Leave a star rating', 'responsive' ); ?>" target="_blank">
 				<?php _e( 'Leave a star rating', 'responsive' ); ?></a>
-			
+
 			<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/contact/' ); ?>" title="<?php esc_attr_e( 'Need Customization', 'responsive' ); ?>" target="_blank">
 				<?php _e( 'Need Customization?', 'responsive' ); ?></a>
-							
+
 			<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/checkout/?add-to-cart=277804' ); ?>" title="<?php esc_attr_e( 'Theme Demo Data', 'responsive' ); ?>" target="_blank">
 				<?php _e( 'Theme Demo Data', 'responsive' ); ?></a>
-<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/store/responsivepro#whygopro' ); ?>" title="<?php esc_attr_e('Why Go Pro?', 'responsive' ); ?>" target="_blank">	
+<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/store/responsivepro#whygopro' ); ?>" title="<?php esc_attr_e('Why Go Pro?', 'responsive' ); ?>" target="_blank">
 				<?php _e( 'Why Go Pro?', 'responsive' ); ?></a>
 		</div>
 	</div>
@@ -100,19 +100,19 @@ function responsive_install_plugins() {
 			'slug'     => 'wpforms-lite', // The plugin slug (typically the folder name)
 			'required' => false
 		)
-			
+
 	);
 
 	$activeplugin = 0;
 
-	if ( !is_plugin_active( 'ifeature-slider/ifeatureslider.php' ) ) 
-		$activeplugin += 1; 
+	if ( !is_plugin_active( 'ifeature-slider/ifeatureslider.php' ) )
+		$activeplugin += 1;
 	if ( !is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) )
 		$activeplugin += 1;
 	if ( !is_plugin_active( 'slidedeck/slidedeck.php' ) )
-		$activeplugin += 1;	
+		$activeplugin += 1;
 	if ( !is_plugin_active( 'wpforms-lite/wpforms.php' ) )
-		$activeplugin += 1;	
+		$activeplugin += 1;
 	if ( !is_plugin_active( 'elementor/elementor.php' ) )
 		$activeplugin += 1;
 
@@ -129,12 +129,12 @@ function responsive_install_plugins() {
 	 */
 
 	$count = '<span class="addon-count">'.$activeplugin.'</span>';
-	
+
 	$config = array(
 		'domain'           => $theme_text_domain, // Text domain - likely want to be the same as your theme.
 		'default_path'     => '', // Default absolute path to pre-packaged plugins
-		'parent_menu_slug' => 'themes.php', // Default parent menu slug
-		'parent_url_slug'  => 'themes.php', // Default parent URL slug
+		'parent_slug' 		 => 'themes.php', // Default parent menu slug
+	//	'parent_url_slug'  => 'themes.php', // Default parent URL slug
 		'menu'             => 'install-responsive-addons', // Menu slug
 		'has_notices'      => true, // Show admin notices or not
 		'is_automatic'     => true, // Automatically activate plugins after installation or not
