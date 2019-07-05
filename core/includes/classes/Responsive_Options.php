@@ -48,7 +48,7 @@ Class Responsive_Options {
 	public function render_display() {
 		$html = '';
 		$i=1;
-		
+
 		foreach( $this->sections as $section ) {
 			$this->display_title( $section['id'], $section['title'],$i++);
 		}
@@ -60,19 +60,19 @@ Class Responsive_Options {
 		}
 		echo '</ul>';
 	}
-	
+
 	protected function display_title( $id, $title ,$i ) {
-	
+
 		$check ='';
-		
+
 		if ($i == '1')
 			$check = 'checked=checked';
-			
+
 		echo '<input type="radio"' . $check . ' name="sky-tabs" id="sky-'. $id .'"  class="sky-tab-content-' . $i . '">';
 		echo '<label for="sky-' . $id . '"><span><span><i class="fa fa-bolt"></i>' . esc_html ($title) . ' </span></span></label>';
-	
+
 	}
-	
+
 	/**
 	 * Creates main sections title and container
 	 *
@@ -84,7 +84,7 @@ Class Responsive_Options {
 	 * @return string
 	 */
 	protected function display_data( $id, $sub, $i ) {
-	
+
 		echo '<li class="sky-tab-content-'. $i . '">
 			  <div class="typography">';
 		//echo '<p>';
@@ -95,7 +95,7 @@ Class Responsive_Options {
 		echo $this->save();
 		//echo '</p>';
 		echo '</div>	 </li>';
-	
+
 	}
 
 	/**
@@ -285,7 +285,7 @@ Class Responsive_Options {
 				' . get_submit_button( __( 'Save Options', 'responsive' ), 'primary', 'responsive_theme_options[submit]', false ) .
 			get_submit_button( __( 'Restore Defaults', 'responsive' ), 'secondary', 'responsive_theme_options[reset]', false, $this->attributes ) . '
                 <a href="http://cyberchimps.com/store/responsivepro/" class="button upgrade">' . __( 'Upgrade', 'responsive' ) . '</a>
-                </p>                
+                </p>
                 </div>';
 
 	}
@@ -296,7 +296,7 @@ Class Responsive_Options {
 		foreach ( $options_posts_obj as $posts ) {
 			$options_posts[$posts->ID] = $posts->post_title;
 		}
-		
+
 		return $options_posts;
 	}
 	/**
@@ -307,11 +307,11 @@ Class Responsive_Options {
 	public static function valid_layouts() {
 		$layouts = array(
 			'default'                   => __( 'Default', 'responsive' ),
-			'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive' ),
-			'sidebar-content-page'      => __( 'Sidebar/Content', 'responsive' ),
-			'content-sidebar-half-page' => __( 'Content/Sidebar Half Page', 'responsive' ),
-			'sidebar-content-half-page' => __( 'Sidebar/Content Half Page', 'responsive' ),
-			'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' )
+			'content-sidebar-page'      => __( 'Right Sidebar', 'responsive' ),
+			'sidebar-content-page'      => __( 'Left Sidebar', 'responsive' ),
+			'content-sidebar-half-page' => __( 'Right Sidebar Half Page', 'responsive' ),
+			'sidebar-content-half-page' => __( 'Left Sidebar Half Page', 'responsive' ),
+			'full-width-page'           => __( 'No Sidebar', 'responsive' )
 		);
 
 		return apply_filters( 'responsive_valid_layouts', $layouts );
@@ -331,7 +331,7 @@ Class Responsive_Options {
 				'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' ),
 				'blog-3-col'      			=> __( 'Blog 3 Column', 'responsive' )
 		);
-	
+
 		return apply_filters( 'responsive_blog_valid_layouts', $bloglayouts );
 	}
 
