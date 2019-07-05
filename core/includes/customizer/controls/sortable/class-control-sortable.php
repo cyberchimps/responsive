@@ -33,8 +33,8 @@ class Responsive_Customizer_Sortable_Control extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'responsive-sortable', RESPONSIVE_THEME_URI . 'inc/customizer/assets/min/js/sortable.min.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
-		wp_enqueue_style( 'responsive-sortable', RESPONSIVE_THEME_URI . 'inc/customizer/assets/min/css/sortable.min.css', null );
+		wp_enqueue_script( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/sortable.min.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
+		wp_enqueue_style( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/sortable.min.css', null );
 	}
 
 	/**

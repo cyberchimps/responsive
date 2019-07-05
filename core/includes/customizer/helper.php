@@ -19,7 +19,6 @@
  				'title'          => esc_html__( 'Title', 'responsive' ),
  				'meta'           => esc_html__( 'Meta', 'responsive' ),
  				'content'        => esc_html__( 'Content', 'responsive' ),
- 				'read_more'      => esc_html__( 'Read More', 'responsive' ),
  			)
  		);
 

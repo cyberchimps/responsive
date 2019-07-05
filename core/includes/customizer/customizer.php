@@ -54,44 +54,6 @@ function responsive_customize_register( $wp_customize ) {
 	) );
 
 
-        /**
- * Validates the Call to Action Button styles
- *
- * @param $input select
- *
- * @return string
- */
-function responsive_pro_button_style_validate( $input ) {
-	// An array of valid results
-	//$valid = responsive_get_valid_featured_area_layouts();
-         $valid = array(
-             'default' => 'Gradient',
-             'flat_style' => 'Flat'
-         );
-
-	if( array_key_exists( $input, $valid ) ) {
-		return $input;
-	} else {
-		return '';
-	}
-}
-
-function responsive_validate_site_layout( $input ) {
-	// An array of valid results
-
-	$valid = array(
-			'default-layout' => 'Default',
-			'full-width-layout' => 'Full Width Layout',
-			'full-width-no-box' =>'Full Width Without boxes'
-	);
-
-	if( array_key_exists( $input, $valid ) ) {
-		return $input;
-	} else {
-		return '';
-	}
-}
-
 /*--------------------------------------------------------------
 	// CSS Styles
 --------------------------------------------------------------*/
@@ -143,6 +105,44 @@ $wp_customize->add_section( 'footer_section', array(
 }
 add_action( 'customize_register', 'responsive_customize_register' );
 
+
+        /**
+ * Validates the Call to Action Button styles
+ *
+ * @param $input select
+ *
+ * @return string
+ */
+function responsive_pro_button_style_validate( $input ) {
+	// An array of valid results
+	//$valid = responsive_get_valid_featured_area_layouts();
+         $valid = array(
+             'default' => 'Gradient',
+             'flat_style' => 'Flat'
+         );
+
+	if( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+}
+
+function responsive_validate_site_layout( $input ) {
+	// An array of valid results
+
+	$valid = array(
+			'default-layout' => 'Default',
+			'full-width-layout' => 'Full Width Layout',
+			'full-width-no-box' =>'Full Width Without boxes'
+	);
+
+	if( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+}
 function responsive_sanitize_checkbox( $input ) {
 		if ( $input ) {
 		$output = '1';
@@ -287,7 +287,7 @@ function custom_controls( $wp_customize ) {
 	// $wp_customize->register_control_type( 'Responsive_Customizer_Dropdown_Pages' );
 	// $wp_customize->register_control_type( 'Responsive_Customizer_Heading_Control' );
 	// $wp_customize->register_control_type( 'Responsive_Customizer_Icon_Select_Control' );
-	 $wp_customize->register_control_type( 'Responsive_Customize_Multicheck_Control' );
+	 //$wp_customize->register_control_type( 'Responsive_Customize_Multicheck_Control' );
 	// $wp_customize->register_control_type( 'Responsive_Customize_Multiple_Select_Control' );
 	 $wp_customize->register_control_type( 'Responsive_Customizer_Range_Control' );
 	 $wp_customize->register_control_type( 'Responsive_Customizer_Slider_Control' );

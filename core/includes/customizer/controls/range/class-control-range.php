@@ -31,8 +31,8 @@ class Responsive_Customizer_Range_Control extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'responsive-range', RESPONSIVE_THEME_URI . 'inc/customizer/assets/min/js/range.min.js', array( 'jquery', 'customize-base' ), false, true );
-		wp_enqueue_style( 'responsive-range', RESPONSIVE_THEME_URI . 'inc/customizer/assets/min/css/range.min.css', null );
+		wp_enqueue_script( 'responsive-range', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/range.min.js', array( 'jquery', 'customize-base' ), false, true );
+		wp_enqueue_style( 'responsive-range', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/range.min.css', null );
 	}
 
 	/**
