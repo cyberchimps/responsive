@@ -33,7 +33,7 @@ require_once( dirname( __FILE__ ) . '/classes/class-tgm-plugin-activation.php' )
 //require_once( dirname( __FILE__ ) . '/control-checkbox-multiple.php' );
 function responsive_load_customize_controls() {
 
-    require_once( trailingslashit( get_template_directory() ) . 'core/includes/control-checkbox-multiple.php' );
+    require_once( trailingslashit( get_template_directory() ) . 'core/includes/customizer/control-checkbox-multiple.php' );
 }
 add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
 
@@ -204,21 +204,35 @@ if ( !function_exists( 'responsive_setup' ) ):
 
 		add_theme_support( 'custom-background' );
 
-		add_theme_support( 'custom-header', array(
-			// Header text display default
-			'header-text'         => false,
-			// Header image flex width
-			'flex-width'          => true,
-			// Header image width (in pixels)
-			'width'               => 300,
-			// Header image flex height
-			'flex-height'         => true,
-			// Header image height (in pixels)
-			'height'              => 100,
-			// Admin header style callback
-			'admin-head-callback' => 'responsive_admin_header_style'
-		) );
-
+		// add_theme_support( 'custom-header', array(
+		// 	// Header text display default
+		// 	'header-text'         => false,
+		// 	// Header image flex width
+		// 	'flex-width'          => true,
+		// 	// Header image width (in pixels)
+		// 	'width'               => 300,
+		// 	// Header image flex height
+		// 	'flex-height'         => true,
+		// 	// Header image height (in pixels)
+		// 	'height'              => 100,
+		// 	// Admin header style callback
+		// 	'admin-head-callback' => 'responsive_admin_header_style'
+		// ) );
+		/**
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'      => 100,
+				'width'       => 300,
+				'flex-width'  => true,
+				'flex-height' => true,
+				'admin-head-callback' => 'responsive_admin_header_style'
+			)
+		);
 		// gets included in the admin header
 		function responsive_admin_header_style() {
 			?>
