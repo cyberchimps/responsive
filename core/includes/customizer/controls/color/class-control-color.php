@@ -43,7 +43,7 @@ class Responsive_Customizer_Color_Control extends WP_Customize_Control {
 		wp_enqueue_script( 'responsive-color', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/color.min.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), false, true );
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'responsive-color', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/color.min.css', array( 'wp-color-picker' ), '1.0.0' );
-		//wp_localize_script( 'responsive-color', 'responsiveLocalize', array( 'colorPalettes' => responsive_default_color_palettes() ) );
+		wp_localize_script( 'responsive-color', 'responsiveLocalize', array( 'colorPalettes' => responsive_default_color_palettes() ) );
 	}
 
 	/**
