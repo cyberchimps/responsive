@@ -92,7 +92,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'responsive_typography_panel',
 				array(
 					'title'    => esc_html__( 'Typography', 'responsive' ),
-					'priority' => 203,
+					'priority' => 22,
 				)
 			);
 
