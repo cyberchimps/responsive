@@ -92,7 +92,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 				'responsive_single_post_layout',
 				array(
 					'transport' => 'postMessage',
-					'default'   => 'minimal',
+					'default'   => 'boxed',
 				)
 			);
 			$wp_customize->add_control(
@@ -106,7 +106,6 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 						'section'  => 'responsive_single_post_section',
 						'type'     => 'select',
 						'choices'  => array(
-							'minimal'       => 'Minimal',
 							'boxed'         => 'Boxed',
 							'content-boxed' => 'Content Boxed',
 						),
@@ -200,7 +199,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 				'responsive_blog_entries_layout',
 				array(
 					'transport' => 'postMessage',
-					'default'   => 'minimal',
+					'default'   => 'boxed',
 				)
 			);
 			$wp_customize->add_control(
@@ -214,7 +213,6 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 						'section'  => 'responsive_blog_entries_section',
 						'type'     => 'select',
 						'choices'  => array(
-							'minimal'       => 'Minimal',
 							'boxed'         => 'Boxed',
 							'content-boxed' => 'Content Boxed',
 						),
@@ -336,7 +334,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 				'responsive_page_layout',
 				array(
 					'transport' => 'postMessage',
-					'default'   => 'minimal',
+					'default'   => 'boxed',
 				)
 			);
 			$wp_customize->add_control(
@@ -350,7 +348,6 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 						'section'  => 'responsive_page_section',
 						'type'     => 'select',
 						'choices'  => array(
-							'minimal'       => 'Minimal',
 							'boxed'         => 'Boxed',
 							'content-boxed' => 'Content Boxed',
 						),

@@ -169,28 +169,121 @@
 
  	}
  }
- /**
-  * Default color picker palettes
-  *
-  * @since 1.4.9
-  */
- if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
 
- 	function responsive_default_color_palettes() {
-		error_log('responsive_default_color_palettes');
- 		$palettes = array(
- 			'#000000',
- 			'#ffffff',
- 			'#dd3333',
- 			'#dd9933',
- 			'#eeee22',
- 			'#81d742',
- 			'#1e73be',
- 			'#8224e3',
- 		);
 
- 		// Apply filters and return
- 		return apply_filters( 'responsive_default_color_palettes', $palettes );
+/**
+ * Adds custom classes to the array of body classes.
+ */
+if ( ! function_exists( 'responsive_body_classes' ) ) {
 
- 	}
+	/**
+	 * Adds custom classes to the array of body classes.
+	 *
+	 * @since 1.0.0
+	 * @param array $classes Classes for the body element.
+	 * @return array
+	 */
+	function responsive_body_classes( $classes ) {
+
+		// Apply separate container class to the body.
+		$content_layout = responsive_get_content_layout();
+		if ( 'fullwidth' == $content_layout ) {
+			$classes[] = 'fullwidth-layout';
+		}
+    if ( 'content-boxed' == $content_layout ) {
+			$classes[] = 'content-boxed-layout';
+		}
+
+		return $classes;
+	}
+}
+
+add_filter( 'body_class', 'responsive_body_classes' );
+
+
+/**
+ * Return current content layout
+ */
+if ( ! function_exists( 'responsive_get_content_layout' ) ) {
+
+	/**
+	 * Return current content layout
+	 *
+	 * @since 1.0.0
+	 * @return boolean  content layout.
+	 */
+	function responsive_get_content_layout() {
+
+		$value = false;
+
+		if ( is_singular() ) {
+
+			// If post meta value is empty,
+			// Then get the POST_TYPE content layout.
+			$content_layout = get_theme_mod( 'responsive_layout_styles', '', true );
+
+			if ( empty( $content_layout ) ) {
+
+				$post_type = get_post_type();
+
+				if ( 'post' === $post_type || 'page' === $post_type ) {
+					$content_layout = get_theme_mod( 'responsive_single_' . get_post_type() . '_layout' );
+				}
+
+				if ( 'default' == $content_layout || empty( $content_layout ) ) {
+
+					// Get the GLOBAL content layout value.
+					// NOTE: Here not used `true` in the below function call.
+					$content_layout = get_theme_mod( 'responsive_layout_styles', 'full-width' );
+				}
+			}
+		} else {
+
+			$content_layout = '';
+			$post_type      = get_post_type();
+
+			if ( 'post' === $post_type ) {
+				$content_layout = get_theme_mod( 'responsive_blog_entries_layout' );
+			}
+
+			if ( is_search() ) {
+				$content_layout = get_theme_mod( 'responsive_page_layout' );
+			}
+
+			if ( 'default' == $content_layout || empty( $content_layout ) ) {
+
+				// Get the GLOBAL content layout value.
+				// NOTE: Here not used `true` in the below function call.
+				$content_layout = get_theme_mod( 'responsive_layout_styles', 'full-width' );
+			}
+		}
+
+		return apply_filters( 'responsive_get_content_layout', $content_layout );
+	}
+}
+
+/**
+ * Default color picker palettes
+ *
+ * @since 1.4.9
+ */
+if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
+
+ function responsive_default_color_palettes() {
+   error_log('responsive_default_color_palettes');
+   $palettes = array(
+     '#000000',
+     '#ffffff',
+     '#dd3333',
+     '#dd9933',
+     '#eeee22',
+     '#81d742',
+     '#1e73be',
+     '#8224e3',
+   );
+
+   // Apply filters and return
+   return apply_filters( 'responsive_default_color_palettes', $palettes );
+
  }
+}
