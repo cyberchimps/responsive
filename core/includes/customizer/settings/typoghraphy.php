@@ -48,9 +48,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => 'body',
 						'defaults' => array(
+							'font-family'	=> 'Arial, Helvetica, sans-serif',
 							'font-size'   => '14px',
-							'color'       => '#929292',
-							'line-height' => '1.8',
+							'color'       => '#555555',
+							'line-height' => '1.5',
 						),
 					),
 					'headings' => array(
@@ -58,6 +59,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'exclude'  => array( 'font-size' ),
 						'defaults' => array(
+							'font-family'	=> 'Arial, Helvetica, sans-serif',
 							'color'       => '#333333',
 							'line-height' => '1.4',
 						),
@@ -243,7 +245,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'settings'        => $element . '_typography[font-family]',
 									'priority'        => 10,
 									'type'            => 'select',
-									'default'						=> 'Arial',
 									'active_callback' => $active_callback,
 								)
 							)
@@ -352,7 +353,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'capitalize' => esc_html__( 'Capitalize', 'responsive' ),
 									'lowercase'  => esc_html__( 'Lowercase', 'responsive' ),
 									'uppercase'  => esc_html__( 'Uppercase', 'responsive' ),
-									'none'       => esc_html__( 'None', 'responsive' ),
 								),
 							)
 						);
@@ -479,7 +479,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					if ( in_array( 'letter-spacing', $attributes ) ) {
 
 						// Get default
-						$default = ! empty( $array['defaults']['letter-spacing'] ) ? $array['defaults']['letter-spacing'] : null;
+				//		$default = ! empty( $array['defaults']['letter-spacing'] ) ? $array['defaults']['letter-spacing'] : null;
 
 						$wp_customize->add_setting(
 							$element . '_typography[letter-spacing]',
@@ -487,7 +487,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_number',
 								'transport'         => $transport,
-								'default'           => $default,
+								'default'           => '0',
 							)
 						);
 
@@ -538,7 +538,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					if ( in_array( 'font-color', $attributes ) ) {
 
 						// Get default
-						$default = ! empty( $array['defaults']['color'] ) ? $array['defaults']['color'] : null;
+					//	$default = ! empty( $array['defaults']['color'] ) ? $array['defaults']['color'] : null;
 
 						$wp_customize->add_setting(
 							$element . '_typography[color]',
@@ -547,7 +547,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'default'           => '',
 								'sanitize_callback' => 'responsive_sanitize_color',
 								'transport'         => $transport,
-								'default'           => $default,
+								'default'           => '#555555',
 							)
 						);
 						$wp_customize->add_control(
