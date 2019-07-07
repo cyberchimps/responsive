@@ -324,10 +324,10 @@ Class Responsive_Options {
 	public static function blog_valid_layouts() {
 		$bloglayouts = array(
 				'default'                   => __( 'Default', 'responsive' ),
-				'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive' ),
-				'sidebar-content-page'      => __( 'Sidebar/Content', 'responsive' ),
-				'content-sidebar-half-page' => __( 'Content/Sidebar Half Page', 'responsive' ),
-				'sidebar-content-half-page' => __( 'Sidebar/Content Half Page', 'responsive' ),
+				'content-sidebar-page'      => __( 'Right Sidebar', 'responsive' ),
+				'sidebar-content-page'      => __( 'Left Sidebar', 'responsive' ),
+				'content-sidebar-half-page' => __( 'Right Sidebar Half Page', 'responsive' ),
+				'sidebar-content-half-page' => __( 'Left Sidebar Half Page', 'responsive' ),
 				'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' ),
 				'blog-3-col'      			=> __( 'Blog 3 Column', 'responsive' )
 		);
