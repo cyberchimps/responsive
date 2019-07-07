@@ -243,6 +243,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'settings'        => $element . '_typography[font-family]',
 									'priority'        => 10,
 									'type'            => 'select',
+									'default'						=> 'Arial',
 									'active_callback' => $active_callback,
 								)
 							)

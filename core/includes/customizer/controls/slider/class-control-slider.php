@@ -132,22 +132,22 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 	    <# } #>
 
 		<# if ( data.tablet ) { #>
-			<div class="tablet control-wrap">
+			<!-- <div class="tablet control-wrap">
 				<div class="responsive-slider tablet-slider"></div>
 				<div class="responsive-slider-input">
 					<input {{{ data.inputAttrs }}} type="number" class="slider-input tablet-input" value="{{ data.tablet.value }}" {{{ data.tablet.link }}} />
 				</div>
 	    	</div>
-	    <# } #>
+	    <# } #> -->
 
 		<# if ( data.mobile ) { #>
-			<div class="mobile control-wrap">
+			<!-- <div class="mobile control-wrap">
 				<div class="responsive-slider mobile-slider"></div>
 				<div class="responsive-slider-input">
 					<input {{{ data.inputAttrs }}} type="number" class="slider-input mobile-input" value="{{ data.mobile.value }}" {{{ data.mobile.link }}} />
 				</div>
 	    	</div>
-	    <# } #>
+	    <# } #> -->
 
 	<?php
 	}
