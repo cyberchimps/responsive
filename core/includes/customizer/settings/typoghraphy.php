@@ -96,77 +96,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				)
 			);
 
-			/**
-			 * Section
-			 */
-			// $wp_customize->add_section(
-			// 	'responsive_typography_general',
-			// 	array(
-			// 		'title'    => esc_html__( 'General', 'responsive' ),
-			// 		'priority' => 1,
-			// 		'panel'    => 'responsive_typography_panel',
-			// 	)
-			// );
-			//
-			// /**
-			//  * Disable Google Fonts
-			//  */
-			// $wp_customize->add_setting(
-			// 	'responsive_disable_google_font',
-			// 	array(
-			// 		'transport'         => 'postMessage',
-			// 		'default'           => false,
-			// 		'sanitize_callback' => 'responsive_sanitize_checkbox',
-			// 	)
-			// );
-			//
-			// $wp_customize->add_control(
-			// 	new WP_Customize_Control(
-			// 		$wp_customize,
-			// 		'responsive_disable_google_font',
-			// 		array(
-			// 			'label'    => esc_html__( 'Disable Google Fonts', 'responsive' ),
-			// 			'type'     => 'checkbox',
-			// 			'section'  => 'responsive_typography_general',
-			// 			'settings' => 'responsive_disable_google_font',
-			// 			'priority' => 10,
-			// 		)
-			// 	)
-			// );
-
-			/**
-			 * Font Subsets
-			 */
-			// $wp_customize->add_setting(
-			// 	'responsive_google_font_subsets',
-			// 	array(
-			// 		'default'           => array( 'latin' ),
-			// 		'sanitize_callback' => 'responsive_sanitize_multicheck',
-			// 	)
-			// );
-			//
-			// $wp_customize->add_control(
-			// 	new Responsive_Customize_Multicheck_Control(
-			// 		$wp_customize,
-			// 		'responsive_google_font_subsets',
-			// 		array(
-			// 			'label'    => esc_html__( 'Font Subsets', 'responsive' ),
-			// 			'section'  => 'responsive_typography_general',
-			// 			'settings' => 'responsive_google_font_subsets',
-			// 			'priority' => 10,
-			// 			'choices'  => array(
-			// 				'latin'        => 'latin',
-			// 				'latin-ext'    => 'latin-ext',
-			// 				'cyrillic'     => 'cyrillic',
-			// 				'cyrillic-ext' => 'cyrillic-ext',
-			// 				'greek'        => 'greek',
-			// 				'greek-ext'    => 'greek-ext',
-			// 				'vietnamese'   => 'vietnamese',
-			// 			),
-			// 		)
-			// 	)
-			// );
-
+			
 			// Lopp through elements.
 			$count = '1';
 			foreach ( $elements as $element => $array ) {
