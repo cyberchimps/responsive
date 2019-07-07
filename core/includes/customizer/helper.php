@@ -38,7 +38,7 @@
  	function responsive_blog_entry_elements_positioning() {
 
  		// Default sections.
- 		$sections = array( 'featured_image', 'title', 'meta', 'content', 'read_more' );
+ 		$sections = array( 'featured_image', 'title', 'meta', 'content' );
 
  		// Get sections from Customizer.
  		$sections = get_theme_mod( 'responsive_blog_entry_elements_positioning', $sections );
@@ -94,7 +94,6 @@
  	 * @since 0.2
  	 */
  	function responsive_blog_single_elements() {
-		error_log('responsive_blog_single_elements');
  		// Default elements.
  		$elements = apply_filters(
  			'responsive_blog_single_elements',
@@ -122,7 +121,7 @@
  	function responsive_blog_single_elements_positioning() {
 
  		// Default sections.
- 		$sections = array( 'featured_image', 'title', 'meta', 'content', 'tags', 'social_share', 'next_prev', 'author_box', 'related_posts', 'single_comments' );
+ 		$sections = array( 'featured_image', 'title', 'meta', 'content' );
 
  		// Get sections from Customizer.
  		$sections = get_theme_mod( 'responsive_blog_single_elements_positioning', $sections );
@@ -169,7 +168,28 @@
 
  	}
  }
+ if ( ! function_exists( 'responsive_page_elements' ) ) {
+   /**
+	* Returns blog single elements for the customizer
+	*
+	* @since 0.2
+	*/
+   function responsive_page_elements() {
+	   // Default elements.
+	   $elements = apply_filters(
+		   'responsive_page_elements',
+		   array(
+			   'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
+			   'title'          => esc_html__( 'Title', 'responsive' ),
+			   'content'        => esc_html__( 'Content', 'responsive' ),
+		   )
+	   );
 
+	   // Return elements.
+	   return $elements;
+
+   }
+ }
 
 /**
  * Adds custom classes to the array of body classes.
@@ -269,21 +289,155 @@ if ( ! function_exists( 'responsive_get_content_layout' ) ) {
  */
 if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
 
- function responsive_default_color_palettes() {
-   error_log('responsive_default_color_palettes');
-   $palettes = array(
-     '#000000',
-     '#ffffff',
-     '#dd3333',
-     '#dd9933',
-     '#eeee22',
-     '#81d742',
-     '#1e73be',
-     '#8224e3',
-   );
+	function responsive_default_color_palettes() {
+		$palettes = array(
+			'#000000',
+			'#ffffff',
+			'#dd3333',
+			'#dd9933',
+			'#eeee22',
+			'#81d742',
+			'#1e73be',
+			'#8224e3',
+		);
 
-   // Apply filters and return
-   return apply_filters( 'responsive_default_color_palettes', $palettes );
+		// Apply filters and return
+		return apply_filters( 'responsive_default_color_palettes', $palettes );
 
- }
+	}
+
 }
+
+ /**
+  * Return correct schema markup
+  *
+  * @since 1.2.10
+  */
+ if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
+
+ 	function responsive_get_schema_markup( $location ) {
+
+ 		// Return if disable
+ 		if ( ! get_theme_mod( 'responsive_schema_markup', true ) ) {
+ 			return null;
+ 		}
+
+ 		// Default
+ 		$schema = $itemprop = $itemtype = '';
+
+ 		// HTML
+ 		if ( 'html' == $location ) {
+ 			$schema = 'itemscope itemtype="http://schema.org/WebPage"';
+ 		}
+
+ 		// Header
+ 		elseif ( 'header' == $location ) {
+ 			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPHeader"';
+ 		}
+
+ 		// Logo
+ 		elseif ( 'logo' == $location ) {
+ 			$schema = 'itemscope itemtype="http://schema.org/Brand"';
+ 		}
+
+ 		// Navigation
+ 		elseif ( 'site_navigation' == $location ) {
+ 			$schema = 'itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"';
+ 		}
+
+ 		// Main
+ 		elseif ( 'main' == $location ) {
+ 			$itemtype = 'http://schema.org/WebPageElement';
+ 			$itemprop = 'mainContentOfPage';
+ 			if ( is_singular( 'post' ) ) {
+ 				$itemprop = '';
+ 				$itemtype = 'http://schema.org/Blog';
+ 			}
+ 		}
+
+ 		// Sidebar
+ 		elseif ( 'sidebar' == $location ) {
+ 			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPSideBar"';
+ 		}
+
+ 		// Footer widgets
+ 		elseif ( 'footer' == $location ) {
+ 			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPFooter"';
+ 		}
+
+ 		// Headings
+ 		elseif ( 'headline' == $location ) {
+ 			$schema = 'itemprop="headline"';
+ 		}
+
+ 		// Posts
+ 		elseif ( 'entry_content' == $location ) {
+ 			$schema = 'itemprop="text"';
+ 		}
+
+ 		// Publish date
+ 		elseif ( 'publish_date' == $location ) {
+ 			$schema = 'itemprop="datePublished"';
+ 		}
+
+ 		// Author name
+ 		elseif ( 'author_name' == $location ) {
+ 			$schema = 'itemprop="name"';
+ 		}
+
+ 		// Author link
+ 		elseif ( 'author_link' == $location ) {
+ 			$schema = 'itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"';
+ 		}
+
+ 		// Item
+ 		elseif ( 'item' == $location ) {
+ 			$schema = 'itemprop="item"';
+ 		}
+
+ 		// Url
+ 		elseif ( 'url' == $location ) {
+ 			$schema = 'itemprop="url"';
+ 		}
+
+ 		// Position
+ 		elseif ( 'position' == $location ) {
+ 			$schema = 'itemprop="position"';
+ 		}
+
+ 		// Image
+ 		elseif ( 'image' == $location ) {
+ 			$schema = 'itemprop="image"';
+ 		}
+
+ 		return ' ' . apply_filters( 'responsive_schema_markup', $schema );
+
+ 	}
+ }
+ if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
+    /**
+ 	* Returns blog single elements positioning
+ 	*
+ 	* @since 1.1.0
+ 	*/
+    function responsive_page_single_elements_positioning() {
+
+ 	   // Default sections.
+ 	   $sections = array( 'featured_image', 'title', 'content' );
+
+ 	   // Get sections from Customizer.
+ 	   $sections = get_theme_mod( 'responsive_page_single_elements_positioning', $sections );
+
+ 	   // Turn into array if string.
+ 	   if ( $sections && ! is_array( $sections ) ) {
+ 		   $sections = explode( ',', $sections );
+ 	   }
+
+ 	   // Apply filters for easy modification.
+ 	   $sections = apply_filters( 'responsive_page_single_elements_positioning', $sections );
+
+ 	   // Return sections.
+ 	   return $sections;
+
+    }
+ }

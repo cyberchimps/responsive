@@ -25,7 +25,7 @@ function responsive_premium_custom_color_styles() {
 	$layout_style           = get_theme_mod( 'responsive_layout_styles', 'minimal' );
 	$input_border_color_fs  = get_theme_mod( 'input-border-color-focus', '#eaeaea' );
 	$input_border_color     = get_theme_mod( 'input-border-color', '#eaeaea' );
-	error_log('in th loop');
+	
 	$custom_css = "
 		body * {
 			color: {$text_color};

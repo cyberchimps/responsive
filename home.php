@@ -24,47 +24,47 @@ get_header();
 global $more;
 $more = 0;
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
+error_log('home');
 global $responsive_options;
-$responsive_options = responsive_get_options(); 
+$responsive_options = responsive_get_options();
 if (isset($responsive_options['blog_posts_index_layout_default']) && ($responsive_options['blog_posts_index_layout_default'] == 'blog-3-col')) {
 ?>
 	<div id="content-outer">
 	<div id="content-full" class="grid col-940 blog-3-col">
-		
+
 		<!-- Blog page title -->
 		<?php if ( responsive_free_get_option( 'blog_post_title_toggle' ) ) { ?>
 			<h1 class="blogtitle"> <?php echo responsive_free_get_option( 'blog_post_title_text' ); ?> </h1>
 		<?php } ?>
 
 		<?php get_template_part( 'loop-header', get_post_type() ); ?>
-		
+
 		<?php if ( have_posts() ) : ?>
-		
+
 		<div class="blog_main_div">
 		<?php while( have_posts() ) : the_post(); ?>
-			
+
 			<div class="section-blog grid">
 			<?php responsive_entry_before(); ?>
-		
+
 			<div class="post-entry">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 						<?php the_post_thumbnail(); ?>
 					</a>
 				<?php endif; ?>
-				
+
 			</div><!-- end of .post-entry -->
-			
+
 			<?php responsive_entry_top(); ?>
-					
+
 			<?php get_template_part( 'post-meta-3-col', get_post_type() ); ?>
-			<?php get_template_part( 'post-data', get_post_type() ); ?>			
-			
+			<?php get_template_part( 'post-data', get_post_type() ); ?>
+
 			<?php the_excerpt( __( 'Read more &#8250;', 'responsive' ) ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
-			
-			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>				
+
+			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
@@ -90,7 +90,7 @@ if (isset($responsive_options['blog_posts_index_layout_default']) && ($responsiv
 ?>
 	</div>
 </div>
-</div>		
+</div>
 <?php } else {?>
 
 <?php  ?>
@@ -109,48 +109,7 @@ if (isset($responsive_options['blog_posts_index_layout_default']) && ($responsiv
 			<?php while( have_posts() ) : the_post(); ?>
 
 				<?php responsive_entry_before(); ?>
-				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<?php responsive_entry_top(); ?>
-
-					<?php get_template_part( 'post-meta', get_post_type() ); ?>
-
-					<div class="post-entry">
-					<?php if( is_plugin_active('responsivepro-plugin/index.php')){  
-							if (responsivepro_plugin_get_option ('blog_featured_images')) 
-								responsivepro_plugin_featured_image();
-					?>
-					<?php } else { ?>
-						<?php if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-								<?php the_post_thumbnail(); ?>
-							</a>
-						<?php endif; ?>
-					<?php } ?>	
-						
-						<?php						
-						if( is_plugin_active('responsivepro-plugin/index.php')){ 
-							if (responsivepro_plugin_get_option ('blog_post_excerpts')) { 
-								add_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
-								add_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
-								the_excerpt();
-								remove_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
-								remove_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
-							}	
-							else {
-								the_content( __( 'Read more &#8250;', 'responsive' ) ); }
-						}
-						else {
-				?>
-						<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-				<?php }?>		 
-						<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
-					</div>
-					<!-- end of .post-entry -->
-
-					<?php get_template_part( 'post-data', get_post_type() ); ?>
-
-					<?php responsive_entry_bottom(); ?>
-				</div><!-- end of #post-<?php the_ID(); ?> -->
+					<?php get_template_part( 'partials/entry/layout', get_post_type() ); ?>
 				<?php responsive_entry_after(); ?>
 
 			<?php

@@ -26,9 +26,9 @@ get_header(); ?>
 <div id="content-outer">
 <div id="content-archive" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
-	<?php if ( have_posts() ) : ?>
+	<?php  error_log('archieve'); if ( have_posts() ) : ?>
 
-		<?php get_template_part( 'loop-header', get_post_type() ); ?>
+		<?php get_template_part( 'loop-header', get_post_type() ); error_log('archieve');?>
 
 		<?php while( have_posts() ) : the_post(); ?>
 
@@ -39,8 +39,8 @@ get_header(); ?>
 				<?php get_template_part( 'post-meta', get_post_type() ); ?>
 
 				<div class="post-entry">
-					<?php if( is_plugin_active('responsivepro-plugin/index.php')){  
-							if (responsivepro_plugin_get_option ('archive_featured_images')) 
+					<?php if( is_plugin_active('responsivepro-plugin/index.php')){
+							if (responsivepro_plugin_get_option ('archive_featured_images'))
 								responsivepro_plugin_featured_image();
 					?>
 					<?php } else {  ?>
@@ -50,8 +50,8 @@ get_header(); ?>
 						</a>
 					<?php endif; ?>
 					<?php } ?>
-					
-					<?php if( is_plugin_active('responsivepro-plugin/index.php')){ 
+
+					<?php if( is_plugin_active('responsivepro-plugin/index.php')){
 							if( responsivepro_plugin_get_option( 'archive_post_excerpts' ) ) {
 								add_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
 								add_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
@@ -62,12 +62,12 @@ get_header(); ?>
 						else {
 								the_content( __( 'Read more &#8250;', 'responsive' ) );
 						}
-					?>									
-								
-					<?php } else { ?>					
+					?>
+
+					<?php } else { ?>
 					<?php 		the_excerpt(); ?>
 					<?php } ?>
-					
+
 					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
 				</div><!-- end of .post-entry -->
 

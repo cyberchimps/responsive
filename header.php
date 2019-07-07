@@ -68,25 +68,13 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		<?php responsive_in_header(); // header hook ?>
 
-		<?php if ( get_header_image() != '' ) : ?>
-
-		<div id="content-outer">
-			<?php error_log('innn'); the_custom_logo(); ?>
-		<!-- <div id="logo">
-				<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
-		</div> -->
-		</div>
-
-		<?php endif; // header image was removed ?>
-
-		<?php if ( !get_header_image() ) : ?>
 		<div id="content-outer">
 			<div id="logo">
+				<?php error_log('innn'); the_custom_logo(); ?>
 				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
 				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
 			</div><!-- end of #logo -->
 		</div>
-		<?php endif; // header image was removed (again) ?>
 
 		<?php get_sidebar( 'top' ); ?>
 		<?php wp_nav_menu( array(
