@@ -101,6 +101,8 @@ $wp_customize->add_section( 'footer_section', array(
 		'priority' => 2
 	) );
 
+	$wp_customize->get_section('colors')->title = __( 'Background Color' );
+
 
 }
 add_action( 'customize_register', 'responsive_customize_register' );
