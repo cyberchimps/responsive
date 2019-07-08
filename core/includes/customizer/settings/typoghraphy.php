@@ -98,7 +98,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				)
 			);
 
-			
+
 			// Lopp through elements.
 			$count = '1';
 			foreach ( $elements as $element => $array ) {
@@ -207,7 +207,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'            => 'select',
 								'active_callback' => $active_callback,
 								'choices'         => array(
-									''    => esc_html__( 'Bold: 700', 'responsive' ),
+									''    => esc_html__( 'Normal: 400', 'responsive' ),
 									'100' => esc_html__( 'Thin: 100', 'responsive' ),
 									'200' => esc_html__( 'Light: 200', 'responsive' ),
 									'300' => esc_html__( 'Book: 300', 'responsive' ),
