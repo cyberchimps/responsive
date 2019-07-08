@@ -33,6 +33,25 @@ if ( ! class_exists( 'Responsive_theme_options_Customizer' ) ) :
 		 * @return [type]               [description]
 		 */
 		public function customizer_options( $wp_customize ) {
+			$args = array(
+					'type'         => 'post',
+					'orderby'      => 'name',
+					'order'        => 'ASC',
+					'hide_empty'   => 1,
+					'hierarchical' => 1,
+					'taxonomy'     => 'category',
+			);
+			$option_categories = array();
+			$category_lists = get_categories( $args );
+			$option_categories[''] = esc_html( __( 'Choose Category', 'responsive' ) );
+			foreach ( $category_lists as $category ) {
+				$option_categories[ $category->term_id ] = $category->name;
+			}
+
+			$option_all_post_cat = array();
+			foreach( $category_lists as $category ){
+				$option_all_post_cat[$category->term_id] = $category->name;
+			}
 			$wp_customize->remove_control("header_image");
 			$wp_customize->add_panel( 'responsive-theme-options', array(
 			  'title' => __( 'Theme Options' ),

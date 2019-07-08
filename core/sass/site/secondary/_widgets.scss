@@ -1,0 +1,158 @@
+// .widget {
+// 	margin: 0 0 1.5em;
+//
+// 	/* Make sure select elements fit in widgets. */
+// 	select {
+// 		max-width: 100%;
+// 	}
+// }
+/**
+ * Widget styles
+ * -----------------------------------------------------------------------------
+ */
+ .dark-link {
+ 	color: $color__text-main;
+
+ 	&:hover {
+ 		color: $accent-color;
+ 	}
+ }
+ .light-link {
+ 	color: white;
+
+ 	&:hover {
+ 		color: white;
+ 		opacity: 0.7;
+ 	}
+ }
+.widget {
+	font-size: $small-font-size;
+
+	ol,
+	ul {
+		list-style: none;
+		margin-left: 0;
+
+		ol,
+		ul {
+			margin-left: $calc-line-height;
+		}
+	}
+
+	li {
+		//border-bottom: thin dotted $border-color;
+		margin-bottom: 0 !important;
+		// padding: ( $calc-line-height / 3 ) 0;
+    	padding: ( $calc-line-height / 4 ) 0;
+
+		&:first-child {
+			padding-top: 0;
+		}
+
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+	}
+	/**
+	 * calendar
+	 * -----------------------------------------------------------------------------
+	 */
+
+	.calendar_wrap {
+		table {
+			th,td {
+				padding: $calc-line-height / 6;
+		    font-size: .8em;
+				word-break: normal;
+        border: none;
+			}
+			tr {
+				border-bottom: 1px solid white;
+			}
+      th, tbody  {
+        text-align: center;
+      }
+      caption {
+        text-align: left;
+        text-transform: uppercase;
+        line-height: 2.7em;
+      }
+		}
+	}
+	input.search-submit {
+		display: none;
+	}
+}
+div#calendar_wrap table,th,td {
+  border: none;
+}
+
+.widget-area {
+	.widget-title {
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+	//
+	// Sidebar widget area styles
+	// -------------------------------------------------------------------------
+	&.sidebar {
+		margin-top: $calc-line-height;
+		@media ( min-width: map-get( $screens, lg ) ) {
+			margin: 2em 0 2.5em;
+		}
+		.widget {
+			a {
+				@extend .dark-link;
+				border-bottom: none;
+				font-size: $sidebar-font-size;
+
+				&.btn{
+					@extend .light-link;
+				}
+			}
+		}
+	}
+
+
+	//
+	// Sidebar widget area styles
+	// -------------------------------------------------------------------------
+	&.footer {
+		background-color: $color__text-main;
+		border-bottom: thin solid rgba( 255, 255, 255, 0.075 );
+		color: white;
+		padding-top: $calc-line-height * 2;
+
+		.widget {
+			//@include make-equal-responsive-col-4;
+			margin-bottom: $calc-line-height * 2;
+
+			a {
+				@extend .light-link;
+				border-bottom: 0;
+				font-size: $sidebar-font-size;
+			}
+
+			li {
+				border-bottom-color: rgba( 255, 255, 255, 0.1 );
+			}
+		}
+
+		@for $i from 1 through 4 {
+			.row-#{$i}{
+				.widget{
+					@if $i == 1 {
+ 				 		@include make-equal-responsive-col-1;
+					} @else if $i == 2 {
+						@include make-equal-responsive-col-2;
+					} @else if $i == 3 {
+						@include make-equal-responsive-col-3;
+					} @else  {
+						@include make-equal-responsive-col-4;
+					}
+				}
+			}
+		}
+	}
+}

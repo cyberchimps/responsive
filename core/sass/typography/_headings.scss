@@ -1,0 +1,60 @@
+//
+// Block element styles
+// -----------------------------------------------------------------------------
+address,
+blockquote,
+dl,
+figure,
+.h1, h1,
+.h2, h2,
+.h3, h3,
+.h4, h4,
+.h5, h5,
+.h6, h6,
+hr,
+ol,
+p,
+pre,
+table,
+ul {
+	@include make-block( $calc-line-height );
+}
+.h1, h1,
+.h2, h2,
+.h3, h3,
+.h4, h4,
+.h5, h5,
+.h6, h6 {
+	clear: both;
+	font-family: $heading-font;
+	font-weight: normal;
+	line-height: $heading-line-height;
+	overflow-wrap: break-word;
+}
+.h1, h1 {
+	font-size: $h1-font-size;
+}
+
+.h2, h2 {
+	font-size: $h2-font-size;
+}
+
+.h3, h3 {
+	font-size: $h3-font-size;
+}
+
+.h4, h4 {
+	font-size: $h4-font-size;
+}
+
+.h5, h5 {
+	font-size: $h5-font-size;
+}
+
+.h6, h6 {
+	font-size: $h6-font-size;
+}
+.site-title a {
+	text-decoration: none;
+	font-size: 24px;
+}

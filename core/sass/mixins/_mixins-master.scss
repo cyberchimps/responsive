@@ -1,0 +1,121 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+//
+// Block elements
+// -----------------------------------------------------------------------------
+@mixin make-block( $margin-y ) {
+	margin-bottom: $margin-y;
+	margin-top: $margin-y;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+//
+// Make equal width responsive $columns
+// -----------------------------------------------------------------------------
+@mixin make-equal-responsive-col-4 {
+	@media ( min-width: map-get( $screens, xl ) ) {
+		min-width: none;
+	}
+
+	@media ( min-width: map-get( $screens, xs ) ) {
+		min-width: 100%;
+	}
+
+	@media ( min-width: map-get( $screens, sm ) ) {
+		min-width: 50%;
+	}
+
+	@media ( min-width: map-get( $screens, md ) ) {
+		min-width: 33.333%;
+	}
+
+	@media ( min-width: map-get( $screens, lg ) ) {
+		min-width: 25%;
+	}
+}
+
+@mixin make-equal-responsive-col-3 {
+	@media ( min-width: map-get( $screens, xl ) ) {
+		min-width: none;
+	}
+
+	@media ( min-width: map-get( $screens, xs ) ) {
+		min-width: 100%;
+	}
+
+	@media ( min-width: map-get( $screens, sm ) ) {
+		min-width: 50%;
+	}
+
+	@media ( min-width: map-get( $screens, lg ) ) {
+		min-width: 33.333%;
+	}
+}
+@mixin make-equal-responsive-col-2 {
+	@media ( min-width: map-get( $screens, xl ) ) {
+		min-width: none;
+	}
+
+	@media ( min-width: map-get( $screens, xs ) ) {
+		min-width: 100%;
+	}
+
+	@media ( min-width: map-get( $screens, sm ) ) {
+		min-width: 50%;
+	}
+
+	@media ( min-width: map-get( $screens, lg ) ) {
+		min-width: 50%;
+	}
+}
+@mixin make-equal-responsive-col-1 {
+	@media ( min-width: map-get( $screens, xl ) ) {
+		min-width: none;
+	}
+
+	@media ( min-width: map-get( $screens, xs ) ) {
+		min-width: 100%;
+	}
+
+	@media ( min-width: map-get( $screens, sm ) ) {
+		min-width: 100%;
+	}
+
+	@media ( min-width: map-get( $screens, lg ) ) {
+		min-width: 100%;
+	}
+}

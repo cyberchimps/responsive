@@ -1,0 +1,57 @@
+/**
+ * Site header styles
+ * -----------------------------------------------------------------------------
+ */
+.site-header {
+	background-color: white;
+	padding: ( $calc-line-height / 2 ) 0;
+	border-bottom: 1px solid #ccc;
+	color: $accent-color;
+	.container {
+		position: relative;
+	}
+
+	.full-width-header & {
+		.container {
+			max-width: none;
+		}
+	}
+
+	&.site-header-business,
+	&.site-header-blog {
+		padding-bottom: 0;
+	}
+
+}
+.site-title {
+	margin-bottom: 0;
+}
+.site-title, .site-description {
+	margin-top: 0;
+	color: $accent-color;
+	& a{
+		color: $accent-color;
+	}
+}
+//
+// Brand styles
+// -----------------------------------------------------------------------------
+.site-branding {
+	a {
+		@extend .dark-link;
+		border-bottom: none;
+	}
+
+	.custom-logo,
+	.custom-logo-link {
+		display: block;
+		//float: left;
+	}
+
+	.site-title,
+	.site-description {
+		line-height: $calc-line-height;
+		margin: 0;
+	}
+
+}

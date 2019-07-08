@@ -1,0 +1,131 @@
+/**
+ * Products
+ */
+ul.products {
+	//@include clearfix;
+	margin: 0 0 1em;
+	padding: 0;
+	list-style: none outside;
+	clear: both;
+	display: flex;
+	flex-wrap: wrap;
+
+	li.product {
+		width: calc(50% - 20px);
+    margin: 0 20px 2.992em 0;
+    padding: 0;
+		list-style: none;
+		position: relative;
+		margin-bottom: 2em;
+
+		.woocommerce-loop-product__title {
+			margin-bottom: .5em;
+    	padding: 0;
+			font-size: 1rem;
+		}
+
+		img {
+			width: 100%;
+    	height: auto;
+			display: block;
+			margin: 0 0 1em;
+			box-shadow: none;
+		}
+
+		.button {
+				@media ( max-width: map-get( $screens, sm ) ) {
+					padding: .618em 1em;
+				}
+			display: inline-block;
+			margin-top: .5em;
+    	margin-bottom: .5em;
+    	white-space: normal;
+    	line-height: $heading-line-height;
+			border-radius: 2px;
+    	padding: 10px 40px;
+			color: $color__footer-text;
+    	border-color: $color__background-button;
+    	background-color: $color__background-button;
+		}
+
+		.price{
+		line-height: $heading-line-height;
+    font-weight: 700;
+    margin-bottom: .5em;
+    font-size: .9em;
+		display: block;
+		}
+	}
+}
+
+.woocommerce-products-header__title.page-title{
+	margin-bottom: 1em;
+}
+
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link{
+	text-decoration: none;
+}
+
+a.button{
+	text-decoration: none;
+}
+
+nav.woocommerce-breadcrumb{
+	display: none;
+}
+
+@media screen and (min-width: 48em) {
+	ul.products {
+		li.product {
+			@include column-width(3);
+			float: left;
+			margin-right: $columns__margin;
+
+			&.first {
+				clear: both;
+			}
+
+			&.last {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.columns-1 {
+		ul.products {
+			li.product {
+				float: none;
+				width: 100%;
+			}
+		}
+	}
+
+	@for $i from 2 through 6 {
+		.columns-#{$i} {
+			ul.products {
+				li.product {
+					@include column-width( $i );
+				}
+			}
+		}
+	}
+}
+
+.woocommerce span.onsale {
+	min-width: 3em;
+	min-height: 3em;
+	line-height: 3em;
+	padding: 0;
+	font-size: 1em;
+	font-weight: normal;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	left: auto;
+	margin: -1em -1em 0.5em 0.5em;
+	border-radius: 100%;
+	background-color: $color__background-button;
+	color: $color__footer-text;
+	-webkit-font-smoothing: antialiased;
+	z-index: 9;
+}
