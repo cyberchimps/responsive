@@ -317,7 +317,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'active_callback' => $active_callback,
 								'choices'         => array(
 									''       => esc_html__( 'Default', 'responsive' ),
-									'normal' => esc_html__( 'Normal', 'responsive' ),
+									//'normal' => esc_html__( 'Normal', 'responsive' ),
 									'italic' => esc_html__( 'Italic', 'responsive' ),
 								),
 							)
