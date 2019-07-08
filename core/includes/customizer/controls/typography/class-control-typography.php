@@ -57,7 +57,7 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 			<?php endif; ?>
 
 			<select class="responsive-typography-select" <?php $this->link(); ?>>
-				<option value="" <?php if ( ! $this_val ) echo 'selected="selected"'; ?>><?php esc_html_e( 'Default', 'responsive' ); ?></option>
+				<option value="" <?php if ( ! $this_val ) echo 'selected="selected"'; ?>><?php esc_html_e( 'Arial, Helvetica, sans-serif', 'responsive' ); ?></option>
 				<?php
 				// Add custom fonts from child themes
 				if ( function_exists( 'responsive_add_custom_fonts' ) ) {
