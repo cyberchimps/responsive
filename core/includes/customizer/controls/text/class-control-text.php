@@ -122,16 +122,16 @@ class Responsive_Customizer_Text_Control extends WP_Customize_Control {
 	    <# } #>
 
 		<# if ( data.tablet ) { #>
-			<div class="tablet control-wrap">
-				<input type="text" value="{{ data.tablet.value }}" placeholder="<?php esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.tablet.link }}} />
+			<!-- <div class="tablet control-wrap">
+				<input type="text" value="{{ data.tablet.value }}" placeholder="<?php //esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.tablet.link }}} />
 	    	</div>
-	    <# } #>
+	    <# } #> -->
 
 		<# if ( data.mobile ) { #>
-			<div class="mobile control-wrap">
-				<input type="text" value="{{ data.mobile.value }}" placeholder="<?php esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.mobile.link }}} />
+			<!-- <div class="mobile control-wrap">
+				<input type="text" value="{{ data.mobile.value }}" placeholder="<?php //esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.mobile.link }}} />
 	    	</div>
-	    <# } #>
+	    <# } #> -->
 	<?php
 	}
 }
