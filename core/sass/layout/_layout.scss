@@ -1,0 +1,233 @@
+//
+// Container styles
+// -----------------------------------------------------------------------------
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $grid-gutter-width / 2;
+	padding-right: $grid-gutter-width / 2;
+
+	// @each $screen, $width in $screens {
+	// 	@media ( min-width: $width ) {
+	// 		width: map-get( $containers, $screen );
+	// 	}
+	// }
+	max-width: 100%;
+}
+.page-template-default #primary{
+		@media ( max-width: map-get( $screens, md ) ) {
+			padding: 1.5em 0;
+		}
+}
+#primary{
+		@media ( min-width: map-get( $screens, lg ) ) {
+      padding: 2em 0;
+		}
+	}
+/**
+ * Site content styles
+ * -----------------------------------------------------------------------------
+ */
+.site-content {
+	// padding: $grid-gutter-width 0;
+
+	.hentry {
+		background-color: white;
+		padding: 1.5em 1em;
+	}
+	.widget {
+		//@include make-block( $grid-gutter-width/2 );
+		background-color: white;
+		padding:  $grid-gutter-width;
+	}
+}
+
+.page-template-fullwidth-template {
+	.site-content .hentry {
+	padding: 0;
+	}
+	header.entry-header{
+		padding-left: 1.5em;
+	}
+}
+
+section.error-404.not-found {
+	padding: 1.5em 1em;
+}
+
+.page-template-fullwidth-template #primary{
+		padding: 0;
+	}
+
+.page-template-fullwidth-notitle-template {
+	#primary{
+		padding: 0;
+	}
+	.site-content .hentry {
+	padding: 0;
+	}
+	.page-content, .entry-content, .entry-summary {
+		margin: 0;
+	}
+}
+.page-template-fullwidth-template .wp-block-cover.alignfull{
+	width: 100vw;
+ position: relative;
+ left: 50%;
+ margin-left: -50vw;
+}
+
+//
+// Row styles
+// -----------------------------------------------------------------------------
+.row {
+		@media ( min-width: map-get( $screens, lg ) ) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			margin-left: $grid-gutter-width / -2;
+			margin-right: $grid-gutter-width / -2;
+
+			&.align-items-center {
+				align-items: center;
+			}
+		}
+}
+
+//
+// Column styles
+// -----------------------------------------------------------------------------
+@each $screen, $width in $screens {
+	@media ( min-width: $width ) {
+		@for $i from 1 through $grid-columns {
+			.col-#{$screen}-#{$i} {
+				padding-left: $grid-gutter-width / 2;
+				padding-right: $grid-gutter-width / 2;
+				width: percentage( $i / $grid-columns );
+			}
+		}
+	}
+}
+
+//
+// Push column styles
+// -----------------------------------------------------------------------------
+@each $screen, $width in $screens {
+	@media ( min-width: $width ) {
+		@for $i from 1 through $grid-columns {
+			.push-#{$screen}-#{$i} {
+				margin-left: percentage( $i / $grid-columns );
+			}
+		}
+	}
+}
+
+/**
+ * Auto width columns.
+ */
+.col {
+	flex: 1;
+	padding-left: $grid-gutter-width / 2;
+	padding-right: $grid-gutter-width / 2;
+}
+
+//
+// Hide / show styles
+// -----------------------------------------------------------------------------
+@each $screen, $width in $screens {
+	@media ( min-width: $width ) {
+		.hide-#{$screen} {
+			display: none;
+		}
+
+		.show-#{$screen} {
+			display: block;
+		}
+	}
+}
+
+//
+// Clear float styles
+// -----------------------------------------------------------------------------
+.clear {
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+.sidebar h2 {
+	margin: 0.67em 0;
+}
+
+//
+// Gutenber color options
+// -----------------------------------------------------------------------------
+@each $name, $color in $colors {
+
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+	// .has-#{$name}-color *{
+	// 	color: $color;
+	// }
+	//
+	// .has-#{$name}-background-color *{
+	// 	background-color: $color;
+	// }
+}
+/* Boxed Layout */
+// .boxed-layout {
+//   background-color: $color__background-body;
+// }
+//
+// .boxed-layout #page {
+//   width: 1280px;
+//   max-width: 100%;
+//   margin: 0 auto;
+//   background-color: #fff;
+// }
+//
+//
+// .boxed-layout #page .container {
+//   width: auto;
+//   max-width: none;
+//   padding-left: 30px;
+//   padding-right: 30px;
+// }
+//
+//
+// .boxed-layout #footer-widgets {
+//   margin: 0;
+// }
+.boxed-layout .site-content{
+	margin: $grid-gutter-width;
+	max-width: 1200px;
+}
+
+/* Fullwidth layout */
+.fullwidth-layout {
+	& .site-content {
+		margin: 0;
+		max-width: none;
+	}
+	& .container {
+		margin: 0 auto;
+
+	}
+	& #content-area, & #primary {
+		padding: 0;
+	}
+	& .widget-area.sidebar {
+		margin: 0;
+		padding: 0;
+	}
+}

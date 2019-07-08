@@ -1,0 +1,121 @@
+/*!
+Theme Name: Responsive
+Theme URI: http://underscores.me/
+Author: CyberChimps
+Author URI: https://cyberchimps.com
+Description: Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. The theme is Gutenberg compatible. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload and Social Networking. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into over 45 languages. Cross-Browser compatible. Includes a Testimonial section so you can highlight positive feedback from your customers and boost conversion. Includes a team section to display your team members details. Has a customizable call-out section for key messages, with a Call-To-Action Button. An elegant Contact section to display your address & contact form. Includes Custom WooCommerce Templates. 3 Site layout available - Default , full width & full width without boxes. Option available to add sticky header. Includes 3 different blog layouts - Blog (full posts), Blog Excerpt & Blog layout with 3 Column. Option available to filter categories from Blog page. Two types of footer widgets layout available <a href=\"https://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (https://cyberchimps.com/forum/free/responsive/). For Weekly Tips on how to get the most out of this theme, sign up here <a href=\"https://cyberchimps.com/weekly-tips-free-responsive-free-theme/\">https://cyberchimps.com/weekly-tips-free-responsive-free-theme/ </a>. View theme demo here <a href=\"https://cyberchimps.com/responsive-demo/\">https://cyberchimps.com/responsive-demo/ </a>
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: responsive
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Responsive is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "elements/elements";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+@import "forms/forms";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "navigation/navigation";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+@import "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+@import "modules/clearings";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "site/site";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+@import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/media";
+
+/**
+ * Shop tables
+ */
+@import "shop/tables";
+
+/**
+* Atomic blocks
+*/
+@import "compatibility/atomic-blocks";
+
+/**
+* Gutenberg compatibility
+*/
+@import "compatibility/gutenberg";

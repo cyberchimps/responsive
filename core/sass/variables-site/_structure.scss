@@ -1,0 +1,30 @@
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+$size__spacing-unit: 1rem;
+
+$screens: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+);
+
+$containers: (
+	xs: none,
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1200px
+);
+
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+
+//
+// Input variable variables
+// -----------------------------------------------------------------------------
+$input-height: $calc-line-height * 1.5;
+$input-border-width: 1px;
+$input-padding-x: 1rem;
+$input-padding-y: ( $input-height / 2 - $base-line-height / 2 - $input-border-width );

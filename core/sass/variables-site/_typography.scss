@@ -1,0 +1,25 @@
+$font__main: Open sans;
+$font__code: Open sans;
+$font__pre: Open sans;
+$font__meta: Open sans;
+$heading-font: Open sans;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+
+$base-font-size: 16px;
+$base-line-height: 1.625;
+$type-scale: 1.25;
+$heading-line-height: 1.25;
+$font__size-ratio: 1.125;
+
+$calc-line-height: $base-font-size * $base-line-height;
+
+$h6-font-size: $base-font-size / $type-scale;
+$h5-font-size: $base-font-size / $type-scale;
+$h4-font-size: 18px;
+$h3-font-size: 24px;
+$h2-font-size: 34px;
+$h1-font-size: 40px;
+$small-font-size: $h5-font-size;
+
+$sidebar-font-size: 16px;
