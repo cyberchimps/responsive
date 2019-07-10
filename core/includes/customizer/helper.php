@@ -631,3 +631,50 @@ if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
 
  	}
  }
+ /**
+  * Returns correct style for the blog entry based on the customizer
+  *
+  * @since 1.0.4
+  */
+ if ( ! function_exists( 'responsive_blog_entry_style' ) ) {
+
+ 	function responsive_blog_entry_style() {
+
+ 		// Get default style from Customizer
+ 		$style = get_theme_mod( 'responsive_blog_style', 'large-entry' );
+
+ 		// Sanitize
+ 		$style = $style ? $style : 'large-entry';
+
+ 		// Apply filters for child theming
+ 		$style = apply_filters( 'responsive_blog_entry_style', $style );
+
+ 		// Return style
+ 		return $style;
+
+ 	}
+ }
+
+ /**
+  * Returns correct images size
+  *
+  * @since 1.0.4
+  */
+ if ( ! function_exists( 'responsive_blog_entry_images_size' ) ) {
+
+ 	function responsive_blog_entry_images_size() {
+
+ 		// Get default size from Customizer
+ 		$size = get_theme_mod( 'responsive_blog_grid_images_size', 'medium' );
+
+ 		// Sanitize
+ 		$size = $size ? $size : 'medium';
+
+ 		// Apply filters for child theming
+ 		$size = apply_filters( 'responsive_blog_entry_images_size', $size );
+
+ 		// Return size
+ 		return $size;
+
+ 	}
+ }
