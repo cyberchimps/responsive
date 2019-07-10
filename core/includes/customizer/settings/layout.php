@@ -54,26 +54,23 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_setting(
-				'responsive_layout_styles',
+				'responsive_theme_options[site_layout_option]',
 				array(
-					'transport' => 'refresh',
-					'default'   => 'boxed',
+					'sanitize_callback' => 'responsive_validate_site_layout',
+					'type' => 'option'
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Control(
-					$wp_customize,
-					'responsive_layout_styles',
-					array(
-						'label'    => __( 'Layout', 'responsive' ),
-						'settings' => 'responsive_layout_styles',
-						'priority' => 10,
-						'section'  => 'responsive_layout_section',
-						'type'     => 'select',
-						'choices'  => array(
-							'boxed'     => 'Boxed',
-							'fullwidth' => 'Fullwidth',
-						),
+				'site_layout_option',
+				array(
+					'label'    => __( 'Choose Site Layout', 'responsive' ),
+					'section'  => 'responsive_layout_section',
+					'settings' => 'responsive_theme_options[site_layout_option]',
+					'type'     => 'select',
+					'choices'  => array(
+						'default-layout'    => __('Default','responsive'),
+						'full-width-layout' => __('Full Width Layout','responsive'),
+						'full-width-no-box' => __('Full Width Without boxes','responsive'),
 					)
 				)
 			);

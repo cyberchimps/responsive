@@ -208,7 +208,6 @@ function register_options() {
 
 	// Customizer files array.
 	$files = array(
-		'site-colors',
 		'button',
 		'typoghraphy',
 		'theme-options',
@@ -242,39 +241,19 @@ function custom_controls( $wp_customize ) {
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/';
 
 	// Load customize control classes.
-	//require_once $dir . 'buttonset/class-control-buttonset.php';
 	 require_once $dir . 'color/class-control-color.php';
-	// require_once $dir . 'dimensions/class-control-dimensions.php';
-	// require_once $dir . 'dropdown-pages/class-control-dropdown-pages.php';
-	// require_once $dir . 'heading/class-control-heading.php';
-	// require_once $dir . 'icon-select/class-control-icon-select.php';
-	// require_once $dir . 'multicheck/class-control-multicheck.php';
-	// require_once $dir . 'multiple-select/class-control-multiple-select.php';
-	// require_once $dir . 'radio-image/class-control-radio-image.php';
 	 require_once $dir . 'range/class-control-range.php';
 	 require_once $dir . 'slider/class-control-slider.php';
 	 require_once $dir . 'sortable/class-control-sortable.php';
 	 require_once $dir . 'text/class-control-text.php';
-	// require_once $dir . 'textarea/class-control-textarea.php';
-	// require_once $dir . 'typo/class-control-typo.php';
 	require_once $dir . 'typography/class-control-typography.php';
 
 	// Register JS control types.
-	// $wp_customize->register_control_type( 'Responsive_Customizer_Buttonset_Control' );
-	 $wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
-	// $wp_customize->register_control_type( 'Responsive_Customizer_Dimensions_Control' );
-	// $wp_customize->register_control_type( 'Responsive_Customizer_Dropdown_Pages' );
-	// $wp_customize->register_control_type( 'Responsive_Customizer_Heading_Control' );
-	// $wp_customize->register_control_type( 'Responsive_Customizer_Icon_Select_Control' );
-	 //$wp_customize->register_control_type( 'Responsive_Customize_Multicheck_Control' );
-	// $wp_customize->register_control_type( 'Responsive_Customize_Multiple_Select_Control' );
-	 $wp_customize->register_control_type( 'Responsive_Customizer_Range_Control' );
-	 $wp_customize->register_control_type( 'Responsive_Customizer_Slider_Control' );
-	// $wp_customize->register_control_type( 'Responsive_Customizer_Radio_Image_Control' );
-	 $wp_customize->register_control_type( 'Responsive_Customizer_Sortable_Control' );
-	 $wp_customize->register_control_type( 'Responsive_Customizer_Text_Control' );
-	// $wp_customize->register_control_type( 'Responsive_Customizer_Textarea_Control' );
-	// $wp_customize->register_control_type( 'Responsive_Customizer_Typo_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Range_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Slider_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Sortable_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Text_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Typography_Control' );
 
 }
@@ -285,7 +264,6 @@ add_action( 'customize_register', 'custom_controls' );
  *
  */
 function controls_helpers() {
-	//require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/customizer-helpers.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/sanitization-callbacks.php';
 }
 add_action( 'customize_register', 'controls_helpers' );
