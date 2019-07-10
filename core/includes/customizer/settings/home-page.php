@@ -66,16 +66,34 @@ if ( ! class_exists( 'Responsive_home_page_Customizer' ) ) :
 				// 	'title'                 => __( 'Home Page', 'responsive' ),
 				// 	'priority'              => 30
 				// ) );
-				$wp_customize->add_setting( 'responsive_theme_options[front_page]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
-				$wp_customize->add_control( 'res_front_page', array(
-					'label'                 => __( 'Enable Custom Front Page', 'responsive' ),
-					'section'               => 'static_front_page',
-					'settings'              => 'responsive_theme_options[front_page]',
-					'type'                  => 'checkbox',
-					'description'           => __( 'Overrides the WordPress front page option', 'responsive' )
-				) );
-				
-				$wp_customize->add_setting( 'responsive_theme_options[home_headline]', array( 'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage','default' => __( 'HAPPINESS', 'responsive' ), 'type' => 'option' ));
+				$wp_customize->add_setting(
+					'responsive_theme_options[front_page]',
+					array(
+						'sanitize_callback' => 'responsive_sanitize_checkbox',
+						'type' => 'option',
+						'transport' => 'refresh',
+					)
+				);
+				$wp_customize->add_control(
+					'res_front_page',
+					array(
+						'label'       => __( 'Enable Custom Front Page', 'responsive' ),
+						'section'     => 'static_front_page',
+						'settings'    => 'responsive_theme_options[front_page]',
+						'type'        => 'checkbox',
+						'description' => __( 'Overrides the WordPress front page option', 'responsive' )
+					)
+				);
+
+				$wp_customize->add_setting(
+					'responsive_theme_options[home_headline]',
+					array(
+						'sanitize_callback' => 'sanitize_text_field',
+						'transport' => 'postMessage',
+						'default' => __( 'HAPPINESS', 'responsive' ),
+						'type' => 'option'
+					)
+				);
 				$wp_customize->add_control( 'res_home_headline', array(
 					'label'                 => __( 'Headline', 'responsive' ),
 					'section'               => 'static_front_page',
