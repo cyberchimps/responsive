@@ -9,11 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-// Return if Ocean Extra is not active
-if ( ! OCEAN_EXTRA_ACTIVE ) {
-	return;
-} ?>
+ ?>
 
 <div class="post-quote-wrap">
 
