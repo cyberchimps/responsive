@@ -75,6 +75,26 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 				)
 			);
 			/**
+			 * Main Container Width
+			 */
+			$wp_customize->add_setting( 'responsive_main_container_width', array(
+				'transport' 			=> 'postMessage',
+				'default'           	=> '960',
+			  'sanitize_callback' 	=> 'responsive_sanitize_number',
+			) );
+
+			$wp_customize->add_control( new Responsive_Customizer_Range_Control( $wp_customize, 'responsive_main_container_width', array(
+				'label'	   				=> __( 'Container Width (px)', 'responsive' ),
+				'section'  				=> 'responsive_layout_section',
+				'settings' 				=> 'responsive_main_container_width',
+				'priority' 				=> 10,
+			    'input_attrs' 			=> array(
+			        'min'   => 0,
+			        'max'   => 4096,
+			        'step'  => 1,
+			    ),
+			) ) );
+			/**
 			 * Section
 			 */
 			$wp_customize->add_section(
