@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_layout_Customizer' ) ) :
 
 			$wp_customize->add_panel( 'responsive-layout-options',
 				array(
-			 		'title' => __( 'Layout' ),
+			 		'title' => __( 'Layout', 'responsive' ),
 			 		'description' => 'Layout Options', // Include html tags such as <p>.
 			 		'priority' => 21, // Mixed with top-level-section hierarchy.
 				)

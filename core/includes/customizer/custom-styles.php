@@ -68,11 +68,11 @@ function responsive_premium_custom_color_styles() {
 			background-color: {$input_background_color};
 			border-color: {$input_border_color_fs};
 		}
-		button, input[type='submit'], input[type=button] {
+		button, input[type='submit'], input[type=button], a.button {
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}
-		button:hover, input[type='submit']:hover, input[type=button]:hover {
+		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover {
 				background-color: {$button_hover_color};
 		}
 		label {
