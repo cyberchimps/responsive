@@ -166,8 +166,9 @@ function responsive_premium_custom_color_styles() {
 			color: {$label_color};
 		}
 		.fullwidth-layout
-		.container {
+		.container, div#container {
 			width: {$container_width}px;
+			max-width: 100%;
 		}
 		.boxed-layout
 		.content-area {
