@@ -38,13 +38,13 @@ if ( ! class_exists( 'Responsive_button_Customizer' ) ) :
 					'button-color'         => array(
 						'label'    => esc_html__( 'Button Color', 'responsive' ),
 						'defaults' => array(
-							'color' => '#333333',
+							'color' => '#1874cd',
 						),
 					),
 					'button-hover-color' => array(
 						'label'    => esc_html__( 'Button hover Color', 'responsive' ),
 						'defaults' => array(
-							'color' => '#333333',
+							'color' => '#7db7f0',
 						),
 					),
 					'button-text-color'         => array(

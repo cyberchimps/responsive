@@ -76,7 +76,7 @@ if (!($wp_version >= 4.7))
 
 
 
-	$wp_customize->get_section('colors')->title = __( 'Background Color' );
+	$wp_customize->get_section('colors')->title = __( 'Background Color', 'responsive' );
 
 
 }
