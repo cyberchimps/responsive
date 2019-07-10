@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => 'body',
 						'defaults' => array(
 							'font-size'   => '14px',
-							'color'       => '#929292',
+							'color'       => '#555555',
 							'line-height' => '1.8',
 							'text-transform' => 'inherit',
 						),
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'exclude'  => array( 'font-size' ),
 						'defaults' => array(
-							'color'       => '#333333',
+							'color'       => '#555555',
 							'line-height' => '1.4',
 							'text-transform' => 'inherit',
 						),

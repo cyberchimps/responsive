@@ -50,7 +50,7 @@ if ( ! class_exists( 'Responsive_button_Customizer' ) ) :
 					'button-text-color'         => array(
 						'label'    => esc_html__( 'Button Text Color', 'responsive' ),
 						'defaults' => array(
-							'color' => '#ffffff',
+							'color' => '#333333',
 						),
 					),
 					'label-color'   => array(
