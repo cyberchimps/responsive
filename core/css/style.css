@@ -3429,27 +3429,3 @@ border-bottom-color: #cec9c4;
 /*
 	changes according gutenberg plugin -- END
  */
-
- /* =FullWidth and Elementor
- -------------------------------------------------------------- */
-body.fullwidth-layout #container, body.fullwidth-layout #content-outer, body.elementor-template-full-width #container {
-		max-width: none;
-    padding: 0;
-}
-
-body.elementor-template-full-width #wrapper {
-	padding: 0;
-	margin: 0;
-}
-
-body.fullwidth-layout #wrapper {
-	margin: 0;
-}
-
-body.fullwidth-layout #featured {
-	border: none;
-}
-
-body.fullwidth-layout #logo {
-	padding: 0 10px;
-}
