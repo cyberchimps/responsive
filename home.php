@@ -91,7 +91,7 @@ if (isset($responsive_options['blog_posts_index_layout_default']) && ($responsiv
 	</div>
 </div>
 </div>
-<?php } else {?>
+<?php } else { ?>
 
 <?php  ?>
 <div id="content-outer">
