@@ -441,3 +441,193 @@ if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
 
     }
  }
+ /**
+  * Returns post video HTML
+  *
+  * @since 1.0.0
+  */
+ if ( ! function_exists( 'responsive_get_post_video_html' ) ) {
+
+ 	function responsive_get_post_video_html( $video = '' ) {
+
+ 		// Get video
+ 		$video = $video ? $video : responsive_get_post_media();
+
+ 		// Return if video is empty
+ 		if ( empty( $video ) ) {
+ 			return;
+ 		}
+
+ 		// Check post format for standard post type
+ 		if ( 'post' == get_post_type() && 'video' != get_post_format() ) {
+ 			return;
+ 		}
+
+ 		// Get oembed code and return
+ 		if ( ! is_wp_error( $oembed = wp_oembed_get( $video ) ) && $oembed ) {
+ 			return '<div class="responsive-video-wrap">'. $oembed .'</div>';
+ 		}
+
+ 		// Display using apply_filters if it's self-hosted
+ 		else {
+
+ 			$video = apply_filters( 'the_content', $video );
+
+ 			// Add responsive video wrap for youtube/vimeo embeds
+ 			if ( strpos( $video, 'youtube' ) || strpos( $video, 'vimeo' ) ) {
+ 				return '<div class="responsive-video-wrap">'. $video .'</div>';
+ 			}
+
+ 			// Else return without responsive wrap
+ 			else {
+ 				return $video;
+ 			}
+
+ 		}
+
+ 	}
+
+ }
+
+ /**
+  * Returns post audio
+  *
+  * @since 1.0.0
+  */
+ if ( ! function_exists( 'responsive_get_post_audio_html' ) ) {
+
+ 	function responsive_get_post_audio_html( $audio = '' ) {
+
+ 		// Get audio
+ 		$audio = $audio ? $audio : responsive_get_post_media();
+
+ 		// Return if audio is empty
+ 		if ( empty( $audio ) ) {
+ 			return;
+ 		}
+
+ 		// Check post format for standard post type
+ 		if ( 'post' == get_post_type() && 'audio' != get_post_format() ) {
+ 			return;
+ 		}
+
+ 		// Get oembed code and return
+ 		if ( ! is_wp_error( $oembed = wp_oembed_get( $audio ) ) && $oembed ) {
+ 			return '<div class="responsive-video-wrap">'. $oembed .'</div>';
+ 		}
+
+ 		// Display using apply_filters if it's self-hosted
+ 		else {
+
+ 			$audio = apply_filters( 'the_content', $audio );
+
+ 			// Add responsive audio wrap for youtube/vimeo embeds
+ 			if ( strpos( $audio, 'youtube' ) || strpos( $audio, 'vimeo' ) ) {
+ 				return '<div class="responsive-video-wrap">'. $audio .'</div>';
+ 			}
+
+ 			// Else return without responsive wrap
+ 			else {
+ 				return $audio;
+ 			}
+
+ 		}
+
+ 	}
+
+ }
+
+ /**
+  * Returns post media
+  *
+  * @since 1.0.0
+  */
+ if ( ! function_exists( 'responsive_get_post_media' ) ) {
+
+ 	function responsive_get_post_media( $post_id = '' ) {
+
+ 		// Define video variable
+ 		$video = '';
+
+ 		// Get correct ID
+ 		$post_id = $post_id ? $post_id : get_the_ID();
+
+ 		// Embed
+ 		if ( $meta = get_post_meta( $post_id, 'responsive_post_video_embed', true ) ) {
+ 			$video = $meta;
+ 		}
+
+ 		// Check for self-hosted first
+ 		elseif ( $meta = get_post_meta( $post_id, 'responsive_post_self_hosted_media', true ) ) {
+ 			$video = $meta;
+ 		}
+
+ 		// Check for post oembed
+ 		elseif ( $meta = get_post_meta( $post_id, 'responsive_post_oembed', true ) ) {
+ 			$video = $meta;
+ 		}
+
+ 		// Apply filters for child theming
+ 		$video = apply_filters( 'responsive_get_post_video', $video );
+
+ 		// Return data
+ 		return $video;
+
+ 	}
+ }
+ /**
+  * Retrieve attachment IDs
+  *
+  * @since 1.0.0
+  */
+ if ( ! function_exists( 'responsive_get_gallery_ids' ) ) {
+
+ 	function responsive_get_gallery_ids( $post_id = '' ) {
+
+ 		$post_id        = $post_id ? $post_id : get_the_ID();
+ 		$attachment_ids = get_post_meta( $post_id, 'responsive_gallery_id', true );
+
+ 		if ( $attachment_ids ) {
+ 			return $attachment_ids;
+ 		}
+
+ 	}
+ }
+
+ /**
+  * Retrieve attachment data
+  *
+  * @since 1.0.0
+  */
+ if ( ! function_exists( 'responsive_get_attachment' ) ) {
+
+ 	function responsive_get_attachment( $id ) {
+
+ 		$attachment = get_post( $id );
+
+ 		return array(
+ 			'alt'         => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
+ 			'caption'     => $attachment->post_excerpt,
+ 			'description' => $attachment->post_content,
+ 			'href'        => get_permalink( $attachment->ID ),
+ 			'src'         => $attachment->guid,
+ 			'title'       => $attachment->post_title,
+ 		);
+
+ 	}
+ }
+
+ /**
+  * Return gallery count
+  *
+  * @since 1.0.0
+  */
+ if ( ! function_exists( 'responsive_gallery_count' ) ) {
+
+ 	function responsive_gallery_count() {
+
+ 		$ids = responsive_get_gallery_ids();
+ 		return count( $ids );
+
+ 	}
+ }

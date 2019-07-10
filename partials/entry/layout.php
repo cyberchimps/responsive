@@ -28,16 +28,15 @@ $format = get_post_format();
 
 			// Get elements.
 			$elements = responsive_blog_entry_elements_positioning();
-			
+
 			// Loop through elements.
 			foreach ( $elements as $element ) {
 
 				// Featured Image.
 				if ( 'featured_image' === $element
 					&& ! post_password_required() ) {
-
-
-					get_template_part( 'partials/entry/thumbnail' );
+						get_template_part( 'partials/entry/media/blog-entry', $format );
+					//get_template_part( 'partials/entry/thumbnail' );
 
 				}
 

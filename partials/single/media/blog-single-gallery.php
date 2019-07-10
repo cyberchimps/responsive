@@ -10,10 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Return if Ocean Extra is not active
-if ( ! OCEAN_EXTRA_ACTIVE ) {
-	return;
-}
 
 // Get attachments
 $attachments = responsive_get_gallery_ids( get_the_ID() );
@@ -55,7 +51,7 @@ if ( post_password_required() || empty( $attachments ) ) {
 			else : ?>
 
 				<?php echo wp_kses_post( $attachment_html ); ?>
-			
+
 			<?php endif;
 
 		endforeach; ?>

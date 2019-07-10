@@ -10,11 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Return if Ocean Extra is not active
-if ( ! OCEAN_EXTRA_ACTIVE ) {
-	return;
-}
-
 // Get audio html
 $audio = responsive_get_post_audio_html();
 
