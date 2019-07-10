@@ -20,7 +20,7 @@ if ( !defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
-get_header(); ?>
+get_header();  error_log('in index.php'); ?>
 
 <div id="content-outer">
 <div id="content" class="grid col-620" role="main">

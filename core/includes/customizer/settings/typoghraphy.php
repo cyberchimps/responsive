@@ -21,7 +21,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		public function __construct() {
 
 			add_action( 'customize_register', array( $this, 'customizer_options' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'customize_preview_init' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_fonts' ) );
+
 
 			// CSS output.
 			if ( is_customize_preview() ) {
@@ -48,10 +50,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => 'body',
 						'defaults' => array(
-							'font-family'	=> 'Arial, Helvetica, sans-serif',
 							'font-size'   => '14px',
-							'color'       => '#555555',
-							'line-height' => '1.5',
+							'color'       => '#929292',
+							'line-height' => '1.8',
 						),
 					),
 					'headings' => array(
@@ -59,7 +60,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'exclude'  => array( 'font-size' ),
 						'defaults' => array(
-							'font-family'	=> 'Arial, Helvetica, sans-serif',
 							'color'       => '#333333',
 							'line-height' => '1.4',
 						),
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				$label              = ! empty( $array['label'] ) ? $array['label'] : null;
 				$exclude_attributes = ! empty( $array['exclude'] ) ? $array['exclude'] : false;
 				$active_callback    = isset( $array['active_callback'] ) ? $array['active_callback'] : null;
-				$transport          = 'postMessage';
+				$transport          = 'refresh';
 
 				// Get attributes.
 				if ( ! empty( $array['attributes'] ) ) {
@@ -207,7 +207,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'            => 'select',
 								'active_callback' => $active_callback,
 								'choices'         => array(
-									''    => esc_html__( 'Normal: 400', 'responsive' ),
+									''    => esc_html__( 'Default', 'responsive' ),
 									'100' => esc_html__( 'Thin: 100', 'responsive' ),
 									'200' => esc_html__( 'Light: 200', 'responsive' ),
 									'300' => esc_html__( 'Book: 300', 'responsive' ),
@@ -247,7 +247,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'active_callback' => $active_callback,
 								'choices'         => array(
 									''       => esc_html__( 'Default', 'responsive' ),
-									//'normal' => esc_html__( 'Normal', 'responsive' ),
+									'normal' => esc_html__( 'Normal', 'responsive' ),
 									'italic' => esc_html__( 'Italic', 'responsive' ),
 								),
 							)
@@ -409,7 +409,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					if ( in_array( 'letter-spacing', $attributes ) ) {
 
 						// Get default
-				//		$default = ! empty( $array['defaults']['letter-spacing'] ) ? $array['defaults']['letter-spacing'] : null;
+						$default = ! empty( $array['defaults']['letter-spacing'] ) ? $array['defaults']['letter-spacing'] : null;
 
 						$wp_customize->add_setting(
 							$element . '_typography[letter-spacing]',
@@ -417,7 +417,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_number',
 								'transport'         => $transport,
-								'default'           => '0',
+								'default'           => $default,
 							)
 						);
 
@@ -468,7 +468,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					if ( in_array( 'font-color', $attributes ) ) {
 
 						// Get default
-					//	$default = ! empty( $array['defaults']['color'] ) ? $array['defaults']['color'] : null;
+						$default = ! empty( $array['defaults']['color'] ) ? $array['defaults']['color'] : null;
 
 						$wp_customize->add_setting(
 							$element . '_typography[color]',
@@ -477,7 +477,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'default'           => '',
 								'sanitize_callback' => 'responsive_sanitize_color',
 								'transport'         => $transport,
-								'default'           => '#555555',
+								'default'           => $default,
 							)
 						);
 						$wp_customize->add_control(
