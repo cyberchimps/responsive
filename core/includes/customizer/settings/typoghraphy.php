@@ -53,6 +53,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'font-size'   => '14px',
 							'color'       => '#929292',
 							'line-height' => '1.8',
+							'text-transform' => 'inherit',
 						),
 					),
 					'headings' => array(
@@ -62,6 +63,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'defaults' => array(
 							'color'       => '#333333',
 							'line-height' => '1.4',
+							'text-transform' => 'inherit',
 						),
 					),
 				)
@@ -227,12 +229,14 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					 */
 					if ( in_array( 'font-style', $attributes ) ) {
 
+
 						$wp_customize->add_setting(
 							$element . '_typography[font-style]',
 							array(
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
+								'default'						=> 'normal',
 							)
 						);
 
@@ -246,8 +250,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'            => 'select',
 								'active_callback' => $active_callback,
 								'choices'         => array(
-									''       => esc_html__( 'Default', 'responsive' ),
-									'normal' => esc_html__( 'Normal', 'responsive' ),
+									'normal'       => esc_html__( 'Normal', 'responsive' ),
 									'italic' => esc_html__( 'Italic', 'responsive' ),
 								),
 							)
@@ -266,6 +269,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
+								'default'						=> '',
 							)
 						);
 
@@ -294,16 +298,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					 */
 					if ( in_array( 'font-size', $attributes ) ) {
 
-						// Get default
-						$default = ! empty( $array['defaults']['font-size'] ) ? $array['defaults']['font-size'] : null;
-
 						$wp_customize->add_setting(
 							$element . '_typography[font-size]',
 							array(
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'sanitize_text_field',
 								'transport'         => $transport,
-								'default'           => $default,
+								'default'           => '14px',
 							)
 						);
 
@@ -408,16 +409,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					 */
 					if ( in_array( 'letter-spacing', $attributes ) ) {
 
-						// Get default
-						$default = ! empty( $array['defaults']['letter-spacing'] ) ? $array['defaults']['letter-spacing'] : null;
-
 						$wp_customize->add_setting(
 							$element . '_typography[letter-spacing]',
 							array(
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_number',
 								'transport'         => $transport,
-								'default'           => $default,
+								'default'           => '0',
 							)
 						);
 
