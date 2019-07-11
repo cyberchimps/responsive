@@ -1,50 +1,70 @@
-wp.customize.controlConstructor['responsive-sortable'] = wp.customize.Control.extend({
+/**
+ * Sort JS
+ *
+ * @package Responsive WordPress theme
+ *
+ * This file includes several helper functions and the core control JS.
+ */
 
-	ready: function() {
+wp.customize.controlConstructor['responsive-sortable'] = wp.customize.Control.extend(
+	{
 
-		'use strict';
+		ready: function() {
 
-		var control = this;
+			'use strict';
 
-		// Set the sortable container.
-		control.sortableContainer = control.container.find( 'ul.sortable' ).first();
+			var control = this;
 
-		// Init sortable.
-		control.sortableContainer.sortable({
+			// Set the sortable container.
+			control.sortableContainer = control.container.find( 'ul.sortable' ).first();
 
-			// Update value when we stop sorting.
-			stop: function() {
-				control.updateValue();
-			}
-		}).disableSelection().find( 'li' ).each( function() {
+			// Init sortable.
+			control.sortableContainer.sortable(
+				{
 
-			// Enable/disable options when we click on the eye of Thundera.
-			jQuery( this ).find( 'i.visibility' ).click( function() {
-				jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).parents( 'li:eq(0)' ).toggleClass( 'invisible' );
-			});
-		}).click( function() {
+					// Update value when we stop sorting.
+					stop: function() {
+						control.updateValue();
+					}
+				}
+			).disableSelection().find( 'li' ).each(
+				function() {
 
-			// Update value on click.
-			control.updateValue();
-		});
-	},
+					// Enable/disable options when we click on the eye of Thundera.
+					jQuery( this ).find( 'i.visibility' ).click(
+						function() {
+							jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).parents( 'li:eq(0)' ).toggleClass( 'invisible' );
+						}
+					);
+				}
+			).click(
+				function() {
 
-	/**
-	 * Updates the sorting list
-	 */
-	updateValue: function() {
+					// Update value on click.
+					control.updateValue();
+				}
+			);
+		},
 
-		'use strict';
+		/**
+		 * Updates the sorting list
+		 */
+		updateValue: function() {
 
-		var control = this,
-		    newValue = [];
+			'use strict';
 
-		this.sortableContainer.find( 'li' ).each( function() {
-			if ( ! jQuery( this ).is( '.invisible' ) ) {
-				newValue.push( jQuery( this ).data( 'value' ) );
-			}
-		});
+			var control = this,
+			newValue    = [];
 
-		control.setting.set( newValue );
+			this.sortableContainer.find( 'li' ).each(
+				function() {
+					if ( ! jQuery( this ).is( '.invisible' ) ) {
+						  newValue.push( jQuery( this ).data( 'value' ) );
+					}
+				}
+			);
+
+			control.setting.set( newValue );
+		}
 	}
-});
+);
