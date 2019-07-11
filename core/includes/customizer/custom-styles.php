@@ -119,7 +119,7 @@ function responsive_premium_custom_color_styles() {
 			letter-spacing: {$letter_spacing};
 			color: {$body_color};
 			font-weight: {$font_weight};
-			line-height: {$line_height};
+			line-height: {$line_height} !important;
 			font-style: {$font_style};
 			box-sizing: border-box;
 		}
@@ -138,7 +138,7 @@ function responsive_premium_custom_color_styles() {
 			letter-spacing: {$headingsletter_spacing};
 			color: {$heading_color};
 			font-weight: {$headingsfont_weight};
-			line-height: {$headingsline_height};
+			line-height: {$headingsline_height} !important;
 			font-style: {$headingsfont_style};
 		}
 		a {
