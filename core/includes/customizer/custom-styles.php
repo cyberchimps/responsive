@@ -121,6 +121,7 @@ function responsive_premium_custom_color_styles() {
 			font-weight: {$font_weight};
 			line-height: {$line_height};
 			font-style: {$font_style};
+			box-sizing: border-box;
 		}
 		h1,h2,h3,h4,h5,h6,
 		.theme-heading,
