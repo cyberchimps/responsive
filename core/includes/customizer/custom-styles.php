@@ -13,8 +13,8 @@
  */
 function responsive_premium_custom_color_styles() {
 	$text_color             = get_theme_mod( 'text-color', '#333333' );
-	$body_typoghrapy       = get_theme_mod( 'body_typography' );
-	$headings_typography       = get_theme_mod( 'headings_typography' );
+	$body_typography        = get_theme_mod( 'body_typography' );
+	$headings_typography    = get_theme_mod( 'headings_typography' );
 	$heading_text_color     = get_theme_mod( 'heading-text-color', '' );
 	$link_color             = get_theme_mod( 'link-color', '#078ce1' );
 	$link_hover_color       = get_theme_mod( 'link-hover-color', '#10659c' );
@@ -112,10 +112,9 @@ function responsive_premium_custom_color_styles() {
 		 $headingsfont_style = 'normal';
 	 }
 
-
 	$custom_css = "
 		body * {
-			font-family: {$body_typoghrapy['font-family']};
+			font-family: {$body_typography['font-family']};
 			text-transform: {$text_transform};
 			letter-spacing: {$letter_spacing};
 			color: {$body_color};
