@@ -472,7 +472,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							$element . '_typography[color]',
 							array(
 								'type'              => 'theme_mod',
-								'default'           => '',
 								'sanitize_callback' => 'responsive_sanitize_color',
 								'transport'         => $transport,
 								'default'           => $default,

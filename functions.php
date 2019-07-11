@@ -85,7 +85,12 @@ function responsive_add_site_layout_classes($classes)
 
     return $classes;
 }
-$responsive_options = get_option('responsive_theme_options');
+$responsive_options = responsive_get_options();
+error_log('sticky'.print_r($responsive_options,1));
+error_log( '1-->>'.get_theme_mod( 'responsive_theme_options[sticky-header]' ) );
+error_log( '2-->>'.get_theme_mod( 'res_sticky-header' ) );
+error_log( '3-->>'.$responsive_options['sticky-header'] );
+error_log( '4-->>'.get_theme_mod('sticky-header') );
 if (isset($responsive_options['sticky-header']) && $responsive_options['sticky-header'] =='1') {
     add_action('wp_footer', 'responsive_fixed_menu_onscroll');
     function responsive_fixed_menu_onscroll()
