@@ -34,7 +34,7 @@ function responsive_admin_enqueue_scripts( $hook_suffix ) {
 
 	wp_enqueue_style( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options'. $suffix . '.css', false, '1.0' );
 	wp_enqueue_script( 'responsive-theme-options', $template_directory_uri . '/core/includes/theme-options/theme-options' . $suffix . '.js', array( 'jquery' ), '1.0' );
-	wp_enqueue_script( 'responsive-skytabs', $template_directory_uri . '/core/includes/theme-options/sky-tabs-ie8.js');	
+	wp_enqueue_script( 'responsive-skytabs', $template_directory_uri . '/core/includes/theme-options/sky-tabs-ie8.js');
 	wp_enqueue_style('responsive-skytabs', $template_directory_uri . '/core/includes/theme-options/sky-tabs.css');
 	wp_enqueue_script ('jquery');
 }
@@ -99,7 +99,7 @@ function responsive_theme_options_do_page() {
 	foreach ( $options_posts_obj as $posts ) {
 		$options_posts[$posts->ID] = $posts->post_title;
 	}
-	
+
 	if ( !isset( $_REQUEST['settings-updated'] ) ) {
 		$_REQUEST['settings-updated'] = false;
 	}
@@ -113,7 +113,7 @@ function responsive_theme_options_do_page() {
 	<?php echo "<h2>" . $theme_name . " " . __( 'Theme Options', 'responsive' ) . "</h2>"; ?>
 
 
-	<?php if ( false !== $_REQUEST['settings-updated'] ) : ?> 
+	<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
 		<div class="updated fade"><p><strong><?php _e( 'Options Saved', 'responsive' ); ?></strong></p></div>
 	<?php endif; ?>
 
@@ -143,7 +143,7 @@ function responsive_theme_options_do_page() {
 																	  array(
 																		  'title' => __( 'Home Page', 'responsive' ),
 																		  'id'    => 'home_page'
-																	  ),																	
+																	  ),
 																	  array(
 																		  'title' => __( 'Default Layouts', 'responsive' ),
 																		  'id'    => 'layouts'
@@ -151,7 +151,7 @@ function responsive_theme_options_do_page() {
 																	  array(
 																		  'title' => __( 'Social Icons', 'responsive' ),
 																		  'id'    => 'social'
-																	  ),																	 
+																	  ),
 																	  array(
 																		  'title' => __( 'Scripts', 'responsive' ),
 																		  'id'    => 'scripts'
@@ -161,14 +161,14 @@ function responsive_theme_options_do_page() {
 
 	);
 	}
-	else 
+	else
 	{
 		$sections = apply_filters( 'responsive_option_sections_filter', array(
 				array(
 						'title' => __( 'Theme Elements', 'responsive' ),
 						'id'    => 'theme_elements'
 				),
-		
+
 				array(
 						'title' => __( 'Logo Upload', 'responsive' ),
 						'id'    => 'logo_upload'
@@ -176,7 +176,7 @@ function responsive_theme_options_do_page() {
 				array(
 						'title' => __( 'Home Page', 'responsive' ),
 						'id'    => 'home_page'
-				),				
+				),
 				array(
 						'title' => __( 'Default Layouts', 'responsive' ),
 						'id'    => 'layouts'
@@ -193,9 +193,9 @@ function responsive_theme_options_do_page() {
 						'title' => __( 'Scripts', 'responsive' ),
 						'id'    => 'scripts'
 				)
-		
+
 		)
-		
+
 		);
 	}
 
@@ -213,7 +213,7 @@ function responsive_theme_options_do_page() {
 	 * @placeholder The placeholder for text and textarea
 	 * @options array used by select dropdown lists
 	 */
-	
+
 	$options = apply_filters( 'responsive_options_filter', array(
 		'theme_elements' => array(
 			array(
@@ -329,10 +329,10 @@ function responsive_theme_options_do_page() {
 					'placeholder' => '',
 					'options'     => array(
 							'footer-3-col'  => __( 'Default (3 column)', 'responsive' ),
-							'footer-2-col' => __( '2 Column Layout', 'responsive' ),							
+							'footer-2-col' => __( '2 Column Layout', 'responsive' ),
 					)
 			),
-						
+
 		),
 		'logo_upload' => array(
 			array(
@@ -426,7 +426,7 @@ function responsive_theme_options_do_page() {
                                 'type'        => 'select',
                                 'options'     => array(
                                     'default'  => __( 'Gradient', 'responsive' ),
-			             'flat_style' => __( 'Flat', 'responsive' ) 
+			             'flat_style' => __( 'Flat', 'responsive' )
                                     )
                           ),
 			array(
@@ -452,7 +452,7 @@ function responsive_theme_options_do_page() {
 					'subtitle'    => '',
 					'heading'     => '',
 					'type'        => 'text',
-					'id'          => 'about_title',					
+					'id'          => 'about_title',
 					'placeholder' => __( 'About Box Title', 'responsive' )
 			),
 			array(
@@ -460,14 +460,14 @@ function responsive_theme_options_do_page() {
 					'subtitle'    => '',
 					'heading'     => '',
 					'type'        => 'text',
-					'id'          => 'about_text'					
-			),	
+					'id'          => 'about_text'
+			),
 			array(
 					'title'       => __( 'Call to Action (Text)', 'responsive' ),
 					'subtitle'    => '',
 					'heading'     => '',
 					'type'        => 'text',
-					'id'          => 'about_cta_text'					
+					'id'          => 'about_cta_text'
 			),
 			array(
 					'title'       => __( 'Call to Action (URL)', 'responsive' ),
@@ -475,7 +475,7 @@ function responsive_theme_options_do_page() {
 					'heading'     => '',
 					'type'        => 'text',
 					'description' => __('Enter url as http://www.example.com','responsive'),
-					'id'          => 'about_cta_url'					
+					'id'          => 'about_cta_url'
 			),
 			array(
 					'title'       => __( 'Enable Feature Section', 'responsive' ),
@@ -529,7 +529,7 @@ function responsive_theme_options_do_page() {
 					'subtitle'    => '',
 					'heading'     => '',
 					'type'        => 'checkbox',
-					'id'          => 'testimonials',					
+					'id'          => 'testimonials',
 					'placeholder' => ''
 			),
 			array(
@@ -603,7 +603,7 @@ function responsive_theme_options_do_page() {
 					'subtitle'    => '',
 					'heading'     => '',
 					'type'        => 'checkbox',
-					'id'          => 'home-widgets',					
+					'id'          => 'home-widgets',
 					'placeholder' => ''
 			),
 			array(
@@ -666,7 +666,7 @@ function responsive_theme_options_do_page() {
 					'description' => __( 'You can put Contact Form 7 shortcode here', 'responsive' ),
 					'placeholder' => ''
 			)
-		),		
+		),
 		'layouts' => array(
 			array(
 				'title'       => __( 'Default Static Page Layout', 'responsive' ),
@@ -862,18 +862,18 @@ function responsive_theme_options_do_page() {
 
 	?>
 	<form id="form" method="post" action="">
-		
+
 		<?php settings_fields( 'responsive_options' ); ?>
 		<?php global $responsive_options; ?>
 
-		<div class="body">		
+		<div class="body">
 			<!-- tabs -->
 			<div class="sky-tabs sky-tabs-pos-left sky-tabs-anim-flip sky-tabs-response-to-icons">
 			<?php
 			$display->render_display();
 			?>
 			</div>
-		</div>		
+		</div>
 	</form>
 	</div><!-- wrap -->
 <?php

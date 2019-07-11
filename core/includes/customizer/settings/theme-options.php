@@ -54,7 +54,7 @@ if ( ! class_exists( 'Responsive_theme_options_Customizer' ) ) :
 			}
 			$wp_customize->remove_control("header_image");
 			$wp_customize->add_panel( 'responsive-theme-options', array(
-			  'title' => __( 'Theme Options', 'responsive' ),
+			  'title' => __( 'Theme Options' ),
 			  'description' => 'All Misc Options', // Include html tags such as <p>.
 			  'priority' => 199, // Mixed with top-level-section hierarchy.
 			) );
@@ -211,25 +211,47 @@ if ( ! class_exists( 'Responsive_theme_options_Customizer' ) ) :
 					// Theme Elements
 				--------------------------------------------------------------*/
 
-				$wp_customize->add_section( 'theme_elements', array(
-					'title'                 => __( 'Theme Elements', 'responsive' ),
-					'panel'             => 'responsive-theme-options',
-					'priority'              => 30
-				) );
-				$wp_customize->add_setting( 'responsive_theme_options[override_woo]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
-				$wp_customize->add_control( 'res_override_woo', array(
-					'label'                 => __( 'Override WooCommerce Templates?', 'responsive' ),
-					'section'               => 'theme_elements',
-					'settings'              => 'responsive_theme_options[override_woo]',
-					'type'                  => 'checkbox'
-				) );
-				$wp_customize->add_setting( 'responsive_theme_options[sticky-header]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
-				$wp_customize->add_control( 'res_sticky-header', array(
-						'label'                 => __( 'Enable Sticky Header?', 'responsive' ),
-						'section'               => 'theme_elements',
-						'settings'              => 'responsive_theme_options[sticky-header]',
-						'type'                  => 'checkbox'
-				) );
+				$wp_customize->add_section(
+					'theme_elements',
+					array(
+						'title'    => __( 'Theme Elements', 'responsive' ),
+						'panel'    => 'responsive-theme-options',
+						'priority' => 30
+					)
+				);
+				$wp_customize->add_setting(
+					'responsive_theme_options[override_woo]',
+					array(
+						'sanitize_callback' => 'responsive_sanitize_checkbox',
+						'type' => 'option'
+					)
+				);
+				$wp_customize->add_control(
+					'res_override_woo',
+					array(
+						'label'    => __( 'Override WooCommerce Templates?', 'responsive' ),
+						'section'  => 'theme_elements',
+						'settings' => 'responsive_theme_options[override_woo]',
+						'type'     => 'checkbox'
+					)
+				);
+				$wp_customize->add_setting(
+					'responsive_theme_options[sticky-header]',
+					array(
+						'sanitize_callback' => 'responsive_sanitize_checkbox',
+						'type'              => 'option',
+						'transport'         => 'postMessage',
+					)
+				);
+				$wp_customize->add_control(
+					'res_sticky-header',
+					array(
+						'label'    => __( 'Enable Sticky Header?', 'responsive' ),
+						'section'  => 'theme_elements',
+						'settings' => 'responsive_theme_options[sticky-header]',
+						'type'     => 'checkbox'
+					)
+				);
 				$wp_customize->add_setting( 'responsive_theme_options[featured_images]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 				$wp_customize->add_control( 'res_featured_images', array(
 					'label'                 => __( 'Enable featured images?', 'responsive' ),
@@ -244,18 +266,7 @@ if ( ! class_exists( 'Responsive_theme_options_Customizer' ) ) :
 					'settings'              => 'responsive_theme_options[breadcrumb]',
 					'type'                  => 'checkbox'
 				) );
-				$wp_customize->add_setting( 'responsive_theme_options[site_layout_option]', array( 'sanitize_callback' => 'responsive_validate_site_layout', 'type' => 'option' ) );
-				$wp_customize->add_control( 'site_layout_option', array(
-						'label'                 => __( 'Choose Site Layout', 'responsive' ),
-						'section'               => 'theme_elements',
-						'settings'              => 'responsive_theme_options[site_layout_option]',
-						'type'                  => 'select',
-						'choices'               => array(
-											'default-layout'  => __('Default','responsive'),
-								            'full-width-layout' => __('Full Width Layout','responsive'),
-											'full-width-no-box'  => __('Full Width Without boxes','responsive'),
-										)
-						));
+
 				$wp_customize->add_setting( 'responsive_theme_options[cta_button]', array( 'sanitize_callback' => 'responsive_sanitize_checkbox', 'type' => 'option' ) );
 				$wp_customize->add_control( 'res_cta_button', array(
 					'label'                 => __( 'Disable Call to Action Button?', 'responsive' ),

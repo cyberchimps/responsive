@@ -267,3 +267,12 @@ function controls_helpers() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/sanitization-callbacks.php';
 }
 add_action( 'customize_register', 'controls_helpers' );
+
+/**
+ * Responsive_customize_preview_init.
+ *
+ */
+function responsive_customize_preview_init () {
+	wp_enqueue_script( 'responsive-customize-preview', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+}
+add_action( 'customize_preview_init', 'responsive_customize_preview_init' );
