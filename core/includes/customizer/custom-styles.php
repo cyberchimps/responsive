@@ -101,13 +101,13 @@ function responsive_premium_custom_color_styles() {
 	}
 
 	$custom_css = "
-		body * {
+		body {
 			font-family: {$body_typography['font-family']};
 			text-transform: {$text_transform};
 			letter-spacing: {$letter_spacing};
 			color: {$body_color};
 			font-weight: {$font_weight};
-			line-height: {$line_height} !important;
+			line-height: {$line_height};
 			font-style: {$font_style};
 			box-sizing: border-box;
 		}
@@ -126,7 +126,7 @@ function responsive_premium_custom_color_styles() {
 			letter-spacing: {$headingsletter_spacing};
 			color: {$heading_color};
 			font-weight: {$headingsfont_weight};
-			line-height: {$headingsline_height} !important;
+			line-height: {$headingsline_height};
 			font-style: {$headingsfont_style};
 		}
 		a {
@@ -144,12 +144,13 @@ function responsive_premium_custom_color_styles() {
 			border-color: {$input_border_color_fs};
 		}
 
-		.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
-		button, input[type='submit'], input[type=button], a.button, .button, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, , .call-to-action a.button,#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button {
+		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
+		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button{
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}
-		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover {
+		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
+		#content-woocommerce .product .single_add_to_cart_button:hover, #content-woocommerce .product .single_add_to_cart_button:focus, .added_to_cart.wc-forward:hover, .added_to_cart.wc-forward:focus, .woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .button:focus {
 				background-color: {$button_hover_color};
 		}
 		label {
