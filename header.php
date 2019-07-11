@@ -70,7 +70,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		<div id="content-outer">
 			<div id="logo">
-				<?php error_log('innn'); the_custom_logo(); ?>
+				<?php the_custom_logo(); ?>
 				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
 				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
 			</div><!-- end of #logo -->

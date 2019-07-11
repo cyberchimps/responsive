@@ -29,7 +29,7 @@ $more = 0;
 <div id="content-outer">
 <div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
-	<?php get_template_part( 'loop-header', get_post_type() ); error_log('blog page');?>
+	<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
 	<?php
 	global $wp_query, $paged;

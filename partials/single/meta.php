@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Get meta sections.
 $sections = responsive_blog_single_meta();
-error_log('sections-->'.print_r($sections,1));
 // Return if sections are empty.
 if ( empty( $sections )
 	|| 'post' !== get_post_type() ) {

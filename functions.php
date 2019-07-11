@@ -86,11 +86,6 @@ function responsive_add_site_layout_classes($classes)
     return $classes;
 }
 $responsive_options = responsive_get_options();
-error_log('sticky'.print_r($responsive_options,1));
-error_log( '1-->>'.get_theme_mod( 'responsive_theme_options[sticky-header]' ) );
-error_log( '2-->>'.get_theme_mod( 'res_sticky-header' ) );
-error_log( '3-->>'.$responsive_options['sticky-header'] );
-error_log( '4-->>'.get_theme_mod('sticky-header') );
 if (isset($responsive_options['sticky-header']) && $responsive_options['sticky-header'] =='1') {
     add_action('wp_footer', 'responsive_fixed_menu_onscroll');
     function responsive_fixed_menu_onscroll()
@@ -217,11 +212,12 @@ add_theme_support('customize-selective-refresh-widgets');
 function responsive_custom_category_widget($arg)
 {
     $cat = get_theme_mod('exclude_post_cat');
-
+	error_log(print_r($cat,1));
     if ($cat) {
         $cat = array_diff(array_unique($cat), array(''));
         $arg["exclude"] = $cat;
     }
+	error_log(print_r($arg,1));
     return $arg;
 }
 add_filter("widget_categories_args", "responsive_custom_category_widget");
@@ -272,23 +268,24 @@ endif;
 /**
  * Exclude post with Category from blog and archive page.
  */
-if (!function_exists('responsive_exclude_post_cat')) :
-function responsive_exclude_post_cat($query)
-{
+if ( !function_exists( 'responsive_exclude_post_cat' ) ) :
+function responsive_exclude_post_cat( $query ) {
     $responsive_options = responsive_get_options();
     //$cat = $responsive_options['exclude_post_cat'];
     $cat = get_theme_mod('exclude_post_cat');
 
     if ($cat && ! is_admin() && $query->is_main_query()) {
+		if( !array( $cat ) ) {
+			$cat = array($cat);
+		}
         $cat = array_diff(array_unique($cat), array(''));
         if ($query->is_home() || $query->is_archive()) {
             $query->set('category__not_in', $cat);
-            //$query->set( 'cat', '-5,-6,-65,-66' );
         }
     }
 }
 endif;
-add_filter('pre_get_posts', 'responsive_exclude_post_cat');
+add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
 if (!function_exists('responsive_get_attachment_id_from_url')) :
 function responsive_get_attachment_id_from_url($attachment_url = '')

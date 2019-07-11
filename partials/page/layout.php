@@ -25,7 +25,6 @@ $format = get_post_format();
 
 			// Get elements.
 			$elements = responsive_page_single_elements_positioning();
-			error_log('responsive_page_single_elements_positioning');
 			// Loop through elements.
 			foreach ( $elements as $element ) {
 
