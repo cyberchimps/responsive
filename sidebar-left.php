@@ -22,6 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php responsive_widgets_before(); // above widgets container hook ?>
 	<div id="widgets" class="grid-right col-300 rtl-fit" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
+		<?php if ( !dynamic_sidebar( 'left-sidebar' ) ) : ?>
+			<div class="widget-wrapper" style="display:none;">
+
+				<div class="widget-title"></div>
+
+			</div><!-- end of .widget-wrapper -->
+		<?php endif; //end of ReflectionFunctionAbstract-sidebar ?>
 		<?php responsive_widgets_end(); // after widgets hook ?>
 	</div><!-- end of #widgets -->
 <?php responsive_widgets_after(); // after widgets container hook ?>

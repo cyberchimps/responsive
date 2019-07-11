@@ -58,6 +58,11 @@ switch ( $layout ) {
 <?php responsive_widgets_before(); // above widgets container hook. ?>
 	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary">
 		<?php responsive_widgets(); // above widgets hook. ?>
+		<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
+			<div class="widget-wrapper" style="display:none;">
+				<div class="widget-title"></div>
+			</div><!-- end of .widget-wrapper -->
+		<?php endif; //end of main-sidebar ?>
 		<?php responsive_widgets_end(); // after widgets hook. ?>
 	</div><!-- end of #widgets -->
 <?php responsive_widgets_after(); // after widgets container hook. ?>
