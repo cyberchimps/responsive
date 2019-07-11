@@ -99,10 +99,21 @@ function responsive_premium_custom_color_styles() {
 	} else {
 		$headingsfont_style = 'normal';
 	}
-
+	if ( isset( $body_typography['font-family'] ) ) {
+	   $font_family = $body_typography['font-family'];
+	}
+	else {
+		$font_family = 'Arial, Helvetica, sans-serif';
+	}
+	if ( isset( $headings_typography['font-family'] ) ) {
+	   $headings_font_family = $headings_typography['font-family'];
+	}
+	else {
+		$headings_font_family = 'Arial, Helvetica, sans-serif';
+	}
 	$custom_css = "
 		body {
-			font-family: {$body_typography['font-family']};
+			font-family: {$font_family};
 			text-transform: {$text_transform};
 			letter-spacing: {$letter_spacing} !important;
 			color: {$body_color};
@@ -121,7 +132,7 @@ function responsive_premium_custom_color_styles() {
 		.sidebar-box,
 		.widget-title,
 		.site-title a, .site-description {
-			font-family: {$headings_typography['font-family']};
+			font-family: {$headings_font_family};
 			text-transform: {$headingtext_transform};
 			letter-spacing: {$headingsletter_spacing} !important;
 			color: {$heading_color};
