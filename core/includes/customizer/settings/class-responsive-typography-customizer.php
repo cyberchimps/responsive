@@ -11,6 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
+	/**
+	 * Typography Loader
+	 *
+	 * @since 1.0.0
+	 */
 	class Responsive_Typography_Customizer {
 
 		/**
@@ -23,7 +28,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			add_action( 'customize_register', array( $this, 'customizer_options' ) );
 			//add_action( 'wp_enqueue_scripts', array( $this, 'customize_preview_init' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_fonts' ) );
-
 
 			// CSS output.
 			if ( is_customize_preview() ) {
@@ -50,9 +54,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => 'body',
 						'defaults' => array(
-							'font-size'   => '14px',
-							'color'       => '#555555',
-							'line-height' => '1.8',
+							'font-size'      => '14px',
+							'color'          => '#555555',
+							'line-height'    => '1.8',
 							'text-transform' => 'inherit',
 						),
 					),
@@ -61,8 +65,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'exclude'  => array( 'font-size' ),
 						'defaults' => array(
-							'color'       => '#555555',
-							'line-height' => '1.4',
+							'color'          => '#555555',
+							'line-height'    => '1.4',
 							'text-transform' => 'inherit',
 						),
 					),
@@ -99,7 +103,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 22,
 				)
 			);
-
 
 			// Lopp through elements.
 			$count = '1';
@@ -229,14 +232,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					 */
 					if ( in_array( 'font-style', $attributes ) ) {
 
-
 						$wp_customize->add_setting(
 							$element . '_typography[font-style]',
 							array(
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
-								'default'			=> 'normal',
+								'default'           => 'normal',
 							)
 						);
 
@@ -250,7 +252,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'            => 'select',
 								'active_callback' => $active_callback,
 								'choices'         => array(
-									'normal'       => esc_html__( 'Normal', 'responsive' ),
+									'normal' => esc_html__( 'Normal', 'responsive' ),
 									'italic' => esc_html__( 'Italic', 'responsive' ),
 								),
 							)
@@ -269,7 +271,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
-								'default'						=> '',
+								'default'           => '',
 							)
 						);
 
@@ -465,7 +467,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					 */
 					if ( in_array( 'font-color', $attributes ) ) {
 
-						// Get default
+						// Get default.
 						$default = ! empty( $array['defaults']['color'] ) ? $array['defaults']['color'] : null;
 
 						$wp_customize->add_setting(
@@ -516,31 +518,32 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		/**
 		 * Loop through settings
 		 *
+		 * @param  object $return    arguments.
 		 * @since 1.0.0
 		 */
 		public function loop( $return = 'css' ) {
 
-			// Define Vars
+			// Define Vars.
 			$css            = '';
 			$fonts          = array();
 			$elements       = self::elements();
 			$preview_styles = array();
 
-			// Loop through each elements that need typography styling applied to them
+			// Loop through each elements that need typography styling applied to them.
 			foreach ( $elements as $element => $array ) {
 
-				// Add empty css var
+				// Add empty css var.
 				$add_css    = '';
 				$tablet_css = '';
 				$mobile_css = '';
 
-				// Get target and current mod
+				// Get target and current mod.
 				$target         = isset( $array['target'] ) ? $array['target'] : '';
 				$get_mod        = get_theme_mod( $element . '_typography' );
 				$tablet_get_mod = get_theme_mod( $element . '_tablet_typography' );
 				$mobile_get_mod = get_theme_mod( $element . '_mobile_typography' );
 
-				// Attributes to loop through
+				// Attributes to loop through.
 				if ( ! empty( $array['attributes'] ) ) {
 					$attributes = $array['attributes'];
 				} else {
@@ -556,22 +559,22 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					);
 				}
 
-				// Loop through attributes
+				// Loop through attributes.
 				foreach ( $attributes as $attribute ) {
 
-					// Define val
+					// Define val.
 					$default    = isset( $array['defaults'][ $attribute ] ) ? $array['defaults'][ $attribute ] : null;
 					$val        = isset( $get_mod[ $attribute ] ) ? $get_mod[ $attribute ] : $default;
 					$tablet_val = isset( $tablet_get_mod[ $attribute ] ) ? $tablet_get_mod[ $attribute ] : '';
 					$mobile_val = isset( $mobile_get_mod[ $attribute ] ) ? $mobile_get_mod[ $attribute ] : '';
 
-					// If there is a value lets do something
+					// If there is a value lets do something.
 					if ( $val && $default != $val ) {
 
-						// Sanitize
+						// Sanitize.
 						$val = str_replace( '"', '', $val );
 
-						// Add px if font size or letter spacing
+						// Add px if font size or letter spacing.
 						$px = '';
 						if ( ( 'font-size' == $attribute
 								&& is_numeric( $val ) )
@@ -579,35 +582,35 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							$px = 'px';
 						}
 
-						// Add quotes around font-family && font family to scripts array
+						// Add quotes around font-family && font family to scripts array.
 						if ( 'font-family' == $attribute ) {
 							$fonts[] = $val;
 
-							// No brackets can be added as it cause issue with sans serif fonts
+							// No brackets can be added as it cause issue with sans serif fonts.
 							$val = $val;
 						}
 
-						// Add to inline CSS
+						// Add to inline CSS.
 						if ( 'css' == $return ) {
 							$add_css .= $attribute . ':' . $val . $px . ';';
 						}
 
-						// Customizer styles need to be added for each attribute
+						// Customizer styles need to be added for each attribute.
 						elseif ( 'preview_styles' == $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-' . $attribute ] = $target . '{' . $attribute . ':' . $val . $px . ';}';
 						}
 					}
 
-					// If there is a value lets do something
+					// If there is a value lets do something.
 					if ( $tablet_val
 						&& ( 'font-size' == $attribute
 							|| 'line-height' == $attribute
 							|| 'letter-spacing' == $attribute ) ) {
 
-						// Sanitize
+						// Sanitize.
 						$tablet_val = str_replace( '"', '', $tablet_val );
 
-						// Add px if font size or letter spacing
+						// Add px if font size or letter spacing.
 						$px = '';
 						if ( ( 'font-size' == $attribute
 								&& is_numeric( $tablet_val ) )
@@ -615,27 +618,27 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							$px = 'px';
 						}
 
-						// Add to inline CSS
+						// Add to inline CSS.
 						if ( 'css' == $return ) {
 							$tablet_css .= $attribute . ':' . $tablet_val . $px . ';';
 						}
 
-						// Customizer styles need to be added for each attribute
+						// Customizer styles need to be added for each attribute.
 						elseif ( 'preview_styles' == $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-tablet-' . $attribute ] = '@media (max-width: 768px){' . $target . '{' . $attribute . ':' . $tablet_val . $px . ';}}';
 						}
 					}
 
-					// If there is a value lets do something
+					// If there is a value lets do something.
 					if ( $mobile_val
 						&& ( 'font-size' == $attribute
 							|| 'line-height' == $attribute
 							|| 'letter-spacing' == $attribute ) ) {
 
-						// Sanitize
+						// Sanitize.
 						$mobile_val = str_replace( '"', '', $mobile_val );
 
-						// Add px if font size or letter spacing
+						// Add px if font size or letter spacing.
 						$px = '';
 						if ( ( 'font-size' == $attribute
 								&& is_numeric( $mobile_val ) )
@@ -643,46 +646,46 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							$px = 'px';
 						}
 
-						// Add to inline CSS
+						// Add to inline CSS.
 						if ( 'css' == $return ) {
 							$mobile_css .= $attribute . ':' . $mobile_val . $px . ';';
 						}
 
-						// Customizer styles need to be added for each attribute
+						// Customizer styles need to be added for each attribute.
 						elseif ( 'preview_styles' == $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-mobile-' . $attribute ] = '@media (max-width: 480px){' . $target . '{' . $attribute . ':' . $mobile_val . $px . ';}}';
 						}
 					}
 				}
 
-				// Front-end inline CSS
+				// Front-end inline CSS.
 				if ( $add_css && 'css' == $return ) {
 					$css .= $target . '{' . $add_css . '}';
 				}
 
-				// Front-end inline tablet CSS
+				// Front-end inline tablet CSS.
 				if ( $tablet_css && 'css' == $return ) {
 					$css .= '@media (max-width: 768px){' . $target . '{' . $tablet_css . '}}';
 				}
 
-				// Front-end inline mobile CSS
+				// Front-end inline mobile CSS.
 				if ( $mobile_css && 'css' == $return ) {
 					$css .= '@media (max-width: 480px){' . $target . '{' . $mobile_css . '}}';
 				}
 			}
 
-			// Return CSS
+			// Return CSS.
 			if ( 'css' == $return && ! empty( $css ) ) {
 				$css = '/* Typography CSS */' . $css;
 				return $css;
 			}
 
-			// Return styles
+			// Return styles.
 			if ( 'preview_styles' == $return && ! empty( $preview_styles ) ) {
 				return $preview_styles;
 			}
 
-			// Return Fonts Array
+			// Return Fonts Array.
 			if ( 'fonts' == $return && ! empty( $fonts ) ) {
 				return array_unique( $fonts );
 			}
@@ -692,19 +695,20 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		/**
 		 * Get CSS
 		 *
+		 * @param  object $output    arguments.
 		 * @since 1.0.0
 		 */
 		public function head_css( $output ) {
 
-			// Get CSS
+			// Get CSS.
 			$typography_css = self::loop( 'css' );
 
-			// Loop css
+			// Loop css.
 			if ( $typography_css ) {
 				$output .= $typography_css;
 			}
 
-			// Return output css
+			// Return output css.
 			return $output;
 
 		}
@@ -735,10 +739,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 */
 		public function load_fonts() {
 
-			// Get fonts
+			// Get fonts.
 			$fonts = self::loop( 'fonts' );
 
-			// Loop through and enqueue fonts
+			// Loop through and enqueue fonts.
 			if ( ! empty( $fonts ) && is_array( $fonts ) ) {
 				foreach ( $fonts as $font ) {
 					responsive_enqueue_google_font( $font );

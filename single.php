@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Single Posts Template
- *
  *
  * @file           single.php
  * @package        Responsive
@@ -28,17 +27,21 @@ get_header(); ?>
 
 	<?php if ( have_posts() ) : ?>
 
-		<?php while( have_posts() ) : the_post();  error_log('single');?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			error_log( 'single' );
+			?>
 
 			<?php responsive_entry_before(); ?>
 			<?php
-				if ( is_singular( 'page' ) ) {
+			if ( is_singular( 'page' ) ) {
 
-					get_template_part( 'partials/page/layout' );
+				get_template_part( 'partials/page/layout' );
 
-				} else {
-					get_template_part( 'partials/single/layout', get_post_type() );
-				}
+			} else {
+				get_template_part( 'partials/single/layout', get_post_type() );
+			}
 			?>
 			<?php responsive_entry_after(); ?>
 
@@ -46,17 +49,17 @@ get_header(); ?>
 			<?php comments_template( '', true ); ?>
 			<?php responsive_comments_after(); ?>
 
-		<?php
+			<?php
 		endwhile;
 
 		get_template_part( 'loop-nav', get_post_type() );
 
-	else :
+		else :
 
-		get_template_part( 'loop-no-posts', get_post_type() );
+			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
-	?>
+		?>
 
 </div><!-- end of #content -->
 

@@ -375,7 +375,8 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'responsive' ),
 			);
 			do_action( 'tgmpa_register' );
-			/* After this point, the plugins should be registered and the configuration set. */
+			/*
+			 After this point, the plugins should be registered and the configuration set. */
 			// Proceed only if we have plugins to handle.
 			if ( empty( $this->plugins ) || ! is_array( $this->plugins ) ) {
 				return;
@@ -743,7 +744,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				}
 				check_admin_referer( 'tgmpa-' . $install_type, 'tgmpa-nonce' );
 				// Pass necessary information via URL if WP_Filesystem is needed.
-				$url = wp_nonce_url(
+				$url    = wp_nonce_url(
 					add_query_arg(
 						array(
 							'plugin'                 => urlencode( $slug ),
@@ -755,7 +756,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					'tgmpa-nonce'
 				);
 				$method = ''; // Leave blank so WP_Filesystem can populate it as necessary.
-				$creds = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, array() );
+				$creds  = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, array() );
 				if ( false === $creds ) {
 					return true;
 				}
@@ -763,14 +764,15 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					request_filesystem_credentials( esc_url_raw( $url ), $method, true, false, array() ); // Setup WP_Filesystem.
 					return true;
 				}
-				/* If we arrive here, we have the filesystem. */
+				/*
+				 If we arrive here, we have the filesystem. */
 				// Prep variables for Plugin_Installer_Skin class.
 				$extra         = array();
 				$extra['slug'] = $slug; // Needed for potentially renaming of directory name.
 				$source        = $this->get_download_url( $slug );
 				$api           = ( 'repo' === $this->plugins[ $slug ]['source_type'] ) ? $this->get_plugins_api( $slug ) : null;
 				$api           = ( false !== $api ) ? $api : null;
-				$url = add_query_arg(
+				$url           = add_query_arg(
 					array(
 						'action' => $install_type . '-plugin',
 						'plugin' => urlencode( $slug ),
@@ -1099,7 +1101,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 						$linked_plugins = array_map( array( 'TGMPA_Utils', 'wrap_in_em' ), $linked_plugins );
 						$last_plugin    = array_pop( $linked_plugins ); // Pop off last name to prep for readability.
 						$imploded       = empty( $linked_plugins ) ? $last_plugin : ( implode( ', ', $linked_plugins ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'responsive' ) . ' ' . $last_plugin );
-						$rendered .= sprintf(
+						$rendered      .= sprintf(
 							$line_template,
 							sprintf(
 								translate_nooped_plural( $this->strings[ $type ], $count, 'responsive' ),
@@ -1132,7 +1134,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 */
 		protected function create_user_action_links_for_notice( $install_count, $update_count, $activate_count, $line_template ) {
 			// Setup action links.
-			$action_links = array(
+			$action_links  = array(
 				'install'  => '',
 				'update'   => '',
 				'activate' => '',
@@ -1485,7 +1487,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				if ( ! function_exists( 'plugins_api' ) ) {
 					require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 				}
-				$response = plugins_api(
+				$response     = plugins_api(
 					'plugin_information',
 					array(
 						'slug'   => $slug,
@@ -1520,7 +1522,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					esc_html( $this->plugins[ $slug ]['name'] )
 				);
 			} elseif ( 'repo' === $this->plugins[ $slug ]['source_type'] ) {
-				$url = add_query_arg(
+				$url  = add_query_arg(
 					array(
 						'tab'       => 'plugin-information',
 						'plugin'    => urlencode( $slug ),
@@ -2322,7 +2324,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 			$output = array();
 			if ( $this->tgmpa->is_plugin_installed( $item['slug'] ) ) {
 				$installed = ! empty( $item['installed_version'] ) ? $item['installed_version'] : _x( 'unknown', 'as in: "version nr unknown"', 'responsive' );
-				$color = '';
+				$color     = '';
 				if ( ! empty( $item['minimum_version'] ) && $this->tgmpa->does_plugin_require_update( $item['slug'] ) ) {
 					$color = ' color: #ff0000; font-weight: bold;';
 				}
@@ -2443,7 +2445,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 			}
 			// Create the actual links.
 			foreach ( $actions as $action => $text ) {
-				$nonce_url = wp_nonce_url(
+				$nonce_url               = wp_nonce_url(
 					add_query_arg(
 						array(
 							'plugin'           => urlencode( $item['slug'] ),
@@ -2614,9 +2616,9 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				);
 				// Give validated data back to $_POST which is the only place the filesystem looks for extra fields.
 				$_POST['plugin'] = implode( ',', $plugins_to_install ); // Work around for WP bug #19643.
-				$method = ''; // Leave blank so WP_Filesystem can populate it as necessary.
-				$fields = array_keys( $_POST ); // Extra fields to pass to WP_Filesystem.
-				$creds = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, $fields );
+				$method          = ''; // Leave blank so WP_Filesystem can populate it as necessary.
+				$fields          = array_keys( $_POST ); // Extra fields to pass to WP_Filesystem.
+				$creds           = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, $fields );
 				if ( false === $creds ) {
 					return true; // Stop the normal page form from displaying, credential request form will be shown.
 				}
@@ -2626,7 +2628,8 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 					request_filesystem_credentials( esc_url_raw( $url ), $method, true, false, $fields );
 					return true;
 				}
-				/* If we arrive here, we have the filesystem */
+				/*
+				 If we arrive here, we have the filesystem */
 				// Store all information in arrays since we are processing a bulk installation.
 				$names      = array();
 				$sources    = array(); // Needed for installs.
@@ -2952,7 +2955,8 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 						$this->init();
 						$this->bulk = true;
 						$this->install_strings(); // [TGMPA + ] adjusted.
-						/* [TGMPA - ] $current = get_site_transient( 'update_plugins' ); */
+						/*
+						 [TGMPA - ] $current = get_site_transient( 'update_plugins' ); */
 						/* [TGMPA - ] add_filter('upgrader_clear_destination', array($this, 'delete_old_plugin'), 10, 4); */
 						$this->skin->header();
 						// Connect to the Filesystem first.
@@ -2977,7 +2981,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 						if ( $maintenance ) {
 							$this->maintenance_mode( true );
 						}
-						$results = array();
+						$results              = array();
 						$this->update_count   = count( $plugins );
 						$this->update_current = 0;
 						foreach ( $plugins as $plugin ) {
@@ -2997,7 +3001,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 							$r = $current->response[ $plugin ];
 							$this->skin->plugin_active = is_plugin_active($plugin);
 							*/
-							$result = $this->run(
+							$result             = $this->run(
 								array(
 									'package'           => $plugin, // [TGMPA + ] adjusted.
 									'destination'       => WP_PLUGIN_DIR,
@@ -3046,7 +3050,8 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 						$this->skin->bulk_footer();
 						$this->skin->footer();
 						// Cleanup our hooks, in case something else does a upgrade on this connection.
-						/* [TGMPA - ] remove_filter('upgrader_clear_destination', array($this, 'delete_old_plugin')); */
+						/*
+						 [TGMPA - ] remove_filter('upgrader_clear_destination', array($this, 'delete_old_plugin')); */
 						// [TGMPA + ] Remove our auto-activation hook.
 						remove_filter( 'upgrader_post_install', array( $this, 'auto_activate' ), 10 );
 						// Force refresh of plugin update information.

@@ -31,13 +31,13 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		// Don't call is The Event Calendar active to avoid conflict
+		// Don't call is The Event Calendar active to avoid conflict.
 		if ( ! class_exists( 'Tribe__Events__Main' ) ) {
-			wp_enqueue_script( 'responsive-select2', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/select2.min.js', array( 'jquery' ), false, true );
-			wp_enqueue_style( 'select2', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/select2.min.css', null );
-			wp_enqueue_script( 'responsive-typography-js', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/typography.min.js', array( 'jquery', 'select2' ), false, true );
+			wp_enqueue_script( 'responsive-select2', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/select2.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_style( 'select2', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/select2.min.css', RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive-typography-js', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/typography.min.js', array( 'jquery', 'select2' ), RESPONSIVE_THEME_VERSION, true );
 		}
-		wp_enqueue_style( 'responsive-typography', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/typography.min.css', null );
+		wp_enqueue_style( 'responsive-typography', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/typography.min.css', RESPONSIVE_THEME_VERSION, true );
 	}
 
 	/**
@@ -57,37 +57,54 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 			<?php endif; ?>
 
 			<select class="responsive-typography-select" <?php $this->link(); ?>>
-				<option value="" <?php if ( ! $this_val ) echo 'selected="selected"'; ?>><?php esc_html_e( 'Arial, Helvetica, sans-serif', 'responsive' ); ?></option>
+				<option value=""
 				<?php
-				// Add custom fonts from child themes
+				if ( ! $this_val ) {
+					echo 'selected="selected"';}
+				?>
+				><?php esc_html_e( 'Arial, Helvetica, sans-serif', 'responsive' ); ?></option>
+				<?php
+				// Add custom fonts from child themes.
 				if ( function_exists( 'responsive_add_custom_fonts' ) ) {
 					$fonts = responsive_add_custom_fonts();
-					if ( $fonts && is_array( $fonts ) ) { ?>
+					if ( $fonts && is_array( $fonts ) ) {
+						?>
 						<optgroup label="<?php esc_html_e( 'Custom Fonts', 'responsive' ); ?>">
 							<?php foreach ( $fonts as $font ) { ?>
-								<option value="<?php echo esc_html( $font ); ?>" <?php if ( $font == $this_val ) echo 'selected="selected"'; ?>><?php echo esc_html( $font ); ?></option>
+								<option value="<?php echo esc_html( $font ); ?>"
+														  <?php
+															if ( $font == $this_val ) {
+																echo 'selected="selected"';}
+															?>
+								><?php echo esc_html( $font ); ?></option>
 							<?php } ?>
 						</optgroup>
-					<?php }
+						<?php
+					}
 				}
 
-				// Get Standard font options
-				if ( $std_fonts = responsive_standard_fonts() ) { ?>
+				// Get Standard font options.
+				if ( $std_fonts = responsive_standard_fonts() ) {//phpcs:ignore
+					?>
 					<optgroup label="<?php esc_html_e( 'Standard Fonts', 'responsive' ); ?>">
 						<?php
-						// Loop through font options and add to select
-						foreach ( $std_fonts as $font ) { ?>
+						// Loop through font options and add to select.
+						foreach ( $std_fonts as $font ) {
+							?>
 							<option value="<?php echo esc_html( $font ); ?>" <?php selected( $font, $this_val ); ?>><?php echo esc_html( $font ); ?></option>
 						<?php } ?>
 					</optgroup>
-				<?php }
+					<?php
+				}
 
-				// Google font options
-				if ( $google_fonts = responsive_google_fonts_array() ) { ?>
+				// Google font options.
+				if ( $google_fonts = responsive_google_fonts_array() ) {//phpcs:ignore
+					?>
 					<optgroup label="<?php esc_html_e( 'Google Fonts', 'responsive' ); ?>">
 						<?php
-						// Loop through font options and add to select
-						foreach ( $google_fonts as $font ) { ?>
+						// Loop through font options and add to select.
+						foreach ( $google_fonts as $font ) {
+							?>
 							<option value="<?php echo esc_html( $font ); ?>" <?php selected( $font, $this_val ); ?>><?php echo esc_html( $font ); ?></option>
 						<?php } ?>
 					</optgroup>

@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Footer Template
- *
  *
  * @file           footer.php
  * @package        Responsive
@@ -30,7 +29,7 @@ $responsive_options = responsive_get_options();
 </div><!-- end of #wrapper -->
 
 <?php responsive_wrapper_end(); // after wrapper hook ?>
-<?php if ( is_home() && ! is_front_page() ) {?>
+<?php if ( is_home() && ! is_front_page() ) { ?>
 </div>
 <?php } ?>	 
 </div><!-- end of #container -->
@@ -43,10 +42,10 @@ $responsive_options = responsive_get_options();
 		
 		 <!--   main-->
 		
-	<?php if (isset($responsive_options['site_layout_option']) && ($responsive_options['site_layout_option'] == 'full-width-no-box')) {?>
+	<?php if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-no-box' ) ) { ?>
 		<div class="social_div grid col-940">
 			<div id="content-outer">
-			<?php echo responsive_get_social_icons_new() ?>	
+			<?php echo responsive_get_social_icons_new(); ?>	
 		</div>
 		</div>	
 		<div class="footer_div grid col-940">
@@ -58,14 +57,18 @@ $responsive_options = responsive_get_options();
 		<div class="grid col-940">
 
 			<div class="grid col-540">
-				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
-					wp_nav_menu( array(
-						'container'      => '',
-						'fallback_cb'    => false,
-						'menu_class'     => 'footer-menu',
-						'theme_location' => 'footer-menu'
-					) );
-				} ?>
+				<?php
+				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
+					wp_nav_menu(
+						array(
+							'container'      => '',
+							'fallback_cb'    => false,
+							'menu_class'     => 'footer-menu',
+							'theme_location' => 'footer-menu',
+						)
+					);
+				}
+				?>
 			</div><!-- end of col-540 -->
 
 			<div class="grid col-380 fit">			
@@ -75,7 +78,7 @@ $responsive_options = responsive_get_options();
 		<?php get_sidebar( 'colophon' ); ?>
 
 		<div class="grid col-300 copyright">
-			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				<?php bloginfo( 'name' ); ?>
 			</a>
 		</div><!-- end of .copyright -->
@@ -89,7 +92,7 @@ $responsive_options = responsive_get_options();
 				WordPress</a>
 		</div><!-- end .powered -->
 	</div>
-	<?php }else{?>
+	<?php } else { ?>
 	<div id="content-outer">			
 		<?php get_sidebar( 'footer' ); ?>
 		</div>
@@ -97,25 +100,29 @@ $responsive_options = responsive_get_options();
 		<div class="grid col-940">
 
 			<div class="grid col-540">
-				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
-					wp_nav_menu( array(
-						'container'      => '',
-						'fallback_cb'    => false,
-						'menu_class'     => 'footer-menu',
-						'theme_location' => 'footer-menu'
-					) );
-				} ?>
+				<?php
+				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
+					wp_nav_menu(
+						array(
+							'container'      => '',
+							'fallback_cb'    => false,
+							'menu_class'     => 'footer-menu',
+							'theme_location' => 'footer-menu',
+						)
+					);
+				}
+				?>
 			</div><!-- end of col-540 -->
 
 			<div class="grid col-380 fit">
-				<?php echo responsive_get_social_icons() ?>
+				<?php echo responsive_get_social_icons(); ?>
 			</div><!-- end of col-380 fit -->
 
 		</div><!-- end of col-940 -->
 		<?php get_sidebar( 'colophon' ); ?>
 
 		<div class="grid col-300 copyright">
-			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				<?php bloginfo( 'name' ); ?>
 			</a>
 		</div><!-- end of .copyright -->
@@ -129,7 +136,7 @@ $responsive_options = responsive_get_options();
 				WordPress</a>
 		</div><!-- end .powered -->
 	</div>
-	<?php }?>
+	<?php } ?>
 	
 	</div><!-- end #footer-wrapper -->
 

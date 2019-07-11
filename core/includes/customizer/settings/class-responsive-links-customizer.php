@@ -1,6 +1,6 @@
 <?php
 /**
- * button Customizer Options
+ * Links Customizer Options
  *
  * @package Responsive WordPress theme
  */
@@ -9,9 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_links_Customizer' ) ) :
-
-	class Responsive_links_Customizer {
+if ( ! class_exists( 'Responsive_Links_Customizer' ) ) :
+	/**
+	 * Links Customizer Options
+	 */
+	class Responsive_Links_Customizer {
 
 		/**
 		 * Setup class.
@@ -35,14 +37,14 @@ if ( ! class_exists( 'Responsive_links_Customizer' ) ) :
 			return apply_filters(
 				'responsive_links_settings',
 				array(
-					'link-color'   => array(
+					'link-color'       => array(
 						'label'    => esc_html__( 'Link Color', 'responsive' ),
 						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'defaults' => array(
 							'color' => '#078ce1',
 						),
 					),
-					'link-hover-color'   => array(
+					'link-hover-color' => array(
 						'label'    => esc_html__( 'Link Hover Color', 'responsive' ),
 						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'defaults' => array(
@@ -57,6 +59,7 @@ if ( ! class_exists( 'Responsive_links_Customizer' ) ) :
 		/**
 		 * Customizer options
 		 *
+		 * @param  object $wp_customize WordPress customization option.
 		 * @since 1.0.0
 		 */
 		public function customizer_options( $wp_customize ) {
@@ -91,10 +94,9 @@ if ( ! class_exists( 'Responsive_links_Customizer' ) ) :
 				$active_callback    = isset( $array['active_callback'] ) ? $array['active_callback'] : null;
 				$transport          = 'refresh';
 
-
 				// Register new setting if label isn't empty.
 				if ( $label ) {
-					// Get default
+					// Get default.
 					$default = ! empty( $array['defaults']['color'] ) ? $array['defaults']['color'] : null;
 
 					$wp_customize->add_setting(
@@ -128,4 +130,4 @@ if ( ! class_exists( 'Responsive_links_Customizer' ) ) :
 
 endif;
 
-return new Responsive_links_Customizer();
+return new Responsive_Links_Customizer();

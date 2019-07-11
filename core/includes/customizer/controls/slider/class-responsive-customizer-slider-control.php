@@ -4,7 +4,7 @@
  *
  * @package     Responsive WordPress theme
  * @subpackage  Controls
- * @see   		https://github.com/aristath/kirki
+ * @see         https://github.com/aristath/kirki
  * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
  * @since       1.0
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Buttonset control
+ * Slider control
  */
 class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 
@@ -33,8 +33,8 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'responsive-slider', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/slider.min.js', array( 'jquery', 'customize-base', 'jquery-ui-slider' ), false, true );
-		wp_enqueue_style( 'responsive-slider', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/slider.min.css', null );
+		wp_enqueue_script( 'responsive-slider', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/slider.min.js', array( 'jquery', 'customize-base', 'jquery-ui-slider' ), RESPONSIVE_THEME_VERSION, true );
+		wp_enqueue_style( 'responsive-slider', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/slider.min.css', array(), RESPONSIVE_THEME_VERSION, true );
 	}
 
 	/**
@@ -48,7 +48,8 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 
 		?><li id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
 			<?php $this->render_content(); ?>
-		</li><?php
+		</li>
+		<?php
 	}
 
 	/**
@@ -59,7 +60,7 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 
-		$this->json['id'] 		= $this->id;
+		$this->json['id'] = $this->id;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -67,17 +68,17 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 		}
 
 		$this->json['desktop'] = array();
-	    $this->json['tablet']  = array();
-	    $this->json['mobile']  = array();
+		$this->json['tablet']  = array();
+		$this->json['mobile']  = array();
 
-	    foreach ( $this->settings as $setting_key => $setting ) {
-	        $this->json[ $setting_key ] = array(
-	            'id'        => $setting->id,
-	            'default'   => $setting->default,
-	            'link'      => $this->get_link( $setting_key ),
-	            'value'     => $this->value( $setting_key ),
-	        );
-	    }
+		foreach ( $this->settings as $setting_key => $setting ) {
+			$this->json[ $setting_key ] = array(
+				'id'      => $setting->id,
+				'default' => $setting->default,
+				'link'    => $this->get_link( $setting_key ),
+				'value'   => $this->value( $setting_key ),
+			);
+		}
 
 	}
 
@@ -96,25 +97,6 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 		<# if ( data.label ) { #>
 			<span class="customize-control-title">
 				<span>{{{ data.label }}}</span>
-
-				<!-- <ul class="responsive-switchers">
-					<li class="desktop">
-						<button type="button" class="preview-desktop active" data-device="desktop">
-							<i class="dashicons dashicons-desktop"></i>
-						</button>
-					</li>
-					<li class="tablet">
-						<button type="button" class="preview-tablet" data-device="tablet">
-							<i class="dashicons dashicons-tablet"></i>
-						</button>
-					</li>
-					<li class="mobile">
-						<button type="button" class="preview-mobile" data-device="mobile">
-							<i class="dashicons dashicons-smartphone"></i>
-						</button>
-					</li>
-				</ul> -->
-
 			</span>
 		<# } #>
 
@@ -128,8 +110,8 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 				<div class="responsive-slider-input">
 					<input {{{ data.inputAttrs }}} type="number" class="slider-input desktop-input" value="{{ data.desktop.value }}" {{{ data.desktop.link }}} />
 				</div>
-	    	</div>
-	    <# } #>
+			</div>
+		<# } #>
 
 		<# if ( data.tablet ) { #>
 			<!-- <div class="tablet control-wrap">
@@ -137,8 +119,8 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 				<div class="responsive-slider-input">
 					<input {{{ data.inputAttrs }}} type="number" class="slider-input tablet-input" value="{{ data.tablet.value }}" {{{ data.tablet.link }}} />
 				</div>
-	    	</div>
-	    <# } #> -->
+			</div>
+		<# } #> -->
 
 		<# if ( data.mobile ) { #>
 			<!-- <div class="mobile control-wrap">
@@ -146,9 +128,9 @@ class Responsive_Customizer_Slider_Control extends WP_Customize_Control {
 				<div class="responsive-slider-input">
 					<input {{{ data.inputAttrs }}} type="number" class="slider-input mobile-input" value="{{ data.mobile.value }}" {{{ data.mobile.link }}} />
 				</div>
-	    	</div>
-	    <# } #> -->
+			</div>
+		<# } #> -->
 
-	<?php
+		<?php
 	}
 }

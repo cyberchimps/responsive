@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Main Widget Template
- *
  *
  * @file           sidebar.php
  * @package        Responsive
@@ -56,21 +55,9 @@ switch ( $layout ) {
 }
 ?>
 
-<?php responsive_widgets_before(); // above widgets container hook ?>
+<?php responsive_widgets_before(); // above widgets container hook. ?>
 	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary">
-		<?php responsive_widgets(); // above widgets hook ?>
-
-		<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
-			<div class="widget-wrapper">
-
-				<div class="widget-title"><h3><?php _e( 'In Archive', 'responsive' ); ?></h3></div>
-				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-				</ul>
-
-			</div><!-- end of .widget-wrapper -->
-		<?php endif; //end of main-sidebar ?>
-
-		<?php responsive_widgets_end(); // after widgets hook ?>
+		<?php responsive_widgets(); // above widgets hook. ?>
+		<?php responsive_widgets_end(); // after widgets hook. ?>
 	</div><!-- end of #widgets -->
-<?php responsive_widgets_after(); // after widgets container hook ?>
+<?php responsive_widgets_after(); // after widgets container hook. ?>

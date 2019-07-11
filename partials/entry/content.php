@@ -14,4 +14,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 
-<?php do_action( 'responsive_after_blog_entry_content' ); ?>
+<?php
+do_action( 'responsive_after_blog_entry_content' );

@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -26,8 +26,8 @@ $more = 0;
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 global $responsive_options;
 $responsive_options = responsive_get_options();
-if (isset($responsive_options['blog_posts_index_layout_default']) && ($responsive_options['blog_posts_index_layout_default'] == 'blog-3-col')) {
-?>
+if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( $responsive_options['blog_posts_index_layout_default'] == 'blog-3-col' ) ) {
+	?>
 	<div id="content-outer">
 	<div id="content-full" class="grid col-940 blog-3-col">
 
@@ -41,10 +41,13 @@ if (isset($responsive_options['blog_posts_index_layout_default']) && ($responsiv
 		<?php if ( have_posts() ) : ?>
 
 		<div class="blog_main_div">
-		<?php while( have_posts() ) : the_post(); ?>
+			<?php
+			while ( have_posts() ) :
+				the_post();
+				?>
 
 			<div class="section-blog grid">
-			<?php responsive_entry_before(); ?>
+				<?php responsive_entry_before(); ?>
 
 			<div class="post-entry">
 				<?php if ( has_post_thumbnail() ) : ?>
@@ -55,45 +58,51 @@ if (isset($responsive_options['blog_posts_index_layout_default']) && ($responsiv
 
 			</div><!-- end of .post-entry -->
 
-			<?php responsive_entry_top(); ?>
+				<?php responsive_entry_top(); ?>
 
-			<?php get_template_part( 'post-meta-3-col', get_post_type() ); ?>
-			<?php get_template_part( 'post-data', get_post_type() ); ?>
+				<?php get_template_part( 'post-meta-3-col', get_post_type() ); ?>
+				<?php get_template_part( 'post-data', get_post_type() ); ?>
 
-			<?php the_excerpt( __( 'Read more &#8250;', 'responsive' ) ); ?>
-			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+				<?php the_excerpt( __( 'Read more &#8250;', 'responsive' ) ); ?>
+				<?php
+				wp_link_pages(
+					array(
+						'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+						'after'  => '</div>',
+					)
+				);
+				?>
 
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
-			<?php responsive_entry_after(); ?>
+				<?php responsive_entry_after(); ?>
 			</div>
 
-		<?php
+				<?php
 		endwhile;
 
-		if ( $wp_query->max_num_pages > 1 ) :
-			?>
+			if ( $wp_query->max_num_pages > 1 ) :
+				?>
 			<div class="navigation">
 				<div class="previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $wp_query->max_num_pages ); ?></div>
 				<div class="next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ), $wp_query->max_num_pages ); ?></div>
 			</div><!-- end of .navigation -->
-		<?php
+				<?php
 		endif;
 
-	else :
+			else :
 
-		get_template_part( 'loop-no-posts' );
+				get_template_part( 'loop-no-posts' );
 	endif;
-?>
+			?>
 	</div>
 </div>
 </div>
 <?php } else { ?>
 
-<?php  ?>
-<div id="content-outer">
+	<div id="content-outer">
 	<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 		<!-- Blog page title -->
@@ -105,27 +114,30 @@ if (isset($responsive_options['blog_posts_index_layout_default']) && ($responsiv
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php while( have_posts() ) : the_post(); ?>
+			<?php
+			while ( have_posts() ) :
+				the_post();
+				?>
 
 				<?php responsive_entry_before(); ?>
 					<?php get_template_part( 'partials/entry/layout', get_post_type() ); ?>
 				<?php responsive_entry_after(); ?>
 
-			<?php
+				<?php
 			endwhile;
 
 			get_template_part( 'loop-nav', get_post_type() );
 
-		else :
+			else :
 
-			get_template_part( 'loop-no-posts', get_post_type() );
+				get_template_part( 'loop-no-posts', get_post_type() );
 
 		endif;
-		?>
+			?>
 
 	</div><!-- end of #content-blog -->
 
-<?php get_sidebar(); ?>
+	<?php get_sidebar(); ?>
 </div>
-<?php }?>
+<?php } ?>
 <?php get_footer(); ?>

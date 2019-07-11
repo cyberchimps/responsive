@@ -5,18 +5,17 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Get post format
+// Get post format.
 $format = get_post_format();
 
-	// Add classes to the blog entry post class
-	//$classes = responsive_post_entry_classes(); ?>
-	<?php //responsive_blog_entry_elements_positioning() ?>
-	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	// Add classes to the blog entry post class.
+?>
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php responsive_entry_top(); ?>
 		<div class="post-entry">
 			<?php
@@ -44,7 +43,7 @@ $format = get_post_format();
 
 				}
 
-				// Content
+				// Content.
 				if ( 'content' === $element ) {
 
 					get_template_part( 'partials/page/content' );
@@ -52,7 +51,14 @@ $format = get_post_format();
 				}
 			}
 			?>
-			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+			<?php
+			wp_link_pages(
+				array(
+					'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
 		</div><!-- end of .post-entry -->
 
 		<?php get_template_part( 'post-data', get_post_type() ); ?>

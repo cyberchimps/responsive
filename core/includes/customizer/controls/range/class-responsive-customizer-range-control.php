@@ -31,8 +31,8 @@ class Responsive_Customizer_Range_Control extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'responsive-range', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/range.min.js', array( 'jquery', 'customize-base' ), false, true );
-		wp_enqueue_style( 'responsive-range', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/range.min.css', null );
+		wp_enqueue_script( 'responsive-range', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/range.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
+		wp_enqueue_style( 'responsive-range', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/range.min.css', RESPONSIVE_THEME_VERSION, true );
 	}
 
 	/**
@@ -48,10 +48,10 @@ class Responsive_Customizer_Range_Control extends WP_Customize_Control {
 		} else {
 			$this->json['default'] = $this->setting->default;
 		}
-		$this->json['value']       = $this->value();
-		$this->json['choices']     = $this->choices;
-		$this->json['link']        = $this->get_link();
-		$this->json['id']          = $this->id;
+		$this->json['value']   = $this->value();
+		$this->json['choices'] = $this->choices;
+		$this->json['link']    = $this->get_link();
+		$this->json['id']      = $this->id;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {

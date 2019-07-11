@@ -13,16 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Multicheck sanitization callback
  *
+ * @param  object $values    arguments.
  * @since 1.2.1
  */
 function responsive_sanitize_multicheck( $values ) {
 	$multi_values = ! is_array( $values ) ? explode( ',', $values ) : $values;
-    return ! empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
+	return ! empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
 }
 
 /**
  * Drop-down Pages sanitization callback
  *
+ * @param  object $page_id    arguments.
+ * @param  object $setting    arguments.
  * @since 1.2.1
  */
 function responsive_sanitize_dropdown_pages( $page_id, $setting ) {
@@ -36,34 +39,37 @@ function responsive_sanitize_dropdown_pages( $page_id, $setting ) {
 /**
  * Color sanitization callback
  *
+ * @param  object $color    arguments.
  * @since 1.2.1
  */
 function responsive_sanitize_color( $color ) {
-    if ( empty( $color ) || is_array( $color ) ) {
-        return '';
-    }
+	if ( empty( $color ) || is_array( $color ) ) {
+		return '';
+	}
 
-    // If string does not start with 'rgba', then treat as hex.
-	// sanitize the hex color and finally convert hex to rgba
-    if ( false === strpos( $color, 'rgba' ) ) {
-        return sanitize_hex_color( $color );
-    }
+	// If string does not start with 'rgba', then treat as hex.
+	// sanitize the hex color and finally convert hex to rgba.
+	if ( false === strpos( $color, 'rgba' ) ) {
+		return sanitize_hex_color( $color );
+	}
 
-    // By now we know the string is formatted as an rgba color so we need to further sanitize it.
-    $color = str_replace( ' ', '', $color );
-    sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+	// By now we know the string is formatted as an rgba color so we need to further sanitize it.
+	$color = str_replace( ' ', '', $color );
+	sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
 
-    return 'rgba('.$red.','.$green.','.$blue.','.$alpha.')';
+	return 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
 }
 
 /**
  * Select choices sanitization callback
  *
+ * @param  object $input    arguments.
+ * @param  object $setting    arguments.
  * @since 1.2.1
  */
 function responsive_sanitize_multi_choices( $input, $setting ) {
 	// Get list of choices from the control associated with the setting.
-	$choices = $setting->manager->get_control( $setting->id )->choices;
+	$choices    = $setting->manager->get_control( $setting->id )->choices;
 	$input_keys = $input;
 
 	foreach ( $input_keys as $key => $value ) {
@@ -80,6 +86,8 @@ function responsive_sanitize_multi_choices( $input, $setting ) {
 /**
  * Image sanitization callback
  *
+ * @param  object $image    arguments.
+ * @param  object $setting    arguments.
  * @since 1.2.1
  */
 function responsive_sanitize_image( $image, $setting ) {
@@ -88,23 +96,24 @@ function responsive_sanitize_image( $image, $setting ) {
 	 *
 	 * The array includes image mime types that are included in wp_get_mime_types()
 	 */
-    $mimes = array(
-        'jpg|jpeg|jpe' => 'image/jpeg',
-        'gif'          => 'image/gif',
-        'png'          => 'image/png',
-        'bmp'          => 'image/bmp',
-        'tif|tiff'     => 'image/tiff',
-        'ico'          => 'image/x-icon'
-    );
+	$mimes = array(
+		'jpg|jpeg|jpe' => 'image/jpeg',
+		'gif'          => 'image/gif',
+		'png'          => 'image/png',
+		'bmp'          => 'image/bmp',
+		'tif|tiff'     => 'image/tiff',
+		'ico'          => 'image/x-icon',
+	);
 	// Return an array with file extension and mime_type.
-    $file = wp_check_filetype( $image, $mimes );
+	$file = wp_check_filetype( $image, $mimes );
 	// If $image has a valid mime_type, return it; otherwise, return the default.
-    return ( $file['ext'] ? $image : $setting->default );
+	return ( $file['ext'] ? $image : $setting->default );
 }
 
 /**
  * Number sanitization callback
  *
+ * @param  object $val    arguments.
  * @since 1.2.1
  */
 function responsive_sanitize_number( $val ) {
@@ -114,6 +123,7 @@ function responsive_sanitize_number( $val ) {
 /**
  * Number with blank value sanitization callback
  *
+ * @param  object $val    arguments.
  * @since 1.2.1
  */
 function responsive_sanitize_number_blank( $val ) {
@@ -123,6 +133,8 @@ function responsive_sanitize_number_blank( $val ) {
 /**
  * Select sanitization callback
  *
+ * @param  object $input    arguments.
+ * @param  object $setting    arguments.
  * @since 1.2.1
  */
 function responsive_sanitize_select( $input, $setting ) {

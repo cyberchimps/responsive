@@ -17,16 +17,16 @@ $format = get_post_format();
 $classes = responsive_post_entry_classes();
 
 // Inner classes
-$inner_classes = array(); 
+$inner_classes = array();
 
 // Image position
-$position = get_theme_mod( 'responsive_blog_thumbnail_image_position', 'left' );
-$position = $position ? $position : 'left';
+$position        = get_theme_mod( 'responsive_blog_thumbnail_image_position', 'left' );
+$position        = $position ? $position : 'left';
 $inner_classes[] = $position . '-position';
 
 // Vertical postion
-$ver_position = get_theme_mod( 'responsive_blog_thumbnail_vertical_position', 'center' );
-$ver_position = $ver_position ? $ver_position : 'center';
+$ver_position    = get_theme_mod( 'responsive_blog_thumbnail_vertical_position', 'center' );
+$ver_position    = $ver_position ? $ver_position : 'center';
 $inner_classes[] = $ver_position;
 
 // Turn inner classes into space seperated string
@@ -43,7 +43,8 @@ $inner_classes = implode( ' ', $inner_classes ); ?>
 			// Featured Image
 			get_template_part( 'partials/entry/media/blog-entry', $format );
 
-		} ?>
+		}
+		?>
 
 		<div class="blog-entry-content">
 
@@ -55,7 +56,8 @@ $inner_classes = implode( ' ', $inner_classes ); ?>
 			get_template_part( 'partials/entry/header' );
 
 			// Content
-			get_template_part( 'partials/entry/content' ); ?>
+			get_template_part( 'partials/entry/content' );
+			?>
 
 			<div class="blog-entry-bottom clr">
 
@@ -64,7 +66,8 @@ $inner_classes = implode( ' ', $inner_classes ); ?>
 				get_template_part( 'partials/entry/thumbnail-style/comments' );
 
 				// Date
-				get_template_part( 'partials/entry/thumbnail-style/date' ); ?>
+				get_template_part( 'partials/entry/thumbnail-style/date' );
+				?>
 
 			</div><!-- .blog-entry-bottom -->
 
@@ -77,7 +80,8 @@ $inner_classes = implode( ' ', $inner_classes ); ?>
 			// Featured Image
 			get_template_part( 'partials/entry/media/blog-entry', $format );
 
-		} ?>
+		}
+		?>
 
 	</div><!-- .blog-entry-inner -->
 

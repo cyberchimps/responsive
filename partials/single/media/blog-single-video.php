@@ -26,9 +26,10 @@ if ( $video && ! post_password_required() ) : ?>
 
 	</div><!-- #post-media -->
 
-<?php
-// Else display post thumbnail
-else : ?>
+	<?php
+	// Else display post thumbnail
+else :
+	?>
 
 	<?php get_template_part( 'partials/single/media/blog-single' ); ?>
 
