@@ -236,7 +236,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'responsive_sanitize_select',
 								'transport'         => $transport,
-								'default'						=> 'normal',
+								'default'			=> 'normal',
 							)
 						);
 
