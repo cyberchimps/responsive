@@ -13,7 +13,7 @@
  * @since          available since Release 1.0
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -43,18 +43,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?>>
 
-<?php responsive_container(); // before container hook ?>
+<?php responsive_container(); // before container hook. ?>
 
 <div id="container" class="hfeed">
 
-<?php responsive_header(); // before header hook ?>
+<?php responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#content"><?php _e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
 	<div id="header_section">
 	<div id="header" role="banner">
 
-		<?php responsive_header_top(); // before header content hook ?>
+		<?php responsive_header_top(); // before header content hook. ?>
 
 		<?php
 		if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
@@ -69,15 +69,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 		?>
 
-		<?php responsive_in_header(); // header hook ?>
+		<?php responsive_in_header(); // header hook. ?>
 
 		<div id="content-outer">
 			<div id="logo">
-				<?php
-				error_log( 'innn' );
-				the_custom_logo();
-				?>
-				<span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+				<?php the_custom_logo(); ?>
+				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
 				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
 			</div><!-- end of #logo -->
 		</div>
@@ -107,19 +104,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 		?>
 
-		<?php responsive_header_bottom(); // after header content hook ?>
+		<?php responsive_header_bottom(); // after header content hook. ?>
 
 	</div><!-- end of #header -->
 	</div>
-<?php responsive_header_end(); // after header container hook ?>
+<?php responsive_header_end(); // after header container hook. ?>
 
-<?php responsive_wrapper(); // before wrapper container hook ?>
+<?php responsive_wrapper(); // before wrapper container hook. ?>
 
 <?php
 if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-layout' ) && ( ! ( is_home() || is_front_page() ) ) ) {
 	?>
-	  <div id="content-outer" >
+<div id="content-outer" >
 <?php } ?>
 	<div id="wrapper" class="clearfix">
-<?php responsive_wrapper_top(); // before wrapper content hook ?>
-<?php responsive_in_wrapper(); // wrapper hook ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<?php responsive_in_wrapper(); // wrapper hook. ?>
