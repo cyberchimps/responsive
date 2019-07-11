@@ -31,7 +31,7 @@ $responsive_options = responsive_get_options();
 <?php responsive_wrapper_end(); // after wrapper hook ?>
 <?php if ( is_home() && ! is_front_page() ) { ?>
 </div>
-<?php } ?>	 
+<?php } ?>
 </div><!-- end of #container -->
 <?php responsive_container_end(); // after container hook ?>
 
@@ -39,20 +39,19 @@ $responsive_options = responsive_get_options();
 	<?php responsive_footer_top(); ?>
 
 	<div id="footer-wrapper">
-		
+
 		 <!--   main-->
-		
+
 	<?php if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-no-box' ) ) { ?>
 		<div class="social_div grid col-940">
 			<div id="content-outer">
-			<?php echo responsive_get_social_icons_new(); ?>	
+			<?php echo responsive_get_social_icons_new(); ?>
 		</div>
-		</div>	
 		<div class="footer_div grid col-940">
 			<div id="content-outer">
 		<?php get_sidebar( 'footer' ); ?>
 		</div>
-		</div>		
+		</div>
 		<div id="content-outer">
 		<div class="grid col-940">
 
@@ -71,12 +70,22 @@ $responsive_options = responsive_get_options();
 				?>
 			</div><!-- end of col-540 -->
 
-			<div class="grid col-380 fit">			
+			<div class="grid col-380 fit">
 			</div><!-- end of col-380 fit -->
 
 		</div><!-- end of col-940 -->
 		<?php get_sidebar( 'colophon' ); ?>
-
+		<?php if ( isset( $responsive_options['copyright_textbox'] ) ) {
+			$copyright_text = $responsive_options['copyright_textbox'];
+		}
+		else {
+			$copyright_text = "Default copyright text";
+		}
+		if ( isset( $responsive_options['poweredby_link'] ) ) {
+			$cyberchimps_link = $responsive_options['poweredby_link'];
+		}
+		$siteurl = site_url();
+		?>
 		<div class="grid col-300 copyright">
 			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				<?php bloginfo( 'name' ); ?>
@@ -93,7 +102,7 @@ $responsive_options = responsive_get_options();
 		</div><!-- end .powered -->
 	</div>
 	<?php } else { ?>
-	<div id="content-outer">			
+	<div id="content-outer">
 		<?php get_sidebar( 'footer' ); ?>
 		</div>
 		<div id="content-outer">
@@ -137,7 +146,7 @@ $responsive_options = responsive_get_options();
 		</div><!-- end .powered -->
 	</div>
 	<?php } ?>
-	
+
 	</div><!-- end #footer-wrapper -->
 
 	<?php responsive_footer_bottom(); ?>

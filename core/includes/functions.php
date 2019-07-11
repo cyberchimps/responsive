@@ -328,7 +328,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		if ( 1 == $responsive_options['minified_css'] ) {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
 		} else {
-			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.css', false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
 			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.css', false, $responsive['Version'] );
 		}
 
@@ -342,6 +342,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		if ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) {
 			wp_enqueue_style( 'responsive-shop', get_template_directory_uri() . '/core/css/shop.css', false, $responsive['Version'] );
 		}
+		$social_array = array( 'res_twitter', 'res_facebook', 'res_linkedin', 'res_youtube', 'res_googleplus', 'res_rss', 'res_printerest', 'res_stumble', 'res_vimeo', 'res_yelp', 'res_foursquare', 'res_email_uid' );
 
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
 	}
@@ -531,18 +532,8 @@ function fetch_copyright() {
 	?>
 	<script>
 		jQuery(document).ready(function(){
-		var copyright_text = "
-		<?php
-		if ( isset( $responsive_options['copyright_textbox'] ) ) {
-			echo $responsive_options['copyright_textbox']; }
-		?>
-		";
-		var cyberchimps_link = "
-		<?php
-		if ( isset( $responsive_options['poweredby_link'] ) ) {
-			echo $responsive_options['poweredby_link']; }
-		?>
-		";
+		var copyright_text = "<?php if ( isset( $responsive_options['copyright_textbox'] ) ) { echo $responsive_options['copyright_textbox']; } ?>"; //phpcs:ignore
+		var cyberchimps_link = "<?php if ( isset( $responsive_options['poweredby_link'] ) ) { echo $responsive_options['poweredby_link']; } ?>"; //phpcs:ignore
 		var siteurl = "<?php echo site_url(); ?>";
 		if(copyright_text == "")
 		{

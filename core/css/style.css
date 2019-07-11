@@ -3434,3 +3434,6 @@ border-bottom-color: #cec9c4;
 /*
 	changes according gutenberg plugin -- END
  */
+ .full-width-layout #wrapper {
+	 padding: 0;
+ }

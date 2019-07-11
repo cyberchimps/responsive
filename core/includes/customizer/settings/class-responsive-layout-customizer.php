@@ -323,6 +323,37 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					)
 				)
 			);
+			$wp_customize->add_setting(
+				'res_show_site_title',
+				array(
+					'default'           => true,
+				)
+			);
+			$wp_customize->add_control(
+				'res_show_site_title',
+				array(
+					'label'       => __( 'Show Site Title', 'responsive' ),
+					'section'     => 'title_tagline',
+					'type'        => 'checkbox',
+					'priority'    => 21
+
+				)
+			);
+			$wp_customize->add_setting(
+				'res_show_tagline',
+				array(
+					'default'           => true,
+				)
+			);
+			$wp_customize->add_control(
+				'res_show_tagline',
+				array(
+					'label'       => __( 'Show tagline', 'responsive' ),
+					'section'     => 'title_tagline',
+					'type'        => 'checkbox',
+
+				)
+			);
 		}
 
 

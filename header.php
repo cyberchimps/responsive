@@ -74,8 +74,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div id="content-outer">
 			<div id="logo">
 				<?php the_custom_logo(); ?>
-				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+				<?php
+				if( true === get_theme_mod( 'res_show_site_title' ) ) { ?>
+					<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+				<?php
+				}
+				if( true === get_theme_mod( 'res_show_tagline' ) ) { ?>
+
+					<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+					<?php
+				}
+				?>
 			</div><!-- end of #logo -->
 		</div>
 
