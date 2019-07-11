@@ -26,7 +26,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		public function __construct() {
 
 			add_action( 'customize_register', array( $this, 'customizer_options' ) );
-			//add_action( 'wp_enqueue_scripts', array( $this, 'customize_preview_init' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_fonts' ) );
 
 			// CSS output.
@@ -159,7 +158,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					/**
 					 * Font Family
 					 */
-					if ( in_array( 'font-family', $attributes ) ) {
+					if ( in_array( 'font-family', $attributes, true ) ) {
 
 						$wp_customize->add_setting(
 							$element . '_typography[font-family]',
@@ -190,7 +189,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					/**
 					 * Font Weight
 					 */
-					if ( in_array( 'font-weight', $attributes ) ) {
+					if ( in_array( 'font-weight', $attributes, true ) ) {
 
 						$wp_customize->add_setting(
 							$element . '_typography[font-weight]',
@@ -230,7 +229,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					/**
 					 * Font Style
 					 */
-					if ( in_array( 'font-style', $attributes ) ) {
+					if ( in_array( 'font-style', $attributes, true ) ) {
 
 						$wp_customize->add_setting(
 							$element . '_typography[font-style]',
@@ -263,7 +262,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					/**
 					 * Text Transform
 					 */
-					if ( in_array( 'text-transform', $attributes ) ) {
+					if ( in_array( 'text-transform', $attributes, true ) ) {
 
 						$wp_customize->add_setting(
 							$element . '_typography[text-transform]',
@@ -298,7 +297,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					/**
 					 * Font Size
 					 */
-					if ( in_array( 'font-size', $attributes ) ) {
+					if ( in_array( 'font-size', $attributes, true ) ) {
 
 						$wp_customize->add_setting(
 							$element . '_typography[font-size]',
@@ -350,9 +349,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					/**
 					 * Line Height
 					 */
-					if ( in_array( 'line-height', $attributes ) ) {
+					if ( in_array( 'line-height', $attributes, true ) ) {
 
-						// Get default
+						// Get default.
 						$default = ! empty( $array['defaults']['line-height'] ) ? $array['defaults']['line-height'] : null;
 
 						$wp_customize->add_setting(
@@ -409,7 +408,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					/**
 					 * Letter Spacing
 					 */
-					if ( in_array( 'letter-spacing', $attributes ) ) {
+					if ( in_array( 'letter-spacing', $attributes, true ) ) {
 
 						$wp_customize->add_setting(
 							$element . '_typography[letter-spacing]',
@@ -465,7 +464,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					/**
 					 * Font Color
 					 */
-					if ( in_array( 'font-color', $attributes ) ) {
+					if ( in_array( 'font-color', $attributes, true ) ) {
 
 						// Get default.
 						$default = ! empty( $array['defaults']['color'] ) ? $array['defaults']['color'] : null;
@@ -593,10 +592,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						// Add to inline CSS.
 						if ( 'css' == $return ) {
 							$add_css .= $attribute . ':' . $val . $px . ';';
-						}
-
-						// Customizer styles need to be added for each attribute.
-						elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' == $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-' . $attribute ] = $target . '{' . $attribute . ':' . $val . $px . ';}';
 						}
 					}
@@ -621,10 +617,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						// Add to inline CSS.
 						if ( 'css' == $return ) {
 							$tablet_css .= $attribute . ':' . $tablet_val . $px . ';';
-						}
-
-						// Customizer styles need to be added for each attribute.
-						elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' == $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-tablet-' . $attribute ] = '@media (max-width: 768px){' . $target . '{' . $attribute . ':' . $tablet_val . $px . ';}}';
 						}
 					}
@@ -649,10 +642,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						// Add to inline CSS.
 						if ( 'css' == $return ) {
 							$mobile_css .= $attribute . ':' . $mobile_val . $px . ';';
-						}
-
-						// Customizer styles need to be added for each attribute.
-						elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' == $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-mobile-' . $attribute ] = '@media (max-width: 480px){' . $target . '{' . $attribute . ':' . $mobile_val . $px . ';}}';
 						}
 					}
@@ -725,7 +715,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			if ( $live_preview_styles ) {
 				foreach ( $live_preview_styles as $key => $val ) {
 					if ( ! empty( $val ) ) {
-						echo '<style class="' . $key . '"> ' . $val . '</style>';
+						echo '<style class="' . esc_html( $key ) . '"> ' . esc_html( $val ) . '</style>';
 					}
 				}
 			}

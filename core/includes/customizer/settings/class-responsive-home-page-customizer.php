@@ -35,7 +35,8 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			/*
 			--------------------------------------------------------------
 				// Home Page
-			--------------------------------------------------------------*/
+			--------------------------------------------------------------
+			*/
 				$args                  = array(
 					'type'         => 'post',
 					'orderby'      => 'name',
@@ -63,11 +64,6 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				foreach ( $options_posts_obj as $posts ) {
 					$options_posts[ $posts->ID ] = $posts->post_title;
 				}
-
-				// $wp_customize->add_section( 'home_page', array(
-				// 'title'                 => __( 'Home Page', 'responsive' ),
-				// 'priority'              => 30
-				// ) );
 				$wp_customize->add_setting(
 					'responsive_theme_options[front_page]',
 					array(
