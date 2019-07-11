@@ -26,9 +26,9 @@ get_header(); ?>
 <div id="content-outer">
 <div id="content-archive" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
-	<?php  error_log('archieve'); if ( have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
-		<?php get_template_part( 'loop-header', get_post_type() ); error_log('archieve');?>
+		<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
 		<?php while( have_posts() ) : the_post(); ?>
 
