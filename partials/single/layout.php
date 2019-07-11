@@ -61,16 +61,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( get_the_author_meta( 'description' ) != '' ) : ?>
 
 			<div id="author-meta">
-				<?php if ( function_exists( 'get_avatar' ) ) {
+				<?php
+				if ( function_exists( 'get_avatar' ) ) {
 					echo get_avatar( get_the_author_meta( 'email' ), '80' );
-				} ?>
+				}
+				?>
 				<div class="about-author"><?php _e( 'About', 'responsive' ); ?> <?php the_author_posts_link(); ?></div>
-				<p><?php the_author_meta( 'description' ) ?></p>
+				<p><?php the_author_meta( 'description' ); ?></p>
 			</div><!-- end of #author-meta -->
 
 		<?php endif; // no description, no author's meta ?>
 
-		<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+		<?php
+		wp_link_pages(
+			array(
+				'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+				'after'  => '</div>',
+			)
+		);
+		?>
 	</div><!-- end of .post-entry -->
 
 	<div class="navigation">

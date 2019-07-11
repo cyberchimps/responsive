@@ -14,13 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 $format = get_post_format();
 
 	// Add classes to the blog entry post class
-	//$classes = responsive_post_entry_classes(); ?>
-	<?php //responsive_blog_entry_elements_positioning() ?>
+	// $classes = responsive_post_entry_classes(); ?>
+	<?php // responsive_blog_entry_elements_positioning() ?>
 	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php responsive_entry_top(); ?>
 		<div class="post-entry">
 
-		<?php //get_template_part( 'post-meta', get_post_type() ); ?>
+		<?php // get_template_part( 'post-meta', get_post_type() ); ?>
 
 			<?php
 			// Get posts format.
@@ -36,7 +36,7 @@ $format = get_post_format();
 				if ( 'featured_image' === $element
 					&& ! post_password_required() ) {
 						get_template_part( 'partials/entry/media/blog-entry', $format );
-					//get_template_part( 'partials/entry/thumbnail' );
+					// get_template_part( 'partials/entry/thumbnail' );
 
 				}
 
@@ -65,9 +65,16 @@ $format = get_post_format();
 
 
 
-			<?php //the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+			<?php // the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 
-			<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+			<?php
+			wp_link_pages(
+				array(
+					'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
 		</div>
 		<!-- end of .post-entry -->
 

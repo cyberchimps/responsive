@@ -1,7 +1,11 @@
 <?php
+/**
+ * Exit if accessed directly.
+ *
+ * @package Responsive
+ */
 
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -27,7 +31,10 @@ get_header(); ?>
 
 	<?php if ( have_posts() ) : ?>
 
-		<?php while( have_posts() ) : the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			?>
 
 			<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
@@ -40,7 +47,14 @@ get_header(); ?>
 				<div class="post-entry">
 					<?php responsive_page_featured_image(); ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+					<?php
+					wp_link_pages(
+						array(
+							'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+							'after'  => '</div>',
+						)
+					);
+					?>
 				</div>
 				<!-- end of .post-entry -->
 
@@ -54,17 +68,17 @@ get_header(); ?>
 			<?php comments_template( '', true ); ?>
 			<?php responsive_comments_after(); ?>
 
-		<?php
+			<?php
 		endwhile;
 
 		get_template_part( 'loop-nav', get_post_type() );
 
-	else :
+		else :
 
-		get_template_part( 'loop-no-posts', get_post_type() );
+			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
-	?>
+		?>
 
 </div><!-- end of #content-full -->
 </div>

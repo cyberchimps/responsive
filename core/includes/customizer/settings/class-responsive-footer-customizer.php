@@ -1,6 +1,6 @@
 <?php
 /**
- * button Customizer Options
+ * Footer Customizer Options
  *
  * @package Responsive WordPress theme
  */
@@ -9,9 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_footer_Customizer' ) ) :
-
-	class Responsive_footer_Customizer {
+if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
+	/**
+	 * Footer Customizer Options */
+	class Responsive_Footer_Customizer {
 
 		/**
 		 * Setup class.
@@ -30,14 +31,13 @@ if ( ! class_exists( 'Responsive_footer_Customizer' ) ) :
 		 * @since 0.2
 		 *
 		 * @param  object $wp_customize WordPress customization option.
-		 * @return [type]               [description]
 		 */
 		public function customizer_options( $wp_customize ) {
 			$wp_customize->add_section(
 				'responsive_footer_section',
 				array(
 					'title'    => esc_html__( 'Footer', 'responsive' ),
-					'panel'             => 'responsive-layout-options',
+					'panel'    => 'responsive-layout-options',
 					'priority' => 202,
 				)
 			);
@@ -45,19 +45,22 @@ if ( ! class_exists( 'Responsive_footer_Customizer' ) ) :
 				'responsive_theme_options[site_footer_option]',
 				array(
 					'sanitize_callback' => 'responsive_validate_site_footer_layout',
-					'type' => 'option'
+					'type'              => 'option',
 				)
 			);
-			$wp_customize->add_control( 'site_footer_option', array(
+			$wp_customize->add_control(
+				'site_footer_option',
+				array(
 					'label'    => __( 'Choose Footer Widgets Layout', 'responsive' ),
 					'section'  => 'responsive_footer_section',
 					'settings' => 'responsive_theme_options[site_footer_option]',
 					'type'     => 'select',
 					'choices'  => array(
-							'footer-3-col' => __('Default (3 column)','responsive'),
-							'footer-2-col' => __('2 Column Layout','responsive'),
-					)
-			));
+						'footer-3-col' => __( 'Default (3 column)', 'responsive' ),
+						'footer-2-col' => __( '2 Column Layout', 'responsive' ),
+					),
+				)
+			);
 		}
 
 
@@ -65,4 +68,4 @@ if ( ! class_exists( 'Responsive_footer_Customizer' ) ) :
 
 endif;
 
-return new Responsive_footer_Customizer();
+return new Responsive_Footer_Customizer();

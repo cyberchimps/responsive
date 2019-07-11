@@ -11,117 +11,142 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function responsive_customize_register( $wp_customize ) {
-	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
-
-
-
-
-
-
-/*--------------------------------------------------------------
+	/*
+	--------------------------------------------------------------
 	// Default Layouts
---------------------------------------------------------------*/
+	--------------------------------------------------------------
+	*/
 
-	$wp_customize->add_section( 'default_layouts', array(
-		'title'                 => __( 'Default Layouts', 'responsive' ),
-		'priority'              => 30
-	) );
-	$wp_customize->add_setting( 'responsive_theme_options[static_page_layout_default]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_static_page_layout_default', array(
-		'label'                 => __( 'Default Static Page Layout', 'responsive' ),
-		'section'               => 'default_layouts',
-		'settings'              => 'responsive_theme_options[static_page_layout_default]',
-		'type'                  => 'select',
-		'choices'               => Responsive_Options::valid_layouts()
-	) );
-	// $wp_customize->add_setting( 'responsive_theme_options[single_post_layout_default]', array( 'sanitize_callback' => 'responsive_sanitize_default_layouts', 'type' => 'option' ) );
-	// $wp_customize->add_control( 'res_single_post_layout_default', array(
-	// 	'label'                 => __( 'Default Single Blog Post Layout', 'responsive' ),
-	// 	'section'               => 'default_layouts',
-	// 	'settings'              => 'responsive_theme_options[single_post_layout_default]',
-	// 	'type'                  => 'select',
-	// 	'choices'               => Responsive_Options::valid_layouts()
-	// ) );
-	$wp_customize->add_setting('responsive_theme_options[blog_posts_index_layout_default]', array( 'sanitize_callback' => 'responsive_sanitize_blog_default_layouts', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_hblog_posts_index_layout_default', array(
-		'label'                 => __( 'Default Blog Posts Index Layout', 'responsive' ),
-		'section'               => 'default_layouts',
-		'settings'              => 'responsive_theme_options[blog_posts_index_layout_default]',
-		'type'                  => 'select',
-		'choices'               => Responsive_Options::blog_valid_layouts()
-	) );
+	$wp_customize->add_section(
+		'default_layouts',
+		array(
+			'title'    => __( 'Default Layouts', 'responsive' ),
+			'priority' => 30,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_theme_options[static_page_layout_default]',
+		array(
+			'sanitize_callback' => 'responsive_sanitize_default_layouts',
+			'type'              => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'res_static_page_layout_default',
+		array(
+			'label'    => __( 'Default Static Page Layout', 'responsive' ),
+			'section'  => 'default_layouts',
+			'settings' => 'responsive_theme_options[static_page_layout_default]',
+			'type'     => 'select',
+			'choices'  => Responsive_Options::valid_layouts(),
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_theme_options[blog_posts_index_layout_default]',
+		array(
+			'sanitize_callback' => 'responsive_sanitize_blog_default_layouts',
+			'type'              => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'res_hblog_posts_index_layout_default',
+		array(
+			'label'    => __( 'Default Blog Posts Index Layout', 'responsive' ),
+			'section'  => 'default_layouts',
+			'settings' => 'responsive_theme_options[blog_posts_index_layout_default]',
+			'type'     => 'select',
+			'choices'  => Responsive_Options::blog_valid_layouts(),
+		)
+	);
 
-
-/*--------------------------------------------------------------
+	/*
+	--------------------------------------------------------------
 	// CSS Styles
---------------------------------------------------------------*/
-$wp_version = get_bloginfo('version');
-if (!($wp_version >= 4.7))
-{
-	$wp_customize->add_section( 'css_styles', array(
-		'title'                 => __( 'CSS Styles', 'responsive' ),
-		'priority'              => 30
-	) );
-	$wp_customize->add_setting( 'responsive_theme_options[responsive_inline_css]' ,array( 'sanitize_callback' => 'wp_filter_nohtml_kses', 'type' => 'option' ) );
-	$wp_customize->add_control( 'res_responsive_inline_css', array(
-		'label'                 => __( 'Custom CSS Styles', 'responsive' ),
-		'section'               => 'css_styles',
-		'settings'              => 'responsive_theme_options[responsive_inline_css]',
-		'type'                  => 'textarea'
-	) );
-}
+	--------------------------------------------------------------
+	*/
+	$wp_version = get_bloginfo( 'version' );
+	if ( ! ( $wp_version >= 4.7 ) ) {
+		$wp_customize->add_section(
+			'css_styles',
+			array(
+				'title'    => __( 'CSS Styles', 'responsive' ),
+				'priority' => 30,
+			)
+		);
+		$wp_customize->add_setting(
+			'responsive_theme_options[responsive_inline_css]',
+			array(
+				'sanitize_callback' => 'wp_filter_nohtml_kses',
+				'type'              => 'option',
+			)
+		);
+		$wp_customize->add_control(
+			'res_responsive_inline_css',
+			array(
+				'label'    => __( 'Custom CSS Styles', 'responsive' ),
+				'section'  => 'css_styles',
+				'settings' => 'responsive_theme_options[responsive_inline_css]',
+				'type'     => 'textarea',
+			)
+		);
+	}
 
-
-
-
-	$wp_customize->get_section('colors')->title = __( 'Background Color', 'responsive' );
-
+	$wp_customize->get_section( 'colors' )->title = __( 'Background Color', 'responsive' );
 
 }
 add_action( 'customize_register', 'responsive_customize_register' );
 
-
-        /**
+/**
  * Validates the Call to Action Button styles
  *
- * @param $input select
+ * @param  object $input    arguments.
  *
  * @return string
  */
 function responsive_pro_button_style_validate( $input ) {
-	// An array of valid results
-	//$valid = responsive_get_valid_featured_area_layouts();
-         $valid = array(
-             'default' => 'Gradient',
-             'flat_style' => 'Flat'
-         );
-
-	if( array_key_exists( $input, $valid ) ) {
-		return $input;
-	} else {
-		return '';
-	}
-}
-
-function responsive_validate_site_layout( $input ) {
-	// An array of valid results
-
+	/** An array of valid results */
 	$valid = array(
-			'default-layout' => 'Default',
-			'full-width-layout' => 'Full Width Layout',
-			'full-width-no-box' =>'Full Width Without boxes'
+		'default'    => 'Gradient',
+		'flat_style' => 'Flat',
 	);
 
-	if( array_key_exists( $input, $valid ) ) {
+	if ( array_key_exists( $input, $valid ) ) {
 		return $input;
 	} else {
 		return '';
 	}
 }
+
+/**
+ * Function for site layouts
+ *
+ * @param object $input arguments.
+ */
+function responsive_validate_site_layout( $input ) {
+	/** An array of valid results */
+
+	$valid = array(
+		'default-layout'    => 'Default',
+		'full-width-layout' => 'Full Width Layout',
+		'full-width-no-box' => 'Full Width Without boxes',
+	);
+
+	if ( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+}
+/**
+ * Function for sanitizing
+ *
+ * @param object $input arguments.
+ */
 function responsive_sanitize_checkbox( $input ) {
-		if ( $input ) {
+	if ( $input ) {
 		$output = '1';
 	} else {
 		$output = false;
@@ -129,19 +154,29 @@ function responsive_sanitize_checkbox( $input ) {
 	return $output;
 }
 
+/**
+ * Function for sanitizing
+ *
+ * @param object $input arguments.
+ */
 function responsive_sanitize_textarea( $input ) {
 	global $allowedposttags;
-	$output = wp_kses( $input, $allowedposttags);
+	$output = wp_kses( $input, $allowedposttags );
 	return $output;
 }
 
+/**
+ * Function for sanitizing
+ *
+ * @param object $input arguments.
+ */
 function responsive_sanitize_posts( $input ) {
-	$output = '';
-	$options_posts = array();
-	$options_posts_obj = get_posts('posts_per_page=-1');
-	$options_posts[''] = esc_html(__( 'Choose Post', 'responsive' ));
+	$output            = '';
+	$options_posts     = array();
+	$options_posts_obj = get_posts( 'posts_per_page=-1' );
+	$options_posts[''] = esc_html( __( 'Choose Post', 'responsive' ) );
 	foreach ( $options_posts_obj as $posts ) {
-		$options_posts[$posts->ID] = $posts->post_title;
+		$options_posts[ $posts->ID ] = $posts->post_title;
 	}
 	$option = $options_posts;
 	if ( array_key_exists( $input, $option ) ) {
@@ -150,6 +185,11 @@ function responsive_sanitize_posts( $input ) {
 	return $output;
 }
 
+/**
+ * Function for sanitizing layouts
+ *
+ * @param object $input arguments.
+ */
 function responsive_sanitize_default_layouts( $input ) {
 	$output = '';
 	$option = Responsive_Options::valid_layouts();
@@ -159,6 +199,12 @@ function responsive_sanitize_default_layouts( $input ) {
 
 	return $output;
 }
+
+/**
+ * Function for sanitizing blog layouts
+ *
+ * @param object $input arguments.
+ */
 function responsive_sanitize_blog_default_layouts( $input ) {
 	$output = '';
 	$option = Responsive_Options::blog_valid_layouts();
@@ -167,22 +213,33 @@ function responsive_sanitize_blog_default_layouts( $input ) {
 	}
 	return $output;
 }
+
+/**
+ * Function for sanitizing checkboxes
+ *
+ * @param object $values arguments.
+ */
 function responsive_sanitize_multiple_checkboxes( $values ) {
 
-	$multi_values = !is_array( $values ) ? explode( ',', $values ) : $values;
+	$multi_values = ! is_array( $values ) ? explode( ',', $values ) : $values;
 
-	return !empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
+	return ! empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
 }
 
+/**
+ * Function for sanitizing footer layout
+ *
+ * @param object $input arguments.
+ */
 function responsive_validate_site_footer_layout( $input ) {
-	// An array of valid results
+	/** An array of valid results */
 
 	$valid = array(
-			'footer-default-layout' => 'Default (3 column)',
-			'footer-2-col' => '2 Column Layout',
+		'footer-default-layout' => 'Default (3 column)',
+		'footer-2-col'          => '2 Column Layout',
 	);
 
-	if( array_key_exists( $input, $valid ) ) {
+	if ( array_key_exists( $input, $valid ) ) {
 		return $input;
 	} else {
 		return '';
@@ -200,7 +257,6 @@ add_action( 'customize_preview_init', 'responsive_customize_preview_js' );
 
 /**
  * Adds customizer options
- *
  */
 function register_options() {
 	// Var.
@@ -208,14 +264,14 @@ function register_options() {
 
 	// Customizer files array.
 	$files = array(
-		'button',
-		'typoghraphy',
-		'theme-options',
-		'layout',
-		'home-page',
-		'links',
-		'footer',
-		'footer-copyrights',
+		'class-responsive-button-customizer',
+		'class-responsive-typography-customizer',
+		'class-responsive-theme-options-customizer',
+		'class-responsive-layout-customizer',
+		'class-responsive-home-page-customizer',
+		'class-responsive-links-customizer',
+		'class-responsive-footer-customizer',
+		'class-responsive-footer-copyrights-customizer',
 	);
 
 	foreach ( $files as $key ) {
@@ -241,12 +297,12 @@ function custom_controls( $wp_customize ) {
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/';
 
 	// Load customize control classes.
-	 require_once $dir . 'color/class-control-color.php';
-	 require_once $dir . 'range/class-control-range.php';
-	 require_once $dir . 'slider/class-control-slider.php';
-	 require_once $dir . 'sortable/class-control-sortable.php';
-	 require_once $dir . 'text/class-control-text.php';
-	require_once $dir . 'typography/class-control-typography.php';
+	require_once $dir . 'color/class-responsive-customizer-color-control.php';
+	require_once $dir . 'range/class-responsive-customizer-range-control.php';
+	require_once $dir . 'slider/class-responsive-customizer-slider-control.php';
+	require_once $dir . 'sortable/class-responsive-customizer-sortable-control.php';
+	require_once $dir . 'text/class-responsive-customizer-text-control.php';
+	require_once $dir . 'typography/class-responsive-customizer-typography-control.php';
 
 	// Register JS control types.
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
@@ -261,7 +317,6 @@ add_action( 'customize_register', 'custom_controls' );
 
 /**
  * Adds customizer helpers
- *
  */
 function controls_helpers() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/sanitization-callbacks.php';
@@ -270,9 +325,8 @@ add_action( 'customize_register', 'controls_helpers' );
 
 /**
  * Responsive_customize_preview_init.
- *
  */
-function responsive_customize_preview_init () {
+function responsive_customize_preview_init() {
 	wp_enqueue_script( 'responsive-customize-preview', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 }
 add_action( 'customize_preview_init', 'responsive_customize_preview_init' );

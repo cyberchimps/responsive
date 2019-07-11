@@ -17,7 +17,7 @@ if ( ! has_post_thumbnail() ) {
 
 // Image args
 $img_args = array(
-    'alt' => get_the_title(),
+	'alt' => get_the_title(),
 );
 if ( responsive_get_schema_markup( 'image' ) ) {
 	$img_args['itemprop'] = 'image';
@@ -33,12 +33,14 @@ $caption = get_the_post_thumbnail_caption(); ?>
 	the_post_thumbnail( 'full', $img_args );
 
 	// Caption
-	if ( $caption ) { ?>
+	if ( $caption ) {
+		?>
 		<div class="thumbnail-caption">
 			<?php echo esc_attr( $caption ); ?>
 		</div>
-	<?php
-	} ?>
+		<?php
+	}
+	?>
 
 	<div class="link-entry clr">
 

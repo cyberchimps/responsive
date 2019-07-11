@@ -29,32 +29,41 @@ if ( post_password_required() || empty( $attachments ) ) {
 		foreach ( $attachments as $attachment ) :
 
 			// Get attachment data
-			$attachment_title   = get_the_title( $attachment );
-			$attachment_alt 	= get_post_meta( $attachment, '_wp_attachment_image_alt', true );
-			$attachment_alt 	= $attachment_alt ? $attachment_alt : $attachment_title;
+			$attachment_title = get_the_title( $attachment );
+			$attachment_alt   = get_post_meta( $attachment, '_wp_attachment_image_alt', true );
+			$attachment_alt   = $attachment_alt ? $attachment_alt : $attachment_title;
 
 			// Get image output
-			$attachment_html = wp_get_attachment_image( $attachment, 'full', '', array(
-		        'alt'           => $attachment_alt,
-		        'itemprop'      => 'image',
-		    ) );
+			$attachment_html = wp_get_attachment_image(
+				$attachment,
+				'full',
+				'',
+				array(
+					'alt'      => $attachment_alt,
+					'itemprop' => 'image',
+				)
+			);
 
 			// Display with lightbox
-			if ( responsive_gallery_is_lightbox_enabled() == 'on' ) : ?>
+			if ( responsive_gallery_is_lightbox_enabled() == 'on' ) :
+				?>
 
 				<a href="<?php echo esc_url( wp_get_attachment_url( $attachment ) ); ?>" title="<?php echo esc_attr( $attachment_alt ); ?>" class="gallery-lightbox">
 					<?php echo wp_kses_post( $attachment_html ); ?>
 				</a>
 
-			<?php
-			// Display single image
-			else : ?>
+				<?php
+				// Display single image
+			else :
+				?>
 
 				<?php echo wp_kses_post( $attachment_html ); ?>
 
-			<?php endif;
+				<?php
+			endif;
 
-		endforeach; ?>
+		endforeach;
+		?>
 
 	</div>
 

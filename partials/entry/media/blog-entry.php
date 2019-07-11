@@ -32,7 +32,7 @@ if ( is_customize_preview()
 
 // Image args
 $img_args = array(
-    'alt' => get_the_title(),
+	'alt' => get_the_title(),
 );
 if ( responsive_get_schema_markup( 'image' ) ) {
 	$img_args['itemprop'] = 'image';
@@ -50,9 +50,9 @@ $caption = get_the_post_thumbnail_caption(); ?>
 		$img_width  = apply_filters( 'responsive_blog_entry_image_width', absint( get_theme_mod( 'responsive_blog_entry_image_width' ) ) );
 		$img_height = apply_filters( 'responsive_blog_entry_image_height', absint( get_theme_mod( 'responsive_blog_entry_image_height' ) ) );
 
-    	// Images attr
-		$img_id 	= get_post_thumbnail_id( get_the_ID(), 'full' );
-		$img_url 	= wp_get_attachment_image_src( $img_id, 'full', true );
+		// Images attr
+		$img_id  = get_post_thumbnail_id( get_the_ID(), 'full' );
+		$img_url = wp_get_attachment_image_src( $img_id, 'full', true );
 
 		// Display post thumbnail
 		the_post_thumbnail( $size, $img_args );
@@ -60,7 +60,8 @@ $caption = get_the_post_thumbnail_caption(); ?>
 
 		// If overlay
 		if ( is_customize_preview()
-			|| true == get_theme_mod( 'responsive_blog_image_overlay', true ) ) { ?>
+			|| true == get_theme_mod( 'responsive_blog_image_overlay', true ) ) {
+			?>
 			<span class="<?php echo esc_attr( $class ); ?>"></span>
 		<?php } ?>
 
@@ -68,11 +69,13 @@ $caption = get_the_post_thumbnail_caption(); ?>
 
 	<?php
 	// Caption
-	if ( $caption ) { ?>
+	if ( $caption ) {
+		?>
 		<div class="thumbnail-caption">
 			<?php echo esc_attr( $caption ); ?>
 		</div>
-	<?php
-	} ?>
+		<?php
+	}
+	?>
 
 </div><!-- .thumbnail -->

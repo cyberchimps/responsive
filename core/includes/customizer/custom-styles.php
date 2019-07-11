@@ -28,89 +28,77 @@ function responsive_premium_custom_color_styles() {
 	$input_border_color_fs  = get_theme_mod( 'input-border-color-focus', '#eaeaea' );
 	$input_border_color     = get_theme_mod( 'input-border-color', '#eaeaea' );
 
-	 if ( isset( $body_typography['color'] ) ) {
-	 	$body_color = $body_typography['color'];
-	 }
-	 else {
-		 $body_color = '#929292';
-	 }
+	if ( isset( $body_typography['color'] ) ) {
+		$body_color = $body_typography['color'];
+	} else {
+		$body_color = '#929292';
+	}
 
-	 if ( isset( $headings_typography['color'] ) ) {
-	 	$heading_color = $headings_typography['color'];
-	 }
-	 else {
-		 $heading_color = '#333333';
-	 }
+	if ( isset( $headings_typography['color'] ) ) {
+		$heading_color = $headings_typography['color'];
+	} else {
+		$heading_color = '#333333';
+	}
 
-	 if ( isset( $body_typography['text-transform'] ) ) {
-	 	$text_transform = $body_typography['text-transform'];
-	 }
-	 else {
-		 $text_transform = 'inherit';
-	 }
+	if ( isset( $body_typography['text-transform'] ) ) {
+		$text_transform = $body_typography['text-transform'];
+	} else {
+		$text_transform = 'inherit';
+	}
 
-	 if ( isset( $headings_typography['text-transform'] ) ) {
-	 	$headingtext_transform = $headings_typography['text-transform'];
-	 }
-	 else {
-		 $headingtext_transform = 'inherit';
-	 }
+	if ( isset( $headings_typography['text-transform'] ) ) {
+		$headingtext_transform = $headings_typography['text-transform'];
+	} else {
+		$headingtext_transform = 'inherit';
+	}
 
-	 if ( isset( $body_typography['letter-spacing'] ) ) {
-	 	$letter_spacing = $body_typography['letter-spacing'];
-	 }
-	 else {
-		 $letter_spacing = '0';
-	 }
+	if ( isset( $body_typography['letter-spacing'] ) ) {
+		$letter_spacing = $body_typography['letter-spacing'];
+	} else {
+		$letter_spacing = '0';
+	}
 
-	 if ( isset( $headings_typography['letter-spacing'] ) ) {
-	 	$headingsletter_spacing = $headings_typography['letter-spacing'];
-	 }
-	 else {
-		 $headingsletter_spacing = '0';
-	 }
+	if ( isset( $headings_typography['letter-spacing'] ) ) {
+		$headingsletter_spacing = $headings_typography['letter-spacing'];
+	} else {
+		$headingsletter_spacing = '0';
+	}
 
-	 if ( isset( $body_typography['font-weight'] ) ) {
-	 	$font_weight = $body_typography['font-weight'];
-	 }
-	 else {
-		 $font_weight = '400';
-	 }
+	if ( isset( $body_typography['font-weight'] ) ) {
+		$font_weight = $body_typography['font-weight'];
+	} else {
+		$font_weight = '400';
+	}
 
-	 if ( isset( $headings_typography['font-weight'] ) ) {
-	 	$headingsfont_weight = $headings_typography['font-weight'];
-	 }
-	 else {
-		 $headingsfont_weight = '700';
-	 }
+	if ( isset( $headings_typography['font-weight'] ) ) {
+		$headingsfont_weight = $headings_typography['font-weight'];
+	} else {
+		$headingsfont_weight = '700';
+	}
 
-	 if ( isset( $body_typography['line-height'] ) ) {
-	 	$line_height = $body_typography['line-height'];
-	 }
-	 else {
-		 $line_height = '1.8';
-	 }
+	if ( isset( $body_typography['line-height'] ) ) {
+		$line_height = $body_typography['line-height'];
+	} else {
+		$line_height = '1.8';
+	}
 
-	 if ( isset( $headings_typography['line-height'] ) ) {
-	 	$headingsline_height = $headings_typography['line-height'];
-	 }
-	 else {
-		 $headingsline_height = '1.4';
-	 }
+	if ( isset( $headings_typography['line-height'] ) ) {
+		$headingsline_height = $headings_typography['line-height'];
+	} else {
+		$headingsline_height = '1.4';
+	}
 
-	 if ( isset( $body_typography['font-style'] ) ) {
-	 	$font_style = $body_typography['font-style'];
-	 }
-	 else {
-		 $font_style = 'normal';
-	 }
+	if ( isset( $body_typography['font-style'] ) ) {
+		$font_style = $body_typography['font-style'];
+	} else {
+		$font_style = 'normal';
+	}
 
-	 if ( isset( $headings_typography['font-style'] ) ) {
-	 	$headingsfont_style = $headings_typography['font-style'];
-	 }
-	 else {
-		 $headingsfont_style = 'normal';
-	 }
+	if ( isset( $headings_typography['font-style'] ) ) {
+		$headingsfont_style = $headings_typography['font-style'];
+	} else {
+		$headingsfont_style = 'normal';
+	}
 
 	$custom_css = "
 		body * {
@@ -155,7 +143,9 @@ function responsive_premium_custom_color_styles() {
 			background-color: {$input_background_color};
 			border-color: {$input_border_color_fs};
 		}
-		button, input[type='submit'], input[type=button], a.button, .button, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, , .call-to-action a.button {
+
+		.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
+		button, input[type='submit'], input[type=button], a.button, .button, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, , .call-to-action a.button,#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button {
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}

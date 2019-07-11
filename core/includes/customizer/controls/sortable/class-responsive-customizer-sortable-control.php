@@ -4,7 +4,7 @@
  *
  * @package     Responsive WordPress theme
  * @subpackage  Controls
- * @see   		https://github.com/aristath/kirki
+ * @see         https://github.com/aristath/kirki
  * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
  * @since       1.0
  */
@@ -33,8 +33,8 @@ class Responsive_Customizer_Sortable_Control extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/sortable.min.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
-		wp_enqueue_style( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/sortable.min.css', null );
+		wp_enqueue_script( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/sortable.min.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), RESPONSIVE_THEME_VERSION, true );
+		wp_enqueue_style( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/sortable.min.css', RESPONSIVE_THEME_VERSION, true );
 	}
 
 	/**
@@ -49,10 +49,10 @@ class Responsive_Customizer_Sortable_Control extends WP_Customize_Control {
 		if ( isset( $this->default ) ) {
 			$this->json['default'] = $this->default;
 		}
-		$this->json['value']       = maybe_unserialize( $this->value() );
-		$this->json['choices']     = $this->choices;
-		$this->json['link']        = $this->get_link();
-		$this->json['id']          = $this->id;
+		$this->json['value']   = maybe_unserialize( $this->value() );
+		$this->json['choices'] = $this->choices;
+		$this->json['link']    = $this->get_link();
+		$this->json['id']      = $this->id;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {

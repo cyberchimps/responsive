@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -32,7 +32,6 @@ function responsive_child_uri( $dir ) {
 /**
  * This function removes WordPress generated category and tag atributes.
  * For W3C validation purposes only.
- *
  */
 function responsive_category_rel_removal( $output ) {
 	$output = str_replace( ' rel="category tag"', '', $output );
@@ -53,7 +52,7 @@ add_filter( 'the_category', 'responsive_category_rel_removal' );
  * Chip Bennett Contribution
  */
 function responsive_comment_count( $count ) {
-	if ( !is_admin() ) {
+	if ( ! is_admin() ) {
 		global $id;
 		$comments         = get_comments( 'status=approve&post_id=' . $id );
 		$comments_by_type = separate_comments( $comments );
@@ -76,7 +75,7 @@ function responsive_comment_list_pings( $comment ) {
 	$GLOBALS['comment'] = $comment;
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
-<?php
+	<?php
 }
 
 /**
@@ -109,7 +108,7 @@ add_filter( 'excerpt_more', 'responsive_auto_excerpt_more' );
  * Adds a pretty "Read more" link to custom post excerpts.
  */
 function responsive_custom_excerpt_more( $output ) {
-	if ( has_excerpt() && !is_attachment() ) {
+	if ( has_excerpt() && ! is_attachment() ) {
 		$output .= responsive_read_more();
 	}
 	return $output;
@@ -142,10 +141,10 @@ add_action( 'widgets_init', 'responsive_remove_recent_comments_style' );
  * wp_title() Filter for better SEO.
  *
  * Adopted from Twenty Twelve
- * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
  *
+ * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
  */
-if ( !function_exists( 'responsive_wp_title' ) && !defined( 'AIOSEOP_VERSION' ) ) :
+if ( ! function_exists( 'responsive_wp_title' ) && ! defined( 'AIOSEOP_VERSION' ) ) :
 
 	function responsive_wp_title( $title, $sep ) {
 		global $page, $paged;
@@ -181,7 +180,6 @@ endif;
  * and assigns new unique class called .menu-widget
  *
  * Marko Heijnen Contribution
- *
  */
 class responsive_widget_menu_class {
 	public function __construct() {

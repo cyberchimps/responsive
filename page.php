@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Pages Template
- *
  *
  * @file           page.php
  * @package        Responsive
@@ -27,7 +26,10 @@ get_header(); ?>
 
 	<?php if ( have_posts() ) : ?>
 
-		<?php while( have_posts() ) : the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			?>
 
 			<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
@@ -39,17 +41,17 @@ get_header(); ?>
 			<?php comments_template( '', true ); ?>
 			<?php responsive_comments_after(); ?>
 
-		<?php
+			<?php
 		endwhile;
 
 		get_template_part( 'loop-nav', get_post_type() );
 
-	else :
+		else :
 
-		get_template_part( 'loop-no-posts', get_post_type() );
+			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
-	?>
+		?>
 
 </div><!-- end of #content -->
 

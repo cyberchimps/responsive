@@ -2,7 +2,6 @@
 /**
  * Header Template
  *
- *
  * @file           header.php
  * @package        Responsive
  * @author         Emil Uzelac
@@ -15,7 +14,7 @@
  */
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -57,41 +56,56 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		<?php responsive_header_top(); // before header content hook ?>
 
-		<?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
-			wp_nav_menu( array(
-				'container'      => '',
-				'fallback_cb'    => false,
-				'menu_class'     => 'top-menu',
-				'theme_location' => 'top-menu'
-			) );
-		} ?>
+		<?php
+		if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
+			wp_nav_menu(
+				array(
+					'container'      => '',
+					'fallback_cb'    => false,
+					'menu_class'     => 'top-menu',
+					'theme_location' => 'top-menu',
+				)
+			);
+		}
+		?>
 
 		<?php responsive_in_header(); // header hook ?>
 
 		<div id="content-outer">
 			<div id="logo">
-				<?php error_log('innn'); the_custom_logo(); ?>
-				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+				<?php
+				error_log( 'innn' );
+				the_custom_logo();
+				?>
+				<span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
 				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
 			</div><!-- end of #logo -->
 		</div>
 
 		<?php get_sidebar( 'top' ); ?>
-		<?php wp_nav_menu( array(
-			'container'       => 'div',
-			'container_class' => 'main-nav',
-			'fallback_cb'     => 'responsive_fallback_menu',
-			'theme_location'  => 'header-menu'
-		) ); ?>
+		<?php
+		wp_nav_menu(
+			array(
+				'container'       => 'div',
+				'container_class' => 'main-nav',
+				'fallback_cb'     => 'responsive_fallback_menu',
+				'theme_location'  => 'header-menu',
+			)
+		);
+		?>
 
-		<?php if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
-			wp_nav_menu( array(
-				'container'      => 'div',
-				'container_class' => 'sub-nav',
-				'menu_class'     => 'sub-header-menu',
-				'theme_location' => 'sub-header-menu'
-			) );
-		} ?>
+		<?php
+		if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
+			wp_nav_menu(
+				array(
+					'container'       => 'div',
+					'container_class' => 'sub-nav',
+					'menu_class'      => 'sub-header-menu',
+					'theme_location'  => 'sub-header-menu',
+				)
+			);
+		}
+		?>
 
 		<?php responsive_header_bottom(); // after header content hook ?>
 
@@ -102,8 +116,8 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php responsive_wrapper(); // before wrapper container hook ?>
 
 <?php
-if ( isset($responsive_options['site_layout_option']) && ($responsive_options['site_layout_option'] == 'full-width-layout') && (!( is_home() || is_front_page() ))) {
-?>
+if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-layout' ) && ( ! ( is_home() || is_front_page() ) ) ) {
+	?>
 	  <div id="content-outer" >
 <?php } ?>
 	<div id="wrapper" class="clearfix">

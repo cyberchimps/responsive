@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
- ?>
+?>
 
 <?php $audio = responsive_get_post_audio_html(); ?>
 
@@ -17,9 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="thumbnail"><?php echo $audio; ?></div>
 
-<?php
-// Else display post thumbnail
-else : ?>
+	<?php
+	// Else display post thumbnail
+else :
+	?>
 
 	<?php get_template_part( 'partials/entry/media/blog-entry' ); ?>
 

@@ -9,7 +9,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
- ?>
+?>
 
 <div class="post-quote-wrap">
 

@@ -4,7 +4,7 @@
  *
  * @package     Responsive WordPress theme
  * @subpackage  Controls
- * @see   		https://github.com/BraadMartin/components
+ * @see         https://github.com/BraadMartin/components
  * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
  * @since       1.0
  */
@@ -18,18 +18,28 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Color control
  */
 class Responsive_Customizer_Color_Control extends WP_Customize_Control {
-
+	/**
+	 * The control type.
+	 *
+	 * @access public
+	 * @var string
+	 */
 	public $type = 'alpha-color';
 
 	/**
 	 * Add support for palettes to be passed in.
 	 *
 	 * Supported palette values are true, false, or an array of RGBa and Hex colors.
+	 *
+	 * @access public
+	 * @var string
 	 */
 	public $palette;
 
 	/**
 	 * Add support for showing the opacity value on the slider handle.
+	 *
+	 * @var string
 	 */
 	public $show_opacity;
 
@@ -40,7 +50,7 @@ class Responsive_Customizer_Color_Control extends WP_Customize_Control {
 	 */
 	public function enqueue() {
 		wp_enqueue_script( 'wp-color-picker' );
-		wp_enqueue_script( 'responsive-color', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/color.min.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), false, true );
+		wp_enqueue_script( 'responsive-color', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/color.min.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), RESPONSIVE_THEME_VERSION, true );
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'responsive-color', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/color.min.css', array( 'wp-color-picker' ), '1.0.0' );
 		wp_localize_script( 'responsive-color', 'responsiveLocalize', array( 'colorPalettes' => responsive_default_color_palettes() ) );
@@ -54,11 +64,11 @@ class Responsive_Customizer_Color_Control extends WP_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 
-		$this->json['default'] = $this->setting->default;
-		$this->json['show_opacity'] = true;//( false === $this->show_opacity || 'false' === $this->show_opacity ) ? 'false' : 'true';
-		$this->json['value']       = $this->value();
-		$this->json['link']        = $this->get_link();
-		$this->json['id']          = $this->id;
+		$this->json['default']      = $this->setting->default;
+		$this->json['show_opacity'] = true;
+		$this->json['value']        = $this->value();
+		$this->json['link']         = $this->get_link();
+		$this->json['id']           = $this->id;
 
 	}
 

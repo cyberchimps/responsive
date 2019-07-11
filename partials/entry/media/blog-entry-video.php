@@ -16,7 +16,8 @@ $video = responsive_get_post_video_html(); ?>
 
 <?php
 // Display video if one exists and it's not a password protected post
-if ( $video && ! post_password_required() ) : ?>
+if ( $video && ! post_password_required() ) :
+	?>
 
 	<div class="blog-entry-media thumbnail clr">
 
@@ -28,9 +29,10 @@ if ( $video && ! post_password_required() ) : ?>
 
 	</div><!-- .blog-entry-media -->
 
-<?php
-// Else display post thumbnail
-else : ?>
+	<?php
+	// Else display post thumbnail
+else :
+	?>
 
 	<?php get_template_part( 'partials/entry/media/blog-entry' ); ?>
 

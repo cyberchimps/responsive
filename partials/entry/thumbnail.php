@@ -1,7 +1,6 @@
 <?php
 /**
  * Template to get thumbnail
- *
  */
 ?>
 <?php if ( has_post_thumbnail() ) : ?>
