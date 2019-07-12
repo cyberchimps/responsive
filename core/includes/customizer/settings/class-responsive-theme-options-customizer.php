@@ -80,7 +80,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add Twitter Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[twitter_uid]',
 					array(
@@ -101,7 +100,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add Facebook Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[facebook_uid]',
 					array(
@@ -122,7 +120,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add LinkedIn Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[linkedin_uid]',
 					array(
@@ -143,7 +140,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add Youtube Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[youtube_uid]',
 					array(
@@ -164,7 +160,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add Google+ Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[googleplus_uid]',
 					array(
@@ -185,7 +180,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add RSS Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[rss_uid]',
 					array(
@@ -206,7 +200,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add Instagram Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[instagram_uid]',
 					array(
@@ -227,7 +220,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add Pinterest Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[pinterest_uid]',
 					array(
@@ -248,7 +240,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add StumbleUpon Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[stumbleupon_uid]',
 					array(
@@ -269,7 +260,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add Vimeo Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[vimeo_uid]',
 					array(
@@ -290,7 +280,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add SoundCloud Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[yelp_uid]',
 					array(
@@ -311,7 +300,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				);
 
 				// Add Foursquare Setting.
-
 				$wp_customize->add_setting(
 					'responsive_theme_options[foursquare_uid]',
 					array(

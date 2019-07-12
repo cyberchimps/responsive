@@ -156,17 +156,17 @@ function responsive_premium_custom_color_styles() {
 			background-color: {$input_background_color};
 			border-color: {$input_border_color};
 		}
-		input:focus {
+		input:focus, input[type=text]:focus {
 			background-color: {$input_background_color};
 			border-color: {$input_border_color_fs};
 		}
 
 		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
-		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button {
+		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, woocommerce a.button, woocommerce button.button, woocommerce input.button {
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}
-		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
+		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, woocommerce a.button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
 		#content-woocommerce .product .single_add_to_cart_button:hover, #content-woocommerce .product .single_add_to_cart_button:focus, .added_to_cart.wc-forward:hover, .added_to_cart.wc-forward:focus, .woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .button:focus {
 				background-color: {$button_hover_color};
 		}
