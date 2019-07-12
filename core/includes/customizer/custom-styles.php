@@ -109,6 +109,11 @@ function responsive_premium_custom_color_styles() {
 	} else {
 		$headings_font_family = 'Arial, Helvetica, sans-serif';
 	}
+	if ( isset( $body_typography['font-size'] ) ) {
+		$body_font_size = $body_typography['font-size'];
+	} else {
+		$body_font_size = '14px';
+	}
 	$custom_css = "
 		body {
 			font-family: {$font_family};
@@ -119,6 +124,7 @@ function responsive_premium_custom_color_styles() {
 			line-height: {$line_height};
 			font-style: {$font_style};
 			box-sizing: border-box;
+			font-size: {$body_font_size};
 		}
 		h1,h2,h3,h4,h5,h6,
 		.theme-heading,
