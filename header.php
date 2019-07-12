@@ -75,11 +75,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div id="logo">
 				<?php the_custom_logo(); ?>
 				<?php
-				if( true === get_theme_mod( 'res_show_site_title' ) ) { ?>
+				global $responsive_options;
+				$responsive_options = responsive_get_options();
+				if( get_theme_mod( 'res_show_site_title' ) ) { ?>
 					<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
 				<?php
 				}
-				if( true === get_theme_mod( 'res_show_tagline' ) ) { ?>
+				if( get_theme_mod( 'res_show_tagline' ) ) { ?>
 
 					<span class="site-description"><?php bloginfo( 'description' ); ?></span>
 					<?php

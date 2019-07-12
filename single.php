@@ -30,7 +30,6 @@ get_header(); ?>
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			error_log( 'single' );
 			?>
 
 			<?php responsive_entry_before(); ?>
