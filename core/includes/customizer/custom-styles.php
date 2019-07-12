@@ -100,15 +100,13 @@ function responsive_premium_custom_color_styles() {
 		$headingsfont_style = 'normal';
 	}
 	if ( isset( $body_typography['font-family'] ) ) {
-	   $font_family = $body_typography['font-family'];
-	}
-	else {
+		$font_family = $body_typography['font-family'];
+	} else {
 		$font_family = 'Arial, Helvetica, sans-serif';
 	}
 	if ( isset( $headings_typography['font-family'] ) ) {
-	   $headings_font_family = $headings_typography['font-family'];
-	}
-	else {
+		$headings_font_family = $headings_typography['font-family'];
+	} else {
 		$headings_font_family = 'Arial, Helvetica, sans-serif';
 	}
 	$custom_css = "
@@ -156,7 +154,7 @@ function responsive_premium_custom_color_styles() {
 		}
 
 		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
-		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button{
+		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button {
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}
