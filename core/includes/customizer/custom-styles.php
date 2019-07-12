@@ -27,6 +27,7 @@ function responsive_premium_custom_color_styles() {
 	$layout_style           = get_theme_mod( 'responsive_layout_styles', '' );
 	$input_border_color_fs  = get_theme_mod( 'input-border-color-focus', '#eaeaea' );
 	$input_border_color     = get_theme_mod( 'input-border-color', '#eaeaea' );
+	$input_text_color       = get_theme_mod( 'input-text-color', '#333333' );
 
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
@@ -150,7 +151,8 @@ function responsive_premium_custom_color_styles() {
 		a:hover {
 			color: {$link_hover_color};
 		}
-		input {
+		input, .widget-wrapper input[type=email], .widget-wrapper input[type=password], .widget-wrapper input[type=text], .widget-wrapper select {
+			color: {$input_text_color};
 			background-color: {$input_background_color};
 			border-color: {$input_border_color};
 		}
