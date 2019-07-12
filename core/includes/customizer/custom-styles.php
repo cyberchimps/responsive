@@ -154,7 +154,7 @@ function responsive_premium_custom_color_styles() {
 		}
 
 		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
-		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button{
+		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button {
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}
