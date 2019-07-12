@@ -156,7 +156,7 @@ function responsive_premium_custom_color_styles() {
 			background-color: {$input_background_color};
 			border-color: {$input_border_color};
 		}
-		input:focus {
+		input:focus, input[type=text]:focus {
 			background-color: {$input_background_color};
 			border-color: {$input_border_color_fs};
 		}
