@@ -109,8 +109,8 @@ function responsive_get_option_defaults() {
 		'button_style'                    => 'default',
 		'home-widgets'                    => false,
 		'site_footer_option'              => 'footer-3-col',
-		'res_show_site_title'             => '1',
-		'res_show_tagline'                => '1',
+		'res_hide_site_title'             => false,
+		'res_hide_tagline'                => false,
 	);
 
 	return apply_filters( 'responsive_option_defaults', $defaults );

@@ -323,50 +323,33 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					)
 				)
 			);
-			// $wp_customize->add_setting(
-			// 	'responsive_theme_options[sticky-header]',
-			// 	array(
-			// 		'sanitize_callback' => 'responsive_sanitize_checkbox',
-			// 		'type'              => 'option',
-			// 		'transport'         => 'postMessage',
-			// 	)
-			// );
-			// $wp_customize->add_control(
-			// 	'res_sticky-header',
-			// 	array(
-			// 		'label'    => __( 'Enable Sticky Header?', 'responsive' ),
-			// 		'section'  => 'theme_elements',
-			// 		'settings' => 'responsive_theme_options[sticky-header]',
-			// 		'type'     => 'checkbox',
-			// 	)
-			// );
 			$wp_customize->add_setting(
-				'res_show_site_title',
+				'res_hide_site_title',
 				array(
 					'sanitize_callback' => 'responsive_sanitize_checkbox',
-					'default'           => '1',
+
 				)
 			);
 			$wp_customize->add_control(
-				'res_show_site_title',
+				'res_hide_site_title',
 				array(
-					'label'    => __( 'Show Site Title', 'responsive' ),
+					'label'    => __( 'Hide Site Title', 'responsive' ),
 					'section'  => 'title_tagline',
 					'type'     => 'checkbox',
 
 				)
 			);
 			$wp_customize->add_setting(
-				'res_show_tagline',
+				'res_hide_tagline',
 				array(
 					'sanitize_callback' => 'responsive_sanitize_checkbox',
-					'default'           => '1',
+					'default'           => false,
 				)
 			);
 			$wp_customize->add_control(
-				'res_show_tagline',
+				'res_hide_tagline',
 				array(
-					'label'    => __( 'Show Tagline', 'responsive' ),
+					'label'    => __( 'Hide Tagline', 'responsive' ),
 					'section'  => 'title_tagline',
 					'type'     => 'checkbox',
 
