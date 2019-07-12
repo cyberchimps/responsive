@@ -162,13 +162,51 @@ function responsive_premium_custom_color_styles() {
 		}
 
 		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
-		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, woocommerce a.button, woocommerce button.button, woocommerce input.button {
+		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
+		.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button {
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}
-		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, woocommerce a.button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
-		#content-woocommerce .product .single_add_to_cart_button:hover, #content-woocommerce .product .single_add_to_cart_button:focus, .added_to_cart.wc-forward:hover, .added_to_cart.wc-forward:focus, .woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .button:focus {
+		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, .woocommerce a.button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
+		#content-woocommerce .product .single_add_to_cart_button:hover, #content-woocommerce .product .single_add_to_cart_button:focus, .added_to_cart.wc-forward:hover, .added_to_cart.wc-forward:focus, .woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .button:focus,
+		.woocommerce #respond input#submit:hover {
 				background-color: {$button_hover_color};
+		}
+
+		.woocommerce a.button:disabled, .woocommerce a.button.disabled, .woocommerce a.button:disabled[disabled],
+		.woocommerce button.button:disabled,
+		.woocommerce button.button.disabled,
+		.woocommerce button.button:disabled[disabled],
+		.woocommerce input.button:disabled,
+		.woocommerce input.button.disabled,
+		.woocommerce input.button:disabled[disabled],
+		.woocommerce #respond input#submit:disabled,
+		.woocommerce #respond input#submit.disabled,
+		.woocommerce #respond input#submit:disabled[disabled] {
+			color: {$button_text_color};
+			background-color: {$button_color};
+		}
+
+		.woocommerce a.button.alt.disabled, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled]:hover,
+		.woocommerce button.button.alt.disabled,
+		.woocommerce button.button.alt:disabled,
+		.woocommerce button.button.alt:disabled[disabled],
+		.woocommerce button.button.alt.disabled:hover,
+		.woocommerce button.button.alt:disabled:hover,
+		.woocommerce button.button.alt:disabled[disabled]:hover,
+		.woocommerce input.button.alt.disabled,
+		.woocommerce input.button.alt:disabled,
+		.woocommerce input.button.alt:disabled[disabled],
+		.woocommerce input.button.alt.disabled:hover,
+		.woocommerce input.button.alt:disabled:hover,
+		.woocommerce input.button.alt:disabled[disabled]:hover,
+		.woocommerce #respond input#submit.alt.disabled,
+		.woocommerce #respond input#submit.alt:disabled,
+		.woocommerce #respond input#submit.alt:disabled[disabled],
+		.woocommerce #respond input#submit.alt.disabled:hover,
+		.woocommerce #respond input#submit.alt:disabled:hover,
+		.woocommerce #respond input#submit.alt:disabled[disabled]:hover{
+		background-color: {$button_hover_color};
 		}
 		label {
 			color: {$label_color};
