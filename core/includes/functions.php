@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Theme's Functions and Definitions
- *
  *
  * @file           functions.php
  * @package        Responsive
@@ -29,11 +28,11 @@ $responsive_options = responsive_get_options();
 /**
  * Add plugin automation file
  */
-require_once( dirname( __FILE__ ) . '/classes/class-tgm-plugin-activation.php' );
-//require_once( dirname( __FILE__ ) . '/control-checkbox-multiple.php' );
+require_once dirname( __FILE__ ) . '/classes/class-tgm-plugin-activation.php';
+/** Function to load controls */
 function responsive_load_customize_controls() {
 
-    require_once( trailingslashit( get_template_directory() ) . 'core/includes/control-checkbox-multiple.php' );
+	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/class-responsive-customize-control-checkbox-multiple.php';
 }
 add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
 
@@ -47,12 +46,12 @@ add_action( 'admin_menu', 'responsive_theme_options_add_page' );
  * Retrieve Theme option settings
  */
 function responsive_get_options() {
-	// Globalize the variable that holds the Theme options
+	/** Globalize the variable that holds the Theme options */
 	global $responsive_options;
-	// Parse array of option defaults against user-configured Theme options
+	/** Parse array of option defaults against user-configured Theme options */
 	$responsive_options = wp_parse_args( get_option( 'responsive_theme_options', array() ), responsive_get_option_defaults() );
 
-	// Return parsed args array
+	/** Return parsed args array */
 	return $responsive_options;
 }
 
@@ -73,7 +72,7 @@ function responsive_get_option_defaults() {
 		'cta_text'                        => null,
 		'cta_url'                         => null,
 		'featured_content'                => null,
-		'testimonials'					  => 0,
+		'testimonials'                    => 0,
 		'testimonial_title'               => null,
 		'google_site_verification'        => '',
 		'bing_site_verification'          => '',
@@ -91,25 +90,27 @@ function responsive_get_option_defaults() {
 		'yelp_uid'                        => '',
 		'vimeo_uid'                       => '',
 		'foursquare_uid'                  => '',
-		'email_uid'						  => '',
-		'testimonial_val'				  => null,
-		'teammember1'					  => null,
-		'teammember2'					  => null,
-		'teammember3'					  => null,
-		'feature1'					  	  => null,
-		'feature2'						  => null,
-		'feature3'				  		  => null,
+		'email_uid'                       => '',
+		'testimonial_val'                 => null,
+		'teammember1'                     => null,
+		'teammember2'                     => null,
+		'teammember3'                     => null,
+		'feature1'                        => null,
+		'feature2'                        => null,
+		'feature3'                        => null,
 		'responsive_inline_css'           => '',
 		'responsive_inline_js_head'       => '',
-		'responsive_inline_js_footer' => '',
+		'responsive_inline_js_footer'     => '',
 		'responsive_inline_css_js_footer' => '',
 		'static_page_layout_default'      => 'default',
 		'single_post_layout_default'      => 'default',
 		'blog_posts_index_layout_default' => 'default',
-		'site_layout_option'			  => 'default-layout',
-                'button_style'                    => 'default',
-			'home-widgets'				=> false,
-		'site_footer_option'            => 'footer-3-col'
+		'site_layout_option'              => 'default-layout',
+		'button_style'                    => 'default',
+		'home-widgets'                    => false,
+		'site_footer_option'              => 'footer-3-col',
+		'res_hide_site_title'             => false,
+		'res_hide_tagline'                => false,
 	);
 
 	return apply_filters( 'responsive_option_defaults', $defaults );
@@ -120,8 +121,8 @@ function responsive_get_option_defaults() {
  */
 add_action( 'after_setup_theme', 'responsive_setup' );
 
-if ( !function_exists( 'responsive_setup' ) ):
-
+if ( ! function_exists( 'responsive_setup' ) ) :
+	/** Function to setup */
 	function responsive_setup() {
 
 		global $content_width;
@@ -132,32 +133,34 @@ if ( !function_exists( 'responsive_setup' ) ):
 		/**
 		 * Global content width.
 		 */
-		if ( !isset( $content_width ) ) {
+		if ( ! isset( $content_width ) ) {
 			$content_width = 605;
 		}
 
-		// WordPress V4.7 or greater
-		if ( function_exists( 'wp_update_custom_css_post' ) ) {
-			$responsive_custom_css = isset($responsive_options['responsive_inline_css']) ?$responsive_options['responsive_inline_css']:'';
+		/** WordPress V4.7 or greater */
+		//Commented : as it causes error in the adition css tab
+		/*if ( function_exists( 'wp_update_custom_css_post' ) ) {
+			$responsive_custom_css = isset( $responsive_options['responsive_inline_css'] ) ? $responsive_options['responsive_inline_css'] : '';
 
-			if ($responsive_custom_css) {
-
+			if ( $responsive_custom_css ) {
+				error_log('in the =='.$responsive_custom_css);
 				$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
-				$return = wp_update_custom_css_post( $core_css . $responsive_custom_css );
+				$return   = wp_update_custom_css_post( $core_css . $responsive_custom_css );
 				if ( ! is_wp_error( $return ) ) {
 
-					//Set css to blank
-						$responsive_options['responsive_inline_css'] = '';
+					/** Set css to blank */
+						/*$responsive_options['responsive_inline_css'] = '';
 						update_option( 'responsive_theme_options', $responsive_options );
 				}
 			}
-		}
+		}*/
 
 		/**
 		 * Responsive is now available for translations.
 		 * The translation files are in the /languages/ directory.
 		 * Translations are pulled from the WordPress default lanaguge folder
 		 * then from the child theme and then lastly from the parent theme.
+		 *
 		 * @see http://codex.wordpress.org/Function_Reference/load_theme_textdomain
 		 */
 
@@ -169,57 +172,78 @@ if ( !function_exists( 'responsive_setup' ) ):
 
 		/**
 		 * Add callback for custom TinyMCE editor stylesheets. (editor-style.css)
+		 *
 		 * @see http://codex.wordpress.org/Function_Reference/add_editor_style
 		 */
 		add_editor_style();
 
 		/**
 		 * This feature enables post and comment RSS feed links to head.
+		 *
 		 * @see http://codex.wordpress.org/Function_Reference/add_theme_support#Feed_Links
 		 */
 		add_theme_support( 'automatic-feed-links' );
 
 		/**
 		 * This feature enables post-thumbnail support for a theme.
+		 *
 		 * @see http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 */
 		add_theme_support( 'post-thumbnails' );
 
 		/**
 		 * This feature enables woocommerce support for a theme.
+		 *
 		 * @see http://www.woothemes.com/2013/02/last-call-for-testing-woocommerce-2-0-coming-march-4th/
 		 */
 		add_theme_support( 'woocommerce' );
 
 		/**
 		 * This feature enables custom-menus support for a theme.
+		 *
 		 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
 		 */
-		register_nav_menus( array(
-			'top-menu'        => __( 'Top Menu', 'responsive' ),
-			'header-menu'     => __( 'Header Menu', 'responsive' ),
-			'sub-header-menu' => __( 'Sub-Header Menu', 'responsive' ),
-			'footer-menu'     => __( 'Footer Menu', 'responsive' )
-		) );
+		register_nav_menus(
+			array(
+				'top-menu'        => __( 'Top Menu', 'responsive' ),
+				'header-menu'     => __( 'Header Menu', 'responsive' ),
+				'sub-header-menu' => __( 'Sub-Header Menu', 'responsive' ),
+				'footer-menu'     => __( 'Footer Menu', 'responsive' ),
+			)
+		);
 
 		add_theme_support( 'custom-background' );
 
-		add_theme_support( 'custom-header', array(
-			// Header text display default
-			'header-text'         => false,
-			// Header image flex width
-			'flex-width'          => true,
-			// Header image width (in pixels)
-			'width'               => 300,
-			// Header image flex height
-			'flex-height'         => true,
-			// Header image height (in pixels)
-			'height'              => 100,
-			// Admin header style callback
-			'admin-head-callback' => 'responsive_admin_header_style'
-		) );
-
-		// gets included in the admin header
+		// add_theme_support( 'custom-header', array(
+		// Header text display default
+		// 'header-text'         => false,
+		// Header image flex width
+		// 'flex-width'          => true,
+		// Header image width (in pixels)
+		// 'width'               => 300,
+		// Header image flex height
+		// 'flex-height'         => true,
+		// Header image height (in pixels)
+		// 'height'              => 100,
+		// Admin header style callback
+		// 'admin-head-callback' => 'responsive_admin_header_style'
+		// ) );
+		/**
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'              => 100,
+				'width'               => 300,
+				'flex-width'          => true,
+				'flex-height'         => true,
+				'admin-head-callback' => 'responsive_admin_header_style',
+			)
+		);
+		/** Gets included in the admin header */
 		function responsive_admin_header_style() {
 			?>
 			<style type="text/css">
@@ -227,7 +251,8 @@ if ( !function_exists( 'responsive_setup' ) ):
 					background-repeat: no-repeat;
 					border: none;
 				}
-			</style><?php
+			</style>
+			<?php
 		}
 
 		// While upgrading set theme option front page toggle not to affect old setup.
@@ -235,12 +260,12 @@ if ( !function_exists( 'responsive_setup' ) ):
 		if ( $responsive_options && isset( $_GET['activated'] ) ) {
 
 			// If front_page is not in theme option previously then set it.
-			if ( !isset( $responsive_options['front_page'] ) ) {
+			if ( ! isset( $responsive_options['front_page'] ) ) {
 
-				// Get template of page which is set as static front page
+				/** Get template of page which is set as static front page */
 				$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
 
-				// If static front page template is set to default then set front page toggle of theme option to 1
+				/** If static front page template is set to default then set front page toggle of theme option to 1 */
 				if ( 'page' == get_option( 'show_on_front' ) && $template == 'default' ) {
 					$responsive_options['front_page'] = 1;
 				} else {
@@ -258,7 +283,6 @@ endif;
  *
  * Adjusts content_width value for full-width and single image attachment
  * templates, and when there are no active widgets in the sidebar.
- *
  */
 function responsive_content_width() {
 	global $content_width;
@@ -286,7 +310,7 @@ function responsive_fallback_menu() {
 		'echo'        => false,
 		'show_home'   => true,
 		'link_before' => '',
-		'link_after'  => ''
+		'link_after'  => '',
 	);
 	$pages   = wp_page_menu( $args );
 	$prepend = '<div class="main-nav">';
@@ -298,17 +322,17 @@ function responsive_fallback_menu() {
 /**
  * A safe way of adding stylesheets to a WordPress generated page.
  */
-if ( !function_exists( 'responsive_css' ) ) {
+if ( ! function_exists( 'responsive_css' ) ) {
 
 	function responsive_css() {
-		$theme      = wp_get_theme();
-		$responsive = wp_get_theme( 'responsive' );
+		$theme              = wp_get_theme();
+		$responsive         = wp_get_theme( 'responsive' );
 		$responsive_options = responsive_get_options();
 		if ( 1 == $responsive_options['minified_css'] ) {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
 		} else {
-			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.css', false, $responsive['Version'] );
-			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.css', false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.min.css', false, $responsive['Version'] );
 		}
 
 		if ( is_rtl() ) {
@@ -321,18 +345,18 @@ if ( !function_exists( 'responsive_css' ) ) {
 		if ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) {
 			wp_enqueue_style( 'responsive-shop', get_template_directory_uri() . '/core/css/shop.css', false, $responsive['Version'] );
 		}
+		$social_array = array( 'res_twitter', 'res_facebook', 'res_linkedin', 'res_youtube', 'res_googleplus', 'res_rss', 'res_printerest', 'res_stumble', 'res_vimeo', 'res_yelp', 'res_foursquare', 'res_email_uid' );
 
-		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0');
+		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
 	}
-
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
 
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
  */
-if ( !function_exists( 'responsive_js' ) ) {
-
+if ( ! function_exists( 'responsive_js' ) ) {
+	/** Function to load Js */
 	function responsive_js() {
 		$suffix                 = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 		$directory              = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'js-dev' : 'js';
@@ -342,77 +366,81 @@ if ( !function_exists( 'responsive_js' ) ) {
 		// except for Modernizr which enables HTML5 elements & feature detects.
 		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array( 'jquery' ), '2.6.1', false );
 		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array( 'jquery' ), '1.2.6', true );
-		if ( !wp_script_is( 'tribe-placeholder' ) ) {
+		if ( ! wp_script_is( 'tribe-placeholder' ) ) {
 			wp_enqueue_script( 'jquery-placeholder', $template_directory_uri . '/core/' . $directory . '/jquery.placeholder' . $suffix . '.js', array( 'jquery' ), '2.0.7', true );
 		}
 	}
-
 }
 add_action( 'wp_enqueue_scripts', 'responsive_js' );
 
 add_action( 'add_meta_boxes', 'responsive_team_add_meta_box' );
-
-function responsive_team_add_meta_box()
-{   global $post;
-
-add_meta_box( 'responsive_team_meta_box', 'Team Section Options', 'responsive_team_meta_box_cb', 'post', 'normal', 'high' );
-}
-function responsive_team_meta_box_cb()
-{
+/** Function for team section options */
+function responsive_team_add_meta_box() {
 	global $post;
-	$values = get_post_custom( $post->ID );
+
+	add_meta_box( 'responsive_team_meta_box', 'Team Section Options', 'responsive_team_meta_box_cb', 'post', 'normal', 'high' );
+}
+/** Function for team meta box */
+function responsive_team_meta_box_cb() {
+	global $post;
+	$values                          = get_post_custom( $post->ID );
 	$responsive_meta_box_designation = isset( $values['responsive_meta_box_designation'] ) ? $values['responsive_meta_box_designation'][0] : '';
-	$responsive_meta_box_facebook = isset( $values['responsive_meta_box_facebook'] ) ? $values['responsive_meta_box_facebook'][0] : '';
-	$responsive_meta_box_twitter = isset( $values['responsive_meta_box_twitter'] ) ? $values['responsive_meta_box_twitter'][0] : '';
-	$responsive_meta_box_googleplus = isset( $values['responsive_meta_box_googleplus'] ) ? $values['responsive_meta_box_googleplus'][0] : '';
-	$responsive_meta_box_linkedin = isset( $values['responsive_meta_box_text_linkedin'] ) ? $values['responsive_meta_box_text_linkedin'][0] : '';
+	$responsive_meta_box_facebook    = isset( $values['responsive_meta_box_facebook'] ) ? $values['responsive_meta_box_facebook'][0] : '';
+	$responsive_meta_box_twitter     = isset( $values['responsive_meta_box_twitter'] ) ? $values['responsive_meta_box_twitter'][0] : '';
+	$responsive_meta_box_googleplus  = isset( $values['responsive_meta_box_googleplus'] ) ? $values['responsive_meta_box_googleplus'][0] : '';
+	$responsive_meta_box_linkedin    = isset( $values['responsive_meta_box_text_linkedin'] ) ? $values['responsive_meta_box_text_linkedin'][0] : '';
 
 	wp_nonce_field( 'responsive_meta_box_nonce', 'meta_box_nonce' );
 	?>
-	<p><?php echo esc_html(__("To use this post for front page's team section, please enter below details:",'responsive')); ?>
-    </p>
+	<p><?php echo esc_html( __( "To use this post for front page's team section, please enter below details:", 'responsive' ) ); ?>
+	</p>
 	<p>
-        <label for="responsive_meta_box_designation"><?php echo esc_html(__('Member designation','responsive')); ?></label>
-        <input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo $responsive_meta_box_designation; ?>" />
-    </p>
+		<label for="responsive_meta_box_designation"><?php echo esc_html( __( 'Member designation', 'responsive' ) ); ?></label>
+		<input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo $responsive_meta_box_designation; ?>" />
+	</p>
 	<p>
-        <label for="responsive_meta_box_facebook"><?php echo esc_html(__('Facebook Link','responsive')); ?></label>
-        <input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo $responsive_meta_box_facebook; ?>" />
-    </p>
+		<label for="responsive_meta_box_facebook"><?php echo esc_html( __( 'Facebook Link', 'responsive' ) ); ?></label>
+		<input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo $responsive_meta_box_facebook; ?>" />
+	</p>
 	<p>
-        <label for="responsive_meta_box_twitter"><?php echo esc_html(__('Twitter Link','responsive')); ?></label>
-        <input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo $responsive_meta_box_twitter; ?>" />
-    </p>
+		<label for="responsive_meta_box_twitter"><?php echo esc_html( __( 'Twitter Link', 'responsive' ) ); ?></label>
+		<input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo $responsive_meta_box_twitter; ?>" />
+	</p>
 	<p>
-        <label for="responsive_meta_box_googleplus"><?php echo esc_html(__('GooglePlus Link','responsive')); ?></label>
-        <input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo $responsive_meta_box_googleplus; ?>" />
-    </p>
+		<label for="responsive_meta_box_googleplus"><?php echo esc_html( __( 'GooglePlus Link', 'responsive' ) ); ?></label>
+		<input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo $responsive_meta_box_googleplus; ?>" />
+	</p>
 	<p>
-        <label for="responsive_meta_box_text_linkedin"><?php echo esc_html(__('LinkedIn Link','responsive')); ?></label>
-        <input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo $responsive_meta_box_linkedin; ?>" />
-    </p>
+		<label for="responsive_meta_box_text_linkedin"><?php echo esc_html( __( 'LinkedIn Link', 'responsive' ) ); ?></label>
+		<input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo $responsive_meta_box_linkedin; ?>" />
+	</p>
 
-<?php
+	<?php
 }
 add_action( 'save_post', 'responsive_team_meta_box_save' );
-function responsive_team_meta_box_save( $post_id )
-{
+function responsive_team_meta_box_save( $post_id ) {
 	$allowed = array(
-        'a' => array( // on allow a tags
-            'href' => array() // and those anchors can only have href attribute
-        )
-    );
+		'a' => array(
+			/** On allow a tags */
+			'href' => array(), /** And those anchors can only have href attribute */
+		),
+	);
 
-	if( isset( $_POST['responsive_meta_box_designation'] ) )
-        update_post_meta( $post_id, 'responsive_meta_box_designation', wp_kses( $_POST['responsive_meta_box_designation'], $allowed ) );
-	if( isset( $_POST['responsive_meta_box_facebook'] ) )
-        update_post_meta( $post_id, 'responsive_meta_box_facebook', wp_kses( $_POST['responsive_meta_box_facebook'], $allowed ) );
-	if( isset( $_POST['responsive_meta_box_twitter'] ) )
-        update_post_meta( $post_id, 'responsive_meta_box_twitter', wp_kses( $_POST['responsive_meta_box_twitter'], $allowed ) );
-	if( isset( $_POST['responsive_meta_box_googleplus'] ) )
-        update_post_meta( $post_id, 'responsive_meta_box_googleplus', wp_kses( $_POST['responsive_meta_box_googleplus'], $allowed ) );
-	if( isset( $_POST['responsive_meta_box_text_linkedin'] ) )
-        update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_kses( $_POST['responsive_meta_box_text_linkedin'], $allowed ) );
+	if ( isset( $_POST['responsive_meta_box_designation'] ) ) {
+		update_post_meta( $post_id, 'responsive_meta_box_designation', wp_kses( $_POST['responsive_meta_box_designation'], $allowed ) );
+	}
+	if ( isset( $_POST['responsive_meta_box_facebook'] ) ) {
+		update_post_meta( $post_id, 'responsive_meta_box_facebook', wp_kses( $_POST['responsive_meta_box_facebook'], $allowed ) );
+	}
+	if ( isset( $_POST['responsive_meta_box_twitter'] ) ) {
+		update_post_meta( $post_id, 'responsive_meta_box_twitter', wp_kses( $_POST['responsive_meta_box_twitter'], $allowed ) );
+	}
+	if ( isset( $_POST['responsive_meta_box_googleplus'] ) ) {
+		update_post_meta( $post_id, 'responsive_meta_box_googleplus', wp_kses( $_POST['responsive_meta_box_googleplus'], $allowed ) );
+	}
+	if ( isset( $_POST['responsive_meta_box_text_linkedin'] ) ) {
+		update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_kses( $_POST['responsive_meta_box_text_linkedin'], $allowed ) );
+	}
 }
 
 
@@ -465,80 +493,44 @@ add_filter( 'body_class', 'responsive_add_class' );
  * This function prints post meta data.
  *
  * Ulrich Pogson Contribution
- *
  */
-if ( !function_exists( 'responsive_post_meta_data' ) ) {
+if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 	function responsive_post_meta_data() {
-		printf( __( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
-				'meta-prep meta-prep-author posted',
-				sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
-						 esc_url( get_permalink() ),
-						 esc_attr( get_the_title() ),
-						 esc_html( get_the_date('c')),
-						 esc_html( get_the_date() )
-				),
-				'byline',
-				sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s"><span class="author-gravtar">%4$s</span>%3$s</a></span>',
-						 get_author_posts_url( get_the_author_meta( 'ID' ) ),
-						 sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
-						 esc_attr( get_the_author() ),
-						 get_avatar( get_the_author_meta( 'ID' ), 32)
-				)
+		printf(
+			__( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
+			'meta-prep meta-prep-author posted',
+			sprintf(
+				'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
+				esc_url( get_permalink() ),
+				esc_attr( get_the_title() ),
+				esc_html( get_the_date( 'c' ) ),
+				esc_html( get_the_date() )
+			),
+			'byline',
+			sprintf(
+				'<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s"><span class="author-gravtar">%4$s</span>%3$s</a></span>',
+				get_author_posts_url( get_the_author_meta( 'ID' ) ),
+				sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
+				esc_attr( get_the_author() ),
+				get_avatar( get_the_author_meta( 'ID' ), 32 )
+			)
 		);
-?>
+		?>
 		<span class='posted-in'>
-<?php 		printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+		<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
 		</span>
-<?php
+		<?php
 
 	}
-
 }
 
-
-/**
- * Added the footer copyright setting to the theme customizer - starts
- */
-
-function fetch_copyright(){
-	global $responsive_options;
-	?>
-	<script>
-		jQuery(document).ready(function(){
-		var copyright_text = "<?php if (isset($responsive_options['copyright_textbox'])) { echo $responsive_options['copyright_textbox']; } ?>";
-		var cyberchimps_link = "<?php if (isset($responsive_options['poweredby_link'])) { echo $responsive_options['poweredby_link']; } ?>";
-		var siteurl = "<?php echo site_url(); ?>";
-		if(copyright_text == "")
-		{
-			jQuery(".copyright #copyright_link").text(" "+"Default copyright text");
-		}
-		else{
-			jQuery(".copyright #copyright_link").text(" "+copyright_text);
-		}
-		jQuery(".copyright #copyright_link").attr('href',siteurl);
-		if(cyberchimps_link == 1)
-		{
-			jQuery(".powered").css("display","block");
-		}
-		else{
-			jQuery(".powered").css("display","none");
-		}
-		});
-	</script>
-<?php
-}
-add_action('wp_head','fetch_copyright');
-
-/**
- * Added the footer copyright setting to the theme customizer - ends
- */
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
 add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
 
 function responsive_add_pro_button() {
-$upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
-?>
+	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
+	?>
 <script type="text/javascript">
 		jQuery( document ).ready( function( $ ) {
 			jQuery( '#customize-info .accordion-section-title' ).append( '<a target="_blank" class="button btn-upgrade" href="<?php echo esc_url( $upgrade_link ); ?>"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>' );
@@ -569,8 +561,8 @@ $upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
 					word-break: break-all;
 					padding-right: 120px;
 		}
-	 	.wp-full-overlay-sidebar-content #customize-info {background-color: #fff;}
+		 .wp-full-overlay-sidebar-content #customize-info {background-color: #fff;}
 
 	</style>
-<?php
+	<?php
 }

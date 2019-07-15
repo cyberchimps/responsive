@@ -379,3 +379,6 @@
 	}
 
 }
+.form-row.form-row-last{
+float: left !important;
+}

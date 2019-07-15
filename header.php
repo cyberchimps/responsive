@@ -2,7 +2,6 @@
 /**
  * Header Template
  *
- *
  * @file           header.php
  * @package        Responsive
  * @author         Emil Uzelac
@@ -14,8 +13,8 @@
  * @since          available since Release 1.0
  */
 
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -44,79 +43,91 @@ if ( !defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?>>
 
-<?php responsive_container(); // before container hook ?>
-  	
+<?php responsive_container(); // before container hook. ?>
+
 <div id="container" class="hfeed">
 
-<?php responsive_header(); // before header hook ?>
+<?php responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#content"><?php _e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
 	<div id="header_section">
 	<div id="header" role="banner">
 
-		<?php responsive_header_top(); // before header content hook ?>
+		<?php responsive_header_top(); // before header content hook. ?>
 
-		<?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
-			wp_nav_menu( array(
-				'container'      => '',
-				'fallback_cb'    => false,
-				'menu_class'     => 'top-menu',
-				'theme_location' => 'top-menu'
-			) );
-		} ?>
+		<?php
+		if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
+			wp_nav_menu(
+				array(
+					'container'      => '',
+					'fallback_cb'    => false,
+					'menu_class'     => 'top-menu',
+					'theme_location' => 'top-menu',
+				)
+			);
+		}
+		?>
 
-		<?php responsive_in_header(); // header hook ?>
+		<?php responsive_in_header(); // header hook. ?>
 
-		<?php if ( get_header_image() != '' ) : ?>
-
-		<div id="content-outer">
-		<div id="logo">
-				<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
-		</div><!-- end of #logo -->
-		</div>	
-
-		<?php endif; // header image was removed ?>
-
-		<?php if ( !get_header_image() ) : ?>
 		<div id="content-outer">
 			<div id="logo">
-				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+				<?php the_custom_logo(); ?>
+				<?php
+				global $responsive_options;
+				$responsive_options = responsive_get_options();
+				if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
+					<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+				<?php
+				}
+				if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
+
+					<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+					<?php
+				}
+				?>
 			</div><!-- end of #logo -->
 		</div>
-		<?php endif; // header image was removed (again) ?>
-		
+
 		<?php get_sidebar( 'top' ); ?>
-		<?php wp_nav_menu( array(
-			'container'       => 'div',
-			'container_class' => 'main-nav',
-			'fallback_cb'     => 'responsive_fallback_menu',
-			'theme_location'  => 'header-menu'
-		) ); ?>
+		<?php
+		wp_nav_menu(
+			array(
+				'container'       => 'div',
+				'container_class' => 'main-nav',
+				'fallback_cb'     => 'responsive_fallback_menu',
+				'theme_location'  => 'header-menu',
+			)
+		);
+		?>
 
-		<?php if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
-			wp_nav_menu( array(
-				'container'      => 'div',
-				'container_class' => 'sub-nav',
-				'menu_class'     => 'sub-header-menu',
-				'theme_location' => 'sub-header-menu'
-			) );
-		} ?>
+		<?php
+		if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
+			wp_nav_menu(
+				array(
+					'container'       => 'div',
+					'container_class' => 'sub-nav',
+					'menu_class'      => 'sub-header-menu',
+					'theme_location'  => 'sub-header-menu',
+				)
+			);
+		}
+		?>
 
-		<?php responsive_header_bottom(); // after header content hook ?>
+		<?php responsive_header_bottom(); // after header content hook. ?>
 
 	</div><!-- end of #header -->
 	</div>
-<?php responsive_header_end(); // after header container hook ?>
+<?php responsive_header_end(); // after header container hook. ?>
 
-<?php responsive_wrapper(); // before wrapper container hook ?>
+<?php responsive_wrapper(); // before wrapper container hook. ?>
 
-<?php 
-if ( isset($responsive_options['site_layout_option']) && ($responsive_options['site_layout_option'] == 'full-width-layout') && (!( is_home() || is_front_page() ))) {
-?>
-	  <div id="content-outer" >
-<?php } ?>	  
+<?php
+if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-layout' ) && ( ! ( is_home() || is_front_page() ) ) ) {
+	?>
+<div id="content-outer" >
+<?php } ?>
 	<div id="wrapper" class="clearfix">
-<?php responsive_wrapper_top(); // before wrapper content hook ?>
-<?php responsive_in_wrapper(); // wrapper hook ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<?php responsive_in_wrapper(); // wrapper hook. ?>

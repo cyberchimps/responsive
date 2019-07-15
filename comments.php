@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Comments Template
- *
  *
  * @file           comments.php
  * @package        Responsive
@@ -23,14 +22,19 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php if ( post_password_required() ) { ?>
 	<p class="nocomments"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'responsive' ); ?></p>
 
-	<?php return;
-} ?>
+	<?php
+	return;
+}
+?>
 
 <?php if ( have_comments() ) : ?>
 	<h6 id="comments">
 		<?php
-		printf( _n( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'responsive' ),
-				number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
+		printf(
+			_n( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'responsive' ),
+			number_format_i18n( get_comments_number() ),
+			'<span>' . get_the_title() . '</span>'
+		);
 		?>
 	</h6>
 
@@ -61,12 +65,12 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php endif; ?>
 
 <?php
-if ( !empty( $comments_by_type['pings'] ) ) : // let's seperate pings/trackbacks from comments
-	$count = count( $comments_by_type['pings'] );
+if ( ! empty( $comments_by_type['pings'] ) ) : // let's seperate pings/trackbacks from comments
+	$count                  = count( $comments_by_type['pings'] );
 	( $count !== 1 ) ? $txt = __( 'Pings&#47;Trackbacks', 'responsive' ) : $txt = __( 'Pings&#47;Trackbacks', 'responsive' );
 	?>
 
-	<h6 id="pings"><?php printf( __( '%1$d %2$s for "%3$s"', 'responsive' ), $count, $txt, get_the_title() ) ?></h6>
+	<h6 id="pings"><?php printf( __( '%1$d %2$s for "%3$s"', 'responsive' ), $count, $txt, get_the_title() ); ?></h6>
 
 	<ol class="commentlist">
 		<?php wp_list_comments( 'type=pings&max_depth=<em>' ); ?>

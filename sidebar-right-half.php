@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Sidebar Right Half Template
- *
  *
  * @file           sidebar-right-half.php
  * @package        Responsive
@@ -23,18 +22,12 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php responsive_widgets_before(); // above widgets container hook ?>
 	<div id="widgets" class="grid col-460 fit" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
-
 		<?php if ( !dynamic_sidebar( 'right-sidebar-half' ) ) : ?>
-			<div class="widget-wrapper">
+			<div class="widget-wrapper" style="display:none;">
 
-				<div class="widget-title"><h3><?php _e( 'In Archive', 'responsive' ); ?></h3></div>
-				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-				</ul>
-
+				<div class="widget-title"></div>
 			</div><!-- end of .widget-wrapper -->
 		<?php endif; //end of sidebar-right-half ?>
-
 		<?php responsive_widgets_end(); // after widgets hook ?>
 	</div><!-- end of #widgets -->
 <?php responsive_widgets_after(); // after widgets container hook ?>
