@@ -85,7 +85,7 @@ $responsive_options = responsive_get_options();
 		?>
 		<div class="grid col-300 copyright">
 			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-				<?php if( empty( $copyright_text ) ) { bloginfo( 'name' ); } else { _e( $copyright_text, 'responsive' ); } ?>
+				<?php if( empty( $copyright_text ) ) { bloginfo( 'name' ); } else { echo esc_html( $copyright_text ); } ?>
 			</a>
 		</div><!-- end of .copyright -->
 
@@ -138,7 +138,7 @@ $responsive_options = responsive_get_options();
 		} ?>
 		<div class="grid col-300 copyright">
 			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-				<?php if( empty( $copyright_text ) ) { bloginfo( 'name' ); } else { _e( $copyright_text, 'responsive' ); } ?>
+				 <?php if( empty( $copyright_text ) ) { bloginfo( 'name' ); } else { echo esc_html( $copyright_text ) ); } ?>
 			</a>
 		</div><!-- end of .copyright -->
 
