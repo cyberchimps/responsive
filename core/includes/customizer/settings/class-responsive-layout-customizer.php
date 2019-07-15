@@ -333,7 +333,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'res_hide_site_title',
 				array(
-					'label'   => __( 'Hide Site Title', 'responsive' ),
+					'label'   => esc_html__( 'Hide Site Title', 'responsive' ),
 					'section' => 'title_tagline',
 					'type'    => 'checkbox',
 
@@ -349,7 +349,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'res_hide_tagline',
 				array(
-					'label'   => __( 'Hide Tagline', 'responsive' ),
+					'label'   => esc_html__( 'Hide Tagline', 'responsive' ),
 					'section' => 'title_tagline',
 					'type'    => 'checkbox',
 

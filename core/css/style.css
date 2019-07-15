@@ -3437,3 +3437,6 @@ border-bottom-color: #cec9c4;
  .full-width-layout #wrapper {
 	 padding: 0;
  }
+img.custom-logo{
+	margin:10px 0;
+}
