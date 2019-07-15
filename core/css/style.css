@@ -3440,3 +3440,6 @@ border-bottom-color: #cec9c4;
 img.custom-logo{
 	margin:10px 0;
 }
+.site-name a {
+	word-break: break-word;
+}
