@@ -13,6 +13,8 @@
 function responsive_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'header_image' )->transport    = 'refresh';
+	$wp_customize->get_setting( 'custom_logo' )->transport     = 'refresh';
 
 	/*
 	--------------------------------------------------------------
