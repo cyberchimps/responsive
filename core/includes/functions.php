@@ -214,20 +214,23 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 
 		add_theme_support( 'custom-background' );
 
-		// add_theme_support( 'custom-header', array(
-		// Header text display default
-		// 'header-text'         => false,
-		// Header image flex width
-		// 'flex-width'          => true,
-		// Header image width (in pixels)
-		// 'width'               => 300,
-		// Header image flex height
-		// 'flex-height'         => true,
-		// Header image height (in pixels)
-		// 'height'              => 100,
-		// Admin header style callback
-		// 'admin-head-callback' => 'responsive_admin_header_style'
-		// ) );
+		add_theme_support(
+			'custom-header',
+			array(
+				//Header text display default
+				'header-text'         => false,
+				//Header image flex width
+				'flex-width'          => true,
+				//Header image width (in pixels)
+				'width'               => 300,
+				//Header image flex height
+				'flex-height'         => true,
+				//Header image height (in pixels)
+				'height'              => 100,
+				//Admin header style callback
+				'admin-head-callback' => 'responsive_admin_header_style'
+			)
+		);
 		/**
 		 * Add support for core custom logo.
 		 *
