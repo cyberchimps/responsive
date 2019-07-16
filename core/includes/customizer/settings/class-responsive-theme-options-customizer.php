@@ -53,7 +53,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 			foreach ( $category_lists as $category ) {
 				$option_all_post_cat[ $category->term_id ] = $category->name;
 			}
-			$wp_customize->remove_control( 'header_image' );
 			$wp_customize->add_panel(
 				'responsive-theme-options',
 				array(
