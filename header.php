@@ -70,9 +70,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 		<?php responsive_in_header(); // header hook. ?>
-		<?php if ( '' !== get_theme_mod( 'custom_logo' ) ) { ?>
-			<div id="content-outer">
-				<div id="logo">
+		<div id="content-outer">
+			<div id="logo">
+		<?php if ( has_custom_logo() ) { ?>
 					<?php the_custom_logo(); ?>
 					<?php
 					global $responsive_options;
@@ -87,21 +87,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php
 					}
 					?>
-				</div><!-- end of #logo -->
-			</div>
-		<?php } elseif ( !empty( get_header_image() ) ) { ?>
+		<?php } elseif ( has_header_image() ) {
+			?>
 
-		<div id="content-outer">
-		<div id="logo">
-				<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
-		</div><!-- end of #logo -->
-		</div>
+			<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
 
 	<?php } // Header image was removed .
-	 else {  ?>
-	<div id="content-outer">
-		<div id="logo">
-			<?php
+	 else {
 			global $responsive_options;
 			$responsive_options = responsive_get_options();
 			if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
