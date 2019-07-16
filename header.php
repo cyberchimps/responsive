@@ -70,25 +70,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 		<?php responsive_in_header(); // header hook. ?>
+		<?php if ( '' !== get_theme_mod( 'custom_logo' ) ) { ?>
+			<div id="content-outer">
+				<div id="logo">
+					<?php the_custom_logo(); ?>
+					<?php
+					global $responsive_options;
+					$responsive_options = responsive_get_options();
+					if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
+						<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+					<?php
+					}
+					if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
+
+						<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+						<?php
+					}
+					?>
+				</div><!-- end of #logo -->
+			</div>
+		<?php } elseif ( !empty( get_header_image() ) ) { ?>
 
 		<div id="content-outer">
-			<div id="logo">
-				<?php the_custom_logo(); ?>
-				<?php
-				global $responsive_options;
-				$responsive_options = responsive_get_options();
-				if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
-					<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-				<?php
-				}
-				if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
-
-					<span class="site-description"><?php bloginfo( 'description' ); ?></span>
-					<?php
-				}
-				?>
-			</div><!-- end of #logo -->
+		<div id="logo">
+				<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
+		</div><!-- end of #logo -->
 		</div>
+
+	<?php } // Header image was removed .
+	 else {  ?>
+	<div id="content-outer">
+		<div id="logo">
+			<?php
+			global $responsive_options;
+			$responsive_options = responsive_get_options();
+			if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
+				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+			<?php
+			}
+			if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
+
+				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+				<?php
+			}
+			?>
+		</div><!-- end of #logo -->
+	</div>
+<?php } ?>
+
+
 
 		<?php get_sidebar( 'top' ); ?>
 		<?php
