@@ -110,7 +110,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div><!-- end of #logo -->
 	</div>
-<?php  ?>
+
 
 
 
