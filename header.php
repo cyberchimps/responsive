@@ -105,10 +105,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
 				<?php
 			}
+		}
 			?>
+
 		</div><!-- end of #logo -->
 	</div>
-<?php } ?>
+
 
 
 
