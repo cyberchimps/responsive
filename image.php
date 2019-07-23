@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Image Attachment Template
- *
  *
  * @file           image.php
  * @package        Responsive
@@ -26,7 +25,10 @@ if ( !defined( 'ABSPATH' ) ) {
 
 	<?php if ( have_posts() ) : ?>
 
-		<?php while( have_posts() ) : the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			?>
 
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -41,20 +43,29 @@ if ( !defined( 'ABSPATH' ) ) {
 
 					<?php if ( comments_open() ) : ?>
 						<span class="comments-link">
-                        <span class="mdash">&mdash;</span>
+						<span class="mdash">&mdash;</span>
 							<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
-                        </span>
+						</span>
 					<?php endif; ?>
 				</div>
 				<!-- end of .post-meta -->
 
 				<div class="attachment-entry">
 					<a href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo wp_get_attachment_image( $post->ID, 'large' ); ?></a>
-					<?php if ( !empty( $post->post_excerpt ) ) {
+					<?php
+					if ( ! empty( $post->post_excerpt ) ) {
 						the_excerpt();
-					} ?>
+					}
+					?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+					<?php
+					wp_link_pages(
+						array(
+							'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+							'after'  => '</div>',
+						)
+					);
+					?>
 				</div>
 				<!-- end of .attachment-entry -->
 
@@ -81,17 +92,17 @@ if ( !defined( 'ABSPATH' ) ) {
 			<?php comments_template( '', true ); ?>
 			<?php responsive_comments_after(); ?>
 
-		<?php
+			<?php
 		endwhile;
 
 		get_template_part( 'loop-nav', get_post_type() );
 
-	else :
+		else :
 
-		get_template_part( 'loop-no-posts', get_post_type() );
+			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
-	?>
+		?>
 
 </div><!-- end of #content-image -->
 

@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -30,5 +30,5 @@ if ( $wp_query->max_num_pages > 1 ) :
 		<div class="next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ) ); ?></div>
 	</div><!-- end of .navigation -->
 
-<?php
+	<?php
 endif;

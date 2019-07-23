@@ -1,13 +1,16 @@
 <?php
+/**
+ * Exit if accessed directly.
+ *
+ * @package Responsive
+ */
 
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Error 404 Template
- *
  *
  * @file           404.php
  * @package        Responsive

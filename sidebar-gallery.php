@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Gallery Widget Template
- *
  *
  * @file           sidebar-gallery.php
  * @package        Responsive
@@ -54,15 +53,13 @@ if ( !defined( 'ABSPATH' ) ) {
 							<span class="shutter"><?php _e( 'Shutter:', 'responsive' ); ?>
 								<?php
 								if ( ( 1 / $responsive_data['image_meta']['shutter_speed'] ) > 1 ) {
-									echo "1/";
+									echo '1/';
 									if ( number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1 ) == number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0 ) ) {
 										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0, '.', '' ) . ' ' . __( 'sec', 'responsive' );
-									}
-									else {
+									} else {
 										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1, '.', '' ) . ' ' . __( 'sec', 'responsive' );
 									}
-								}
-								else {
+								} else {
 									echo esc_attr( $responsive_data['image_meta']['shutter_speed'] ) . ' ' . __( 'sec', 'responsive' );
 								}
 								?>
@@ -71,7 +68,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 						<?php if ( $responsive_data['image_meta']['camera'] ) { ?>
 							<span class="camera"><?php _e( 'Camera:', 'responsive' ); ?> <?php echo esc_attr( $responsive_data['image_meta']['camera'] ); ?></span>
-						<?php
+							<?php
 						}
 					}
 				}
@@ -81,9 +78,11 @@ if ( !defined( 'ABSPATH' ) ) {
 		</div><!-- end of .widget-wrapper -->
 	</div><!-- end of #widgets -->
 
-<?php if ( !is_active_sidebar( 'gallery-widget' ) ) {
+<?php
+if ( ! is_active_sidebar( 'gallery-widget' ) ) {
 	return;
-} ?>
+}
+?>
 
 <?php if ( is_active_sidebar( 'gallery-widget' ) ) : ?>
 

@@ -106,7 +106,7 @@ color:#f2efef;
 .full-width-layout .about-content {padding-bottom: 40px;}
 .full-width-no-box .site-name a {color: #ffffff;}
 .post-meta .fa-calendar {
-	margin-right: 6px;
+	margin: 6px;
 }
 .post-meta .posted-in{
 	padding-left: 9px;
@@ -123,7 +123,11 @@ color:#f2efef;
     padding-right: 4px;
     padding-left: 4px;
 }
-.breadcrumb-current{padding-left: 4px;}
+.breadcrumb-current{
+	padding-left: 4px;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
 #content .responsive { position: relative;}
 #content .responsive::after {
    	border-bottom: solid 2px #7c7b7b;
@@ -3036,6 +3040,7 @@ BDO[DIR="rtl"] {
 
 .author-gravtar img{
 border-radius: 50%;
+margin: 1%;
 }
 
 .section_title {
@@ -3429,3 +3434,12 @@ border-bottom-color: #cec9c4;
 /*
 	changes according gutenberg plugin -- END
  */
+ .full-width-layout #wrapper {
+	 padding: 0;
+ }
+img.custom-logo{
+	margin:10px 0;
+}
+.site-name a {
+	word-break: break-word;
+}

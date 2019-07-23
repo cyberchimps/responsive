@@ -72,23 +72,24 @@ function cyberchimps_display_upsell() {
 					);
 
 					// Set the $request array.
-					$request = array(
+					$request      = array(
 						'body' => array(
 							'action'  => 'query_themes',
-							'request' => serialize( (object)$args )
-						)
+							'request' => serialize( (object) $args ),
+						),
 					);
-					$themes = cyberchimps_get_themes( $request );
+					$themes       = cyberchimps_get_themes( $request );
 					$active_theme = wp_get_theme()->get( 'Name' );
-					$counter = 1;
+					$counter      = 1;
 
 					// For currently active theme.
 					foreach ( $themes->themes as $theme ) {
-						if ( $active_theme == $theme->name ) {?>
+						if ( $active_theme == $theme->name ) {
+							?>
 
 							<div id="<?php echo $theme->slug; ?>" class="theme-container span4">
 								<div class="image-container">
-									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
+									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url; ?>"/>
 
 									<div class="theme-description">
 										<p><?php echo $theme->description; ?></p>
@@ -96,45 +97,46 @@ function cyberchimps_display_upsell() {
 								</div>
 								<div class="theme-details active">
 									<span class="theme-name"><?php echo $theme->name; ?>: Current theme</span>
-									<a class="button button-secondary customize right" target="_blank" href="<?php echo get_site_url(). '/wp-admin/customize.php' ?>">Customize</a>
+									<a class="button button-secondary customize right" target="_blank" href="<?php echo get_site_url() . '/wp-admin/customize.php'; ?>">Customize</a>
 								</div>
 							</div>
 
-						<?php
-						$counter++;
-						break;
+							<?php
+							$counter++;
+							break;
 						}
 					}
 
 					// For all other themes.
 					foreach ( $themes->themes as $theme ) {
-						if ($theme->slug != 'response') {
-						if ( $active_theme != $theme->name ) {
+						if ( $theme->slug != 'response' ) {
+							if ( $active_theme != $theme->name ) {
 
-							// Set the argument array with author name.
-							$args = array(
-								'slug' => $theme->slug,
-							);
+								// Set the argument array with author name.
+								$args = array(
+									'slug' => $theme->slug,
+								);
 
-							// Set the $request array.
-							$request = array(
-								'body' => array(
-									'action'  => 'theme_information',
-									'request' => serialize( (object)$args )
-								)
-							);
+								// Set the $request array.
+								$request = array(
+									'body' => array(
+										'action'  => 'theme_information',
+										'request' => serialize( (object) $args ),
+									),
+								);
 
-							$theme_details = cyberchimps_get_themes( $request );
-							if ($counter % 3 == 1 && $theme->slug !='droidpress')
-								$class = 'no-left-megin';
-							else 
-								$class ='';
-							
-							?>
+								$theme_details = cyberchimps_get_themes( $request );
+								if ( $counter % 3 == 1 && $theme->slug != 'droidpress' ) {
+									$class = 'no-left-megin';
+								} else {
+									$class = '';
+								}
+
+								?>
 
 							<div id="<?php echo $theme->slug; ?>" class="theme-container span4 <?php echo $class; ?>">
 								<div class="image-container">
-									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
+									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url; ?>"/>
 
 									<div class="theme-description">
 										<p><?php echo $theme->description; ?></p>
@@ -147,20 +149,23 @@ function cyberchimps_display_upsell() {
 									<?php if ( wp_get_theme( $theme->slug )->exists() ) { ?>
 
 										<!-- Show the tick image notifying the theme is already installed. -->
-										<img data-toggle="tooltip" title="Already installed" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/includes/upsell/images/tick.png"/>
+										<img data-toggle="tooltip" title="Already installed" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri; ?>/core/includes/upsell/images/tick.png"/>
 
 										<!-- Activate Button -->
 										<a  class="button button-primary activate right"
-											href="<?php echo wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . urlencode( $theme->slug ) ), 'switch-theme_' . $theme->slug );?>" >Activate</a>
-									<?php }
-									else {
+											href="<?php echo wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . urlencode( $theme->slug ) ), 'switch-theme_' . $theme->slug ); ?>" >Activate</a>
+										<?php
+									} else {
 
 										// Set the install url for the theme.
-										$install_url = add_query_arg( array(
+										$install_url = add_query_arg(
+											array(
 												'action' => 'install-theme',
 												'theme'  => $theme->slug,
-											), self_admin_url( 'update.php' ) );
-									?>
+											),
+											self_admin_url( 'update.php' )
+										);
+										?>
 										<!-- Install Button -->
 										<a data-toggle="tooltip" data-placement="bottom" title="<?php echo 'Downloaded ' . number_format( $theme_details->downloaded ) . ' times'; ?>" class="button button-primary install right" href="<?php echo esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ); ?>" >Install Now</a>
 									<?php } ?>
@@ -169,11 +174,12 @@ function cyberchimps_display_upsell() {
 									<a class="button button-secondary preview right" target="_blank" href="<?php echo $theme->preview_url; ?>">Live Preview</a>
 								</div>
 							</div>
-							<?php
-							$counter++;
+								<?php
+								$counter++;
+							}
 						}
 					}
-					}?>
+					?>
 				</div>
 			</div>
 		</div>
@@ -185,7 +191,7 @@ function cyberchimps_display_upsell() {
 			jQuery('.theme-exists').tooltip();
 		});
 	</script>
-<?php
+	<?php
 }
 
 // Get all CyberChimps themes by using API.
@@ -201,11 +207,11 @@ function cyberchimps_get_themes( $request ) {
 		$response = wp_remote_post( 'http://api.wordpress.org/themes/info/1.0/', $request );
 
 		// Check for the error.
-		if ( !is_wp_error( $response ) ) {
+		if ( ! is_wp_error( $response ) ) {
 
 			$themes = unserialize( wp_remote_retrieve_body( $response ) );
 
-			if ( !is_object( $themes ) && !is_array( $themes ) ) {
+			if ( ! is_object( $themes ) && ! is_array( $themes ) ) {
 
 				// Response body does not contain an object/array
 				return new WP_Error( 'theme_api_error', 'An unexpected error has occurred' );
@@ -213,8 +219,7 @@ function cyberchimps_get_themes( $request ) {
 
 			// Set transient for next time... keep it for 24 hours should be good
 			set_transient( $key, $themes, 60 * 60 * 24 );
-		}
-		else {
+		} else {
 			// Error object returned
 			return $response;
 		}

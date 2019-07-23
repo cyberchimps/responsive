@@ -1,18 +1,17 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Breadcrumb Lists
  * Load the plugin from the plugin that is installed.
- *
  */
 function get_responsive_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
-	$yoast_options = get_option( 'wpseo_internallinks' );
+	$yoast_options      = get_option( 'wpseo_internallinks' );
 	if ( 1 == $responsive_options['breadcrumb'] ) {
 		return;
 	} elseif ( function_exists( 'bcn_display' ) ) {
@@ -34,9 +33,8 @@ function get_responsive_breadcrumb_lists() {
  * Allows visitors to quickly navigate back to a previous section or the root page.
  *
  * Adopted from Dimox
- *
  */
-if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
+if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 	function responsive_breadcrumb_lists() {
 
@@ -71,7 +69,6 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 			if ( 1 == $show['home'] ) {
 				$html_output .= '<div class="breadcrumb-list"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
 			}
-
 		} else {
 			$html_output .= '<div class="breadcrumb-list" xmlns:v="http://rdf.data-vocabulary.org/#">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
 
@@ -79,13 +76,12 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 				if ( 1 == $show['current'] ) {
 					$html_output .= $before . get_the_title( get_option( 'page_for_posts', true ) ) . $after;
 				}
-
 			} elseif ( is_category() ) {
 				$this_cat = get_category( get_query_var( 'cat' ), false );
 				if ( 0 != $this_cat->parent ) {
-					$cats = get_category_parents( $this_cat->parent, true, $delimiter );
-					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
-					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = get_category_parents( $this_cat->parent, true, $delimiter );
+					$cats         = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
+					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
 					$html_output .= $cats;
 				}
 				$html_output .= $before . sprintf( $text['category'], single_cat_title( '', false ) ) . $after;
@@ -105,32 +101,31 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 			} elseif ( is_year() ) {
 				$html_output .= $before . get_the_time( 'Y' ) . $after;
 
-			} elseif ( is_single() && !is_attachment() ) {
+			} elseif ( is_single() && ! is_attachment() ) {
 				if ( 'post' != get_post_type() ) {
 					$post_type    = get_post_type_object( get_post_type() );
 					$archive_link = get_post_type_archive_link( $post_type->name );
 					$html_output .= sprintf( $link, $archive_link, $post_type->labels->singular_name );
 					if ( 1 == $show['current'] ) {
-						$html_output .= $delimiter . $before . get_the_title() . $after;
+							$html_output .= $delimiter . $before . get_the_title() . $after;
 					}
 				} else {
 					$cat  = get_the_category();
 					$cat  = $cat[0];
 					$cats = get_category_parents( $cat, true, $delimiter );
 					if ( 0 == $show['current'] ) {
-						$cats = preg_replace( "#^(.+)$delimiter$#", "$1", $cats );
+							$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
 					}
-					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
-					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
+					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
 					$html_output .= $cats;
 					if ( 1 == $show['current'] ) {
 						$html_output .= $before . get_the_title() . $after;
 					}
 				}
-
-			} elseif ( !is_single() && !is_page() && !is_404() && 'post' != get_post_type() ) {
-				$post_type = get_post_type_object( get_post_type() );
-				$html_output .= $before . $post_type->labels->singular_name . $after;
+			} elseif ( ! is_single() && ! is_page() && ! is_404() && 'post' != get_post_type() ) {
+						$post_type    = get_post_type_object( get_post_type() );
+						$html_output .= $before . $post_type->labels->singular_name . $after;
 
 			} elseif ( is_attachment() ) {
 				$parent = get_post( $parent_id );
@@ -141,9 +136,9 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 				}
 
 				if ( $cat ) {
-					$cats = get_category_parents( $cat, true, $delimiter );
-					$cats = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
-					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = get_category_parents( $cat, true, $delimiter );
+					$cats         = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
+					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
 					$html_output .= $cats;
 				}
 
@@ -151,22 +146,20 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 				if ( 1 == $show['current'] ) {
 					$html_output .= $delimiter . $before . get_the_title() . $after;
 				}
-
-			} elseif ( is_page() && !$parent_id ) {
+			} elseif ( is_page() && ! $parent_id ) {
 				if ( 1 == $show['current'] ) {
 					$html_output .= $before . get_the_title() . $after;
 				}
-
 			} elseif ( is_page() && $parent_id ) {
 				$breadcrumbs = array();
 				while ( $parent_id ) {
-					$page_child    = get_post( $parent_id );
-					$breadcrumbs[] = sprintf( $link, get_permalink( $page_child->ID ), get_the_title( $page_child->ID ) );
-					$parent_id     = $page_child->post_parent;
+						$page_child    = get_post( $parent_id );
+						$breadcrumbs[] = sprintf( $link, get_permalink( $page_child->ID ), get_the_title( $page_child->ID ) );
+						$parent_id     = $page_child->post_parent;
 				}
 				$breadcrumbs = array_reverse( $breadcrumbs );
 				for ( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
-					$html_output .= $breadcrumbs[$i];
+					$html_output .= $breadcrumbs[ $i ];
 					if ( $i != count( $breadcrumbs ) - 1 ) {
 						$html_output .= $delimiter;
 					}
@@ -174,13 +167,12 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 				if ( 1 == $show['current'] ) {
 					$html_output .= $delimiter . $before . get_the_title() . $after;
 				}
-
 			} elseif ( is_tag() ) {
 				$html_output .= $before . sprintf( $text['tag'], single_tag_title( '', false ) ) . $after;
 
 			} elseif ( is_author() ) {
-				$user_id  = get_query_var( 'author' );
-				$userdata = get_the_author_meta( 'display_name', $user_id );
+				$user_id      = get_query_var( 'author' );
+				$userdata     = get_the_author_meta( 'display_name', $user_id );
 				$html_output .= $before . sprintf( $text['author'], $userdata ) . $after;
 
 			} elseif ( is_404() ) {
@@ -189,7 +181,7 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 			}
 
 			if ( get_query_var( 'paged' ) || get_query_var( 'page' ) ) {
-				$page_num = get_query_var( 'page' ) ? get_query_var( 'page' ) : get_query_var( 'paged' );
+				$page_num     = get_query_var( 'page' ) ? get_query_var( 'page' ) : get_query_var( 'paged' );
 				$html_output .= $delimiter . sprintf( __( 'Page %s', 'responsive' ), $page_num );
 
 			}
@@ -201,13 +193,11 @@ if ( !function_exists( 'responsive_breadcrumb_lists' ) ) {
 		echo $html_output;
 
 	} // end responsive_breadcrumb_lists
-
 }
 
 /**
  * Use shortcode_atts_gallery filter to add new defaults to the WordPress gallery shortcode.
  * Allows user input in the post gallery shortcode.
- *
  */
 function responsive_gallery_atts( $out, $pairs, $atts ) {
 
@@ -221,65 +211,64 @@ function responsive_gallery_atts( $out, $pairs, $atts ) {
 		if ( $full_width ) {
 			switch ( $out['columns'] ) {
 				case 1:
-					$size = 'responsive-900'; //900
+					$size = 'responsive-900'; // 900
 					break;
 				case 2:
-					$size = 'responsive-450'; //450
+					$size = 'responsive-450'; // 450
 					break;
 				case 3:
-					$size = 'responsive-300'; //300
+					$size = 'responsive-300'; // 300
 					break;
 				case 4:
-					$size = 'responsive-200'; //225
+					$size = 'responsive-200'; // 225
 					break;
 				case 5:
-					$size = 'responsive-200'; //180
+					$size = 'responsive-200'; // 180
 					break;
 				case 6:
-					$size = 'responsive-150'; //150
+					$size = 'responsive-150'; // 150
 					break;
 				case 7:
-					$size = 'responsive-150'; //125
+					$size = 'responsive-150'; // 125
 					break;
 				case 8:
-					$size = 'responsive-150'; //112
+					$size = 'responsive-150'; // 112
 					break;
 				case 9:
-					$size = 'responsive-100'; //100
+					$size = 'responsive-100'; // 100
 					break;
 			}
 		} else {
 			switch ( $out['columns'] ) {
 				case 1:
-					$size = 'responsive-600'; //600
+					$size = 'responsive-600'; // 600
 					break;
 				case 2:
-					$size = 'responsive-300'; //300
+					$size = 'responsive-300'; // 300
 					break;
 				case 3:
-					$size = 'responsive-200'; //200
+					$size = 'responsive-200'; // 200
 					break;
 				case 4:
-					$size = 'responsive-150'; //150
+					$size = 'responsive-150'; // 150
 					break;
 				case 5:
-					$size = 'responsive-150'; //120
+					$size = 'responsive-150'; // 120
 					break;
 				case 6:
-					$size = 'responsive-100'; //100
+					$size = 'responsive-100'; // 100
 					break;
 				case 7:
-					$size = 'responsive-100'; //85
+					$size = 'responsive-100'; // 85
 					break;
 				case 8:
-					$size = 'responsive-100'; //75
+					$size = 'responsive-100'; // 75
 					break;
 				case 9:
-					$size = 'responsive-100'; //66
+					$size = 'responsive-100'; // 66
 					break;
 			}
 		}
-
 	}
 
 	$atts = shortcode_atts(
@@ -319,7 +308,7 @@ function responsive_get_social_icons() {
 
 	$responsive_options = responsive_get_options();
 
-	$sites = array (
+	$sites = array(
 		'twitter'     => __( 'Twitter', 'responsive' ),
 		'facebook'    => __( 'Facebook', 'responsive' ),
 		'linkedin'    => __( 'LinkedIn', 'responsive' ),
@@ -332,45 +321,82 @@ function responsive_get_social_icons() {
 		'yelp'        => __( 'Yelp!', 'responsive' ),
 		'vimeo'       => __( 'Vimeo', 'responsive' ),
 		'foursquare'  => __( 'foursquare', 'responsive' ),
-		'email' => __( 'Email', 'responsive' ),
+		'email'       => __( 'Email', 'responsive' ),
 	);
 
 	$html = '<ul class="social-icons">';
-	foreach( $sites as $key => $value ) {
-		if ( !empty( $responsive_options[$key . '_uid'] ) ) {
-			if ($key == 'email') {
-				$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="mailto:' . $responsive_options[$key . '_uid'] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
-			}
-			else{
-				$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_options[$key . '_uid'] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
+	foreach ( $sites as $key => $value ) {
+		if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+			if ( $key == 'email' ) {
+				$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="mailto:' . $responsive_options[ $key . '_uid' ] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
+			} else {
+				$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_options[ $key . '_uid' ] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
 			}
 		}
 	}
 	$html .= '</ul><!-- .social-icons -->';
 
-	$html = apply_filters( 'responsive_social_skin' , $html );
+	$html = apply_filters( 'responsive_social_skin', $html );
 
 	return $html;
 
 }
 function responsive_get_social_icons_new() {
 	$responsive_options = responsive_get_options();
-?>
+	?>
 	<ul class="social-icons">
-<?php 	
-	if ( !empty( $responsive_options['facebook_uid'] ) ){?><li><a href="<?php echo $responsive_options['facebook_uid'];?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li><?php }?>						<?php if ( !empty( $responsive_options['twitter_uid'] ) ){?><li><a href="<?php echo $responsive_options['twitter_uid'];?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['rss_uid'] ) ){?><li><a href="<?php echo $responsive_options['rss_uid'];?>" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['google_plus_uid'] ) ){?><li><a href="<?php echo $responsive_options['google_plus_uid'];?>" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['linkedin_uid'] ) ){?><li><a href="<?php echo $responsive_options['linkedin_uid'];?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['youtube_uid'] ) ){?><li><a href="<?php echo $responsive_options['youtube_uid'];?>" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['stumble_uid'] ) ){?><li><a href=""<?php echo $responsive_options['stumble_uid'];?>" target="_blank"><i class="fa fa-stumbleupon" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['instagram_uid'] ) ){?><li><a href="<?php echo $responsive_options['instagram_uid'];?>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['pinterest_uid'] ) ){?><li><a href="<?php echo $responsive_options['pinterest_uid'];?>" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['yelp_uid'] ) ){?><li><a href="<?php echo $responsive_options['yelp_uid'];?>" target="_blank"><i class="fa fa-yelp" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['vimeo_uid'] ) ){?><li><a href="<?php echo $responsive_options['vimeo_uid'];?>" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['foursquare_uid'] ) ){?><li><a href="<?php echo $responsive_options['foursquare_uid'];?>" target="_blank"><i class="fa fa-foursquare" aria-hidden="true"></i></a></li><?php }?>
-				<?php if ( !empty( $responsive_options['email_uid'] ) ){?><li><a href="mailto:<?php echo $responsive_options['email_uid'];?>" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li><?php }?>
+	<?php
+	if ( ! empty( $responsive_options['facebook_uid'] ) ) {
+		?>
+	<li><a href="<?php echo $responsive_options['facebook_uid']; ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li><?php } ?>						<?php
+	if ( ! empty( $responsive_options['twitter_uid'] ) ) {
+		?>
+		<li><a href="<?php echo $responsive_options['twitter_uid']; ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['rss_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['rss_uid']; ?>" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['google_plus_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['google_plus_uid']; ?>" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['linkedin_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['linkedin_uid']; ?>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['youtube_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['youtube_uid']; ?>" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['stumble_uid'] ) ) {
+					?>
+					<li><a href=""<?php echo $responsive_options['stumble_uid']; ?>" target="_blank"><i class="fa fa-stumbleupon" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['instagram_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['instagram_uid']; ?>" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['pinterest_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['pinterest_uid']; ?>" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['yelp_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['yelp_uid']; ?>" target="_blank"><i class="fa fa-yelp" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['vimeo_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['vimeo_uid']; ?>" target="_blank"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['foursquare_uid'] ) ) {
+					?>
+					<li><a href="<?php echo $responsive_options['foursquare_uid']; ?>" target="_blank"><i class="fa fa-foursquare" aria-hidden="true"></i></a></li><?php } ?>
+				<?php
+				if ( ! empty( $responsive_options['email_uid'] ) ) {
+					?>
+					<li><a href="mailto:<?php echo $responsive_options['email_uid']; ?>" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li><?php } ?>
 		
 	</ul>
-<?php 
+	<?php
 }

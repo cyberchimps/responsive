@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Colophon Widget Template
- *
  *
  * @file           sidebar-colophon.php
  * @package        Responsive
@@ -21,7 +20,7 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php
-if ( !is_active_sidebar( 'colophon-widget' )
+if ( ! is_active_sidebar( 'colophon-widget' )
 ) {
 	return;
 }
@@ -34,7 +33,7 @@ if ( !is_active_sidebar( 'colophon-widget' )
 
 			<?php dynamic_sidebar( 'colophon-widget' ); ?>
 
-		<?php endif; //end of colophon-widget ?>
+		<?php endif; // end of colophon-widget ?>
 
 		<?php responsive_widgets_end(); // after widgets hook ?>
 	</div><!-- end of #colophon-widget -->

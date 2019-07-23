@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Search Template
- *
  *
  * @file           search.php
  * @package        Responsive
@@ -28,7 +27,10 @@ get_header(); ?>
 
 		<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
-		<?php while( have_posts() ) : the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			?>
 
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -38,7 +40,14 @@ get_header(); ?>
 
 				<div class="post-entry">
 					<?php the_excerpt(); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+					<?php
+					wp_link_pages(
+						array(
+							'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+							'after'  => '</div>',
+						)
+					);
+					?>
 				</div>
 				<!-- end of .post-entry -->
 
@@ -48,17 +57,17 @@ get_header(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
 			<?php responsive_entry_after(); ?>
 
-		<?php
+			<?php
 		endwhile;
 
 		get_template_part( 'loop-nav', get_post_type() );
 
-	else :
+		else :
 
-		get_template_part( 'loop-no-posts', get_post_type() );
+			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
-	?>
+		?>
 
 </div><!-- end of #content-search -->
 

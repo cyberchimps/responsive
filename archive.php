@@ -1,13 +1,16 @@
 <?php
+/**
+ * Exit if accessed directly.
+ *
+ * @package Responsive
+ */
 
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Archive Template
- *
  *
  * @file           archive.php
  * @package        Responsive
@@ -22,15 +25,20 @@ if ( !defined( 'ABSPATH' ) ) {
 
 
 get_header(); ?>
-<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
+<?php require_once ABSPATH . 'wp-admin/includes/plugin.php'; ?>
 <div id="content-outer">
 <div id="content-archive" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php if ( have_posts() ) : ?>
 
-		<?php get_template_part( 'loop-header', get_post_type() ); ?>
+		<?php
+		get_template_part( 'loop-header', get_post_type() );
+		?>
 
-		<?php while( have_posts() ) : the_post(); ?>
+		<?php
+		while ( have_posts() ) :
+			the_post();
+			?>
 
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -39,36 +47,45 @@ get_header(); ?>
 				<?php get_template_part( 'post-meta', get_post_type() ); ?>
 
 				<div class="post-entry">
-					<?php if( is_plugin_active('responsivepro-plugin/index.php')){  
-							if (responsivepro_plugin_get_option ('archive_featured_images')) 
-								responsivepro_plugin_featured_image();
-					?>
-					<?php } else {  ?>
-					<?php if ( has_post_thumbnail() ) : ?>
+					<?php
+					if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
+						if ( responsivepro_plugin_get_option( 'archive_featured_images' ) ) {
+							responsivepro_plugin_featured_image();
+						}
+						?>
+					<?php } else { ?>
+						<?php if ( has_post_thumbnail() ) : ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail( 'thumbnail', array( 'class' => 'alignleft' ) ); ?>
 						</a>
 					<?php endif; ?>
 					<?php } ?>
-					
-					<?php if( is_plugin_active('responsivepro-plugin/index.php')){ 
-							if( responsivepro_plugin_get_option( 'archive_post_excerpts' ) ) {
-								add_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
-								add_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
-								the_excerpt();
-								remove_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
-								remove_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
-						}
-						else {
+
+					<?php
+					if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
+						if ( responsivepro_plugin_get_option( 'archive_post_excerpts' ) ) {
+							add_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
+							add_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
+							the_excerpt();
+							remove_filter( 'excerpt_more', 'responsive_pro_plugin_excerpt_more_text' );
+							remove_filter( 'excerpt_length', 'responsive_pro_plugin_excerpt_more_length' );
+						} else {
 								the_content( __( 'Read more &#8250;', 'responsive' ) );
 						}
-					?>									
-								
-					<?php } else { ?>					
-					<?php 		the_excerpt(); ?>
+						?>
+
+					<?php } else { ?>
+						<?php the_excerpt(); ?>
 					<?php } ?>
-					
-					<?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+
+					<?php
+					wp_link_pages(
+						array(
+							'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+							'after'  => '</div>',
+						)
+					);
+					?>
 				</div><!-- end of .post-entry -->
 
 				<?php get_template_part( 'post-data', get_post_type() ); ?>
@@ -77,17 +94,17 @@ get_header(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
 			<?php responsive_entry_after(); ?>
 
-		<?php
+			<?php
 		endwhile;
 
 		get_template_part( 'loop-nav', get_post_type() );
 
-	else :
+		else :
 
-		get_template_part( 'loop-no-posts', get_post_type() );
+			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;
-	?>
+		?>
 
 </div><!-- end of #content-archive -->
 
