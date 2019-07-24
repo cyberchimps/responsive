@@ -3443,3 +3443,6 @@ img.custom-logo{
 .site-name a {
 	word-break: break-word;
 }
+div#calendar-2 {
+    display: inline-block;
+}

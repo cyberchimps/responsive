@@ -938,7 +938,7 @@ function responsive_theme_options_validate( $input ) {
 		$input['vimeo_uid']                   = esc_url_raw( $input['vimeo_uid'] );
 		$input['foursquare_uid']              = esc_url_raw( $input['foursquare_uid'] );
 		$input['email_uid']                   = sanitize_email( $input['email_uid'] );
-		$input['responsive_inline_css']       = wp_kses_stripslashes( isset( $input['responsive_inline_css'] ) );
+		$input['responsive_inline_css']       = wp_kses_stripslashes( !empty( $input['responsive_inline_css'] ) );
 		$input['responsive_inline_js_head']   = wp_kses_stripslashes( $input['responsive_inline_js_head'] );
 		$input['responsive_inline_js_footer'] = wp_kses_stripslashes( $input['responsive_inline_js_footer'] );
 
