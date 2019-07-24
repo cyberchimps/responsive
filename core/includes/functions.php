@@ -138,22 +138,20 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		}
 
 		/** WordPress V4.7 or greater */
-		//Commented : as it causes error in the adition css tab
-		/*if ( function_exists( 'wp_update_custom_css_post' ) ) {
+		if ( function_exists( 'wp_update_custom_css_post' ) ) {
 			$responsive_custom_css = isset( $responsive_options['responsive_inline_css'] ) ? $responsive_options['responsive_inline_css'] : '';
 
 			if ( $responsive_custom_css ) {
-				error_log('in the =='.$responsive_custom_css);
 				$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
 				$return   = wp_update_custom_css_post( $core_css . $responsive_custom_css );
 				if ( ! is_wp_error( $return ) ) {
 
 					/** Set css to blank */
-						/*$responsive_options['responsive_inline_css'] = '';
+						$responsive_options['responsive_inline_css'] = '';
 						update_option( 'responsive_theme_options', $responsive_options );
 				}
 			}
-		}*/
+		}
 
 		/**
 		 * Responsive is now available for translations.

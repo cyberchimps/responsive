@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/24/19) = Added - Version 3.15.2
+[!] Fixed backward compatibility issue with Custom CSS
+[!] Fixed short menu issue
+[*] Improved Sidebar widgets
+
 (07/16/19) = Added - Version 3.15.1
 [!] Fixed backward compatibility issue with custom header
 

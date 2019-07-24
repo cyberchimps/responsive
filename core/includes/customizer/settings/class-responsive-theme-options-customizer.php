@@ -455,22 +455,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 					)
 				);
 				$wp_customize->add_setting(
-					'responsive_theme_options[minified_css]',
-					array(
-						'sanitize_callback' => 'responsive_sanitize_checkbox',
-						'type'              => 'option',
-					)
-				);
-				$wp_customize->add_control(
-					'res_minified_css',
-					array(
-						'label'    => __( 'Enable minified css?', 'responsive' ),
-						'section'  => 'theme_elements',
-						'settings' => 'responsive_theme_options[minified_css]',
-						'type'     => 'checkbox',
-					)
-				);
-				$wp_customize->add_setting(
 					'responsive_theme_options[blog_post_title_toggle]',
 					array(
 						'sanitize_callback' => 'responsive_sanitize_checkbox',
