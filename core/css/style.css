@@ -3434,15 +3434,19 @@ border-bottom-color: #cec9c4;
 /*
 	changes according gutenberg plugin -- END
  */
- .full-width-layout #wrapper {
-	 padding: 0;
+ img.custom-logo{
+ 	margin:10px 0;
  }
-img.custom-logo{
-	margin:10px 0;
-}
-.site-name a {
-	word-break: break-word;
-}
-div#calendar-2 {
-    display: inline-block;
-}
+ .site-name a {
+ 	word-break: break-word;
+ }
+ div#calendar-2 {
+     display: inline-block;
+ }
+ label[for=payment_method_stripe] {
+ 	display: inline;
+ }
+ .elementor-template-full-width div#wrapper {
+ 	padding: 0;
+ 	border: none;
+ }

@@ -217,8 +217,9 @@ function responsive_premium_custom_color_styles() {
 			max-width: 100%;
 		}
 		.boxed-layout
-		.content-area {
+		.content-area, body.default-layout #content-outer, body.full-width-layout #content-outer, body.full-width-no-box #content-outer {
 			width: {$container_width}px;
+			max-width: 100%;
 		}
 	";
 
