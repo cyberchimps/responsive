@@ -16,53 +16,6 @@ function responsive_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_image' )->transport    = 'refresh';
 	$wp_customize->get_setting( 'custom_logo' )->transport     = 'refresh';
 
-	/*
-	--------------------------------------------------------------
-	// Default Layouts
-	--------------------------------------------------------------
-	*/
-
-	$wp_customize->add_section(
-		'default_layouts',
-		array(
-			'title'    => __( 'Default Layouts', 'responsive' ),
-			'priority' => 30,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_theme_options[static_page_layout_default]',
-		array(
-			'sanitize_callback' => 'responsive_sanitize_default_layouts',
-			'type'              => 'option',
-		)
-	);
-	$wp_customize->add_control(
-		'res_static_page_layout_default',
-		array(
-			'label'    => __( 'Default Static Page Layout', 'responsive' ),
-			'section'  => 'default_layouts',
-			'settings' => 'responsive_theme_options[static_page_layout_default]',
-			'type'     => 'select',
-			'choices'  => Responsive_Options::valid_layouts(),
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_theme_options[blog_posts_index_layout_default]',
-		array(
-			'sanitize_callback' => 'responsive_sanitize_blog_default_layouts',
-			'type'              => 'option',
-		)
-	);
-	$wp_customize->add_control(
-		'res_hblog_posts_index_layout_default',
-		array(
-			'label'    => __( 'Default Blog Posts Index Layout', 'responsive' ),
-			'section'  => 'default_layouts',
-			'settings' => 'responsive_theme_options[blog_posts_index_layout_default]',
-			'type'     => 'select',
-			'choices'  => Responsive_Options::blog_valid_layouts(),
-		)
-	);
 
 	/*
 	--------------------------------------------------------------
