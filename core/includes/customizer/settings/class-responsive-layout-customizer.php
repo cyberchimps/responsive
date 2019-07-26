@@ -80,7 +80,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_main_container_width',
 				array(
-					'transport'         => 'postMessage',
+					'transport'         => 'refresh',
 					'default'           => '960',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -224,7 +224,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_entry_elements_positioning',
 				array(
-					'default'           => array( 'featured_image', 'title', 'meta', 'content' ),
+					'default'           => array( 'title', 'meta', 'featured_image', 'content' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)

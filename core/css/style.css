@@ -1252,7 +1252,7 @@ form div {
 -------------------------------------------------------------- */
 .skip-container {
 	display: block;
-	padding: 0.5em 0.5em 0.5em 0;
+	/* padding: 0.5em 0.5em 0.5em 0; */
 	position: relative;
 }
 
