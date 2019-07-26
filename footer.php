@@ -52,6 +52,7 @@ $responsive_options = responsive_get_options();
 		</div>
 		</div>
 		<div id="content-outer">
+		<?php if ( has_nav_menu( 'footer-menu' ) ) { ?>
 		<div class="grid col-940">
 
 			<div class="grid col-540">
@@ -73,6 +74,7 @@ $responsive_options = responsive_get_options();
 			</div><!-- end of col-380 fit -->
 
 		</div><!-- end of col-940 -->
+		<?php } ?>
 		<?php get_sidebar( 'colophon' ); ?>
 		<?php if ( isset( $responsive_options['copyright_textbox'] ) ) {
 			$copyright_text = $responsive_options['copyright_textbox'];
@@ -104,6 +106,7 @@ $responsive_options = responsive_get_options();
 		<?php get_sidebar( 'footer' ); ?>
 		</div>
 		<div id="content-outer">
+		<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
 		<div class="grid col-940">
 
 			<div class="grid col-540">
@@ -126,6 +129,7 @@ $responsive_options = responsive_get_options();
 			</div><!-- end of col-380 fit -->
 
 		</div><!-- end of col-940 -->
+		<?php } ?>
 		<?php get_sidebar( 'colophon' ); ?>
 		<?php
 
