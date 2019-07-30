@@ -152,8 +152,38 @@ module.exports = function(grunt) {
     },
 	});
 
+	// Update google Fonts
+	grunt.registerTask('google-fonts', function () {
+		var done = this.async();
+		var request = require('request');
+		var fs = require('fs');
+
+		request('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDu1nDK2o4FpxhrIlNXyPNckVW5YP9HRu8', function (error, response, body) {
+
+			if (response && response.statusCode == 200) {
+
+				var fonts = JSON.parse(body).items.map(function (font) {
+					return {
+						[font.family] : {
+							'variants' : font.variants,
+							'category' : font.category
+						}
+					};
+				})
+
+				fs.writeFile('core/includes/customizer/controls/typography/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
+					if (! err ) {
+						console.log("Google Fonts Updated!");
+					}
+				});
+			}
+
+		});
+
+	});
+
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'default', [ 'clean', 'google-fonts', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };
