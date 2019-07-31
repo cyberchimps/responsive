@@ -3488,3 +3488,6 @@ border-bottom-color: #cec9c4;
  	z-index: 100000;
  	/* Above WP toolbar. */
  }
+.wc_payment_methods * {
+	box-sizing: border-box;
+}

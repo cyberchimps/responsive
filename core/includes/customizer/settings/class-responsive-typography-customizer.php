@@ -379,23 +379,18 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'sanitize_callback' => 'responsive_sanitize_number_blank',
 							)
 						);
-
 						$wp_customize->add_control(
-							new Responsive_Customizer_Slider_Control(
+							new Responsive_Customizer_Range_Control(
 								$wp_customize,
 								$element . '_typography[line-height]',
 								array(
 									'label'           => esc_html__( 'Line Height', 'responsive' ),
 									'section'         => 'responsive_typography_' . $element,
-									'settings'        => array(
-										'desktop' => $element . '_typography[line-height]',
-										'tablet'  => $element . '_tablet_typography[line-height]',
-										'mobile'  => $element . '_mobile_typography[line-height]',
-									),
+									'settings'        => $element . '_typography[line-height]',
 									'priority'        => 10,
 									'active_callback' => $active_callback,
 									'input_attrs'     => array(
-										'min'  => 0,
+										'min'  => 1,
 										'max'  => 4,
 										'step' => 0.1,
 									),
@@ -420,34 +415,15 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							)
 						);
 
-						$wp_customize->add_setting(
-							$element . '_tablet_typography[letter-spacing]',
-							array(
-								'transport'         => $transport,
-								'sanitize_callback' => 'responsive_sanitize_number_blank',
-							)
-						);
-
-						$wp_customize->add_setting(
-							$element . '_mobile_typography[letter-spacing]',
-							array(
-								'transport'         => $transport,
-								'sanitize_callback' => 'responsive_sanitize_number_blank',
-							)
-						);
 
 						$wp_customize->add_control(
-							new Responsive_Customizer_Slider_Control(
+							new Responsive_Customizer_Range_Control(
 								$wp_customize,
 								$element . '_typography[letter-spacing]',
 								array(
 									'label'           => esc_html__( 'Letter Spacing (px)', 'responsive' ),
 									'section'         => 'responsive_typography_' . $element,
-									'settings'        => array(
-										'desktop' => $element . '_typography[letter-spacing]',
-										'tablet'  => $element . '_tablet_typography[letter-spacing]',
-										'mobile'  => $element . '_mobile_typography[letter-spacing]',
-									),
+									'settings'        => $element . '_typography[letter-spacing]',
 									'priority'        => 10,
 									'active_callback' => $active_callback,
 									'input_attrs'     => array(
