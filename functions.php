@@ -39,9 +39,9 @@ require $template_directory . '/core/includes/version.php';
 require $template_directory . '/core/includes/upsell/theme-upsell.php';
 require $template_directory . '/core/includes/customizer/controls/typography/webfonts.php';
 require $template_directory . '/core/includes/customizer/helper.php';
-require $template_directory . '/core/includes/customizer/woocommerce-helper.php';
 require $template_directory . '/core/includes/customizer/customizer.php';
 require $template_directory . '/core/includes/customizer/custom-styles.php';
+require $template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 
 // Return value of the supplied responsive free theme option.
 function responsive_free_get_option( $option, $default = false ) {
