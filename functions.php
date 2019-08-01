@@ -39,6 +39,7 @@ require $template_directory . '/core/includes/version.php';
 require $template_directory . '/core/includes/upsell/theme-upsell.php';
 require $template_directory . '/core/includes/customizer/controls/typography/webfonts.php';
 require $template_directory . '/core/includes/customizer/helper.php';
+require $template_directory . '/core/includes/customizer/woocommerce-helper.php';
 require $template_directory . '/core/includes/customizer/customizer.php';
 require $template_directory . '/core/includes/customizer/custom-styles.php';
 
