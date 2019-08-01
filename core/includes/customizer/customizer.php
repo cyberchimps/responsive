@@ -227,8 +227,6 @@ function register_options() {
 		'class-responsive-links-customizer',
 		'class-responsive-footer-customizer',
 		'class-responsive-footer-copyrights-customizer',
-        'class-responsive-woocommerce-single-product-layout-customizer',
-        'class-responsive-woocommerce-shop-layout-customizer',
 	);
 
 	foreach ( $files as $key ) {
