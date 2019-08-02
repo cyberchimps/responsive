@@ -80,7 +80,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_main_container_width',
 				array(
-					'transport'         => 'postMessage',
+					'transport'         => 'refresh',
 					'default'           => '960',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -139,6 +139,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'default'           => array( 'featured_image', 'title', 'meta', 'content' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -164,6 +165,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'default'           => array( 'author', 'date', 'categories', 'comments' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -222,8 +224,9 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_entry_elements_positioning',
 				array(
-					'default'           => array( 'featured_image', 'title', 'meta', 'content' ),
+					'default'           => array( 'title', 'meta', 'featured_image', 'content' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -249,6 +252,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'default'           => apply_filters( 'responsive_blog_meta_default', array( 'author', 'date', 'categories', 'comments' ) ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -307,6 +311,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'default'           => array( 'title', 'featured_image', 'content' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
 				)
 			);
 
@@ -355,8 +360,29 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 
 				)
 			);
+			$wp_customize->add_setting(
+				'responsive_fullwidth_header_color',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+					'default'           => '#585858',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_fullwidth_header_color',
+					array(
+						'label'           => esc_html__( 'Header Color', 'responsive' ),
+						'section'         => 'responsive_layout_section',
+						'settings'        => 'responsive_fullwidth_header_color',
+						'priority'        => 10,
+						'active_callback' => 'responsive_check_layout_type',
+					)
+				)
+			);
 		}
-
 
 	}
 

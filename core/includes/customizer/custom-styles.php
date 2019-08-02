@@ -28,6 +28,7 @@ function responsive_premium_custom_color_styles() {
 	$input_border_color_fs  = get_theme_mod( 'input-border-color-focus', '#eaeaea' );
 	$input_border_color     = get_theme_mod( 'input-border-color', '#eaeaea' );
 	$input_text_color       = get_theme_mod( 'input-text-color', '#333333' );
+	$header_text_color       = get_theme_mod( 'responsive_fullwidth_header_color', '#585858' );
 
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
@@ -119,7 +120,7 @@ function responsive_premium_custom_color_styles() {
 		body {
 			font-family: {$font_family};
 			text-transform: {$text_transform};
-			letter-spacing: {$letter_spacing} !important;
+			letter-spacing: {$letter_spacing}px;
 			color: {$body_color};
 			font-weight: {$font_weight};
 			line-height: {$line_height};
@@ -139,7 +140,7 @@ function responsive_premium_custom_color_styles() {
 		.site-title a, .site-description {
 			font-family: {$headings_font_family};
 			text-transform: {$headingtext_transform};
-			letter-spacing: {$headingsletter_spacing} !important;
+			letter-spacing: {$headingsletter_spacing}px;
 			color: {$heading_color};
 			font-weight: {$headingsfont_weight};
 			line-height: {$headingsline_height};
@@ -217,8 +218,21 @@ function responsive_premium_custom_color_styles() {
 			max-width: 100%;
 		}
 		.boxed-layout
-		.content-area {
+		.content-area, body.default-layout #content-outer, body.full-width-layout #content-outer, body.full-width-no-box #content-outer, .menu {
 			width: {$container_width}px;
+			max-width: 100%;
+		}
+		.woocommerce ul.products li.product .onsale.circle-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline {
+			background: #ffffff;
+			border: 2px solid {$link_color};
+			color: {$link_color};
+		}
+		.woocommerce ul.products li.product .onsale {
+			background-color: {$link_color};
+			color: #ffffff;
+		}
+		.full-width-no-box #header {
+			background-color: $header_text_color;
 		}
 	";
 

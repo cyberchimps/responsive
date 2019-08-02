@@ -98,15 +98,16 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 				}
 
 				// Google font options.
-				if ( $google_fonts = responsive_google_fonts_array() ) {//phpcs:ignore
+				if ( $google_fonts = get_google_fonts() ) {//phpcs:ignore
 					?>
 					<optgroup label="<?php esc_html_e( 'Google Fonts', 'responsive' ); ?>">
 						<?php
 						// Loop through font options and add to select.
-						foreach ( $google_fonts as $font ) {
-							?>
-							<option value="<?php echo esc_html( $font ); ?>" <?php selected( $font, $this_val ); ?>><?php echo esc_html( $font ); ?></option>
-						<?php } ?>
+						foreach ( $google_fonts as $name => $single_font ) {
+                            $variants = $this->responsive_get_prop( $single_font, '0' );
+                            $category = $this->responsive_get_prop( $single_font, '1' );
+                            echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
+						} ?>
 					</optgroup>
 				<?php } ?>
 			</select>
@@ -115,4 +116,19 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 
 		<?php
 	}
+
+    function responsive_get_prop( $array, $prop, $default = null ) {
+
+        if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
+            return $default;
+        }
+
+        if ( isset( $array[ $prop ] ) ) {
+            $value = $array[ $prop ];
+        } else {
+            $value = '';
+        }
+
+        return empty( $value ) && null !== $default ? $default : $value;
+    }
 }

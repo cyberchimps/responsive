@@ -41,6 +41,7 @@ require $template_directory . '/core/includes/customizer/controls/typography/web
 require $template_directory . '/core/includes/customizer/helper.php';
 require $template_directory . '/core/includes/customizer/customizer.php';
 require $template_directory . '/core/includes/customizer/custom-styles.php';
+require $template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 
 // Return value of the supplied responsive free theme option.
 function responsive_free_get_option( $option, $default = false ) {

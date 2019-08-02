@@ -193,6 +193,59 @@ if ( ! function_exists( 'responsive_page_elements' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_product_elements' ) ) {
+    /**
+     * Returns single product view page elements for the customizer
+     *
+     * @since 0.2
+     */
+    function responsive_product_elements() {
+        // Default elements.
+        $elements = apply_filters(
+            'responsive_product_elements',
+            array(
+                'title'          => esc_html__( 'Title', 'responsive' ),
+                'ratings'         => esc_html__('Rating', 'responsive'),
+                'price'         => esc_html__('Price', 'responsive'),
+                'short_desc' => esc_html__( 'Short Description', 'responsive' ),
+                'add_cart'         => esc_html__('Add to Cart', 'responsive'),
+                'meta'         => esc_html__('Meta', 'responsive'),
+            )
+        );
+
+        // Return elements.
+        return $elements;
+
+    }
+}
+
+
+if ( ! function_exists( 'responsive_shoppage_elements' ) ) {
+    /**
+     * Returns single product view on shop page
+     *
+     * @since 0.2
+     */
+    function responsive_shoppage_elements() {
+        // Default elements.
+        $elements = apply_filters(
+            'responsive_shoppage_elements',
+            array(
+                'title'          => esc_html__( 'Title', 'responsive' ),
+                'category'         => esc_html__('Category', 'responsive'),
+                'price'         => esc_html__('Price', 'responsive'),
+                'ratings'         => esc_html__('Ratings', 'responsive'),
+                'short_desc' => esc_html__( 'Short Description', 'responsive' ),
+                'add_cart'         => esc_html__('Add to Cart', 'responsive'),
+            )
+        );
+
+        // Return elements.
+        return $elements;
+
+    }
+}
+
 /**
  * Adds custom classes to the array of body classes.
  */
