@@ -42,15 +42,17 @@ $responsive_options = responsive_get_options();
 		 <!--   main-->
 
 	<?php if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-no-box' ) ) { ?>
-		<div class="social_div grid col-940">
+
 			<div id="content-outer">
-			<?php echo responsive_get_social_icons_new(); ?>
-		</div>
-		<div class="footer_div grid col-940">
-			<div id="content-outer">
-		<?php get_sidebar( 'footer' ); ?>
-		</div>
-		</div>
+				<?php echo responsive_get_social_icons_new(); ?>
+			</div>
+			<?php if( is_active_sidebar( 'footer-widget' ) ) { ?>
+			<div class="footer_div grid col-940">
+				<div id="content-outer">
+					<?php get_sidebar( 'footer' ); ?>
+				</div>
+			</div>
+		<?php } ?>
 		<div id="content-outer">
 		<?php if ( has_nav_menu( 'footer-menu' ) ) { ?>
 		<div class="grid col-940">
@@ -73,7 +75,6 @@ $responsive_options = responsive_get_options();
 			<div class="grid col-380 fit">
 			</div><!-- end of col-380 fit -->
 
-		</div><!-- end of col-940 -->
 		<?php } ?>
 		<?php get_sidebar( 'colophon' ); ?>
 		<?php if ( isset( $responsive_options['copyright_textbox'] ) ) {
