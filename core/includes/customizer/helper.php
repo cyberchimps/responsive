@@ -205,7 +205,7 @@ if ( ! function_exists( 'responsive_product_elements' ) ) {
             'responsive_product_elements',
             array(
                 'title'          => esc_html__( 'Title', 'responsive' ),
-                'rating'         => esc_html__('Rating', 'responsive'),
+                'ratings'         => esc_html__('Rating', 'responsive'),
                 'price'         => esc_html__('Price', 'responsive'),
                 'short_desc' => esc_html__( 'Short Description', 'responsive' ),
                 'add_cart'         => esc_html__('Add to Cart', 'responsive'),

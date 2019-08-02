@@ -43,9 +43,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
             );
 
             $wp_customize->add_setting(
-                'responsive_product_single_elements_positioning',
+                'responsive_woocommerce_product_elements_positioning',
                 array(
-                    'default'           => array( 'title', 'rating', 'price', 'short_description', 'add_to_cart', 'meta' ),
+                    'default'           => array( 'title', 'ratings', 'price', 'short_desc', 'add_cart', 'meta' ),
                     'sanitize_callback' => 'responsive_sanitize_multi_choices',
                     'transport'         => 'refresh',
                 )
@@ -54,11 +54,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
             $wp_customize->add_control(
                 new Responsive_Customizer_Sortable_Control(
                     $wp_customize,
-                    'responsive_product_single_elements_positioning',
+                    'responsive_woocommerce_product_elements_positioning',
                     array(
                         'label'    => esc_html__( 'Single Product Structure', 'responsive' ),
                         'section'  => 'responsive_woocommerce_single_product_section',
-                        'settings' => 'responsive_product_single_elements_positioning',
+                        'settings' => 'responsive_woocommerce_product_elements_positioning',
                         'priority' => 10,
                         'choices'  => responsive_product_elements(),
                     )
