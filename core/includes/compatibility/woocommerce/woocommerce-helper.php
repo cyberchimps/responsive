@@ -56,6 +56,33 @@ if ( ! function_exists( 'responsive_woocommerce_shop_elements_positioning' ) ) {
     }
 }
 
+if ( ! function_exists( 'responsive_woocommerce_product_elements_positioning' ) ) {
+    /**
+     * Returns blog single elements positioning
+     *
+     * @since 1.1.0
+     */
+    function responsive_woocommerce_product_elements_positioning() {
+
+        // Default sections.
+        $sections = array( 'title', 'price', 'ratings', 'short_desc', 'add_cart', 'category' );
+
+        // Get sections from Customizer.
+        $sections = get_theme_mod( 'responsive_woocommerce_product_elements_positioning', $sections );
+
+        // Turn into array if string.
+        if ( $sections && ! is_array( $sections ) ) {
+            $sections = explode( ',', $sections );
+        }
+
+        // Apply filters for easy modification.
+        $sections = apply_filters( 'responsive_woocommerce_product_elements_positioning', $sections );
+
+        // Return sections.
+        return $sections;
+
+    }
+}
 /**
  * Shop page - Short Description
  */

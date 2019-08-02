@@ -52,6 +52,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
             add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
 
+            add_action( 'wp', array( $this, 'single_product_customization' ) );
+
             add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
@@ -128,6 +130,86 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
                 }
 
                 echo '</div>';
+            }
+        }
+
+        /**
+         * Single product structure customization.
+         *
+         * @return void
+         */
+        function single_product_customization() {
+
+            if ( ! is_product() ) {
+                return;
+            }
+
+            // Remove Default actions.
+            remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+            remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+            remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+            remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+            remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+            remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+
+            /* Add single product content */
+            add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
+        }
+
+        /**
+         * Show the product title in the product loop. By default this is an H2.
+         *
+         * @param string $product_type product type.
+         */
+        function single_product_content_structure( $product_type = '' ) {
+
+            $single_product_structure = responsive_woocommerce_product_elements_positioning();
+
+            if ( is_array( $single_product_structure ) && ! empty( $single_product_structure ) ) {
+
+                foreach ( $single_product_structure as $value ) {
+
+                    switch ( $value ) {
+                        case 'title':
+                            /**
+                             * Product Title on single product page.
+                             */
+                            woocommerce_template_single_title();
+                            break;
+                        case 'price':
+                            /**
+                             * Product Price on single product.
+                             */
+                            woocommerce_template_single_price();
+                            break;
+                        case 'ratings':
+                            /**
+                             * Rating on single product.
+                             */
+                            woocommerce_template_single_rating();
+                            break;
+                        case 'short_desc':
+                            /**
+                             * Short description on single product.
+                             */
+                            woocommerce_template_single_excerpt();
+                            break;
+                        case 'add_cart':
+                            /**
+                             * Add to cart action on single product
+                             */
+                            woocommerce_template_single_add_to_cart();
+                            break;
+                        case 'meta':
+                            /**
+                             * Meta content on single product
+                             */
+                            woocommerce_template_single_meta();
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
         }
 
