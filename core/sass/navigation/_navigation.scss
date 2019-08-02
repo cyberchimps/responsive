@@ -1,0 +1,43 @@
+
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+@import "links";
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+@import "menus";
+/* =Navigation
+-------------------------------------------------------------- */
+.navigation {
+	color: #111111;
+	display: block;
+	font-size: 13px;
+	height: 28px;
+	line-height: 28px;
+	margin: 20px 0;
+	padding: 0 5px;
+}
+
+.navigation a {
+	color: #aaaaaa;
+	padding: 4px 10px;
+}
+
+.navigation a:hover {
+	color: #111111;
+	text-decoration: none;
+}
+
+.navigation .previous {
+	float: left;
+}
+
+.navigation .next {
+	float: right;
+}
+
+.navigation .bracket {
+	font-size: 36px;
+}

@@ -1,0 +1,144 @@
+html {
+	box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+/*HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+button, input, select, textarea {
+	font-size: 100%;
+	overflow: visible;
+	margin: 0;
+	vertical-align: baseline;
+	width: auto;
+}
+
+textarea {
+	overflow: auto;
+	vertical-align: text-top;
+}
+/* =Horizontal Rule
+-------------------------------------------------------------- */
+hr {
+	background: #dddddd;
+	border: none;
+	clear: both;
+	float: none;
+	height: 1px;
+	width: 100%;
+}
+
+hr.space {
+	background: #ffffff;
+}
+
+/* =Base
+-------------------------------------------------------------- */
+html {
+	height: 100%;
+}
+
+body {
+	-moz-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	background: #fff;
+	color: #555555;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.font-smoothing(antialiased)";
+	line-height: 1.5em;
+	-ms-filter: "progid:DXImageTransform.Microsoft.text-rendering(optimizeLegibility)";
+}
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+}
+
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+@import "lists";
+/* =Responsive Images
+-------------------------------------------------------------- */
+img {
+	-ms-interpolation-mode: bicubic;
+	border: 0;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.ie8 img {
+	height: auto;
+	width: auto;
+}
+
+.ie8 img.size-large {
+	max-width: 60%;
+	width: auto;
+}
+
+/* =Responsive Videos
+-------------------------------------------------------------- */
+video {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+/* =Responsive Embeds/Objects
+-------------------------------------------------------------- */
+embed,
+object {
+	max-width: 100%;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+@import "tables";
