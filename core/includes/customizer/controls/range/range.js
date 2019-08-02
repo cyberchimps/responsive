@@ -60,9 +60,9 @@ wp.customize.controlConstructor['responsive-range'] = wp.customize.Control.exten
 					function() {
 
 						if ( isNaN( value ) ) {
-							  range_input.val( reset );
-							  range.val( reset ).trigger( 'change' );
-							  return;
+							range_input.val( reset );
+							range.val( reset ).trigger( 'change' );
+							return;
 						}
 
 						if ( step >= 1 && value % 1 !== 0 ) {

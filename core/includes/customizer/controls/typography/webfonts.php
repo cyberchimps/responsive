@@ -44,7 +44,7 @@ function responsive_enqueue_google_font( $font ) {
 	$google_fonts = responsive_google_fonts_array();
 
 	// Make sure font is in our list of fonts.
-	if ( ! $google_fonts || ! in_array( $font, $google_fonts ) ) {
+	if ( ! $google_fonts || ! in_array( $font, $google_fonts, true ) ) {
 		return;
 	}
 
