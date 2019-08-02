@@ -56,6 +56,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
             add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
+			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
+
         }
 
         /**
@@ -80,6 +82,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
             require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php';
             require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-general-customizer.php';
 
         }
 
@@ -210,6 +213,67 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
             }
         }
 
+		/**
+		 * Sale bubble flash
+		 *
+		 * @param  mixed  $markup  HTML markup of the the sale bubble / flash.
+		 * @param  string $post Post.
+		 * @param  string $product Product.
+		 * @return string bubble markup.
+		 */
+		function sale_flash( $markup, $post, $product ) {
+
+			$sale_notification = get_theme_mod( 'responsive_product_sale_notification', '', 'default' );
+
+			// If none? then return!
+			if ( 'none' === $sale_notification ) {
+				return;
+			}
+
+			// Default text.
+			$text = __( 'Sale!', 'responsive' );
+
+			switch ( $sale_notification ) {
+
+				// Display % instead of "Sale!".
+				case 'sale-percentage':
+					$sale_percent_value = get_theme_mod( 'responsive_sale_percent_value' );
+					// if not variable product.
+					if ( ! $product->is_type( 'variable' ) ) {
+						$sale_price = $product->get_sale_price();
+
+						if ( $sale_price ) {
+							$regular_price      = $product->get_regular_price();
+							$percent_sale       = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
+							$sale_percent_value = $sale_percent_value ? $sale_percent_value : '-[value]%';
+							$text               = str_replace( '[value]', $percent_sale, $sale_percent_value );
+						}
+					} else {
+							// if variable product.
+						foreach ( $product->get_children() as $child_id ) {
+							$variation  = wc_get_product( $child_id );
+							$sale_price = $variation->get_sale_price();
+							if ( $sale_price ) {
+								$regular_price      = $variation->get_regular_price();
+								$percent_sale       = round( ( ( ( $regular_price - $sale_price ) / $regular_price ) * 100 ), 0 );
+								$sale_percent_value = $sale_percent_value ? $sale_percent_value : '-[value]%';
+								$text               = str_replace( '[value]', $percent_sale, $sale_percent_value );
+							}
+						}
+					}
+					break;
+			}
+
+			// CSS classes.
+			$classes   = array();
+			$classes[] = 'onsale';
+			$classes[] = get_theme_mod( 'responsive_product_sale_style' );
+			$classes   = implode( ' ', $classes );
+
+			// Generate markup.
+			return '<span class="' . esc_attr( $classes ) . '">' . esc_html( $text ) . '</span>';
+
+		}
 
     }
 

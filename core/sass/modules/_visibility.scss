@@ -1,0 +1,21 @@
+/* =Visibility
+-------------------------------------------------------------- */
+.hidden {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.none {
+	display: none;
+}
+
+.hide-desktop {
+	display: none;
+}
+
+.show-desktop {
+	display: block;
+}
