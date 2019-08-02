@@ -1,0 +1,48 @@
+/*
+	changes according gutenberg plugin --START
+ */
+
+ /**
+  * figure audio style
+  *
+  */
+ figure.wp-block-audio.aligncenter{
+ 	text-align: center;
+ }
+
+ figure.wp-block-audio.aligncenter audio{
+ 	width: 100%;
+ }
+
+ .wp-block-cover.aligncenter{
+	 clear: both;
+ }
+
+ div .wp-block-cover-text{
+  	position: absolute;
+     color: #fff;
+     font-size: 2em;
+     line-height: 1.25;
+     margin-bottom: 0;
+     max-width: 610px;
+     padding: 14px;
+     text-align: center;
+     z-index: 1;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+ 	width: 100%;
+
+ }
+
+ .wp-block-image {
+     margin-bottom: 20px;
+ }
+
+ .wp-block-gallery .blocks-gallery-item figcaption{
+	 padding: 40px 0 5px;
+ }
+
+/*
+	changes according gutenberg plugin -- END
+ */
