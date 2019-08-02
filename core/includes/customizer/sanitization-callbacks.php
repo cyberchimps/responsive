@@ -33,7 +33,7 @@ function responsive_sanitize_dropdown_pages( $page_id, $setting ) {
 	$page_id = absint( $page_id );
 
 	// If $page_id is an ID of a published page, return it; otherwise, return the default.
-	return ( 'publish' == get_post_status( $page_id ) ? $page_id : $setting->default );
+	return ( 'publish' === get_post_status( $page_id ) ? $page_id : $setting->default );
 }
 
 /**

@@ -262,10 +262,10 @@ if ( ! function_exists( 'responsive_body_classes' ) ) {
 
 		// Apply separate container class to the body.
 		$content_layout = responsive_get_content_layout();
-		if ( 'fullwidth' == $content_layout ) {
+		if ( 'fullwidth' === $content_layout ) {
 			$classes[] = 'fullwidth-layout';
 		}
-		if ( 'content-boxed' == $content_layout ) {
+		if ( 'content-boxed' === $content_layout ) {
 			$classes[] = 'content-boxed-layout';
 		}
 
@@ -305,7 +305,7 @@ if ( ! function_exists( 'responsive_get_content_layout' ) ) {
 					$content_layout = get_theme_mod( 'responsive_single_' . get_post_type() . '_layout' );
 				}
 
-				if ( 'default' == $content_layout || empty( $content_layout ) ) {
+				if ( 'default' === $content_layout || empty( $content_layout ) ) {
 
 					// Get the GLOBAL content layout value.
 					// NOTE: Here not used `true` in the below function call.
@@ -325,7 +325,7 @@ if ( ! function_exists( 'responsive_get_content_layout' ) ) {
 				$content_layout = get_theme_mod( 'responsive_page_layout' );
 			}
 
-			if ( 'default' == $content_layout || empty( $content_layout ) ) {
+			if ( 'default' === $content_layout || empty( $content_layout ) ) {
 
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
@@ -522,7 +522,7 @@ if ( ! function_exists( 'responsive_get_post_audio_html' ) ) {
 		}
 
 		// Check post format for standard post type.
-		if ( 'post' == get_post_type() && 'audio' != get_post_format() ) {
+		if ( 'post' === get_post_type() && 'audio' !== get_post_format() ) {
 			return;
 		}
 
