@@ -42,8 +42,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$wp_customize->add_section(
 	                'responsive_woocommerce_colors_section',
 	                array(
-	                    'title'    => esc_html__( 'WooCommerce Colors', 'responsive' ),
-	                    'panel'    => 'responsive-layout-options',
+	                    'title'    => esc_html__( 'Colors', 'responsive' ),
+	                    'panel'    => 'woocommerce',
 	                    'priority' => 296,
 	                )
 	            );

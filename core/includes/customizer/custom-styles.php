@@ -282,12 +282,12 @@ function responsive_premium_custom_color_styles() {
 	";
 
 	if( !empty( $menu_text_color ) ) {
-		$custom_css .= ".menu a {
+		$custom_css .= ".menu a, .full-width-no-box .menu a {
 			color: {$menu_text_color};
 		}";
 	}
 	if( !empty( $menu_text_hover_color ) ) {
-		$custom_css .= ".menu a:hover {
+		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover {
 			color: {$menu_text_color};
 		}";
 	}
@@ -311,7 +311,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if( !empty( $menu_background_color ) ) {
-		$custom_css .= ".full-width-no-box .main-nav, .full-width-no-box .menu, .menu {
+		$custom_css .= ".main-nav, .full-width-no-box .main-nav, .full-width-no-box .menu, .menu {
 				background-color:{$menu_background_color};
 				background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
 				background-image: -webkit-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
