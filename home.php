@@ -23,7 +23,8 @@ get_header();
 
 global $more;
 $more = 0;
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+// include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+get_template_part( 'wp-admin/includes', 'plugin' );
 global $responsive_options;
 $responsive_options = responsive_get_options();
 if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( $responsive_options['blog_posts_index_layout_default'] == 'blog-3-col' ) ) {

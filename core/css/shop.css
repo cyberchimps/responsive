@@ -1,10 +1,10 @@
 #custom_shop .woocommerce ul.products li.product, .woocommerce-page ul.products li.product
 {
 	border: 1px solid #cfcfcf;
-	width:48%;
+	/* width:48%; */
 	padding:2%;
 	box-sizing: border-box;
-    margin: 0 0 2.992em;
+    /* margin: 0 0 2.992em; */
 	margin-bottom:2em;
 	text-align: center;
 }
@@ -105,7 +105,7 @@
 
 .products > li:nth-of-type(2n+1), .products > div > div > li:nth-of-type(2n+1)
 {
-	clear:both;
+	/* clear:both; */
 }
 
 
@@ -350,7 +350,7 @@
 
 .woocommerce ul.products[class*=columns-] li.product:nth-child(2n),
 .woocommerce-page ul.products[class*=columns-] li.product:nth-child(2n) {
-    float: right;
+    /* float: right; */
     clear: none!important;
 }
 
