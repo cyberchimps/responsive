@@ -15,9 +15,9 @@ function responsive_standard_fonts() {
 		'responsive_standard_fonts_array',
 		array(
 			'Open Sans',
-            'Times New Roman',
-            'Georgia',
-            'Garamond',
+			'Times New Roman',
+			'Georgia',
+			'Garamond',
 		)
 	);
 }
@@ -32,11 +32,11 @@ function responsive_standard_fonts() {
  */
 function get_google_fonts() {
 
-        $google_fonts_file = apply_filters( 'responsive_google_fonts_json_file',  RESPONSIVE_THEME_DIR. 'core/includes/customizer/controls/typography/google-fonts.json' );
+	$google_fonts_file = apply_filters( 'responsive_google_fonts_json_file',  RESPONSIVE_THEME_DIR. 'core/includes/customizer/controls/typography/google-fonts.json' );
 
-        if ( ! file_exists(  RESPONSIVE_THEME_DIR. 'core/includes/customizer/controls/typography/google-fonts.json' ) ) {
-            return array();
-        }
+	if ( ! file_exists( RESPONSIVE_THEME_DIR. 'core/includes/customizer/controls/typography/google-fonts.json' ) ) {
+		return array();
+	}
 
         global $wp_filesystem;
         if ( empty( $wp_filesystem ) ) {
@@ -89,7 +89,7 @@ function responsive_enqueue_google_font( $font ) {
     $font_name = trim($font_name_array[0], "'");
 
 	// Make sure font is in our list of fonts.
-	if ( ! $google_fonts || ! array_key_exists( $font_name, $google_fonts ) ) {
+	if ( ! $google_fonts || ! in_array( $font, $google_fonts, true ) ) {
 		return;
 	}
 

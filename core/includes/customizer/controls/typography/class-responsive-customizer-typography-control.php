@@ -72,10 +72,10 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 						<optgroup label="<?php esc_html_e( 'Custom Fonts', 'responsive' ); ?>">
 							<?php foreach ( $fonts as $font ) { ?>
 								<option value="<?php echo esc_html( $font ); ?>"
-														  <?php
-															if ( $font == $this_val ) {
-																echo 'selected="selected"';}
-															?>
+									<?php
+									if ( $font == $this_val ) {
+											echo 'selected="selected"';}
+									?>
 								><?php echo esc_html( $font ); ?></option>
 							<?php } ?>
 						</optgroup>

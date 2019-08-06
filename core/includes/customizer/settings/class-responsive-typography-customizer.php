@@ -551,14 +551,14 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 						// Add px if font size or letter spacing.
 						$px = '';
-						if ( ( 'font-size' == $attribute
+						if ( ( 'font-size' === $attribute
 								&& is_numeric( $val ) )
-							|| 'letter-spacing' == $attribute ) {
+							|| 'letter-spacing' === $attribute ) {
 							$px = 'px';
 						}
 
 						// Add quotes around font-family && font family to scripts array.
-						if ( 'font-family' == $attribute ) {
+						if ( 'font-family' === $attribute ) {
 							$fonts[] = $val;
 
 							// No brackets can be added as it cause issue with sans serif fonts.
@@ -566,93 +566,93 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						}
 
 						// Add to inline CSS.
-						if ( 'css' == $return ) {
+						if ( 'css' === $return ) {
 							$add_css .= $attribute . ':' . $val . $px . ';';
-						} elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' === $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-' . $attribute ] = $target . '{' . $attribute . ':' . $val . $px . ';}';
 						}
 					}
 
 					// If there is a value lets do something.
 					if ( $tablet_val
-						&& ( 'font-size' == $attribute
-							|| 'line-height' == $attribute
-							|| 'letter-spacing' == $attribute ) ) {
+						&& ( 'font-size' === $attribute
+							|| 'line-height' === $attribute
+							|| 'letter-spacing' === $attribute ) ) {
 
 						// Sanitize.
 						$tablet_val = str_replace( '"', '', $tablet_val );
 
 						// Add px if font size or letter spacing.
 						$px = '';
-						if ( ( 'font-size' == $attribute
+						if ( ( 'font-size' === $attribute
 								&& is_numeric( $tablet_val ) )
-							|| 'letter-spacing' == $attribute ) {
+							|| 'letter-spacing' === $attribute ) {
 							$px = 'px';
 						}
 
 						// Add to inline CSS.
-						if ( 'css' == $return ) {
+						if ( 'css' === $return ) {
 							$tablet_css .= $attribute . ':' . $tablet_val . $px . ';';
-						} elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' === $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-tablet-' . $attribute ] = '@media (max-width: 768px){' . $target . '{' . $attribute . ':' . $tablet_val . $px . ';}}';
 						}
 					}
 
 					// If there is a value lets do something.
 					if ( $mobile_val
-						&& ( 'font-size' == $attribute
-							|| 'line-height' == $attribute
-							|| 'letter-spacing' == $attribute ) ) {
+						&& ( 'font-size' === $attribute
+							|| 'line-height' === $attribute
+							|| 'letter-spacing' === $attribute ) ) {
 
 						// Sanitize.
 						$mobile_val = str_replace( '"', '', $mobile_val );
 
 						// Add px if font size or letter spacing.
 						$px = '';
-						if ( ( 'font-size' == $attribute
+						if ( ( 'font-size' === $attribute
 								&& is_numeric( $mobile_val ) )
-							|| 'letter-spacing' == $attribute ) {
+							|| 'letter-spacing' === $attribute ) {
 							$px = 'px';
 						}
 
 						// Add to inline CSS.
-						if ( 'css' == $return ) {
+						if ( 'css' === $return ) {
 							$mobile_css .= $attribute . ':' . $mobile_val . $px . ';';
-						} elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' === $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-mobile-' . $attribute ] = '@media (max-width: 480px){' . $target . '{' . $attribute . ':' . $mobile_val . $px . ';}}';
 						}
 					}
 				}
 
 				// Front-end inline CSS.
-				if ( $add_css && 'css' == $return ) {
+				if ( $add_css && 'css' === $return ) {
 					$css .= $target . '{' . $add_css . '}';
 				}
 
 				// Front-end inline tablet CSS.
-				if ( $tablet_css && 'css' == $return ) {
+				if ( $tablet_css && 'css' === $return ) {
 					$css .= '@media (max-width: 768px){' . $target . '{' . $tablet_css . '}}';
 				}
 
 				// Front-end inline mobile CSS.
-				if ( $mobile_css && 'css' == $return ) {
+				if ( $mobile_css && 'css' === $return ) {
 					$css .= '@media (max-width: 480px){' . $target . '{' . $mobile_css . '}}';
 				}
 			}
 
 			// Return CSS.
-			if ( 'css' == $return && ! empty( $css ) ) {
+			if ( 'css' === $return && ! empty( $css ) ) {
 				$css = '/* Typography CSS */' . $css;
 				return $css;
 			}
 
 			// Return styles.
-			if ( 'preview_styles' == $return && ! empty( $preview_styles ) ) {
+			if ( 'preview_styles' === $return && ! empty( $preview_styles ) ) {
 				return $preview_styles;
 			}
 
 			// Return Fonts Array.
-			if ( 'fonts' == $return && ! empty( $fonts ) ) {
+			if ( 'fonts' === $return && ! empty( $fonts ) ) {
 				return array_unique( $fonts );
 			}
 

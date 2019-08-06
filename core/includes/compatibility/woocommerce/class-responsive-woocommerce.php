@@ -9,7 +9,7 @@
 
 // If plugin - 'WooCommerce' not exist then return.
 if ( ! class_exists( 'WooCommerce' ) ) {
-    return;
+	return;
 }
 
 /**
@@ -17,42 +17,44 @@ if ( ! class_exists( 'WooCommerce' ) ) {
  */
 if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
-    /**
-     * Responsive WooCommerce Compatibility
-     *
-     * @since 1.0.0
-     */
-    class Responsive_Woocommerce {
+	/**
+	 * Responsive WooCommerce Compatibility
+	 *
+	 * @since 1.0.0
+	 */
+	class Responsive_Woocommerce {
 
-        /**
-         * Member Variable
-         *
-         * @var object instance
-         */
-        private static $instance;
+		/**
+		 * Member Variable
+		 *
+		 * @var object instance
+		 */
+		private static $instance;
 
-        /**
-         * Initiator
-         */
-        public static function get_instance() {
-            if ( ! isset( self::$instance ) ) {
-                self::$instance = new self();
-            }
-            return self::$instance;
-        }
+		/**
+		 * Initiator
+		 */
+		public static function get_instance() {
+			if ( ! isset( self::$instance ) ) {
+				self::$instance = new self();
+			}
+			return self::$instance;
+		}
 
-        /**
-         * Constructor
-         */
-        public function __construct() {
+		/**
+		 * Constructor
+		 */
+		public function __construct() {
 
-            require_once RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/woocommerce-helper.php';
+			require_once RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/woocommerce-helper.php';
 
-            add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ));
+			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
 
-            add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
+			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
 
-            add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
+			add_action( 'wp', array( $this, 'single_product_customization' ) );
+
+			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
 
@@ -83,54 +85,139 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-general-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-colors-customizer.php';
 
-        }
+		}
 
-        /**
-         * Show the product title in the product loop. By default this is an H2.
-         */
-        function responsive_woocommerce_shop_product_content()
-        {
-            $shop_structure = responsive_woocommerce_shop_elements_positioning();
+		/**
+		 * Show the product title in the product loop. By default this is an H2.
+		 */
+		public function responsive_woocommerce_shop_product_content() {
+			$shop_structure = responsive_woocommerce_shop_elements_positioning();
 
-            if (is_array($shop_structure) && !empty($shop_structure)) {
+			if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
 
-                echo '<div class="ressponsive-shop-summary-wrap">';
+				echo '<div class="ressponsive-shop-summary-wrap">';
 
-                foreach ($shop_structure as $value) {
+				foreach ( $shop_structure as $value ) {
 
-                    switch ($value) {
-                        case 'title':
-                            /**
-                             * Product Title on shop page.
-                             */
-                            responsive_woo_woocommerce_template_loop_product_title();
-                            break;
-                        case 'price':
-                            /**
-                             * Product Price on shop page.
-                             */
-                            woocommerce_template_loop_price();
-                            break;
-                        case 'ratings':
-                            /**
-                             * rating on shop page.
-                             */
-                            woocommerce_template_loop_rating();
-                            break;
-                        case 'short_desc':
-                            responsive_woo_shop_product_short_description();
-                            break;
-                        case 'add_cart':
-                            woocommerce_template_loop_add_to_cart();
-                            break;
-                        default:
-                            break;
-                    }
-                }
+					switch ( $value ) {
+						case 'title':
+							/**
+							 * Product Title on shop page.
+							 */
+							responsive_woo_woocommerce_template_loop_product_title();
+							break;
+						case 'price':
+							/**
+							 * Product Price on shop page.
+							 */
+							woocommerce_template_loop_price();
+							break;
+						case 'ratings':
+							/**
+							 * Rating on shop page.
+							 */
+							woocommerce_template_loop_rating();
+							break;
+						case 'short_desc':
+							/*
+							 * Short description on shop page.
+							 */
+							responsive_woo_shop_product_short_description();
+							break;
+						case 'add_cart':
+							/**
+							 * Add to cart button on shop page.
+							 */
+							woocommerce_template_loop_add_to_cart();
+							break;
+						default:
+							break;
+					}
+				}
 
-                echo '</div>';
-            }
-        }
+				echo '</div>';
+			}
+		}
+
+		/**
+		 * Single product structure customization.
+		 *
+		 * @return void
+		 */
+		public function single_product_customization() {
+
+			if ( ! is_product() ) {
+				return;
+			}
+
+			// Remove Default actions.
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+
+			/* Add single product content */
+			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
+		}
+
+		/**
+		 * Show the product title in the product loop. By default this is an H2.
+		 *
+		 * @param string $product_type product type.
+		 */
+		public function single_product_content_structure( $product_type = '' ) {
+
+			$single_product_structure = responsive_woocommerce_product_elements_positioning();
+
+			if ( is_array( $single_product_structure ) && ! empty( $single_product_structure ) ) {
+
+				foreach ( $single_product_structure as $value ) {
+
+					switch ( $value ) {
+						case 'title':
+							/**
+							 * Product Title on single product page.
+							 */
+							woocommerce_template_single_title();
+							break;
+						case 'price':
+							/**
+							 * Product Price on single product.
+							 */
+							woocommerce_template_single_price();
+							break;
+						case 'ratings':
+							/**
+							 * Rating on single product.
+							 */
+							woocommerce_template_single_rating();
+							break;
+						case 'short_desc':
+							/**
+							 * Short description on single product.
+							 */
+							woocommerce_template_single_excerpt();
+							break;
+						case 'add_cart':
+							/**
+							 * Add to cart action on single product
+							 */
+							woocommerce_template_single_add_to_cart();
+							break;
+						case 'meta':
+							/**
+							 * Meta content on single product
+							 */
+							woocommerce_template_single_meta();
+							break;
+						default:
+							break;
+					}
+				}
+			}
+		}
 
 		/**
 		 * Sale bubble flash
@@ -140,11 +227,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * @param  string $product Product.
 		 * @return string bubble markup.
 		 */
-		function sale_flash( $markup, $post, $product ) {
+		public function sale_flash( $markup, $post, $product ) {
 
 			$sale_notification = get_theme_mod( 'responsive_product_sale_notification', '', 'default' );
 
-			// If none? then return!
+			// If none then return.
 			if ( 'none' === $sale_notification ) {
 				return;
 			}
@@ -194,7 +281,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 		}
 
-    }
+	}
 
 endif;
-    Responsive_Woocommerce::get_instance();
+	Responsive_Woocommerce::get_instance();
