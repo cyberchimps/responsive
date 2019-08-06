@@ -58,31 +58,32 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
 
-		}
+        }
 
-		/**
-		 * Remove Woo-Commerce Default actions
-		 *
-		 * @since 3.15.4
-		 */
-		public function woocommerce_init() {
-			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
-			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
-			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
-		}
+        /**
+         * Remove Woo-Commerce Default actions
+         *
+         * @since 3.15.4
+         */
+        function woocommerce_init() {
+            remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+            remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+            remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+            remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+        }
 
-		/**
-		 * Register Customizer sections and panel for woocommerce
-		 *
-		 * @since 3.15.4
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
-		 */
-		public function customize_register( $wp_customize ) {
-
-			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php';
-			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php';
+        /**
+         * Register Customizer sections and panel for woocommerce
+         *
+         * @since 3.15.4
+         * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+         */
+        function customize_register( $wp_customize ) {
+			//require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-customizer.php';
+            require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php';
+            require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-general-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-colors-customizer.php';
 
 		}
 

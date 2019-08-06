@@ -25,260 +25,6 @@
 # Normalize
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-/* =Typography
--------------------------------------------------------------- */
-p {
-  word-wrap: break-word;
-}
-
-i,
-em,
-dfn,
-cite {
-  font-style: italic;
-}
-
-tt,
-var,
-pre,
-kbd,
-samp,
-code {
-  font-family: monospace, serif;
-  font-style: normal;
-}
-
-b,
-strong {
-  font-weight: 700;
-}
-
-pre {
-  -moz-box-sizing: border-box;
-  -moz-border-radius: 2px;
-  -moz-box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 2px;
-  -webkit-box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
-  -webkit-box-sizing: border-box;
-  box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  background: #f4f4f4;
-  border: 1px solid #aaaaaa;
-  border-bottom-color: #cccccc;
-  border-radius: 2px;
-  height: auto;
-  margin: 0;
-  outline: none;
-  padding: 6px 10px;
-  vertical-align: middle;
-  width: 100%;
-  word-wrap: break-word;
-  white-space: pre-wrap;
-}
-
-del {
-  color: #555555;
-  text-decoration: line-through;
-}
-
-ins,
-dfn {
-  border-bottom: 1px solid #cccccc;
-}
-
-sup,
-sub,
-small {
-  font-size: 85%;
-}
-
-abbr,
-acronym {
-  font-size: 85%;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-a abbr,
-a acronym {
-  border: none;
-}
-
-dfn[title],
-abbr[title],
-acronym[title] {
-  border-bottom: 1px solid #cccccc;
-  cursor: help;
-}
-
-sup {
-  vertical-align: super;
-}
-
-sub {
-  vertical-align: sub;
-}
-
-.sticky-header {
-  position: fixed;
-  top: 0;
-  left: 0px;
-  z-index: 200;
-  width: 100%;
-  background-color: #fff;
-  margin: 0 !important;
-  opacity: 0.9;
-  -webkit-transition: all 0.8s ease-in-out 0s;
-  -moz-transition: all 0.8s ease-in-out 0s;
-  -o-transition: all 0.8s ease-in-out 0s;
-  transition: all 0.8s ease-in-out 0s;
-}
-
-.admin-bar .sticky-header {
-  top: 30px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  clear: both;
-}
-
-/* =Headings
--------------------------------------------------------------- */
-h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  font-weight: 700;
-  line-height: 1em;
-  word-wrap: break-word;
-}
-
-h1 {
-  font-size: 2.625em;
-  /* = 42px */
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
-}
-
-h2 {
-  font-size: 2.25em;
-  /* = 36px */
-  margin-bottom: 0.75em;
-  margin-top: 0.75em;
-}
-
-h3 {
-  font-size: 1.875em;
-  /* = 30px */
-  margin-bottom: 0.857em;
-  margin-top: 0.857em;
-}
-
-h4 {
-  font-size: 1.5em;
-  /* = 24px */
-  margin-bottom: 1em;
-  margin-top: 1em;
-}
-
-h5 {
-  font-size: 1.125em;
-  /* = 18px */
-  margin-bottom: 1.125em;
-  margin-top: 1.125em;
-}
-
-h6 {
-  font-size: 1em;
-  /* = 16px */
-  margin-bottom: 1.285em;
-  margin-top: 1.285em;
-}
-
-/* =Margins & Paddings
--------------------------------------------------------------- */
-p,
-hr,
-dl,
-pre,
-form,
-table,
-address,
-blockquote {
-  margin: 1.6em 0;
-}
-
-th, td {
-  padding: 0.8em;
-}
-
-caption {
-  padding-bottom: 0.8em;
-}
-
-blockquote {
-  padding: 0 1em;
-}
-
-blockquote:first-child {
-  margin: 0.8em 0;
-}
-
-fieldset {
-  margin: 1.6em 0;
-  padding: 0 1em 1em;
-}
-
-legend {
-  padding-left: 0.8em;
-  padding-right: 0.8em;
-}
-
-legend + * {
-  margin-top: 1em;
-}
-
-input,
-textarea {
-  padding: 0.3em 0.4em 0.15em;
-}
-
-select {
-  padding: 0.1em 0.2em 0;
-}
-
-option {
-  padding: 0 0.4em;
-}
-
-dt {
-  margin-bottom: 0.4em;
-  margin-top: 0.8em;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-ul,
-ol {
-  margin: 0 1.5em 1.5em 0;
-  padding-left: 2em;
-}
-
-li ul,
-li ol {
-  margin: 0;
-}
-
-form div {
-  margin-bottom: 0.8em;
-}
-
-/*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
 html {
@@ -543,6 +289,260 @@ table {
 table {
   border-collapse: collapse;
   width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/* =Typography
+-------------------------------------------------------------- */
+p {
+  word-wrap: break-word;
+}
+
+i,
+em,
+dfn,
+cite {
+  font-style: italic;
+}
+
+tt,
+var,
+pre,
+kbd,
+samp,
+code {
+  font-family: monospace, serif;
+  font-style: normal;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+pre {
+  -moz-box-sizing: border-box;
+  -moz-border-radius: 2px;
+  -moz-box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-sizing: border-box;
+  box-shadow: 0 1px 0 #ffffff, inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  background: #f4f4f4;
+  border: 1px solid #aaaaaa;
+  border-bottom-color: #cccccc;
+  border-radius: 2px;
+  height: auto;
+  margin: 0;
+  outline: none;
+  padding: 6px 10px;
+  vertical-align: middle;
+  width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+del {
+  color: #555555;
+  text-decoration: line-through;
+}
+
+ins,
+dfn {
+  border-bottom: 1px solid #cccccc;
+}
+
+sup,
+sub,
+small {
+  font-size: 85%;
+}
+
+abbr,
+acronym {
+  font-size: 85%;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+a abbr,
+a acronym {
+  border: none;
+}
+
+dfn[title],
+abbr[title],
+acronym[title] {
+  border-bottom: 1px solid #cccccc;
+  cursor: help;
+}
+
+sup {
+  vertical-align: super;
+}
+
+sub {
+  vertical-align: sub;
+}
+
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  z-index: 200;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 !important;
+  opacity: 0.9;
+  -webkit-transition: all 0.8s ease-in-out 0s;
+  -moz-transition: all 0.8s ease-in-out 0s;
+  -o-transition: all 0.8s ease-in-out 0s;
+  transition: all 0.8s ease-in-out 0s;
+}
+
+.admin-bar .sticky-header {
+  top: 30px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+}
+
+/* =Headings
+-------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: 700;
+  line-height: 1em;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-size: 2.625em;
+  /* = 42px */
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+h2 {
+  font-size: 2.25em;
+  /* = 36px */
+  margin-bottom: 0.75em;
+  margin-top: 0.75em;
+}
+
+h3 {
+  font-size: 1.875em;
+  /* = 30px */
+  margin-bottom: 0.857em;
+  margin-top: 0.857em;
+}
+
+h4 {
+  font-size: 1.5em;
+  /* = 24px */
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+h5 {
+  font-size: 1.125em;
+  /* = 18px */
+  margin-bottom: 1.125em;
+  margin-top: 1.125em;
+}
+
+h6 {
+  font-size: 1em;
+  /* = 16px */
+  margin-bottom: 1.285em;
+  margin-top: 1.285em;
+}
+
+/* =Margins & Paddings
+-------------------------------------------------------------- */
+p,
+hr,
+dl,
+pre,
+form,
+table,
+address,
+blockquote {
+  margin: 1.6em 0;
+}
+
+th, td {
+  padding: 0.8em;
+}
+
+caption {
+  padding-bottom: 0.8em;
+}
+
+blockquote {
+  padding: 0 1em;
+}
+
+blockquote:first-child {
+  margin: 0.8em 0;
+}
+
+fieldset {
+  margin: 1.6em 0;
+  padding: 0 1em 1em;
+}
+
+legend {
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+}
+
+legend + * {
+  margin-top: 1em;
+}
+
+input,
+textarea {
+  padding: 0.3em 0.4em 0.15em;
+}
+
+select {
+  padding: 0.1em 0.2em 0;
+}
+
+option {
+  padding: 0 0.4em;
+}
+
+dt {
+  margin-bottom: 0.4em;
+  margin-top: 0.8em;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul,
+ol {
+  margin: 0 1.5em 1.5em 0;
+  padding-left: 2em;
+}
+
+li ul,
+li ol {
+  margin: 0;
+}
+
+form div {
+  margin-bottom: 0.8em;
 }
 
 /*--------------------------------------------------------------
@@ -1294,7 +1294,6 @@ a::-moz-selection {
   margin: 0;
   padding: 0;
   position: relative;
-  padding: 0 2px;
   z-index: 5;
 }
 
@@ -3598,7 +3597,6 @@ a.added_to_cart.wc-forward {
 }
 
 .social_div {
-  background-color: #c9c7c7;
   padding: 2% 0;
 }
 
@@ -3712,6 +3710,10 @@ a.added_to_cart.wc-forward {
   display: inline;
   margin: 1px;
   padding-left: 3px;
+}
+
+.copyright {
+  margin: 10px;
 }
 
 /*--------------------------------------------------------------

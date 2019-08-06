@@ -41,7 +41,26 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 					'priority' => 290,
 				)
 			);
-
+			$wp_customize->add_setting(
+				'responsive_single_product_gallery_layout',
+				array(
+					'transport' => 'refresh',
+					'default'   => 'horizontal',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_single_product_gallery_layout',
+				array(
+					'label'    => __( 'Gallery Layout', 'responsive' ),
+					'section'  => 'responsive_woocommerce_single_product_section',
+					'settings' => 'responsive_single_product_gallery_layout',
+					'type'     => 'select',
+					'choices'  => array(
+						'vertical'   => __( 'Vertical', 'astra-addon' ),
+						'horizontal' => __( 'Horizontal', 'astra-addon' ),
+					),
+				)
+			);
 			$wp_customize->add_setting(
 				'responsive_woocommerce_product_elements_positioning',
 				array(

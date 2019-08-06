@@ -188,3 +188,41 @@ if( ! function_exists( 'responsive_check_layout_type' ) ) {
 
 	}
 }
+
+/**
+ * Check if function present
+ */
+if( ! function_exists( 'responsive_sanitize_background' ) ) {
+	/**
+	 * Menu Background
+	 *
+	 * @param  string $input Color value.
+	 * @return string        Output color.
+	 */
+	function responsive_sanitize_background( $input ) {
+
+		$output = apply_filters( 'cyberchimps_sanitize_hex', $input );
+
+		return $output;
+	}
+	add_filter( 'responsive_sanitize_background', 'responsive_sanitize_background' );
+}
+
+/**
+ * Check if function present
+ */
+if( ! function_exists( 'responsive_checkbox_validate' ) ) {
+	/**
+	 * Validates checkbox inputs.
+	 *
+	 * @param $input checkbox
+	 *
+	 * @return 1 or 0
+	 */
+	function responsive_checkbox_validate( $input ) {
+
+		$input = ( $input == 1 ? 1 : 0 );
+
+		return $input;
+	}
+}

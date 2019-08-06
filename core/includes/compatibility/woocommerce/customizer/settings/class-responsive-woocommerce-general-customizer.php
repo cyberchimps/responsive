@@ -44,8 +44,8 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$wp_customize->add_section(
 					'responsive_woocommerce_general_section',
 					array(
-						'title'    => esc_html__( 'WooCommerce General', 'responsive' ),
-						'panel'    => 'responsive-layout-options',
+						'title'    => esc_html__( 'General', 'responsive' ),
+						'panel'    => 'woocommerce',
 						'priority' => 295,
 					)
 				);
