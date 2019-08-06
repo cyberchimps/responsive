@@ -227,6 +227,7 @@ function register_options() {
 		'class-responsive-links-customizer',
 		'class-responsive-footer-customizer',
 		'class-responsive-footer-copyrights-customizer',
+		'class-responsive-menu-customizer',
 	);
 
 	foreach ( $files as $key ) {

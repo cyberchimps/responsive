@@ -39,7 +39,7 @@ function cyberchimps_add_feedback() {
 	add_action( 'admin_print_styles-' . $page, 'cyberchimps_feedback_style' );
 }
 
-add_action( 'admin_menu', 'cyberchimps_add_feedback' );
+//add_action( 'admin_menu', 'cyberchimps_add_feedback' );
 
 function responsive_sender_email( $sent_from ) {
 	return $_POST['ccemail'];
@@ -68,13 +68,13 @@ function cyberchimps_display_feedback() {
 		}
 	}
 
-	?>					
-				<div class="panel-heading"><h3 class="panel-title" style="line-height: 20px;"><?php echo 'Feature Request'; ?></h3></div>				
+	?>
+				<div class="panel-heading"><h3 class="panel-title" style="line-height: 20px;"><?php echo 'Feature Request'; ?></h3></div>
 				<div class="panel panel-primary">
-				<?php if ( $strResponseMessage != '' ) { ?> 
+				<?php if ( $strResponseMessage != '' ) { ?>
 					<span class="updateres"> <?php echo $strResponseMessage; ?></span>
-				<?php } else { ?>	
-				
+				<?php } else { ?>
+
 <span class="ccinfo">
 					<?php
 					_e(
@@ -84,8 +84,8 @@ So, don't be shy, tell us what feature you would like us to add to this theme an
 					)
 					?>
 						</span>
-		
-					
+
+
 					  <div class="panel-body">
 						<form action="" id="formfeedback" method="post">
 							 <div class="form-group">
@@ -94,10 +94,10 @@ So, don't be shy, tell us what feature you would like us to add to this theme an
 								<label for="ccemail">Email Id</label>
 								<input type="text" id="ccemail" class="form-control" name="ccemail" placeholder="Enter Email Id" data-placement="right" title="Please Enter Email Id" value=""/>
 						   </div>
-						   <input type="submit" id="ccSubmitBtn" name="ccSubmitBtn" class="button button-primary" value="Send">						   
+						   <input type="submit" id="ccSubmitBtn" name="ccSubmitBtn" class="button button-primary" value="Send">
 					   </form>
 					</div>
-				</div>	
-			<?php } ?>				 	   
+				</div>
+			<?php } ?>
 		<?php
 }

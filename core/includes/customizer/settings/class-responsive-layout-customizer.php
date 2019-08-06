@@ -69,7 +69,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'type'     => 'select',
 					'choices'  => array(
 						'default-layout'    => __( 'Default', 'responsive' ),
-						'full-width-layout' => __( 'Full Width Layout', 'responsive' ),
+						'full-width-layout' => __( 'Full Width Boxed Layout', 'responsive' ),
 						'full-width-no-box' => __( 'Full Width Without boxes', 'responsive' ),
 					),
 				)
