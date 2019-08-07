@@ -330,8 +330,8 @@ class Responsive_Options {
 			'sidebar-content-half-page' => __( 'Left Sidebar Half Page', 'responsive' ),
 			'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' ),
 			'blog-2-col'                => __( 'Blog 2 Column', 'responsive' ),
-            'blog-3-col'                => __( 'Blog 3 Column', 'responsive' ),
-            'blog-4-col'                => __( 'Blog 4 Column', 'responsive' ),
+			'blog-3-col'                => __( 'Blog 3 Column', 'responsive' ),
+			'blog-4-col'                => __( 'Blog 4 Column', 'responsive' ),
 		);
 
 		return apply_filters( 'responsive_blog_valid_layouts', $bloglayouts );
