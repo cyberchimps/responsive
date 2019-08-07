@@ -134,3 +134,35 @@ color:#f2efef;
 	padding: 0;
 	border: none;
 }
+
+/* Blog layout
+============================================================ */
+.section-blog-2-col {
+	width: 50%;
+	float: none;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 12px;
+}
+.section-blog-3-col {
+	width: 33%;
+	float: none;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 12px;
+}
+.section-blog-4-col {
+	width: 25%;
+	float: none;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 12px;
+}
+.blog_main_div {
+	display: flex;
+	flex-flow: row wrap;
+}
+

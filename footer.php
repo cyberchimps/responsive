@@ -23,12 +23,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 global $responsive_options;
 $responsive_options = responsive_get_options();
+$responsive_blog_layout_columns = array("blog-2-col", "blog-3-col", "blog-4-col");
 ?>
 <?php responsive_wrapper_bottom(); // after wrapper content hook ?>
 </div><!-- end of #wrapper -->
 
 <?php responsive_wrapper_end(); // after wrapper hook ?>
-<?php if ( is_home() && ! is_front_page() ) { ?>
+<?php if ( ( is_home() && ! is_front_page() ) || in_array($responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns) ) { ?>
 </div>
 <?php } ?>
 </div><!-- end of #container -->
