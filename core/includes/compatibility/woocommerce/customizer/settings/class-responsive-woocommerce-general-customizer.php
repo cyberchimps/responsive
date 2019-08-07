@@ -1,6 +1,8 @@
 <?php
 /**
  * Create WooCommerce General section in customizer
+ *
+ * @package Responsive
  */
 
 if ( class_exists( 'WooCommerce' ) ) {
@@ -40,13 +42,13 @@ if ( class_exists( 'WooCommerce' ) ) {
 			 */
 			public function customizer_options( $wp_customize ) {
 				$wp_customize->add_section(
-	                'responsive_woocommerce_general_section',
-	                array(
-	                    'title'    => esc_html__( 'WooCommerce General', 'responsive' ),
-	                    'panel'    => 'responsive-layout-options',
-	                    'priority' => 295,
-	                )
-	            );
+					'responsive_woocommerce_general_section',
+					array(
+						'title'    => esc_html__( 'General', 'responsive' ),
+						'panel'    => 'woocommerce',
+						'priority' => 295,
+					)
+				);
 				$wp_customize->add_setting(
 					'responsive_product_sale_notification',
 					array(
@@ -100,7 +102,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 						'section'  => 'responsive_woocommerce_general_section',
 						'settings' => 'responsive_product_sale_style',
 						'type'     => 'select',
-						'choices'   => array(
+						'choices'  => array(
 							'circle'         => __( 'Circle', 'astra-addon' ),
 							'circle-outline' => __( 'Circle Outline', 'astra-addon' ),
 							'square'         => __( 'Square', 'astra-addon' ),

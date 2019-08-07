@@ -39,7 +39,7 @@ function cyberchimps_add_about() {
 	add_action( 'admin_print_styles-' . $page, 'cyberchimps_about_style' );
 }
 
-add_action( 'admin_menu', 'cyberchimps_add_about' );
+//add_action( 'admin_menu', 'cyberchimps_add_about' );
 
 /** Define markup for the upsell page. */
 function cyberchimps_display_about() {
