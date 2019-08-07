@@ -20,6 +20,8 @@ define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory
  *
  * Load the theme function files
  */
+global $responsive_blog_layout_columns;
+$responsive_blog_layout_columns = array( 'blog-2-col', 'blog-3-col', 'blog-4-col' );
 
 $template_directory = get_template_directory();
 require $template_directory . '/core/includes/functions.php';
