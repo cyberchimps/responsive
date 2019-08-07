@@ -50,3 +50,33 @@ a.added_to_cart.wc-forward {
   padding: 0;
   line-height: 3;
 }
+@media (min-width: 769px) {
+	.woocommerce div.product {
+		&.responsive-thumbs-layout-vertical {
+			span.onsale {
+				left: 12%;
+			}
+
+			&.has-no-thumbnails span.onsale {
+				left: 20px;
+			}
+
+			div.images {
+				.flex-viewport {
+				    float: right;
+				    width: 75%;
+				}
+
+				.flex-control-thumbs {
+					float: left;
+				    width: calc(25% - 1em);
+				    overflow-x: hidden;
+
+				    li {
+					    width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

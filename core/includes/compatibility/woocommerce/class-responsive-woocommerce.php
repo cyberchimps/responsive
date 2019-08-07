@@ -58,6 +58,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_filter( 'woocommerce_sale_flash', array( $this, 'sale_flash' ), 10, 3 );
 
+			add_action( 'wp_enqueue_scripts', array( $this, 'add_custom_scripts' ) );
+
         }
 
         /**
@@ -279,6 +281,18 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			// Generate markup.
 			return '<span class="' . esc_attr( $classes ) . '">' . esc_html( $text ) . '</span>';
 
+		}
+
+		/**
+		 * Add Custom WooCommerce scripts.
+		 *
+		 * @since 3.15.4
+		 */
+		public function add_custom_scripts() {
+			// If vertical thumbnails style.
+			if ( 'vertical' == get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' ) ) {
+				wp_enqueue_script( 'responsive-woo-thumbnails', get_stylesheet_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-thumbnails.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			}
 		}
 
 	}

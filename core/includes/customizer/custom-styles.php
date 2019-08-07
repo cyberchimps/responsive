@@ -45,12 +45,19 @@ function responsive_premium_custom_color_styles() {
 	// Menu colors.
 	$menu_gradients_checkbox = get_theme_mod( 'responsive_menu_gradients_checkbox' );
 	$menu_background_color   = get_theme_mod( 'responsive_menu_background_colorpicker' );
-	$menu_background_color_2  = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
-	$menu_background_color_2  = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color );
+	$menu_background_color_2 = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
+	$menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color );
 	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker' );
 	$menu_text_hover_color   = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
 	$menu_item_color         = get_theme_mod( 'responsive_menu_item_colorpicker' );
-	$menu_item_hover_color   = get_theme_mod( 'responsive_menu_item_hover_colorpicker' );
+
+	// Sidebar colors.
+	$sidebar_background_color = get_theme_mod( 'responsive_sidebar_background_color' );
+	$sidebar_padding_right    = get_theme_mod( 'responsive_sidebar_right_padding' );
+	$sidebar_padding_left     = get_theme_mod( 'responsive_sidebar_left_padding' );
+	$sidebar_padding_top      = get_theme_mod( 'responsive_sidebar_top_padding' );
+	$sidebar_padding_bottom   = get_theme_mod( 'responsive_sidebar_bottom_padding' );
+
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
 	} else {
@@ -276,7 +283,7 @@ function responsive_premium_custom_color_styles() {
 		.single-product div.product .woocommerce-breadcrumb, .single-product div.product .woocommerce-breadcrumb a {
 			color: {$product_breadcrumb_color};
 		}
-		.woocommerce ul.products li.product .ast-woo-product-category, .woocommerce-page ul.products li.product .ast-woo-product-category, .woocommerce ul.products li.product .ast-woo-shop-product-description, .woocommerce-page ul.products li.product .ast-woo-shop-product-description {
+		.woocommerce ul.products li.product .responsive-woo-product-category, .woocommerce-page ul.products li.product .ast-woo-product-category, .woocommerce ul.products li.product .responsive-woo-shop-product-description, .woocommerce-page ul.products li.product .responsive-woo-shop-product-description {
 			color: {$shop_product_content_color};
 		}
 	";
@@ -333,6 +340,31 @@ function responsive_premium_custom_color_styles() {
 					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr={$menu_background_color}, endColorstr={$menu_background_color_2});
 				}
 			}";
+			if( !empty( $sidebar_background_color ) ) {
+				$custom_css .= ".widget-wrapper {
+					background-color: {$sidebar_background_color};
+				}";
+			}
+			if( !empty( $sidebar_padding_right ) ) {
+				$custom_css .= ".widget-wrapper {
+					padding-right: {$sidebar_padding_right};
+				}";
+			}
+			if( !empty( $sidebar_padding_left ) ) {
+				$custom_css .= ".widget-wrapper {
+					padding-left: {$sidebar_padding_left};
+				}";
+			}
+			if( !empty( $sidebar_padding_top ) ) {
+				$custom_css .= ".widget-wrapper {
+					padding-top: {$sidebar_padding_top};
+				}";
+			}
+			if( !empty( $sidebar_padding_bottom ) ) {
+				$custom_css .= ".widget-wrapper {
+					padding-bottom: {$sidebar_padding_bottom};
+				}";
+			}
 	}
 	wp_add_inline_style( 'responsive-style', $custom_css );
 }
