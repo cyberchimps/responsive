@@ -23,10 +23,10 @@ get_header();
 
 global $more;
 $more = 0;
-require_once ABSPATH . 'wp-admin/includes/plugin.php';
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 global $responsive_options;
 $responsive_options             = responsive_get_options();
-$responsive_blog_layout_columns = array( 'blog-2-col', 'blog-3-col', 'blog-4-col' );
+global $responsive_blog_layout_columns;
 if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) ) {
 	?>
 	<div id="content-outer">

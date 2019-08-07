@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 global $responsive_options;
 $responsive_options = responsive_get_options();
-$responsive_blog_layout_columns = array( 'blog-2-col', 'blog-3-col', 'blog-4-col' );
+global $responsive_blog_layout_columns;
 ?>
 <?php responsive_wrapper_bottom(); // after wrapper content hook ?>
 </div><!-- end of #wrapper -->
