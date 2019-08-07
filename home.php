@@ -101,8 +101,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
             </div>
         </div>
     </div>
-<?php } else {
-    error_log("blog layour".$responsive_options['blog_posts_index_layout_default']);?>
+<?php } else { ?>
 
 	<div id="content-outer">
 	<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
