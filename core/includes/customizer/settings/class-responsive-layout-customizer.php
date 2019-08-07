@@ -70,7 +70,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'choices'  => array(
 						'default-layout'    => __( 'Default', 'responsive' ),
 						'full-width-layout' => __( 'Full Width Boxed Layout', 'responsive' ),
-						'full-width-no-box' => __( 'Full Width Without boxes', 'responsive' ),
+						'full-width-no-box' => __( 'Full Width Without Boxes', 'responsive' ),
 					),
 				)
 			);

@@ -212,7 +212,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 						array(
 							'label'           => esc_html__( 'Product Breadcrumb Color', 'responsive' ),
 							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_product_content_color',
+							'settings'        => 'responsive_product_breadcrumb_color',
 							'priority'        => 10,
 						)
 					)

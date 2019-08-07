@@ -3591,6 +3591,26 @@ a.added_to_cart.wc-forward {
   line-height: 3;
 }
 
+@media (min-width: 769px) {
+  .woocommerce div.product.responsive-thumbs-layout-vertical span.onsale {
+    left: 12%;
+  }
+  .woocommerce div.product.responsive-thumbs-layout-vertical.has-no-thumbnails span.onsale {
+    left: 20px;
+  }
+  .woocommerce div.product.responsive-thumbs-layout-vertical div.images .flex-viewport {
+    float: right;
+    width: 75%;
+  }
+  .woocommerce div.product.responsive-thumbs-layout-vertical div.images .flex-control-thumbs {
+    float: left;
+    width: calc(25% - 1em);
+    overflow-x: hidden;
+  }
+  .woocommerce div.product.responsive-thumbs-layout-vertical div.images .flex-control-thumbs li {
+    width: 100%;
+  }
+}
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
