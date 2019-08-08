@@ -4,7 +4,7 @@ modules:
         - Humcommerce\WarningAndError:
         # - WebDriver:
 
-            url: 'http://127.0.0.1:8080/wordpressLatest/'
+            url: 'http://localhost:8080/responsive_1'
             # url: 'https://ccdemos.cyberchimps.com/staging'
 
             browser: chrome # 'chrome' or 'firefox'

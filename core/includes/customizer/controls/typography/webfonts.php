@@ -32,40 +32,40 @@ function responsive_standard_fonts() {
  */
 function get_google_fonts() {
 
-	$google_fonts_file = apply_filters( 'responsive_google_fonts_json_file',  RESPONSIVE_THEME_DIR. 'core/includes/customizer/controls/typography/google-fonts.json' );
+	$google_fonts_file = apply_filters( 'responsive_google_fonts_json_file', RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/typography/google-fonts.json' );
 
-	if ( ! file_exists( RESPONSIVE_THEME_DIR. 'core/includes/customizer/controls/typography/google-fonts.json' ) ) {
+	if ( ! file_exists( RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/typography/google-fonts.json' ) ) {
 		return array();
 	}
 
-        global $wp_filesystem;
-        if ( empty( $wp_filesystem ) ) {
-            require_once ABSPATH . '/wp-admin/includes/file.php';
-            WP_Filesystem();
-        }
+	global $wp_filesystem;
+	if ( empty( $wp_filesystem ) ) {
+		require_once ABSPATH . '/wp-admin/includes/file.php';
+		WP_Filesystem();
+	}
 
-        $file_contants     = $wp_filesystem->get_contents( $google_fonts_file );
-        $google_fonts_json = json_decode( $file_contants, 1 );
+	$file_contants     = $wp_filesystem->get_contents( $google_fonts_file );
+	$google_fonts_json = json_decode( $file_contants, 1 );
 
-        foreach ( $google_fonts_json as $key => $font ) {
-            $name = key( $font );
-            foreach ( $font[ $name ] as $font_key => $single_font ) {
+	foreach ( $google_fonts_json as $key => $font ) {
+		$name = key( $font );
+		foreach ( $font[ $name ] as $font_key => $single_font ) {
 
-                if ( 'variants' === $font_key ) {
+			if ( 'variants' === $font_key ) {
 
-                    foreach ( $single_font as $variant_key => $variant ) {
+				foreach ( $single_font as $variant_key => $variant ) {
 
-                        if ( 'regular' == $variant ) {
-                            $font[ $name ][ $font_key ][ $variant_key ] = '400';
-                        }
-                    }
-                }
+					if ( 'regular' == $variant ) {//phpcs:ignore
+						$font[ $name ][ $font_key ][ $variant_key ] = '400';
+					}
+				}
+			}
 
-                $google_fonts[ $name ] = array_values( $font[ $name ] );
-            }
-        }
+			$google_fonts[ $name ] = array_values( $font[ $name ] );
+		}
+	}
 
-    return apply_filters( 'responsive_google_fonts', $google_fonts );
+		return apply_filters( 'responsive_google_fonts', $google_fonts );
 }
 
 /**
@@ -76,29 +76,27 @@ function get_google_fonts() {
 function responsive_enqueue_google_font( $font ) {
 
 	// Return if disabled.
-	if ( true == get_theme_mod( 'responsive_disable_google_font', false ) ) {
+	if ( true === get_theme_mod( 'responsive_disable_google_font', false ) ) {
 		return;
 	}
 
 	// Get list of all Google Fonts.
 	$google_fonts = get_google_fonts();
 
-    $font_name_array = explode(",", $font, 2);
+	$font_name_array = explode( ',', $font, 2 );
 
-    // Sanitize font name.
-    $font_name = trim($font_name_array[0], "'");
-
+	// Sanitize font name.
+	$font_name = trim( $font_name_array[0], "'" );
 	// Make sure font is in our list of fonts.
-	if ( ! $google_fonts || ! in_array( $font, $google_fonts, true ) ) {
+	if ( ! $google_fonts || ! array_key_exists( $font_name, $google_fonts ) ) {
 		return;
 	}
+	$font = str_replace( ' ', '+', $font_name );
 
 	// Sanitize handle.
-	$handle = trim( $font );
+	$handle = trim( $font_name );
 	$handle = strtolower( $handle );
 	$handle = str_replace( ' ', '-', $handle );
-
-	$font = str_replace( ' ', '+', $font_name );
 
 	// Subset.
 	$get_subsets = get_theme_mod( 'responsive_google_font_subsets', array( 'latin' ) );
@@ -118,7 +116,6 @@ function responsive_enqueue_google_font( $font ) {
 	$weights = array( '100', '200', '300', '400', '500', '600', '700', '800', '900' );
 	$weights = apply_filters( 'responsive_google_font_enqueue_weights', $weights, $font );
 	$italics = apply_filters( 'responsive_google_font_enqueue_italics', true );
-
 	// Main URL.
 	$url = '//fonts.googleapis.com/css?family=' . str_replace( ' ', '%20', $font ) . ':';
 

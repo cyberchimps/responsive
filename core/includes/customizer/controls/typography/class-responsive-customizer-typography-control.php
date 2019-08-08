@@ -104,10 +104,11 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 						<?php
 						// Loop through font options and add to select.
 						foreach ( $google_fonts as $name => $single_font ) {
-                            $variants = $this->responsive_get_prop( $single_font, '0' );
-                            $category = $this->responsive_get_prop( $single_font, '1' );
-                            echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
-						} ?>
+							$variants = $this->responsive_get_prop( $single_font, '0' );
+							$category = $this->responsive_get_prop( $single_font, '1' );
+							echo '<option value="\'' . esc_attr( $name ) . '\', ' . esc_attr( $category ) . '" ' . selected( $name, $this->value(), false ) . '>' . esc_attr( $name ) . '</option>';
+						}
+						?>
 					</optgroup>
 				<?php } ?>
 			</select>

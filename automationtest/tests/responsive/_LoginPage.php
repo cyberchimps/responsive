@@ -1,8 +1,8 @@
 <?php
 class _LoginPage
 {
-    static $Adminusername='admin';
-    static $Adminpassword='rupesh1395';
+    static $Adminusername='kajal';
+    static $Adminpassword='kajal';
     static $Adminusername1='test2019';
     static $Adminpassword1='^1K1&bnF&7KqXXHnCV';
 
