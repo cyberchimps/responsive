@@ -57,6 +57,7 @@ function responsive_premium_custom_color_styles() {
 	$sidebar_padding_left     = get_theme_mod( 'responsive_sidebar_left_padding' );
 	$sidebar_padding_top      = get_theme_mod( 'responsive_sidebar_top_padding' );
 	$sidebar_padding_bottom   = get_theme_mod( 'responsive_sidebar_bottom_padding' );
+	$sidebar_radius           = get_theme_mod( 'responsive_sidebar_radius' );
 
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
@@ -280,10 +281,10 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before {
 			color: {$product_rating_color};
 		}
-		.single-product div.product .woocommerce-breadcrumb, .single-product div.product .woocommerce-breadcrumb a {
+		.single-product .woocommerce-breadcrumb, .single-product .woocommerce-breadcrumb a {
 			color: {$product_breadcrumb_color};
 		}
-		.woocommerce ul.products li.product .responsive-woo-product-category, .woocommerce-page ul.products li.product .ast-woo-product-category, .woocommerce ul.products li.product .responsive-woo-shop-product-description, .woocommerce-page ul.products li.product .responsive-woo-shop-product-description {
+		.woocommerce ul.products li.product .responsive-woo-product-category, .woocommerce-page ul.products li.product .responsive-woo-product-category, .woocommerce ul.products li.product .responsive-woo-shop-product-description, .woocommerce-page ul.products li.product .responsive-woo-shop-product-description {
 			color: {$shop_product_content_color};
 		}
 	";
@@ -347,22 +348,27 @@ function responsive_premium_custom_color_styles() {
 			}
 			if( !empty( $sidebar_padding_right ) ) {
 				$custom_css .= ".widget-wrapper {
-					padding-right: {$sidebar_padding_right};
+					padding-right: {$sidebar_padding_right}px;
 				}";
 			}
 			if( !empty( $sidebar_padding_left ) ) {
 				$custom_css .= ".widget-wrapper {
-					padding-left: {$sidebar_padding_left};
+					padding-left: {$sidebar_padding_left}px;
 				}";
 			}
 			if( !empty( $sidebar_padding_top ) ) {
 				$custom_css .= ".widget-wrapper {
-					padding-top: {$sidebar_padding_top};
+					padding-top: {$sidebar_padding_top}px;
 				}";
 			}
 			if( !empty( $sidebar_padding_bottom ) ) {
 				$custom_css .= ".widget-wrapper {
-					padding-bottom: {$sidebar_padding_bottom};
+					padding-bottom: {$sidebar_padding_bottom}px;
+				}";
+			}
+			if( !empty( $sidebar_radius ) ) {
+				$custom_css .= ".widget-wrapper {
+					border-radius: {$sidebar_radius}px;
 				}";
 			}
 	}

@@ -72,7 +72,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 				'responsive_sidebar_top_padding',
 				array(
 					'transport' 		=> 'refresh',
-					'default'           => '22',
+					'default'           => '20',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 				'responsive_sidebar_left_padding',
 				array(
 					'transport' 		=> 'refresh',
-					'default'           => '22',
+					'default'           => '20',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
@@ -89,6 +89,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 				'responsive_sidebar_bottom_padding',
 				array(
 					'transport' 		=> 'refesh',
+					'default'           => '20',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
@@ -96,6 +97,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 				'responsive_sidebar_right_padding',
 				array(
 					'transport' 		=> 'refresh',
+					'default'           => '20',
 					'sanitize_callback' => 'responsive_sanitize_number',
 			) );
 
@@ -118,6 +120,35 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 							'min'   => 0,
 							'max'   => 60,
 							'step'  => 1,
+						),
+					)
+				)
+			);
+
+			// Radius.
+			$wp_customize->add_setting(
+				'responsive_sidebar_radius',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_number',
+					'transport'         => 'refresh',
+					'default'           => '4',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_sidebar_radius',
+					array(
+						'label'           => esc_html__( 'Sidebar Radius', 'responsive' ),
+						'section'         => 'responsive_sidebar_section',
+						'settings'        => 'responsive_sidebar_radius',
+						'priority'        => 10,
+						'input_attrs'     => array(
+							'min'  => 0,
+							'max'  => 100,
+							'step' => 1,
 						),
 					)
 				)

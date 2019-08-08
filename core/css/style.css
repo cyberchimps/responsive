@@ -3592,22 +3592,20 @@ a.added_to_cart.wc-forward {
 }
 
 @media (min-width: 769px) {
-  .woocommerce div.product.responsive-thumbs-layout-vertical span.onsale {
-    left: 12%;
-  }
-  .woocommerce div.product.responsive-thumbs-layout-vertical.has-no-thumbnails span.onsale {
-    left: 20px;
-  }
-  .woocommerce div.product.responsive-thumbs-layout-vertical div.images .flex-viewport {
-    float: right;
+  /**
+   * Single product gallery layout.
+   *
+   * (vertical/horizontal)
+   */
+  .woocommerce div.product.responsive-product-gallery-layout-vertical .flex-viewport {
     width: 75%;
+    float: right;
   }
-  .woocommerce div.product.responsive-thumbs-layout-vertical div.images .flex-control-thumbs {
-    float: left;
+  .woocommerce div.product.responsive-product-gallery-layout-vertical div.images .flex-control-thumbs {
+    width: 20%;
     width: calc(25% - 1em);
-    overflow-x: hidden;
   }
-  .woocommerce div.product.responsive-thumbs-layout-vertical div.images .flex-control-thumbs li {
+  .woocommerce div.product.responsive-product-gallery-layout-vertical div.images .flex-control-thumbs li {
     width: 100%;
   }
 }

@@ -51,31 +51,23 @@ a.added_to_cart.wc-forward {
   line-height: 3;
 }
 @media (min-width: 769px) {
+	/**
+	 * Single product gallery layout.
+	 *
+	 * (vertical/horizontal)
+	 */
 	.woocommerce div.product {
-		&.responsive-thumbs-layout-vertical {
-			span.onsale {
-				left: 12%;
+		&.responsive-product-gallery-layout-vertical {
+			.flex-viewport {
+				width: 75%;
+				float: right;
 			}
-
-			&.has-no-thumbnails span.onsale {
-				left: 20px;
+			div.images .flex-control-thumbs {
+				width: 20%;
+				width: calc(25% - 1em);
 			}
-
-			div.images {
-				.flex-viewport {
-				    float: right;
-				    width: 75%;
-				}
-
-				.flex-control-thumbs {
-					float: left;
-				    width: calc(25% - 1em);
-				    overflow-x: hidden;
-
-				    li {
-					    width: 100%;
-					}
-				}
+			div.images .flex-control-thumbs li {
+				width: 100%;
 			}
 		}
 	}
