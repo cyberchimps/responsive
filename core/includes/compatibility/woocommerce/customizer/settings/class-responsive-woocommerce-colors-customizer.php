@@ -1,6 +1,8 @@
 <?php
 /**
  * Create WooCommerce General section in customizer
+ *
+ * @package Responsive
  */
 
 if ( class_exists( 'WooCommerce' ) ) {
@@ -40,13 +42,13 @@ if ( class_exists( 'WooCommerce' ) ) {
 			 */
 			public function customizer_options( $wp_customize ) {
 				$wp_customize->add_section(
-	                'responsive_woocommerce_colors_section',
-	                array(
-	                    'title'    => esc_html__( 'Colors', 'responsive' ),
-	                    'panel'    => 'woocommerce',
-	                    'priority' => 296,
-	                )
-	            );
+					'responsive_woocommerce_colors_section',
+					array(
+						'title'    => esc_html__( 'Colors', 'responsive' ),
+						'panel'    => 'woocommerce',
+						'priority' => 296,
+					)
+				);
 				$wp_customize->add_setting(
 					'responsive_product_rating_color',
 					array(
@@ -61,10 +63,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_product_rating_color',
 						array(
-							'label'           => esc_html__( 'Product Rating Color', 'responsive' ),
-							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_product_rating_color',
-							'priority'        => 10,
+							'label'    => esc_html__( 'Product Rating Color', 'responsive' ),
+							'section'  => 'responsive_woocommerce_colors_section',
+							'settings' => 'responsive_product_rating_color',
+							'priority' => 10,
 						)
 					)
 				);
@@ -83,10 +85,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_shop_product_title_color',
 						array(
-							'label'           => esc_html__( 'Shop Product Title Color', 'responsive' ),
-							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_shop_product_title_color',
-							'priority'        => 10,
+							'label'    => esc_html__( 'Shop Product Title Color', 'responsive' ),
+							'section'  => 'responsive_woocommerce_colors_section',
+							'settings' => 'responsive_shop_product_title_color',
+							'priority' => 10,
 						)
 					)
 				);
@@ -104,10 +106,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_shop_product_price_color',
 						array(
-							'label'           => esc_html__( 'Shop Product Price Color', 'responsive' ),
-							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_shop_product_price_color',
-							'priority'        => 10,
+							'label'    => esc_html__( 'Shop Product Price Color', 'responsive' ),
+							'section'  => 'responsive_woocommerce_colors_section',
+							'settings' => 'responsive_shop_product_price_color',
+							'priority' => 10,
 						)
 					)
 				);
@@ -125,10 +127,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_shop_product_content_color',
 						array(
-							'label'           => esc_html__( 'Shop Product Content Color', 'responsive' ),
-							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_shop_product_content_color',
-							'priority'        => 10,
+							'label'    => esc_html__( 'Shop Product Content Color', 'responsive' ),
+							'section'  => 'responsive_woocommerce_colors_section',
+							'settings' => 'responsive_shop_product_content_color',
+							'priority' => 10,
 						)
 					)
 				);
@@ -147,10 +149,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_product_title_color',
 						array(
-							'label'           => esc_html__( 'Product Title Color', 'responsive' ),
-							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_product_title_color',
-							'priority'        => 10,
+							'label'    => esc_html__( 'Product Title Color', 'responsive' ),
+							'section'  => 'responsive_woocommerce_colors_section',
+							'settings' => 'responsive_product_title_color',
+							'priority' => 10,
 						)
 					)
 				);
@@ -168,10 +170,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_product_price_color',
 						array(
-							'label'           => esc_html__( 'Product Price Color', 'responsive' ),
-							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_product_price_color',
-							'priority'        => 10,
+							'label'    => esc_html__( 'Product Price Color', 'responsive' ),
+							'section'  => 'responsive_woocommerce_colors_section',
+							'settings' => 'responsive_product_price_color',
+							'priority' => 10,
 						)
 					)
 				);
@@ -189,10 +191,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_product_content_color',
 						array(
-							'label'           => esc_html__( 'Product Content Color', 'responsive' ),
-							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_product_content_color',
-							'priority'        => 10,
+							'label'    => esc_html__( 'Product Content Color', 'responsive' ),
+							'section'  => 'responsive_woocommerce_colors_section',
+							'settings' => 'responsive_product_content_color',
+							'priority' => 10,
 						)
 					)
 				);
@@ -210,10 +212,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						$wp_customize,
 						'responsive_product_breadcrumb_color',
 						array(
-							'label'           => esc_html__( 'Product Breadcrumb Color', 'responsive' ),
-							'section'         => 'responsive_woocommerce_colors_section',
-							'settings'        => 'responsive_product_breadcrumb_color',
-							'priority'        => 10,
+							'label'    => esc_html__( 'Product Breadcrumb Color', 'responsive' ),
+							'section'  => 'responsive_woocommerce_colors_section',
+							'settings' => 'responsive_product_breadcrumb_color',
+							'priority' => 10,
 						)
 					)
 				);

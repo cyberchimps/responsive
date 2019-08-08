@@ -117,19 +117,27 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 
 		<?php
 	}
+	/**
+	 * Function for sanitizing footer layout
+	 *
+	 * @param array  $array Default argument array.
+	 *
+	 * @param object $prop Default argument property.
+	 *
+	 * @param object $default Default argument array.
+	 */
+	public function responsive_get_prop( $array, $prop, $default = null ) {
 
-    function responsive_get_prop( $array, $prop, $default = null ) {
+		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
+			return $default;
+		}
 
-        if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
-            return $default;
-        }
+		if ( isset( $array[ $prop ] ) ) {
+			$value = $array[ $prop ];
+		} else {
+			$value = '';
+		}
 
-        if ( isset( $array[ $prop ] ) ) {
-            $value = $array[ $prop ];
-        } else {
-            $value = '';
-        }
-
-        return empty( $value ) && null !== $default ? $default : $value;
-    }
+		return empty( $value ) && null !== $default ? $default : $value;
+	}
 }

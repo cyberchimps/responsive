@@ -58,10 +58,10 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 					$wp_customize,
 					'responsive_sidebar_background_color',
 					array(
-						'label'           => 'Sidebar Background Color',
-						'section'         => 'responsive_sidebar_section',
-						'settings'        => 'responsive_sidebar_background_color',
-						'priority'        => 10,
+						'label'    => 'Sidebar Background Color',
+						'section'  => 'responsive_sidebar_section',
+						'settings' => 'responsive_sidebar_background_color',
+						'priority' => 10,
 					)
 				)
 			);
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_sidebar_top_padding',
 				array(
-					'transport' 		=> 'refresh',
+					'transport'         => 'refresh',
 					'default'           => '20',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_sidebar_left_padding',
 				array(
-					'transport' 		=> 'refresh',
+					'transport'         => 'refresh',
 					'default'           => '20',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_sidebar_bottom_padding',
 				array(
-					'transport' 		=> 'refesh',
+					'transport'         => 'refesh',
 					'default'           => '20',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -96,30 +96,30 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_sidebar_right_padding',
 				array(
-					'transport' 		=> 'refresh',
+					'transport'         => 'refresh',
 					'default'           => '20',
 					'sanitize_callback' => 'responsive_sanitize_number',
-			) );
-
+				)
+			);
 
 			$wp_customize->add_control(
 				new Responsive_Customizer_Dimensions_Control(
 					$wp_customize,
 					'responsive_sidebar_padding',
 					array(
-						'label'	   				=> esc_html__( 'Padding (px)', 'responsive' ),
-						'section'  				=> 'responsive_sidebar_section',
-						'settings' => array(
+						'label'       => esc_html__( 'Padding (px)', 'responsive' ),
+						'section'     => 'responsive_sidebar_section',
+						'settings'    => array(
 							'desktop_top'    => 'responsive_sidebar_top_padding',
 							'desktop_right'  => 'responsive_sidebar_right_padding',
 							'desktop_bottom' => 'responsive_sidebar_bottom_padding',
 							'desktop_left'   => 'responsive_sidebar_left_padding',
 						),
-						'priority' 				=> 10,
-			    		'input_attrs' 			=> array(
-							'min'   => 0,
-							'max'   => 60,
-							'step'  => 1,
+						'priority'    => 10,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 60,
+							'step' => 1,
 						),
 					)
 				)
@@ -141,11 +141,11 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 					$wp_customize,
 					'responsive_sidebar_radius',
 					array(
-						'label'           => esc_html__( 'Sidebar Radius', 'responsive' ),
-						'section'         => 'responsive_sidebar_section',
-						'settings'        => 'responsive_sidebar_radius',
-						'priority'        => 10,
-						'input_attrs'     => array(
+						'label'       => esc_html__( 'Sidebar Radius', 'responsive' ),
+						'section'     => 'responsive_sidebar_section',
+						'settings'    => 'responsive_sidebar_radius',
+						'priority'    => 10,
+						'input_attrs' => array(
 							'min'  => 0,
 							'max'  => 100,
 							'step' => 1,

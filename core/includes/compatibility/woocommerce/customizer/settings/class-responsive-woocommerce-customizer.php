@@ -1,6 +1,8 @@
 <?php
 /**
  * Create WooCommerce General section in customizer
+ *
+ * @package Responsive
  */
 
 if ( class_exists( 'WooCommerce' ) ) {
@@ -40,13 +42,13 @@ if ( class_exists( 'WooCommerce' ) ) {
 			 */
 			public function customizer_options( $wp_customize ) {
 				$wp_customize->add_section(
-	                'responsive_woocommerce_section',
-	                array(
-	                    'title'    => esc_html__( 'WooCommerce', 'responsive' ),
-	                    'panel'    => 'responsive-layout-options',
-	                    'priority' => 295,
-	                )
-	            );
+					'responsive_woocommerce_section',
+					array(
+						'title'    => esc_html__( 'WooCommerce', 'responsive' ),
+						'panel'    => 'responsive-layout-options',
+						'priority' => 295,
+					)
+				);
 
 			}
 		}
