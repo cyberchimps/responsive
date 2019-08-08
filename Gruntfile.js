@@ -143,7 +143,8 @@ module.exports = function(grunt) {
 					'!**/Gruntfile.js',
 					'!**/package.json',
 					'!**/README.md',
-					'!**/*~'
+					'!**/*~',
+					'!.editorconfig'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
