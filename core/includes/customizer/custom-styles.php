@@ -315,32 +315,47 @@ function responsive_premium_custom_color_styles() {
 		}
 		.full-width-no-box #header {
 			background-color: {$header_text_color};
-		}
-		.single-product div.product .entry-title {
+		}";
+	if ( ! empty( $product_title_color ) ) {
+		$custom_css .= ".single-product div.product .entry-title {
 			color: {$product_title_color};
-		}
-		.single-product div.product .woocommerce-product-details__short-description, .single-product div.product .product_meta, .single-product div.product .entry-content {
+		}";
+	}
+	if ( ! empty( $product_content_color ) ) {
+		$custom_css .= ".single-product div.product .woocommerce-product-details__short-description, .single-product div.product .product_meta, .single-product div.product .entry-content {
 			color: {$product_content_color};
-		}
-		.single-product div.product p.price, .single-product div.product span.price {
+		}";
+	}
+	if ( ! empty( $product_price_color ) ) {
+		$custom_css .= ".single-product div.product p.price, .single-product div.product span.price {
 			color: {$product_price_color};
-		}
-		.woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+		}";
+	}
+	if ( ! empty( $shop_product_title_color ) ) {
+		$custom_css .= ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
 			color: {$shop_product_title_color};
-		}
-		.woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+		}";
+	}
+	if ( ! empty( $shop_product_price_color ) ) {
+		$custom_css .= ".woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
 			color: {$shop_product_price_color};
-		}
-		.woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before {
+		}";
+	}
+	if ( ! empty( $product_rating_color ) ) {
+		$custom_css .= ".woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before {
 			color: {$product_rating_color};
-		}
-		.single-product .woocommerce-breadcrumb, .single-product .woocommerce-breadcrumb a {
+		}";
+	}
+	if ( ! empty( $product_breadcrumb_color ) ) {
+		$custom_css .= ".single-product .woocommerce-breadcrumb, .single-product .woocommerce-breadcrumb a {
 			color: {$product_breadcrumb_color};
-		}
-		.woocommerce ul.products li.product .responsive-woo-product-category, .woocommerce-page ul.products li.product .responsive-woo-product-category, .woocommerce ul.products li.product .responsive-woo-shop-product-description, .woocommerce-page ul.products li.product .responsive-woo-shop-product-description {
+		}";
+	}
+	if ( ! empty( $shop_product_content_color ) ) {
+		$custom_css .= ".woocommerce ul.products li.product .responsive-woo-product-category, .woocommerce-page ul.products li.product .responsive-woo-product-category, .woocommerce ul.products li.product .responsive-woo-shop-product-description, .woocommerce-page ul.products li.product .responsive-woo-shop-product-description {
 			color: {$shop_product_content_color};
-		}
-	";
+		}";
+	}
 
 	if ( ! empty( $menu_text_color ) ) {
 		$custom_css .= ".menu a, .full-width-no-box .menu a {

@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/08/19) = Added - Version 3.16
+[+] = Added WooCommerce customization option for shop page, product page and color options
+[+] = Added Sidebar customization options (background color, padding and radius)
+[+] = Added Menu color customization options
+[!] = Fixed bug related to top menu, footer menu
+
 (07/25/19) = Added - Version 3.15.3
 [*] Improved Elements alignment customizer option settings
 
