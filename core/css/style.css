@@ -1510,7 +1510,6 @@ ul.menu > li:hover {
   font-size: 12px;
   font-weight: 400;
   height: auto;
-  height: 20px;
   line-height: 20px;
   padding: 5px 10px;
   text-shadow: none;
@@ -3950,10 +3949,6 @@ a.added_to_cart.wc-forward {
   display: inline;
   margin: 1px;
   padding-left: 3px;
-}
-
-.copyright {
-  margin: 10px;
 }
 
 /*--------------------------------------------------------------
