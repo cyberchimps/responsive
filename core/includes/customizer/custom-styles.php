@@ -197,6 +197,42 @@ function responsive_premium_custom_color_styles() {
 			background-color: {$input_background_color};
 			border-color: {$input_border_color_fs};
 		}
+		div.wpforms-container-full .wpforms-form .wpforms-field-label{
+			font-family: {$font_family};
+			text-transform: {$text_transform};
+			letter-spacing: {$letter_spacing}px;
+			color: {$label_color};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			box-sizing: border-box;
+			font-size: {$body_font_size};
+		}
+		div.wpforms-container-full .wpforms-form input[type=email], div.wpforms-container-full .wpforms-form input[type=number], div.wpforms-container-full .wpforms-form input[type=password], div.wpforms-container-full .wpforms-form input[type=search], div.wpforms-container-full .wpforms-form input[type=tel], div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container-full .wpforms-form select, div.wpforms-container-full .wpforms-form textarea{
+			color: {$input_text_color};
+			background-color: {$input_background_color};
+			border-color: {$input_border_color};
+			font-family: {$font_family};
+			font-size: {$body_font_size};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			letter-spacing: {$letter_spacing}px;
+		}
+		div.wpforms-container-full .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button{
+			color: {$button_text_color};
+			background-color: {$button_color};
+			border-radius: {$button_radius}px;
+			font-family: {$font_family};
+			font-size: {$body_font_size};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			letter-spacing: {$letter_spacing}px;
+		}
+		div.wpforms-container-full .wpforms-form input[type=submit]:hover, div.wpforms-container-full .wpforms-form input[type=submit]:active, div.wpforms-container-full .wpforms-form button[type=submit]:hover, div.wpforms-container-full .wpforms-form button[type=submit]:focus, div.wpforms-container-full .wpforms-form button[type=submit]:active, div.wpforms-container-full .wpforms-form .wpforms-page-button:hover, div.wpforms-container-full .wpforms-form .wpforms-page-button:active, div.wpforms-container-full .wpforms-form .wpforms-page-button:focus{
+			background-color: {$button_hover_color};
+		}
 
 		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
 		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
@@ -273,7 +309,7 @@ function responsive_premium_custom_color_styles() {
 			border: 2px solid {$link_color};
 			color: {$link_color};
 		}
-		.woocommerce ul.products li.product .onsale {
+		.woocommerce ul.products li.product .onsale, .woocommerce span.onsale {
 			background-color: {$link_color};
 			color: #ffffff;
 		}
