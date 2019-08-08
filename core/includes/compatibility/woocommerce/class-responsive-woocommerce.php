@@ -60,6 +60,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_custom_scripts' ) );
 
+			add_filter( 'post_class', array( $this, 'post_class' ) );
+
         }
 
         /**
@@ -290,9 +292,22 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function add_custom_scripts() {
 			// If vertical thumbnails style.
-			if ( 'vertical' == get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' ) ) {
-				wp_enqueue_script( 'responsive-woo-thumbnails', get_stylesheet_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-thumbnails.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			if ( 'vertical' === get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' ) ) {
+				wp_enqueue_script( 'responsive-woo-thumbnails', get_stylesheet_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-thumbnails.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
+		}
+
+		/**
+		 * Post Class
+		 *
+		 * @param array $classes Default argument array.
+		 *
+		 * @return array;
+		 */
+		function post_class( $classes ) {
+
+			$classes[] = 'responsive-product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
+			return $classes;
 		}
 
 	}

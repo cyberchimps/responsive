@@ -195,6 +195,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 * @see http://www.woothemes.com/2013/02/last-call-for-testing-woocommerce-2-0-coming-march-4th/
 		 */
 		add_theme_support( 'woocommerce' );
+		add_theme_support( 'wc-product-gallery-zoom' );
+    	add_theme_support( 'wc-product-gallery-lightbox' );
+    	add_theme_support( 'wc-product-gallery-slider' );
+
 
 		/**
 		 * This feature enables custom-menus support for a theme.
