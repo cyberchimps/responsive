@@ -417,7 +417,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							)
 						);
 
-
 						$wp_customize->add_control(
 							new Responsive_Customizer_Range_Control(
 								$wp_customize,

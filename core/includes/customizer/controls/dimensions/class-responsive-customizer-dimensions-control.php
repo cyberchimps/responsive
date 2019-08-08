@@ -4,7 +4,7 @@
  *
  * @package     Responsive WordPress theme
  * @subpackage  Controls
- * @see   		https://github.com/aristath/kirki
+ * @see         https://github.com/aristath/kirki
  * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
  * @since       1.0
  */
@@ -33,9 +33,9 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 	 * @access public
 	 */
 	public function enqueue() {
-		wp_enqueue_script( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/dimensions.min.js', array( 'jquery', 'customize-base' ), false, true );
+		wp_enqueue_script( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/dimensions.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 		wp_localize_script( 'responsive-dimensions', 'responsiveL10n', $this->l10n() );
-		wp_enqueue_style( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/dimensions.min.css', null );
+		wp_enqueue_style( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/dimensions.min.css', null, RESPONSIVE_THEME_VERSION, true );
 	}
 
 	/**
@@ -49,7 +49,8 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 
 		?><li id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
 			<?php $this->render_content(); ?>
-		</li><?php
+		</li>
+		<?php
 	}
 
 	/**
@@ -60,9 +61,9 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 	public function to_json() {
 		parent::to_json();
 
-		$this->json['id'] 		= $this->id;
-		$this->json['l10n']    	= $this->l10n();
-		$this->json['title'] 	= esc_html__( 'Link values together', 'responsive' );
+		$this->json['id']    = $this->id;
+		$this->json['l10n']  = $this->l10n();
+		$this->json['title'] = esc_html__( 'Link values together', 'responsive' );
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -70,19 +71,19 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 		}
 
 		$this->json['desktop'] = array();
-	    $this->json['tablet']  = array();
-	    $this->json['mobile']  = array();
+		$this->json['tablet']  = array();
+		$this->json['mobile']  = array();
 
-	    foreach ( $this->settings as $setting_key => $setting ) {
+		foreach ( $this->settings as $setting_key => $setting ) {
 
-	    	list( $_key ) = explode( '_', $setting_key );
+			list( $_key ) = explode( '_', $setting_key );
 
-	        $this->json[ $_key ][ $setting_key ] = array(
-	            'id'        => $setting->id,
-	            'link'      => $this->get_link( $setting_key ),
-	            'value'     => $this->value( $setting_key ),
-	        );
-	    }
+			$this->json[ $_key ][ $setting_key ] = array(
+				'id'    => $setting->id,
+				'link'  => $this->get_link( $setting_key ),
+				'value' => $this->value( $setting_key ),
+			);
+		}
 
 	}
 
@@ -109,20 +110,20 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 		<# } #>
 
 		<ul class="desktop control-wrap active">
-	        <# _.each( data.desktop, function( args, key ) { #>
-	            <li class="dimension-wrap {{ key }}">
-	                <input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
-	                <span class="dimension-label">{{ data.l10n[ key ] }}</span>
-	            </li>
-	        <# } ); #>
+			<# _.each( data.desktop, function( args, key ) { #>
+				<li class="dimension-wrap {{ key }}">
+					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
+					<span class="dimension-label">{{ data.l10n[ key ] }}</span>
+				</li>
+			<# } ); #>
 
-	        <li class="dimension-wrap">
-	            <div class="link-dimensions">
-	                <span class="dashicons dashicons-admin-links responsive-linked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
-	                <span class="dashicons dashicons-editor-unlink responsive-unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
-	            </div>
-	        </li>
-	    </ul>
+			<li class="dimension-wrap">
+				<div class="link-dimensions">
+					<span class="dashicons dashicons-admin-links responsive-linked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
+					<span class="dashicons dashicons-editor-unlink responsive-unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
+				</div>
+			</li>
+		</ul>
 
 		<?php
 	}
@@ -136,18 +137,18 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 	 */
 	protected function l10n( $id = false ) {
 		$translation_strings = array(
-			'desktop_top' 		=> esc_attr__( 'Top', 'responsive' ),
-			'desktop_right' 	=> esc_attr__( 'Right', 'responsive' ),
-			'desktop_bottom' 	=> esc_attr__( 'Bottom', 'responsive' ),
-			'desktop_left' 		=> esc_attr__( 'Left', 'responsive' ),
-			'tablet_top' 		=> esc_attr__( 'Top', 'responsive' ),
-			'tablet_right' 		=> esc_attr__( 'Right', 'responsive' ),
-			'tablet_bottom' 	=> esc_attr__( 'Bottom', 'responsive' ),
-			'tablet_left' 		=> esc_attr__( 'Left', 'responsive' ),
-			'mobile_top' 		=> esc_attr__( 'Top', 'responsive' ),
-			'mobile_right' 		=> esc_attr__( 'Right', 'responsive' ),
-			'mobile_bottom' 	=> esc_attr__( 'Bottom', 'responsive' ),
-			'mobile_left' 		=> esc_attr__( 'Left', 'responsive' ),
+			'desktop_top'    => esc_attr__( 'Top', 'responsive' ),
+			'desktop_right'  => esc_attr__( 'Right', 'responsive' ),
+			'desktop_bottom' => esc_attr__( 'Bottom', 'responsive' ),
+			'desktop_left'   => esc_attr__( 'Left', 'responsive' ),
+			'tablet_top'     => esc_attr__( 'Top', 'responsive' ),
+			'tablet_right'   => esc_attr__( 'Right', 'responsive' ),
+			'tablet_bottom'  => esc_attr__( 'Bottom', 'responsive' ),
+			'tablet_left'    => esc_attr__( 'Left', 'responsive' ),
+			'mobile_top'     => esc_attr__( 'Top', 'responsive' ),
+			'mobile_right'   => esc_attr__( 'Right', 'responsive' ),
+			'mobile_bottom'  => esc_attr__( 'Bottom', 'responsive' ),
+			'mobile_left'    => esc_attr__( 'Left', 'responsive' ),
 		);
 		if ( false === $id ) {
 			return $translation_strings;

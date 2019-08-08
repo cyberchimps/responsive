@@ -151,15 +151,15 @@ function responsive_sanitize_select( $input, $setting ) {
 /**
  * Check if check_product_price_custom_string function is present.
  */
-if( ! function_exists( 'check_product_price_custom_string' ) ) {
+if ( ! function_exists( 'check_product_price_custom_string' ) ) {
 	/**
 	 * Show hide logic for  product price format.
 	 *
 	 * @return boolean True/value values.
 	 */
 	function check_product_price_custom_string() {
-		$value = get_theme_mod( 'responsive_product_sale_notification' , '' );
-		if( 'sale-percentage' === $value ) {
+		$value = get_theme_mod( 'responsive_product_sale_notification', '' );
+		if ( 'sale-percentage' === $value ) {
 			return true;
 		} else {
 			return false;
@@ -170,9 +170,9 @@ if( ! function_exists( 'check_product_price_custom_string' ) ) {
 /**
  * Check if responsive_check_layout_type function is present.
  */
-if( ! function_exists( 'responsive_check_layout_type' ) ) {
+if ( ! function_exists( 'responsive_check_layout_type' ) ) {
 	/**
-	 * checks if the layout is fullwidth no boxed
+	 * Checks if the layout is fullwidth no boxed
 	 *
 	 * @return boolean True/value values.
 	 */
@@ -180,7 +180,7 @@ if( ! function_exists( 'responsive_check_layout_type' ) ) {
 		global $responsive_options;
 		$responsive_options = responsive_get_options();
 
-		if( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
+		if ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
 			return true;
 		} else {
 			return false;
@@ -192,7 +192,7 @@ if( ! function_exists( 'responsive_check_layout_type' ) ) {
 /**
  * Check if function present
  */
-if( ! function_exists( 'responsive_sanitize_background' ) ) {
+if ( ! function_exists( 'responsive_sanitize_background' ) ) {
 	/**
 	 * Menu Background
 	 *
@@ -211,11 +211,11 @@ if( ! function_exists( 'responsive_sanitize_background' ) ) {
 /**
  * Check if function present
  */
-if( ! function_exists( 'responsive_checkbox_validate' ) ) {
+if ( ! function_exists( 'responsive_checkbox_validate' ) ) {
 	/**
 	 * Validates checkbox inputs.
 	 *
-	 * @param $input checkbox
+	 * @param  string $input checkbox.
 	 *
 	 * @return 1 or 0
 	 */
