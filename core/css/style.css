@@ -2135,6 +2135,7 @@ img.wp-smiley {
 #widgets ul li a {
   display: inline;
   text-decoration: none;
+  word-wrap: break-word;
 }
 
 #widgets .widget-title img {
@@ -2974,6 +2975,14 @@ img.attachment-thumbnail {
   display: block;
   margin: 15px auto;
   width: auto;
+}
+
+.thumbnail > :first-child {
+  margin-top: 0;
+}
+
+.post-entry > :first-child {
+  margin-top: 0;
 }
 
 /* =Info Boxes

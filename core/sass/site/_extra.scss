@@ -251,6 +251,14 @@ img.attachment-thumbnail {
 	width: auto;
 }
 
+.thumbnail > :first-child {
+	margin-top: 0;
+}
+
+.post-entry > :first-child {
+	margin-top: 0;
+}
+
 
 /* =Info Boxes
 -------------------------------------------------------------- */
