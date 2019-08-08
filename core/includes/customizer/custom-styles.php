@@ -28,7 +28,8 @@ function responsive_premium_custom_color_styles() {
 	$input_border_color_fs  = get_theme_mod( 'input-border-color-focus', '#eaeaea' );
 	$input_border_color     = get_theme_mod( 'input-border-color', '#eaeaea' );
 	$input_text_color       = get_theme_mod( 'input-text-color', '#333333' );
-	$header_text_color       = get_theme_mod( 'responsive_fullwidth_header_color', '#585858' );
+	$header_text_color      = get_theme_mod( 'responsive_fullwidth_header_color', '#585858' );
+	$button_radius          = get_theme_mod( 'responsive_button_border_radius', '2' );
 
 	// Single Product colors.
 	$product_rating_color = get_theme_mod( 'responsive_product_rating_color', '#585858' );
@@ -185,6 +186,12 @@ function responsive_premium_custom_color_styles() {
 			color: {$input_text_color};
 			background-color: {$input_background_color};
 			border-color: {$input_border_color};
+			font-family: {$font_family};
+			font-size: {$body_font_size};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			letter-spacing: {$letter_spacing}px;
 		}
 		input:focus, input[type=text]:focus {
 			background-color: {$input_background_color};
@@ -196,6 +203,16 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
 			color: {$button_text_color};
 			background-color: {$button_color};
+			border-radius: {$button_radius}px;
+			font-family: {$font_family};
+			font-size: {$body_font_size};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			letter-spacing: {$letter_spacing}px;
+		}
+		input#searchsubmit{
+			background-image: none;
 		}
 		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, .woocommerce a.button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
 		#content-woocommerce .product .single_add_to_cart_button:hover, #content-woocommerce .product .single_add_to_cart_button:focus, .added_to_cart.wc-forward:hover, .added_to_cart.wc-forward:focus, .woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .button:focus,

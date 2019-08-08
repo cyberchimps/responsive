@@ -20,7 +20,7 @@ function responsive_upgrade_bar() {
 			);
 			?>
 		</p>
-		<!-- <p class="responsivepro-offer">Get 30% off on Responsive Pro using Coupon Code RESPONSIVE30</p> -->
+		 <p class="responsivepro-offer">Get 30% off on Responsive Pro using Coupon Code RESPONSIVE30</p> -->
 
 	<!--</div>-->
 	<div class="updated">

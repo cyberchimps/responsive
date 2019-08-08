@@ -60,7 +60,7 @@ function cyberchimps_display_about() {
 			printf(
 				__(
 					'<p>  is based on an intuitive foundation with a fluid grid system that automatically adapts your website to mobile devices including smartphones, tablets
- 				and desktops so your website looks incredible on any device. This theme is aptly named Responsive Theme – because that is the main focus of this theme, to make sure it is fully responsive and adapts to any device seamlessly.
+ 				and desktops so your website looks incredible on any device. This theme is aptly named Responsive Theme because that is the main focus of this theme, to make sure it is fully responsive and adapts to any device seamlessly.
 				We understand the importance of WordPress responsive themes and have ensured all of our themes are truly suitable for all mobile devices',
 					'responsive'
 				)

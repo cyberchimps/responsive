@@ -54,6 +54,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => 'body',
 						'defaults' => array(
 							'font-size'      => '14px',
+							'font-weight'    => '400',
 							'color'          => '#555555',
 							'line-height'    => '1.8',
 							'text-transform' => 'inherit',
@@ -65,6 +66,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'exclude'  => array( 'font-size' ),
 						'defaults' => array(
 							'color'          => '#555555',
+							'font-weight'    => '700',
 							'line-height'    => '1.4',
 							'text-transform' => 'inherit',
 						),

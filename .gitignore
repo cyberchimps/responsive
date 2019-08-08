@@ -12,6 +12,7 @@ atlassian*
 /robots.txt
 .DS_Store
 /tests/_output/
+/core/css/style.css.map
 node_modules
 *.jar
 *.phar
