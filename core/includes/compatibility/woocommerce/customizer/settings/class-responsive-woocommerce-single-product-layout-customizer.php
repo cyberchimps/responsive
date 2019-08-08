@@ -44,8 +44,9 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$wp_customize->add_setting(
 				'responsive_single_product_gallery_layout',
 				array(
-					'transport' => 'refresh',
-					'default'   => 'horizontal',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+					'default'           => 'horizontal',
 				)
 			);
 			$wp_customize->add_control(
@@ -56,8 +57,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 					'settings' => 'responsive_single_product_gallery_layout',
 					'type'     => 'select',
 					'choices'  => array(
-						'vertical'   => __( 'Vertical', 'astra-addon' ),
-						'horizontal' => __( 'Horizontal', 'astra-addon' ),
+						'vertical'   => __( 'Vertical', 'responsive' ),
+						'horizontal' => __( 'Horizontal', 'responsive' ),
 					),
 				)
 			);

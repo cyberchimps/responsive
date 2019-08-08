@@ -46,14 +46,15 @@ if ( class_exists( 'WooCommerce' ) ) {
 					array(
 						'title'    => esc_html__( 'General', 'responsive' ),
 						'panel'    => 'woocommerce',
-						'priority' => 295,
+						'priority' => 9,
 					)
 				);
 				$wp_customize->add_setting(
 					'responsive_product_sale_notification',
 					array(
-						'transport' => 'refresh',
-						'default'   => 'default',
+						'sanitize_callback' => 'responsive_sanitize_select',
+						'transport'         => 'refresh',
+						'default'           => 'default',
 					)
 				);
 				$wp_customize->add_control(
@@ -91,8 +92,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$wp_customize->add_setting(
 					'responsive_product_sale_style',
 					array(
-						'transport' => 'refresh',
-						'default'   => 'circle',
+						'transport'         => 'refresh',
+						'default'           => 'circle',
+						'sanitize_callback' => 'responsive_sanitize_select',
 					)
 				);
 				$wp_customize->add_control(
@@ -103,10 +105,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 						'settings' => 'responsive_product_sale_style',
 						'type'     => 'select',
 						'choices'  => array(
-							'circle'         => __( 'Circle', 'astra-addon' ),
-							'circle-outline' => __( 'Circle Outline', 'astra-addon' ),
-							'square'         => __( 'Square', 'astra-addon' ),
-							'square-outline' => __( 'Square Outline', 'astra-addon' ),
+							'circle'         => __( 'Circle', 'responsive' ),
+							'circle-outline' => __( 'Circle Outline', 'responsive' ),
+							'square'         => __( 'Square', 'responsive' ),
+							'square-outline' => __( 'Square Outline', 'responsive' ),
 						),
 					)
 				);

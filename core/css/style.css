@@ -3795,6 +3795,10 @@ a.added_to_cart.wc-forward {
   .woocommerce div.product.responsive-product-gallery-layout-vertical div.images .flex-control-thumbs li {
     width: 100%;
   }
+
+  .responsive-product-gallery-layout-vertical span.onsale {
+    left: 11%;
+  }
 }
 /*--------------------------------------------------------------
 ## Footer
@@ -4155,5 +4159,6 @@ object {
 .gallery-meta .focal-length {
   display: block;
 }
-
+.commentlist .bypostauthor {
+}
 /*# sourceMappingURL=style.css.map */
