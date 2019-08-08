@@ -337,6 +337,17 @@ function responsive_premium_custom_color_styles() {
 	}
 	if( !empty( $menu_background_color ) ) {
 		$custom_css .= ".main-nav, .full-width-no-box .main-nav, .full-width-no-box .menu, .menu {
+			background-color:{$menu_background_color};
+			background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
+			background-image: -webkit-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			background-image: -moz-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			background-image: -ms-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			background-image: -o-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			background-image: linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr={$menu_background_color}, endColorstr={$menu_background_color_2});
+		}
+		@media screen and (max-width: 650px) {
+			.js #header .main-nav {
 				background-color:{$menu_background_color};
 				background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
 				background-image: -webkit-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
@@ -346,48 +357,37 @@ function responsive_premium_custom_color_styles() {
 				background-image: linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
 				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr={$menu_background_color}, endColorstr={$menu_background_color_2});
 			}
-			@media screen and (max-width: 650px) {
-				.js #header .main-nav {
-					background-color:{$menu_background_color};
-					background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
-					background-image: -webkit-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
-					background-image: -moz-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
-					background-image: -ms-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
-					background-image: -o-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
-					background-image: linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr={$menu_background_color}, endColorstr={$menu_background_color_2});
-				}
-			}";
-			if( !empty( $sidebar_background_color ) ) {
-				$custom_css .= ".widget-wrapper {
-					background-color: {$sidebar_background_color};
-				}";
-			}
-			if( !empty( $sidebar_padding_right ) ) {
-				$custom_css .= ".widget-wrapper {
-					padding-right: {$sidebar_padding_right}px;
-				}";
-			}
-			if( !empty( $sidebar_padding_left ) ) {
-				$custom_css .= ".widget-wrapper {
-					padding-left: {$sidebar_padding_left}px;
-				}";
-			}
-			if( !empty( $sidebar_padding_top ) ) {
-				$custom_css .= ".widget-wrapper {
-					padding-top: {$sidebar_padding_top}px;
-				}";
-			}
-			if( !empty( $sidebar_padding_bottom ) ) {
-				$custom_css .= ".widget-wrapper {
-					padding-bottom: {$sidebar_padding_bottom}px;
-				}";
-			}
-			if( !empty( $sidebar_radius ) ) {
-				$custom_css .= ".widget-wrapper {
-					border-radius: {$sidebar_radius}px;
-				}";
-			}
+		}";
+	}
+	if( ! empty( $sidebar_background_color ) ) {
+		$custom_css .= ".widget-wrapper {
+			background-color: {$sidebar_background_color};
+		}";
+	}
+	if( ! empty( $sidebar_padding_right ) ) {
+		$custom_css .= ".widget-wrapper {
+			padding-right: {$sidebar_padding_right}px;
+		}";
+	}
+	if( ! empty( $sidebar_padding_left ) ) {
+		$custom_css .= ".widget-wrapper {
+			padding-left: {$sidebar_padding_left}px;
+		}";
+	}
+	if( ! empty( $sidebar_padding_top ) ) {
+		$custom_css .= ".widget-wrapper {
+			padding-top: {$sidebar_padding_top}px;
+		}";
+	}
+	if( ! empty( $sidebar_padding_bottom ) ) {
+		$custom_css .= ".widget-wrapper {
+			padding-bottom: {$sidebar_padding_bottom}px;
+		}";
+	}
+	if( ! empty( $sidebar_radius ) ) {
+		$custom_css .= ".widget-wrapper {
+			border-radius: {$sidebar_radius}px;
+		}";
 	}
 	wp_add_inline_style( 'responsive-style', $custom_css );
 }
