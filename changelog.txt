@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/12/19) = Added - Version 3.16.1
+[x] = Deleted Automation test cases files
+
 (08/08/19) = Added - Version 3.16
 [+] = Added WooCommerce customization option for shop page, product page and color options
 [+] = Added Sidebar customization options (background color, padding and radius)
