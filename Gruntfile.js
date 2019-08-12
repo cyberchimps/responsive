@@ -144,7 +144,11 @@ module.exports = function(grunt) {
 					'!**/package.json',
 					'!**/README.md',
 					'!**/*~',
-					'!.editorconfig'
+					'!.editorconfig',
+					'!**/.csscomb.json',
+					'!**/sass/**',
+					'!**/automationtest/**'
+
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
@@ -184,7 +188,7 @@ module.exports = function(grunt) {
 	});
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'clean', 'google-fonts', 'copy', 'compress' ] );
+	grunt.registerTask( 'default', [ 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };
