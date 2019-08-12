@@ -144,7 +144,11 @@ module.exports = function(grunt) {
 					'!**/package.json',
 					'!**/README.md',
 					'!**/*~',
-					'!.editorconfig'
+					'!.editorconfig',
+					'!**/.csscomb.json',
+					'!**/sass/**',
+					'!**/automationtest/**'
+
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
