@@ -39,6 +39,7 @@ module.exports = function(grunt) {
 					'!node_modules/**',
 					'!core/**',
 					'!build/**',
+					'!composer.json',
 					'!**/*~'
 				],
 				expand: true
@@ -135,6 +136,7 @@ module.exports = function(grunt) {
 					'!**/.git/**',
 					'!Gruntfile.js',
 					'!package.json',
+					'!composer.json',
 					'!.gitignore',
 					'!.gitmodules',
 					'!**/.gitignore',
