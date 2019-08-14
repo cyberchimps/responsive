@@ -23,25 +23,24 @@ define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory
 global $responsive_blog_layout_columns;
 $responsive_blog_layout_columns = array( 'blog-2-col', 'blog-3-col', 'blog-4-col' );
 
-$template_directory = get_template_directory();
-require $template_directory . '/core/includes/functions.php';
-require $template_directory . '/core/includes/functions-update.php';
-require $template_directory . '/core/includes/functions-about.php';
-require $template_directory . '/core/includes/functions-sidebar.php';
-require $template_directory . '/core/includes/functions-install.php';
-require $template_directory . '/core/includes/functions-admin.php';
-require $template_directory . '/core/includes/functions-extras.php';
-require $template_directory . '/core/includes/functions-extentions.php';
-require $template_directory . '/core/includes/theme-options/theme-options.php';
-require $template_directory . '/core/includes/post-custom-meta.php';
-require $template_directory . '/core/includes/tha-theme-hooks.php';
-require $template_directory . '/core/includes/hooks.php';
-require $template_directory . '/core/includes/version.php';
-require $template_directory . '/core/includes/customizer/controls/typography/webfonts.php';
-require $template_directory . '/core/includes/customizer/helper.php';
-require $template_directory . '/core/includes/customizer/customizer.php';
-require $template_directory . '/core/includes/customizer/custom-styles.php';
-require $template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
+$responsive_template_directory = get_template_directory();
+require $responsive_template_directory . '/core/includes/functions.php';
+require $responsive_template_directory . '/core/includes/functions-update.php';
+require $responsive_template_directory . '/core/includes/functions-about.php';
+require $responsive_template_directory . '/core/includes/functions-sidebar.php';
+require $responsive_template_directory . '/core/includes/functions-install.php';
+require $responsive_template_directory . '/core/includes/functions-admin.php';
+require $responsive_template_directory . '/core/includes/functions-extras.php';
+require $responsive_template_directory . '/core/includes/functions-extentions.php';
+require $responsive_template_directory . '/core/includes/theme-options/theme-options.php';
+require $responsive_template_directory . '/core/includes/post-custom-meta.php';
+require $responsive_template_directory . '/core/includes/hooks.php';
+require $responsive_template_directory . '/core/includes/version.php';
+require $responsive_template_directory . '/core/includes/customizer/controls/typography/webfonts.php';
+require $responsive_template_directory . '/core/includes/customizer/helper.php';
+require $responsive_template_directory . '/core/includes/customizer/customizer.php';
+require $responsive_template_directory . '/core/includes/customizer/custom-styles.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 
 // Return value of the supplied responsive free theme option.
 function responsive_free_get_option( $option, $default = false ) {
