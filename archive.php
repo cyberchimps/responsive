@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 get_header(); ?>
-<?php require_once ABSPATH . 'wp-admin/includes/plugin.php'; ?>
+<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
 <div id="content-outer">
 <div id="content-archive" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 

@@ -27,7 +27,6 @@ Template Name: Blog (full posts)
 
 get_header();
 
-global $more;
 $more = 0;
 ?>
 <div id="content-outer">
@@ -38,7 +37,6 @@ $more = 0;
 	?>
 
 	<?php
-	global $wp_query, $paged;
 	if ( get_query_var( 'paged' ) ) {
 		$paged = get_query_var( 'paged' );
 	} elseif ( get_query_var( 'page' ) ) {
