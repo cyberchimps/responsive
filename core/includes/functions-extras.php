@@ -72,7 +72,6 @@ add_filter( 'get_comments_number', 'responsive_comment_count', 0 );
  * Pings (Trackbacks/Pingbacks)
  */
 function responsive_comment_list_pings( $comment ) {
-	$GLOBALS['comment'] = $comment;
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
 	<?php
