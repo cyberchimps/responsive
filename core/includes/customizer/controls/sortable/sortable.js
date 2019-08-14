@@ -59,7 +59,7 @@ wp.customize.controlConstructor['responsive-sortable'] = wp.customize.Control.ex
 			this.sortableContainer.find( 'li' ).each(
 				function() {
 					if ( ! jQuery( this ).is( '.invisible' ) ) {
-						  newValue.push( jQuery( this ).data( 'value' ) );
+						newValue.push( jQuery( this ).data( 'value' ) );
 					}
 				}
 			);

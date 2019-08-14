@@ -34,13 +34,7 @@ get_header(); ?>
 
 			<?php responsive_entry_before(); ?>
 			<?php
-			if ( is_singular( 'page' ) ) {
-
-				get_template_part( 'partials/page/layout' );
-
-			} else {
 				get_template_part( 'partials/single/layout', get_post_type() );
-			}
 			?>
 			<?php responsive_entry_after(); ?>
 

@@ -138,22 +138,20 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		}
 
 		/** WordPress V4.7 or greater */
-		//Commented : as it causes error in the adition css tab
-		/*if ( function_exists( 'wp_update_custom_css_post' ) ) {
+		if ( function_exists( 'wp_update_custom_css_post' ) ) {
 			$responsive_custom_css = isset( $responsive_options['responsive_inline_css'] ) ? $responsive_options['responsive_inline_css'] : '';
 
 			if ( $responsive_custom_css ) {
-				error_log('in the =='.$responsive_custom_css);
 				$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
 				$return   = wp_update_custom_css_post( $core_css . $responsive_custom_css );
 				if ( ! is_wp_error( $return ) ) {
 
 					/** Set css to blank */
-						/*$responsive_options['responsive_inline_css'] = '';
+						$responsive_options['responsive_inline_css'] = '';
 						update_option( 'responsive_theme_options', $responsive_options );
 				}
 			}
-		}*/
+		}
 
 		/**
 		 * Responsive is now available for translations.
@@ -197,6 +195,10 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 * @see http://www.woothemes.com/2013/02/last-call-for-testing-woocommerce-2-0-coming-march-4th/
 		 */
 		add_theme_support( 'woocommerce' );
+		add_theme_support( 'wc-product-gallery-zoom' );
+    	add_theme_support( 'wc-product-gallery-lightbox' );
+    	add_theme_support( 'wc-product-gallery-slider' );
+
 
 		/**
 		 * This feature enables custom-menus support for a theme.
@@ -331,8 +333,10 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$theme              = wp_get_theme();
 		$responsive         = wp_get_theme( 'responsive' );
 		$responsive_options = responsive_get_options();
+
 		if ( 1 == $responsive_options['minified_css'] ) {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.min.css', false, $responsive['Version'] );
 		} else {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
 			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.min.css', false, $responsive['Version'] );

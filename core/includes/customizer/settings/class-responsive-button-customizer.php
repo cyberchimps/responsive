@@ -52,7 +52,7 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 					'button-text-color'        => array(
 						'label'    => esc_html__( 'Button Text Color', 'responsive' ),
 						'defaults' => array(
-							'color' => '#333333',
+							'color' => '#ffffff',
 						),
 					),
 					'label-color'              => array(
@@ -153,6 +153,36 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 								'settings'        => $element,
 								'priority'        => 10,
 								'active_callback' => $active_callback,
+							)
+						)
+					);
+
+					/**
+					 * Main Container Width
+					 */
+					$wp_customize->add_setting(
+						'responsive_button_border_radius',
+						array(
+							'transport'         => 'refresh',
+							'default'           => '2',
+							'sanitize_callback' => 'responsive_sanitize_number',
+						)
+					);
+
+					$wp_customize->add_control(
+						new Responsive_Customizer_Range_Control(
+							$wp_customize,
+							'responsive_button_border_radius',
+							array(
+								'label'       => __( 'Button Border Radius (px)', 'responsive' ),
+								'section'     => 'responsive_button_section',
+								'settings'    => 'responsive_button_border_radius',
+								'priority'    => 10,
+								'input_attrs' => array(
+									'min'  => 0,
+									'max'  => 100,
+									'step' => 1,
+								),
 							)
 						)
 					);

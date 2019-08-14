@@ -23,12 +23,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 global $responsive_options;
 $responsive_options = responsive_get_options();
+global $responsive_blog_layout_columns;
 ?>
 <?php responsive_wrapper_bottom(); // after wrapper content hook ?>
 </div><!-- end of #wrapper -->
 
 <?php responsive_wrapper_end(); // after wrapper hook ?>
-<?php if ( is_home() && ! is_front_page() ) { ?>
+<?php if ( ( is_home() && ! is_front_page() ) || in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) { ?>
 </div>
 <?php } ?>
 </div><!-- end of #container -->
@@ -44,14 +45,17 @@ $responsive_options = responsive_get_options();
 	<?php if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-no-box' ) ) { ?>
 		<div class="social_div grid col-940">
 			<div id="content-outer">
-			<?php echo responsive_get_social_icons_new(); ?>
-		</div>
-		<div class="footer_div grid col-940">
-			<div id="content-outer">
-		<?php get_sidebar( 'footer' ); ?>
-		</div>
-		</div>
+				<?php echo responsive_get_social_icons_new(); ?>
+			</div>
+			<?php if( is_active_sidebar( 'footer-widget' ) ) { ?>
+			<div class="footer_div grid col-940">
+				<div id="content-outer">
+					<?php get_sidebar( 'footer' ); ?>
+				</div>
+			</div>
+		<?php } ?>
 		<div id="content-outer">
+		<?php if ( has_nav_menu( 'footer-menu' ) ) { ?>
 		<div class="grid col-940">
 
 			<div class="grid col-540">
@@ -73,6 +77,7 @@ $responsive_options = responsive_get_options();
 			</div><!-- end of col-380 fit -->
 
 		</div><!-- end of col-940 -->
+		<?php } ?>
 		<?php get_sidebar( 'colophon' ); ?>
 		<?php if ( isset( $responsive_options['copyright_textbox'] ) ) {
 			$copyright_text = $responsive_options['copyright_textbox'];
@@ -89,7 +94,7 @@ $responsive_options = responsive_get_options();
 			</a>
 		</div><!-- end of .copyright -->
 
-		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
+		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php esc_html_e( '&uarr;', 'responsive' ); ?></a>
 		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
 		<?php if( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">
@@ -104,6 +109,7 @@ $responsive_options = responsive_get_options();
 		<?php get_sidebar( 'footer' ); ?>
 		</div>
 		<div id="content-outer">
+		<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
 		<div class="grid col-940">
 
 			<div class="grid col-540">
@@ -126,6 +132,7 @@ $responsive_options = responsive_get_options();
 			</div><!-- end of col-380 fit -->
 
 		</div><!-- end of col-940 -->
+		<?php } ?>
 		<?php get_sidebar( 'colophon' ); ?>
 		<?php
 
@@ -142,7 +149,7 @@ $responsive_options = responsive_get_options();
 			</a>
 		</div><!-- end of .copyright -->
 
-		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
+		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php esc_html_e( '&uarr;', 'responsive' ); ?></a>
 		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
 		<?php if( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">

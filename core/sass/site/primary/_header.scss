@@ -1,0 +1,25 @@
+/* =Header
+-------------------------------------------------------------- */
+#logo {
+	float: left;
+	margin: 0;
+}
+
+.site-name {
+	display: block;
+	font-size: 2.063em; /* = 33px */
+	line-height: 1.0em;
+	padding-top: 20px;
+}
+
+.site-name a {
+	color: #333333;
+	font-weight: 700;
+}
+
+.site-description {
+	color: #afafaf;
+	display: block;
+	font-size: 0.875em; /* = 14px */
+	margin: 10px 0;
+}

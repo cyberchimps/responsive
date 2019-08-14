@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
-		<a class="skip-link screen-reader-text focusable" href="#content"><?php _e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
+		<a class="skip-link screen-reader-text focusable" href="#content"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
 	<div id="header_section">
 	<div id="header" role="banner">
@@ -105,10 +105,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
 				<?php
 			}
+		}
 			?>
+
 		</div><!-- end of #logo -->
 	</div>
-<?php } ?>
+
 
 
 
@@ -145,8 +147,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php responsive_wrapper(); // before wrapper container hook. ?>
 
+    <?php global $responsive_blog_layout_columns; ?>
+
 <?php
-if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-layout' ) && ( ! ( is_home() || is_front_page() ) ) ) {
+if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layout' === $responsive_options['site_layout_option'] ) && ( ! ( is_home() || is_front_page() ) ) ) || in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) {
 	?>
 <div id="content-outer" >
 <?php } ?>

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php if ( post_password_required() ) { ?>
-	<p class="nocomments"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'responsive' ); ?></p>
+	<p class="nocomments"><?php esc_html_e( 'This post is password protected. Enter the password to view any comments.', 'responsive' ); ?></p>
 
 	<?php
 	return;
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="navigation">
 			<div class="previous"><?php previous_comments_link( __( '&#8249; Older comments', 'responsive' ) ); ?></div>
 			<!-- end of .previous -->
-			<div class="next"><?php next_comments_link( __( 'Newer comments &#8250;', 'responsive', 0 ) ); ?></div>
+			<div class="next"><?php next_comments_link( __( 'Newer comments &#8250;', 'responsive' ) ); ?></div>
 			<!-- end of .next -->
 		</div><!-- end of.navigation -->
 	<?php endif; ?>
@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="navigation">
 			<div class="previous"><?php previous_comments_link( __( '&#8249; Older comments', 'responsive' ) ); ?></div>
 			<!-- end of .previous -->
-			<div class="next"><?php next_comments_link( __( 'Newer comments &#8250;', 'responsive', 0 ) ); ?></div>
+			<div class="next"><?php next_comments_link( __( 'Newer comments &#8250;', 'responsive' ) ); ?></div>
 			<!-- end of .next -->
 		</div><!-- end of.navigation -->
 	<?php endif; ?>

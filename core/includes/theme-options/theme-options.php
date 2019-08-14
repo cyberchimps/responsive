@@ -113,7 +113,7 @@ function responsive_theme_options_do_page() {
 
 
 	<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
-		<div class="updated fade"><p><strong><?php _e( 'Options Saved', 'responsive' ); ?></strong></p></div>
+		<div class="updated fade"><p><strong><?php esc_html_e( 'Options Saved', 'responsive' ); ?></strong></p></div>
 	<?php endif; ?>
 
 	<?php responsive_theme_options(); // Theme Options Hook ?>
@@ -938,7 +938,7 @@ function responsive_theme_options_validate( $input ) {
 		$input['vimeo_uid']                   = esc_url_raw( $input['vimeo_uid'] );
 		$input['foursquare_uid']              = esc_url_raw( $input['foursquare_uid'] );
 		$input['email_uid']                   = sanitize_email( $input['email_uid'] );
-		$input['responsive_inline_css']       = wp_kses_stripslashes( isset( $input['responsive_inline_css'] ) );
+		$input['responsive_inline_css']       = wp_kses_stripslashes( !empty( $input['responsive_inline_css'] ) );
 		$input['responsive_inline_js_head']   = wp_kses_stripslashes( $input['responsive_inline_js_head'] );
 		$input['responsive_inline_js_footer'] = wp_kses_stripslashes( $input['responsive_inline_js_footer'] );
 

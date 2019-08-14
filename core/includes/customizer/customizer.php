@@ -18,54 +18,6 @@ function responsive_customize_register( $wp_customize ) {
 
 	/*
 	--------------------------------------------------------------
-	// Default Layouts
-	--------------------------------------------------------------
-	*/
-
-	$wp_customize->add_section(
-		'default_layouts',
-		array(
-			'title'    => __( 'Default Layouts', 'responsive' ),
-			'priority' => 30,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_theme_options[static_page_layout_default]',
-		array(
-			'sanitize_callback' => 'responsive_sanitize_default_layouts',
-			'type'              => 'option',
-		)
-	);
-	$wp_customize->add_control(
-		'res_static_page_layout_default',
-		array(
-			'label'    => __( 'Default Static Page Layout', 'responsive' ),
-			'section'  => 'default_layouts',
-			'settings' => 'responsive_theme_options[static_page_layout_default]',
-			'type'     => 'select',
-			'choices'  => Responsive_Options::valid_layouts(),
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_theme_options[blog_posts_index_layout_default]',
-		array(
-			'sanitize_callback' => 'responsive_sanitize_blog_default_layouts',
-			'type'              => 'option',
-		)
-	);
-	$wp_customize->add_control(
-		'res_hblog_posts_index_layout_default',
-		array(
-			'label'    => __( 'Default Blog Posts Index Layout', 'responsive' ),
-			'section'  => 'default_layouts',
-			'settings' => 'responsive_theme_options[blog_posts_index_layout_default]',
-			'type'     => 'select',
-			'choices'  => Responsive_Options::blog_valid_layouts(),
-		)
-	);
-
-	/*
-	--------------------------------------------------------------
 	// CSS Styles
 	--------------------------------------------------------------
 	*/
@@ -260,7 +212,7 @@ add_action( 'customize_preview_init', 'responsive_customize_preview_js' );
 /**
  * Adds customizer options
  */
-function register_options() {
+function responsive_register_options() {
 	// Var.
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
 
@@ -274,6 +226,8 @@ function register_options() {
 		'class-responsive-links-customizer',
 		'class-responsive-footer-customizer',
 		'class-responsive-footer-copyrights-customizer',
+		'class-responsive-menu-customizer',
+		'class-responsive-sidebar-customizer',
 	);
 
 	foreach ( $files as $key ) {
@@ -284,7 +238,7 @@ function register_options() {
 	}
 }
 
-add_action( 'after_setup_theme', 'register_options' );
+add_action( 'after_setup_theme', 'responsive_register_options' );
 
 /**
  * Adds custom controls.
@@ -293,7 +247,7 @@ add_action( 'after_setup_theme', 'register_options' );
  *
  * @since 1.0.0
  */
-function custom_controls( $wp_customize ) {
+function responsive_custom_controls( $wp_customize ) {
 
 	// Path.
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/';
@@ -305,6 +259,7 @@ function custom_controls( $wp_customize ) {
 	require_once $dir . 'sortable/class-responsive-customizer-sortable-control.php';
 	require_once $dir . 'text/class-responsive-customizer-text-control.php';
 	require_once $dir . 'typography/class-responsive-customizer-typography-control.php';
+	require_once $dir . 'dimensions/class-responsive-customizer-dimensions-control.php';
 
 	// Register JS control types.
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
@@ -313,17 +268,18 @@ function custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Sortable_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Text_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Typography_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Dimensions_Control' );
 
 }
-add_action( 'customize_register', 'custom_controls' );
+add_action( 'customize_register', 'responsive_custom_controls' );
 
 /**
  * Adds customizer helpers
  */
-function controls_helpers() {
+function responsive_controls_helpers() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/sanitization-callbacks.php';
 }
-add_action( 'customize_register', 'controls_helpers' );
+add_action( 'customize_register', 'responsive_controls_helpers' );
 
 /**
  * Responsive_customize_preview_init.

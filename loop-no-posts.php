@@ -43,7 +43,7 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 		echo '<p>' . responsivepro_plugin_get_option( '404_content' ) . '</p>';
 	} else {
 		?>
-	<p><?php _e( 'Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive' ); ?></p>
+	<p><?php esc_html_e( 'Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive' ); ?></p>
 
 	<h6>
 		<?php

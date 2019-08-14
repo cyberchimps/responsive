@@ -28,6 +28,37 @@ function responsive_premium_custom_color_styles() {
 	$input_border_color_fs  = get_theme_mod( 'input-border-color-focus', '#eaeaea' );
 	$input_border_color     = get_theme_mod( 'input-border-color', '#eaeaea' );
 	$input_text_color       = get_theme_mod( 'input-text-color', '#333333' );
+	$header_text_color      = get_theme_mod( 'responsive_fullwidth_header_color', '#585858' );
+	$button_radius          = get_theme_mod( 'responsive_button_border_radius', '2' );
+
+	// Single Product colors.
+	$product_rating_color     = get_theme_mod( 'responsive_product_rating_color', '#585858' );
+	$product_title_color      = get_theme_mod( 'responsive_product_title_color', '#585858' );
+	$product_price_color      = get_theme_mod( 'responsive_product_price_color', '#585858' );
+	$product_content_color    = get_theme_mod( 'responsive_product_content_color', '#585858' );
+	$product_breadcrumb_color = get_theme_mod( 'responsive_product_breadcrumb_color', '#585858' );
+
+	// Shop product colors.
+	$shop_product_title_color   = get_theme_mod( 'responsive_shop_product_title_color', '#585858' );
+	$shop_product_price_color   = get_theme_mod( 'responsive_shop_product_price_color', '#585858' );
+	$shop_product_content_color = get_theme_mod( 'responsive_shop_product_content_color', '#585858' );
+
+	// Menu colors.
+	$menu_gradients_checkbox = get_theme_mod( 'responsive_menu_gradients_checkbox' );
+	$menu_background_color   = get_theme_mod( 'responsive_menu_background_colorpicker' );
+	$menu_background_color_2 = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
+	$menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color ); //phpcs:ignore
+	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker' );
+	$menu_text_hover_color   = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
+	$menu_item_color         = get_theme_mod( 'responsive_menu_item_colorpicker' );
+
+	// Sidebar colors.
+	$sidebar_background_color = get_theme_mod( 'responsive_sidebar_background_color' );
+	$sidebar_padding_right    = get_theme_mod( 'responsive_sidebar_right_padding' );
+	$sidebar_padding_left     = get_theme_mod( 'responsive_sidebar_left_padding' );
+	$sidebar_padding_top      = get_theme_mod( 'responsive_sidebar_top_padding' );
+	$sidebar_padding_bottom   = get_theme_mod( 'responsive_sidebar_bottom_padding' );
+	$sidebar_radius           = get_theme_mod( 'responsive_sidebar_radius' );
 
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
@@ -119,7 +150,7 @@ function responsive_premium_custom_color_styles() {
 		body {
 			font-family: {$font_family};
 			text-transform: {$text_transform};
-			letter-spacing: {$letter_spacing} !important;
+			letter-spacing: {$letter_spacing}px;
 			color: {$body_color};
 			font-weight: {$font_weight};
 			line-height: {$line_height};
@@ -139,7 +170,7 @@ function responsive_premium_custom_color_styles() {
 		.site-title a, .site-description {
 			font-family: {$headings_font_family};
 			text-transform: {$headingtext_transform};
-			letter-spacing: {$headingsletter_spacing} !important;
+			letter-spacing: {$headingsletter_spacing}px;
 			color: {$heading_color};
 			font-weight: {$headingsfont_weight};
 			line-height: {$headingsline_height};
@@ -155,10 +186,52 @@ function responsive_premium_custom_color_styles() {
 			color: {$input_text_color};
 			background-color: {$input_background_color};
 			border-color: {$input_border_color};
+			font-family: {$font_family};
+			font-size: {$body_font_size};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			letter-spacing: {$letter_spacing}px;
 		}
 		input:focus, input[type=text]:focus {
 			background-color: {$input_background_color};
 			border-color: {$input_border_color_fs};
+		}
+		div.wpforms-container-full .wpforms-form .wpforms-field-label{
+			font-family: {$font_family};
+			text-transform: {$text_transform};
+			letter-spacing: {$letter_spacing}px;
+			color: {$label_color};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			box-sizing: border-box;
+			font-size: {$body_font_size};
+		}
+		div.wpforms-container-full .wpforms-form input[type=email], div.wpforms-container-full .wpforms-form input[type=number], div.wpforms-container-full .wpforms-form input[type=password], div.wpforms-container-full .wpforms-form input[type=search], div.wpforms-container-full .wpforms-form input[type=tel], div.wpforms-container-full .wpforms-form input[type=text], div.wpforms-container-full .wpforms-form select, div.wpforms-container-full .wpforms-form textarea{
+			color: {$input_text_color};
+			background-color: {$input_background_color};
+			border-color: {$input_border_color};
+			font-family: {$font_family};
+			font-size: {$body_font_size};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			letter-spacing: {$letter_spacing}px;
+		}
+		div.wpforms-container-full .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button{
+			color: {$button_text_color};
+			background-color: {$button_color};
+			border-radius: {$button_radius}px;
+			font-family: {$font_family};
+			font-size: {$body_font_size};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			letter-spacing: {$letter_spacing}px;
+		}
+		div.wpforms-container-full .wpforms-form input[type=submit]:hover, div.wpforms-container-full .wpforms-form input[type=submit]:active, div.wpforms-container-full .wpforms-form button[type=submit]:hover, div.wpforms-container-full .wpforms-form button[type=submit]:focus, div.wpforms-container-full .wpforms-form button[type=submit]:active, div.wpforms-container-full .wpforms-form .wpforms-page-button:hover, div.wpforms-container-full .wpforms-form .wpforms-page-button:active, div.wpforms-container-full .wpforms-form .wpforms-page-button:focus{
+			background-color: {$button_hover_color};
 		}
 
 		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
@@ -166,6 +239,16 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
 			color: {$button_text_color};
 			background-color: {$button_color};
+			border-radius: {$button_radius}px;
+			font-family: {$font_family};
+			font-size: {$body_font_size};
+			font-weight: {$font_weight};
+			line-height: {$line_height};
+			font-style: {$font_style};
+			letter-spacing: {$letter_spacing}px;
+		}
+		input#searchsubmit{
+			background-image: none;
 		}
 		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, .woocommerce a.button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
 		#content-woocommerce .product .single_add_to_cart_button:hover, #content-woocommerce .product .single_add_to_cart_button:focus, .added_to_cart.wc-forward:hover, .added_to_cart.wc-forward:focus, .woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .button:focus,
@@ -217,11 +300,146 @@ function responsive_premium_custom_color_styles() {
 			max-width: 100%;
 		}
 		.boxed-layout
-		.content-area {
+		.content-area, body.default-layout #content-outer, body.full-width-layout #content-outer, body.full-width-no-box #content-outer, .menu {
 			width: {$container_width}px;
+			max-width: 100%;
 		}
-	";
+		.woocommerce ul.products li.product .onsale.circle-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline {
+			background: #ffffff;
+			border: 2px solid {$link_color};
+			color: {$link_color};
+		}
+		.woocommerce ul.products li.product .onsale, .woocommerce span.onsale {
+			background-color: {$link_color};
+			color: #ffffff;
+		}
+		.full-width-no-box #header {
+			background-color: {$header_text_color};
+		}";
+	if ( ! empty( $product_title_color ) ) {
+		$custom_css .= ".single-product div.product .entry-title {
+			color: {$product_title_color};
+		}";
+	}
+	if ( ! empty( $product_content_color ) ) {
+		$custom_css .= ".single-product div.product .woocommerce-product-details__short-description, .single-product div.product .product_meta, .single-product div.product .entry-content {
+			color: {$product_content_color};
+		}";
+	}
+	if ( ! empty( $product_price_color ) ) {
+		$custom_css .= ".single-product div.product p.price, .single-product div.product span.price {
+			color: {$product_price_color};
+		}";
+	}
+	if ( ! empty( $shop_product_title_color ) ) {
+		$custom_css .= ".woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+			color: {$shop_product_title_color};
+		}";
+	}
+	if ( ! empty( $shop_product_price_color ) ) {
+		$custom_css .= ".woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+			color: {$shop_product_price_color};
+		}";
+	}
+	if ( ! empty( $product_rating_color ) ) {
+		$custom_css .= ".woocommerce .star-rating, .woocommerce .comment-form-rating .stars a, .woocommerce .star-rating::before {
+			color: {$product_rating_color};
+		}";
+	}
+	if ( ! empty( $product_breadcrumb_color ) ) {
+		$custom_css .= ".single-product .woocommerce-breadcrumb, .single-product .woocommerce-breadcrumb a {
+			color: {$product_breadcrumb_color};
+		}";
+	}
+	if ( ! empty( $shop_product_content_color ) ) {
+		$custom_css .= ".woocommerce ul.products li.product .responsive-woo-product-category, .woocommerce-page ul.products li.product .responsive-woo-product-category, .woocommerce ul.products li.product .responsive-woo-shop-product-description, .woocommerce-page ul.products li.product .responsive-woo-shop-product-description {
+			color: {$shop_product_content_color};
+		}";
+	}
 
+	if ( ! empty( $menu_text_color ) ) {
+		$custom_css .= ".menu a, .full-width-no-box .menu a {
+			color: {$menu_text_color};
+		}";
+	}
+	if ( ! empty( $menu_text_hover_color ) ) {
+		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover {
+			color: {$menu_text_color};
+		}";
+	}
+	if ( ! empty( $menu_item_color ) ) {
+		$custom_css .= ".menu a {
+			color: {$menu_item_color};
+		}";
+	}
+	if ( ! empty( $menu_item_hover_color ) ) {
+		$custom_css .= ".menu a:hover,
+		ul.menu > li:hover,
+		.menu .current_page_item a,
+		.menu .current-menu-item a,
+		.front-page .menu .current_page_item a,
+		.full-width-no-box .menu .current_page_item a,
+		.full-width-no-box .menu .current-menu-item a,
+		.full-width-no-box .menu a:hover {
+			background: {$menu_item_hover_color};
+			background-image: none;
+			filter: none;
+		}";
+	}
+	if ( ! empty( $menu_background_color ) ) {
+		$custom_css .= ".main-nav, .full-width-no-box .main-nav, .full-width-no-box .menu, .menu {
+			background-color:{$menu_background_color};
+			background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
+			background-image: -webkit-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			background-image: -moz-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			background-image: -ms-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			background-image: -o-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			background-image: linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr={$menu_background_color}, endColorstr={$menu_background_color_2});
+		}
+		@media screen and (max-width: 650px) {
+			.js #header .main-nav {
+				background-color:{$menu_background_color};
+				background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
+				background-image: -webkit-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+				background-image: -moz-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+				background-image: -ms-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+				background-image: -o-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+				background-image: linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr={$menu_background_color}, endColorstr={$menu_background_color_2});
+			}
+		}";
+	}
+	if ( ! empty( $sidebar_background_color ) ) {
+		$custom_css .= "#widgets .widget-wrapper {
+			background-color: {$sidebar_background_color};
+		}";
+	}
+	if ( ! empty( $sidebar_padding_right ) ) {
+		$custom_css .= "#widgets .widget-wrapper {
+			padding-right: {$sidebar_padding_right}px;
+		}";
+	}
+	if ( ! empty( $sidebar_padding_left ) ) {
+		$custom_css .= "#widgets .widget-wrapper {
+			padding-left: {$sidebar_padding_left}px;
+		}";
+	}
+	if ( ! empty( $sidebar_padding_top ) ) {
+		$custom_css .= "#widgets .widget-wrapper {
+			padding-top: {$sidebar_padding_top}px;
+		}";
+	}
+	if ( ! empty( $sidebar_padding_bottom ) ) {
+		$custom_css .= "#widgets .widget-wrapper {
+			padding-bottom: {$sidebar_padding_bottom}px;
+		}";
+	}
+	if ( ! empty( $sidebar_radius ) ) {
+		$custom_css .= "#widgets .widget-wrapper {
+			border-radius: {$sidebar_radius}px;
+		}";
+	}
 	wp_add_inline_style( 'responsive-style', $custom_css );
 }
 add_action( 'wp_enqueue_scripts', 'responsive_premium_custom_color_styles', 99 );

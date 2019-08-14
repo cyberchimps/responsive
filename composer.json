@@ -1,29 +1,29 @@
 {
-  "name": "wordpress/responsive",
-  "description": "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices.",
-  "type": "package",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "WordPress",
-    "Themes"
-  ],
-  "authors": [
-    {
-      "name": "CyberChimps",
-      "homepage": "https://www.cyberchimps.com"
+    "name": "wordpress/responsive",
+    "description": "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices.",
+    "type": "package",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+      "WordPress",
+      "Themes"
+    ],
+    "authors": [
+      {
+        "name": "CyberChimps",
+        "homepage": "https://www.cyberchimps.com"
+      }
+    ],
+    "require-dev": {
+      "wptrt/wpthemereview": "^0.1.0",
+      "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+    },
+    "scripts": {
+      "phpcs-i": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs -i",
+      "lint": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+      "format": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+    },
+    "support"    : {
+      "issues": "https://bitbucket.org/cyberchimps/responsive/",
+      "source": "https://bitbucket.org/cyberchimps/responsive/"
     }
-  ],
-  "require-dev": {
-    "wptrt/wpthemereview": "^0.1.0",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
-  },
-  "scripts": {
-    "phpcs-i": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs -i",
-    "lint": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
-    "format": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
-  },
-  "support"    : {
-    "issues": "https://bitbucket.org/cyberchimps/responsive/",
-    "source": "https://bitbucket.org/cyberchimps/responsive/"
-  }
 }

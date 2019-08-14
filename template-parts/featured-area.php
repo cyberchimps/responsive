@@ -22,7 +22,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 	$display_slider = ( ! empty( $responsive_options['enable_slider'] ) ) ? $responsive_options['enable_slider'] : 0;
 
-if ( 1 === $display_slider ) {
+if ( 1 == $display_slider ) {
 	$slider_content = $responsive_options['home_slider'];
 	?>
 	<div class='slider'><?php echo do_shortcode( $slider_content ); ?></div>

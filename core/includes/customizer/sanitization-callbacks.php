@@ -33,7 +33,7 @@ function responsive_sanitize_dropdown_pages( $page_id, $setting ) {
 	$page_id = absint( $page_id );
 
 	// If $page_id is an ID of a published page, return it; otherwise, return the default.
-	return ( 'publish' == get_post_status( $page_id ) ? $page_id : $setting->default );
+	return ( 'publish' === get_post_status( $page_id ) ? $page_id : $setting->default );
 }
 
 /**
@@ -146,4 +146,83 @@ function responsive_sanitize_select( $input, $setting ) {
 
 	// If the input is a valid key, return it; otherwise, return the default.
 	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+}
+
+/**
+ * Check if check_product_price_custom_string function is present.
+ */
+if ( ! function_exists( 'responsive_check_product_price_custom_string' ) ) {
+	/**
+	 * Show hide logic for  product price format.
+	 *
+	 * @return boolean True/value values.
+	 */
+	function responsive_check_product_price_custom_string() {
+		$value = get_theme_mod( 'responsive_product_sale_notification', '' );
+		if ( 'sale-percentage' === $value ) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+}
+/**
+ * Check if responsive_check_layout_type function is present.
+ */
+if ( ! function_exists( 'responsive_check_layout_type' ) ) {
+	/**
+	 * Checks if the layout is fullwidth no boxed
+	 *
+	 * @return boolean True/value values.
+	 */
+	function responsive_check_layout_type() {
+		global $responsive_options;
+		$responsive_options = responsive_get_options();
+
+		if ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+}
+
+/**
+ * Check if function present
+ */
+if ( ! function_exists( 'responsive_sanitize_background' ) ) {
+	/**
+	 * Menu Background
+	 *
+	 * @param  string $input Color value.
+	 * @return string        Output color.
+	 */
+	function responsive_sanitize_background( $input ) {
+
+		$output = apply_filters( 'cyberchimps_sanitize_hex', $input );
+
+		return $output;
+	}
+	add_filter( 'responsive_sanitize_background', 'responsive_sanitize_background' );
+}
+
+/**
+ * Check if function present
+ */
+if ( ! function_exists( 'responsive_checkbox_validate' ) ) {
+	/**
+	 * Validates checkbox inputs.
+	 *
+	 * @param  string $input checkbox.
+	 *
+	 * @return 1 or 0
+	 */
+	function responsive_checkbox_validate( $input ) {
+
+		$input = ( $input == 1 ? 1 : 0 );
+
+		return $input;
+	}
 }

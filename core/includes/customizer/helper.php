@@ -193,6 +193,59 @@ if ( ! function_exists( 'responsive_page_elements' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_product_elements' ) ) {
+	/**
+	 * Returns single product view page elements for the customizer
+	 *
+	 * @since 0.2
+	 */
+	function responsive_product_elements() {
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_product_elements',
+			array(
+				'title'      => esc_html__( 'Title', 'responsive' ),
+				'ratings'    => esc_html__( 'Rating', 'responsive' ),
+				'price'      => esc_html__( 'Price', 'responsive' ),
+				'short_desc' => esc_html__( 'Short Description', 'responsive' ),
+				'add_cart'   => esc_html__( 'Add to Cart', 'responsive' ),
+				'meta'       => esc_html__( 'Meta', 'responsive' ),
+			)
+		);
+
+		// Return elements.
+		return $elements;
+
+	}
+}
+
+
+if ( ! function_exists( 'responsive_shoppage_elements' ) ) {
+	/**
+	 * Returns single product view on shop page
+	 *
+	 * @since 0.2
+	 */
+	function responsive_shoppage_elements() {
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_shoppage_elements',
+			array(
+				'title'      => esc_html__( 'Title', 'responsive' ),
+				'category'   => esc_html__( 'Category', 'responsive' ),
+				'price'      => esc_html__( 'Price', 'responsive' ),
+				'ratings'    => esc_html__( 'Ratings', 'responsive' ),
+				'short_desc' => esc_html__( 'Short Description', 'responsive' ),
+				'add_cart'   => esc_html__( 'Add to Cart', 'responsive' ),
+			)
+		);
+
+		// Return elements.
+		return $elements;
+
+	}
+}
+
 /**
  * Adds custom classes to the array of body classes.
  */
@@ -209,10 +262,10 @@ if ( ! function_exists( 'responsive_body_classes' ) ) {
 
 		// Apply separate container class to the body.
 		$content_layout = responsive_get_content_layout();
-		if ( 'fullwidth' == $content_layout ) {
+		if ( 'fullwidth' === $content_layout ) {
 			$classes[] = 'fullwidth-layout';
 		}
-		if ( 'content-boxed' == $content_layout ) {
+		if ( 'content-boxed' === $content_layout ) {
 			$classes[] = 'content-boxed-layout';
 		}
 
@@ -252,7 +305,7 @@ if ( ! function_exists( 'responsive_get_content_layout' ) ) {
 					$content_layout = get_theme_mod( 'responsive_single_' . get_post_type() . '_layout' );
 				}
 
-				if ( 'default' == $content_layout || empty( $content_layout ) ) {
+				if ( 'default' === $content_layout || empty( $content_layout ) ) {
 
 					// Get the GLOBAL content layout value.
 					// NOTE: Here not used `true` in the below function call.
@@ -272,7 +325,7 @@ if ( ! function_exists( 'responsive_get_content_layout' ) ) {
 				$content_layout = get_theme_mod( 'responsive_page_layout' );
 			}
 
-			if ( 'default' == $content_layout || empty( $content_layout ) ) {
+			if ( 'default' === $content_layout || empty( $content_layout ) ) {
 
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
@@ -469,7 +522,7 @@ if ( ! function_exists( 'responsive_get_post_audio_html' ) ) {
 		}
 
 		// Check post format for standard post type.
-		if ( 'post' == get_post_type() && 'audio' != get_post_format() ) {
+		if ( 'post' === get_post_type() && 'audio' !== get_post_format() ) {
 			return;
 		}
 

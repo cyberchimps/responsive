@@ -1,0 +1,137 @@
+/* =Widgets
+-------------------------------------------------------------- */
+.widget-wrapper {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	background-color: #f9f9f9;
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+	margin: 0 0 20px;
+	padding: 20px;
+}
+
+.widget-wrapper select,
+.widget-wrapper input[type="text"],
+.widget-wrapper input[type="password"],
+.widget-wrapper  input[type="email"] {
+	width: 75%;
+}
+
+#widgets {
+	margin-top: 40px;
+}
+
+#widgets a {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+#widgets form {
+	margin: 0;
+}
+
+#widgets ul,
+#widgets ol {
+	padding: 0 0 0 20px;
+}
+
+#widgets ul li a {
+	display: inline;
+	text-decoration: none;
+	word-wrap: break-word;
+}
+
+#widgets .widget-title img {
+	float: right;
+	height: 11px;
+	position: relative;
+	top: 4px;
+	width: 11px;
+}
+
+#widgets .rss-date {
+	line-height: 18px;
+	padding: 6px 12px;
+}
+
+#widgets .rssSummary {
+	padding: 10px;
+}
+
+#widgets cite {
+	font-style: normal;
+	line-height: 18px;
+	padding: 6px 12px;
+}
+
+#widgets .tagcloud,
+#widgets .textwidget {
+	display: block;
+	line-height: 1.5em;
+	margin: 0;
+	word-wrap: break-word;
+}
+
+#widgets .textwidget a {
+	display: inline;
+}
+
+#widgets ul .children {
+	padding: 0 0 0 10px;
+}
+
+#widgets .author {
+	font-weight: 700;
+	padding-top: 4px;
+}
+
+.widget_archive select, #cat {
+	display: block;
+	margin: 0 15px 0 0;
+}
+
+#colophon-widget ul {
+}
+
+.colophon-widget {
+	background: none;
+	min-height: 0;
+}
+
+.colophon-widget select,
+.colophon-widget input[type="text"],
+.colophon-widget input[type="password"],
+.colophon-widget input[type="email"] {
+	width: 100%;
+}
+
+#top-widget {
+}
+
+.top-widget {
+	background: none;
+	border: none;
+	clear: right;
+	float: right;
+	min-height: 0;
+	padding: 0 3px 0 0;
+	text-align: right;
+	width: 45%;
+}
+
+.top-widget ul {
+	padding: 0;
+}
+
+.top-widget select,
+.top-widget input[type="text"],
+.top-widget input[type="password"],
+.top-widget input[type="email"] {
+	width: auto;
+}
+
+.top-widget #searchform {
+	margin: 0;
+}
