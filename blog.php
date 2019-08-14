@@ -36,7 +36,6 @@ get_header();
 	?>
 
 	<?php
-	global $paged;
 	if ( get_query_var( 'paged' ) ) {
 		$paged = get_query_var( 'paged' );
 	} elseif ( get_query_var( 'page' ) ) {

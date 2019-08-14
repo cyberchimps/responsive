@@ -27,7 +27,6 @@ get_header();
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
 	<?php
-	global  $paged;
 	if ( get_query_var( 'paged' ) ) {
 		$paged = get_query_var( 'paged' );
 	} elseif ( get_query_var( 'page' ) ) {
