@@ -86,7 +86,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 						'section'         => 'responsive_woocommerce_general_section',
 						'settings'        => 'responsive_sale_percent_value',
 						'type'            => 'text',
-						'active_callback' => 'check_product_price_custom_string',
+						'active_callback' => 'responsive_check_product_price_custom_string',
 					)
 				);
 				$wp_customize->add_setting(

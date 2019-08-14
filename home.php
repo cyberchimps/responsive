@@ -21,9 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-global $more;
-$more = 0;
-// include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 get_template_part( 'wp-admin/includes', 'plugin' );
 global $responsive_options;
 $responsive_options             = responsive_get_options();

@@ -212,7 +212,7 @@ add_action( 'customize_preview_init', 'responsive_customize_preview_js' );
 /**
  * Adds customizer options
  */
-function register_options() {
+function responsive_register_options() {
 	// Var.
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
 
@@ -238,7 +238,7 @@ function register_options() {
 	}
 }
 
-add_action( 'after_setup_theme', 'register_options' );
+add_action( 'after_setup_theme', 'responsive_register_options' );
 
 /**
  * Adds custom controls.
@@ -247,7 +247,7 @@ add_action( 'after_setup_theme', 'register_options' );
  *
  * @since 1.0.0
  */
-function custom_controls( $wp_customize ) {
+function responsive_custom_controls( $wp_customize ) {
 
 	// Path.
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/';
@@ -271,15 +271,15 @@ function custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Dimensions_Control' );
 
 }
-add_action( 'customize_register', 'custom_controls' );
+add_action( 'customize_register', 'responsive_custom_controls' );
 
 /**
  * Adds customizer helpers
  */
-function controls_helpers() {
+function responsive_controls_helpers() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/sanitization-callbacks.php';
 }
-add_action( 'customize_register', 'controls_helpers' );
+add_action( 'customize_register', 'responsive_controls_helpers' );
 
 /**
  * Responsive_customize_preview_init.

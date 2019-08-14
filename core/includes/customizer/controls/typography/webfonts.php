@@ -30,7 +30,7 @@ function responsive_standard_fonts() {
  *
  * @return Array Array of Google Fonts.
  */
-function get_google_fonts() {
+function responsive_get_google_fonts() {
 
 	$google_fonts_file = apply_filters( 'responsive_google_fonts_json_file', RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/typography/google-fonts.json' );
 
@@ -81,7 +81,7 @@ function responsive_enqueue_google_font( $font ) {
 	}
 
 	// Get list of all Google Fonts.
-	$google_fonts = get_google_fonts();
+	$google_fonts = responsive_get_google_fonts();
 
 	$font_name_array = explode( ',', $font, 2 );
 
