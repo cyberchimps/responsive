@@ -54,6 +54,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => 'body',
 						'defaults' => array(
 							'font-size'      => '14px',
+							'font-weight'    => '400',
 							'color'          => '#555555',
 							'line-height'    => '1.8',
 							'text-transform' => 'inherit',
@@ -65,6 +66,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'exclude'  => array( 'font-size' ),
 						'defaults' => array(
 							'color'          => '#555555',
+							'font-weight'    => '700',
 							'line-height'    => '1.4',
 							'text-transform' => 'inherit',
 						),
@@ -379,23 +381,18 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'sanitize_callback' => 'responsive_sanitize_number_blank',
 							)
 						);
-
 						$wp_customize->add_control(
-							new Responsive_Customizer_Slider_Control(
+							new Responsive_Customizer_Range_Control(
 								$wp_customize,
 								$element . '_typography[line-height]',
 								array(
 									'label'           => esc_html__( 'Line Height', 'responsive' ),
 									'section'         => 'responsive_typography_' . $element,
-									'settings'        => array(
-										'desktop' => $element . '_typography[line-height]',
-										'tablet'  => $element . '_tablet_typography[line-height]',
-										'mobile'  => $element . '_mobile_typography[line-height]',
-									),
+									'settings'        => $element . '_typography[line-height]',
 									'priority'        => 10,
 									'active_callback' => $active_callback,
 									'input_attrs'     => array(
-										'min'  => 0,
+										'min'  => 1,
 										'max'  => 4,
 										'step' => 0.1,
 									),
@@ -420,34 +417,14 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							)
 						);
 
-						$wp_customize->add_setting(
-							$element . '_tablet_typography[letter-spacing]',
-							array(
-								'transport'         => $transport,
-								'sanitize_callback' => 'responsive_sanitize_number_blank',
-							)
-						);
-
-						$wp_customize->add_setting(
-							$element . '_mobile_typography[letter-spacing]',
-							array(
-								'transport'         => $transport,
-								'sanitize_callback' => 'responsive_sanitize_number_blank',
-							)
-						);
-
 						$wp_customize->add_control(
-							new Responsive_Customizer_Slider_Control(
+							new Responsive_Customizer_Range_Control(
 								$wp_customize,
 								$element . '_typography[letter-spacing]',
 								array(
 									'label'           => esc_html__( 'Letter Spacing (px)', 'responsive' ),
 									'section'         => 'responsive_typography_' . $element,
-									'settings'        => array(
-										'desktop' => $element . '_typography[letter-spacing]',
-										'tablet'  => $element . '_tablet_typography[letter-spacing]',
-										'mobile'  => $element . '_mobile_typography[letter-spacing]',
-									),
+									'settings'        => $element . '_typography[letter-spacing]',
 									'priority'        => 10,
 									'active_callback' => $active_callback,
 									'input_attrs'     => array(
@@ -575,14 +552,14 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 						// Add px if font size or letter spacing.
 						$px = '';
-						if ( ( 'font-size' == $attribute
+						if ( ( 'font-size' === $attribute
 								&& is_numeric( $val ) )
-							|| 'letter-spacing' == $attribute ) {
+							|| 'letter-spacing' === $attribute ) {
 							$px = 'px';
 						}
 
 						// Add quotes around font-family && font family to scripts array.
-						if ( 'font-family' == $attribute ) {
+						if ( 'font-family' === $attribute ) {
 							$fonts[] = $val;
 
 							// No brackets can be added as it cause issue with sans serif fonts.
@@ -590,93 +567,93 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						}
 
 						// Add to inline CSS.
-						if ( 'css' == $return ) {
+						if ( 'css' === $return ) {
 							$add_css .= $attribute . ':' . $val . $px . ';';
-						} elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' === $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-' . $attribute ] = $target . '{' . $attribute . ':' . $val . $px . ';}';
 						}
 					}
 
 					// If there is a value lets do something.
 					if ( $tablet_val
-						&& ( 'font-size' == $attribute
-							|| 'line-height' == $attribute
-							|| 'letter-spacing' == $attribute ) ) {
+						&& ( 'font-size' === $attribute
+							|| 'line-height' === $attribute
+							|| 'letter-spacing' === $attribute ) ) {
 
 						// Sanitize.
 						$tablet_val = str_replace( '"', '', $tablet_val );
 
 						// Add px if font size or letter spacing.
 						$px = '';
-						if ( ( 'font-size' == $attribute
+						if ( ( 'font-size' === $attribute
 								&& is_numeric( $tablet_val ) )
-							|| 'letter-spacing' == $attribute ) {
+							|| 'letter-spacing' === $attribute ) {
 							$px = 'px';
 						}
 
 						// Add to inline CSS.
-						if ( 'css' == $return ) {
+						if ( 'css' === $return ) {
 							$tablet_css .= $attribute . ':' . $tablet_val . $px . ';';
-						} elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' === $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-tablet-' . $attribute ] = '@media (max-width: 768px){' . $target . '{' . $attribute . ':' . $tablet_val . $px . ';}}';
 						}
 					}
 
 					// If there is a value lets do something.
 					if ( $mobile_val
-						&& ( 'font-size' == $attribute
-							|| 'line-height' == $attribute
-							|| 'letter-spacing' == $attribute ) ) {
+						&& ( 'font-size' === $attribute
+							|| 'line-height' === $attribute
+							|| 'letter-spacing' === $attribute ) ) {
 
 						// Sanitize.
 						$mobile_val = str_replace( '"', '', $mobile_val );
 
 						// Add px if font size or letter spacing.
 						$px = '';
-						if ( ( 'font-size' == $attribute
+						if ( ( 'font-size' === $attribute
 								&& is_numeric( $mobile_val ) )
-							|| 'letter-spacing' == $attribute ) {
+							|| 'letter-spacing' === $attribute ) {
 							$px = 'px';
 						}
 
 						// Add to inline CSS.
-						if ( 'css' == $return ) {
+						if ( 'css' === $return ) {
 							$mobile_css .= $attribute . ':' . $mobile_val . $px . ';';
-						} elseif ( 'preview_styles' == $return ) {
+						} elseif ( 'preview_styles' === $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-mobile-' . $attribute ] = '@media (max-width: 480px){' . $target . '{' . $attribute . ':' . $mobile_val . $px . ';}}';
 						}
 					}
 				}
 
 				// Front-end inline CSS.
-				if ( $add_css && 'css' == $return ) {
+				if ( $add_css && 'css' === $return ) {
 					$css .= $target . '{' . $add_css . '}';
 				}
 
 				// Front-end inline tablet CSS.
-				if ( $tablet_css && 'css' == $return ) {
+				if ( $tablet_css && 'css' === $return ) {
 					$css .= '@media (max-width: 768px){' . $target . '{' . $tablet_css . '}}';
 				}
 
 				// Front-end inline mobile CSS.
-				if ( $mobile_css && 'css' == $return ) {
+				if ( $mobile_css && 'css' === $return ) {
 					$css .= '@media (max-width: 480px){' . $target . '{' . $mobile_css . '}}';
 				}
 			}
 
 			// Return CSS.
-			if ( 'css' == $return && ! empty( $css ) ) {
+			if ( 'css' === $return && ! empty( $css ) ) {
 				$css = '/* Typography CSS */' . $css;
 				return $css;
 			}
 
 			// Return styles.
-			if ( 'preview_styles' == $return && ! empty( $preview_styles ) ) {
+			if ( 'preview_styles' === $return && ! empty( $preview_styles ) ) {
 				return $preview_styles;
 			}
 
 			// Return Fonts Array.
-			if ( 'fonts' == $return && ! empty( $fonts ) ) {
+			if ( 'fonts' === $return && ! empty( $fonts ) ) {
 				return array_unique( $fonts );
 			}
 

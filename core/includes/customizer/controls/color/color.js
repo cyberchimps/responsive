@@ -82,7 +82,7 @@ function acp_update_alpha_value_on_color_control( alpha, $control, $alphaSlider,
 
 	// Maybe update the alpha slider itself.
 	if ( update_slider ) {
-		   acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
+		acp_update_alpha_value_on_alpha_slider( alpha, $alphaSlider );
 	}
 
 	// Update the color value of the color picker object.
@@ -228,7 +228,7 @@ jQuery( document ).ready(
 							// To compensante for this we round the opacity value on RGBa colors here
 							// and save it a second time to the color picker object.
 							if ( alpha != 100 ) {
-								  color = color.replace( /[^,]+(?=\))/, ( alpha / 100 ).toFixed( 2 ) );
+								color = color.replace( /[^,]+(?=\))/, ( alpha / 100 ).toFixed( 2 ) );
 							}
 
 							$control.wpColorPicker( 'color', color );

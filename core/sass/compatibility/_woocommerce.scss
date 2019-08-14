@@ -1,0 +1,77 @@
+a.added_to_cart.wc-forward {
+    margin: 10px;
+    padding: .5em;
+}
+/**
+ * Sale Flash
+ */
+.woocommerce,
+.woocommerce-page {
+  /**
+	 * Sale Flash on Shop Page
+	 */
+  /**
+	 * Sale Flash
+	 */
+}
+
+.woocommerce ul.products li.product .onsale,
+.woocommerce-page ul.products li.product .onsale {
+  border-radius: 999px;
+  padding: 0 2px;
+}
+
+.woocommerce ul.products li.product .onsale.square, .woocommerce ul.products li.product .onsale.square-outline,
+.woocommerce-page ul.products li.product .onsale.square,
+.woocommerce-page ul.products li.product .onsale.square-outline {
+  border-radius: 0;
+  padding: 0;
+}
+
+.woocommerce .onsale.circle-outline,
+.woocommerce-page .onsale.circle-outline {
+  line-height: 2.7;
+}
+
+.woocommerce div.product .onsale.circle-outline,
+.woocommerce-page div.product .onsale.circle-outline {
+  line-height: 3.1;
+}
+
+.woocommerce .onsale.square,
+.woocommerce .onsale.square-outline,
+.woocommerce div.product .onsale.square,
+.woocommerce div.product .onsale.square-outline,
+.woocommerce-page .onsale.square,
+.woocommerce-page .onsale.square-outline,
+.woocommerce-page div.product .onsale.square,
+.woocommerce-page div.product .onsale.square-outline {
+  border-radius: 0;
+  padding: 0;
+  line-height: 3;
+}
+@media (min-width: 769px) {
+	/**
+	 * Single product gallery layout.
+	 *
+	 * (vertical/horizontal)
+	 */
+	.woocommerce div.product {
+		&.responsive-product-gallery-layout-vertical {
+			.flex-viewport {
+				width: 75%;
+				float: right;
+			}
+			div.images .flex-control-thumbs {
+				width: 20%;
+				width: calc(25% - 1em);
+			}
+			div.images .flex-control-thumbs li {
+				width: 100%;
+			}
+		}
+	}
+	.responsive-product-gallery-layout-vertical span.onsale {
+		left: 11%;
+	}
+}

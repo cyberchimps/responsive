@@ -20,6 +20,8 @@ define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory
  *
  * Load the theme function files
  */
+global $responsive_blog_layout_columns;
+$responsive_blog_layout_columns = array( 'blog-2-col', 'blog-3-col', 'blog-4-col' );
 
 $template_directory = get_template_directory();
 require $template_directory . '/core/includes/functions.php';
@@ -31,16 +33,15 @@ require $template_directory . '/core/includes/functions-admin.php';
 require $template_directory . '/core/includes/functions-extras.php';
 require $template_directory . '/core/includes/functions-extentions.php';
 require $template_directory . '/core/includes/theme-options/theme-options.php';
-require $template_directory . '/core/includes/functions-feedback.php';
 require $template_directory . '/core/includes/post-custom-meta.php';
 require $template_directory . '/core/includes/tha-theme-hooks.php';
 require $template_directory . '/core/includes/hooks.php';
 require $template_directory . '/core/includes/version.php';
-require $template_directory . '/core/includes/upsell/theme-upsell.php';
 require $template_directory . '/core/includes/customizer/controls/typography/webfonts.php';
 require $template_directory . '/core/includes/customizer/helper.php';
 require $template_directory . '/core/includes/customizer/customizer.php';
 require $template_directory . '/core/includes/customizer/custom-styles.php';
+require $template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 
 // Return value of the supplied responsive free theme option.
 function responsive_free_get_option( $option, $default = false ) {
@@ -60,15 +61,6 @@ function responsive_free_setup() {
 	add_theme_support( 'align-wide' );
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
-
-if ( ! function_exists( '_wp_render_title_tag' ) ) :
-	function responsive_free_render_title() {
-		?>
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<?php
-	}
-	add_action( 'wp_head', 'responsive_free_render_title' );
-endif;
 
 add_filter( 'body_class', 'responsive_add_site_layout_classes' );
 

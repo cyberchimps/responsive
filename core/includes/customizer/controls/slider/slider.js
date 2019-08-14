@@ -136,5 +136,5 @@ wp.customize.controlConstructor['responsive-slider'] = wp.customize.Control.exte
 
 		}
 
-	 }
+	}
 );

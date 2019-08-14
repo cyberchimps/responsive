@@ -37,6 +37,7 @@ $more = 0;
 	?>
 
 	<?php
+	global $paged;
 	if ( get_query_var( 'paged' ) ) {
 		$paged = get_query_var( 'paged' );
 	} elseif ( get_query_var( 'page' ) ) {
@@ -50,9 +51,6 @@ $more = 0;
 			'paged'     => $paged,
 		)
 	);
-	$temp_query = $wp_query;
-	$wp_query   = null;
-	$wp_query   = $blog_query;
 
 	if ( $blog_query->have_posts() ) :
 
@@ -92,11 +90,11 @@ $more = 0;
 			<?php
 		endwhile;
 
-		if ( $wp_query->max_num_pages > 1 ) :
+		if ( $blog_query->max_num_pages > 1 ) :
 			?>
 			<div class="navigation">
-				<div class="previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $wp_query->max_num_pages ); ?></div>
-				<div class="next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ), $wp_query->max_num_pages ); ?></div>
+				<div class="previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $blog_query->max_num_pages ); ?></div>
+				<div class="next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ), $blog_query->max_num_pages ); ?></div>
 			</div><!-- end of .navigation -->
 			<?php
 		endif;
@@ -106,7 +104,6 @@ $more = 0;
 			get_template_part( 'loop-no-posts' );
 
 	endif;
-		$wp_query = $temp_query;
 		wp_reset_postdata();
 		?>
 
