@@ -201,7 +201,7 @@ if ( ! function_exists( 'responsive_sanitize_background' ) ) {
 	 */
 	function responsive_sanitize_background( $input ) {
 
-		$output = apply_filters( 'cyberchimps_sanitize_hex', $input );
+		$output = apply_filters( 'responsive_sanitize_hex', $input );
 
 		return $output;
 	}
