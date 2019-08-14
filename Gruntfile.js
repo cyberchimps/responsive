@@ -40,6 +40,7 @@ module.exports = function(grunt) {
 					'!core/**',
 					'!build/**',
 					'!composer.json',
+					'!phpcs.xml.dist',
 					'!**/*~'
 				],
 				expand: true
@@ -138,6 +139,7 @@ module.exports = function(grunt) {
 					'!package.json',
 					'!.gitignore',
 					'!composer.json',
+					'!phpcs.xml.dist',
 					'!.gitmodules',
 					'!**/.gitignore',
 					'!**/.gitmodules',
