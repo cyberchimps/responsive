@@ -25,10 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $responsive_options = responsive_get_options();
 
-/**
- * Add plugin automation file
- */
-require_once dirname( __FILE__ ) . '/classes/class-tgm-plugin-activation.php';
 /** Function to load controls */
 function responsive_load_customize_controls() {
 
