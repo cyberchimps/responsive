@@ -20,3 +20,6 @@ node_modules
 *.tar
 /vendor
 chromedriver
+.idea
+node_modules/
+package-lock.json
