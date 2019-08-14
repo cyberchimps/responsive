@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					echo get_avatar( get_the_author_meta( 'email' ), '80' );
 				}
 				?>
-				<div class="about-author"><?php _e( 'About', 'responsive' ); ?> <?php the_author_posts_link(); ?></div>
+				<div class="about-author"><?php esc_html_e( 'About', 'responsive' ); ?> <?php the_author_posts_link(); ?></div>
 				<p><?php the_author_meta( 'description' ); ?></p>
 			</div><!-- end of #author-meta -->
 

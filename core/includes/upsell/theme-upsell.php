@@ -60,7 +60,7 @@ function cyberchimps_display_upsell() {
 							</a>
 						</h2>
 
-						<h3><?php _e( 'Themes You Can Trust', 'responsive' ); ?></h3>
+						<h3><?php esc_html_e( 'Themes You Can Trust', 'responsive' ); ?></h3>
 					</div>
 				</div>
 

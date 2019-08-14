@@ -41,12 +41,12 @@ Template Name: Sitemap
 					<div id="widgets" role="complementary">
 
 						<div class="grid col-300">
-							<div class="widget-title"><h3><?php _e( 'Categories', 'responsive' ); ?></h3></div>
+							<div class="widget-title"><h3><?php esc_html_e( 'Categories', 'responsive' ); ?></h3></div>
 							<ul><?php wp_list_categories( 'sort_column=name&optioncount=1&hierarchical=0&title_li=' ); ?></ul>
 						</div><!-- end of .col-300 -->
 
 						<div class="grid col-300">
-							<div class="widget-title"><h3><?php _e( 'Latest Posts', 'responsive' ); ?></h3></div>
+							<div class="widget-title"><h3><?php esc_html_e( 'Latest Posts', 'responsive' ); ?></h3></div>
 							<ul>
 							<?php
 							$archive_query = new WP_Query( 'posts_per_page=-1' );
@@ -61,7 +61,7 @@ Template Name: Sitemap
 						</div><!-- end of .col-300 -->
 
 						<div class="grid col-300 fit">
-							<div class="widget-title"><h3><?php _e( 'Pages', 'responsive' ); ?></h3></div>
+							<div class="widget-title"><h3><?php esc_html_e( 'Pages', 'responsive' ); ?></h3></div>
 							<ul><?php wp_list_pages( 'title_li=' ); ?></ul>
 						</div><!-- end of .col-300 fit -->
 

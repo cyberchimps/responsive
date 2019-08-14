@@ -35,7 +35,7 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 	public function enqueue() {
 		wp_enqueue_script( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/dimensions.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 		wp_localize_script( 'responsive-dimensions', 'responsiveL10n', $this->l10n() );
-		wp_enqueue_style( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/dimensions.min.css', null, RESPONSIVE_THEME_VERSION, true );
+		wp_enqueue_style( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/dimensions.min.css', RESPONSIVE_THEME_VERSION, true );
 	}
 
 	/**

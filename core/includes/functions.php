@@ -333,12 +333,6 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$theme              = wp_get_theme();
 		$responsive         = wp_get_theme( 'responsive' );
 		$responsive_options = responsive_get_options();
-		/**
- 		 * Load WooCommerce compatibility file.
- 	 	*/
-		if ( class_exists( 'WooCommerce' ) ) {
-			//wp_enqueue_style( 'responsive-woocommerce', get_template_directory_uri() . '/core/css/woocommerce.css', false, $responsive['Version'] );
-		}
 
 		if ( 1 == $responsive_options['minified_css'] ) {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
