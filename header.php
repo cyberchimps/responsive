@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
-		<a class="skip-link screen-reader-text focusable" href="#content"><?php _e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
+		<a class="skip-link screen-reader-text focusable" href="#content"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
 	<div id="header_section">
 	<div id="header" role="banner">

@@ -24,8 +24,8 @@ function responsive_upgrade_bar() {
 
 	<!--</div>-->
 	<div class="updated">
-		<p><?php _e( 'Looking for More Features?', 'responsive' ); ?></p>
-		<p><?php _e( 'Check out <a href="https://cyberchimps.com/store/responsivepro/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Responsive Pro</a> & <a href="https://cyberchimps.com/product-category/upgradefromresponsive/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Premium Child Themes</a> for your Responsive Theme.', 'responsive' ); ?></p>
+		<p><?php esc_html_e( 'Looking for More Features?', 'responsive' ); ?></p>
+		<p><?php esc_html_e( 'Check out <a href="https://cyberchimps.com/store/responsivepro/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Responsive Pro</a> & <a href="https://cyberchimps.com/product-category/upgradefromresponsive/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Premium Child Themes</a> for your Responsive Theme.', 'responsive' ); ?></p>
 	</div>
 	<?php
 }
@@ -42,22 +42,22 @@ function responsive_theme_support() {
 		<div class="info-box notice">
 
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/guides/r-free/' ); ?>" title="<?php esc_attr_e( 'Instructions', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Instructions', 'responsive' ); ?></a>
+				<?php esc_html_e( 'Instructions', 'responsive' ); ?></a>
 
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Help', 'responsive' ); ?></a>
+				<?php esc_html_e( 'Help', 'responsive' ); ?></a>
 
 
 			<a class="button button-primary" href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post/' ); ?>" title="<?php esc_attr_e( 'Leave a star rating', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Leave a star rating', 'responsive' ); ?></a>
+				<?php esc_html_e( 'Leave a star rating', 'responsive' ); ?></a>
 
 			<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/contact/' ); ?>" title="<?php esc_attr_e( 'Need Customization', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Need Customization?', 'responsive' ); ?></a>
+				<?php esc_html_e( 'Need Customization?', 'responsive' ); ?></a>
 
 			<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/checkout/?add-to-cart=277804' ); ?>" title="<?php esc_attr_e( 'Theme Demo Data', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Theme Demo Data', 'responsive' ); ?></a>
+				<?php esc_html_e( 'Theme Demo Data', 'responsive' ); ?></a>
 <a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/store/responsivepro#whygopro' ); ?>" title="<?php esc_attr_e( 'Why Go Pro?', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Why Go Pro?', 'responsive' ); ?></a>
+				<?php esc_html_e( 'Why Go Pro?', 'responsive' ); ?></a>
 		</div>
 	</div>
 
@@ -139,16 +139,16 @@ function responsive_install_plugins() {
 
 	$config = array(
 		'domain'       => $theme_text_domain, // Text domain - likely want to be the same as your theme.
-		'default_path' => '', // Default absolute path to pre-packaged plugins
-		'parent_slug'  => 'themes.php', // Default parent menu slug
-	// 'parent_url_slug'  => 'themes.php', // Default parent URL slug
-		'menu'         => 'install-responsive-addons', // Menu slug
-		'has_notices'  => true, // Show admin notices or not
-		'is_automatic' => true, // Automatically activate plugins after installation or not
-		'message'      => '', // Message to output right before the plugins table
+		'default_path' => '', // Default absolute path to pre-packaged plugins.
+		'parent_slug'  => 'themes.php', // Default parent menu slug.
+	// 'parent_url_slug'  => 'themes.php', // Default parent URL slug.
+		'menu'         => 'install-responsive-addons', // Menu slug.
+		'has_notices'  => true, // Show admin notices or not.
+		'is_automatic' => true, // Automatically activate plugins after installation or not.
+		'message'      => '', // Message to output right before the plugins table.
 		'strings'      => array(
 			'page_title'                      => __( 'Responsive Add Features', 'responsive' ),
-			'menu_title'                      => __( 'Activate Add Ons' . $count, 'responsive' ),
+			'menu_title'                      => __( 'Activate Add Ons', 'responsive' ) . $count,
 			'installing'                      => __( 'Installing Plugin: %s', 'responsive' ), // %1$s = plugin name
 			'oops'                            => __( 'Something went wrong with the plugin API.', 'responsive' ),
 			'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', 'responsive' ), // %1$s = plugin name(s)

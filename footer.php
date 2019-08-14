@@ -94,7 +94,7 @@ global $responsive_blog_layout_columns;
 			</a>
 		</div><!-- end of .copyright -->
 
-		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
+		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php esc_html_e( '&uarr;', 'responsive' ); ?></a>
 		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
 		<?php if( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">
@@ -149,7 +149,7 @@ global $responsive_blog_layout_columns;
 			</a>
 		</div><!-- end of .copyright -->
 
-		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a>
+		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php esc_html_e( '&uarr;', 'responsive' ); ?></a>
 		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
 		<?php if( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">

@@ -48,7 +48,7 @@ function cyberchimps_display_about() {
 	<div class="about-container">
 		<div>
 			<h1 class="heading"><?php echo 'Responsive - ' . $theme['Version']; ?></h1>
-			<a href='https://wordpress.org/support/theme/responsive/reviews/#new-post/' target="_blank" style='margin-top: 22px'  class="button button-primary"><?php _e( 'Leave a star rating', 'responsive' ); ?></a>
+			<a href='https://wordpress.org/support/theme/responsive/reviews/#new-post/' target="_blank" style='margin-top: 22px'  class="button button-primary"><?php esc_html_e( 'Leave a star rating', 'responsive' ); ?></a>
 			<?php
 				$directory_uri = get_template_directory_uri();
 			?>

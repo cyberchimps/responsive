@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php responsive_entry_top(); ?>
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
-				<p><?php _e( '&#8249; Return to', 'responsive' ); ?> <a href="<?php echo get_permalink( $post->post_parent ); ?>" rel="gallery"><?php echo get_the_title( $post->post_parent ); ?></a>
+				<p><?php esc_html_e( '&#8249; Return to', 'responsive' ); ?> <a href="<?php echo get_permalink( $post->post_parent ); ?>" rel="gallery"><?php echo get_the_title( $post->post_parent ); ?></a>
 				</p>
 
 				<div class="post-meta">

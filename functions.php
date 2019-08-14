@@ -64,15 +64,6 @@ function responsive_free_setup() {
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
-if ( ! function_exists( '_wp_render_title_tag' ) ) :
-	function responsive_free_render_title() {
-		?>
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<?php
-	}
-	add_action( 'wp_head', 'responsive_free_render_title' );
-endif;
-
 add_filter( 'body_class', 'responsive_add_site_layout_classes' );
 
 function responsive_add_site_layout_classes( $classes ) {
