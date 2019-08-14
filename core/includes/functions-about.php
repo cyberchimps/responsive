@@ -17,7 +17,7 @@
  */
 
 /** Add stylesheet and JS for upsell page. */
-function cyberchimps_about_style() {
+function responsive_about_style() {
 	/** Set template directory uri */
 	$directory_uri = get_template_directory_uri();
 	$suffix        = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
@@ -26,23 +26,9 @@ function cyberchimps_about_style() {
 	wp_enqueue_style( 'about_style', get_template_directory_uri() . '/core/includes/css/about.css' );
 }
 
-/** Add upsell page to the menu. */
-function cyberchimps_add_about() {
-	$page = add_theme_page(
-		'About Responsive',
-		'About Responsive',
-		'administrator',
-		'cyberchimps-responsive',
-		'cyberchimps_display_about'
-	);
-
-	add_action( 'admin_print_styles-' . $page, 'cyberchimps_about_style' );
-}
-
-//add_action( 'admin_menu', 'cyberchimps_add_about' );
 
 /** Define markup for the upsell page. */
-function cyberchimps_display_about() {
+function responsive_display_about() {
 	/** Set template directory uri */
 	$theme = wp_get_theme(); ?>
 	<div class="about-container">

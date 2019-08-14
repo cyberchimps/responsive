@@ -98,7 +98,7 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 				}
 
 				// Google font options.
-				if ( $google_fonts = get_google_fonts() ) {//phpcs:ignore
+				if ( $google_fonts = responsive_get_google_fonts() ) {//phpcs:ignore
 					?>
 					<optgroup label="<?php esc_html_e( 'Google Fonts', 'responsive' ); ?>">
 						<?php

@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Display breadcrumb
  */
-get_responsive_breadcrumb_lists();
+responsive_breadcrumb_lists();
 
 /**
  * Display archive information

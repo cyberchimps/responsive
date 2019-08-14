@@ -32,7 +32,7 @@ Template Name:  Sidebar/Content Half Page
 			the_post();
 			?>
 
-				<?php get_responsive_breadcrumb_lists(); ?>
+				<?php responsive_breadcrumb_lists(); ?>
 
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

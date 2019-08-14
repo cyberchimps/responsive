@@ -151,13 +151,13 @@ function responsive_sanitize_select( $input, $setting ) {
 /**
  * Check if check_product_price_custom_string function is present.
  */
-if ( ! function_exists( 'check_product_price_custom_string' ) ) {
+if ( ! function_exists( 'responsive_check_product_price_custom_string' ) ) {
 	/**
 	 * Show hide logic for  product price format.
 	 *
 	 * @return boolean True/value values.
 	 */
-	function check_product_price_custom_string() {
+	function responsive_check_product_price_custom_string() {
 		$value = get_theme_mod( 'responsive_product_sale_notification', '' );
 		if ( 'sale-percentage' === $value ) {
 			return true;

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Breadcrumb Lists
  * Load the plugin from the plugin that is installed.
  */
-function get_responsive_breadcrumb_lists() {
+function responsive_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
 	$yoast_options      = get_option( 'wpseo_internallinks' );
 	if ( 1 == $responsive_options['breadcrumb'] ) {
@@ -396,7 +396,7 @@ function responsive_get_social_icons_new() {
 				if ( ! empty( $responsive_options['email_uid'] ) ) {
 					?>
 					<li><a href="mailto:<?php echo $responsive_options['email_uid']; ?>" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li><?php } ?>
-		
+
 	</ul>
 	<?php
 }
