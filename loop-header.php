@@ -22,9 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Display breadcrumb
  */
-error_log('loop-header.php12');
 responsive_get_breadcrumb_lists();
-error_log('loop-header.php');
 /**
  * Display archive information
  */
