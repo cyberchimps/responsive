@@ -27,27 +27,28 @@ get_header(); ?>
 	<?php if ( have_posts() ) : ?>
 
 		<?php
+		error_log('why');
 		while ( have_posts() ) :
 			the_post();
 			?>
 
-			<?php get_template_part( 'loop-header', get_post_type() ); ?>
+			<?php get_template_part( 'loop-header', get_post_type() ); error_log('why this1'); ?>
 
 			<?php responsive_entry_before(); ?>
-				<?php get_template_part( 'partials/page/layout', get_post_type() ); ?>
+				<?php get_template_part( 'partials/page/layout', get_post_type() ); error_log('why this2'); ?>
 			<?php responsive_entry_after(); ?>
 
 			<?php responsive_comments_before(); ?>
-			<?php comments_template( '', true ); ?>
+			<?php comments_template( '', true ); error_log('why this4'); ?>
 			<?php responsive_comments_after(); ?>
 
 			<?php
 		endwhile;
-
+		error_log('if');
 		get_template_part( 'loop-nav', get_post_type() );
 
 		else :
-
+			error_log('else');
 			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;

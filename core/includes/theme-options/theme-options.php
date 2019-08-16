@@ -47,12 +47,6 @@ function responsive_theme_options_init() {
 	register_setting( 'responsive_options', 'responsive_theme_options', 'responsive_theme_options_validate' );
 }
 
-/**
- * Load up the menu page
- */
-function responsive_theme_options_add_page() {
-	add_theme_page( __( 'Theme Options', 'responsive' ), __( 'Theme Options', 'responsive' ), 'edit_theme_options', 'theme_options', 'responsive_theme_options_do_page' );
-}
 
 function responsive_inline_css() {
 	global $responsive_options;

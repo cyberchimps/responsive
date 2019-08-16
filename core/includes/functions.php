@@ -36,7 +36,6 @@ add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
  * Hook options
  */
 add_action( 'admin_init', 'responsive_theme_options_init' );
-add_action( 'admin_menu', 'responsive_theme_options_add_page' );
 
 /**
  * Retrieve Theme option settings

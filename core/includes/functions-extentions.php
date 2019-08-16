@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Breadcrumb Lists
  * Load the plugin from the plugin that is installed.
  */
-function responsive_breadcrumb_lists() {
+function responsive_get_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
 	$yoast_options      = get_option( 'wpseo_internallinks' );
 	if ( 1 == $responsive_options['breadcrumb'] ) {
@@ -37,7 +37,7 @@ function responsive_breadcrumb_lists() {
 if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 	function responsive_breadcrumb_lists() {
-
+		error_log('==kajal==');
 		/* === OPTIONS === */
 		$text['home']     = __( 'Home', 'responsive' ); // text for the 'Home' link
 		$text['category'] = __( 'Archive for %s', 'responsive' ); // text for a category page
@@ -152,10 +152,12 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				}
 			} elseif ( is_page() && $parent_id ) {
 				$breadcrumbs = array();
+				error_log(print_r($parent_id,1));
 				while ( $parent_id ) {
 						$page_child    = get_post( $parent_id );
 						$breadcrumbs[] = sprintf( $link, get_permalink( $page_child->ID ), get_the_title( $page_child->ID ) );
 						$parent_id     = $page_child->post_parent;
+						error_log('1212==>>'.print_r($parent_id,1));
 				}
 				$breadcrumbs = array_reverse( $breadcrumbs );
 				for ( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
