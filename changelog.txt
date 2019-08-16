@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/16/19) = Added - Version 3.16.2
+[^] = Improved theme structure as per the WordPress standards
+
 (08/12/19) = Added - Version 3.16.1
 [x] = Deleted Automation test cases files
 

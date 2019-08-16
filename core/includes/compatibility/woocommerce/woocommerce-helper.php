@@ -13,18 +13,18 @@ if ( ! function_exists( 'responsive_woo_woocommerce_template_loop_product_title'
 	function responsive_woo_woocommerce_template_loop_product_title() {
 
 		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="responsive-loop-product__link">';
-		woocommerce_template_loop_product_title();
+		responsive_template_loop_product_title();
 		echo '</a>';
 	}
 }
 
 
-if ( ! function_exists( 'woocommerce_template_loop_product_title' ) ) {
+if ( ! function_exists( 'responsive_template_loop_product_title' ) ) {
 
 	/**
 	 * Show the product title in the product loop. By default this is an H2.
 	 */
-	function woocommerce_template_loop_product_title() {
+	function responsive_template_loop_product_title() {
 		echo '<h2 class="' . esc_attr( apply_filters( 'woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title' ) ) . '">' . get_the_title() . '</h2>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
