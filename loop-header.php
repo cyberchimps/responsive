@@ -22,14 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Display breadcrumb
  */
-responsive_breadcrumb_lists();
-
+responsive_get_breadcrumb_lists();
 /**
  * Display archive information
  */
 if ( is_category() || is_tag() || is_author() || is_date() ) {
 
-	// Replaced old code using new WP core functions
+	// Replaced old code using new WP core functions.
 	the_archive_title( '<h6 class="title-archive">', '</h6>' );
 	the_archive_description( '<div class="taxonomy-description">', '</div>' );
 }

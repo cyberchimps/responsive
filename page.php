@@ -43,11 +43,9 @@ get_header(); ?>
 
 			<?php
 		endwhile;
-
 		get_template_part( 'loop-nav', get_post_type() );
 
 		else :
-
 			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;

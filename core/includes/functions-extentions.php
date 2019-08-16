@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Breadcrumb Lists
  * Load the plugin from the plugin that is installed.
  */
-function responsive_breadcrumb_lists() {
+function responsive_get_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
 	$yoast_options      = get_option( 'wpseo_internallinks' );
 	if ( 1 == $responsive_options['breadcrumb'] ) {
@@ -37,7 +37,6 @@ function responsive_breadcrumb_lists() {
 if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 	function responsive_breadcrumb_lists() {
-
 		/* === OPTIONS === */
 		$text['home']     = __( 'Home', 'responsive' ); // text for the 'Home' link
 		$text['category'] = __( 'Archive for %s', 'responsive' ); // text for a category page
