@@ -1196,6 +1196,11 @@ a.black:hover {
   text-shadow: 0 -1px 0 #000000;
 }
 
+input[type=email], input[type=password], input[type=text], select, textarea {
+  box-shadow: none;
+  outline: none;
+}
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -1780,10 +1785,6 @@ ul.menu > li:hover {
 .footer-menu > li:first-child > a {
   border-left: none;
   padding: 0 8px 0 0;
-}
-
-.sticky-header ul.menu {
-  width: 100%;
 }
 
 .footer-menu ul {
@@ -2477,30 +2478,33 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 /* Blog layout
 ============================================================ */
 .section-blog-2-col {
-  width: 50%;
+  width: 48%;
   float: none;
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
   padding: 0 12px;
+  margin: 1%;
 }
 
 .section-blog-3-col {
-  width: 33%;
+  width: 30%;
   float: none;
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
   padding: 0 12px;
+  margin: 1%;
 }
 
 .section-blog-4-col {
-  width: 25%;
+  width: 21%;
   float: none;
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
   padding: 0 12px;
+  margin: 1%;
 }
 
 .blog_main_div {
@@ -4159,6 +4163,5 @@ object {
 .gallery-meta .focal-length {
   display: block;
 }
-.commentlist .bypostauthor {
-}
+
 /*# sourceMappingURL=style.css.map */

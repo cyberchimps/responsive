@@ -36,8 +36,8 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_footer_section',
 				array(
-					'title'    => esc_html__( 'Footer', 'responsive' ),
-					'panel'    => 'responsive-layout-options',
+					'title'    => esc_html__( 'Footer Layout', 'responsive' ),
+					'panel'    => 'responsive-footer-options',
 					'priority' => 202,
 				)
 			);

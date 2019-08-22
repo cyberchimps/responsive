@@ -218,6 +218,10 @@ function responsive_register_options() {
 
 	// Customizer files array.
 	$files = array(
+		'class-responsive-panel',
+		'class-responsive-header-customizer',
+		'class-responsive-page-customizer',
+		'class-responsive-blog-customizer',
 		'class-responsive-button-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',

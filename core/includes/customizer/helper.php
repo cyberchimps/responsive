@@ -40,7 +40,7 @@ if ( ! function_exists( 'responsive_blog_entry_elements_positioning' ) ) {
 	function responsive_blog_entry_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'featured_image', 'title', 'meta', 'content' );
+		$sections = array( 'title', 'meta', 'featured_image', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_elements_positioning', $sections );
@@ -123,7 +123,7 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 	function responsive_blog_single_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'featured_image', 'title', 'meta', 'content' );
+		$sections = array( 'title', 'meta', 'featured_image', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_single_elements_positioning', $sections );
