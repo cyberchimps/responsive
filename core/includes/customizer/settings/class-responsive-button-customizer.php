@@ -112,7 +112,7 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 				'responsive_button_section',
 				array(
 					'title'    => esc_html__( 'Buttons', 'responsive' ),
-					'panel'    => 'responsive-theme-options',
+					'panel'    => 'responsive-appearance-options',
 					'priority' => 202,
 				)
 			);

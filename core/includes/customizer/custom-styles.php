@@ -59,6 +59,12 @@ function responsive_premium_custom_color_styles() {
 	$sidebar_padding_top      = get_theme_mod( 'responsive_sidebar_top_padding' );
 	$sidebar_padding_bottom   = get_theme_mod( 'responsive_sidebar_bottom_padding' );
 	$sidebar_radius           = get_theme_mod( 'responsive_sidebar_radius' );
+	$sidebar_heading_color    = get_theme_mod( 'responsive_sidebar_heading_color' );
+	$sidebar_text_color       = get_theme_mod( 'responsive_sidebar_text_color' );
+
+
+	$fullwidth_title_color      = get_theme_mod( 'responsive_fullwidth_sitetitle_color' );
+	$container_background_color = get_theme_mod( 'responsive_container_background_color' );
 
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
@@ -439,6 +445,31 @@ function responsive_premium_custom_color_styles() {
 		$custom_css .= "#widgets .widget-wrapper {
 			border-radius: {$sidebar_radius}px;
 		}";
+	}
+	if ( ! empty( $fullwidth_title_color ) ) {
+		$custom_css .= ".full-width-no-box .site-name a {
+			color: {$fullwidth_title_color};
+		}";
+	}
+	if ( ! empty( $sidebar_heading_color ) ) {
+		$custom_css .= "#widgets .widget-wrapper .widget-title h3 {
+			color: {$sidebar_heading_color};
+		}";
+	}
+	if ( ! empty( $sidebar_text_color ) ) {
+		$custom_css .= "#widgets .widget-wrapper * {
+			color: {$sidebar_text_color};
+		}";
+	}
+	if ( ! empty( $container_background_color ) ) {
+		$custom_css .= ".section-blog-2-col, .section-blog-3-col, .section-blog-4-col {
+			background-color: {$container_background_color};
+		}
+		#content-blog .post-entry {
+			background-color: {$container_background_color};
+    		padding: 10px;
+		}
+		";
 	}
 	wp_add_inline_style( 'responsive-style', $custom_css );
 }

@@ -40,7 +40,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 				'responsive_sidebar_section',
 				array(
 					'title'    => esc_html__( 'Sidebar', 'responsive' ),
-					'panel'    => 'responsive_typography_panel',
+					'panel'    => 'responsive-appearance-options',
 					'priority' => 203,
 				)
 			);
@@ -150,6 +150,46 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 							'max'  => 100,
 							'step' => 1,
 						),
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_sidebar_heading_color',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'responsive_sidebar_heading_color',
+					array(
+						'label'    => 'Sidebar Heading Color',
+						'section'  => 'responsive_sidebar_section',
+						'settings' => 'responsive_sidebar_heading_color',
+						'priority' => 10,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_sidebar_text_color',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'responsive_sidebar_text_color',
+					array(
+						'label'    => 'Sidebar Text Color',
+						'section'  => 'responsive_sidebar_section',
+						'settings' => 'responsive_sidebar_text_color',
+						'priority' => 10,
 					)
 				)
 			);

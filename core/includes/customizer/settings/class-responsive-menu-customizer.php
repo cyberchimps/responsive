@@ -42,7 +42,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 				'responsive_menu',
 				array(
 					'title'    => __( 'Menu', 'responsive' ),
-					'panel'    => 'responsive-theme-options',
+					'panel'    => 'responsive-header-options',
 					'priority' => 40,
 				)
 			);

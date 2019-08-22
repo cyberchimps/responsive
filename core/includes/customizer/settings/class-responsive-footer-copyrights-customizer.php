@@ -42,7 +42,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 				'footer_section',
 				array(
 					'title'    => __( 'Footer Settings', 'responsive' ),
-					'panel'    => 'responsive-theme-options',
+					'panel'    => 'responsive-footer-options',
 					'priority' => 30,
 				)
 			);
