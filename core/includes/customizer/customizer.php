@@ -48,8 +48,6 @@ function responsive_customize_register( $wp_customize ) {
 		);
 	}
 
-	$wp_customize->get_section( 'colors' )->title = __( 'Background Color', 'responsive' );
-
 }
 add_action( 'customize_register', 'responsive_customize_register' );
 

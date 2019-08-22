@@ -83,6 +83,10 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 					'priority'    => 21, // Mixed with top-level-section hierarchy.
 				)
 			);
+			$wp_customize->get_section( 'colors' )->panel = 'responsive-appearance-options'; // Add to Colors Panel.
+			$wp_customize->get_section( 'colors' )->title = __( 'Background Color', 'responsive' );
+
+			$wp_customize->get_section( 'background_image' )->panel = 'responsive-appearance-options';
 		}
 	}
 
