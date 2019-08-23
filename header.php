@@ -112,30 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 		</div><!-- end of #logo -->
-		<?php get_sidebar( 'top' ); ?>
-		<?php
-		wp_nav_menu(
-			array(
-				'container'       => 'div',
-				'container_class' => 'main-nav',
-				'fallback_cb'     => 'responsive_fallback_menu',
-				'theme_location'  => 'header-menu',
-			)
-		);
-		?>
-
-		<?php
-		if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
-			wp_nav_menu(
-				array(
-					'container'       => 'div',
-					'container_class' => 'sub-nav',
-					'menu_class'      => 'sub-header-menu',
-					'theme_location'  => 'sub-header-menu',
-				)
-			);
-		}
-		?>
+		<?php do_action( 'responsive_header_container' ); ?>
 	</div>
 
 		<?php responsive_header_bottom(); // after header content hook. ?>

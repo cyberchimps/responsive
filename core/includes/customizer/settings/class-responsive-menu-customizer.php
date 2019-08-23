@@ -155,7 +155,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 
 			// Menu Item Color.
 			$wp_customize->add_setting(
-				'responsive_menu_item_colorpicker',
+				'responsive_menu_active_colorpicker',
 				array(
 					'default'           => '',
 					'type'              => 'theme_mod',
@@ -165,11 +165,11 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Color_Control(
 					$wp_customize,
-					'menu_item_colorpicker',
+					'menu_active_colorpicker',
 					array(
-						'label'    => __( 'Menu Item Color', 'responsive' ),
+						'label'    => __( 'Active Menu Color', 'responsive' ),
 						'section'  => 'responsive_menu',
-						'settings' => 'responsive_menu_item_colorpicker',
+						'settings' => 'responsive_menu_active_colorpicker',
 					)
 				)
 			);
