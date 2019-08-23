@@ -2549,18 +2549,13 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   text-align: center;
 }
 
-.main-nav {
-  background-color: unset !important;
-  background-image: unset !important;
-}
-
 .header-logo-right .responsive-header {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
-.header-logo-right .responsive-header #logo {
-  width: 30% !important;
+.header-logo-right #content-outer.responsive-header #logo {
+  width: 30%;
 }
 .header-logo-right .main-nav {
   margin: auto 0;
@@ -2573,8 +2568,8 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   display: flex;
   justify-content: flex-end;
 }
-.header-logo-left .responsive-header #logo {
-  width: 30% !important;
+.header-logo-left #content-outer.responsive-header #logo {
+  width: 30%;
 }
 .header-logo-left .main-nav {
   margin: auto 0;
@@ -2582,7 +2577,31 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   margin-left: 0;
   width: 65.9574468085%;
 }
+.header-logo-left .main-nav ul {
+  text-align: right;
+}
+.header-logo-left .main-nav ul li {
+  float: none;
+  display: inline-block;
+}
 
+.main-nav .menu a {
+  text-shadow: none;
+}
+
+@media screen and (max-width: 650px) {
+  .js .main-nav, #header #content-outer.responsive-header #logo {
+    width: 100%;
+  }
+
+  #header .responsive-header {
+    display: inline-block;
+  }
+
+  .header-logo-left .main-nav ul li {
+    display: block;
+  }
+}
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
