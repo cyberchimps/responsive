@@ -50,7 +50,8 @@ function responsive_premium_custom_color_styles() {
 	$menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color ); //phpcs:ignore
 	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker' );
 	$menu_text_hover_color   = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
-	$menu_item_color         = get_theme_mod( 'responsive_menu_item_colorpicker' );
+	$menu_active_color       = get_theme_mod( 'responsive_menu_active_colorpicker' );
+	$menu_hover_color        = get_theme_mod( 'responsive_menu_item_hover_colorpicker' );
 
 	// Sidebar colors.
 	$sidebar_background_color = get_theme_mod( 'responsive_sidebar_background_color' );
@@ -368,24 +369,30 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $menu_text_hover_color ) ) {
-		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover {
-			color: {$menu_text_color};
+		$custom_css .= ".menu:hover a, .full-width-no-box .menu:hover a {
+			color: {$menu_text_hover_color};
 		}";
 	}
-	if ( ! empty( $menu_item_color ) ) {
-		$custom_css .= ".menu a {
-			color: {$menu_item_color};
+	if ( ! empty( $menu_active_color ) ) {
+		$custom_css .= ".menu .current-menu-item a, .full-width-no-box .menu .current-menu-item a {
+			background-color: {$menu_active_color};
+		}";
+	}
+	if ( ! empty( $menu_hover_color ) ) {
+		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover {
+			background-color: {$menu_hover_color};
+			background-image: unset;
 		}";
 	}
 	if ( ! empty( $menu_item_hover_color ) ) {
-		$custom_css .= ".menu a:hover,
-		ul.menu > li:hover,
-		.menu .current_page_item a,
-		.menu .current-menu-item a,
-		.front-page .menu .current_page_item a,
-		.full-width-no-box .menu .current_page_item a,
-		.full-width-no-box .menu .current-menu-item a,
-		.full-width-no-box .menu a:hover {
+		$custom_css .= ".menu:hover a,
+		ul.menu:hover > li,
+		.menu:hover .current_page_item a,
+		.menu:hover .current-menu-item a,
+		.front-page .menu:hover .current_page_item a,
+		.full-width-no-box .menu:hover .current_page_item a,
+		.full-width-no-box .menu:hover .current-menu-item a,
+		.full-width-no-box .menu:hover a {
 			background: {$menu_item_hover_color};
 			background-image: none;
 			filter: none;
