@@ -62,7 +62,6 @@ function responsive_premium_custom_color_styles() {
 	$sidebar_heading_color    = get_theme_mod( 'responsive_sidebar_heading_color' );
 	$sidebar_text_color       = get_theme_mod( 'responsive_sidebar_text_color' );
 
-
 	$fullwidth_title_color      = get_theme_mod( 'responsive_fullwidth_sitetitle_color' );
 	$container_background_color = get_theme_mod( 'responsive_container_background_color' );
 
@@ -465,7 +464,7 @@ function responsive_premium_custom_color_styles() {
 		$custom_css .= ".section-blog-2-col, .section-blog-3-col, .section-blog-4-col {
 			background-color: {$container_background_color};
 		}
-		#content-blog .post-entry {
+		.page div#content, .post-entry {
 			background-color: {$container_background_color};
     		padding: 10px;
 		}

@@ -52,7 +52,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<a class="skip-link screen-reader-text focusable" href="#content"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
 	<div id="header_section">
-	<div id="header" role="banner">
+		<?php $header_layout = get_theme_mod( 'header_layout_options', 'default' ); ?>
+	<div id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' >
 
 		<?php responsive_header_top(); // before header content hook. ?>
 
@@ -70,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 		<?php responsive_in_header(); // header hook. ?>
-		<div id="content-outer">
+		<div id="content-outer" class='responsive-header'>
 			<div id="logo">
 		<?php if ( has_custom_logo() ) { ?>
 					<?php the_custom_logo(); ?>
@@ -92,28 +93,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
 
-	<?php } // Header image was removed .
-	 else {
-			global $responsive_options;
-			$responsive_options = responsive_get_options();
-			if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
-				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-			<?php
-			}
-			if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
+	<?php
+} else { // Header image was removed.
+	global $responsive_options;
+	$responsive_options = responsive_get_options();
+	if ( empty( get_theme_mod( 'res_hide_site_title' ) ) ) {
+		?>
+		<span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+		<?php
+	}
+	if ( empty( get_theme_mod( 'res_hide_tagline' ) ) ) {
+		?>
 
-				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
-				<?php
-			}
-		}
-			?>
+		<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+		<?php
+	}
+}
+?>
 
 		</div><!-- end of #logo -->
-	</div>
-
-
-
-
 		<?php get_sidebar( 'top' ); ?>
 		<?php
 		wp_nav_menu(
@@ -138,6 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			);
 		}
 		?>
+	</div>
 
 		<?php responsive_header_bottom(); // after header content hook. ?>
 
