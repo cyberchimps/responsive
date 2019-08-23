@@ -39,13 +39,15 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					'title'    => esc_html__( 'Header Section', 'responsive' ),
 					'panel'    => 'responsive-header-options',
 					'priority' => 202,
+
 				)
 			);
 			$wp_customize->add_setting(
 				'header_layout_options',
 				array(
-					'type'    => 'option',
-					'default' => 'default',
+					'default'           => 'default',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
@@ -58,10 +60,10 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					'choices'  => apply_filters(
 						'responsive_header_layout_choices',
 						array(
-							'default'              => esc_html__( 'Default', 'responsive' ),
-							'header-main-layout-1' => esc_html__( 'Logo Left', 'responsive' ),
-							'header-main-layout-2' => esc_html__( 'Logo Center', 'responsive' ),
-							'header-main-layout-3' => esc_html__( 'Logo Right', 'responsive' ),
+							'default'            => esc_html__( 'Default', 'responsive' ),
+							'header-logo-left'   => esc_html__( 'Logo Left', 'responsive' ),
+							'header-logo-center' => esc_html__( 'Logo Center', 'responsive' ),
+							'header-logo-right'  => esc_html__( 'Logo Right', 'responsive' ),
 						)
 					),
 				)
