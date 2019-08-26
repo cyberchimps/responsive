@@ -393,3 +393,12 @@ function responsive_block_styles() {
 	wp_enqueue_style( 'mytheme-blocks', get_stylesheet_directory_uri() . '/core/css/gutenberg-blocks.css', array(), '1.0' );
 }
 add_action( 'enqueue_block_editor_assets', 'responsive_block_styles' );
+
+/**
+ * Enqueue customizer styling
+ */
+function responsive_controls_style() {
+	wp_enqueue_style( 'mytheme-blocks', get_stylesheet_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+}
+
+add_action( 'customize_controls_print_styles', 'responsive_controls_style' );

@@ -58,7 +58,7 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 				array(
 					'title'       => __( 'Extras (Theme Options)', 'responsive' ),
 					'description' => 'All Misc Options', // Include html tags such as <p>.
-					'priority'    => 199, // Mixed with top-level-section hierarchy.
+					'priority'    => 16, // Mixed with top-level-section hierarchy.
 				)
 			);
 			$wp_customize->get_section( 'header_image' )->title = __( 'header Image (Deprecated)', 'responsive' );

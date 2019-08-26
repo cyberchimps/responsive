@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/26/19) = Added - Version 3.16.3
+[+] = Added header Layout Options
+[!] = Added Active menu color setting, site title color for Fullwidth Without Boxed layout
+[!] = Fixed Menu color bug
+
 (08/16/19) = Added - Version 3.16.2
 [^] = Improved theme structure as per the WordPress standards
 
