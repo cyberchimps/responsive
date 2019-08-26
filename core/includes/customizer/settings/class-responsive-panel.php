@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Appearance', 'responsive' ),
 					'description' => 'appearance Options', // Include html tags such as <p>.
-					'priority'    => 21, // Mixed with top-level-section hierarchy.
+					'priority'    => 10, // Mixed with top-level-section hierarchy.
 				)
 			);
 			$wp_customize->add_panel(
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Page', 'responsive' ),
 					'description' => 'page Options', // Include html tags such as <p>.
-					'priority'    => 21, // Mixed with top-level-section hierarchy.
+					'priority'    => 13, // Mixed with top-level-section hierarchy.
 				)
 			);
 			$wp_customize->add_panel(
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Blog', 'responsive' ),
 					'description' => 'blog Options', // Include html tags such as <p>.
-					'priority'    => 21, // Mixed with top-level-section hierarchy.
+					'priority'    => 12, // Mixed with top-level-section hierarchy.
 				)
 			);
 			$wp_customize->add_panel(
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Header', 'responsive' ),
 					'description' => 'header Options', // Include html tags such as <p>.
-					'priority'    => 21, // Mixed with top-level-section hierarchy.
+					'priority'    => 11, // Mixed with top-level-section hierarchy.
 				)
 			);
 			$wp_customize->add_panel(
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Footer', 'responsive' ),
 					'description' => 'footer Options', // Include html tags such as <p>.
-					'priority'    => 21, // Mixed with top-level-section hierarchy.
+					'priority'    => 14, // Mixed with top-level-section hierarchy.
 				)
 			);
 			$wp_customize->get_section( 'colors' )->panel = 'responsive-appearance-options'; // Add to Colors Panel.

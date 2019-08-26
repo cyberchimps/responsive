@@ -65,6 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'fallback_cb'    => false,
 					'menu_class'     => 'top-menu',
 					'theme_location' => 'top-menu',
+					'depth'          => -1,
 				)
 			);
 		}
