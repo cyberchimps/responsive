@@ -1873,6 +1873,10 @@ ul.menu > li:hover {
   white-space: nowrap;
 }
 
+.header-logo-left .main-nav ul li ul li {
+  display: block;
+}
+
 /* =Navigation
 -------------------------------------------------------------- */
 .navigation {
@@ -2510,6 +2514,10 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 .blog_main_div {
   display: flex;
   flex-flow: row wrap;
+}
+
+.elementor-default #content-outer {
+  padding: 0;
 }
 
 /*--------------------------------------------------------------
