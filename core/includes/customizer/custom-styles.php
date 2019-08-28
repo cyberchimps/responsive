@@ -279,7 +279,7 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce input.button:disabled[disabled],
 		.woocommerce #respond input#submit:disabled,
 		.woocommerce #respond input#submit.disabled,
-		.woocommerce #respond input#submit:disabled[disabled] {
+		.woocommerce #respond input#submit:disabled[disabled], {
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}
@@ -518,6 +518,16 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $menu_border_color ) ) {
 		$custom_css .= ".menu a {
 			border-color: {$menu_border_color};
+		}";
+	}
+	if ( ! empty( $button_color ) ) {
+		$custom_css .= ".woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle {
+			background-color: {$button_color};
+		}";
+	}
+	if ( ! empty( $button_hover_color ) ) {
+		$custom_css .= ".price_slider.ui-slider.ui-slider-horizontal.ui-widget.ui-widget-content.ui-corner-all {
+			background-color: {$button_hover_color};
 		}";
 	}
 	wp_add_inline_style( 'responsive-style', $custom_css );

@@ -3871,6 +3871,18 @@ a.added_to_cart.wc-forward {
     left: 11%;
   }
 }
+select.orderby {
+  height: 35px;
+}
+
+a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart:hover {
+  border: none;
+}
+
+.woocommerce img, .woocommerce-page img {
+  margin: 0 auto;
+}
+
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/
