@@ -192,6 +192,65 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					)
 				)
 			);
+			/**
+			 * Container Padding.
+			 */
+			$wp_customize->add_setting(
+				'responsive_container_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_container_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_container_bottom_padding',
+				array(
+					'transport'         => 'refesh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_container_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Dimensions_Control(
+					$wp_customize,
+					'responsive_container_padding',
+					array(
+						'label'       => esc_html__( 'Container Padding (px)', 'responsive' ),
+						'section'     => 'responsive_layout_section',
+						'settings'    => array(
+							'desktop_top'    => 'responsive_container_top_padding',
+							'desktop_right'  => 'responsive_container_right_padding',
+							'desktop_bottom' => 'responsive_container_bottom_padding',
+							'desktop_left'   => 'responsive_container_left_padding',
+						),
+						'priority'    => 10,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 60,
+							'step' => 1,
+						),
+					)
+				)
+			);
 		}
 
 	}
