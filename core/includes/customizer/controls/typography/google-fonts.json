@@ -1815,6 +1815,14 @@
         }
     },
     {
+        "Chilanka": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Chivo": {
             "variants": [
                 "300",
@@ -2145,20 +2153,20 @@
         "Crimson Pro": {
             "variants": [
                 "200",
-                "300",
-                "regular",
-                "500",
-                "600",
-                "700",
-                "800",
-                "900",
                 "200italic",
+                "300",
                 "300italic",
+                "regular",
                 "italic",
+                "500",
                 "500italic",
+                "600",
                 "600italic",
+                "700",
                 "700italic",
+                "800",
                 "800italic",
+                "900",
                 "900italic"
             ],
             "category": "serif"
@@ -3280,6 +3288,16 @@
         }
     },
     {
+        "Gayathri": {
+            "variants": [
+                "100",
+                "regular",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Gentium Basic": {
             "variants": [
                 "regular",
@@ -3636,6 +3654,22 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Hepta Slab": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -4903,12 +4937,12 @@
         "Literata": {
             "variants": [
                 "regular",
-                "500",
-                "600",
-                "700",
                 "italic",
+                "500",
                 "500italic",
+                "600",
                 "600italic",
+                "700",
                 "700italic"
             ],
             "category": "serif"
@@ -4920,6 +4954,29 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Livvic": {
+            "variants": [
+                "100",
+                "100italic",
+                "200",
+                "200italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "900",
+                "900italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -5187,6 +5244,16 @@
         "Mandali": {
             "variants": [
                 "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Manjari": {
+            "variants": [
+                "100",
+                "regular",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -8244,12 +8311,19 @@
         "Source Code Pro": {
             "variants": [
                 "200",
+                "200italic",
                 "300",
+                "300italic",
                 "regular",
+                "italic",
                 "500",
+                "500italic",
                 "600",
+                "600italic",
                 "700",
-                "900"
+                "700italic",
+                "900",
+                "900italic"
             ],
             "category": "monospace"
         }
