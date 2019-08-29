@@ -279,7 +279,7 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce input.button:disabled[disabled],
 		.woocommerce #respond input#submit:disabled,
 		.woocommerce #respond input#submit.disabled,
-		.woocommerce #respond input#submit:disabled[disabled], {
+		.woocommerce #respond input#submit:disabled[disabled] {
 			color: {$button_text_color};
 			background-color: {$button_color};
 		}
