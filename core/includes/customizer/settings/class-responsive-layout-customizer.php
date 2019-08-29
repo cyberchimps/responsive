@@ -186,7 +186,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'responsive_container_background_color',
 					array(
 						'label'    => 'Container Background Color',
-						'section'  => 'responsive_blog_entries_section',
+						'section'  => 'responsive_layout_section',
 						'settings' => 'responsive_container_background_color',
 						'priority' => 10,
 					)

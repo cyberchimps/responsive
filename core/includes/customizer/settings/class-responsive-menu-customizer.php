@@ -173,7 +173,27 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 					)
 				)
 			);
-
+			// Active Menu Text Color.
+			$wp_customize->add_setting(
+				'responsive_menu_active_text_colorpicker',
+				array(
+					'default'           => '',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'menu_active_text_colorpicker',
+					array(
+						'label'    => __( 'Active Menu Text Color', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'settings' => 'responsive_menu_active_text_colorpicker',
+					)
+				)
+			);
 			// Menu Hover Color.
 			$wp_customize->add_setting(
 				'responsive_menu_item_hover_colorpicker',
@@ -191,6 +211,26 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 						'label'    => __( 'Menu Hover Color', 'responsive' ),
 						'section'  => 'responsive_menu',
 						'settings' => 'responsive_menu_item_hover_colorpicker',
+					)
+				)
+			);
+			// Menu Hover Color.
+			$wp_customize->add_setting(
+				'responsive_menu_border_color',
+				array(
+					'default'           => '',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'responsive_menu_border_color',
+					array(
+						'label'    => __( 'Menu border Color', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'settings' => 'responsive_menu_border_color',
 					)
 				)
 			);

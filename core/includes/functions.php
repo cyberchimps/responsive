@@ -191,8 +191,8 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 */
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );
-    	add_theme_support( 'wc-product-gallery-lightbox' );
-    	add_theme_support( 'wc-product-gallery-slider' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
 
 
 		/**
@@ -333,7 +333,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
 			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.min.css', false, $responsive['Version'] );
 		} else {
-			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.css', false, $responsive['Version'] );
 			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.min.css', false, $responsive['Version'] );
 		}
 
