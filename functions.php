@@ -41,8 +41,13 @@ require $responsive_template_directory . '/core/includes/customizer/helper.php';
 require $responsive_template_directory . '/core/includes/customizer/customizer.php';
 require $responsive_template_directory . '/core/includes/customizer/custom-styles.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
-
-// Return value of the supplied responsive free theme option.
+require $responsive_template_directory . '/admin/admin-functions.php';
+/**
+ * Return value of the supplied responsive free theme option.
+ *
+ * @param  array   $option  options.
+ * @param  boolean $default flag.
+ */
 function responsive_free_get_option( $option, $default = false ) {
 	global $responsive_options;
 
@@ -53,6 +58,9 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
+/**
+ * Responsive_free_setup
+ */
 function responsive_free_setup() {
 	add_theme_support( 'title-tag' );
 
@@ -62,7 +70,11 @@ function responsive_free_setup() {
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
 add_filter( 'body_class', 'responsive_add_site_layout_classes' );
-
+/**
+ * [responsive_add_site_layout_classes description]
+ *
+ * @param array $classes Class.
+ */
 function responsive_add_site_layout_classes( $classes ) {
 	global $responsive_options;
 
@@ -402,61 +414,3 @@ function responsive_controls_style() {
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
-
-/**
- * Adding the theme menu page
- */
-function responsive_admin_page() {
-	add_theme_page(
-		'Responsive Options',
-		'Responsive Options',
-		'administrator',
-		'responsive-options',
-		'responsive_options'
-	);
-}
-add_action( 'admin_menu', 'responsive_admin_page' );
-
-/**
- * Admin page design
- */
-function responsive_options() {
-	if ( ! class_exists( 'Responsive_Plugin_Install_Helper' ) ) {
-		require_once get_template_directory() . '/admin/class-responsive-plugin-install-helper.php';
-	}
-	$responsive_general            = get_option( 'responsive_options' );
-	$responsive_recommended_addons = get_option( 'recommended_addons' );
-	$responsive_useful_plugins     = get_option( 'useful_plugins' );
-
-	$responsive_recommended_addons_screen = ( isset( $_GET['action'] ) && 'recommended_addons' === $_GET['action'] ) ? true : false; //phpcs:ignore
-
-	$responsive_useful_plugins_screen = ( isset( $_GET['action'] ) && 'useful_plugins' === $_GET['action'] ) ? true : false; //phpcs:ignore ?>
-	<div class="wrap">
-		<h1><?php esc_html_e( 'Responsive Options' ); ?></h1>
-		<h2 class="nav-tab-wrapper">
-			<a href="<?php echo esc_url( admin_url( 'admin.php?page=responsive-options' ) ); ?>" class="nav-tab<?php if ( ! isset( $_GET['action'] ) || isset( $_GET['action'] ) && 'recommended_addons' != $_GET['action'] && 'useful_plugins' != $_GET['action'] ) echo ' nav-tab-active'; ?>"><?php esc_html_e( 'Get Started' ); ?></a>
-			<a href="<?php echo esc_url( add_query_arg( array( 'action' => 'recommended_addons' ), admin_url( 'themes.php?page=responsive-options' ) ) ); ?>" class="nav-tab<?php if ( $responsive_recommended_addons_screen ) echo ' nav-tab-active'; ?>"><?php esc_html_e( 'Recommended Addons' ); ?></a>
-			<a href="<?php echo esc_url( add_query_arg( array( 'action' => 'useful_plugins' ), admin_url( 'themes.php?page=responsive-options' ) ) ); ?>" class="nav-tab<?php if ( $responsive_useful_plugins_screen ) echo ' nav-tab-active'; ?>"><?php esc_html_e( 'Useful plugins' ); ?></a>
-		</h2>
-
-		<form method="post" action="options.php">
-			<?php
-			if ( $responsive_recommended_addons_screen ) {
-				settings_fields( 'recommended_addons' );
-				do_settings_sections( 'responsive-recommended-addons' );
-				require_once 'admin/templates/recommended-addons.php';
-			} elseif ( $responsive_useful_plugins_screen ) {
-				settings_fields( 'useful_plugins' );
-				do_settings_sections( 'responsive-useful-plugins' );
-				require_once 'admin/templates/useful-plugins.php';
-			} else {
-				settings_fields( 'responsive_options' );
-				do_settings_sections( 'responsive-options' );
-				require_once 'admin/templates/responsive-options.php';
-			}
-			?>
-		</form>
-	</div>
-
-	<?php
-}
