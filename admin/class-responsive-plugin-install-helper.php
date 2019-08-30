@@ -51,7 +51,6 @@ class Responsive_Plugin_Install_Helper {
 	 * @return string
 	 */
 	public function get_button_html( $slug, $settings = array() ) {
-		error_log('in');
 		$button   = '';
 		$redirect = '';
 		if ( ! empty( $settings ) && array_key_exists( 'redirect', $settings ) ) {
