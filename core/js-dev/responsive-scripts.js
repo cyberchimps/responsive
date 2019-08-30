@@ -125,7 +125,7 @@ window.matchMedia = window.matchMedia || (function (doc, undefined) {
 				href += "/";
 			}
 
-			//if no internal queries exist, but media attr does, use that	
+			//if no internal queries exist, but media attr does, use that
 			//note: this currently lacks support for situations where a media attr is specified on a link AND
 			//its associated stylesheet has internal CSS media queries.
 			//In those cases, the media attribute will currently be ignored.
@@ -215,7 +215,7 @@ window.matchMedia = window.matchMedia || (function (doc, undefined) {
 				lastLink = links[ links.length - 1 ],
 				now = (new Date()).getTime();
 
-			//throttle resize calls	
+			//throttle resize calls
 			if (fromResize && lastCall && now - lastCall < resizeThrottle) {
 				clearTimeout(resizeDefer);
 				resizeDefer = setTimeout(applyMedia, resizeThrottle);
