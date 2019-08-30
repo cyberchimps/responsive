@@ -16,6 +16,6 @@
 			esc_html_e( 'With this free WordPress plugin, you can import beautifully designed, ready to use websites with full demo content. Update the content and launch your website in minutes.' );
 			?>
 		</p>
-		<?php echo Ti_About_Plugin_Helper::instance()->get_button_html( 'gdpr-cookie-consent' ); ?>
+		<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'gdpr-cookie-consent' ); //phpcs:ignore ?>
 	</div>
 </div>

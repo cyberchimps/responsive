@@ -406,7 +406,7 @@ add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
 /**
  * Adding the theme menu page
  */
-function add_test_theme_page() {
+function responsive_admin_page() {
 	add_theme_page(
 		'Responsive Options',
 		'Responsive Options',
@@ -415,15 +415,12 @@ function add_test_theme_page() {
 		'responsive_options'
 	);
 }
-add_action( 'admin_menu', 'add_test_theme_page' );
+add_action( 'admin_menu', 'responsive_admin_page' );
 
 /**
  * Admin page design
  */
 function responsive_options() {
-	if ( ! class_exists( 'Ti_About_Plugin_Helper' ) ) {
-		require_once get_template_directory() . '/admin/class-ti-about-plugin-helper.php';
-	}
 	if ( ! class_exists( 'Responsive_Plugin_Install_Helper' ) ) {
 		require_once get_template_directory() . '/admin/class-responsive-plugin-install-helper.php';
 	}
@@ -433,7 +430,7 @@ function responsive_options() {
 
 	$responsive_recommended_addons_screen = ( isset( $_GET['action'] ) && 'recommended_addons' === $_GET['action'] ) ? true : false; //phpcs:ignore
 
-	$responsive_useful_plugins_screen = ( isset( $_GET['action'] ) && 'useful_plugins' === $_GET['action'] ) ? true : false; ?>
+	$responsive_useful_plugins_screen = ( isset( $_GET['action'] ) && 'useful_plugins' === $_GET['action'] ) ? true : false; //phpcs:ignore ?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'Responsive Options' ); ?></h1>
 		<h2 class="nav-tab-wrapper">

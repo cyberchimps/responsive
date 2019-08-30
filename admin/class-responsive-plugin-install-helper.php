@@ -25,7 +25,7 @@ class Responsive_Plugin_Install_Helper {
 	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Responsive_Plugin_Install_Helper ) ) {
-			self::$instance = new Responsive_Plugin_Install_Helper;
+			self::$instance = new Responsive_Plugin_Install_Helper();
 		}
 
 		return self::$instance;
@@ -39,38 +39,19 @@ class Responsive_Plugin_Install_Helper {
 	 * @return string
 	 */
 	public static function get_plugin_path( $slug ) {
-
-		switch ( $slug ) {
-			case 'mailin':
-				return $slug . '/sendinblue.php';
-				break;
-			case 'wpforms-lite':
-				return $slug . '/wpforms.php';
-				break;
-			case 'intergeo-maps':
-			case 'visualizer':
-			case 'translatepress-multilingual':
-				return $slug . '/index.php';
-				break;
-			case 'beaver-builder-lite-version':
-				return $slug . '/fl-builder.php';
-				break;
-			case 'adblock-notify-by-bweb':
-				return $slug . '/adblock-notify.php';
-				break;
-			default:
-				return $slug . '/' . $slug . '.php';
-		}
+		return $slug . '/' . $slug . '.php';
 	}
 
 	/**
 	 * Generate action button html.
 	 *
 	 * @param string $slug plugin slug.
+	 * @param array  $settings settings.
 	 *
 	 * @return string
 	 */
 	public function get_button_html( $slug, $settings = array() ) {
+		error_log('in');
 		$button   = '';
 		$redirect = '';
 		if ( ! empty( $settings ) && array_key_exists( 'redirect', $settings ) ) {
@@ -83,7 +64,7 @@ class Responsive_Plugin_Install_Helper {
 
 		$additional = '';
 
-		if ( $state === 'deactivate' ) {
+		if ( 'deactivate' === $state ) {
 			$additional = ' action_button active';
 		}
 
@@ -129,9 +110,8 @@ class Responsive_Plugin_Install_Helper {
 				$url     = admin_url( 'admin.php?page=jetpack#/settings' );
 				$button .= '<a  data-redirect="' . esc_url( $redirect ) . '" class="button" href="' . esc_url( $url ) . '">' . esc_html__( 'Activate', 'responsive' ) . ' ' . esc_html__( 'Jetpack Portfolio', 'responsive' ) . '</a>';
 				break;
-		}// End switch().
+		} // End switch.
 		$button .= '</div>';
-
 		return $button;
 	}
 
@@ -148,7 +128,7 @@ class Responsive_Plugin_Install_Helper {
 
 		if ( file_exists( ABSPATH . 'wp-content/plugins/' . $plugin_link_suffix ) ) {
 			$needs = is_plugin_active( $plugin_link_suffix ) ? 'deactivate' : 'activate';
-			if ( $needs === 'deactivate' && ! post_type_exists( 'portfolio' ) && $slug === 'jetpack' ) {
+			if ( 'deactivate' === $needs && ! post_type_exists( 'portfolio' ) && 'jetpack' === $slug ) {
 				return 'enable_cpt';
 			}
 
