@@ -238,7 +238,6 @@ function responsiveedit_customize_register( $wp_customize ) {
 		'responsive_theme_options[contact_title]',
 		array(
 			'selector' => '.contact_title',
-
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(

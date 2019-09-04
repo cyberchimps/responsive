@@ -23,9 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
-
 get_header(); ?>
-<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
+<?php require_once ABSPATH . 'wp-admin/includes/plugin.php'; ?>
 <div id="content-outer">
 <div id="content-archive" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 

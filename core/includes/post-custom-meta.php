@@ -47,6 +47,9 @@ function responsive_get_content_classes() {
 	} elseif ( 'full-width-page' == $layout ) {
 		$content_classes[] = 'grid';
 		$content_classes[] = 'col-940';
+	} else {
+		$content_classes[] = 'grid';
+		$content_classes[] = 'col-620';
 	}
 
 	return apply_filters( 'responsive_content_classes', $content_classes );
@@ -75,8 +78,11 @@ function responsive_get_sidebar_classes() {
 		$sidebar_classes[] = 'col-460';
 		$sidebar_classes[] = 'rtl-fit';
 
+	} else {
+		$sidebar_classes[] = 'grid';
+		$sidebar_classes[] = 'col-300';
+		$sidebar_classes[] = 'fit';
 	}
-
 	return apply_filters( 'responsive_sidebar_classes', $sidebar_classes );
 }
 

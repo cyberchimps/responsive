@@ -18,7 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 get_header();
-
 ?>
 <div id="content-outer">
 <div id="content-full" class="grid col-940">

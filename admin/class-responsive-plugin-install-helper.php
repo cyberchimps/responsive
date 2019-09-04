@@ -39,7 +39,14 @@ class Responsive_Plugin_Install_Helper {
 	 * @return string
 	 */
 	public static function get_plugin_path( $slug ) {
-		return $slug . '/' . $slug . '.php';
+		switch ( $slug ) {
+			case 'wplegalpages':
+				return $slug . '/wplegalpages.php';
+			case 'gdpr-cookie-consent':
+				return $slug . '/gdpr-cookie-consent.php';
+			default:
+				return $slug . '/' . $slug . '.php';
+		}
 	}
 
 	/**
@@ -122,7 +129,6 @@ class Responsive_Plugin_Install_Helper {
 	 * @return bool
 	 */
 	public function check_plugin_state( $slug ) {
-
 		$plugin_link_suffix = self::get_plugin_path( $slug );
 
 		if ( file_exists( ABSPATH . 'wp-content/plugins/' . $plugin_link_suffix ) ) {

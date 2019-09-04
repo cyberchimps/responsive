@@ -49,6 +49,12 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 							'color' => '#7db7f0',
 						),
 					),
+					'button-hover-text-color'       => array(
+						'label'    => esc_html__( 'Button hover Text Color', 'responsive' ),
+						'defaults' => array(
+							'color' => '#333333',
+						),
+					),
 					'button-text-color'        => array(
 						'label'    => esc_html__( 'Button Text Color', 'responsive' ),
 						'defaults' => array(

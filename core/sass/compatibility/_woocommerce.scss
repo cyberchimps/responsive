@@ -84,3 +84,26 @@ a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart:hover {
 .woocommerce img, .woocommerce-page img {
 	margin: 0 auto;
 }
+a.added_to_cart.wc-forward {
+	margin: 1em;
+	padding: .618em 1em;
+}
+.ressponsive-shop-summary-wrap {
+	display: inline-grid;
+}
+table > *, td, tr, th {
+	border-collapse: collapse !important;
+}
+.woocommerce .coupon input#coupon_code {
+    padding: 7px;
+    width: 100px !important;
+}
+.woocommerce th,.woocommerce td,.woocommerce table {
+ border: none;
+}
+#add_payment_method .cart-collaterals .cart_totals tr td, #add_payment_method .cart-collaterals .cart_totals tr th, .woocommerce-cart .cart-collaterals .cart_totals tr td, .woocommerce-cart .cart-collaterals .cart_totals tr th, .woocommerce-checkout .cart-collaterals .cart_totals tr td, .woocommerce-checkout .cart-collaterals .cart_totals tr th {
+	border-top: 1px solid #dddddd;
+}
+.price ins {
+	border-bottom: none;
+}

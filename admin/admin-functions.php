@@ -17,7 +17,8 @@ function responsive_admin_page() {
 		'responsive_options'
 	);
 }
-add_action( 'admin_menu', 'responsive_admin_page' );
+
+add_action( 'admin_menu', 'responsive_admin_page', 99 );
 
 /**
  * Admin page design
@@ -68,6 +69,15 @@ function responsive_options() {
  */
 function responsive_admin_styles() {
 	wp_register_style( 'responsive-admin-css', get_template_directory_uri() . '/admin/css/admin.css', false, '1.0.0' );
+	wp_enqueue_script( 'responsive-admin-js', get_template_directory_uri() . '/admin/js/plugin-install.js', array( 'jquery' ), true, '1.0.0' );
+	wp_enqueue_script( 'updates' );
+	wp_localize_script(
+		'responsive-admin-js',
+		'responsiveAboutPluginInstall',
+		array(
+			'activating' => esc_html__( 'Activating ', 'responsive' ),
+		)
+	);
 }
 add_action( 'admin_enqueue_scripts', 'responsive_admin_styles' );
 /**

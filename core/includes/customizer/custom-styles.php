@@ -31,6 +31,10 @@ function responsive_premium_custom_color_styles() {
 	$header_text_color      = get_theme_mod( 'responsive_fullwidth_header_color', '#585858' );
 	$button_radius          = get_theme_mod( 'responsive_button_border_radius', '2' );
 
+	$button_hover_text_color = get_theme_mod( 'button-hover-text-color', '#7db7f0' );
+
+	$background_color = get_theme_mod( 'background_color' );
+
 	// Single Product colors.
 	$product_rating_color     = get_theme_mod( 'responsive_product_rating_color', '#585858' );
 	$product_title_color      = get_theme_mod( 'responsive_product_title_color', '#585858' );
@@ -246,6 +250,7 @@ function responsive_premium_custom_color_styles() {
 		}
 		div.wpforms-container-full .wpforms-form input[type=submit]:hover, div.wpforms-container-full .wpforms-form input[type=submit]:active, div.wpforms-container-full .wpforms-form button[type=submit]:hover, div.wpforms-container-full .wpforms-form button[type=submit]:focus, div.wpforms-container-full .wpforms-form button[type=submit]:active, div.wpforms-container-full .wpforms-form .wpforms-page-button:hover, div.wpforms-container-full .wpforms-form .wpforms-page-button:active, div.wpforms-container-full .wpforms-form .wpforms-page-button:focus{
 			background-color: {$button_hover_color};
+			color: {$button_hover_text_color};
 		}
 
 		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
@@ -268,6 +273,7 @@ function responsive_premium_custom_color_styles() {
 		#content-woocommerce .product .single_add_to_cart_button:hover, #content-woocommerce .product .single_add_to_cart_button:focus, .added_to_cart.wc-forward:hover, .added_to_cart.wc-forward:focus, .woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .button:focus,
 		.woocommerce #respond input#submit:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover {
 				background-color: {$button_hover_color};
+				color: {$button_hover_text_color};
 		}
 
 		.woocommerce a.button:disabled, .woocommerce a.button.disabled, .woocommerce a.button:disabled[disabled],
@@ -304,6 +310,7 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce #respond input#submit.alt:disabled:hover,
 		.woocommerce #respond input#submit.alt:disabled[disabled]:hover{
 		background-color: {$button_hover_color};
+		color: {$button_hover_text_color};
 		}
 		label {
 			color: {$label_color};
@@ -527,6 +534,11 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $button_hover_color ) ) {
 		$custom_css .= ".price_slider.ui-slider.ui-slider-horizontal.ui-widget.ui-widget-content.ui-corner-all {
 			background-color: {$button_hover_color};
+		}";
+	}
+	if ( ! empty( $background_color ) ) {
+		$custom_css .= "body.home #wrapper, #content-outer #wrapper{
+			background-color: #{$background_color};
 		}";
 	}
 	wp_add_inline_style( 'responsive-style', $custom_css );

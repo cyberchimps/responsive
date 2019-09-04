@@ -20,11 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 get_header();
-
 get_template_part( 'wp-admin/includes', 'plugin' );
 global $responsive_options;
-$responsive_options             = responsive_get_options();
+$responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
+$responsive_category_id = get_query_var( 'cat' );
 if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) ) {
 	?>
 	<div id="content-outer">
