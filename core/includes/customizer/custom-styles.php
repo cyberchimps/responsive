@@ -537,7 +537,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $background_color ) ) {
-		$custom_css .= "body.home #wrapper, #content-outer #wrapper{
+		$custom_css .= "body.home #wrapper, #wrapper{
 			background-color: #{$background_color};
 		}";
 	}
