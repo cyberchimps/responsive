@@ -36,7 +36,7 @@ function responsive_options() {
 
 	$responsive_useful_plugins_screen = ( isset( $_GET['action'] ) && 'useful_plugins' === $_GET['action'] ) ? true : false; //phpcs:ignore ?>
 	<div class="wrap">
-		<h1><?php esc_html_e( 'Responsive Options' ); ?></h1>
+		<h1><?php esc_html_e( 'Responsive Options', 'responsive' ); ?></h1>
 		<h2 class="nav-tab-wrapper">
 			<a href="<?php echo esc_url( admin_url( 'admin.php?page=responsive-options' ) ); ?>" class="nav-tab<?php if ( ! isset( $_GET['action'] ) || isset( $_GET['action'] ) && 'recommended_addons' != $_GET['action'] && 'useful_plugins' != $_GET['action'] ) echo ' nav-tab-active';//phpcs:ignore ?>">
 				<?php esc_html_e( 'Get Started', 'responsive' ); ?>
@@ -78,6 +78,15 @@ function responsive_admin_styles() {
 			'activating' => esc_html__( 'Activating ', 'responsive' ),
 		)
 	);
+	if ( ! is_customize_preview() ) {
+		echo '<style class="astra-menu-appearance-style">
+		#menu-appearance a[href^="themes.php?page=responsive-add-ons"]:before{
+			content: "\21B3";
+			margin-right: 0.5em;
+			opacity: 0.5;
+		}
+		</style>';
+	}
 }
 add_action( 'admin_enqueue_scripts', 'responsive_admin_styles' );
 /**

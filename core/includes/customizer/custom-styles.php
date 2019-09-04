@@ -471,7 +471,7 @@ function responsive_premium_custom_color_styles() {
 			padding-bottom: {$sidebar_padding_bottom}px;
 		}";
 	}
-	if ( ! empty( $sidebar_radius ) ) {
+	if ( isset( $sidebar_radius ) ) {
 		$custom_css .= "#widgets .widget-wrapper {
 			border-radius: {$sidebar_radius}px;
 		}";
