@@ -48,6 +48,7 @@
 	margin-bottom: 10px;
 }
 #scroll {
+	display:none;
 	position:fixed;
 	right:2%;
 	bottom:10px;
@@ -56,7 +57,6 @@
 	height:50px;
 	background-color:#a8a6a6;
 	text-indent:-9999px;
-	display:none;
 	z-index:99999999;
 	-webkit-border-radius:60px;
 	-moz-border-radius:60px;

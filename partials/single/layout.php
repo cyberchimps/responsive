@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php responsive_entry_top(); ?>
 
-	<div class="post-entry">
+	<div class="post-entry" <?php responsive_schema_markup( 'entry_content' ); ?>>
 
 		<?php
 		// Get posts format.
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			}
 
-			// Content
+			// Content.
 			if ( 'content' === $element ) {
 
 				get_template_part( 'partials/single/content' );
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p><?php the_author_meta( 'description' ); ?></p>
 			</div><!-- end of #author-meta -->
 
-		<?php endif; // no description, no author's meta ?>
+		<?php endif; // no description, no author's meta. ?>
 
 		<?php
 		wp_link_pages(

@@ -362,74 +362,6 @@ if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
 	}
 }
 
-	/**
-	* Return correct schema markup
-	*
-	* @since 1.2.10
-	*/
-if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
-	/** Function for schema markup
-	 *
-	 * @param  object $location    arguments.
-	 */
-	function responsive_get_schema_markup( $location ) {
-
-		/** Return if disable */
-		if ( ! get_theme_mod( 'responsive_schema_markup', true ) ) {
-			return null;
-		}
-
-		/** Default */
-		$schema   = '';
-		$itemprop = '';
-		$itemtype = '';
-
-		/** HTML */
-		if ( 'html' === $location ) {
-			$schema = 'itemscope itemtype="http://schema.org/WebPage"';
-
-		} elseif ( 'header' === $location ) { /** Header */
-
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPHeader"';
-		} elseif ( 'logo' === $location ) {
-			$schema = 'itemscope itemtype="http://schema.org/Brand"';
-		} elseif ( 'site_navigation' === $location ) {
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"';
-		} elseif ( 'main' === $location ) {
-			$itemtype = 'http://schema.org/WebPageElement';
-			$itemprop = 'mainContentOfPage';
-			if ( is_singular( 'post' ) ) {
-				$itemprop = '';
-				$itemtype = 'http://schema.org/Blog';
-			}
-		} elseif ( 'sidebar' === $location ) {
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPSideBar"';
-		} elseif ( 'footer' === $location ) {
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPFooter"';
-		} elseif ( 'headline' === $location ) {
-			$schema = 'itemprop="headline"';
-		} elseif ( 'entry_content' === $location ) {
-			$schema = 'itemprop="text"';
-		} elseif ( 'publish_date' === $location ) {
-			$schema = 'itemprop="datePublished"';
-		} elseif ( 'author_name' === $location ) {
-			$schema = 'itemprop="name"';
-		} elseif ( 'author_link' === $location ) {
-			$schema = 'itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"';
-		} elseif ( 'item' === $location ) {
-			$schema = 'itemprop="item"';
-		} elseif ( 'url' === $location ) {
-			$schema = 'itemprop="url"';
-		} elseif ( 'position' === $location ) {
-			$schema = 'itemprop="position"';
-		} elseif ( 'image' === $location ) {
-			$schema = 'itemprop="image"';
-		}
-
-		return ' ' . apply_filters( 'responsive_schema_markup', $schema );
-
-	}
-}
 if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 	/**
 	 * Returns blog single elements positioning
@@ -695,14 +627,19 @@ if ( ! function_exists( 'responsive_blog_entry_images_size' ) ) {
  */
 function responsive_display_menu_outside_container() {
 	get_sidebar( 'top' );
+	?>
+	<?php
 	wp_nav_menu(
 		array(
 			'container'       => 'div',
 			'container_class' => 'main-nav',
+			'container_id'    => 'main-nav',
 			'fallback_cb'     => 'responsive_fallback_menu',
 			'theme_location'  => 'header-menu',
 		)
 	);
+	?>
+	<?php
 	if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
 		wp_nav_menu(
 			array(
@@ -723,4 +660,81 @@ if ( 'default' === $responsive_header_layout ) {
 	add_action( 'responsive_header_bottom', 'responsive_display_menu_outside_container' );
 } elseif ( in_array( $responsive_header_layout, array( 'header-logo-left', 'header-logo-right', 'header-logo-center' ), true ) ) {
 	add_action( 'responsive_header_container', 'responsive_display_menu_outside_container' );
+}
+
+if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
+	/**
+	 * Schema markup
+	 *
+	 * @param  string $location Html tags.
+	 *
+	 * @return [type]           [description]
+	 */
+	function responsive_get_schema_markup( $location ) {
+
+		// Default.
+		$schema   = '';
+		$itemprop = '';
+		$itemtype = '';
+		// HTML.
+		if ( 'html' === $location ) {
+			$schema = 'itemscope itemtype="http://schema.org/WebPage"';
+		} elseif ( 'header' === $location ) { // Header.
+			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPHeader"';
+		} elseif ( 'logo' === $location ) { // Logo.
+			$schema = 'itemscope itemtype="http://schema.org/Brand"';
+		} elseif ( 'site_navigation' === $location ) { // Navigation.
+			$schema = 'itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"';
+		} elseif ( 'main' === $location ) { // Main.
+			$itemtype = 'http://schema.org/WebPageElement';
+			$itemprop = 'mainContentOfPage';
+			$schema   = "itemscope=$itemprop itemtype=$itemtype";
+			if ( is_singular( 'post' ) ) {
+				$itemprop = '';
+				$itemtype = 'http://schema.org/Blog';
+				$schema   = "itemtype=$itemtype";
+			}
+		} elseif ( 'sidebar' === $location ) { // Sidebar.
+			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPSideBar"';
+		} elseif ( 'footer' === $location ) { // Footer widgets.
+			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPFooter"';
+		} elseif ( 'headline' === $location ) { // Headings.
+			$schema = 'itemprop="headline"';
+		} elseif ( 'entry_content' === $location ) { // Posts.
+			$schema = 'itemprop="text"';
+		} elseif ( 'publish_date' === $location ) { // Publish date.
+			$schema = 'itemprop="datePublished"';
+		} elseif ( 'author_name' === $location ) { // Author name.
+			$schema = 'itemprop="name"';
+		} elseif ( 'author_link' === $location ) { // Author link.
+			$schema = 'itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"';
+		} elseif ( 'item' === $location ) { // Item.
+			$schema = 'itemprop="item"';
+		} elseif ( 'url' === $location ) { // Url.
+			$schema = 'itemprop="url"';
+		} elseif ( 'position' === $location ) { // Position.
+			$schema = 'itemprop="position"';
+		} elseif ( 'image' === $location ) { // Image.
+			$schema = 'itemprop="image"';
+		}
+
+		return ' ' . apply_filters( 'responsive_schema_markup', $schema );
+	}
+}
+/**
+ * Outputs correct schema markup
+ *
+ * @since 1.2.10
+ */
+if ( ! function_exists( 'responsive_schema_markup' ) ) {
+	/**
+	 * Return schema.
+	 *
+	 * @param  string $location Location.
+	 */
+	function responsive_schema_markup( $location ) {
+
+		echo responsive_get_schema_markup( $location ); //phpcs:ignore
+
+	}
 }

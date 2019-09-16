@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!--[if IE 9 ]>
 	<html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
 	<!--[if gt IE 9]><!-->
-<html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+<html class="no-js" <?php language_attributes(); ?> <?php responsive_schema_markup( 'html' ); ?> > <!--<![endif]-->
 	<head>
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>"/>
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php wp_head(); ?>
 	</head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> <?php responsive_get_schema_markup( 'html' ); ?> >
 
 <?php responsive_container(); // before container hook. ?>
 
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div><!-- .skip-container -->
 	<div id="header_section">
 		<?php $header_layout = get_theme_mod( 'header_layout_options', 'default' ); ?>
-	<div id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' >
+	<div id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' <?php responsive_schema_markup( 'header' ); ?> >
 
 		<?php responsive_header_top(); // before header content hook. ?>
 
@@ -72,14 +72,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php responsive_in_header(); // header hook. ?>
 		<div id="content-outer" class='responsive-header'>
-			<div id="logo">
+			<div id="logo" <?php responsive_schema_markup( 'logo' ); ?>>
 		<?php if ( has_custom_logo() ) { ?>
 					<?php the_custom_logo(); ?>
 					<?php
 					global $responsive_options;
 					$responsive_options = responsive_get_options();
 					if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
-						<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+						<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
 					<?php
 					}
 					if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
@@ -91,7 +91,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php } elseif ( has_header_image() ) {
 			?>
 
-			<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
+			<a href="<?php echo esc_url(home_url( '/' )); ?>" <?php responsive_schema_markup( 'url' ); ?>><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>" <?php responsive_schema_markup( 'image' ); ?> /></a>
 
 	<?php
 } else { // Header image was removed.
@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$responsive_options = responsive_get_options();
 	if ( empty( get_theme_mod( 'res_hide_site_title' ) ) ) {
 		?>
-		<span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+		<span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
 		<?php
 	}
 	if ( empty( get_theme_mod( 'res_hide_tagline' ) ) ) {
@@ -130,6 +130,6 @@ if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layou
 	?>
 <div id="content-outer" >
 <?php } ?>
-	<div id="wrapper" class="clearfix">
+	<div id="wrapper" class="clearfix" <?php responsive_schema_markup( 'main' ); ?>>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <?php responsive_in_wrapper(); // wrapper hook. ?>

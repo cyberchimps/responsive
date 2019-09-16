@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/16/19) = Added - Version 3.17
+[+] = Added Schema support
+[+] = Added footer color options
+[+] = Improved blog page pagination and added show excerpt customizer setting
+[!] = Fixed blog page title issue, anded elements rearrangement setting for grid layouts
+[^] = Removed jQuery dependancy
+
 (09/04/19) = Added - Version 3.16.4
 [+] = Added customization options - Button Hover Text Color, Container Padding, Container Background Color, Active Menu Text Color
 [+] = Added Responsive Admin page

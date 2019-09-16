@@ -35,7 +35,7 @@ global $responsive_blog_layout_columns;
 </div><!-- end of #container -->
 <?php responsive_container_end(); // after container hook ?>
 
-<div id="footer" class="clearfix" role="contentinfo">
+<div id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
 	<?php responsive_footer_top(); ?>
 
 	<div id="footer-wrapper">
@@ -98,7 +98,7 @@ global $responsive_blog_layout_columns;
 		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
 		<?php if( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">
-			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow">Responsive Theme</a>
+			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>>Responsive Theme</a>
 			<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
 				WordPress</a>
 		</div><!-- end .powered -->
@@ -153,7 +153,7 @@ global $responsive_blog_layout_columns;
 		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
 		<?php if( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">
-			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow">Responsive Theme</a>
+			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>>Responsive Theme</a>
 			<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
 				WordPress</a>
 		</div><!-- end .powered -->
@@ -166,7 +166,15 @@ global $responsive_blog_layout_columns;
 	<?php responsive_footer_bottom(); ?>
 </div><!-- end #footer -->
 <?php responsive_footer_after(); ?>
-<div id="scroll" title="Scroll to Top" style="display: block;">Top<span></span></div>
+<div id="scroll" onclick="topFunction()" title="Scroll to Top" style="display: block;">Top<span></span></div>
 <?php wp_footer(); ?>
+<script type="text/javascript">
+
+// window.addEventListener("scroll", scrollFunction);
+//
+// function scrollFunction() {
+// 	console.log(window.pageYOffset);
+// }
+</script>
 </body>
 </html>

@@ -17,7 +17,7 @@ $format = get_post_format();
 ?>
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php responsive_entry_top(); ?>
-		<div class="post-entry">
+		<div class="post-entry" <?php responsive_schema_markup( 'entry_content' ); ?>>
 			<?php
 			// Get posts format.
 			$format = get_post_format();

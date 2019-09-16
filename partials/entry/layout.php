@@ -13,14 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Get post format
 $format = get_post_format();
 
-	// Add classes to the blog entry post class
-	// $classes = responsive_post_entry_classes(); ?>
-	<?php // responsive_blog_entry_elements_positioning() ?>
+	// Add classes to the blog entry post class.
+	?>
 	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php responsive_entry_top(); ?>
-		<div class="post-entry">
+		<div class="post-entry" <?php responsive_schema_markup( 'entry_content' ); ?>>
 
-		<?php // get_template_part( 'post-meta', get_post_type() ); ?>
 
 			<?php
 			// Get posts format.

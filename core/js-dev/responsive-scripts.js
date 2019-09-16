@@ -330,194 +330,68 @@ window.matchMedia = window.matchMedia || (function (doc, undefined) {
 	}
 })(this);
 
-/**
- * jQuery Scroll Top Plugin 1.0.0
- */
-jQuery(document).ready(function ($) {
-	$('a[href="#scroll-top"]').click(function () {
-		$('html, body').animate({
-			scrollTop: 0
-		}, 'slow');
-		return false;
-	});
-});
 
-/*global jQuery */
-/*jshint browser:true */
-/*!
-* FitVids 1.1
-*
-* Copyright 2013, Chris Coyier - http://css-tricks.com + Dave Rupert - http://daverupert.com
-* Credit to Thierry Koblentz - http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/
-* Released under the WTFPL license - http://sam.zoy.org/wtfpl/
-*
-*/
-(function( $ ){
+//Get the button:
 
-	"use strict";
 
-	$.fn.fitVids = function( options ) {
-		var settings = {
-			customSelector: null,
-			ignore: null,
-		};
+// When the user scrolls down 50px from the top of the document, show the button
+window.addEventListener("scroll", scrollFunction);
 
-		if(!document.getElementById('fit-vids-style')) {
-			// appendStyles: https://github.com/toddmotto/fluidvids/blob/master/dist/fluidvids.js
-			var head = document.head || document.getElementsByTagName('head')[0];
-			var css = '.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}';
-			var div = document.createElement('div');
-			div.innerHTML = '<p>x</p><style id="fit-vids-style">' + css + '</style>';
-			head.appendChild(div.childNodes[1]);
-		}
+function scrollFunction() {
+	mybutton = document.getElementById("scroll");
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 
-		if ( options ) {
-			$.extend( settings, options );
-		}
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 
-		return this.each(function(){
-			var selectors = [
-				"iframe[src*='player.vimeo.com']",
-				"iframe[src*='youtube.com']",
-				"iframe[src*='youtube-nocookie.com']",
-				"iframe[src*='kickstarter.com'][src*='video.html']",
-				"object",
-				"embed"
-			];
+var slideOpen = true;
+var heightChecked = false;
+var initHeight = 0;
+var intval = null;
 
-				if (settings.customSelector) {
-				selectors.push(settings.customSelector);
-			}
-
-			var ignoreList = '.fitvidsignore';
-
-			if(settings.ignore) {
-				ignoreList = ignoreList + ', ' + settings.ignore;
-			}
-
-			var $allVideos = $(this).find(selectors.join(','));
-			$allVideos = $allVideos.not("object object"); // SwfObj conflict patch
-			$allVideos = $allVideos.not(ignoreList); // Disable FitVids on this video.
-
-			$allVideos.each(function(){
-				var $this = $(this);
-				if($this.parents(ignoreList).length > 0) {
-					return; // Disable FitVids on this video.
-				}
-				if (this.tagName.toLowerCase() === 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) { return; }
-				if ((!$this.css('height') && !$this.css('width')) && (isNaN($this.attr('height')) || isNaN($this.attr('width'))))
-				{
-					$this.attr('height', 9);
-					$this.attr('width', 16);
-				}
-				var height = ( this.tagName.toLowerCase() === 'object' || ($this.attr('height') && !isNaN(parseInt($this.attr('height'), 10))) ) ? parseInt($this.attr('height'), 10) : $this.height(),
-					width = !isNaN(parseInt($this.attr('width'), 10)) ? parseInt($this.attr('width'), 10) : $this.width(),
-					aspectRatio = height / width;
-				if(!$this.attr('id')){
-					var videoID = 'fitvid' + Math.floor(Math.random()*999999);
-					$this.attr('id', videoID);
-				}
-				$this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+"%");
-				$this.removeAttr('height').removeAttr('width');
-			});
-		});
-	};
-// Works with either jQuery or Zepto
-})( window.jQuery || window.Zepto );
-
-/*!
- * Mobile Menu
- */
-(function ($) {
-	var current = $('.main-nav li.current-menu-item a').html();
-	current = $('.main-nav li.current_page_item a').html();
-	if ($('span').hasClass('custom-mobile-menu-title')) {
-		current = $('span.custom-mobile-menu-title').html();
-	}
-	else if (typeof current == 'undefined' || current === null) {
-		if ($('body').hasClass('home')) {
-			if ($('#logo span').hasClass('site-name')) {
-				current = $('#logo .site-name a').html();
-			}
-			else {
-				current = $('#logo img').attr('alt');
-			}
-		}
-		else {
-			if ($('body').hasClass('woocommerce') && $('h1').hasClass('page-title')) {
-				current = $('h1.page-title').html();
-			}
-			else if ($('body').hasClass('woocommerce') && $('h1').hasClass('entry-title')) {
-				current = $('h1.entry-title').html();
-			}
-			else if ($('body').hasClass('archive') && $('h6').hasClass('title-archive')) {
-				current = $('h6.title-archive').html();
-			}
-			else if ($('body').hasClass('search-results') && $('h6').hasClass('title-search-results')) {
-				current = $('h6.title-search-results').html();
-			}
-			else if ($('body').hasClass('page-template-blog-excerpt-php') && $('li').hasClass('current_page_item')) {
-				current = $('li.current_page_item').text();
-			}
-			else if ($('body').hasClass('page-template-blog-php') && $('li').hasClass('current_page_item')) {
-				current = $('li.current_page_item').text();
-			}
-			else if ($('h1').hasClass('post-title')) {
-				current = $('h1.post-title').html();
-			}
-			else {
-				current = '&nbsp;';
-			}
-		}
-	}
-	;
-	$('.main-nav').append('<a id="responsive_menu_button"></a>');
-	$('.main-nav').prepend('<div id="responsive_current_menu_item">' + current + '</div>');
-	$('a#responsive_menu_button, #responsive_current_menu_item').click(function () {
-		$('.js .main-nav .menu').slideToggle(function () {
-			if ($(this).is(':visible')) {
-				$('a#responsive_menu_button').addClass('responsive-toggle-open');
-			}
-			else {
-				$('a#responsive_menu_button').removeClass('responsive-toggle-open');
-				$('.js .main-nav .menu').removeAttr('style');
-			}
-		});
-	});
-})(jQuery);
-
-// Close the mobile menu when clicked outside of it.
-(function ($) {
-	$('html').click(function () {
-
-		// Check if the menu is open, close in that case.
-		if ($('a#responsive_menu_button').hasClass('responsive-toggle-open')) {
-			$('.js .main-nav .menu').slideToggle(function () {
-				$('a#responsive_menu_button').removeClass('responsive-toggle-open');
-				$('.js .main-nav .menu').removeAttr('style');
-			});
-		}
-	})
-})(jQuery);
-
-// Stop propagation on click on menu.
-jQuery('.main-nav').click(function (event) {
-	var pathname = window.location.pathname;
-	if (pathname != '/wp-admin/customize.php') {
-		event.stopPropagation();
-	}
-});
-
-// Placeholder
-jQuery(function () {
-	jQuery('input[placeholder], textarea[placeholder]').placeholder();
-});
+function slideToggle() {
+    window.clearInterval(intval);
+    var mdiv = document.getElementById('main-nav');
+	console.log('in the function');
+    if(!heightChecked) {
+        initHeight = mdiv.offsetHeight;
+        heightChecked = true;
+    }
+    if(slideOpen) {
+        var h = initHeight;
+        slideOpen = false;
+        intval = setInterval(function(){
+			h--;
+			mdiv.style.height = h + 'px';
+			if(h <= 0)
+				window.clearInterval(intval);
+			}, 1
+		);
+    }
+    else {
+        var h = 0;
+        slideOpen = true;
+	    intval = setInterval(function(){
+			h++;
+			mdiv.style.height = h + 'px';
+			if(h >= initHeight)
+				window.clearInterval(intval);
+			}, 1
+		);
+    }
+}
 
 // FitVids
-jQuery(function($) {
 // Target your #container, #wrapper etc.
-	$("#wrapper").fitVids({ ignore: '.ls-container'});
-});
+//document.getElementById('wrapper').fitVids({ ignore: '.ls-container'});
 
 // skip-link-focus-fix.js https://github.com/Automattic/_s/blob/master/js/skip-link-focus-fix.js
 ( function() {
@@ -539,3 +413,51 @@ jQuery(function($) {
 		}, false );
 	}
 })();
+
+( function() {
+    var nav = document.getElementsByClassName( 'responsive-header' ), button, menu;
+	 var menu_element = document.getElementById('main-nav');
+
+	 menu_element.insertAdjacentHTML('beforeend','<a id="responsive_menu_button"></a>');
+	 menu_element.insertAdjacentHTML('afterbegin','<div id="responsive_current_menu_item">Home</div>');
+
+	if ( ! nav ) {
+        return;
+    }
+
+    button = document.getElementById( 'responsive_menu_button' );
+    menu   = menu_element.getElementsByTagName( 'ul' )[0];
+    if ( ! button ) {
+        return;
+    }
+
+    // // Hide button if menu is missing or empty.
+    if ( ! menu || ! menu.childNodes.length ) {
+        button.style.display = 'none';
+        //return;
+    }
+
+    document.getElementById("responsive_menu_button").addEventListener("click", function() {
+        if ( -1 === menu.className.indexOf( 'menu' ) ) {
+            menu.className = 'menu';
+        }
+        if ( -1 !== document.getElementById("responsive_menu_button").className.indexOf( 'responsive-toggle-open' ) ) {
+            document.getElementById("responsive_menu_button").className = document.getElementById("responsive_menu_button").className.replace( ' responsive-toggle-open', '' );
+			document.querySelector('.js .main-nav .menu').style.display = "none";
+        } else {
+            document.getElementById("responsive_menu_button").className += ' responsive-toggle-open';
+            document.querySelector('.js .main-nav .menu').style.display = "block";
+        }
+    });
+	window.addEventListener("resize", resizedWindow);
+	function resizedWindow(){
+
+		if(screen.width > 600 ) {
+			document.getElementById("responsive_menu_button").className = document.getElementById("responsive_menu_button").className.replace( ' responsive-toggle-open', '' );
+			console.log(document);
+			var menu_element = document.querySelector('#header #main-nav');
+			menu   = menu_element.getElementsByTagName( 'ul' )[0];
+			document.querySelector('.js .main-nav .menu').style.display = "block";
+		}
+	}
+} )();

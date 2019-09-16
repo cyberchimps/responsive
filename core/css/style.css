@@ -118,6 +118,7 @@ body {
 *:after {
   /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit;
+  text-decoration: none;
 }
 
 body {
@@ -1912,6 +1913,11 @@ ul.menu > li:hover {
   font-size: 36px;
 }
 
+.pagination {
+  display: inline-block;
+  width: 100%;
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -2517,7 +2523,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   flex-flow: row wrap;
 }
 
-.elementor-default #content-outer {
+.elementor-template-full-width #content-outer {
   padding: 0;
 }
 
@@ -3972,6 +3978,7 @@ table > *, td, tr, th {
 }
 
 #scroll {
+  display: none;
   position: fixed;
   right: 2%;
   bottom: 10px;
@@ -3980,7 +3987,6 @@ table > *, td, tr, th {
   height: 50px;
   background-color: #a8a6a6;
   text-indent: -9999px;
-  display: none;
   z-index: 99999999;
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;

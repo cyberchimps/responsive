@@ -230,6 +230,7 @@ function responsive_register_options() {
 		'class-responsive-footer-copyrights-customizer',
 		'class-responsive-menu-customizer',
 		'class-responsive-sidebar-customizer',
+		'class-responsive-footer-color-customizer',
 	);
 
 	foreach ( $files as $key ) {

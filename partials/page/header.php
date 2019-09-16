@@ -5,7 +5,7 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -13,6 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'responsive_before_blog_entry_title' ); ?>
 
-<h2 class="entry-title post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+<h1 class="entry-title post-title"><a href="<?php the_permalink(); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>><?php the_title(); ?></a></h1>
 
 <?php do_action( 'responsive_after_blog_entry_title' ); ?>

@@ -209,6 +209,26 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					)
 				)
 			);
+
+			// Show Excerpt.
+			$wp_customize->add_setting(
+				'responsive_show_excerpt',
+				array(
+					'default'           => '',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_checkbox_validate',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_show_excerpt',
+				array(
+					'label'    => __( 'Show Excerpt', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_show_excerpt',
+					'type'     => 'checkbox',
+					'priority' => 1,
+				)
+			);
 		}
 
 	}

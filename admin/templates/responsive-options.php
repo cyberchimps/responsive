@@ -17,7 +17,7 @@
 		<div class="about-col">
 			<h3><?php esc_html_e( 'Theme Documentation', 'responsive' ); ?></h3>
 			<p><?php esc_html_e( 'Need more help? Check out the Responsive theme docs to learn about all the Responsive features.', 'responsive' ); ?></p>
-			<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive' ); ?>" target="_blank"><?php esc_html_e( 'See Documentation', 'responsive' ); ?></a>
+			<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive?utm_source=responsive-theme&utm_medium=see-documentation&utm_campaign=responsive-documentation' ); ?>" target="_blank"><?php esc_html_e( 'See Documentation', 'responsive' ); ?></a>
 		</div>
 		<div class="about-col">
 			<h3><?php esc_html_e( 'Theme Customization', 'responsive' ); ?></h3>

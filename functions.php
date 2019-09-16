@@ -328,7 +328,7 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 		if ( has_post_thumbnail() && 1 == $responsive_options['featured_images'] ) {
 			?>
 						<div class="featured-image">
-							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
 								<?php	the_post_thumbnail(); ?>
 							</a>
 						</div>
@@ -413,3 +413,31 @@ function responsive_controls_style() {
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
+
+/**
+ * Add rating links to the admin dashboard
+ *
+ * @param string         $footer_text The existing footer text
+ *
+ * @return      string
+ * @since        2.0.6
+ * @global        string $typenow
+ */
+function responsive_admin_rate_us( $footer_text ) {
+	$page        = isset( $_GET['page'] ) ? $_GET['page'] : '';
+	$show_footer = array( 'responsive-options' );
+
+	if ( in_array( $page, $show_footer, true ) ) {
+		$rate_text = sprintf(
+			/* translators: %s: Link to 5 star rating */
+			__( 'If you like <strong>Responsive Theme</strong> please leave us a %s rating. It takes a minute and helps a lot. Thanks in advance!', 'responsive' ),
+			'<a href="https://wordpress.org/support/view/theme-reviews/responsive?filter=5#postform" target="_blank" class="responsive-rating-link" style="text-decoration:none;" data-rated="' . esc_attr__( 'Thanks :)', 'responsive' ) . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
+		);
+
+		return $rate_text;
+	} else {
+		return $footer_text;
+	}
+}
+
+add_filter( 'admin_footer_text', 'responsive_admin_rate_us' );

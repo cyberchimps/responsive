@@ -43,7 +43,7 @@ $caption = get_the_post_thumbnail_caption(); ?>
 
 <div class="thumbnail">
 
-	<a href="<?php the_permalink(); ?>" class="thumbnail-link">
+	<a href="<?php the_permalink(); ?>" class="thumbnail-link" <?php responsive_schema_markup( 'image' ); ?>>
 
 		<?php
 		// Image width

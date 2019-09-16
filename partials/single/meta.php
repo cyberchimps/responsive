@@ -31,9 +31,9 @@ if ( 'quote' == get_post_format() ) {
 	// Loop through meta sections.
 	foreach ( $sections as $section ) {
 
-		if ( 'author' == $section ) {
+		if ( 'author' === $section ) {
 			echo sprintf(
-				'<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s"><span class="author-gravtar">%4$s</span>%3$s</a></span>',
+				'<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><span class="author-gravtar">%4$s</span>%3$s</a></span>',
 				get_author_posts_url( get_the_author_meta( 'ID' ) ),
 				sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
 				esc_attr( get_the_author() ),
@@ -43,7 +43,7 @@ if ( 'quote' == get_post_format() ) {
 
 		if ( 'date' === $section ) {
 			printf(
-				__( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s', 'responsive' ),
+				__( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s" itemprop="datePublished">Posted on %2$s</span>', 'responsive' ),
 				'meta-prep meta-prep-author posted',
 				sprintf(
 					'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
@@ -77,5 +77,4 @@ if ( 'quote' == get_post_format() ) {
 
 
 </div><!-- end of .post-meta -->
-<?php // endif; ?>
 <?php do_action( 'responsive_after_single_post_meta' ); ?>
