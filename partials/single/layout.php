@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php responsive_entry_top(); ?>
 
-	<div class="post-entry" <?php responsive_schema_markup( 'entry_content' ); ?>>
+	<div class="post-entry">
 
 		<?php
 		// Get posts format.

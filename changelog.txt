@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/16/19) = Added - Version 3.17.1
+[!] = Fixed the Schema issue
+[!] = Fixed js error
+
 (09/16/19) = Added - Version 3.17
 [+] = Added Schema support
 [+] = Added footer color options

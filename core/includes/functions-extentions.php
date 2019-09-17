@@ -66,7 +66,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		if ( is_front_page() ) {
 			if ( 1 == $show['home'] ) {
-				$html_output .= '<div class="breadcrumb-list"><a href="' . $home_link . '" ' . responsive_schema_markup( 'url' ) . '>' . $text['home'] . '</a></div>';
+				$html_output .= '<div class="breadcrumb-list"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
 			}
 		} else {
 			$html_output .= '<div class="breadcrumb-list" xmlns:v="http://rdf.data-vocabulary.org/#">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;

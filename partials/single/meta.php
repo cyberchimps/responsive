@@ -33,7 +33,7 @@ if ( 'quote' == get_post_format() ) {
 
 		if ( 'author' === $section ) {
 			echo sprintf(
-				'<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="author-gravtar" itemprop="image">%4$s</span><span itemprop="author">%3$s<</span>/a></span>',
+				'<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" itemscope itemtype="http://schema.org/Person"><span class="author-gravtar" itemprop="image">%4$s</span><span itemprop="name">%3$s</span></a></span>',
 				get_author_posts_url( get_the_author_meta( 'ID' ) ),
 				sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
 				esc_attr( get_the_author() ),
@@ -43,7 +43,7 @@ if ( 'quote' == get_post_format() ) {
 
 		if ( 'date' === $section ) {
 			printf(
-				__( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s" itemprop="datePublished">Posted on %2$s</span>', 'responsive' ),
+				__( '<i class="fa fa-calendar" aria-hidden="true"></i><span>Posted on </span><span class="%1$s" itemprop="datePublished">%2$s</span>', 'responsive' ),
 				'meta-prep meta-prep-author posted',
 				sprintf(
 					'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
@@ -58,7 +58,7 @@ if ( 'quote' == get_post_format() ) {
 		if ( 'comments' === $section && comments_open() && ! post_password_required() ) {
 			?>
 			<?php if ( comments_open() ) : ?>
-				<span class="comments-link" itemprop="userInteractionCount">
+				<span class="comments-link">
 				<span class="mdash">&mdash;</span>
 					<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
 				</span>

@@ -713,7 +713,7 @@ if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
 		} elseif ( 'author_name' === $location ) { // Author name.
 			$schema = 'itemscope itemprop="name"';
 		} elseif ( 'author_link' === $location ) { // Author link.
-			$schema = 'itemprop="author" itemscope itemtype="http://schema.org/Person"';
+			$schema = 'itemscope itemtype="http://schema.org/Person"';
 		} elseif ( 'item' === $location ) { // Item.
 			$schema = 'itemscope itemprop="item"';
 		} elseif ( 'url' === $location ) { // Url.
@@ -727,9 +727,9 @@ if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
 		} elseif ( 'site_title' === $location ) { // Image.
 			$schema = 'itemprop="name"';
 		} elseif ( 'organization' === $location ) { // Image.
-			$schema = 'itemscope itemprop="https://schema.org/Organization"';
+			$schema = 'itemscope itemtype="https://schema.org/Organization"';
 		} elseif ( 'creativework' === $location ) { // Image.
-			$schema = 'itemscope itemprop="https://schema.org/CreativeWork"';
+			$schema = 'itemscope itemtype="https://schema.org/CreativeWork"';
 		}
 
 		return ' ' . apply_filters( 'responsive_schema_markup', $schema );
