@@ -93,17 +93,15 @@ if ( isset( $responsive_options['sticky-header'] ) && $responsive_options['stick
 	function responsive_fixed_menu_onscroll() {
 		?>
 	<script type="text/javascript">
-	jQuery(document).ready(function($){
-		$(window).scroll(function()  {
-			if ($(this).scrollTop() > 0) {
-				$('#header_section').addClass("sticky-header");
-			}
-			else{
-				$('#header_section').removeClass("sticky-header");
-			}
+	window.addEventListener("scroll", responsiveStickyHeader);
 
-		});
-	});
+	function responsiveStickyHeader() {
+		if (document.documentElement.scrollTop > 0 ) {
+			document.getElementById("header_section").classList.add( 'sticky-header' );
+		} else {
+			document.getElementById("header_section").classList.remove( 'sticky-header' );
+		}
+	}
 	</script>
 		<?php
 	}

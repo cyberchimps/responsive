@@ -21,7 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 <div id="content-outer">
-<div id="content-search" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" <?php responsive_schema_markup( 'entry_content' ); ?>>
+
+<div id="content-search" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" >
+
 
 	<?php if ( have_posts() ) : ?>
 
@@ -33,7 +35,7 @@ get_header(); ?>
 			?>
 
 			<?php responsive_entry_before(); ?>
-			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 				<?php responsive_entry_top(); ?>
 
 				<?php get_template_part( 'post-meta', get_post_type() ); ?>

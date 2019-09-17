@@ -29,7 +29,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!--[if IE 9 ]>
 	<html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
 	<!--[if gt IE 9]><!-->
-<html class="no-js" <?php language_attributes(); ?> <?php responsive_schema_markup( 'html' ); ?> > <!--<![endif]-->
+
+<html class="no-js" <?php language_attributes(); ?> > <!--<![endif]-->
+
 	<head>
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>"/>
@@ -41,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php wp_head(); ?>
 	</head>
 
-<body <?php body_class(); ?> <?php responsive_get_schema_markup( 'html' ); ?> >
+<body <?php body_class(); ?> <?php responsive_schema_markup( 'body' ); ?> >
 
 <?php responsive_container(); // before container hook. ?>
 
@@ -71,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 		<?php responsive_in_header(); // header hook. ?>
-		<div id="content-outer" class='responsive-header'>
+		<div id="content-outer" class='responsive-header' <?php responsive_schema_markup( 'organization' ); ?>>
 			<div id="logo" <?php responsive_schema_markup( 'logo' ); ?>>
 		<?php if ( has_custom_logo() ) { ?>
 					<?php the_custom_logo(); ?>
@@ -79,12 +81,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 					global $responsive_options;
 					$responsive_options = responsive_get_options();
 					if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
-						<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
+						<span class="site-name" <?php responsive_schema_markup( 'site_title' ); ?>><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
 					<?php
 					}
 					if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
 
-						<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+						<span class="site-description" <?php responsive_schema_markup( 'tagline' ); ?>><?php bloginfo( 'description' ); ?></span>
 						<?php
 					}
 					?>
@@ -99,13 +101,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$responsive_options = responsive_get_options();
 	if ( empty( get_theme_mod( 'res_hide_site_title' ) ) ) {
 		?>
-		<span class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
+		<span class="site-name" <?php responsive_schema_markup( 'site_title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
 		<?php
 	}
 	if ( empty( get_theme_mod( 'res_hide_tagline' ) ) ) {
 		?>
 
-		<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+		<span class="site-description" <?php responsive_schema_markup( 'tagline' ); ?>><?php bloginfo( 'description' ); ?></span>
 		<?php
 	}
 }
@@ -123,12 +125,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php responsive_wrapper(); // before wrapper container hook. ?>
 
-    <?php global $responsive_blog_layout_columns; ?>
+	<?php global $responsive_blog_layout_columns; ?>
 
 <?php
 if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layout' === $responsive_options['site_layout_option'] ) && ( ! ( is_home() || is_front_page() ) ) ) || in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) {
 	?>
-<div id="content-outer" >
+<div id="content-outer" <?php responsive_schema_markup( 'main' ); ?>>
 <?php } ?>
 	<div id="wrapper" class="clearfix" <?php responsive_schema_markup( 'main' ); ?>>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>

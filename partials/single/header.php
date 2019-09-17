@@ -11,4 +11,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<h1 class="entry-title post-title responsive"><?php the_title(); ?></h1>
+<h1 class="entry-title post-title responsive" itemprop="headline"><?php the_title(); ?></h1>

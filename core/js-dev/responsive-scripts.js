@@ -360,7 +360,6 @@ var intval = null;
 function slideToggle() {
     window.clearInterval(intval);
     var mdiv = document.getElementById('main-nav');
-	console.log('in the function');
     if(!heightChecked) {
         initHeight = mdiv.offsetHeight;
         heightChecked = true;
@@ -416,8 +415,8 @@ function slideToggle() {
 
 ( function() {
     var nav = document.getElementsByClassName( 'responsive-header' ), button, menu;
-	 var menu_element = document.getElementById('main-nav');
-
+	 var menu_element = document.getElementsByClassName('main-nav');
+	 menu_element = menu_element[0];
 	 menu_element.insertAdjacentHTML('beforeend','<a id="responsive_menu_button"></a>');
 	 menu_element.insertAdjacentHTML('afterbegin','<div id="responsive_current_menu_item">Home</div>');
 
@@ -436,28 +435,28 @@ function slideToggle() {
         button.style.display = 'none';
         //return;
     }
+	window.addEventListener("resize", resizedWindow);
+	function resizedWindow(){
 
+		if(screen.width > 650 ) {
+			document.getElementById("responsive_menu_button").classList.remove( 'responsive-toggle-open' );
+			document.querySelector('.js .main-nav .menu').style.display = "block";
+		}
+		if(screen.width < 650 ) {
+			document.querySelector('.js .main-nav .menu').style.display = "none";
+		}
+	}
     document.getElementById("responsive_menu_button").addEventListener("click", function() {
         if ( -1 === menu.className.indexOf( 'menu' ) ) {
             menu.className = 'menu';
         }
         if ( -1 !== document.getElementById("responsive_menu_button").className.indexOf( 'responsive-toggle-open' ) ) {
-            document.getElementById("responsive_menu_button").className = document.getElementById("responsive_menu_button").className.replace( ' responsive-toggle-open', '' );
+            document.getElementById("responsive_menu_button").classList.remove( 'responsive-toggle-open' );
 			document.querySelector('.js .main-nav .menu').style.display = "none";
         } else {
-            document.getElementById("responsive_menu_button").className += ' responsive-toggle-open';
+            document.getElementById("responsive_menu_button").classList.add('responsive-toggle-open');
             document.querySelector('.js .main-nav .menu').style.display = "block";
         }
     });
-	window.addEventListener("resize", resizedWindow);
-	function resizedWindow(){
 
-		if(screen.width > 600 ) {
-			document.getElementById("responsive_menu_button").className = document.getElementById("responsive_menu_button").className.replace( ' responsive-toggle-open', '' );
-			console.log(document);
-			var menu_element = document.querySelector('#header #main-nav');
-			menu   = menu_element.getElementsByTagName( 'ul' )[0];
-			document.querySelector('.js .main-nav .menu').style.display = "block";
-		}
-	}
 } )();

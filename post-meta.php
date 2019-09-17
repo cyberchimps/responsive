@@ -28,22 +28,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="post-meta">
 	<?php
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-	if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
-		responsivepro_plugin_posted_on();
-		responsivepro_plugin_posted_by();
-		responsivepro_plugin_comments_link();
-	} else {
 		responsive_post_meta_data();
-		?>
+	?>
 
 		<?php if ( comments_open() ) : ?>
-		<span class="comments-link">
+		<span class="comments-link" itemscope itemtype="https://schema.org/userInteractionCount">
 		<span class="mdash">&mdash;</span>
 			<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
 		</span>
 			<?php
 	endif;
-	}
 	?>
 </div><!-- end of .post-meta -->

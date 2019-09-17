@@ -15,7 +15,7 @@ $format = get_post_format();
 
 	// Add classes to the blog entry post class.
 	?>
-	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 		<?php responsive_entry_top(); ?>
 		<div class="post-entry" <?php responsive_schema_markup( 'entry_content' ); ?>>
 
@@ -34,8 +34,6 @@ $format = get_post_format();
 				if ( 'featured_image' === $element
 					&& ! post_password_required() ) {
 						get_template_part( 'partials/entry/media/blog-entry', $format );
-					// get_template_part( 'partials/entry/thumbnail' );
-
 				}
 
 				// Title.

@@ -22,7 +22,7 @@ if ( 'grid-entry' == responsive_blog_entry_style() ) {
 	$size = 'full';
 }
 
-// Overlay class
+// Overlay class.
 if ( is_customize_preview()
 	&& false == get_theme_mod( 'responsive_blog_image_overlay', true ) ) {
 	$class = 'no-overlay';
@@ -30,20 +30,20 @@ if ( is_customize_preview()
 	$class = 'overlay';
 }
 
-// Image args
+// Image args.
 $img_args = array(
 	'alt' => get_the_title(),
 );
 if ( responsive_get_schema_markup( 'image' ) ) {
-	$img_args['itemprop'] = 'image';
+	$img_args['itemprop'] = 'thumbnailUrl';
 }
 
-// Caption
+// Caption.
 $caption = get_the_post_thumbnail_caption(); ?>
 
 <div class="thumbnail">
 
-	<a href="<?php the_permalink(); ?>" class="thumbnail-link" <?php responsive_schema_markup( 'image' ); ?>>
+	<a href="<?php the_permalink(); ?>" class="thumbnail-link" <?php responsive_schema_markup( 'url' ); ?>>
 
 		<?php
 		// Image width

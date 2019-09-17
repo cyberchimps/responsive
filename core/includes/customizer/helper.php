@@ -677,45 +677,59 @@ if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
 		$itemprop = '';
 		$itemtype = '';
 		// HTML.
-		if ( 'html' === $location ) {
+		if ( 'body' === $location ) {
 			$schema = 'itemscope itemtype="http://schema.org/WebPage"';
+			if ( is_search() ) {
+				$schema = 'itemscope itemtype="https://schema.org/SearchResultsPage"';
+			}
+			if ( is_singular( 'post' ) || is_home() ) {
+				$schema = 'itemscope itemtype="https://schema.org/Blog"';
+			}
 		} elseif ( 'header' === $location ) { // Header.
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPHeader"';
+			$schema = 'itemscope itemtype="http://schema.org/WPHeader"';
 		} elseif ( 'logo' === $location ) { // Logo.
-			$schema = 'itemscope itemtype="http://schema.org/Brand"';
+			$schema = 'itemprop="logo"';
 		} elseif ( 'site_navigation' === $location ) { // Navigation.
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"';
+			$schema = 'itemscope itemtype="http://schema.org/SiteNavigationElement"';
 		} elseif ( 'main' === $location ) { // Main.
 			$itemtype = 'http://schema.org/WebPageElement';
 			$itemprop = 'mainContentOfPage';
-			$schema   = "itemscope=$itemprop itemtype=$itemtype";
+			$schema   = "itemscope itemtype=$itemtype";
 			if ( is_singular( 'post' ) ) {
 				$itemprop = '';
 				$itemtype = 'http://schema.org/Blog';
-				$schema   = "itemtype=$itemtype";
+				$schema   = "itemscope itemtype=$itemtype";
 			}
 		} elseif ( 'sidebar' === $location ) { // Sidebar.
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPSideBar"';
+			$schema = 'itemscope itemtype="http://schema.org/WPSideBar"';
 		} elseif ( 'footer' === $location ) { // Footer widgets.
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPFooter"';
+			$schema = 'itemscope itemtype="http://schema.org/WPFooter"';
 		} elseif ( 'headline' === $location ) { // Headings.
-			$schema = 'itemprop="headline"';
+			$schema = 'itemscope itemprop="headline"';
 		} elseif ( 'entry_content' === $location ) { // Posts.
-			$schema = 'itemprop="text"';
+			$schema = 'itemscope itemprop="text"';
 		} elseif ( 'publish_date' === $location ) { // Publish date.
-			$schema = 'itemprop="datePublished"';
+			$schema = 'itemscope itemprop="datePublished"';
 		} elseif ( 'author_name' === $location ) { // Author name.
-			$schema = 'itemprop="name"';
+			$schema = 'itemscope itemprop="name"';
 		} elseif ( 'author_link' === $location ) { // Author link.
-			$schema = 'itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"';
+			$schema = 'itemprop="author" itemscope itemtype="http://schema.org/Person"';
 		} elseif ( 'item' === $location ) { // Item.
-			$schema = 'itemprop="item"';
+			$schema = 'itemscope itemprop="item"';
 		} elseif ( 'url' === $location ) { // Url.
-			$schema = 'itemprop="url"';
+			$schema = 'itemscope itemprop="url"';
 		} elseif ( 'position' === $location ) { // Position.
-			$schema = 'itemprop="position"';
+			$schema = 'itemscope itemprop="position"';
 		} elseif ( 'image' === $location ) { // Image.
-			$schema = 'itemprop="image"';
+			$schema = 'itemscope itemprop="image" itemtype="https://schema.org/image"';
+		} elseif ( 'tagline' === $location ) {
+			$schema = 'itemprop="description"';
+		} elseif ( 'site_title' === $location ) { // Image.
+			$schema = 'itemprop="name"';
+		} elseif ( 'organization' === $location ) { // Image.
+			$schema = 'itemscope itemprop="https://schema.org/Organization"';
+		} elseif ( 'creativework' === $location ) { // Image.
+			$schema = 'itemscope itemprop="https://schema.org/CreativeWork"';
 		}
 
 		return ' ' . apply_filters( 'responsive_schema_markup', $schema );

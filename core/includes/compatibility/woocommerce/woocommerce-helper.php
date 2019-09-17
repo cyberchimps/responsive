@@ -12,7 +12,7 @@ if ( ! function_exists( 'responsive_woo_woocommerce_template_loop_product_title'
 	 */
 	function responsive_woo_woocommerce_template_loop_product_title() {
 
-		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="responsive-loop-product__link" ' . responsive_schema_markup( 'url' ) . '>';
+		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="responsive-loop-product__link">';
 		responsive_template_loop_product_title();
 		echo '</a>';
 	}
