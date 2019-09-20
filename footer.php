@@ -166,7 +166,14 @@ global $responsive_blog_layout_columns;
 	<?php responsive_footer_bottom(); ?>
 </div><!-- end #footer -->
 <?php responsive_footer_after(); ?>
-<div id="scroll" onclick="topFunction()" title="Scroll to Top" style="display: block;">Top<span></span></div>
+<?php
+if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
+	$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices' );
+?>
+	<div id="scroll" title="Scroll to Top" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
+	<?php
+		}
+	?>
 <?php wp_footer(); ?>
 <script type="text/javascript">
 

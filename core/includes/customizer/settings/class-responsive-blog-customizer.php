@@ -229,27 +229,90 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'priority' => 1,
 				)
 			);
-            $wp_customize->add_setting(
-                'blog_pagination',
-                array(
-                    'transport'         => 'refresh',
-                    'default'           => 'number',
-                    'sanitize_callback' => 'responsive_sanitize_select',
-                )
-            );
-            $wp_customize->add_control(
-                'blog_pagination',
-                array(
-                    'label'    => __( 'Post Pagination', 'responsive' ),
-                    'section'  => 'responsive_blog_entries_section',
-                    'settings' => 'blog_pagination',
-                    'type'     => 'select',
-                    'choices'  => array(
-                        'default'         => __( 'Default', 'responsive' ),
-                        'infinite' => __( 'Infinite', 'responsive' ),
-                    ),
-                )
-            );
+			$wp_customize->add_setting(
+				'responsive_excerpt_length',
+				array(
+					'default'           => '55',
+					'sanitize_callback' => 'responsive_sanitize_number',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_excerpt_length',
+					array(
+						'label'       => __( 'Excerpt Lenght', 'responsive' ),
+						'section'     => 'responsive_blog_entries_section',
+						'settings'    => 'responsive_excerpt_length',
+						'priority'    => 2,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 500,
+							'step' => 1,
+						),
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_blog_read_more_text',
+				array(
+					'sanitize_callback' => 'sanitize_text_field',
+					'default'           => 'Read more ›',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_blog_read_more_text',
+				array(
+					'label'    => __( 'Read More Text', 'responsive' ),
+					'priority' => 3,
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_blog_read_more_text',
+					'type'     => 'text',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_display_read_more_as_button',
+				array(
+					'default'           => '',
+					'sanitize_callback' => 'responsive_checkbox_validate',
+					'type'              => 'theme_mod',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_display_read_more_as_button',
+				array(
+					'label'    => __( 'Display Read More as Button', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_display_read_more_as_button',
+					'type'     => 'checkbox',
+					'priority' => 4,
+				)
+			);
+			$wp_customize->add_setting(
+				'blog_pagination',
+				array(
+					'transport'         => 'refresh',
+					'default'           => 'number',
+					'sanitize_callback' => 'responsive_sanitize_select',
+				)
+			);
+			$wp_customize->add_control(
+				'blog_pagination',
+				array(
+					'label'    => __( 'Post Pagination', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'blog_pagination',
+					'type'     => 'select',
+					'choices'  => array(
+						'default'  => __( 'Default', 'responsive' ),
+						'infinite' => __( 'Infinite', 'responsive' ),
+					),
+				)
+			);
 		}
 
 	}

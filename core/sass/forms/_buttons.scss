@@ -509,3 +509,13 @@ a.black:hover {
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c4c4c, endColorstr=#080808)";
 	text-shadow: 0 -1px 0 #000000;
 }
+
+a.button, input[type=reset], input[type=button], input[type=submit] {
+	background-image: none;
+}
+a.button:hover,
+input[type='reset']:hover,
+input[type='button']:hover,
+input[type='submit']:hover {
+	background-image: none;
+}

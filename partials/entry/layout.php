@@ -59,10 +59,6 @@ $format = get_post_format();
 			}
 			?>
 
-
-
-			<?php // the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-
 			<?php
 			wp_link_pages(
 				array(

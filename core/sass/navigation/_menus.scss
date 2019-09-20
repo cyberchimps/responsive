@@ -618,3 +618,14 @@ ul.menu > li:hover {
 .header-logo-left .main-nav ul li ul li {
 	display: block;
 }
+@media (max-width: 650px) {
+	#header {
+		display: flex;
+	}
+	#header .main-nav {
+		background-image: none !important;
+		background-color: unset;
+		display: flex;
+		margin: auto;
+	}
+}

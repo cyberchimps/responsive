@@ -121,7 +121,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 						array(
 							'mid_size'  => 2,
 							'prev_text' => __( 'Previous', 'responsive' ),
-							'next_text' => __( 'Next', 'textdomain' ),
+							'next_text' => __( 'Next', 'responsive' ),
 						)
 					);
 				endif;

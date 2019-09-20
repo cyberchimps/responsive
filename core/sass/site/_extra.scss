@@ -843,3 +843,11 @@ border-bottom-color: #cec9c4;
 .wc_payment_methods * {
 	box-sizing: border-box;
 }
+#scroll {
+	content: "";
+}
+@media (min-width: 769px) {
+	#scroll {
+	    content: "769";
+	}
+}

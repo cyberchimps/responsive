@@ -49,6 +49,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'responsive_validate_site_layout',
 					'type'              => 'option',
+					'default'           => 'default-layout',
 				)
 			);
 			$wp_customize->add_control(

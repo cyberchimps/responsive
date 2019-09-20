@@ -231,6 +231,7 @@ function responsive_register_options() {
 		'class-responsive-menu-customizer',
 		'class-responsive-sidebar-customizer',
 		'class-responsive-footer-color-customizer',
+		'class-responsive-scrolltotop-customizer',
 	);
 
 	foreach ( $files as $key ) {

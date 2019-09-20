@@ -1198,6 +1198,17 @@ a.black:hover {
   text-shadow: 0 -1px 0 #000000;
 }
 
+a.button, input[type=reset], input[type=button], input[type=submit] {
+  background-image: none;
+}
+
+a.button:hover,
+input[type=reset]:hover,
+input[type=button]:hover,
+input[type=submit]:hover {
+  background-image: none;
+}
+
 input[type=email], input[type=password], input[type=text], select, textarea {
   box-shadow: none;
   outline: none;
@@ -1879,6 +1890,18 @@ ul.menu > li:hover {
   display: block;
 }
 
+@media (max-width: 650px) {
+  #header {
+    display: flex;
+  }
+
+  #header .main-nav {
+    background-image: none !important;
+    background-color: unset;
+    display: flex;
+    margin: auto;
+  }
+}
 /* =Navigation
 -------------------------------------------------------------- */
 .navigation {
@@ -3822,6 +3845,15 @@ label[for=payment_method_stripe] {
   box-sizing: border-box;
 }
 
+#scroll {
+  content: "";
+}
+
+@media (min-width: 769px) {
+  #scroll {
+    content: "769";
+  }
+}
 /*--------------------------------------------------------------
 ## Gutenberg
 --------------------------------------------------------------*/
