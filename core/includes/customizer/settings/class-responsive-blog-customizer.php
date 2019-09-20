@@ -295,9 +295,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'blog_pagination',
 				array(
-					'transport'         => 'refresh',
 					'default'           => 'number',
 					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
@@ -308,7 +308,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'settings' => 'blog_pagination',
 					'type'     => 'select',
 					'choices'  => array(
-						'default'  => __( 'Default', 'responsive' ),
+						'number'   => __( 'Number', 'responsive' ),
 						'infinite' => __( 'Infinite', 'responsive' ),
 					),
 				)

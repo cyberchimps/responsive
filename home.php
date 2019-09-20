@@ -1,6 +1,12 @@
 <?php
+/**
+ * Blog Template
+ *
+ * @since   1.0.0
+ * @package Responsive
+ */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -28,7 +34,7 @@ $responsive_category_id = get_query_var( 'cat' );
 if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) ) {
 	?>
 	<div id="content-outer">
-		<div id="content-full" class="grid col-940 <?php echo $responsive_options['blog_posts_index_layout_default']; ?>">
+		<div id="content-blog" class="grid col-940 <?php echo $responsive_options['blog_posts_index_layout_default']; ?>">
 
 			<!-- Blog page title -->
 			<?php if ( responsive_free_get_option( 'blog_post_title_toggle' ) ) { ?>
@@ -39,7 +45,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 
 			<?php if ( have_posts() ) : ?>
 
-			<div class="blog_main_div">
+			<div id="main-blog" class="blog_main_div">
 				<?php
 				while ( have_posts() ) :
 					the_post();
@@ -54,14 +60,33 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 					<?php
 				endwhile;
 
+				?>
+				</div>
+				<?php
+				$blog_pagination = get_theme_mod( 'blog_pagination', 'default' );
+
 				if ( $wp_query->max_num_pages > 1 ) :
-					the_posts_pagination(
-						array(
-							'mid_size'  => 2,
-							'prev_text' => __( 'Previous', 'responsive' ),
-							'next_text' => __( 'Next', 'textdomain' ),
-						)
-					);
+					if ( 'infinite' === $blog_pagination ) :
+						ob_start();
+						do_action( 'responsive_pagination_infinite_enqueue_script' );
+						?>
+						<nav class="responsive-pagination-infinite">
+							<div class="responsive-loader">
+								<div class="responsive-loader-1"></div>
+								<div class="responsive-loader-2"></div>
+								<div class="responsive-loader-3"></div>
+							</div>
+						</nav>
+						<?php
+					else :
+						the_posts_pagination(
+							array(
+								'mid_size'  => 2,
+								'prev_text' => __( 'Previous', 'responsive' ),
+								'next_text' => __( 'Next', 'responsive' ),
+							)
+						);
+									endif;
 				endif;
 
 				else :
