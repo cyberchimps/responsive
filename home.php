@@ -76,6 +76,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 	<div id="content-outer">
 	<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
+		<div id="main-blog">
 		<!-- Blog page title -->
 		<?php if ( responsive_free_get_option( 'blog_post_title_toggle' ) ) { ?>
 			<h1> <?php echo responsive_free_get_option( 'blog_post_title_text' ); ?> </h1>
@@ -96,14 +97,34 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 
 				<?php
 			endwhile;
+
+			$blog_pagination = get_theme_mod( 'blog_pagination', 'default' );
+
+			?>
+	</div>
+			<?php
 			if ( $wp_query->max_num_pages > 1 ) :
-				the_posts_pagination(
-					array(
-						'mid_size'  => 2,
-						'prev_text' => __( 'Previous', 'responsive' ),
-						'next_text' => __( 'Next', 'textdomain' ),
-					)
-				);
+				if ( 'infinite' === $blog_pagination ) :
+					ob_start();
+					do_action( 'responsive_pagination_infinite_enqueue_script' );
+					?>
+					<nav class="responsive-pagination-infinite">
+						<div class="responsive-loader">
+							<div class="responsive-loader-1"></div>
+							<div class="responsive-loader-2"></div>
+							<div class="responsive-loader-3"></div>
+						</div>
+					</nav>
+						<?php
+				else :
+					the_posts_pagination(
+						array(
+							'mid_size'  => 2,
+							'prev_text' => __( 'Previous', 'responsive' ),
+							'next_text' => __( 'Next', 'textdomain' ),
+						)
+					);
+				endif;
 			endif;
 			else :
 

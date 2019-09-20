@@ -229,6 +229,27 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'priority' => 1,
 				)
 			);
+            $wp_customize->add_setting(
+                'blog_pagination',
+                array(
+                    'transport'         => 'refresh',
+                    'default'           => 'number',
+                    'sanitize_callback' => 'responsive_sanitize_select',
+                )
+            );
+            $wp_customize->add_control(
+                'blog_pagination',
+                array(
+                    'label'    => __( 'Post Pagination', 'responsive' ),
+                    'section'  => 'responsive_blog_entries_section',
+                    'settings' => 'blog_pagination',
+                    'type'     => 'select',
+                    'choices'  => array(
+                        'default'         => __( 'Default', 'responsive' ),
+                        'infinite' => __( 'Infinite', 'responsive' ),
+                    ),
+                )
+            );
 		}
 
 	}
