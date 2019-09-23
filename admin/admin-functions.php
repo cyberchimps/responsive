@@ -79,7 +79,7 @@ function responsive_admin_styles() {
 		)
 	);
 	if ( ! is_customize_preview() ) {
-		echo '<style class="astra-menu-appearance-style">
+		echo '<style class="responsive-menu-appearance-style">
 		#menu-appearance a[href^="themes.php?page=responsive-add-ons"]:before{
 			content: "\21B3";
 			margin-right: 0.5em;

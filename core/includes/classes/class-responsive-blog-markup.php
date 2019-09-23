@@ -39,6 +39,7 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'wp_ajax_responsive_pagination_infinite', array( $this, 'responsive_pagination_infinite' ) );
+			add_action( 'wp_ajax_nopriv_responsive_pagination_infinite', array( $this, 'responsive_pagination_infinite' ) );
 
 			add_action( 'responsive_pagination_infinite_enqueue_script', array( $this, 'responsive_pagination_infinite_enqueue' ) );
 		}
@@ -69,7 +70,7 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 			$data['no_more_post_message']  = apply_filters( 'responsive_blog_no_more_post', __( 'No more posts to show.', 'responsive' ) );
 			$data['site_url']              = get_site_url();
 
-			$data['show_comments'] = __( 'Show Comments', 'astra-addon' );
+			$data['show_comments'] = __( 'Show Comments', 'responsive' );
 
 			wp_localize_script( 'responsive-pagination-infinite', 'responsivePaginationInfinite', $data );
 		}
