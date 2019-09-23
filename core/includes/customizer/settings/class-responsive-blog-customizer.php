@@ -214,9 +214,10 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_show_excerpt',
 				array(
-					'default'           => 'content',
-					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
+					'default'           => 'content',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_select',
 				)
 			);
 			$wp_customize->add_control(

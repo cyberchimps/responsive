@@ -233,7 +233,7 @@ if ( ! class_exists( 'Responsive_Scrolltotop_Customizer' ) ) :
 					$wp_customize,
 					'responsive_scroll_to_top_icon_background_hover_color',
 					array(
-						'label'    => 'Icon Background Color Color',
+						'label'    => 'Icon Background Hover Color',
 						'section'  => 'responsive_scrolltotop_section',
 						'settings' => 'responsive_scroll_to_top_icon_background_hover_color',
 						'priority' => 10,

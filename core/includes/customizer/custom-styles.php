@@ -97,6 +97,8 @@ function responsive_premium_custom_color_styles() {
 	$stt_icon_hover_color            = get_theme_mod( 'responsive_scroll_to_top_icon_hover_color' );
 	$stt_icon_background_color       = get_theme_mod( 'responsive_scroll_to_top_icon_background_color' );
 	$stt_icon_background_hover_color = get_theme_mod( 'responsive_scroll_to_top_icon_background_hover_color' );
+
+	$responsive_transparent_container = get_theme_mod( 'responsive_transparent_container' );
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
 	} else {
@@ -602,7 +604,7 @@ function responsive_premium_custom_color_styles() {
 			{$stt_position}: 2px;
 		}";
 	}
-	if ( ! empty( $stt_icon_radius ) ) {
+	if ( isset( $stt_icon_radius ) ) {
 		$custom_css .= "#scroll {
 			border-radius: {$stt_icon_radius}%;
 		}";
@@ -625,6 +627,11 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $stt_icon_hover_color ) ) {
 		$custom_css .= "#scroll:hover span {
 			border-bottom-color : {$stt_icon_hover_color};
+		}";
+	}
+	if ( ! empty( $responsive_transparent_container ) ) {
+		$custom_css .= "#wrapper {
+			opacity : {$responsive_transparent_container};
 		}";
 	}
 	wp_add_inline_style( 'responsive-style', $custom_css );

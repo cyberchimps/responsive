@@ -1890,18 +1890,6 @@ ul.menu > li:hover {
   display: block;
 }
 
-@media (max-width: 650px) {
-  #header {
-    display: flex;
-  }
-
-  #header .main-nav {
-    background-image: none !important;
-    background-color: unset;
-    display: flex;
-    margin: auto;
-  }
-}
 /* =Navigation
 -------------------------------------------------------------- */
 .navigation {
@@ -4130,12 +4118,11 @@ table > *, td, tr, th {
 .full-width-no-box #footer .social-icons li {
   list-style: none;
   display: inline-block;
-  padding: 9px 10px;
   border: solid 2px #ffffff;
   border-radius: 50%;
   color: #ffffff;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   margin: 10px;
   font-size: 26px;
 }

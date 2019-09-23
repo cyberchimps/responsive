@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php do_action( 'responsive_before_blog_entry_content' ); ?>
 
 <?php
-if ( 'excerpt' === get_theme_mod( 'responsive_show_excerpt' ) ) {
+global $responsive_show_excerpt;
+if ( 'excerpt' === $responsive_show_excerpt ) {
 	the_excerpt();
 } else {
 	the_content();
