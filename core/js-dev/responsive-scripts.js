@@ -329,32 +329,6 @@ window.matchMedia = window.matchMedia || (function (doc, undefined) {
 		win.attachEvent("onresize", callMedia);
 	}
 })(this);
-
-
-//Get the button:
-
-
-// When the user scrolls down 50px from the top of the document, show the button
-// window.addEventListener("scroll", responsiveScrollFunction);
-//
-// function responsiveScrollFunction() {
-//
-// 	if (document.body.contains( document.getElementById("scroll" ) )) {
-// 		scrollButton = document.getElementById("scroll");
-// 		if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-// 			scrollButton.style.display = "block";
-// 		} else {
-// 			scrollButton.style.display = "none";
-// 		}
-// 	}
-// }
-//
-// // When the user clicks on the button, scroll to the top of the document
-// function topFunction() {
-//   document.body.scrollTop = 0; // For Safari
-//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-// }
-
 var slideOpen = true;
 var heightChecked = false;
 var initHeight = 0;
@@ -423,7 +397,7 @@ function slideToggle() {
 
 		 menu_element = menu_element[0];
 		 menu_element.insertAdjacentHTML('beforeend','<a id="responsive_menu_button"></a>');
-		 //menu_element.insertAdjacentHTML('afterbegin','<div id="responsive_current_menu_item">Home</div>');
+		 menu_element.insertAdjacentHTML('afterbegin','<div id="responsive_current_menu_item">Home</div>');
 
 		if ( ! nav ) {
 	        return;

@@ -753,9 +753,12 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
 	}
 }
 
-if ( get_theme_mod( 'responsive_show_excerpt' ) ) {
+if ( 'excerpt' === get_theme_mod( 'responsive_show_excerpt' ) ) {
 	add_filter( 'excerpt_length', 'responsive_custom_excerpt_length' );
 	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
+	add_filter( 'responsive_post_read_more_class', 'responsive_read_more_class' );
+} elseif ( 'content' === get_theme_mod( 'responsive_show_excerpt' ) ) {
+	add_filter( 'the_content_more_link', 'responsive_modify_read_more_link' );
 	add_filter( 'responsive_post_read_more_class', 'responsive_read_more_class' );
 }
 
@@ -788,7 +791,6 @@ function responsive_read_more_class( $class ) {
 	if ( $read_more_button ) {
 		$class[] = 'button';
 	}
-
 	return $class;
 }
 /**
@@ -809,7 +811,8 @@ function responsive_custom_excerpt_length( $length ) {
 /**
  * Function to get Read More Link of Post
  *
- * @since 1.0.0
+ * @since 3.17.2
+ *
  * @return html
  */
 if ( ! function_exists( 'responsive_post_link' ) ) {
@@ -835,3 +838,17 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 	}
 }
 add_filter( 'excerpt_more', 'responsive_post_link' );
+
+if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
+	/**
+	 * Function to get Read More Link of Post
+	 *
+	 * @since 3.17.2
+	 * @return html
+	 */
+	function responsive_modify_read_more_link() {
+		$read_more_text    = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
+		$read_more_classes = apply_filters( 'responsive_post_read_more_class', array() );
+		return '<a class="more-link ' . esc_attr( implode( ' ', $read_more_classes ) ) . '" href="' . get_permalink() . '">' . $read_more_text . '</a>';
+	}
+}

@@ -214,19 +214,23 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_show_excerpt',
 				array(
-					'default'           => '',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_checkbox_validate',
+					'default'           => 'content',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
 				'responsive_show_excerpt',
 				array(
-					'label'    => __( 'Show Excerpt', 'responsive' ),
+					'label'    => __( 'Post Content', 'responsive' ),
+					'priority' => 1,
 					'section'  => 'responsive_blog_entries_section',
 					'settings' => 'responsive_show_excerpt',
-					'type'     => 'checkbox',
-					'priority' => 1,
+					'type'     => 'select',
+					'choices'  => array(
+						'excerpt' => __( 'Excerpt', 'responsive' ),
+						'content' => __( 'Content', 'responsive' ),
+					),
 				)
 			);
 			$wp_customize->add_setting(
@@ -243,7 +247,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					$wp_customize,
 					'responsive_excerpt_length',
 					array(
-						'label'       => __( 'Excerpt Lenght', 'responsive' ),
+						'label'       => __( 'Excerpt Length', 'responsive' ),
 						'section'     => 'responsive_blog_entries_section',
 						'settings'    => 'responsive_excerpt_length',
 						'priority'    => 2,
@@ -295,9 +299,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'blog_pagination',
 				array(
+					'transport'         => 'refresh',
 					'default'           => 'number',
 					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
@@ -308,7 +312,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'settings' => 'blog_pagination',
 					'type'     => 'select',
 					'choices'  => array(
-						'number'   => __( 'Number', 'responsive' ),
+						'default'  => __( 'Default', 'responsive' ),
 						'infinite' => __( 'Infinite', 'responsive' ),
 					),
 				)

@@ -110,7 +110,7 @@ if ( ! class_exists( 'Responsive_Scrolltotop_Customizer' ) ) :
 				'responsive_scroll_to_top_icon_size',
 				array(
 					'transport'         => 'refresh',
-					'default'           => '50',
+					'default'           => 50,
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
@@ -120,12 +120,12 @@ if ( ! class_exists( 'Responsive_Scrolltotop_Customizer' ) ) :
 					$wp_customize,
 					'responsive_scroll_to_top_icon_size',
 					array(
-						'label'       => __( 'Icon Size', 'responsive' ),
+						'label'       => __( 'Icon Size (px)', 'responsive' ),
 						'section'     => 'responsive_scrolltotop_section',
 						'settings'    => 'responsive_scroll_to_top_icon_size',
 						'priority'    => 10,
 						'input_attrs' => array(
-							'min'  => 0,
+							'min'  => 50,
 							'max'  => 100,
 							'step' => 1,
 						),
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Responsive_Scrolltotop_Customizer' ) ) :
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_number',
 					'transport'         => 'refresh',
-					'default'           => '100',
+					'default'           => 50,
 				)
 			);
 
@@ -148,13 +148,13 @@ if ( ! class_exists( 'Responsive_Scrolltotop_Customizer' ) ) :
 					$wp_customize,
 					'responsive_scroll_to_top_icon_radius',
 					array(
-						'label'       => esc_html__( 'Border Radius', 'responsive' ),
+						'label'       => esc_html__( 'Border Radius (%)', 'responsive' ),
 						'section'     => 'responsive_scrolltotop_section',
 						'settings'    => 'responsive_scroll_to_top_icon_radius',
 						'priority'    => 10,
 						'input_attrs' => array(
 							'min'  => 0,
-							'max'  => 100,
+							'max'  => 50,
 							'step' => 1,
 						),
 					)
