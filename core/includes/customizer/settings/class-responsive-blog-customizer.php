@@ -237,7 +237,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_excerpt_length',
 				array(
-					'default'           => '55',
+					'default'           => '40',
 					'sanitize_callback' => 'responsive_sanitize_number',
 					'transport'         => 'refresh',
 				)
