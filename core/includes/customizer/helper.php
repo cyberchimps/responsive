@@ -792,7 +792,7 @@ function responsive_read_more_class( $class ) {
 function responsive_custom_excerpt_length( $length ) {
 
 	$excerpt_length = get_theme_mod( 'responsive_excerpt_length' );
-	if ( '' !== $excerpt_length ) {
+	if ( ! empty( $excerpt_length ) ) {
 		$length = $excerpt_length;
 	}
 
