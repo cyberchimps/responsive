@@ -16,7 +16,7 @@ $format = get_post_format();
 global $responsive_show_excerpt;
 $responsive_show_excerpt = get_theme_mod( 'responsive_show_excerpt' );
 if ( 'excerpt' === $responsive_show_excerpt ) {
-	add_filter( 'excerpt_length', 'responsive_custom_excerpt_length', 9, 1 );
+	add_filter( 'excerpt_length', 'responsive_custom_excerpt_length' );
 	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
 	add_filter( 'responsive_post_read_more_class', 'responsive_read_more_class' );
 } elseif ( 'content' === $responsive_show_excerpt ) {
