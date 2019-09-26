@@ -98,7 +98,72 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
+			$wp_customize->add_setting(
+				'responsive_footer_tablet_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_footer_tablet_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
 
+			$wp_customize->add_setting(
+				'responsive_footer_tablet_bottom_padding',
+				array(
+					'transport'         => 'refesh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_footer_tablet_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_footer_mobile_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_footer_mobile_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_footer_mobile_bottom_padding',
+				array(
+					'transport'         => 'refesh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_footer_mobile_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
 			$wp_customize->add_control(
 				new Responsive_Customizer_Dimensions_Control(
 					$wp_customize,
@@ -111,6 +176,14 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 							'desktop_right'  => 'responsive_footer_right_padding',
 							'desktop_bottom' => 'responsive_footer_bottom_padding',
 							'desktop_left'   => 'responsive_footer_left_padding',
+							'tablet_top'     => 'responsive_footer_tablet_top_padding',
+							'tablet_right'   => 'responsive_footer_tablet_right_padding',
+							'tablet_bottom'  => 'responsive_footer_tablet_bottom_padding',
+							'tablet_left'    => 'responsive_footer_tablet_left_padding',
+							'mobile_top'     => 'responsive_footer_mobile_top_padding',
+							'mobile_right'   => 'responsive_footer_mobile_right_padding',
+							'mobile_bottom'  => 'responsive_footer_mobile_bottom_padding',
+							'mobile_left'    => 'responsive_footer_mobile_left_padding',
 						),
 						'priority'    => 10,
 						'input_attrs' => array(

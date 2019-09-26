@@ -77,7 +77,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
+				new Responsive_Customizer_Color_Control(
 					$wp_customize,
 					'menu_background_colorpicker',
 					array(

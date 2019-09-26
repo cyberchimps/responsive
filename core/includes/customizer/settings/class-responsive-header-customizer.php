@@ -68,9 +68,28 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					),
 				)
 			);
+			// header border Color.
+			$wp_customize->add_setting(
+				'responsive_header_border_color',
+				array(
+					'default'           => '',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'responsive_header_border_color',
+					array(
+						'label'    => __( 'Border Bottom Color', 'responsive' ),
+						'section'  => 'responsive_header_section',
+						'settings' => 'responsive_header_border_color',
+					)
+				)
+			);
 		}
-
-
 	}
 
 endif;
