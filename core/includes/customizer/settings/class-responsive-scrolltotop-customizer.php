@@ -209,7 +209,7 @@ if ( ! class_exists( 'Responsive_Scrolltotop_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
+				new Responsive_Customizer_Color_Control(
 					$wp_customize,
 					'responsive_scroll_to_top_icon_background_color',
 					array(

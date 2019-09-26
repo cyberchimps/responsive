@@ -182,7 +182,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
+				new Responsive_Customizer_Color_Control(
 					$wp_customize,
 					'responsive_container_background_color',
 					array(
@@ -229,7 +229,63 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
+			$wp_customize->add_setting(
+				'responsive_container_tablet_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_container_tablet_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_container_tablet_bottom_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_container_tablet_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
 
+			$wp_customize->add_setting(
+				'responsive_container_mobile_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_container_mobile_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_container_mobile_bottom_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_container_mobile_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
 			$wp_customize->add_control(
 				new Responsive_Customizer_Dimensions_Control(
 					$wp_customize,
@@ -242,6 +298,14 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 							'desktop_right'  => 'responsive_container_right_padding',
 							'desktop_bottom' => 'responsive_container_bottom_padding',
 							'desktop_left'   => 'responsive_container_left_padding',
+							'tablet_top'     => 'responsive_container_tablet_top_padding',
+							'tablet_right'   => 'responsive_container_tablet_right_padding',
+							'tablet_bottom'  => 'responsive_container_tablet_bottom_padding',
+							'tablet_left'    => 'responsive_container_tablet_left_padding',
+							'mobile_top'     => 'responsive_container_mobile_top_padding',
+							'mobile_right'   => 'responsive_container_mobile_right_padding',
+							'mobile_bottom'  => 'responsive_container_mobile_bottom_padding',
+							'mobile_left'    => 'responsive_container_mobile_left_padding',
 						),
 						'priority'    => 10,
 						'input_attrs' => array(

@@ -52,7 +52,7 @@ if ( ! class_exists( 'Responsive_Footer_Color_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
+				new Responsive_Customizer_Color_Control(
 					$wp_customize,
 					'responsive_footer_background_color',
 					array(

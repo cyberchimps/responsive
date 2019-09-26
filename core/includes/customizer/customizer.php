@@ -203,7 +203,7 @@ function responsive_validate_site_footer_layout( $input ) {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function responsive_customize_preview_js() {
-	wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 }
 add_action( 'customize_preview_init', 'responsive_customize_preview_js' );
 
@@ -292,3 +292,12 @@ function responsive_customize_preview_init() {
 	wp_enqueue_script( 'responsive-customize-preview', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 }
 add_action( 'customize_preview_init', 'responsive_customize_preview_init' );
+
+/**
+ * Custom styles and js for customizer
+ */
+function responsive_custom_customize_enqueue() {
+	wp_enqueue_style( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/css/general.min.css', RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/js/general.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'responsive_custom_customize_enqueue' );

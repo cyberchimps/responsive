@@ -842,3 +842,33 @@ if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 		return '<a class="more-link ' . esc_attr( implode( ' ', $read_more_classes ) ) . '" href="' . get_permalink() . '">' . $read_more_text . '</a>';
 	}
 }
+
+if ( ! function_exists( 'responsive_spacing_css' ) ) {
+	/**
+	 * Return padding/margin values for customizer
+	 *
+	 * @param  integer $top    Top paddding/margin.
+	 * @param  integer $right  Right paddding/margin.
+	 * @param  integer $bottom bottom paddding/margin.
+	 * @param  integer $left   Left paddding/margin.
+	 * @return integer
+	 */
+	function responsive_spacing_css( $top, $right, $bottom, $left ) {
+
+		// Add px and 0 if no value.
+		$s_top    = ( isset( $top ) && '' !== $top ) ? intval( $top ) . 'px ' : '0px ';
+		$s_right  = ( isset( $right ) && '' !== $right ) ? intval( $right ) . 'px ' : '0px ';
+		$s_bottom = ( isset( $bottom ) && '' !== $bottom ) ? intval( $bottom ) . 'px ' : '0px ';
+		$s_left   = ( isset( $left ) && '' !== $left ) ? intval( $left ) . 'px' : '0px';
+
+		// Return one value if it is the same on every inputs.
+		if ( ( intval( $s_top ) === intval( $s_right ) )
+			&& ( intval( $s_right ) === intval( $s_bottom ) )
+			&& ( intval( $s_bottom ) === intval( $s_left ) ) ) {
+			return $s_left;
+		}
+
+		// Return.
+		return $s_top . $s_right . $s_bottom . $s_left;
+	}
+}
