@@ -151,6 +151,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					)
 				)
 			);
+
 		}
 	}
 
