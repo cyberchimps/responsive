@@ -318,6 +318,26 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					),
 				)
 			);
+			$wp_customize->add_setting(
+				'responsive_container_background_color',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_container_background_color',
+					array(
+						'label'    => 'Blog Post Background Color',
+						'section'  => 'responsive_blog_entries_section',
+						'settings' => 'responsive_container_background_color',
+						'priority' => 10,
+					)
+				)
+			);
 		}
 
 	}

@@ -89,6 +89,68 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					)
 				)
 			);
+			$wp_customize->add_setting(
+				'responsive_fullwidth_header_color',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+					'default'           => '#585858',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_fullwidth_header_color',
+					array(
+						'label'    => esc_html__( 'Header Color', 'responsive' ),
+						'section'  => 'responsive_header_section',
+						'settings' => 'responsive_fullwidth_header_color',
+						'priority' => 10,
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_fullwidth_sitetitle_color',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+					'default'           => '#ffffff',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'responsive_fullwidth_sitetitle_color',
+					array(
+						'label'    => esc_html__( 'Site Title Color', 'responsive' ),
+						'section'  => 'responsive_header_section',
+						'settings' => 'responsive_fullwidth_sitetitle_color',
+						'priority' => 10,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_site_description_color',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+					'default'           => '',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'responsive_site_description_color',
+					array(
+						'label'    => esc_html__( 'Site Description Color', 'responsive' ),
+						'section'  => 'responsive_header_section',
+						'settings' => 'responsive_site_description_color',
+						'priority' => 10,
+					)
+				)
+			);
 		}
 	}
 

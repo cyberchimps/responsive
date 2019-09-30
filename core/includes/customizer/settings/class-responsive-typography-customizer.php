@@ -456,7 +456,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							)
 						);
 						$wp_customize->add_control(
-							new Responsive_Customizer_Color_Control(
+							new WP_Customize_Color_Control(
 								$wp_customize,
 								$element . '_typography[color]',
 								array(
