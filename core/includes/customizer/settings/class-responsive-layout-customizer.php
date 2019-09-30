@@ -128,53 +128,9 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 
 				)
 			);
-			$wp_customize->add_setting(
-				'responsive_fullwidth_header_color',
-				array(
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-					'default'           => '#585858',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_fullwidth_header_color',
-					array(
-						'label'           => esc_html__( 'Header Color', 'responsive' ),
-						'section'         => 'responsive_layout_section',
-						'settings'        => 'responsive_fullwidth_header_color',
-						'priority'        => 10,
-						'active_callback' => 'responsive_check_layout_type',
-					)
-				)
-			);
 
 			$wp_customize->add_setting(
-				'responsive_fullwidth_sitetitle_color',
-				array(
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-					'default'           => '#ffffff',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_fullwidth_sitetitle_color',
-					array(
-						'label'           => esc_html__( 'Site Title Color', 'responsive' ),
-						'section'         => 'responsive_layout_section',
-						'settings'        => 'responsive_fullwidth_sitetitle_color',
-						'priority'        => 10,
-						'active_callback' => 'responsive_check_layout_type',
-					)
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_container_background_color',
+				'responsive_main_container_background_color',
 				array(
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
@@ -184,11 +140,11 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new Responsive_Customizer_Color_Control(
 					$wp_customize,
-					'responsive_container_background_color',
+					'responsive_main_container_background_color',
 					array(
 						'label'    => 'Container Background Color',
 						'section'  => 'responsive_layout_section',
-						'settings' => 'responsive_container_background_color',
+						'settings' => 'responsive_main_container_background_color',
 						'priority' => 10,
 					)
 				)

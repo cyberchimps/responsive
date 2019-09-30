@@ -477,7 +477,7 @@ blockquote {
 }
 
 th, td {
-  padding: 0.8em;
+  padding: 0.4em;
 }
 
 caption {
@@ -3842,6 +3842,11 @@ label[for=payment_method_stripe] {
     content: "769";
   }
 }
+#searchsubmit {
+  width: 23%;
+  padding: 0.5em;
+}
+
 /*--------------------------------------------------------------
 ## Gutenberg
 --------------------------------------------------------------*/

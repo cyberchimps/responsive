@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/30/19) = Added - Version 3.19
+[+] = Added transparent color option for the background of container, blog, header, sidebar and footer
+[+] = Added Responsive Padding control
+[!] = Fixed container width not working for the default layout
+[!] = Removed like of page title
+
 (09/24/19) = Added - Version 3.18
 [+] = Added Blog page customizer settings
 [+] = Added Scroll to Top customizer settings
