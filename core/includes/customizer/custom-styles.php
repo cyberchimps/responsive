@@ -502,7 +502,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $menu_background_color ) ) {
-		$custom_css .= ".menu li:hover>ul, .main-nav, .full-width-no-box .main-nav, .full-width-no-box .menu, .menu, .menu li li {
+		$custom_css .= ".menu li:hover>ul, .main-nav, .full-width-no-box .main-nav, .full-width-no-box .menu, .menu {
 			background-color:{$menu_background_color};
 			background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
 			background-image: -webkit-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
