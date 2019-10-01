@@ -174,6 +174,19 @@ if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 	<?php
 		}
 	?>
+
+
+    <?php
+    // If full screen mobile menu style.
+    if ( 'fullscreen' === get_theme_mod('mobile_menu_style' ) ) {
+        get_template_part( 'partials/mobile/mobile-fullscreen' );
+    }
+
+    // If sidebar mobile menu style.
+    if ( 'sidebar' === get_theme_mod('mobile_menu_style' ) ) {
+        get_template_part( 'partials/mobile/mobile-sidebar' );
+    }
+    ?>
 <?php wp_footer(); ?>
 <script type="text/javascript">
 

@@ -264,6 +264,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'text/class-responsive-customizer-text-control.php';
 	require_once $dir . 'typography/class-responsive-customizer-typography-control.php';
 	require_once $dir . 'dimensions/class-responsive-customizer-dimensions-control.php';
+	require_once $dir . 'heading/class-responsive-customizer-heading-control.php';
 
 	// Register JS control types.
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
@@ -273,6 +274,8 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Text_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Typography_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Dimensions_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Heading_Control' );
 
 }
 add_action( 'customize_register', 'responsive_custom_controls' );

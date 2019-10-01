@@ -34,6 +34,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 		 * @param  object $wp_customize WordPress customization option.
 		 */
 		public function customizer_options( $wp_customize ) {
+
 			/**
 			 * Menu COLORS
 			 */
@@ -43,7 +44,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 				array(
 					'title'    => __( 'Menu', 'responsive' ),
 					'panel'    => 'responsive-header-options',
-					'priority' => 40,
+					'priority' => 1,
 				)
 			);
 
@@ -63,7 +64,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 					'section'  => 'responsive_menu',
 					'settings' => 'responsive_menu_gradients_checkbox',
 					'type'     => 'checkbox',
-					'priority' => 1,
+					'priority' => 4,
 				)
 			);
 
@@ -84,7 +85,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 						'label'    => __( 'Menu Background Color', 'responsive' ),
 						'section'  => 'responsive_menu',
 						'settings' => 'responsive_menu_background_colorpicker',
-						'priority' => 2,
+						'priority' => 5,
 					)
 				)
 			);
@@ -106,7 +107,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 						'label'    => __( 'Menu Background Color 2', 'responsive' ),
 						'section'  => 'responsive_menu',
 						'settings' => 'responsive_menu_background_colorpicker_2',
-						'priority' => 3,
+						'priority' => 6,
 					)
 				)
 			);
@@ -234,6 +235,116 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 					)
 				)
 			);
+
+			// Mobile Menu Style.
+
+			/**
+			 * Heading Styling
+			 */
+			$wp_customize->add_setting(
+				'responsive_mobile_menu_title',
+				array(
+					'sanitize_callback' => 'wp_kses',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Heading_Control(
+					$wp_customize,
+					'responsive_mobile_menu_title',
+					array(
+						'label'    => esc_html__( 'Mobile Menu', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'priority' => 10,
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'mobile_menu_style',
+				array(
+					'default'           => 'dropdown',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'mobile_menu_style',
+				array(
+					'label'    => __( 'Menu Style Layout', 'responsive' ),
+					'section'  => 'responsive_menu',
+					'settings' => 'mobile_menu_style',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_mobile_menu_style_choices',
+						array(
+							'dropdown'   => esc_html__( 'Dropdown', 'responsive' ),
+							'fullscreen' => esc_html__( 'FullScreen', 'responsive' ),
+							'sidebar'    => esc_html__( 'Sidebar', 'responsive' ),
+						)
+					),
+					'priority' => 12,
+				)
+			);
+
+			$wp_customize->add_setting(
+				'mobile_menu_style_sidebar_position',
+				array(
+					'default'           => 'left',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'mobile_menu_style_sidebar_position',
+				array(
+					'label'           => __( 'Sidebar Menu Position', 'responsive' ),
+					'section'         => 'responsive_menu',
+					'settings'        => 'mobile_menu_style_sidebar_position',
+					'type'            => 'select',
+					'choices'         => apply_filters(
+						'mobile_menu_style_sidebar_position_choices',
+						array(
+							'left'  => esc_html__( 'Left', 'responsive' ),
+							'right' => esc_html__( 'Right', 'responsive' ),
+						)
+					),
+					'priority'        => 13,
+					'active_callback' => 'responsive_check_sidebar_menu_type',
+				)
+			);
+
+			/**
+			 * Main Container Width
+			 */
+			$wp_customize->add_setting(
+				'responsive_mobile_header_breakpoint',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '480',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_mobile_header_breakpoint',
+					array(
+						'label'       => __( 'Menu Breakpoint(px)', 'responsive' ),
+						'section'     => 'responsive_menu',
+						'settings'    => 'responsive_mobile_header_breakpoint',
+						'priority'    => 14,
+						'input_attrs' => array(
+							'min'  => 480,
+							'max'  => 4096,
+							'step' => 1,
+						),
+					)
+				)
+			);
+
+			// End - Mobile Menu.
 		}
 
 

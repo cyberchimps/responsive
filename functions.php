@@ -43,6 +43,7 @@ require $responsive_template_directory . '/core/includes/customizer/custom-style
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-blog-markup.php';
+require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
 
 /**
  * Return value of the supplied responsive free theme option.

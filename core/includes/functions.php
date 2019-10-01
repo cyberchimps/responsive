@@ -193,8 +193,8 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		add_theme_support( 'wc-product-gallery-zoom' );
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-slider' );
-
 		add_theme_support( 'responsive-embeds' );
+		
 		/**
 		 * This feature enables custom-menus support for a theme.
 		 *
@@ -214,18 +214,18 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		add_theme_support(
 			'custom-header',
 			array(
-				//Header text display default
+				// Header text display default.
 				'header-text'         => false,
-				//Header image flex width
+				// Header image flex width.
 				'flex-width'          => true,
-				//Header image width (in pixels)
+				// Header image width (in pixels).
 				'width'               => 300,
-				//Header image flex height
+				// Header image flex height.
 				'flex-height'         => true,
-				//Header image height (in pixels)
+				// Header image height (in pixels).
 				'height'              => 100,
-				//Admin header style callback
-				'admin-head-callback' => 'responsive_admin_header_style'
+				// Admin header style callback.
+				'admin-head-callback' => 'responsive_admin_header_style',
 			)
 		);
 		/**
@@ -368,6 +368,7 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		// except for Modernizr which enables HTML5 elements & feature detects.
 		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, false );
 		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		wp_localize_script( 'responsive-scripts', 'responsive', apply_filters( 'responsive_js_localize', array() ) );
 		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 			wp_enqueue_script( 'responsive-scroll', $template_directory_uri . '/core/' . $directory . '/scroll-to-top' . $suffix . '.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 		}

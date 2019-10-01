@@ -220,8 +220,29 @@ if ( ! function_exists( 'responsive_checkbox_validate' ) ) {
 	 */
 	function responsive_checkbox_validate( $input ) {
 
-		$input = ( $input == 1 ? 1 : 0 );
+		$input = ( 1 === $input ? 1 : 0 );
 
 		return $input;
+	}
+}
+
+/**
+ * Check if responsive_check_sidebar_menu_type function is present.
+ */
+if ( ! function_exists( 'responsive_check_sidebar_menu_type' ) ) {
+	/**
+	 * Checks if mobile menu type is sidebar
+	 *
+	 * @return boolean True/value values.
+	 */
+	function responsive_check_sidebar_menu_type() {
+		$responsive_mobile_menu_style = get_theme_mod( 'mobile_menu_style' );
+
+		if ( 'sidebar' === $responsive_mobile_menu_style ) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 }
