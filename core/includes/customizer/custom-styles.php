@@ -134,6 +134,9 @@ function responsive_premium_custom_color_styles() {
 
 	$header_border_color = get_theme_mod( 'responsive_header_border_color' );
 
+	// Mobile Menu Breakpoint.
+	$mobile_menu_breakpoint = get_theme_mod( 'responsive_mobile_header_breakpoint', 650 );
+
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
 	} else {
@@ -793,6 +796,48 @@ function responsive_premium_custom_color_styles() {
 			color: {$site_description_color};
 		}";
 	}
+
+	// Mobile Menu breakpoint.
+	$custom_css .= "@media screen and (max-width: {$mobile_menu_breakpoint}px){
+		.js .main-nav {
+            position: relative;
+            background-color: #585858;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#585858),to(#3d3d3d));
+            background-image: -webkit-linear-gradient(top,#585858,#3d3d3d);
+            background-image: -moz-linear-gradient(top,#585858,#3d3d3d);
+            background-image: -ms-linear-gradient(top,#585858,#3d3d3d);
+            background-image: -o-linear-gradient(top,#585858,#3d3d3d);
+            background-image: linear-gradient(to top,#585858,#3d3d3d);
+            clear: both;
+            margin: 0 auto
+        }
+        .js .main-nav .menu {
+            display: none;
+            position: absolute;
+            width: 100%;
+            top: 30px;
+            z-index: 1000
+        }
+        .js .main-nav #responsive_current_menu_item {
+            display: block;
+            padding: 5px 40px 5px 10px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer
+        }
+        .js .main-nav a#responsive_menu_button {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 100%;
+            height: 30px;
+            width: 23px;
+            margin-left: -30px;
+            background: url(./wp-content/themes/responsive/core/images/select-icons.png) 0 5px no-repeat;
+            cursor: pointer
+        }
+	}";
+
 	wp_add_inline_style( 'responsive-style', $custom_css );
 }
 add_action( 'wp_enqueue_scripts', 'responsive_premium_custom_color_styles', 99 );

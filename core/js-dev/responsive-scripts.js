@@ -418,7 +418,7 @@ function slideToggle() {
 		function resizedWindow(){
 
 			var break_point = responsive.break_point;
-			if ( screen.width >= break_point ) {
+			if ( screen.width > break_point ) {
 				document.getElementById( "responsive_menu_button" ).classList.remove( 'responsive-toggle-open' );
 				document.querySelector( '.js .main-nav .menu' ).style.display = "block";
 				document.querySelector( '.js .main-nav #responsive_current_menu_item' ).style.display = "none";
@@ -432,7 +432,7 @@ function slideToggle() {
 					mobile_menu_fullscreen.style.display = "none";
 				}
 			}
-			if ( screen.width < break_point ) {
+			if ( screen.width <= break_point ) {
 				document.querySelector( '.js .main-nav .menu' ).style.display = "none";
 				document.querySelector( '.js .main-nav #responsive_current_menu_item' ).style.display = "block";
 			}
