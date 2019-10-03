@@ -89,6 +89,27 @@ function responsive_add_site_layout_classes( $classes ) {
 
 	return $classes;
 }
+
+/**
+ * Add menu style class to body tag
+ *
+ * @param array $classes Class.
+ */
+function responsive_menu_style_layout_classes( $classes ) {
+    //Handle mobile menu
+    $menu_style = get_theme_mod( 'mobile_menu_style' );
+    if ( $menu_style ){
+        $menu_style_class = 'responsive-mobile-'.$menu_style;
+    } else {
+        $menu_style_class = 'responsive-mobile-dropdown';
+    }
+    $classes[] = $menu_style_class;
+
+    return $classes;
+}
+
+add_filter( 'body_class', 'responsive_menu_style_layout_classes' );
+
 $responsive_options = responsive_get_options();
 
 if ( isset( $responsive_options['sticky-header'] ) && $responsive_options['sticky-header'] == '1' ) {
