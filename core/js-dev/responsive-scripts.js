@@ -473,6 +473,7 @@ function slideToggle() {
 		 if ( responsive_menu_selector_sidebar ) {
 			 responsive_menu_selector_sidebar.addEventListener( "click", function () {
 				 document.getElementById( "mobile-sidebar" ).style.display = "block";
+				 document.getElementById( "mobile-sidebar" ).style.width = "300px";
 				 document.getElementById( 'responsive-sidebar-overlay' ).style.display = "block";
 
 			 });
@@ -481,7 +482,7 @@ function slideToggle() {
 		 var responsive_menu_selector_sidebar_overlay = document.querySelector( ".responsive-mobile-sidebar #responsive-sidebar-overlay" );
 		 if ( responsive_menu_selector_sidebar_overlay ) {
 			 responsive_menu_selector_sidebar_overlay.addEventListener( "click", function () {
-				 document.getElementById( "mobile-sidebar" ).style.display = "none";
+				 document.getElementById( "mobile-sidebar" ).style.width = "0px";
 				 document.getElementById( 'responsive-sidebar-overlay' ).style.display = "none";
 
 			 });
@@ -490,7 +491,7 @@ function slideToggle() {
 		 var close_button_sidebar_menu = document.querySelector( "#mobile-sidebar .close" );
 		 if ( close_button_sidebar_menu ) {
 			 close_button_sidebar_menu.addEventListener( "click", function () {
-				 document.getElementById( "mobile-sidebar" ).style.display = "none";
+				 document.getElementById( "mobile-sidebar" ).style.width = "0px";
 				 document.getElementById( 'responsive-sidebar-overlay' ).style.display = "none";
 			 });
 		 }

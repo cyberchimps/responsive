@@ -2049,14 +2049,15 @@ ul.menu > li:hover {
 }
 
 #mobile-sidebar {
-  display: none;
   position: fixed;
   top: 0;
-  width: 300px;
+  width: 0px;
   height: 100%;
   background-color: white;
   overflow-y: scroll;
   z-index: 100000;
+  -webkit-transition: width 1s;
+  transition: width 0.75s;
 }
 #mobile-sidebar #mobile-sidebar-inner {
   display: table;

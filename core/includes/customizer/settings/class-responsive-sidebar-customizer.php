@@ -110,7 +110,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_setting(
-				'responsive_sidebar_table_left_padding',
+				'responsive_sidebar_tablet_left_padding',
 				array(
 					'transport'         => 'refresh',
 					'default'           => '20',
@@ -119,7 +119,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 			);
 
 			$wp_customize->add_setting(
-				'responsive_sidebar_table_bottom_padding',
+				'responsive_sidebar_tablet_bottom_padding',
 				array(
 					'transport'         => 'refesh',
 					'default'           => '20',
@@ -127,7 +127,40 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_setting(
-				'responsive_sidebar_table_right_padding',
+				'responsive_sidebar_tablet_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '20',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_sidebar_mobile_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '20',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_sidebar_mobile_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '20',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_sidebar_mobile_bottom_padding',
+				array(
+					'transport'         => 'refesh',
+					'default'           => '20',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_sidebar_mobile_right_padding',
 				array(
 					'transport'         => 'refresh',
 					'default'           => '20',
@@ -155,7 +188,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 							'mobile_bottom'  => 'responsive_sidebar_mobile_bottom_padding',
 							'mobile_left'    => 'responsive_sidebar_mobile_left_padding',
 						),
-						'priority'    => 10,
+						'priority'    => 11,
 						'input_attrs' => array(
 							'min'  => 0,
 							'max'  => 60,
