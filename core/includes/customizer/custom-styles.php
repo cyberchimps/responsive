@@ -135,7 +135,7 @@ function responsive_premium_custom_color_styles() {
 	$header_border_color = get_theme_mod( 'responsive_header_border_color' );
 
 	// Mobile Menu Breakpoint.
-	$mobile_menu_breakpoint = get_theme_mod( 'responsive_mobile_header_breakpoint', 650 );
+	$mobile_menu_breakpoint = get_theme_mod( 'responsive_mobile_header_breakpoint', 768 );
 
 	// Mobile Menu Style.
 	$mobile_menu_style = get_theme_mod( 'mobile_menu_style', 'dropdown' );

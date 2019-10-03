@@ -321,7 +321,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 				'responsive_mobile_header_breakpoint',
 				array(
 					'transport'         => 'refresh',
-					'default'           => '480',
+					'default'           => '768',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
