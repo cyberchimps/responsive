@@ -883,19 +883,16 @@ function responsive_premium_custom_color_styles() {
                 background-color: #f5f5f5!important
             }
             .js .responsive-mobile-dropdown .main-nav .menu li li a::before {
-                content: '-';
                 position: absolute;
                 top: 0;
                 left: 20px
             }
             .js .responsive-mobile-dropdown .main-nav .menu li li li a::before {
-                content: '-';
                 position: absolute;
                 top: 0;
                 left: 20px
             }
             .js .responsive-mobile-dropdown .main-nav .menu li li li a::after {
-                content: '-';
                 position: absolute;
                 top: 0;
                 left: 30px

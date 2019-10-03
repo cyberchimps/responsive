@@ -2217,6 +2217,18 @@ ul.menu > li:hover {
   background: url(../../core/images/select-icons.png) 0 5px no-repeat;
 }
 
+.js .responsive-mobile-dropdown .main-nav .menu li li a::before {
+  content: "–";
+}
+
+.js .responsive-mobile-dropdown .main-nav .menu li li li a::before {
+  content: "–";
+}
+
+.js .responsive-mobile-dropdown .main-nav .menu li li li a::after {
+  content: "–";
+}
+
 /* =Navigation
 -------------------------------------------------------------- */
 .navigation {
