@@ -836,7 +836,6 @@ function responsive_premium_custom_color_styles() {
             height: 30px;
             width: 23px;
             margin-left: -30px;
-            background: url(./wp-content/themes/responsive/core/images/select-icons.png) 0 5px no-repeat;
             cursor: pointer
         }
 	}";
@@ -908,9 +907,6 @@ function responsive_premium_custom_color_styles() {
             }
             .js .responsive-mobile-dropdown .main-nav .menu ul {
                 min-width: 0
-            }
-            .js .responsive-mobile-dropdown .main-nav a#responsive_menu_button.responsive-toggle-open {
-                background: url(./wp-content/themes/responsive/core/images/select-icons.png) 0 5px no-repeat;
             }
 	    }";
 	}
