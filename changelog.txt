@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/03/19) = Added - Version 3.20
+[+] = Added Mobile Menu style layout: Sidebar, Dropdown, Fullscreen
+[+] = Added Mobile Menu width breakpoint
+
 (10/01/19) = Added - Version 3.19
 [+] = Added transparent color option for the background of container, blog, header, sidebar and footer
 [+] = Added Responsive Padding control
