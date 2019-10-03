@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	wp_nav_menu(
 		array(
 			'container'      => false,
-			'fallback_cb'    => 'false',
+			'fallback_cb'    => 'responsive_fallback_menu',
 			'theme_location' => 'header-menu',
 		)
 	);

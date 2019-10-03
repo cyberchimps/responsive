@@ -908,6 +908,37 @@ function responsive_premium_custom_color_styles() {
 	    }";
 	}
 
+	if ( 'fullscreen' === $mobile_menu_style ) {
+		$custom_css .= "@media screen and (max-width: {$mobile_menu_breakpoint}px){
+            .js .responsive-mobile-fullscreen #mobile-fullscreen .main-nav .menu {
+                display: block;
+                position: relative;
+            }
+            .js .responsive-mobile-fullscreen #mobile-fullscreen .main-nav {
+                background-image: none;
+                background-color: #ffffff;
+            }
+            .js .responsive-mobile-fullscreen #mobile-fullscreen .main-nav .current_page_item a {
+                background-color: #D3D3D3;
+            }
+	    }";
+	}
+	if ( 'sidebar' === $mobile_menu_style ) {
+		$custom_css .= "@media screen and (max-width: {$mobile_menu_breakpoint}px){
+            .js .responsive-mobile-sidebar #mobile-sidebar .main-nav .menu {
+                display: block;
+                position: relative;
+            }
+            .js .responsive-mobile-sidebar #mobile-sidebar .main-nav {
+                background-image: none;
+                background-color: #ffffff;
+            }
+            .js .responsive-mobile-sidebar #mobile-sidebar .main-nav .current_page_item a {
+                background-color: #D3D3D3;
+            }
+	    }";
+	}
+
 	wp_add_inline_style( 'responsive-style', $custom_css );
 }
 add_action( 'wp_enqueue_scripts', 'responsive_premium_custom_color_styles', 99 );
