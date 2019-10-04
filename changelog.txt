@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/04/19) = Added - Version 3.20.1
+[!] = Minor bug fixes
+
 (10/03/19) = Added - Version 3.20
 [+] = Added Mobile Menu style layout: Sidebar, Dropdown, Fullscreen
 [+] = Added Mobile Menu width breakpoint
