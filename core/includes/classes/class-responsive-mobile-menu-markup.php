@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Mobile_Menu_Markup' ) ) :
 			/**
 			 * Breakpoint
 			 */
-			$localize_vars['break_point'] = get_theme_mod( 'responsive_mobile_header_breakpoint' );
+			$localize_vars['break_point'] = get_theme_mod( 'responsive_mobile_header_breakpoint', 768 );
 
 			return $localize_vars;
 		}
