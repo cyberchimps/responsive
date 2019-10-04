@@ -35,7 +35,7 @@ global $responsive_blog_layout_columns;
 </div><!-- end of #container -->
 <?php responsive_container_end(); // after container hook ?>
 
-<div id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
+<footer id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
 	<?php responsive_footer_top(); ?>
 
 	<div id="footer-wrapper">
@@ -164,7 +164,7 @@ global $responsive_blog_layout_columns;
 	</div><!-- end #footer-wrapper -->
 
 	<?php responsive_footer_bottom(); ?>
-</div><!-- end #footer -->
+</footer><!-- end #footer -->
 <?php responsive_footer_after(); ?>
 <?php
 if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {

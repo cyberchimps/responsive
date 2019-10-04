@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div><!-- .skip-container -->
 	<div id="header_section">
 		<?php $header_layout = get_theme_mod( 'header_layout_options', 'default' ); ?>
-	<div id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' <?php responsive_schema_markup( 'header' ); ?> >
+	<header id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' <?php responsive_schema_markup( 'header' ); ?> >
 
 		<?php responsive_header_top(); // before header content hook. ?>
 
@@ -119,7 +119,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php responsive_header_bottom(); // after header content hook. ?>
 
-	</div><!-- end of #header -->
+	</header><!-- end of #header -->
 	</div>
 <?php responsive_header_end(); // after header container hook. ?>
 

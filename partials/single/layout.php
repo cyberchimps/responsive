@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 
 	<?php responsive_entry_top(); ?>
 
@@ -90,4 +90,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php get_template_part( 'post-data', get_post_type() ); ?>
 
 	<?php responsive_entry_bottom(); ?>
-</div><!-- end of #post-<?php the_ID(); ?> -->
+</article><!-- end of #post-<?php the_ID(); ?> -->

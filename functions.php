@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '3.17.2' );
+define( 'RESPONSIVE_THEME_VERSION', '3.21' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 /**
@@ -96,16 +96,16 @@ function responsive_add_site_layout_classes( $classes ) {
  * @param array $classes Class.
  */
 function responsive_menu_style_layout_classes( $classes ) {
-    //Handle mobile menu
-    $menu_style = get_theme_mod( 'mobile_menu_style' );
-    if ( $menu_style ){
-        $menu_style_class = 'responsive-mobile-'.$menu_style;
-    } else {
-        $menu_style_class = 'responsive-mobile-dropdown';
-    }
-    $classes[] = $menu_style_class;
+	// Handle mobile menu.
+	$menu_style = get_theme_mod( 'mobile_menu_style' );
+	if ( $menu_style ) {
+		$menu_style_class = 'responsive-mobile-' . $menu_style;
+	} else {
+		$menu_style_class = 'responsive-mobile-dropdown';
+	}
+	$classes[] = $menu_style_class;
 
-    return $classes;
+	return $classes;
 }
 
 add_filter( 'body_class', 'responsive_menu_style_layout_classes' );

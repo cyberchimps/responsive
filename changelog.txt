@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/07/19) = Added - Version 3.21
+[+] = Added Typography options for H1, h2, H3, H4, H5, H6 tags
+[+] = Added Typography options Menu, dropdown menu and, mobile menu
+[+] = Added HTML 5 Elements
+
 (10/04/19) = Added - Version 3.20.1
 [!] = Minor bug fixes
 

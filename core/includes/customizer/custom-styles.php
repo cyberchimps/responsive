@@ -439,7 +439,7 @@ function responsive_premium_custom_color_styles() {
 	}
 
 	if ( ! empty( $menu_text_color ) ) {
-		$custom_css .= ".menu a, .full-width-no-box .menu a,.menu li li {
+		$custom_css .= ".menu a, .full-width-no-box .menu a {
 			color: {$menu_text_color};
 		}
 		@media (min-width: 768px){
@@ -449,7 +449,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $menu_text_hover_color ) ) {
-		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover, .menu li li:hover{
+		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover{
 			color: {$menu_text_hover_color};
 		}
 		@media (min-width: 768px){
@@ -473,7 +473,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $menu_hover_color ) ) {
-		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover,.menu li li a:hover {
+		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover {
 			background-color: {$menu_hover_color};
 			background-image: unset;
 		}
@@ -493,8 +493,7 @@ function responsive_premium_custom_color_styles() {
 		.front-page .menu:hover .current_page_item a,
 		.full-width-no-box .menu:hover .current_page_item a,
 		.full-width-no-box .menu:hover .current-menu-item a,
-		.full-width-no-box .menu:hover a,
-		.menu li li:hover a {
+		.full-width-no-box .menu:hover a {
 			background: {$menu_item_hover_color};
 			background-image: none;
 			filter: none;
@@ -939,6 +938,6 @@ function responsive_premium_custom_color_styles() {
 	    }";
 	}
 
-	wp_add_inline_style( 'responsive-style', $custom_css );
+	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );
 }
 add_action( 'wp_enqueue_scripts', 'responsive_premium_custom_color_styles', 99 );
