@@ -21,6 +21,7 @@
     "load-grunt-tasks": "^0.2.1"
   },
   "dependencies": {
+    "google-fonts": "^1.0.0",
     "request": "^2.88.0"
   }
 }

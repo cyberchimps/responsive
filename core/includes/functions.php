@@ -194,7 +194,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-slider' );
 		add_theme_support( 'responsive-embeds' );
-		
+
 		/**
 		 * This feature enables custom-menus support for a theme.
 		 *
@@ -368,7 +368,7 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		// except for Modernizr which enables HTML5 elements & feature detects.
 		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, false );
 		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
-		wp_localize_script( 'responsive-scripts', 'responsive', apply_filters( 'responsive_js_localize', array() ) );
+		wp_localize_script( 'responsive-scripts', 'responsives', apply_filters( 'responsive_js_localize', array() ) );
 		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 			wp_enqueue_script( 'responsive-scroll', $template_directory_uri . '/core/' . $directory . '/scroll-to-top' . $suffix . '.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 		}

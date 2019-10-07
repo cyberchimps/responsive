@@ -31,7 +31,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			// CSS output.
 			if ( is_customize_preview() ) {
 				add_action( 'customize_preview_init', array( $this, 'customize_preview_init' ) );
-				add_action( 'wp_head', array( $this, 'live_preview_styles' ), 999 );
+				add_action( 'wp_head', array( $this, 'live_preview_styles' ), 9 );
 			} else {
 				add_filter( 'responsive_head_css', array( $this, 'head_css' ), 99 );
 			}
@@ -614,6 +614,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size',
 						'line-height',
 						'letter-spacing',
+						'color',
 
 					);
 				}
@@ -769,11 +770,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		public function live_preview_styles() {
 
 			$live_preview_styles = self::loop( 'preview_styles' );
-
 			if ( $live_preview_styles ) {
 				foreach ( $live_preview_styles as $key => $val ) {
 					if ( ! empty( $val ) ) {
-						echo '<style class="' . esc_html( $key ) . '"> ' . esc_html( $val ) . '</style>';
+						echo '<style class="' . esc_html( $key ) . '"> ' . ( $val ) . '</style>';
 					}
 				}
 			}

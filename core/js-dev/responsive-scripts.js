@@ -417,7 +417,7 @@ function slideToggle() {
 		window.addEventListener("resize", resizedWindow);
 		function resizedWindow(){
 
-			var break_point = responsive.break_point;
+			var break_point = responsives.break_point;
 			if ( window.innerWidth > break_point ) {
 				document.getElementById( "responsive_menu_button" ).classList.remove( 'responsive-toggle-open' );
 				document.querySelector( '.js .main-nav .menu' ).style.display = "block";

@@ -286,6 +286,17 @@
         }
     },
     {
+        "Almarai": {
+            "variants": [
+                "300",
+                "regular",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Almendra": {
             "variants": [
                 "regular",
@@ -1105,6 +1116,27 @@
         }
     },
     {
+        "Be Vietnam": {
+            "variants": [
+                "100",
+                "100italic",
+                "300",
+                "300italic",
+                "regular",
+                "italic",
+                "500",
+                "500italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic",
+                "800",
+                "800italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Belgrano": {
             "variants": [
                 "regular"
@@ -1166,6 +1198,36 @@
         "Bevan": {
             "variants": [
                 "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Display": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Big Shoulders Text": {
+            "variants": [
+                "100",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
             ],
             "category": "display"
         }
@@ -2153,20 +2215,20 @@
         "Crimson Pro": {
             "variants": [
                 "200",
-                "200italic",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "serif"
@@ -4937,12 +4999,12 @@
         "Literata": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "serif"
@@ -5256,6 +5318,14 @@
                 "700"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Mansalva": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -8912,6 +8982,19 @@
         }
     },
     {
+        "Turret Road": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "700",
+                "800"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Ubuntu": {
             "variants": [
                 "300",
@@ -9070,6 +9153,14 @@
                 "900"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Vibes": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
