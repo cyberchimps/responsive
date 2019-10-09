@@ -141,7 +141,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'menu_dropdown'        => array(
 						'label'    => esc_html__( 'Main Menu: Dropdowns', 'responsive' ),
-						'target'   => '.menu li li a',
+						'target'   => '.menu li li a, .main-nav ul li a',
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '12px',
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'mobile_menu_dropdown' => array(
 						'label'    => esc_html__( 'Mobile Menu', 'responsive' ),
-						'target'   => '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a',
+						'target'   => '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a',
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '15px',
@@ -711,7 +711,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 				// Front-end inline CSS.
 				if ( $add_css && 'css' === $return ) {
-					$css .= $target . '{' . $add_css . '}';
+					if ( '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a' === $target ) {
+						$css .= '@media (max-width: 480px){' . $target . '{' . $add_css . '}}';
+					} else {
+						$css .= $target . '{' . $add_css . '}';
+					}
 				}
 
 				// Front-end inline tablet CSS.
@@ -724,7 +728,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					$css .= '@media (max-width: 480px){' . $target . '{' . $mobile_css . '}}';
 				}
 			}
-
 			// Return CSS.
 			if ( 'css' === $return && ! empty( $css ) ) {
 				$css = '/* Typography CSS */' . $css;

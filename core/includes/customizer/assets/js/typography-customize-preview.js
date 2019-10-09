@@ -2236,7 +2236,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-font-family" );
 			if ( pair ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-family">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{font-family: ' + pair + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-family">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-family: ' + pair + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2251,7 +2251,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-font-weight" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-weight">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{font-weight: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-weight">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-weight: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2266,7 +2266,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-font-style" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-style">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{font-style: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-style">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-style: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2281,7 +2281,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-font-size" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-size"> @media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{font-size: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-size"> @media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-size: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2296,7 +2296,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-tablet-font-size" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-font-size">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{font-size: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-font-size">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a,.responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-size: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2311,7 +2311,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-mobile-font-size" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-font-size">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{font-size: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-font-size">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-size: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2326,7 +2326,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-line-height" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-line-height">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{line-height: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-line-height">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{line-height: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2341,7 +2341,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-tablet-line-height" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-line-height">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{line-height: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-line-height">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{line-height: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2356,7 +2356,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-mobile-line-height" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-line-height">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{line-height: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-line-height">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{line-height: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2371,7 +2371,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-letter-spacing" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-letter-spacing">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-letter-spacing">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2386,7 +2386,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-tablet-letter-spacing" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-letter-spacing">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-letter-spacing">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2401,7 +2401,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-mobile-letter-spacing" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-letter-spacing">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-letter-spacing">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -2416,7 +2416,7 @@
 			var $child = $( ".customizer-typography-mobile_menu_dropdown-text-transform" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-text-transform">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a{text-transform: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-mobile_menu_dropdown-text-transform">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{text-transform: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
