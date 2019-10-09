@@ -186,6 +186,7 @@ if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
     if ( 'sidebar' === get_theme_mod('mobile_menu_style' ) ) {
         get_template_part( 'partials/mobile/mobile-sidebar' );
     }
+	
     ?>
 <?php wp_footer(); ?>
 <script type="text/javascript">

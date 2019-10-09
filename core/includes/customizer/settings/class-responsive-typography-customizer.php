@@ -151,7 +151,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'mobile_menu_dropdown' => array(
 						'label'    => esc_html__( 'Mobile Menu', 'responsive' ),
-						'target'   => '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .menu li a, .responsive-mobile-dropdown .main-nav ul li a',
+						'target'   => '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav .menu > li > a, .responsive-mobile-dropdown .main-nav ul li a',
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '15px',
