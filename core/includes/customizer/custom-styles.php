@@ -28,7 +28,7 @@ function responsive_premium_custom_color_styles() {
 	$input_border_color_fs  = get_theme_mod( 'input-border-color-focus', '#eaeaea' );
 	$input_border_color     = get_theme_mod( 'input-border-color', '#eaeaea' );
 	$input_text_color       = get_theme_mod( 'input-text-color', '#333333' );
-	$header_text_color      = get_theme_mod( 'responsive_fullwidth_header_color', '#585858' );
+	$header_text_color      = get_theme_mod( 'responsive_fullwidth_header_color', '' );
 	$button_radius          = get_theme_mod( 'responsive_button_border_radius', '2' );
 
 	$button_hover_text_color = get_theme_mod( 'button-hover-text-color', '#ffffff' );

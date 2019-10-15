@@ -219,9 +219,7 @@ if ( ! function_exists( 'responsive_checkbox_validate' ) ) {
 	 * @return 1 or 0
 	 */
 	function responsive_checkbox_validate( $input ) {
-
-		$input = ( 1 === $input ? 1 : 0 );
-
+		$input = ( 1 == $input ? 1 : 0 );
 		return $input;
 	}
 }

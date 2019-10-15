@@ -149,7 +149,7 @@ class Responsive_Plugin_Install_Helper {
 	public function enqueue_scripts() {
 		wp_enqueue_script( 'plugin-install' );
 		wp_enqueue_script( 'updates' );
-		wp_enqueue_script( 'responsive-plugin-install-helper', get_template_directory_uri() . '/inc/customizer/controls/ui/helper-plugin-install/helper-script.js', array( 'jquery' ), HESTIA_VERSION, true );
+		wp_enqueue_script( 'responsive-plugin-install-helper', get_template_directory_uri() . '/inc/customizer/controls/ui/helper-plugin-install/helper-script.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 		wp_localize_script(
 			'responsive-plugin-install-helper',
 			'responsive_plugin_helper',

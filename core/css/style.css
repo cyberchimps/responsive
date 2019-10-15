@@ -3507,7 +3507,7 @@ img.attachment-large,
 img.attachment-medium,
 img.attachment-thumbnail {
   display: block;
-  margin: 15px auto;
+  margin: 0 auto;
   width: auto;
 }
 

@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/09/19) = Added - Version 3.22
+[!] = Fixed the scroll to top setting issue
+
 (10/09/19) = Added - Version 3.21
 [+] = Added Typography options for H1, h2, H3, H4, H5, H6 tags
 [+] = Added Typography options Menu, dropdown menu and, mobile menu

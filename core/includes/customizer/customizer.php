@@ -213,6 +213,15 @@ add_action( 'customize_preview_init', 'responsive_customize_preview_js' );
 function responsive_register_options() {
 	// Var.
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
+	require get_template_directory() . '/admin/class-responsive-plugin-install-helper.php';
+
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-abstract-main.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-register-customizer-control.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-panel.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-control.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-partial.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-section.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php';
 
 	// Customizer files array.
 	$files = array(
@@ -232,6 +241,7 @@ function responsive_register_options() {
 		'class-responsive-sidebar-customizer',
 		'class-responsive-footer-color-customizer',
 		'class-responsive-scrolltotop-customizer',
+		'class-responsive-customizer-notices',
 	);
 
 	foreach ( $files as $key ) {
@@ -265,7 +275,11 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'typography/class-responsive-customizer-typography-control.php';
 	require_once $dir . 'dimensions/class-responsive-customizer-dimensions-control.php';
 	require_once $dir . 'heading/class-responsive-customizer-heading-control.php';
-
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-main-notice-section.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-docs.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-upsell.php';
 	// Register JS control types.
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_Control' );
