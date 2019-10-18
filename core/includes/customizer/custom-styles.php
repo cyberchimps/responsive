@@ -623,11 +623,16 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $container_padding_right ) ) {
 		$custom_css .= "#content-outer {
 			padding-right: {$container_padding_right}px;
+		}.menu {
+		    padding-right: {$container_padding_right}px;
 		}";
 	}
 	if ( ! empty( $container_padding_left ) ) {
 		$custom_css .= "#content-outer {
 			padding-left: {$container_padding_left}px;
+		}
+		.menu {
+		    padding-left: {$container_padding_left}px;
 		}";
 	}
 	if ( ! empty( $container_padding_top ) ) {
