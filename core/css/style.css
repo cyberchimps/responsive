@@ -2939,9 +2939,8 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 }
 .header-logo-left .main-nav {
   margin: auto 0;
-  margin-right: 2.1276595745%;
   margin-left: 0;
-  width: 65.9574468085%;
+  width: 70%;
 }
 .header-logo-left .main-nav ul {
   text-align: right;

@@ -596,7 +596,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $fullwidth_title_color ) ) {
-		$custom_css .= ".site-name a{
+		$custom_css .= ".full-width-no-box .site-name a, .site-name a{
 			color: {$fullwidth_title_color};
 		}";
 	}
