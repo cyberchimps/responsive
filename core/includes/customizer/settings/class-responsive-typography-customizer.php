@@ -132,7 +132,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'menu'                 => array(
 						'label'    => esc_html__( 'Main Menu', 'responsive' ),
-						'target'   => '#main-nav .menu > li > a',
+						'target'   => '#main-nav .menu > li > a, #main-nav .menu .sub-menu > li > a',
 						'exclude'  => array( 'font-color', 'line-height' ),
 						'defaults' => array(
 							'font-size'      => '13px',
