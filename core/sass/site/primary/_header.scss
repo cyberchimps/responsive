@@ -72,14 +72,3 @@
 .main-nav .menu a {
 	text-shadow: none;
 }
-@media screen and (max-width: 650px) {
-	.js .main-nav, #header #content-outer.responsive-header #logo {
-		width: 100%
-	}
-	#header .responsive-header {
-		display: inline-block;
-	}
-	.header-logo-left .main-nav ul li {
-		display: block;
-	}
-}

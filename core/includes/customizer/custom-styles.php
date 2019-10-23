@@ -529,7 +529,7 @@ function responsive_premium_custom_color_styles() {
 				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr={$menu_background_color}, endColorstr={$menu_background_color_2});
 			}
 		}
-		@media screen and (max-width: 650px) {
+		@media screen and (max-width: {$mobile_menu_breakpoint}px) {
 			.js #header .main-nav {
 				background-color:{$menu_background_color};
 				background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
@@ -842,6 +842,15 @@ function responsive_premium_custom_color_styles() {
             margin-left: -30px;
             cursor: pointer
         }
+        .js .main-nav, #header #content-outer.responsive-header #logo {
+		    width: 100%
+	    }
+	    #header .responsive-header {
+		    display: inline-block;
+	    }
+	    .header-logo-left .main-nav ul li {
+		    display: block;
+	    }
 	}";
 
 	if ( 'dropdown' === $mobile_menu_style ) {
