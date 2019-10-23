@@ -131,3 +131,12 @@ color:#fff;
 	margin: 1px;
 	padding-left: 3px;
 }
+#content-outer .copyright {
+	margin-bottom: 0;
+}
+
+.social_div #content-outer {
+	display: flex;
+    align-items: center;
+    width: 100%;
+}

@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/22/19) = Added - Version 3.23
+[+] = Added submenu customization options
+[+] = Added gutenberg support
+
 (10/09/19) = Added - Version 3.22
 [!] = Fixed the scroll to top setting issue
 

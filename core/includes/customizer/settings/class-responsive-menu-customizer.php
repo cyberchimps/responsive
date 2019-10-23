@@ -345,6 +345,162 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			);
 
 			// End - Mobile Menu.
+			// Sub menu.
+			$wp_customize->add_setting(
+				'responsive_sub_menu_title',
+				array(
+					'sanitize_callback' => 'wp_kses',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Heading_Control(
+					$wp_customize,
+					'responsive_sub_menu_title',
+					array(
+						'label'    => esc_html__( 'Sub Menu', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'priority' => 15,
+					)
+				)
+			);
+			/**
+			 * Sub menu border.
+			 */
+			$wp_customize->add_setting(
+				'responsive_submenu_top_border',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_submenu_right_border',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_submenu_bottom_border',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_submenu_left_border',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Dimensions_Control(
+					$wp_customize,
+					'responsive_submenu_border',
+					array(
+						'label'       => esc_html__( 'Container Border (px)', 'responsive' ),
+						'section'     => 'responsive_menu',
+						'settings'    => array(
+							'desktop_top'    => 'responsive_submenu_top_border',
+							'desktop_right'  => 'responsive_submenu_right_border',
+							'desktop_bottom' => 'responsive_submenu_bottom_border',
+							'desktop_left'   => 'responsive_submenu_left_border',
+						),
+						'priority'    => 16,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 60,
+							'step' => 1,
+						),
+					)
+				)
+			);
+			// Submenu border Color.
+			$wp_customize->add_setting(
+				'responsive_submenu_border_color',
+				array(
+					'default'           => '#e5e5e5',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_submenu_border_color',
+					array(
+						'label'    => __( 'Submenu border Color', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'settings' => 'responsive_submenu_border_color',
+						'priority' => 17,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_submenu_divider',
+				array(
+					'default'           => '1',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_checkbox_validate',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_submenu_divider',
+				array(
+					'label'    => __( 'Submenu Divider', 'responsive' ),
+					'section'  => 'responsive_menu',
+					'settings' => 'responsive_submenu_divider',
+					'type'     => 'checkbox',
+					'priority' => 18,
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_submenu_divider_color',
+				array(
+					'active_callback'   => 'responsive_check_submenu_divider',
+					'default'           => '#e5e5e5',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_submenu_divider_color',
+					array(
+						'label'    => __( 'Submenu Divider Color', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'settings' => 'responsive_submenu_divider_color',
+						'priority' => 17,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_submenu_color',
+				array(
+					'default'           => '',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_submenu_color',
+					array(
+						'label'    => __( 'Submenu Color', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'settings' => 'responsive_submenu_color',
+						'priority' => 19,
+					)
+				)
+			);
 		}
 
 

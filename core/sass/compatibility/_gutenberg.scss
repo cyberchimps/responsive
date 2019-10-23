@@ -42,6 +42,32 @@
  .wp-block-gallery .blocks-gallery-item figcaption{
 	 padding: 40px 0 5px;
  }
+ .alignfull {
+    margin: 32px calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
+ }
+
+ .alignwide {
+ 	 margin: 32px calc(25% - 28vw);
+	 max-width: 95vw;
+     width: 95vw;
+}
+ @media only screen and (min-width: 768px) {
+	 .alignwide {
+     	margin: 32px calc(25% - 27vw);
+     	max-width: 98vw;
+     	width: 98vw;
+ 	}
+ }
+ @media only screen and (min-width: 992px) {
+
+     .alignwide {
+        margin: 32px calc(25% - 28vw);
+        max-width: 90vw;
+        width: 90vw;
+    }
+ }
 
 /*
 	changes according gutenberg plugin -- END

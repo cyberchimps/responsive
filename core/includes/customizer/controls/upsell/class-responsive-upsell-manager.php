@@ -59,9 +59,9 @@ class Responsive_Upsell_Manager extends Responsive_Register_Customizer_Controls 
 					'options'     => array(
 						esc_html__( 'Pro Ready Sites', 'responsive' ),
 						esc_html__( 'Form Builder', 'responsive' ),
-						esc_html__( 'Interactive Sliders & Carousels', 'responsive' ),
+						esc_html__( 'Interactive Sliders and Carousels', 'responsive' ),
 						esc_html__( 'Pricing Tables', 'responsive' ),
-						esc_html__( 'Portfolio & Post Layouts', 'responsive' ),
+						esc_html__( 'Portfolio and Post Layouts', 'responsive' ),
 						esc_html__( 'Private, Priority Support', 'responsive' ),
 					),
 					'button_url'  => esc_url( apply_filters( 'responsive_upgrade_link_from_child_theme_filter', 'https://cyberchimps.com/responsive-go-pro/?utm_source=wordpress-org&utm_medium=responsive-theme&utm_campaign=upgrade-to-pro&utm_content=customizer' ) ),

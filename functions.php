@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '3.21' );
+define( 'RESPONSIVE_THEME_VERSION', '3.23' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 /**
@@ -69,6 +69,7 @@ function responsive_free_setup() {
 
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
+	add_theme_support( 'responsive-embeds' );
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 

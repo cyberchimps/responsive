@@ -140,6 +140,16 @@ function responsive_premium_custom_color_styles() {
 	// Mobile Menu Style.
 	$mobile_menu_style = get_theme_mod( 'mobile_menu_style', 'dropdown' );
 
+	// Submenu styles.
+	$responsive_submenu_top_border    = get_theme_mod( 'responsive_submenu_top_border' );
+	$responsive_submenu_right_border  = get_theme_mod( 'responsive_submenu_right_border' );
+	$responsive_submenu_bottom_border = get_theme_mod( 'responsive_submenu_bottom_border' );
+	$responsive_submenu_left_border   = get_theme_mod( 'responsive_submenu_left_border' );
+	$responsive_submenu_border_color  = get_theme_mod( 'responsive_submenu_border_color', '#e5e5e5' );
+	$responsive_submenu_divider_color = get_theme_mod( 'responsive_submenu_divider_color', '#e5e5e5' );
+	$responsive_submenu_divider       = get_theme_mod( 'responsive_submenu_divider', '1' );
+	$responsive_submenu_color         = get_theme_mod( 'responsive_submenu_color' );
+
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
 	} else {
@@ -382,10 +392,10 @@ function responsive_premium_custom_color_styles() {
 			width: {$container_width}px;
 			max-width: 100%;
 		}
+
 		.boxed-layout
 		.content-area, body.default-layout #content-outer, body.full-width-layout #content-outer, body.full-width-no-box #content-outer, .menu, #footer {
-			width: {$container_width}px;
-			max-width: 100%;
+			max-width: {$container_width}px;
 		}
 		.woocommerce ul.products li.product .onsale.circle-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline {
 			background: #ffffff;
@@ -910,13 +920,22 @@ function responsive_premium_custom_color_styles() {
                 top: 0;
                 left: 30px
             }
+			.js .responsive-mobile-dropdown .main-nav .menu li li a::before {
+				content: '-';
+			}
+			.js .responsive-mobile-dropdown .main-nav .menu li li li a::before {
+				content: '-';
+			}
+			.js .responsive-mobile-dropdown .main-nav .menu li li li a::after {
+				content: '-';
+			}
             .js .responsive-mobile-dropdown .main-nav .menu li ul {
                 position: static;
                 visibility: visible;
                 background-color: #fff
             }
             .js .responsive-mobile-dropdown .main-nav .menu ul {
-                min-width: 0
+                min-width: 0;
             }
 	    }";
 	}
@@ -951,7 +970,46 @@ function responsive_premium_custom_color_styles() {
             }
 	    }";
 	}
-
+	if ( isset( $responsive_submenu_top_border ) ) {
+		$custom_css .= ".menu li:hover > ul {
+			border-top: {$responsive_submenu_top_border}px solid;
+		} ";
+	}
+	if ( isset( $responsive_submenu_right_border ) ) {
+		$custom_css .= ".menu li:hover > ul {
+			border-right: {$responsive_submenu_right_border}px solid;
+		} ";
+	}
+	if ( isset( $responsive_submenu_bottom_border ) ) {
+		$custom_css .= ".menu li:hover > ul {
+			border-bottom: {$responsive_submenu_bottom_border}px solid;
+		} ";
+	}
+	if ( isset( $responsive_submenu_left_border ) ) {
+		$custom_css .= ".menu li:hover > ul{
+			border-left: {$responsive_submenu_left_border}px solid;
+		} ";
+	}
+	if ( isset( $responsive_submenu_border_color ) ) {
+		$custom_css .= ".menu li:hover > ul {
+			border-color: {$responsive_submenu_border_color};
+		} ";
+	}
+	if ( isset( $responsive_submenu_divider_color ) ) {
+		$custom_css .= ".menu li li {
+			border-bottom-color: {$responsive_submenu_divider_color};
+		} ";
+	}
+	if ( 0 == $responsive_submenu_divider ) { //phpcs:ignore
+		$custom_css .= '.menu li li {
+			border-bottom: none;
+		} ';
+	}
+	if ( isset( $responsive_submenu_color ) ) {
+		$custom_css .= ".menu li li {
+			background-color: {$responsive_submenu_color};
+		} ";
+	}
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );
 }
 add_action( 'wp_enqueue_scripts', 'responsive_premium_custom_color_styles', 99 );

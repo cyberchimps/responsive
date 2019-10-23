@@ -987,12 +987,6 @@ ul.menu > li:hover {
 .js .main-nav a#responsive_menu_button {
 	background: url(../../core/images/select-icons.png) 0 5px no-repeat;
 }
-.js .responsive-mobile-dropdown .main-nav .menu li li a::before {
-	content: '\2013';
-}
-.js .responsive-mobile-dropdown .main-nav .menu li li li a::before {
-	content: '\2013';
-}
-.js .responsive-mobile-dropdown .main-nav .menu li li li a::after {
-	content: '\2013';
+.main-nav .menu a {
+	text-align: left;
 }

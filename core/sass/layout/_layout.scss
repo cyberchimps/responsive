@@ -26,6 +26,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
     max-width: 100%;
     padding: 0;
 }
+
 .full-width-no-box .skip-container { padding: 0px;}
 .full-width-no-box #header {background-color: #585858;	}
 .full-width-no-box .top-menu {margin: 0; padding-top: 4px;}
@@ -127,7 +128,6 @@ color:#f2efef;
 	right: 0;
 }
 .default-layout .sticky-header .main-nav {
-	background-color:inherit;
 	background-image: none;
 }
 .full-width-no-box #wrapper {
@@ -170,4 +170,7 @@ color:#f2efef;
 }
 .elementor-template-full-width #content-outer {
 padding: 0;
+}
+#content-blog.col-620, #content.col-620 {
+	overflow: hidden;
 }

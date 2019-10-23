@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 get_header(); ?>
-
 <div id="content-outer">
 <div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
 

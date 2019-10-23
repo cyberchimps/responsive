@@ -244,3 +244,23 @@ if ( ! function_exists( 'responsive_check_sidebar_menu_type' ) ) {
 
 	}
 }
+/**
+ * Check if responsive_check_sidebar_menu_type function is present.
+ */
+if ( ! function_exists( 'responsive_check_submenu_divider' ) ) {
+	/**
+	 * Checks submenu divider is present or not
+	 *
+	 * @return boolean True/value values.
+	 */
+	function responsive_check_submenu_divider() {
+		$responsive_submenu_divider = get_theme_mod( 'responsive_submenu_divider' );
+
+		if ( '1' === $responsive_submenu_divider ) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+}
