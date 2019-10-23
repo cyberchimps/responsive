@@ -635,6 +635,10 @@ function responsive_premium_custom_color_styles() {
 			padding-right: {$container_padding_right}px;
 		}.menu {
 		    padding-right: {$container_padding_right}px;
+		} @media screen and (max-width: {$mobile_menu_breakpoint}px){
+		    .menu {
+		        padding-right: 0px;
+		    }
 		}";
 	}
 	if ( ! empty( $container_padding_left ) ) {
@@ -643,6 +647,10 @@ function responsive_premium_custom_color_styles() {
 		}
 		.menu {
 		    padding-left: {$container_padding_left}px;
+		} @media screen and (max-width: {$mobile_menu_breakpoint}px){
+		    .menu {
+		        padding-left: 0px;
+		    }
 		}";
 	}
 	if ( ! empty( $container_padding_top ) ) {
@@ -860,6 +868,9 @@ function responsive_premium_custom_color_styles() {
 	    }
 	    .header-logo-left .main-nav ul li {
 		    display: block;
+	    }
+	    body header #content-outer {
+	        width: 100%;
 	    }
 	}";
 
