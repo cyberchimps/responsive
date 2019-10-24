@@ -2860,10 +2860,6 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   flex-flow: row wrap;
 }
 
-.elementor-template-full-width #content-outer {
-  padding: 0;
-}
-
 #content-blog.col-620, #content.col-620 {
   overflow: hidden;
 }

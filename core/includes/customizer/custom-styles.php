@@ -150,6 +150,9 @@ function responsive_premium_custom_color_styles() {
 	$responsive_submenu_divider       = get_theme_mod( 'responsive_submenu_divider', '1' );
 	$responsive_submenu_color         = get_theme_mod( 'responsive_submenu_color' );
 
+	// Header Layout.
+	$responsive_header_layout = get_theme_mod( 'header_layout_options', 'default' );
+
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
 	} else {
@@ -633,25 +636,30 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $container_padding_right ) ) {
 		$custom_css .= "#content-outer {
 			padding-right: {$container_padding_right}px;
-		}.menu {
-		    padding-right: {$container_padding_right}px;
 		} @media screen and (max-width: {$mobile_menu_breakpoint}px){
 		    .menu {
 		        padding-right: 0px;
 		    }
 		}";
+		if ( 'default' === $responsive_header_layout ) {
+			$custom_css .= ".menu {
+		    	padding-right: {$container_padding_right}px;
+			}";
+		}
 	}
 	if ( ! empty( $container_padding_left ) ) {
 		$custom_css .= "#content-outer {
 			padding-left: {$container_padding_left}px;
-		}
-		.menu {
-		    padding-left: {$container_padding_left}px;
 		} @media screen and (max-width: {$mobile_menu_breakpoint}px){
 		    .menu {
 		        padding-left: 0px;
 		    }
 		}";
+		if ( 'default' === $responsive_header_layout ) {
+			$custom_css .= ".menu {
+		    	padding-left: {$container_padding_left}px;
+			}";
+		}
 	}
 	if ( ! empty( $container_padding_top ) ) {
 		$custom_css .= "#content-outer {
