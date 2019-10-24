@@ -519,11 +519,6 @@ option {
   padding: 0 0.4em;
 }
 
-dt {
-  margin-bottom: 0.4em;
-  margin-top: 0.8em;
-}
-
 ul {
   list-style-type: disc;
 }
@@ -4214,32 +4209,41 @@ div .wp-block-cover-text {
   padding: 40px 0 5px;
 }
 
-.alignfull {
+.full-width-layout .alignfull, .full-width-no-box .alignfull {
   margin: 32px calc(50% - 50vw);
   max-width: 100vw;
   width: 100vw;
 }
 
-.alignwide {
+.full-width-layout .alignwide, .full-width-no-box .alignwide {
   margin: 32px calc(25% - 28vw);
   max-width: 95vw;
   width: 95vw;
 }
 
 @media only screen and (min-width: 768px) {
-  .alignwide {
+  .full-width-layout .alignwide, .full-width-no-box .alignwide {
     margin: 32px calc(25% - 27vw);
     max-width: 98vw;
     width: 98vw;
   }
 }
 @media only screen and (min-width: 992px) {
-  .alignwide {
+  .full-width-layout .alignwide, .full-width-no-box .alignwide {
     margin: 32px calc(25% - 28vw);
     max-width: 90vw;
     width: 90vw;
   }
 }
+.entry-content .wp-block-gallery,
+.entry-content .wp-block-gallery,
+.entry-summary .wp-block-gallery,
+.entry-summary .wp-block-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
 /*
 	changes according gutenberg plugin -- END
  */
@@ -4776,32 +4780,41 @@ div .wp-block-cover-text {
   padding: 40px 0 5px;
 }
 
-.alignfull {
+.full-width-layout .alignfull, .full-width-no-box .alignfull {
   margin: 32px calc(50% - 50vw);
   max-width: 100vw;
   width: 100vw;
 }
 
-.alignwide {
+.full-width-layout .alignwide, .full-width-no-box .alignwide {
   margin: 32px calc(25% - 28vw);
   max-width: 95vw;
   width: 95vw;
 }
 
 @media only screen and (min-width: 768px) {
-  .alignwide {
+  .full-width-layout .alignwide, .full-width-no-box .alignwide {
     margin: 32px calc(25% - 27vw);
     max-width: 98vw;
     width: 98vw;
   }
 }
 @media only screen and (min-width: 992px) {
-  .alignwide {
+  .full-width-layout .alignwide, .full-width-no-box .alignwide {
     margin: 32px calc(25% - 28vw);
     max-width: 90vw;
     width: 90vw;
   }
 }
+.entry-content .wp-block-gallery,
+.entry-content .wp-block-gallery,
+.entry-summary .wp-block-gallery,
+.entry-summary .wp-block-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
 /*
 	changes according gutenberg plugin -- END
  */

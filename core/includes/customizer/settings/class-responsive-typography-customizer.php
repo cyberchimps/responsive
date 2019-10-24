@@ -132,7 +132,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'menu'                 => array(
 						'label'    => esc_html__( 'Main Menu', 'responsive' ),
-						'target'   => '#main-nav .menu > li > a, #main-nav .menu .sub-menu > li > a',
+						'target'   => '.main-nav .menu > li > a, .main-nav .menu .sub-menu > li > a',
 						'exclude'  => array( 'font-color', 'line-height' ),
 						'defaults' => array(
 							'font-size'      => '13px',
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'menu_dropdown'        => array(
 						'label'    => esc_html__( 'Main Menu: Dropdowns', 'responsive' ),
-						'target'   => '.menu li li a, .main-nav ul li a',
+						'target'   => '.menu li li a, .main-nav ul li li a',
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '12px',
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'mobile_menu_dropdown' => array(
 						'label'    => esc_html__( 'Mobile Menu', 'responsive' ),
-						'target'   => '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a',
+						'target'   => '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a',
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '15px',
