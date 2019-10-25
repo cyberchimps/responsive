@@ -116,7 +116,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_text_colorpicker',
 				array(
-					'default'           => '',
+					'default'           => '#333333',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'sanitize_text_field',
 				)
@@ -340,6 +340,28 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 							'max'  => 4096,
 							'step' => 1,
 						),
+					)
+				)
+			);
+
+			// Toggle button Color.
+			$wp_customize->add_setting(
+				'responsive_menu_toggle_button_color',
+				array(
+					'default'           => '#ffffff',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'responsive_menu_toggle_button_color',
+					array(
+						'label'    => __( 'Toggle Button Color', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'settings' => 'responsive_menu_toggle_button_color',
+						'priority' => 14,
 					)
 				)
 			);

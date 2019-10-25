@@ -1490,7 +1490,6 @@ a::-moz-selection {
 }
 
 ul.menu > li:hover {
-  background-color: #363636;
   color: #ffffff;
 }
 
@@ -1507,7 +1506,6 @@ ul.menu > li:hover {
 }
 
 .menu li li {
-  background: #ffffff;
   background-image: none;
   border: 1px solid #e5e5e5;
   color: #444444;
@@ -2209,10 +2207,6 @@ ul.menu > li:hover {
   right: 0px;
 }
 
-.js .main-nav a#responsive_menu_button {
-  background: url(../../core/images/select-icons.png) 0 5px no-repeat;
-}
-
 .main-nav .menu a {
   text-align: left;
 }
@@ -2660,7 +2654,6 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 }
 
 .full-width-no-box ul.menu > li:hover {
-  background-color: #585858;
   color: #ffffff;
 }
 

@@ -52,7 +52,7 @@ function responsive_premium_custom_color_styles() {
 	$menu_background_color   = get_theme_mod( 'responsive_menu_background_colorpicker' );
 	$menu_background_color_2 = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
 	$menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color ); //phpcs:ignore
-	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker' );
+	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker', '#333333' );
 	$menu_text_hover_color   = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
 	$menu_active_color       = get_theme_mod( 'responsive_menu_active_colorpicker' );
 	$menu_hover_color        = get_theme_mod( 'responsive_menu_item_hover_colorpicker' );
@@ -139,6 +139,9 @@ function responsive_premium_custom_color_styles() {
 
 	// Mobile Menu Style.
 	$mobile_menu_style = get_theme_mod( 'mobile_menu_style', 'dropdown' );
+
+	// Mobile Menu Toggle button color.
+	$mobile_menu_toggle_button_color = get_theme_mod( 'responsive_menu_toggle_button_color', '#ffffff' );
 
 	// Submenu styles.
 	$responsive_submenu_top_border    = get_theme_mod( 'responsive_submenu_top_border' );
@@ -854,8 +857,8 @@ function responsive_premium_custom_color_styles() {
         .js .main-nav #responsive_current_menu_item {
             display: block;
             padding: 5px 40px 5px 10px;
-            color: #fff;
             font-weight: 700;
+            color: {$menu_text_color};
             cursor: pointer
         }
         .js .main-nav a#responsive_menu_button {
@@ -863,10 +866,14 @@ function responsive_premium_custom_color_styles() {
             display: block;
             top: 0;
             left: 100%;
-            height: 30px;
-            width: 23px;
-            margin-left: -30px;
-            cursor: pointer
+            height: 35px;
+            width: 32px;
+            margin-left: -32px;
+            cursor: pointer;
+            color: {$menu_text_color};
+            font-size: 30px;
+            line-height: 1.3;
+            text-align: center
         }
         .js .main-nav, #header #content-outer.responsive-header #logo {
 		    width: 100%
@@ -880,7 +887,17 @@ function responsive_premium_custom_color_styles() {
 	    body header #content-outer {
 	        width: 100%;
 	    }
+	    .js .main-nav a#responsive_menu_button {
+	    	background-color: {$mobile_menu_toggle_button_color};
+	    }
 	}";
+
+	// Hide toggle button.
+	$custom_css .= "@media screen and (min-width: {$mobile_menu_breakpoint}px){
+		#responsive_menu_button {
+            display: none
+        }
+    }";
 
 	if ( 'dropdown' === $mobile_menu_style ) {
 		$custom_css .= "@media screen and (max-width: {$mobile_menu_breakpoint}px){
@@ -889,7 +906,6 @@ function responsive_premium_custom_color_styles() {
             }
             .js .responsive-mobile-dropdown .main-nav .menu li {
                 float: none;
-                background-color: #fff;
                 border: none
             }
             .js .responsive-mobile-dropdown .main-nav .menu li a {
@@ -951,7 +967,6 @@ function responsive_premium_custom_color_styles() {
             .js .responsive-mobile-dropdown .main-nav .menu li ul {
                 position: static;
                 visibility: visible;
-                background-color: #fff
             }
             .js .responsive-mobile-dropdown .main-nav .menu ul {
                 min-width: 0;
