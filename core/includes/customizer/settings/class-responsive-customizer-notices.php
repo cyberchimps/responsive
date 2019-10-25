@@ -17,7 +17,7 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 		parent::init();
 		add_action( 'wp_ajax_dismissed_notice_handler', array( $this, 'ajax_notice_handler' ) );
 		add_action( 'wp_ajax_nopriv_dismissed_notice_handler', array( $this, 'ajax_notice_handler' ) );
-		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_notices_handler' ), 0 );
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'enqueue_notices_handler' ), 9 );
 	}
 
 	/**

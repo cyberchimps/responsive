@@ -128,7 +128,7 @@ class Responsive_Main_Notice_Section extends Responsive_Generic_Notice_Section {
 		?>
 		<# if ( ! data.hide_notice ) { #>
 		<li id="accordion-section-{{ data.id }}"
-				class="hestia-notice control-section-{{ data.type }} cannot-expand" style="margin-bottom: 1px;">
+				class="responsive-notice control-section-{{ data.type }} cannot-expand" style="margin-bottom: 1px;">
 			<# if ( data.title ) { #>
 			<h3 class="accordion-section-title">
 				{{{ data.title }}}

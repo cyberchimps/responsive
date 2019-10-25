@@ -272,10 +272,10 @@ function responsive_premium_custom_color_styles() {
 			line-height: {$headingsline_height};
 			font-style: {$headingsfont_style};
 		}
-		a {
+		a, .post-meta {
 			color: {$link_color};
 		}
-		a:hover {
+		a:hover, post-meta:hover {
 			color: {$link_hover_color};
 		}
 		input, .widget-wrapper input[type=email], .widget-wrapper input[type=password], .widget-wrapper input[type=text], .widget-wrapper select {
