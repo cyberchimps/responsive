@@ -396,7 +396,7 @@ function slideToggle() {
 	 if (menu_element.length > 0) {
 
 		 menu_element = menu_element[0];
-		 menu_element.insertAdjacentHTML('beforeend','<a id="responsive_menu_button"></a>');
+		 menu_element.insertAdjacentHTML('beforeend','<a id="responsive_menu_button">&#8801;</a>');
 		 menu_element.insertAdjacentHTML('afterbegin','<div id="responsive_current_menu_item">Home</div>');
 
 		if ( ! nav ) {

@@ -72,11 +72,11 @@ li#accordion-section-title_tagline {
   margin: 12px;
 }
 
-#customize-controls #accordion-section-hestia_upsell_main_section.control-section .accordion-section-title:hover {
+#customize-controls #accordion-section-responsive_upsell_main_section.control-section .accordion-section-title:hover {
   background-color: #0073aa;
   color: #fff;
 }
 
-#customize-controls #accordion-section-hestia_upsell_main_section.control-section .accordion-section-title:hover:after {
+#customize-controls #accordion-section-responsive_upsell_main_section.control-section .accordion-section-title:hover:after {
   color: #fff;
 }

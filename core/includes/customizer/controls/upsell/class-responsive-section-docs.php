@@ -20,7 +20,7 @@ class Responsive_Section_Docs extends WP_Customize_Section {
 	 * @access public
 	 * @var    string
 	 */
-	public $type = 'hestia-section-docs';
+	public $type = 'responsive-section-docs';
 
 	/**
 	 * Upsell title to output.
