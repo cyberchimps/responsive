@@ -42,8 +42,15 @@ function responsive_gutenberg_color_palette() {
         // Blog Post Background Color.
         array(
             'name'  => __( 'Blog Post Background Color', 'responsive' ),
-            'slug'  => 'responsive_container_background_color',
+            'slug'  => 'responsive-container-background-color',
             'color' => esc_html( get_theme_mod( 'responsive_container_background_color') ),
+        ),
+        
+        // Container Background Color.
+        array(
+            'name'  => __( 'Container Background Color', 'responsive' ),
+            'slug'  => 'responsive-main-container-background-color',
+            'color' => esc_html( get_theme_mod( 'responsive_main_container_background_color') ),
         ),
     );
     
@@ -53,7 +60,7 @@ function responsive_gutenberg_color_palette() {
 /**
  * Add custom color classes to Gutenberg
  *
- * @param array $responsive_gutenberg_color_options list of customizer color options for Gutenberg editor.
+ * @param array $responsive_gutenberg_color_options List of customizer color options for Gutenberg editor.
  */
 function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 
