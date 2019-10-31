@@ -349,6 +349,9 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$social_array = array( 'res_twitter', 'res_facebook', 'res_linkedin', 'res_youtube', 'res_googleplus', 'res_rss', 'res_printerest', 'res_stumble', 'res_vimeo', 'res_yelp', 'res_foursquare', 'res_email_uid' );
 
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
+
+        // Add customizer colors to the gutenberg blocks on front end.
+        wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
