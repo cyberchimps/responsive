@@ -2184,6 +2184,15 @@ ul.menu > li:hover {
   text-align: left;
 }
 
+.header-logo-center div#content-outer {
+  clear: both;
+}
+
+.header-logo-center ul.menu {
+  display: flex;
+  justify-content: center;
+}
+
 /* =Navigation
 -------------------------------------------------------------- */
 .navigation {

@@ -985,3 +985,12 @@ ul.menu > li:hover {
 .main-nav .menu a {
 	text-align: left;
 }
+
+.header-logo-center div#content-outer {
+	clear: both;
+}
+
+.header-logo-center ul.menu {
+	display: flex;
+	justify-content: center;
+}
