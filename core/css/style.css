@@ -4157,6 +4157,10 @@ figure.wp-block-audio.aligncenter audio {
   width: 100%;
 }
 
+.wp-block-audio audio {
+  min-width: 250px;
+}
+
 .wp-block-cover.aligncenter {
   clear: both;
 }
@@ -4185,30 +4189,19 @@ div .wp-block-cover-text {
   padding: 40px 0 5px;
 }
 
-.full-width-layout .alignfull, .full-width-no-box .alignfull {
-  margin: 32px calc(50% - 50vw);
-  max-width: 100vw;
-  width: 100vw;
-}
-
-.full-width-layout .alignwide, .full-width-no-box .alignwide {
-  margin: 32px calc(25% - 28vw);
-  max-width: 95vw;
-  width: 95vw;
-}
-
 @media only screen and (min-width: 768px) {
-  .full-width-layout .alignwide, .full-width-no-box .alignwide {
-    margin: 32px calc(25% - 27vw);
-    max-width: 98vw;
-    width: 98vw;
+  .full-width-layout #content.grid.col-940 .alignwide,
+.full-width-no-box #content.grid.col-940 .alignwide {
+    margin: 32px calc(25% - 25vw);
+    max-width: 96vw;
+    width: 96vw;
   }
-}
-@media only screen and (min-width: 992px) {
-  .full-width-layout .alignwide, .full-width-no-box .alignwide {
-    margin: 32px calc(25% - 28vw);
-    max-width: 90vw;
-    width: 90vw;
+
+  .full-width-layout #content.grid.col-940 .alignfull,
+.full-width-no-box #content.grid.col-940 .alignfull {
+    margin: 32px calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
   }
 }
 .entry-content .wp-block-gallery,
@@ -4342,6 +4335,10 @@ table > *, td, tr, th {
 
 .price ins {
   border-bottom: none;
+}
+
+#widgets ul.product_list_widget {
+  padding-left: 0;
 }
 
 /*--------------------------------------------------------------
@@ -4728,6 +4725,10 @@ figure.wp-block-audio.aligncenter audio {
   width: 100%;
 }
 
+.wp-block-audio audio {
+  min-width: 250px;
+}
+
 .wp-block-cover.aligncenter {
   clear: both;
 }
@@ -4756,30 +4757,19 @@ div .wp-block-cover-text {
   padding: 40px 0 5px;
 }
 
-.full-width-layout .alignfull, .full-width-no-box .alignfull {
-  margin: 32px calc(50% - 50vw);
-  max-width: 100vw;
-  width: 100vw;
-}
-
-.full-width-layout .alignwide, .full-width-no-box .alignwide {
-  margin: 32px calc(25% - 28vw);
-  max-width: 95vw;
-  width: 95vw;
-}
-
 @media only screen and (min-width: 768px) {
-  .full-width-layout .alignwide, .full-width-no-box .alignwide {
-    margin: 32px calc(25% - 27vw);
-    max-width: 98vw;
-    width: 98vw;
+  .full-width-layout #content.grid.col-940 .alignwide,
+.full-width-no-box #content.grid.col-940 .alignwide {
+    margin: 32px calc(25% - 25vw);
+    max-width: 96vw;
+    width: 96vw;
   }
-}
-@media only screen and (min-width: 992px) {
-  .full-width-layout .alignwide, .full-width-no-box .alignwide {
-    margin: 32px calc(25% - 28vw);
-    max-width: 90vw;
-    width: 90vw;
+
+  .full-width-layout #content.grid.col-940 .alignfull,
+.full-width-no-box #content.grid.col-940 .alignfull {
+    margin: 32px calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
   }
 }
 .entry-content .wp-block-gallery,
