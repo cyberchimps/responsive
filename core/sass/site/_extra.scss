@@ -54,7 +54,7 @@ blockquote p {
 	clear: both;
 	margin: 0 auto;
 	max-width: 960px;
-	padding: 0 25px 0 25px;
+	padding: 0;
 }
 
 #footer-wrapper {
@@ -247,7 +247,6 @@ img.attachment-large,
 img.attachment-medium,
 img.attachment-thumbnail {
 	display: block;
-	margin: 0 auto;
 	width: auto;
 }
 
@@ -851,7 +850,10 @@ border-bottom-color: #cec9c4;
 	    content: "769";
 	}
 }
-#searchsubmit {
+.woocommerce-product-search button,
+input[type='submit']#searchsubmit {
 	width: 23%;
-	padding: .5em;
+	padding: .45em;
+	border: none;
+	font-weight: 600;
 }

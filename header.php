@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 global $responsive_options;
-if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layout' === $responsive_options['site_layout_option'] ) && ( ! ( is_home() || is_front_page() ) ) ) || in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) {
+if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layout' === $responsive_options['site_layout_option'] ) && ( ! ( is_home() || is_front_page() ) ) ) ) {
 	?>
 <div id="content-outer">
 <?php } ?>

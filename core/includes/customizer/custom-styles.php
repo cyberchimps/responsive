@@ -278,10 +278,11 @@ function responsive_premium_custom_color_styles() {
 		a:hover, post-meta:hover {
 			color: {$link_hover_color};
 		}
-		input, .widget-wrapper input[type=email], .widget-wrapper input[type=password], .widget-wrapper input[type=text], .widget-wrapper select {
+
+		input[type=text], input[type=email], input[type=password], input[type=search], .widget-wrapper input[type=search], .widget-wrapper input[type=email], .widget-wrapper input[type=password], .widget-wrapper input[type=text], .widget-wrapper select {
 			color: {$input_text_color};
 			background-color: {$input_background_color};
-			border-color: {$input_border_color};
+			border: 1px solid {$input_border_color};
 			font-family: {$font_family};
 			font-size: {$body_font_size};
 			font-weight: {$font_weight};
@@ -347,13 +348,12 @@ function responsive_premium_custom_color_styles() {
 		input#searchsubmit{
 			background-image: none;
 		}
-		button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, .woocommerce a.button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
+		.wp-block-button .wp-block-button__link:hover,.wp-block-button .wp-block-button__link.has-button-hover-color-color:hover, button:hover, input[type='submit']:hover, input[type=button]:hover, a.button:hover, .button:hover, .woocommerce a.button:hover, .woocommerce input.button:hover , .call-to-action a.button:hover,
 		#content-woocommerce .product .single_add_to_cart_button:hover, #content-woocommerce .product .single_add_to_cart_button:focus, .added_to_cart.wc-forward:hover, .added_to_cart.wc-forward:focus, .woocommerce ul.products li.product .button:hover, .woocommerce ul.products li.product .button:focus,
 		.woocommerce #respond input#submit:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, #searchsubmit:hover, #footer_widget #searchsubmit:hover {
 				background-color: {$button_hover_color};
 				color: {$button_hover_text_color};
 		}
-
 		.woocommerce a.button:disabled, .woocommerce a.button.disabled, .woocommerce a.button:disabled[disabled],
 		.woocommerce button.button:disabled,
 		.woocommerce button.button.disabled,

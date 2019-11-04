@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Function to add customizer color options to gutenberg color palette.
  */
 function responsive_gutenberg_color_palette() {
-    
+
     $responsive_gutenberg_color_options = array(
-        
+
         // Button colors.
         array(
             'name'  => __( 'Button Color', 'responsive' ),
@@ -38,14 +38,14 @@ function responsive_gutenberg_color_palette() {
             'slug'  => 'button-text-color',
             'color' => esc_html( get_theme_mod( 'button-text-color', '#ffffff' ) ),
         ),
-        
+
         // Blog Post Background Color.
         array(
             'name'  => __( 'Blog Post Background Color', 'responsive' ),
             'slug'  => 'responsive-container-background-color',
             'color' => esc_html( get_theme_mod( 'responsive_container_background_color') ),
         ),
-        
+
         // Container Background Color.
         array(
             'name'  => __( 'Container Background Color', 'responsive' ),
@@ -53,7 +53,7 @@ function responsive_gutenberg_color_palette() {
             'color' => esc_html( get_theme_mod( 'responsive_main_container_background_color') ),
         ),
     );
-    
+
     return $responsive_gutenberg_color_options;
 }
 
@@ -71,7 +71,7 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
     foreach ( $responsive_gutenberg_color_options as $color ) {
         if(!empty($color['color'])) {
             $custom_color = get_theme_mod( $color['slug'], $color['color'] );
-            $css .= '.has-' . $color['slug'] . '-color { color: ' . esc_attr( $custom_color ) . ' !important; }';
+            $css .= '.has-' . $color['slug'] . '-color { color: ' . esc_attr( $custom_color ) . '; }';
             $css .= '.has-' . $color['slug'] . '-background-color { background-color: ' . esc_attr( $custom_color ) . '; }';
         }
    }
