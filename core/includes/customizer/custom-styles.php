@@ -459,7 +459,7 @@ function responsive_premium_custom_color_styles() {
 			color: {$menu_text_color};
 		}
 		@media (min-width: 768px){
-			.menu li li a {
+			.menu li li a, .js .main-nav a#responsive_menu_button {
 				color: {$menu_text_color};
 			}
 		}";
@@ -858,7 +858,7 @@ function responsive_premium_custom_color_styles() {
             display: block;
             padding: 5px 40px 5px 10px;
             font-weight: 700;
-            color: {$menu_text_color};
+			color: {$menu_text_color};
             cursor: pointer
         }
         .js .main-nav a#responsive_menu_button {
@@ -870,7 +870,6 @@ function responsive_premium_custom_color_styles() {
             width: 32px;
             margin-left: -32px;
             cursor: pointer;
-            color: {$menu_text_color};
             font-size: 30px;
             line-height: 1.3;
             text-align: center
