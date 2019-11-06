@@ -3458,7 +3458,19 @@ img.attachment-large,
 img.attachment-medium,
 img.attachment-thumbnail {
   display: block;
+  margin: 0 auto;
   width: auto;
+}
+body.single.single-post img.wp-post-image, body.blog img.wp-post-image,
+body.single.single-post img.attachment-full,
+body.blog img.attachment-full,
+body.single.single-post img.attachment-large,
+body.blog img.attachment-large,
+body.single.single-post img.attachment-medium,
+body.blog img.attachment-medium,
+body.single.single-post img.attachment-thumbnail,
+body.blog img.attachment-thumbnail {
+  margin: 0;
 }
 
 .thumbnail > :first-child {

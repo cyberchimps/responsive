@@ -870,7 +870,7 @@ function responsive_premium_custom_color_styles() {
             width: 32px;
             margin-left: -32px;
             cursor: pointer;
-            color: #fff;
+            color: {$menu_text_color};
             font-size: 30px;
             line-height: 1.3;
             text-align: center

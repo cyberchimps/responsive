@@ -247,7 +247,13 @@ img.attachment-large,
 img.attachment-medium,
 img.attachment-thumbnail {
 	display: block;
+	margin: 0 auto;
 	width: auto;
+
+	body.single.single-post &,
+	body.blog & {
+		margin: 0;	
+	}
 }
 
 .thumbnail > :first-child {
