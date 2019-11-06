@@ -3,9 +3,7 @@
  * File responsible for sdk files loading.
  *
  * @package     Responsive
- * @copyright   Copyright (c) 2017, Marius Cristea
- * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
- * @since       1.1.0
+ * @since       3.24
  */
 
 namespace ResponsiveSDK;
@@ -16,12 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 $products      = apply_filters( 'responsive_sdk_products', array() );
 $path          = dirname( __FILE__ );
 $files_to_load = [
-	$path . '/Loader.php',
-	$path . '/Product.php',
-
-	$path . '/Common/Abstract_module.php',
-	$path . '/Common/Module_factory.php',
-	$path . '/Rollback.php',
+	$path . '/loader.php',
+	$path . '/product.php',
+	$path . '/Common/abstract-module.php',
+	$path . '/Common/module-factory.php',
+	$path . '/rollback.php',
 ];
 $files_to_load = array_merge( $files_to_load, apply_filters( 'responsive_sdk_required_files', [] ) );
 

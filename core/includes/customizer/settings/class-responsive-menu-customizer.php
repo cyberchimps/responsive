@@ -116,7 +116,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_text_colorpicker',
 				array(
-					'default'           => '#ffffff',
+					'default'           => '',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'sanitize_text_field',
 				)
@@ -348,7 +348,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_toggle_button_color',
 				array(
-					'default'           => '#ffffff',
+					'default'           => '#555555',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_background',
 				)

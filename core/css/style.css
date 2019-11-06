@@ -1479,6 +1479,7 @@ ul.menu > li:hover {
 }
 
 .menu li li {
+  background: #ffffff;
   background-image: none;
   border: 1px solid #e5e5e5;
   color: #444444;
@@ -2502,7 +2503,7 @@ img.wp-smiley {
 }
 
 #widgets ul .children {
-  padding: 0 0 0 10px;
+  padding: 0 0 0 1em;
 }
 
 #widgets .author {

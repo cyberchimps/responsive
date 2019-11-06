@@ -3,10 +3,7 @@
  * The rollback class for Responsive SDK.
  *
  * @package     ResponsiveSDK
- * @subpackage  Rollback
- * @copyright   Copyright (c) 2017, Marius Cristea
- * @license     http://opensource.org/licenses/gpl-3.0.php GNU Public License
- * @since       1.0.0
+ * @since       3.24
  */
 
 namespace ResponsiveSDK\Modules;
@@ -158,7 +155,6 @@ class Rollback extends Abstract_Module {
 		if ( $this->product->is_theme() ) {
 			return sprintf( 'https://api.wordpress.org/themes/info/1.1/?action=theme_information&request[slug]=%s&request[fields][versions]=true', $this->product->get_slug() );
 		}
-		return sprintf( '%s?edd_action=get_versions&name=%s&url=%s&license=%s', $this->product->get_store_url(), urlencode( $this->product->get_name() ), urlencode( get_site_url() ), $license );
 	}
 
 	/**
@@ -240,17 +236,9 @@ class Rollback extends Abstract_Module {
 	 * @return bool Should we load the module?
 	 */
 	public function can_load( $product ) {
-		if ( $this->is_from_partner( $product ) ) {
-			return false;
-		}
 		if ( $product->is_theme() && ! current_user_can( 'switch_themes' ) ) {
 			return false;
 		}
-
-		if ( $product->is_plugin() && ! current_user_can( 'install_plugins' ) ) {
-			return false;
-		}
-
 		return true;
 	}
 

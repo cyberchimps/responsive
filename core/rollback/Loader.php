@@ -1,12 +1,9 @@
 <?php
 /**
- * The main loader class for ThemeIsle SDK
+ * The main loader class for Responsive
  *
- * @package     ThemeIsleSDK
- * @subpackage  Loader
- * @copyright   Copyright (c) 2017, Marius Cristea
- * @license     http://opensource.org/licenses/gpl-3.0.php GNU Public License
- * @since       1.0.0
+ * @package     Responsive
+ * @since       3.24
  */
 
 namespace ResponsiveSDK;
@@ -19,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /**
- * Singleton loader for ThemeIsle SDK.
+ * Singleton loader for Responsive SDK.
  */
 final class Loader {
 	/**
@@ -33,7 +30,7 @@ final class Loader {
 	 *
 	 * @var string $version The class version.
 	 */
-	private static $version = '2.0.0';
+	private static $version = '3.14';
 	/**
 	 * Holds registered products.
 	 *
@@ -55,8 +52,8 @@ final class Loader {
 	 */
 	public static function init() {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Loader ) ) {
-			self::$instance = new Loader();
-			$modules        = array_merge( self::$available_modules, apply_filters( 'responsive_sdk_modules', [] ) );
+			self::$instance          = new Loader();
+			$modules                 = array_merge( self::$available_modules, apply_filters( 'responsive_sdk_modules', [] ) );
 			self::$available_modules = $modules;
 		}
 	}

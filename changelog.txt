@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/05/19) = Added - Version 3.24
+[+] = Added Rollback functionality of theme
+[+] = Improved gutenberg editor support
+[+] = Added Mobile menu toggle button color option
+[!] = Fixed home page template issue
+
 (10/22/19) = Added - Version 3.23
 [+] = Added submenu customization options
 [+] = Added gutenberg support

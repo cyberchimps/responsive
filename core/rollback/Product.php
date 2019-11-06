@@ -1,12 +1,9 @@
 <?php
 /**
- * The product model class for ThemeIsle SDK
+ * The product model class for Responsive SDK
  *
- * @package     ThemeIsleSDK
- * @subpackage  Product
- * @copyright   Copyright (c) 2017, Marius Cristea
- * @license     http://opensource.org/licenses/gpl-3.0.php GNU Public License
- * @since       1.0.0
+ * @package     ResponsiveSDK
+ * @since       3.24
  */
 
 namespace ResponsiveSDK;
@@ -17,23 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Product model for ThemeIsle SDK.
+ * Product model for Responsive SDK.
  */
 class Product {
-	/**
-	 * Define plugin type string.
-	 */
-	const PLUGIN_TYPE = 'plugin';
 	/**
 	 * Define theme type string.
 	 */
 	const THEME_TYPE = 'theme';
-	/**
-	 * If the product has a pro version, contains the pro slug.
-	 *
-	 * @var string $pro_slug Pro slug, if available.
-	 */
-	public $pro_slug;
 	/**
 	 * Current product slug.
 	 *
@@ -108,7 +95,7 @@ class Product {
 	private $version;
 
 	/**
-	 * ThemeIsle_SDK_Product constructor.
+	 * Responsive_SDK_Product constructor.
 	 *
 	 * @param string $basefile Product basefile.
 	 */
@@ -185,9 +172,7 @@ class Product {
 		$this->author_url = $file_headers['AuthorURI'];
 		$this->store_url  = $file_headers['AuthorURI'];
 
-		$this->requires_license    = ( 'yes' === $file_headers['Requires License'] ) ? true : false;
 		$this->wordpress_available = ( 'yes' === $file_headers['WordPress Available'] ) ? true : false;
-		$this->pro_slug            = ! empty( $file_headers['Pro Slug'] ) ? $file_headers['Pro Slug'] : '';
 		$this->version             = $file_headers['Version'];
 
 	}
@@ -208,15 +193,6 @@ class Product {
 	 */
 	public function get_type() {
 		return $this->type;
-	}
-
-	/**
-	 * Return if the product is used as a plugin.
-	 *
-	 * @return bool Is plugin?
-	 */
-	public function is_plugin() {
-		return self::PLUGIN_TYPE === $this->type;
 	}
 
 	/**
@@ -253,7 +229,6 @@ class Product {
 			'store_name'          => $this->store_name,
 			'store_url'           => $this->store_url,
 			'wordpress_available' => $this->wordpress_available,
-			'requires_license'    => $this->requires_license,
 		);
 
 	}
@@ -265,37 +240,6 @@ class Product {
 	 */
 	public function get_version() {
 		return $this->version;
-	}
-
-	/**
-	 * Returns current product license, if available.
-	 *
-	 * @return string Return license key, if available.
-	 */
-	public function get_license() {
-
-		if ( ! $this->requires_license() && ! $this->is_wordpress_available() ) {
-			return 'free';
-		}
-		$license_data = get_option( $this->get_key() . '_license_data', '' );
-
-		if ( empty( $license_data ) ) {
-			return get_option( $this->get_key() . '_license', '' );
-		}
-		if ( ! isset( $license_data->key ) ) {
-			return get_option( $this->get_key() . '_license', '' );
-		}
-
-		return $license_data->key;
-	}
-
-	/**
-	 * Either the product requires license or not.
-	 *
-	 * @return bool Either requires license or not.
-	 */
-	public function requires_license() {
-		return $this->requires_license;
 	}
 
 	/**
@@ -329,50 +273,12 @@ class Product {
 	}
 
 	/**
-	 * Returns the Store name.
-	 *
-	 * @return string Store name.
-	 */
-	public function get_store_name() {
-		return $this->store_name;
-	}
-
-	/**
-	 * Returns the store url.
-	 *
-	 * @return string The store url.
-	 */
-	public function get_store_url() {
-
-		if ( strpos( $this->store_url, '/themeisle.com' ) !== false ) {
-			return 'https://store.themeisle.com/';
-		}
-
-		return $this->store_url;
-	}
-
-	/**
 	 * Returns product basefile, which holds the metaheaders.
 	 *
 	 * @return string The product basefile.
 	 */
 	public function get_basefile() {
 		return $this->basefile;
-	}
-
-	/**
-	 * Get changelog url.
-	 *
-	 * @return string Changelog url.
-	 */
-	public function get_changelog() {
-		return add_query_arg(
-			[
-				'name'       => rawurlencode( $this->get_name() ),
-				'edd_action' => 'view_changelog',
-			],
-			$this->get_store_url()
-		);
 	}
 
 	/**
@@ -383,16 +289,6 @@ class Product {
 	public function get_file() {
 		return $this->file;
 	}
-
-	/**
-	 * Returns the pro slug, if available.
-	 *
-	 * @return string The pro slug.
-	 */
-	public function get_pro_slug() {
-		return $this->pro_slug;
-	}
-
 	/**
 	 * Return the install timestamp.
 	 *
