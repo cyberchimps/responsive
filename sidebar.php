@@ -19,8 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
+if (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {?>
+	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" >
+		<?php	dynamic_sidebar( 'responsive-woo-shop-sidebar' ); ?>
+	</div>
+	<?php
+}
+
 $responsive_options = responsive_get_options();
-if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) && in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) && is_product() ) {
+if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) && in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) && is_product() || is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {
 	return;
 }
 

@@ -91,13 +91,6 @@ function responsive_get_sidebar_classes() {
  */
 function responsive_get_layout() {
 
-	/* WooCommerce Shop page */
-	if ( class_exists( 'WooCommerce' ) ) {
-		if ( is_shop() ) {
-			return 'default';
-		}
-	}
-
 	/* 404 pages */
 	if ( is_404() ) {
 		return 'default';
@@ -108,6 +101,7 @@ function responsive_get_layout() {
 	$responsive_options = responsive_get_options();
 	/* Get valid layouts */
 	$valid_layouts = responsive_get_valid_layouts();
+
 	/* For singular pages, get post meta */
 	if ( is_singular() ) {
 		global $post;
@@ -155,7 +149,9 @@ function responsive_get_layout() {
 			$layout = 'default';
 		}
 	}
-
+	if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {
+		$layout = get_theme_mod('woocommerce_sidebar_layout');
+	}
 	return apply_filters( 'responsive_get_layout', $layout );
 }
 

@@ -2198,6 +2198,7 @@ ul.menu > li:hover {
 .header-logo-center ul.menu {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* =Navigation
@@ -3009,6 +3010,11 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   display: block;
   font-size: 12px;
   margin: 1.5em 0;
+}
+
+.post {
+  border-bottom: 2px solid #eaeaea;
+  margin-bottom: 40px;
 }
 
 .post-search-terms {
@@ -4383,10 +4389,6 @@ table > *, td, tr, th {
   margin: 0;
 }
 
-.scroll-top {
-  text-align: center;
-}
-
 #footer-wrapper .contact_div {
   margin-bottom: 2.1276595745% !important;
 }
@@ -4522,6 +4524,18 @@ table > *, td, tr, th {
   display: flex;
   align-items: center;
   width: 100%;
+}
+
+.grid.col-300.copyright {
+  width: 100%;
+}
+
+.grid.col-300.copyright.footer-credits-center {
+  text-align: center;
+}
+
+.grid.col-300.copyright.footer-credits-right {
+  text-align: right;
 }
 
 /*--------------------------------------------------------------

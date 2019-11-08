@@ -83,6 +83,32 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'priority' => 2,
 				)
 			);
+			$wp_customize->add_setting(
+				'copyright_layout_options',
+				array(
+					'default'           => 'default',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'copyright_layout_options',
+				array(
+					'label'    => __( 'Copyright Layout', 'responsive' ),
+					'section'  => 'footer_section',
+					'settings' => 'copyright_layout_options',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_layout_choices',
+						array(
+							'default'            => esc_html__( 'Default', 'responsive' ),
+							'footer-credits-left'   => esc_html__( 'Credits Left', 'responsive' ),
+							'footer-credits-center' => esc_html__( 'Credits Center', 'responsive' ),
+							'footer-credits-right'  => esc_html__( 'Credits Right', 'responsive' ),
+						)
+					),
+				)
+			);
 		}
 	}
 

@@ -724,7 +724,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $footer_text_color ) ) {
-		$custom_css .= "#footer *, .full-width-no-box #footer-wrapper .footer_div *{
+		$custom_css .= "#footer *, .full-width-no-box #footer-wrapper .footer_div *, #footer a{
 			color: {$footer_text_color};
 		}";
 	}

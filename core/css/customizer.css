@@ -80,3 +80,13 @@ li#accordion-section-title_tagline {
 #customize-controls #accordion-section-responsive_upsell_main_section.control-section .accordion-section-title:hover:after {
   color: #fff;
 }
+
+.customize-control {
+	position: relative;
+}
+
+.customize-control .res-control-tooltip{
+	position: absolute;
+	top: 1em;
+	right: 0;
+}

@@ -318,3 +318,33 @@ function responsive_custom_customize_enqueue() {
 	wp_enqueue_script( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/js/general.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 }
 add_action( 'customize_controls_enqueue_scripts', 'responsive_custom_customize_enqueue' );
+
+/**
+ * Tooltip script
+ *
+ * @since 3.23
+ * @return void
+ */
+function responsive_tooltip_script() {
+	$output  = '<script type="text/javascript">';
+	$output .= '
+	        	wp.customize.bind(\'ready\', function() {
+	            	wp.customize.control.each(function(ctrl, i) {
+	                	var desc = ctrl.container.find(".customize-control-description");
+	                	if( desc.length) {
+	                    	var title 		= ctrl.container.find(".customize-control-title");
+	                    	var li_wrapper 	= desc.closest("li");
+	                    	var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+	                    			return \'&#\'+i.charCodeAt(0)+\';\';
+								});
+	                    	desc.remove();
+	                    	li_wrapper.append(" <i class=\'res-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+	                	}
+	            	});
+	        	});';
+
+	$output .= '</script>';
+
+	echo $output;
+}
+add_action( 'customize_controls_print_scripts',  'responsive_tooltip_script'  );

@@ -18,11 +18,6 @@
 	margin: 0;
 }
 
-
-.scroll-top {
-	text-align: center;
-}
-
 #footer-wrapper .contact_div
 {
     margin-bottom: 2.127659574468%!important;
@@ -139,4 +134,16 @@ color:#fff;
 	display: flex;
     align-items: center;
     width: 100%;
+}
+
+.grid.col-300.copyright{
+	width: 100%;
+}
+
+.grid.col-300.copyright.footer-credits-center {
+	text-align: center;
+}
+
+.grid.col-300.copyright.footer-credits-right{
+	text-align: right;
 }

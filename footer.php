@@ -88,15 +88,14 @@ global $responsive_blog_layout_columns;
 		}
 		$siteurl = site_url();
 		?>
-		<div class="grid col-300 copyright">
+			<?php $credits_layout = get_theme_mod( 'copyright_layout_options', 'default' ); ?>
+		<div class="grid col-300 copyright <?php echo esc_attr( $credits_layout ); ?>">
 			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				<?php if( empty( $copyright_text ) ) { bloginfo( 'name' ); } else { echo esc_html( $copyright_text ); } ?>
 			</a>
 		</div><!-- end of .copyright -->
 
-		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php esc_html_e( '&uarr;', 'responsive' ); ?></a>
-		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
-		<?php if( $cyberchimps_link ) { ?>
+			<?php if( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">
 			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>>Responsive Theme</a>
 			<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
@@ -143,14 +142,13 @@ global $responsive_blog_layout_columns;
 		if ( !empty( $responsive_options['poweredby_link'] ) ) {
 			$cyberchimps_link = $responsive_options['poweredby_link'];
 		} ?>
-		<div class="grid col-300 copyright">
+			<?php $credits_layout = get_theme_mod( 'copyright_layout_options', 'default' ); ?>
+			<div class="grid col-300 copyright <?php echo esc_attr( $credits_layout ); ?>">
 			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				 <?php if( empty( $copyright_text ) ) { bloginfo( 'name' ); } else { echo esc_html( $copyright_text ) ; } ?>
 			</a>
 		</div><!-- end of .copyright -->
 
-		<div class="grid col-300 scroll-top"><!--<a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php esc_html_e( '&uarr;', 'responsive' ); ?></a>
-		<div id="scroll-to-top"><span class="glyphicon glyphicon-chevron-up"></span></div>--></div>
 		<?php if( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">
 			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>>Responsive Theme</a>
