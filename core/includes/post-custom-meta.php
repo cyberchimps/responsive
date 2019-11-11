@@ -149,9 +149,11 @@ function responsive_get_layout() {
 			$layout = 'default';
 		}
 	}
-	if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {
-		$layout = get_theme_mod('woocommerce_sidebar_layout');
-	}
+
+
+		if (class_exists( 'WooCommerce' ) && (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product())) {
+			$layout = get_theme_mod('woocommerce_sidebar_layout');
+		}
 	return apply_filters( 'responsive_get_layout', $layout );
 }
 
