@@ -143,6 +143,9 @@ function responsive_premium_custom_color_styles() {
 	// Mobile Menu Toggle button color.
 	$mobile_menu_toggle_button_color = get_theme_mod( 'responsive_menu_toggle_button_color' );
 
+	// Mobile Menu Border Color.
+	$responsive_mobile_menu_border_color = get_theme_mod( 'responsive_mobile_menu_border_color', '#f5f5f5' );
+
 	// Submenu styles.
 	$responsive_submenu_top_border    = get_theme_mod( 'responsive_submenu_top_border' );
 	$responsive_submenu_right_border  = get_theme_mod( 'responsive_submenu_right_border' );
@@ -926,7 +929,7 @@ function responsive_premium_custom_color_styles() {
                 line-height: 45px;
                 padding: 0 15px;
                 border: none;
-                border-bottom: 1px solid #f5f5f5;
+                border-bottom: 1px solid {$responsive_mobile_menu_border_color};
                 text-shadow: none;
                 text-align: left;
                 cursor: pointer

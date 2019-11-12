@@ -366,6 +366,29 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 				)
 			);
 
+
+			// Mobile Menu Border Color.
+			$wp_customize->add_setting(
+				'responsive_mobile_menu_border_color',
+				array(
+					'default'           => '#f5f5f5',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'responsive_mobile_menu_border_color',
+					array(
+						'label'    => __( 'Border Color', 'responsive' ),
+						'section'  => 'responsive_menu',
+						'settings' => 'responsive_mobile_menu_border_color',
+						'priority' => 14,
+					)
+				)
+			);
+
 			// End - Mobile Menu.
 			// Sub menu.
 			$wp_customize->add_setting(
