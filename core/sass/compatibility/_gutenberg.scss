@@ -64,9 +64,9 @@
 
     .full-width-layout .grid.col-940,
     .full-width-no-box .grid.col-940 {
-        .wp-block-columns,p {
+            .wp-block-columns,p {
             &:not(.alignfull):not(.alignwide) {
-                margin: auto;
+                margin: 0 auto;
                 max-width: 740px;
                 width: auto;
         	}
@@ -77,9 +77,9 @@
 @media only screen and (min-width: 960px) {
     .full-width-layout .grid.col-940,
     .full-width-no-box .grid.col-940 {
-        .wp-block-columns,p {
+            .wp-block-columns,p {
             &:not(.alignfull):not(.alignwide) {
-                margin: auto;
+                margin: 0 auto;
                 max-width: 940px;
                 width: auto;
         	}
@@ -91,10 +91,27 @@
  .entry-content .wp-block-gallery,
  .entry-summary .wp-block-gallery,
  .entry-summary .wp-block-gallery {
- 	display: flex;
+ 	 display: flex;
      flex-wrap: wrap;
      list-style-type: none;
  }
+
+ .wp-block-columns .wp-block-column {
+    &>*:first-child {
+        margin-top: 0 !important;
+    }
+ }
+
+ .wp-block-columns .wp-block-column {
+    &>*:last-child {
+        margin-bottom: 0 !important;
+    }
+ }
+
+ .wp-block-quote {
+    padding: 1em;
+ }
+
 /*
 	changes according gutenberg plugin -- END
  */

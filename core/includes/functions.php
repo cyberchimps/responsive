@@ -312,8 +312,8 @@ function responsive_fallback_menu() {
 		'link_after'  => '',
 	);
 	$pages   = wp_page_menu( $args );
-	$prepend = '<div class="main-nav">';
-	$append  = '</div>';
+	$prepend = '<nav id="main-nav" class="main-nav">';
+	$append  = '</nav>';
 	$output  = $prepend . $pages . $append;
 	echo $output;
 }

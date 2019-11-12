@@ -13,7 +13,9 @@ a:active {
 	outline: 1px dotted #cccccc;
 	text-decoration: none;
 }
-
+a:focus {
+	outline: 1px dotted #cccccc;
+}
 a::-moz-selection {
 	background: #999999;
 	color: #ffffff;

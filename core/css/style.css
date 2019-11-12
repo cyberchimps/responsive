@@ -224,7 +224,6 @@ ul {
 }
 
 ol {
-  line-height: 22px;
   list-style-position: outside;
   list-style-type: decimal;
   margin: 0;
@@ -1202,6 +1201,10 @@ a:active {
   color: #444444;
   outline: 1px dotted #cccccc;
   text-decoration: none;
+}
+
+a:focus {
+  outline: 1px dotted #cccccc;
 }
 
 a::-moz-selection {
@@ -4236,7 +4239,7 @@ div .wp-block-cover-text {
   .full-width-layout .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .full-width-layout .grid.col-940 p:not(.alignfull):not(.alignwide),
 .full-width-no-box .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
 .full-width-no-box .grid.col-940 p:not(.alignfull):not(.alignwide) {
-    margin: auto;
+    margin: 0 auto;
     max-width: 740px;
     width: auto;
   }
@@ -4245,7 +4248,7 @@ div .wp-block-cover-text {
   .full-width-layout .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .full-width-layout .grid.col-940 p:not(.alignfull):not(.alignwide),
 .full-width-no-box .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
 .full-width-no-box .grid.col-940 p:not(.alignfull):not(.alignwide) {
-    margin: auto;
+    margin: 0 auto;
     max-width: 940px;
     width: auto;
   }
@@ -4257,6 +4260,18 @@ div .wp-block-cover-text {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+}
+
+.wp-block-columns .wp-block-column > *:first-child {
+  margin-top: 0 !important;
+}
+
+.wp-block-columns .wp-block-column > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.wp-block-quote {
+  padding: 1em;
 }
 
 /*
@@ -4826,7 +4841,7 @@ div .wp-block-cover-text {
   .full-width-layout .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .full-width-layout .grid.col-940 p:not(.alignfull):not(.alignwide),
 .full-width-no-box .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
 .full-width-no-box .grid.col-940 p:not(.alignfull):not(.alignwide) {
-    margin: auto;
+    margin: 0 auto;
     max-width: 740px;
     width: auto;
   }
@@ -4835,7 +4850,7 @@ div .wp-block-cover-text {
   .full-width-layout .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .full-width-layout .grid.col-940 p:not(.alignfull):not(.alignwide),
 .full-width-no-box .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
 .full-width-no-box .grid.col-940 p:not(.alignfull):not(.alignwide) {
-    margin: auto;
+    margin: 0 auto;
     max-width: 940px;
     width: auto;
   }
@@ -4847,6 +4862,18 @@ div .wp-block-cover-text {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+}
+
+.wp-block-columns .wp-block-column > *:first-child {
+  margin-top: 0 !important;
+}
+
+.wp-block-columns .wp-block-column > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.wp-block-quote {
+  padding: 1em;
 }
 
 /*
