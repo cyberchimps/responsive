@@ -2247,6 +2247,14 @@ ul.menu > li:hover {
   width: 100%;
 }
 
+div#responsive_current_menu_item, #responsive_menu_button {
+  line-height: 1.8;
+}
+
+.main-nav.mobile-dropdown-inner {
+  font-style: normal;
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
