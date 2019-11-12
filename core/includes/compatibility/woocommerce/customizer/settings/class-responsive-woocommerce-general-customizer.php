@@ -116,6 +116,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 					'woocommerce_sidebar_layout',
 					array(
 						'sanitize_callback' => 'responsive_sanitize_default_layouts',
+						'default'			=> 'full-width-page',
 					)
 				);
 				$wp_customize->add_control(

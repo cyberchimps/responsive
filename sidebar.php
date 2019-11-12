@@ -21,6 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 if ( class_exists( 'WooCommerce' ) ) {
+	$layout = responsive_get_layout();
+		if ( 'full-width-page' === $layout )  {
+				return;
+		}
 	if (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product()) { ?>
 		<div id="widgets" class="<?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
 			<?php dynamic_sidebar('responsive-woo-shop-sidebar'); ?>
