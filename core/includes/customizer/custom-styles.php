@@ -16,7 +16,7 @@ function responsive_premium_custom_color_styles() {
 	$body_typography        = get_theme_mod( 'body_typography' );
 	$headings_typography    = get_theme_mod( 'headings_typography' );
 	$heading_text_color     = get_theme_mod( 'heading-text-color', '' );
-	$link_color             = get_theme_mod( 'link-color', '#078ce1' );
+	$link_color             = get_theme_mod( 'link-color', '#0066cc' );
 	$link_hover_color       = get_theme_mod( 'link-hover-color', '#10659c' );
 	$button_color           = get_theme_mod( 'button-color', '#1874cd' );
 	$button_hover_color     = get_theme_mod( 'button-hover-color', '#7db7f0' );
@@ -159,7 +159,7 @@ function responsive_premium_custom_color_styles() {
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
 	} else {
-		$body_color = '#929292';
+		$body_color = '#575757';
 	}
 
 	if ( isset( $headings_typography['color'] ) ) {
@@ -403,6 +403,13 @@ function responsive_premium_custom_color_styles() {
 		.content-area, body.default-layout #content-outer, body.full-width-layout #content-outer, body.full-width-no-box #content-outer, .menu, #footer {
 			max-width: {$container_width}px;
 		}
+
+		.full-width-layout .grid.col-940 .alignwide,
+		.full-width-no-box .grid.col-940 .alignwide {
+			padding-left: calc((100vw - {$container_width}px)/4);
+			padding-right: calc((100vw - {$container_width}px)/4);
+		}
+
 		.woocommerce ul.products li.product .onsale.circle-outline, .woocommerce ul.products li.product .onsale.square-outline, .woocommerce div.product .onsale.circle-outline, .woocommerce div.product .onsale.square-outline {
 			background: #ffffff;
 			border: 2px solid {$link_color};

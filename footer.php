@@ -63,7 +63,9 @@ global $responsive_blog_layout_columns;
 				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu(
 						array(
-							'container'      => '',
+							'container'      => 'nav',
+							'container_class' => 'footer-menu-container',
+							'container_id'    => 'footer-menu-container',
 							'fallback_cb'    => false,
 							'menu_class'     => 'footer-menu',
 							'theme_location' => 'footer-menu',
@@ -116,7 +118,9 @@ global $responsive_blog_layout_columns;
 				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu(
 						array(
-							'container'      => '',
+							'container'       => 'nav',
+							'container_class' => 'footer-menu-container',
+							'container_id'    => 'footer-menu-container',
 							'fallback_cb'    => false,
 							'menu_class'     => 'footer-menu',
 							'theme_location' => 'footer-menu',

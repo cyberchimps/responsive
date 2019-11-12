@@ -42,6 +42,7 @@
 	z-index: 5;
 	list-style-type: none;
 }
+.top-menu li.focus,
 .top-menu li:hover {
 	white-space: normal;
 	z-index: 10000;
@@ -50,16 +51,17 @@
 	float: none;
 }
 .top-menu ul {
-	left: 0;
+	left: -999em;
 	position: absolute;
 	top: 0;
-	visibility: hidden;
 	z-index: 10;
 }
+.top-menu li.focus > ul,
 .top-menu li:hover > ul {
 	top: 100%;
-	visibility: visible;
+	left: auto;
 }
+.top-menu li li.focus > ul,
 .top-menu li li:hover > ul {
 	left: 100%;
 	top: 0;
@@ -72,7 +74,6 @@
 	display: block;
 	height: 0;
 	overflow: hidden;
-	visibility: hidden;
 }
 .top-menu,
 .top-menu ul {
@@ -146,6 +147,7 @@
 	z-index: 5;
 }
 
+.menu li.focus,
 .menu li:hover {
 	white-space: normal;
 	z-index: 10000;
@@ -156,18 +158,19 @@
 }
 
 .menu ul {
-	left: 0;
+	left: -999em;
 	position: absolute;
 	top: 0;
-	visibility: hidden;
 	z-index: 10;
 }
 
+.menu li.focus > ul,
 .menu li:hover > ul {
 	top: 100%;
-	visibility: visible;
+	left: auto;
 }
 
+.menu li li.focus > ul,
 .menu li li:hover > ul {
 	left: 100%;
 	top: 0;
@@ -180,7 +183,6 @@
 	display: block;
 	height: 0;
 	overflow: hidden;
-	visibility: hidden;
 }
 
 .menu,
@@ -269,7 +271,7 @@ ul.menu > li:hover {
 	font-weight: 400;
 	height: auto;
 	line-height: 20px;
-	padding: 5px 10px;
+	padding: 10px;
 	text-shadow: none;
 	white-space: nowrap;
 }
@@ -306,7 +308,7 @@ ul.menu > li:hover {
 }
 
 .js .main-nav a#responsive_menu_button {
-	color: #ffffff;	
+	color: #ffffff;
 }
 .main-nav #responsive_current_menu_item {
 	display: none;
@@ -367,6 +369,7 @@ ul.menu > li:hover {
 	z-index: 5;
 }
 
+.sub-header-menu li.focus,
 .sub-header-menu li:hover {
 	white-space: normal;
 	z-index: 10000;
@@ -377,18 +380,19 @@ ul.menu > li:hover {
 }
 
 .sub-header-menu ul {
-	left: 0;
+	left: -999em;
 	position: absolute;
 	top: 0;
-	visibility: hidden;
 	z-index: 10;
 }
 
+.sub-header-menu li.focus > ul,
 .sub-header-menu li:hover > ul {
 	top: 100%;
-	visibility: visible;
+	left: auto;
 }
 
+.sub-header-menu li li.focus > ul,
 .sub-header-menu li li:hover > ul {
 	left: 100%;
 	top: 0;
@@ -401,7 +405,6 @@ ul.menu > li:hover {
 	display: block;
 	height: 0;
 	overflow: hidden;
-	visibility: hidden;
 }
 
 .sub-header-menu,
@@ -434,7 +437,7 @@ ul.menu > li:hover {
 	display: block;
 	font-size: 12px;
 	font-weight: 400;
-	height: 35px;
+	height: auto;
 	line-height: 35px;
 	margin: 0;
 	padding: 0 0.9em;
@@ -471,9 +474,8 @@ ul.menu > li:hover {
 	font-size: 12px;
 	font-weight: 400;
 	height: auto;
-	height: 20px;
 	line-height: 20px;
-	padding: 5px 10px;
+	padding: 10px;
 	text-shadow: none;
 	white-space: nowrap;
 }
@@ -490,6 +492,7 @@ ul.menu > li:hover {
 	border-top: 0;
 }
 
+.sub-header-menu li li:focus > ul,
 .sub-header-menu li li:hover > ul {
 	left: 100%;
 	top: 0;
@@ -561,6 +564,7 @@ ul.menu > li:hover {
 	z-index: 5;
 	list-style-type: none;
 }
+.footer-menu li.focus,
 .footer-menu li:hover {
 	white-space: normal;
 	z-index: 10000;
@@ -569,16 +573,17 @@ ul.menu > li:hover {
 	float: none;
 }
 .footer-menu ul {
-	left: 0;
+	left: -999em;
 	position: absolute;
 	top: 0;
-	visibility: hidden;
 	z-index: 10;
 }
+.footer-menu li.focus > ul,
 .footer-menu li:hover > ul {
 	top: 100%;
-	visibility: visible;
+	left: auto;
 }
+.footer-menu li li.focus > ul,
 .footer-menu li li:hover > ul {
 	left: 100%;
 	top: 0;
@@ -591,7 +596,6 @@ ul.menu > li:hover {
 	display: block;
 	height: 0;
 	overflow: hidden;
-	visibility: hidden;
 }
 .footer-menu,
 .footer-menu ul {
@@ -722,7 +726,7 @@ ul.menu > li:hover {
 				border-bottom: 1px solid #f5f5f5;
 
 				&:hover {
-					color: #929292;
+					color: #575757;
 				}
 
 				i,
@@ -901,7 +905,7 @@ ul.menu > li:hover {
 				 border-bottom: 1px solid #f5f5f5;
 
 				 &:hover {
-					 color: #929292;
+					 color: #575757;
 				 }
 
 				 i,

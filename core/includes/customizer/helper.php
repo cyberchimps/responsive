@@ -631,7 +631,7 @@ function responsive_display_menu_outside_container() {
 	<?php
 	wp_nav_menu(
 		array(
-			'container'       => 'div',
+			'container'       => 'nav',
 			'container_class' => 'main-nav',
 			'container_id'    => 'main-nav',
 			'fallback_cb'     => 'responsive_fallback_menu',
@@ -643,8 +643,9 @@ function responsive_display_menu_outside_container() {
 	if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
 		wp_nav_menu(
 			array(
-				'container'       => 'div',
+				'container'       => 'nav',
 				'container_class' => 'sub-nav',
+				'container_id'    => 'sub-nav',
 				'menu_class'      => 'sub-header-menu',
 				'theme_location'  => 'sub-header-menu',
 			)

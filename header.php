@@ -63,10 +63,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 		if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
 			wp_nav_menu(
 				array(
-					'container'      => '',
-					'fallback_cb'    => false,
-					'menu_class'     => 'top-menu',
-					'theme_location' => 'top-menu',
+					'container'       => 'nav',
+					'fallback_cb'     => false,
+					'container_class' => 'top-menu-container',
+					'container_id' => 'top-menu-container',
+					'menu_class'      => 'top-menu',
+					'theme_location'  => 'top-menu',
 				)
 			);
 		}

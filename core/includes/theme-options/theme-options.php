@@ -433,7 +433,7 @@ function responsive_theme_options_do_page() {
 					'type'        => 'editor',
 					'id'          => 'featured_content',
 					'description' => __( 'Paste your shortcode, video or image source', 'responsive' ),
-					'placeholder' => "<img class='aligncenter' src='" . get_template_directory_uri() . "'/core/images/featured-image.png' width='440' height='300' alt='' />",
+					'placeholder' => "<img class='aligncenter' src='" . get_template_directory_uri() . "'/core/images/featured-image.png' width='440' height='300' alt='featured image' />",
 				),
 				array(
 					'title'       => __( 'Enable About Section', 'responsive' ),
