@@ -284,8 +284,9 @@ ul.menu > li:hover {
 	filter: none;
 }
 
+.menu li li:focus,
 .menu li li:hover {
-	background: #f5f5f5 !important;
+	background: #f5f5f5;
 	filter: none;
 }
 

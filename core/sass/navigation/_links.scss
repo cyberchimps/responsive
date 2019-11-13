@@ -4,20 +4,25 @@ a {
 	color: #0066cc;
 	font-weight: 400;
 	text-decoration: none;
-}
 
-a:hover,
-a:focus,
-a:active {
-	color: #444444;
-	outline: 1px dotted #cccccc;
-	text-decoration: none;
-}
-a:focus {
-	outline: 1px dotted #cccccc;
-}
-a::-moz-selection {
-	background: #999999;
-	color: #ffffff;
-	text-shadow: none;
+	&:hover,
+	&:focus,
+	&:active {
+		color: #444444;
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+
+	&::-moz-selection {
+		background: #999999;
+		color: #ffffff;
+		text-shadow: none;
+	}
 }
