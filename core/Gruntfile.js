@@ -50,22 +50,9 @@ grunt.initConfig({
 				//banner: '/* Theme Name: Responsive Author: CyberChimps.com Version: 1.9.4.9 Text Domain: responsive */'
 			},
 			files: {
-				'css/style.min.css': ['css/style.css', 'css/responsive.css']
+				'css/style.min.css': 'css/style.css',
+				'css/responsive.min.css':  'css/responsive.css'
 			}
-		},
-		upsell: {
-			expand: true,
-			cwd: 'includes/upsell/css/',
-			src: ['*.css', '!*.min.css'],
-			dest: 'includes/upsell/css/',
-			ext: '.min.css'
-		},
-		bootstrap: {
-			expand: true,
-			cwd: 'includes/upsell/bootstrap/css/',
-			src: ['*.css', '!*.min.css'],
-			dest: 'includes/upsell/bootstrap/css/',
-			ext: '.min.css'
 		},
 		theme_options: {
 			expand: true,

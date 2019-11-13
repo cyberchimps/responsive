@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/12/19) = Added - Version 3.26.1
+[!] = Fixed fatal error on activation
+
 (11/12/19) = Added - Version 3.25
 [+] = Registered new sidebar for WooCommerce
 [+] = Added WooCommerce shop page layout Options
