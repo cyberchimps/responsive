@@ -10,17 +10,17 @@ grunt.initConfig({
 		options: {
 			mangle: false
 		},
-		theme_options: {
-			files: [
-				{
-					expand: true,     // Enable dynamic expansion.
-					cwd: 'includes/theme-options/',      // Src matches are relative to this path.
-					src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
-					dest: 'includes/theme-options/',   // Destination path prefix.
-					ext: '.min.js',   // Dest filepaths will have this extension.
-				},
-			]
-		},
+		// theme_options: {
+		// 	files: [
+		// 		{
+		// 			expand: true,     // Enable dynamic expansion.
+		// 			cwd: 'includes/theme-options/',      // Src matches are relative to this path.
+		// 			src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
+		// 			dest: 'includes/theme-options/',   // Destination path prefix.
+		// 			ext: '.min.js',   // Dest filepaths will have this extension.
+		// 		},
+		// 	]
+		// },
 		frontend: {
 			files: [
 				{
@@ -54,13 +54,13 @@ grunt.initConfig({
 				'css/responsive.min.css':  'css/responsive.css'
 			}
 		},
-		theme_options: {
-			expand: true,
-			cwd: 'includes/theme-options/',
-			src: ['*.css', '!*.min.css'],
-			dest: 'includes/theme-options/',
-			ext: '.min.css'
-		}
+		// theme_options: {
+		// 	expand: true,
+		// 	cwd: 'includes/theme-options/',
+		// 	src: ['*.css', '!*.min.css'],
+		// 	dest: 'includes/theme-options/',
+		// 	ext: '.min.css'
+		// }
 	},
 
 	checktextdomain: {

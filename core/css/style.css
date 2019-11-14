@@ -3148,6 +3148,10 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   margin: 0;
 }
 
+.commentlist .bypostauthor {
+  display: block;
+}
+
 .commentlist li cite {
   color: #111111;
   font-size: 1.1em;
@@ -3318,6 +3322,9 @@ blockquote p {
 #footer-wrapper {
   margin: 0;
   padding: 0;
+}
+.default-layout #footer-wrapper {
+  padding: 0 25px;
 }
 
 /* =Templates (Landing Page)

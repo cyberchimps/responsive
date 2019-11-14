@@ -531,7 +531,10 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 }
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
+
+if( !class_exists( 'Responsive_Addons_Pro_Public' ) ){
+	add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
+}
 
 function responsive_add_pro_button() {
 	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/responsive-pricing/?utm_source=responsive-theme&utm_medium=upgrade-to-pro&utm_campaign=upgrade-to-responsive-pro' );
