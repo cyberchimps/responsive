@@ -12,11 +12,11 @@
         float: left
     }
 
-    #logo {
+    /* #logo {
         float: none;
         margin: 0;
         text-align: center
-    }
+    } */
 
     #featured-image .fluid-width-video-wrapper {
         margin: 20px 0 0 0

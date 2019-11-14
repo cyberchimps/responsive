@@ -26,14 +26,13 @@ $responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
 ?>
 <?php responsive_wrapper_bottom(); // after wrapper content hook ?>
-</div><!-- end of #wrapper -->
+<!-- </div> -->
+<!-- end of #wrapper -->
 
 <?php responsive_wrapper_end(); // after wrapper hook ?>
 <?php if ( ( is_home() && ! is_front_page() ) || in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) { ?>
 </div>
 <?php } ?>
-</div><!-- end of #container -->
-<?php responsive_container_end(); // after container hook ?>
 
 <footer id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
 	<?php responsive_footer_top(); ?>
@@ -44,17 +43,17 @@ global $responsive_blog_layout_columns;
 
 	<?php if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-no-box' ) ) { ?>
 		<div class="social_div grid col-940">
-			<div id="content-outer">
+			<div class="content-outer">
 				<?php echo responsive_get_social_icons_new(); ?>
 			</div>
 			<?php if( is_active_sidebar( 'footer-widget' ) ) { ?>
 			<div class="footer_div grid col-940">
-				<div id="content-outer">
+				<div class="content-outer">
 					<?php get_sidebar( 'footer' ); ?>
 				</div>
 			</div>
 		<?php } ?>
-		<div id="content-outer">
+		<div class="content-outer">
 		<?php if ( has_nav_menu( 'footer-menu' ) ) { ?>
 		<div class="grid col-940">
 
@@ -63,7 +62,9 @@ global $responsive_blog_layout_columns;
 				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu(
 						array(
-							'container'      => '',
+							'container'      => 'nav',
+							'container_class' => 'footer-menu-container',
+							'container_id'    => 'footer-menu-container',
 							'fallback_cb'    => false,
 							'menu_class'     => 'footer-menu',
 							'theme_location' => 'footer-menu',
@@ -104,10 +105,10 @@ global $responsive_blog_layout_columns;
 		<?php } ?>
 	</div>
 	<?php } else {  ?>
-	<div id="content-outer">
+	<div class="content-outer">
 		<?php get_sidebar( 'footer' ); ?>
 		</div>
-		<div id="content-outer">
+		<div class="content-outer">
 		<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
 		<div class="grid col-940">
 
@@ -116,7 +117,9 @@ global $responsive_blog_layout_columns;
 				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu(
 						array(
-							'container'      => '',
+							'container'       => 'nav',
+							'container_class' => 'footer-menu-container',
+							'container_id'    => 'footer-menu-container',
 							'fallback_cb'    => false,
 							'menu_class'     => 'footer-menu',
 							'theme_location' => 'footer-menu',
@@ -164,6 +167,9 @@ global $responsive_blog_layout_columns;
 	<?php responsive_footer_bottom(); ?>
 </footer><!-- end #footer -->
 <?php responsive_footer_after(); ?>
+
+</div><!-- end of #container -->
+<?php responsive_container_end(); // after container hook ?>
 <?php
 if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 	$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );

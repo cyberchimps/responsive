@@ -60,6 +60,11 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'settings' => 'responsive_theme_options[site_layout_option]',
 					'type'     => 'select',
 					'choices'  => array(
+						'boxed'               => __( 'Boxed', 'responsive' ),
+						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
+						'fullwidth-content'   => __( 'Fullwith Content', 'responsive' ),
+						'fullwidth-stretched' => __( 'Fullwith Stretched', 'responsive' ),
+
 						'default-layout'    => __( 'Default', 'responsive' ),
 						'full-width-layout' => __( 'Full Width Boxed Layout', 'responsive' ),
 						'full-width-no-box' => __( 'Full Width Without Boxes', 'responsive' ),

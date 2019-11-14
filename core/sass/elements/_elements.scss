@@ -16,6 +16,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
 	line-height: 1;
+	background-color: #f1f1f1;
 }
 
 ol, ul {
@@ -72,7 +73,6 @@ html {
 body {
 	-moz-font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
-	background: #fff;
 	color: #555555;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
@@ -87,9 +87,9 @@ body {
 	text-decoration: none;
 }
 
-body {
-	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
-}
+// body {
+// 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+// }
 
 hr {
 	background-color: $color__background-hr;

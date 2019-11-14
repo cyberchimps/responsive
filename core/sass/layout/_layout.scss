@@ -1,4 +1,4 @@
-body.full-width-layout #content-outer, body.default-layout #content-outer,body.full-width-no-box #content-outer {
+body.full-width-layout .content-outer, body.default-layout .content-outer,body.full-width-no-box .content-outer {
 	margin: 0 auto;
 	max-width: 960px;
 }
@@ -14,12 +14,10 @@ body.full-width-no-box #wrapper {margin-bottom: 0px;}
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#585858, endColorstr=#3d3d3d)";
 }
 #menu-header, .menu {
-		max-width: 960px;
-margin: 0 auto;
+	
+	margin: 0 auto;
 }
-body.home #wrapper {
-	margin: 0 auto 20px auto ;
-}
+
 body.full-width-no-box #wrapper {margin-bottom: 0px;}
 body.full-width-layout div#container, body.full-width-layout div#footer, body.full-width-no-box div#container, body.full-width-no-box div#footer {
     width: 100%;
@@ -89,8 +87,8 @@ color:#f2efef;
 .full-width-layout #about_div {border: none; background-color: inherit;}
 .full-width-layout #testimonial_div {border: none;background-color:inherit;}
 .full-width-no-box #testimonial_div {border: none;}
-.full-width-layout #about_div #content-outer { border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;display: table;width: 100%;border-radius:4px;}
-.full-width-layout #testimonial_div #content-outer {border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;border-radius:4px;display:table;width: 100%;}
+.full-width-layout #about_div .content-outer { border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;display: table;width: 100%;border-radius:4px;}
+.full-width-layout #testimonial_div .content-outer {border: 1px solid #e5e5e5;-moz-border-radius: 4px;background-color: #ffffff;-webkit-border-radius: 4px;border-radius:4px;display:table;width: 100%;}
 .full-width-layout .about-content {padding-bottom: 40px;}
 .full-width-no-box .site-name a {color: #ffffff;}
 .post-meta .fa-calendar {
@@ -169,4 +167,10 @@ color:#f2efef;
 }
 #content-blog.col-620, #content.col-620 {
 	overflow: hidden;
+}
+.boxed #content-blog, .boxed #content, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #content, body.fullwidth-content, body.fullwidth-stretched {
+	background-color: #ffffff;
+}
+body.fullwidth-stretched .content-outer {
+	max-width: none;
 }

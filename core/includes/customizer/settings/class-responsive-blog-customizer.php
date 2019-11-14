@@ -215,7 +215,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 				'responsive_show_excerpt',
 				array(
 					'transport'         => 'refresh',
-					'default'           => 'content',
+					'default'           => 'excerpt',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_select',
 				)

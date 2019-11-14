@@ -29,7 +29,7 @@ if ( 1 == $display_slider ) {
 	<?php
 }
 ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="featured" class="grid col-940">
 
 	<div id="featured-content" class="grid col-460">
@@ -109,7 +109,7 @@ if ( 1 == $display_slider ) {
 	}
 	?>
 <div id="about_div" class="grid col-940">
-	<div id="content-outer">
+	<div class="content-outer">
 	<div class="about-content grid col-620">
 	<?php
 		$responsive_about_title   = isset( $responsive_options['about_title'] ) ? $responsive_options['about_title'] : 'About Box Title';
@@ -138,7 +138,7 @@ if ( 1 == $display_slider ) {
 <?php } ?>
 
 <?php if ( isset( $responsive_options['feature'] ) && $responsive_options['feature'] == '1' ) { ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="feature_div" class="grid">
 	<?php
 	$responsive_feature_title = isset( $responsive_options['feature_title'] ) ? $responsive_options['feature_title'] : 'Features';
@@ -226,7 +226,7 @@ if ( 1 == $display_slider ) {
 
 <?php if ( isset( $responsive_options['testimonials'] ) && $responsive_options['testimonials'] == '1' ) { ?>
 <div id="testimonial_div" class="grid col-940">
-<div id="content-outer">
+<div class="content-outer">
 	<?php
 
 		$responsive_testimonial_title = isset( $responsive_options['testimonial_title'] ) ? $responsive_options['testimonial_title'] : 'Testimonial';
@@ -265,7 +265,7 @@ if ( 1 == $display_slider ) {
 
 <?php } ?>
 <?php if ( isset( $responsive_options['team'] ) && $responsive_options['team'] == '1' ) { ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="team_div" class="grid">
 	<?php
 	$responsive_team_title = isset( $responsive_options['team_title'] ) ? $responsive_options['team_title'] : 'Team';

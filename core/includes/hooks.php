@@ -263,10 +263,10 @@ add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_en
  * Responsive_woocommerce_wrapper
  */
 function responsive_woocommerce_wrapper() {
-	if ( is_active_sidebar( 'responsive-woo-shop-sidebar' ) ) {
-		echo '<div id="content-outer">';
-		echo '<div id="content-woocommerce" class="' . esc_attr(implode(' ', responsive_get_content_classes())) . '">';
-	}
+
+	echo '<div id="content-outer">';
+	echo '<div id="content-woocommerce" class="' . esc_attr(implode(' ', responsive_get_content_classes())) . '">';
+
 }
 
 /**

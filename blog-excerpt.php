@@ -27,7 +27,7 @@ Template Name: Blog Excerpt (summary)
 
 get_header();
 ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php

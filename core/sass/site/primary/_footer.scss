@@ -93,9 +93,6 @@
 .full-width-no-box #footer .social-icons li:hover {
 	background-color: rgba(255,255,255,0.4);
 }
-.full-width-no-box #footer .social-icons li a{
-color:#fff;
-}
 /* =Social Icons
 -------------------------------------------------------------- */
 #footer .social-icons {
@@ -104,6 +101,7 @@ color:#fff;
 	padding: 0;
 	margin: 0;
 	text-align: right;
+	width: 100%;
 }
 
 #footer .rss-icon,
@@ -126,11 +124,11 @@ color:#fff;
 	margin: 1px;
 	padding-left: 3px;
 }
-#content-outer .copyright {
+.content-outer .copyright {
 	margin-bottom: 0;
 }
 
-.social_div #content-outer {
+.social_div .content-outer {
 	display: flex;
     align-items: center;
     width: 100%;

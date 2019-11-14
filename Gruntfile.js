@@ -139,6 +139,7 @@ module.exports = function(grunt) {
 					'!**/.git/**',
 					'!Gruntfile.js',
 					'!package.json',
+					'!composer.json',
 					'!.gitignore',
 					'!composer.json',
 					'!phpcs.xml.dist',

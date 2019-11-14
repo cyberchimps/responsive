@@ -81,9 +81,13 @@ function responsive_validate_site_layout( $input ) {
 	/** An array of valid results */
 
 	$valid = array(
-		'default-layout'    => 'Default',
-		'full-width-layout' => 'Full Width Layout',
-		'full-width-no-box' => 'Full Width Without boxes',
+		'boxed'               => 'Boxed',
+		'content-boxed'       => 'Content Boxed',
+		'fullwidth-content'   => 'Fullwith Content',
+		'fullwidth-stretched' => 'Fullwith Stretched',
+		'default-layout'      => 'Default',
+		'full-width-layout'   => 'Full Width Layout',
+		'full-width-no-box'   => 'Full Width Without boxes',
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {

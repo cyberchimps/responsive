@@ -21,6 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 if ( class_exists( 'WooCommerce' ) ) {
+	$layout = responsive_get_layout();
+		if ( 'full-width-page' === $layout )  {
+				return;
+		}
+
 	if (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product()) { ?>
 		<div id="widgets" class="<?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
 			<?php dynamic_sidebar('responsive-woo-shop-sidebar'); ?>
@@ -67,7 +72,7 @@ switch ( $layout ) {
 ?>
 
 <?php responsive_widgets_before(); // above widgets container hook. ?>
-	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+	<aside id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 		<?php responsive_widgets(); // above widgets hook. ?>
 		<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
 			<div class="widget-wrapper" style="display:none;">
@@ -75,5 +80,5 @@ switch ( $layout ) {
 			</div><!-- end of .widget-wrapper -->
 		<?php endif; //end of main-sidebar ?>
 		<?php responsive_widgets_end(); // after widgets hook. ?>
-	</div><!-- end of #widgets -->
+	</aside><!-- end of #widgets -->
 <?php responsive_widgets_after(); // after widgets container hook. ?>

@@ -4,18 +4,25 @@ a {
 	color: #0066cc;
 	font-weight: 400;
 	text-decoration: none;
-}
 
-a:hover,
-a:focus,
-a:active {
-	color: #444444;
-	outline: 0;
-	text-decoration: none;
-}
+	&:hover,
+	&:focus,
+	&:active {
+		color: #444444;
+		text-decoration: none;
+	}
 
-a::-moz-selection {
-	background: #999999;
-	color: #ffffff;
-	text-shadow: none;
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+
+	&::-moz-selection {
+		background: #999999;
+		color: #ffffff;
+		text-shadow: none;
+	}
 }

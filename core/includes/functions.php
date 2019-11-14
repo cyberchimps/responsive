@@ -312,8 +312,8 @@ function responsive_fallback_menu() {
 		'link_after'  => '',
 	);
 	$pages   = wp_page_menu( $args );
-	$prepend = '<div class="main-nav">';
-	$append  = '</div>';
+	$prepend = '<nav id="main-nav" class="main-nav">';
+	$append  = '</nav>';
 	$output  = $prepend . $pages . $append;
 	echo $output;
 }
@@ -327,13 +327,14 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$theme              = wp_get_theme();
 		$responsive         = wp_get_theme( 'responsive' );
 		$responsive_options = responsive_get_options();
-
+		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+		error_log('suffix->>'.$suffix);
 		if ( 1 == $responsive_options['minified_css'] ) {
-			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
-			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.min.css', false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
 		} else {
-			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . '/core/css/style.min.css', false, $responsive['Version'] );
-			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . '/core/css/responsive.min.css', false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
+			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
 		}
 
 		if ( is_rtl() ) {

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="grid-right col-300" role="complementary">
+	<aside id="widgets" class="grid-right col-300" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 		<?php if ( !dynamic_sidebar( 'right-left' ) ) : ?>
 			<div class="widget-wrapper" style="display:none;">
@@ -28,5 +28,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div><!-- end of .widget-wrapper -->
 		<?php endif; //end of right-left ?>
 		<?php responsive_widgets_end(); // after widgets hook ?>
-	</div><!-- end of #widgets -->
+	</aside><!-- end of #widgets -->
 <?php responsive_widgets_after(); // after widgets container hook ?>

@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 get_header(); ?>
-<div id="content-outer">
+
 <div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>

@@ -24,8 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-widgets'] != '1' ) {
 	?>
 	<?php responsive_widgets_before(); // above widgets container hook ?>
-<div id="content-outer">
-	<div id="widgets" class="home-widgets" role="complementary">
+<div class="content-outer">
+	<aside id="widgets" class="home-widgets" role="complementary">
 		<div id="home_widget_1" class="grid col-300">
 		<?php responsive_widgets(); // above widgets hook ?>
 
@@ -34,11 +34,11 @@ if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-w
 
 					<div class="widget-title-home"><h3><?php esc_html_e( 'Fermentum', 'responsive' ); ?></h3></div>
 					<div class="textwidget">
-						<img src="<?php echo get_template_directory_uri() . '/images/box1.jpg'; ?>" alt="responsivepro">	
+						<img src="<?php echo get_template_directory_uri() . '/images/box1.jpg'; ?>" alt="responsivepro">
 					</div>
 					<div class="textwidget"><?php esc_html_e( 'This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
 
-					
+
 				</div><!-- end of .widget-wrapper -->
 			<?php endif; // end of home-widget-1 ?>
 
@@ -80,8 +80,8 @@ if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-w
 
 		<?php responsive_widgets_end(); // after widgets hook ?>
 		</div><!-- end of .col-300 fit -->
-	</div><!-- end of #widgets -->
-</div>	
+	</aside><!-- end of #widgets -->
+</div>
 	<?php responsive_widgets_after(); // after widgets container hook
 }
 ?>

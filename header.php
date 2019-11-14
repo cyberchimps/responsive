@@ -63,17 +63,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
 			wp_nav_menu(
 				array(
-					'container'      => '',
-					'fallback_cb'    => false,
-					'menu_class'     => 'top-menu',
-					'theme_location' => 'top-menu',
+					'container'       => 'nav',
+					'fallback_cb'     => false,
+					'container_class' => 'top-menu-container',
+					'container_id' => 'top-menu-container',
+					'menu_class'      => 'top-menu',
+					'theme_location'  => 'top-menu',
 				)
 			);
 		}
 		?>
 
 		<?php responsive_in_header(); // header hook. ?>
-		<div id="content-outer" class='responsive-header' <?php responsive_schema_markup( 'organization' ); ?>>
+		<div class="content-outer responsive-header" <?php responsive_schema_markup( 'organization' ); ?>>
 			<div id="logo" <?php responsive_schema_markup( 'logo' ); ?>>
 		<?php if ( has_custom_logo() ) { ?>
 					<?php the_custom_logo(); ?>
@@ -114,7 +116,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 		</div><!-- end of #logo -->
-		<?php do_action( 'responsive_header_container' ); ?>
+		<?php
+		get_sidebar( 'top' );
+		wp_nav_menu(
+			array(
+				'container'       => 'div',
+				'container_class' => 'main-nav',
+				'container_id'    => 'main-nav',
+				'fallback_cb'     => 'responsive_fallback_menu',
+				'theme_location'  => 'header-menu',
+			)
+		);
+		if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
+			wp_nav_menu(
+				array(
+					'container'       => 'div',
+					'container_class' => 'sub-nav',
+					'menu_class'      => 'sub-header-menu',
+					'theme_location'  => 'sub-header-menu',
+				)
+			);
+		}
+		do_action( 'responsive_header_container' );
+		?>
 	</div>
 
 		<?php responsive_header_bottom(); // after header content hook. ?>
@@ -131,8 +155,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $responsive_options;
 if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layout' === $responsive_options['site_layout_option'] ) && ( ! ( is_home() || is_front_page() ) ) ) ) {
 	?>
-<div id="content-outer">
+<div class="content-outer">
 <?php } ?>
-	<div id="wrapper" class="clearfix">
+	<div id="wrapper" class="content-outer clearfix">
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <?php responsive_in_wrapper(); // wrapper hook. ?>

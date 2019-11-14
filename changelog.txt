@@ -8,8 +8,18 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/12/19) = Added - Version 3.26.1
+[!] = Fixed fatal error on activation
+
+(11/12/19) = Added - Version 3.25
+[+] = Registered new sidebar for WooCommerce
+[+] = Added WooCommerce shop page layout Options
+[+] = Improved Accessibility
+[+] = Added border color option of mobile menu
+[!] = Fixed mobile menu related bugs
+
 (11/05/19) = Added - Version 3.24
-[+] = Added Rollback functionality of theme
+[+] = Added Rollback functionality for theme
 [+] = Improved gutenberg editor support
 [+] = Added Mobile menu toggle button color option
 [!] = Fixed home page template issue

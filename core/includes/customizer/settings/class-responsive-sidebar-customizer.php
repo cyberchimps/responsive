@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 				'responsive_sidebar_background_color',
 				array(
 					'type'              => 'theme_mod',
-					'default'           => '#f9f9f9',
+					'default'           => '',
 					'sanitize_callback' => 'responsive_sanitize_color',
 					'transport'         => 'refresh',
 				)

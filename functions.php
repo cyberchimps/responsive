@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '3.24' );
+define( 'RESPONSIVE_THEME_VERSION', '3.26.1' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 /**
@@ -72,9 +72,9 @@ function responsive_free_setup() {
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'editor-styles' );
-    add_editor_style( 'core/css/gutenberg-editor.css' );
-    // Gutenberg editor color palette.
-    add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
+	add_editor_style( 'core/css/gutenberg-editor.css' );
+	// Gutenberg editor color palette.
+	add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
@@ -86,9 +86,9 @@ add_filter( 'body_class', 'responsive_add_site_layout_classes' );
  */
 function responsive_add_site_layout_classes( $classes ) {
 	global $responsive_options;
-
+	error_log('responsive_add_site_layout_classes'.print_r($responsive_options['site_layout_option'],1));
 	if ( ! empty( $responsive_options['site_layout_option'] ) ) :
-
+		error_log('==>>'.$responsive_options['site_layout_option']);
 		$classes[] = $responsive_options['site_layout_option'];
 
 	endif;

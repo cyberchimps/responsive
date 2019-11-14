@@ -503,3 +503,144 @@ function slideToggle() {
 	}
 
 } )();
+
+/**
+ * navigation support for dropdown menus and enables TAB key.
+ */
+
+( function () {
+
+	var container = document.getElementById( 'main-nav' );
+	if (container){
+		var menu = container.getElementsByTagName( 'ul' )[0];
+		var links    = menu.getElementsByTagName( 'a' );
+
+		for ( i = 0, len = links.length; i < len; i++ ) {
+			links[i].addEventListener( 'focus', toggleFocusRes, true );
+			links[i].addEventListener( 'blur', toggleFocusRes, true );
+		}
+		function toggleFocusRes(e) {
+		var self = this;
+
+		while ( -1 === self.className.indexOf( 'main-nav' ) ) {
+
+			// On li elements toggle the class .focus.
+			if ( 'li' === self.tagName.toLowerCase() ) {
+
+				if ( -1 !== self.className.indexOf( 'focus' ) ) {
+					self.className = self.className.replace( ' focus', '' );
+
+				} else {
+
+					self.className += ' focus';
+				}
+			}
+			self = self.parentElement;
+			}
+		}
+	}
+} )();
+
+
+
+( function () {
+
+	var container = document.getElementById( 'top-menu-container' );
+	if (container){
+		var menu = container.getElementsByTagName( 'ul' )[0];
+		var links    = menu.getElementsByTagName( 'a' );
+
+			for ( i = 0, len = links.length; i < len; i++ ) {
+				links[i].addEventListener( 'focus', toggleFocusRes, true );
+				links[i].addEventListener( 'blur', toggleFocusRes, true );
+			}
+			function toggleFocusRes(e) {
+			var self = this;
+
+			while ( -1 === self.className.indexOf( 'top-menu-container' ) ) {
+
+				// On li elements toggle the class .focus.
+				if ( 'li' === self.tagName.toLowerCase() ) {
+
+					if ( -1 !== self.className.indexOf( 'focus' ) ) {
+						self.className = self.className.replace( ' focus', '' );
+
+					} else {
+
+						self.className += ' focus';
+					}
+				}
+				self = self.parentElement;
+			}
+		}
+
+	}
+} )();
+
+
+
+( function () {
+
+	var container = document.getElementById( 'sub-nav' );
+	if (container){
+		var menu = container.getElementsByTagName( 'ul' )[0];
+		var links    = menu.getElementsByTagName( 'a' );
+
+			for ( i = 0, len = links.length; i < len; i++ ) {
+				links[i].addEventListener( 'focus', toggleFocusRes, true );
+				links[i].addEventListener( 'blur', toggleFocusRes, true );
+			}
+			function toggleFocusRes(e) {
+			var self = this;
+
+			while ( -1 === self.className.indexOf( 'sub-nav' ) ) {
+
+				// On li elements toggle the class .focus.
+				if ( 'li' === self.tagName.toLowerCase() ) {
+
+					if ( -1 !== self.className.indexOf( 'focus' ) ) {
+						self.className = self.className.replace( ' focus', '' );
+
+					} else {
+
+						self.className += ' focus';
+					}
+				}
+				self = self.parentElement;
+			}
+		}
+	}
+} )();
+
+
+( function () {
+	var container = document.getElementById( 'footer-menu-container' );
+	if (container){
+		var menu = container.getElementsByTagName( 'ul' )[0];
+		var links    = menu.getElementsByTagName( 'a' );
+
+			for ( i = 0, len = links.length; i < len; i++ ) {
+				links[i].addEventListener( 'focus', toggleFocusRes, true );
+				links[i].addEventListener( 'blur', toggleFocusRes, true );
+			}
+			function toggleFocusRes(e) {
+			var self = this;
+
+			while ( -1 === self.className.indexOf( 'footer-menu-container' ) ) {
+
+				// On li elements toggle the class .focus.
+				if ( 'li' === self.tagName.toLowerCase() ) {
+
+					if ( -1 !== self.className.indexOf( 'focus' ) ) {
+						self.className = self.className.replace( ' focus', '' );
+
+					} else {
+
+						self.className += ' focus';
+					}
+				}
+				self = self.parentElement;
+			}
+		}
+	}
+} )();

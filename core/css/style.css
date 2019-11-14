@@ -47,6 +47,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
   line-height: 1;
+  background-color: #f1f1f1;
 }
 
 ol, ul {
@@ -104,7 +105,6 @@ html {
 body {
   -moz-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
-  background: #fff;
   color: #555555;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -119,11 +119,6 @@ body {
   /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit;
   text-decoration: none;
-}
-
-body {
-  background: #fff;
-  /* Fallback for when there is no custom background color defined. */
 }
 
 hr {
@@ -224,7 +219,6 @@ ul {
 }
 
 ol {
-  line-height: 22px;
   list-style-position: outside;
   list-style-type: decimal;
   margin: 0;
@@ -1195,15 +1189,16 @@ a {
   font-weight: 400;
   text-decoration: none;
 }
-
-a:hover,
-a:focus,
-a:active {
+a:hover, a:focus, a:active {
   color: #444444;
-  outline: 0;
   text-decoration: none;
 }
-
+a:focus {
+  outline: thin dotted;
+}
+a:hover, a:active {
+  outline: 0;
+}
 a::-moz-selection {
   background: #999999;
   color: #ffffff;
@@ -1259,6 +1254,7 @@ a::-moz-selection {
   list-style-type: none;
 }
 
+.top-menu li.focus,
 .top-menu li:hover {
   white-space: normal;
   z-index: 10000;
@@ -1269,18 +1265,19 @@ a::-moz-selection {
 }
 
 .top-menu ul {
-  left: 0;
+  left: -999em;
   position: absolute;
   top: 0;
-  visibility: hidden;
   z-index: 10;
 }
 
+.top-menu li.focus > ul,
 .top-menu li:hover > ul {
   top: 100%;
-  visibility: visible;
+  left: auto;
 }
 
+.top-menu li li.focus > ul,
 .top-menu li li:hover > ul {
   left: 100%;
   top: 0;
@@ -1294,7 +1291,6 @@ a::-moz-selection {
   display: block;
   height: 0;
   overflow: hidden;
-  visibility: hidden;
 }
 
 .top-menu,
@@ -1373,6 +1369,7 @@ a::-moz-selection {
   z-index: 5;
 }
 
+.menu li.focus,
 .menu li:hover {
   white-space: normal;
   z-index: 10000;
@@ -1383,18 +1380,19 @@ a::-moz-selection {
 }
 
 .menu ul {
-  left: 0;
+  left: -999em;
   position: absolute;
   top: 0;
-  visibility: hidden;
   z-index: 10;
 }
 
+.menu li.focus > ul,
 .menu li:hover > ul {
   top: 100%;
-  visibility: visible;
+  left: auto;
 }
 
+.menu li li.focus > ul,
 .menu li li:hover > ul {
   left: 100%;
   top: 0;
@@ -1407,7 +1405,6 @@ a::-moz-selection {
   display: block;
   height: 0;
   overflow: hidden;
-  visibility: hidden;
 }
 
 .menu,
@@ -1496,7 +1493,7 @@ ul.menu > li:hover {
   font-weight: 400;
   height: auto;
   line-height: 20px;
-  padding: 5px 10px;
+  padding: 10px;
   text-shadow: none;
   white-space: nowrap;
 }
@@ -1509,8 +1506,9 @@ ul.menu > li:hover {
   filter: none;
 }
 
+.menu li li:focus,
 .menu li li:hover {
-  background: #f5f5f5 !important;
+  background: #f5f5f5;
   filter: none;
 }
 
@@ -1596,6 +1594,7 @@ ul.menu > li:hover {
   z-index: 5;
 }
 
+.sub-header-menu li.focus,
 .sub-header-menu li:hover {
   white-space: normal;
   z-index: 10000;
@@ -1606,18 +1605,19 @@ ul.menu > li:hover {
 }
 
 .sub-header-menu ul {
-  left: 0;
+  left: -999em;
   position: absolute;
   top: 0;
-  visibility: hidden;
   z-index: 10;
 }
 
+.sub-header-menu li.focus > ul,
 .sub-header-menu li:hover > ul {
   top: 100%;
-  visibility: visible;
+  left: auto;
 }
 
+.sub-header-menu li li.focus > ul,
 .sub-header-menu li li:hover > ul {
   left: 100%;
   top: 0;
@@ -1630,7 +1630,6 @@ ul.menu > li:hover {
   display: block;
   height: 0;
   overflow: hidden;
-  visibility: hidden;
 }
 
 .sub-header-menu,
@@ -1663,7 +1662,7 @@ ul.menu > li:hover {
   display: block;
   font-size: 12px;
   font-weight: 400;
-  height: 35px;
+  height: auto;
   line-height: 35px;
   margin: 0;
   padding: 0 0.9em;
@@ -1700,9 +1699,8 @@ ul.menu > li:hover {
   font-size: 12px;
   font-weight: 400;
   height: auto;
-  height: 20px;
   line-height: 20px;
-  padding: 5px 10px;
+  padding: 10px;
   text-shadow: none;
   white-space: nowrap;
 }
@@ -1719,6 +1717,7 @@ ul.menu > li:hover {
   border-top: 0;
 }
 
+.sub-header-menu li li:focus > ul,
 .sub-header-menu li li:hover > ul {
   left: 100%;
   top: 0;
@@ -1792,6 +1791,7 @@ ul.menu > li:hover {
   list-style-type: none;
 }
 
+.footer-menu li.focus,
 .footer-menu li:hover {
   white-space: normal;
   z-index: 10000;
@@ -1802,18 +1802,19 @@ ul.menu > li:hover {
 }
 
 .footer-menu ul {
-  left: 0;
+  left: -999em;
   position: absolute;
   top: 0;
-  visibility: hidden;
   z-index: 10;
 }
 
+.footer-menu li.focus > ul,
 .footer-menu li:hover > ul {
   top: 100%;
-  visibility: visible;
+  left: auto;
 }
 
+.footer-menu li li.focus > ul,
 .footer-menu li li:hover > ul {
   left: 100%;
   top: 0;
@@ -1827,7 +1828,6 @@ ul.menu > li:hover {
   display: block;
   height: 0;
   overflow: hidden;
-  visibility: hidden;
 }
 
 .footer-menu,
@@ -1955,7 +1955,7 @@ ul.menu > li:hover {
   border-bottom: 1px solid #f5f5f5;
 }
 #mobile-fullscreen ul li a:hover {
-  color: #929292;
+  color: #575757;
 }
 #mobile-fullscreen ul li a i,
 #mobile-fullscreen ul li a img {
@@ -2113,7 +2113,7 @@ ul.menu > li:hover {
   border-bottom: 1px solid #f5f5f5;
 }
 #mobile-sidebar ul li a:hover {
-  color: #929292;
+  color: #575757;
 }
 #mobile-sidebar ul li a i,
 #mobile-sidebar ul li a img {
@@ -2191,7 +2191,7 @@ ul.menu > li:hover {
   text-align: left;
 }
 
-.header-logo-center div#content-outer {
+.header-logo-center div.content-outer {
   clear: both;
 }
 
@@ -2238,6 +2238,14 @@ ul.menu > li:hover {
 .pagination {
   display: inline-block;
   width: 100%;
+}
+
+div#responsive_current_menu_item, #responsive_menu_button {
+  line-height: 1.8;
+}
+
+.main-nav.mobile-dropdown-inner {
+  font-style: normal;
 }
 
 /*--------------------------------------------------------------
@@ -2431,8 +2439,6 @@ img.wp-smiley {
 .widget-wrapper {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  background-color: #f9f9f9;
-  border: 1px solid #e5e5e5;
   border-radius: 4px;
   margin: 0 0 20px;
   padding: 20px;
@@ -2446,10 +2452,6 @@ img.wp-smiley {
   width: 75%;
   padding: 0.4em;
   font: inherit;
-}
-
-#widgets {
-  margin-top: 40px;
 }
 
 #widgets a {
@@ -2567,7 +2569,7 @@ img.wp-smiley {
 /*--------------------------------------------------------------
 ## Default layouts of responsive
 --------------------------------------------------------------*/
-body.full-width-layout #content-outer, body.default-layout #content-outer, body.full-width-no-box #content-outer {
+body.full-width-layout .content-outer, body.default-layout .content-outer, body.full-width-no-box .content-outer {
   margin: 0 auto;
   max-width: 960px;
 }
@@ -2588,12 +2590,7 @@ body.full-width-no-box #wrapper {
 }
 
 #menu-header, .menu {
-  max-width: 960px;
   margin: 0 auto;
-}
-
-body.home #wrapper {
-  margin: 0 auto 20px auto;
 }
 
 body.full-width-no-box #wrapper {
@@ -2729,7 +2726,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   border: none;
 }
 
-.full-width-layout #about_div #content-outer {
+.full-width-layout #about_div .content-outer {
   border: 1px solid #e5e5e5;
   -moz-border-radius: 4px;
   background-color: #ffffff;
@@ -2739,7 +2736,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   border-radius: 4px;
 }
 
-.full-width-layout #testimonial_div #content-outer {
+.full-width-layout #testimonial_div .content-outer {
   border: 1px solid #e5e5e5;
   -moz-border-radius: 4px;
   background-color: #ffffff;
@@ -2850,6 +2847,14 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   overflow: hidden;
 }
 
+.boxed #content-blog, .boxed #content, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #content, body.fullwidth-content, body.fullwidth-stretched {
+  background-color: #ffffff;
+}
+
+body.fullwidth-stretched .content-outer {
+  max-width: none;
+}
+
 /*--------------------------------------------------------------
 ## header
 --------------------------------------------------------------*/
@@ -2887,12 +2892,12 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   text-align: center;
 }
 
-.header-logo-right .responsive-header {
+.header-logo-right .responsive-header.content-outer {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
 }
-.header-logo-right #content-outer.responsive-header #logo {
+.header-logo-right .responsive-header #logo {
   width: 30%;
 }
 .header-logo-right .main-nav {
@@ -2906,7 +2911,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   display: flex;
   justify-content: flex-end;
 }
-.header-logo-left #content-outer.responsive-header #logo {
+.header-logo-left .responsive-header #logo {
   width: 30%;
 }
 .header-logo-left .main-nav {
@@ -2932,17 +2937,18 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 /* =Content
 -------------------------------------------------------------- */
 #content {
-  margin-top: 40px;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 #content-full {
   margin-top: 40px;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 #content-blog {
-  margin-top: 40px;
+  padding: 20px;
   margin-bottom: 20px;
 }
 
@@ -3266,28 +3272,25 @@ blockquote p {
 
 /* =Globals
 -------------------------------------------------------------- */
-#container {
+.content-outer {
   margin: 0 auto;
   max-width: 960px;
-  padding: 0px 25px;
 }
 
 #wrapper {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
   border-radius: 4px;
   clear: both;
-  margin: 20px auto 20px auto;
-  padding: 0 20px 20px 20px;
   position: relative;
+}
+#wrapper, #wrapper body.home #wrapper {
+  margin: 20px auto 20px auto;
 }
 
 .front-page #wrapper {
   background-color: transparent;
   border: none;
-  margin: 20px auto 20px auto;
   padding: 0;
 }
 
@@ -4217,16 +4220,33 @@ div .wp-block-cover-text {
 @media only screen and (min-width: 768px) {
   .full-width-layout .grid.col-940 .alignwide,
 .full-width-no-box .grid.col-940 .alignwide {
-    margin: 32px calc(25% - 25vw);
-    max-width: 96vw;
-    width: 96vw;
+    margin: 0 calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
   }
 
   .full-width-layout .grid.col-940 .alignfull,
 .full-width-no-box .grid.col-940 .alignfull {
-    margin: 32px calc(50% - 50vw);
+    margin: 0 calc(50% - 50vw);
     max-width: 100vw;
     width: 100vw;
+  }
+
+  .full-width-layout .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .full-width-layout .grid.col-940 p:not(.alignfull):not(.alignwide),
+.full-width-no-box .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
+.full-width-no-box .grid.col-940 p:not(.alignfull):not(.alignwide) {
+    margin: 0 auto;
+    max-width: 740px;
+    width: auto;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .full-width-layout .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .full-width-layout .grid.col-940 p:not(.alignfull):not(.alignwide),
+.full-width-no-box .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
+.full-width-no-box .grid.col-940 p:not(.alignfull):not(.alignwide) {
+    margin: 0 auto;
+    max-width: 940px;
+    width: auto;
   }
 }
 .entry-content .wp-block-gallery,
@@ -4236,6 +4256,18 @@ div .wp-block-cover-text {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+}
+
+.wp-block-columns .wp-block-column > *:first-child {
+  margin-top: 0 !important;
+}
+
+.wp-block-columns .wp-block-column > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.wp-block-quote {
+  padding: 1em;
 }
 
 /*
@@ -4481,10 +4513,6 @@ table > *, td, tr, th {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-.full-width-no-box #footer .social-icons li a {
-  color: #fff;
-}
-
 /* =Social Icons
 -------------------------------------------------------------- */
 #footer .social-icons {
@@ -4493,6 +4521,7 @@ table > *, td, tr, th {
   padding: 0;
   margin: 0;
   text-align: right;
+  width: 100%;
 }
 
 #footer .rss-icon,
@@ -4516,11 +4545,11 @@ table > *, td, tr, th {
   padding-left: 3px;
 }
 
-#content-outer .copyright {
+.content-outer .copyright {
   margin-bottom: 0;
 }
 
-.social_div #content-outer {
+.social_div .content-outer {
   display: flex;
   align-items: center;
   width: 100%;
@@ -4793,16 +4822,33 @@ div .wp-block-cover-text {
 @media only screen and (min-width: 768px) {
   .full-width-layout .grid.col-940 .alignwide,
 .full-width-no-box .grid.col-940 .alignwide {
-    margin: 32px calc(25% - 25vw);
-    max-width: 96vw;
-    width: 96vw;
+    margin: 0 calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
   }
 
   .full-width-layout .grid.col-940 .alignfull,
 .full-width-no-box .grid.col-940 .alignfull {
-    margin: 32px calc(50% - 50vw);
+    margin: 0 calc(50% - 50vw);
     max-width: 100vw;
     width: 100vw;
+  }
+
+  .full-width-layout .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .full-width-layout .grid.col-940 p:not(.alignfull):not(.alignwide),
+.full-width-no-box .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
+.full-width-no-box .grid.col-940 p:not(.alignfull):not(.alignwide) {
+    margin: 0 auto;
+    max-width: 740px;
+    width: auto;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .full-width-layout .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .full-width-layout .grid.col-940 p:not(.alignfull):not(.alignwide),
+.full-width-no-box .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
+.full-width-no-box .grid.col-940 p:not(.alignfull):not(.alignwide) {
+    margin: 0 auto;
+    max-width: 940px;
+    width: auto;
   }
 }
 .entry-content .wp-block-gallery,
@@ -4812,6 +4858,18 @@ div .wp-block-cover-text {
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+}
+
+.wp-block-columns .wp-block-column > *:first-child {
+  margin-top: 0 !important;
+}
+
+.wp-block-columns .wp-block-column > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.wp-block-quote {
+  padding: 1em;
 }
 
 /*

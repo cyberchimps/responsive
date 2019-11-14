@@ -21,28 +21,26 @@ blockquote p {
 
 /* =Globals
 -------------------------------------------------------------- */
-#container {
+.content-outer {
 	margin: 0 auto;
 	max-width: 960px;
-	padding: 0px 25px;
 }
 
 #wrapper {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
-	background-color: #ffffff;
-	border: 1px solid #e5e5e5;
 	border-radius: 4px;
 	clear: both;
-	margin: 20px auto 20px auto;
-	padding: 0 20px 20px 20px;
+
 	position: relative;
+	&, body.home #wrapper {
+		margin: 20px auto 20px auto;
+	}
 }
 
 .front-page #wrapper {
 	background-color: transparent;
 	border: none;
-	margin: 20px auto 20px auto;
 	padding: 0;
 }
 
@@ -252,7 +250,7 @@ img.attachment-thumbnail {
 
 	body.single.single-post &,
 	body.blog & {
-		margin: 0;	
+		margin: 0;
 	}
 }
 

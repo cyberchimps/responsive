@@ -54,7 +54,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 
 	if ( isset( $responsive_options['contact'] ) && $responsive_options['contact'] == '1' ) { ?>
 				<div class="contact_div grid col-940">
-				<div id="content-outer">
+				<div class="content-outer">
 
 			<?php
 				$responsive_contact_title    = isset( $responsive_options['contact_title'] ) ? $responsive_options['contact_title'] : 'contact';

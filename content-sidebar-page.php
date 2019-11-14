@@ -22,7 +22,7 @@ Template Name:  Content/Sidebar
  */
 
 get_header(); ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="content" class="grid col-620" role="main">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
