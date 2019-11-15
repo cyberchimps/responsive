@@ -623,11 +623,31 @@ if ( ! function_exists( 'responsive_blog_entry_images_size' ) ) {
 
 
 /**
+ * Include Top menu.
+ */
+function responsive_display_top_menu() {
+
+	if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
+		wp_nav_menu(
+			array(
+				'container'       => 'nav',
+				'fallback_cb'     => false,
+				'container_class' => 'top-menu-container',
+				'container_id'    => 'top-menu-container',
+				'menu_class'      => 'top-menu',
+				'theme_location'  => 'top-menu',
+			)
+		);
+	}
+
+}
+
+/**
  * Include menu.
  */
 function responsive_display_menu_outside_container() {
 	get_sidebar( 'top' );
-	?>
+?>
 	<?php
 	wp_nav_menu(
 		array(
@@ -658,8 +678,10 @@ function responsive_display_menu_outside_container() {
  */
 $responsive_header_layout = get_theme_mod( 'header_layout_options', 'default' );
 if ( 'default' === $responsive_header_layout ) {
+	add_action( 'responsive_header_top', 'responsive_display_top_menu' );
 	add_action( 'responsive_header_bottom', 'responsive_display_menu_outside_container' );
 } elseif ( in_array( $responsive_header_layout, array( 'header-logo-left', 'header-logo-right', 'header-logo-center' ), true ) ) {
+	add_action( 'responsive_header_before_logo_container', 'responsive_display_top_menu' );
 	add_action( 'responsive_header_container', 'responsive_display_menu_outside_container' );
 }
 

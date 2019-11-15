@@ -28,30 +28,37 @@
 	float: none;
 	margin: 0;
 	text-align: center;
+	clear: both;
 }
 
 .header-logo-right {
+	& #logo {
+		float: right;
+		text-align: right;
+	}
 
 	& .responsive-header {
-		display: flex;
-		flex-direction: row-reverse;
-		justify-content: flex-end;
-
+		width: 100%;
+	    clear: both;
 	}
 	& #content-outer.responsive-header #logo {
 		width: 30%;
 	}
 	& .main-nav {
 		margin: auto 0;
-		margin-right: 2.1276595745%;
 		margin-left: 0;
-		width: 65.9574468085%;
+		width: 70%;
+		float: left;
+		clear: none;
+	}
+	.top-menu {
+		float: left;
 	}
 }
 .header-logo-left {
 	& .responsive-header {
-		display: flex;
-		justify-content: flex-end;
+		width: 100%;
+		clear: both;
 	}
 	& #content-outer.responsive-header #logo {
 		width: 30% ;
@@ -60,9 +67,15 @@
 		margin: auto 0;
 		margin-left: 0;
 		width: 70%;
+		clear: none;
+		float: right;
 	}
-	.main-nav ul {
-		text-align: right;
+
+	.main-nav{
+		ul {
+			text-align: right;
+			float: right;
+		}
 	}
 	.main-nav ul li {
 		float: none;

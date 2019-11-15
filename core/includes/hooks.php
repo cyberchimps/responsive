@@ -54,6 +54,14 @@ function responsive_header() {
 function responsive_header_top() {
 	do_action( 'responsive_header_top' );
 }
+/**
+ * Just before logo <div id="header">
+ *
+ * @see header.php
+ */
+function responsive_header_before_logo_container() {
+	do_action( 'responsive_header_before_logo_container' );
+}
 
 /**
  * Just after opening <div id="header">

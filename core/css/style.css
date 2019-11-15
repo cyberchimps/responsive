@@ -1581,7 +1581,6 @@ ul.menu > li:hover {
 .sub-nav {
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
-  border-top: none;
   clear: both;
 }
 
@@ -2203,7 +2202,7 @@ ul.menu > li:hover {
   clear: both;
 }
 
-.header-logo-center ul.menu {
+.header-logo-center ul.sub-header-menu, .header-logo-center ul.menu {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -2901,26 +2900,34 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   float: none;
   margin: 0;
   text-align: center;
+  clear: both;
 }
 
+.header-logo-right #logo {
+  float: right;
+  text-align: right;
+}
 .header-logo-right .responsive-header {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+  width: 100%;
+  clear: both;
 }
 .header-logo-right #content-outer.responsive-header #logo {
   width: 30%;
 }
 .header-logo-right .main-nav {
   margin: auto 0;
-  margin-right: 2.1276595745%;
   margin-left: 0;
-  width: 65.9574468085%;
+  width: 70%;
+  float: left;
+  clear: none;
+}
+.header-logo-right .top-menu {
+  float: left;
 }
 
 .header-logo-left .responsive-header {
-  display: flex;
-  justify-content: flex-end;
+  width: 100%;
+  clear: both;
 }
 .header-logo-left #content-outer.responsive-header #logo {
   width: 30%;
@@ -2929,9 +2936,12 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   margin: auto 0;
   margin-left: 0;
   width: 70%;
+  clear: none;
+  float: right;
 }
 .header-logo-left .main-nav ul {
   text-align: right;
+  float: right;
 }
 .header-logo-left .main-nav ul li {
   float: none;

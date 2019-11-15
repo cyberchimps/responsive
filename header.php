@@ -59,23 +59,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php responsive_header_top(); // before header content hook. ?>
 
-		<?php
-		if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
-			wp_nav_menu(
-				array(
-					'container'       => 'nav',
-					'fallback_cb'     => false,
-					'container_class' => 'top-menu-container',
-					'container_id' => 'top-menu-container',
-					'menu_class'      => 'top-menu',
-					'theme_location'  => 'top-menu',
-				)
-			);
-		}
-		?>
-
 		<?php responsive_in_header(); // header hook. ?>
 		<div id="content-outer" class='responsive-header' <?php responsive_schema_markup( 'organization' ); ?>>
+		<?php responsive_header_before_logo_container(); // before logo content hook. ?>
 			<div id="logo" <?php responsive_schema_markup( 'logo' ); ?>>
 		<?php if ( has_custom_logo() ) { ?>
 					<?php the_custom_logo(); ?>
