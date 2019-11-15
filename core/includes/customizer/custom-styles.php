@@ -599,11 +599,6 @@ function responsive_premium_custom_color_styles() {
 		@media (min-width: 768px){
 			.menu li li {
 				background-color:{$menu_background_color};
-				background-image: -webkit-gradient(linear, left top, left bottom, from({$menu_background_color}), to({$menu_background_color_2}));
-				background-image: -webkit-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
-				background-image: -moz-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
-				background-image: -ms-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
-				background-image: -o-linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
 				background-image: linear-gradient(top, {$menu_background_color}, {$menu_background_color_2});
 				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr={$menu_background_color}, endColorstr={$menu_background_color_2});
 			}

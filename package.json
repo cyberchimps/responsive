@@ -23,6 +23,7 @@
   "dependencies": {
     "google-fonts": "^1.0.0",
     "node-sass": "^4.13.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "sass": "^1.23.3"
   }
 }
