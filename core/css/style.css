@@ -2251,7 +2251,7 @@ div#responsive_current_menu_item, #responsive_menu_button {
   line-height: 1.8;
 }
 
-.main-nav.mobile-dropdown-inner {
+#responsive_menu_button {
   font-style: normal;
 }
 
