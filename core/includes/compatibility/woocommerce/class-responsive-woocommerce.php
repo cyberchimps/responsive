@@ -53,6 +53,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			// Register Store Sidebars.
 			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 9 );
 
+			add_action( 'woocommerce_after_shop_loop', array( $this, 'shop_list_grid_view' ), 9 );
+
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
 
 			add_action( 'wp', array( $this, 'single_product_customization' ) );
@@ -310,6 +312,18 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			$classes[] = 'responsive-product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
 			return $classes;
+		}
+
+		function shop_list_grid_view() {
+			if ( 'list' === get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' ) ) {
+			?>
+
+		<script type="text/javascript">
+		jQuery( 'ul.products' ).addClass( "list" );
+		</script>
+
+			<?php
+			}
 		}
 
 		/**

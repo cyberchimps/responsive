@@ -110,3 +110,33 @@ table > *, td, tr, th {
 #widgets ul.product_list_widget {
     padding-left: 0;
 }
+
+ul.products.list li.product {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+	border-bottom: 1px solid #eaeaea;
+	margin-bottom: 1em;
+
+	a.woocommerce-LoopProduct-link {
+		margin: 0 3% 0 0;
+    width: 32%;
+    display: block;
+	}
+
+	.ressponsive-shop-summary-wrap{
+		display: block;
+		width: 65%;
+		text-align: center;
+	}
+
+	a.button.product_type_simple.add_to_cart_button{
+		width: fit-content;
+		display: inline-block;
+	}
+
+	.onsale{
+		right: auto;
+	}
+}

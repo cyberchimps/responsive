@@ -35,6 +35,9 @@ function responsive_premium_custom_color_styles() {
 
 	$background_color = get_theme_mod( 'background_color' );
 
+	$blog_title_color        = get_theme_mod( 'responsive_blog_title_color', '' );
+	$single_post_title_color = get_theme_mod( 'responsive_single_post_title_color', '' );
+
 	// Single Product colors.
 	$product_rating_color     = get_theme_mod( 'responsive_product_rating_color', '#585858' );
 	$product_title_color      = get_theme_mod( 'responsive_product_title_color', '#585858' );
@@ -182,6 +185,11 @@ function responsive_premium_custom_color_styles() {
 
 	// Header Layout.
 	$responsive_header_layout = get_theme_mod( 'header_layout_options', 'default' );
+
+	$image_width       = get_theme_mod( 'responsive_featured_image_width' );
+	$image_height      = get_theme_mod( 'responsive_featured_image_height' );
+	$blog_image_width  = get_theme_mod( 'responsive_blog_featured_image_width' );
+	$blog_image_height = get_theme_mod( 'responsive_blog_featured_image_height' );
 
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
@@ -921,6 +929,36 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $site_description_color ) ) {
 		$custom_css .= ".site-description {
 			color: {$site_description_color};
+		}";
+	}
+	if ( ! empty( $blog_title_color ) ) {
+		$custom_css .= "h2.entry-title.post-title a {
+			color: {$blog_title_color};
+		}";
+	}
+	if ( ! empty( $single_post_title_color ) ) {
+		$custom_css .= "h1.entry-title.post-title {
+			color: {$single_post_title_color};
+		}";
+	}
+	if ( ! empty( $image_width ) ) {
+		$custom_css .= "img.wp-post-image {
+			width: {$image_width}px;
+		}";
+	}
+	if ( ! empty( $image_height ) ) {
+		$custom_css .= "img.wp-post-image {
+			height: {$image_height}px;
+		}";
+	}
+	if ( ! empty( $blog_image_width ) ) {
+		$custom_css .= "#content-archive img.wp-post-image {
+			width: {$blog_image_width}px;
+		}";
+	}
+	if ( ! empty( $blog_image_height ) ) {
+		$custom_css .= "#content-archive img.wp-post-image {
+			height: {$blog_image_height}px;
 		}";
 	}
 

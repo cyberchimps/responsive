@@ -122,6 +122,76 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->add_setting(
+				'responsive_single_post_title_color',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_single_post_title_color',
+					array(
+						'label'    => esc_html__( 'Single Post Title Color', 'responsive' ),
+						'section'  => 'responsive_single_post_section',
+						'settings' => 'responsive_single_post_title_color',
+						'priority' => 10,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_featured_image_width',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_featured_image_height',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_featured_image_width',
+					array(
+						'label'       => __( 'Featured Image Width Size (px)', 'responsive' ),
+						'section'     => 'responsive_single_post_section',
+						'settings'    => 'responsive_featured_image_width',
+						'priority'    => 10,
+						'input_attrs' => array(
+							'placeholder' => __( 'Auto', 'responsive' ),
+							'min'  => 5,
+							'max'  => 1920,
+							'step' => 1,
+						),
+					)
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_featured_image_height',
+					array(
+						'label'       => __( 'Featured Image Height Size (px)', 'responsive' ),
+						'section'     => 'responsive_single_post_section',
+						'settings'    => 'responsive_featured_image_height',
+						'priority'    => 10,
+						'input_attrs' => array(
+							'placeholder' => __( 'Auto', 'responsive' ),
+							'min'  => 5,
+							'max'  => 1920,
+							'step' => 1,
+						),
+					)
+				)
+			);
 			/**
 			 * Section
 			 */
@@ -335,6 +405,76 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'section'  => 'responsive_blog_entries_section',
 						'settings' => 'responsive_container_background_color',
 						'priority' => 10,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_blog_title_color',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_blog_title_color',
+					array(
+						'label'    => esc_html__( 'Blog Page Title Color', 'responsive' ),
+						'section'  => 'responsive_blog_entries_section',
+						'settings' => 'responsive_blog_title_color',
+						'priority' => 10,
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_blog_featured_image_width',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_blog_featured_image_height',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_blog_featured_image_width',
+					array(
+						'label'       => __( 'Featured Image Width Size (px)', 'responsive' ),
+						'section'     => 'responsive_blog_entries_section',
+						'settings'    => 'responsive_blog_featured_image_width',
+						'priority'    => 10,
+						'input_attrs' => array(
+							'placeholder' => __( 'Auto', 'responsive' ),
+							'min'  => 5,
+							'max'  => 1920,
+							'step' => 1,
+						),
+					)
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_blog_featured_image_height',
+					array(
+						'label'       => __( 'Featured Image Height Size (px)', 'responsive' ),
+						'section'     => 'responsive_blog_entries_section',
+						'settings'    => 'responsive_blog_featured_image_height',
+						'priority'    => 10,
+						'input_attrs' => array(
+							'placeholder' => __( 'Auto', 'responsive' ),
+							'min'  => 5,
+							'max'  => 1920,
+							'step' => 1,
+						),
 					)
 				)
 			);

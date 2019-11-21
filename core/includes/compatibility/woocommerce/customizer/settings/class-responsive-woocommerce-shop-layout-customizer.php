@@ -65,6 +65,29 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->add_setting(
+				'responsive_woocommerce_catalog_view',
+				array(
+					'default'           => 'grid',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				'responsive_woocommerce_catalog_view',
+				array(
+					'label'    => __( 'Shop Products Catalog View', 'responsive' ),
+					'section'  => 'responsive_woocommerce_shop_page_section',
+					'settings' => 'responsive_woocommerce_catalog_view',
+					'type'     => 'select',
+					'choices'  => array(
+						'grid' => esc_html__( 'Grid View', 'responsive' ),
+						'list' => esc_html__( 'List View', 'responsive' ),
+					),
+				)
+			);
+
 		}
 
 
