@@ -154,6 +154,8 @@ function responsive_premium_custom_color_styles() {
 	$stt_icon_background_color       = get_theme_mod( 'responsive_scroll_to_top_icon_background_color' );
 	$stt_icon_background_hover_color = get_theme_mod( 'responsive_scroll_to_top_icon_background_hover_color' );
 
+	$header_width = get_theme_mod( 'header_width', 'Content' );
+
 	$header_border_color = get_theme_mod( 'responsive_header_border_color' );
 
 	// Mobile Menu Breakpoint.
@@ -470,6 +472,17 @@ function responsive_premium_custom_color_styles() {
 				padding: {$responsive_header_menu_mobile_top_padding}px {$responsive_header_menu_mobile_right_padding}px {$responsive_header_menu_mobile_bottom_padding}px {$responsive_header_menu_mobile_left_padding}px;
 			}
 		}";
+
+	if ( 'Full' === $header_width ) {
+		$custom_css .= "body.full-width-no-box header div.content-outer,
+		body.full-width-layout header div.content-outer,
+		header div.content-outer {
+			max-width: 100%;
+		}
+		#logo{
+			padding: 0 0.9em;
+		}";
+	}
 
 	if ( ! empty( $responsive_sidebar_width ) ) {
 		$responsive_content_width = 97 - $responsive_sidebar_width;

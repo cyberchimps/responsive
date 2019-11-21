@@ -68,6 +68,29 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					),
 				)
 			);
+			$wp_customize->add_setting(
+				'header_width',
+				array(
+					'default'           => 'Content',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'header_width',
+				array(
+					'label'    => __( 'Header Width', 'responsive' ),
+					'section'  => 'responsive_header_section',
+					'settings' => 'header_width',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_width_choices',
+						array(
+							'Content' => esc_html__( 'Content', 'responsive' ),
+							'Full'    => esc_html__( 'Full', 'responsive' ),
+						)
+					),
+				)
+			);
 			// header border Color.
 			$wp_customize->add_setting(
 				'responsive_header_border_color',
