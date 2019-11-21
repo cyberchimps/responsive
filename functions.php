@@ -86,9 +86,7 @@ add_filter( 'body_class', 'responsive_add_site_layout_classes' );
  */
 function responsive_add_site_layout_classes( $classes ) {
 	global $responsive_options;
-	error_log('responsive_add_site_layout_classes'.print_r($responsive_options['site_layout_option'],1));
 	if ( ! empty( $responsive_options['site_layout_option'] ) ) :
-		error_log('==>>'.$responsive_options['site_layout_option']);
 		$classes[] = $responsive_options['site_layout_option'];
 
 	endif;
@@ -426,21 +424,10 @@ if ( isset( $responsive_options['override_woo'] ) && 1 == $responsive_options['o
 
 
 /**
- *  Enqueue block styles  in editor
- */
-function responsive_block_styles() {
-	wp_enqueue_style( 'mytheme-blocks', get_stylesheet_directory_uri() . '/core/css/gutenberg-blocks.css', array(), '1.0' );
-
-    // Add customizer colors to Gutenberg editor in backend.
-	wp_add_inline_style( 'responsive-gutenberg', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
-}
-add_action( 'enqueue_block_editor_assets', 'responsive_block_styles' );
-
-/**
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
-	wp_enqueue_style( 'mytheme-blocks', get_stylesheet_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+	wp_enqueue_style( 'responsive-blocks', get_stylesheet_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );

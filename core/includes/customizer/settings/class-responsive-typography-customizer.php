@@ -27,6 +27,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 			add_action( 'customize_register', array( $this, 'customizer_options' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'load_fonts' ) );
+			add_action( 'enqueue_block_editor_assets', array( $this, 'load_fonts' ) );
 
 			// CSS output.
 			if ( is_customize_preview() ) {

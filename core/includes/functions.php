@@ -328,7 +328,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$responsive         = wp_get_theme( 'responsive' );
 		$responsive_options = responsive_get_options();
 		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-		error_log('suffix->>'.$suffix);
+
 		if ( 1 == $responsive_options['minified_css'] ) {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
 			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
@@ -532,7 +532,10 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 }
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
+
+if( !class_exists( 'Responsive_Addons_Pro_Public' ) ){
+	add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
+}
 
 function responsive_add_pro_button() {
 	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/responsive-pricing/?utm_source=responsive-theme&utm_medium=upgrade-to-pro&utm_campaign=upgrade-to-responsive-pro' );

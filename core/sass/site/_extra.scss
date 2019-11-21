@@ -31,11 +31,10 @@ blockquote p {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	clear: both;
-
 	position: relative;
 	&, body.home #wrapper {
-		margin: 20px auto 20px auto;
-	}
+        margin: 20px auto 20px auto;
+    }
 }
 
 .front-page #wrapper {

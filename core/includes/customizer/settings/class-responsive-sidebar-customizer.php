@@ -44,6 +44,36 @@ if ( ! class_exists( 'Responsive_Sidebar_Customizer' ) ) :
 					'priority' => 203,
 				)
 			);
+
+			// Sidebar Width.
+			$wp_customize->add_setting(
+				'responsive_sidebar_width',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_number',
+					'transport'         => 'refresh',
+					'default'           => 30,
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_sidebar_width',
+					array(
+						'label'       => esc_html__( 'Sidebar Width (%)', 'responsive' ),
+						'section'     => 'responsive_sidebar_section',
+						'settings'    => 'responsive_sidebar_width',
+						'priority'    => 9,
+						'input_attrs' => array(
+							'min'  => 25,
+							'max'  => 75,
+							'step' => 1,
+						),
+					)
+				)
+			);
+
 			$wp_customize->add_setting(
 				'responsive_sidebar_background_color',
 				array(
