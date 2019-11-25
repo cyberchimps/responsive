@@ -192,13 +192,5 @@ if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 	}
 	?>
 <?php wp_footer(); ?>
-<script type="text/javascript">
-
-// window.addEventListener("scroll", scrollFunction);
-//
-// function scrollFunction() {
-// 	console.log(window.pageYOffset);
-// }
-</script>
 </body>
 </html>
