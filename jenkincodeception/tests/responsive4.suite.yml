@@ -1,0 +1,9 @@
+actor: Responsive4Tester
+modules:
+    enabled:
+        - \Helper\Responsive4
+        - WebDriver:
+            url: 'http://127.0.0.1:8080/responsive524'
+            browser: chrome # 'chrome' or 'firefox'
+            restart: true
+        - Kolyunya\Codeception\Module\MarkupValidator

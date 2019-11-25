@@ -1,4 +1,0 @@
-  Install composer after clone automation test.
- php vendor/bin/codecept run test/responsive/ --steps
- php vendor/bin/codecept run test/theme/ --steps
- php vendor/bin/codecept run test/htmlformatchecker/ --steps

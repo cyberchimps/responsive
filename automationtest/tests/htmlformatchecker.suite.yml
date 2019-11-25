@@ -1,6 +1,0 @@
-class_name: AcceptanceTester
-modules:
-    enabled:
-        - PhpBrowser:
-            url: 'http://localhost:8080/responsive_1'
-        - Kolyunya\Codeception\Module\MarkupValidator
