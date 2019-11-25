@@ -159,6 +159,34 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line-height' => '1.8',
 						),
 					),
+					'page_title'           => array(
+						'label'    => esc_html__( 'Page Title', 'responsive' ),
+						'target'   => '.page .post-title',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '32px',
+							'line-height' => '1.4',
+						),
+					),
+					'blog_entry_title'     => array(
+						'label'    => esc_html__( 'Blog Entry Title', 'oceanwp' ),
+						'target'   => '#content-blog .post .post-entry .entry-title a',
+						'defaults' => array(
+							'font-size'   => '24px',
+							'color'       => '#333333',
+							'line-height' => '1.4',
+						),
+					),
+					'blog_post_title'      => array(
+						'label'    => esc_html__( 'Blog Post Title', 'oceanwp' ),
+						'target'   => '.single-post .entry-title',
+						'defaults' => array(
+							'font-size'      => '34px',
+							'color'          => '#333333',
+							'line-height'    => '1.4',
+							'letter-spacing' => '0.6',
+						),
+					),
 					'post_meta'            => array(
 						'label'    => esc_html__( 'Post Meta', 'responsive' ),
 						'target'   => '.post-meta',
@@ -169,7 +197,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'text-transform' => 'uppercase',
 						),
 					),
-
 				)
 			);
 		}
@@ -574,7 +601,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 * @since 1.0.0
 		 */
 		public function customize_preview_init() {
-			wp_enqueue_script( 'responsive-typography-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/typography-customize-preview.min.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive-typography-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/typography-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 			wp_localize_script(
 				'responsive-typography-customize-preview',
 				'responsive',

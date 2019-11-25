@@ -167,9 +167,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'priority'    => 10,
 						'input_attrs' => array(
 							'placeholder' => __( 'Auto', 'responsive' ),
-							'min'  => 5,
-							'max'  => 1920,
-							'step' => 1,
+							'min'         => 5,
+							'max'         => 1920,
+							'step'        => 1,
 						),
 					)
 				)
@@ -185,9 +185,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'priority'    => 10,
 						'input_attrs' => array(
 							'placeholder' => __( 'Auto', 'responsive' ),
-							'min'  => 5,
-							'max'  => 1920,
-							'step' => 1,
+							'min'         => 5,
+							'max'         => 1920,
+							'step'        => 1,
 						),
 					)
 				)

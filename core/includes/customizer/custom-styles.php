@@ -501,14 +501,14 @@ function responsive_premium_custom_color_styles() {
 		}";
 
 	if ( 'Full' === $header_width ) {
-		$custom_css .= "body.full-width-no-box header div.content-outer,
+		$custom_css .= 'body.full-width-no-box header div.content-outer,
 		body.full-width-layout header div.content-outer,
 		header div.content-outer {
 			max-width: 100%;
 		}
 		#logo{
 			padding: 0 0.9em;
-		}";
+		}';
 	}
 
 	if ( ! empty( $responsive_sidebar_width ) ) {
