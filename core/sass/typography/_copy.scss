@@ -1,6 +1,5 @@
 /* =Margins & Paddings
 -------------------------------------------------------------- */
-p,
 hr,
 dl,
 pre,
@@ -12,7 +11,7 @@ blockquote {
 }
 
 th, td {
-	padding: .8em;
+	padding: .4em;
 }
 
 caption {
@@ -54,10 +53,6 @@ option {
 	padding: 0 .4em;
 }
 
-dt {
-	margin-bottom: .4em;
-	margin-top: .8em;
-}
 
 ul {
 	list-style-type: disc;
@@ -80,4 +75,8 @@ li ol {
 
 form div {
 	margin-bottom: .8em;
+}
+
+p {
+	margin-bottom: 1.6em;
 }

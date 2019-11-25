@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 
 	<?php responsive_entry_top(); ?>
 
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			}
 
-			// Content
+			// Content.
 			if ( 'content' === $element ) {
 
 				get_template_part( 'partials/single/content' );
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p><?php the_author_meta( 'description' ); ?></p>
 			</div><!-- end of #author-meta -->
 
-		<?php endif; // no description, no author's meta ?>
+		<?php endif; // no description, no author's meta. ?>
 
 		<?php
 		wp_link_pages(
@@ -90,4 +90,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php get_template_part( 'post-data', get_post_type() ); ?>
 
 	<?php responsive_entry_bottom(); ?>
-</div><!-- end of #post-<?php the_ID(); ?> -->
+</article><!-- end of #post-<?php the_ID(); ?> -->

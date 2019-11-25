@@ -24,18 +24,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  * display default content
  */
 
-$title = ( is_search() ? sprintf( __( 'Your search for %s did not match any entries.', 'responsive' ), get_search_query() ) : __( '404 &#8212; Fancy meeting you here!', 'responsive' ) );
+$responsive_title = ( is_search() ? sprintf( __( 'Your search for %s did not match any entries.', 'responsive' ), get_search_query() ) : __( '404 &#8212; Fancy meeting you here!', 'responsive' ) );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 	if ( responsivepro_plugin_get_option( '404_title' ) ) {
-		$title = responsivepro_plugin_get_option( '404_title' );
+		$responsive_title = responsivepro_plugin_get_option( '404_title' );
 	}
 }
 
 ?>
 
-	<h1 class="title-404"><?php echo $title; ?></h1>
+	<h1 class="title-404"><?php echo $responsive_title; ?></h1>
 
 <?php
 if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {

@@ -91,7 +91,7 @@ class Responsive_Customizer_Text_Control extends WP_Customize_Control {
 			<span class="customize-control-title">
 				<span>{{{ data.label }}}</span>
 
-				<!-- <ul class="responsive-switchers">
+				<ul class="responsive-switchers">
 					<li class="desktop">
 						<button type="button" class="preview-desktop active" data-device="desktop">
 							<i class="dashicons dashicons-desktop"></i>
@@ -107,7 +107,7 @@ class Responsive_Customizer_Text_Control extends WP_Customize_Control {
 							<i class="dashicons dashicons-smartphone"></i>
 						</button>
 					</li>
-				</ul> -->
+				</ul>
 
 			</span>
 		<# } #>
@@ -121,6 +121,17 @@ class Responsive_Customizer_Text_Control extends WP_Customize_Control {
 				<input type="text" value="{{ data.desktop.value }}" placeholder="<?php esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.desktop.link }}} />
 			</div>
 		<# } #>
+		<# if ( data.tablet ) { #>
+			<div class="tablet control-wrap">
+				<input type="text" value="{{ data.tablet.value }}" placeholder="<?php esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.tablet.link }}} />
+			</div>
+			<# } #>
+
+		<# if ( data.mobile ) { #>
+			<div class="mobile control-wrap">
+				<input type="text" value="{{ data.mobile.value }}" placeholder="<?php esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.mobile.link }}} />
+			</div>
+			<# } #>
 		<?php
 	}
 }

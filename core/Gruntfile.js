@@ -10,17 +10,17 @@ grunt.initConfig({
 		options: {
 			mangle: false
 		},
-		theme_options: {
-			files: [
-				{
-					expand: true,     // Enable dynamic expansion.
-					cwd: 'includes/theme-options/',      // Src matches are relative to this path.
-					src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
-					dest: 'includes/theme-options/',   // Destination path prefix.
-					ext: '.min.js',   // Dest filepaths will have this extension.
-				},
-			]
-		},
+		// theme_options: {
+		// 	files: [
+		// 		{
+		// 			expand: true,     // Enable dynamic expansion.
+		// 			cwd: 'includes/theme-options/',      // Src matches are relative to this path.
+		// 			src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
+		// 			dest: 'includes/theme-options/',   // Destination path prefix.
+		// 			ext: '.min.js',   // Dest filepaths will have this extension.
+		// 		},
+		// 	]
+		// },
 		frontend: {
 			files: [
 				{
@@ -50,30 +50,17 @@ grunt.initConfig({
 				//banner: '/* Theme Name: Responsive Author: CyberChimps.com Version: 1.9.4.9 Text Domain: responsive */'
 			},
 			files: {
-				'css/style.min.css': ['css/style.css', 'css/responsive.css']
+				'css/style.min.css': 'css/style.css',
+				'css/responsive.min.css':  'css/responsive.css'
 			}
 		},
-		upsell: {
-			expand: true,
-			cwd: 'includes/upsell/css/',
-			src: ['*.css', '!*.min.css'],
-			dest: 'includes/upsell/css/',
-			ext: '.min.css'
-		},
-		bootstrap: {
-			expand: true,
-			cwd: 'includes/upsell/bootstrap/css/',
-			src: ['*.css', '!*.min.css'],
-			dest: 'includes/upsell/bootstrap/css/',
-			ext: '.min.css'
-		},
-		theme_options: {
-			expand: true,
-			cwd: 'includes/theme-options/',
-			src: ['*.css', '!*.min.css'],
-			dest: 'includes/theme-options/',
-			ext: '.min.css'
-		}
+		// theme_options: {
+		// 	expand: true,
+		// 	cwd: 'includes/theme-options/',
+		// 	src: ['*.css', '!*.min.css'],
+		// 	dest: 'includes/theme-options/',
+		// 	ext: '.min.css'
+		// }
 	},
 
 	checktextdomain: {

@@ -23,3 +23,5 @@ chromedriver
 .idea
 node_modules/
 package-lock.json
+build/
+core/css/style.min.css

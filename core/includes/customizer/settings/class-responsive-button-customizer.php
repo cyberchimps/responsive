@@ -49,6 +49,12 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 							'color' => '#7db7f0',
 						),
 					),
+					'button-hover-text-color'       => array(
+						'label'    => esc_html__( 'Button hover Text Color', 'responsive' ),
+						'defaults' => array(
+							'color' => '#333333',
+						),
+					),
 					'button-text-color'        => array(
 						'label'    => esc_html__( 'Button Text Color', 'responsive' ),
 						'defaults' => array(
@@ -112,7 +118,7 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 				'responsive_button_section',
 				array(
 					'title'    => esc_html__( 'Buttons', 'responsive' ),
-					'panel'    => 'responsive-theme-options',
+					'panel'    => 'responsive-appearance-options',
 					'priority' => 202,
 				)
 			);

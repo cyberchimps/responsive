@@ -12,9 +12,12 @@
 
 .widget-wrapper select,
 .widget-wrapper input[type="text"],
+.widget-wrapper input[type=search],
 .widget-wrapper input[type="password"],
-.widget-wrapper  input[type="email"] {
+.widget-wrapper input[type="email"] {
 	width: 75%;
+	padding: .4em;
+	font: inherit;
 }
 
 #widgets {
@@ -79,7 +82,7 @@
 }
 
 #widgets ul .children {
-	padding: 0 0 0 10px;
+	padding: 0 0 0 1em;
 }
 
 #widgets .author {

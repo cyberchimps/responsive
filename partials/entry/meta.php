@@ -22,14 +22,7 @@ if ( empty( $sections ) ) {
 <div class="post-meta">
 	<?php
 	foreach ( $sections as $section ) {
-
-		if ( 'author' == $section ) {
-			// echo sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s"><span class="author-gravtar">%4$s</span>%3$s</a></span>',
-			// get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			// sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
-			// esc_attr( get_the_author() ),
-			// get_avatar( get_the_author_meta( 'ID' ), 32)
-			// );
+		if ( 'author' === $section ) {
 			printf(
 				__( '<span class="%3$s"> by </span>%4$s', 'responsive' ),
 				'meta-prep meta-prep-author posted',
@@ -42,7 +35,8 @@ if ( empty( $sections ) ) {
 				),
 				'byline',
 				sprintf(
-					'<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s"><span class="author-gravtar">%4$s</span>%3$s</a></span>',
+					'<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" itemscope itemtype="http://schema.org/Person"><span class="author-gravtar" itemprop="image">%4$s</span><span itemprop="name">%3$s</span></a></span>',
+
 					get_author_posts_url( get_the_author_meta( 'ID' ) ),
 					sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
 					esc_attr( get_the_author() ),
@@ -52,20 +46,11 @@ if ( empty( $sections ) ) {
 		}
 
 		if ( 'date' === $section ) {
-			// printf( __( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
-			// 'meta-prep meta-prep-author posted',
-			// sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
-			// esc_url( get_permalink() ),
-			// esc_attr( get_the_title() ),
-			// esc_html( get_the_date('c')),
-			// esc_html( get_the_date() )
-			// )
-			// );
 				printf(
-					__( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s', 'responsive' ),
+					__( '<i class="fa fa-calendar" aria-hidden="true"></i><span>Posted on </span><span class="%1$s" itemprop="datePublished">%2$s</span>', 'responsive' ),
 					'meta-prep meta-prep-author posted',
 					sprintf(
-						'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
+						'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
 						esc_url( get_permalink() ),
 						esc_attr( get_the_title() ),
 						esc_html( get_the_date( 'c' ) ),

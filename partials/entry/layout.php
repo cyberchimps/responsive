@@ -5,22 +5,30 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Get post format
+// Get post format.
 $format = get_post_format();
 
-	// Add classes to the blog entry post class
-	// $classes = responsive_post_entry_classes(); ?>
-	<?php // responsive_blog_entry_elements_positioning() ?>
-	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+global $responsive_show_excerpt;
+$responsive_show_excerpt = get_theme_mod( 'responsive_show_excerpt' );
+if ( 'excerpt' === $responsive_show_excerpt ) {
+	add_filter( 'excerpt_length', 'responsive_custom_excerpt_length' );
+	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
+	add_filter( 'responsive_post_read_more_class', 'responsive_read_more_class' );
+} elseif ( 'content' === $responsive_show_excerpt ) {
+	add_filter( 'the_content_more_link', 'responsive_modify_read_more_link' );
+	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
+	add_filter( 'responsive_post_read_more_class', 'responsive_read_more_class' );
+}
+?>
+	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 		<?php responsive_entry_top(); ?>
 		<div class="post-entry">
 
-		<?php // get_template_part( 'post-meta', get_post_type() ); ?>
 
 			<?php
 			// Get posts format.
@@ -36,8 +44,6 @@ $format = get_post_format();
 				if ( 'featured_image' === $element
 					&& ! post_password_required() ) {
 						get_template_part( 'partials/entry/media/blog-entry', $format );
-					// get_template_part( 'partials/entry/thumbnail' );
-
 				}
 
 				// Title.
@@ -54,7 +60,7 @@ $format = get_post_format();
 
 				}
 
-				// Content
+				// Content.
 				if ( 'content' === $element ) {
 
 					get_template_part( 'partials/entry/content' );
@@ -62,10 +68,6 @@ $format = get_post_format();
 				}
 			}
 			?>
-
-
-
-			<?php // the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 
 			<?php
 			wp_link_pages(

@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 get_header(); ?>
-
 <div id="content-outer">
 <div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
 
@@ -43,11 +42,9 @@ get_header(); ?>
 
 			<?php
 		endwhile;
-
 		get_template_part( 'loop-nav', get_post_type() );
 
 		else :
-
 			get_template_part( 'loop-no-posts', get_post_type() );
 
 	endif;

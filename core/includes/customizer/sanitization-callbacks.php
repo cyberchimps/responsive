@@ -143,7 +143,6 @@ function responsive_sanitize_select( $input, $setting ) {
 
 	// Get list of choices from the control associated with the setting.
 	$choices = $setting->manager->get_control( $setting->id )->choices;
-
 	// If the input is a valid key, return it; otherwise, return the default.
 	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 }
@@ -201,7 +200,7 @@ if ( ! function_exists( 'responsive_sanitize_background' ) ) {
 	 */
 	function responsive_sanitize_background( $input ) {
 
-		$output = apply_filters( 'cyberchimps_sanitize_hex', $input );
+		$output = apply_filters( 'responsive_sanitize_hex', $input );
 
 		return $output;
 	}
@@ -220,9 +219,48 @@ if ( ! function_exists( 'responsive_checkbox_validate' ) ) {
 	 * @return 1 or 0
 	 */
 	function responsive_checkbox_validate( $input ) {
-
-		$input = ( $input == 1 ? 1 : 0 );
-
+		$input = ( 1 == $input ? 1 : 0 );
 		return $input;
+	}
+}
+
+/**
+ * Check if responsive_check_sidebar_menu_type function is present.
+ */
+if ( ! function_exists( 'responsive_check_sidebar_menu_type' ) ) {
+	/**
+	 * Checks if mobile menu type is sidebar
+	 *
+	 * @return boolean True/value values.
+	 */
+	function responsive_check_sidebar_menu_type() {
+		$responsive_mobile_menu_style = get_theme_mod( 'mobile_menu_style' );
+
+		if ( 'sidebar' === $responsive_mobile_menu_style ) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+}
+/**
+ * Check if responsive_check_sidebar_menu_type function is present.
+ */
+if ( ! function_exists( 'responsive_check_submenu_divider' ) ) {
+	/**
+	 * Checks submenu divider is present or not
+	 *
+	 * @return boolean True/value values.
+	 */
+	function responsive_check_submenu_divider() {
+		$responsive_submenu_divider = get_theme_mod( 'responsive_submenu_divider' );
+
+		if ( '1' === $responsive_submenu_divider ) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 }

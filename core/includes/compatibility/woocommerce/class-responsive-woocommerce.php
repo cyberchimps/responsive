@@ -50,6 +50,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
 
+			// Register Store Sidebars.
+			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 9 );
+
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
 
 			add_action( 'wp', array( $this, 'single_product_customization' ) );
@@ -307,6 +310,23 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			$classes[] = 'responsive-product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
 			return $classes;
+		}
+
+		/**
+		 * Store widgets init.
+		 */
+		function store_widgets_init() {
+			register_sidebar(
+				array(
+					'name'          => __( 'WooCommerce Sidebar', 'responsive' ),
+					'id'            => 'responsive-woo-shop-sidebar',
+					'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'responsive' ),
+					'before_title'  => '<div class="widget-title"><h3>',
+					'after_title'   => '</h3></div>',
+					'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+					'after_widget'  => '</div>',
+				)
+			);
 		}
 
 	}

@@ -23,9 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
-
 get_header(); ?>
-<?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?>
+<?php require_once ABSPATH . 'wp-admin/includes/plugin.php'; ?>
 <div id="content-outer">
 <div id="content-archive" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
@@ -55,7 +54,7 @@ get_header(); ?>
 						?>
 					<?php } else { ?>
 						<?php if ( has_post_thumbnail() ) : ?>
-						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" <?php responsive_schema_markup( 'url' ); ?>>
 							<?php the_post_thumbnail( 'thumbnail', array( 'class' => 'alignleft' ) ); ?>
 						</a>
 					<?php endif; ?>

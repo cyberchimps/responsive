@@ -43,18 +43,18 @@ $caption = get_the_post_thumbnail_caption(); ?>
 
 <div class="thumbnail">
 
-	<a href="<?php the_permalink(); ?>" class="thumbnail-link">
+	<a href="<?php the_permalink(); ?>" class="thumbnail-link" <?php responsive_schema_markup( 'image' ); ?>>
 
 		<?php
-		// Image width
+		// Image width.
 		$img_width  = apply_filters( 'responsive_blog_entry_image_width', absint( get_theme_mod( 'responsive_blog_entry_image_width' ) ) );
 		$img_height = apply_filters( 'responsive_blog_entry_image_height', absint( get_theme_mod( 'responsive_blog_entry_image_height' ) ) );
 
-		// Images attr
+		// Images attr.
 		$img_id  = get_post_thumbnail_id( get_the_ID(), 'full' );
 		$img_url = wp_get_attachment_image_src( $img_id, 'full', true );
 
-		// Display post thumbnail
+		// Display post thumbnail.
 		the_post_thumbnail( $size, $img_args );
 
 

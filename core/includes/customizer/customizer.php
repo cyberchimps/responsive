@@ -48,8 +48,6 @@ function responsive_customize_register( $wp_customize ) {
 		);
 	}
 
-	$wp_customize->get_section( 'colors' )->title = __( 'Background Color', 'responsive' );
-
 }
 add_action( 'customize_register', 'responsive_customize_register' );
 
@@ -205,7 +203,7 @@ function responsive_validate_site_footer_layout( $input ) {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function responsive_customize_preview_js() {
-	wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+	wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 }
 add_action( 'customize_preview_init', 'responsive_customize_preview_js' );
 
@@ -215,9 +213,22 @@ add_action( 'customize_preview_init', 'responsive_customize_preview_js' );
 function responsive_register_options() {
 	// Var.
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
+	require get_template_directory() . '/admin/class-responsive-plugin-install-helper.php';
+
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-abstract-main.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-register-customizer-control.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-panel.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-control.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-partial.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-section.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php';
 
 	// Customizer files array.
 	$files = array(
+		'class-responsive-panel',
+		'class-responsive-header-customizer',
+		'class-responsive-page-customizer',
+		'class-responsive-blog-customizer',
 		'class-responsive-button-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
@@ -228,6 +239,9 @@ function responsive_register_options() {
 		'class-responsive-footer-copyrights-customizer',
 		'class-responsive-menu-customizer',
 		'class-responsive-sidebar-customizer',
+		'class-responsive-footer-color-customizer',
+		'class-responsive-scrolltotop-customizer',
+		'class-responsive-customizer-notices',
 	);
 
 	foreach ( $files as $key ) {
@@ -260,7 +274,12 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'text/class-responsive-customizer-text-control.php';
 	require_once $dir . 'typography/class-responsive-customizer-typography-control.php';
 	require_once $dir . 'dimensions/class-responsive-customizer-dimensions-control.php';
-
+	require_once $dir . 'heading/class-responsive-customizer-heading-control.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-main-notice-section.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-docs.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-upsell.php';
 	// Register JS control types.
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_Control' );
@@ -269,6 +288,8 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Text_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Typography_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Dimensions_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Heading_Control' );
 
 }
 add_action( 'customize_register', 'responsive_custom_controls' );
@@ -288,3 +309,42 @@ function responsive_customize_preview_init() {
 	wp_enqueue_script( 'responsive-customize-preview', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 }
 add_action( 'customize_preview_init', 'responsive_customize_preview_init' );
+
+/**
+ * Custom styles and js for customizer
+ */
+function responsive_custom_customize_enqueue() {
+	wp_enqueue_style( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/css/general.min.css', RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/js/general.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'responsive_custom_customize_enqueue' );
+
+/**
+ * Tooltip script
+ *
+ * @since 3.23
+ * @return void
+ */
+function responsive_tooltip_script() {
+	$output  = '<script type="text/javascript">';
+	$output .= '
+	        	wp.customize.bind(\'ready\', function() {
+	            	wp.customize.control.each(function(ctrl, i) {
+	                	var desc = ctrl.container.find(".customize-control-description");
+	                	if( desc.length) {
+	                    	var title 		= ctrl.container.find(".customize-control-title");
+	                    	var li_wrapper 	= desc.closest("li");
+	                    	var tooltip = desc.text().replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+	                    			return \'&#\'+i.charCodeAt(0)+\';\';
+								});
+	                    	desc.remove();
+	                    	li_wrapper.append(" <i class=\'res-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+	                	}
+	            	});
+	        	});';
+
+	$output .= '</script>';
+
+	echo $output;
+}
+add_action( 'customize_controls_print_scripts',  'responsive_tooltip_script'  );

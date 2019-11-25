@@ -25,10 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 $responsive_options = responsive_get_options();
 
-/**
- * Add plugin automation file
- */
-require_once dirname( __FILE__ ) . '/classes/class-tgm-plugin-activation.php';
 /** Function to load controls */
 function responsive_load_customize_controls() {
 
@@ -40,7 +36,6 @@ add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
  * Hook options
  */
 add_action( 'admin_init', 'responsive_theme_options_init' );
-add_action( 'admin_menu', 'responsive_theme_options_add_page' );
 
 /**
  * Retrieve Theme option settings
@@ -196,9 +191,8 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 */
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );
-    	add_theme_support( 'wc-product-gallery-lightbox' );
-    	add_theme_support( 'wc-product-gallery-slider' );
-
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
 
 		/**
 		 * This feature enables custom-menus support for a theme.
@@ -219,18 +213,18 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		add_theme_support(
 			'custom-header',
 			array(
-				//Header text display default
+				// Header text display default.
 				'header-text'         => false,
-				//Header image flex width
+				// Header image flex width.
 				'flex-width'          => true,
-				//Header image width (in pixels)
+				// Header image width (in pixels).
 				'width'               => 300,
-				//Header image flex height
+				// Header image flex height.
 				'flex-height'         => true,
-				//Header image height (in pixels)
+				// Header image height (in pixels).
 				'height'              => 100,
-				//Admin header style callback
-				'admin-head-callback' => 'responsive_admin_header_style'
+				// Admin header style callback.
+				'admin-head-callback' => 'responsive_admin_header_style',
 			)
 		);
 		/**
@@ -318,8 +312,8 @@ function responsive_fallback_menu() {
 		'link_after'  => '',
 	);
 	$pages   = wp_page_menu( $args );
-	$prepend = '<div class="main-nav">';
-	$append  = '</div>';
+	$prepend = '<nav id="main-nav" class="main-nav">';
+	$append  = '</nav>';
 	$output  = $prepend . $pages . $append;
 	echo $output;
 }
@@ -355,6 +349,9 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$social_array = array( 'res_twitter', 'res_facebook', 'res_linkedin', 'res_youtube', 'res_googleplus', 'res_rss', 'res_printerest', 'res_stumble', 'res_vimeo', 'res_yelp', 'res_foursquare', 'res_email_uid' );
 
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
+
+		// Add customizer colors to the gutenberg blocks on front end.
+		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
@@ -371,10 +368,11 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 		// JS at the bottom for fast page loading.
 		// except for Modernizr which enables HTML5 elements & feature detects.
-		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array( 'jquery' ), '2.6.1', false );
-		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array( 'jquery' ), '1.2.6', true );
-		if ( ! wp_script_is( 'tribe-placeholder' ) ) {
-			wp_enqueue_script( 'jquery-placeholder', $template_directory_uri . '/core/' . $directory . '/jquery.placeholder' . $suffix . '.js', array( 'jquery' ), '2.0.7', true );
+		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, false );
+		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		wp_localize_script( 'responsive-scripts', 'responsives', apply_filters( 'responsive_js_localize', array() ) );
+		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
+			wp_enqueue_script( 'responsive-scroll', $template_directory_uri . '/core/' . $directory . '/scroll-to-top' . $suffix . '.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 		}
 	}
 }
@@ -533,10 +531,13 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 }
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
+
+if( !class_exists( 'Responsive_Addons_Pro_Public' ) ){
+	add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
+}
 
 function responsive_add_pro_button() {
-	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/store/responsivepro/' );
+	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/responsive-pricing/?utm_source=responsive-theme&utm_medium=upgrade-to-pro&utm_campaign=upgrade-to-responsive-pro' );
 	?>
 <script type="text/javascript">
 		jQuery( document ).ready( function( $ ) {
@@ -568,7 +569,7 @@ function responsive_add_pro_button() {
 					word-break: break-all;
 					padding-right: 120px;
 		}
-		 .wp-full-overlay-sidebar-content #customize-info {background-color: #fff;}
+		.wp-full-overlay-sidebar-content #customize-info {background-color: #fff;}
 
 	</style>
 	<?php

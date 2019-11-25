@@ -29,7 +29,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!--[if IE 9 ]>
 	<html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
 	<!--[if gt IE 9]><!-->
-<html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+
+<html class="no-js" <?php language_attributes(); ?> > <!--<![endif]-->
+
 	<head>
 
 		<meta charset="<?php bloginfo( 'charset' ); ?>"/>
@@ -41,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php wp_head(); ?>
 	</head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> <?php responsive_schema_markup( 'body' ); ?> >
 
 <?php responsive_container(); // before container hook. ?>
 
@@ -52,107 +54,72 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<a class="skip-link screen-reader-text focusable" href="#content"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
 	<div id="header_section">
-	<div id="header" role="banner">
+		<?php $header_layout = get_theme_mod( 'header_layout_options', 'default' ); ?>
+	<header id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' <?php responsive_schema_markup( 'header' ); ?> >
 
 		<?php responsive_header_top(); // before header content hook. ?>
 
-		<?php
-		if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
-			wp_nav_menu(
-				array(
-					'container'      => '',
-					'fallback_cb'    => false,
-					'menu_class'     => 'top-menu',
-					'theme_location' => 'top-menu',
-				)
-			);
-		}
-		?>
-
 		<?php responsive_in_header(); // header hook. ?>
-		<div id="content-outer">
-			<div id="logo">
+		<div id="content-outer" class='responsive-header' <?php responsive_schema_markup( 'organization' ); ?>>
+		<?php responsive_header_before_logo_container(); // before logo content hook. ?>
+			<div id="logo" <?php responsive_schema_markup( 'logo' ); ?>>
 		<?php if ( has_custom_logo() ) { ?>
 					<?php the_custom_logo(); ?>
 					<?php
 					global $responsive_options;
 					$responsive_options = responsive_get_options();
 					if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
-						<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+						<span class="site-name" <?php responsive_schema_markup( 'site_title' ); ?>><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?> ><?php bloginfo( 'name' ); ?></a></span>
 					<?php
 					}
 					if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
 
-						<span class="site-description"><?php bloginfo( 'description' ); ?></span>
+						<span class="site-description" <?php responsive_schema_markup( 'tagline' ); ?>><?php bloginfo( 'description' ); ?></span>
 						<?php
 					}
 					?>
 		<?php } elseif ( has_header_image() ) {
 			?>
 
-			<a href="<?php echo esc_url(home_url( '/' )); ?>"><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>"/></a>
+			<a href="<?php echo esc_url(home_url( '/' )); ?>" <?php responsive_schema_markup( 'url' ); ?>><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>" <?php responsive_schema_markup( 'image' ); ?> /></a>
 
-	<?php } // Header image was removed .
-	 else {
-			global $responsive_options;
-			$responsive_options = responsive_get_options();
-			if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
-				<span class="site-name"><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-			<?php
-			}
-			if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
+	<?php
+} else { // Header image was removed.
+	global $responsive_options;
+	$responsive_options = responsive_get_options();
+	if ( empty( get_theme_mod( 'res_hide_site_title' ) ) ) {
+		?>
+		<span class="site-name" <?php responsive_schema_markup( 'site_title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
+		<?php
+	}
+	if ( empty( get_theme_mod( 'res_hide_tagline' ) ) ) {
+		?>
 
-				<span class="site-description"><?php bloginfo( 'description' ); ?></span>
-				<?php
-			}
-		}
-			?>
+		<span class="site-description" <?php responsive_schema_markup( 'tagline' ); ?>><?php bloginfo( 'description' ); ?></span>
+		<?php
+	}
+}
+?>
 
 		</div><!-- end of #logo -->
+		<?php do_action( 'responsive_header_container' ); ?>
 	</div>
-
-
-
-
-		<?php get_sidebar( 'top' ); ?>
-		<?php
-		wp_nav_menu(
-			array(
-				'container'       => 'div',
-				'container_class' => 'main-nav',
-				'fallback_cb'     => 'responsive_fallback_menu',
-				'theme_location'  => 'header-menu',
-			)
-		);
-		?>
-
-		<?php
-		if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
-			wp_nav_menu(
-				array(
-					'container'       => 'div',
-					'container_class' => 'sub-nav',
-					'menu_class'      => 'sub-header-menu',
-					'theme_location'  => 'sub-header-menu',
-				)
-			);
-		}
-		?>
 
 		<?php responsive_header_bottom(); // after header content hook. ?>
 
-	</div><!-- end of #header -->
+	</header><!-- end of #header -->
 	</div>
 <?php responsive_header_end(); // after header container hook. ?>
 
 <?php responsive_wrapper(); // before wrapper container hook. ?>
 
-    <?php global $responsive_blog_layout_columns; ?>
+	<?php global $responsive_blog_layout_columns; ?>
 
 <?php
-if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layout' === $responsive_options['site_layout_option'] ) && ( ! ( is_home() || is_front_page() ) ) ) || in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) {
+global $responsive_options;
+if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layout' === $responsive_options['site_layout_option'] ) && ( ! ( is_home() || is_front_page() ) ) ) ) {
 	?>
-<div id="content-outer" >
+<div id="content-outer">
 <?php } ?>
 	<div id="wrapper" class="clearfix">
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>

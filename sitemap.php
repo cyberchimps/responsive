@@ -49,9 +49,9 @@ Template Name: Sitemap
 							<div class="widget-title"><h3><?php esc_html_e( 'Latest Posts', 'responsive' ); ?></h3></div>
 							<ul>
 							<?php
-							$archive_query = new WP_Query( 'posts_per_page=-1' );
-							while ( $archive_query->have_posts() ) :
-								$archive_query->the_post();
+							$responsive_archive_query = new WP_Query( 'posts_per_page=-1' );
+							while ( $responsive_archive_query->have_posts() ) :
+								$responsive_archive_query->the_post();
 								?>
 									<li>
 										<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( __( 'Permanent Link to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>

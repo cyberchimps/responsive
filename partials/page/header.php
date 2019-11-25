@@ -5,14 +5,17 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
 
 <?php do_action( 'responsive_before_blog_entry_title' ); ?>
+<?php $title = get_the_title();
+	if ( !empty($title) ){?>
+	<h1 class="entry-title post-title" itemprop="headline"><?php the_title(); ?></h1>
+	<?php } ?>
 
-<h2 class="entry-title post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 
 <?php do_action( 'responsive_after_blog_entry_title' ); ?>

@@ -31,7 +31,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			// CSS output.
 			if ( is_customize_preview() ) {
 				add_action( 'customize_preview_init', array( $this, 'customize_preview_init' ) );
-				add_action( 'wp_head', array( $this, 'live_preview_styles' ), 999 );
+				add_action( 'wp_head', array( $this, 'live_preview_styles' ), 9 );
 			} else {
 				add_filter( 'responsive_head_css', array( $this, 'head_css' ), 99 );
 			}
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			return apply_filters(
 				'responsive_typography_settings',
 				array(
-					'body'     => array(
+					'body'                 => array(
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => 'body',
 						'defaults' => array(
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'text-transform' => 'inherit',
 						),
 					),
-					'headings' => array(
+					'headings'             => array(
 						'label'    => esc_html__( 'All Headings', 'responsive' ),
 						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.entry-title,.sidebar-box .widget-title',
 						'exclude'  => array( 'font-size' ),
@@ -71,16 +71,98 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'text-transform' => 'inherit',
 						),
 					),
+					'heading_h1'           => array(
+						'label'    => esc_html__( 'Heading 1 (H1)', 'responsive' ),
+						'target'   => 'h1',
+						'defaults' => array(
+							'font-size'      => '2.625em',
+							'color'          => '#555555',
+							'line-height'    => '1.4',
+							'text-transform' => 'inherit',
+						),
+					),
+					'heading_h2'           => array(
+						'label'    => esc_html__( 'Heading 2 (H2)', 'responsive' ),
+						'target'   => 'h2',
+						'defaults' => array(
+							'font-size'      => '2.250em',
+							'color'          => '#555555',
+							'line-height'    => '1.4',
+							'text-transform' => 'inherit',
+						),
+					),
+					'heading_h3'           => array(
+						'label'    => esc_html__( 'Heading 3 (H3)', 'responsive' ),
+						'target'   => 'h3',
+						'defaults' => array(
+							'font-size'      => '1.875em',
+							'color'          => '#555555',
+							'line-height'    => '1.4',
+							'text-transform' => 'inherit',
+						),
+					),
+					'heading_h4'           => array(
+						'label'    => esc_html__( 'Heading 4 (H4)', 'responsive' ),
+						'target'   => 'h4',
+						'defaults' => array(
+							'font-size'      => '1.500em',
+							'color'          => '#555555',
+							'line-height'    => '1.4',
+							'text-transform' => 'inherit',
+						),
+					),
+					'heading_h5'           => array(
+						'label'    => esc_html__( 'Heading 5 (H5)', 'responsive' ),
+						'target'   => 'h5',
+						'defaults' => array(
+							'font-size'      => '1.125em',
+							'color'          => '#555555',
+							'line-height'    => '1.4',
+							'text-transform' => 'inherit',
+						),
+					),
+					'heading_h6'           => array(
+						'label'    => esc_html__( 'Heading 6 (H6)', 'responsive' ),
+						'target'   => 'h6',
+						'defaults' => array(
+							'font-size'   => '1.000em',
+							'color'       => '#555555',
+							'line-height' => '1.4',
+						),
+					),
+					'menu'                 => array(
+						'label'    => esc_html__( 'Main Menu', 'responsive' ),
+						'target'   => '.main-nav .menu > li > a, .main-nav .menu .sub-menu > li > a',
+						'exclude'  => array( 'font-color', 'line-height' ),
+						'defaults' => array(
+							'font-size'      => '13px',
+							'letter-spacing' => '0.6',
+						),
+					),
+					'menu_dropdown'        => array(
+						'label'    => esc_html__( 'Main Menu: Dropdowns', 'responsive' ),
+						'target'   => '.menu li li a, .main-nav ul li li a',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'      => '12px',
+							'line-height'    => '1.2',
+							'letter-spacing' => '0.6',
+						),
+					),
+					'mobile_menu_dropdown' => array(
+						'label'    => esc_html__( 'Mobile Menu', 'responsive' ),
+						'target'   => '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '15px',
+							'line-height' => '1.8',
+						),
+					),
+
 				)
 			);
-
 		}
 
-		/**
-		 * Customizer options
-		 *
-		 * @since 1.0.0
-		 */
 		/**
 		 * Customizer options
 		 *
@@ -100,8 +182,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			$wp_customize->add_panel(
 				'responsive_typography_panel',
 				array(
-					'title'    => esc_html__( 'Typography', 'responsive' ),
-					'priority' => 22,
+					'title'    => esc_html__( 'General Typography', 'responsive' ),
+					'priority' => 16,
 				)
 			);
 
@@ -114,7 +196,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				$label              = ! empty( $array['label'] ) ? $array['label'] : null;
 				$exclude_attributes = ! empty( $array['exclude'] ) ? $array['exclude'] : false;
 				$active_callback    = isset( $array['active_callback'] ) ? $array['active_callback'] : null;
-				$transport          = 'refresh';
+				$transport          = 'postMessage';
 
 				// Get attributes.
 				if ( ! empty( $array['attributes'] ) ) {
@@ -301,13 +383,14 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					 */
 					if ( in_array( 'font-size', $attributes, true ) ) {
 
+						$default = ! empty( $array['defaults']['font-size'] ) ? $array['defaults']['font-size'] : NULL;
 						$wp_customize->add_setting(
 							$element . '_typography[font-size]',
 							array(
 								'type'              => 'theme_mod',
 								'sanitize_callback' => 'sanitize_text_field',
 								'transport'         => $transport,
-								'default'           => '14px',
+								'default'           => $default,
 							)
 						);
 
@@ -456,7 +539,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							)
 						);
 						$wp_customize->add_control(
-							new Responsive_Customizer_Color_Control(
+							new WP_Customize_Color_Control(
 								$wp_customize,
 								$element . '_typography[color]',
 								array(
@@ -531,6 +614,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size',
 						'line-height',
 						'letter-spacing',
+						'color',
 
 					);
 				}
@@ -627,7 +711,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 				// Front-end inline CSS.
 				if ( $add_css && 'css' === $return ) {
-					$css .= $target . '{' . $add_css . '}';
+					if ( '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown #main-nav.mobile-dropdown-inner .menu > li > a' === $target ) {
+						$css .= '@media (max-width: 480px){' . $target . '{' . $add_css . '}}';
+					} else {
+						$css .= $target . '{' . $add_css . '}';
+					}
 				}
 
 				// Front-end inline tablet CSS.
@@ -640,7 +728,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					$css .= '@media (max-width: 480px){' . $target . '{' . $mobile_css . '}}';
 				}
 			}
-
 			// Return CSS.
 			if ( 'css' === $return && ! empty( $css ) ) {
 				$css = '/* Typography CSS */' . $css;
@@ -666,7 +753,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 * @since 1.0.0
 		 */
 		public function head_css( $output ) {
-
 			// Get CSS.
 			$typography_css = self::loop( 'css' );
 
@@ -674,7 +760,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			if ( $typography_css ) {
 				$output .= $typography_css;
 			}
-
 			// Return output css.
 			return $output;
 
@@ -688,11 +773,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		public function live_preview_styles() {
 
 			$live_preview_styles = self::loop( 'preview_styles' );
-
 			if ( $live_preview_styles ) {
 				foreach ( $live_preview_styles as $key => $val ) {
 					if ( ! empty( $val ) ) {
-						echo '<style class="' . esc_html( $key ) . '"> ' . esc_html( $val ) . '</style>';
+						echo '<style class="' . esc_html( $key ) . '"> ' . ( $val ) . '</style>';
 					}
 				}
 			}

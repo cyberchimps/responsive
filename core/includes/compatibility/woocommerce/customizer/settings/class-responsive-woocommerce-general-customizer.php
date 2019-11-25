@@ -112,6 +112,23 @@ if ( class_exists( 'WooCommerce' ) ) {
 						),
 					)
 				);
+				$wp_customize->add_setting(
+					'woocommerce_sidebar_layout',
+					array(
+						'sanitize_callback' => 'responsive_sanitize_default_layouts',
+						'default'			=> 'full-width-page',
+					)
+				);
+				$wp_customize->add_control(
+					'woocommerce_sidebar_layout',
+					array(
+						'label'    => __( 'Woocommerce Sidebar Position', 'responsive' ),
+						'section'  => 'responsive_woocommerce_general_section',
+						'settings' => 'woocommerce_sidebar_layout',
+						'type'     => 'select',
+						'choices'  => Responsive_Options::valid_layouts(),
+					)
+				);
 			}
 		}
 
