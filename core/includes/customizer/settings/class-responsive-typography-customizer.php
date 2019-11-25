@@ -159,6 +159,16 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line-height' => '1.8',
 						),
 					),
+					'post_meta'            => array(
+						'label'    => esc_html__( 'Post Meta', 'responsive' ),
+						'target'   => '.post-meta',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'      => '12px',
+							'line-height'    => '1.8',
+							'text-transform' => 'uppercase',
+						),
+					),
 
 				)
 			);

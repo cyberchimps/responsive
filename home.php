@@ -33,7 +33,6 @@ global $responsive_blog_layout_columns;
 $responsive_category_id = get_query_var( 'cat' );
 if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) ) {
 	?>
-	<div class="content-outer">
 		<div id="content-blog" class="grid col-940 <?php echo $responsive_options['blog_posts_index_layout_default']; ?>">
 
 			<!-- Blog page title -->
@@ -45,7 +44,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 
 			<?php if ( have_posts() ) : ?>
 
-			<div id="main-blog" class="blog_main_div">
+			<div id="main-blog" class="blog_main_div <?php  echo ( get_theme_mod( 'responsive_display_masonry' ) ? ' masonry' : '' ); ?>">
 				<?php
 				while ( have_posts() ) :
 					the_post();
@@ -96,7 +95,6 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 				?>
 			</div>
 		</div>
-	</div>
 <?php } else { ?>
 	<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 

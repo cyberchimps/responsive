@@ -654,32 +654,13 @@ padding: 0 12px;
 }
 .woocommerce-cart-form input[type="submit"]:hover ,.woocommerce a.button.alt:hover{border:none;}
 .blogtitle { margin-top:0;text-align: center;}
-.blog-3-col .read-more a{
-	background-color: #1874cd; /* Dodger Blue */
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#4f9eea), to(#1874cd));
-	background-image: -webkit-linear-gradient(top, #4f9eea, #1874cd);
-	background-image: -moz-linear-gradient(top, #4f9eea, #1874cd);
-	background-image: -ms-linear-gradient(top, #4f9eea, #1874cd);
-	background-image: -o-linear-gradient(top, #4f9eea, #1874cd);
-	background-image: linear-gradient(to top, #4f9eea, #1874cd);
-	border: 1px solid #115290;
-	color: #ffffff;
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4f9eea, endColorstr=#1874cd)";
-	text-shadow: 0 -1px 0 #115290;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
-border-radius: 2px;
-display: inline-block;
-line-height: 20px;
-margin: 0;
-padding: 5px;
-vertical-align: middle;
-}
+
 .section-team,.section-feature {
-width: 33%;
-float: none;
-box-sizing: border-box;
-display: inline-block;
-vertical-align: top;
+	width: 33%;
+	float: none;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
 }
 .team_desc,.feature_desc {
     text-align: center;

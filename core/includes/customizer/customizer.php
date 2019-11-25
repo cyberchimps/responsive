@@ -202,7 +202,21 @@ function responsive_validate_site_footer_layout( $input ) {
 	}
 }
 
+/**
+ * [responsive_archive_layout_callback description]
+ *
+ * @return bool
+ */
+function responsive_archive_layout_callback() {
 
+	$responsive_options = responsive_get_options();
+	$responsive_options['blog_posts_index_layout_default'];
+	if ( ( 'blog-4-col' === $responsive_options['blog_posts_index_layout_default'] ) || ( 'blog-3-col' === $responsive_options['blog_posts_index_layout_default'] ) || ( 'blog-2-col' === $responsive_options['blog_posts_index_layout_default'] ) ) {
+		return true;
+	} else {
+		return false;
+	}
+}
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */

@@ -367,6 +367,73 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'priority' => 4,
 				)
 			);
+
+			$wp_customize->add_setting(
+				'responsive_blog_padding',
+				array(
+					'default'           => '25',
+					'sanitize_callback' => 'responsive_sanitize_number',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_blog_padding',
+					array(
+						'label'       => __( 'Blog Padding (px)', 'responsive' ),
+						'section'     => 'responsive_blog_entries_section',
+						'settings'    => 'responsive_blog_padding',
+						'priority'    => 6,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 250,
+							'step' => 1,
+						),
+					)
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_display_thumbnail_without_padding',
+				array(
+					'default'           => 'true',
+					'sanitize_callback' => 'responsive_checkbox_validate',
+					'type'              => 'theme_mod',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_display_thumbnail_without_padding',
+				array(
+					'active_callback' => 'responsive_archive_layout_callback',
+					'label'           => __( 'Display Thumbnail Without Padding', 'responsive' ),
+					'section'         => 'responsive_blog_entries_section',
+					'settings'        => 'responsive_display_thumbnail_without_padding',
+					'type'            => 'checkbox',
+					'priority'        => 9,
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_display_masonry',
+				array(
+					'default'           => 'false',
+					'sanitize_callback' => 'responsive_checkbox_validate',
+					'type'              => 'theme_mod',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_display_masonry',
+				array(
+					'active_callback' => 'responsive_archive_layout_callback',
+					'label'           => __( 'Display Masonry', 'responsive' ),
+					'section'         => 'responsive_blog_entries_section',
+					'settings'        => 'responsive_display_masonry',
+					'type'            => 'checkbox',
+					'priority'        => 9,
+				)
+			);
 			$wp_customize->add_setting(
 				'blog_pagination',
 				array(
@@ -453,9 +520,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'priority'    => 10,
 						'input_attrs' => array(
 							'placeholder' => __( 'Auto', 'responsive' ),
-							'min'  => 5,
-							'max'  => 1920,
-							'step' => 1,
+							'min'         => 5,
+							'max'         => 1920,
+							'step'        => 1,
 						),
 					)
 				)
@@ -471,9 +538,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'priority'    => 10,
 						'input_attrs' => array(
 							'placeholder' => __( 'Auto', 'responsive' ),
-							'min'  => 5,
-							'max'  => 1920,
-							'step' => 1,
+							'min'         => 5,
+							'max'         => 1920,
+							'step'        => 1,
 						),
 					)
 				)

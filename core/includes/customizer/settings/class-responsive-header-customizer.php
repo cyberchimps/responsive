@@ -71,8 +71,8 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'header_width',
 				array(
-					'default'           => 'Content',
-					'transport'         => 'refresh',
+					'default'   => 'Content',
+					'transport' => 'refresh',
 				)
 			);
 			$wp_customize->add_control(

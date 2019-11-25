@@ -191,6 +191,9 @@ function responsive_premium_custom_color_styles() {
 	$blog_image_width  = get_theme_mod( 'responsive_blog_featured_image_width' );
 	$blog_image_height = get_theme_mod( 'responsive_blog_featured_image_height' );
 
+	$blog_padding                      = get_theme_mod( 'responsive_blog_padding', '25' );
+	$display_thumbnail_without_padding = get_theme_mod( 'responsive_display_thumbnail_without_padding', true );
+
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
 	} else {
@@ -430,7 +433,9 @@ function responsive_premium_custom_color_styles() {
 		}
 		.fullwidth-layout
 		.container, div#container {
+			width: {$container_width}px;
 			max-width: 100%;
+			margin: 0 auto;
 		}
 
 		.boxed-layout
@@ -479,6 +484,20 @@ function responsive_premium_custom_color_styles() {
 			.main-nav {
 				padding: {$responsive_header_menu_mobile_top_padding}px {$responsive_header_menu_mobile_right_padding}px {$responsive_header_menu_mobile_bottom_padding}px {$responsive_header_menu_mobile_left_padding}px;
 			}
+		}
+		#main-blog > *.post .post-entry {
+		    padding: {$blog_padding}px;
+		}
+
+		.post-entry .thumbnail,
+		.post-data,
+		.post-edit,
+		.post-entry > * {
+		    padding: 0 {$blog_padding}px;
+		}
+
+		body.single .post-entry{
+			padding-bottom: {$blog_padding}px;
 		}";
 
 	if ( 'Full' === $header_width ) {
@@ -731,10 +750,30 @@ function responsive_premium_custom_color_styles() {
 		}
 		.page div#content, .post-entry {
 			background-color: {$blog_background_color};
-    		padding: 10px;
 		}
 		";
 	}
+
+	if ( empty( $display_thumbnail_without_padding ) ) {
+		$custom_css .= ".post-entry > *:first-child.thumbnail {
+    		padding: {$blog_padding}px {$blog_padding}px 25px {$blog_padding}px;
+		}
+		.post-entry .thumbnail {
+    		padding: 0 {$blog_padding}px;
+		}";
+	} else {
+		$custom_css .= ".post-entry > *:first-child.thumbnail {
+    		padding: 0 0 25px 0;
+		}
+		.post-entry .thumbnail {
+    		padding: 0;
+		}
+		#main-blog > *.post .post-entry,
+		body.single .post-entry {
+			padding-bottom: {$blog_padding}px;
+		}";
+	}
+
 	if ( ! empty( $container_padding_right ) ) {
 		$custom_css .= ".content-outer {
 			padding-right: {$container_padding_right}px;
