@@ -1,9 +1,4 @@
 <?php
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Footer Template
  *
@@ -18,6 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /*
  * Globalize Theme options
  */
@@ -25,11 +25,11 @@ global $responsive_options;
 $responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
 ?>
-<?php responsive_wrapper_bottom(); // after wrapper content hook ?>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 <!-- </div> -->
 <!-- end of #wrapper -->
 
-<?php responsive_wrapper_end(); // after wrapper hook ?>
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php if ( ( is_home() && ! is_front_page() ) || in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) { ?>
 </div>
 <?php } ?>
@@ -39,14 +39,12 @@ global $responsive_blog_layout_columns;
 
 	<div id="footer-wrapper">
 
-		 <!--   main-->
-
-	<?php if ( isset( $responsive_options['site_layout_option'] ) && ( $responsive_options['site_layout_option'] == 'full-width-no-box' ) ) { ?>
+	<?php if ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) ) { ?>
 		<div class="social_div grid col-940">
 			<div class="content-outer">
-				<?php echo responsive_get_social_icons_new(); ?>
+				<?php echo esc_attr( esponsive_get_social_icons_new() ); ?>
 			</div>
-			<?php if( is_active_sidebar( 'footer-widget' ) ) { ?>
+			<?php if ( is_active_sidebar( 'footer-widget' ) ) { ?>
 			<div class="footer_div grid col-940">
 				<div class="content-outer">
 					<?php get_sidebar( 'footer' ); ?>
@@ -62,12 +60,12 @@ global $responsive_blog_layout_columns;
 				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu(
 						array(
-							'container'      => 'nav',
+							'container'       => 'nav',
 							'container_class' => 'footer-menu-container',
 							'container_id'    => 'footer-menu-container',
-							'fallback_cb'    => false,
-							'menu_class'     => 'footer-menu',
-							'theme_location' => 'footer-menu',
+							'fallback_cb'     => false,
+							'menu_class'      => 'footer-menu',
+							'theme_location'  => 'footer-menu',
 						)
 					);
 				}
@@ -80,7 +78,8 @@ global $responsive_blog_layout_columns;
 		</div><!-- end of col-940 -->
 		<?php } ?>
 		<?php get_sidebar( 'colophon' ); ?>
-		<?php if ( isset( $responsive_options['copyright_textbox'] ) ) {
+		<?php
+		if ( isset( $responsive_options['copyright_textbox'] ) ) {
 			$copyright_text = $responsive_options['copyright_textbox'];
 		}
 		$cyberchimps_link = '';
@@ -91,20 +90,26 @@ global $responsive_blog_layout_columns;
 		?>
 			<?php $credits_layout = get_theme_mod( 'copyright_layout_options', 'default' ); ?>
 		<div class="grid col-300 copyright <?php echo esc_attr( $credits_layout ); ?>">
-			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-				<?php if( empty( $copyright_text ) ) { bloginfo( 'name' ); } else { echo esc_html( $copyright_text ); } ?>
+			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( date( 'Y' ) ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+				<?php
+				if ( empty( $copyright_text ) ) {
+					bloginfo( 'name' );
+				} else {
+					echo esc_html( $copyright_text );
+				}
+				?>
 			</a>
 		</div><!-- end of .copyright -->
 
-			<?php if( $cyberchimps_link ) { ?>
+			<?php if ( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">
 			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>>Responsive Theme</a>
-			<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
+				<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
 				WordPress</a>
 		</div><!-- end .powered -->
 		<?php } ?>
 	</div>
-	<?php } else {  ?>
+	<?php } else { ?>
 	<div class="content-outer">
 		<?php get_sidebar( 'footer' ); ?>
 		</div>
@@ -120,9 +125,9 @@ global $responsive_blog_layout_columns;
 							'container'       => 'nav',
 							'container_class' => 'footer-menu-container',
 							'container_id'    => 'footer-menu-container',
-							'fallback_cb'    => false,
-							'menu_class'     => 'footer-menu',
-							'theme_location' => 'footer-menu',
+							'fallback_cb'     => false,
+							'menu_class'      => 'footer-menu',
+							'theme_location'  => 'footer-menu',
 						)
 					);
 				}
@@ -130,7 +135,7 @@ global $responsive_blog_layout_columns;
 			</div><!-- end of col-540 -->
 
 			<div class="grid col-380 fit">
-				<?php echo responsive_get_social_icons(); ?>
+				<?php echo esc_attr( responsive_get_social_icons() ); ?>
 			</div><!-- end of col-380 fit -->
 
 		</div><!-- end of col-940 -->
@@ -138,21 +143,28 @@ global $responsive_blog_layout_columns;
 		<?php get_sidebar( 'colophon' ); ?>
 		<?php
 
-		if ( !empty( $responsive_options['copyright_textbox'] ) ) {
+		if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
 			$copyright_text = $responsive_options['copyright_textbox'];
 		}
 		$cyberchimps_link = '';
-		if ( !empty( $responsive_options['poweredby_link'] ) ) {
+		if ( ! empty( $responsive_options['poweredby_link'] ) ) {
 			$cyberchimps_link = $responsive_options['poweredby_link'];
-		} ?>
+		}
+		?>
 			<?php $credits_layout = get_theme_mod( 'copyright_layout_options', 'default' ); ?>
 			<div class="grid col-300 copyright <?php echo esc_attr( $credits_layout ); ?>">
-			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-				 <?php if( empty( $copyright_text ) ) { bloginfo( 'name' ); } else { echo esc_html( $copyright_text ) ; } ?>
+			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( date( 'Y' ) ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+				<?php
+				if ( empty( $copyright_text ) ) {
+					bloginfo( 'name' );
+				} else {
+					echo esc_html( $copyright_text );
+				}
+				?>
 			</a>
 		</div><!-- end of .copyright -->
 
-		<?php if( $cyberchimps_link ) { ?>
+		<?php if ( $cyberchimps_link ) { ?>
 		<div class="grid col-300 fit powered">
 			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>>Responsive Theme</a>
 			<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
@@ -169,15 +181,15 @@ global $responsive_blog_layout_columns;
 <?php responsive_footer_after(); ?>
 
 </div><!-- end of #container -->
-<?php responsive_container_end(); // after container hook ?>
+<?php responsive_container_end(); // after container hook. ?>
 <?php
 if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 	$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
-?>
+	?>
 	<div id="scroll" title="Scroll to Top" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
 	<?php
-		}
-	?>
+}
+?>
 
 
 	<?php

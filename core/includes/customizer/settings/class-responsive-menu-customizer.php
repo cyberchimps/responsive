@@ -54,7 +54,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 						'responsive_menu_position',
 						array(
 							'above_header' => esc_html__( 'Above Header', 'responsive' ),
-							'in_header'    => esc_html__( 'In Header', 'responsive' ),
+							'in_header'    => esc_html__( 'Default', 'responsive' ),
 							'below_header' => esc_html__( 'Below Header', 'responsive' ),
 						)
 					),
