@@ -10,6 +10,6 @@ class firstCest
     public function tryToTest(Responsive4Tester $I)
     {
     	$I->amOnPage('/');
-		$I->validateMarkup();
+		$I->wait(20);
     }
 }
