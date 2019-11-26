@@ -1,10 +1,4 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Footer Widget Template
  *
@@ -19,21 +13,30 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link     http://www.cyberchimps.com/
  */
 
-
-if ( ! is_active_sidebar( 'footer-widget' ) ) {
-	return;
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
-?>
-<?php responsive_widgets_before(); // above widgets container hook ?>
+
+responsive_widgets_before(); // above widgets container hook. ?>
 	<div id="footer_widget" class="grid col-940">
-		<?php responsive_widgets(); // above widgets hook ?>
+	<?php
+	responsive_widgets(); // above widgets hook.
+	$responsive_footer_column = get_theme_mod( 'responsive_footer_column', 1 );
 
-		<?php if ( is_active_sidebar( 'footer-widget' ) ) : ?>
+	?>
+	<?php
+	for ( $i = 1;  $i <= $responsive_footer_column; $i++ ) {
+		if ( is_active_sidebar( 'footer-widget-' . $i ) ) :
+			?>
+			<div class="footer_widget">
+				<?php dynamic_sidebar( 'footer-widget-' . $i ); ?>
+			</div>
+			<?php
+		endif; // End of colophon-widget.
+	}
 
-			<?php dynamic_sidebar( 'footer-widget' ); ?>
-
-		<?php endif; // end of colophon-widget ?>
-
-		<?php responsive_widgets_end(); // after widgets hook ?>
+	responsive_widgets_end(); // after widgets hook.
+	?>
 	</div><!-- end of #footer-widget -->
-<?php responsive_widgets_after(); // after widgets container hook ?>
+<?php responsive_widgets_after(); // after widgets container hook. ?>

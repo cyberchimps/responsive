@@ -180,26 +180,6 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
 }
 
 /**
- * Function for sanitizing footer layout
- *
- * @param object $input arguments.
- */
-function responsive_validate_site_footer_layout( $input ) {
-	/** An array of valid results */
-
-	$valid = array(
-		'footer-default-layout' => 'Default (3 column)',
-		'footer-2-col'          => '2 Column Layout',
-	);
-
-	if ( array_key_exists( $input, $valid ) ) {
-		return $input;
-	} else {
-		return '';
-	}
-}
-
-/**
  * [responsive_archive_layout_callback description]
  *
  * @return bool

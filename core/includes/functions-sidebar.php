@@ -145,9 +145,9 @@ function responsive_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => __( 'Top Widget', 'responsive' ),
+			'name'          => __( 'Header Widgets', 'responsive' ),
 			'description'   => __( 'Area 11 - sidebar-top.php - Displays on the right of the header', 'responsive' ),
-			'id'            => 'top-widget',
+			'id'            => 'header-widgets',
 			'before_title'  => '<div class="widget-title"><h3>',
 			'after_title'   => '</h3></div>',
 			'before_widget' => '<div id="%1$s" class="%2$s">',
@@ -157,54 +157,47 @@ function responsive_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => __( 'Footer Widget', 'responsive' ),
-			'description'   => __( 'Area 12 - sidebar-footer.php - Maximum of 3 widgets per row', 'responsive' ),
-			'id'            => 'footer-widget',
+			'name'          => __( 'Footer Widgets 1', 'responsive' ),
+			'description'   => __( 'Area 12 - sidebar-footer.php', 'responsive' ),
+			'id'            => 'footer-widget-1',
 			'before_title'  => '<div class="widget-title"><h3>',
 			'after_title'   => '</h3></div>',
-			'before_widget' => '<div id="%1$s" class="grid col-300 %2$s"><div class="widget-wrapper">',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
+			'after_widget'  => '</div></div>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Widgets 2', 'responsive' ),
+			'description'   => __( 'Area 13 - sidebar-footer.php', 'responsive' ),
+			'id'            => 'footer-widget-2',
+			'before_title'  => '<div class="widget-title"><h3>',
+			'after_title'   => '</h3></div>',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
+			'after_widget'  => '</div></div>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Widgets 3', 'responsive' ),
+			'description'   => __( 'Area 14 - sidebar-footer.php', 'responsive' ),
+			'id'            => 'footer-widget-3',
+			'before_title'  => '<div class="widget-title"><h3>',
+			'after_title'   => '</h3></div>',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
+			'after_widget'  => '</div></div>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Widgets 4', 'responsive' ),
+			'description'   => __( 'Area 15 - sidebar-footer.php', 'responsive' ),
+			'id'            => 'footer-widget-4',
+			'before_title'  => '<div class="widget-title"><h3>',
+			'after_title'   => '</h3></div>',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)
 	);
 }
 add_action( 'widgets_init', 'responsive_widgets_init' );
-
-/* Add fit class to third footer widget */
-function responsive_footer_widgets( $params ) {
-
-	global $footer_widget_num; // Our widget counter variable
-
-	$responsive_options = responsive_get_options();
-	if ( isset( $responsive_options['site_footer_option'] ) && $responsive_options['site_footer_option'] != '' ) {
-		$layout = $responsive_options['site_footer_option'];
-	} else {
-		$layout = '';
-	}
-
-	// Check if we are displaying "Footer Sidebar"
-	if ( $params[0]['id'] == 'footer-widget' ) {
-		$footer_widget_num++;
-
-		// Check which footer layout is selcted
-		if ( $layout == 'footer-2-col' ) {
-			// This is 2-col layout
-			$class                      = 'class="col-460 ';
-			$divider                    = 2;
-			$params[0]['before_widget'] = preg_replace( '/class="/', $class, $params[0]['before_widget'], 1 );
-		} else {
-			$divider = 3;
-		}
-
-		$divider = apply_filters( 'responsive_number_footer_widgets', $divider ); // This is number of widgets that should fit in one row
-
-		// If it's third widget, add last class to it
-		if ( $footer_widget_num % $divider == 0 ) {
-			$class                      = 'class="fit ';
-			$params[0]['before_widget'] = str_replace( 'class="', $class, $params[0]['before_widget'] );
-
-		}
-	}
-
-	return $params;
-}
-add_filter( 'dynamic_sidebar_params', 'responsive_footer_widgets' );

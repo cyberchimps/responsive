@@ -192,6 +192,7 @@ function responsive_premium_custom_color_styles() {
 	$blog_image_height = get_theme_mod( 'responsive_blog_featured_image_height' );
 
 	$blog_padding                      = get_theme_mod( 'responsive_blog_padding', '25' );
+	$single_blog_padding               = get_theme_mod( 'responsive_single_blog_padding', '0' );
 	$display_thumbnail_without_padding = get_theme_mod( 'responsive_display_thumbnail_without_padding', true );
 
 	if ( isset( $body_typography['color'] ) ) {
@@ -489,16 +490,21 @@ function responsive_premium_custom_color_styles() {
 		    padding: {$blog_padding}px;
 		}
 
-		.post-entry .thumbnail,
-		.post-data,
-		.post-edit,
-		.post-entry > * {
+
+		body.blog .post-entry .thumbnail,
+		body.blog .post-data,
+		body.blog .post-edit,
+		body.blog .post-entry > * {
 		    padding: 0 {$blog_padding}px;
 		}
-
-		body.single .post-entry{
-			padding-bottom: {$blog_padding}px;
-		}";
+		body.single .post-entry .thumbnail,
+		body.single .post-data,
+		body.single .post-edit,
+		body.single .post-entry > *,
+		body.single .post-entry > *:first-child.thumbnail {
+			padding: 0 {$single_blog_padding}px;
+		}
+		";
 
 	if ( 'Full' === $header_width ) {
 		$custom_css .= 'body.full-width-no-box header div.content-outer,
@@ -755,21 +761,20 @@ function responsive_premium_custom_color_styles() {
 	}
 
 	if ( empty( $display_thumbnail_without_padding ) ) {
-		$custom_css .= ".post-entry > *:first-child.thumbnail {
+		$custom_css .= "body.blog .post-entry > *:first-child.thumbnail {
     		padding: {$blog_padding}px {$blog_padding}px 25px {$blog_padding}px;
 		}
-		.post-entry .thumbnail {
+		body.blog .post-entry .thumbnail {
     		padding: 0 {$blog_padding}px;
 		}";
 	} else {
-		$custom_css .= ".post-entry > *:first-child.thumbnail {
+		$custom_css .= "body.blog .post-entry > *:first-child.thumbnail {
     		padding: 0 0 25px 0;
 		}
-		.post-entry .thumbnail {
+		body.blog .post-entry .thumbnail {
     		padding: 0;
 		}
-		#main-blog > *.post .post-entry,
-		body.single .post-entry {
+		#main-blog > *.post .post-entry{
 			padding-bottom: {$blog_padding}px;
 		}";
 	}

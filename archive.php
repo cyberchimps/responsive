@@ -25,7 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 <?php require_once ABSPATH . 'wp-admin/includes/plugin.php'; ?>
-<div class="content-outer">
 <div id="content-archive" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php if ( have_posts() ) : ?>
@@ -109,4 +108,3 @@ get_header(); ?>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
-</div>

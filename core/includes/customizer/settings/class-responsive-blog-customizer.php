@@ -174,6 +174,31 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					)
 				)
 			);
+			$wp_customize->add_setting(
+				'responsive_single_blog_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+					'default'           => 0,
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_single_blog_padding',
+					array(
+						'label'       => __( 'Blog Padding (px)', 'responsive' ),
+						'section'     => 'responsive_single_post_section',
+						'settings'    => 'responsive_single_blog_padding',
+						'priority'    => 1,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 250,
+							'step' => 1,
+						),
+					)
+				)
+			);
 			$wp_customize->add_control(
 				new Responsive_Customizer_Range_Control(
 					$wp_customize,

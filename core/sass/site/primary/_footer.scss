@@ -16,6 +16,28 @@
 
 #footer-wrapper .grid.col-940 {
 	margin: 0;
+	display: flex;
+	flex-direction: row;
+
+	@media (max-width: 767px){
+		flex-direction: column;
+	}
+
+	.footer_widget {
+	    width: inherit;
+		@media (max-width: 767px){
+			width: 100%;
+			ul {
+				text-align: left;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.gallery dl.gallery-item {
+				float: left;
+			}
+		}
+	}
 }
 
 #footer-wrapper .contact_div

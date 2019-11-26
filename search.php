@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 get_header(); ?>
-<div class="content-outer">
 
 <div id="content-search" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" >
 
@@ -74,5 +73,4 @@ get_header(); ?>
 </div><!-- end of #content-search -->
 
 <?php get_sidebar(); ?>
-</div>
 <?php get_footer(); ?>

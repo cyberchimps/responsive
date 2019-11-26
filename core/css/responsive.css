@@ -26,7 +26,7 @@
         margin-top: 40px
     }
 
-    .front-page .top-widget,.top-widget {
+    .front-page .header-widgets,.header-widgets {
         margin-top: 0!important
     }
 
@@ -109,7 +109,7 @@
         margin: 20px 0 0 0
     }
 
-    .top-widget {
+    .header-widgets {
         float: none;
         margin: 0 auto 10px auto;
         position: relative;
@@ -117,7 +117,7 @@
         width: auto
     }
 
-    .top-widget .widget-title h3 {
+    .header-widgets .widget-title h3 {
         text-align: center
     }
 
@@ -304,7 +304,7 @@
         padding: 5px 15px
     }
 
-    .top-widget area,.top-widget input[type=email],.top-widget input[type=password],.top-widget input[type=text],.top-widget select,.top-widget textarea {
+    .header-widgets area,.header-widgets input[type=email],.header-widgets input[type=password],.header-widgets input[type=text],.header-widgets select,.header-widgets textarea {
         width: 75%
     }
 

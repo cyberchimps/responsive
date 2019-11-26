@@ -43,8 +43,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#content"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
+		<?php
+		get_sidebar( 'header' );
+
+		$header_layout = get_theme_mod( 'header_layout_options', 'default' );
+		?>
 	<div id="header_section">
-		<?php $header_layout = get_theme_mod( 'header_layout_options', 'default' ); ?>
 	<header id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' <?php responsive_schema_markup( 'header' ); ?> >
 
 		<?php responsive_header_top(); // before header content hook. ?>
@@ -83,14 +87,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<span class="site-description" <?php responsive_schema_markup( 'tagline' ); ?>><?php bloginfo( 'description' ); ?></span>
 						<?php
 					}
-}
-?>
+			}
+			?>
 
-		</div><!-- end of #logo -->
+			</div><!-- end of #logo -->
 		<?php
 		do_action( 'responsive_header_container' );
 		?>
-	</div>
+		</div>
 
 		<?php responsive_header_bottom(); // after header content hook. ?>
 
