@@ -490,3 +490,31 @@ function responsive_load_sdk( $products ) {
 
 	return $products;
 }
+
+/**
+ * Include menu.
+ */
+function responsive_display_menu_outside_container() {
+
+	wp_nav_menu(
+		array(
+			'container'       => 'nav',
+			'container_class' => 'main-nav',
+			'container_id'    => 'main-nav',
+			'fallback_cb'     => 'responsive_fallback_menu',
+			'theme_location'  => 'header-menu',
+		)
+	);
+}
+
+/**
+ * Check the the header layout and hook the menu accordingly
+ */
+$responsive_header_layout = get_theme_mod( 'menu_position', 'in_header' );
+if ( 'above_header' === $responsive_header_layout ) {
+	add_action( 'responsive_header', 'responsive_display_menu_outside_container' );
+} elseif ( 'in_header' === $responsive_header_layout ) {
+	add_action( 'responsive_header_container', 'responsive_display_menu_outside_container' );
+} elseif ( 'below_header' === $responsive_header_layout ) {
+	add_action( 'responsive_header_end', 'responsive_display_menu_outside_container' );
+}

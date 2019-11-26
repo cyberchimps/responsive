@@ -4385,6 +4385,18 @@ div .wp-block-cover-text {
   padding: 1em;
 }
 
+.wp-block-columns .wp-block-column > *:first-child {
+  margin-top: 0 !important;
+}
+
+.wp-block-columns .wp-block-column > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.wp-block-quote {
+  padding: 1em;
+}
+
 /*
 	changes according gutenberg plugin -- END
  */
@@ -5037,6 +5049,18 @@ div .wp-block-cover-text {
   text-align: center;
   font-size: 13px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0, rgba(0, 0, 0, 0.3) 70%, transparent);
+}
+
+.wp-block-columns .wp-block-column > *:first-child {
+  margin-top: 0 !important;
+}
+
+.wp-block-columns .wp-block-column > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.wp-block-quote {
+  padding: 1em;
 }
 
 .wp-block-columns .wp-block-column > *:first-child {

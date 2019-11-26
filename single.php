@@ -1,10 +1,4 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Single Posts Template
  *
@@ -18,6 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link           http://codex.wordpress.org/Theme_Development#Single_Post_.28single.php.29
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 get_header(); ?>
 
 <div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">

@@ -62,8 +62,8 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'choices'  => array(
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
-						'fullwidth-content'   => __( 'Fullwith Content', 'responsive' ),
-						'fullwidth-stretched' => __( 'Fullwith Stretched', 'responsive' ),
+						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
+						'fullwidth-stretched' => __( 'Fullwidth Stretched', 'responsive' ),
 					),
 				)
 			);
