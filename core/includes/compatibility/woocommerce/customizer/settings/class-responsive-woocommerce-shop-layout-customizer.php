@@ -37,7 +37,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'responsive_woocommerce_shop_page_section',
 				array(
 					'title'    => esc_html__( 'Shop', 'responsive' ),
-					'panel'    => 'responsive-layout-options',
+					'panel'    => 'woocommerce',
 					'priority' => 295,
 				)
 			);

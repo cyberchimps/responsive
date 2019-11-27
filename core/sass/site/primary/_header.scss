@@ -23,3 +23,65 @@
 	font-size: 0.875em; /* = 14px */
 	margin: 10px 0;
 }
+
+.header-logo-center #logo {
+	float: none;
+	margin: 0;
+	text-align: center;
+	clear: both;
+}
+
+.header-logo-right {
+	& #logo {
+		float: right;
+		text-align: right;
+	}
+
+	& .responsive-header {
+		width: 100%;
+	    clear: both;
+	}
+	& #content-outer.responsive-header #logo {
+		width: 30%;
+	}
+	& .main-nav {
+		margin: auto 0;
+		margin-left: 0;
+		width: 70%;
+		float: left;
+		clear: none;
+	}
+	.top-menu {
+		float: left;
+	}
+}
+.header-logo-left {
+	& .responsive-header {
+		width: 100%;
+		clear: both;
+	}
+	& #content-outer.responsive-header #logo {
+		width: 30% ;
+	}
+	& .main-nav {
+		margin: auto 0;
+		margin-left: 0;
+		width: 70%;
+		clear: none;
+		float: right;
+	}
+
+	.main-nav{
+		ul {
+			text-align: right;
+			float: right;
+		}
+	}
+	.main-nav ul li {
+		float: none;
+		display: inline-block;
+	}
+}
+.main-nav .menu a {
+	text-shadow: none;
+}

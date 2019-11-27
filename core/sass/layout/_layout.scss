@@ -26,6 +26,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
     max-width: 100%;
     padding: 0;
 }
+
 .full-width-no-box .skip-container { padding: 0px;}
 .full-width-no-box #header {background-color: #585858;	}
 .full-width-no-box .top-menu {margin: 0; padding-top: 4px;}
@@ -48,7 +49,6 @@ color:#f2efef;
 	color: #444444;
 }
 .full-width-no-box ul.menu > li:hover {
-	background-color: #585858;
 	color: #ffffff;
 }
 .full-width-no-box .menu .current_page_item a,
@@ -105,11 +105,11 @@ color:#f2efef;
 	display: inline;
 }
 .post-meta .byline {
-	padding-left: 9px;
+	padding-left: 0px;
 }
 .breadcrumb {
     padding-right: 4px;
-    padding-left: 4px;
+    padding-left: 0px;
 }
 .breadcrumb-current{
 	padding-left: 4px;
@@ -127,7 +127,6 @@ color:#f2efef;
 	right: 0;
 }
 .default-layout .sticky-header .main-nav {
-	background-color:inherit;
 	background-image: none;
 }
 .full-width-no-box #wrapper {
@@ -138,30 +137,36 @@ color:#f2efef;
 /* Blog layout
 ============================================================ */
 .section-blog-2-col {
-	width: 50%;
+	width: 48%;
 	float: none;
 	box-sizing: border-box;
 	display: inline-block;
 	vertical-align: top;
-	padding: 0 12px;
+	padding: 12px;
+	margin: 1%
 }
 .section-blog-3-col {
-	width: 33%;
+	width: 30%;
 	float: none;
 	box-sizing: border-box;
 	display: inline-block;
 	vertical-align: top;
 	padding: 0 12px;
+	margin: 1%
 }
 .section-blog-4-col {
-	width: 25%;
+	width: 21%;
 	float: none;
 	box-sizing: border-box;
 	display: inline-block;
 	vertical-align: top;
 	padding: 0 12px;
+	margin: 1%
 }
 .blog_main_div {
 	display: flex;
 	flex-flow: row wrap;
+}
+#content-blog.col-620, #content.col-620 {
+	overflow: hidden;
 }

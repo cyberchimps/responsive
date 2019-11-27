@@ -47,6 +47,9 @@ function responsive_get_content_classes() {
 	} elseif ( 'full-width-page' == $layout ) {
 		$content_classes[] = 'grid';
 		$content_classes[] = 'col-940';
+	} else {
+		$content_classes[] = 'grid';
+		$content_classes[] = 'col-620';
 	}
 
 	return apply_filters( 'responsive_content_classes', $content_classes );
@@ -75,8 +78,11 @@ function responsive_get_sidebar_classes() {
 		$sidebar_classes[] = 'col-460';
 		$sidebar_classes[] = 'rtl-fit';
 
+	} else {
+		$sidebar_classes[] = 'grid';
+		$sidebar_classes[] = 'col-300';
+		$sidebar_classes[] = 'fit';
 	}
-
 	return apply_filters( 'responsive_sidebar_classes', $sidebar_classes );
 }
 
@@ -84,13 +90,6 @@ function responsive_get_sidebar_classes() {
  * Get current layout
  */
 function responsive_get_layout() {
-
-	/* WooCommerce Shop page */
-	if ( class_exists( 'WooCommerce' ) ) {
-		if ( is_shop() ) {
-			return 'default';
-		}
-	}
 
 	/* 404 pages */
 	if ( is_404() ) {
@@ -102,6 +101,7 @@ function responsive_get_layout() {
 	$responsive_options = responsive_get_options();
 	/* Get valid layouts */
 	$valid_layouts = responsive_get_valid_layouts();
+
 	/* For singular pages, get post meta */
 	if ( is_singular() ) {
 		global $post;
@@ -150,6 +150,10 @@ function responsive_get_layout() {
 		}
 	}
 
+
+		if (class_exists( 'WooCommerce' ) && (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product())) {
+			$layout = get_theme_mod('woocommerce_sidebar_layout');
+		}
 	return apply_filters( 'responsive_get_layout', $layout );
 }
 

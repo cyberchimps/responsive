@@ -72,7 +72,6 @@ add_filter( 'get_comments_number', 'responsive_comment_count', 0 );
  * Pings (Trackbacks/Pingbacks)
  */
 function responsive_comment_list_pings( $comment ) {
-	$GLOBALS['comment'] = $comment;
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
 	<?php
@@ -81,6 +80,8 @@ function responsive_comment_list_pings( $comment ) {
 /**
  * Sets the post excerpt length to 40 words.
  * Adopted from Coraline
+ *
+ * @param  integer $length Length of excerpt.
  */
 function responsive_excerpt_length( $length ) {
 	return 40;

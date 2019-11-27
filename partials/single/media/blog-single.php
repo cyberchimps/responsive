@@ -5,7 +5,7 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -20,7 +20,7 @@ $img_args = array(
 	'alt' => get_the_title(),
 );
 if ( responsive_get_schema_markup( 'image' ) ) {
-	$img_args['itemprop'] = 'image';
+	$img_args['itemprop'] = 'thumbnailUrl';
 }
 
 // Caption.

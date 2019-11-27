@@ -51,7 +51,7 @@ if ( 'grid-entry' == responsive_blog_entry_style() ) {
 				$img_args = array(
 					'alt' => $attachment_alt,
 				);
-				if ( responsive_get_schema_markup( 'image' ) ) {
+				if ( responsive_schema_markup( 'image' ) ) {
 					$img_args['itemprop'] = 'image';
 				}
 

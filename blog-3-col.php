@@ -11,16 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Blog Template
- *
- Template Name: Blog 3 Column
+ * Template Name: Blog 3 Column
  *
  * @file           blog-3-col.php
  * @package        Responsive
  */
 
 get_header();
-
-$more = 0;
 ?>
 <div id="content-outer">
 <div id="content-full" class="grid col-940">
@@ -28,28 +25,27 @@ $more = 0;
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
 	<?php
-	global  $paged;
 	if ( get_query_var( 'paged' ) ) {
-		$paged = get_query_var( 'paged' );
+		$responsive_paged = get_query_var( 'paged' );
 	} elseif ( get_query_var( 'page' ) ) {
-		$paged = get_query_var( 'page' );
+		$responsive_paged = get_query_var( 'page' );
 	} else {
-		$paged = 1;
+		$responsive_paged = 1;
 	}
-	$blog_query = new WP_Query(
+	$responsive_blog_query = new WP_Query(
 		array(
 			'post_type' => 'post',
-			'paged'     => $paged,
+			'paged'     => $responsive_paged,
 		)
 	);
-	if ( $blog_query->have_posts() ) :
+	if ( $responsive_blog_query->have_posts() ) :
 
 		?>
 	<div class="blog_main_div">
 		<?php
 
-		while ( $blog_query->have_posts() ) :
-			$blog_query->the_post();
+		while ( $responsive_blog_query->have_posts() ) :
+			$responsive_blog_query->the_post();
 			?>
 	<div class="section-blog grid">
 
@@ -89,11 +85,11 @@ $more = 0;
 			<?php
 		endwhile;
 
-		if ( $blog_query->max_num_pages > 1 ) :
+		if ( $responsive_blog_query->max_num_pages > 1 ) :
 			?>
 			<div class="navigation">
-				<div class="previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $blog_query->max_num_pages ); ?></div>
-				<div class="next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ), $blog_query->max_num_pages ); ?></div>
+				<div class="previous"><?php next_posts_link( __( '&#8249; Older posts', 'responsive' ), $responsive_blog_query->max_num_pages ); ?></div>
+				<div class="next"><?php previous_posts_link( __( 'Newer posts &#8250;', 'responsive' ), $responsive_blog_query->max_num_pages ); ?></div>
 			</div><!-- end of .navigation -->
 			<?php
 		endif;

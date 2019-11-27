@@ -21,12 +21,6 @@ if ( empty( $sections ) ) {
 <?php do_action( 'responsive_before_blog_entry_meta' ); ?>
 <div class="post-meta">
 	<?php
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-	if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
-		responsivepro_plugin_posted_on();
-		responsivepro_plugin_posted_by();
-		responsivepro_plugin_comments_link();
-	} else {
 		responsive_post_meta_data();
 		?>
 
@@ -37,7 +31,6 @@ if ( empty( $sections ) ) {
 		</span>
 			<?php
 	endif;
-	}
 	?>
 </div><!-- end of .post-meta -->
 

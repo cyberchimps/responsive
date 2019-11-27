@@ -39,7 +39,10 @@ module.exports = function(grunt) {
 					'!node_modules/**',
 					'!core/**',
 					'!build/**',
+					'!package-lock.json',
 					'!composer.json',
+					'!composer.lock',
+					'!phpcs.xml.dist',
 					'!**/*~'
 				],
 				expand: true
@@ -139,12 +142,15 @@ module.exports = function(grunt) {
 					'!composer.json',
 					'!.gitignore',
 					'!composer.json',
+					'!phpcs.xml.dist',
 					'!.gitmodules',
+					'!package-lock.json',
 					'!**/.gitignore',
 					'!**/.gitmodules',
 					'!.wti',
 					'!**/Gruntfile.js',
 					'!**/package.json',
+					'!composer.lock',
 					'!**/README.md',
 					'!**/*~',
 					'!.editorconfig',
@@ -191,7 +197,8 @@ module.exports = function(grunt) {
 	});
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'clean', 'google-fonts', 'copy', 'compress' ] );
+	grunt.registerTask( 'updatefonts', [ 'google-fonts' ] );
+	grunt.registerTask( 'default', [ 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };

@@ -17,8 +17,8 @@ if ( ! function_exists( 'responsive_blog_entry_elements' ) ) {
 		$elements = apply_filters(
 			'responsive_blog_entry_elements',
 			array(
-				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'title'          => esc_html__( 'Title', 'responsive' ),
+				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
 				'content'        => esc_html__( 'Content', 'responsive' ),
 			)
@@ -40,7 +40,7 @@ if ( ! function_exists( 'responsive_blog_entry_elements_positioning' ) ) {
 	function responsive_blog_entry_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'featured_image', 'title', 'meta', 'content' );
+		$sections = array( 'title', 'meta', 'featured_image', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_elements_positioning', $sections );
@@ -100,8 +100,8 @@ if ( ! function_exists( 'responsive_blog_single_elements' ) ) {
 		$elements = apply_filters(
 			'responsive_blog_single_elements',
 			array(
-				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'title'          => esc_html__( 'Title', 'responsive' ),
+				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'meta'           => esc_html__( 'Meta', 'responsive' ),
 				'content'        => esc_html__( 'Content', 'responsive' ),
 			)
@@ -123,7 +123,7 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 	function responsive_blog_single_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'featured_image', 'title', 'meta', 'content' );
+		$sections = array( 'title', 'meta', 'featured_image', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_single_elements_positioning', $sections );
@@ -181,8 +181,8 @@ if ( ! function_exists( 'responsive_page_elements' ) ) {
 		$elements = apply_filters(
 			'responsive_page_elements',
 			array(
-				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'title'          => esc_html__( 'Title', 'responsive' ),
+				'featured_image' => esc_html__( 'Featured Image', 'responsive' ),
 				'content'        => esc_html__( 'Content', 'responsive' ),
 			)
 		);
@@ -362,74 +362,6 @@ if ( ! function_exists( 'responsive_default_color_palettes' ) ) {
 	}
 }
 
-	/**
-	* Return correct schema markup
-	*
-	* @since 1.2.10
-	*/
-if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
-	/** Function for schema markup
-	 *
-	 * @param  object $location    arguments.
-	 */
-	function responsive_get_schema_markup( $location ) {
-
-		/** Return if disable */
-		if ( ! get_theme_mod( 'responsive_schema_markup', true ) ) {
-			return null;
-		}
-
-		/** Default */
-		$schema   = '';
-		$itemprop = '';
-		$itemtype = '';
-
-		/** HTML */
-		if ( 'html' === $location ) {
-			$schema = 'itemscope itemtype="http://schema.org/WebPage"';
-
-		} elseif ( 'header' === $location ) { /** Header */
-
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPHeader"';
-		} elseif ( 'logo' === $location ) {
-			$schema = 'itemscope itemtype="http://schema.org/Brand"';
-		} elseif ( 'site_navigation' === $location ) {
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"';
-		} elseif ( 'main' === $location ) {
-			$itemtype = 'http://schema.org/WebPageElement';
-			$itemprop = 'mainContentOfPage';
-			if ( is_singular( 'post' ) ) {
-				$itemprop = '';
-				$itemtype = 'http://schema.org/Blog';
-			}
-		} elseif ( 'sidebar' === $location ) {
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPSideBar"';
-		} elseif ( 'footer' === $location ) {
-			$schema = 'itemscope="itemscope" itemtype="http://schema.org/WPFooter"';
-		} elseif ( 'headline' === $location ) {
-			$schema = 'itemprop="headline"';
-		} elseif ( 'entry_content' === $location ) {
-			$schema = 'itemprop="text"';
-		} elseif ( 'publish_date' === $location ) {
-			$schema = 'itemprop="datePublished"';
-		} elseif ( 'author_name' === $location ) {
-			$schema = 'itemprop="name"';
-		} elseif ( 'author_link' === $location ) {
-			$schema = 'itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"';
-		} elseif ( 'item' === $location ) {
-			$schema = 'itemprop="item"';
-		} elseif ( 'url' === $location ) {
-			$schema = 'itemprop="url"';
-		} elseif ( 'position' === $location ) {
-			$schema = 'itemprop="position"';
-		} elseif ( 'image' === $location ) {
-			$schema = 'itemprop="image"';
-		}
-
-		return ' ' . apply_filters( 'responsive_schema_markup', $schema );
-
-	}
-}
 if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 	/**
 	 * Returns blog single elements positioning
@@ -686,5 +618,280 @@ if ( ! function_exists( 'responsive_blog_entry_images_size' ) ) {
 		// Return size.
 		return $size;
 
+	}
+}
+
+
+/**
+ * Include Top menu.
+ */
+function responsive_display_top_menu() {
+
+	if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
+		wp_nav_menu(
+			array(
+				'container'       => 'nav',
+				'fallback_cb'     => false,
+				'container_class' => 'top-menu-container',
+				'container_id'    => 'top-menu-container',
+				'menu_class'      => 'top-menu',
+				'theme_location'  => 'top-menu',
+			)
+		);
+	}
+
+}
+
+/**
+ * Include menu.
+ */
+function responsive_display_menu_outside_container() {
+	get_sidebar( 'top' );
+?>
+	<?php
+	wp_nav_menu(
+		array(
+			'container'       => 'nav',
+			'container_class' => 'main-nav',
+			'container_id'    => 'main-nav',
+			'fallback_cb'     => 'responsive_fallback_menu',
+			'theme_location'  => 'header-menu',
+		)
+	);
+	?>
+	<?php
+	if ( has_nav_menu( 'sub-header-menu', 'responsive' ) ) {
+		wp_nav_menu(
+			array(
+				'container'       => 'nav',
+				'container_class' => 'sub-nav',
+				'container_id'    => 'sub-nav',
+				'menu_class'      => 'sub-header-menu',
+				'theme_location'  => 'sub-header-menu',
+			)
+		);
+	}
+}
+
+/**
+ * Check the the header layout and hook the menu accordingly
+ */
+$responsive_header_layout = get_theme_mod( 'header_layout_options', 'default' );
+if ( 'default' === $responsive_header_layout ) {
+	add_action( 'responsive_header_top', 'responsive_display_top_menu' );
+	add_action( 'responsive_header_bottom', 'responsive_display_menu_outside_container' );
+} elseif ( in_array( $responsive_header_layout, array( 'header-logo-left', 'header-logo-right', 'header-logo-center' ), true ) ) {
+	add_action( 'responsive_header_before_logo_container', 'responsive_display_top_menu' );
+	add_action( 'responsive_header_container', 'responsive_display_menu_outside_container' );
+}
+
+if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
+	/**
+	 * Schema markup
+	 *
+	 * @param  string $location Html tags.
+	 *
+	 * @return [type]           [description]
+	 */
+	function responsive_get_schema_markup( $location ) {
+
+		// Default.
+		$schema   = '';
+		$itemprop = '';
+		$itemtype = '';
+		// HTML.
+		if ( 'body' === $location ) {
+			$schema = 'itemscope itemtype="http://schema.org/WebPage"';
+			if ( is_search() ) {
+				$schema = 'itemscope itemtype="https://schema.org/SearchResultsPage"';
+			}
+			if ( is_singular( 'post' ) || is_home() ) {
+				$schema = 'itemscope itemtype="https://schema.org/Blog"';
+			}
+		} elseif ( 'header' === $location ) { // Header.
+			$schema = 'itemscope itemtype="http://schema.org/WPHeader"';
+		} elseif ( 'logo' === $location ) { // Logo.
+			$schema = 'itemprop="logo"';
+		} elseif ( 'site_navigation' === $location ) { // Navigation.
+			$schema = 'itemscope itemtype="http://schema.org/SiteNavigationElement"';
+		} elseif ( 'main' === $location ) { // Main.
+			$itemtype = 'http://schema.org/WebPageElement';
+			$itemprop = 'mainContentOfPage';
+			$schema   = "itemscope itemtype=$itemtype";
+			if ( is_singular( 'post' ) ) {
+				$itemprop = '';
+				$itemtype = 'http://schema.org/Blog';
+				$schema   = "itemscope itemtype=$itemtype";
+			}
+		} elseif ( 'sidebar' === $location ) { // Sidebar.
+			$schema = 'itemscope itemtype="http://schema.org/WPSideBar"';
+		} elseif ( 'footer' === $location ) { // Footer widgets.
+			$schema = 'itemscope itemtype="http://schema.org/WPFooter"';
+		} elseif ( 'headline' === $location ) { // Headings.
+			$schema = 'itemscope itemprop="headline"';
+		} elseif ( 'entry_content' === $location ) { // Posts.
+			$schema = 'itemscope itemprop="text"';
+		} elseif ( 'publish_date' === $location ) { // Publish date.
+			$schema = 'itemscope itemprop="datePublished"';
+		} elseif ( 'author_name' === $location ) { // Author name.
+			$schema = 'itemscope itemprop="name"';
+		} elseif ( 'author_link' === $location ) { // Author link.
+			$schema = 'itemscope itemtype="http://schema.org/Person"';
+		} elseif ( 'item' === $location ) { // Item.
+			$schema = 'itemscope itemprop="item"';
+		} elseif ( 'url' === $location ) { // Url.
+			$schema = 'itemscope itemprop="url"';
+		} elseif ( 'position' === $location ) { // Position.
+			$schema = 'itemscope itemprop="position"';
+		} elseif ( 'image' === $location ) { // Image.
+			$schema = 'itemscope itemprop="image" itemtype="https://schema.org/image"';
+		} elseif ( 'tagline' === $location ) {
+			$schema = 'itemprop="description"';
+		} elseif ( 'site_title' === $location ) { // Image.
+			$schema = 'itemprop="name"';
+		} elseif ( 'organization' === $location ) { // Image.
+			$schema = 'itemscope itemtype="https://schema.org/Organization"';
+		} elseif ( 'creativework' === $location ) { // Image.
+			$schema = 'itemscope itemtype="https://schema.org/CreativeWork"';
+		}
+
+		return ' ' . apply_filters( 'responsive_schema_markup', $schema );
+	}
+}
+/**
+ * Outputs correct schema markup
+ *
+ * @since 1.2.10
+ */
+if ( ! function_exists( 'responsive_schema_markup' ) ) {
+	/**
+	 * Return schema.
+	 *
+	 * @param  string $location Location.
+	 */
+	function responsive_schema_markup( $location ) {
+
+		echo responsive_get_schema_markup( $location ); //phpcs:ignore
+
+	}
+}
+/**
+ * Read more text.
+ *
+ * @param string $text default read more text.
+ * @return string read more text
+ */
+function responsive_read_more_text( $text ) {
+
+	$read_more = get_theme_mod( 'responsive_blog_read_more_text' );
+	if ( '' != $read_more ) {
+		$text = $read_more;
+	}
+
+	return $text;
+}
+
+/**
+ * Read more class.
+ *
+ * @param array $class default classes.
+ * @return array classes
+ */
+function responsive_read_more_class( $class ) {
+
+	$read_more_button = get_theme_mod( 'responsive_display_read_more_as_button' );
+
+	if ( $read_more_button ) {
+		$class[] = 'button';
+	}
+	return $class;
+}
+/**
+ * Returns excerpt length
+ *
+ * @param  integer $length Length of excerpt.
+ * @return integer         Length of excerpt.
+ */
+function responsive_custom_excerpt_length( $length ) {
+
+	$excerpt_length = get_theme_mod( 'responsive_excerpt_length' );
+	if ( ! empty( $excerpt_length ) ) {
+		$length = $excerpt_length;
+	}
+
+	return $length;
+}
+/**
+ * Function to get Read More Link of Post
+ *
+ * @since 3.17.2
+ *
+ * @return html
+ */
+if ( ! function_exists( 'responsive_post_link' ) ) {
+
+	/**
+	 * Function to get Read More Link of Post
+	 *
+	 * @param  string $output_filter Filter string.
+	 * @return html                Markup.
+	 */
+	function responsive_post_link( $output_filter = '' ) {
+
+		$read_more_text    = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
+		$read_more_classes = apply_filters( 'responsive_post_read_more_class', array() );
+
+		$post_link = sprintf(
+			esc_html( '%s' ),
+			'<a class="' . esc_attr( implode( ' ', $read_more_classes ) ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
+		);
+
+		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
+		return apply_filters( 'responsive_post_link', $output, $output_filter );
+	}
+}
+add_filter( 'excerpt_more', 'responsive_post_link' );
+
+if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
+	/**
+	 * Function to get Read More Link of Post
+	 *
+	 * @since 3.17.2
+	 * @return html
+	 */
+	function responsive_modify_read_more_link() {
+		$read_more_text    = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
+		$read_more_classes = apply_filters( 'responsive_post_read_more_class', array() );
+		return '<a class="more-link ' . esc_attr( implode( ' ', $read_more_classes ) ) . '" href="' . get_permalink() . '">' . $read_more_text . '</a>';
+	}
+}
+
+if ( ! function_exists( 'responsive_spacing_css' ) ) {
+	/**
+	 * Return padding/margin values for customizer
+	 *
+	 * @param  integer $top    Top paddding/margin.
+	 * @param  integer $right  Right paddding/margin.
+	 * @param  integer $bottom bottom paddding/margin.
+	 * @param  integer $left   Left paddding/margin.
+	 * @return integer
+	 */
+	function responsive_spacing_css( $top, $right, $bottom, $left ) {
+
+		// Add px and 0 if no value.
+		$s_top    = ( isset( $top ) && '' !== $top ) ? intval( $top ) . 'px ' : '0px ';
+		$s_right  = ( isset( $right ) && '' !== $right ) ? intval( $right ) . 'px ' : '0px ';
+		$s_bottom = ( isset( $bottom ) && '' !== $bottom ) ? intval( $bottom ) . 'px ' : '0px ';
+		$s_left   = ( isset( $left ) && '' !== $left ) ? intval( $left ) . 'px' : '0px';
+
+		// Return one value if it is the same on every inputs.
+		if ( ( intval( $s_top ) === intval( $s_right ) )
+			&& ( intval( $s_right ) === intval( $s_bottom ) )
+			&& ( intval( $s_bottom ) === intval( $s_left ) ) ) {
+			return $s_left;
+		}
+
+		// Return.
+		return $s_top . $s_right . $s_bottom . $s_left;
 	}
 }

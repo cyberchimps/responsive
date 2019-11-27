@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '3.14' );
+define( 'RESPONSIVE_THEME_VERSION', '3.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 /**
@@ -23,27 +23,35 @@ define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory
 global $responsive_blog_layout_columns;
 $responsive_blog_layout_columns = array( 'blog-2-col', 'blog-3-col', 'blog-4-col' );
 
-$template_directory = get_template_directory();
-require $template_directory . '/core/includes/functions.php';
-require $template_directory . '/core/includes/functions-update.php';
-require $template_directory . '/core/includes/functions-about.php';
-require $template_directory . '/core/includes/functions-sidebar.php';
-require $template_directory . '/core/includes/functions-install.php';
-require $template_directory . '/core/includes/functions-admin.php';
-require $template_directory . '/core/includes/functions-extras.php';
-require $template_directory . '/core/includes/functions-extentions.php';
-require $template_directory . '/core/includes/theme-options/theme-options.php';
-require $template_directory . '/core/includes/post-custom-meta.php';
-require $template_directory . '/core/includes/tha-theme-hooks.php';
-require $template_directory . '/core/includes/hooks.php';
-require $template_directory . '/core/includes/version.php';
-require $template_directory . '/core/includes/customizer/controls/typography/webfonts.php';
-require $template_directory . '/core/includes/customizer/helper.php';
-require $template_directory . '/core/includes/customizer/customizer.php';
-require $template_directory . '/core/includes/customizer/custom-styles.php';
-require $template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
+$responsive_template_directory = get_template_directory();
+require $responsive_template_directory . '/core/includes/functions.php';
+require $responsive_template_directory . '/core/includes/functions-update.php';
+require $responsive_template_directory . '/core/includes/functions-about.php';
+require $responsive_template_directory . '/core/includes/functions-sidebar.php';
+require $responsive_template_directory . '/core/includes/functions-install.php';
+require $responsive_template_directory . '/core/includes/functions-admin.php';
+require $responsive_template_directory . '/core/includes/functions-extras.php';
+require $responsive_template_directory . '/core/includes/functions-extentions.php';
+require $responsive_template_directory . '/core/includes/theme-options/theme-options.php';
+require $responsive_template_directory . '/core/includes/post-custom-meta.php';
+require $responsive_template_directory . '/core/includes/hooks.php';
+require $responsive_template_directory . '/core/includes/version.php';
+require $responsive_template_directory . '/core/includes/customizer/controls/typography/webfonts.php';
+require $responsive_template_directory . '/core/includes/customizer/helper.php';
+require $responsive_template_directory . '/core/includes/customizer/customizer.php';
+require $responsive_template_directory . '/core/includes/customizer/custom-styles.php';
+require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
+require $responsive_template_directory . '/admin/admin-functions.php';
+require $responsive_template_directory . '/core/includes/classes/class-responsive-blog-markup.php';
+require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
+require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 
-// Return value of the supplied responsive free theme option.
+/**
+ * Return value of the supplied responsive free theme option.
+ *
+ * @param  array   $option  options.
+ * @param  boolean $default flag.
+ */
 function responsive_free_get_option( $option, $default = false ) {
 	global $responsive_options;
 
@@ -54,16 +62,28 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
+/**
+ * Responsive_free_setup
+ */
 function responsive_free_setup() {
 	add_theme_support( 'title-tag' );
-
-	// Add support for full and wide align images.
+	// Adding Gutenberg support.
 	add_theme_support( 'align-wide' );
+	add_theme_support( 'wp-block-styles' );
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'editor-styles' );
+    add_editor_style( 'core/css/gutenberg-editor.css' );
+    // Gutenberg editor color palette.
+    add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
 add_filter( 'body_class', 'responsive_add_site_layout_classes' );
-
+/**
+ * [responsive_add_site_layout_classes description]
+ *
+ * @param array $classes Class.
+ */
 function responsive_add_site_layout_classes( $classes ) {
 	global $responsive_options;
 
@@ -75,6 +95,27 @@ function responsive_add_site_layout_classes( $classes ) {
 
 	return $classes;
 }
+
+/**
+ * Add menu style class to body tag
+ *
+ * @param array $classes Class.
+ */
+function responsive_menu_style_layout_classes( $classes ) {
+	// Handle mobile menu.
+	$menu_style = get_theme_mod( 'mobile_menu_style' );
+	if ( $menu_style ) {
+		$menu_style_class = 'responsive-mobile-' . $menu_style;
+	} else {
+		$menu_style_class = 'responsive-mobile-dropdown';
+	}
+	$classes[] = $menu_style_class;
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'responsive_menu_style_layout_classes' );
+
 $responsive_options = responsive_get_options();
 
 if ( isset( $responsive_options['sticky-header'] ) && $responsive_options['sticky-header'] == '1' ) {
@@ -82,17 +123,15 @@ if ( isset( $responsive_options['sticky-header'] ) && $responsive_options['stick
 	function responsive_fixed_menu_onscroll() {
 		?>
 	<script type="text/javascript">
-	jQuery(document).ready(function($){
-		$(window).scroll(function()  {
-			if ($(this).scrollTop() > 0) {
-				$('#header_section').addClass("sticky-header");
-			}
-			else{
-				$('#header_section').removeClass("sticky-header");
-			}
+	window.addEventListener("scroll", responsiveStickyHeader);
 
-		});
-	});
+	function responsiveStickyHeader() {
+		if (document.documentElement.scrollTop > 0 ) {
+			document.getElementById("header_section").classList.add( 'sticky-header' );
+		} else {
+			document.getElementById("header_section").classList.remove( 'sticky-header' );
+		}
+	}
 	</script>
 		<?php
 	}
@@ -227,7 +266,6 @@ function responsiveedit_customize_register( $wp_customize ) {
 		'responsive_theme_options[contact_title]',
 		array(
 			'selector' => '.contact_title',
-
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
@@ -318,7 +356,7 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 		if ( has_post_thumbnail() && 1 == $responsive_options['featured_images'] ) {
 			?>
 						<div class="featured-image">
-							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
 								<?php	the_post_thumbnail(); ?>
 							</a>
 						</div>
@@ -350,28 +388,31 @@ function responsive_exclude_post_cat( $query ) {
 endif;
 add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
-if (!function_exists('responsive_get_attachment_id_from_url')) :
-function responsive_get_attachment_id_from_url($attachment_url = '')
-{
-global $wpdb;
-$attachment_id = false;
-// If there is no url, return.
-if ('' == $attachment_url) {
-  return;
-}
-// Get the upload directory paths.
-$upload_dir_paths = wp_upload_dir();
-// Make sure the upload path base directory exists in the attachment URL, to verify that we're working with a media library image
-if (false !== strpos($attachment_url, $upload_dir_paths['baseurl'])) {
-  // If this is the URL of an auto-generated thumbnail, get the URL of the original image.
-  $attachment_url = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $attachment_url);
-  // Remove the upload path base directory from the attachment URL.
-  $attachment_url = str_replace($upload_dir_paths['baseurl'] . '/', '', $attachment_url);
-  // Finally, run a custom database query to get the attachment ID from the modified attachment URL.
-  $attachment_id = $wpdb->get_var($wpdb->prepare("SELECT wposts.ID FROM $wpdb->posts wposts, $wpdb->postmeta wpostmeta WHERE wposts.ID = wpostmeta.post_id AND wpostmeta.meta_key = '_wp_attached_file' AND wpostmeta.meta_value = '%s' AND wposts.post_type = 'attachment'", $attachment_url));
-}
-return $attachment_id;
-}
+if ( ! function_exists( 'responsive_get_attachment_id_from_url' ) ) :
+	function responsive_get_attachment_id_from_url( $attachment_url = '' ) {
+		global $wpdb;
+		$attachment_id = false;
+		// If there is no url, return.
+		if ( '' == $attachment_url ) {
+			return;
+		}
+		// Get the upload directory paths.
+		$upload_dir_paths = wp_upload_dir();
+
+		// Make sure the upload path base directory exists in the attachment URL, to verify that we're working with a media library image.
+		if ( false !== strpos( $attachment_url, $upload_dir_paths['baseurl'] ) ) {
+
+			// If this is the URL of an auto-generated thumbnail, get the URL of the original image.
+			$attachment_url = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $attachment_url );
+
+			// Remove the upload path base directory from the attachment URL.
+			$attachment_url = str_replace( $upload_dir_paths['baseurl'] . '/', '', $attachment_url );
+
+			// Finally, run a custom database query to get the attachment ID from the modified attachment URL.
+			$attachment_id = $wpdb->get_var( $wpdb->prepare( "SELECT wposts.ID FROM $wpdb->posts wposts, $wpdb->postmeta wpostmeta WHERE wposts.ID = wpostmeta.post_id AND wpostmeta.meta_key = '_wp_attached_file' AND wpostmeta.meta_value = %s AND wposts.post_type = 'attachment'", $attachment_url ) );
+		}
+		return $attachment_id;
+	}
 endif;
 
 
@@ -389,5 +430,76 @@ if ( isset( $responsive_options['override_woo'] ) && 1 == $responsive_options['o
  */
 function responsive_block_styles() {
 	wp_enqueue_style( 'mytheme-blocks', get_stylesheet_directory_uri() . '/core/css/gutenberg-blocks.css', array(), '1.0' );
+
+    // Add customizer colors to Gutenberg editor in backend.
+	wp_add_inline_style( 'responsive-gutenberg', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 }
 add_action( 'enqueue_block_editor_assets', 'responsive_block_styles' );
+
+/**
+ * Enqueue customizer styling
+ */
+function responsive_controls_style() {
+	wp_enqueue_style( 'mytheme-blocks', get_stylesheet_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+}
+
+add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
+
+/**
+ * Add rating links to the admin dashboard
+ *
+ * @param string         $footer_text The existing footer text
+ *
+ * @return      string
+ * @since        2.0.6
+ * @global        string $typenow
+ */
+function responsive_admin_rate_us( $footer_text ) {
+	$page        = isset( $_GET['page'] ) ? $_GET['page'] : '';
+	$show_footer = array( 'responsive-options' );
+
+	if ( in_array( $page, $show_footer, true ) ) {
+		$rate_text = sprintf(
+			/* translators: %s: Link to 5 star rating */
+			__( 'If you like <strong>Responsive Theme</strong> please leave us a %s rating. It takes a minute and helps a lot. Thanks in advance!', 'responsive' ),
+			'<a href="https://wordpress.org/support/view/theme-reviews/responsive?filter=5#postform" target="_blank" class="responsive-rating-link" style="text-decoration:none;" data-rated="' . esc_attr__( 'Thanks :)', 'responsive' ) . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
+		);
+
+		return $rate_text;
+	} else {
+		return $footer_text;
+	}
+}
+
+add_filter( 'admin_footer_text', 'responsive_admin_rate_us' );
+
+// load the latest sdk version from the active Responsive theme.
+if ( ! function_exists( 'responsive_sdk_load_latest' ) ) :
+	/**
+	 * Always load the latest sdk version.
+	 */
+	function responsive_sdk_load_latest() {
+		/**
+		 * Don't load the library if we are on < 5.4.
+		 */
+		if ( version_compare( PHP_VERSION, '5.4.32', '<' ) ) {
+			return;
+		}
+		require_once RESPONSIVE_THEME_DIR . 'core/rollback/start.php';
+	}
+endif;
+add_action( 'init', 'responsive_sdk_load_latest' );
+
+add_filter( 'responsive_sdk_products', 'responsive_load_sdk' );
+/**
+ * Loads products array.
+ *
+ * @param array $products All products.
+ *
+ * @return array Products array.
+ */
+function responsive_load_sdk( $products ) {
+	$products[] = get_template_directory() . '/style.css';
+
+	return $products;
+}
