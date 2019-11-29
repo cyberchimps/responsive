@@ -176,7 +176,7 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 					$wp_customize,
 					'responsive_footer_padding',
 					array(
-						'label'       => esc_html__( 'Footer Spacing (px)', 'responsive' ),
+						'label'       => esc_html__( 'Footer Padding (px)', 'responsive' ),
 						'section'     => 'responsive_footer_section',
 						'settings'    => array(
 							'desktop_top'    => 'responsive_footer_top_padding',

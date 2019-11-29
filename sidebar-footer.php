@@ -19,20 +19,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 responsive_widgets_before(); // above widgets container hook. ?>
-	<div id="footer_widget" class="grid col-940">
+	<div id="footer-widgets" class="grid col-940">
 	<?php
 	responsive_widgets(); // above widgets hook.
-	$responsive_footer_column = get_theme_mod( 'responsive_footer_column', 1 );
+	$responsive_footer_column = get_theme_mod( 'responsive_footer_column', 4 );
 
 	?>
 	<?php
 	for ( $i = 1;  $i <= $responsive_footer_column; $i++ ) {
 		if ( is_active_sidebar( 'footer-widget-' . $i ) ) :
-			?>
-			<div class="footer_widget">
-				<?php dynamic_sidebar( 'footer-widget-' . $i ); ?>
-			</div>
-			<?php
+			echo '<div class="footer-widget ' . $i . '">';
+				dynamic_sidebar( 'footer-widget-' . $i );
+			echo '</div>';
 		endif; // End of colophon-widget.
 	}
 

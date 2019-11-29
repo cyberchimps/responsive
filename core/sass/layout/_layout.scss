@@ -142,7 +142,8 @@ color:#f2efef;
 		box-sizing: border-box;
 		display: inline-block;
 		vertical-align: top;
-		margin: 2%
+		margin: 1%;
+	    background-color: #ffffff;
 	}
 	@media screen and (min-width: 769px){
 		.section-blog-3-col {
@@ -202,6 +203,15 @@ color:#f2efef;
 .boxed #content-blog, .boxed #content, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #content, body.fullwidth-content, body.fullwidth-stretched {
 	background-color: #ffffff;
 }
+body.blog.content-boxed #content-blog,
+body.blog.boxed #content-blog {
+	background-color: #f1f1f1;
+	.post {
+		background-color: #ffffff;
+		margin-bottom: 0;
+	}
+}
+
 body.fullwidth-stretched .content-outer {
 	max-width: none;
 }

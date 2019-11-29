@@ -130,7 +130,17 @@
 
 	> div {
 	    width: inherit;
-		padding: 15px;
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@media (min-width: 768px){
+			margin: 1%;
+
+		}
 	}
 }
 

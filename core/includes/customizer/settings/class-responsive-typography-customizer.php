@@ -189,8 +189,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'post_meta'            => array(
 						'label'    => esc_html__( 'Post Meta', 'responsive' ),
-						'target'   => '.post-meta',
-						'exclude'  => array( 'font-color' ),
+						'target'   => '.post-meta *',
 						'defaults' => array(
 							'font-size'      => '12px',
 							'line-height'    => '1.8',
