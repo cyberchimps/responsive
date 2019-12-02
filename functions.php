@@ -62,6 +62,9 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
+
+
+
 /**
  * Responsive_free_setup
  */
@@ -79,6 +82,7 @@ function responsive_free_setup() {
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
 add_filter( 'body_class', 'responsive_add_site_layout_classes' );
+
 /**
  * [responsive_add_site_layout_classes description]
  *
