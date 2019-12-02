@@ -55,16 +55,6 @@ switch ( $layout ) {
 		return;
 		break;
 
-	case 'content-sidebar-half-page':
-		get_sidebar( 'right-half' );
-		return;
-		break;
-
-	case 'sidebar-content-half-page':
-		get_sidebar( 'left-half' );
-		return;
-		break;
-
 	case 'full-width-page':
 		return;
 		break;

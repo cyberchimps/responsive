@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -60,7 +60,7 @@ function responsive_get_option_defaults() {
 		'cta_button'                      => false,
 		'minified_css'                    => false,
 		'sticky-header'                   => false,
-		'front_page'                      => 1,
+		'front_page'                      => 0,
 		'home_headline'                   => null,
 		'home_subheadline'                => null,
 		'home_content_area'               => null,
@@ -100,7 +100,7 @@ function responsive_get_option_defaults() {
 		'static_page_layout_default'      => 'default',
 		'single_post_layout_default'      => 'default',
 		'blog_posts_index_layout_default' => 'default',
-		'site_layout_option'              => 'default-layout',
+		'site_layout_option'              => 'boxed',
 		'button_style'                    => 'default',
 		'home-widgets'                    => false,
 		'site_footer_option'              => 'footer-3-col',
@@ -289,10 +289,6 @@ function responsive_content_width() {
 	if ( $full_width ) {
 		$content_width = 918;
 	}
-	$half_width = is_page_template( 'sidebar-content-half-page.php' ) || is_page_template( 'content-sidebar-half-page.php' ) || 'sidebar-content-half-page' == responsive_get_layout() || 'content-sidebar-half-page' == responsive_get_layout();
-	if ( $half_width ) {
-		$content_width = 449;
-	}
 }
 add_action( 'template_redirect', 'responsive_content_width' );
 
@@ -328,7 +324,6 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$responsive         = wp_get_theme( 'responsive' );
 		$responsive_options = responsive_get_options();
 		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
 		if ( 1 == $responsive_options['minified_css'] ) {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
 			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );

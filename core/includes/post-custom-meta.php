@@ -30,21 +30,14 @@ $responsive_options = responsive_get_options();
 function responsive_get_content_classes() {
 	$content_classes = array();
 	$layout          = responsive_get_layout();
-	if ( in_array( $layout, array( 'default', 'content-sidebar-page' ) ) ) {
+	if ( in_array( $layout, array( 'default', 'content-sidebar-page', true ), true ) ) {
 		$content_classes[] = 'grid';
 		$content_classes[] = 'col-620';
-	} elseif ( 'sidebar-content-page' == $layout ) {
+	} elseif ( 'sidebar-content-page' === $layout ) {
 		$content_classes[] = 'grid-right';
 		$content_classes[] = 'col-620';
 		$content_classes[] = 'fit';
-	} elseif ( 'content-sidebar-half-page' == $layout ) {
-		$content_classes[] = 'grid';
-		$content_classes[] = 'col-460';
-	} elseif ( 'sidebar-content-half-page' == $layout ) {
-		$content_classes[] = 'grid-right';
-		$content_classes[] = 'col-460';
-		$content_classes[] = 'fit';
-	} elseif ( 'full-width-page' == $layout ) {
+	} elseif ( 'full-width-page' === $layout ) {
 		$content_classes[] = 'grid';
 		$content_classes[] = 'col-940';
 	} else {
@@ -65,19 +58,10 @@ function responsive_get_sidebar_classes() {
 		$sidebar_classes[] = 'grid';
 		$sidebar_classes[] = 'col-300';
 		$sidebar_classes[] = 'fit';
-	} elseif ( 'sidebar-content-page' == $layout ) {
+	} elseif ( 'sidebar-content-page' === $layout ) {
 		$sidebar_classes[] = 'grid-right';
 		$sidebar_classes[] = 'col-300';
 		$sidebar_classes[] = 'rtl-fit';
-	} elseif ( 'content-sidebar-half-page' == $layout ) {
-		$sidebar_classes[] = 'grid';
-		$sidebar_classes[] = 'col-460';
-		$sidebar_classes[] = 'fit';
-	} elseif ( 'sidebar-content-half-page' == $layout ) {
-		$sidebar_classes[] = 'grid-right';
-		$sidebar_classes[] = 'col-460';
-		$sidebar_classes[] = 'rtl-fit';
-
 	} else {
 		$sidebar_classes[] = 'grid';
 		$sidebar_classes[] = 'col-300';
@@ -162,15 +146,13 @@ function responsive_get_layout() {
  */
 function responsive_get_valid_layouts() {
 	$layouts = array(
-		'default'                   => __( 'Default', 'responsive' ),
-		'content-sidebar-page'      => __( 'Content/Sidebar', 'responsive' ),
-		'sidebar-content-page'      => __( 'Sidebar/Content', 'responsive' ),
-		'content-sidebar-half-page' => __( 'Content/Sidebar Half Page', 'responsive' ),
-		'sidebar-content-half-page' => __( 'Sidebar/Content Half Page', 'responsive' ),
-		'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' ),
-		'blog-2-col'                => __( 'Blog 2 Column', 'responsive' ),
-		'blog-3-col'                => __( 'Blog 3 Column', 'responsive' ),
-		'blog-4-col'                => __( 'Blog 4 Column', 'responsive' ),
+		'default'              => __( 'Default', 'responsive' ),
+		'content-sidebar-page' => __( 'Content/Sidebar', 'responsive' ),
+		'sidebar-content-page' => __( 'Sidebar/Content', 'responsive' ),
+		'full-width-page'      => __( 'Full Width Page (no sidebar)', 'responsive' ),
+		'blog-2-col'           => __( 'Blog 2 Column', 'responsive' ),
+		'blog-3-col'           => __( 'Blog 3 Column', 'responsive' ),
+		'blog-4-col'           => __( 'Blog 4 Column', 'responsive' ),
 	);
 
 	return apply_filters( 'responsive_valid_layouts', $layouts );

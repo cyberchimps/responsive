@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'responsive_validate_site_layout',
 					'type'              => 'option',
-					'default'           => 'default-layout',
+					'default'           => 'boxed',
 				)
 			);
 			$wp_customize->add_control(
@@ -62,12 +62,8 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'choices'  => array(
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
-						'fullwidth-content'   => __( 'Fullwith Content', 'responsive' ),
-						'fullwidth-stretched' => __( 'Fullwith Stretched', 'responsive' ),
-
-						'default-layout'    => __( 'Default', 'responsive' ),
-						'full-width-layout' => __( 'Full Width Boxed Layout', 'responsive' ),
-						'full-width-no-box' => __( 'Full Width Without Boxes', 'responsive' ),
+						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
+						'fullwidth-stretched' => __( 'Fullwidth Stretched', 'responsive' ),
 					),
 				)
 			);

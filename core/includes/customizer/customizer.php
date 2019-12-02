@@ -85,9 +85,6 @@ function responsive_validate_site_layout( $input ) {
 		'content-boxed'       => 'Content Boxed',
 		'fullwidth-content'   => 'Fullwith Content',
 		'fullwidth-stretched' => 'Fullwith Stretched',
-		'default-layout'      => 'Default',
-		'full-width-layout'   => 'Full Width Layout',
-		'full-width-no-box'   => 'Full Width Without boxes',
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {
@@ -180,26 +177,6 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
 	$multi_values = ! is_array( $values ) ? explode( ',', $values ) : $values;
 
 	return ! empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
-}
-
-/**
- * Function for sanitizing footer layout
- *
- * @param object $input arguments.
- */
-function responsive_validate_site_footer_layout( $input ) {
-	/** An array of valid results */
-
-	$valid = array(
-		'footer-default-layout' => 'Default (3 column)',
-		'footer-2-col'          => '2 Column Layout',
-	);
-
-	if ( array_key_exists( $input, $valid ) ) {
-		return $input;
-	} else {
-		return '';
-	}
 }
 
 /**

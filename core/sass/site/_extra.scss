@@ -31,6 +31,7 @@ blockquote p {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	clear: both;
+
 	position: relative;
 	&, body.home #wrapper {
         margin: 20px auto 20px auto;
@@ -185,10 +186,9 @@ blockquote p {
 	text-align: left;
 }
 
-.top-widget .widget-title h3 {
+.header-widgets .widget-title h3 {
 	font-size: 14px;
 	padding: 0;
-	text-align: right;
 }
 
 .widget-title a {
@@ -217,7 +217,7 @@ blockquote p {
 	font-size: 16px;
 	font-weight: 700;
 	margin: 10px 0;
-	padding: 5px 0;
+	padding: 0 20px;
 }
 
 .pagination a {

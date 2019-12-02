@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<div id="content" class="grid col-620" role="main">
+<div id="primary" class="grid col-620" role="main">
 
 	<?php if ( have_posts() ) : ?>
 
