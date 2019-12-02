@@ -92,7 +92,6 @@
 				nonce: infinite_nonce,
 				query_vars: responsivePaginationInfinite.query_vars,
 			}
-			console.log(data);
 			$.post(
 				ajax_url,
 				data,
