@@ -39,77 +39,6 @@ global $responsive_blog_layout_columns;
 
 	<div id="footer-wrapper">
 
-	<?php if ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) ) { ?>
-		<div class="social_div grid col-940">
-			<div class="content-outer">
-				<?php echo esc_attr( esponsive_get_social_icons_new() ); ?>
-			</div>
-			<?php if ( is_active_sidebar( 'footer-widget' ) ) { ?>
-			<div class="footer_div grid col-940">
-				<div class="content-outer">
-					<?php get_sidebar( 'footer' ); ?>
-				</div>
-			</div>
-		<?php } ?>
-		<div class="content-outer">
-		<?php if ( has_nav_menu( 'footer-menu' ) ) { ?>
-		<div class="grid col-940">
-
-			<div class="grid col-540">
-				<?php
-				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
-					wp_nav_menu(
-						array(
-							'container'       => 'nav',
-							'container_class' => 'footer-menu-container',
-							'container_id'    => 'footer-menu-container',
-							'fallback_cb'     => false,
-							'menu_class'      => 'footer-menu',
-							'theme_location'  => 'footer-menu',
-						)
-					);
-				}
-				?>
-			</div><!-- end of col-540 -->
-
-			<div class="grid col-380 fit">
-			</div><!-- end of col-380 fit -->
-
-		</div><!-- end of col-940 -->
-		<?php } ?>
-		<?php get_sidebar( 'colophon' ); ?>
-		<?php
-		if ( isset( $responsive_options['copyright_textbox'] ) ) {
-			$copyright_text = $responsive_options['copyright_textbox'];
-		}
-		$cyberchimps_link = '';
-		if ( isset( $responsive_options['poweredby_link'] ) ) {
-			$cyberchimps_link = $responsive_options['poweredby_link'];
-		}
-		$siteurl = site_url();
-		?>
-			<?php $credits_layout = get_theme_mod( 'copyright_layout_options', 'default' ); ?>
-		<div class="grid col-300 copyright <?php echo esc_attr( $credits_layout ); ?>">
-			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( date( 'Y' ) ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-				<?php
-				if ( empty( $copyright_text ) ) {
-					bloginfo( 'name' );
-				} else {
-					echo esc_html( $copyright_text );
-				}
-				?>
-			</a>
-		</div><!-- end of .copyright -->
-
-			<?php if ( $cyberchimps_link ) { ?>
-		<div class="grid col-300 fit powered">
-			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>>Responsive Theme</a>
-				<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
-				WordPress</a>
-		</div><!-- end .powered -->
-		<?php } ?>
-	</div>
-	<?php } else { ?>
 	<div class="content-outer">
 		<?php get_sidebar( 'footer' ); ?>
 		</div>
@@ -172,7 +101,6 @@ global $responsive_blog_layout_columns;
 		</div><!-- end .powered -->
 		<?php } ?>
 	</div>
-	<?php } ?>
 
 	</div><!-- end #footer-wrapper -->
 

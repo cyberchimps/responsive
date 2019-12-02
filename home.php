@@ -158,5 +158,6 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 
 	<?php get_sidebar(); ?>
 </div>
+</div>
 <?php } ?>
 <?php get_footer(); ?>

@@ -331,8 +331,6 @@ function responsive_premium_custom_color_styles() {
 		.widget-title,
 		.responsive-widget-recent-posts-title,
 		.comment-reply-title,
-		.entry-title a,
-		entry-title,
 		.sidebar-box,
 		.widget-title,
 		.site-title a, .site-description {
@@ -465,8 +463,7 @@ function responsive_premium_custom_color_styles() {
 		label {
 			color: {$label_color};
 		}
-		.fullwidth-layout
-		.container, div#container {
+		.content-outer {
 			width: {$container_width}px;
 			max-width: 100%;
 			margin: 0 auto;
@@ -574,7 +571,7 @@ function responsive_premium_custom_color_styles() {
 		$responsive_content_width = 97 - $responsive_sidebar_width;
 
 		$custom_css .= "@media screen and (min-width: 981px){
-			#wrapper #content.col-620 {
+			#wrapper #primary.col-620 {
 				width: {$responsive_content_width}.8723404255%;
 			}
 			#wrapper aside#widgets.col-300 {
@@ -805,6 +802,7 @@ function responsive_premium_custom_color_styles() {
 	}
 	if ( ! empty( $blog_background_color ) ) {
 		$custom_css .= ".section-blog-2-col,.section-blog-3-col,.section-blog-4-col,body.search .post,body.archive .post,body.blog .post  {
+
 			background-color: {$blog_background_color};
 		}
 		";

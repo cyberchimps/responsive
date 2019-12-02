@@ -273,6 +273,10 @@ figure {
   /* Extra wide images within figure tags don't overflow the content area. */
 }
 
+#gallery img {
+  border: none;
+}
+
 /* =Tables
 -------------------------------------------------------------- */
 th,
@@ -467,7 +471,7 @@ form,
 table,
 address,
 blockquote {
-  margin: 1.6em 0;
+  margin-bottom: 1.6em;
 }
 
 th, td {
@@ -2298,7 +2302,7 @@ div#responsive_current_menu_item, #responsive_menu_button {
 }
 
 /* Do not show the outline on the skip link target. */
-#content[tabindex="-1"]:focus {
+#primary[tabindex="-1"]:focus {
   outline: 0;
 }
 
@@ -2811,7 +2815,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   word-wrap: break-word;
 }
 
-#content .responsive {
+#primary .responsive {
   position: relative;
 }
 
@@ -2929,11 +2933,11 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
     break-inside: avoid;
   }
 }
-#content-blog.col-620, #content.col-620 {
+#content-blog.col-620, #primary.col-620 {
   overflow: hidden;
 }
 
-.boxed #content-blog, .boxed #content, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #content, body.fullwidth-content, body.fullwidth-stretched {
+.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched {
   background-color: #ffffff;
 }
 
@@ -3033,7 +3037,7 @@ body.fullwidth-stretched .content-outer {
 --------------------------------------------------------------*/
 /* =Content
 -------------------------------------------------------------- */
-#content {
+#primary {
   margin-bottom: 20px;
   padding: 20px;
 }
@@ -3147,7 +3151,7 @@ body.archive .breadcrumb-list {
   text-align: center;
 }
 
-.page div#content, .post-entry {
+.page div#primary, .post-entry {
   display: inline-block;
 }
 
@@ -3280,6 +3284,10 @@ body.single #main-blog > *.post .post-entry > *:first-child.thumbnail {
 
 body.single .post-entry > *:first-child.thumbnail {
   padding: 0 0 25px 0;
+}
+
+.post-entry > :last-child {
+  margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
@@ -4954,13 +4962,13 @@ object {
 
 .gallery .gallery-item {
   float: left;
-  margin-top: 0;
+  margin-top: 0 !important;
   text-align: center;
   max-width: 155px;
 }
 
-.gallery img {
-  border: 1px solid #dddddd;
+#gallery-1 .gallery-icon img {
+  border: none;
 }
 
 .gallery .gallery-caption {
@@ -4978,7 +4986,6 @@ object {
 
 .attachment-gallery img {
   background: #ffffff;
-  border: 1px solid #f0f0f0;
   display: block;
   height: auto;
   margin: 15px auto;

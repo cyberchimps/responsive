@@ -289,10 +289,6 @@ function responsive_content_width() {
 	if ( $full_width ) {
 		$content_width = 918;
 	}
-	$half_width = is_page_template( 'sidebar-content-half-page.php' ) || is_page_template( 'content-sidebar-half-page.php' ) || 'sidebar-content-half-page' == responsive_get_layout() || 'content-sidebar-half-page' == responsive_get_layout();
-	if ( $half_width ) {
-		$content_width = 449;
-	}
 }
 add_action( 'template_redirect', 'responsive_content_width' );
 

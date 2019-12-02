@@ -1,7 +1,7 @@
 
 /* =Content
 -------------------------------------------------------------- */
-#content {
+#primary {
 	margin-bottom: 20px;
 	padding: 20px;
 }
@@ -128,7 +128,7 @@ body.archive {
 	clear: both;
 	text-align: center;
 }
-.page div#content, .post-entry {
+.page div#primary, .post-entry {
 	display: inline-block;
 }
 .post-entry {
@@ -247,4 +247,7 @@ body.single {
 
 body.single .post-entry > *:first-child.thumbnail {
     padding: 0 0 25px 0;
+}
+.post-entry > :last-child {
+  margin-bottom: 0;
 }

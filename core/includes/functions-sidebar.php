@@ -35,53 +35,6 @@ function responsive_widgets_init() {
 		)
 	);
 
-	register_sidebar(
-		array(
-			'name'          => __( 'Right Sidebar', 'responsive' ),
-			'description'   => __( 'Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates', 'responsive' ),
-			'id'            => 'right-sidebar',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
-			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
-			'after_widget'  => '</div>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => __( 'Left Sidebar', 'responsive' ),
-			'description'   => __( 'Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates', 'responsive' ),
-			'id'            => 'left-sidebar',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
-			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
-			'after_widget'  => '</div>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => __( 'Left Sidebar Half Page', 'responsive' ),
-			'description'   => __( 'Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates', 'responsive' ),
-			'id'            => 'left-sidebar-half',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
-			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
-			'after_widget'  => '</div>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => __( 'Right Sidebar Half Page', 'responsive' ),
-			'description'   => __( 'Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates', 'responsive' ),
-			'id'            => 'right-sidebar-half',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
-			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
-			'after_widget'  => '</div>',
-		)
-	);
 
 	register_sidebar(
 		array(

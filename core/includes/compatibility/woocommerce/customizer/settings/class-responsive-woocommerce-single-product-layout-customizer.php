@@ -65,7 +65,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$wp_customize->add_setting(
 				'responsive_woocommerce_product_elements_positioning',
 				array(
-					'default'           => array( 'title', 'ratings', 'price', 'short_desc', 'add_cart', 'meta' ),
+					'default'           => array( 'title', 'ratings', 'price', '', 'add_cart', 'meta' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)

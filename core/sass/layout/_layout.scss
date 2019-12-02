@@ -119,7 +119,7 @@ color:#f2efef;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
-#content .responsive { position: relative;}
+#primary .responsive { position: relative;}
 .default-layout .sticky-header .main-nav {
 	background-image: none;
 }
@@ -197,10 +197,10 @@ color:#f2efef;
 		}
 	}
 }
-#content-blog.col-620, #content.col-620 {
+#content-blog.col-620, #primary.col-620 {
 	overflow: hidden;
 }
-.boxed #content-blog, .boxed #content, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #content, body.fullwidth-content, body.fullwidth-stretched {
+.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched {
 	background-color: #ffffff;
 }
 body.blog.content-boxed #content-blog,

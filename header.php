@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
-		<a class="skip-link screen-reader-text focusable" href="#content"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
+		<a class="skip-link screen-reader-text focusable" href="#primary"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
 		<?php
 		get_sidebar( 'header' );
@@ -109,6 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php
 global $responsive_options;
 ?>
-	<div id="wrapper" class="content-outer clearfix">
+	<div id="wrapper" class="clearfix">
+		<div class="content-outer">
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <?php responsive_in_wrapper(); // wrapper hook. ?>

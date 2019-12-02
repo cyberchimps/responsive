@@ -141,5 +141,7 @@ svg:not(:root) {
 figure {
 	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
 }
-
+#gallery img {
+	border: none;
+}
 @import "tables";

@@ -367,22 +367,27 @@ endif;
 /**
  * Exclude post with Category from blog and archive page.
  */
-if ( !function_exists( 'responsive_exclude_post_cat' ) ) :
-function responsive_exclude_post_cat( $query ) {
-    $responsive_options = responsive_get_options();
-    //$cat = $responsive_options['exclude_post_cat'];
-    $cat = get_theme_mod('exclude_post_cat');
+if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
+	/**
+	 * Exclude post with Category from blog and archive page.
+	 *
+	 * @param  object $query Query.
+	 */
+	function responsive_exclude_post_cat( $query ) {
+		$responsive_options = responsive_get_options();
+		//$cat = $responsive_options['exclude_post_cat'];
+		$cat = get_theme_mod( 'exclude_post_cat' );
 
-    if ($cat && ! is_admin() && $query->is_main_query()) {
-		if( !array( $cat ) ) {
-			$cat = array($cat);
+		if ( $cat && ! is_admin() && $query->is_main_query() ) {
+			if ( ! array( $cat ) ) {
+				$cat = array( $cat );
+			}
+			$cat = array_diff( array_unique( $cat ), array( '' ) );
+			if ( $query->is_home() || $query->is_archive() ) {
+				$query->set( 'category__not_in', $cat );
+			}
 		}
-        $cat = array_diff(array_unique($cat), array(''));
-        if ($query->is_home() || $query->is_archive()) {
-            $query->set('category__not_in', $cat);
-        }
-    }
-}
+	}
 endif;
 add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
@@ -518,3 +523,25 @@ if ( 'above_header' === $responsive_header_layout ) {
 } elseif ( 'below_header' === $responsive_header_layout ) {
 	add_action( 'responsive_header_end', 'responsive_display_menu_outside_container' );
 }
+
+/**
+ * Check the responsive version is above 4.0.
+ * Change the value layout if it is fullwidth_without_box.
+ *
+ * @param  object $upgrader_object Upgrade object.
+ * @param  array $options         Options.
+ */
+function responsive_check_previous_version( $upgrader_object, $options ) {
+	$theme_data  = wp_get_theme();
+	$new_version = $theme_data->Version;
+	global $responsive_options;
+	$responsive_options = responsive_get_options();
+
+	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
+	if ( $new_version && version_compare( $new_version, '4.0.0', '==' ) && 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
+		$responsive_options['site_layout_option'] = 'fullwidth-stretched';
+		update_option( 'responsive_theme_options', $responsive_options );
+	}
+}
+//add_action( 'init', 'responsive_check_previous_version' );
+add_action( 'upgrader_process_complete', 'responsive_check_previous_version', 10, 2 );
