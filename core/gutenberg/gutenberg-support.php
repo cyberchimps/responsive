@@ -15,7 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function responsive_gutenberg_color_palette() {
 
-	$body_typography = get_theme_mod( 'body_typography' );
+	$body_typography = get_theme_mod( 'body_typography');
+	
 
 	$text_color = ( $body_typography && $body_typography['color'] ) ? $body_typography['color'] : '#555555';
 

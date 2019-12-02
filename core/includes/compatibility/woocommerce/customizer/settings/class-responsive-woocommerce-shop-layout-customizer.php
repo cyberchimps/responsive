@@ -99,8 +99,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'shop_pagination',
 				array(
+                    'default'           => 'default',
 					'transport'         => 'refresh',
-					'default'           => 'number',
 					'sanitize_callback' => 'responsive_sanitize_select',
 				)
 			);
@@ -112,8 +112,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 					'settings' => 'shop_pagination',
 					'type'     => 'select',
 					'choices'  => array(
-						'default'  => __( 'Default'),
-						'infinite' => __( 'Infinite' ),
+						'default'  => esc_html__( 'Default','responsive'),
+						'infinite' => esc_html__( 'Infinite' ,'responsive'),
 					),
 				)
 			);
