@@ -143,7 +143,6 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 						$element,
 						array(
 							'type'              => 'theme_mod',
-							'default'           => '',
 							'sanitize_callback' => 'responsive_sanitize_color',
 							'transport'         => $transport,
 							'default'           => $default,
