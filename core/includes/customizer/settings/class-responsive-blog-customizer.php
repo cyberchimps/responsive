@@ -319,7 +319,6 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
-
 			$wp_customize->add_control(
 				new Responsive_Customizer_Range_Control(
 					$wp_customize,

@@ -571,7 +571,7 @@ function responsive_premium_custom_color_styles() {
 		$responsive_content_width = 97 - $responsive_sidebar_width;
 
 		$custom_css .= "@media screen and (min-width: 981px){
-			#wrapper #primary.col-620 {
+			#wrapper #primary.col-620, #content-blog.col-620 {
 				width: {$responsive_content_width}.8723404255%;
 			}
 			#wrapper aside#widgets.col-300 {
@@ -1074,12 +1074,12 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $blog_image_width ) ) {
-		$custom_css .= "#content-archive img.wp-post-image {
+		$custom_css .= "#content-archive img.wp-post-image, body.blog img.wp-post-image, body.archive.category img.wp-post-image {
 			width: {$blog_image_width}px;
 		}";
 	}
 	if ( ! empty( $blog_image_height ) ) {
-		$custom_css .= "#content-archive img.wp-post-image {
+		$custom_css .= "#content-archive img.wp-post-image, body.blog img.wp-post-image, body.archive.category img.wp-post-image {
 			height: {$blog_image_height}px;
 		}";
 	}
