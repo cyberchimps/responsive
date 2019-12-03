@@ -463,7 +463,7 @@ function responsive_premium_custom_color_styles() {
 		label {
 			color: {$label_color};
 		}
-		.content-outer {
+		.content-outer,.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
 			width: {$container_width}px;
 			max-width: 100%;
 			margin: 0 auto;
@@ -571,7 +571,11 @@ function responsive_premium_custom_color_styles() {
 		$responsive_content_width = 97 - $responsive_sidebar_width;
 
 		$custom_css .= "@media screen and (min-width: 981px){
+<<<<<<< HEAD
+			#wrapper #primary.col-620 {
+=======
 			#wrapper #primary.col-620, #content-blog.col-620 {
+>>>>>>> 9661f0741d49ddd9e0f4933b5f492d26116ba60f
 				width: {$responsive_content_width}.8723404255%;
 			}
 			#wrapper aside#widgets.col-300 {
