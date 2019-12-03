@@ -432,7 +432,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'transport'         => 'refresh',
 					'default'           => 'excerpt',
 					'type'              => 'theme_mod',
-					'capability' => 'edit_theme_options',
+					'capability'        => 'edit_theme_options',
 					'sanitize_callback' => 'responsive_sanitize_select',
 				)
 			);
@@ -445,8 +445,8 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'settings' => 'responsive_show_excerpt',
 					'type'     => 'select',
 					'choices'  => array(
-						'excerpt' =>esc_html__( 'Excerpt', 'responsive' ),
-						'content' =>esc_html__( 'Content', 'responsive' ),
+						'excerpt' => esc_html__( 'Excerpt', 'responsive' ),
+						'content' => esc_html__( 'Content', 'responsive' ),
 					),
 				)
 			);
@@ -687,7 +687,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'blog_pagination',
 				array(
-                    'default'           => 'default',
+					'default'           => 'default',
 					'transport'         => 'refresh',
 					'sanitize_callback' => 'responsive_sanitize_select',
 				)
