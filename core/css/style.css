@@ -3298,6 +3298,10 @@ body.single .post-entry > *:first-child.thumbnail {
   margin-bottom: 0;
 }
 
+h1.entry-title.post-title.responsive.single-title-center, h1.entry-title.post-title.page-title-center {
+  text-align: center;
+}
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/

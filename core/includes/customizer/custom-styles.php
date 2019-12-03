@@ -574,7 +574,7 @@ function responsive_premium_custom_color_styles() {
 
 
 			#wrapper #primary.col-620, #content-blog.col-620 {
-
+			
 				width: {$responsive_content_width}.8723404255%;
 			}
 			#wrapper aside#widgets.col-300 {
@@ -1298,6 +1298,7 @@ function responsive_premium_custom_color_styles() {
 	if ( isset( $responsive_submenu_color ) ) {
 		$custom_css .= ".menu li li {
 			background-color: {$responsive_submenu_color};
+			background-image: none;
 		} ";
 	}
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );

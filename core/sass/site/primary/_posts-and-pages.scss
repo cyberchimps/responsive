@@ -251,3 +251,7 @@ body.single .post-entry > *:first-child.thumbnail {
 .post-entry > :last-child {
   margin-bottom: 0;
 }
+
+h1.entry-title.post-title.responsive.single-title-center, h1.entry-title.post-title.page-title-center {
+	text-align: center;
+}

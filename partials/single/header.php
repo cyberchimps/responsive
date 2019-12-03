@@ -10,5 +10,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-
-<h1 class="entry-title post-title responsive" itemprop="headline"><?php the_title(); ?></h1>
+<?php $single_alignment = get_theme_mod( 'single_title_alignment_options', 'default' ); ?>
+<h1 class="entry-title post-title responsive <?php echo esc_attr( $single_alignment ); ?>" itemprop="headline"><?php the_title(); ?></h1>
