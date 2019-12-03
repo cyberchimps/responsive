@@ -304,9 +304,8 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'settings'    => 'responsive_featured_image_width',
 						'priority'    => 10,
 						'input_attrs' => array(
-							'placeholder' => __( 'Auto', 'responsive' ),
 							'min'         => 5,
-							'max'         => 1920,
+							'max'         => 768,
 							'step'        => 1,
 						),
 					)
@@ -329,12 +328,36 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'settings'    => 'responsive_featured_image_height',
 						'priority'    => 10,
 						'input_attrs' => array(
-							'placeholder' => __( 'Auto', 'responsive' ),
 							'min'         => 5,
-							'max'         => 1920,
+							'max'         => 768,
 							'step'        => 1,
 						),
 					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'single_title_alignment_options',
+				array(
+					'default'           => 'default',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'single_title_alignment_options',
+				array(
+					'label'    => __( 'Single Post Title Alignment', 'responsive' ),
+					'section'  => 'responsive_single_post_section',
+					'settings' => 'single_title_alignment_options',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_layout_choices',
+						array(
+							'default'             => esc_html__( 'Default', 'responsive' ),
+							'single-title-center' => esc_html__( 'Single Post Title Center', 'responsive' ),
+						)
+					),
 				)
 			);
 			/**
@@ -768,9 +791,8 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'settings'    => 'responsive_blog_featured_image_width',
 						'priority'    => 10,
 						'input_attrs' => array(
-							'placeholder' => __( 'Auto', 'responsive' ),
 							'min'         => 5,
-							'max'         => 1920,
+							'max'         => 768,
 							'step'        => 1,
 						),
 					)
@@ -786,9 +808,8 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'settings'    => 'responsive_blog_featured_image_height',
 						'priority'    => 10,
 						'input_attrs' => array(
-							'placeholder' => __( 'Auto', 'responsive' ),
 							'min'         => 5,
-							'max'         => 1920,
+							'max'         => 768,
 							'step'        => 1,
 						),
 					)

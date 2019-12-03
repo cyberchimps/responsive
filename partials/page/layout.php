@@ -38,7 +38,6 @@ $format = get_post_format();
 
 				// Title.
 				if ( 'title' === $element ) {
-
 					get_template_part( 'partials/page/header' );
 
 				}
