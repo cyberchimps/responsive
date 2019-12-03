@@ -325,8 +325,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			return $classes;
 		}
-
-		function shop_list_grid_view() {
+		/**
+         * Shop list grid view.
+         */
+		public function shop_list_grid_view() {
 			if ( 'list' === get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' ) ) {
 				?>
 
@@ -338,10 +340,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 		}
 
-		/**
-		 * Store widgets init.
-		 */
-		function store_widgets_init() {
+        /**
+         * Store widgets init
+         */
+		public function store_widgets_init() {
 			register_sidebar(
 				array(
 					'name'          => __( 'WooCommerce Sidebar', 'responsive' ),
@@ -355,7 +357,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			);
 		}
 
-		function responsive_shop_js_localize() {
+        /**
+         *  For enqueue the java scripts.
+         */
+		public function responsive_shop_js_localize() {
 
 			$suffix    = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 			$directory = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'js-dev' : 'js';
@@ -377,7 +382,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			$shop_pagination            = get_theme_mod( 'shop_pagination', 'default' );
 			$shop_infinite_scroll_event = 'scroll';
 
-			$localize['query_vars']                 = json_encode( $wp_query->query_vars );
+			$localize['query_vars']                 = wp_json_encode( $wp_query->query_vars );
 			$localize['edit_post_url']              = admin_url( 'post.php?post={{id}}&action=edit' );
 			$localize['ajax_url']                   = admin_url( 'admin-ajax.php' );
 			$localize['shop_infinite_count']        = 2;
@@ -393,10 +398,12 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			wp_localize_script( 'responsive-shop-pagination-infinite', 'responsiveShopPaginationInfinite', $localize );
 		}
 
-		function responsive_shop_pagination_infinite() {
+        /**
+         * For adding the Infinite scroll functionality in the theme.
+         */
+		public function responsive_shop_pagination_infinite() {
 
 			check_ajax_referer( 'responsive-shop-load-more-nonce', 'nonce' );
-
 			$query_vars                = json_decode( stripslashes( $_POST['query_vars'] ), true );
 			$query_vars['paged']       = isset( $_POST['page_no'] ) ? absint( $_POST['page_no'] ) : 1;
 			$query_vars['post_status'] = 'publish';
@@ -430,7 +437,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * @return void
 		 * @since 4.0.0
 		 */
-		function common_actions() {
+		public function common_actions() {
 			// Shop Pagination.
 			$this->shop_pagination();
 		}
@@ -439,9 +446,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * Shop Pagination.
 		 *
 		 * @return void
-		 * @since 1.1.0
+		 * @since 4.0.0
 		 */
-		function shop_pagination() {
+		public function shop_pagination() {
 
 			$pagination = get_theme_mod( 'shop_pagination', 'default' );
 
@@ -461,7 +468,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * @return void
 		 * @since 4.0.0
 		 */
-		function responsive_shop_pagination( $output ) {
+		public function responsive_shop_pagination( $output ) {
 
 			global $wp_query;
 

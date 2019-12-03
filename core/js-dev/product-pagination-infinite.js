@@ -86,7 +86,7 @@
 				query_vars: responsiveShopPaginationInfinite.query_vars,
 
 			}
-			console.log(data);
+
 			$.post(
 				ajax_url,
 				data,
@@ -94,8 +94,7 @@
 					var boxes = $( data );
 					// Hide loader.
 					loader.hide();
-					console.log('Boxes are');
-					console.log(boxes);
+
 					$( '.responsive-load-more' ).addClass( 'active' ).show();
 
 					// Add posts.
