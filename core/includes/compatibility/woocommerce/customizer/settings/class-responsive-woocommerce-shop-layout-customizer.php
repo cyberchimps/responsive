@@ -88,9 +88,46 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->add_section(
+				'responsive_woocommerce_shop_page_pagination_section',
+				array(
+					'title'    => esc_html__( 'Post Pagination', 'responsive' ),
+					'panel'    => 'woocommerce',
+					'priority' => 295,
+				)
+			);
+			$wp_customize->add_setting(
+				'shop_pagination',
+				array(
+					'default'           => 'default',
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_select',
+				)
+			);
+			$wp_customize->add_control(
+				'shop_pagination',
+				array(
+					'label'    => __( 'Post Pagination', 'responsive' ),
+					'section'  => 'responsive_woocommerce_shop_page_pagination_section',
+					'settings' => 'shop_pagination',
+					'type'     => 'select',
+					'choices'  => array(
+						'default'  => esc_html__( 'Default', 'responsive' ),
+						'infinite' => esc_html__( 'Infinite', 'responsive' ),
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_container_background_color',
+				array(
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_color',
+					'transport'         => 'refresh',
+				)
+			);
+
 		}
-
-
 	}
 
 endif;

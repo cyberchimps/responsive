@@ -62,6 +62,9 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
+
+
+
 /**
  * Responsive_free_setup
  */
@@ -79,6 +82,7 @@ function responsive_free_setup() {
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
 add_filter( 'body_class', 'responsive_add_site_layout_classes' );
+
 /**
  * [responsive_add_site_layout_classes description]
  *
@@ -375,8 +379,7 @@ if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
 	 */
 	function responsive_exclude_post_cat( $query ) {
 		$responsive_options = responsive_get_options();
-		//$cat = $responsive_options['exclude_post_cat'];
-		$cat = get_theme_mod( 'exclude_post_cat' );
+		$cat                = get_theme_mod( 'exclude_post_cat' );
 
 		if ( $cat && ! is_admin() && $query->is_main_query() ) {
 			if ( ! array( $cat ) ) {
@@ -440,7 +443,7 @@ add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
 /**
  * Add rating links to the admin dashboard
  *
- * @param string         $footer_text The existing footer text
+ * @param string $footer_text The existing footer text
  *
  * @return      string
  * @since        2.0.6
@@ -529,7 +532,7 @@ if ( 'above_header' === $responsive_header_layout ) {
  * Change the value layout if it is fullwidth_without_box.
  *
  * @param  object $upgrader_object Upgrade object.
- * @param  array $options         Options.
+ * @param  array  $options         Options.
  */
 function responsive_check_previous_version( $upgrader_object, $options ) {
 	$theme_data  = wp_get_theme();
@@ -543,5 +546,4 @@ function responsive_check_previous_version( $upgrader_object, $options ) {
 		update_option( 'responsive_theme_options', $responsive_options );
 	}
 }
-//add_action( 'init', 'responsive_check_previous_version' );
 add_action( 'upgrader_process_complete', 'responsive_check_previous_version', 10, 2 );

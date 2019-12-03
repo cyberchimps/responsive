@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 							'color' => '#7db7f0',
 						),
 					),
-					'button-hover-text-color'       => array(
+					'button-hover-text-color'  => array(
 						'label'    => esc_html__( 'Button hover Text Color', 'responsive' ),
 						'defaults' => array(
 							'color' => '#333333',
@@ -143,7 +143,6 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 						$element,
 						array(
 							'type'              => 'theme_mod',
-							'default'           => '',
 							'sanitize_callback' => 'responsive_sanitize_color',
 							'transport'         => $transport,
 							'default'           => $default,

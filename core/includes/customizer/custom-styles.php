@@ -12,7 +12,7 @@
  * @return void
  */
 function responsive_premium_custom_color_styles() {
-	$text_color             = get_theme_mod( 'text-color', '#333333' );
+	 $text_color            = get_theme_mod( 'text-color', '#333333' );
 	$body_typography        = get_theme_mod( 'body_typography' );
 	$headings_typography    = get_theme_mod( 'headings_typography' );
 	$heading_text_color     = get_theme_mod( 'heading-text-color', '' );
@@ -31,7 +31,7 @@ function responsive_premium_custom_color_styles() {
 	$header_text_color      = get_theme_mod( 'responsive_fullwidth_header_color', '' );
 	$button_radius          = get_theme_mod( 'responsive_button_border_radius', '2' );
 
-	$button_hover_text_color = get_theme_mod( 'button-hover-text-color', '#ffffff' );
+	$button_hover_text_color = get_theme_mod( 'button-hover-text-color', '#333333' );
 
 	$background_color = get_theme_mod( 'background_color' );
 
@@ -74,7 +74,7 @@ function responsive_premium_custom_color_styles() {
 	$menu_gradients_checkbox = get_theme_mod( 'responsive_menu_gradients_checkbox' );
 	$menu_background_color   = get_theme_mod( 'responsive_menu_background_colorpicker' );
 	$menu_background_color_2 = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
-	$menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color ); //phpcs:ignore
+    $menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color );
 	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker' );
 	$menu_text_hover_color   = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
 	$menu_active_color       = get_theme_mod( 'responsive_menu_active_colorpicker' );
@@ -571,7 +571,10 @@ function responsive_premium_custom_color_styles() {
 		$responsive_content_width = 97 - $responsive_sidebar_width;
 
 		$custom_css .= "@media screen and (min-width: 981px){
+
+
 			#wrapper #primary.col-620, #content-blog.col-620 {
+			
 				width: {$responsive_content_width}.8723404255%;
 			}
 			#wrapper aside#widgets.col-300 {
@@ -845,7 +848,7 @@ function responsive_premium_custom_color_styles() {
 			}
 		}";
 	} else {
-		$custom_css .= "body.search .post-entry > *:first-child.thumbnail,
+		$custom_css .= 'body.search .post-entry > *:first-child.thumbnail,
 		body.archive .post-entry > *:first-child.thumbnail,
 		body.blog .post-entry > *:first-child.thumbnail {
     		padding: 0 0 25px 0;
@@ -854,7 +857,7 @@ function responsive_premium_custom_color_styles() {
 		body.archive .post-entry .thumbnail ,
 		body.blog .post-entry .thumbnail {
     		padding: 0;
-		}";
+		}';
 	}
 
 	if ( ! empty( $container_padding_right ) ) {
@@ -1287,7 +1290,7 @@ function responsive_premium_custom_color_styles() {
 			border-bottom-color: {$responsive_submenu_divider_color};
 		} ";
 	}
-	if ( 0 == $responsive_submenu_divider ) { //phpcs:ignore
+    if (0 == $responsive_submenu_divider) { //phpcs:ignore
 		$custom_css .= '.menu li li {
 			border-bottom: none;
 		} ';
@@ -1300,4 +1303,5 @@ function responsive_premium_custom_color_styles() {
 	}
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );
 }
+
 add_action( 'wp_enqueue_scripts', 'responsive_premium_custom_color_styles', 99 );
