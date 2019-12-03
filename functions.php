@@ -379,8 +379,7 @@ if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
 	 */
 	function responsive_exclude_post_cat( $query ) {
 		$responsive_options = responsive_get_options();
-		// $cat = $responsive_options['exclude_post_cat'];
-		$cat = get_theme_mod( 'exclude_post_cat' );
+		$cat                = get_theme_mod( 'exclude_post_cat' );
 
 		if ( $cat && ! is_admin() && $query->is_main_query() ) {
 			if ( ! array( $cat ) ) {
@@ -547,5 +546,4 @@ function responsive_check_previous_version( $upgrader_object, $options ) {
 		update_option( 'responsive_theme_options', $responsive_options );
 	}
 }
-// add_action( 'init', 'responsive_check_previous_version' );
 add_action( 'upgrader_process_complete', 'responsive_check_previous_version', 10, 2 );

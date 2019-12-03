@@ -68,12 +68,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_filter( 'post_class', array( $this, 'post_class' ) );
 
 			add_action( 'wp', array( $this, 'common_actions' ), 999 );
-			// why this i dont understand
-			// add_action( 'responsive_shop_pagination_infinite', array( $this, 'common_actions' ), 999 );
-			//
 
 			add_action( 'responsive_pagination_infinite_enqueue_script', array( $this, 'responsive_shop_js_localize' ) );
+
 			add_action( 'wp_ajax_responsive_shop_pagination_infinite', array( $this, 'responsive_shop_pagination_infinite' ) );
+
 			add_action( 'wp_ajax_nopriv_responsive_shop_pagination_infinite', array( $this, 'responsive_shop_pagination_infinite' ) );
 
 		}
@@ -375,8 +374,6 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			global $wp_query;
 
-			// $single_ajax_add_to_cart = astra_get_option( 'single-product-ajax-add-to-cart' );
-
 			$shop_pagination            = get_theme_mod( 'shop_pagination', 'default' );
 			$shop_infinite_scroll_event = 'scroll';
 
@@ -403,8 +400,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			$query_vars                = json_decode( stripslashes( $_POST['query_vars'] ), true );
 			$query_vars['paged']       = isset( $_POST['page_no'] ) ? absint( $_POST['page_no'] ) : 1;
 			$query_vars['post_status'] = 'publish';
-			// $query_vars['posts_per_page'] = astra_get_option( 'shop-no-of-products' );
-			$query_vars = array_merge( $query_vars, wc()->query->get_catalog_ordering_args() );
+			$query_vars                = array_merge( $query_vars, wc()->query->get_catalog_ordering_args() );
 
 			$posts = new WP_Query( $query_vars );
 
@@ -432,7 +428,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * Common Actions.
 		 *
 		 * @return void
-		 * @since 1.1.0
+		 * @since 4.0.0
 		 */
 		function common_actions() {
 			// Shop Pagination.
@@ -458,12 +454,12 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Astra Shop Pagination
+		 * Responsive Shop Pagination
 		 *
 		 * @param html $output Pagination markup.
 		 *
 		 * @return void
-		 * @since 1.1.0
+		 * @since 4.0.0
 		 */
 		function responsive_shop_pagination( $output ) {
 

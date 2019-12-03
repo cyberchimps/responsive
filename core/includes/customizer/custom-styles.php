@@ -74,7 +74,7 @@ function responsive_premium_custom_color_styles() {
 	$menu_gradients_checkbox = get_theme_mod( 'responsive_menu_gradients_checkbox' );
 	$menu_background_color   = get_theme_mod( 'responsive_menu_background_colorpicker' );
 	$menu_background_color_2 = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
-    $menu_background_color_2 = ($menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color); //phpcs:ignore
+    $menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color );
 	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker' );
 	$menu_text_hover_color   = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
 	$menu_active_color       = get_theme_mod( 'responsive_menu_active_colorpicker' );
