@@ -64,7 +64,7 @@ global $responsive_blog_layout_columns;
 			</div><!-- end of col-540 -->
 
 			<div class="grid col-380 fit">
-				<?php echo esc_attr( responsive_get_social_icons() ); ?>
+				<?php echo  responsive_get_social_icons() ;// phpcs:ignore ?>
 			</div><!-- end of col-380 fit -->
 
 		</div><!-- end of col-940 -->

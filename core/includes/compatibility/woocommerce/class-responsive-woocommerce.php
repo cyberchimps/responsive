@@ -53,7 +53,6 @@ if (!class_exists('Responsive_Woocommerce')) :
             require_once RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/woocommerce-helper.php';
 
 
-
             // Register Store Sidebars.
             add_action('widgets_init', array($this, 'store_widgets_init'), 9);
 
@@ -430,7 +429,7 @@ if (!class_exists('Responsive_Woocommerce')) :
                      * @hooked WC_Structured_Data::generate_product_data() - 10
                      */
 
-                    do_action( 'woocommerce_shop_loop' );
+                    do_action('woocommerce_shop_loop');
                     wc_get_template_part('content', 'product');
                 }
             }

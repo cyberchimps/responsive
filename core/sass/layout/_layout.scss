@@ -214,4 +214,12 @@ body.blog.boxed #content-blog {
 
 body.fullwidth-stretched .content-outer {
 	max-width: none;
+	width: 100%
+}
+body.fullwidth-stretched #primary {
+	padding: 0;
+}
+.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+	width: 960px;
+	margin: 0 auto;
 }
