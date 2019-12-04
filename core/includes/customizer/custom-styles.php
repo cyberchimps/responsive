@@ -74,13 +74,15 @@ function responsive_premium_custom_color_styles() {
 	$menu_gradients_checkbox = get_theme_mod( 'responsive_menu_gradients_checkbox' );
 	$menu_background_color   = get_theme_mod( 'responsive_menu_background_colorpicker' );
 	$menu_background_color_2 = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
+
 	$menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color );
-	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker' );
-	$menu_text_hover_color   = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
-	$menu_active_color       = get_theme_mod( 'responsive_menu_active_colorpicker' );
-	$menu_hover_color        = get_theme_mod( 'responsive_menu_item_hover_colorpicker' );
-	$menu_active_text_color  = get_theme_mod( 'responsive_menu_active_text_colorpicker' );
-	$menu_border_color       = get_theme_mod( 'responsive_menu_border_color' );
+
+	$menu_text_color        = get_theme_mod( 'responsive_menu_text_colorpicker' );
+	$menu_text_hover_color  = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
+	$menu_active_color      = get_theme_mod( 'responsive_menu_active_colorpicker' );
+	$menu_hover_color       = get_theme_mod( 'responsive_menu_item_hover_colorpicker' );
+	$menu_active_text_color = get_theme_mod( 'responsive_menu_active_text_colorpicker' );
+	$menu_border_color      = get_theme_mod( 'responsive_menu_border_color' );
 
 	// Sidebar colors.
 	$sidebar_background_color = get_theme_mod( 'responsive_sidebar_background_color' );
@@ -1298,7 +1300,8 @@ function responsive_premium_custom_color_styles() {
 			border-bottom-color: {$responsive_submenu_divider_color};
 		} ";
 	}
-    if ( 0 == $responsive_submenu_divider ) {
+	if ( 0 == $responsive_submenu_divider ) {
+
 		$custom_css .= '.menu li li {
 			border-bottom: none;
 		} ';
