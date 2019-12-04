@@ -12,7 +12,7 @@
  * @return void
  */
 function responsive_premium_custom_color_styles() {
-	$text_color            = get_theme_mod( 'text-color', '#333333' );
+	$text_color             = get_theme_mod( 'text-color', '#333333' );
 	$body_typography        = get_theme_mod( 'body_typography' );
 	$headings_typography    = get_theme_mod( 'headings_typography' );
 	$heading_text_color     = get_theme_mod( 'heading-text-color', '' );
@@ -679,7 +679,6 @@ function responsive_premium_custom_color_styles() {
 			}
 		}";
 	}
-
 	if ( ! empty( $responsive_sidebar_width ) ) {
 		$responsive_content_width = 97 - $responsive_sidebar_width;
 
