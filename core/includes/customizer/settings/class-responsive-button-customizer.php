@@ -162,6 +162,8 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 						)
 					);
 
+					responsive_padding_control( $wp_customize, 'buttons', 'responsive_button_section', 10 );
+
 					/**
 					 * Main Container Width
 					 */

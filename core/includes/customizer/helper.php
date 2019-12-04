@@ -831,3 +831,134 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 		return $s_top . $s_right . $s_bottom . $s_left;
 	}
 }
+
+/**
+ * Responsive_padding_control.
+ *
+ * @param  string  $wp_customize  [description].
+ * @param  integer $element  [description].
+ * @param  string  $section  [description].
+ * @param  integer $priority [description].
+ * @return void
+ */
+function responsive_padding_control( $wp_customize, $element, $section, $priority ) {
+	/**
+	 *  Padding control.
+	 */
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_top_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_left_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_bottom_padding',
+		array(
+			'transport'         => 'refesh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_right_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_top_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_right_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_bottom_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_left_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_top_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_right_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_bottom_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_left_padding',
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Dimensions_Control(
+			$wp_customize,
+			'responsive_' . $element . '_padding',
+			array(
+				'label'       => esc_html__( 'Padding (px)', 'responsive' ),
+				'section'     => $section,
+				'settings'    => array(
+					'desktop_top'    => 'responsive_' . $element . '_top_padding',
+					'desktop_right'  => 'responsive_' . $element . '_right_padding',
+					'desktop_bottom' => 'responsive_' . $element . '_bottom_padding',
+					'desktop_left'   => 'responsive_' . $element . '_left_padding',
+					'tablet_top'     => 'responsive_' . $element . '_tablet_top_padding',
+					'tablet_right'   => 'responsive_' . $element . '_tablet_right_padding',
+					'tablet_bottom'  => 'responsive_' . $element . '_tablet_bottom_padding',
+					'tablet_left'    => 'responsive_' . $element . '_tablet_left_padding',
+					'mobile_top'     => 'responsive_' . $element . '_mobile_top_padding',
+					'mobile_right'   => 'responsive_' . $element . '_mobile_right_padding',
+					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_padding',
+					'mobile_left'    => 'responsive_' . $element . '_mobile_left_padding',
+				),
+				'priority'    => $priority,
+				'input_attrs' => array(
+					'min'  => 0,
+					'max'  => 100,
+					'step' => 1,
+				),
+			)
+		)
+	);
+}
