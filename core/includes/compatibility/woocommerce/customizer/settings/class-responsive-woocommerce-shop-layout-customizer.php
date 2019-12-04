@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_woocommerce_shop_elements_positioning',
 				array(
-					'default'           => array( 'title', 'category', 'price', 'ratings', '', 'add_cart' ),
+					'default'           => array( 'title', 'category', 'price', 'ratings', 'add_cart' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
