@@ -1298,7 +1298,7 @@ function responsive_premium_custom_color_styles() {
 			border-bottom-color: {$responsive_submenu_divider_color};
 		} ";
 	}
-    if (0 == $responsive_submenu_divider) { //phpcs:ignore
+    if ( 0 == $responsive_submenu_divider ) {
 		$custom_css .= '.menu li li {
 			border-bottom: none;
 		} ';
