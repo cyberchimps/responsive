@@ -74,7 +74,7 @@ function responsive_premium_custom_color_styles() {
 	$menu_gradients_checkbox = get_theme_mod( 'responsive_menu_gradients_checkbox' );
 	$menu_background_color   = get_theme_mod( 'responsive_menu_background_colorpicker' );
 	$menu_background_color_2 = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
-    $menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color );
+	$menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color );
 	$menu_text_color         = get_theme_mod( 'responsive_menu_text_colorpicker' );
 	$menu_text_hover_color   = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
 	$menu_active_color       = get_theme_mod( 'responsive_menu_active_colorpicker' );
@@ -565,8 +565,16 @@ function responsive_premium_custom_color_styles() {
 		#logo{
 			padding: 0 0.9em;
 		}';
+	} else {
+		$custom_css .= '
+        body.fullwidth-stretched header div.content-outer,
+		nav.main-nav{
+			max-width: ' . get_theme_mod( 'responsive_main_container_width', '960' ) . 'px;
+		}
+		#logo{
+			padding: 0 0.9em;
+		}';
 	}
-
 	if ( ! empty( $responsive_sidebar_width ) ) {
 		$responsive_content_width = 97 - $responsive_sidebar_width;
 
