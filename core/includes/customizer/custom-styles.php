@@ -12,7 +12,7 @@
  * @return void
  */
 function responsive_premium_custom_color_styles() {
-	 $text_color            = get_theme_mod( 'text-color', '#333333' );
+	$text_color             = get_theme_mod( 'text-color', '#333333' );
 	$body_typography        = get_theme_mod( 'body_typography' );
 	$headings_typography    = get_theme_mod( 'headings_typography' );
 	$heading_text_color     = get_theme_mod( 'heading-text-color', '' );
@@ -229,6 +229,21 @@ function responsive_premium_custom_color_styles() {
 	$single_blog_mobile_padding_left   = get_theme_mod( 'responsive_single_blog_mobile_left_padding' );
 	$single_blog_mobile_padding_top    = get_theme_mod( 'responsive_single_blog_mobile_top_padding' );
 	$single_blog_mobile_padding_bottom = get_theme_mod( 'responsive_single_blog_mobile_bottom_padding' );
+
+	$buttons_padding_top    = get_theme_mod( 'responsive_buttons_top_padding' );
+	$buttons_padding_right  = get_theme_mod( 'responsive_buttons_right_padding' );
+	$buttons_padding_left   = get_theme_mod( 'responsive_buttons_left_padding' );
+	$buttons_padding_bottom = get_theme_mod( 'responsive_buttons_bottom_padding' );
+
+	$buttons_tablet_padding_right  = get_theme_mod( 'responsive_buttons_tablet_right_padding' );
+	$buttons_tablet_padding_left   = get_theme_mod( 'responsive_buttons_tablet_left_padding' );
+	$buttons_tablet_padding_top    = get_theme_mod( 'responsive_buttons_tablet_top_padding' );
+	$buttons_tablet_padding_bottom = get_theme_mod( 'responsive_buttons_tablet_bottom_padding' );
+
+	$buttons_mobile_padding_right  = get_theme_mod( 'responsive_buttons_mobile_right_padding' );
+	$buttons_mobile_padding_left   = get_theme_mod( 'responsive_buttons_mobile_left_padding' );
+	$buttons_mobile_padding_top    = get_theme_mod( 'responsive_buttons_mobile_top_padding' );
+	$buttons_mobile_padding_bottom = get_theme_mod( 'responsive_buttons_mobile_bottom_padding' );
 
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
@@ -577,14 +592,98 @@ function responsive_premium_custom_color_styles() {
 			padding: 0 0.9em;
 		}';
 	}
+
+	if ( ! empty( $buttons_padding_top ) ) {
+		$custom_css .= "#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-top: {$buttons_padding_top}px;
+		}";
+	}
+
+	if ( ! empty( $buttons_padding_right ) ) {
+		$custom_css .= "#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-right: {$buttons_padding_right}px;
+		}";
+	}
+
+	if ( ! empty( $buttons_padding_left ) ) {
+		$custom_css .= "#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-left: {$buttons_padding_left}px;
+		}";
+	}
+
+	if ( ! empty( $buttons_padding_bottom ) ) {
+		$custom_css .= "#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-bottom: {$buttons_padding_bottom}px;
+		}";
+	}
+	if ( ! empty( $buttons_tablet_padding_top ) ) {
+			$custom_css .= "@media screen and (max-width:768px){
+			#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+				padding-top: {$buttons_tablet_padding_top}px;
+			}
+		}";
+	}
+
+	if ( ! empty( $buttons_tablet_padding_right ) ) {
+			$custom_css .= "@media screen and (max-width:768px){
+			#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+				padding-right: {$buttons_tablet_padding_right}px;
+			}
+		}";
+	}
+
+	if ( ! empty( $buttons_tablet_padding_left ) ) {
+		$custom_css .= "@media screen and (max-width:768px){
+		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+				padding-left: {$buttons_tablet_padding_left}px;
+			}
+		}";
+	}
+
+	if ( ! empty( $buttons_tablet_padding_bottom ) ) {
+		$custom_css .= "@media screen and (max-width:768px){
+		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-bottom: {$buttons_tablet_padding_bottom}px;
+			}
+		}";
+	}
+
+	if ( ! empty( $buttons_mobile_padding_top ) ) {
+		$custom_css .= "@media screen and (max-width:480px){
+		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-top: {$buttons_mobile_padding_top}px;
+			}
+		}";
+	}
+
+	if ( ! empty( $buttons_mobile_padding_right ) ) {
+		$custom_css .= "@media screen and (max-width:480px){
+		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-right: {$buttons_mobile_padding_right}px;
+			}
+		}";
+	}
+
+	if ( ! empty( $buttons_mobile_padding_left ) ) {
+		$custom_css .= "@media screen and (max-width:480px){
+		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-left: {$buttons_mobile_padding_left}px;
+			}
+		}";
+	}
+
+	if ( ! empty( $buttons_mobile_padding_bottom ) ) {
+		$custom_css .= "@media screen and (max-width:480px){
+		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link {
+			padding-bottom: {$buttons_mobile_padding_bottom}px;
+			}
+		}";
+	}
 	if ( ! empty( $responsive_sidebar_width ) ) {
 		$responsive_content_width = 97 - $responsive_sidebar_width;
 
 		$custom_css .= "@media screen and (min-width: 981px){
-
-
 			#wrapper #primary.col-620, #content-blog.col-620 {
-			
 				width: {$responsive_content_width}.8723404255%;
 			}
 			#wrapper aside#widgets.col-300 {
