@@ -304,9 +304,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'settings'    => 'responsive_featured_image_width',
 						'priority'    => 10,
 						'input_attrs' => array(
-							'min'  => 5,
-							'max'  => 768,
-							'step' => 1,
+							'min'         => 5,
+							'max'         => 768,
+							'step'        => 1,
 						),
 					)
 				)
@@ -328,9 +328,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'settings'    => 'responsive_featured_image_height',
 						'priority'    => 10,
 						'input_attrs' => array(
-							'min'  => 5,
-							'max'  => 768,
-							'step' => 1,
+							'min'         => 5,
+							'max'         => 768,
+							'step'        => 1,
 						),
 					)
 				)

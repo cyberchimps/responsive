@@ -555,17 +555,6 @@ function responsive_display_menu_outside_container() {
 	);
 }
 
-/**
- * Check the the header layout and hook the menu accordingly
- */
-$responsive_header_layout = get_theme_mod( 'menu_position', 'in_header' );
-if ( 'above_header' === $responsive_header_layout ) {
-	add_action( 'responsive_header', 'responsive_display_menu_outside_container' );
-} elseif ( 'in_header' === $responsive_header_layout ) {
-	add_action( 'responsive_header_container', 'responsive_display_menu_outside_container' );
-} elseif ( 'below_header' === $responsive_header_layout ) {
-	add_action( 'responsive_header_end', 'responsive_display_menu_outside_container' );
-}
 
 /**
  * Check the responsive version is above 4.0.

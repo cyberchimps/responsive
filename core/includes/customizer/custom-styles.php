@@ -31,6 +31,11 @@ function responsive_premium_custom_color_styles() {
 	$header_text_color      = get_theme_mod( 'responsive_fullwidth_header_color', '' );
 	$button_radius          = get_theme_mod( 'responsive_button_border_radius', '2' );
 
+	$blog_typography         = get_theme_mod( 'blog_entry_title_typography' );
+	$single_blog_typography  = get_theme_mod( 'blog_post_title_typography' );
+	$site_typography         = get_theme_mod( 'site_title_typography' );
+	$site_tagline_typography = get_theme_mod( 'site_tagline_typography' );
+
 	$button_hover_text_color = get_theme_mod( 'button-hover-text-color', '#333333' );
 
 	$background_color = get_theme_mod( 'background_color' );
@@ -316,6 +321,7 @@ function responsive_premium_custom_color_styles() {
 	} else {
 		$headingsfont_style = 'normal';
 	}
+
 	if ( isset( $body_typography['font-family'] ) ) {
 		$font_family = $body_typography['font-family'];
 	} else {
@@ -326,11 +332,13 @@ function responsive_premium_custom_color_styles() {
 	} else {
 		$headings_font_family = 'Arial, Helvetica, sans-serif';
 	}
+
 	if ( isset( $body_typography['font-size'] ) ) {
 		$body_font_size = $body_typography['font-size'];
 	} else {
 		$body_font_size = '14px';
 	}
+
 	$custom_css = "
 		body {
 			font-family: {$font_family};
