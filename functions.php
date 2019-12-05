@@ -78,6 +78,46 @@ function responsive_free_setup() {
 	add_editor_style( 'core/css/gutenberg-editor.css' );
 	// Gutenberg editor color palette.
 	add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
+	$small_font_sizes  = get_theme_mod( 'post_meta_typography' );
+	$normal_sizes      = get_theme_mod( 'body_typography' );
+	$larger_font_sizes = get_theme_mod( 'heading_h1_typography' );
+	$large_font_sizes  = get_theme_mod( 'heading_h2_typography' );
+
+	$small_font_sizes_default_value  = $small_font_sizes['font-size'] ? str_replace( 'px', '', $small_font_sizes['font-size'] ) : '12';
+	$normal_sizes_default_value      = $normal_sizes['font-size'] ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '14';
+	$larger_font_sizes_default_value = $larger_font_sizes['font-size'] ? str_replace( 'em', '', $larger_font_sizes['font-size'] ) : '2.625';
+	$larger_font_sizes_default_value = $normal_sizes_default_value * $larger_font_sizes_default_value;
+	$large_font_sizes_default_value  = $large_font_sizes['font-size'] ? str_replace( 'em', '', $large_font_sizes['font-size'] ) : '2.250';
+	$large_font_sizes_default_value  = $normal_sizes_default_value * $large_font_sizes_default_value;
+	add_theme_support(
+		'editor-font-sizes',
+		array(
+			array(
+				'name'      => _x( 'Small', 'Name of the small font size in the block editor', 'responsive' ),
+				'shortName' => _x( 'S', 'Short name of the small font size in the block editor.', 'responsive' ),
+				'size'      => $small_font_sizes_default_value,
+				'slug'      => 'small',
+			),
+			array(
+				'name'      => _x( 'Regular', 'Name of the regular font size in the block editor', 'responsive' ),
+				'shortName' => _x( 'M', 'Short name of the regular font size in the block editor.', 'responsive' ),
+				'size'      => $normal_sizes_default_value,
+				'slug'      => 'normal',
+			),
+			array(
+				'name'      => _x( 'Large', 'Name of the large font size in the block editor', 'responsive' ),
+				'shortName' => _x( 'L', 'Short name of the large font size in the block editor.', 'responsive' ),
+				'size'      => $large_font_sizes_default_value,
+				'slug'      => 'large',
+			),
+			array(
+				'name'      => _x( 'Larger', 'Name of the larger font size in the block editor', 'responsive' ),
+				'shortName' => _x( 'XL', 'Short name of the larger font size in the block editor.', 'responsive' ),
+				'size'      => $larger_font_sizes_default_value,
+				'slug'      => 'larger',
+			),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
