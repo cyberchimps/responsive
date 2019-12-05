@@ -50,6 +50,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			require_once RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/woocommerce-helper.php';
 
+
 			// Register Store Sidebars.
 			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 9 );
 
@@ -87,6 +88,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
 
 		}
 
@@ -110,7 +112,6 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function responsive_woocommerce_shop_product_content() {
 			$shop_structure = responsive_woocommerce_shop_elements_positioning();
-
 			if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
 
 				echo '<div class="responsive-shop-summary-wrap">';
@@ -452,11 +453,10 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			$pagination = get_theme_mod( 'shop_pagination', 'default' );
 
-			if ( 'infinite' == $pagination ) {
+			if ( 'infinite' === $pagination ) {
 				do_action( 'responsive_pagination_infinite_enqueue_script' );
 				remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
 				add_action( 'woocommerce_after_shop_loop', array( $this, 'responsive_shop_pagination' ), 10 );
-				add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
 			}
 		}
 

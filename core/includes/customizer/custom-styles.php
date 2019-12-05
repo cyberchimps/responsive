@@ -503,7 +503,8 @@ function responsive_premium_custom_color_styles() {
 		}
 
 		.grid.col-940 .alignwide,
-		.grid.col-940 .alignwide {
+		.grid.col-940 .alignwide,
+		body.blog #main-blog > *.post .post-entry .alignwide {
 			padding-left: calc((100vw - {$container_width}px)/4);
 			padding-right: calc((100vw - {$container_width}px)/4);
 		}
