@@ -219,7 +219,11 @@ body.fullwidth-stretched .content-outer {
 body.fullwidth-stretched #primary {
 	padding: 0;
 }
-.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
 	width: 960px;
-	margin: 0 auto;
+	margin: auto;
+}
+body.fullwidth-stretched #content-full {
+	padding: 20px 0;
 }

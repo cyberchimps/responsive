@@ -36,13 +36,12 @@ global $responsive_blog_layout_columns;
 
 <footer id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
 	<?php responsive_footer_top(); ?>
-
+	<div class="content-outer">
 	<div id="footer-wrapper">
 
-	<div class="content-outer">
+
 		<?php get_sidebar( 'footer' ); ?>
-		</div>
-		<div class="content-outer">
+
 		<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
 		<div class="grid col-940">
 

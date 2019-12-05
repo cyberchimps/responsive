@@ -471,7 +471,7 @@ form,
 table,
 address,
 blockquote {
-  margin-bottom: 1.6em;
+  margin-bottom: 1.6em 0;
 }
 
 th, td {
@@ -538,6 +538,14 @@ li ol {
 
 form div {
   margin-bottom: 0.8em;
+}
+
+* > :first-child {
+  margin-top: 0 !important;
+}
+
+* > :last-child {
+  margin-bottom: 0 !important;
 }
 
 /*--------------------------------------------------------------
@@ -2960,9 +2968,14 @@ body.fullwidth-stretched #primary {
   padding: 0;
 }
 
-.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
   width: 960px;
-  margin: 0 auto;
+  margin: auto;
+}
+
+body.fullwidth-stretched #content-full {
+  padding: 20px 0;
 }
 
 /*--------------------------------------------------------------
@@ -4427,6 +4440,15 @@ div .wp-block-cover-text {
   padding: 1em;
 }
 
+@media only screen and (min-width: 960px) {
+  body.fullwidth-stretched .post-entry > .wp-block-columns:not(.alignfull):not(.alignwide), body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide),
+body.fullwidth-stretched .post-entry > .wp-block-columns:not(.alignfull):not(.alignwide),
+body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide) {
+    margin: 0 auto;
+    max-width: 960px;
+    width: auto;
+  }
+}
 /*
 	changes according gutenberg plugin -- END
  */
@@ -5070,6 +5092,15 @@ div .wp-block-cover-text {
   padding: 1em;
 }
 
+@media only screen and (min-width: 960px) {
+  body.fullwidth-stretched .post-entry > .wp-block-columns:not(.alignfull):not(.alignwide), body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide),
+body.fullwidth-stretched .post-entry > .wp-block-columns:not(.alignfull):not(.alignwide),
+body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide) {
+    margin: 0 auto;
+    max-width: 960px;
+    width: auto;
+  }
+}
 /*
 	changes according gutenberg plugin -- END
  */
