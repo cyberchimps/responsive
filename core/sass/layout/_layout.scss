@@ -94,16 +94,20 @@ color:#f2efef;
 	margin: 0 6px;
 }
 .post-meta {
+	.posted-in,
+	.comments-link,
 	.timestamp,
 	.vcard {
-		border-right: solid 1px #7E7E7E;
-		padding-right: 9px;
+		&:after{
+			content: '|';
+			margin-left: 6px;
+		}
 		display: inline;
 	}
 
 	& > :last-child {
-		.timestamp, .vcard{
-			border: none;
+		&:after {
+			content: none;
 		}
 	}
 }

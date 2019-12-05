@@ -122,6 +122,9 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 				)
 			);
 
+			// Meta style.
+			responsive_meta_styles( $wp_customize, 'single_post', 'responsive_single_post_section', 10 );
+
 			$wp_customize->add_setting(
 				'responsive_single_post_title_color',
 				array(
@@ -431,7 +434,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					$wp_customize,
 					'responsive_blog_entry_meta',
 					array(
-						'label'    => esc_html__( 'Post Meta', 'responsive' ),
+						'label'    => esc_html__( 'Post Meta ', 'responsive' ),
 						'section'  => 'responsive_blog_entries_section',
 						'settings' => 'responsive_blog_entry_meta',
 						'priority' => 10,
@@ -707,6 +710,10 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					'priority'        => 9,
 				)
 			);
+
+			// Meta style.
+			responsive_meta_styles( $wp_customize, 'blog_entries', 'responsive_blog_entries_section', 10 );
+
 			$wp_customize->add_setting(
 				'blog_pagination',
 				array(

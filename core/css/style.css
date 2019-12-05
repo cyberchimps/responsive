@@ -2798,14 +2798,21 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   margin: 0 6px;
 }
 
+.post-meta .posted-in,
+.post-meta .comments-link,
 .post-meta .timestamp,
 .post-meta .vcard {
-  border-right: solid 1px #7E7E7E;
-  padding-right: 9px;
   display: inline;
 }
-.post-meta > :last-child .timestamp, .post-meta > :last-child .vcard {
-  border: none;
+.post-meta .posted-in:after,
+.post-meta .comments-link:after,
+.post-meta .timestamp:after,
+.post-meta .vcard:after {
+  content: "|";
+  margin-left: 6px;
+}
+.post-meta > :last-child:after {
+  content: none;
 }
 
 .post-meta .byline {
