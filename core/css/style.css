@@ -422,43 +422,31 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 h1 {
   font-size: 2.625em;
   /* = 42px */
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
 }
 
 h2 {
   font-size: 2.25em;
   /* = 36px */
-  margin-bottom: 0.75em;
-  margin-top: 0.75em;
 }
 
 h3 {
   font-size: 1.875em;
   /* = 30px */
-  margin-bottom: 0.857em;
-  margin-top: 0.857em;
 }
 
 h4 {
   font-size: 1.5em;
   /* = 24px */
-  margin-bottom: 1em;
-  margin-top: 1em;
 }
 
 h5 {
   font-size: 1.125em;
   /* = 18px */
-  margin-bottom: 1.125em;
-  margin-top: 1.125em;
 }
 
 h6 {
   font-size: 1em;
   /* = 16px */
-  margin-bottom: 1.285em;
-  margin-top: 1.285em;
 }
 
 /* =Margins & Paddings
@@ -471,7 +459,7 @@ form,
 table,
 address,
 blockquote {
-  margin-bottom: 1.6em 0;
+  margin: 20px 0;
 }
 
 th, td {
@@ -538,14 +526,6 @@ li ol {
 
 form div {
   margin-bottom: 0.8em;
-}
-
-* > :first-child {
-  margin-top: 0 !important;
-}
-
-* > :last-child {
-  margin-bottom: 0 !important;
 }
 
 /*--------------------------------------------------------------
@@ -2975,10 +2955,13 @@ body.fullwidth-stretched #primary {
   padding: 0;
 }
 
-.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
-  width: 960px;
-  margin: auto;
+.post-entry h1,
+.post-entry h2,
+.post-entry h3,
+.post-entry h4,
+.post-entry h5,
+.post-entry h6 {
+  margin-bottom: 20px;
 }
 
 body.fullwidth-stretched #content-full {
@@ -3314,16 +3297,17 @@ body.single .post-entry > *:first-child.thumbnail {
   padding: 0 0 25px 0;
 }
 
-.post-entry > :last-child {
-  margin-bottom: 0;
-}
-
 h1.entry-title.post-title.responsive.single-title-center, h1.entry-title.post-title.page-title-center {
   text-align: center;
 }
 
 #content-blog .post .post-entry .entry-title a {
   color: #333333;
+}
+
+.post-entry > :last-child,
+.post-entry > :first-child {
+  margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
@@ -4469,7 +4453,8 @@ body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide) {
 .grid.col-940 p:not(.alignfull):not(.alignwide) {
     margin: 0 auto;
     max-width: 940px;
-    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 /*
@@ -5031,116 +5016,5 @@ object {
 .gallery-meta .focal-length {
   display: block;
 }
-/*
-	changes according gutenberg plugin --START
- */
-/**
- * figure audio style
- *
- */
-figure.wp-block-audio.aligncenter {
-  text-align: center;
-}
-
-figure.wp-block-audio.aligncenter audio {
-  width: 100%;
-}
-
-.wp-block-audio audio {
-  min-width: 250px;
-}
-
-.wp-block-cover.aligncenter {
-  clear: both;
-}
-
-div .wp-block-cover-text {
-  position: absolute;
-  color: #fff;
-  font-size: 2em;
-  line-height: 1.25;
-  margin-bottom: 0;
-  max-width: 610px;
-  padding: 14px;
-  text-align: center;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-}
-
-.wp-block-image {
-  margin-bottom: 20px;
-}
-
-.wp-block-gallery .blocks-gallery-item figcaption {
-  padding: 40px 0 5px;
-}
-
-.entry-content .wp-block-gallery,
-.entry-content .wp-block-gallery,
-.entry-summary .wp-block-gallery,
-.entry-summary .wp-block-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  list-style-type: none;
-}
-.entry-content .wp-block-gallery figcaption,
-.entry-content .wp-block-gallery figcaption,
-.entry-summary .wp-block-gallery figcaption,
-.entry-summary .wp-block-gallery figcaption {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  max-height: 100%;
-  overflow: auto;
-  padding: 40px 10px 9px;
-  color: #fff;
-  text-align: center;
-  font-size: 13px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0, rgba(0, 0, 0, 0.3) 70%, transparent);
-}
-
-.wp-block-columns .wp-block-column > *:first-child {
-  margin-top: 0 !important;
-}
-
-.wp-block-columns .wp-block-column > *:last-child {
-  margin-bottom: 0 !important;
-}
-
-.wp-block-quote {
-  padding: 1em;
-}
-
-@media only screen and (min-width: 960px) {
-  body.fullwidth-stretched .post-entry > .wp-block-columns:not(.alignfull):not(.alignwide), body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide),
-body.fullwidth-stretched .post-entry > .wp-block-columns:not(.alignfull):not(.alignwide),
-body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide) {
-    margin: 0 auto;
-    max-width: 960px;
-    width: auto;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .grid.col-940 .alignwide {
-    margin: 0 calc(50% - 50vw);
-    max-width: 100vw;
-    width: 100vw;
-  }
-}
-@media only screen and (min-width: 960px) {
-  .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .grid.col-940 p:not(.alignfull):not(.alignwide),
-.grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
-.grid.col-940 p:not(.alignfull):not(.alignwide) {
-    margin: 0 auto;
-    max-width: 940px;
-    width: 940px;
-  }
-}
-/*
-	changes according gutenberg plugin -- END
- */
 
 /*# sourceMappingURL=style.css.map */

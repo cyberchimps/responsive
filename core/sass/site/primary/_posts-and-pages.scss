@@ -248,9 +248,7 @@ body.single {
 body.single .post-entry > *:first-child.thumbnail {
     padding: 0 0 25px 0;
 }
-.post-entry > :last-child {
-  margin-bottom: 0;
-}
+
 
 h1.entry-title.post-title.responsive.single-title-center, h1.entry-title.post-title.page-title-center {
 	text-align: center;
@@ -258,4 +256,9 @@ h1.entry-title.post-title.responsive.single-title-center, h1.entry-title.post-ti
 
 #content-blog .post .post-entry .entry-title a {
 	color: #333333;
+}
+
+.post-entry > :last-child,
+.post-entry > :first-child {
+  margin-bottom: 0;
 }

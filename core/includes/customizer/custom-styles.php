@@ -494,7 +494,8 @@ function responsive_premium_custom_color_styles() {
 		.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
 			width: {$container_width}px;
 			max-width: 100%;
-			margin: 0 auto;
+			margin-left: auto;
+		    margin-right: auto;
 		}
 
 		.boxed-layout
