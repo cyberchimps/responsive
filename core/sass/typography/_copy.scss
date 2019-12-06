@@ -8,7 +8,7 @@ form,
 table,
 address,
 blockquote {
-	margin-bottom: 1.6em;
+	margin-bottom: 1.6em 0;
 }
 
 th, td {
@@ -76,4 +76,10 @@ li ol {
 
 form div {
 	margin-bottom: .8em;
+}
+* > :first-child {
+	margin-top: 0 !important
+}
+* > :last-child {
+	margin-bottom: 0 !important
 }

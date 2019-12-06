@@ -518,7 +518,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 			)
 		);
 		?>
-		<span class='posted-in'>
+		<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
 		<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
 		</span>
 		<?php

@@ -169,16 +169,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						),
 					),
 					'blog_entry_title'     => array(
-						'label'    => esc_html__( 'Blog Entry Title', 'oceanwp' ),
+						'label'    => esc_html__( 'Blog Entry Title', 'responsive' ),
 						'target'   => '#content-blog .post .post-entry .entry-title a',
 						'defaults' => array(
-							'font-size'   => '24px',
-							'color'       => '#333333',
-							'line-height' => '1.4',
+							'font-size'      => '24px',
+							'color'          => '#333333',
+							'line-height'    => '1.4',
+							'letter-spacing' => '0.6',
 						),
 					),
 					'blog_post_title'      => array(
-						'label'    => esc_html__( 'Blog Post Title', 'oceanwp' ),
+						'label'    => esc_html__( 'Blog Post Title', 'responsive' ),
 						'target'   => '.single-post .entry-title',
 						'defaults' => array(
 							'font-size'      => '34px',
@@ -194,6 +195,26 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'font-size'      => '12px',
 							'line-height'    => '1.8',
 							'text-transform' => 'uppercase',
+						),
+					),
+					'site_title'           => array(
+						'label'    => esc_html__( 'Site Title', 'responsive' ),
+						'target'   => '.site-name a',
+						'defaults' => array(
+							'font-size'      => '2.063em',
+							'color'          => '#333333',
+							'line-height'    => '1em',
+							'letter-spacing' => '0',
+						),
+					),
+					'site_tagline'         => array(
+						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
+						'target'   => '.site-description',
+						'defaults' => array(
+							'font-size'      => '0.875em',
+							'color'          => '#333333',
+							'line-height'    => '1.4',
+							'letter-spacing' => '0',
 						),
 					),
 				)
@@ -588,7 +609,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								)
 							)
 						);
-
 					}
 				}
 			}

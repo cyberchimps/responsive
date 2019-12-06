@@ -43,7 +43,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 	get_template_part( 'home' );
 } elseif ( 'page' === get_option( 'show_on_front' ) && 1 !== $responsive_options['front_page'] ) {
 	$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
-	$template = ( $template == 'default' || $template == '' ) ? 'index.php' : $template;
+	$template = ( $template == 'default' || $template == '' ) ? 'page.php' : $template;
 	locate_template( $template, true );
 } else {
 	get_header();

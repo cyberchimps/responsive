@@ -83,11 +83,13 @@ function responsive_free_setup() {
 	$larger_font_sizes = get_theme_mod( 'heading_h1_typography' );
 	$large_font_sizes  = get_theme_mod( 'heading_h2_typography' );
 
-	$small_font_sizes_default_value  = $small_font_sizes['font-size'] ? str_replace( 'px', '', $small_font_sizes['font-size'] ) : '12';
-	$normal_sizes_default_value      = $normal_sizes['font-size'] ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '14';
-	$larger_font_sizes_default_value = $larger_font_sizes['font-size'] ? str_replace( 'em', '', $larger_font_sizes['font-size'] ) : '2.625';
+
+	$small_font_sizes_default_value  = ( $small_font_sizes && isset( $small_font_sizes['font-size'] ) ) ? str_replace( 'px', '', $small_font_sizes['font-size'] ) : '12';
+	$normal_sizes_default_value      = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '14';
+	$larger_font_sizes_default_value = ( $larger_font_sizes && isset( $larger_font_sizes['font-size'] ) ) ? str_replace( 'em', '', $larger_font_sizes['font-size'] ) : '2.625';
 	$larger_font_sizes_default_value = $normal_sizes_default_value * $larger_font_sizes_default_value;
-	$large_font_sizes_default_value  = $large_font_sizes['font-size'] ? str_replace( 'em', '', $large_font_sizes['font-size'] ) : '2.250';
+	$large_font_sizes_default_value  = ( $large_font_sizes && isset( $large_font_sizes['font-size'] ) ) ? str_replace( 'em', '', $large_font_sizes['font-size'] ) : '2.250';
+
 	$large_font_sizes_default_value  = $normal_sizes_default_value * $large_font_sizes_default_value;
 	add_theme_support(
 		'editor-font-sizes',
@@ -555,17 +557,6 @@ function responsive_display_menu_outside_container() {
 	);
 }
 
-/**
- * Check the the header layout and hook the menu accordingly
- */
-$responsive_header_layout = get_theme_mod( 'menu_position', 'in_header' );
-if ( 'above_header' === $responsive_header_layout ) {
-	add_action( 'responsive_header', 'responsive_display_menu_outside_container' );
-} elseif ( 'in_header' === $responsive_header_layout ) {
-	add_action( 'responsive_header_container', 'responsive_display_menu_outside_container' );
-} elseif ( 'below_header' === $responsive_header_layout ) {
-	add_action( 'responsive_header_end', 'responsive_display_menu_outside_container' );
-}
 
 /**
  * Check the responsive version is above 4.0.

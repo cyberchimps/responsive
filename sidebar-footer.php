@@ -28,7 +28,7 @@ responsive_widgets_before(); // above widgets container hook. ?>
 	<?php
 	for ( $i = 1;  $i <= $responsive_footer_column; $i++ ) {
 		if ( is_active_sidebar( 'footer-widget-' . $i ) ) :
-			echo '<div class="footer-widget ' . $i . '">';
+			echo '<div class="footer-widget footer-widget-' . $i . '">';
 				dynamic_sidebar( 'footer-widget-' . $i );
 			echo '</div>';
 		endif; // End of colophon-widget.

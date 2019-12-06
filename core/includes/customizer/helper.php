@@ -835,7 +835,7 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
 /**
  * Responsive_padding_control.
  *
- * @param  string  $wp_customize  [description].
+ * @param  object  $wp_customize  [description].
  * @param  integer $element  [description].
  * @param  string  $section  [description].
  * @param  integer $priority [description].
@@ -959,6 +959,78 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 					'step' => 1,
 				),
 			)
+		)
+	);
+}
+
+/**
+ * Responsive_meta_styles description
+ *
+ * @param  object  $wp_customize [description].
+ * @param  string  $element      [description].
+ * @param  string  $section      [description].
+ * @param  integer $priority     [description].
+ * @return void               [description].
+ */
+function responsive_meta_styles( $wp_customize, $element, $section, $priority ) {
+	// Enable Avatar and Icon.
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_meta_icon_display',
+		array(
+			'default'           => true,
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'responsive_checkbox_validate',
+		)
+	);
+	$wp_customize->add_control(
+		'responsive_' . $element . '_meta_icon_display',
+		array(
+			'label'    => __( 'Show Meta Avatar and Icon', 'responsive' ),
+			'section'  => $section,
+			'settings' => 'responsive_' . $element . '_meta_icon_display',
+			'type'     => 'checkbox',
+			'priority' => $priority,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_meta_separator',
+		array(
+			'default'           => '|',
+			'sanitize_callback' => 'wp_filter_nohtml_kses',
+			'type'              => 'theme_mod',
+		)
+	);
+	$wp_customize->add_control(
+		'responsive_' . $element . '_meta_separator',
+		array(
+			'label'    => __( 'Meta Separator', 'responsive' ),
+			'section'  => $section,
+			'settings' => 'responsive_' . $element . '_meta_separator',
+			'type'     => 'text',
+			'priority' => $priority,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_meta_position',
+		array(
+			'default'           => 'left',
+			'sanitize_callback' => 'responsive_sanitize_select',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'responsive_' . $element . '_meta_position',
+		array(
+			'label'    => __( 'Meta Position', 'responsive' ),
+			'section'  => $section,
+			'settings' => 'responsive_' . $element . '_meta_position',
+			'type'     => 'select',
+			'priority' => $priority,
+			'choices'  => array(
+				'left'   => __( 'Left', 'responsive' ),
+				'center' => __( 'Center', 'responsive' ),
+				'right'  => __( 'Right', 'responsive' ),
+			),
 		)
 	);
 }
