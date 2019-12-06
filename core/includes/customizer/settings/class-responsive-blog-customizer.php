@@ -646,7 +646,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 					$wp_customize,
 					'responsive_blog_entries_padding',
 					array(
-						'label'       => esc_html__( 'Blog Padding (px)', 'responsive' ),
+						'label'       => esc_html__( 'Article Padding (px)', 'responsive' ),
 						'section'     => 'responsive_blog_entries_section',
 						'settings'    => array(
 							'desktop_top'    => 'responsive_blog_entries_top_padding',
@@ -683,7 +683,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			$wp_customize->add_control(
 				'responsive_display_thumbnail_without_padding',
 				array(
-					'label'    => __( 'Display Thumbnail Without Padding', 'responsive' ),
+					'label'    => __( 'Stretch Featured Image', 'responsive' ),
 					'section'  => 'responsive_blog_entries_section',
 					'settings' => 'responsive_display_thumbnail_without_padding',
 					'type'     => 'checkbox',
