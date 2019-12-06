@@ -4602,10 +4602,10 @@ ul.products.list li.product a.woocommerce-LoopProduct-link {
   width: 32%;
   display: block;
 }
-ul.products.list li.product .ressponsive-shop-summary-wrap {
+ul.products.list li.product .responsive-shop-summary-wrap {
   display: block;
   width: 65%;
-  text-align: center;
+  text-align: start;
 }
 ul.products.list li.product a.button.product_type_simple.add_to_cart_button {
   width: fit-content;
