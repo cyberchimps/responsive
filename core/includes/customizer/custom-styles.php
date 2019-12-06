@@ -587,6 +587,7 @@ function responsive_premium_custom_color_styles() {
         body.fullwidth-stretched header div.content-outer,
 		nav.main-nav{
 			max-width: ' . get_theme_mod( 'responsive_main_container_width', '960' ) . 'px;
+			margin:0 auto;
 		}
 		#logo{
 			padding: 0 0.9em;
