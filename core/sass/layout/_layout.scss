@@ -223,10 +223,14 @@ body.fullwidth-stretched .content-outer {
 body.fullwidth-stretched #primary {
 	padding: 0;
 }
-.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
-.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
-	width: 960px;
-	margin: auto;
+
+.post-entry h1,
+.post-entry h2,
+.post-entry h3,
+.post-entry h4,
+.post-entry h5,
+.post-entry h6 {
+	margin-bottom: 20px;
 }
 body.fullwidth-stretched #content-full {
 	padding: 20px 0;

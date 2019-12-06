@@ -15,7 +15,7 @@
 }
 
 #footer-wrapper .grid.col-940 {
-	margin: 0;
+	margin: 1% 0;
 	display: flex;
 	flex-direction: row;
 
@@ -168,14 +168,14 @@
     width: 100%;
 }
 
-.grid.col-300.copyright{
-	width: 100%;
+.copyright, .powered{
+	display: inline-block;
 }
 
-.grid.col-300.copyright.footer-credits-center {
+.footer-layout.footer-credits-center {
 	text-align: center;
 }
 
-.grid.col-300.copyright.footer-credits-right{
+.footer-layout.footer-credits-right{
 	text-align: right;
 }

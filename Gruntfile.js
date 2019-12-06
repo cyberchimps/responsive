@@ -156,7 +156,8 @@ module.exports = function(grunt) {
 					'!.editorconfig',
 					'!**/.csscomb.json',
 					'!**/sass/**',
-					'!**/automationtest/**'
+					'!**/automationtest/**',
+					'!**/jenkincodeception/**'
 
 				],
 				dest: 'build/<%= pkg.name %>/'

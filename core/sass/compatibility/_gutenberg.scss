@@ -108,7 +108,8 @@
 	.grid.col-940 p:not(.alignfull):not(.alignwide) {
 		margin: 0 auto;
 		max-width: 940px;
-		width: 940px;
+		margin-left: auto;
+	    margin-right: auto;
 	}
 }
 /*
