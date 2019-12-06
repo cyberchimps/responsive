@@ -3545,7 +3545,7 @@
 				$child.remove();
 			}
 		} );
-	} ), api( "post_meta_typography[font-family]", function( $swipe ) { 				console.log('post meta font check 1');
+	} ), api( "post_meta_typography[font-family]", function( $swipe ) {
 
 	    $swipe.bind( function( pair ) {
 	        if ( pair ) {
@@ -3563,7 +3563,6 @@
 	        }
 	        var $child = $( ".customizer-typography-post_meta-font-family" );
 	        if ( pair ) {
-	            console.log('post meta font check');
 	            /** @type {string} */
 	            var img = '<style class="customizer-typography-post_meta-font-family">.post-meta *{font-family: ' + pair + ";}</style>";
 	            if ( $child.length ) {

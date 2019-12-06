@@ -711,7 +711,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						if ( 'css' === $return ) {
 							$add_css .= $attribute . ':' . $val . $px . ';';
 						} elseif ( 'preview_styles' === $return ) {
-							$preview_styles[ 'customizer-typography-' . $element . '-' . $attribute ] = $target . '{' . $attribute . ':' . $val . $px . ';}';
+							$preview_styles[ 'customizer-typography-' . $element . '-' . $attribute ] = $target . '{' . $attribute . ':' . $val . $px . ';}.post-meta .fa{ font-family:fontAwesome;}';
 						}
 					}
 
