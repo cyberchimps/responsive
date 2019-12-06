@@ -80,7 +80,8 @@ global $responsive_blog_layout_columns;
 		}
 		?>
 			<?php $credits_layout = get_theme_mod( 'copyright_layout_options', 'default' ); ?>
-			<div class="grid col-300 copyright <?php echo esc_attr( $credits_layout ); ?>">
+			<div class="footer-layout <?php echo esc_attr( $credits_layout ); ?>">
+			<div class="copyright">
 			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( date( 'Y' ) ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				<?php
 				if ( empty( $copyright_text ) ) {
@@ -93,11 +94,12 @@ global $responsive_blog_layout_columns;
 		</div><!-- end of .copyright -->
 
 		<?php if ( $cyberchimps_link ) { ?>
-		<div class="grid col-300 fit powered">
-			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>>Responsive Theme</a>
+		<div class="powered">
+			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>> | Responsive Theme</a>
 			<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
 				WordPress</a>
 		</div><!-- end .powered -->
+	</div>
 		<?php } ?>
 	</div>
 

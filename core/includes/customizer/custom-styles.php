@@ -326,6 +326,7 @@ function responsive_premium_custom_color_styles() {
 	} else {
 		$headingsfont_style = 'normal';
 	}
+
 	if ( isset( $body_typography['font-family'] ) ) {
 		$font_family = $body_typography['font-family'];
 	} else {
@@ -336,11 +337,13 @@ function responsive_premium_custom_color_styles() {
 	} else {
 		$headings_font_family = 'Arial, Helvetica, sans-serif';
 	}
+
 	if ( isset( $body_typography['font-size'] ) ) {
 		$body_font_size = $body_typography['font-size'];
 	} else {
 		$body_font_size = '14px';
 	}
+
 	$custom_css = "
 		body {
 			font-family: {$font_family};
@@ -435,12 +438,6 @@ function responsive_premium_custom_color_styles() {
 			color: {$button_text_color};
 			background-color: {$button_color};
 			border-radius: {$button_radius}px;
-			font-family: {$font_family};
-			font-size: {$body_font_size};
-			font-weight: {$font_weight};
-			line-height: {$line_height};
-			font-style: {$font_style};
-			letter-spacing: {$letter_spacing}px;
 		}
 		input#searchsubmit{
 			background-image: none;

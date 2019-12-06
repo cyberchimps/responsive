@@ -217,6 +217,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'letter-spacing' => '0',
 						),
 					),
+					'buttons'              => array(
+						'label'    => esc_html__( 'Buttons Typography', 'responsive' ),
+						'target'   => '.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'      => '0.875em',
+							'font-weight'    => '400',
+							'line-height'    => '1.4',
+							'letter-spacing' => '0',
+						),
+					),
 				)
 			);
 		}
