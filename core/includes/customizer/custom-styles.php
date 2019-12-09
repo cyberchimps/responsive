@@ -641,7 +641,8 @@ function responsive_premium_custom_color_styles() {
 	}
 
 	if ( $single_post_background_color ) {
-		$custom_css .= ".boxed #primary {background-color: {$single_post_background_color};}";
+		$custom_css .= "body.single #primary {background-color: {$single_post_background_color};}";
+
 	}
 	if ( $single_blog_padding_top || $single_blog_padding_right || $single_blog_padding_bottom || $single_blog_padding_left ) {
 		$custom_css .= 'body.single #content{
