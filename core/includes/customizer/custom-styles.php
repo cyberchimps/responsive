@@ -110,7 +110,7 @@ function responsive_premium_custom_color_styles() {
 	$sidebar_text_color    = get_theme_mod( 'responsive_sidebar_text_color' );
 
 	$fullwidth_title_color  = get_theme_mod( 'responsive_fullwidth_sitetitle_color' );
-	$site_description_color = get_theme_mod( 'responsive_site_description_color','#333333');
+	$site_description_color = get_theme_mod( 'responsive_site_description_color', '#333333' );
 	$blog_background_color  = get_theme_mod( 'responsive_container_background_color' );
 
 	// Container Padding.
@@ -642,6 +642,7 @@ function responsive_premium_custom_color_styles() {
 
 	if ( $single_post_background_color ) {
 		$custom_css .= "body.single #primary {background-color: {$single_post_background_color};}";
+
 	}
 	if ( $single_blog_padding_top || $single_blog_padding_right || $single_blog_padding_bottom || $single_blog_padding_left ) {
 		$custom_css .= 'body.single #content{
@@ -1190,14 +1191,10 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $site_description_color ) ) {
-	    error_log("not empty".$site_description_color);
 		$custom_css .= ".site-description {
 			color: {$site_description_color};
 		}";
 	}
-	else{
-        error_log("not empty".$site_description_color);
-    }
 	if ( ! empty( $blog_title_color ) ) {
 		$custom_css .= "h2.entry-title.post-title a {
 			color: {$blog_title_color};

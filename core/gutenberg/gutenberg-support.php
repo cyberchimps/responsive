@@ -183,7 +183,7 @@ function responsive_gutenberg_customizer_css() {
 		$custom_css .= '}';
 	}
 
-	if ( $h5_typography ) {
+	if ( $h6_typography ) {
 		$custom_css .= ' .edit-post-visual-editor.editor-styles-wrapper .wp-block h6,
 		.wp-block-freeform.block-library-rich-text__tinymce h6,
 		.wp-block-heading h6.editor-rich-text__tinymce {';
@@ -207,9 +207,10 @@ function responsive_gutenberg_customizer_css() {
 	.editor-writing-flow a:focus{
 		color: {$link_hover_color};
 	}
-	.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link, 
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,
 	.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button{
-	  background-color: {$button_color}; 
+	  background-color: {$button_color};
+	  border-radius: {$button_radius}px;
     }";
 
 	return $custom_css;

@@ -3490,7 +3490,7 @@ blockquote p {
 }
 
 body.fullwidth-stretched #wrapper {
-  margin-top: 0;
+  margin: 0 auto 20px;
 }
 
 .front-page #wrapper {
@@ -4323,6 +4323,7 @@ label[for=payment_method_stripe] {
   display: inline;
 }
 
+.elementor-template-full-width .content-outer,
 .elementor-template-full-width div#wrapper {
   padding: 0;
   border: none;
