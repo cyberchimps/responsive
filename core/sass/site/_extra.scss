@@ -37,6 +37,9 @@ blockquote p {
         margin: 20px auto 20px auto;
     }
 }
+body.fullwidth-stretched #wrapper {
+	margin: 0 auto 20px;
+}
 
 body.fullwidth-stretched #wrapper {
 	margin-top: 0;
@@ -823,10 +826,13 @@ border-bottom-color: #cec9c4;
  label[for=payment_method_stripe] {
  	display: inline;
  }
- .elementor-template-full-width div#wrapper {
- 	padding: 0;
- 	border: none;
- }
+ .elementor-template-full-width {
+	.content-outer,
+	div#wrapper {
+	 	padding: 0;
+	 	border: none;
+	}
+}
 .wc_payment_methods * {
 	box-sizing: border-box;
 }

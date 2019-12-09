@@ -996,7 +996,7 @@ function responsive_meta_styles( $wp_customize, $element, $section, $priority ) 
 		'responsive_' . $element . '_meta_separator',
 		array(
 			'default'           => '|',
-			'sanitize_callback' => 'wp_filter_nohtml_kses',
+			'sanitize_callback' => 'wp_check_invalid_utf8',
 			'type'              => 'theme_mod',
 		)
 	);
