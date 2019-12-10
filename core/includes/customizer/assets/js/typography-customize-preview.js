@@ -6006,7 +6006,7 @@
 	    var $child = $( ".customizer-typography-site_title-font-family" );
 	    if ( pair ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-font-family">.site-name a{font-family: ' + pair + ";}</style>";
+	      var img = '<style class="customizer-typography-site_title-font-family">.site-name{font-family: ' + pair + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6021,7 +6021,7 @@
 	    var $child = $( ".customizer-typography-site_title-font-weight" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-font-weight">.site-name a{font-weight: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-site_title-font-weight">.site-name{font-weight: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6036,7 +6036,7 @@
 	    var $child = $( ".customizer-typography-site_title-font-style" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-font-style">.site-name a{font-style: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-site_title-font-style">.site-name{font-style: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6051,7 +6051,7 @@
 	    var $child = $( ".customizer-typography-site_title-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-font-size">.site-name a{font-size: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-site_title-font-size">.site-name{font-size: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6066,7 +6066,7 @@
 	    var $child = $( ".customizer-typography-site_title-tablet-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-tablet-font-size">@media (max-width: 768px){.site-name a{font-size: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-site_title-tablet-font-size">@media (max-width: 768px){.site-name{font-size: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6081,7 +6081,7 @@
 	    var $child = $( ".customizer-typography-site_title-mobile-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-mobile-font-size">@media (max-width: 480px){.site-name a{font-size: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-site_title-mobile-font-size">@media (max-width: 480px){.site-name{font-size: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6096,7 +6096,7 @@
 	    var $child = $( ".customizer-typography-site_title-color" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-color">.site-name a{color: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-site_title-color">.site-name{color: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6111,7 +6111,7 @@
 	    var $child = $( ".customizer-typography-site_title-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-line-height">.site-name a{line-height: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-site_title-line-height">.site-name{line-height: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6126,7 +6126,7 @@
 	    var $child = $( ".customizer-typography-site_title-tablet-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-tablet-line-height">@media (max-width: 768px){.site-name a{line-height: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-site_title-tablet-line-height">@media (max-width: 768px){.site-name{line-height: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6141,7 +6141,7 @@
 	    var $child = $( ".customizer-typography-site_title-mobile-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-mobile-line-height">@media (max-width: 480px){.site-name a{line-height: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-site_title-mobile-line-height">@media (max-width: 480px){.site-name{line-height: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6156,7 +6156,7 @@
 	    var $child = $( ".customizer-typography-site_title-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-letter-spacing">.site-name a{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	      var img = '<style class="customizer-typography-site_title-letter-spacing">.site-name{letter-spacing: ' + dataAndEvents + "px;}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6171,7 +6171,7 @@
 	    var $child = $( ".customizer-typography-site_title-tablet-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-tablet-letter-spacing">@media (max-width: 768px){.site-name a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	      var img = '<style class="customizer-typography-site_title-tablet-letter-spacing">@media (max-width: 768px){.site-name{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6186,7 +6186,7 @@
 	    var $child = $( ".customizer-typography-site_title-mobile-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-mobile-letter-spacing">@media (max-width: 480px){.site-name a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	      var img = '<style class="customizer-typography-site_title-mobile-letter-spacing">@media (max-width: 480px){.site-name{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6201,7 +6201,7 @@
 	    var $child = $( ".customizer-typography-site_title-text-transform" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-text-transform">.site-name a{text-transform: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-site_title-text-transform">.site-name{text-transform: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {

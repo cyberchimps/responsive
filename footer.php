@@ -62,11 +62,12 @@ global $responsive_blog_layout_columns;
 				?>
 			</div><!-- end of col-540 -->
 
-			<div class="grid col-380 fit">
-				<?php echo  responsive_get_social_icons() ;// phpcs:ignore ?>
-			</div><!-- end of col-380 fit -->
+			</div><!-- end of col-940 -->
 
-		</div><!-- end of col-940 -->
+	<div class="footer-layout">
+		<div class="social-icon">
+			<?php echo  responsive_get_social_icons() ;// phpcs:ignore ?>
+		</div><!-- end of col-380 fit -->
 		<?php } ?>
 		<?php get_sidebar( 'colophon' ); ?>
 		<?php
@@ -79,26 +80,24 @@ global $responsive_blog_layout_columns;
 			$cyberchimps_link = $responsive_options['poweredby_link'];
 		}
 		?>
-			<?php $credits_layout = get_theme_mod( 'copyright_layout_options', 'default' ); ?>
-			<div class="footer-layout <?php echo esc_attr( $credits_layout ); ?>">
 			<div class="copyright">
-			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( date( 'Y' ) ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-				<?php
-				if ( empty( $copyright_text ) ) {
-					bloginfo( 'name' );
-				} else {
-					echo esc_html( $copyright_text );
-				}
-				?>
-			</a>
-		</div><!-- end of .copyright -->
+				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( date( 'Y' ) ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+					<?php
+					if ( empty( $copyright_text ) ) {
+						bloginfo( 'name' );
+					} else {
+						echo esc_html( $copyright_text );
+					}
+					?>
+				</a>
+			</div><!-- end of .copyright -->
 
 		<?php if ( $cyberchimps_link ) { ?>
-		<div class="powered">
-			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>> | Responsive Theme</a>
-			<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
-				WordPress</a>
-		</div><!-- end .powered -->
+			<div class="powered">
+				<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>> | Responsive Theme</a>
+				<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
+					WordPress</a>
+			</div><!-- end .powered -->
 	</div>
 		<?php } ?>
 	</div>

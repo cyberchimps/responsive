@@ -83,30 +83,150 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'priority' => 2,
 				)
 			);
+
 			$wp_customize->add_setting(
-				'copyright_layout_options',
+				'responsive_footer_width',
 				array(
-					'default'           => 'default',
+					'default'   => 'Container',
+					'transport' => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_footer_width',
+				array(
+					'label'    => __( 'Footer Width', 'responsive' ),
+					'section'  => 'footer_section',
+					'settings' => 'responsive_footer_width',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_width_choices',
+						array(
+							'Container' => esc_html__( 'Container', 'responsive' ),
+							'Full'      => esc_html__( 'Full', 'responsive' ),
+						)
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_footer_layout_options',
+				array(
+					'default'           => 'row',
 					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
-				'copyright_layout_options',
+				'responsive_footer_layout_options',
 				array(
-					'label'    => __( 'Copyright Layout', 'responsive' ),
+					'label'    => __( 'Footer Bar Layout', 'responsive' ),
 					'section'  => 'footer_section',
-					'settings' => 'copyright_layout_options',
+					'settings' => 'responsive_footer_layout_options',
 					'type'     => 'select',
 					'choices'  => apply_filters(
 						'responsive_header_layout_choices',
 						array(
-							'default'            => esc_html__( 'Default', 'responsive' ),
-							'footer-credits-left'   => esc_html__( 'Credits Left', 'responsive' ),
-							'footer-credits-center' => esc_html__( 'Credits Center', 'responsive' ),
-							'footer-credits-right'  => esc_html__( 'Credits Right', 'responsive' ),
+							'row'    => esc_html__( 'Horizontal', 'responsive' ),
+							'column' => esc_html__( 'Vertical', 'responsive' ),
 						)
 					),
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_horizontal_layout_position',
+				array(
+					'default'           => 'row',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_horizontal_layout_position',
+				array(
+					'label'    => __( 'Horizontal Layout Position', 'responsive' ),
+					'section'  => 'footer_section',
+					'settings' => 'responsive_horizontal_layout_position',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_layout_choices',
+						array(
+							'row'         => esc_html__( 'Social Icons / Copyright', 'responsive' ),
+							'row-reverse' => esc_html__( 'Copyright / Social Icons', 'responsive' ),
+						)
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_vertical_layout_position',
+				array(
+					'default'           => 'column',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_vertical_layout_position',
+				array(
+					'label'    => __( 'Vertical Layout Position', 'responsive' ),
+					'section'  => 'footer_section',
+					'settings' => 'responsive_vertical_layout_position',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_layout_choices',
+						array(
+							'column'         => esc_html__( 'Social Icons / Copyright', 'responsive' ),
+							'column-reverse' => esc_html__( 'Copyright / Social Icons', 'responsive' ),
+						)
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_footer_border',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_footer_border',
+					array(
+						'label'       => __( 'Footer Border Width (px)', 'responsive' ),
+						'section'     => 'footer_section',
+						'settings'    => 'responsive_footer_border',
+						'priority'    => 10,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 100,
+							'step' => 1,
+						),
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_footer_border_color',
+				array(
+					'default'           => '',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_footer_border_color',
+					array(
+						'label'    => __( 'Footer Border Color', 'responsive' ),
+						'section'  => 'footer_section',
+						'settings' => 'responsive_footer_border_color',
+					)
 				)
 			);
 

@@ -340,25 +340,25 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			);
 
 			$wp_customize->add_setting(
-				'single_title_alignment_options',
+				'responsive_single_title_alignment_options',
 				array(
-					'default'           => 'default',
+					'default'           => 'left',
 					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
-				'single_title_alignment_options',
+				'responsive_single_title_alignment_options',
 				array(
 					'label'    => __( 'Single Post Title Alignment', 'responsive' ),
 					'section'  => 'responsive_single_post_section',
-					'settings' => 'single_title_alignment_options',
+					'settings' => 'responsive_single_title_alignment_options',
 					'type'     => 'select',
 					'choices'  => apply_filters(
 						'responsive_header_layout_choices',
 						array(
-							'default'             => esc_html__( 'Default', 'responsive' ),
-							'single-title-center' => esc_html__( 'Single Post Title Center', 'responsive' ),
+							'left'   => esc_html__( 'Default', 'responsive' ),
+							'center' => esc_html__( 'Single Post Title Center', 'responsive' ),
 						)
 					),
 				)
@@ -821,6 +821,31 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 							'step' => 1,
 						),
 					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_blog_title_alignment_options',
+				array(
+					'default'           => 'left',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_blog_title_alignment_options',
+				array(
+					'label'    => __( 'Blog Page Title Alignment', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_blog_title_alignment_options',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_layout_choices',
+						array(
+							'left'   => esc_html__( 'Default', 'responsive' ),
+							'center' => esc_html__( 'Blog Post Title Center', 'responsive' ),
+						)
+					),
 				)
 			);
 		}
