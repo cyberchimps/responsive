@@ -43,11 +43,10 @@ global $responsive_blog_layout_columns;
 		<?php get_sidebar( 'footer' ); ?>
 
 		<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
-		<div class="grid col-940">
 
-			<div class="grid col-540">
+			<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) : ?>
+				<div class="grid col-940">
 				<?php
-				if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu(
 						array(
 							'container'       => 'nav',
@@ -58,12 +57,9 @@ global $responsive_blog_layout_columns;
 							'theme_location'  => 'footer-menu',
 						)
 					);
-				}
 				?>
-			</div><!-- end of col-540 -->
-
-			</div><!-- end of col-940 -->
-
+				</div><!-- end of col-940 -->
+			<?php endif; ?>
 	<div class="footer-layout">
 		<div class="social-icon">
 			<?php echo  responsive_get_social_icons() ;// phpcs:ignore ?>

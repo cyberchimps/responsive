@@ -1741,6 +1741,7 @@ ul.menu > li:hover {
 .footer-menu {
   margin-left: 0;
   padding: 0;
+  margin: 0;
 }
 
 .footer-menu li {
@@ -3141,6 +3142,7 @@ body.search.search-no-results #searchform {
 
 body.archive .breadcrumb-list,
 body.archive .title-archive,
+body.archive .taxonomy-description,
 body.archive .page {
   padding: 0 20px;
 }
@@ -3482,7 +3484,7 @@ blockquote p {
   position: relative;
 }
 #wrapper, #wrapper body.home #wrapper {
-  margin: 20px auto 20px auto;
+  margin: 20px auto 0 auto;
 }
 
 body.fullwidth-stretched #wrapper {
@@ -4341,7 +4343,7 @@ label[for=payment_method_stripe] {
 .woocommerce-product-search button,
 input[type=submit]#searchsubmit {
   width: 23%;
-  padding: 0.45em;
+  padding: 0.55em;
   border: none;
   font-weight: 600;
 }
@@ -4626,7 +4628,7 @@ ul.products.list li.product .onsale {
 /* =Footer
 -------------------------------------------------------------- */
 #footer {
-  font-size: 11px;
+  font-size: 0.92em;
   line-height: 1.5em;
 }
 
@@ -4752,7 +4754,7 @@ ul.products.list li.product .onsale {
   background-color: inherit;
 }
 
-.full-width-no-box #footer .social-icons li {
+#footer .social-icons li {
   list-style: none;
   display: inline-block;
   border: solid 2px #ffffff;
@@ -4763,8 +4765,14 @@ ul.products.list li.product .onsale {
   margin: 10px;
   font-size: 26px;
 }
+#footer .social-icons li:first-child {
+  margin-left: 0;
+}
+#footer .social-icons li:last-child {
+  margin-right: 0;
+}
 
-.full-width-no-box #footer .social-icons li:hover {
+#footer .social-icons li:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -4801,6 +4809,8 @@ ul.products.list li.product .onsale {
 
 .content-outer .copyright {
   margin-bottom: 0;
+  padding: 20px 0;
+  margin: auto 0;
 }
 
 .social_div .content-outer {
@@ -4820,6 +4830,10 @@ ul.products.list li.product .onsale {
 
 .copyright, .social-icon {
   width: inherit;
+}
+
+.footer-widget *:last-child {
+  margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------

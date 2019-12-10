@@ -34,7 +34,7 @@ blockquote p {
 
 	position: relative;
 	&, body.home #wrapper {
-        margin: 20px auto 20px auto;
+        margin: 20px auto 0 auto;
     }
 }
 body.fullwidth-stretched #wrapper {
@@ -843,7 +843,7 @@ border-bottom-color: #cec9c4;
 .woocommerce-product-search button,
 input[type='submit']#searchsubmit {
 	width: 23%;
-	padding: .45em;
+	padding: .55em;
 	border: none;
 	font-weight: 600;
 }
