@@ -86,7 +86,6 @@ global $responsive_blog_layout_columns;
 					}
 					?>
 				</a>
-			</div><!-- end of .copyright -->
 
 		<?php if ( $cyberchimps_link ) { ?>
 			<div class="powered">
@@ -94,11 +93,13 @@ global $responsive_blog_layout_columns;
 				<?php esc_attr_e( 'powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'http://wordpress.org/' ); ?>" title="<?php esc_attr_e( 'WordPress', 'responsive' ); ?>">
 					WordPress</a>
 			</div><!-- end .powered -->
+		</div><!-- end of .copyright -->
+
 	</div>
 		<?php } ?>
-	</div>
-
 	</div><!-- end #footer-wrapper -->
+
+	</div>
 
 	<?php responsive_footer_bottom(); ?>
 </footer><!-- end #footer -->

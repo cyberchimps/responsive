@@ -259,9 +259,8 @@ function responsive_premium_custom_color_styles() {
 	$buttons_mobile_padding_top    = get_theme_mod( 'responsive_buttons_mobile_top_padding' );
 	$buttons_mobile_padding_bottom = get_theme_mod( 'responsive_buttons_mobile_bottom_padding' );
 
-	$footer_layout     = get_theme_mod( 'responsive_footer_layout_options', 'row' );
-	$horizontal_layout = get_theme_mod( 'responsive_horizontal_layout_position', 'row' );
-	$vertical_layout   = get_theme_mod( 'responsive_vertical_layout_position', 'column' );
+	$footer_layout   = get_theme_mod( 'responsive_footer_layout_options', 'row' );
+	$layout_position = get_theme_mod( 'responsive_layout_position', '' );
 
 	$blog_alignment   = get_theme_mod( 'responsive_blog_title_alignment_options', 'left' );
 	$single_alignment = get_theme_mod( 'responsive_single_title_alignment_options', 'left' );
@@ -609,7 +608,7 @@ function responsive_premium_custom_color_styles() {
 			text-align: {$single_alignment};
 		}
 		.footer-layout{
-			flex-direction: {$footer_layout};
+			flex-direction: {$footer_layout}{$layout_position};
 		}
 		#footer{
 			border-top-style: solid;
@@ -627,28 +626,24 @@ function responsive_premium_custom_color_styles() {
 					margin-top: 1em;
 				}
 				';
-		if ( 'column-reverse' === $vertical_layout ) {
-					$custom_css .= '.footer-layout{
-						flex-direction: column-reverse;
-					}
-					.content-outer .copyright {
-						margin-top: 0;
-						margin-bottom: 1em;
-					}';
+		if ( '-reverse' === $layout_position ) {
+							$custom_css .= '.content-outer .copyright{
+								margin-bottom: 1em;
+							}
+							';
 		}
-	} elseif ( 'row-reverse' === $horizontal_layout ) {
-			$custom_css .= '.footer-layout{
-				flex-direction: row-reverse;
-			}
-			.social-icon{
-				text-align: right;
-			}
-			';
-	} elseif ( 'row' === $horizontal_layout ) {
-			$custom_css .= '.copyright{
-				text-align: right;
-			}
-			';
+	}
+
+	if ( 'row' === $footer_layout ) {
+		if ( '-reverse' === $layout_position ) {
+					$custom_css .= '.copyright{
+						text-align: left;
+					}
+					.social-icon{
+						text-align: right;
+					}
+					';
+		}
 	}
 
 	if ( ! $blog_entries_meta_icon_display ) {

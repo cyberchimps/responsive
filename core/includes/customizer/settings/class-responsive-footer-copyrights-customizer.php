@@ -132,51 +132,27 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					),
 				)
 			);
-			$wp_customize->add_setting(
-				'responsive_horizontal_layout_position',
-				array(
-					'default'           => 'row',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				'responsive_horizontal_layout_position',
-				array(
-					'label'    => __( 'Horizontal Layout Position', 'responsive' ),
-					'section'  => 'footer_section',
-					'settings' => 'responsive_horizontal_layout_position',
-					'type'     => 'select',
-					'choices'  => apply_filters(
-						'responsive_header_layout_choices',
-						array(
-							'row'         => esc_html__( 'Social Icons / Copyright', 'responsive' ),
-							'row-reverse' => esc_html__( 'Copyright / Social Icons', 'responsive' ),
-						)
-					),
-				)
-			);
 
 			$wp_customize->add_setting(
-				'responsive_vertical_layout_position',
+				'responsive_layout_position',
 				array(
-					'default'           => 'column',
+					'default'           => '',
 					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
-				'responsive_vertical_layout_position',
+				'responsive_layout_position',
 				array(
-					'label'    => __( 'Vertical Layout Position', 'responsive' ),
+					'label'    => __( 'Elements Position', 'responsive' ),
 					'section'  => 'footer_section',
-					'settings' => 'responsive_vertical_layout_position',
+					'settings' => 'responsive_layout_position',
 					'type'     => 'select',
 					'choices'  => apply_filters(
 						'responsive_header_layout_choices',
 						array(
-							'column'         => esc_html__( 'Social Icons / Copyright', 'responsive' ),
-							'column-reverse' => esc_html__( 'Copyright / Social Icons', 'responsive' ),
+							''         => esc_html__( 'Social Icons / Copyright', 'responsive' ),
+							'-reverse' => esc_html__( 'Copyright / Social Icons', 'responsive' ),
 						)
 					),
 				)
