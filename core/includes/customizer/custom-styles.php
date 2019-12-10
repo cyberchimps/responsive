@@ -1103,6 +1103,14 @@ function responsive_premium_custom_color_styles() {
 			}";
 		}
 	}
+	if ( $responsive_header_layout === 'header-logo-center' ) {
+		$custom_css .= '
+		.menu{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }';
+	}
 	if ( ! empty( $container_padding_top ) ) {
 		$custom_css .= ".header-widgets,.content-outer {
 			padding-top: {$container_padding_top}px;
