@@ -88,14 +88,6 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				)
 			);
 
-			$wp_customize->add_section(
-				'responsive_woocommerce_shop_page_pagination_section',
-				array(
-					'title'    => esc_html__( 'Post Pagination', 'responsive' ),
-					'panel'    => 'woocommerce',
-					'priority' => 295,
-				)
-			);
 			$wp_customize->add_setting(
 				'shop_pagination',
 				array(
@@ -107,8 +99,8 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'shop_pagination',
 				array(
-					'label'    => __( 'Post Pagination', 'responsive' ),
-					'section'  => 'responsive_woocommerce_shop_page_pagination_section',
+					'label'    => __( 'Shop Pagination', 'responsive' ),
+					'section'  => 'responsive_woocommerce_shop_page_section',
 					'settings' => 'shop_pagination',
 					'type'     => 'select',
 					'choices'  => array(

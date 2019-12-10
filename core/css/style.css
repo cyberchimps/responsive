@@ -3493,6 +3493,10 @@ body.fullwidth-stretched #wrapper {
   margin: 0;
 }
 
+body.fullwidth-stretched #wrapper {
+  margin-top: 0;
+}
+
 .front-page #wrapper {
   background-color: transparent;
   border: none;
@@ -4561,8 +4565,12 @@ a.added_to_cart.wc-forward {
   padding: 0.618em 1em;
 }
 
-.ressponsive-shop-summary-wrap {
-  display: inline-grid;
+.responsive-shop-summary-wrap {
+  display: block;
+}
+
+.responsive_woo_shop_parent_category {
+  display: block;
 }
 
 table > *, td, tr, th {
@@ -4588,6 +4596,10 @@ table > *, td, tr, th {
 
 #widgets ul.product_list_widget {
   padding-left: 0;
+}
+
+.responsive-shop-pagination-infinite {
+  text-align: center;
 }
 
 ul.products.list li.product {

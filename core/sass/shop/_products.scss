@@ -55,7 +55,7 @@ ul.products {
 		.columns-#{$i} {
 			ul.products {
 				li.product {
-					@include column-width( $i );
+					@include column-width($i);
 				}
 			}
 		}

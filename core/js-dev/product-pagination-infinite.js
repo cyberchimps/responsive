@@ -86,7 +86,6 @@
 				query_vars: responsiveShopPaginationInfinite.query_vars,
 
 			}
-
 			$.post(
 				ajax_url,
 				data,
@@ -94,17 +93,15 @@
 					var boxes = $( data );
 					// Hide loader.
 					loader.hide();
-
 					$( '.responsive-load-more' ).addClass( 'active' ).show();
 
 					// Add posts.
 					$( '#content-outer > #content-woocommerce ul.products' ).append( boxes );
 
-					var msg = responsivePaginationInfinite.no_more_post_message || '';
-
+					var msg = responsiveShopPaginationInfinite.shop_no_more_product_message || '';
 					// Display no more post message.
 					if ( count > total ) {
-						$( '.responsive-pagination-infinite' ).html( '<span class="responsive-load-more no-more active" style="display: inline-block;">' + msg + "</span>" );
+						$( '.responsive-shop-pagination-infinite' ).html( '<span class="responsive-load-more no-more active" style="display: inline-block;">' + msg + "</span>" );
 					}
 
 					// Complete the process.
