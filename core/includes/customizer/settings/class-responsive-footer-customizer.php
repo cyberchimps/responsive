@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_footer_column',
 				array(
-					'default'           => '4',
+					'default'           => '0',
 					'sanitize_callback' => 'responsive_sanitize_number',
 					'transport'         => 'refresh',
 				)

@@ -75,8 +75,8 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 	foreach ( $responsive_gutenberg_color_options as $color ) {
 		if ( ! empty( $color['color'] ) ) {
 			$custom_color = get_theme_mod( $color['slug'], $color['color'] );
-			$css         .= '.wp-block-button__link.has-' . $color['slug'] . '-color { color: ' . esc_attr( $custom_color ) . '; }';
-			$css         .= '.wp-block-button__link.has-' . $color['slug'] . '-background-color { background-color: ' . esc_attr( $custom_color ) . '; }';
+			$css         .= '.has-' . $color['slug'] . '-color { color: ' . esc_attr( $custom_color ) . '; }';
+			$css         .= '.has-' . $color['slug'] . '-background-color { background-color: ' . esc_attr( $custom_color ) . '; }';
 		}
 	}
 	return wp_strip_all_tags( $css );
@@ -113,6 +113,20 @@ function responsive_gutenberg_customizer_css() {
 
 	$custom_css = '';
 
+	for ( $i = 1; $i < 7; $i++ ) {
+		if ( $headings_typography ) {
+			$custom_css = ".edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input,
+			.editor-post-title__block .editor-post-title__input,
+			.edit-post-visual-editor.editor-styles-wrapper .wp-block h{$i},
+			.wp-block-freeform.block-library-rich-text__tinymce h{$i},
+			.wp-block-heading h{$i}.editor-rich-text__tinymce {";
+
+			foreach ( $headings_typography as $key => $value ) {
+				$custom_css .= $key . ':' . $value . ';';
+			}
+			$custom_css .= '}';
+		}
+	}
 	if ( $h1_typography ) {
 		$custom_css = '.edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input,
 		.editor-post-title__block .editor-post-title__input,

@@ -170,7 +170,7 @@ function responsive_premium_custom_color_styles() {
 	$stt_icon_background_color       = get_theme_mod( 'responsive_scroll_to_top_icon_background_color' );
 	$stt_icon_background_hover_color = get_theme_mod( 'responsive_scroll_to_top_icon_background_hover_color' );
 
-	$header_width = get_theme_mod( 'header_width', 'Content' );
+	$header_width = get_theme_mod( 'header_width', 'Container' );
 
 	$header_border_color = get_theme_mod( 'responsive_header_border_color' );
 
@@ -434,9 +434,16 @@ function responsive_premium_custom_color_styles() {
 
 		#content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button,
 		input[type='submit'], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
-		.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link{
+		.woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit{
 			color: {$button_text_color};
 			background-color: {$button_color};
+			border-radius: {$button_radius}px;
+		}
+		.wp-block-button__link:not(.has-background){
+			color: {$button_text_color};
+			background-color: {$button_color};
+		}
+		.wp-block-button__link {
 			border-radius: {$button_radius}px;
 		}
 		input#searchsubmit{
@@ -487,7 +494,7 @@ function responsive_premium_custom_color_styles() {
 		label {
 			color: {$label_color};
 		}
-		.content-outer,.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
+		.content-outer,.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.thumbnail),
 		.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
 			width: {$container_width}px;
 			max-width: 100%;
@@ -500,9 +507,8 @@ function responsive_premium_custom_color_styles() {
 			max-width: {$container_width}px;
 		}
 
-		.grid.col-940 .alignwide,
-		.grid.col-940 .alignwide,
-		body.blog #main-blog > *.post .post-entry .alignwide {
+		.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide,
+		body.blog .grid.col-940 #main-blog > *.post .post-entry .alignwide {
 			padding-left: calc((100vw - {$container_width}px)/4);
 			padding-right: calc((100vw - {$container_width}px)/4);
 		}
@@ -674,16 +680,20 @@ function responsive_premium_custom_color_styles() {
 		}
 		#logo{
 			padding: 0 0.9em;
+		}
+		header .content-outer.responsive-header{
+			width: 100%;
 		}';
 	} else {
 		$custom_css .= '
-        body.fullwidth-stretched header div.content-outer,
+		body.fullwidth-stretched header div.content-outer,
+        header div.content-outer,
 		nav.main-nav{
 			max-width: ' . get_theme_mod( 'responsive_main_container_width', '960' ) . 'px;
 			margin:0 auto;
 		}
 		#logo{
-			padding: 0 0.9em;
+			padding: 0;
 		}';
 	}
 
@@ -954,36 +964,36 @@ function responsive_premium_custom_color_styles() {
 		$custom_css .= "body.search .post-entry > :first-child.thumbnail,
 		body.archive .post-entry > :first-child.thumbnail,
 		body.blog .post-entry > :first-child.thumbnail {
-    		margin: -{$blog_entries_padding_top}px -{$blog_entries_padding_right}px 25px -{$blog_entries_padding_left}px;
+    		margin: 0 -{$blog_entries_padding_right}px 25px -{$blog_entries_padding_left}px;
 		}
 		body.search .post-entry .thumbnail,
 		body.archive .post-entry .thumbnail,
 		body.blog .post-entry .thumbnail {
-    		margin: 0 -{$blog_entries_padding_right}px 0 -{$blog_entries_padding_left}px;
+    		margin: 0 -{$blog_entries_padding_right}px 25px -{$blog_entries_padding_left}px;
 		}
 
 		@media screen and (max-width:768px){
 			body.search .post-entry > *:first-child.thumbnail,
 			body.archive .post-entry > *:first-child.thumbnail,
 			body.blog .post-entry > *:first-child.thumbnail {
-	    		margin: -{$blog_entries_tablet_padding_top}px -{$blog_entries_tablet_padding_right}px 20px -{$blog_entries_tablet_padding_left}px;
+	    		margin: 0 -{$blog_entries_tablet_padding_right}px 20px -{$blog_entries_tablet_padding_left}px;
 			}
 			body.search .post-entry .thumbnail,
 			body.archive .post-entry .thumbnail,
 			body.blog .post-entry .thumbnail {
-	    		margin: 0 -{$blog_entries_tablet_padding_right}px 0 -{$blog_entries_tablet_padding_left}px;
+	    		margin: 0 -{$blog_entries_tablet_padding_right}px 20px -{$blog_entries_tablet_padding_left}px;
 			}
 		}
 		@media screen and (max-width:480px){
 			body.search .post-entry > *:first-child.thumbnail,
 			body.archive .post-entry > *:first-child.thumbnail,
 			body.blog .post-entry > *:first-child.thumbnail {
-	    		margin: -{$blog_entries_mobile_padding_top}px -{$blog_entries_mobile_padding_right}px 15px -{$blog_entries_mobile_padding_left}px;
+	    		margin: 0 -{$blog_entries_mobile_padding_right}px 15px -{$blog_entries_mobile_padding_left}px;
 			}
 			body.search .post-entry .thumbnail,
 			body.archive .post-entry .thumbnail,
 			body.blog .post-entry .thumbnail {
-	    		margin: 0 -{$blog_entries_mobile_padding_right}px 0 -{$blog_entries_mobile_padding_left}px;
+	    		margin: 0 -{$blog_entries_mobile_padding_right}px 15px -{$blog_entries_mobile_padding_left}px;
 			}
 		}";
 	} else {

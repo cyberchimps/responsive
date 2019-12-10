@@ -1181,20 +1181,20 @@
 			}
 		} );
 	} ), api( "headings_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-font-style">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-headings_typography-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-headings_typography-font-style">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
 	} ), api( "headings_typography[font-size]", function( $swipe ) {
 		$swipe.bind( function( dataAndEvents ) {
 			var $child = $( ".customizer-typography-headings-font-size" );

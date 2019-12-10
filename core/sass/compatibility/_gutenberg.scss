@@ -96,7 +96,7 @@
 	}
 }
 @media only screen and (min-width: 768px) {
-	.grid.col-940 .alignwide {
+	.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide {
 		margin: 0 calc(50% - 50vw);
 		max-width: 100vw;
 		width: 100vw;
