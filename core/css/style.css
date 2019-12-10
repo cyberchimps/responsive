@@ -4455,7 +4455,7 @@ body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide) {
 .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
 .grid.col-940 p:not(.alignfull):not(.alignwide) {
     margin: 0 auto;
-    max-width: 940px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
