@@ -93,6 +93,28 @@ function responsive_validate_site_layout( $input ) {
 		return '';
 	}
 }
+
+/**
+ * Function for page layouts
+ *
+ * @param object $input arguments.
+ */
+function responsive_validate_page_layout( $input ) {
+	/** An array of valid results */
+
+	$valid = array(
+		'boxed'               => 'Boxed',
+		'content-boxed'       => 'Content Boxed',
+		'fullwidth-content'   => 'Fullwith Content',
+		'fullwidth-stretched' => 'Fullwith Stretched',
+	);
+
+	if ( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+}
 /**
  * Function for sanitizing
  *
@@ -342,4 +364,4 @@ function responsive_tooltip_script() {
 
 	echo $output;
 }
-add_action( 'customize_controls_print_scripts',  'responsive_tooltip_script'  );
+add_action( 'customize_controls_print_scripts', 'responsive_tooltip_script' );

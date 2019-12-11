@@ -204,22 +204,26 @@ color:#f2efef;
 #content-blog.col-620, #primary.col-620 {
 	overflow: hidden;
 }
-.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog{
+
+.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog,body.page.page-fullwidth-stretched,body.page.page-fullwidth-content,body.page.page-boxed ,body.page.page-boxed #primary,body.page.page-boxed.widget-wrapper,body.page.page-content-boxed #content-blog, body.page.page-content-boxed #primary {
 	background-color: #ffffff;
 }
-body.blog.boxed #content-blog, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog{
+body.blog.boxed #content-blog, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog,body.page.page-content-boxed,body.page.page-boxed {
 	background-color: #f1f1f1;
+
 	.post {
 		background-color: #ffffff;
 		margin-bottom: 0;
 	}
 }
 
-body.fullwidth-stretched .content-outer, body.archive.blog-fullwidth-stretched .content-outer, body.blog.blog-fullwidth-stretched .content-outer, body.single.single-fullwidth-stretched .content-outer{
+
+body.fullwidth-stretched .content-outer, body.archive.blog-fullwidth-stretched .content-outer, body.blog.blog-fullwidth-stretched .content-outer, body.single.single-fullwidth-stretched .content-outer,body.page.page-fullwidth-stretched .content-outer{
 	max-width: none;
 	width: 100%
 }
-body.fullwidth-stretched #primary, body.archive.blog-fullwidth-stretched #content-blog, body.blog.blog-fullwidth-stretched #content-blog, body.single.single-fullwidth-stretched #content-blog{
+body.fullwidth-stretched #primary, body.archive.blog-fullwidth-stretched #content-blog, body.blog.blog-fullwidth-stretched #content-blog, body.single.single-fullwidth-stretched #content-blog,body.page.page-fullwidth-stretched #primary{
+
 	padding: 0;
 	margin-bottom: 0;
 }
@@ -232,6 +236,8 @@ body.fullwidth-stretched #primary, body.archive.blog-fullwidth-stretched #conten
 .post-entry h6 {
 	margin-bottom: 20px;
 }
-body.fullwidth-stretched #content-full, body.archive.blog-fullwidth-stretched #content-full, body.blog.blog-fullwidth-stretched #content-full, body.single.single-fullwidth-stretched #content-full{
+
+body.fullwidth-stretched #content-full, body.archive.blog-fullwidth-stretched #content-full, body.blog.blog-fullwidth-stretched #content-full, body.single.single-fullwidth-stretched #content-full,page.page-fullwidth-stretched #content-full{
+
 	padding: 20px 0;
 }

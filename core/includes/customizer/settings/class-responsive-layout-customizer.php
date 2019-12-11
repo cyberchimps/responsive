@@ -69,6 +69,30 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			);
 
 			$wp_customize->add_setting(
+				'responsive_theme_options[page_layout_option]',
+				array(
+					'sanitize_callback' => 'responsive_validate_page_layout',
+					'type'              => 'option',
+					'default'           => 'boxed',
+				)
+			);
+			$wp_customize->add_control(
+				'page_layout_option',
+				array(
+					'label'    => __( 'Choose Page Layout', 'responsive' ),
+					'section'  => 'responsive_layout_section',
+					'settings' => 'responsive_theme_options[page_layout_option]',
+					'type'     => 'select',
+					'choices'  => array(
+						'boxed'               => __( 'Boxed', 'responsive' ),
+						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
+						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
+						'fullwidth-stretched' => __( 'Fullwidth Stretched', 'responsive' ),
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
 				'responsive_theme_options[blog_layout_option]',
 				array(
 					'sanitize_callback' => 'responsive_validate_site_layout',
@@ -115,6 +139,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					),
 				)
 			);
+
 			/**
 			 * Main Container Width
 			 */
