@@ -96,16 +96,15 @@
 	}
 }
 @media only screen and (min-width: 768px) {
-	.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide {
+	body.fullwidth-stretched .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide {
 		margin: 0 calc(50% - 50vw);
 		max-width: 100vw;
 		width: 100vw;
 	}
 }
 @media only screen and (min-width: 960px) {
-	.grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide), .grid.col-940 p:not(.alignfull):not(.alignwide),
-	.grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
-	.grid.col-940 p:not(.alignfull):not(.alignwide) {
+	body.fullwidth-stretched .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
+	body.fullwidth-stretched .grid.col-940 p:not(.alignfull):not(.alignwide) {
 		margin: 0 auto;
 		max-width: 100%;
 		margin-left: auto;

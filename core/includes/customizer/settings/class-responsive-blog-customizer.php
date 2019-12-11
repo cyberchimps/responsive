@@ -756,6 +756,41 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_setting(
+				'responsive_theme_options[blog_post_title_toggle]',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				'res_blog_post_title_toggle',
+				array(
+					'label'    => __( 'Enable Blog Page Title', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_theme_options[blog_post_title_toggle]',
+					'type'     => 'checkbox',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_theme_options[blog_post_title_text]',
+				array(
+					'sanitize_callback' => 'sanitize_text_field',
+					'type'              => 'option',
+					'default'           => 'Blogs',
+				)
+			);
+			$wp_customize->add_control(
+				'res_blog_post_title_text',
+				array(
+					'label'    => __( 'Blog Page Title', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_theme_options[blog_post_title_text]',
+					'type'     => 'text',
+				)
+			);
+
+			$wp_customize->add_setting(
 				'responsive_blog_title_color',
 				array(
 					'type'              => 'theme_mod',

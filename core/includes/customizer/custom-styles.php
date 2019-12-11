@@ -518,8 +518,8 @@ function responsive_premium_custom_color_styles() {
 			max-width: {$container_width}px;
 		}
 
-		.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide,
-		body.blog .grid.col-940 #main-blog > *.post .post-entry .alignwide {
+		body.fullwidth-stretched .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide,
+		body.fullwidth-stretched.blog .grid.col-940 #main-blog > *.post .post-entry .alignwide {
 			padding-left: calc((100vw - {$container_width}px)/4);
 			padding-right: calc((100vw - {$container_width}px)/4);
 		}
@@ -1019,7 +1019,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $blog_background_color ) ) {
-		$custom_css .= ".section-blog-2-col,.section-blog-3-col,.section-blog-4-col,body.search .post,body.archive .post,body.blog .post  {
+		$custom_css .= ".section-blog-2-col,.section-blog-3-col,.section-blog-4-col,body.search .post,body.archive .post,body.blog .post,body.blog.boxed #content-blog .post,body.blog.content-boxed #content-blog .post  {
 
 			background-color: {$blog_background_color};
 		}
@@ -1280,7 +1280,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $blog_title_color ) ) {
-		$custom_css .= "h2.entry-title.post-title a {
+		$custom_css .= "#main-blog > h1 {
 			color: {$blog_title_color};
 		}";
 	}
