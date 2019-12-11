@@ -2933,26 +2933,24 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   overflow: hidden;
 }
 
-.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched {
+.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog {
   background-color: #ffffff;
 }
 
-body.blog.content-boxed #content-blog,
-body.blog.boxed #content-blog {
-  background-color: #ffffff;
+body.blog.boxed #content-blog, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog {
+  background-color: #f1f1f1;
 }
-body.blog.content-boxed #content-blog .post,
-body.blog.boxed #content-blog .post {
+body.blog.boxed #content-blog .post, body.archive.blog-content-boxed #content-blog .post, body.blog.blog-content-boxed #content-blog .post, body.single.single-content-boxed #content-blog .post {
   background-color: #ffffff;
   margin-bottom: 0;
 }
 
-body.fullwidth-stretched .content-outer {
+body.fullwidth-stretched .content-outer, body.archive.blog-fullwidth-stretched .content-outer, body.blog.blog-fullwidth-stretched .content-outer, body.single.single-fullwidth-stretched .content-outer {
   max-width: none;
   width: 100%;
 }
 
-body.fullwidth-stretched #primary {
+body.fullwidth-stretched #primary, body.archive.blog-fullwidth-stretched #content-blog, body.blog.blog-fullwidth-stretched #content-blog, body.single.single-fullwidth-stretched #content-blog {
   padding: 0;
   margin-bottom: 0;
 }
@@ -2966,7 +2964,7 @@ body.fullwidth-stretched #primary {
   margin-bottom: 20px;
 }
 
-body.fullwidth-stretched #content-full {
+body.fullwidth-stretched #content-full, body.archive.blog-fullwidth-stretched #content-full, body.blog.blog-fullwidth-stretched #content-full, body.single.single-fullwidth-stretched #content-full {
   padding: 20px 0;
 }
 
@@ -3489,7 +3487,7 @@ blockquote p {
   margin: 20px auto 0 auto;
 }
 
-body.fullwidth-stretched #wrapper {
+body.fullwidth-stretched #wrapper, body.archive.blog-fullwidth-stretched #wrapper, body.blog.blog-fullwidth-stretched #wrapper, body.single.blog-fullwidth-stretched #wrapper {
   margin: 0;
 }
 

@@ -358,7 +358,8 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'responsive_header_layout_choices',
 						array(
 							'left'   => esc_html__( 'Default', 'responsive' ),
-							'center' => esc_html__( 'Single Post Title Center', 'responsive' ),
+							'center' => esc_html__( 'Center', 'responsive' ),
+							'right'  => esc_html__( 'Right', 'responsive' ),
 						)
 					),
 				)
@@ -715,6 +716,32 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			responsive_meta_styles( $wp_customize, 'blog_entries', 'responsive_blog_entries_section', 10 );
 
 			$wp_customize->add_setting(
+				'responsive_blog_title_alignment_options',
+				array(
+					'default'           => 'left',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_blog_title_alignment_options',
+				array(
+					'label'    => __( 'Blog Page Title Alignment', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_blog_title_alignment_options',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_layout_choices',
+						array(
+							'left'   => esc_html__( 'Default', 'responsive' ),
+							'center' => esc_html__( 'Center', 'responsive' ),
+							'right'  => esc_html__( 'Right', 'responsive' ),
+						)
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
 				'blog_pagination',
 				array(
 					'default'           => 'default',
@@ -856,31 +883,6 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 							'step' => 1,
 						),
 					)
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_blog_title_alignment_options',
-				array(
-					'default'           => 'left',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				'responsive_blog_title_alignment_options',
-				array(
-					'label'    => __( 'Blog Page Title Alignment', 'responsive' ),
-					'section'  => 'responsive_blog_entries_section',
-					'settings' => 'responsive_blog_title_alignment_options',
-					'type'     => 'select',
-					'choices'  => apply_filters(
-						'responsive_header_layout_choices',
-						array(
-							'left'   => esc_html__( 'Default', 'responsive' ),
-							'center' => esc_html__( 'Blog Post Title Center', 'responsive' ),
-						)
-					),
 				)
 			);
 		}

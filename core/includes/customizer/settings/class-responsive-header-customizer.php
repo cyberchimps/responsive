@@ -86,9 +86,130 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 						'responsive_header_width_choices',
 						array(
 							'Container' => esc_html__( 'Container', 'responsive' ),
-							'Full'    => esc_html__( 'Full', 'responsive' ),
+							'Full'      => esc_html__( 'Full', 'responsive' ),
 						)
 					),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_header_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_header_bottom_padding',
+				array(
+					'transport'         => 'refesh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_tablet_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_tablet_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_tablet_bottom_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_tablet_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_header_mobile_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_mobile_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_mobile_bottom_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_mobile_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Dimensions_Control(
+					$wp_customize,
+					'responsive_header_padding',
+					array(
+						'label'       => esc_html__( 'Header Padding (px)', 'responsive' ),
+						'section'     => 'responsive_header_section',
+						'settings'    => array(
+							'desktop_top'    => 'responsive_header_top_padding',
+							'desktop_right'  => 'responsive_header_right_padding',
+							'desktop_bottom' => 'responsive_header_bottom_padding',
+							'desktop_left'   => 'responsive_header_left_padding',
+							'tablet_top'     => 'responsive_header_tablet_top_padding',
+							'tablet_right'   => 'responsive_header_tablet_right_padding',
+							'tablet_bottom'  => 'responsive_header_tablet_bottom_padding',
+							'tablet_left'    => 'responsive_header_tablet_left_padding',
+							'mobile_top'     => 'responsive_header_mobile_top_padding',
+							'mobile_right'   => 'responsive_header_mobile_right_padding',
+							'mobile_bottom'  => 'responsive_header_mobile_bottom_padding',
+							'mobile_left'    => 'responsive_header_mobile_left_padding',
+						),
+						'priority'    => 10,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 60,
+							'step' => 1,
+						),
+					)
 				)
 			);
 			// header border Color.

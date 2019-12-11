@@ -136,6 +136,16 @@ function responsive_add_site_layout_classes( $classes ) {
 
 	endif;
 
+	if ( ! empty( $responsive_options['blog_layout_option'] ) ) :
+		$classes[] = 'blog-'.$responsive_options['blog_layout_option'];
+
+	endif;
+
+	if ( ! empty( $responsive_options['single_layout_option'] ) ) :
+		$classes[] = 'single-'.$responsive_options['single_layout_option'];
+
+	endif;
+
 	return $classes;
 }
 

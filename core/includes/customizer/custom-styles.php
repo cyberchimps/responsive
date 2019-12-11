@@ -67,6 +67,22 @@ function responsive_premium_custom_color_styles() {
 	$responsive_header_menu_mobile_top_padding    = get_theme_mod( 'responsive_header_menu_mobile_top_padding', 0 );
 	$responsive_header_menu_mobile_bottom_padding = get_theme_mod( 'responsive_header_menu_mobile_bottom_padding', 0 );
 
+	// Header Padding.
+	$header_padding_right  = get_theme_mod( 'responsive_header_right_padding' );
+	$header_padding_left   = get_theme_mod( 'responsive_header_left_padding' );
+	$header_padding_top    = get_theme_mod( 'responsive_header_top_padding' );
+	$header_padding_bottom = get_theme_mod( 'responsive_header_bottom_padding' );
+
+	$header_tablet_padding_right  = get_theme_mod( 'responsive_header_tablet_right_padding' );
+	$header_tablet_padding_left   = get_theme_mod( 'responsive_header_tablet_left_padding' );
+	$header_tablet_padding_top    = get_theme_mod( 'responsive_header_tablet_top_padding' );
+	$header_tablet_padding_bottom = get_theme_mod( 'responsive_header_tablet_bottom_padding' );
+
+	$header_mobile_padding_right  = get_theme_mod( 'responsive_header_mobile_right_padding' );
+	$header_mobile_padding_left   = get_theme_mod( 'responsive_header_mobile_left_padding' );
+	$header_mobile_padding_top    = get_theme_mod( 'responsive_header_mobile_top_padding' );
+	$header_mobile_padding_bottom = get_theme_mod( 'responsive_header_mobile_bottom_padding' );
+
 	// Padding Between Main Menu.
 	$responsive_menu_left_right_padding = get_theme_mod( 'responsive_menu_left_right_padding' );
 
@@ -560,6 +576,21 @@ function responsive_premium_custom_color_styles() {
 				padding: {$responsive_header_menu_mobile_top_padding}px {$responsive_header_menu_mobile_right_padding}px {$responsive_header_menu_mobile_bottom_padding}px {$responsive_header_menu_mobile_left_padding}px;
 			}
 		}
+		@media screen and (min-width:768px){
+		  #header {
+		    padding: {$header_padding_top}px {$header_padding_right}px {$header_padding_bottom}px {$header_padding_left}px;
+		  }
+		}
+		@media (min-width: 480px) and (max-width: 768px) {
+		  #header {
+		    padding: {$header_tablet_padding_top}px {$header_tablet_padding_right}px {$header_tablet_padding_bottom}px {$header_tablet_padding_left}px;
+		  }
+		}
+		@media (max-width: 480px){
+		  #header {
+		    padding: {$header_mobile_padding_top}px {$header_mobile_padding_right}px {$header_mobile_padding_bottom}px {$header_mobile_padding_left}px;
+		  }
+		}
 		body.search .post-meta .posted-in:after,
 		body.search .post-meta .comments-link:after,
 		body.search .post-meta .timestamp:after,
@@ -598,7 +629,7 @@ function responsive_premium_custom_color_styles() {
 		body.single .post-meta{
 			text-align: {$single_post_meta_position};
 		}
-		body.page .entry-title {
+		body.page .entry-title, #main-blog h1 {
 			text-align: {$page_alignment};
 		}
 		body.blog .entry-title, body.search .entry-title, body.archive .entry-title{
@@ -740,6 +771,10 @@ function responsive_premium_custom_color_styles() {
 		}
 		header .content-outer.responsive-header{
 			width: 100%;
+		}
+		#header{
+			padding-left: 0;
+			padding-right: 0;
 		}';
 	} else {
 		$custom_css .= '

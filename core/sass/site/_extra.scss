@@ -37,7 +37,7 @@ blockquote p {
         margin: 20px auto 0 auto;
     }
 }
-body.fullwidth-stretched #wrapper {
+body.fullwidth-stretched #wrapper, body.archive.blog-fullwidth-stretched #wrapper, body.blog.blog-fullwidth-stretched #wrapper, body.single.blog-fullwidth-stretched #wrapper {
 	margin: 0;
 }
 

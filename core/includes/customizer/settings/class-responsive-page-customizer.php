@@ -104,7 +104,8 @@ if ( ! class_exists( 'Responsive_Page_Customizer' ) ) :
 						'responsive_header_layout_choices',
 						array(
 							'left'   => esc_html__( 'Default', 'responsive' ),
-							'center' => esc_html__( 'Page Title Center', 'responsive' ),
+							'center' => esc_html__( 'Center', 'responsive' ),
+							'right'  => esc_html__( 'Right', 'responsive' ),
 						)
 					),
 				)
