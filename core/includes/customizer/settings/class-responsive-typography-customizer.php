@@ -162,8 +162,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'page_title'           => array(
 						'label'    => esc_html__( 'Page Title', 'responsive' ),
 						'target'   => '.page .post-title',
-						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
+							'color'       => '#333333',
 							'font-size'   => '32px',
 							'line-height' => '1.4',
 						),
@@ -219,7 +219,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'buttons'              => array(
 						'label'    => esc_html__( 'Buttons Typography', 'responsive' ),
-						'target'   => '.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link',
+						'target'   => '.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button',
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '0.875em',

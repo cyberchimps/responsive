@@ -55,15 +55,15 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'site_layout_option',
 				array(
-					'label'    => __( 'Choose Site Layout', 'responsive' ),
+					'label'    => __( 'Site Layout', 'responsive' ),
 					'section'  => 'responsive_layout_section',
 					'settings' => 'responsive_theme_options[site_layout_option]',
 					'type'     => 'select',
 					'choices'  => array(
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
-						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
-						'fullwidth-stretched' => __( 'Fullwidth Stretched', 'responsive' ),
+						'fullwidth-content'   => __( 'Full Width / Contained', 'responsive' ),
+						'fullwidth-stretched' => __( 'Full Width / Stretched', 'responsive' ),
 					),
 				)
 			);
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'page_layout_option',
 				array(
-					'label'    => __( 'Choose Page Layout', 'responsive' ),
+					'label'    => __( 'Page Layout', 'responsive' ),
 					'section'  => 'responsive_layout_section',
 					'settings' => 'responsive_theme_options[page_layout_option]',
 					'type'     => 'select',
@@ -87,8 +87,8 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 						'default'             => __( 'Default', 'responsive' ),
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
-						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
-						'fullwidth-stretched' => __( 'Fullwidth Stretched', 'responsive' ),
+						'fullwidth-content'   => __( 'Full Width / Contained', 'responsive' ),
+						'fullwidth-stretched' => __( 'Full Width / Stretched', 'responsive' ),
 					),
 				)
 			);
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'blog_layout_option',
 				array(
-					'label'    => __( 'Choose Blog Layout', 'responsive' ),
+					'label'    => __( 'Archive Layout', 'responsive' ),
 					'section'  => 'responsive_layout_section',
 					'settings' => 'responsive_theme_options[blog_layout_option]',
 					'type'     => 'select',
@@ -112,8 +112,8 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 						'default'             => __( 'Default', 'responsive' ),
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
-						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
-						'fullwidth-stretched' => __( 'Fullwidth Stretched', 'responsive' ),
+						'fullwidth-content'   => __( 'Full Width / Contained', 'responsive' ),
+						'fullwidth-stretched' => __( 'Full Width / Stretched', 'responsive' ),
 					),
 				)
 			);
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'single_layout_option',
 				array(
-					'label'    => __( 'Choose Single Post Layout', 'responsive' ),
+					'label'    => __( 'Blog Post Layout', 'responsive' ),
 					'section'  => 'responsive_layout_section',
 					'settings' => 'responsive_theme_options[single_layout_option]',
 					'type'     => 'select',
@@ -137,8 +137,8 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 						'default'             => __( 'Default', 'responsive' ),
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
-						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
-						'fullwidth-stretched' => __( 'Fullwidth Stretched', 'responsive' ),
+						'fullwidth-content'   => __( 'Full Width / Contained', 'responsive' ),
+						'fullwidth-stretched' => __( 'Full Width / Stretched', 'responsive' ),
 					),
 				)
 			);

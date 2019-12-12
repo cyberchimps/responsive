@@ -27,9 +27,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 		}
 
 	if (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product()) { ?>
-		<div id="widgets" class="<?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
+		<aside id="widgets" class="<?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
 			<?php dynamic_sidebar('responsive-woo-shop-sidebar'); ?>
-		</div>
+		</aside>
 		<?php
 	}
 
