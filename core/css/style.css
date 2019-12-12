@@ -2937,7 +2937,7 @@ body.page.page-content-boxed .widget-wrapper, body.archive.blog-content-boxed .w
   background-color: transparent;
 }
 
-.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog, body.archive.blog-boxed .widget-wrapper, body.blog.blog-boxed .widget-wrapper, body.single.single-boxed .widget-wrapper, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed, body.page.page-boxed #primary, body.page.page-boxed.widget-wrapper, body.page.page-content-boxed #content-blog, body.page.page-content-boxed #primary {
+.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog, body.archive.blog-boxed .widget-wrapper, body.blog.blog-boxed .widget-wrapper, body.single.single-boxed .widget-wrapper, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed #primary, body.page.page-boxed #content-blog, body.page.page-boxed .widget-wrapper, body.page.page-content-boxed #content-blog, body.page.page-content-boxed #primary {
   background-color: #ffffff;
 }
 
@@ -3052,10 +3052,18 @@ body.fullwidth-stretched #content-full, body.archive.blog-fullwidth-stretched #c
 --------------------------------------------------------------*/
 /* =Content
 -------------------------------------------------------------- */
-#primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary {
+#primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary, body.page.page-boxed #primary, body.page.page-content-boxed #primary, body.page.page-fullwidth-content #primary {
   padding: 20px;
   padding-bottom: 0;
   margin-bottom: 0;
+}
+
+body.page.page-fullwidth-stretched .post-entry > p, body.archive.blog-fullwidth-stretched .post-entry > p, body.blog.blog-fullwidth-stretched .post-entry > p, body.single.single-fullwidth-stretched .post-entry > p {
+  margin: 0 auto;
+}
+
+body.page.page-fullwidth-content #primary .post-entry > p, body.archive.blog-fullwidth-content #primary .post-entry > p, body.blog.blog-fullwidth-content #primary .post-entry > p, body.single.single-fullwidth-content #primary .post-entry > p {
+  margin: 20px 0;
 }
 
 body.single.single-content-boxed #primary, body.single.single-boxed #primary {
