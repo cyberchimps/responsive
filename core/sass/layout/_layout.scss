@@ -205,17 +205,17 @@ color:#f2efef;
 	overflow: hidden;
 }
 
+
 body.page.page-content-boxed .widget-wrapper ,body.archive.blog-content-boxed .widget-wrapper, body.blog.blog-content-boxed .widget-wrapper, body.single.single-content-boxed .widget-wrapper{
 	background-color: transparent;
 }
 
 .boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog, body.archive.blog-boxed .widget-wrapper, body.blog.blog-boxed .widget-wrapper, body.single.single-boxed .widget-wrapper, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed, body.page.page-boxed #primary, body.page.page-boxed.widget-wrapper, body.page.page-content-boxed #content-blog, body.page.page-content-boxed #primary {
-
 	background-color: #ffffff;
 }
 
 
-body.blog.boxed #content-blog, body.archive.blog-boxed #content-blog, body.blog.blog-boxed #content-blog, body.single.single-boxed #content-blog,body.page.page-content-boxed,body.page.page-boxed {
+body.blog.boxed #content-blog, body.archive.blog-boxed #content-blog, body.blog.blog-boxed #content-blog, body.single.single-boxed #content-blog,body.page.page-content-boxed,body.page.page-boxed, body.single.single-boxed, body.archive.blog-boxed, body.blog.blog-boxed, body.single.single-content-boxed, body.archive.blog-content-boxed, body.blog.blog-content-boxed {
 	background-color: #f1f1f1;
 	.post, #main-blog {
 		background-color: #ffffff;
