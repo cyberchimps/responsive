@@ -1,10 +1,18 @@
 
 /* =Content
 -------------------------------------------------------------- */
-#primary {
+#primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary {
 	padding: 20px;
 	padding-bottom: 0;
 	margin-bottom: 0;
+}
+
+body.single.single-content-boxed #primary, body.single.single-boxed #primary{
+	background-color: #ffffff;
+}
+body.archive.blog-fullwidth-stretched .post, body.blog.blog-fullwidth-stretched .post{
+	padding-left: 0;
+	padding-right: 0;
 }
 
 #content-full {

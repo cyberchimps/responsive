@@ -522,7 +522,7 @@ function responsive_premium_custom_color_styles() {
 			color: {$label_color};
 		}
 		.content-outer,.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.thumbnail),
-		.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+		.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide), body.blog.blog-boxed .content-outer, body.single.single-boxed .content-outer, body.archive.blog-boxed .content-outer, body.blog.blog-content-boxed .content-outer, body.single.single-content-boxed .content-outer, body.archive.blog-content-boxed .content-outer, body.page.page-boxed .content-outer, body.page.page-content-boxed .content-outer {
 			width: {$container_width}px;
 			max-width: 100%;
 			margin-left: auto;
