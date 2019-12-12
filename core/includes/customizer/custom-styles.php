@@ -1375,22 +1375,21 @@ function responsive_premium_custom_color_styles() {
             z-index: 1000
         }
         .js .main-nav #responsive_current_menu_item {
-            display: block;
+            display: inline;
             padding: 5px 40px 5px 10px;
             font-weight: 700;
             cursor: pointer
         }
         .js .main-nav a#responsive_menu_button {
             position: absolute;
-            display: block;
-            top: 0.17em;
+            display: inline;
             right: 0;
-            height: 1em;
-            width: 1em;
+            height: 2em;
+            width: 2em;
             cursor: pointer;
             font-size: 2em;
             line-height: 1;
-            text-align: center
+            text-align: center;
         }
         .js .main-nav, #header .content-outer.responsive-header #logo {
 		    width: 100%

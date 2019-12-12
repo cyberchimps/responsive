@@ -135,7 +135,8 @@
         background-image: -o-linear-gradient(top,#585858,#3d3d3d);
         background-image: linear-gradient(to top,#585858,#3d3d3d);
         clear: both;
-        margin: 0 auto
+        margin: 0 auto;
+        padding: 5px;
     }
 
     #about_div .about_text {
