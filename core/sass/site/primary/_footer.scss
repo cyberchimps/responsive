@@ -160,6 +160,7 @@
 	margin: 1px;
 	padding-left: 3px;
 }
+@media (min-width: 700px){
 .content-outer .copyright {
 	margin-bottom: 0;
 	padding: 20px 0;
@@ -184,6 +185,7 @@
 .copyright, .social-icon {
   width: inherit;
   margin: auto 0;
+}
 }
 
 .footer-widget *:last-child {

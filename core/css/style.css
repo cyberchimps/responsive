@@ -2937,7 +2937,7 @@ body.page.page-content-boxed .widget-wrapper, body.archive.blog-content-boxed .w
   background-color: transparent;
 }
 
-.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog, body.archive.blog-boxed .widget-wrapper, body.blog.blog-boxed .widget-wrapper, body.single.single-boxed .widget-wrapper, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed #primary, body.page.page-boxed #content-blog, body.page.page-boxed .widget-wrapper, body.page.page-content-boxed #content-blog, body.page.page-content-boxed #primary {
+.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog, body.archive.blog-boxed .widget-wrapper, body.blog.blog-boxed .widget-wrapper, body.single.single-boxed .widget-wrapper, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed, body.page.page-boxed #primary, body.page.page-boxed.widget-wrapper, body.page.page-content-boxed #content-blog, body.page.page-content-boxed #primary {
   background-color: #ffffff;
 }
 
@@ -4821,32 +4821,33 @@ table > *, td, tr, th {
   padding-left: 3px;
 }
 
-.content-outer .copyright {
-  margin-bottom: 0;
-  padding: 20px 0;
-  margin: auto 0;
-}
+@media (min-width: 700px) {
+  .content-outer .copyright {
+    margin-bottom: 0;
+    padding: 20px 0;
+    margin: auto 0;
+  }
 
-.social_div .content-outer {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
+  .social_div .content-outer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
 
-.copyright, .powered {
-  display: inline-block;
-}
+  .copyright, .powered {
+    display: inline-block;
+  }
 
-.footer-layout {
-  display: flex;
-  width: 100%;
-}
+  .footer-layout {
+    display: flex;
+    width: 100%;
+  }
 
-.copyright, .social-icon {
-  width: inherit;
-  margin: auto 0;
+  .copyright, .social-icon {
+    width: inherit;
+    margin: auto 0;
+  }
 }
-
 .footer-widget *:last-child {
   margin-bottom: 0;
 }

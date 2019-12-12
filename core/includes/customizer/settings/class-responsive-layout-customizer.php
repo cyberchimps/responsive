@@ -73,7 +73,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'responsive_validate_page_layout',
 					'type'              => 'option',
-					'default'           => 'boxed',
+					'default'           => 'default',
 				)
 			);
 			$wp_customize->add_control(
@@ -84,6 +84,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'settings' => 'responsive_theme_options[page_layout_option]',
 					'type'     => 'select',
 					'choices'  => array(
+						'default'             => __( 'Default', 'responsive' ),
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
 						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
@@ -97,7 +98,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'responsive_validate_site_layout',
 					'type'              => 'option',
-					'default'           => 'boxed',
+					'default'           => 'default',
 				)
 			);
 			$wp_customize->add_control(
@@ -108,6 +109,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'settings' => 'responsive_theme_options[blog_layout_option]',
 					'type'     => 'select',
 					'choices'  => array(
+						'default'             => __( 'Default', 'responsive' ),
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
 						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),
@@ -121,7 +123,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'responsive_validate_site_layout',
 					'type'              => 'option',
-					'default'           => 'boxed',
+					'default'           => 'default',
 				)
 			);
 			$wp_customize->add_control(
@@ -132,6 +134,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'settings' => 'responsive_theme_options[single_layout_option]',
 					'type'     => 'select',
 					'choices'  => array(
+						'default'             => __( 'Default', 'responsive' ),
 						'boxed'               => __( 'Boxed', 'responsive' ),
 						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
 						'fullwidth-content'   => __( 'Fullwidth Content', 'responsive' ),

@@ -8,7 +8,7 @@
     #container {
         width: unset !important;
     }
-    .copyright,.powered,.scroll-top {
+    .scroll-top {
         float: left
     }
 
