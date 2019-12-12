@@ -153,6 +153,9 @@ function responsive_premium_custom_color_styles() {
 	$footer_border       = get_theme_mod( 'responsive_footer_border', '0' );
 	$footer_border_color = get_theme_mod( 'responsive_footer_border_color' );
 
+	$social_icons_color       = get_theme_mod( 'responsive_social_icons_color', $text_color );
+	$social_icons_hover_color = get_theme_mod( 'responsive_social_icons_hover_color', $text_color );
+
 	// Footer Padding.
 	$footer_padding_right  = get_theme_mod( 'responsive_footer_right_padding' );
 	$footer_padding_left   = get_theme_mod( 'responsive_footer_left_padding' );
@@ -645,6 +648,12 @@ function responsive_premium_custom_color_styles() {
 			border-top-style: solid;
 			border-top-width: {$footer_border}px;
 			border-top-color: {$footer_border_color};
+		}
+		#footer .social-icons .fa {
+			color:{$social_icons_color};
+		}
+		#footer .social-icons .fa:hover {
+			color:{$social_icons_hover_color};
 		}
 		";
 

@@ -116,9 +116,7 @@
 	list-style: none;
 	display: inline-block;
 	// padding: 9px 10px;
-	border: solid 2px #ffffff;
 	border-radius: 50%;
-	color: #ffffff;
 	width: 35px;
 	height: 35px;
 	margin: 10px;
@@ -131,9 +129,6 @@
 	&:last-child {
 		margin-right: 0;
 	}
-}
- #footer .social-icons li:hover {
-	background-color: rgba(255,255,255,0.4);
 }
 /* =Social Icons
 -------------------------------------------------------------- */

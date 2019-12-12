@@ -62,7 +62,7 @@ global $responsive_blog_layout_columns;
 			<?php endif; ?>
 	<div class="footer-layout">
 		<div class="social-icon">
-			<?php echo  responsive_get_social_icons() ;// phpcs:ignore ?>
+			<?php echo responsive_get_social_icons_new() ;// phpcs:ignore ?>
 		</div><!-- end of col-380 fit -->
 		<?php } ?>
 		<?php get_sidebar( 'colophon' ); ?>

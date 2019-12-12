@@ -222,6 +222,52 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
                 )
             );
 
+			// Color.
+			$wp_customize->add_setting(
+				'responsive_social_icons_color',
+				array(
+					'default'           => '',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_social_icons_color',
+					array(
+						'label'    => __( 'Social Icons Color', 'responsive' ),
+						'section'  => 'responsive_social_media',
+						'settings' => 'responsive_social_icons_color',
+						'priority' => 1,
+					)
+				)
+			);
+
+			// Color.
+			$wp_customize->add_setting(
+				'responsive_social_icons_hover_color',
+				array(
+					'default'           => '',
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'responsive_sanitize_background',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_social_icons_hover_color',
+					array(
+						'label'    => __( 'Social Icons Hover Color', 'responsive' ),
+						'section'  => 'responsive_social_media',
+						'settings' => 'responsive_social_icons_hover_color',
+						'priority' => 1,
+					)
+				)
+			);
+
             // Add Twitter Setting.
             $wp_customize->add_setting(
                 'responsive_theme_options[twitter_uid]',
