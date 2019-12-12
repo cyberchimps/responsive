@@ -127,7 +127,6 @@ function responsive_free_setup() {
 			),
 		)
 	);
-	error_log( $larger_font_sizes_default_value );
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 

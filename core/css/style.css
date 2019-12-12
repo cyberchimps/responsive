@@ -2933,7 +2933,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   overflow: hidden;
 }
 
-body.archive.blog-content-boxed .widget-wrapper, body.blog.blog-content-boxed .widget-wrapper, body.single.single-content-boxed .widget-wrapper {
+body.page.page-content-boxed .widget-wrapper, body.archive.blog-content-boxed .widget-wrapper, body.blog.blog-content-boxed .widget-wrapper, body.single.single-content-boxed .widget-wrapper {
   background-color: transparent;
 }
 
