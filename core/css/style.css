@@ -2776,7 +2776,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 }
 
 .post-meta .fa-calendar {
-  margin: 0 6px;
+  margin-right: 6px;
 }
 
 .post-meta .posted-in,
@@ -2790,7 +2790,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 .post-meta .timestamp:after,
 .post-meta .vcard:after {
   content: "|";
-  margin-left: 6px;
+  margin: 0 6px;
 }
 .post-meta > :last-child:after {
   content: none;
@@ -4464,13 +4464,12 @@ body.fullwidth-stretched .post-entry > p:not(.alignfull):not(.alignwide) {
     width: auto;
   }
 }
-@media only screen and (min-width: 768px) {
-  body.fullwidth-stretched .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide {
-    margin: 0 calc(50% - 50vw);
-    max-width: 100vw;
-    width: 100vw;
-  }
+body.fullwidth-stretched .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide {
+  margin: 0 calc(50% - 50vw);
+  max-width: 100vw;
+  width: 100vw;
 }
+
 @media only screen and (min-width: 960px) {
   body.fullwidth-stretched .grid.col-940 .wp-block-columns:not(.alignfull):not(.alignwide),
 body.fullwidth-stretched .grid.col-940 p:not(.alignfull):not(.alignwide) {

@@ -77,7 +77,7 @@ global $responsive_blog_layout_columns;
 		}
 		?>
 			<div class="copyright">
-				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( date( 'Y' ) ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( gmdate( 'Y' ) ); ?><a id="copyright_link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 					<?php
 					if ( empty( $copyright_text ) ) {
 						bloginfo( 'name' );

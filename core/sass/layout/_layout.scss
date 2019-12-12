@@ -91,7 +91,7 @@ color:#f2efef;
 .full-width-layout .about-content {padding-bottom: 40px;}
 .full-width-no-box .site-name a {color: #ffffff;}
 .post-meta .fa-calendar {
-	margin: 0 6px;
+	margin-right: 6px;
 }
 .post-meta {
 	.posted-in,
@@ -100,7 +100,7 @@ color:#f2efef;
 	.vcard {
 		&:after{
 			content: '|';
-			margin-left: 6px;
+			margin: 0 6px;
 		}
 		display: inline;
 	}

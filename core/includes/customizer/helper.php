@@ -985,7 +985,7 @@ function responsive_meta_styles( $wp_customize, $element, $section, $priority ) 
 	$wp_customize->add_control(
 		'responsive_' . $element . '_meta_icon_display',
 		array(
-			'label'    => __( 'Show Meta Avatar and Icon', 'responsive' ),
+			'label'    => __( 'Show Meta Icons', 'responsive' ),
 			'section'  => $section,
 			'settings' => 'responsive_' . $element . '_meta_icon_display',
 			'type'     => 'checkbox',

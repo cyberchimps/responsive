@@ -693,11 +693,6 @@ function responsive_premium_custom_color_styles() {
 		body.blog .post-meta .author-gravtar,
 		body.blog .post-meta .fa{
 			display:none;
-		}
-		body.search .post-meta > span,
-		body.archive .post-meta > span,
-		body.blog .post-meta > span {
-			padding-left: 6px;
 		}';
 	}
 

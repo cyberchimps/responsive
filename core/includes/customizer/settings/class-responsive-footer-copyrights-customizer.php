@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[copyright_textbox]',
 				array(
-					'default'           => __( 'Default copyright text', 'responsive' ),
+					'default'           => get_bloginfo( 'name' ),
 					'sanitize_callback' => 'wp_filter_nohtml_kses',
 					'type'              => 'option',
 				)

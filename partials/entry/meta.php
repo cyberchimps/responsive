@@ -63,8 +63,8 @@ if ( empty( $sections ) ) {
 			?>
 			<?php if ( comments_open() ) : ?>
 				<span class="comments-link">
-				<span class="mdash">&mdash;</span>
-					<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
+					<span class="mdash"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+					<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 				</span>
 			<?php endif; ?>
 			<?php
