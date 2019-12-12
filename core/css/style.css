@@ -2933,14 +2933,18 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   overflow: hidden;
 }
 
-.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed, body.page.page-boxed #primary, body.page.page-boxed.widget-wrapper, body.page.page-content-boxed #content-blog, body.page.page-content-boxed #primary {
+body.archive.blog-content-boxed .widget-wrapper, body.blog.blog-content-boxed .widget-wrapper, body.single.single-content-boxed .widget-wrapper {
+  background-color: transparent;
+}
+
+.boxed #content-blog, .boxed #primary, .boxed .widget-wrapper, .content-boxed #content-blog, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog, body.archive.blog-boxed .widget-wrapper, body.blog.blog-boxed .widget-wrapper, body.single.single-boxed .widget-wrapper, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed, body.page.page-boxed #primary, body.page.page-boxed.widget-wrapper, body.page.page-content-boxed #content-blog, body.page.page-content-boxed #primary {
   background-color: #ffffff;
 }
 
-body.blog.boxed #content-blog, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog, body.single.single-content-boxed #content-blog, body.page.page-content-boxed, body.page.page-boxed {
+body.blog.boxed #content-blog, body.archive.blog-boxed #content-blog, body.blog.blog-boxed #content-blog, body.single.single-boxed #content-blog, body.page.page-content-boxed, body.page.page-boxed {
   background-color: #f1f1f1;
 }
-body.blog.boxed #content-blog .post, body.archive.blog-content-boxed #content-blog .post, body.blog.blog-content-boxed #content-blog .post, body.single.single-content-boxed #content-blog .post, body.page.page-content-boxed .post, body.page.page-boxed .post {
+body.blog.boxed #content-blog .post, body.blog.boxed #content-blog #main-blog, body.archive.blog-boxed #content-blog .post, body.archive.blog-boxed #content-blog #main-blog, body.blog.blog-boxed #content-blog .post, body.blog.blog-boxed #content-blog #main-blog, body.single.single-boxed #content-blog .post, body.single.single-boxed #content-blog #main-blog, body.page.page-content-boxed .post, body.page.page-content-boxed #main-blog, body.page.page-boxed .post, body.page.page-boxed #main-blog {
   background-color: #ffffff;
   margin-bottom: 0;
 }
@@ -2964,7 +2968,7 @@ body.fullwidth-stretched #primary, body.archive.blog-fullwidth-stretched #conten
   margin-bottom: 20px;
 }
 
-body.fullwidth-stretched #content-full, body.archive.blog-fullwidth-stretched #content-full, body.blog.blog-fullwidth-stretched #content-full, body.single.single-fullwidth-stretched #content-full, page.page-fullwidth-stretched #content-full {
+body.fullwidth-stretched #content-full, body.archive.blog-fullwidth-stretched #content-full, body.blog.blog-fullwidth-stretched #content-full, body.single.single-fullwidth-stretched #content-full, body.page.page-fullwidth-stretched #content-full {
   padding: 20px 0;
 }
 
@@ -4595,7 +4599,7 @@ table > *, td, tr, th {
   text-align: center;
 }
 
-ul.products.list li.product {
+.woocommerce ul.products.list li.product {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -4603,21 +4607,21 @@ ul.products.list li.product {
   border-bottom: 1px solid #eaeaea;
   margin-bottom: 1em;
 }
-ul.products.list li.product a.woocommerce-LoopProduct-link {
+.woocommerce ul.products.list li.product a.woocommerce-LoopProduct-link {
   margin: 0 3% 0 0;
   width: 32%;
   display: block;
 }
-ul.products.list li.product .responsive-shop-summary-wrap {
+.woocommerce ul.products.list li.product .responsive-shop-summary-wrap {
   display: block;
   width: 65%;
   text-align: center;
 }
-ul.products.list li.product a.button.product_type_simple.add_to_cart_button {
+.woocommerce ul.products.list li.product a.button.product_type_simple.add_to_cart_button {
   width: fit-content;
   display: inline-block;
 }
-ul.products.list li.product .onsale {
+.woocommerce ul.products.list li.product .onsale {
   right: auto;
 }
 

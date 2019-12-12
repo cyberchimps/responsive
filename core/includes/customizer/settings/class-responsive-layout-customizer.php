@@ -139,7 +139,6 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					),
 				)
 			);
-
 			/**
 			 * Main Container Width
 			 */
