@@ -84,7 +84,6 @@ function responsive_free_setup() {
 	$large_font_sizes  = get_theme_mod( 'heading_h2_typography' );
 
 	$small_font_sizes_default_value = ( $small_font_sizes && isset( $small_font_sizes['font-size'] ) ) ? str_replace( 'px', '', $small_font_sizes['font-size'] ) : '12';
-
 	$normal_sizes_default_value = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '14';
 	if ( strpos( $larger_font_sizes['font-size'], 'px' ) == false ) {
 		$larger_font_sizes_default_value = ( $larger_font_sizes && isset( $larger_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $larger_font_sizes['font-size'] ) : '2.625';

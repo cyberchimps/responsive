@@ -199,11 +199,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'site_title'           => array(
 						'label'    => esc_html__( 'Site Title', 'responsive' ),
-						'target'   => '.site-name a',
+						'target'   => '.site-name',
 						'defaults' => array(
 							'font-size'      => '2.063em',
 							'color'          => '#333333',
-							'line-height'    => '1em',
+							'line-height'    => '1',
 							'letter-spacing' => '0',
 						),
 					),

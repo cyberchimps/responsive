@@ -3100,33 +3100,35 @@
 			}
 		} );
 	} ), api( "blog_entry_title_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-blog_entry_title-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-blog_entry_title-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-font-family">#content-blog .post .post-entry .entry-title a{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
+	   $swipe.bind( function( pair ) {
+	       if ( pair ) {
+	           /** @type {string} */
+	           var fontName = pair.split(",")[0];
+	               fontName = fontName.replace(/'/g, '');
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-blog_entry_title_typography-font-family" );
+	           var fontSize = fontName.replace( " ", "%20" );
+	           fontSize = fontSize.replace( ",", "%2C" );
+	           /** @type {string} */
+	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	           if ( $( "#" + idfirst ).length ) {
+	               $( "#" + idfirst ).attr( "href", fontSize );
+	           } else {
+	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	           }
+	       }
+	       var $child = $( ".customizer-typography-blog_entry_title_typography-font-family" );
+	       if ( pair ) {
+	           /** @type {string} */
+	           var img = '<style class="customizer-typography-blog_entry_title_typography-font-family">#content-blog .post .post-entry .entry-title a{font-family: ' + pair + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
 	} ), api( "blog_entry_title_typography[font-weight]", function( $swipe ) {
 		$swipe.bind( function( dataAndEvents ) {
 			var $child = $( ".customizer-typography-blog_entry_title-font-weight" );
@@ -3322,34 +3324,36 @@
 				$child.remove();
 			}
 		} );
-	} ), api( "blog_post_title_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-blog_post_title-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-blog_post_title-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-font-family">.single-post .entry-title{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
+	} ),api( "blog_post_title_typography[font-family]", function( $swipe ) {
+	   $swipe.bind( function( pair ) {
+	       if ( pair ) {
+	           /** @type {string} */
+	           var fontName = pair.split(",")[0];
+	               fontName = fontName.replace(/'/g, '');
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-blog_post_title_typography-font-family" );
+	           var fontSize = fontName.replace( " ", "%20" );
+	           fontSize = fontSize.replace( ",", "%2C" );
+	           /** @type {string} */
+	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	           if ( $( "#" + idfirst ).length ) {
+	               $( "#" + idfirst ).attr( "href", fontSize );
+	           } else {
+	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	           }
+	       }
+	       var $child = $( ".customizer-typography-blog_post_title_typography-font-family" );
+	       if ( pair ) {
+	           /** @type {string} */
+	           var img = '<style class="customizer-typography-blog_post_title_typography-font-family">.single-post .entry-title{font-family: ' + pair + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
 	} ), api( "blog_post_title_typography[font-weight]", function( $swipe ) {
 		$swipe.bind( function( dataAndEvents ) {
 			var $child = $( ".customizer-typography-blog_post_title-font-weight" );
@@ -3545,35 +3549,36 @@
 				$child.remove();
 			}
 		} );
-	} ), api( "post_meta_typography[font-family]", function( $swipe ) {
-
-	    $swipe.bind( function( pair ) {
-	        if ( pair ) {
-	            /** @type {string} */
-	            var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-post_meta-font-family" );
-	            var fontSize = pair.replace( " ", "%20" );
-	            fontSize = fontSize.replace( ",", "%2C" );
-	            /** @type {string} */
-	            fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-	            if ( $( "#" + idfirst ).length ) {
-	                $( "#" + idfirst ).attr( "href", fontSize );
-	            } else {
-	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	            }
-	        }
-	        var $child = $( ".customizer-typography-post_meta-font-family" );
-	        if ( pair ) {
-	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-font-family">.post-meta *{font-family: ' + pair + ";}</style>";
-	            if ( $child.length ) {
-	                $child.replaceWith( img );
-	            } else {
-	                $( "head" ).append( img );
-	            }
-	        } else {
-	            $child.remove();
-	        }
-	    } );
+	} ),api( "post_meta_typography[font-family]", function( $swipe ) {
+	   $swipe.bind( function( pair ) {
+	       if ( pair ) {
+	           /** @type {string} */
+	           var fontName = pair.split(",")[0];
+	               fontName = fontName.replace(/'/g, '');
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-post_meta_typography-font-family" );
+	           var fontSize = fontName.replace( " ", "%20" );
+	           fontSize = fontSize.replace( ",", "%2C" );
+	           /** @type {string} */
+	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	           if ( $( "#" + idfirst ).length ) {
+	               $( "#" + idfirst ).attr( "href", fontSize );
+	           } else {
+	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	           }
+	       }
+	       var $child = $( ".customizer-typography-post_meta_typography-font-family" );
+	       if ( pair ) {
+	           /** @type {string} */
+	           var img = '<style class="customizer-typography-post_meta_typography-font-family">.post-meta *{font-family: ' + pair + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
 	} ), api( "post_meta_typography[font-weight]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
 	        var $child = $( ".customizer-typography-post_meta-font-weight" );
@@ -5988,34 +5993,36 @@
 				$child.remove();
 			}
 		} );
-	} ), api( "site_title_typography[font-family]", function( $swipe ) {
-	  $swipe.bind( function( pair ) {
-	    if ( pair ) {
-	      /** @type {string} */
-	      var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-site_title-font-family" );
-	      var fontSize = pair.replace( " ", "%20" );
-	      fontSize = fontSize.replace( ",", "%2C" );
-	      /** @type {string} */
-	      fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-	      if ( $( "#" + idfirst ).length ) {
-	        $( "#" + idfirst ).attr( "href", fontSize );
-	      } else {
-	        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	      }
-	    }
-	    var $child = $( ".customizer-typography-site_title-font-family" );
-	    if ( pair ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-font-family">.site-name{font-family: ' + pair + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
+	} ),api( "site_title_typography[font-family]", function( $swipe ) {
+	   $swipe.bind( function( pair ) {
+	       if ( pair ) {
+	           /** @type {string} */
+	           var fontName = pair.split(",")[0];
+	               fontName = fontName.replace(/'/g, '');
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-site_title-font-family" );
+	           var fontSize = fontName.replace( " ", "%20" );
+	           fontSize = fontSize.replace( ",", "%2C" );
+	           /** @type {string} */
+	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	           if ( $( "#" + idfirst ).length ) {
+	               $( "#" + idfirst ).attr( "href", fontSize );
+	           } else {
+	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	           }
+	       }
+	       var $child = $( ".customizer-typography-site_title-font-family" );
+	       if ( pair ) {
+	           /** @type {string} */
+	           var img = '<style class="customizer-typography-site_title-font-family">.site-name{font-family: ' + pair + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
 	} ), api( "site_title_typography[font-weight]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
 	    var $child = $( ".customizer-typography-site_title-font-weight" );
@@ -6211,34 +6218,36 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_typography[font-family]", function( $swipe ) {
-	  $swipe.bind( function( pair ) {
-	    if ( pair ) {
-	      /** @type {string} */
-	      var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-site_tagline-font-family" );
-	      var fontSize = pair.replace( " ", "%20" );
-	      fontSize = fontSize.replace( ",", "%2C" );
-	      /** @type {string} */
-	      fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-	      if ( $( "#" + idfirst ).length ) {
-	        $( "#" + idfirst ).attr( "href", fontSize );
-	      } else {
-	        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	      }
-	    }
-	    var $child = $( ".customizer-typography-site_tagline-font-family" );
-	    if ( pair ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-font-family">.site-description{font-family: ' + pair + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
+	} ),api( "site_tagline_typography[font-family]", function( $swipe ) {
+	   $swipe.bind( function( pair ) {
+	       if ( pair ) {
+	           /** @type {string} */
+	           var fontName = pair.split(",")[0];
+	               fontName = fontName.replace(/'/g, '');
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-site_tagline-font-family" );
+	           var fontSize = fontName.replace( " ", "%20" );
+	           fontSize = fontSize.replace( ",", "%2C" );
+	           /** @type {string} */
+	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	           if ( $( "#" + idfirst ).length ) {
+	               $( "#" + idfirst ).attr( "href", fontSize );
+	           } else {
+	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	           }
+	       }
+	       var $child = $( ".customizer-typography-site_tagline-font-family" );
+	       if ( pair ) {
+	           /** @type {string} */
+	           var img = '<style class="customizer-typography-site_tagline-font-family">.site-description{font-family: ' + pair + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
 	} ), api( "site_tagline_typography[font-weight]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
 	    var $child = $( ".customizer-typography-site_tagline-font-weight" );
@@ -6434,34 +6443,36 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "buttons_typography[font-family]", function( $swipe ) {
-	  $swipe.bind( function( pair ) {
-	    if ( pair ) {
-	      /** @type {string} */
-	      var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-buttons-font-family" );
-	      var fontSize = pair.replace( " ", "%20" );
-	      fontSize = fontSize.replace( ",", "%2C" );
-	      /** @type {string} */
-	      fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-	      if ( $( "#" + idfirst ).length ) {
-	        $( "#" + idfirst ).attr( "href", fontSize );
-	      } else {
-	        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	      }
-	    }
-	    var $child = $( ".customizer-typography-buttons-font-family" );
-	    if ( pair ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-font-family">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{font-family: ' + pair + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
+	} ),api( "buttons_typography[font-family]", function( $swipe ) {
+	   $swipe.bind( function( pair ) {
+	       if ( pair ) {
+	           /** @type {string} */
+	           var fontName = pair.split(",")[0];
+	               fontName = fontName.replace(/'/g, '');
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-buttons_typography-font-family" );
+	           var fontSize = fontName.replace( " ", "%20" );
+	           fontSize = fontSize.replace( ",", "%2C" );
+	           /** @type {string} */
+	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	           if ( $( "#" + idfirst ).length ) {
+	               $( "#" + idfirst ).attr( "href", fontSize );
+	           } else {
+	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	           }
+	       }
+	       var $child = $( ".customizer-typography-buttons_typography-font-family" );
+	       if ( pair ) {
+	           /** @type {string} */
+	           var img = '<style class="customizer-typography-buttons_typography-font-family">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link{font-family: ' + pair + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
 	} ), api( "buttons_typography[font-weight]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
 	    var $child = $( ".customizer-typography-buttons-font-weight" );
