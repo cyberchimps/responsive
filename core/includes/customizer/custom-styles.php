@@ -1057,7 +1057,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $blog_background_color ) ) {
-		$custom_css .= ".section-blog-2-col,.section-blog-3-col,.section-blog-4-col,body.search .post,body.archive .post,body.blog .post,body.blog.boxed #content-blog .post,body.blog.content-boxed #content-blog .post  {
+		$custom_css .= ".section-blog-2-col,.section-blog-3-col,.section-blog-4-col,body.search .post,body.archive .post,body.blog .post,body.blog.boxed #content-blog .post, body.blog.blog-content-boxed #main-blog, body.blog.blog-boxed #content-blog #main-blog  {
 			background-color: {$blog_background_color};
 		}
 		.content-boxed #content-blog, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog{
@@ -1200,7 +1200,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $background_color ) ) {
-		$custom_css .= "body.home #wrapper, #wrapper, body.page.page-boxed, body.page.page-content-boxed, body.blog.blog-boxed, body.archive.blog-boxed, body.single.single-boxed, body.archive.blog-content-boxed, body.blog.blog-content-boxed, body.single.single-content-boxed, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched{
+		$custom_css .= "body.home #wrapper, #wrapper, body.page.page-boxed, body.page.page-content-boxed, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.blog.blog-boxed, body.archive.blog-boxed, body.single.single-boxed, body.archive.blog-content-boxed, body.blog.blog-content-boxed, body.single.single-content-boxed, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, .page-fullwidth-stretched #primary, .page.page-fullwidth-content #primary{
 			background-color: #{$background_color};
 		}";
 	}
