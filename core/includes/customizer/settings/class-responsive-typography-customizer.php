@@ -131,6 +131,26 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line-height' => '1.4',
 						),
 					),
+					'site_title'           => array(
+						'label'    => esc_html__( 'Site Title', 'responsive' ),
+						'target'   => '.site-name',
+						'defaults' => array(
+							'font-size'      => '2.063em',
+							'color'          => '#333333',
+							'line-height'    => '1',
+							'letter-spacing' => '0',
+						),
+					),
+					'site_tagline'         => array(
+						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
+						'target'   => '.site-description',
+						'defaults' => array(
+							'font-size'      => '0.875em',
+							'color'          => '#333333',
+							'line-height'    => '1.4',
+							'letter-spacing' => '0',
+						),
+					),
 					'menu'                 => array(
 						'label'    => esc_html__( 'Main Menu', 'responsive' ),
 						'target'   => '.main-nav .menu > li > a, .main-nav .menu .sub-menu > li > a',
@@ -195,26 +215,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'font-size'      => '12px',
 							'line-height'    => '1.8',
 							'text-transform' => 'uppercase',
-						),
-					),
-					'site_title'           => array(
-						'label'    => esc_html__( 'Site Title', 'responsive' ),
-						'target'   => '.site-name',
-						'defaults' => array(
-							'font-size'      => '2.063em',
-							'color'          => '#333333',
-							'line-height'    => '1',
-							'letter-spacing' => '0',
-						),
-					),
-					'site_tagline'         => array(
-						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
-						'target'   => '.site-description',
-						'defaults' => array(
-							'font-size'      => '0.875em',
-							'color'          => '#333333',
-							'line-height'    => '1.4',
-							'letter-spacing' => '0',
 						),
 					),
 					'buttons'              => array(

@@ -3163,8 +3163,8 @@ body.search .title-search-results,
 body.search .page {
   padding: 0 20px;
 }
-body.search.search-no-results #searchform {
-  width: max-content;
+body.search.search-no-results #main-blog form, body.search.search-no-results #main-blog h6, body.search.search-no-results #main-blog p {
+  padding: 0 20px;
 }
 
 body.archive .breadcrumb-list,
@@ -4488,6 +4488,11 @@ div .wp-block-cover-text {
   margin-right: auto;
   width: 100%;
   max-width: 100%;
+}
+
+.wp-block-cover {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /*

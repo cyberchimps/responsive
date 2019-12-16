@@ -38,10 +38,7 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 	<h1 class="title-404"><?php echo $responsive_title; ?></h1>
 
 <?php
-if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
-	if ( responsivepro_plugin_get_option( '404_content' ) ) {
-		echo '<p>' . responsivepro_plugin_get_option( '404_content' ) . '</p>';
-	} else {
+
 		?>
 	<p><?php esc_html_e( 'Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive' ); ?></p>
 
@@ -60,6 +57,5 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 		</h6>
 
 		<?php get_search_form();
-	}
-}
 ?>
+</div>

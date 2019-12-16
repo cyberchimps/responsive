@@ -114,8 +114,10 @@ body.search {
 	}
 
 	&.search-no-results {
-		#searchform {
-			width: max-content;
+		#main-blog {
+			form,h6,p{
+				padding: 0 20px;
+			}
 		}
 	}
 }
