@@ -76,7 +76,7 @@ Template Name: Sitemap (Deprecated)
 					?>
 				</div><!-- end of .post-entry -->
 
-				<div class="post-edit"><?php edit_post_link( __( 'Edit', 'responsive' ) ); ?></div>
+				<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
 
 			<?php

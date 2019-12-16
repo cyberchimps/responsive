@@ -74,7 +74,7 @@ Template Name:  Sidebar/Content Half Page (Deprecated)
 					</div><!-- end of .post-data -->
 				<?php endif; ?>
 
-				<div class="post-edit"><?php edit_post_link( __( 'Edit', 'responsive' ) ); ?></div>
+				<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->

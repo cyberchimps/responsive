@@ -91,7 +91,7 @@ color:#f2efef;
 .full-width-layout .about-content {padding-bottom: 40px;}
 .full-width-no-box .site-name a {color: #ffffff;}
 .post-meta .fa-calendar {
-	margin-right: 6px;
+	padding-right: 6px;
 }
 .post-meta {
 	.posted-in,
@@ -244,4 +244,12 @@ body.fullwidth-stretched #primary, body.archive.blog-fullwidth-stretched #conten
 
 body.fullwidth-stretched #content-full, body.archive.blog-fullwidth-stretched #content-full, body.blog.blog-fullwidth-stretched #content-full, body.single.single-fullwidth-stretched #content-full,body.page.page-fullwidth-stretched #content-full{
 	padding: 20px 0;
+}
+
+body.fullwidth-stretched {
+	#wrapper {
+		.content-outer {
+			padding: 0;
+		}
+	}
 }

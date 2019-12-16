@@ -523,11 +523,12 @@ function responsive_premium_custom_color_styles() {
 		label {
 			color: {$label_color};
 		}
-		.content-outer,.post-entry > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.thumbnail),
-		.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide), body.blog.blog-boxed .content-outer, body.single.single-boxed .content-outer, body.archive.blog-boxed .content-outer, body.blog.blog-content-boxed .content-outer, body.single.single-content-boxed .content-outer, body.archive.blog-content-boxed .content-outer, body.page.page-boxed .content-outer, body.page.page-content-boxed .content-outer {
+
+		body.blog.blog-boxed .content-outer, body.single.single-boxed .content-outer, body.archive.blog-boxed .content-outer, body.blog.blog-content-boxed .content-outer,
+		body.single.single-content-boxed .content-outer, body.archive.blog-content-boxed .content-outer, body.page.page-boxed .content-outer, body.page.page-content-boxed .content-outer {
 			max-width: {$container_width}px;
 			margin-left: auto;
-		  margin-right: auto;
+			margin-right: auto;
 		}
 
 		.boxed-layout
@@ -535,8 +536,8 @@ function responsive_premium_custom_color_styles() {
 			max-width: {$container_width}px;
 		}
 
-		body.fullwidth-stretched .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide,
-		body.fullwidth-stretched.blog .grid.col-940 #main-blog > *.post .post-entry .alignwide {
+		body:not(.fullwidth-stretched) .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .alignwide,
+		body.blog:not(.fullwidth-stretched) .grid.col-940 #main-blog > *.post .post-entry .alignwide {
 			padding-left: calc((100vw - {$container_width}px)/4);
 			padding-right: calc((100vw - {$container_width}px)/4);
 		}
