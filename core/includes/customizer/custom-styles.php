@@ -662,7 +662,10 @@ function responsive_premium_custom_color_styles() {
 				}
 				.copyright{
 					text-align: center;
-					margin-top: 1em;
+				}
+				.social-icon{
+					text-align: center;
+					margin-bottom:-10px;
 				}
 				';
 		if ( '-reverse' === $layout_position ) {
@@ -680,9 +683,14 @@ function responsive_premium_custom_color_styles() {
 					}
 					.social-icon{
 						text-align: right;
+					
 					}
 					';
 		}
+		$custom_css .= '.content-outer .copyright{
+                        padding-top:5px;
+                    }
+					';
 	}
 
 	if ( ! $blog_entries_meta_icon_display ) {

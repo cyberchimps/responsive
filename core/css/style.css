@@ -4795,7 +4795,7 @@ table > *, td, tr, th {
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  margin: 10px;
+  margin: 0 10px;
   font-size: 26px;
 }
 #footer .social-icons li:first-child {
@@ -4840,8 +4840,6 @@ table > *, td, tr, th {
   .content-outer .copyright {
     margin-bottom: 0;
     padding: 20px 0;
-    margin: auto 0;
-    width: 100%;
   }
 
   .social_div .content-outer {
@@ -4860,7 +4858,7 @@ table > *, td, tr, th {
   }
 
   .copyright, .social-icon {
-    margin: auto 0;
+    width: inherit;
   }
 }
 .footer-widget *:last-child {

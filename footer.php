@@ -71,15 +71,12 @@ global $responsive_blog_layout_columns;
 		if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
 			$copyright_text = $responsive_options['copyright_textbox'];
 		}
-		$cyberchimps_link = '';
-		if ( ! empty( $responsive_options['poweredby_link'] ) ) {
-			$cyberchimps_link = $responsive_options['poweredby_link'];
-		}
+
 		?>
 			<div class="copyright">
 				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( gmdate( 'Y' ) ); ?> <?php esc_attr_e( ' My WordPress Site', 'responsive' ); ?>
 
-		<?php if ( $cyberchimps_link ) { ?>
+
 			<div class="powered">
                 <?php esc_attr_e( ' | Powered by', 'responsive' ); ?>
                 <a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>> Responsive Theme</a>
@@ -88,7 +85,7 @@ global $responsive_blog_layout_columns;
 		</div><!-- end of .copyright -->
 
 	</div>
-		<?php } ?>
+		
 	</div><!-- end #footer-wrapper -->
 
 	</div>
