@@ -144,7 +144,6 @@ function responsive_premium_custom_color_styles() {
 	$container_mobile_padding_left   = get_theme_mod( 'responsive_container_mobile_left_padding' );
 	$container_mobile_padding_top    = get_theme_mod( 'responsive_container_mobile_top_padding' );
 	$container_mobile_padding_bottom = get_theme_mod( 'responsive_container_mobile_bottom_padding' );
-	$container_background_color      = get_theme_mod( 'responsive_main_container_background_color' );
 
 	// Footer colors.
 	$footer_background_color = get_theme_mod( 'responsive_footer_background_color' );
@@ -738,7 +737,7 @@ function responsive_premium_custom_color_styles() {
 	}
 
 	if ( $single_post_background_color ) {
-		$custom_css .= "body.single #primary {background-color: {$single_post_background_color};}";
+		$custom_css .= "body.single #primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary {background-color: {$single_post_background_color};}";
 
 	}
 	if ( $single_blog_padding_top || $single_blog_padding_right || $single_blog_padding_bottom || $single_blog_padding_left ) {
@@ -1058,8 +1057,10 @@ function responsive_premium_custom_color_styles() {
 	}
 	if ( ! empty( $blog_background_color ) ) {
 		$custom_css .= ".section-blog-2-col,.section-blog-3-col,.section-blog-4-col,body.search .post,body.archive .post,body.blog .post,body.blog.boxed #content-blog .post,body.blog.content-boxed #content-blog .post  {
-
 			background-color: {$blog_background_color};
+		}
+		.content-boxed #content-blog, body.archive.blog-content-boxed #content-blog, body.blog.blog-content-boxed #content-blog{
+			background-color: inherit;
 		}
 		";
 	}
@@ -1198,7 +1199,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $background_color ) ) {
-		$custom_css .= "body.home #wrapper, #wrapper{
+		$custom_css .= "body.home #wrapper, #wrapper, body.blog.blog-boxed, body.archive.blog-boxed, body.single.single-boxed, body.archive.blog-content-boxed, body.blog.blog-content-boxed, body.single.single-content-boxed, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched{
 			background-color: #{$background_color};
 		}";
 	}
@@ -1300,11 +1301,6 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $header_border_color ) ) {
 		$custom_css .= "#header {
 			border-bottom: 1px solid {$header_border_color};
-		}";
-	}
-	if ( ! empty( $container_background_color ) ) {
-		$custom_css .= "div#wrapper {
-			background-color: {$container_background_color};
 		}";
 	}
 	if ( ! empty( $header_text_color ) ) {

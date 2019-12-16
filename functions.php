@@ -141,22 +141,25 @@ add_filter( 'body_class', 'responsive_add_site_layout_classes' );
  */
 function responsive_add_site_layout_classes( $classes ) {
 	global $responsive_options;
+	$page_layout   = get_theme_mod( 'page_layout_option' );
+	$blog_layout   = get_theme_mod( 'blog_layout_option' );
+	$single_layout = get_theme_mod( 'single_layout_option' );
 	if ( ! empty( $responsive_options['site_layout_option'] ) ) :
 		$classes[] = $responsive_options['site_layout_option'];
 
 	endif;
 
-	if ( ! empty( $responsive_options['page_layout_option'] ) ) :
-		$classes[] = 'page-' . $responsive_options['page_layout_option'];
+	if ( ! empty( $page_layout ) ) :
+		$classes[] = 'page-' . $page_layout;
 	endif;
 
-	if ( ! empty( $responsive_options['blog_layout_option'] ) ) :
-		$classes[] = 'blog-' . $responsive_options['blog_layout_option'];
+	if ( ! empty( $blog_layout ) ) :
+		$classes[] = 'blog-' . $blog_layout;
 
 	endif;
 
-	if ( ! empty( $responsive_options['single_layout_option'] ) ) :
-		$classes[] = 'single-' . $responsive_options['single_layout_option'];
+	if ( ! empty( $single_layout ) ) :
+		$classes[] = 'single-' . $single_layout;
 
 	endif;
 

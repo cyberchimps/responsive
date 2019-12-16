@@ -2933,7 +2933,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
   overflow: hidden;
 }
 
-body.page.page-content-boxed .widget-wrapper, body.archive.blog-content-boxed .widget-wrapper, body.blog.blog-content-boxed .widget-wrapper, body.single.single-content-boxed .widget-wrapper {
+body.page.page-content-boxed .widget-wrapper, body.archive.blog-content-boxed .widget-wrapper, body.blog.blog-content-boxed .widget-wrapper, body.single.single-content-boxed .widget-wrapper, body.archive.blog-fullwidth-content .widget-wrapper, body.blog.blog-fullwidth-content .widget-wrapper, body.single.single-fullwidth-content .widget-wrapper, body.blog.blog-fullwidth-stretched .widget-wrapper, body.archive.blog-fullwidth-stretched .widget-wrapper, body.single.single-fullwidth-stretched .widget-wrapper {
   background-color: transparent;
 }
 
@@ -2944,8 +2944,11 @@ body.page.page-content-boxed .widget-wrapper, body.archive.blog-content-boxed .w
 body.blog.boxed #content-blog, body.archive.blog-boxed #content-blog, body.blog.blog-boxed #content-blog, body.single.single-boxed #content-blog, body.page.page-content-boxed, body.page.page-boxed, body.single.single-boxed, body.archive.blog-boxed, body.blog.blog-boxed, body.single.single-content-boxed, body.archive.blog-content-boxed, body.blog.blog-content-boxed {
   background-color: #f1f1f1;
 }
-body.blog.boxed #content-blog .post, body.blog.boxed #content-blog #main-blog, body.archive.blog-boxed #content-blog .post, body.archive.blog-boxed #content-blog #main-blog, body.blog.blog-boxed #content-blog .post, body.blog.blog-boxed #content-blog #main-blog, body.single.single-boxed #content-blog .post, body.single.single-boxed #content-blog #main-blog, body.page.page-content-boxed .post, body.page.page-content-boxed #main-blog, body.page.page-boxed .post, body.page.page-boxed #main-blog, body.single.single-boxed .post, body.single.single-boxed #main-blog, body.archive.blog-boxed .post, body.archive.blog-boxed #main-blog, body.blog.blog-boxed .post, body.blog.blog-boxed #main-blog, body.single.single-content-boxed .post, body.single.single-content-boxed #main-blog, body.archive.blog-content-boxed .post, body.archive.blog-content-boxed #main-blog, body.blog.blog-content-boxed .post, body.blog.blog-content-boxed #main-blog {
+body.blog.boxed #content-blog #main-blog, body.archive.blog-boxed #content-blog #main-blog, body.blog.blog-boxed #content-blog #main-blog, body.single.single-boxed #content-blog #main-blog, body.page.page-content-boxed #main-blog, body.page.page-boxed #main-blog, body.single.single-boxed #main-blog, body.archive.blog-boxed #main-blog, body.blog.blog-boxed #main-blog, body.single.single-content-boxed #main-blog, body.archive.blog-content-boxed #main-blog, body.blog.blog-content-boxed #main-blog {
   background-color: #ffffff;
+  margin-bottom: 0;
+}
+body.blog.boxed #content-blog .post, body.archive.blog-boxed #content-blog .post, body.blog.blog-boxed #content-blog .post, body.single.single-boxed #content-blog .post, body.page.page-content-boxed .post, body.page.page-boxed .post, body.single.single-boxed .post, body.archive.blog-boxed .post, body.blog.blog-boxed .post, body.single.single-content-boxed .post, body.archive.blog-content-boxed .post, body.blog.blog-content-boxed .post {
   margin-bottom: 0;
 }
 

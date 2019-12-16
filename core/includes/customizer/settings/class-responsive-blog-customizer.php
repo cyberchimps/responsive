@@ -126,27 +126,6 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			responsive_meta_styles( $wp_customize, 'single_post', 'responsive_single_post_section', 10 );
 
 			$wp_customize->add_setting(
-				'responsive_single_post_title_color',
-				array(
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_single_post_title_color',
-					array(
-						'label'    => esc_html__( 'Single Post Title Color', 'responsive' ),
-						'section'  => 'responsive_single_post_section',
-						'settings' => 'responsive_single_post_title_color',
-						'priority' => 10,
-					)
-				)
-			);
-
-			$wp_customize->add_setting(
 				'responsive_single_post_background_color',
 				array(
 					'type'              => 'theme_mod',
@@ -541,6 +520,42 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->add_setting(
+				'responsive_theme_options[blog_post_title_text]',
+				array(
+					'sanitize_callback' => 'sanitize_text_field',
+					'type'              => 'option',
+					'default'           => '',
+				)
+			);
+			$wp_customize->add_control(
+				'res_blog_post_title_text',
+				array(
+					'label'    => __( 'Blog Page Title', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_theme_options[blog_post_title_text]',
+					'type'     => 'text',
+					'priority' => 5,
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_theme_options[blog_post_title_toggle]',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				'res_blog_post_title_toggle',
+				array(
+					'label'    => __( 'Enable Blog Page Title', 'responsive' ),
+					'section'  => 'responsive_blog_entries_section',
+					'settings' => 'responsive_theme_options[blog_post_title_toggle]',
+					'type'     => 'checkbox',
+					'priority' => 6,
+				)
+			);
+
 			/**
 			 * Blog entries padding.
 			 */
@@ -778,61 +793,6 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 						'label'    => 'Blog Post Background Color',
 						'section'  => 'responsive_blog_entries_section',
 						'settings' => 'responsive_container_background_color',
-						'priority' => 10,
-					)
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_theme_options[blog_post_title_toggle]',
-				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
-					'type'              => 'option',
-				)
-			);
-			$wp_customize->add_control(
-				'res_blog_post_title_toggle',
-				array(
-					'label'    => __( 'Enable Blog Page Title', 'responsive' ),
-					'section'  => 'responsive_blog_entries_section',
-					'settings' => 'responsive_theme_options[blog_post_title_toggle]',
-					'type'     => 'checkbox',
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_theme_options[blog_post_title_text]',
-				array(
-					'sanitize_callback' => 'sanitize_text_field',
-					'type'              => 'option',
-					'default'           => 'Blogs',
-				)
-			);
-			$wp_customize->add_control(
-				'res_blog_post_title_text',
-				array(
-					'label'    => __( 'Blog Page Title', 'responsive' ),
-					'section'  => 'responsive_blog_entries_section',
-					'settings' => 'responsive_theme_options[blog_post_title_text]',
-					'type'     => 'text',
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_blog_title_color',
-				array(
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_blog_title_color',
-					array(
-						'label'    => esc_html__( 'Blog Page Title Color', 'responsive' ),
-						'section'  => 'responsive_blog_entries_section',
-						'settings' => 'responsive_blog_title_color',
 						'priority' => 10,
 					)
 				)
