@@ -83,22 +83,38 @@ function responsive_free_setup() {
 	$larger_font_sizes = get_theme_mod( 'heading_h1_typography' );
 	$large_font_sizes  = get_theme_mod( 'heading_h2_typography' );
 
-	$small_font_sizes_default_value = ( $small_font_sizes && isset( $small_font_sizes['font-size'] ) ) ? str_replace( 'px', '', $small_font_sizes['font-size'] ) : '12';
-	$normal_sizes_default_value = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '14';
-	if ( strpos( $larger_font_sizes['font-size'], 'px' ) == false ) {
-		$larger_font_sizes_default_value = ( $larger_font_sizes && isset( $larger_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $larger_font_sizes['font-size'] ) : '2.625';
-		$larger_font_sizes_default_value = $normal_sizes_default_value * $larger_font_sizes_default_value;
+	if ( isset( $small_font_sizes['font-size'] ) ) {
+		$small_font_sizes_default_value = ( $small_font_sizes && isset( $small_font_sizes['font-size'] ) ) ? str_replace( 'px', '', $small_font_sizes['font-size'] ) : '12';
 	} else {
-		$larger_font_sizes_default_value = str_replace( 'px', '', $larger_font_sizes['font-size'] );
+		$small_font_sizes_default_value = 12;
+	}
+	if ( isset( $normal_sizes['font-size'] ) ) {
+		$normal_sizes_default_value = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '14';
+	} else {
+		$normal_sizes_default_value = 14;
+	}
+	if ( isset( $larger_font_sizes['font-size'] ) ) {
+		if ( strpos( $larger_font_sizes['font-size'], 'px' ) == false ) {
+			$larger_font_sizes_default_value = ( $larger_font_sizes && isset( $larger_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $larger_font_sizes['font-size'] ) : '2.625';
+			$larger_font_sizes_default_value = $normal_sizes_default_value * $larger_font_sizes_default_value;
+		} else {
+			$larger_font_sizes_default_value = str_replace( 'px', '', $larger_font_sizes['font-size'] );
 
+		}
+	} else {
+		$larger_font_sizes_default_value = 40;
 	}
 
-	if ( strpos( $large_font_sizes['font-size'], 'px' ) == false ) {
-		$large_font_sizes_default_value = ( $large_font_sizes && isset( $large_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $large_font_sizes['font-size'] ) : '2.250';
-		$large_font_sizes_default_value = $normal_sizes_default_value * $large_font_sizes_default_value;
-	} else {
-		$large_font_sizes_default_value = str_replace( 'px', '', $large_font_sizes['font-size'] );
+	if ( isset( $large_font_sizes['font-size'] ) ) {
+		if ( strpos( $large_font_sizes['font-size'], 'px' ) == false ) {
+			$large_font_sizes_default_value = ( $large_font_sizes && isset( $large_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $large_font_sizes['font-size'] ) : '2.250';
+			$large_font_sizes_default_value = $normal_sizes_default_value * $large_font_sizes_default_value;
+		} else {
+			$large_font_sizes_default_value = str_replace( 'px', '', $large_font_sizes['font-size'] );
 
+		}
+	} else {
+		$large_font_sizes_default_value = 32;
 	}
 	add_theme_support(
 		'editor-font-sizes',

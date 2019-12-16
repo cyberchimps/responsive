@@ -2077,7 +2077,6 @@ ul.menu > li:hover {
 }
 #mobile-sidebar nav {
   display: table-cell;
-  vertical-align: middle;
   padding: 50px 0;
   text-align: center;
 }
@@ -4837,6 +4836,7 @@ table > *, td, tr, th {
     margin-bottom: 0;
     padding: 20px 0;
     margin: auto 0;
+    width: 100%;
   }
 
   .social_div .content-outer {
@@ -4855,7 +4855,6 @@ table > *, td, tr, th {
   }
 
   .copyright, .social-icon {
-    width: inherit;
     margin: auto 0;
   }
 }

@@ -436,7 +436,7 @@ function slideToggle() {
 			if ( window.innerWidth <= break_point ) {
 				document.querySelector( '.js .main-nav .menu' ).style.display = "none";
 				document.querySelector( '.js .main-nav' ).classList.add( 'mobile-dropdown-inner' );
-				document.querySelector( '.js .main-nav #responsive_current_menu_item' ).style.display = "block";
+				document.querySelector( '.js .main-nav #responsive_current_menu_item' ).style.display = "inline";
 			}
 		}
 
