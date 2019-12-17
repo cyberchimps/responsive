@@ -1530,6 +1530,11 @@ ul.menu > li:hover {
   color: #ffffff;
 }
 
+@media screen and (max-width: 768px) {
+  .js .main-nav {
+    padding: 5px;
+  }
+}
 /*.js .main-nav .menu {*/
 /*display: block;*/
 /*}*/
@@ -2930,6 +2935,7 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 }
 #primary.col-620, #primary.col-620 {
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 body.page.page-content-boxed .widget-wrapper, body.archive.blog-content-boxed .widget-wrapper, body.blog.blog-content-boxed .widget-wrapper, body.single.single-content-boxed .widget-wrapper, body.archive.blog-fullwidth-content .widget-wrapper, body.blog.blog-fullwidth-content .widget-wrapper, body.single.single-fullwidth-content .widget-wrapper, body.blog.blog-fullwidth-stretched .widget-wrapper, body.archive.blog-fullwidth-stretched .widget-wrapper, body.single.single-fullwidth-stretched .widget-wrapper {
@@ -3514,10 +3520,6 @@ blockquote p {
   margin: 20px auto 0 auto;
 }
 
-body.fullwidth-stretched #wrapper, body.archive.blog-fullwidth-stretched #wrapper, body.blog.blog-fullwidth-stretched #wrapper, body.single.blog-fullwidth-stretched #wrapper {
-  margin: 0;
-}
-
 .front-page #wrapper {
   background-color: transparent;
   border: none;
@@ -3692,6 +3694,10 @@ body.fullwidth-stretched #wrapper, body.archive.blog-fullwidth-stretched #wrappe
 -------------------------------------------------------------- */
 .breadcrumb-list {
   font-size: 12px;
+}
+.archive .breadcrumb-list, .search .breadcrumb-list, .blog .breadcrumb-list {
+  padding-top: 20px;
+  padding-left: 20px;
 }
 
 /* =Post Thumbnails
@@ -4146,6 +4152,7 @@ BDO[DIR=rtl] {
 .blogtitle {
   margin-top: 0;
   text-align: center;
+  padding-left: 20px;
 }
 
 .section-team, .section-feature {
@@ -4473,6 +4480,8 @@ div .wp-block-cover-text {
   width: 100vw;
   max-width: 100vw;
 }
+.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry .wp-block-columns .alignwide,
+.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry .wp-block-columns .alignfull,
 .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry [class*=__inner-container] .alignwide,
 .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry [class*=__inner-container] .alignfull {
   margin-left: auto;
@@ -4482,15 +4491,8 @@ div .wp-block-cover-text {
   padding-left: 0;
   padding-right: 0;
 }
-.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry .alignwide > [class*=__inner-container],
-.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry .alignfull > [class*=__inner-container] {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 100%;
-}
 
-.wp-block-cover {
+.wp-block-cover__inner-container {
   padding-left: 20px;
   padding-right: 20px;
 }

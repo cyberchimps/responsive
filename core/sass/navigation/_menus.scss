@@ -315,7 +315,11 @@ ul.menu > li:hover {
 	display: none;
 	color: #ffffff;
 }
-
+@media screen and (max-width: 768px){
+	.js .main-nav {
+		padding: 5px;
+	}
+}
 /*.js .main-nav .menu {*/
 /*display: block;*/
 /*}*/

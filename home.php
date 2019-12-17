@@ -104,7 +104,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 		<div id="main-blog">
 			<!-- Blog page title -->
 			<?php if ( responsive_free_get_option( 'blog_post_title_toggle' ) ) { ?>
-				<h1> <?php echo responsive_free_get_option( 'blog_post_title_text' ); ?> </h1>
+				<h1 class="blogtitle"> <?php echo responsive_free_get_option( 'blog_post_title_text' ); ?> </h1>
 			<?php } ?>
 
 			<?php get_template_part( 'loop-header', get_post_type() ); ?>

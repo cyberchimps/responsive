@@ -37,9 +37,6 @@ blockquote p {
         margin: 20px auto 0 auto;
     }
 }
-body.fullwidth-stretched #wrapper, body.archive.blog-fullwidth-stretched #wrapper, body.blog.blog-fullwidth-stretched #wrapper, body.single.blog-fullwidth-stretched #wrapper {
-	margin: 0;
-}
 
 .front-page #wrapper {
 	background-color: transparent;
@@ -231,6 +228,12 @@ body.fullwidth-stretched #wrapper, body.archive.blog-fullwidth-stretched #wrappe
 -------------------------------------------------------------- */
 .breadcrumb-list {
 	font-size: 12px;
+	.archive &,
+	.search &,
+	.blog & {
+		padding-top: 20px;
+		padding-left: 20px;
+	}
 }
 
 
@@ -656,7 +659,7 @@ vertical-align: top;
 padding: 0 12px;
 }
 .woocommerce-cart-form input[type="submit"]:hover ,.woocommerce a.button.alt:hover{border:none;}
-.blogtitle { margin-top:0;text-align: center;}
+.blogtitle { margin-top:0;text-align: center; padding-left: 20px;}
 
 .section-team,.section-feature {
 	width: 33%;
