@@ -18,6 +18,7 @@
 	margin: 1% auto;
 	display: flex;
 	flex-direction: row;
+	width: 100%;
 
 	@media (max-width: 767px){
 		flex-direction: column;

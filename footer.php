@@ -36,32 +36,31 @@ global $responsive_blog_layout_columns;
 
 <footer id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
 	<?php responsive_footer_top(); ?>
-
 		<?php get_sidebar( 'footer' ); ?>
-    <div class="footer-bar grid col-940">
-        <div class="content-outer">
+	<div class="footer-bar grid col-940">
+	<div class="content-outer">
 
-            <?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
+	<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
 
-                <?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) : ?>
+		<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) : ?>
 
-                    <?php
-                        wp_nav_menu(
-                            array(
-                                'container'       => 'nav',
-                                'container_class' => 'footer-layouts footer-menu-container',
-                                'container_id'    => 'footer-menu-container',
-                                'fallback_cb'     => false,
-                                'menu_class'      => 'footer-menu',
-                                'theme_location'  => 'footer-menu',
-                                'depth'           => 1,
-                            )
-                        );
-                    ?>
+			<?php
+				wp_nav_menu(
+					array(
+						'container'       => 'nav',
+						'container_class' => 'footer-layouts footer-menu-container',
+						'container_id'    => 'footer-menu-container',
+						'fallback_cb'     => false,
+						'menu_class'      => 'footer-menu',
+						'theme_location'  => 'footer-menu',
+						'depth'           => 1,
+					)
+				);
+			?>
 
-                <?php endif; ?>
+	<?php endif; ?>
 
-            <div class="footer-layouts social-icon">
+	<div class="footer-layouts social-icon">
 
                     <?php echo responsive_get_social_icons_new() ;// phpcs:ignore ?>
             </div><!-- end of col-380 fit -->

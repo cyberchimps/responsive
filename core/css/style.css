@@ -4692,6 +4692,7 @@ table > *, td, tr, th {
   margin: 1% auto;
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 @media (max-width: 767px) {
   #footer-widgets.grid.col-940 .content-outer, .footer-bar.grid.col-940 .content-outer {
