@@ -9,7 +9,7 @@
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/sidebar-top.php
- * @link           http://codex.wordpress.org/Theme_Development#Widgets_.28sidebar.php.29
+ * @link           http://codex.wordpress.org/Theme_Development#secondary_.28sidebar.php.29
  * @since          available since Release 1.0
  */
 

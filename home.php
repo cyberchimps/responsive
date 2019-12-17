@@ -33,7 +33,7 @@ global $responsive_blog_layout_columns;
 $responsive_category_id = get_query_var( 'cat' );
 if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) ) {
 	?>
-	<div id="content-blog" class="grid col-940 <?php echo $responsive_options['blog_posts_index_layout_default']; ?>">
+	<div id="primary" class="grid col-940 <?php echo $responsive_options['blog_posts_index_layout_default']; ?>">
 
 		<!-- Blog page title -->
 		<?php if ( responsive_free_get_option( 'blog_post_title_toggle' ) ) { ?>
@@ -99,7 +99,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 	</div>
 	</div>
 <?php } else { ?>
-	<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+	<div id="primary" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 		<div id="main-blog">
 			<!-- Blog page title -->
@@ -159,7 +159,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 		endif;
 		?>
 
-	</div><!-- end of #content-blog -->
+	</div><!-- end of #primary -->
 
 	<?php get_sidebar(); ?>
 

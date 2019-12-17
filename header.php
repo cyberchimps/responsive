@@ -65,7 +65,7 @@ if ( 'above_header' === $responsive_header_layout ) {
 
 		<?php responsive_header_top(); // before header content hook. ?>
 		<div class="content-outer responsive-header" <?php responsive_schema_markup( 'organization' ); ?>>
-			<div id="logo" <?php responsive_schema_markup( 'logo' ); ?>>
+			<div id="site-branding" itemtype="https://schema.org/Organization" itemscope="itemscope" >
 		<?php if ( has_custom_logo() ) { ?>
 			<?php the_custom_logo(); ?>
 			<?php
@@ -102,7 +102,7 @@ if ( 'above_header' === $responsive_header_layout ) {
 			}
 			?>
 
-			</div><!-- end of #logo -->
+			</div><!-- end of #site-branding -->
 		<?php
 		do_action( 'responsive_header_container' );
 		?>

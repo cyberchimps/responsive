@@ -190,7 +190,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'blog_entry_title'     => array(
 						'label'    => esc_html__( 'Blog Entry Title', 'responsive' ),
-						'target'   => '#content-blog .post .post-entry .entry-title a',
+						'target'   => '#primary .post .post-entry .entry-title a',
 						'defaults' => array(
 							'font-size'      => '24px',
 							'color'          => '#333333',

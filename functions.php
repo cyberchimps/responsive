@@ -392,7 +392,7 @@ function responsiveedit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'header_image',
 		array(
-			'selector' => '#logo',
+			'selector' => '#site-branding',
 
 		)
 	);
@@ -574,20 +574,17 @@ function responsive_display_menu_outside_container() {
 /**
  * Check the responsive version is above 4.0.
  * Change the value layout if it is fullwidth_without_box.
- *
- * @param  object $upgrader_object Upgrade object.
- * @param  array  $options         Options.
  */
-function responsive_check_previous_version( $upgrader_object, $options ) {
+function responsive_check_previous_version() {
 	$theme_data  = wp_get_theme();
 	$new_version = $theme_data->Version;
 	global $responsive_options;
 	$responsive_options = responsive_get_options();
 
 	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
-	if ( $new_version && version_compare( $new_version, '4.0.0', '==' ) && 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
+	if ( $new_version && version_compare( $new_version, '4.0.0', '=>' ) && 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
 		$responsive_options['site_layout_option'] = 'fullwidth-stretched';
 		update_option( 'responsive_theme_options', $responsive_options );
 	}
 }
-add_action( 'upgrader_process_complete', 'responsive_check_previous_version', 10, 2 );
+add_action( 'init', 'responsive_check_previous_version', 10 );

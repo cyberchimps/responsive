@@ -38,7 +38,7 @@ Template Name: Sitemap (Deprecated)
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
 				<div class="post-entry">
-					<div id="widgets" role="complementary">
+					<div id="secondary" role="complementary">
 
 						<div class="grid col-300">
 							<div class="widget-title"><h3><?php esc_html_e( 'Categories', 'responsive' ); ?></h3></div>
@@ -65,7 +65,7 @@ Template Name: Sitemap (Deprecated)
 							<ul><?php wp_list_pages( 'title_li=' ); ?></ul>
 						</div><!-- end of .col-300 fit -->
 
-					</div><!-- end of #widgets -->
+					</div><!-- end of #secondary -->
 					<?php
 					wp_link_pages(
 						array(

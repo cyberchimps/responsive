@@ -18,33 +18,33 @@
 	font: inherit;
 }
 
-// #widgets {
+// #secondary {
 // 	margin-top: 40px;
 // }
 
-#widgets a {
+#secondary a {
 	display: inline-block;
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
 }
 
-#widgets form {
+#secondary form {
 	margin: 0;
 }
 
-#widgets ul,
-#widgets ol {
+#secondary ul,
+#secondary ol {
 	padding: 0 0 0 20px;
 }
 
-#widgets ul li a {
+#secondary ul li a {
 	display: inline;
 	text-decoration: none;
 	word-wrap: break-word;
 }
 
-#widgets .widget-title img {
+#secondary .widget-title img {
 	float: right;
 	height: 11px;
 	position: relative;
@@ -52,38 +52,38 @@
 	width: 11px;
 }
 
-#widgets .rss-date {
+#secondary .rss-date {
 	line-height: 18px;
 	padding: 6px 12px;
 }
 
-#widgets .rssSummary {
+#secondary .rssSummary {
 	padding: 10px;
 }
 
-#widgets cite {
+#secondary cite {
 	font-style: normal;
 	line-height: 18px;
 	padding: 6px 12px;
 }
 
-#widgets .tagcloud,
-#widgets .textwidget {
+#secondary .tagcloud,
+#secondary .textwidget {
 	display: block;
 	line-height: 1.5em;
 	margin: 0;
 	word-wrap: break-word;
 }
 
-#widgets .textwidget a {
+#secondary .textwidget a {
 	display: inline;
 }
 
-#widgets ul .children {
+#secondary ul .children {
 	padding: 0 0 0 1em;
 }
 
-#widgets .author {
+#secondary .author {
 	font-weight: 700;
 	padding-top: 4px;
 }

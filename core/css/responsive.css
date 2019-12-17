@@ -12,7 +12,7 @@
         float: left
     }
 
-    /* #logo {
+    /* #site-branding {
         float: none;
         margin: 0;
         text-align: center
@@ -22,7 +22,7 @@
         margin: 20px 0 0 0
     }
 
-    .front-page #widgets {
+    .front-page #secondary {
         margin-top: 40px
     }
 
@@ -95,7 +95,7 @@
 }
 
 @media screen and (max-width: 650px) {
-    #logo {
+    #site-branding {
         float:none;
         margin: 0;
         text-align: center
@@ -199,7 +199,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    #logo {
+    #site-branding {
         float:none;
         text-align: center
     }

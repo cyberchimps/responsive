@@ -104,7 +104,7 @@
 					$( '.responsive-load-more' ).addClass( 'active' ).show();
 
 					// Add posts.
-					$( '#content-blog > #main-blog' ).append( boxes );
+					$( '#primary > #main-blog' ).append( boxes );
 
 					var msg = responsivePaginationInfinite.no_more_post_message || '';
 

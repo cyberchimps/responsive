@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/sidebar-home.php
- * @link           http://codex.wordpress.org/Theme_Development#Widgets_.28sidebar.php.29
+ * @link           http://codex.wordpress.org/Theme_Development#secondary_.28sidebar.php.29
  * @since          available since Release 1.0
  */
 ?>
@@ -25,7 +25,7 @@ if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-w
 	?>
 	<?php responsive_widgets_before(); // above widgets container hook ?>
 <div class="content-outer">
-	<aside id="widgets" class="home-widgets" role="complementary">
+	<aside id="secondary" class="home-widgets" role="complementary">
 		<div id="home_widget_1" class="grid col-300">
 		<?php responsive_widgets(); // above widgets hook ?>
 
@@ -80,7 +80,7 @@ if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-w
 
 		<?php responsive_widgets_end(); // after widgets hook ?>
 		</div><!-- end of .col-300 fit -->
-	</aside><!-- end of #widgets -->
+	</aside><!-- end of #secondary -->
 </div>
 	<?php responsive_widgets_after(); // after widgets container hook
 }

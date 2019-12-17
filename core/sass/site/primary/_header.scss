@@ -1,6 +1,6 @@
 /* =Header
 -------------------------------------------------------------- */
-#logo {
+#site-branding {
 	float: left;
 	margin: 0;
 }
@@ -24,7 +24,7 @@
 	margin: 10px 0;
 }
 
-.header-logo-center #logo {
+.header-logo-center #site-branding {
 	float: none;
 	margin: 0;
 	text-align: center;
@@ -37,7 +37,7 @@
 		flex-direction: row-reverse;
 
 	}
-	& .responsive-header #logo {
+	& .responsive-header #site-branding {
 		width: 30%;
 		text-align: right;
 	}
@@ -52,7 +52,7 @@
 	& .responsive-header {
 		display: flex;
 	}
-	& .responsive-header #logo {
+	& .responsive-header #site-branding {
 		width: 30% ;
 	}
 	& .main-nav {

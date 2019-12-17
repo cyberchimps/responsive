@@ -141,11 +141,11 @@ ul {
 
 /* =Widgets
 -------------------------------------------------------------- */
-#widgets ul li {
+#secondary ul li {
 	margin-right: 10px;
 }
 
-#widgets .widget-title img {
+#secondary .widget-title img {
 	float: left;
 }
 

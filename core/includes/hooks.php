@@ -177,7 +177,7 @@ function responsive_comments_after() {
 }
 
 /**
- * Just before opening <div id="widgets">
+ * Just before opening <div id="secondary">
  *
  * @see sidebar.php
  */
@@ -186,7 +186,7 @@ function responsive_widgets_before() {
 }
 
 /**
- * Just after opening <div id="widgets">
+ * Just after opening <div id="secondary">
  *
  * @see sidebar.php
  */
@@ -195,7 +195,7 @@ function responsive_widgets() {
 }
 
 /**
- * Just before closing </div><!-- end of #widgets -->
+ * Just before closing </div><!-- end of #secondary -->
  *
  * @see sidebar.php
  */
@@ -204,7 +204,7 @@ function responsive_widgets_end() {
 }
 
 /**
- * Just after closing </div><!-- end of #widgets -->
+ * Just after closing </div><!-- end of #secondary -->
  *
  * @see sidebar.php
  */

@@ -3119,7 +3119,7 @@
 	       var $child = $( ".customizer-typography-blog_entry_title_typography-font-family" );
 	       if ( pair ) {
 	           /** @type {string} */
-	           var img = '<style class="customizer-typography-blog_entry_title_typography-font-family">#content-blog .post .post-entry .entry-title a{font-family: ' + pair + ";}</style>";
+	           var img = '<style class="customizer-typography-blog_entry_title_typography-font-family">#primary .post .post-entry .entry-title a{font-family: ' + pair + ";}</style>";
 	           if ( $child.length ) {
 	               $child.replaceWith( img );
 	           } else {
@@ -3134,7 +3134,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-font-weight" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-font-weight">#content-blog .post .post-entry .entry-title a{font-weight: ' + dataAndEvents + ";}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-font-weight">#primary .post .post-entry .entry-title a{font-weight: ' + dataAndEvents + ";}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3149,7 +3149,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-font-style" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-font-style">#content-blog .post .post-entry .entry-title a{font-style: ' + dataAndEvents + ";}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-font-style">#primary .post .post-entry .entry-title a{font-style: ' + dataAndEvents + ";}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3164,7 +3164,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-font-size" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-font-size">#content-blog .post .post-entry .entry-title a{font-size: ' + dataAndEvents + ";}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-font-size">#primary .post .post-entry .entry-title a{font-size: ' + dataAndEvents + ";}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3179,7 +3179,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-tablet-font-size" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-tablet-font-size">@media (max-width: 768px){#content-blog .post .post-entry .entry-title a{font-size: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-tablet-font-size">@media (max-width: 768px){#primary .post .post-entry .entry-title a{font-size: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3194,7 +3194,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-mobile-font-size" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-mobile-font-size">@media (max-width: 480px){#content-blog .post .post-entry .entry-title a{font-size: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-mobile-font-size">@media (max-width: 480px){#primary .post .post-entry .entry-title a{font-size: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3209,7 +3209,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-color" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-color">#content-blog .post .post-entry .entry-title a{color: ' + dataAndEvents + ";}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-color">#primary .post .post-entry .entry-title a{color: ' + dataAndEvents + ";}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3224,7 +3224,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-line-height" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-line-height">#content-blog .post .post-entry .entry-title a{line-height: ' + dataAndEvents + ";}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-line-height">#primary .post .post-entry .entry-title a{line-height: ' + dataAndEvents + ";}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3239,7 +3239,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-tablet-line-height" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-tablet-line-height">@media (max-width: 768px){#content-blog .post .post-entry .entry-title a{line-height: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-tablet-line-height">@media (max-width: 768px){#primary .post .post-entry .entry-title a{line-height: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3254,7 +3254,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-mobile-line-height" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-mobile-line-height">@media (max-width: 480px){#content-blog .post .post-entry .entry-title a{line-height: ' + dataAndEvents + ";}}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-mobile-line-height">@media (max-width: 480px){#primary .post .post-entry .entry-title a{line-height: ' + dataAndEvents + ";}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3269,7 +3269,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-letter-spacing" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-letter-spacing">#content-blog .post .post-entry .entry-title a{letter-spacing: ' + dataAndEvents + "px;}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-letter-spacing">#primary .post .post-entry .entry-title a{letter-spacing: ' + dataAndEvents + "px;}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3284,7 +3284,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-tablet-letter-spacing" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-tablet-letter-spacing">@media (max-width: 768px){#content-blog .post .post-entry .entry-title a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-tablet-letter-spacing">@media (max-width: 768px){#primary .post .post-entry .entry-title a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3299,7 +3299,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-mobile-letter-spacing" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-mobile-letter-spacing">@media (max-width: 480px){#content-blog .post .post-entry .entry-title a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-mobile-letter-spacing">@media (max-width: 480px){#primary .post .post-entry .entry-title a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
@@ -3314,7 +3314,7 @@
 			var $child = $( ".customizer-typography-blog_entry_title-text-transform" );
 			if ( dataAndEvents ) {
 				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-text-transform">#content-blog .post .post-entry .entry-title a{text-transform: ' + dataAndEvents + ";}</style>";
+				var img = '<style class="customizer-typography-blog_entry_title-text-transform">#primary .post .post-entry .entry-title a{text-transform: ' + dataAndEvents + ";}</style>";
 				if ( $child.length ) {
 					$child.replaceWith( img );
 				} else {
