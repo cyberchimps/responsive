@@ -118,6 +118,15 @@
         padding-left: 20px;
         padding-right: 20px;
 }
+
+.alignfull,
+.alignfull {
+    *:not(.alignwide):not(.wp-block-cover__inner-container),
+    *:not(.alignfull):not(.wp-block-cover__inner-container){
+        max-width: 100%;
+    }
+}
+
 /*
 	changes according gutenberg plugin -- END
  */

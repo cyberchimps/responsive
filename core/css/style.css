@@ -4500,6 +4500,13 @@ div .wp-block-cover-text {
   padding-right: 20px;
 }
 
+.alignfull *:not(.alignwide):not(.wp-block-cover__inner-container),
+.alignfull *:not(.alignfull):not(.wp-block-cover__inner-container),
+.alignfull *:not(.alignwide):not(.wp-block-cover__inner-container),
+.alignfull *:not(.alignfull):not(.wp-block-cover__inner-container) {
+  max-width: 100%;
+}
+
 /*
 	changes according gutenberg plugin -- END
  */

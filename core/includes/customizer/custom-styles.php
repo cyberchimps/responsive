@@ -529,8 +529,7 @@ function responsive_premium_custom_color_styles() {
 			margin-left: auto;
 			margin-right: auto;
 		}
-
-		.wp-block-cover__inner-container,.alignfull *:not(.alignfull), .alignfull *:not(.alignwide), .alignwide *:not(.alignwide), .alignwide *:not(.alignfull),
+		.wp-block-cover__inner-container,
 		.boxed-layout	.content-area, body.default-layout .content-outer, body.full-width-layout .content-outer, body.full-width-no-box .content-outer, #footer .content-outer{
 			max-width: {$container_width}px;
 		}
