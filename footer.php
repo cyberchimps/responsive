@@ -36,32 +36,31 @@ global $responsive_blog_layout_columns;
 
 <footer id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
 	<?php responsive_footer_top(); ?>
-	<div class="content-outer">
-	<div id="footer-wrapper">
 
 
 		<?php get_sidebar( 'footer' ); ?>
 
+		<div class="footer-bar grid col-940">
+			<div class="content-outer">
 		<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
 
 			<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) : ?>
-				<div class="grid col-940">
 				<?php
 					wp_nav_menu(
 						array(
 							'container'       => 'nav',
-							'container_class' => 'footer-menu-container',
+							'container_class' => 'footer-layouts footer-menu-container',
 							'container_id'    => 'footer-menu-container',
 							'fallback_cb'     => false,
 							'menu_class'      => 'footer-menu',
 							'theme_location'  => 'footer-menu',
+							'depth'           => 1,
 						)
 					);
 				?>
-				</div><!-- end of col-940 -->
 			<?php endif; ?>
-	<div class="footer-bar">
-		<div class="social-icon">
+
+		<div class="footer-layouts social-icon">
 			<?php echo responsive_get_social_icons_new() ;// phpcs:ignore ?>
 		</div><!-- end of col-380 fit -->
 		<?php } ?>
@@ -73,20 +72,18 @@ global $responsive_blog_layout_columns;
 		}
 
 		?>
-			<div class="copyright">
+			<div class="footer-layouts copyright">
 				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( gmdate( 'Y' ) ); ?> <?php esc_attr_e( ' My WordPress Site', 'responsive' ); ?>
 
 
 			<div class="powered">
-                <?php esc_attr_e( ' | Powered by', 'responsive' ); ?>
-                <a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>> Responsive Theme</a>
+				<?php esc_attr_e( ' | Powered by', 'responsive' ); ?>
+				<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>> Responsive Theme</a>
 
 			</div><!-- end .powered -->
 		</div><!-- end of .copyright -->
 
 	</div>
-
-	</div><!-- end #footer-wrapper -->
 
 	</div>
 

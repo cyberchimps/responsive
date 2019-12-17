@@ -134,31 +134,6 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 			);
 
 			$wp_customize->add_setting(
-				'responsive_layout_position',
-				array(
-					'default'           => '',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				'responsive_layout_position',
-				array(
-					'label'    => __( 'Elements Position', 'responsive' ),
-					'section'  => 'footer_section',
-					'settings' => 'responsive_layout_position',
-					'type'     => 'select',
-					'choices'  => apply_filters(
-						'responsive_header_layout_choices',
-						array(
-							''         => esc_html__( 'Social Icons / Copyright', 'responsive' ),
-							'-reverse' => esc_html__( 'Copyright / Social Icons', 'responsive' ),
-						)
-					),
-				)
-			);
-
-			$wp_customize->add_setting(
 				'responsive_footer_border',
 				array(
 					'transport'         => 'refresh',
@@ -226,7 +201,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_social_icons_color',
 				array(
-					'default'           => '',
+					'default'           => '#ffffff',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_background',
 					'transport'         => 'refresh',

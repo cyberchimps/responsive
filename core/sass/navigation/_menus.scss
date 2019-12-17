@@ -575,8 +575,11 @@ ul.menu > li:hover {
 	white-space: normal;
 	z-index: 10000;
 }
-.footer-menu li li {
+#footer .footer-menu li li {
 	float: none;
+}
+#footer .menu-item-has-children::after{
+	display: none;
 }
 .footer-menu ul {
 	left: -999em;

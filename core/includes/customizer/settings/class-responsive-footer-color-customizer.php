@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Footer_Color_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_footer_background_color',
 				array(
-					'default'           => '',
+					'default'           => '#585858',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_background',
 					'transport'         => 'refresh',
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Responsive_Footer_Color_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_footer_text_color',
 				array(
-					'default'           => '',
+					'default'           => '#ffffff',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_background',
 					'transport'         => 'refresh',
