@@ -35,32 +35,6 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 		 */
 		public function customizer_options( $wp_customize ) {
 
-			$wp_customize->add_setting(
-				'menu_position',
-				array(
-					'default'           => 'in_header',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				'menu_position',
-				array(
-					'label'    => __( 'Menu Position', 'responsive' ),
-					'section'  => 'responsive_menu',
-					'settings' => 'menu_position',
-					'type'     => 'select',
-					'choices'  => apply_filters(
-						'responsive_menu_position',
-						array(
-							'above_header' => esc_html__( 'Above Header', 'responsive' ),
-							'in_header'    => esc_html__( 'Default', 'responsive' ),
-							'below_header' => esc_html__( 'Below Header', 'responsive' ),
-						)
-					),
-					'priority' => 0,
-				)
-			);
 			/**
 			 * Header Menu Padding.
 			 */

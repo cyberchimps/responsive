@@ -683,7 +683,7 @@ function responsive_premium_custom_color_styles() {
 					}
 					.social-icon{
 						text-align: right;
-					
+
 					}
 					';
 		}
@@ -834,7 +834,7 @@ function responsive_premium_custom_color_styles() {
 		$responsive_content_width = 97 - $responsive_sidebar_width;
 
 		$custom_css .= "@media screen and (min-width: 981px){
-			#wrapper #primary.col-620, #content-blog.col-620 {
+			#wrapper #primary.col-620, #content-blog.col-620, #content-woocommerce.col-620 {
 
 				width: {$responsive_content_width}.8723404255%;
 			}

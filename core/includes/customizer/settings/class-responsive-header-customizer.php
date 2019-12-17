@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'header_layout_options',
 				array(
-					'default'           => 'default',
+					'Logo Left'           => 'header-logo-left',
 					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 				)
@@ -57,15 +57,41 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					'section'  => 'responsive_header_section',
 					'settings' => 'header_layout_options',
 					'type'     => 'select',
+					'priority' => 0,
 					'choices'  => apply_filters(
 						'responsive_header_layout_choices',
 						array(
-							'default'            => esc_html__( 'Default', 'responsive' ),
 							'header-logo-left'   => esc_html__( 'Logo Left', 'responsive' ),
 							'header-logo-center' => esc_html__( 'Logo Center', 'responsive' ),
 							'header-logo-right'  => esc_html__( 'Logo Right', 'responsive' ),
 						)
 					),
+				)
+			);
+			$wp_customize->add_setting(
+				'menu_position',
+				array(
+					'default'           => 'in_header',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'menu_position',
+				array(
+					'label'    => __( 'Header Menu Position', 'responsive' ),
+					'section'  => 'responsive_header_section',
+					'settings' => 'menu_position',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_menu_position',
+						array(
+							'above_header' => esc_html__( 'Above Header', 'responsive' ),
+							'in_header'    => esc_html__( 'Default', 'responsive' ),
+							'below_header' => esc_html__( 'Below Header', 'responsive' ),
+						)
+					),
+					'priority' => 2,
 				)
 			);
 			$wp_customize->add_setting(
