@@ -37,53 +37,77 @@ global $responsive_blog_layout_columns;
 <footer id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
 	<?php responsive_footer_top(); ?>
 
-
 		<?php get_sidebar( 'footer' ); ?>
+    <div class="footer-bar grid col-940">
+        <div class="content-outer">
 
-		<div class="footer-bar grid col-940">
-			<div class="content-outer">
-		<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
+            <?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
 
-			<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) : ?>
-				<?php
-					wp_nav_menu(
-						array(
-							'container'       => 'nav',
-							'container_class' => 'footer-layouts footer-menu-container',
-							'container_id'    => 'footer-menu-container',
-							'fallback_cb'     => false,
-							'menu_class'      => 'footer-menu',
-							'theme_location'  => 'footer-menu',
-							'depth'           => 1,
-						)
-					);
-				?>
-			<?php endif; ?>
+                <?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) : ?>
 
-		<div class="footer-layouts social-icon">
-			<?php echo responsive_get_social_icons_new() ;// phpcs:ignore ?>
-		</div><!-- end of col-380 fit -->
-		<?php } ?>
-		<?php get_sidebar( 'colophon' ); ?>
-		<?php
+                    <?php
+                        wp_nav_menu(
+                            array(
+                                'container'       => 'nav',
+                                'container_class' => 'footer-layouts footer-menu-container',
+                                'container_id'    => 'footer-menu-container',
+                                'fallback_cb'     => false,
+                                'menu_class'      => 'footer-menu',
+                                'theme_location'  => 'footer-menu',
+                                'depth'           => 1,
+                            )
+                        );
+                    ?>
 
-		if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
-			$copyright_text = $responsive_options['copyright_textbox'];
-		}
+                <?php endif; ?>
 
-		?>
-			<div class="footer-layouts copyright">
-				<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo esc_attr( gmdate( 'Y' ) ); ?> <?php esc_attr_e( ' My WordPress Site', 'responsive' ); ?>
+            <div class="footer-layouts social-icon">
 
+                    <?php echo responsive_get_social_icons_new() ;// phpcs:ignore ?>
+            </div><!-- end of col-380 fit -->
+            <?php } ?>
+            <?php get_sidebar( 'colophon' ); ?>
+            <?php
+                $cyberchimps_link = '';
+            if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+                echo '<div class="footer-layouts copyright">';
+                if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
+                    $copyright_text = $responsive_options['copyright_textbox'];
+                    esc_attr_e( '&copy;', 'responsive' );
+                    echo esc_attr( gmdate( 'Y' ) );
+                    esc_attr_e( ' ' . $copyright_text, 'responsive' );
+                } else {
+                    esc_attr_e( '&copy;', 'responsive' );
+                    echo esc_attr( gmdate( 'Y' ) );
+                    esc_attr_e( ' Responsive', 'responsive' );
+                }
+                if ( ! empty( $responsive_options['poweredby_link'] ) ) {
+                    $cyberchimps_link = $responsive_options['poweredby_link'];
+                }
+                if ( $cyberchimps_link ) {
+                    echo ' <div class="powered">';
+                        esc_attr_e( ' | Powered by', 'responsive' );
+                        echo '<a href=' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . ' title=' . esc_attr_e( ' Responsive Theme', 'responsive' ) . '></a>';
 
-			<div class="powered">
-				<?php esc_attr_e( ' | Powered by', 'responsive' ); ?>
-				<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>" rel="noindex, nofollow" <?php responsive_schema_markup( 'url' ); ?>> Responsive Theme</a>
+                    echo '</div>';
+                }
 
-			</div><!-- end .powered -->
-		</div><!-- end of .copyright -->
+                echo '</div>';
 
-	</div>
+            } else {
+                echo '<div class="footer-layouts copyright">';
+                esc_attr_e( '&copy;', 'responsive' );
+                echo esc_attr( gmdate( 'Y' ) );
+                esc_attr_e( ' My WordPress Site', 'responsive' );
+                    echo ' <div class="powered">';
+                    esc_attr_e( ' | Powered by', 'responsive' );
+                    echo '<a href=' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . ' title=' . esc_attr_e( ' Responsive Theme', 'responsive' ) . '></a>';
+
+                    echo '</div>';
+                echo '</div>';
+            }
+            ?>
+	    </div>
 
 	</div>
 
