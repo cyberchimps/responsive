@@ -3070,7 +3070,6 @@ body.fullwidth-stretched #wrapper .content-outer {
 -------------------------------------------------------------- */
 #primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary, body.page.page-boxed #primary, body.page.page-content-boxed #primary, body.page.page-fullwidth-content #primary {
   padding: 20px;
-  padding-bottom: 0;
   margin-bottom: 0;
 }
 
@@ -3158,7 +3157,6 @@ body.archive.blog-fullwidth-stretched .post, body.blog.blog-fullwidth-stretched 
 
 .post {
   margin-bottom: 40px;
-  padding: 20px;
 }
 .section-blog-2-col .post, .section-blog-3-col .post, .section-blog-4-col .post {
   border: none;
@@ -3686,7 +3684,6 @@ blockquote p {
   font-size: 16px;
   font-weight: 700;
   margin: 10px 0;
-  padding: 0 20px;
 }
 
 .pagination a {
@@ -3697,10 +3694,6 @@ blockquote p {
 -------------------------------------------------------------- */
 .breadcrumb-list {
   font-size: 12px;
-}
-.archive .breadcrumb-list, .search .breadcrumb-list, .blog .breadcrumb-list {
-  padding-top: 20px;
-  padding-left: 20px;
 }
 
 /* =Post Thumbnails
@@ -4484,9 +4477,7 @@ div .wp-block-cover-text {
   max-width: 100vw;
 }
 .grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry .wp-block-columns .alignwide,
-.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry .wp-block-columns .alignfull,
-.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry [class*=__inner-container] .alignwide,
-.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry [class*=__inner-container] .alignfull {
+.grid.col-940:not(.blog-2-col):not(.blog-3-col):not(.blog-4-col) .post-entry .wp-block-columns .alignfull {
   margin-left: auto;
   margin-right: auto;
   width: 100%;

@@ -4,7 +4,6 @@
 
 #primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary, body.page.page-boxed #primary,body.page.page-content-boxed #primary,body.page.page-fullwidth-content #primary{
 	padding: 20px;
-	padding-bottom: 0;
 	margin-bottom: 0;
 }
 
@@ -92,7 +91,6 @@ body.archive.blog-fullwidth-stretched .post, body.blog.blog-fullwidth-stretched 
 
 .post {
 	margin-bottom: 40px;
-	padding: 20px;
 	.section-blog-2-col &,
 	.section-blog-3-col &,
 	.section-blog-4-col & {

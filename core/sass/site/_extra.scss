@@ -216,7 +216,6 @@ blockquote p {
 	font-size: 16px;
 	font-weight: 700;
 	margin: 10px 0;
-	padding: 0 20px;
 }
 
 .pagination a {
@@ -227,12 +226,6 @@ blockquote p {
 -------------------------------------------------------------- */
 .breadcrumb-list {
 	font-size: 12px;
-	.archive &,
-	.search &,
-	.blog & {
-		padding-top: 20px;
-		padding-left: 20px;
-	}
 }
 
 
