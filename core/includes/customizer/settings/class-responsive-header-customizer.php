@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Header Section', 'responsive' ),
 					'panel'    => 'responsive-header-options',
-					'priority' => 202,
+					'priority' => 3,
 
 				)
 			);

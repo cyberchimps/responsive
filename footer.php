@@ -60,7 +60,7 @@ global $responsive_blog_layout_columns;
 				?>
 				</div><!-- end of col-940 -->
 			<?php endif; ?>
-	<div class="footer-layout">
+	<div class="footer-bar">
 		<div class="social-icon">
 			<?php echo responsive_get_social_icons_new() ;// phpcs:ignore ?>
 		</div><!-- end of col-380 fit -->
@@ -85,7 +85,7 @@ global $responsive_blog_layout_columns;
 		</div><!-- end of .copyright -->
 
 	</div>
-		
+
 	</div><!-- end #footer-wrapper -->
 
 	</div>

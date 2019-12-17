@@ -640,7 +640,7 @@ function responsive_premium_custom_color_styles() {
 		body.single .entry-title{
 			text-align: {$single_alignment};
 		}
-		.footer-layout{
+		.footer-bar{
 			flex-direction: {$footer_layout}{$layout_position};
 		}
 		#footer{
@@ -657,7 +657,7 @@ function responsive_premium_custom_color_styles() {
 		";
 
 	if ( 'column' === $footer_layout ) {
-				$custom_css .= '.footer-layout{
+				$custom_css .= '.footer-bar{
 					text-align: center;
 				}
 				.copyright{
@@ -683,7 +683,6 @@ function responsive_premium_custom_color_styles() {
 					}
 					.social-icon{
 						text-align: right;
-
 					}
 					';
 		}

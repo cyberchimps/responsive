@@ -4852,7 +4852,7 @@ table > *, td, tr, th {
     display: inline-block;
   }
 
-  .footer-layout {
+  .footer-bar {
     display: flex;
     width: 100%;
   }
