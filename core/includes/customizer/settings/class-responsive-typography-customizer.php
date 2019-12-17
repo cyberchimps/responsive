@@ -181,7 +181,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'page_title'           => array(
 						'label'    => esc_html__( 'Page Title', 'responsive' ),
-						'target'   => '.page .post-title',
+						'target'   => '.page .post-title, #main-blog h1',
 						'defaults' => array(
 							'color'       => '#333333',
 							'font-size'   => '32px',
