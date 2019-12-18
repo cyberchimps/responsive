@@ -1,6 +1,6 @@
 <?php
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -22,8 +22,8 @@ Template Name:  Sidebar/Content Half Page (Deprecated)
  */
 ?>
 <?php get_header(); ?>
-<div id="content-outer">
-<div id="content" class="grid-right col-460 fit" role="main">
+<div class="content-outer">
+<div id="primary" class="grid-right col-460 fit" role="main">
 
 	<?php if ( have_posts() ) : ?>
 
@@ -98,6 +98,6 @@ Template Name:  Sidebar/Content Half Page (Deprecated)
 
 </div><!-- end of #content -->
 
-<?php get_sidebar( 'left-half' ); ?>
+<?php get_sidebar( 'main-sidebar' ); ?>
 </div>
 <?php get_footer(); ?>

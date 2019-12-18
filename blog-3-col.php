@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="content-full" class="grid col-940">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>

@@ -580,9 +580,8 @@ function responsive_check_previous_version() {
 	$new_version = $theme_data->Version;
 	global $responsive_options;
 	$responsive_options = responsive_get_options();
-
 	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
-	if ( $new_version && version_compare( $new_version, '4.0.0', '=>' ) && 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
+	if ( $new_version && version_compare( $new_version, '4.0.0', '>=' ) && 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
 		$responsive_options['site_layout_option'] = 'fullwidth-stretched';
 		update_option( 'responsive_theme_options', $responsive_options );
 	}

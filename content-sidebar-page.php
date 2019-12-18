@@ -22,8 +22,8 @@ Template Name:  Content/Sidebar (Deprecated)
  */
 
 get_header(); ?>
-<div id="content-outer">
-<div id="content" class="grid col-620" role="main">
+<div class="content-outer">
+<div id="primary" class="grid col-620" role="main">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
@@ -78,6 +78,6 @@ get_header(); ?>
 
 </div><!-- end of #content -->
 
-<?php get_sidebar( 'right' ); ?>
+<?php get_sidebar( 'main-sidebar' ); ?>
 </div>
 <?php get_footer(); ?>
