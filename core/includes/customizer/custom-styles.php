@@ -731,14 +731,14 @@ function responsive_premium_custom_color_styles() {
 
 	}
 	if ( $single_blog_padding_top || $single_blog_padding_right || $single_blog_padding_bottom || $single_blog_padding_left ) {
-		$custom_css .= 'body.single #content{
+		$custom_css .= 'body.single #primary,body.single.fullwidth-content #primary,body.single.single-fullwidth-stretched #primary{
 			padding:' . responsive_spacing_css( $single_blog_padding_top, $single_blog_padding_right, $single_blog_padding_bottom, $single_blog_padding_left ) . '
 		}';
 	}
 
 	if ( $single_blog_tablet_padding_top || $single_blog_tablet_padding_right || $single_blog_tablet_padding_bottom || $single_blog_tablet_padding_left ) {
 		$custom_css .= '@media screen and (max-width:768px){
-			body.single #content {
+			body.single #primary,body.single.fullwidth-content #primary,body.single.single-fullwidth-stretched #primary {
 				padding:' . responsive_spacing_css( $single_blog_tablet_padding_top, $single_blog_tablet_padding_right, $single_blog_tablet_padding_bottom, $single_blog_tablet_padding_left ) . '
 			}
 		}';
@@ -746,7 +746,7 @@ function responsive_premium_custom_color_styles() {
 
 	if ( $single_blog_mobile_padding_top || $single_blog_mobile_padding_right || $single_blog_mobile_padding_bottom || $single_blog_mobile_padding_left ) {
 		$custom_css .= '@media screen and (max-width:480px){
-			body.single #content {
+			body.single #primary,body.single.fullwidth-content #primary,body.single.single-fullwidth-stretched #primary {
 				padding:' . responsive_spacing_css( $single_blog_mobile_padding_top, $single_blog_mobile_padding_right, $single_blog_mobile_padding_bottom, $single_blog_mobile_padding_left ) . '
 			}
 		}';
@@ -1023,7 +1023,7 @@ function responsive_premium_custom_color_styles() {
 			}
 		}';
 	}
-	if ( $sidebar_radius ) {
+	if ( $sidebar_radius >= 0 ) {
 		$custom_css .= "#secondary .widget-wrapper {
 			border-radius: {$sidebar_radius}px;
 		}";

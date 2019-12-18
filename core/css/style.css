@@ -3071,7 +3071,7 @@ body.fullwidth-stretched #wrapper .content-outer {
 /* =Content
 -------------------------------------------------------------- */
 #primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary, body.page.page-boxed #primary, body.page.page-content-boxed #primary, body.page.page-fullwidth-content #primary {
-  padding: 0 20px;
+  padding: 20px;
   margin-bottom: 0;
 }
 
@@ -3165,25 +3165,6 @@ body.archive.blog-fullwidth-stretched .post, body.blog.blog-fullwidth-stretched 
 }
 .single .post {
   padding: 0;
-}
-
-body.search .title-404,
-body.search .title-search-results,
-body.search .page {
-  padding: 0 20px;
-}
-body.search.search-no-results #main-blog form, body.search.search-no-results #main-blog h6, body.search.search-no-results #main-blog p {
-  padding: 0 20px;
-}
-
-body.archive .breadcrumb-list,
-body.archive .title-archive,
-body.archive .taxonomy-description,
-body.archive .page {
-  padding: 0 20px;
-}
-body.archive .breadcrumb-list {
-  padding-top: 20px;
 }
 
 .post-search-terms {

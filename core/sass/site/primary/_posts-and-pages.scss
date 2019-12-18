@@ -3,7 +3,7 @@
 -------------------------------------------------------------- */
 
 #primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary, body.page.page-boxed #primary,body.page.page-content-boxed #primary, body.page.page-fullwidth-content #primary{
-	padding: 0 20px;
+	padding: 20px;
 	margin-bottom: 0;
 }
 
@@ -100,35 +100,6 @@ body.archive.blog-fullwidth-stretched .post, body.blog.blog-fullwidth-stretched 
 	.single & {
 		padding: 0;
 	}
-}
-
-body.search {
-	.title-404,
-	.title-search-results,
-	.page{
-		padding: 0 20px;
-	}
-
-	&.search-no-results {
-		#main-blog {
-			form,h6,p{
-				padding: 0 20px;
-			}
-		}
-	}
-}
-
-body.archive {
-	.breadcrumb-list,
-	.title-archive,
-	.taxonomy-description,
-	.page{
-		padding: 0 20px;
-	}
-	.breadcrumb-list{
-		padding-top: 20px;
-	}
-
 }
 
 .post-search-terms {
