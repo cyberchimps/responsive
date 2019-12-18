@@ -36,6 +36,7 @@ global $responsive_blog_layout_columns;
 
 <footer id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
 	<?php responsive_footer_top(); ?>
+
 		<?php get_sidebar( 'footer' ); ?>
 	<div class="footer-bar grid col-940">
 	<div class="content-outer">
@@ -96,8 +97,8 @@ global $responsive_blog_layout_columns;
             } else {
                 echo '<div class="footer-layouts copyright">';
                 esc_attr_e( '&copy;', 'responsive' );
-                echo esc_attr( gmdate( 'Y' ) );
-                esc_attr_e( ' My WordPress Site', 'responsive' );
+                echo esc_attr( gmdate( 'Y' )." " );
+                 esc_attr_e( bloginfo( ' name' ), 'responsive' );
                     echo ' <div class="powered">';
                     esc_attr_e( ' | Powered by', 'responsive' );
                     echo '<a href=' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . ' title=' . esc_attr_e( ' Responsive Theme', 'responsive' ) . '></a>';
