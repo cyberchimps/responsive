@@ -529,7 +529,6 @@ function responsive_premium_custom_color_styles() {
 			margin-left: auto;
 			margin-right: auto;
 		}
-
 		.wp-block-cover__inner-container, .boxed-layout	.content-area, body.default-layout .content-outer, body.full-width-layout .content-outer, body.full-width-no-box .content-outer, #footer .content-outer{
 			max-width: {$container_width}px;
 		}
@@ -1055,9 +1054,6 @@ function responsive_premium_custom_color_styles() {
 		$custom_css .= ".section-blog-2-col,.section-blog-3-col,.section-blog-4-col,body.search .post,body.archive .post,body.blog .post,body.blog.boxed #primary .post,body.blog.content-boxed #primary .post  {
 			background-color: {$blog_background_color};
 		}
-		.content-boxed #primary, body.archive.blog-content-boxed #primary, body.blog.blog-content-boxed #primary{
-			background-color: inherit;
-		}
 		";
 	}
 
@@ -1195,7 +1191,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $background_color ) ) {
-		$custom_css .= "body.home #wrapper, #wrapper, body.page.page-boxed, body.page.page-content-boxed, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.blog.blog-boxed, body.archive.blog-boxed, body.single.single-boxed, body.archive.blog-content-boxed, body.blog.blog-content-boxed, body.single.single-content-boxed, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, .page-fullwidth-stretched #primary, .page.page-fullwidth-content #primary{
+		$custom_css .= "body.home #wrapper, #wrapper, body.page.page-boxed, body.page.page-content-boxed, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.blog.blog-boxed, body.archive.blog-boxed, body.single.single-boxed, body.archive.blog-content-boxed, body.blog.blog-content-boxed, body.single.single-content-boxed, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, .page.page-fullwidth-stretched #primary, .page.page-fullwidth-content #primary, .blog.blog-fullwidth-stretched #primary, .blog.blog-fullwidth-content #primary, .archive.blog-fullwidth-stretched #primary, .archive.blog-fullwidth-content #primary, .single.single-fullwidth-stretched #primary, .single.single-fullwidth-content #primary{
 			background-color: #{$background_color};
 		}";
 	}

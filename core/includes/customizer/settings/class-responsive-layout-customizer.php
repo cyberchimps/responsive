@@ -96,7 +96,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'blog_layout_option',
 				array(
-					'sanitize_callback' => 'responsive_validate_site_layout',
+					'sanitize_callback' => 'responsive_validate_page_layout',
 					'transport'         => 'refresh',
 					'default'           => 'default',
 				)
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'single_layout_option',
 				array(
-					'sanitize_callback' => 'responsive_validate_site_layout',
+					'sanitize_callback' => 'responsive_validate_page_layout',
 					'transport'         => 'refresh',
 					'default'           => 'default',
 				)

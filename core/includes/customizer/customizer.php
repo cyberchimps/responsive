@@ -83,8 +83,8 @@ function responsive_validate_site_layout( $input ) {
 	$valid = array(
 		'boxed'               => 'Boxed',
 		'content-boxed'       => 'Content Boxed',
-		'fullwidth-content'   => 'Fullwith Content',
-		'fullwidth-stretched' => 'Fullwith Stretched',
+		'fullwidth-content'   => 'Full Width / Contained',
+		'fullwidth-stretched' => 'Full Width / Stretched',
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {
@@ -103,10 +103,11 @@ function responsive_validate_page_layout( $input ) {
 	/** An array of valid results */
 
 	$valid = array(
+		'default'             => 'Default',
 		'boxed'               => 'Boxed',
 		'content-boxed'       => 'Content Boxed',
-		'fullwidth-content'   => 'Fullwith Content',
-		'fullwidth-stretched' => 'Fullwith Stretched',
+		'fullwidth-content'   => 'Full Width / Contained',
+		'fullwidth-stretched' => 'Full Width / Stretched',
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {

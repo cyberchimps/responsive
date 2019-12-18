@@ -150,15 +150,15 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
             --------------------------------------------------------------
             */
 
-            $wp_customize->add_section(
-                'responsive_social_media',
-                array(
-                    'title'       => __( 'Social Icons', 'responsive' ),
-                    'panel'       => 'responsive-footer-options',
-                    'priority'    => 40,
-                    'description' => __( 'Enter the URL to your account for each service for the icon to appear in the header.', 'responsive' ),
-                )
-            );
+			$wp_customize->add_section(
+				'responsive_social_media',
+				array(
+					'title'       => __( 'Social Icons', 'responsive' ),
+					'panel'       => 'responsive-footer-options',
+					'priority'    => 40,
+					'description' => __( 'Enter the URL to your account for each service for the icon to appear in the header.', 'responsive' ),
+				)
+			);
 
             // Color.
             $wp_customize->add_setting(

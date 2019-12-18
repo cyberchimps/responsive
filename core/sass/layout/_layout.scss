@@ -203,7 +203,6 @@ color:#f2efef;
 }
 #primary.col-620, #primary.col-620 {
 	overflow: hidden;
-	margin-bottom: 20px;
 }
 
 body.page.page-content-boxed .widget-wrapper ,body.archive.blog-content-boxed .widget-wrapper, body.blog.blog-content-boxed .widget-wrapper, body.single.single-content-boxed .widget-wrapper, body.archive.blog-fullwidth-content .widget-wrapper, body.blog.blog-fullwidth-content .widget-wrapper, body.single.single-fullwidth-content .widget-wrapper, body.blog.blog-fullwidth-stretched .widget-wrapper, body.archive.blog-fullwidth-stretched .widget-wrapper, body.single.single-fullwidth-stretched .widget-wrapper{
@@ -215,11 +214,8 @@ body.page.page-content-boxed .widget-wrapper ,body.archive.blog-content-boxed .w
 }
 body.single.single-boxed #primary,body.page.page-content-boxed,body.page.page-boxed, body.single.single-boxed, body.archive.blog-boxed, body.blog.blog-boxed, body.single.single-content-boxed, body.archive.blog-content-boxed, body.blog.blog-content-boxed {
 	background-color: #f1f1f1;
-	#main-blog {
+	#primary {
 		background-color: #ffffff;
-		margin-bottom: 0;
-	}
-	.post{
 		margin-bottom: 0;
 	}
 }
