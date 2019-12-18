@@ -226,7 +226,12 @@ body.fullwidth-stretched .content-outer, body.archive.blog-fullwidth-stretched .
 }
 body.fullwidth-stretched #primary, body.archive.blog-fullwidth-stretched #primary, body.blog.blog-fullwidth-stretched #primary, body.single.single-fullwidth-stretched #primary,body.page.page-fullwidth-stretched #primary{
 	padding: 0;
+	padding-left: 20px;
 	margin-bottom: 0;
+}
+body.fullwidth-content #primary{
+	padding: 0;
+	padding-bottom: 20px;
 }
 
 .post-entry h1,

@@ -674,13 +674,6 @@ function responsive_premium_custom_color_styles() {
 				';
 	}
 
-	if ( 'row' === $footer_layout ) {
-		$custom_css .= '.content-outer .copyright{
-                        padding-top:5px;
-                    }
-					';
-	}
-
 	if ( ! $blog_entries_meta_icon_display ) {
 		$custom_css .= 'body.search .post-meta .author-gravtar,
 		body.search .post-meta .fa,
