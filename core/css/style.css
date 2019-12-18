@@ -2789,13 +2789,13 @@ body.full-width-layout div#container, body.full-width-layout div#footer, body.fu
 
 .post-meta .posted-in,
 .post-meta .comments-link,
-.post-meta .timestamp,
+.post-meta .meta-prep-author,
 .post-meta .vcard {
   display: inline;
 }
 .post-meta .posted-in:after,
 .post-meta .comments-link:after,
-.post-meta .timestamp:after,
+.post-meta .meta-prep-author:after,
 .post-meta .vcard:after {
   content: "|";
   margin: 0 6px;
