@@ -286,7 +286,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'responsive_sanitize_color',
 					'transport'         => 'refresh',
-					'default'           => '',
+					'default'           => '#333333',
 				)
 			);
 			$wp_customize->add_control(
@@ -306,7 +306,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'responsive_sanitize_color',
 					'transport'         => 'refresh',
-					'default'           => '',
+					'default'           => '#afafaf',
 				)
 			);
 			$wp_customize->add_control(

@@ -134,9 +134,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'site_title'           => array(
 						'label'    => esc_html__( 'Site Title', 'responsive' ),
 						'target'   => '.site-name',
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '2.063em',
-							'color'          => '#333333',
 							'line-height'    => '1',
 							'letter-spacing' => '0',
 						),
@@ -144,9 +144,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'site_tagline'         => array(
 						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
 						'target'   => '.site-description',
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '0.875em',
-							'color'          => '#333333',
 							'line-height'    => '1.4',
 							'letter-spacing' => '0',
 						),

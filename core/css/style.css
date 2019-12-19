@@ -3010,7 +3010,7 @@ body.fullwidth-stretched #wrapper .content-outer {
   padding-top: 20px;
 }
 
-.site-name a {
+.site-name a, .site-name a:hover {
   color: #333333;
   font-weight: 700;
 }

@@ -409,6 +409,10 @@ function responsive_premium_custom_color_styles() {
 			color: {$link_hover_color};
 		}
 
+		a {
+			color: {$link_color};
+		}
+
 		input[type=text], input[type=email], input[type=password], input[type=search], .widget-wrapper input[type=search], .widget-wrapper input[type=email], .widget-wrapper input[type=password], .widget-wrapper input[type=text], .widget-wrapper select {
 			color: {$input_text_color};
 			background-color: {$input_background_color};
@@ -1030,7 +1034,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $fullwidth_title_color ) ) {
-		$custom_css .= ".full-width-no-box .site-name a, .site-name a{
+		$custom_css .= ".full-width-no-box .site-name a, .site-name a, .site-name a:hover{
 			color: {$fullwidth_title_color};
 		}";
 	}
