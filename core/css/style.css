@@ -2968,9 +2968,11 @@ body.fullwidth-stretched #primary, body.archive.blog-fullwidth-stretched #primar
   margin-bottom: 0;
 }
 
+body.archive.blog-fullwidth-content #primary,
+body.blog.blog-fullwidth-content #primary,
+body.page.page-fullwidth-content #primary,
 body.fullwidth-content #primary {
   padding: 0;
-  padding-bottom: 20px;
 }
 
 .post-entry h1,

@@ -71,7 +71,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'menu_position',
 				array(
-					'default'           => 'in_header',
+					'default'           => 'below_header',
 					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 				)

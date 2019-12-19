@@ -72,6 +72,7 @@ function responsive_premium_custom_color_styles() {
 	$header_padding_left   = get_theme_mod( 'responsive_header_left_padding' );
 	$header_padding_top    = get_theme_mod( 'responsive_header_top_padding' );
 	$header_padding_bottom = get_theme_mod( 'responsive_header_bottom_padding' );
+	$header_menu_position  = get_theme_mod( 'menu_position', 'in_header' );
 
 	$header_tablet_padding_right  = get_theme_mod( 'responsive_header_tablet_right_padding' );
 	$header_tablet_padding_left   = get_theme_mod( 'responsive_header_tablet_left_padding' );
@@ -1543,6 +1544,12 @@ function responsive_premium_custom_color_styles() {
 			background-color: {$responsive_submenu_color};
 			background-image: none;
 		} ";
+	}
+
+	if ( 'in_header' === $header_menu_position ) {
+		$custom_css .= 'body.fullwidth-content #wrapper, #wrapper body.home #wrapper {
+			margin: 0;
+		}';
 	}
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );
 }
