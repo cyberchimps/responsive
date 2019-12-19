@@ -3029,6 +3029,10 @@ body.fullwidth-stretched #wrapper .content-outer {
   text-align: center;
 }
 
+.header-logo-center .site-description {
+  margin-bottom: 0;
+}
+
 .header-logo-right .responsive-header.content-outer {
   display: flex;
   flex-direction: row-reverse;

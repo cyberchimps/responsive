@@ -58,7 +58,7 @@ if ( 'above_header' === $responsive_header_layout ) {
 		<?php
 		get_sidebar( 'header' );
 
-		$header_layout = get_theme_mod( 'header_layout_options', 'default' );
+		$header_layout = get_theme_mod( 'header_layout_options', 'header-logo-left' );
 		?>
 	<div id="header_section">
 	<header id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' <?php responsive_schema_markup( 'header' ); ?> >
