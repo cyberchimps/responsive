@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check the the header layout and hook the menu accordingly
  */
-$responsive_header_layout = get_theme_mod( 'menu_position', 'below_header' );
+$responsive_header_layout = get_theme_mod( 'menu_position', 'in_header' );
 if ( 'above_header' === $responsive_header_layout ) {
 	add_action( 'responsive_header', 'responsive_display_menu_outside_container' );
 } elseif ( 'in_header' === $responsive_header_layout ) {

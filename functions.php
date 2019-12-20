@@ -580,10 +580,34 @@ function responsive_check_previous_version() {
 	$new_version = $theme_data->Version;
 	global $responsive_options;
 	$responsive_options = responsive_get_options();
+	$header_layout      = get_theme_mod( 'header_layout_options' );
+	$menu_position      = get_theme_mod( 'menu_position' );
+
 	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
-	if ( $new_version && version_compare( $new_version, '4.0.0', '>=' ) && 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
-		$responsive_options['site_layout_option'] = 'fullwidth-stretched';
-		update_option( 'responsive_theme_options', $responsive_options );
+	if ( $new_version && version_compare( $new_version, '4.0.0', '>=' ) ) {
+		if ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
+			$responsive_options['site_layout_option'] = 'fullwidth-stretched';
+			update_option( 'responsive_theme_options', $responsive_options );
+		} elseif ( 'full-width-layout' === $responsive_options['site_layout_option'] ) {
+			$responsive_options['site_layout_option'] = 'fullwidth-content';
+			update_option( 'responsive_theme_options', $responsive_options );
+		} elseif ( 'default-layout' === $responsive_options['site_layout_option'] ) {
+			$responsive_options['site_layout_option'] = 'boxed';
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+		if ( 'default' === $header_layout ) {
+			$menu_position = 'below_header';
+			$header_layout = 'header-logo-left';
+			set_theme_mod( 'menu_position', $menu_position );
+			set_theme_mod( 'header_layout_options', $header_layout );
+		} elseif ( ! $header_layout ) {
+			$header_layout = 'header-logo-left';
+			set_theme_mod( 'header_layout_options', $header_layout );
+		}
 	}
 }
-add_action( 'init', 'responsive_check_previous_version', 10 );
+if ( is_admin() ) {
+	add_action( 'admin_init', 'responsive_check_previous_version', 5 );
+} else {
+	add_action( 'wp', 'responsive_check_previous_version', 5 );
+}
