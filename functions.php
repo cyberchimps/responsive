@@ -595,13 +595,10 @@ function responsive_check_previous_version() {
 			$responsive_options['site_layout_option'] = 'boxed';
 			update_option( 'responsive_theme_options', $responsive_options );
 		}
-		if ( 'default' === $header_layout ) {
+		if ( 'default' === $header_layout || ! $header_layout ) {
 			$menu_position = 'below_header';
 			$header_layout = 'header-logo-left';
 			set_theme_mod( 'menu_position', $menu_position );
-			set_theme_mod( 'header_layout_options', $header_layout );
-		} elseif ( ! $header_layout ) {
-			$header_layout = 'header-logo-left';
 			set_theme_mod( 'header_layout_options', $header_layout );
 		}
 	}

@@ -841,7 +841,7 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
  * @param  integer $priority [description].
  * @return void
  */
-function responsive_padding_control( $wp_customize, $element, $section, $priority ) {
+function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values ) {
 	/**
 	 *  Padding control.
 	 */
@@ -850,6 +850,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -857,6 +858,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 
@@ -865,6 +867,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refesh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -872,6 +875,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -879,6 +883,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -886,6 +891,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -893,6 +899,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -900,6 +907,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 
@@ -908,6 +916,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -915,6 +924,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -922,6 +932,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_setting(
@@ -929,6 +940,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values,
 		)
 	);
 	$wp_customize->add_control(

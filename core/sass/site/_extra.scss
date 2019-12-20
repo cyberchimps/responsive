@@ -38,6 +38,15 @@ blockquote p {
     }
 }
 
+body.fullwidth-stretched {
+	#wrapper {
+	margin-top: 0;
+	}
+	.breadcrumb-list{
+		margin-top: 20px;
+	}
+}
+
 .front-page #wrapper {
 	background-color: transparent;
 	border: none;

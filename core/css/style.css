@@ -3510,6 +3510,13 @@ blockquote p {
   margin: 20px auto 0 auto;
 }
 
+body.fullwidth-stretched #wrapper {
+  margin-top: 0;
+}
+body.fullwidth-stretched .breadcrumb-list {
+  margin-top: 20px;
+}
+
 .front-page #wrapper {
   background-color: transparent;
   border: none;

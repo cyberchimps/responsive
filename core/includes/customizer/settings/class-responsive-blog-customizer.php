@@ -559,7 +559,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			/**
 			 * Blog entries padding.
 			 */
-			responsive_padding_control( $wp_customize, 'blog_entries', 'responsive_blog_entries_section', 6 );
+			responsive_padding_control( $wp_customize, 'blog_entries', 'responsive_blog_entries_section', 6, '10');
 
 			$wp_customize->add_setting(
 				'responsive_display_thumbnail_without_padding',
