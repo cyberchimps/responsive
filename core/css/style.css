@@ -4485,6 +4485,26 @@ div .wp-block-cover-text {
   max-width: 100%;
 }
 
+.content-width-1200 > [class*=__inner-container] {
+  max-width: 1200px !important;
+  margin: 0 auto;
+}
+
+.content-width-960 > [class*=__inner-container] {
+  max-width: 960px !important;
+  margin: 0 auto;
+}
+
+.content-width-720 > [class*=__inner-container] {
+  max-width: 720px !important;
+  margin: 0 auto;
+}
+
+.content-width-540 > [class*=__inner-container] {
+  max-width: 540px !important;
+  margin: 0 auto;
+}
+
 /*
 	changes according gutenberg plugin -- END
  */

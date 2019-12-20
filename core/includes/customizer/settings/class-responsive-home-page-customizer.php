@@ -122,7 +122,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[home_content_area]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_textarea',
+					'sanitize_callback' => 'wp_kses_post',
 					'default'           => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ),
 					'transport'         => 'postMessage',
 					'type'              => 'option',
@@ -205,7 +205,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[featured_content]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_textarea',
+					'sanitize_callback' => 'wp_kses_post',
 					'type'              => 'option',
 				)
 			);
