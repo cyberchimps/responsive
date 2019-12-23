@@ -45,8 +45,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 
 		<?php if ( have_posts() ) : ?>
 
-			<div id="main-blog"
-				 class="blog_main_div <?php echo( get_theme_mod( 'responsive_display_masonry' ) ? 'masonry' : '' ); ?>">
+			<div id="main-blog" class="blog_main_div <?php echo( get_theme_mod( 'responsive_display_masonry' ) ? 'masonry' : '' ); ?>">
 
 				<?php
 				while ( have_posts() ) :
@@ -164,5 +163,6 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 	<?php get_sidebar(); ?>
 
 	</div>
+</div>
 <?php } ?>
 <?php get_footer(); ?>
