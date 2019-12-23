@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Blog Template
- * Template Name: Blog 3 Column (Deprecated)
+  Template Name: Blog 3 Column (Deprecated)
  *
  * @file           blog-3-col.php
  * @package        Responsive
@@ -97,11 +97,14 @@ get_header();
 
 			get_template_part( 'loop-no-posts' );
 			?>
-</div>
+
 			<?php
 	endif;
-		wp_reset_postdata();
 		?>
+	</div>
+	<?php
+	wp_reset_postdata();
+	?>
 
 </div>
 
