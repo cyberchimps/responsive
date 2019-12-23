@@ -90,12 +90,11 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 				endif;
 			endif;
 
-		else :
+			else :
 
-			get_template_part( 'loop-no-posts' );
+				get_template_part( 'loop-no-posts' );
 		endif;
-		?>
-	</div>
+			?>
 	</div>
 <?php } else { ?>
 	<div id="primary" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
@@ -151,18 +150,15 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 						);
 					endif;
 		endif;
-		else :
+				else :
 
-			get_template_part( 'loop-no-posts', get_post_type() );
+					get_template_part( 'loop-no-posts', get_post_type() );
 
 		endif;
-		?>
+				?>
 
 	</div><!-- end of #primary -->
 
 	<?php get_sidebar(); ?>
-
-	</div>
-</div>
 <?php } ?>
 <?php get_footer(); ?>

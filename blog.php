@@ -28,7 +28,6 @@ Template Name: Blog (full posts) (Deprecated)
 get_header();
 
 ?>
-<div class="content-outer">
 <div id="primary" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php
@@ -108,5 +107,4 @@ get_header();
 </div><!-- end of #primary -->
 
 <?php get_sidebar(); ?>
-</div>
 <?php get_footer(); ?>

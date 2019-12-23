@@ -24,7 +24,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php get_header(); ?>
-<div class="content-outer">
 <div id="content-full" class="grid col-940" <?php responsive_schema_markup( 'main' ); ?>>
 
 	<?php responsive_entry_before(); ?>
@@ -42,6 +41,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php responsive_entry_after(); ?>
 
 </div><!-- end of #content-full -->
-
-</div>
 <?php get_footer(); ?>

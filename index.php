@@ -78,5 +78,4 @@ get_header(); ?>
 </div><!-- end of #content -->
 
 <?php get_sidebar(); ?>
-</div>
 <?php get_footer(); ?>

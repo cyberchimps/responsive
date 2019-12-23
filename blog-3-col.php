@@ -19,7 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
-<div class="content-outer">
 <div id="content-full" class="grid col-940">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -104,7 +103,6 @@ get_header();
 		wp_reset_postdata();
 		?>
 
-</div>
 </div>
 
 <?php get_footer(); ?>

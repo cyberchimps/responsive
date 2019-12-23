@@ -22,7 +22,6 @@ Template Name: Sitemap (Deprecated)
  */
 ?>
 <?php get_header(); ?>
-<div class="content-outer">
 <div id="content-sitemap" class="grid col-940">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -92,5 +91,4 @@ Template Name: Sitemap (Deprecated)
 		?>
 
 </div><!-- end of #content-sitemap -->
-</div>
 <?php get_footer(); ?>
