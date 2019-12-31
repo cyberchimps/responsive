@@ -39,6 +39,10 @@ module.exports = function(grunt) {
 					'!node_modules/**',
 					'!core/**',
 					'!build/**',
+					'!package-lock.json',
+					'!composer.json',
+					'!composer.lock',
+					'!phpcs.xml.dist',
 					'!**/*~'
 				],
 				expand: true
@@ -135,15 +139,26 @@ module.exports = function(grunt) {
 					'!**/.git/**',
 					'!Gruntfile.js',
 					'!package.json',
+					'!composer.json',
 					'!.gitignore',
+					'!composer.json',
+					'!phpcs.xml.dist',
 					'!.gitmodules',
+					'!package-lock.json',
 					'!**/.gitignore',
 					'!**/.gitmodules',
 					'!.wti',
 					'!**/Gruntfile.js',
 					'!**/package.json',
+					'!composer.lock',
 					'!**/README.md',
-					'!**/*~'
+					'!**/*~',
+					'!.editorconfig',
+					'!**/.csscomb.json',
+					'!**/sass/**',
+					'!**/automationtest/**',
+					'!**/jenkincodeception/**'
+
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
@@ -152,7 +167,38 @@ module.exports = function(grunt) {
     },
 	});
 
+	// Update google Fonts
+	grunt.registerTask('google-fonts', function () {
+		var done = this.async();
+		var request = require('request');
+		var fs = require('fs');
+
+		request('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDu1nDK2o4FpxhrIlNXyPNckVW5YP9HRu8', function (error, response, body) {
+
+			if (response && response.statusCode == 200) {
+
+				var fonts = JSON.parse(body).items.map(function (font) {
+					return {
+						[font.family] : {
+							'variants' : font.variants,
+							'category' : font.category
+						}
+					};
+				})
+
+				fs.writeFile('core/includes/customizer/controls/typography/google-fonts.json', JSON.stringify(fonts, undefined, 4), function (err) {
+					if (! err ) {
+						console.log("Google Fonts Updated!");
+					}
+				});
+			}
+
+		});
+
+	});
+
 	// Default task(s).
+	grunt.registerTask( 'updatefonts', [ 'google-fonts' ] );
 	grunt.registerTask( 'default', [ 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 

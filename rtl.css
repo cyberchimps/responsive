@@ -141,15 +141,15 @@ ul {
 
 /* =Widgets
 -------------------------------------------------------------- */
-#widgets ul li {
+#secondary ul li {
 	margin-right: 10px;
 }
 
-#widgets .widget-title img {
+#secondary .widget-title img {
 	float: left;
 }
 
-.top-widget {
+.header-widgets {
 	clear: left;
 	float: left;
 	text-align: left;
@@ -432,7 +432,7 @@ ul {
 		margin: 20px 0 0 0;
 	}
 
-	.top-widget {
+	.header-widgets {
 		float: none;
 		text-align: center;
 		clear: right;

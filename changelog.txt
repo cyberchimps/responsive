@@ -8,6 +8,101 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/12/19) = Added - Version 3.26.1
+[!] = Fixed fatal error on activation
+
+(11/12/19) = Added - Version 3.25
+[+] = Registered new sidebar for WooCommerce
+[+] = Added WooCommerce shop page layout Options
+[+] = Improved Accessibility
+[+] = Added border color option of mobile menu
+[!] = Fixed mobile menu related bugs
+
+(11/05/19) = Added - Version 3.24
+[+] = Added Rollback functionality for theme
+[+] = Improved gutenberg editor support
+[+] = Added Mobile menu toggle button color option
+[!] = Fixed home page template issue
+
+(10/22/19) = Added - Version 3.23
+[+] = Added submenu customization options
+[+] = Added gutenberg support
+
+(10/09/19) = Added - Version 3.22
+[!] = Fixed the scroll to top setting issue
+
+(10/09/19) = Added - Version 3.21
+[+] = Added Typography options for H1, h2, H3, H4, H5, H6 tags
+[+] = Added Typography options Menu, dropdown menu and, mobile menu
+[+] = Added HTML 5 Elements
+
+(10/04/19) = Added - Version 3.20.1
+[!] = Minor bug fixes
+
+(10/03/19) = Added - Version 3.20
+[+] = Added Mobile Menu style layout: Sidebar, Dropdown, Fullscreen
+[+] = Added Mobile Menu width breakpoint
+
+(10/01/19) = Added - Version 3.19
+[+] = Added transparent color option for the background of container, blog, header, sidebar and footer
+[+] = Added Responsive Padding control
+[+] = Added header background color, Site title color, site tagline color and container color option
+[!] = Fixed - container width not working for the default layout
+[!] = Removed link of page title
+[!] = Fixed the sidebar and footer button color issue
+
+(09/24/19) = Added - Version 3.18
+[+] = Added Blog page customizer settings
+[+] = Added Scroll to Top customizer settings
+[+] = Added Footer spacing customizer settings
+
+(09/17/19) = Added - Version 3.17.1
+[!] = Fixed the Schema issue
+[!] = Fixed js error
+
+(09/16/19) = Added - Version 3.17
+[+] = Added Schema support
+[+] = Added footer color options
+[+] = Improved blog page pagination and added show excerpt customizer setting
+[!] = Fixed blog page title issue, anded elements rearrangement setting for grid layouts
+[^] = Removed jQuery dependancy
+
+(09/04/19) = Added - Version 3.16.4
+[+] = Added customization options - Button Hover Text Color, Container Padding, Container Background Color, Active Menu Text Color
+[+] = Added Responsive Admin page
+[!] = Fixed WooCommerce UI issues and WooCommerce category and search page sidebar issues
+
+(08/26/19) = Added - Version 3.16.3
+[+] = Added header Layout Options
+[!] = Added Active menu color setting, site title color for Fullwidth Without Boxed layout
+[!] = Fixed Menu color bug
+
+(08/16/19) = Added - Version 3.16.2
+[^] = Improved theme structure as per the WordPress standards
+
+(08/12/19) = Added - Version 3.16.1
+[x] = Deleted Automation test cases files
+
+(08/08/19) = Added - Version 3.16
+[+] = Added WooCommerce customization option for shop page, product page and color options
+[+] = Added Sidebar customization options (background color, padding and radius)
+[+] = Added Menu color customization options
+[!] = Fixed bug related to top menu, footer menu
+
+(07/25/19) = Added - Version 3.15.3
+[*] Improved Elements alignment customizer option settings
+
+(07/24/19) = Added - Version 3.15.2
+[!] Fixed backward compatibility issue with Custom CSS
+[!] Fixed short menu issue
+[*] Improved Sidebar widgets
+
+(07/16/19) = Added - Version 3.15.1
+[!] Fixed backward compatibility issue with custom header
+
+(07/15/19) = Added - Version 3.15
+[*] Added new customization options
+
 (03/05/19) = Added - Version 3.14
 [*] Fixed WooCommerce templates issue
 

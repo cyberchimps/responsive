@@ -1,0 +1,81 @@
+/* =Header
+-------------------------------------------------------------- */
+#site-branding {
+	float: left;
+	margin: 0;
+}
+
+.site-name {
+	display: block;
+	font-size: 2.063em; /* = 33px */
+	line-height: 1.0em;
+	padding-top: 20px;
+}
+
+.site-name a, .site-name a:hover {
+	color: #333333;
+	font-weight: 700;
+}
+
+.site-description {
+	color: #afafaf;
+	display: block;
+	font-size: 0.875em; /* = 14px */
+	margin: 10px 0;
+}
+
+.header-logo-center #site-branding {
+	float: none;
+	margin: 0;
+	text-align: center;
+}
+
+.header-logo-center .site-description {
+	margin-bottom: 0;
+}
+
+.header-logo-right {
+
+	& .responsive-header.content-outer {
+		display: flex;
+		flex-direction: row-reverse;
+
+	}
+	& .responsive-header #site-branding {
+		width: 30%;
+		text-align: right;
+	}
+	& .main-nav {
+		margin: auto 0;
+		margin-right: 2.1276595745%;
+		margin-left: 0;
+		width: 67.9574468085%;
+	}
+}
+.header-logo-left {
+	& .responsive-header {
+		display: flex;
+	}
+	& .responsive-header #site-branding {
+		width: 30% ;
+	}
+	& .main-nav {
+		margin: auto 0;
+		margin-left: 0;
+		width: 70%;
+	}
+	.main-nav ul li {
+		float: none;
+		display: inline-block;
+	}
+	.main-nav ul {
+		text-align: right;
+	}
+}
+.main-nav .menu a {
+	text-shadow: none;
+}
+
+header .content-outer.responsive-header {
+	width: 100%;
+}
