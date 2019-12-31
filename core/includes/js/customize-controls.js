@@ -6,7 +6,7 @@ jQuery( document ).ready( function() {
         'change',
         '.customize-control-checkbox-multiple input[type="checkbox"]',
         function() {
-            
+
             checkbox_values = jQuery( this ).parents( '.customize-control' ).find( 'input[type="checkbox"]:checked' ).map(
                 function() {
                     return this.value;

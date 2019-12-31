@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -20,8 +20,8 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 ?>
 
-<?php if ( !is_page() && !is_search() ) { ?>
-<?php if( is_plugin_active('responsivepro-plugin/index.php')){  ?>
+<?php if ( ! is_page() && ! is_search() ) { ?>
+	<?php if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) { ?>
 			<div class="post-data">
 			<?php responsivepro_plugin_posted_in(); ?>
 			<br/>
@@ -36,4 +36,4 @@ if ( !defined( 'ABSPATH' ) ) {
 <?php } ?>
 <?php } ?>
 
-<div class="post-edit"><?php edit_post_link( __( 'Edit', 'responsive' ) ); ?></div>
+<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>

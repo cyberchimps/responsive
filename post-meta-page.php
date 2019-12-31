@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -19,9 +19,9 @@ if ( !defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 ?>
-	<?php if(get_post_type() == 'page' && is_search()): ?>
-		<h1 class="entry-title post-title"><a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-	<?php else: ?>
+	<?php if ( get_post_type() == 'page' && is_search() ) : ?>
+		<h1 class="entry-title post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+	<?php else : ?>
 		<h1 class="entry-title post-title"><?php the_title(); ?></h1>
 	<?php endif; ?>
 
@@ -31,8 +31,8 @@ if ( !defined( 'ABSPATH' ) ) {
 
 		<?php if ( comments_open() ) : ?>
 			<span class="comments-link">
-		<span class="mdash">&mdash;</span>
-				<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
+		<span class="mdash"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+				<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 		</span>
 		<?php endif; ?>
 	</div><!-- end of .post-meta -->

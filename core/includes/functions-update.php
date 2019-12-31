@@ -1,6 +1,6 @@
 <?php
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -12,10 +12,10 @@ if ( !defined( 'ABSPATH' ) ) {
 function responsive_update_social_icon_options() {
 	$responsive_options = responsive_get_options();
 	// If new option does not exist then copy the option
-	if ( !isset( $responsive_options['googleplus_uid'] ) ) {
+	if ( ! isset( $responsive_options['googleplus_uid'] ) ) {
 		$responsive_options['googleplus_uid'] = $responsive_options['google_plus_uid'];
 	}
-	if ( !isset( $responsive_options['stumbleupon_uid'] ) ) {
+	if ( ! isset( $responsive_options['stumbleupon_uid'] ) ) {
 		$responsive_options['stumbleupon_uid'] = $responsive_options['stumble_uid'];
 	}
 
@@ -33,16 +33,16 @@ add_action( 'after_setup_theme', 'responsive_update_social_icon_options' );
  * This function only needes to be run once but it does not mater when. after_setup_theme should be fine.
  *
  */
-function responsive_update_page_template_meta(){
+function responsive_update_page_template_meta() {
 	$args = array(
-		'post_type' => 'page',
+		'post_type'  => 'page',
 		'meta_query' => array(
 			array(
-				'key' => '_wp_page_template',
-				'value' => 'default',
-				'compare' => '!='
-			)
-		)
+				'key'     => '_wp_page_template',
+				'value'   => 'default',
+				'compare' => '!=',
+			),
+		),
 	);
 
 	$query = new WP_Query( $args );
@@ -52,15 +52,14 @@ function responsive_update_page_template_meta(){
 		while ( $query->have_posts() ) {
 			$query->the_post();
 
-			$meta_value = get_post_meta( get_the_ID(), '_wp_page_template', true );
+			$meta_value         = get_post_meta( get_the_ID(), '_wp_page_template', true );
 			$page_templates_dir = 'page-templates/';
-			$conatins = strpos( $meta_value, $page_templates_dir );
+			$conatins           = strpos( $meta_value, $page_templates_dir );
 
 			if ( false !== $conatins ) {
 				$meta_value = basename( $meta_value );
 				update_post_meta( get_the_ID(), '_wp_page_template', $meta_value );
 			}
-
 		}
 	}
 }

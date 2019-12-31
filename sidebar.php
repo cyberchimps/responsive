@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Main Widget Template
- *
  *
  * @file           sidebar.php
  * @package        Responsive
@@ -16,13 +15,29 @@ if ( !defined( 'ABSPATH' ) ) {
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/sidebar.php
- * @link           http://codex.wordpress.org/Theme_Development#Widgets_.28sidebar.php.29
+ * @link           http://codex.wordpress.org/Theme_Development#secondary_.28sidebar.php.29
  * @since          available since Release 1.0
  */
 
-$responsive_options = responsive_get_options();
-if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) && in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) && is_product() ) {
-	return;
+
+if ( class_exists( 'WooCommerce' ) ) {
+	$layout = responsive_get_layout();
+		if ( 'full-width-page' === $layout )  {
+				return;
+		}
+
+	if (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product()) { ?>
+		<aside id="secondary" class="<?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
+			<?php dynamic_sidebar('responsive-woo-shop-sidebar'); ?>
+		</aside>
+		<?php
+	}
+
+
+	$responsive_options = responsive_get_options();
+	if ((isset($responsive_options['override_woo']) && ($responsive_options['override_woo'])) && in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) && is_product() || is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product()) {
+		return;
+	}
 }
 
 /*
@@ -35,13 +50,8 @@ switch ( $layout ) {
 		return;
 		break;
 
-	case 'content-sidebar-half-page':
-		get_sidebar( 'right-half' );
-		return;
-		break;
-
-	case 'sidebar-content-half-page':
-		get_sidebar( 'left-half' );
+	case 'content-sidebar-page':
+		get_sidebar( 'right' );
 		return;
 		break;
 
@@ -51,21 +61,14 @@ switch ( $layout ) {
 }
 ?>
 
-<?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary">
-		<?php responsive_widgets(); // above widgets hook ?>
-
+<?php responsive_widgets_before(); // above widgets container hook. ?>
+	<aside id="secondary" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+		<?php responsive_widgets(); // above widgets hook. ?>
 		<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
-			<div class="widget-wrapper">
-
-				<div class="widget-title"><h3><?php _e( 'In Archive', 'responsive' ); ?></h3></div>
-				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-				</ul>
-
+			<div class="widget-wrapper" style="display:none;">
+				<div class="widget-title"></div>
 			</div><!-- end of .widget-wrapper -->
 		<?php endif; //end of main-sidebar ?>
-
-		<?php responsive_widgets_end(); // after widgets hook ?>
-	</div><!-- end of #widgets -->
-<?php responsive_widgets_after(); // after widgets container hook ?>
+		<?php responsive_widgets_end(); // after widgets hook. ?>
+	</aside><!-- end of #secondary -->
+<?php responsive_widgets_after(); // after widgets container hook. ?>

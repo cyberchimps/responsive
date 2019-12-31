@@ -1,0 +1,161 @@
+/* =Widgets
+-------------------------------------------------------------- */
+.widget-wrapper {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin: 0 0 20px;
+	padding: 20px;
+}
+
+.widget-wrapper select,
+.widget-wrapper input[type="text"],
+.widget-wrapper input[type=search],
+.widget-wrapper input[type="password"],
+.widget-wrapper input[type="email"] {
+	width: 75%;
+	padding: .4em;
+	font: inherit;
+}
+
+// #secondary {
+// 	margin-top: 40px;
+// }
+
+#secondary a {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+#secondary form {
+	margin: 0;
+}
+
+#secondary ul,
+#secondary ol {
+	padding: 0 0 0 20px;
+}
+
+#secondary ul li a {
+	display: inline;
+	text-decoration: none;
+	word-wrap: break-word;
+}
+
+#secondary .widget-title img {
+	float: right;
+	height: 11px;
+	position: relative;
+	top: 4px;
+	width: 11px;
+}
+
+#secondary .rss-date {
+	line-height: 18px;
+	padding: 6px 12px;
+}
+
+#secondary .rssSummary {
+	padding: 10px;
+}
+
+#secondary cite {
+	font-style: normal;
+	line-height: 18px;
+	padding: 6px 12px;
+}
+
+#secondary .tagcloud,
+#secondary .textwidget {
+	display: block;
+	line-height: 1.5em;
+	margin: 0;
+	word-wrap: break-word;
+}
+
+#secondary .textwidget a {
+	display: inline;
+}
+
+#secondary ul .children {
+	padding: 0 0 0 1em;
+}
+
+#secondary .author {
+	font-weight: 700;
+	padding-top: 4px;
+}
+
+.widget_archive select, #cat {
+	display: block;
+	margin: 0 15px 0 0;
+}
+
+#colophon-widget ul {
+}
+
+.colophon-widget {
+	background: none;
+	min-height: 0;
+}
+
+.colophon-widget select,
+.colophon-widget input[type="text"],
+.colophon-widget input[type="password"],
+.colophon-widget input[type="email"] {
+	width: 100%;
+}
+
+#header-widgets {
+}
+
+.header-widgets {
+	background: none;
+	border: none;
+	clear: right;
+	display: flex;
+	float: right;
+	flex-flow: row;
+	min-height: 0;
+	width: 100%;
+	@media screen and (max-width: 768px){
+		flex-flow: column;
+		text-align: center;
+		.widget-title h3 {
+			text-align: center;
+		}
+	}
+
+	> div {
+	    width: inherit;
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@media (min-width: 768px){
+			margin: 1%;
+
+		}
+	}
+}
+
+.header-widgets ul {
+	padding: 0;
+	list-style-position: inside;
+}
+
+.header-widgets select,
+.header-widgets input[type="text"],
+.header-widgets input[type="password"],
+.header-widgets input[type="email"] {
+	width: auto;
+}
+
+.header-widgets #searchform {
+	margin: 0;
+}

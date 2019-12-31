@@ -1,13 +1,12 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Theme's Action Hooks
- *
  *
  * @file           hooks.php
  * @package        Responsive
@@ -36,7 +35,6 @@ function responsive_container() {
  */
 function responsive_container_end() {
 	do_action( 'responsive_container_end' );
-	tha_footer_before();
 }
 
 /**
@@ -46,7 +44,6 @@ function responsive_container_end() {
  */
 function responsive_header() {
 	do_action( 'responsive_header' );
-	tha_header_before();
 }
 
 /**
@@ -56,7 +53,6 @@ function responsive_header() {
  */
 function responsive_header_top() {
 	do_action( 'responsive_header_top' );
-	tha_header_top();
 }
 
 /**
@@ -75,7 +71,6 @@ function responsive_in_header() {
  */
 function responsive_header_bottom() {
 	do_action( 'responsive_header_bottom' );
-	tha_header_bottom();
 }
 
 /**
@@ -85,7 +80,6 @@ function responsive_header_bottom() {
  */
 function responsive_header_end() {
 	do_action( 'responsive_header_end' );
-	tha_header_after();
 }
 
 /**
@@ -95,7 +89,6 @@ function responsive_header_end() {
  */
 function responsive_wrapper() {
 	do_action( 'responsive_wrapper' );
-	tha_content_before();
 }
 
 /**
@@ -105,7 +98,6 @@ function responsive_wrapper() {
  */
 function responsive_wrapper_top() {
 	do_action( 'responsive_wrapper_top' );
-	tha_content_top();
 }
 
 /**
@@ -124,7 +116,6 @@ function responsive_in_wrapper() {
  */
 function responsive_wrapper_bottom() {
 	do_action( 'responsive_wrapper_bottom' );
-	tha_content_bottom();
 }
 
 /**
@@ -134,7 +125,6 @@ function responsive_wrapper_bottom() {
  */
 function responsive_wrapper_end() {
 	do_action( 'responsive_wrapper_end' );
-	tha_content_after();
 }
 
 /** Just before <div id="post">
@@ -143,7 +133,6 @@ function responsive_wrapper_end() {
  */
 function responsive_entry_before() {
 	do_action( 'responsive_entry_before' );
-	tha_entry_before();
 }
 
 /** Just after <div id="post">
@@ -152,7 +141,6 @@ function responsive_entry_before() {
  */
 function responsive_entry_top() {
 	do_action( 'responsive_entry_top' );
-	tha_entry_top();
 }
 
 /** Just before </div> <!-- end of div#post -->
@@ -161,7 +149,6 @@ function responsive_entry_top() {
  */
 function responsive_entry_bottom() {
 	do_action( 'responsive_entry_bottom' );
-	tha_entry_bottom();
 }
 
 /** Just after </div> <!-- end of div#post -->
@@ -170,7 +157,7 @@ function responsive_entry_bottom() {
  */
 function responsive_entry_after() {
 	do_action( 'responsive_entry_after' );
-	tha_entry_after();
+
 }
 
 /** Just before comments_template()
@@ -179,7 +166,6 @@ function responsive_entry_after() {
  */
 function responsive_comments_before() {
 	do_action( 'responsive_comments_before' );
-	tha_comments_before();
 }
 
 /** Just after comments_template()
@@ -188,47 +174,42 @@ function responsive_comments_before() {
  */
 function responsive_comments_after() {
 	do_action( 'responsive_comments_after' );
-	tha_comments_after();
 }
 
 /**
- * Just before opening <div id="widgets">
+ * Just before opening <div id="secondary">
  *
  * @see sidebar.php
  */
 function responsive_widgets_before() {
 	do_action( 'responsive_widgets_before' );
-	tha_sidebars_before();
 }
 
 /**
- * Just after opening <div id="widgets">
+ * Just after opening <div id="secondary">
  *
  * @see sidebar.php
  */
 function responsive_widgets() {
 	do_action( 'responsive_widgets' );
-	tha_sidebar_top();
 }
 
 /**
- * Just before closing </div><!-- end of #widgets -->
+ * Just before closing </div><!-- end of #secondary -->
  *
  * @see sidebar.php
  */
 function responsive_widgets_end() {
 	do_action( 'responsive_widgets_end' );
-	tha_sidebar_bottom();
 }
 
 /**
- * Just after closing </div><!-- end of #widgets -->
+ * Just after closing </div><!-- end of #secondary -->
  *
  * @see sidebar.php
  */
 function responsive_widgets_after() {
 	do_action( 'responsive_widgets_after' );
-	tha_sidebars_after();
 }
 
 /**
@@ -238,7 +219,6 @@ function responsive_widgets_after() {
  */
 function responsive_footer_top() {
 	do_action( 'responsive_footer_top' );
-	tha_footer_top();
 }
 
 /**
@@ -248,7 +228,6 @@ function responsive_footer_top() {
  */
 function responsive_footer_bottom() {
 	do_action( 'responsive_footer_bottom' );
-	tha_footer_bottom();
 }
 
 /**
@@ -258,7 +237,6 @@ function responsive_footer_bottom() {
  */
 function responsive_footer_after() {
 	do_action( 'responsive_footer_after' );
-	tha_footer_after();
 }
 
 /**
@@ -281,12 +259,23 @@ remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wra
 add_action( 'woocommerce_before_main_content', 'responsive_woocommerce_wrapper', 10 );
 add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_end', 10 );
 
+/**
+ * Responsive_woocommerce_wrapper
+ */
 function responsive_woocommerce_wrapper() {
+
 	echo '<div id="content-outer">';
-	echo '<div id="content-woocommerce" class="grid col-620">';
+	echo '<div id="content-woocommerce" class="' . esc_attr(implode(' ', responsive_get_content_classes())) . '">';
+
 }
 
+/**
+ * [responsive_woocommerce_wrapper_end description]
+ */
 function responsive_woocommerce_wrapper_end() {
 	echo '</div><!-- end of #content-woocommerce -->';
+	if ( is_active_sidebar( 'main-sidebar' ) ) {
+		get_sidebar();
+	}
 	echo '</div>';
 }

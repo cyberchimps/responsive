@@ -1,0 +1,44 @@
+/* =Links
+-------------------------------------------------------------- */
+a {
+	color: #0066cc;
+	font-weight: 400;
+	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: #444444;
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+
+	&::-moz-selection {
+		background: #999999;
+		color: #ffffff;
+		text-shadow: none;
+	}
+}
+
+.wp-block-latest-posts li a{
+font-size:28px;
+font-weight:600;
+line-height:34px;
+}
+
+.wp-block-latest-posts .wp-block-latest-posts__post-excerpt a{
+	font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.wp-block-latest-posts__post-full-content{
+	padding-top: 20px;
+}
