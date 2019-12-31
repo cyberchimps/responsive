@@ -258,6 +258,7 @@ function responsive_register_options() {
 		'class-responsive-menu-customizer',
 		'class-responsive-sidebar-customizer',
 		'class-responsive-footer-color-customizer',
+		'class-responsive-header-color-customizer',
 		'class-responsive-scrolltotop-customizer',
 		'class-responsive-customizer-notices',
 	);

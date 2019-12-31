@@ -12,6 +12,7 @@
  * @return void
  */
 function responsive_premium_custom_color_styles() {
+
 	$text_color             = get_theme_mod( 'text-color', '#333333' );
 	$body_typography        = get_theme_mod( 'body_typography' );
 	$headings_typography    = get_theme_mod( 'headings_typography' );
@@ -149,6 +150,10 @@ function responsive_premium_custom_color_styles() {
 	// Footer colors.
 	$footer_background_color = get_theme_mod( 'responsive_footer_background_color', '#585858' );
 	$footer_text_color       = get_theme_mod( 'responsive_footer_text_color', '#ffffff' );
+
+	// Header colors.
+	$header_background_color = get_theme_mod( 'responsive_header_background_color', '#ffffff' );
+	$header_text_color       = get_theme_mod( 'responsive_header_text_color', '#333333' );
 
 	$footer_border       = get_theme_mod( 'responsive_footer_border', '0' );
 	$footer_border_color = get_theme_mod( 'responsive_footer_border_color' );
@@ -374,6 +379,7 @@ function responsive_premium_custom_color_styles() {
 		$body_font_size = '14px';
 	}
 
+
 	$custom_css = "
 		body {
 			font-family: {$font_family};
@@ -402,6 +408,7 @@ function responsive_premium_custom_color_styles() {
 			line-height: {$headingsline_height};
 			font-style: {$headingsfont_style};
 		}
+
 		.post-meta *{
 		    color: {$body_color};
 		}
@@ -1204,6 +1211,7 @@ function responsive_premium_custom_color_styles() {
 			color: {$footer_text_color};
 		}";
 	}
+
 	if ( ! empty( $footer_padding_right ) ) {
 		$custom_css .= "#footer, body.full-width-no-box div#footer {
 			padding-right: {$footer_padding_right}px;
@@ -1294,8 +1302,13 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $header_text_color ) ) {
-		$custom_css .= "#header, .full-width-no-box #header {
-			background-color: {$header_text_color};
+		$custom_css .= "#header, .full-width-no-box #header, #header a, .full-width-no-box #header a,#header span, .full-width-no-box #header span{
+			color: {$header_text_color};
+		}";
+	}
+	if ( ! empty( $header_background_color ) ) {
+		$custom_css .= "#header, .full-width-no-box #header{
+			background-color: {$header_background_color};
 		}";
 	}
 	if ( ! empty( $site_description_color ) ) {
