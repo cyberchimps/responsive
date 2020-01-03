@@ -283,8 +283,9 @@ function responsive_premium_custom_color_styles() {
 	$buttons_mobile_padding_top    = get_theme_mod( 'responsive_buttons_mobile_top_padding' );
 	$buttons_mobile_padding_bottom = get_theme_mod( 'responsive_buttons_mobile_bottom_padding' );
 
-	$footer_layout   = get_theme_mod( 'responsive_footer_layout_options', 'row' );
-	$layout_position = get_theme_mod( 'responsive_layout_position', '' );
+	$footer_layout             = get_theme_mod( 'responsive_footer_layout_options', 'row' );
+	$footer_layout_positioning = get_theme_mod( 'responsive_footer_elements_positioning' );
+	$layout_position           = get_theme_mod( 'responsive_layout_position', '' );
 
 	$blog_alignment   = get_theme_mod( 'responsive_blog_title_alignment_options', 'left' );
 	$single_alignment = get_theme_mod( 'responsive_single_title_alignment_options', 'left' );
@@ -1346,7 +1347,31 @@ function responsive_premium_custom_color_styles() {
 			height: {$blog_image_height}px;
 		}";
 	}
-
+	if ( 'row' === $footer_layout ) {
+		$custom_css   .= '@media (min-width: 700px) {
+          .content-outer .copyright{
+            margin-bottom: 0;
+            padding:0;
+            margin:auto 0;
+          }
+        }';
+		$copy_position = array_search( 'copy_right_text', $footer_layout_positioning );
+		if ( $copy_position === 2 || $copy_position === 1 ) {
+			$custom_css .= '@media (min-width: 700px) {
+            .content-outer .copyright{
+              text-align:right;
+            }
+          }';
+		}
+		$social_icon_position = array_search( 'social_icons', $footer_layout_positioning );
+		if ( $social_icon_position === 2 || $social_icon_position === 1 ) {
+			$custom_css .= '@media (min-width: 700px) {
+            .content-outer .social-icon{
+              text-align:right;
+            }
+          }';
+		}
+	}
 	// Mobile Menu breakpoint.
 	$custom_css .= "@media screen and (max-width: {$mobile_menu_breakpoint}px){
 		.js .main-nav {
