@@ -1,6 +1,10 @@
 <?php
+/**
+ * Exit if accessed directly.
+ *
+ * @package Responsive
+ */
 
-// Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -22,6 +26,10 @@ Template Name:  Content/Sidebar Half Page (Deprecated)
  */
 
 get_header(); ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="primary" class="grid col-460" role="main">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -77,4 +85,8 @@ get_header(); ?>
 </div><!-- end of #content -->
 
 <?php get_sidebar( 'main-sidebar' ); ?>
+</div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

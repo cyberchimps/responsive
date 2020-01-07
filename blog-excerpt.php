@@ -27,6 +27,10 @@ Template Name: Blog Excerpt (summary) (Deprecated)
 
 get_header();
 ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="primary" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php
@@ -106,4 +110,8 @@ get_header();
 </div><!-- end of #primary -->
 
 <?php get_sidebar(); ?>
+</div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

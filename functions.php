@@ -585,6 +585,22 @@ function responsive_check_previous_version() {
 
 	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
 	if ( $new_version && version_compare( $new_version, '4.0.0', '>=' ) ) {
+
+		if ( ! $responsive_options['home_headline'] ) {
+			$responsive_options['home_headline'] = 'HAPPINESS';
+		}
+		if ( ! $responsive_options['home_subheadline'] ) {
+			$responsive_options['home_subheadline'] = 'IS A WARM CUP';
+		}
+		if ( ! $responsive_options['home_content_area'] ) {
+			$responsive_options['home_content_area'] = 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.';
+		}
+		if ( ! $responsive_options['cta_text'] ) {
+			$responsive_options['cta_text'] = 'Call to Action';
+		}
+		if ( ! $responsive_options['cta_url'] ) {
+			$responsive_options['cta_url'] = '#';
+		}
 		if ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
 			$responsive_options['site_layout_option'] = 'fullwidth-stretched';
 			update_option( 'responsive_theme_options', $responsive_options );

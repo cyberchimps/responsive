@@ -354,7 +354,6 @@ ul.menu > li:hover {
 .sub-nav{
 	background-color: #ffffff;
 	border: 1px solid #e5e5e5;
-	border-top: none;
 	clear: both;
 }
 .sub-header-menu ul {
@@ -1008,8 +1007,11 @@ ul.menu > li:hover {
 	clear: both;
 }
 
-.header-logo-center ul.menu {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
+.header-logo-center ul {
+	&.sub-header-menu,
+	&.menu {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
 }

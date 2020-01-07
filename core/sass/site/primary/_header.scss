@@ -28,6 +28,7 @@
 	float: none;
 	margin: 0;
 	text-align: center;
+	clear: both;
 }
 
 .header-logo-center .site-description {
@@ -35,11 +36,14 @@
 }
 
 .header-logo-right {
+	& #logo {
+		float: right;
+		text-align: right;
+	}
 
 	& .responsive-header.content-outer {
 		display: flex;
 		flex-direction: row-reverse;
-
 	}
 	& .responsive-header #site-branding {
 		width: 30%;
@@ -47,7 +51,6 @@
 	}
 	& .main-nav {
 		margin: auto 0;
-		margin-right: 2.1276595745%;
 		margin-left: 0;
 		width: 67.9574468085%;
 	}
@@ -58,20 +61,27 @@
 	}
 	& .responsive-header #site-branding {
 		width: 30% ;
+		text-align: left;
 	}
 	& .main-nav {
 		margin: auto 0;
 		margin-left: 0;
 		width: 70%;
-	}
-	.main-nav ul {
-		text-align: right;
+		clear: none;
+		float: right;
 	}
 	.main-nav ul li {
 		float: none;
 		display: inline-block;
 	}
+	.main-nav ul {
+		text-align: right;
+	}
 }
 .main-nav .menu a {
 	text-shadow: none;
+}
+
+header .content-outer.responsive-header {
+	width: 100%;
 }

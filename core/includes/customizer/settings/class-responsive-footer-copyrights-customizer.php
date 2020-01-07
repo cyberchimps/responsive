@@ -34,7 +34,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 		public function customizer_options( $wp_customize ) {
 			/*
 			------------------------------------------------------------------
-				// Copyright Text
+			// Copyright Text
 			-------------------------------------------------------------------
 			*/
 
@@ -50,8 +50,9 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_footer_width',
 				array(
-					'default'   => 'Container',
-					'transport' => 'refresh',
+					'default'           => 'Container',
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
 				)
 			);
 			$wp_customize->add_control(
@@ -93,7 +94,6 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 							'column' => esc_html__( 'Vertical', 'responsive' ),
 						)
 					),
-
 				)
 			);
 
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 
 			/*
 			--------------------------------------------------------------
-				// SOCIAL MEDIA SECTION
+			// SOCIAL MEDIA SECTION
 			--------------------------------------------------------------
 			*/
 
@@ -176,10 +176,10 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					$wp_customize,
 					'responsive_social_icons_color',
 					array(
-						'label'    => __( 'Social Icons Color', 'responsive' ),
-						'section'  => 'responsive_social_media',
-						'settings' => 'responsive_social_icons_color',
-						'priority' => 1,
+					    'label'    => __( 'Social Icons Color', 'responsive' ),
+					    'section'  => 'responsive_social_media',
+					    'settings' => 'responsive_social_icons_color',
+					    'priority' => 1,
 					)
 				)
 			);
@@ -226,7 +226,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 						'settings' => 'responsive_theme_options[twitter_uid]',
 					)
 				)
-			);
+            );
 
 			// Add Facebook Setting.
 			$wp_customize->add_setting(

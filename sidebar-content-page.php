@@ -1,14 +1,8 @@
 <?php
-
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Sidebar/Content Template
  *
-Template Name:  Sidebar/Content (Deprecated)
+ * Template Name:  Sidebar/Content (Deprecated)
  *
  * @file           sidebar-content-page.php
  * @package        Responsive
@@ -20,8 +14,17 @@ Template Name:  Sidebar/Content (Deprecated)
  * @link           http://codex.wordpress.org/Theme_Development#Pages_.28page.php.29
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <?php get_header(); ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="primary" class="grid-right col-620 fit" role="main">
 
 	<?php if ( have_posts() ) : ?>
@@ -98,4 +101,8 @@ Template Name:  Sidebar/Content (Deprecated)
 </div><!-- end of #content -->
 
 <?php get_sidebar( 'main-sidebar' ); ?>
+</div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

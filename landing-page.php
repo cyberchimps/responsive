@@ -1,14 +1,8 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Landing Page Template
  *
-Template Name:  Landing Page (no menu) (Deprecated)
+ * Template Name:  Landing Page (no menu) (Deprecated)
  *
  * @file           landing-page.php
  * @package        Responsive
@@ -21,7 +15,15 @@ Template Name:  Landing Page (no menu) (Deprecated)
  * @since          available since Release 1.0
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 get_header(); ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="content-full" class="grid col-940">
 
 	<?php if ( have_posts() ) : ?>
@@ -69,4 +71,8 @@ get_header(); ?>
 		?>
 
 </div><!-- end of #content-full -->
+</div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

@@ -1,14 +1,8 @@
 <?php
-
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Sitemap Template
  *
-Template Name: Sitemap (Deprecated)
+ * Template Name: Sitemap (Deprecated)
  *
  * @file           sitemap.php
  * @package        Responsive
@@ -20,8 +14,17 @@ Template Name: Sitemap (Deprecated)
  * @link           http://codex.wordpress.org/Templates
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <?php get_header(); ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="content-sitemap" class="grid col-940">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -90,5 +93,9 @@ Template Name: Sitemap (Deprecated)
 	endif;
 		?>
 
-</div><!-- end of #content-sitemap -->
+</div> <!-- end of #content-sitemap -->
+</div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Blog Template
-  Template Name: Blog 3 Column (Deprecated)
+ * Template Name: Blog 3 Column (Deprecated)
  *
  * @file           blog-3-col.php
  * @package        Responsive
@@ -19,6 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="content-full" class="grid col-940">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -107,5 +111,8 @@ get_header();
 	?>
 
 </div>
-
+</div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

@@ -54,6 +54,14 @@ function responsive_header() {
 function responsive_header_top() {
 	do_action( 'responsive_header_top' );
 }
+/**
+ * Just before logo <div id="header">
+ *
+ * @see header.php
+ */
+function responsive_header_before_logo_container() {
+	do_action( 'responsive_header_before_logo_container' );
+}
 
 /**
  * Just after opening <div id="header">
@@ -263,10 +271,8 @@ add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_en
  * Responsive_woocommerce_wrapper
  */
 function responsive_woocommerce_wrapper() {
-
-	echo '<div id="content-outer">';
+	echo '<div class="content-outer">';
 	echo '<div id="content-woocommerce" class="' . esc_attr(implode(' ', responsive_get_content_classes())) . '">';
-
 }
 
 /**

@@ -36,29 +36,23 @@ if ( 1 == $display_slider ) {
 
 		<h1 class="featured-title">
 			<?php
-			if ( isset( $responsive_options['home_headline'] ) && $db && $empty ) {
+			if ( isset( $responsive_options['home_headline'] ) ) {
 				echo $responsive_options['home_headline'];
-			} else {
-				esc_html_e( 'HAPPINESS', 'responsive' );
 			}
 			?>
 		</h1>
 
 		<h2 class="featured-subtitle">
 			<?php
-			if ( isset( $responsive_options['home_subheadline'] ) && $db && $empty ) {
+			if ( isset( $responsive_options['home_subheadline'] ) ) {
 				echo $responsive_options['home_subheadline'];
-			} else {
-				esc_html_e( 'IS A WARM CUP', 'responsive' );
 			}
 			?>
 		</h2>
 
 		<?php
-		if ( isset( $responsive_options['home_content_area'] ) && $db && $empty ) {
+		if ( isset( $responsive_options['home_content_area'] ) ) {
 			echo do_shortcode( wpautop( $responsive_options['home_content_area'] ) );
-		} else {
-			echo '<p>' . __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ) . '</p>';
 		}
 		?>
 
@@ -75,10 +69,8 @@ if ( 1 == $display_slider ) {
 							?>
 				<a href="<?php echo $responsive_options['cta_url']; ?>" class="<?php echo $button_class; ?>" <?php responsive_schema_markup( 'url' ); ?>>
 					<?php
-					if ( isset( $responsive_options['cta_text'] ) && $db && $emtpy_cta ) {
+					if ( isset( $responsive_options['cta_text'] ) ) {
 						echo $responsive_options['cta_text'];
-					} else {
-						esc_html_e( 'Call to Action', 'responsive' );
 					}
 					?>
 				</a>

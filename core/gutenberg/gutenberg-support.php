@@ -109,7 +109,7 @@ function responsive_gutenberg_customizer_css() {
 	$h5_typography       = get_theme_mod( 'heading_h5_typography' );
 	$h6_typography       = get_theme_mod( 'heading_h6_typography' );
 	$body_typography     = get_theme_mod( 'body_typography' );
-	$background_color    = get_theme_mod( 'background_color' );
+	$background_color    = get_theme_mod( 'background_color', '#ffffff' );
 
 	$custom_css = '';
 
@@ -213,6 +213,9 @@ function responsive_gutenberg_customizer_css() {
 	.editor-writing-flow a{
 		color:{$link_color};
 		text-decoration: none;
+	}
+	.edit-post-visual-editor.editor-styles-wrapper{
+	background-color: #{$background_color};
 	}
 
 	.wp-block-freeform.block-library-rich-text__tinymce a:hover,

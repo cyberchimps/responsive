@@ -180,7 +180,9 @@ body.archive.blog-fullwidth-stretched .post, body.blog.blog-fullwidth-stretched 
 		transform: scale(1);
 	}
 }
-
+.entry-content {
+    margin-top: 20px;
+}
 body.search,
 body.archive,
 body.blog,
@@ -201,7 +203,6 @@ body.single {
 		}
 
 		.thumbnail {
-			padding: 25px;
 			padding-top: 0;
 		}
 
@@ -236,11 +237,18 @@ body.single .post-entry > *:first-child.thumbnail {
     padding: 0 0 25px 0;
 }
 
-#primary .post .post-entry .entry-title a {
+#primary .post .post-entry .entry-title {
+	font-size: 24px;
+	a {
 	color: #333333;
+}
 }
 
 .post-entry > :last-child,
 .post-entry > :first-child {
   margin-bottom: 0;
+}
+
+.page-template-gutenberg-fullwidth div#content.grid {
+	margin-bottom: 0;
 }

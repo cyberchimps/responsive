@@ -47,7 +47,7 @@
 	 padding: 40px 0 5px;
  }
 
- .entry-content .wp-block-gallery,
+.entry-content .wp-block-gallery,
  .entry-content .wp-block-gallery,
  .entry-summary .wp-block-gallery,
  .entry-summary .wp-block-gallery {
@@ -120,8 +120,8 @@
 
 .alignfull,
 .alignfull {
-    *:not(.alignwide):not(.wp-block-cover__inner-container),
-    *:not(.alignfull):not(.wp-block-cover__inner-container){
+    *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+    *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator) {
         max-width: 100%;
     }
 }
@@ -154,6 +154,18 @@
     }
 }
 
+@media (max-width: 782px){
+	.content-outer .wp-block-columns .wp-block-column{
+		flex-basis: 100%;
+		margin-left: 0;
+	}
+}
+
+.wp-block-separator{
+	max-width: 100px;
+	margin-left: 0;
+	margin-right: 0;
+}
 /*
 	changes according gutenberg plugin -- END
  */

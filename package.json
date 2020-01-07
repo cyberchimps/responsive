@@ -23,6 +23,12 @@
   "dependencies": {
     "google-fonts": "^1.0.0",
     "node-sass": "^4.13.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "sass": "^1.23.3"
+  },
+  "description": "-------------------------------------------------------     Thank you for downloading Responsive Theme! ------------------------------------------------------- This and any other Theme provided by CyberChimps should be free of bugs, however do note that we're only humans and if you spot a bug do us a favor and report here http://cyberchimps.com/forum/free/responsive/",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "tests"
   }
 }

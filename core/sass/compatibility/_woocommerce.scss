@@ -16,7 +16,7 @@ a.added_to_cart.wc-forward {
 }
 
 .woocommerce ul.products li.product .onsale,
-.woocommerce-page ul.products li.product .onsale {
+.woocommerce-page ul.products li.product .onsale, .wc-block-grid__product-onsale{
   border-radius: 999px;
   padding: 0 2px;
 }
@@ -81,7 +81,8 @@ select.orderby {
 a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart:hover {
 	border: none;
 }
-.woocommerce img:not(.custom-logo), .woocommerce-page img:not(.custom-logo) {
+.woocommerce img:not(.custom-logo), .woocommerce-page img:not(.custom-logo),
+.wc-block-grid__product-image img{
 	margin: 0 auto;
 }
 a.added_to_cart.wc-forward {
@@ -98,8 +99,9 @@ table > *, td, tr, th {
 	border-collapse: collapse !important;
 }
 .woocommerce .coupon input#coupon_code {
-    padding: 7px;
-    width: 100px !important;
+    padding: 0.3em;
+    min-width: 120px;
+    font-size: inherit;
 }
 .woocommerce th,.woocommerce td,.woocommerce table {
  border: none;
@@ -143,5 +145,78 @@ table > *, td, tr, th {
 
 	.onsale{
 		right: auto;
+	}
+}
+
+.woocommerce
+{
+    .quantity {
+        .qty {
+            padding: 0.4em;
+        }
+    }
+}
+
+.wc-block-grid__product-onsale{
+	top: 0;
+	right: 0;
+	left: auto;
+	margin: -.5em -.5em 0 0;
+	position: absolute;
+	min-height: 3.236em;
+	min-width: 3.236em;
+	font-weight: 700;
+	position: absolute;
+	text-align: center;
+	line-height: 3.236;
+	font-size: .857em;
+	z-index: 9;
+	text-transform: capitalize;
+}
+li.wc-block-grid__product{
+	margin: 0 3.8% 2.992em 0;
+	padding: 0;
+}
+.wc-block-grid__product-title{
+	padding: .5em 0;
+	margin: 0;
+	margin-right: 15px;
+}
+.wc-block-grid__product-price{
+	padding: 0 ;
+	margin-right: 15px;
+	margin-bottom: .5em;
+}
+.wc-block-grid__product-add-to-cart{
+	margin-top: 1em;
+	padding:0;
+	margin-right: 15px;
+}
+.add_to_cart_button{
+	font-size: 100%;
+	margin: 0;
+	line-height: 1;
+	cursor: pointer;
+	position: relative;
+	overflow: visible;
+	padding: .618em 1em;
+	font-weight: 700;
+	left: auto;
+	border: 0;
+	display: inline-block;
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+}
+@media (max-width: 768px) {
+	li.wc-block-grid__product {
+		width: 48%;
+		float: left;
+		clear: both;
+		margin: 0 0 2.992em;
+	}
+	li.wc-block-grid__product:nth-child(2n) {
+		float: right;
+		clear: none!important;
 	}
 }

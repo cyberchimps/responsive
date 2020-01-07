@@ -25,7 +25,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
-get_header();
+get_header(); ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php
+responsive_in_wrapper(); // wrapper hook.
 get_template_part( 'wp-admin/includes', 'plugin' );
 global $responsive_options;
 $responsive_options = responsive_get_options();
@@ -161,4 +166,8 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 
 	<?php get_sidebar(); ?>
 <?php } ?>
+</div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

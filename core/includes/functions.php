@@ -61,11 +61,11 @@ function responsive_get_option_defaults() {
 		'minified_css'                    => false,
 		'sticky-header'                   => false,
 		'front_page'                      => 0,
-		'home_headline'                   => null,
-		'home_subheadline'                => null,
-		'home_content_area'               => null,
-		'cta_text'                        => null,
-		'cta_url'                         => null,
+		'home_headline'                   => 'HAPPINESS',
+		'home_subheadline'                => 'IS A WARM CUP',
+		'home_content_area'               => 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.',
+		'cta_text'                        => 'Call to Action',
+		'cta_url'                         => '#nogo',
 		'featured_content'                => null,
 		'testimonials'                    => 0,
 		'testimonial_title'               => null,
@@ -346,6 +346,11 @@ if ( ! function_exists( 'responsive_css' ) ) {
 
 		// Add customizer colors to the gutenberg blocks on front end.
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
+
+		// If plugin - 'WooCommerce' is active.
+		if ( class_exists( 'WooCommerce' ) ) {
+			wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
+		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );

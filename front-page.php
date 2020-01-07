@@ -1,15 +1,5 @@
 <?php
 /**
- * Exit if accessed directly.
- *
- * @package Responsive
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
-/**
  * Site Front Page
  *
  * Note: You can overwrite front-page.php as well as any other Template in Child Theme.
@@ -30,6 +20,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
+ * Exit if accessed directly.
+ *
+ * @package Responsive
+ */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+/**
  * Globalize Theme Options
  */
 $responsive_options = responsive_get_options();
@@ -39,15 +37,19 @@ $responsive_options = responsive_get_options();
  * otherwise, display static front page
  * content
  */
-if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front_page'] ) {
+if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front_page'] ) { //phpcs:ignore
 	get_template_part( 'home' );
 } elseif ( 'page' === get_option( 'show_on_front' ) && 1 !== $responsive_options['front_page'] ) {
 	$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
-	$template = ( $template == 'default' || $template == '' ) ? 'page.php' : $template;
+	$template = ( 'default' === $template || '' === $template ) ? 'page.php' : $template;
 	locate_template( $template, true );
 } else {
 	get_header();
-
+	responsive_wrapper_top(); // before wrapper content hook. ?>
+	<div id="wrapper" class="clearfix">
+		<div class="content-outer">
+	<?php
+	responsive_in_wrapper(); // wrapper hook.
 	get_template_part( 'template-parts/featured-area' );
 
 	get_sidebar( 'home' );
@@ -86,6 +88,11 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 			</div>
 			<?php
 	}
-
+	?>
+	</div>
+	<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+	</div> <!-- end of #wrapper -->
+	<?php
+	responsive_wrapper_end(); // after wrapper hook.
 	get_footer();
 }

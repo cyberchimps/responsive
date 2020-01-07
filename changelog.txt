@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(18/12/19) = Added - Version 3.3
+[+] = Added Header padding option
+[+] = Added menu padding option
+[!] = Fixed sub menu color issue
+
 (11/12/19) = Added - Version 3.26.1
 [!] = Fixed fatal error on activation
 

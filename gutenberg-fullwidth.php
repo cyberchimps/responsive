@@ -1,15 +1,17 @@
 <?php
 /**
- * Single Posts Template
+ * Gutenberg Fullwidth Template
  *
- * @file           single.php
+ * Template Name: Gutenberg Fullwidth No title
+ *
+ * @file           landing-page.php
  * @package        Responsive
  * @author         Emil Uzelac
  * @copyright      2003 - 2014 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
- * @filesource     wp-content/themes/responsive/single.php
- * @link           http://codex.wordpress.org/Theme_Development#Single_Post_.28single.php.29
+ * @filesource     wp-content/themes/responsive/landing-page.php
+ * @link           http://codex.wordpress.org/Theme_Development#Pages_.28page.php.29
  * @since          available since Release 1.0
  */
 
@@ -22,10 +24,7 @@ get_header(); ?>
 <div id="wrapper" class="clearfix">
 	<div class="content-outer">
 <?php responsive_in_wrapper(); // wrapper hook. ?>
-
-<div id="primary" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
-
-	<?php get_template_part( 'loop-header', get_post_type() ); ?>
+<div id="content" class="grid col-940">
 
 	<?php if ( have_posts() ) : ?>
 
@@ -35,14 +34,26 @@ get_header(); ?>
 			?>
 
 			<?php responsive_entry_before(); ?>
-			<?php
-				get_template_part( 'partials/single/layout', get_post_type() );
-			?>
-			<?php responsive_entry_after(); ?>
+			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php responsive_entry_top(); ?>
+				<div class="post-entry">
+					<?php responsive_page_featured_image(); ?>
+					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+					<?php
+					wp_link_pages(
+						array(
+							'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
+							'after'  => '</div>',
+						)
+					);
+					?>
+				</div><!-- end of .post-entry -->
 
-			<?php responsive_comments_before(); ?>
-			<?php comments_template( '', true ); ?>
-			<?php responsive_comments_after(); ?>
+				<?php get_template_part( 'post-data', get_post_type() ); ?>
+
+				<?php responsive_entry_bottom(); ?>
+			</div><!-- end of #post-<?php the_ID(); ?> -->
+			<?php responsive_entry_after(); ?>
 
 			<?php
 		endwhile;
@@ -56,9 +67,7 @@ get_header(); ?>
 	endif;
 		?>
 
-</div><!-- end of #content -->
-
-<?php get_sidebar(); ?>
+</div><!-- end of #content-full -->
 </div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
