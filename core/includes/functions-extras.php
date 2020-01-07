@@ -93,7 +93,10 @@ add_filter( 'excerpt_length', 'responsive_excerpt_length' );
  * Returns a "Read more" link for excerpts
  */
 function responsive_read_more() {
-	return '<div class="read-more"><a href="' . get_permalink() . '">' . __( 'Read more &#8250;', 'responsive' ) . '</a></div><!-- end of .read-more -->';
+	global $post;
+	if ( 'product' !== $post->post_type ) {
+		return '<div class="read-more"><a href="' . get_permalink() . '">' . __( 'Read more &#8250;', 'responsive' ) . '</a></div><!-- end of .read-more -->';
+	}
 }
 
 /**

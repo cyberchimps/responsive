@@ -1,14 +1,8 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Sitemap Template
  *
-Template Name: Sitemap
+ * Template Name: Sitemap (Deprecated)
  *
  * @file           sitemap.php
  * @package        Responsive
@@ -20,9 +14,17 @@ Template Name: Sitemap
  * @link           http://codex.wordpress.org/Templates
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <?php get_header(); ?>
-<div id="content-outer">
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="content-sitemap" class="grid col-940">
 
 	<?php get_template_part( 'loop-header', get_post_type() ); ?>
@@ -38,7 +40,7 @@ Template Name: Sitemap
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
 				<div class="post-entry">
-					<div id="widgets" role="complementary">
+					<div id="secondary" role="complementary">
 
 						<div class="grid col-300">
 							<div class="widget-title"><h3><?php esc_html_e( 'Categories', 'responsive' ); ?></h3></div>
@@ -65,7 +67,7 @@ Template Name: Sitemap
 							<ul><?php wp_list_pages( 'title_li=' ); ?></ul>
 						</div><!-- end of .col-300 fit -->
 
-					</div><!-- end of #widgets -->
+					</div><!-- end of #secondary -->
 					<?php
 					wp_link_pages(
 						array(
@@ -76,7 +78,7 @@ Template Name: Sitemap
 					?>
 				</div><!-- end of .post-entry -->
 
-				<div class="post-edit"><?php edit_post_link( __( 'Edit', 'responsive' ) ); ?></div>
+				<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
 
 			<?php
@@ -91,6 +93,9 @@ Template Name: Sitemap
 	endif;
 		?>
 
-</div><!-- end of #content-sitemap -->
+</div> <!-- end of #content-sitemap -->
 </div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

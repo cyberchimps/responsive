@@ -1,10 +1,4 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Index Template
  *
@@ -19,9 +13,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
+/**
+ * Exit if accessed directly.
+ *
+ * @package Responsive
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 get_header(); ?>
-<div id="content-outer">
-<div id="content" class="grid col-620" role="main">
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
+<div id="primary" class="grid col-620" role="main">
 
 	<?php if ( have_posts() ) : ?>
 
@@ -79,4 +85,7 @@ get_header(); ?>
 
 <?php get_sidebar(); ?>
 </div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

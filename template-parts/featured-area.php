@@ -29,36 +29,30 @@ if ( 1 == $display_slider ) {
 	<?php
 }
 ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="featured" class="grid col-940">
 
 	<div id="featured-content" class="grid col-460">
 
 		<h1 class="featured-title">
 			<?php
-			if ( isset( $responsive_options['home_headline'] ) && $db && $empty ) {
+			if ( isset( $responsive_options['home_headline'] ) ) {
 				echo $responsive_options['home_headline'];
-			} else {
-				esc_html_e( 'HAPPINESS', 'responsive' );
 			}
 			?>
 		</h1>
 
 		<h2 class="featured-subtitle">
 			<?php
-			if ( isset( $responsive_options['home_subheadline'] ) && $db && $empty ) {
+			if ( isset( $responsive_options['home_subheadline'] ) ) {
 				echo $responsive_options['home_subheadline'];
-			} else {
-				esc_html_e( 'IS A WARM CUP', 'responsive' );
 			}
 			?>
 		</h2>
 
 		<?php
-		if ( isset( $responsive_options['home_content_area'] ) && $db && $empty ) {
+		if ( isset( $responsive_options['home_content_area'] ) ) {
 			echo do_shortcode( wpautop( $responsive_options['home_content_area'] ) );
-		} else {
-			echo '<p>' . __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ) . '</p>';
 		}
 		?>
 
@@ -75,10 +69,8 @@ if ( 1 == $display_slider ) {
 							?>
 				<a href="<?php echo $responsive_options['cta_url']; ?>" class="<?php echo $button_class; ?>" <?php responsive_schema_markup( 'url' ); ?>>
 					<?php
-					if ( isset( $responsive_options['cta_text'] ) && $db && $emtpy_cta ) {
+					if ( isset( $responsive_options['cta_text'] ) ) {
 						echo $responsive_options['cta_text'];
-					} else {
-						esc_html_e( 'Call to Action', 'responsive' );
 					}
 					?>
 				</a>
@@ -109,7 +101,7 @@ if ( 1 == $display_slider ) {
 	}
 	?>
 <div id="about_div" class="grid col-940">
-	<div id="content-outer">
+	<div class="content-outer">
 	<div class="about-content grid col-620">
 	<?php
 		$responsive_about_title   = isset( $responsive_options['about_title'] ) ? $responsive_options['about_title'] : 'About Box Title';
@@ -138,7 +130,7 @@ if ( 1 == $display_slider ) {
 <?php } ?>
 
 <?php if ( isset( $responsive_options['feature'] ) && $responsive_options['feature'] == '1' ) { ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="feature_div" class="grid">
 	<?php
 	$responsive_feature_title = isset( $responsive_options['feature_title'] ) ? $responsive_options['feature_title'] : 'Features';
@@ -226,7 +218,7 @@ if ( 1 == $display_slider ) {
 
 <?php if ( isset( $responsive_options['testimonials'] ) && $responsive_options['testimonials'] == '1' ) { ?>
 <div id="testimonial_div" class="grid col-940">
-<div id="content-outer">
+<div class="content-outer">
 	<?php
 
 		$responsive_testimonial_title = isset( $responsive_options['testimonial_title'] ) ? $responsive_options['testimonial_title'] : 'Testimonial';
@@ -265,7 +257,7 @@ if ( 1 == $display_slider ) {
 
 <?php } ?>
 <?php if ( isset( $responsive_options['team'] ) && $responsive_options['team'] == '1' ) { ?>
-<div id="content-outer">
+<div class="content-outer">
 <div id="team_div" class="grid">
 	<?php
 	$responsive_team_title = isset( $responsive_options['team_title'] ) ? $responsive_options['team_title'] : 'Team';

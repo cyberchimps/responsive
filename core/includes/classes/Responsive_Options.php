@@ -306,12 +306,10 @@ class Responsive_Options {
 	 */
 	public static function valid_layouts() {
 		$layouts = array(
-			'default'                   => __( 'Default', 'responsive' ),
-			'content-sidebar-page'      => __( 'Right Sidebar', 'responsive' ),
-			'sidebar-content-page'      => __( 'Left Sidebar', 'responsive' ),
-			'content-sidebar-half-page' => __( 'Right Sidebar Half Page', 'responsive' ),
-			'sidebar-content-half-page' => __( 'Left Sidebar Half Page', 'responsive' ),
-			'full-width-page'           => __( 'No Sidebar', 'responsive' ),
+			'default'              => __( 'Default', 'responsive' ),
+			'content-sidebar-page' => __( 'Right Sidebar', 'responsive' ),
+			'sidebar-content-page' => __( 'Left Sidebar', 'responsive' ),
+			'full-width-page'      => __( 'No Sidebar', 'responsive' ),
 		);
 
 		return apply_filters( 'responsive_valid_layouts', $layouts );
@@ -323,15 +321,13 @@ class Responsive_Options {
 	 */
 	public static function blog_valid_layouts() {
 		$bloglayouts = array(
-			'default'                   => __( 'Default', 'responsive' ),
-			'content-sidebar-page'      => __( 'Right Sidebar', 'responsive' ),
-			'sidebar-content-page'      => __( 'Left Sidebar', 'responsive' ),
-			'content-sidebar-half-page' => __( 'Right Sidebar Half Page', 'responsive' ),
-			'sidebar-content-half-page' => __( 'Left Sidebar Half Page', 'responsive' ),
-			'full-width-page'           => __( 'Full Width Page (no sidebar)', 'responsive' ),
-			'blog-2-col'                => __( 'Blog 2 Column', 'responsive' ),
-			'blog-3-col'                => __( 'Blog 3 Column', 'responsive' ),
-			'blog-4-col'                => __( 'Blog 4 Column', 'responsive' ),
+			'default'              => __( 'Default', 'responsive' ),
+			'content-sidebar-page' => __( 'Right Sidebar', 'responsive' ),
+			'sidebar-content-page' => __( 'Left Sidebar', 'responsive' ),
+			'full-width-page'      => __( 'Full Width Page (no sidebar)', 'responsive' ),
+			'blog-2-col'           => __( 'Blog 2 Column', 'responsive' ),
+			'blog-3-col'           => __( 'Blog 3 Column', 'responsive' ),
+			'blog-4-col'           => __( 'Blog 4 Column', 'responsive' ),
 		);
 
 		return apply_filters( 'responsive_blog_valid_layouts', $bloglayouts );

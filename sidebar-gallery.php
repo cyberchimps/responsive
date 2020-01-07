@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/sidebar-gallery.php
- * @link           http://codex.wordpress.org/Theme_Development#Widgets_.28sidebar.php.29
+ * @link           http://codex.wordpress.org/Theme_Development#secondary_.28sidebar.php.29
  * @since          available since Release 1.0
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<div id="widgets" class="grid col-300 fit gallery-meta" role="complementary">
+	<aside id="secondary" class="grid col-300 fit gallery-meta" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 		<div class="widget-wrapper">
 
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</ul>
 
 		</div><!-- end of .widget-wrapper -->
-	</div><!-- end of #widgets -->
+	</aside><!-- end of #secondary -->
 
 <?php
 if ( ! is_active_sidebar( 'gallery-widget' ) ) {
@@ -86,14 +86,14 @@ if ( ! is_active_sidebar( 'gallery-widget' ) ) {
 
 <?php if ( is_active_sidebar( 'gallery-widget' ) ) : ?>
 
-	<div id="widgets" class="grid col-300 fit" role="complementary">
+	<aside id="secondary" class="grid col-300 fit" role="complementary">
 
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php dynamic_sidebar( 'gallery-widget' ); ?>
 
 		<?php responsive_widgets_end(); // after widgets hook ?>
-	</div><!-- end of #widgets -->
+	</aside><!-- end of #secondary -->
 	<?php responsive_widgets_after(); // after widgets container hook ?>
 
 <?php endif; ?>

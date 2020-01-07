@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( comments_open() ) : ?>
 		<span class="comments-link" style="display:block">		
-			<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
+			<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 		</span>
 			<?php
 	endif;

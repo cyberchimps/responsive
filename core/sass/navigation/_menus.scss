@@ -1,37 +1,37 @@
 /* =Top Menu
 -------------------------------------------------------------- */
-.top-menu {
+.header-widgets .menu-widget {
 	float: right;
 	margin: 10px 0;
 	padding: 0;
 }
 
-.top-menu li {
+.header-widgets .menu-widget li {
 	display: block;
 	list-style-type: none;
 }
 
-.top-menu li a {
+.header-widgets .menu-widget li a {
 	border-left: 1px solid #cccccc;
 	color: #333333;
 	// font-size: 11px;
 	padding: 0 8px;
 }
 
-.top-menu > li:first-child > a {
+.header-widgets .menu-widget > li:first-child > a {
 	border-left: none;
 }
 
-.top-menu li a:hover {
+.header-widgets .menu-widget li a:hover {
 	color: #333333;
 }
-.top-menu ul {
+.header-widgets .menu-widget ul {
 	display: block;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
-.top-menu li {
+.header-widgets .menu-widget li {
 	border: 0;
 	display: block;
 	float: left;
@@ -42,54 +42,54 @@
 	z-index: 5;
 	list-style-type: none;
 }
-.top-menu li.focus,
-.top-menu li:hover {
+.header-widgets .menu-widget li.focus,
+.header-widgets .menu-widget li:hover {
 	white-space: normal;
 	z-index: 10000;
 }
-.top-menu li li {
+.header-widgets .menu-widget li li {
 	float: none;
 }
-.top-menu ul {
+.header-widgets .menu-widget ul {
 	left: -999em;
 	position: absolute;
 	top: 0;
 	z-index: 10;
 }
-.top-menu li.focus > ul,
-.top-menu li:hover > ul {
+.header-widgets .menu-widget li.focus > ul,
+.header-widgets .menu-widget li:hover > ul {
 	top: 100%;
 	left: auto;
 }
-.top-menu li li.focus > ul,
-.top-menu li li:hover > ul {
+.header-widgets .menu-widget li li.focus > ul,
+.header-widgets .menu-widget li li:hover > ul {
 	left: 100%;
 	top: 0;
 	box-shadow: 0 4px 10px -2px rgba(0,0,0,.1);
 }
-.top-menu:after,
-.top-menu ul:after {
+.header-widgets .menu-widget:after,
+.header-widgets .menu-widget ul:after {
 	clear: both;
 	content: '.';
 	display: block;
 	height: 0;
 	overflow: hidden;
 }
-.top-menu,
-.top-menu ul {
+.header-widgets .menu-widget,
+.header-widgets .menu-widget ul {
 	min-height: 0;
 }
-.top-menu ul,
-.top-menu ul ul {
+.header-widgets .menu-widget ul,
+.header-widgets .menu-widget ul ul {
 	margin: 0;
 	padding: 0;
 }
-.top-menu ul {
+.header-widgets .menu-widget ul {
 	min-width: 15em;
 	width: auto;
 	background: #FFF;
 }
-.top-menu a {
+.header-widgets .menu-widget a {
 	cursor: pointer;
 	display: block;
 	height: 45px;
@@ -101,7 +101,7 @@
 	white-space: nowrap;
 }
 @media screen and (max-width: 760px) {
-	.top-menu {
+	.header-widgets .menu-widget {
     display: none;
 }
 }
@@ -315,7 +315,11 @@ ul.menu > li:hover {
 	display: none;
 	color: #ffffff;
 }
-
+@media screen and (max-width: 768px){
+	.js .main-nav {
+		padding: 5px;
+	}
+}
 /*.js .main-nav .menu {*/
 /*display: block;*/
 /*}*/
@@ -525,6 +529,7 @@ ul.menu > li:hover {
 .footer-menu {
 	margin-left: 0;
 	padding: 0;
+	margin: 0;
 }
 
 .footer-menu li {
@@ -569,8 +574,11 @@ ul.menu > li:hover {
 	white-space: normal;
 	z-index: 10000;
 }
-.footer-menu li li {
+#footer .footer-menu li li {
 	float: none;
+}
+#footer .menu-item-has-children::after{
+	display: none;
 }
 .footer-menu ul {
 	left: -999em;
@@ -877,7 +885,6 @@ ul.menu > li:hover {
 
 	 nav {
 		 display: table-cell;
-		 vertical-align: middle;
 		 padding: 50px 0;
 		 text-align: center;
 	 }
@@ -996,7 +1003,7 @@ ul.menu > li:hover {
 	text-align: left;
 }
 
-.header-logo-center div#content-outer {
+.header-logo-center div.content-outer {
 	clear: both;
 }
 

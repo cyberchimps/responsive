@@ -18,18 +18,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-?>
-	<!doctype html>
-	<!--[if !IE]>
-	<html class="no-js non-ie" <?php language_attributes(); ?>> <![endif]-->
-	<!--[if IE 7 ]>
-	<html class="no-js ie7" <?php language_attributes(); ?>> <![endif]-->
-	<!--[if IE 8 ]>
-	<html class="no-js ie8" <?php language_attributes(); ?>> <![endif]-->
-	<!--[if IE 9 ]>
-	<html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
-	<!--[if gt IE 9]><!-->
+/**
+ * Check the the header layout and hook the menu accordingly
+ */
+$responsive_header_layout = get_theme_mod( 'menu_position', 'in_header' );
+if ( 'above_header' === $responsive_header_layout ) {
+	add_action( 'responsive_header', 'responsive_display_menu_outside_container' );
+} elseif ( 'in_header' === $responsive_header_layout ) {
+	add_action( 'responsive_header_container', 'responsive_display_menu_outside_container' );
+} elseif ( 'below_header' === $responsive_header_layout ) {
+	add_action( 'responsive_header_end', 'responsive_display_menu_outside_container' );
+}
 
+?>
+<!doctype html>
 <html class="no-js" <?php language_attributes(); ?> > <!--<![endif]-->
 
 	<head>
@@ -51,59 +53,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
-		<a class="skip-link screen-reader-text focusable" href="#content"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
+		<a class="skip-link screen-reader-text focusable" href="#primary"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
+		<?php
+		get_sidebar( 'header' );
+
+		$header_layout = get_theme_mod( 'header_layout_options', 'header-logo-left' );
+		?>
 	<div id="header_section">
-		<?php $header_layout = get_theme_mod( 'header_layout_options', 'default' ); ?>
 	<header id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' <?php responsive_schema_markup( 'header' ); ?> >
 
 		<?php responsive_header_top(); // before header content hook. ?>
-
-		<?php responsive_in_header(); // header hook. ?>
-		<div id="content-outer" class='responsive-header' <?php responsive_schema_markup( 'organization' ); ?>>
-		<?php responsive_header_before_logo_container(); // before logo content hook. ?>
-			<div id="logo" <?php responsive_schema_markup( 'logo' ); ?>>
+        <?php responsive_in_header(); // header hook. ?>
+        <div class="content-outer responsive-header" <?php responsive_schema_markup( 'organization' ); ?>>
+			<div id="site-branding" itemtype="https://schema.org/Organization" itemscope="itemscope" >
 		<?php if ( has_custom_logo() ) { ?>
-					<?php the_custom_logo(); ?>
+			<?php the_custom_logo(); ?>
+			<?php
+			global $responsive_options;
+			$responsive_options = responsive_get_options();
+			if ( empty( get_theme_mod( 'res_hide_site_title' ) ) ) {
+				?>
+				<span class="site-name" <?php responsive_schema_markup( 'site_title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?> ><?php bloginfo( 'name' ); ?></a></span>
+				<?php
+			}
+			if ( empty( get_theme_mod( 'res_hide_tagline' ) ) ) {
+				?>
+				<span class="site-description" <?php responsive_schema_markup( 'tagline' ); ?>><?php bloginfo( 'description' ); ?></span>
+				<?php
+			}
+			?>
+		<?php } elseif ( has_header_image() ) { ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" <?php responsive_schema_markup( 'url' ); ?>><img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php esc_attr( bloginfo( 'name' ) ); ?>" <?php responsive_schema_markup( 'image' ); ?> /></a>
+			<?php } else { // Header image was removed. ?>
 					<?php
 					global $responsive_options;
 					$responsive_options = responsive_get_options();
-					if( empty( get_theme_mod( 'res_hide_site_title' ) ) ) { ?>
-						<span class="site-name" <?php responsive_schema_markup( 'site_title' ); ?>><a href="<?php echo esc_url(home_url( '/' )); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?> ><?php bloginfo( 'name' ); ?></a></span>
-					<?php
+					if ( empty( get_theme_mod( 'res_hide_site_title' ) ) ) {
+						?>
+						<span class="site-name" <?php responsive_schema_markup( 'site_title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
+						<?php
 					}
-					if( empty( get_theme_mod( 'res_hide_tagline' ) ) ) { ?>
+					if ( empty( get_theme_mod( 'res_hide_tagline' ) ) ) {
+						?>
 
 						<span class="site-description" <?php responsive_schema_markup( 'tagline' ); ?>><?php bloginfo( 'description' ); ?></span>
 						<?php
 					}
-					?>
-		<?php } elseif ( has_header_image() ) {
+				}
 			?>
 
-			<a href="<?php echo esc_url(home_url( '/' )); ?>" <?php responsive_schema_markup( 'url' ); ?>><img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php esc_attr(bloginfo( 'name' )); ?>" <?php responsive_schema_markup( 'image' ); ?> /></a>
-
-	<?php
-} else { // Header image was removed.
-	global $responsive_options;
-	$responsive_options = responsive_get_options();
-	if ( empty( get_theme_mod( 'res_hide_site_title' ) ) ) {
-		?>
-		<span class="site-name" <?php responsive_schema_markup( 'site_title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" <?php responsive_schema_markup( 'url' ); ?>><?php bloginfo( 'name' ); ?></a></span>
+			</div><!-- end of #site-branding -->
 		<?php
-	}
-	if ( empty( get_theme_mod( 'res_hide_tagline' ) ) ) {
+		do_action( 'responsive_header_container' );
 		?>
-
-		<span class="site-description" <?php responsive_schema_markup( 'tagline' ); ?>><?php bloginfo( 'description' ); ?></span>
-		<?php
-	}
-}
-?>
-
-		</div><!-- end of #logo -->
-		<?php do_action( 'responsive_header_container' ); ?>
-	</div>
+		</div>
 
 		<?php responsive_header_bottom(); // after header content hook. ?>
 
@@ -117,10 +121,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 global $responsive_options;
-if ( ( isset( $responsive_options['site_layout_option'] ) && ( 'full-width-layout' === $responsive_options['site_layout_option'] ) && ( ! ( is_home() || is_front_page() ) ) ) ) {
-	?>
-<div id="content-outer">
-<?php } ?>
-	<div id="wrapper" class="clearfix">
-<?php responsive_wrapper_top(); // before wrapper content hook. ?>
-<?php responsive_in_wrapper(); // wrapper hook. ?>
+?>

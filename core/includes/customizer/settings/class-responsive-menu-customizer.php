@@ -167,6 +167,130 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			);
 
 			/**
+			 * Header Menu Padding.
+			 */
+			$wp_customize->add_setting(
+				'responsive_header_menu_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_header_menu_bottom_padding',
+				array(
+					'transport'         => 'refesh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_tablet_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_tablet_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_tablet_bottom_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_tablet_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'responsive_header_menu_mobile_top_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_mobile_right_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_mobile_bottom_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_setting(
+				'responsive_header_menu_mobile_left_padding',
+				array(
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Dimensions_Control(
+					$wp_customize,
+					'responsive_header_menu_padding',
+					array(
+						'label'       => esc_html__( 'Header Menu Padding (px)', 'responsive' ),
+						'section'     => 'responsive_menu',
+						'settings'    => array(
+							'desktop_top'    => 'responsive_header_menu_top_padding',
+							'desktop_right'  => 'responsive_header_menu_right_padding',
+							'desktop_bottom' => 'responsive_header_menu_bottom_padding',
+							'desktop_left'   => 'responsive_header_menu_left_padding',
+							'tablet_top'     => 'responsive_header_menu_tablet_top_padding',
+							'tablet_right'   => 'responsive_header_menu_tablet_right_padding',
+							'tablet_bottom'  => 'responsive_header_menu_tablet_bottom_padding',
+							'tablet_left'    => 'responsive_header_menu_tablet_left_padding',
+							'mobile_top'     => 'responsive_header_menu_mobile_top_padding',
+							'mobile_right'   => 'responsive_header_menu_mobile_right_padding',
+							'mobile_bottom'  => 'responsive_header_menu_mobile_bottom_padding',
+							'mobile_left'    => 'responsive_header_menu_mobile_left_padding',
+						),
+						'priority'    => 1,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 60,
+							'step' => 1,
+						),
+					)
+				)
+			);
+
+			/**
 			 * Main Menu Left Light Padding.
 			 */
 			$wp_customize->add_setting(
@@ -186,7 +310,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 						'label'       => __( 'Padding Between Menus (em)', 'responsive' ),
 						'section'     => 'responsive_menu',
 						'settings'    => 'responsive_menu_left_right_padding',
-						'priority'    => 1,
+						'priority'    => 2,
 						'input_attrs' => array(
 							'min'  => 0.1,
 							'max'  => 5,

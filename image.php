@@ -43,8 +43,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<?php if ( comments_open() ) : ?>
 						<span class="comments-link">
-						<span class="mdash">&mdash;</span>
-							<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
+						<span class="mdash"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+							<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 						</span>
 					<?php endif; ?>
 				</div>
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div><!-- end of .post-data -->
 				<?php endif; ?>
 
-				<div class="post-edit"><?php edit_post_link( __( 'Edit', 'responsive' ) ); ?></div>
+				<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>
 
 				<?php responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->

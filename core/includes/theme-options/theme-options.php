@@ -255,6 +255,7 @@ function responsive_theme_options_do_page() {
 					'description' => '',
 					'placeholder' => '',
 					'options'     => array(
+						'boxed'             => __( 'Boxed', 'responsive' ),
 						'default-layout'    => __( 'Default', 'responsive' ),
 						'full-width-layout' => __( 'Full Width Layout', 'responsive' ),
 						'full-width-no-box' => __( 'Full Width Without boxes', 'responsive' ),
@@ -905,11 +906,6 @@ function responsive_theme_options_validate( $input ) {
 			$input[ $layout ] = ( isset( $input[ $layout ] ) && array_key_exists( $input[ $layout ], responsive_get_valid_layouts() ) ? $input[ $layout ] : $responsive_options[ $layout ] );
 		}
 		foreach ( array(
-			'home_headline',
-			'home_subheadline',
-			'home_content_area',
-			'cta_text',
-			'cta_url',
 			'featured_content',
 			'testimonial_title',
 		) as $content ) {

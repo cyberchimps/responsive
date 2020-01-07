@@ -36,29 +36,36 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_footer_section',
 				array(
-					'title'    => esc_html__( 'Footer Layout', 'responsive' ),
+					'title'    => esc_html__( 'Footer Widget Layout', 'responsive' ),
 					'panel'    => 'responsive-footer-options',
 					'priority' => 202,
 				)
 			);
+
 			$wp_customize->add_setting(
-				'responsive_theme_options[site_footer_option]',
+				'responsive_footer_column',
 				array(
-					'sanitize_callback' => 'responsive_validate_site_footer_layout',
-					'type'              => 'option',
+					'default'           => '0',
+					'sanitize_callback' => 'responsive_sanitize_number',
+					'transport'         => 'refresh',
 				)
 			);
+
 			$wp_customize->add_control(
-				'site_footer_option',
-				array(
-					'label'    => __( 'Choose Footer Widgets Layout', 'responsive' ),
-					'section'  => 'responsive_footer_section',
-					'settings' => 'responsive_theme_options[site_footer_option]',
-					'type'     => 'select',
-					'choices'  => array(
-						'footer-3-col' => __( 'Default (3 column)', 'responsive' ),
-						'footer-2-col' => __( '2 Column Layout', 'responsive' ),
-					),
+				new Responsive_Customizer_Range_Control(
+					$wp_customize,
+					'responsive_footer_column',
+					array(
+						'label'       => __( 'Footer Widgets Column', 'responsive' ),
+						'section'     => 'responsive_footer_section',
+						'settings'    => 'responsive_footer_column',
+						'priority'    => 6,
+						'input_attrs' => array(
+							'min'  => 0,
+							'max'  => 4,
+							'step' => 1,
+						),
+					)
 				)
 			);
 
@@ -169,7 +176,7 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 					$wp_customize,
 					'responsive_footer_padding',
 					array(
-						'label'       => esc_html__( 'Footer Spacing (px)', 'responsive' ),
+						'label'       => esc_html__( 'Footer Padding (px)', 'responsive' ),
 						'section'     => 'responsive_footer_section',
 						'settings'    => array(
 							'desktop_top'    => 'responsive_footer_top_padding',

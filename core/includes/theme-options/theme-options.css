@@ -489,7 +489,7 @@ p {
     font-size: 14px
 }
 .description {display: block;color:#999;font-style: italic;} 	
-}
+
 div.updated { box-shadow : none;}
 input, select, textarea { font-size: 13px;color:#666; }
 input[type="text"]{color:#666; }

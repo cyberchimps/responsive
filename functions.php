@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '3.3' );
+define( 'RESPONSIVE_THEME_VERSION', '4.0.0' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 /**
@@ -62,6 +62,9 @@ function responsive_free_get_option( $option, $default = false ) {
 
 	return $default;
 }
+
+
+
 /**
  * Responsive_free_setup
  */
@@ -72,13 +75,81 @@ function responsive_free_setup() {
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'editor-styles' );
-    add_editor_style( 'core/css/gutenberg-editor.css' );
-    // Gutenberg editor color palette.
-    add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
+	add_editor_style( 'core/css/gutenberg-editor.css' );
+	// Gutenberg editor color palette.
+	add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
+	$small_font_sizes  = get_theme_mod( 'post_meta_typography' );
+	$normal_sizes      = get_theme_mod( 'body_typography' );
+	$larger_font_sizes = get_theme_mod( 'heading_h1_typography' );
+	$large_font_sizes  = get_theme_mod( 'heading_h2_typography' );
+
+	if ( isset( $small_font_sizes['font-size'] ) ) {
+		$small_font_sizes_default_value = ( $small_font_sizes && isset( $small_font_sizes['font-size'] ) ) ? str_replace( 'px', '', $small_font_sizes['font-size'] ) : '12';
+	} else {
+		$small_font_sizes_default_value = 12;
+	}
+	if ( isset( $normal_sizes['font-size'] ) ) {
+		$normal_sizes_default_value = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '14';
+	} else {
+		$normal_sizes_default_value = 14;
+	}
+	if ( isset( $larger_font_sizes['font-size'] ) ) {
+		if ( strpos( $larger_font_sizes['font-size'], 'px' ) == false ) {
+			$larger_font_sizes_default_value = ( $larger_font_sizes && isset( $larger_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $larger_font_sizes['font-size'] ) : '2.625';
+			$larger_font_sizes_default_value = $normal_sizes_default_value * $larger_font_sizes_default_value;
+		} else {
+			$larger_font_sizes_default_value = str_replace( 'px', '', $larger_font_sizes['font-size'] );
+
+		}
+	} else {
+		$larger_font_sizes_default_value = 40;
+	}
+
+	if ( isset( $large_font_sizes['font-size'] ) ) {
+		if ( strpos( $large_font_sizes['font-size'], 'px' ) == false ) {
+			$large_font_sizes_default_value = ( $large_font_sizes && isset( $large_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $large_font_sizes['font-size'] ) : '2.250';
+			$large_font_sizes_default_value = $normal_sizes_default_value * $large_font_sizes_default_value;
+		} else {
+			$large_font_sizes_default_value = str_replace( 'px', '', $large_font_sizes['font-size'] );
+
+		}
+	} else {
+		$large_font_sizes_default_value = 32;
+	}
+	add_theme_support(
+		'editor-font-sizes',
+		array(
+			array(
+				'name'      => _x( 'Small', 'Name of the small font size in the block editor', 'responsive' ),
+				'shortName' => _x( 'S', 'Short name of the small font size in the block editor.', 'responsive' ),
+				'size'      => $small_font_sizes_default_value,
+				'slug'      => 'small',
+			),
+			array(
+				'name'      => _x( 'Regular', 'Name of the regular font size in the block editor', 'responsive' ),
+				'shortName' => _x( 'M', 'Short name of the regular font size in the block editor.', 'responsive' ),
+				'size'      => $normal_sizes_default_value,
+				'slug'      => 'normal',
+			),
+			array(
+				'name'      => _x( 'Large', 'Name of the large font size in the block editor', 'responsive' ),
+				'shortName' => _x( 'L', 'Short name of the large font size in the block editor.', 'responsive' ),
+				'size'      => $large_font_sizes_default_value,
+				'slug'      => 'large',
+			),
+			array(
+				'name'      => _x( 'Larger', 'Name of the larger font size in the block editor', 'responsive' ),
+				'shortName' => _x( 'XL', 'Short name of the larger font size in the block editor.', 'responsive' ),
+				'size'      => $larger_font_sizes_default_value,
+				'slug'      => 'larger',
+			),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
 add_filter( 'body_class', 'responsive_add_site_layout_classes' );
+
 /**
  * [responsive_add_site_layout_classes description]
  *
@@ -86,10 +157,25 @@ add_filter( 'body_class', 'responsive_add_site_layout_classes' );
  */
 function responsive_add_site_layout_classes( $classes ) {
 	global $responsive_options;
-
+	$page_layout   = get_theme_mod( 'page_layout_option' );
+	$blog_layout   = get_theme_mod( 'blog_layout_option' );
+	$single_layout = get_theme_mod( 'single_layout_option' );
 	if ( ! empty( $responsive_options['site_layout_option'] ) ) :
-
 		$classes[] = $responsive_options['site_layout_option'];
+
+	endif;
+
+	if ( ! empty( $page_layout ) ) :
+		$classes[] = 'page-' . $page_layout;
+	endif;
+
+	if ( ! empty( $blog_layout ) ) :
+		$classes[] = 'blog-' . $blog_layout;
+
+	endif;
+
+	if ( ! empty( $single_layout ) ) :
+		$classes[] = 'single-' . $single_layout;
 
 	endif;
 
@@ -306,7 +392,7 @@ function responsiveedit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'header_image',
 		array(
-			'selector' => '#logo',
+			'selector' => '#site-branding',
 
 		)
 	);
@@ -369,22 +455,26 @@ endif;
 /**
  * Exclude post with Category from blog and archive page.
  */
-if ( !function_exists( 'responsive_exclude_post_cat' ) ) :
-function responsive_exclude_post_cat( $query ) {
-    $responsive_options = responsive_get_options();
-    //$cat = $responsive_options['exclude_post_cat'];
-    $cat = get_theme_mod('exclude_post_cat');
+if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
+	/**
+	 * Exclude post with Category from blog and archive page.
+	 *
+	 * @param  object $query Query.
+	 */
+	function responsive_exclude_post_cat( $query ) {
+		$responsive_options = responsive_get_options();
+		$cat                = get_theme_mod( 'exclude_post_cat' );
 
-    if ($cat && ! is_admin() && $query->is_main_query()) {
-		if( !array( $cat ) ) {
-			$cat = array($cat);
+		if ( $cat && ! is_admin() && $query->is_main_query() ) {
+			if ( ! array( $cat ) ) {
+				$cat = array( $cat );
+			}
+			$cat = array_diff( array_unique( $cat ), array( '' ) );
+			if ( $query->is_home() || $query->is_archive() ) {
+				$query->set( 'category__not_in', $cat );
+			}
 		}
-        $cat = array_diff(array_unique($cat), array(''));
-        if ($query->is_home() || $query->is_archive()) {
-            $query->set('category__not_in', $cat);
-        }
-    }
-}
+	}
 endif;
 add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
@@ -426,21 +516,10 @@ if ( isset( $responsive_options['override_woo'] ) && 1 == $responsive_options['o
 
 
 /**
- *  Enqueue block styles  in editor
- */
-function responsive_block_styles() {
-	wp_enqueue_style( 'mytheme-blocks', get_stylesheet_directory_uri() . '/core/css/gutenberg-blocks.css', array(), '1.0' );
-
-    // Add customizer colors to Gutenberg editor in backend.
-	wp_add_inline_style( 'responsive-gutenberg', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
-}
-add_action( 'enqueue_block_editor_assets', 'responsive_block_styles' );
-
-/**
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
-	wp_enqueue_style( 'mytheme-blocks', get_stylesheet_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+	wp_enqueue_style( 'responsive-blocks', get_stylesheet_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
@@ -448,7 +527,7 @@ add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
 /**
  * Add rating links to the admin dashboard
  *
- * @param string         $footer_text The existing footer text
+ * @param string $footer_text The existing footer text
  *
  * @return      string
  * @since        2.0.6
@@ -473,33 +552,82 @@ function responsive_admin_rate_us( $footer_text ) {
 
 add_filter( 'admin_footer_text', 'responsive_admin_rate_us' );
 
-// load the latest sdk version from the active Responsive theme.
-if ( ! function_exists( 'responsive_sdk_load_latest' ) ) :
-	/**
-	 * Always load the latest sdk version.
-	 */
-	function responsive_sdk_load_latest() {
-		/**
-		 * Don't load the library if we are on < 5.4.
-		 */
-		if ( version_compare( PHP_VERSION, '5.4.32', '<' ) ) {
-			return;
-		}
-		require_once RESPONSIVE_THEME_DIR . 'core/rollback/start.php';
-	}
-endif;
-add_action( 'init', 'responsive_sdk_load_latest' );
 
-add_filter( 'responsive_sdk_products', 'responsive_load_sdk' );
+
 /**
- * Loads products array.
- *
- * @param array $products All products.
- *
- * @return array Products array.
+ * Include menu.
  */
-function responsive_load_sdk( $products ) {
-	$products[] = get_template_directory() . '/style.css';
+function responsive_display_menu_outside_container() {
 
-	return $products;
+	wp_nav_menu(
+		array(
+			'container'       => 'nav',
+			'container_class' => 'main-nav',
+			'container_id'    => 'main-nav',
+			'fallback_cb'     => 'responsive_fallback_menu',
+			'theme_location'  => 'header-menu',
+		)
+	);
 }
+
+
+/**
+ * Check the responsive version is above 4.0.
+ * Change the value layout if it is fullwidth_without_box.
+ */
+function responsive_check_previous_version() {
+	$theme_data  = wp_get_theme();
+	$new_version = $theme_data->Version;
+	global $responsive_options;
+	$responsive_options = responsive_get_options();
+	$header_layout      = get_theme_mod( 'header_layout_options' );
+	$menu_position      = get_theme_mod( 'menu_position' );
+
+	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
+	if ( $new_version && version_compare( $new_version, '4.0.0', '>=' ) ) {
+		if ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
+			$responsive_options['site_layout_option'] = 'fullwidth-stretched';
+			update_option( 'responsive_theme_options', $responsive_options );
+		} elseif ( 'full-width-layout' === $responsive_options['site_layout_option'] ) {
+			$responsive_options['site_layout_option'] = 'fullwidth-content';
+			update_option( 'responsive_theme_options', $responsive_options );
+		} elseif ( 'default-layout' === $responsive_options['site_layout_option'] ) {
+			$responsive_options['site_layout_option'] = 'boxed';
+			update_option( 'responsive_theme_options', $responsive_options );
+		}
+		if ( 'default' === $header_layout || ! $header_layout ) {
+			$menu_position = 'below_header';
+			$header_layout = 'header-logo-left';
+			set_theme_mod( 'menu_position', $menu_position );
+			set_theme_mod( 'header_layout_options', $header_layout );
+		}
+	}
+}
+if ( is_admin() ) {
+	add_action( 'admin_init', 'responsive_check_previous_version', 5 );
+} else {
+	add_action( 'wp', 'responsive_check_previous_version', 5 );
+}
+
+
+/**
+ * Add iFrame to allowed wp_kses_post tags
+ *
+ * @param array  $tags Allowed tags, attributes, and/or entities.
+ * @param string $context Context to judge allowed tags by. Allowed values are 'post'.
+ *
+ * @return array
+ */
+function responsive_wpkses_post_tags( $tags, $context ) {
+	if ( 'post' === $context ) {
+		$tags['iframe'] = array(
+			'src'             => true,
+			'height'          => true,
+			'width'           => true,
+			'frameborder'     => true,
+			'allowfullscreen' => true,
+		);
+	}
+	return $tags;
+}
+add_filter( 'wp_kses_allowed_html', 'responsive_wpkses_post_tags', 10, 2 );

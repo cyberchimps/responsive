@@ -36,4 +36,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php } ?>
 <?php } ?>
 
-<div class="post-edit"><?php edit_post_link( __( 'Edit', 'responsive' ) ); ?></div>
+<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>

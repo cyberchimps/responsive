@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Full Content Template
  *
-Template Name:  Full Width Page (no sidebar)
+ * Template Name:  Full Width Page (no sidebar)
  *
  * @file           full-width-page.php
  * @package        Responsive
@@ -26,7 +26,10 @@ Template Name:  Full Width Page (no sidebar)
  */
 
 get_header(); ?>
-<div id="content-outer">
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="content-full" class="grid col-940">
 
 	<?php if ( have_posts() ) : ?>
@@ -82,4 +85,7 @@ get_header(); ?>
 
 </div><!-- end of #content-full -->
 </div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

@@ -8,7 +8,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
 /**
  * Error 404 Template
  *
@@ -24,7 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php get_header(); ?>
-<div id="content-outer">
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="content-full" class="grid col-940" <?php responsive_schema_markup( 'main' ); ?>>
 
 	<?php responsive_entry_before(); ?>
@@ -42,6 +44,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php responsive_entry_after(); ?>
 
 </div><!-- end of #content-full -->
-
 </div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

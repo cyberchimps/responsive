@@ -96,6 +96,6 @@ class Responsive_Upsell_Manager extends Responsive_Register_Customizer_Controls 
 	}
 }
 
-if( !class_exists( 'Responsive_Addons_Pro_Public' ) ){
+if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
 	new Responsive_Upsell_Manager();
 }

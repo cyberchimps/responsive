@@ -14,10 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 global $responsive_show_excerpt;
-if ( 'excerpt' === $responsive_show_excerpt ) {
-	the_excerpt();
-} else {
+if ( 'content' === $responsive_show_excerpt ) {
 	the_content();
+} else {
+	the_excerpt();
 }
 ?>
 

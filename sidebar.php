@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/sidebar.php
- * @link           http://codex.wordpress.org/Theme_Development#Widgets_.28sidebar.php.29
+ * @link           http://codex.wordpress.org/Theme_Development#secondary_.28sidebar.php.29
  * @since          available since Release 1.0
  */
 
@@ -27,9 +27,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 		}
 
 	if (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product()) { ?>
-		<div id="widgets" class="<?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
+		<aside id="secondary" class="<?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
 			<?php dynamic_sidebar('responsive-woo-shop-sidebar'); ?>
-		</div>
+		</aside>
 		<?php
 	}
 
@@ -55,16 +55,6 @@ switch ( $layout ) {
 		return;
 		break;
 
-	case 'content-sidebar-half-page':
-		get_sidebar( 'right-half' );
-		return;
-		break;
-
-	case 'sidebar-content-half-page':
-		get_sidebar( 'left-half' );
-		return;
-		break;
-
 	case 'full-width-page':
 		return;
 		break;
@@ -72,7 +62,7 @@ switch ( $layout ) {
 ?>
 
 <?php responsive_widgets_before(); // above widgets container hook. ?>
-	<div id="widgets" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+	<aside id="secondary" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 		<?php responsive_widgets(); // above widgets hook. ?>
 		<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
 			<div class="widget-wrapper" style="display:none;">
@@ -80,5 +70,5 @@ switch ( $layout ) {
 			</div><!-- end of .widget-wrapper -->
 		<?php endif; //end of main-sidebar ?>
 		<?php responsive_widgets_end(); // after widgets hook. ?>
-	</div><!-- end of #widgets -->
+	</aside><!-- end of #secondary -->
 <?php responsive_widgets_after(); // after widgets container hook. ?>

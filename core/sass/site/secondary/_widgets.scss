@@ -3,8 +3,6 @@
 .widget-wrapper {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
-	background-color: #f9f9f9;
-	border: 1px solid #e5e5e5;
 	border-radius: 4px;
 	margin: 0 0 20px;
 	padding: 20px;
@@ -20,33 +18,33 @@
 	font: inherit;
 }
 
-#widgets {
-	margin-top: 40px;
-}
+// #secondary {
+// 	margin-top: 40px;
+// }
 
-#widgets a {
+#secondary a {
 	display: inline-block;
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
 }
 
-#widgets form {
+#secondary form {
 	margin: 0;
 }
 
-#widgets ul,
-#widgets ol {
+#secondary ul,
+#secondary ol {
 	padding: 0 0 0 20px;
 }
 
-#widgets ul li a {
+#secondary ul li a {
 	display: inline;
 	text-decoration: none;
 	word-wrap: break-word;
 }
 
-#widgets .widget-title img {
+#secondary .widget-title img {
 	float: right;
 	height: 11px;
 	position: relative;
@@ -54,38 +52,38 @@
 	width: 11px;
 }
 
-#widgets .rss-date {
+#secondary .rss-date {
 	line-height: 18px;
 	padding: 6px 12px;
 }
 
-#widgets .rssSummary {
+#secondary .rssSummary {
 	padding: 10px;
 }
 
-#widgets cite {
+#secondary cite {
 	font-style: normal;
 	line-height: 18px;
 	padding: 6px 12px;
 }
 
-#widgets .tagcloud,
-#widgets .textwidget {
+#secondary .tagcloud,
+#secondary .textwidget {
 	display: block;
 	line-height: 1.5em;
 	margin: 0;
 	word-wrap: break-word;
 }
 
-#widgets .textwidget a {
+#secondary .textwidget a {
 	display: inline;
 }
 
-#widgets ul .children {
+#secondary ul .children {
 	padding: 0 0 0 1em;
 }
 
-#widgets .author {
+#secondary .author {
 	font-weight: 700;
 	padding-top: 4px;
 }
@@ -110,31 +108,54 @@
 	width: 100%;
 }
 
-#top-widget {
+#header-widgets {
 }
 
-.top-widget {
+.header-widgets {
 	background: none;
 	border: none;
 	clear: right;
+	display: flex;
 	float: right;
+	flex-flow: row;
 	min-height: 0;
-	padding: 0 3px 0 0;
-	text-align: right;
-	width: 45%;
+	width: 100%;
+	@media screen and (max-width: 768px){
+		flex-flow: column;
+		text-align: center;
+		.widget-title h3 {
+			text-align: center;
+		}
+	}
+
+	> div {
+	    width: inherit;
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@media (min-width: 768px){
+			margin: 1%;
+
+		}
+	}
 }
 
-.top-widget ul {
+.header-widgets ul {
 	padding: 0;
+	list-style-position: inside;
 }
 
-.top-widget select,
-.top-widget input[type="text"],
-.top-widget input[type="password"],
-.top-widget input[type="email"] {
+.header-widgets select,
+.header-widgets input[type="text"],
+.header-widgets input[type="password"],
+.header-widgets input[type="email"] {
 	width: auto;
 }
 
-.top-widget #searchform {
+.header-widgets #searchform {
 	margin: 0;
 }

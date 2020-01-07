@@ -83,7 +83,6 @@
 		 * Perform masonry operations.
 		 */
 		function NextloadPosts(pageNumber) {
-
 			$( '.responsive-load-more' ).removeClass( '.active' ).hide();
 			loader.show();
 
@@ -93,7 +92,6 @@
 				nonce: infinite_nonce,
 				query_vars: responsivePaginationInfinite.query_vars,
 			}
-
 			$.post(
 				ajax_url,
 				data,
@@ -106,7 +104,7 @@
 					$( '.responsive-load-more' ).addClass( 'active' ).show();
 
 					// Add posts.
-					$( '#content-blog > #main-blog' ).append( boxes );
+					$( '#primary > #main-blog' ).append( boxes );
 
 					var msg = responsivePaginationInfinite.no_more_post_message || '';
 

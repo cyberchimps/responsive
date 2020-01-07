@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 							'color' => '#7db7f0',
 						),
 					),
-					'button-hover-text-color'       => array(
+					'button-hover-text-color'  => array(
 						'label'    => esc_html__( 'Button hover Text Color', 'responsive' ),
 						'defaults' => array(
 							'color' => '#333333',
@@ -143,14 +143,13 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 						$element,
 						array(
 							'type'              => 'theme_mod',
-							'default'           => '',
 							'sanitize_callback' => 'responsive_sanitize_color',
 							'transport'         => $transport,
 							'default'           => $default,
 						)
 					);
 					$wp_customize->add_control(
-						new WP_Customize_Color_Control(
+						new Responsive_Customizer_Color_Control(
 							$wp_customize,
 							$element,
 							array(
@@ -162,6 +161,8 @@ if ( ! class_exists( 'Responsive_Button_Customizer' ) ) :
 							)
 						)
 					);
+
+					responsive_padding_control( $wp_customize, 'buttons', 'responsive_button_section', 10, '' );
 
 					/**
 					 * Main Container Width

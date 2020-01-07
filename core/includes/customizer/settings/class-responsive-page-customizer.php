@@ -84,6 +84,32 @@ if ( ! class_exists( 'Responsive_Page_Customizer' ) ) :
 					)
 				)
 			);
+
+			$wp_customize->add_setting(
+				'responsive_page_title_alignment_options',
+				array(
+					'default'           => 'left',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_page_title_alignment_options',
+				array(
+					'label'    => __( 'Single Page Title Alignment', 'responsive' ),
+					'section'  => 'responsive_page_section',
+					'settings' => 'responsive_page_title_alignment_options',
+					'type'     => 'select',
+					'choices'  => apply_filters(
+						'responsive_header_layout_choices',
+						array(
+							'left'   => esc_html__( 'Default', 'responsive' ),
+							'center' => esc_html__( 'Center', 'responsive' ),
+							'right'  => esc_html__( 'Right', 'responsive' ),
+						)
+					),
+				)
+			);
 		}
 
 	}

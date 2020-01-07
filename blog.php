@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Blog Template
  *
-Template Name: Blog (full posts)
+Template Name: Blog (full posts) (Deprecated)
  *
  * @file           blog.php
  * @package        Responsive
@@ -29,8 +29,11 @@ get_header();
 
 $more = 0;
 ?>
-<div id="content-outer">
-<div id="content-blog" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<div id="wrapper" class="clearfix">
+	<div class="content-outer">
+<?php responsive_in_wrapper(); // wrapper hook. ?>
+<div id="primary" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php
 	get_template_part( 'loop-header', get_post_type() );
@@ -106,8 +109,11 @@ $more = 0;
 		wp_reset_postdata();
 		?>
 
-</div><!-- end of #content-blog -->
+</div><!-- end of #primary -->
 
 <?php get_sidebar(); ?>
 </div>
+<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+</div> <!-- end of #wrapper -->
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

@@ -356,9 +356,9 @@ function responsive_get_social_icons_new() {
 					?>
 					<li><a href="<?php echo $responsive_options['rss_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-rss" aria-hidden="true"></i></a></li><?php } ?>
 				<?php
-				if ( ! empty( $responsive_options['google_plus_uid'] ) ) {
+				if ( ! empty( $responsive_options['googleplus_uid'] ) ) {
 					?>
-					<li><a href="<?php echo $responsive_options['google_plus_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><?php } ?>
+					<li><a href="<?php echo $responsive_options['googleplus_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><?php } ?>
 				<?php
 				if ( ! empty( $responsive_options['linkedin_uid'] ) ) {
 					?>

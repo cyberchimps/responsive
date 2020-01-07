@@ -59,15 +59,15 @@ if ( 'quote' == get_post_format() ) {
 			?>
 			<?php if ( comments_open() ) : ?>
 				<span class="comments-link">
-				<span class="mdash">&mdash;</span>
-					<?php comments_popup_link( __( 'No Comments &darr;', 'responsive' ), __( '1 Comment &darr;', 'responsive' ), __( '% Comments &darr;', 'responsive' ) ); ?>
+				<span class="mdash"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+					<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 				</span>
 			<?php endif; ?>
 			<?php
 		}
 		if ( 'categories' === $section ) {
 			?>
-			<span class='posted-in'>
+			<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
 				<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
 			</span>
 			<?php

@@ -49,20 +49,96 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'responsive_validate_site_layout',
 					'type'              => 'option',
-					'default'           => 'default-layout',
+					'default'           => 'boxed',
 				)
 			);
 			$wp_customize->add_control(
 				'site_layout_option',
 				array(
-					'label'    => __( 'Choose Site Layout', 'responsive' ),
+					'label'    => __( 'Site Layout', 'responsive' ),
 					'section'  => 'responsive_layout_section',
 					'settings' => 'responsive_theme_options[site_layout_option]',
 					'type'     => 'select',
 					'choices'  => array(
-						'default-layout'    => __( 'Default', 'responsive' ),
-						'full-width-layout' => __( 'Full Width Boxed Layout', 'responsive' ),
-						'full-width-no-box' => __( 'Full Width Without Boxes', 'responsive' ),
+						'boxed'               => __( 'Boxed', 'responsive' ),
+						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
+						'fullwidth-content'   => __( 'Full Width / Contained', 'responsive' ),
+						'fullwidth-stretched' => __( 'Full Width / Stretched', 'responsive' ),
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'page_layout_option',
+				array(
+					'sanitize_callback' => 'responsive_validate_page_layout',
+					'transport'         => 'refresh',
+					'default'           => 'default',
+				)
+			);
+			$wp_customize->add_control(
+				'page_layout_option',
+				array(
+					'label'    => __( 'Page Layout', 'responsive' ),
+					'section'  => 'responsive_layout_section',
+					'settings' => 'page_layout_option',
+					'type'     => 'select',
+					'choices'  => array(
+						'default'             => __( 'Default', 'responsive' ),
+						'boxed'               => __( 'Boxed', 'responsive' ),
+						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
+						'fullwidth-content'   => __( 'Full Width / Contained', 'responsive' ),
+						'fullwidth-stretched' => __( 'Full Width / Stretched', 'responsive' ),
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'blog_layout_option',
+				array(
+					'sanitize_callback' => 'responsive_validate_page_layout',
+					'transport'         => 'refresh',
+					'default'           => 'default',
+				)
+			);
+			$wp_customize->add_control(
+				'blog_layout_option',
+				array(
+					'label'    => __( 'Archive Layout', 'responsive' ),
+					'section'  => 'responsive_layout_section',
+					'settings' => 'blog_layout_option',
+					'type'     => 'select',
+					'choices'  => array(
+						'default'             => __( 'Default', 'responsive' ),
+						'boxed'               => __( 'Boxed', 'responsive' ),
+						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
+						'fullwidth-content'   => __( 'Full Width / Contained', 'responsive' ),
+						'fullwidth-stretched' => __( 'Full Width / Stretched', 'responsive' ),
+					),
+				)
+			);
+
+			$wp_customize->add_setting(
+				'single_layout_option',
+				array(
+					'sanitize_callback' => 'responsive_validate_page_layout',
+					'transport'         => 'refresh',
+					'default'           => 'default',
+				)
+			);
+			$wp_customize->add_control(
+				'single_layout_option',
+				array(
+					'label'    => __( 'Blog Post Layout', 'responsive' ),
+					'section'  => 'responsive_layout_section',
+					'settings' => 'single_layout_option',
+					'type'     => 'select',
+					'choices'  => array(
+						'default'             => __( 'Default', 'responsive' ),
+						'boxed'               => __( 'Boxed', 'responsive' ),
+						'content-boxed'       => __( 'Content Boxed', 'responsive' ),
+						'fullwidth-content'   => __( 'Full Width / Contained', 'responsive' ),
+						'fullwidth-stretched' => __( 'Full Width / Stretched', 'responsive' ),
 					),
 				)
 			);
@@ -126,27 +202,6 @@ if ( ! class_exists( 'Responsive_Layout_Customizer' ) ) :
 					'section' => 'title_tagline',
 					'type'    => 'checkbox',
 
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_main_container_background_color',
-				array(
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_main_container_background_color',
-					array(
-						'label'    => 'Container Background Color',
-						'section'  => 'responsive_layout_section',
-						'settings' => 'responsive_main_container_background_color',
-						'priority' => 10,
-					)
 				)
 			);
 			/**

@@ -8,25 +8,25 @@
     #container {
         width: unset !important;
     }
-    .copyright,.powered,.scroll-top {
+    .scroll-top {
         float: left
     }
 
-    #logo {
+    /* #site-branding {
         float: none;
         margin: 0;
         text-align: center
-    }
+    } */
 
     #featured-image .fluid-width-video-wrapper {
         margin: 20px 0 0 0
     }
 
-    .front-page #widgets {
+    .front-page #secondary {
         margin-top: 40px
     }
 
-    .front-page .top-widget,.top-widget {
+    .front-page .header-widgets,.header-widgets {
         margin-top: 0!important
     }
 
@@ -95,7 +95,7 @@
 }
 
 @media screen and (max-width: 650px) {
-    #logo {
+    #site-branding {
         float:none;
         margin: 0;
         text-align: center
@@ -109,7 +109,7 @@
         margin: 20px 0 0 0
     }
 
-    .top-widget {
+    .header-widgets {
         float: none;
         margin: 0 auto 10px auto;
         position: relative;
@@ -117,7 +117,7 @@
         width: auto
     }
 
-    .top-widget .widget-title h3 {
+    .header-widgets .widget-title h3 {
         text-align: center
     }
 
@@ -135,7 +135,8 @@
         background-image: -o-linear-gradient(top,#585858,#3d3d3d);
         background-image: linear-gradient(to top,#585858,#3d3d3d);
         clear: both;
-        margin: 0 auto
+        margin: 0 auto;
+        padding: 5px;
     }
 
     #about_div .about_text {
@@ -198,7 +199,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    #logo {
+    #site-branding {
         float:none;
         text-align: center
     }
@@ -304,7 +305,7 @@
         padding: 5px 15px
     }
 
-    .top-widget area,.top-widget input[type=email],.top-widget input[type=password],.top-widget input[type=text],.top-widget select,.top-widget textarea {
+    .header-widgets area,.header-widgets input[type=email],.header-widgets input[type=password],.header-widgets input[type=text],.header-widgets select,.header-widgets textarea {
         width: 75%
     }
 

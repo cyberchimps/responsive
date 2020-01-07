@@ -185,7 +185,7 @@ function responsive_comments_after() {
 }
 
 /**
- * Just before opening <div id="widgets">
+ * Just before opening <div id="secondary">
  *
  * @see sidebar.php
  */
@@ -194,7 +194,7 @@ function responsive_widgets_before() {
 }
 
 /**
- * Just after opening <div id="widgets">
+ * Just after opening <div id="secondary">
  *
  * @see sidebar.php
  */
@@ -203,7 +203,7 @@ function responsive_widgets() {
 }
 
 /**
- * Just before closing </div><!-- end of #widgets -->
+ * Just before closing </div><!-- end of #secondary -->
  *
  * @see sidebar.php
  */
@@ -212,7 +212,7 @@ function responsive_widgets_end() {
 }
 
 /**
- * Just after closing </div><!-- end of #widgets -->
+ * Just after closing </div><!-- end of #secondary -->
  *
  * @see sidebar.php
  */
@@ -271,7 +271,7 @@ add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_en
  * Responsive_woocommerce_wrapper
  */
 function responsive_woocommerce_wrapper() {
-	echo '<div id="content-outer">';
+	echo '<div class="content-outer">';
 	echo '<div id="content-woocommerce" class="' . esc_attr(implode(' ', responsive_get_content_classes())) . '">';
 }
 

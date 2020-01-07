@@ -81,9 +81,33 @@ function responsive_validate_site_layout( $input ) {
 	/** An array of valid results */
 
 	$valid = array(
-		'default-layout'    => 'Default',
-		'full-width-layout' => 'Full Width Layout',
-		'full-width-no-box' => 'Full Width Without boxes',
+		'boxed'               => 'Boxed',
+		'content-boxed'       => 'Content Boxed',
+		'fullwidth-content'   => 'Full Width / Contained',
+		'fullwidth-stretched' => 'Full Width / Stretched',
+	);
+
+	if ( array_key_exists( $input, $valid ) ) {
+		return $input;
+	} else {
+		return '';
+	}
+}
+
+/**
+ * Function for page layouts
+ *
+ * @param object $input arguments.
+ */
+function responsive_validate_page_layout( $input ) {
+	/** An array of valid results */
+
+	$valid = array(
+		'default'             => 'Default',
+		'boxed'               => 'Boxed',
+		'content-boxed'       => 'Content Boxed',
+		'fullwidth-content'   => 'Full Width / Contained',
+		'fullwidth-stretched' => 'Full Width / Stretched',
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {
@@ -179,26 +203,20 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
 }
 
 /**
- * Function for sanitizing footer layout
+ * [responsive_archive_layout_callback description]
  *
- * @param object $input arguments.
+ * @return bool
  */
-function responsive_validate_site_footer_layout( $input ) {
-	/** An array of valid results */
+function responsive_archive_layout_callback() {
 
-	$valid = array(
-		'footer-default-layout' => 'Default (3 column)',
-		'footer-2-col'          => '2 Column Layout',
-	);
-
-	if ( array_key_exists( $input, $valid ) ) {
-		return $input;
+	$responsive_options = responsive_get_options();
+	$responsive_options['blog_posts_index_layout_default'];
+	if ( ( 'blog-4-col' === $responsive_options['blog_posts_index_layout_default'] ) || ( 'blog-3-col' === $responsive_options['blog_posts_index_layout_default'] ) || ( 'blog-2-col' === $responsive_options['blog_posts_index_layout_default'] ) ) {
+		return true;
 	} else {
-		return '';
+		return false;
 	}
 }
-
-
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
@@ -347,4 +365,4 @@ function responsive_tooltip_script() {
 
 	echo $output;
 }
-add_action( 'customize_controls_print_scripts',  'responsive_tooltip_script'  );
+add_action( 'customize_controls_print_scripts', 'responsive_tooltip_script' );
