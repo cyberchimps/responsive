@@ -122,7 +122,7 @@ function ask_for_review_notice() {
 								</div>
 								<div>
 									<a href="?is-my-plugin-dismissed=true">Dismiss</a>
-		
+
 								</div>
          					</div>',
 			esc_url( $image_path ),
@@ -257,6 +257,5 @@ function add_review_styling() {
  	}
 
      </style>
- HTML;
- }
-
+HTML;
+}
