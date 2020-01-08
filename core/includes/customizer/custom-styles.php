@@ -123,7 +123,7 @@ function responsive_premium_custom_color_styles() {
 	$sidebar_mobile_padding_top    = get_theme_mod( 'responsive_sidebar_mobile_top_padding' );
 	$sidebar_mobile_padding_bottom = get_theme_mod( 'responsive_sidebar_mobile_bottom_padding' );
 
-	$sidebar_radius        = get_theme_mod( 'responsive_sidebar_radius','4' );
+	$sidebar_radius        = get_theme_mod( 'responsive_sidebar_radius', '4' );
 	$sidebar_heading_color = get_theme_mod( 'responsive_sidebar_heading_color' );
 	$sidebar_text_color    = get_theme_mod( 'responsive_sidebar_text_color' );
 
@@ -156,7 +156,7 @@ function responsive_premium_custom_color_styles() {
 	$header_text_color       = get_theme_mod( 'responsive_header_text_color', '#333333' );
 
 	$footer_border       = get_theme_mod( 'responsive_footer_border', '0' );
-	$footer_border_color = get_theme_mod( 'responsive_footer_border_color','#ffffff' );
+	$footer_border_color = get_theme_mod( 'responsive_footer_border_color', '#ffffff' );
 
 	$social_icons_color       = get_theme_mod( 'responsive_social_icons_color', '#ffffff' );
 	$social_icons_hover_color = get_theme_mod( 'responsive_social_icons_hover_color', $text_color );
@@ -380,7 +380,6 @@ function responsive_premium_custom_color_styles() {
 	} else {
 		$body_font_size = '14px';
 	}
-
 
 	$custom_css = "
 		body {
@@ -1351,28 +1350,30 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( 'row' === $footer_layout ) {
-		$custom_css   .= '@media (min-width: 700px) {
+		$custom_css .= '@media (min-width: 700px) {
           .content-outer .copyright{
             margin-bottom: 0;
             padding:0;
             margin:auto 0;
           }
         }';
-		$copy_position = array_search( 'copy_right_text', $footer_layout_positioning );
-		if ( $copy_position === 2 || $copy_position === 1 ) {
-			$custom_css .= '@media (min-width: 700px) {
+		if ( ! empty( $footer_layout_positioning ) ) {
+			$copy_position = array_search( 'copy_right_text', $footer_layout_positioning );
+			if ( 2 === $copy_position || 1 === $copy_position ) {
+				$custom_css .= '@media (min-width: 700px) {
             .content-outer .copyright{
               text-align:right;
             }
           }';
-		}
-		$social_icon_position = array_search( 'social_icons', $footer_layout_positioning );
-		if ( $social_icon_position === 2 || $social_icon_position === 1 ) {
-			$custom_css .= '@media (min-width: 700px) {
+			}
+			$social_icon_position = array_search( 'social_icons', $footer_layout_positioning );
+			if ( 2 === $social_icon_position || 1 === $social_icon_position ) {
+				$custom_css .= '@media (min-width: 700px) {
             .content-outer .social-icon{
               text-align:right;
             }
           }';
+			}
 		}
 	}
 	// Mobile Menu breakpoint.

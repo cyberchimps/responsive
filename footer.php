@@ -62,54 +62,6 @@ global $responsive_blog_layout_columns;
 			}
 			?>
 
-	<div class="footer-layouts social-icon">
-
-                    <?php echo responsive_get_social_icons_new() ;// phpcs:ignore ?>
-	</div><!-- end of col-380 fit -->
-	<?php } ?>
-	<?php get_sidebar( 'colophon' ); ?>
-	<?php
-	$cyberchimps_link = '';
-	if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
-		echo '<div class="footer-layouts copyright">';
-		if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
-			$copyright_text = $responsive_options['copyright_textbox'];
-			esc_attr_e( '&copy;', 'responsive' );
-			echo esc_attr( gmdate( 'Y' ) );
-			echo esc_attr( ' ' . $copyright_text, 'responsive' );
-		} else {
-			esc_attr_e( '&copy;', 'responsive' );
-			echo esc_attr( gmdate( 'Y' ) );
-			esc_attr_e( ' Responsive', 'responsive' );
-		}
-		if ( ! empty( $responsive_options['poweredby_link'] ) ) {
-			$cyberchimps_link = $responsive_options['poweredby_link'];
-		}
-		if ( $cyberchimps_link ) {
-			?>
-			<div class="powered">
-			<?php esc_attr_e( ' | Powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'https://cyberchimps.com/' ); ?>" title="<?php esc_attr_e( ' Responsive Theme ', 'responsive' ); ?>">
-				Responsive Theme </a>
-			</div>
-			<?php
-		}
-
-		echo '</div>';
-
-	} else {
-		echo '<div class="footer-layouts copyright">';
-		esc_attr_e( '&copy;', 'responsive' );
-		echo esc_attr( gmdate( 'Y' ) . ' ' );
-		echo esc_attr( bloginfo( 'name' ), 'responsive' );
-		?>
-		<div class="powered">
-		<?php esc_attr_e( ' | Powered by', 'responsive' ); ?> <a href="<?php echo esc_url( 'https://cyberchimps.com/' ); ?>" title="<?php esc_attr_e( ' Responsive Theme ', 'responsive' ); ?>">
-			Responsive Theme </a>
-		</div>
-		<?php
-		echo '</div>';
-	}
-	?>
 	</div>
 
 	</div>

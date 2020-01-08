@@ -176,10 +176,10 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					$wp_customize,
 					'responsive_social_icons_color',
 					array(
-					    'label'    => __( 'Social Icons Color', 'responsive' ),
-					    'section'  => 'responsive_social_media',
-					    'settings' => 'responsive_social_icons_color',
-					    'priority' => 1,
+						'label'    => __( 'Social Icons Color', 'responsive' ),
+						'section'  => 'responsive_social_media',
+						'settings' => 'responsive_social_icons_color',
+						'priority' => 1,
 					)
 				)
 			);
@@ -226,7 +226,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 						'settings' => 'responsive_theme_options[twitter_uid]',
 					)
 				)
-            );
+			);
 
 			// Add Facebook Setting.
 			$wp_customize->add_setting(
