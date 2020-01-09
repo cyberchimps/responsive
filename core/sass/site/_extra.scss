@@ -39,23 +39,24 @@ s {
 
 	position: relative;
 	&, body.home #wrapper {
-        margin: 20px auto 0 auto;
+        margin: 20px auto;
     }
 }
 
 body.fullwidth-stretched {
-	#wrapper {
-	margin-top: 0;
-	}
 	.breadcrumb-list{
 		margin-top: 20px;
 	}
 }
-
-.archive.fullwidth-stretched.blog-fullwidth-content, .single.fullwidth-stretched.single-fullwidth-content {
-	#wrapper{
-	margin-top: 20px;
-	margin-bottom: 20px;
+body {
+	&.page {
+		&.fullwidth-stretched,
+		&.fullwidth-content {
+			#wrapper {
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
+		}
 	}
 }
 

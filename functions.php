@@ -584,7 +584,7 @@ function responsive_check_previous_version() {
 	$menu_position      = get_theme_mod( 'menu_position' );
 
 	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
-	if ( $new_version && version_compare( $new_version, '4.0.0', '>=' ) ) {
+	if ( $new_version && version_compare( $new_version, '4.0.1', '>=' ) ) {
 
 		if ( ! $responsive_options['home_headline'] ) {
 			$responsive_options['home_headline'] = 'HAPPINESS';
@@ -601,10 +601,7 @@ function responsive_check_previous_version() {
 		if ( ! $responsive_options['cta_url'] ) {
 			$responsive_options['cta_url'] = '#';
 		}
-		if ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
-			$responsive_options['site_layout_option'] = 'fullwidth-stretched';
-			update_option( 'responsive_theme_options', $responsive_options );
-		} elseif ( 'full-width-layout' === $responsive_options['site_layout_option'] ) {
+		if ( 'full-width-layout' === $responsive_options['site_layout_option'] || 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
 			$responsive_options['site_layout_option'] = 'fullwidth-content';
 			update_option( 'responsive_theme_options', $responsive_options );
 		} elseif ( 'default-layout' === $responsive_options['site_layout_option'] ) {

@@ -49,54 +49,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		cssmin: {
-			style: {
-				options: {
-					//banner: '/* Theme Name: Responsive Author: CyberChimps.com Version: 1.9.4.9 Text Domain: responsive */'
-				},
-				files: {
-					'core/css/style.min.css': 'core/css/style.css',
-					'core/css/responsive.min.css':  'core/css/responsive.css',
-					'core/css/woocommerce.min.css':  'core/css/woocommerce.css'
-				}
-			},
-			theme_options: {
-				expand: true,
-				cwd: 'core/includes/theme-options/',
-				src: ['*.css', '!*.min.css'],
-				dest: 'core/includes/theme-options/',
-				ext: '.min.css'
-			}
-		},
-
-		uglify: {
-			options: {
-				mangle: false
-			},
-			theme_options: {
-				files: [
-					{
-						expand: true,     // Enable dynamic expansion.
-						cwd: 'core/includes/theme-options/',      // Src matches are relative to this path.
-						src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
-						dest: 'core/includes/theme-options/',   // Destination path prefix.
-						ext: '.min.js',   // Dest filepaths will have this extension.
-					},
-				]
-			},
-			frontend: {
-				files: [
-					{
-						expand: true,     // Enable dynamic expansion.
-						cwd: 'core/js-dev/',      // Src matches are relative to this path.
-						src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
-						dest: 'core/js/',   // Destination path prefix.
-						ext: '.min.js',   // Dest filepaths will have this extension.
-					},
-				]
-			}
-		},
-
 		makepot: {
 			target: {
 				options: {
@@ -205,9 +157,10 @@ module.exports = function(grunt) {
 					'!**/.csscomb.json',
 					'!**/sass/**',
 					'!**/automationtest/**',
-					'!**/jenkincodeception/**',
 					'!tests/**',
-					"!bitbucket-pipelines.yml"
+					'!bitbucket-pipelines.yml',
+					'!**/jenkincodeception/**'
+
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
@@ -248,7 +201,7 @@ module.exports = function(grunt) {
 
 	// Default task(s).
 	grunt.registerTask( 'updatefonts', [ 'google-fonts' ] );
-	grunt.registerTask( 'default', [ 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'default', [ 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };

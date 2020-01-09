@@ -92,7 +92,7 @@ function responsive_premium_custom_color_styles() {
 	$menu_background_color   = get_theme_mod( 'responsive_menu_background_colorpicker' );
 	$menu_background_color_2 = get_theme_mod( 'responsive_menu_background_colorpicker_2' );
 
-	$menu_background_color_2 = ( $menu_gradients_checkbox == 1 & $menu_background_color_2 != '' ? $menu_background_color_2 : $menu_background_color );
+	$menu_background_color_2 = ( 1 === $menu_gradients_checkbox & '' !== $menu_background_color_2 ? $menu_background_color_2 : $menu_background_color );
 
 	$menu_text_color        = get_theme_mod( 'responsive_menu_text_colorpicker' );
 	$menu_text_hover_color  = get_theme_mod( 'responsive_menu_text_hover_colorpicker' );
@@ -122,7 +122,7 @@ function responsive_premium_custom_color_styles() {
 	$sidebar_mobile_padding_top    = get_theme_mod( 'responsive_sidebar_mobile_top_padding' );
 	$sidebar_mobile_padding_bottom = get_theme_mod( 'responsive_sidebar_mobile_bottom_padding' );
 
-	$sidebar_radius        = get_theme_mod( 'responsive_sidebar_radius','4' );
+	$sidebar_radius        = get_theme_mod( 'responsive_sidebar_radius', '4' );
 	$sidebar_heading_color = get_theme_mod( 'responsive_sidebar_heading_color' );
 	$sidebar_text_color    = get_theme_mod( 'responsive_sidebar_text_color' );
 
@@ -151,7 +151,7 @@ function responsive_premium_custom_color_styles() {
 	$footer_text_color       = get_theme_mod( 'responsive_footer_text_color', '#ffffff' );
 
 	$footer_border       = get_theme_mod( 'responsive_footer_border', '0' );
-	$footer_border_color = get_theme_mod( 'responsive_footer_border_color','#ffffff' );
+	$footer_border_color = get_theme_mod( 'responsive_footer_border_color', '#ffffff' );
 
 	$social_icons_color       = get_theme_mod( 'responsive_social_icons_color', '#ffffff' );
 	$social_icons_hover_color = get_theme_mod( 'responsive_social_icons_hover_color', $text_color );
@@ -192,8 +192,8 @@ function responsive_premium_custom_color_styles() {
 	$stt_icon_background_color       = get_theme_mod( 'responsive_scroll_to_top_icon_background_color' );
 	$stt_icon_background_hover_color = get_theme_mod( 'responsive_scroll_to_top_icon_background_hover_color' );
 
-	$header_width = get_theme_mod( 'header_width', 'Container' );
-	$footer_width = get_theme_mod( 'responsive_footer_width', 'Container' );
+	$header_width = get_theme_mod( 'header_width', 'container' );
+	$footer_width = get_theme_mod( 'responsive_footer_width', 'container' );
 
 	$header_border_color = get_theme_mod( 'responsive_header_border_color' );
 
@@ -757,7 +757,7 @@ function responsive_premium_custom_color_styles() {
 		}';
 	}
 
-	if ( 'Full' === $header_width ) {
+	if ( 'full' === $header_width ) {
 		$custom_css .= 'body.full-width-no-box header div.content-outer,
 		body.full-width-layout header div.content-outer,
 		header div.content-outer {
@@ -786,7 +786,7 @@ function responsive_premium_custom_color_styles() {
 		}';
 	}
 
-	if ( 'Full' === $footer_width ) {
+	if ( 'full' === $footer_width ) {
 		$custom_css .= '#footer .content-outer {
 			max-width: 100%;
 			width: 100%;
@@ -1136,7 +1136,7 @@ function responsive_premium_custom_color_styles() {
 			}";
 		}
 	}
-	if ( $responsive_header_layout === 'header-logo-center' ) {
+	if ( 'header-logo-center' === $responsive_header_layout ) {
 		$custom_css .= '
 		.menu{
             display: flex;
@@ -1533,7 +1533,7 @@ function responsive_premium_custom_color_styles() {
 			border-bottom-color: {$responsive_submenu_divider_color};
 		} ";
 	}
-	if ( 0 == $responsive_submenu_divider ) {
+	if ( 0 === $responsive_submenu_divider ) {
 
 		$custom_css .= '.menu li li {
 			border-bottom: none;
@@ -1549,10 +1549,6 @@ function responsive_premium_custom_color_styles() {
 	$header_mobile_padding = (int) $header_mobile_padding_right + (int) $header_mobile_padding_left;
 
 	if ( 'in_header' === $header_menu_position ) {
-		$custom_css .= 'body.fullwidth-content:not(.single):not(.single-post):not(.blog) #wrapper,
-		#wrapper body.home #wrapper {
-			margin: 0;
-		}';
 		$custom_css .= "@media screen and (max-width: {$mobile_menu_breakpoint}px){
 		.header-logo-right#header .responsive-header,
 		.header-logo-left#header .responsive-header {
