@@ -233,10 +233,10 @@ function responsive_premium_custom_color_styles() {
 	$display_thumbnail_without_padding = get_theme_mod( 'responsive_display_thumbnail_without_padding', true );
 
 	// Blog_entries Padding.
-	$blog_entries_padding_right  = get_theme_mod( 'responsive_blog_entries_right_padding', '10' );
-	$blog_entries_padding_left   = get_theme_mod( 'responsive_blog_entries_left_padding', '10' );
-	$blog_entries_padding_top    = get_theme_mod( 'responsive_blog_entries_top_padding', '10' );
-	$blog_entries_padding_bottom = get_theme_mod( 'responsive_blog_entries_bottom_padding', '10' );
+	$blog_entries_padding_right  = get_theme_mod( 'responsive_blog_entries_right_padding', '0' );
+	$blog_entries_padding_left   = get_theme_mod( 'responsive_blog_entries_left_padding', '0' );
+	$blog_entries_padding_top    = get_theme_mod( 'responsive_blog_entries_top_padding', '0' );
+	$blog_entries_padding_bottom = get_theme_mod( 'responsive_blog_entries_bottom_padding', '0' );
 
 	$blog_entries_tablet_padding_right  = get_theme_mod( 'responsive_blog_entries_tablet_right_padding' );
 	$blog_entries_tablet_padding_left   = get_theme_mod( 'responsive_blog_entries_tablet_left_padding' );
