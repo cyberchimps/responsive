@@ -97,9 +97,9 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'header_width',
 				array(
-					'default'           => 'Container',
+					'default'           => 'container',
 					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
+					'sanitize_callback' => 'responsive_sanitize_select',
 				)
 			);
 			$wp_customize->add_control(
@@ -112,8 +112,8 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					'choices'  => apply_filters(
 						'responsive_header_width_choices',
 						array(
-							'Container' => esc_html__( 'Container', 'responsive' ),
-							'Full'      => esc_html__( 'Full', 'responsive' ),
+							'container' => esc_html__( 'Container', 'responsive' ),
+							'full'      => esc_html__( 'Full', 'responsive' ),
 						)
 					),
 				)

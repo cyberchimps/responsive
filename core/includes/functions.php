@@ -349,7 +349,9 @@ if ( ! function_exists( 'responsive_css' ) ) {
 
 		// If plugin - 'WooCommerce' is active.
 		if ( class_exists( 'WooCommerce' ) ) {
-			wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
+			if ( is_woocommerce() || is_shop() || is_cart() || is_checkout() ) {
+				wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
+			}
 		}
 	}
 }
@@ -531,7 +533,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-if( !class_exists( 'Responsive_Addons_Pro_Public' ) ){
+if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
 	add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
 }
 
