@@ -256,29 +256,8 @@ body.blog #primary{
 	padding: 0;
 }
 
-body.search .post, body.search .page, body.archive .post, body.blog .post, body.single .post{
-	margin: 0;
-	padding: 5.34em 6.67em;
-	border-bottom: 1px solid #eee;
-}
-body.single .post{
-	border: none;
-}
-@media (max-width: 1200px) {
-	body.search .post, body.search .page, body.archive .post, body.blog .post, body.single .post {
-		padding: 3.34em 2.4em;;
-	}
-}
 @media (max-width: 768px) {
-	body.search .post, body.search .page, body.archive .post, body.blog .post, body.single .post {
-		padding: 1.5em 2.14em;
-	}
 	#primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary, body.page.page-boxed #primary, body.page.page-content-boxed #primary, body.page.page-fullwidth-content #primary {
 		margin-bottom: 1.5em;
-	}
-}
-@media (max-width: 544px) {
-	body.search .post, body.search .page, body.archive .post, body.blog .post, body.single .post {
-		padding: 1.5em 1em;
 	}
 }
