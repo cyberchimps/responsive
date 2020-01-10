@@ -2479,6 +2479,10 @@ img.wp-smiley {
   padding: 20px;
 }
 
+.widget-wrapper:last-child, #secondary {
+  margin-bottom: 0;
+}
+
 .widget-wrapper select,
 .widget-wrapper input[type=text],
 .widget-wrapper input[type=search],
@@ -2503,6 +2507,7 @@ img.wp-smiley {
 #secondary ul,
 #secondary ol {
   padding: 0 0 0 20px;
+  margin: 0 1.5em 0 0;
 }
 
 #secondary ul li a {
@@ -2572,6 +2577,17 @@ img.wp-smiley {
   width: 100%;
 }
 
+.header-widgets ul.menu-widget {
+  margin: 0;
+}
+.header-widgets ul.menu-widget a {
+  height: inherit;
+  line-height: inherit;
+}
+.header-widgets ul.menu-widget .menu-item-has-children::after {
+  top: 0;
+}
+
 .header-widgets {
   background: none;
   border: none;
@@ -2581,6 +2597,7 @@ img.wp-smiley {
   flex-flow: row;
   min-height: 0;
   width: 100%;
+  padding: 1px 5px;
 }
 @media screen and (max-width: 768px) {
   .header-widgets {
@@ -2593,17 +2610,26 @@ img.wp-smiley {
 }
 .header-widgets > div {
   width: inherit;
+  margin-right: 1em;
 }
 .header-widgets > div:first-child {
   margin-left: 0;
 }
+.header-widgets > div:first-child .menu-widget {
+  float: left;
+}
+.header-widgets > div:first-child #searchform input[type=submit]#searchsubmit {
+  width: 8%;
+}
 .header-widgets > div:last-child {
   margin-right: 0;
 }
-@media (min-width: 768px) {
-  .header-widgets > div {
-    margin: 1%;
-  }
+.header-widgets > div:last-child #searchform {
+  float: right;
+  display: flex;
+}
+.header-widgets > div:last-child #searchform input[type=text] {
+  margin-right: 2%;
 }
 
 .header-widgets ul {
@@ -2976,7 +3002,7 @@ body.page.page-content-boxed .widget-wrapper, body.archive.blog-content-boxed .w
   background-color: transparent;
 }
 
-.boxed #primary, .boxed #primary, .boxed .widget-wrapper, .content-boxed #primary, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #primary, body.blog.blog-content-boxed #primary, body.single.single-content-boxed #primary, body.archive.blog-boxed .widget-wrapper, body.blog.blog-boxed .widget-wrapper, body.single.single-boxed .widget-wrapper, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed #primary, body.page.page-boxed #primary, body.page.page-boxed .widget-wrapper, body.page.page-content-boxed #primary, body.page.page-content-boxed #primary {
+.boxed #primary, .boxed #primary, .boxed .widget-wrapper, .content-boxed #primary, .content-boxed #primary, body.fullwidth-content, body.fullwidth-stretched, body.archive.blog-fullwidth-content, body.blog.blog-fullwidth-content, body.single.single-fullwidth-content, body.archive.blog-fullwidth-stretched, body.blog.blog-fullwidth-stretched, body.single.single-fullwidth-stretched, body.archive.blog-content-boxed #primary, body.blog.blog-content-boxed #primary, body.single.single-content-boxed #primary, body.archive.blog-boxed .widget-wrapper, body.blog.blog-boxed .widget-wrapper, body.single.single-boxed .widget-wrapper, body.page.page-fullwidth-stretched, body.page.page-fullwidth-content, body.page.page-boxed #primary, body.page.page-boxed #primary, body.page.page-boxed .widget-wrapper, body.page.page-content-boxed #primary, body.page.page-content-boxed #primary, body.page-template-full-width-page.boxed #content-full {
   background-color: #ffffff;
 }
 
@@ -3022,6 +3048,7 @@ body.fullwidth-stretched #wrapper .content-outer {
 }
 .page-template-full-width-page #content-full {
   padding: 0 20px;
+  background-color: #ffffff;
 }
 
 /*--------------------------------------------------------------
@@ -3406,6 +3433,10 @@ body.single .post {
 @media (max-width: 768px) {
   body.search .post, body.search .page, body.archive .post, body.blog .post, body.single .post {
     padding: 1.5em 2.14em;
+  }
+
+  #primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary, body.single.single-fullwidth-content #primary, body.page.page-boxed #primary, body.page.page-content-boxed #primary, body.page.page-fullwidth-content #primary {
+    margin-bottom: 1.5em;
   }
 }
 @media (max-width: 544px) {
