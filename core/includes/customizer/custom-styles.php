@@ -558,7 +558,9 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce ul.products li.product .onsale, .woocommerce span.onsale, .wc-block-grid__product-onsale{
 			background-color: {$link_color};
 			color: #ffffff;
+			
 		}
+        
 		@media (min-width: {$mobile_menu_breakpoint}px) {
 			.main-nav {
 				padding: {$responsive_header_menu_top_padding}px {$responsive_header_menu_right_padding}px {$responsive_header_menu_bottom_padding}px {$responsive_header_menu_left_padding}px;
