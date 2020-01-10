@@ -286,6 +286,8 @@ function responsive_premium_custom_color_styles() {
 	$single_alignment = get_theme_mod( 'responsive_single_title_alignment_options', 'left' );
 	$page_alignment   = get_theme_mod( 'responsive_page_title_alignment_options', 'left' );
 
+	$product_sale_style = get_theme_mod( 'responsive_product_sale_style' );
+
 	if ( isset( $body_typography['color'] ) ) {
 		$body_color = $body_typography['color'];
 	} else {
@@ -661,6 +663,48 @@ function responsive_premium_custom_color_styles() {
 			color:{$social_icons_hover_color};
 		}
 		";
+
+	if ( 'circle' === $product_sale_style ) {
+		$custom_css .= '.wc-block-grid__product-onsale{
+                        border-radius: 999px;
+                        padding: 0 2px;
+                        line-height: 3.236;
+                    }
+                ';
+	}
+
+	if ( 'circle-outline' === $product_sale_style ) {
+		$custom_css .= '.wc-block-grid__product-onsale{
+                        background: #ffffff;
+                        border: 2px solid #0066cc;
+                        color: #0066cc;
+                        border-radius: 999px;
+                        padding:0 ;
+                        line-height: 2.7;
+                    }
+                ';
+	}
+
+	if ( 'square' === $product_sale_style ) {
+		$custom_css .= '.wc-block-grid__product-onsale{
+                        border-radius: 0;
+                        padding: 0;
+                        line-height: 3.236;
+                    }
+                ';
+	}
+
+	if ( 'square-outline' === $product_sale_style ) {
+		$custom_css .= '.wc-block-grid__product-onsale{
+                    background: #ffffff;
+                    border: 2px solid #0066cc;
+                    color: #0066cc;
+                    border-radius: 0;
+                    padding: 0;
+                    line-height: 2.7;
+                }
+                ';
+	}
 
 	if ( 'column' === $footer_layout ) {
 		$custom_css .= '.footer-bar{
