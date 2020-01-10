@@ -2479,6 +2479,10 @@ img.wp-smiley {
   padding: 20px;
 }
 
+.widget-wrapper:last-child, #secondary {
+  margin-bottom: 0;
+}
+
 .widget-wrapper select,
 .widget-wrapper input[type=text],
 .widget-wrapper input[type=search],
