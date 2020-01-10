@@ -408,11 +408,11 @@ function responsive_premium_custom_color_styles() {
 		.post-meta *{
 		    color: {$body_color};
 		}
-		a:hover, .post-meta .timestamp.updated:hover, .post-meta .author.vcard .url.fn.n span:hover, #secondary .widget-wrapper a:hover{
+		a:hover, .post-meta .timestamp.updated:hover, .post-meta .author.vcard .url.fn.n span:hover, #secondary.grid .widget-wrapper a:hover{
 			color: {$link_hover_color};
 		}
 
-		a, #secondary .widget-wrapper a {
+		a, #secondary.grid .widget-wrapper a, #secondary.grid .widget-wrapper li {
 			color: {$link_color};
 		}
 
