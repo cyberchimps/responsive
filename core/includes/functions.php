@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php
+
 /*
  * Globalize Theme options
  */
