@@ -217,7 +217,7 @@ function add_review_styling() {
  	}
 
  	.notice-content {
- 		margin-right: 15px;
+ 		margin-right: 12%;
  	}
 
  	.notice-container {
