@@ -93,6 +93,10 @@ add_action( 'admin_notices', 'responsive_front_page_reading_notice' );
  */
 function ask_for_review_notice() {
 
+	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
+		return;
+	}
+
 	if ( false === get_option( 'responsive-theme-old-setup' ) ) {
 		set_transient( 'responsive_theme_ask_review_flag', true, MONTH_IN_SECONDS );
 		update_option( 'responsive-theme-old-setup', true );
@@ -106,9 +110,9 @@ function ask_for_review_notice() {
 								</div>
 								<div class="notice-content">
 									<div class="notice-heading">
-										Hello! Seems like you have used Responsive theme to build this website — Thanks a ton!
+										Hi! Thanks for using the Responsive theme.
 									</div>
-									Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Responsive theme.<br />
+									Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.<br />
 									<div class="responsive-review-notice-container">
 										<a href="%2$s" class="responsive-notice-close responsive-review-notice button-primary" target="_blank">
 										Ok, you deserve it
