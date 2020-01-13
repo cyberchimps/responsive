@@ -130,7 +130,6 @@
 	border: none;
 	clear: right;
 	display: flex;
-	float: right;
 	flex-flow: row;
 	min-height: 0;
 	width: 100%;
@@ -144,13 +143,13 @@
 	}
 
 	> div {
-	    width: inherit;
+	    flex: auto;
 			margin-right: 1em;
+			display: flex;
+			flex-wrap: wrap;
 		&:first-child {
 			margin-left: 0;
-			.menu-widget{
-				float: left;
-			}
+			justify-content: flex-start;
 			#searchform{
 				input[type=submit]#searchsubmit{
 					width: 8%;
@@ -159,9 +158,8 @@
 		}
 		&:last-child {
 			margin-right: 0;
+			justify-content: flex-end;
 			#searchform{
-				float: right;
-				display: flex;
 				input[type=text]{
 					margin-right: 2%;
 				}
