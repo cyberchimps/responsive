@@ -315,7 +315,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=title_tagline' ),
 					),
 					'navigation'    => array(
-						'title'     => __( 'Add/edit navigation Menu', 'responsive' ),
+						'title'     => __( 'Add/edit navigation menu', 'responsive' ),
 						'dashicon'  => 'dashicons-menu',
 						'quick_url' => admin_url( 'customize.php?autofocus[panel]=nav_menus' ),
 					),
