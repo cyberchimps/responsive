@@ -46,6 +46,13 @@ require $responsive_template_directory . '/core/includes/classes/class-responsiv
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 
+if ( is_admin() ) {
+	/**
+	 * Admin Menu Settings
+	 */
+	require_once $responsive_template_directory . '/core/includes/classes/class-responsive-admin-settings.php';
+}
+
 /**
  * Return value of the supplied responsive free theme option.
  *
