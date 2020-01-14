@@ -8,6 +8,9 @@
 	padding: 20px;
 }
 
+.widget-wrapper:last-child, #secondary {
+	margin-bottom: 0;
+}
 .widget-wrapper select,
 .widget-wrapper input[type="text"],
 .widget-wrapper input[type=search],
@@ -17,10 +20,6 @@
 	padding: .4em;
 	font: inherit;
 }
-
-// #secondary {
-// 	margin-top: 40px;
-// }
 
 #secondary a {
 	display: inline-block;
@@ -36,6 +35,7 @@
 #secondary ul,
 #secondary ol {
 	padding: 0 0 0 20px;
+	margin: 0 1.5em 0 0;
 }
 
 #secondary ul li a {
@@ -126,7 +126,6 @@
 	border: none;
 	clear: right;
 	display: flex;
-	float: right;
 	flex-flow: row;
 	min-height: 0;
 	width: 100%;
@@ -140,13 +139,13 @@
 	}
 
 	> div {
-	    width: inherit;
+	    flex: auto;
 			margin-right: 1em;
+			display: flex;
+			flex-wrap: wrap;
 		&:first-child {
 			margin-left: 0;
-			.menu-widget{
-				float: left;
-			}
+			justify-content: flex-start;
 			#searchform{
 				input[type=submit]#searchsubmit{
 					width: 8%;
@@ -155,9 +154,8 @@
 		}
 		&:last-child {
 			margin-right: 0;
+			justify-content: flex-end;
 			#searchform{
-				float: right;
-				display: flex;
 				input[type=text]{
 					margin-right: 2%;
 				}

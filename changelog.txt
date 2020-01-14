@@ -8,11 +8,17 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/01/20) = Fix - Version 4.0.3
+[!] = Fixed sale bubble styling for Woocommerce blocks in Gutenberg
+[!] = Fixed CSS for blog page
+[!] = Fixed CSS for header widgets
+[!] = Fixed background color issue for full width page template
+
 (08/01/20) = Fix - Version 4.0.2
 [!] = Fixed - If earlier layout is full-width-layout or full-width-no-box then default layout is set to fullwidth-content
 
 (08/01/20) = Fix - Version 4.0.1
-[!] = Fixed - prevent woocommerce css to be load on non-woocommerce pages
+[!] = Fixed - Prevent Woocommerce css from loading on non-woocommerce pages
 
 (08/01/20) = Added - Version 4.0
 [+] = Added separate layout options for pages
