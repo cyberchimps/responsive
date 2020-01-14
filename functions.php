@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.0.0' );
+define( 'RESPONSIVE_THEME_VERSION', '4.0.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 /**
@@ -45,6 +45,13 @@ require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-blog-markup.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
+
+if ( is_admin() ) {
+	/**
+	 * Admin Menu Settings
+	 */
+	require_once $responsive_template_directory . '/core/includes/classes/class-responsive-admin-settings.php';
+}
 
 /**
  * Return value of the supplied responsive free theme option.
