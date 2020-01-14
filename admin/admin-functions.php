@@ -18,8 +18,6 @@ function responsive_admin_page() {
 	);
 }
 
-add_action( 'admin_menu', 'responsive_admin_page', 99 );
-
 /**
  * Admin page design
  */
