@@ -1626,6 +1626,7 @@ function responsive_premium_custom_color_styles() {
 		.js .header-logo-right#header .main-nav a#responsive_menu_button {
 			margin-left:0;
 		}
+		}
 		@media screen and (max-width: 480px){
 				.js .header-logo-right#header .main-nav .menu{
 				min-width:calc(200% + {$header_mobile_padding}px);
