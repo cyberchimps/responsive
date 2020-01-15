@@ -30,7 +30,8 @@ global $responsive_blog_layout_columns;
 
 		<?php get_sidebar( 'footer' ); ?>
 	<div class="footer-bar grid col-940">
-	<div class="content-outer">
+	<div class="content-outer container">
+	<div class="row">
 
 			<?php get_sidebar( 'colophon' ); ?>
 			<?php
@@ -62,6 +63,7 @@ global $responsive_blog_layout_columns;
 			}
 			?>
 
+	</div>
 	</div>
 
 	</div>

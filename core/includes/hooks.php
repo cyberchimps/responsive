@@ -271,7 +271,7 @@ add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_en
  * Responsive_woocommerce_wrapper
  */
 function responsive_woocommerce_wrapper() {
-	echo '<div class="content-outer">';
+	echo '<div class="content-outer container"><div class="row">';
 	echo '<div id="content-woocommerce" class="' . esc_attr(implode(' ', responsive_get_content_classes())) . '">';
 }
 
@@ -283,5 +283,24 @@ function responsive_woocommerce_wrapper_end() {
 	if ( is_active_sidebar( 'main-sidebar' ) ) {
 		get_sidebar();
 	}
+	echo '</div></div>';
+}
+
+
+/**
+ * [responsive_open_container description]
+ *
+ * @return void [description]
+ */
+function responsive_open_container() {
+	echo '<div class="container">';
+}
+
+/**
+ * [responsive_close_container description]
+ *
+ * @return void [description]
+ */
+function responsive_close_container() {
 	echo '</div>';
 }

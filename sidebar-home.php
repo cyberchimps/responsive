@@ -24,7 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-widgets'] != '1' ) {
 	?>
 	<?php responsive_widgets_before(); // above widgets container hook ?>
-<div class="content-outer">
+<div class="content-outer container">
+	<div class="row">
 	<aside id="secondary" class="home-widgets" role="complementary">
 		<div id="home_widget_1" class="grid col-300">
 		<?php responsive_widgets(); // above widgets hook ?>
@@ -81,6 +82,7 @@ if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-w
 		<?php responsive_widgets_end(); // after widgets hook ?>
 		</div><!-- end of .col-300 fit -->
 	</aside><!-- end of #secondary -->
+</div>
 </div>
 	<?php responsive_widgets_after(); // after widgets container hook
 }

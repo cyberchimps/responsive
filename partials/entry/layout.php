@@ -25,7 +25,7 @@ if ( 'excerpt' === $responsive_show_excerpt ) {
 	add_filter( 'responsive_post_read_more_class', 'responsive_read_more_class' );
 }
 ?>
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 	<?php responsive_entry_top(); ?>
 	<div class="post-entry">
 
@@ -83,4 +83,4 @@ if ( 'excerpt' === $responsive_show_excerpt ) {
 	<?php get_template_part( 'post-data', get_post_type() ); ?>
 
 	<?php responsive_entry_bottom(); ?>
-</div><!-- end of #post-<?php the_ID(); ?> -->
+</article><!-- end of #post-<?php the_ID(); ?> -->

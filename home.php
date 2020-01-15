@@ -28,7 +28,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header(); ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <div id="wrapper" class="clearfix">
-	<div class="content-outer">
+	<div class="content-outer container">
+	<div class="row">
 <?php
 responsive_in_wrapper(); // wrapper hook.
 get_template_part( 'wp-admin/includes', 'plugin' );
@@ -166,6 +167,7 @@ if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_arr
 
 	<?php get_sidebar(); ?>
 <?php } ?>
+</div>
 </div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->

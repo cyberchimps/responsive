@@ -142,6 +142,31 @@ if ( ! function_exists( 'responsive_blog_single_elements_positioning' ) ) {
 	}
 }
 
+
+
+if ( ! function_exists( 'responsive_header_elements' ) ) {
+	/**
+	 * Returns header elements for the customizer
+	 *
+	 * @since 0.2
+	 */
+	function responsive_header_elements() {
+		// Default elements.
+		$elements = apply_filters(
+			'responsive_header_elements',
+			array(
+				'site-branding'   => esc_html__( 'Site Branding', 'responsive' ),
+				'main-navigation' => esc_html__( 'Main Navigation', 'responsive' ),
+			)
+		);
+
+		// Return elements.
+		return $elements;
+
+	}
+}
+
+
 	/**
 	* Returns blog single meta
 	*
@@ -839,9 +864,11 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
  * @param  integer $element  [description].
  * @param  string  $section  [description].
  * @param  integer $priority [description].
+ * @param  integer $default_values_y [description].
+ * @param  integer $default_values_x [description].
  * @return void
  */
-function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values ) {
+function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '' ) {
 	/**
 	 *  Padding control.
 	 */
@@ -850,7 +877,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -858,7 +885,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_x,
 		)
 	);
 
@@ -867,7 +894,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refesh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -875,7 +902,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_x,
 		)
 	);
 	$wp_customize->add_setting(
@@ -883,7 +910,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -891,7 +918,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_x,
 		)
 	);
 	$wp_customize->add_setting(
@@ -899,7 +926,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -907,7 +934,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_x,
 		)
 	);
 
@@ -916,7 +943,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -924,7 +951,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_x,
 		)
 	);
 	$wp_customize->add_setting(
@@ -932,7 +959,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_y,
 		)
 	);
 	$wp_customize->add_setting(
@@ -940,7 +967,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 		array(
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'responsive_sanitize_number',
-			'default'           => $default_values,
+			'default'           => $default_values_x,
 		)
 	);
 	$wp_customize->add_control(
@@ -1045,4 +1072,197 @@ function responsive_meta_styles( $wp_customize, $element, $section, $priority ) 
 			),
 		)
 	);
+}
+
+
+
+/**
+ * Responsive_meta_styles description
+ *
+ * @param  object  $wp_customize [description].
+ * @param  string  $element      [description].
+ * @param  string  $label      [description].
+ * @param  string  $section      [description].
+ * @param  integer $priority     [description].
+ * @param  integer $default     [description].
+ * @return void               [description].
+ */
+function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
+	// Menu Background Color.
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_color',
+		array(
+			'default'           => $default,
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'responsive_sanitize_background',
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Color_Control(
+			$wp_customize,
+			'responsive_' . $element . '_color',
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element . '_color',
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+			)
+		)
+	);
+
+}
+
+/**
+ * [responsive_drag_number_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @return void               [description].
+ */
+function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
+
+	/**
+	 * Main Container Width
+	 */
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'transport'         => 'refresh',
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Range_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'input_attrs'     => array(
+					'min'  => 1,
+					'max'  => 4096,
+					'step' => 1,
+				),
+			)
+		)
+	);
+
+}
+
+/**
+ * [responsive_dropdown_select_control description].
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $choices      [description].
+ *
+ * @return void               [description].
+ */
+function responsive_dropdown_select_control( $wp_customize, $element, $label, $section, $priority, $default, $choice ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_select',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'mobile_menu_style',
+		array(
+			'label'    => $label,
+			'section'  => $section,
+			'settings' => 'responsive_' . $element,
+			'type'     => 'select',
+			'choices'  => $choice,
+			'priority' => $priority,
+		)
+	);
+}
+
+/**
+ * [responsive_separator_control description].
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ *
+ * @return void               [description].
+ */
+function responsive_separator_control( $wp_customize, $element, $label, $section, $priority ) {
+
+	/**
+	* COLORS Heading.
+	*/
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'sanitize_callback' => 'wp_kses',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Heading_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'    => $label,
+				'section'  => $section,
+				'priority' => $priority,
+			)
+		)
+	);
+}
+
+/**
+ * [responsive_active_vertical_header description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_vertical_header() {
+
+	$header_layout = get_theme_mod( 'responsive_header_layout', 'horizontal' );
+
+	return ( 'vertical' === $header_layout ) ? true : false;
+}
+
+/**
+ * [responsive_active_site_layout_contained description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_site_layout_contained() {
+
+	$header_layout = get_theme_mod( 'responsive_width', 'contained' );
+
+	return ( 'contained' === $header_layout ) ? true : false;
+}
+
+/**
+ * [responsive_not_active_site_style_flat description]
+ *
+ * @return [type] [description]
+ */
+function responsive_not_active_site_style_flat() {
+
+	$header_layout = get_theme_mod( 'responsive_style', 'contained' );
+
+	return ( 'flat' === $header_layout ) ? false : true;
 }

@@ -34,298 +34,98 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 		 */
 		public function customizer_options( $wp_customize ) {
 			$wp_customize->add_section(
-				'responsive_header_section',
+				'responsive_header_layout',
 				array(
-					'title'    => esc_html__( 'Header Section', 'responsive' ),
-					'panel'    => 'responsive-header-options',
-					'priority' => 3,
+					'title'    => esc_html__( 'Layout', 'responsive' ),
+					'panel'    => 'responsive_header',
+					'priority' => 1,
 
 				)
 			);
+			/**
+			 * Header Elements Positioning
+			 */
 			$wp_customize->add_setting(
-				'header_layout_options',
+				'responsive_header_elements',
 				array(
-					'default'           => 'header-logo-left',
+					'default'           => array( 'site-branding', 'main-navigation' ),
+					'sanitize_callback' => 'responsive_sanitize_multi_choices',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Sortable_Control(
+					$wp_customize,
+					'responsive_header_elements',
+					array(
+						'label'    => esc_html__( 'Header Elements', 'responsive' ),
+						'section'  => 'responsive_header_layout',
+						'settings' => 'responsive_header_elements',
+						'priority' => 0,
+						'choices'  => responsive_header_elements(),
+					)
+				)
+			);
+
+			// Header Layout.
+			$wp_customize->add_setting(
+				'responsive_header_layout',
+				array(
+					'default'           => 'horizontal',
 					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
-				'header_layout_options',
+				'responsive_header_layout',
 				array(
 					'label'    => __( 'Header Layout', 'responsive' ),
-					'section'  => 'responsive_header_section',
-					'settings' => 'header_layout_options',
+					'section'  => 'responsive_header_layout',
+					'settings' => 'responsive_header_layout',
 					'type'     => 'select',
-					'priority' => 0,
+					'priority' => 1,
 					'choices'  => apply_filters(
 						'responsive_header_layout_choices',
 						array(
-							'header-logo-left'   => esc_html__( 'Logo Left', 'responsive' ),
-							'header-logo-center' => esc_html__( 'Logo Center', 'responsive' ),
-							'header-logo-right'  => esc_html__( 'Logo Right', 'responsive' ),
+							'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
+							'vertical'   => esc_html__( 'Vertical', 'responsive' ),
 						)
 					),
 				)
 			);
+
+			// Header Allignment.
 			$wp_customize->add_setting(
-				'menu_position',
+				'responsive_header_alignment',
 				array(
-					'default'           => 'in_header',
+					'default'           => 'center',
 					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
-				'menu_position',
+				'responsive_header_alignment',
 				array(
-					'label'    => __( 'Header Menu Position', 'responsive' ),
-					'section'  => 'responsive_header_section',
-					'settings' => 'menu_position',
-					'type'     => 'select',
-					'choices'  => apply_filters(
-						'responsive_menu_position',
+					'label'           => __( 'Header Alignment', 'responsive' ),
+					'section'         => 'responsive_header_layout',
+					'settings'        => 'responsive_header_alignment',
+					'type'            => 'select',
+					'priority'        => 2,
+					'active_callback' => 'responsive_active_vertical_header',
+					'choices'         => apply_filters(
+						'responsive_header_layout_choices',
 						array(
-							'above_header' => esc_html__( 'Above Header', 'responsive' ),
-							'in_header'    => esc_html__( 'Default', 'responsive' ),
-							'below_header' => esc_html__( 'Below Header', 'responsive' ),
-						)
-					),
-					'priority' => 2,
-				)
-			);
-			$wp_customize->add_setting(
-				'header_width',
-				array(
-					'default'           => 'container',
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_select',
-				)
-			);
-			$wp_customize->add_control(
-				'header_width',
-				array(
-					'label'    => __( 'Header Width', 'responsive' ),
-					'section'  => 'responsive_header_section',
-					'settings' => 'header_width',
-					'type'     => 'select',
-					'choices'  => apply_filters(
-						'responsive_header_width_choices',
-						array(
-							'container' => esc_html__( 'Container', 'responsive' ),
-							'full'      => esc_html__( 'Full', 'responsive' ),
+							'center' => esc_html__( 'Center', 'responsive' ),
+							'left'   => esc_html__( 'Left', 'responsive' ),
+							'right'  => esc_html__( 'Right', 'responsive' ),
 						)
 					),
 				)
 			);
 
-			$wp_customize->add_setting(
-				'responsive_header_top_padding',
-				array(
-					'transport'         => 'refresh',
-					'default'           => '0',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_left_padding',
-				array(
-					'transport'         => 'refresh',
-					'default'           => '0',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_header_bottom_padding',
-				array(
-					'transport'         => 'refesh',
-					'default'           => '0',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_right_padding',
-				array(
-					'transport'         => 'refresh',
-					'default'           => '0',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_tablet_top_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_tablet_right_padding',
-				array(
-					'default'           => 20,
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_tablet_bottom_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_tablet_left_padding',
-				array(
-					'default'           => 20,
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_header_mobile_top_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_mobile_right_padding',
-				array(
-					'default'           => 20,
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_mobile_bottom_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_header_mobile_left_padding',
-				array(
-					'default'           => 20,
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Dimensions_Control(
-					$wp_customize,
-					'responsive_header_padding',
-					array(
-						'label'       => esc_html__( 'Header Padding (px)', 'responsive' ),
-						'section'     => 'responsive_header_section',
-						'settings'    => array(
-							'desktop_top'    => 'responsive_header_top_padding',
-							'desktop_right'  => 'responsive_header_right_padding',
-							'desktop_bottom' => 'responsive_header_bottom_padding',
-							'desktop_left'   => 'responsive_header_left_padding',
-							'tablet_top'     => 'responsive_header_tablet_top_padding',
-							'tablet_right'   => 'responsive_header_tablet_right_padding',
-							'tablet_bottom'  => 'responsive_header_tablet_bottom_padding',
-							'tablet_left'    => 'responsive_header_tablet_left_padding',
-							'mobile_top'     => 'responsive_header_mobile_top_padding',
-							'mobile_right'   => 'responsive_header_mobile_right_padding',
-							'mobile_bottom'  => 'responsive_header_mobile_bottom_padding',
-							'mobile_left'    => 'responsive_header_mobile_left_padding',
-						),
-						'priority'    => 10,
-						'input_attrs' => array(
-							'min'  => 0,
-							'max'  => 60,
-							'step' => 1,
-						),
-					)
-				)
-			);
-			// header border Color.
-			$wp_customize->add_setting(
-				'responsive_header_border_color',
-				array(
-					'default'           => '',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_background',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'responsive_header_border_color',
-					array(
-						'label'    => __( 'Border Bottom Color', 'responsive' ),
-						'section'  => 'responsive_header_section',
-						'settings' => 'responsive_header_border_color',
-					)
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_fullwidth_header_color',
-				array(
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-					'default'           => '',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_fullwidth_header_color',
-					array(
-						'label'    => esc_html__( 'Header Color', 'responsive' ),
-						'section'  => 'responsive_header_section',
-						'settings' => 'responsive_fullwidth_header_color',
-						'priority' => 10,
-					)
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_fullwidth_sitetitle_color',
-				array(
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-					'default'           => '#333333',
-				)
-			);
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'responsive_fullwidth_sitetitle_color',
-					array(
-						'label'    => esc_html__( 'Site Title Color', 'responsive' ),
-						'section'  => 'responsive_header_section',
-						'settings' => 'responsive_fullwidth_sitetitle_color',
-						'priority' => 10,
-					)
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_site_description_color',
-				array(
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-					'default'           => '#afafaf',
-				)
-			);
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'responsive_site_description_color',
-					array(
-						'label'    => esc_html__( 'Site Description Color', 'responsive' ),
-						'section'  => 'responsive_header_section',
-						'settings' => 'responsive_site_description_color',
-						'priority' => 10,
-					)
-				)
-			);
+			// Padding.
+			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 3, 28, 0 );
 
 		}
 	}

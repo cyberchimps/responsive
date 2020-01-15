@@ -23,7 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php get_header(); ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <div id="wrapper" class="clearfix">
-	<div class="content-outer">
+	<div class="content-outer container">
+	<div class="row">
 <?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="primary" class="grid-right col-460 fit" role="main">
 
@@ -101,6 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div><!-- end of #content -->
 
 <?php get_sidebar( 'main-sidebar' ); ?>
+</div>
 </div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->

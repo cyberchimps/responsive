@@ -47,7 +47,8 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 	get_header();
 	responsive_wrapper_top(); // before wrapper content hook. ?>
 	<div id="wrapper" class="clearfix">
-		<div class="content-outer">
+		<div class="content-outer container">
+		<div class="row">
 	<?php
 	responsive_in_wrapper(); // wrapper hook.
 	get_template_part( 'template-parts/featured-area' );
@@ -56,7 +57,8 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 
 	if ( isset( $responsive_options['contact'] ) && $responsive_options['contact'] == '1' ) { ?>
 				<div class="contact_div grid col-940">
-				<div class="content-outer">
+				<div class="content-outer container">
+				<div class="row">
 
 			<?php
 				$responsive_contact_title    = isset( $responsive_options['contact_title'] ) ? $responsive_options['contact_title'] : 'contact';
@@ -86,9 +88,11 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 				</div>
 			</div>
 			</div>
+			</div>
 			<?php
 	}
 	?>
+	</div>
 	</div>
 	<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 	</div> <!-- end of #wrapper -->

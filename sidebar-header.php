@@ -18,23 +18,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-?>
-<?php
-if ( ! is_active_sidebar( 'header-widgets' )
-) {
+if ( ! is_active_sidebar( 'header-widgets' ) ) {
 	return;
 }
+
 ?>
-<?php responsive_widgets_before(); // above widgets container hook. ?>
-	<div id="header-widgets" class="header-widgets">
-		<?php responsive_widgets(); // above widgets hook. ?>
-
-		<?php if ( is_active_sidebar( 'header-widgets' ) ) : ?>
-
+<div class="header-widgets">
+	<div class="container">
+		<div class="row">
 			<?php dynamic_sidebar( 'header-widgets' ); ?>
-
-		<?php endif; // end of header-widgets. ?>
-
-		<?php responsive_widgets_end(); // after widgets hook. ?>
-	</div><!-- end of #header-widgets -->
-<?php responsive_widgets_after(); // after widgets container hook. ?>
+		</div>
+	</div>
+</div>

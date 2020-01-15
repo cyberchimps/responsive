@@ -34,56 +34,30 @@ if ( ! class_exists( 'Responsive_Header_Color_Customizer' ) ) :
 		 */
 		public function customizer_options( $wp_customize ) {
 			$wp_customize->add_section(
-				'responsive_header_color_section',
+				'responsive_header_colors',
 				array(
 					'title'    => esc_html__( 'Colors', 'responsive' ),
-					'panel'    => 'responsive-header-options',
-					'priority' => 202,
+					'panel'    => 'responsive_header',
+					'priority' => 2,
 				)
 			);
 			// Background Color.
-			$wp_customize->add_setting(
-				'responsive_header_background_color',
-				array(
-					'default'           => '#ffffff',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_background',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_header_background_color',
-					array(
-						'label'    => __( 'Header Background Color', 'responsive' ),
-						'section'  => 'responsive_header_color_section',
-						'settings' => 'responsive_header_background_color',
-					)
-				)
-			);
+			//
+			$header_background_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_background', $header_background_label, 'responsive_header_colors', 0, '#ffffff' );
 
-			// Text Color.
-			$wp_customize->add_setting(
-				'responsive_header_text_color',
-				array(
-					'default'           => '#333333',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_background',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'responsive_header_text_color',
-					array(
-						'label'    => __( 'Header Text Color', 'responsive' ),
-						'section'  => 'responsive_header_color_section',
-						'settings' => 'responsive_header_text_color',
-					)
-				)
-			);
+			$header_border_color_label = __( 'Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_border', $header_border_color_label, 'responsive_header_colors', 0, '#eaeaea' );
+
+			$header_site_title_color_label = __( 'Site Title Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_site_title', $header_site_title_color_label, 'responsive_header_colors', 0, '#333333' );
+
+			$header_site_title_hover_color_label = __( 'Site Title Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_site_title_hover', $header_site_title_hover_color_label, 'responsive_header_colors', 0, '#10659C' );
+
+			$header_text_color_label = __( 'Site Tagline Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_text', $header_text_color_label, 'responsive_header_colors', 0, '#999999' );
+
 		}
 
 

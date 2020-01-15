@@ -306,8 +306,8 @@ function responsive_fallback_menu() {
 		'link_after'  => '',
 	);
 	$pages   = wp_page_menu( $args );
-	$prepend = '<nav id="main-nav" class="main-nav">';
-	$append  = '</nav>';
+	$prepend = '<div id="header-menu" class="menu">';
+	$append  = '</div>';
 	$output  = $prepend . $pages . $append;
 	echo $output;
 }
@@ -322,37 +322,38 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$responsive         = wp_get_theme( 'responsive' );
 		$responsive_options = responsive_get_options();
 		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
 		if ( 1 == $responsive_options['minified_css'] ) {
 			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
-			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
+		// 	wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
 		} else {
-			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
-			wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
+		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
+		// 	wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
 		}
-
-		if ( is_rtl() ) {
-			wp_enqueue_style( 'responsive-rtl-style', get_template_directory_uri() . '/rtl.css', false, $responsive['Version'] );
-		}
-		if ( is_child_theme() ) {
-			wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
-		}
-
-		if ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) {
-			wp_enqueue_style( 'responsive-shop', get_template_directory_uri() . '/core/css/shop.css', false, $responsive['Version'] );
-		}
-		$social_array = array( 'res_twitter', 'res_facebook', 'res_linkedin', 'res_youtube', 'res_googleplus', 'res_rss', 'res_printerest', 'res_stumble', 'res_vimeo', 'res_yelp', 'res_foursquare', 'res_email_uid' );
-
+		//
+		// if ( is_rtl() ) {
+		// 	wp_enqueue_style( 'responsive-rtl-style', get_template_directory_uri() . '/rtl.css', false, $responsive['Version'] );
+		// }
+		// if ( is_child_theme() ) {
+		// 	wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
+		// }
+		//
+		// if ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) {
+		// 	wp_enqueue_style( 'responsive-shop', get_template_directory_uri() . '/core/css/shop.css', false, $responsive['Version'] );
+		// }
+		// $social_array = array( 'res_twitter', 'res_facebook', 'res_linkedin', 'res_youtube', 'res_googleplus', 'res_rss', 'res_printerest', 'res_stumble', 'res_vimeo', 'res_yelp', 'res_foursquare', 'res_email_uid' );
+		//
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
-
-		// Add customizer colors to the gutenberg blocks on front end.
-		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
-
-		// If plugin - 'WooCommerce' is active.
-		if ( class_exists( 'WooCommerce' ) ) {
-			if ( is_woocommerce() || is_shop() || is_cart() || is_checkout() ) {
-				wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
-			}
-		}
+		//
+		// // Add customizer colors to the gutenberg blocks on front end.
+		// wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
+		//
+		// // If plugin - 'WooCommerce' is active.
+		// if ( class_exists( 'WooCommerce' ) ) {
+		// 	if ( is_woocommerce() || is_shop() || is_cart() || is_checkout() ) {
+		// 		wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
+		// 	}
+		// }
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
@@ -371,6 +372,7 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		// except for Modernizr which enables HTML5 elements & feature detects.
 		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, false );
 		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
+		wp_enqueue_script( 'navigation-scripts', $template_directory_uri . '/core/' . $directory . '/navigation' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 		wp_localize_script( 'responsive-scripts', 'responsives', apply_filters( 'responsive_js_localize', array() ) );
 		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 			wp_enqueue_script( 'responsive-scroll', $template_directory_uri . '/core/' . $directory . '/scroll-to-top' . $suffix . '.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
@@ -494,6 +496,46 @@ function responsive_add_class( $classes ) {
 
 add_filter( 'body_class', 'responsive_add_class' );
 
+/**
+ * Funtion to add CSS class to body
+ */
+function responsive_add_header_classes() {
+
+	// Adds element order class.
+	$elements = get_theme_mod(
+		'responsive_header_elements',
+		array(
+			'site-branding',
+			'main-navigation',
+		)
+	);
+
+	$classes[] = 'site-header-' . implode( '-', $elements );
+
+	// Site Width class.
+	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
+
+	// Site Style class.
+	$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
+
+	// Element layout class.
+	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
+
+	// Header alignment class.
+	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
+
+	// Full idth menu class.
+	if ( get_theme_mod( 'responsive_header_menu_full_width', 0 ) ) {
+		$classes[] = 'site-header-full-width-main-navigation';
+	}
+	if ( 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) {
+		$classes[] = 'mobile-menu-style-sidebar';
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'responsive_add_header_classes' );
 
 /**
  * This function prints post meta data.

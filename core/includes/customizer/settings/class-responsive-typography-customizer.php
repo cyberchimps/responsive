@@ -53,31 +53,25 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'body'                 => array(
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => 'body',
+						'section'  => 'responsive_typography',
+						'priority' => 2,
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '14px',
+							'font-size'      => '16px',
 							'font-weight'    => '400',
-							'color'          => '#555555',
-							'line-height'    => '1.8',
+							'line-height'    => '1.75',
 							'text-transform' => 'inherit',
 						),
 					),
-					'headings'             => array(
-						'label'    => esc_html__( 'All Headings', 'responsive' ),
-						'target'   => 'h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title',
-						'exclude'  => array( 'font-size' ),
-						'defaults' => array(
-							'color'          => '#555555',
-							'font-weight'    => '700',
-							'line-height'    => '1.4',
-							'text-transform' => 'inherit',
-						),
-					),
+
 					'heading_h1'           => array(
 						'label'    => esc_html__( 'Heading 1 (H1)', 'responsive' ),
 						'target'   => 'h1',
+						'section'  => 'responsive_typography',
+						'priority' => 4,
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '2.625em',
-							'color'          => '#555555',
 							'line-height'    => '1.4',
 							'text-transform' => 'inherit',
 						),
@@ -85,9 +79,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'heading_h2'           => array(
 						'label'    => esc_html__( 'Heading 2 (H2)', 'responsive' ),
 						'target'   => 'h2',
+						'section'  => 'responsive_typography',
+						'priority' => 6,
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '2.250em',
-							'color'          => '#555555',
 							'line-height'    => '1.4',
 							'text-transform' => 'inherit',
 						),
@@ -95,9 +91,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'heading_h3'           => array(
 						'label'    => esc_html__( 'Heading 3 (H3)', 'responsive' ),
 						'target'   => 'h3',
+						'section'  => 'responsive_typography',
+						'priority' => 8,
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '1.875em',
-							'color'          => '#555555',
 							'line-height'    => '1.4',
 							'text-transform' => 'inherit',
 						),
@@ -105,9 +103,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'heading_h4'           => array(
 						'label'    => esc_html__( 'Heading 4 (H4)', 'responsive' ),
 						'target'   => 'h4',
+						'section'  => 'responsive_typography',
+						'priority' => 10,
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '1.500em',
-							'color'          => '#555555',
 							'line-height'    => '1.4',
 							'text-transform' => 'inherit',
 						),
@@ -115,9 +115,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'heading_h5'           => array(
 						'label'    => esc_html__( 'Heading 5 (H5)', 'responsive' ),
 						'target'   => 'h5',
+						'section'  => 'responsive_typography',
+						'priority' => 12,
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '1.125em',
-							'color'          => '#555555',
 							'line-height'    => '1.4',
 							'text-transform' => 'inherit',
 						),
@@ -125,15 +127,31 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'heading_h6'           => array(
 						'label'    => esc_html__( 'Heading 6 (H6)', 'responsive' ),
 						'target'   => 'h6',
+						'section'  => 'responsive_typography',
+						'priority' => 14,
+						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '1.000em',
-							'color'       => '#555555',
 							'line-height' => '1.4',
 						),
 					),
-					'site_title'           => array(
+					'meta'                 => array(
+						'label'    => esc_html__( 'Meta', 'responsive' ),
+						'target'   => '.post-meta *',
+						'section'  => 'responsive_typography',
+						'priority' => 16,
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'      => '12px',
+							'line-height'    => '1.8',
+							'text-transform' => 'uppercase',
+						),
+					),
+					'header_site_title'    => array(
 						'label'    => esc_html__( 'Site Title', 'responsive' ),
-						'target'   => '.site-name',
+						'target'   => '.site-title a',
+						'section'  => 'responsive_header_typography',
+						'priority' => 1,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '2.063em',
@@ -141,9 +159,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'letter-spacing' => '0',
 						),
 					),
-					'site_tagline'         => array(
+					'header_site_tagline'  => array(
 						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
 						'target'   => '.site-description',
+						'section'  => 'responsive_header_typography',
+						'priority' => 3,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '0.875em',
@@ -151,6 +171,18 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'letter-spacing' => '0',
 						),
 					),
+					'header_menu'          => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => '.main-navigation a',
+						'panel'    => 'responsive_header_menu',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'      => '16px',
+							'letter-spacing' => '0.6',
+						),
+					),
+
+					// Old.
 					'menu'                 => array(
 						'label'    => esc_html__( 'Main Menu', 'responsive' ),
 						'target'   => '.main-nav .menu > li > a, .main-nav .menu .sub-menu > li > a',
@@ -208,15 +240,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'letter-spacing' => '0.6',
 						),
 					),
-					'post_meta'            => array(
-						'label'    => esc_html__( 'Post Meta', 'responsive' ),
-						'target'   => '.post-meta *',
-						'defaults' => array(
-							'font-size'      => '12px',
-							'line-height'    => '1.8',
-							'text-transform' => 'uppercase',
-						),
-					),
 					'buttons'              => array(
 						'label'    => esc_html__( 'Buttons Typography', 'responsive' ),
 						'target'   => '.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button',
@@ -263,9 +286,12 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 				// Get label.
 				$label              = ! empty( $array['label'] ) ? $array['label'] : null;
+				$panel              = ! empty( $array['panel'] ) ? $array['panel'] : 'responsive_typography_panel';
 				$exclude_attributes = ! empty( $array['exclude'] ) ? $array['exclude'] : false;
 				$active_callback    = isset( $array['active_callback'] ) ? $array['active_callback'] : null;
 				$transport          = 'postMessage';
+				$section            = ! empty( $array['section'] ) ? $array['section'] : '';
+				$priority           = ! empty( $array['priority'] ) ? $array['priority'] : 10;
 
 				// Get attributes.
 				if ( ! empty( $array['attributes'] ) ) {
@@ -295,19 +321,20 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 				// Register new setting if label isn't empty.
 				if ( $label ) {
-
 					/**
 					 * Section
 					 */
-					$wp_customize->add_section(
-						'responsive_typography_' . $element,
-						array(
-							'title'    => $label,
-							'priority' => $count,
-							'panel'    => 'responsive_typography_panel',
-						)
-					);
-
+					if ( ! $section ) {
+						$wp_customize->add_section(
+							'responsive_typography_' . $element,
+							array(
+								'title'    => $label,
+								'priority' => $count,
+								'panel'    => $panel,
+							)
+						);
+						$section = 'responsive_typography_' . $element;
+					}
 					/**
 					 * Font Family
 					 */
@@ -328,9 +355,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$element . '_typography[font-family]',
 								array(
 									'label'           => esc_html__( 'Font Family', 'responsive' ),
-									'section'         => 'responsive_typography_' . $element,
+									'section'         => $section,
 									'settings'        => $element . '_typography[font-family]',
-									'priority'        => 10,
+									'priority'        => $priority,
 									'type'            => 'select',
 									'active_callback' => $active_callback,
 								)
@@ -358,9 +385,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							array(
 								'label'           => esc_html__( 'Font Weight', 'responsive' ),
 								'description'     => esc_html__( 'Important: Not all fonts support every font-weight.', 'responsive' ),
-								'section'         => 'responsive_typography_' . $element,
+								'section'         => $section,
 								'settings'        => $element . '_typography[font-weight]',
-								'priority'        => 10,
+								'priority'        => $priority,
 								'type'            => 'select',
 								'active_callback' => $active_callback,
 								'choices'         => array(
@@ -398,9 +425,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							$element . '_typography[font-style]',
 							array(
 								'label'           => esc_html__( 'Font Style', 'responsive' ),
-								'section'         => 'responsive_typography_' . $element,
+								'section'         => $section,
 								'settings'        => $element . '_typography[font-style]',
-								'priority'        => 10,
+								'priority'        => $priority,
 								'type'            => 'select',
 								'active_callback' => $active_callback,
 								'choices'         => array(
@@ -431,9 +458,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							$element . '_typography[text-transform]',
 							array(
 								'label'           => esc_html__( 'Text Transform', 'responsive' ),
-								'section'         => 'responsive_typography_' . $element,
+								'section'         => $section,
 								'settings'        => $element . '_typography[text-transform]',
-								'priority'        => 10,
+								'priority'        => $priority,
 								'type'            => 'select',
 								'active_callback' => $active_callback,
 								'choices'         => array(
@@ -486,13 +513,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								array(
 									'label'           => esc_html__( 'Font Size', 'responsive' ),
 									'description'     => esc_html__( 'You can add: px-em-%', 'responsive' ),
-									'section'         => 'responsive_typography_' . $element,
+									'section'         => $section,
 									'settings'        => array(
 										'desktop' => $element . '_typography[font-size]',
 										'tablet'  => $element . '_tablet_typography[font-size]',
 										'mobile'  => $element . '_mobile_typography[font-size]',
 									),
-									'priority'        => 10,
+									'priority'        => $priority,
 									'active_callback' => $active_callback,
 								)
 							)
@@ -539,9 +566,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$element . '_typography[line-height]',
 								array(
 									'label'           => esc_html__( 'Line Height', 'responsive' ),
-									'section'         => 'responsive_typography_' . $element,
+									'section'         => $section,
 									'settings'        => $element . '_typography[line-height]',
-									'priority'        => 10,
+									'priority'        => $priority,
 									'active_callback' => $active_callback,
 									'input_attrs'     => array(
 										'min'  => 1,
@@ -575,9 +602,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$element . '_typography[letter-spacing]',
 								array(
 									'label'           => esc_html__( 'Letter Spacing (px)', 'responsive' ),
-									'section'         => 'responsive_typography_' . $element,
+									'section'         => $section,
 									'settings'        => $element . '_typography[letter-spacing]',
-									'priority'        => 10,
+									'priority'        => $priority,
 									'active_callback' => $active_callback,
 									'input_attrs'     => array(
 										'min'  => 0,
@@ -613,9 +640,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$element . '_typography[color]',
 								array(
 									'label'           => esc_html__( 'Font Color', 'responsive' ),
-									'section'         => 'responsive_typography_' . $element,
+									'section'         => $section,
 									'settings'        => $element . '_typography[color]',
-									'priority'        => 10,
+									'priority'        => $priority,
 									'active_callback' => $active_callback,
 								)
 							)
@@ -631,7 +658,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 * @since 1.0.0
 		 */
 		public function customize_preview_init() {
-			wp_enqueue_script( 'responsive-typography-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/typography-customize-preview.min.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive-typography-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/typography-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 			wp_localize_script(
 				'responsive-typography-customize-preview',
 				'responsive',

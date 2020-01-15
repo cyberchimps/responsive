@@ -25,7 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php get_header(); ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <div id="wrapper" class="clearfix">
-	<div class="content-outer">
+	<div class="content-outer container">
+		<div class="row">
 <?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="content-full" class="grid col-940" <?php responsive_schema_markup( 'main' ); ?>>
 
@@ -46,6 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div><!-- end of #content-full -->
 </div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
+	</div> <!-- row -->
 </div> <!-- end of #wrapper -->
 <?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

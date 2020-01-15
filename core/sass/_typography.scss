@@ -1,0 +1,218 @@
+/**
+ * Base styles
+ * -----------------------------------------------------------------------------
+ */
+body,
+button,
+input,
+select,
+textarea {
+    @include make-normal-text();
+    background-color: map-get( $colors, white );
+}
+
+/**
+ * Block elements styles
+ * -----------------------------------------------------------------------------
+ */
+address,
+blockquote,
+dl,
+figure,
+hr,
+h1, h2, h3, h4, h5, h6,
+ol,
+p,
+pre,
+table,
+ul {
+    @include make-block-element();
+}
+
+address,
+blockquote,
+pre {
+    background-color: map-get( $colors, light-gray );
+    padding: $base-line-height-px;
+}
+
+pre {
+    font-family: $code-font;
+    overflow: hidden;
+}
+
+dl {
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        margin-left: $base-line-height-px;
+    }
+}
+
+figure {
+    height: auto;
+    max-width: 100%;
+
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    figcaption {
+        font-size: map-get( $font-sizes, small );
+        font-style: italic;
+        padding: $base-line-height-px / 4;
+        text-align: center;
+    }
+}
+
+hr {
+    border: none;
+    border-bottom: 4px solid map-get( $colors, light-gray );
+}
+
+h1 {
+    @include make-heading-text( extra-large );
+}
+
+h2 {
+    @include make-heading-text( large );
+}
+
+h3 {
+    @include make-heading-text( medium );
+}
+
+h4 {
+    @include make-heading-text( normal );
+}
+
+h5,
+h6 {
+    @include make-heading-text( small );
+}
+
+ol,
+ul {
+    list-style: decimal;
+    margin-left: $base-line-height-px;
+
+    ol,
+    ul {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}
+
+ul {
+    list-style: disc;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid map-get( $colors, light-gray );
+    width: 100%;
+
+    td,
+    th {
+        border: 1px solid map-get( $colors, light-gray );
+        padding: $base-line-height-px / 4;
+    }
+
+    th {
+        font-weight: bold;
+    }
+}
+
+/**
+ * Inline elements styles
+ * -----------------------------------------------------------------------------
+ */
+a {
+    @include make-link( map-get( $colors, dark-blue ),  map-get( $colors, gray ) );
+    text-decoration: none;
+}
+
+abbr[title],
+acronym[title] {
+    text-decoration-style: dotted;
+	cursor: help;
+}
+
+big {
+    font-size: map-get( $font-sizes, medium );
+}
+
+cite {
+    font-weight: bold;
+
+    blockquote & {
+        display: block;
+        margin-top: $base-line-height-px;
+    }
+}
+
+code,
+kbd,
+tt,
+var {
+    background-color: map-get( $colors, light-gray );
+    font-family: $code-font;
+    padding: $base-line-height-px / 8;
+}
+
+del,
+s,
+strike {
+    text-decoration: line-through;
+}
+
+em {
+    font-style: italic;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+ins,
+u {
+    text-decoration: underline;
+}
+
+q {
+    font-style: italic;
+
+    &:before {
+        content: '\201c';
+    }
+
+    &:after {
+        content: '\201d';
+    }
+}
+
+small {
+    font-size: map-get( $font-sizes, small );
+}
+
+strong {
+    font-weight: bold;
+}
+
+sub,
+sup {
+    font-size: map-get( $font-sizes, small );
+    position: relative;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}

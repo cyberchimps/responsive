@@ -25,7 +25,8 @@ if ( $responsive_footer_column ) :
 	?>
 
 	<div id="footer-widgets" class="grid col-940">
-		<div class="content-outer">
+		<div class="content-outer container">
+		<div class="row">
 		<?php
 		responsive_widgets(); // above widgets hook.
 
@@ -41,6 +42,7 @@ if ( $responsive_footer_column ) :
 
 		responsive_widgets_end(); // after widgets hook.
 		?>
+	</div>
 	</div>
 	</div><!-- end of #footer-widget -->
 	<?php

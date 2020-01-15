@@ -28,7 +28,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header(); ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <div id="wrapper" class="clearfix">
-	<div class="content-outer">
+	<div class="content-outer container">
+	<div class="row">
 <?php responsive_in_wrapper(); // wrapper hook. ?>
 <div id="content-full" class="grid col-940">
 
@@ -84,6 +85,7 @@ get_header(); ?>
 		?>
 
 </div><!-- end of #content-full -->
+</div>
 </div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
