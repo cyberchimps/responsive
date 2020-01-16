@@ -27,6 +27,7 @@ Template Name: Blog (full posts) (Deprecated)
 
 get_header();
 
+$more = 0;
 ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <div id="wrapper" class="clearfix">

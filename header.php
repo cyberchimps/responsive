@@ -64,7 +64,8 @@ if ( 'above_header' === $responsive_header_layout ) {
 	<header id="header" role="banner" class='<?php echo esc_attr( $header_layout ); ?>' <?php responsive_schema_markup( 'header' ); ?> >
 
 		<?php responsive_header_top(); // before header content hook. ?>
-		<div class="content-outer responsive-header" <?php responsive_schema_markup( 'organization' ); ?>>
+        <?php responsive_in_header(); // header hook. ?>
+        <div class="content-outer responsive-header" <?php responsive_schema_markup( 'organization' ); ?>>
 			<div id="site-branding" itemtype="https://schema.org/Organization" itemscope="itemscope" >
 		<?php if ( has_custom_logo() ) { ?>
 			<?php the_custom_logo(); ?>

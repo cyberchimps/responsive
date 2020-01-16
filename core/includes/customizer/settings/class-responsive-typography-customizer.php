@@ -190,7 +190,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'blog_entry_title'     => array(
 						'label'    => esc_html__( 'Blog Entry Title', 'responsive' ),
-						'target'   => '#primary .post .post-entry .entry-title a',
+						'target'   => '#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a',
 						'defaults' => array(
 							'font-size'      => '24px',
 							'color'          => '#333333',
@@ -200,7 +200,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'blog_post_title'      => array(
 						'label'    => esc_html__( 'Blog Post Title', 'responsive' ),
-						'target'   => '.single-post .entry-title',
+						'target'   => '.single-post #primary .post .post-entry .entry-title',
 						'defaults' => array(
 							'font-size'      => '34px',
 							'color'          => '#333333',

@@ -32,72 +32,35 @@ global $responsive_blog_layout_columns;
 	<div class="footer-bar grid col-940">
 	<div class="content-outer">
 
-	<?php if ( has_nav_menu( 'footer-menu' ) || ! empty( responsive_get_social_icons() ) ) { ?>
-
-		<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) : ?>
-
+			<?php get_sidebar( 'colophon' ); ?>
 			<?php
-				wp_nav_menu(
-					array(
-						'container'       => 'nav',
-						'container_class' => 'footer-layouts footer-menu-container',
-						'container_id'    => 'footer-menu-container',
-						'fallback_cb'     => false,
-						'menu_class'      => 'footer-menu',
-						'theme_location'  => 'footer-menu',
-						'depth'           => 1,
-					)
-				);
+			if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+				$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+				$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
+				foreach ( $sections as $section ) {
+
+					if ( 'social_icons' === $section ) {
+
+						 echo '<div class="footer-layouts social-icon">';
+                            echo responsive_get_social_icons_new() ;// phpcs:ignore
+						 echo '</div>';
+					}
+					// Footer Menu.
+					if ( 'footer_menu' === $section ) {
+						get_template_part( 'template-parts/footer-menu' );
+					}
+					// Copy Rights.
+					if ( 'copy_right_text' == $section ) {
+						get_template_part( 'template-parts/copy-right' );
+					}
+				}
+			} else {
+				echo '<div class="footer-layouts social-icon">';
+                    echo responsive_get_social_icons_new() ;// phpcs:ignore
+				echo '</div>';
+				get_template_part( 'template-parts/copy-right' );
+			}
 			?>
-
-	<?php endif; ?>
-
-	<div class="footer-layouts social-icon">
-
-                    <?php echo responsive_get_social_icons_new() ;// phpcs:ignore ?>
-	</div><!-- end of col-380 fit -->
-	<?php } ?>
-	<?php get_sidebar( 'colophon' ); ?>
-	<?php
-	$cyberchimps_link = '';
-	if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
-		echo '<div class="footer-layouts copyright">';
-		if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
-			$copyright_text = $responsive_options['copyright_textbox'];
-			esc_attr_e( '&copy;', 'responsive' );
-			echo esc_attr( gmdate( 'Y' ) );
-			echo esc_attr( ' ' . $copyright_text, 'responsive' );
-		} else {
-			esc_attr_e( '&copy;', 'responsive' );
-			echo esc_attr( gmdate( 'Y' ) );
-			esc_attr_e( ' Responsive', 'responsive' );
-		}
-		if ( ! empty( $responsive_options['poweredby_link'] ) ) {
-			$cyberchimps_link = $responsive_options['poweredby_link'];
-		}
-		if ( $cyberchimps_link ) {
-			echo ' <div class="powered">';
-			esc_attr_e( ' | Powered by', 'responsive' );
-			echo '<a href=' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . ' title=' . esc_attr_e( ' Responsive Theme', 'responsive' ) . '></a>';
-
-			echo '</div>';
-		}
-
-		echo '</div>';
-
-	} else {
-		echo '<div class="footer-layouts copyright">';
-		esc_attr_e( '&copy;', 'responsive' );
-		echo esc_attr( gmdate( 'Y' ) . ' ' );
-		echo esc_attr( bloginfo( 'name' ), 'responsive' );
-		echo ' <div class="powered">';
-		esc_attr_e( ' | Powered by', 'responsive' );
-		echo '<a href=' . esc_url( 'http://cyberchimps.com/responsive-theme/' ) . ' title=' . esc_attr_e( ' Responsive Theme', 'responsive' ) . '></a>';
-
-		echo '</div>';
-		echo '</div>';
-	}
-	?>
 	</div>
 
 	</div>

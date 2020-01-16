@@ -8,6 +8,35 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/01/20) = Fix - Version 4.0.3
+[!] = Fixed sale bubble styling for Woocommerce blocks in Gutenberg
+[!] = Fixed CSS for blog page
+[!] = Fixed CSS for header widgets
+[!] = Fixed background color issue for full width page template
+
+(08/01/20) = Fix - Version 4.0.2
+[!] = Fixed - If earlier layout is full-width-layout or full-width-no-box then default layout is set to fullwidth-content
+
+(08/01/20) = Fix - Version 4.0.1
+[!] = Fixed - Prevent Woocommerce css from loading on non-woocommerce pages
+
+(08/01/20) = Added - Version 4.0
+[+] = Added separate layout options for pages
+[+] = Added Header width option
+[+] = Added Menu position options
+[+] = Added Header and Footer widgets
+[+] = Added width option for sidebars
+[x] = Top Menu and the Sub-header Menu were removed
+[x] = Removed rollback option
+[x] = Deprecated page templates - Blog full post, Blog 3 Column, Blog Excerpt Summary, Content/Sidebar, Content/Sidebar Half, Sidebar/Content, Sidebar/Content Half, Landing Page, Sitemap
+[x] = Removed widget areas - Left Sidebar, Left Sidebar Half Page, Right Sidebar, Right Sidebar Half Page, Gallery Sidebar, Colophon Widget, Footer Widget
+[!] = HTML markup changes
+
+(18/12/19) = Added - Version 3.3
+[+] = Added Header padding option
+[+] = Added menu padding option
+[!] = Fixed sub menu color issue
+
 (11/12/19) = Added - Version 3.26.1
 [!] = Fixed fatal error on activation
 
