@@ -78,18 +78,19 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
 
+			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
 		}
-        /**
-         * Remove Woo-Commerce Default actions
-         *
-         * @since 3.15.4
-         */
-        public function woocommerce_init() {
-            remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-            remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
-            remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
-            remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
-        }
+		/**
+		 * Remove Woo-Commerce Default actions
+		 *
+		 * @since 3.15.4
+		 */
+		public function woocommerce_init() {
+			remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+		}
 		/**
 		 * Register Customizer sections and panel for woocommerce
 		 *
@@ -101,8 +102,20 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-general-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-colors-customizer.php';
 
+		}
+
+		/**
+		 * Disables Upsells
+		 */
+		public function cart_page_upselles() {
+
+			$upselles_enabled = get_theme_mod( 'enable_upsells_options' );
+			if ( ! $upselles_enabled ) {
+				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+			}
 		}
 
 		/**

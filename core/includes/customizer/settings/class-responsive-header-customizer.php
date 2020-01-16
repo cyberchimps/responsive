@@ -97,8 +97,9 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'header_width',
 				array(
-					'default'   => 'Container',
-					'transport' => 'refresh',
+					'default'           => 'container',
+					'transport'         => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_select',
 				)
 			);
 			$wp_customize->add_control(
@@ -111,8 +112,8 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 					'choices'  => apply_filters(
 						'responsive_header_width_choices',
 						array(
-							'Container' => esc_html__( 'Container', 'responsive' ),
-							'Full'      => esc_html__( 'Full', 'responsive' ),
+							'container' => esc_html__( 'Container', 'responsive' ),
+							'full'      => esc_html__( 'Full', 'responsive' ),
 						)
 					),
 				)
@@ -161,6 +162,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_header_tablet_right_padding',
 				array(
+					'default'           => 20,
 					'transport'         => 'refresh',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -175,6 +177,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_header_tablet_left_padding',
 				array(
+					'default'           => 20,
 					'transport'         => 'refresh',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -190,6 +193,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_header_mobile_right_padding',
 				array(
+					'default'           => 20,
 					'transport'         => 'refresh',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -204,6 +208,7 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_header_mobile_left_padding',
 				array(
+					'default'           => 20,
 					'transport'         => 'refresh',
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)

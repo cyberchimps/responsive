@@ -18,5 +18,4 @@ if ( ! empty( $page_title ) ) {
 	?>
 	<h1 class="entry-title post-title" itemprop="headline"><?php the_title(); ?></h1>
 <?php } ?>
-
 <?php do_action( 'responsive_after_blog_entry_title' ); ?>

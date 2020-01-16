@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.0.0' );
+define( 'RESPONSIVE_THEME_VERSION', '4.0.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 /**
@@ -45,6 +45,13 @@ require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-blog-markup.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
+
+if ( is_admin() ) {
+	/**
+	 * Admin Menu Settings
+	 */
+	require_once $responsive_template_directory . '/core/includes/classes/class-responsive-admin-settings.php';
+}
 
 /**
  * Return value of the supplied responsive free theme option.
@@ -584,11 +591,24 @@ function responsive_check_previous_version() {
 	$menu_position      = get_theme_mod( 'menu_position' );
 
 	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
-	if ( $new_version && version_compare( $new_version, '4.0.0', '>=' ) ) {
-		if ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
-			$responsive_options['site_layout_option'] = 'fullwidth-stretched';
-			update_option( 'responsive_theme_options', $responsive_options );
-		} elseif ( 'full-width-layout' === $responsive_options['site_layout_option'] ) {
+	if ( $new_version && version_compare( $new_version, '4.0.1', '>=' ) ) {
+
+		if ( ! $responsive_options['home_headline'] ) {
+			$responsive_options['home_headline'] = 'HAPPINESS';
+		}
+		if ( ! $responsive_options['home_subheadline'] ) {
+			$responsive_options['home_subheadline'] = 'IS A WARM CUP';
+		}
+		if ( ! $responsive_options['home_content_area'] ) {
+			$responsive_options['home_content_area'] = 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.';
+		}
+		if ( ! $responsive_options['cta_text'] ) {
+			$responsive_options['cta_text'] = 'Call to Action';
+		}
+		if ( ! $responsive_options['cta_url'] ) {
+			$responsive_options['cta_url'] = '#';
+		}
+		if ( 'full-width-layout' === $responsive_options['site_layout_option'] || 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
 			$responsive_options['site_layout_option'] = 'fullwidth-content';
 			update_option( 'responsive_theme_options', $responsive_options );
 		} elseif ( 'default-layout' === $responsive_options['site_layout_option'] ) {

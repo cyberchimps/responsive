@@ -149,126 +149,8 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			/**
 			 *  Single Blog Padding.
 			 */
-			$wp_customize->add_setting(
-				'responsive_single_blog_top_padding',
-				array(
-					'transport'         => 'refresh',
-					'default'           => '1',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_left_padding',
-				array(
-					'transport'         => 'refresh',
-					'default'           => '1',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
+			responsive_padding_control( $wp_customize, 'single_blog', 'responsive_single_post_section', 10, '' );
 
-			$wp_customize->add_setting(
-				'responsive_single_blog_bottom_padding',
-				array(
-					'transport'         => 'refesh',
-					'default'           => '1',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_right_padding',
-				array(
-					'transport'         => 'refresh',
-					'default'           => '1',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_tablet_top_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_tablet_right_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_tablet_bottom_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_tablet_left_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_single_blog_mobile_top_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_mobile_right_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_mobile_bottom_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_setting(
-				'responsive_single_blog_mobile_left_padding',
-				array(
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Dimensions_Control(
-					$wp_customize,
-					'responsive_single_blog_padding',
-					array(
-						'label'       => esc_html__( 'Blog Padding (px)', 'responsive' ),
-						'section'     => 'responsive_single_post_section',
-						'settings'    => array(
-							'desktop_top'    => 'responsive_single_blog_top_padding',
-							'desktop_right'  => 'responsive_single_blog_right_padding',
-							'desktop_bottom' => 'responsive_single_blog_bottom_padding',
-							'desktop_left'   => 'responsive_single_blog_left_padding',
-							'tablet_top'     => 'responsive_single_blog_tablet_top_padding',
-							'tablet_right'   => 'responsive_single_blog_tablet_right_padding',
-							'tablet_bottom'  => 'responsive_single_blog_tablet_bottom_padding',
-							'tablet_left'    => 'responsive_single_blog_tablet_left_padding',
-							'mobile_top'     => 'responsive_single_blog_mobile_top_padding',
-							'mobile_right'   => 'responsive_single_blog_mobile_right_padding',
-							'mobile_bottom'  => 'responsive_single_blog_mobile_bottom_padding',
-							'mobile_left'    => 'responsive_single_blog_mobile_left_padding',
-						),
-						'priority'    => 10,
-						'input_attrs' => array(
-							'min'  => 0,
-							'max'  => 100,
-							'step' => 1,
-						),
-					)
-				)
-			);
 			$wp_customize->add_setting(
 				'responsive_featured_image_width',
 				array(
@@ -559,7 +441,7 @@ if ( ! class_exists( 'Responsive_Blog_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_display_masonry',
 				array(
-					'default'           => 'false',
+					'default'           => 0,
 					'sanitize_callback' => 'responsive_checkbox_validate',
 					'type'              => 'theme_mod',
 					'transport'         => 'refresh',
