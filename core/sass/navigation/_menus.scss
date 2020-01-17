@@ -223,7 +223,7 @@
 	white-space: nowrap;
 }
 
-.menu li:hover, .menu .current_page_item :hover{
+.menu li a:hover{
 	background-color: #808080;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#808080), to(#363636));
 	background-image: -webkit-linear-gradient(top, #808080, #363636);
@@ -233,10 +233,6 @@
 	background-image: linear-gradient(to top, #808080, #363636);
 	color: #ffffff;
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#808080, endColorstr=#363636)";
-}
-.menu .menu-item-has-children a, .menu .menu-item-has-children::after, .current_page_item.menu-item-has-children::after
-{
-	margin-right: 0.9em;
 }
 
 ul.menu > li:hover {
