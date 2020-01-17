@@ -233,7 +233,7 @@ if ( isset( $responsive_options['sticky-header'] ) && $responsive_options['stick
 if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 	define( 'ELEMENTOR_PARTNER_ID', 2126 );
 }
-function responsiveedit_customize_register( $wp_customize ) {
+function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'blogname',
 		array(
@@ -404,7 +404,7 @@ function responsiveedit_customize_register( $wp_customize ) {
 		)
 	);
 }
-add_action( 'customize_register', 'responsiveedit_customize_register' );
+add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );
 
 function responsive_custom_category_widget( $arg ) {
