@@ -934,7 +934,7 @@ function responsive_premium_custom_color_styles() {
 		}";
 	}
 	if ( ! empty( $menu_text_hover_color ) ) {
-		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover,.menu .menu-item-has-children:hover::after{
+		$custom_css .= ".menu li a:hover, .full-width-no-box .menu a:hover,.menu .menu-item-has-children:hover::after{
 			color: {$menu_text_hover_color};
 		}
 		@media (min-width: 768px){
@@ -953,12 +953,12 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $menu_active_text_color ) ) {
 		$custom_css .= "
 		.full-width-no-box .menu .current-menu-item a, .full-width-no-box .menu .current_page_item a,
-		.menu .current-menu-item, .menu .current_page_item, .current_page_item.menu-item-has-children::after  {
+		.menu .current-menu-item, .menu .current_page_item a, .current_page_item.menu-item-has-children::after  {
 			color: {$menu_active_text_color};
 		}";
 	}
 	if ( ! empty( $menu_hover_color ) ) {
-		$custom_css .= ".menu a:hover, .full-width-no-box .menu a:hover {
+		$custom_css .= ".menu li a:hover, .full-width-no-box .menu a:hover {
 			background-color: {$menu_hover_color};
 			background-image: unset;
 		}
