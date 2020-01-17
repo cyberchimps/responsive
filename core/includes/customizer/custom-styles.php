@@ -946,14 +946,14 @@ function responsive_premium_custom_color_styles() {
 	if ( ! empty( $menu_active_color ) ) {
 		$custom_css .= "
 		.full-width-no-box .menu .current-menu-item a, .full-width-no-box .menu .current_page_item a,
-		.menu .current-menu-item a, .menu .current_page_item a  {
+		.menu .current-menu-item, .menu .current_page_item {
 			background-color: {$menu_active_color};
 		}";
 	}
 	if ( ! empty( $menu_active_text_color ) ) {
 		$custom_css .= "
 		.full-width-no-box .menu .current-menu-item a, .full-width-no-box .menu .current_page_item a,
-		.menu .current-menu-item a, .menu .current_page_item a, .current_page_item.menu-item-has-children::after  {
+		.menu .current-menu-item, .menu .current_page_item, .current_page_item.menu-item-has-children::after  {
 			color: {$menu_active_text_color};
 		}";
 	}
