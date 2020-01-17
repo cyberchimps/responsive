@@ -379,7 +379,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_background_colorpicker',
 				array(
-					'default'           => '',
+					'default'           => '#585858',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_background',
 				)
@@ -423,7 +423,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_text_colorpicker',
 				array(
-					'default'           => '',
+					'default'           => '#ffffff',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'sanitize_text_field',
 				)
@@ -444,7 +444,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_text_hover_colorpicker',
 				array(
-					'default'           => '',
+					'default'           => '#ffffff',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'sanitize_text_field',
 				)
@@ -465,7 +465,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_active_colorpicker',
 				array(
-					'default'           => '',
+					'default'           => '#343434',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'sanitize_text_field',
 				)
@@ -485,7 +485,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_active_text_colorpicker',
 				array(
-					'default'           => '',
+					'default'           => '#ffffff',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'sanitize_text_field',
 					'transport'         => 'refresh',
@@ -526,7 +526,7 @@ if ( ! class_exists( 'Responsive_Menu_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_menu_border_color',
 				array(
-					'default'           => '',
+					'default'           => '#f5f5f5',
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_background',
 				)
