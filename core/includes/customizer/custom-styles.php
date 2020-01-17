@@ -1649,6 +1649,7 @@ function responsive_premium_custom_color_styles() {
 			padding-left: calc(({$container_padding_left}px/2 + 10px));
 			padding-right: calc(({$container_padding_right}px/2 + 10px));
 		}
+	}
 	}";
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );
