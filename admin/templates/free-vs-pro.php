@@ -78,7 +78,7 @@
 			</table>
 		</div>
 		<div class="go-pro-section">
-			<a class="responsive-go-pro-button" href="https://cyberchimps.com/responsive-go-pro/?utm_source=wporg&utm_medium=responsive-theme&utm_campaign=upgrade-to-responsive-pro&utm_content=free-vs-pro" target="_blank">Upgrade to Pro</a>
+			<a class="responsive-go-pro-button" href="https://cyberchimps.com/responsive-go-pro/?utm_source=free-to-pro&utm_medium=responsive-theme&utm_campaign=responsive-pro&utm_content=responsive-options-free-vs-pro" target="_blank">Upgrade to Pro</a>
 		</div>
 	</div>
 </div>

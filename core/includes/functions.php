@@ -539,7 +539,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
 }
 
 function responsive_add_pro_button() {
-	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/responsive-pricing/?utm_source=responsive-theme&utm_medium=upgrade-to-pro&utm_campaign=upgrade-to-responsive-pro' );
+	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/responsive-go-pro/?utm_source=free-to-pro&utm_medium=responsive-theme&utm_campaign=responsive-pro&utm_content=customizer' );
 	?>
 <script type="text/javascript">
 		jQuery( document ).ready( function( $ ) {
