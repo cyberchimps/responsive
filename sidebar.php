@@ -27,7 +27,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 		}
 
 	if (is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product()) { ?>
-		<aside id="secondary" class="<?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
+		<aside id="secondary" class="widget-area <?php echo implode(' ', responsive_get_sidebar_classes()); ?>" role="complementary">
 			<?php dynamic_sidebar('responsive-woo-shop-sidebar'); ?>
 		</aside>
 		<?php
@@ -62,7 +62,7 @@ switch ( $layout ) {
 ?>
 
 <?php responsive_widgets_before(); // above widgets container hook. ?>
-	<aside id="secondary" class="<?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+	<aside id="secondary" class="widget-area <?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 		<?php responsive_widgets(); // above widgets hook. ?>
 		<?php if ( !dynamic_sidebar( 'main-sidebar' ) ) : ?>
 			<div class="widget-wrapper" style="display:none;">

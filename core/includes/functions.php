@@ -497,9 +497,11 @@ function responsive_add_class( $classes ) {
 add_filter( 'body_class', 'responsive_add_class' );
 
 /**
- * Funtion to add CSS class to body
+ * [responsive_add_header_classes Funtion to add CSS class to body].
+ *
+ * @param [type] $classes [description].
  */
-function responsive_add_header_classes() {
+function responsive_add_header_classes( $classes ) {
 
 	// Adds element order class.
 	$elements = get_theme_mod(
@@ -514,13 +516,11 @@ function responsive_add_header_classes() {
 
 	// Site Width class.
 	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
-
 	// Site Style class.
 	$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 
-	// Element layout class.
+	// Header Element layout class.
 	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
-
 	// Header alignment class.
 	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
 
@@ -531,6 +531,21 @@ function responsive_add_header_classes() {
 	if ( 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) {
 		$classes[] = 'mobile-menu-style-sidebar';
 	}
+	// Content Header Alignment class.
+	$classes[] = 'site-content-header-alignment-' . get_theme_mod( 'responsive_content_header_alignment', 'center' );
+
+	// Site Width class.
+	$responsive_options = responsive_get_options();
+	$classes[]          = 'blog-entry-' . $responsive_options['blog_posts_index_layout_default'];
+
+	// Blog Entry Read More Type.
+	$classes[] = 'read-more-' . get_theme_mod( 'responsive_blog_entry_read_more_type', 'link' );
+	// Entry Blog Title Aligmnmnet.
+	$classes[] = 'blog-entry-title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', 'left' );
+	// Entry Blog Meta Aligmnmnet.
+	$classes[] = 'blog-entry-meta-alignment-' . get_theme_mod( 'responsive_blog_entry_meta_alignment', 'left' );
+	// Entry Blog Content Aligmnmnet.
+	$classes[] = 'blog-entry-content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
 
 	return $classes;
 }
@@ -545,31 +560,42 @@ add_filter( 'body_class', 'responsive_add_header_classes' );
 if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 	function responsive_post_meta_data() {
-		printf(
-			__( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
-			'meta-prep meta-prep-author posted',
-			sprintf(
-				'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
-				esc_url( get_permalink() ),
-				esc_attr( get_the_title() ),
-				esc_html( get_the_date( 'c' ) ),
-				esc_html( get_the_date() )
-			),
-			'byline',
-			sprintf(
-				'<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s"><span class="author-gravtar">%4$s</span>%3$s</a></span>',
-				get_author_posts_url( get_the_author_meta( 'ID' ) ),
-				sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
-				esc_attr( get_the_author() ),
-				get_avatar( get_the_author_meta( 'ID' ), 32 )
-			)
-		);
 		?>
-		<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
-		<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+		<span class="entry-author">
+			<?php
+				printf(
+					__( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
+					'meta-prep meta-prep-author posted',
+					sprintf(
+						'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
+						esc_url( get_permalink() ),
+						esc_attr( get_the_title() ),
+						esc_html( get_the_date( 'c' ) ),
+						esc_html( get_the_date() )
+					),
+					'byline',
+					sprintf(
+						'<span class="author vcard">
+							<a class="url fn n" href="%1$s" title="%2$s" itemscope itemtype="http://schema.org/Person">
+								<i class="fa fa-user"></i>
+								<span itemprop="name">%3$s</span>
+							</a>
+						</span>',
+						get_author_posts_url( get_the_author_meta( 'ID' ) ),
+						sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
+						esc_attr( get_the_author() )
+					)
+				);
+			?>
 		</span>
-		<?php
 
+		<span class="entry-category">
+			<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
+			<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+			</span>
+		</span>
+
+		<?php
 	}
 }
 

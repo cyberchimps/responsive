@@ -1,0 +1,68 @@
+<?php
+/**
+ * Header Customizer Options
+ *
+ * @package Responsive WordPress theme
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
+	/**
+	 * Header Customizer Options */
+	class Responsive_Content_Header_Colors_Customizer {
+
+		/**
+		 * Setup class.
+		 *
+		 * @since 1.0
+		 */
+		public function __construct() {
+
+			add_action( 'customize_register', array( $this, 'customizer_options' ) );
+
+		}
+
+		/**
+		 * Customizer options
+		 *
+		 * @since 0.2
+		 *
+		 * @param  object $wp_customize WordPress customization option.
+		 */
+		public function customizer_options( $wp_customize ) {
+			$wp_customize->add_section(
+				'responsive_content_header_colors',
+				array(
+					'title'    => esc_html__( 'Colors', 'responsive' ),
+					'panel'    => 'responsive_content_header',
+					'priority' => 2,
+				)
+			);
+
+			// Background Color.
+			$header_background_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'content_header_background', $header_background_label, 'responsive_content_header_colors', 1, '#efefef' );
+
+			// Title Color.
+			$content_header_heading_color_label = __( 'Tttle Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'content_header_heading', $content_header_heading_color_label, 'responsive_content_header_colors', 3, '#333333' );
+
+			// Header Description.
+			$content_header_description_color_label = __( 'Description Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'content_header_description', $content_header_description_color_label, 'responsive_content_header_colors', 4, '#999999' );
+
+			// Breadcrumb Color.
+			$breadcrumb_color_label = __( 'Breadcrumb Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'breadcrumb', $breadcrumb_color_label, 'responsive_content_header_colors', 5, '#1e73be', 'responsive_active_breadcrumb' );
+
+		}
+
+
+	}
+
+endif;
+
+return new Responsive_Content_Header_Colors_Customizer();

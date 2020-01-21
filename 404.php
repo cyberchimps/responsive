@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <?php get_header(); ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
-<div id="wrapper" class="clearfix">
+<div id="wrapper" class="site-content clearfix">
 	<div class="content-outer container">
 		<div class="row">
 <?php responsive_in_wrapper(); // wrapper hook. ?>

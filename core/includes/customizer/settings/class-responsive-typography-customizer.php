@@ -50,7 +50,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			return apply_filters(
 				'responsive_typography_settings',
 				array(
-					'body'                 => array(
+					'body'                       => array(
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => 'body',
 						'section'  => 'responsive_typography',
@@ -64,78 +64,78 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						),
 					),
 
-					'heading_h1'           => array(
+					'heading_h1'                 => array(
 						'label'    => esc_html__( 'Heading 1 (H1)', 'responsive' ),
 						'target'   => 'h1',
 						'section'  => 'responsive_typography',
 						'priority' => 4,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '2.625em',
-							'line-height'    => '1.4',
+							'font-size'      => '33px',
+							'line-height'    => '1.25',
 							'text-transform' => 'inherit',
 						),
 					),
-					'heading_h2'           => array(
+					'heading_h2'                 => array(
 						'label'    => esc_html__( 'Heading 2 (H2)', 'responsive' ),
 						'target'   => 'h2',
 						'section'  => 'responsive_typography',
 						'priority' => 6,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '2.250em',
-							'line-height'    => '1.4',
+							'font-size'      => '26px',
+							'line-height'    => '1.25',
 							'text-transform' => 'inherit',
 						),
 					),
-					'heading_h3'           => array(
+					'heading_h3'                 => array(
 						'label'    => esc_html__( 'Heading 3 (H3)', 'responsive' ),
 						'target'   => 'h3',
 						'section'  => 'responsive_typography',
 						'priority' => 8,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '1.875em',
-							'line-height'    => '1.4',
+							'font-size'      => '20px',
+							'line-height'    => '1.25',
 							'text-transform' => 'inherit',
 						),
 					),
-					'heading_h4'           => array(
+					'heading_h4'                 => array(
 						'label'    => esc_html__( 'Heading 4 (H4)', 'responsive' ),
 						'target'   => 'h4',
 						'section'  => 'responsive_typography',
 						'priority' => 10,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '1.500em',
-							'line-height'    => '1.4',
+							'font-size'      => '16px',
+							'line-height'    => '1.25',
 							'text-transform' => 'inherit',
 						),
 					),
-					'heading_h5'           => array(
+					'heading_h5'                 => array(
 						'label'    => esc_html__( 'Heading 5 (H5)', 'responsive' ),
 						'target'   => 'h5',
 						'section'  => 'responsive_typography',
 						'priority' => 12,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '1.125em',
-							'line-height'    => '1.4',
+							'font-size'      => '13px',
+							'line-height'    => '1.25',
 							'text-transform' => 'inherit',
 						),
 					),
-					'heading_h6'           => array(
+					'heading_h6'                 => array(
 						'label'    => esc_html__( 'Heading 6 (H6)', 'responsive' ),
 						'target'   => 'h6',
 						'section'  => 'responsive_typography',
 						'priority' => 14,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'   => '1.000em',
-							'line-height' => '1.4',
+							'font-size'   => '13px',
+							'line-height' => '1.25',
 						),
 					),
-					'meta'                 => array(
+					'meta'                       => array(
 						'label'    => esc_html__( 'Meta', 'responsive' ),
 						'target'   => '.post-meta *',
 						'section'  => 'responsive_typography',
@@ -143,42 +143,75 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '12px',
-							'line-height'    => '1.8',
+							'line-height'    => '1.75',
 							'text-transform' => 'uppercase',
 						),
 					),
-					'header_site_title'    => array(
+					'header_site_title'          => array(
 						'label'    => esc_html__( 'Site Title', 'responsive' ),
 						'target'   => '.site-title a',
 						'section'  => 'responsive_header_typography',
 						'priority' => 1,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '2.063em',
+							'font-size'      => '20px',
 							'line-height'    => '1',
 							'letter-spacing' => '0',
 						),
 					),
-					'header_site_tagline'  => array(
+					'header_site_tagline'        => array(
 						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
 						'target'   => '.site-description',
 						'section'  => 'responsive_header_typography',
 						'priority' => 3,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '0.875em',
-							'line-height'    => '1.4',
+							'font-size'      => '13px',
+							'line-height'    => '1.25',
 							'letter-spacing' => '0',
 						),
 					),
-					'header_menu'          => array(
+					'header_menu'                => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
 						'target'   => '.main-navigation a',
 						'panel'    => 'responsive_header_menu',
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
-							'font-size'      => '16px',
-							'letter-spacing' => '0.6',
+							'font-size'   => '16px',
+							'line-height' => '1.75',
+						),
+					),
+					'content_header_heading'     => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => '.site-content-header .page-header .page-title',
+						'priority' => 1,
+						'section'  => 'responsive_content_header_typography',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '33px',
+							'line-height' => '1.75',
+						),
+					),
+					'content_header_description' => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => '.site-content-header .page-header .page-description',
+						'priority' => 3,
+						'section'  => 'responsive_content_header_typography',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '16px',
+							'line-height' => '1.75',
+						),
+					),
+					'breadcrumb'                 => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => '.site-content-header .breadcrumb-list',
+						'priority' => 5,
+						'section'  => 'responsive_content_header_typography',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '13px',
+							'line-height' => '1.75',
 						),
 					),
 
@@ -208,7 +241,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '15px',
-							'line-height' => '1.8',
+							'line-height' => '1.75',
 						),
 					),
 					'page_title'           => array(
@@ -217,7 +250,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'defaults' => array(
 							'color'       => '#333333',
 							'font-size'   => '32px',
-							'line-height' => '1.4',
+							'line-height' => '1.25',
 						),
 					),
 					'blog_entry_title'     => array(
@@ -226,7 +259,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'defaults' => array(
 							'font-size'      => '24px',
 							'color'          => '#333333',
-							'line-height'    => '1.4',
+							'line-height'    => '1.25',
 							'letter-spacing' => '0.6',
 						),
 					),
@@ -236,7 +269,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'defaults' => array(
 							'font-size'      => '34px',
 							'color'          => '#333333',
-							'line-height'    => '1.4',
+							'line-height'    => '1.25',
 							'letter-spacing' => '0.6',
 						),
 					),
@@ -247,7 +280,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'defaults' => array(
 							'font-size'      => '0.875em',
 							'font-weight'    => '400',
-							'line-height'    => '1.4',
+							'line-height'    => '1.25',
 							'letter-spacing' => '0',
 						),
 					),

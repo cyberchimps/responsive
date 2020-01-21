@@ -34,31 +34,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				get_template_part( 'partials/single/media/blog-single', $format );
 
-			}
-
-			// Title.
-			if ( 'title' === $element ) {
-
-				get_template_part( 'partials/single/header' );
-
-			}
-
-			// Meta.
-			if ( 'meta' === $element ) {
-
-				get_template_part( 'partials/single/meta' );
-
-			}
-
-			// Content.
-			if ( 'content' === $element ) {
-
-				get_template_part( 'partials/single/content' );
-
+			} else {
+				get_template_part( 'partials/single/' . $element );
 			}
 		}
 		?>
-		<?php if ( get_the_author_meta( 'description' ) != '' ) : ?>
+		<?php if ( '' !== get_the_author_meta( 'description' ) ) : ?>
 
 			<div id="author-meta">
 				<?php

@@ -53,7 +53,7 @@ $inner_classes = implode( ' ', $inner_classes ); ?>
 			get_template_part( 'partials/entry/thumbnail-style/category' );
 
 			// Title
-			get_template_part( 'partials/entry/header' );
+			get_template_part( 'partials/entry/title' );
 
 			// Content
 			get_template_part( 'partials/entry/content' );

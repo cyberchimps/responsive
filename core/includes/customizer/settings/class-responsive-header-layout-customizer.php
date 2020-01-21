@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
+if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 	/**
 	 * Footer Customizer Options */
-	class Responsive_Header_Customizer {
+	class Responsive_Header_Layout_Customizer {
 
 		/**
 		 * Setup class.
@@ -132,4 +132,4 @@ if ( ! class_exists( 'Responsive_Header_Customizer' ) ) :
 
 endif;
 
-return new Responsive_Header_Customizer();
+return new Responsive_Header_Layout_Customizer();

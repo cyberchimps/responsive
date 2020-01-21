@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_Header_Color_Customizer' ) ) :
+if ( ! class_exists( 'Responsive_Header_Colors_Customizer' ) ) :
 	/**
 	 * Header Customizer Options */
-	class Responsive_Header_Color_Customizer {
+	class Responsive_Header_Colors_Customizer {
 
 		/**
 		 * Setup class.
@@ -65,4 +65,4 @@ if ( ! class_exists( 'Responsive_Header_Color_Customizer' ) ) :
 
 endif;
 
-return new Responsive_Header_Color_Customizer();
+return new Responsive_Header_Colors_Customizer();

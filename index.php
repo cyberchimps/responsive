@@ -26,13 +26,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 responsive_wrapper_top(); // before wrapper content hook.
 ?>
-<div id="wrapper" class="clearfix">
+<div id="wrapper" class="site-content clearfix">
 	<div class="content-outer container">
 		<div class="row">
-
 			<?php responsive_in_wrapper(); // wrapper hook. ?>
 
-			<div id="primary" class="grid col-620" role="main">
+			<main id="primary" class="content-area grid col-620" role="main">
 
 			<?php if ( have_posts() ) : ?>
 
@@ -90,7 +89,7 @@ responsive_wrapper_top(); // before wrapper content hook.
 			</div><!-- end of #content -->
 
 		<?php get_sidebar(); ?>
-		</div>
+	</main><!-- end of #primary -->
 	</div>
 	<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->

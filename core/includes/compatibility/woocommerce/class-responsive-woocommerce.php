@@ -365,8 +365,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 					'name'          => __( 'WooCommerce Sidebar', 'responsive' ),
 					'id'            => 'responsive-woo-shop-sidebar',
 					'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'responsive' ),
-					'before_title'  => '<div class="widget-title"><h3>',
-					'after_title'   => '</h3></div>',
+					'before_title'  => '<div class="widget-title"><h4>',
+					'after_title'   => '</h4></div>',
 					'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 					'after_widget'  => '</div>',
 				)

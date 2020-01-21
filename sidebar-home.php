@@ -26,14 +26,14 @@ if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-w
 	<?php responsive_widgets_before(); // above widgets container hook ?>
 <div class="content-outer container">
 	<div class="row">
-	<aside id="secondary" class="home-widgets" role="complementary">
+	<aside id="secondary" class="widget-area home-widgets" role="complementary">
 		<div id="home_widget_1" class="grid col-300">
 		<?php responsive_widgets(); // above widgets hook ?>
 
 		<?php if ( ! dynamic_sidebar( 'home-widget-1' ) ) : ?>
 				<div class="widget-wrapper">
 
-					<div class="widget-title-home"><h3><?php esc_html_e( 'Fermentum', 'responsive' ); ?></h3></div>
+					<div class="widget-title-home"><h4><?php esc_html_e( 'Fermentum', 'responsive' ); ?></h4></div>
 					<div class="textwidget">
 						<img src="<?php echo get_template_directory_uri() . '/images/box1.jpg'; ?>" alt="responsivepro">
 					</div>
@@ -52,7 +52,7 @@ if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-w
 		<?php if ( ! dynamic_sidebar( 'home-widget-2' ) ) : ?>
 				<div class="widget-wrapper">
 
-					<div class="widget-title-home"><h3><?php esc_html_e( 'Elementum', 'responsive' ); ?></h3></div>
+					<div class="widget-title-home"><h4><?php esc_html_e( 'Elementum', 'responsive' ); ?></h4></div>
 					<div class="textwidget">
 						<img src="<?php echo get_template_directory_uri() . '/images/box2.jpg'; ?>" alt="responsivepro">
 					</div>
@@ -70,7 +70,7 @@ if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-w
 		<?php if ( ! dynamic_sidebar( 'home-widget-3' ) ) : ?>
 				<div class="widget-wrapper">
 
-					<div class="widget-title-home"><h3><?php esc_html_e( 'Interdum', 'responsive' ); ?></h3></div>
+					<div class="widget-title-home"><h4><?php esc_html_e( 'Interdum', 'responsive' ); ?></h4></div>
 					<div class="textwidget">
 						<img src="<?php echo get_template_directory_uri() . '/images/box3.jpg'; ?>" alt="responsivepro">
 					</div>

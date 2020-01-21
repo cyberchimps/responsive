@@ -46,7 +46,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 } else {
 	get_header();
 	responsive_wrapper_top(); // before wrapper content hook. ?>
-	<div id="wrapper" class="clearfix">
+	<div id="wrapper" class="site-content clearfix">
 		<div class="content-outer container">
 		<div class="row">
 	<?php

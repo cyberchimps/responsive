@@ -799,12 +799,11 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 	 */
 	function responsive_post_link( $output_filter = '' ) {
 
-		$read_more_text    = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
-		$read_more_classes = apply_filters( 'responsive_post_read_more_class', array() );
+		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
-			'<a class="' . esc_attr( implode( ' ', $read_more_classes ) ) . '" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
+			'<a class="" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
 		);
 
 		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
@@ -821,9 +820,8 @@ if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	 * @return html
 	 */
 	function responsive_modify_read_more_link() {
-		$read_more_text    = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
-		$read_more_classes = apply_filters( 'responsive_post_read_more_class', array() );
-		return '<a class="more-link ' . esc_attr( implode( ' ', $read_more_classes ) ) . '" href="' . get_permalink() . '">' . $read_more_text . '</a>';
+		$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
+		return '<a class="more-link" href="' . get_permalink() . '">' . $read_more_text . '</a>';
 	}
 }
 
@@ -868,7 +866,7 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
  * @param  integer $default_values_x [description].
  * @return void
  */
-function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '' ) {
+function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)' ) {
 	/**
 	 *  Padding control.
 	 */
@@ -975,9 +973,9 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 			$wp_customize,
 			'responsive_' . $element . '_padding',
 			array(
-				'label'       => esc_html__( 'Padding (px)', 'responsive' ),
-				'section'     => $section,
-				'settings'    => array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => array(
 					'desktop_top'    => 'responsive_' . $element . '_top_padding',
 					'desktop_right'  => 'responsive_' . $element . '_right_padding',
 					'desktop_bottom' => 'responsive_' . $element . '_bottom_padding',
@@ -991,8 +989,9 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_padding',
 					'mobile_left'    => 'responsive_' . $element . '_mobile_left_padding',
 				),
-				'priority'    => $priority,
-				'input_attrs' => array(
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'input_attrs'     => array(
 					'min'  => 0,
 					'max'  => 100,
 					'step' => 1,
@@ -1124,7 +1123,7 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
  * @param  [type] $default      [description].
  * @return void               [description].
  */
-function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
+function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1 ) {
 
 	/**
 	 * Main Container Width
@@ -1149,8 +1148,8 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
 				'priority'        => $priority,
 				'active_callback' => $active_call,
 				'input_attrs'     => array(
-					'min'  => 1,
-					'max'  => 4096,
+					'min'  => $min,
+					'max'  => $max,
 					'step' => 1,
 				),
 			)
@@ -1265,4 +1264,181 @@ function responsive_not_active_site_style_flat() {
 	$header_layout = get_theme_mod( 'responsive_style', 'contained' );
 
 	return ( 'flat' === $header_layout ) ? false : true;
+}
+
+/**
+ * [responsive_active_breadcrumb description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_breadcrumb() {
+
+	$responsive_options = get_option( 'responsive_theme_options' );
+	return ( 0 === $responsive_options['breadcrumb'] ) ? true : false;
+
+}
+/**
+ * [responsive_number_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call      [description].
+ * @return void               [description].
+ */
+function responsive_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
+
+	// Add Twitter Setting.
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'active_callback' => $active_call,
+				'label'           => $label,
+				'priority'        => $priority,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'type'            => 'number',
+			)
+		)
+	);
+}
+/**
+ * [responsive_text_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call      [description].
+ * @return void               [description].
+ */
+function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
+
+	// Add Twitter Setting.
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'active_callback' => $active_call,
+				'label'           => $label,
+				'priority'        => $priority,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'type'            => 'text',
+			)
+		)
+	);
+}
+
+/**
+ * [responsive_select_control description].
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $choices      [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call  [description].
+ *
+ * @return void               [description].
+ */
+function responsive_select_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_select',
+			'transport'         => 'refresh',
+		)
+	);
+	$wp_customize->add_control(
+		'responsive_' . $element,
+		array(
+			'label'           => $label,
+			'section'         => $section,
+			'settings'        => 'responsive_' . $element,
+			'type'            => 'select',
+			'priority'        => $priority,
+			'active_callback' => $active_call,
+			'choices'         => apply_filters( 'responsive_' . $element . '_choices', $choices ),
+		)
+	);
+}
+
+/**
+ * [active_blog_entry_content_type_excerpt description]
+ *
+ * @return [type] [description]
+ */
+function active_blog_entry_content_type_excerpt() {
+	return ( 'excerpt' === get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' ) ) ? true : false;
+}
+
+
+/**
+ * [active_blog_entry_columns_multi_column description]
+ *
+ * @return [type] [description]
+ */
+function active_blog_entry_columns_multi_column() {
+	return ( 1 !== get_theme_mod( 'responsive_blog_entry_columns', 1 ) ) ? true : false;
+}
+
+/**
+ * [responsive_checkbox_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call  [description].
+ * @return void               [description].
+ */
+function responsive_checkbox_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_checkbox_validate',
+		)
+	);
+	$wp_customize->add_control(
+		'responsive_' . $element,
+		array(
+			'label'           => $label,
+			'section'         => $section,
+			'settings'        => 'responsive_' . $element,
+			'type'            => 'checkbox',
+			'priority'        => $priority,
+			'active_callback' => $active_call,
+		)
+	);
 }

@@ -60,6 +60,23 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 					'priority'    => 9, // Mixed with top-level-section hierarchy.
 				)
 			);
+			$wp_customize->add_panel(
+				'responsive_content_header',
+				array(
+					'title'       => __( 'Content Header', 'responsive' ),
+					'description' => 'Content Header', // Include html tags such as <p>.
+					'priority'    => 9, // Mixed with top-level-section hierarchy.
+				)
+			);
+
+			$wp_customize->add_panel(
+				'responsive-blog-options',
+				array(
+					'title'       => __( 'Blog', 'responsive' ),
+					'description' => 'blog Options', // Include html tags such as <p>.
+					'priority'    => 10, // Mixed with top-level-section hierarchy.
+				)
+			);
 
 			// Layout Panel.
 			$wp_customize->add_panel(
@@ -84,14 +101,6 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 					'title'       => __( 'Page', 'responsive' ),
 					'description' => 'page Options', // Include html tags such as <p>.
 					'priority'    => 13, // Mixed with top-level-section hierarchy.
-				)
-			);
-			$wp_customize->add_panel(
-				'responsive-blog-options',
-				array(
-					'title'       => __( 'Blog', 'responsive' ),
-					'description' => 'blog Options', // Include html tags such as <p>.
-					'priority'    => 12, // Mixed with top-level-section hierarchy.
 				)
 			);
 			$wp_customize->add_panel(

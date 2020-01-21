@@ -75,7 +75,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			// Container Width.
-			$container_width_label = __( 'Container Width', 'responsive' );
+			$container_width_label = __( 'Container Width (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 2, 1140, 'responsive_active_site_layout_contained' );
 
 			// Header Allignment.
@@ -105,6 +105,14 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 					),
 				)
 			);
+
+			// Box Padding (px).
+			$box_radius_label = __( 'Box Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 3, 30, 30, 'responsive_not_active_site_style_flat', $box_radius_label );
+
+			// Box Radius.
+			$box_radius_label = __( 'Box Radius (px)', 'responsive' );
+			responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 4, '', 'responsive_not_active_site_style_flat' );
 		}
 
 
