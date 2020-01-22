@@ -350,11 +350,15 @@
 }
 
 .site-content-header {
-    @include make-block-element();
-    background-color: transparentize( map-get( $colors, white ), 0.75 );
-    margin-bottom: -$base-line-height-px;
+    @include make-block-element( $grid-gutter-width );
+    background-color: map-get( $colors, white );
     padding: $base-line-height-px;
     text-align: left;
+
+    .responsive-site-style-content-boxed & {
+        margin: 0;
+        border-bottom: 1px solid map-get( $colors, light-gray );
+    }
 
     .page-header,
     .breadcrumbs {
@@ -412,16 +416,32 @@
     .responsive-site-style-boxed & {
         padding: $base-line-height-px;
     }
+    .responsive-site-style-content-boxed & {
+        margin: 0;
+        border-bottom: 1px solid map-get( $colors, light-gray );
+    }
 
     .entry-title {
         margin-bottom: $base-line-height-px / 2;
         margin-top:  $base-line-height-px / 2;
 
+        // Blog Entry Title Aligmnmnet
+        .archive.blog-entry-title-alignment-center &,
+        .search.blog-entry-title-alignment-center &,
         .blog.blog-entry-title-alignment-center & {
             text-align: center;
         }
-
+        .archive.blog-entry-title-alignment-right &,
+        .search.blog-entry-title-alignment-right &,
         .blog.blog-entry-title-alignment-right & {
+            text-align: right;
+        }
+
+        // Single Blog Content Aligmnmnet
+        .single.single-blog-title-alignment-center & {
+            text-align: center;
+        }
+        .single.single-blog-title-alignment-right & {
             text-align: right;
         }
     }
@@ -429,6 +449,26 @@
     .thumbnail {
         margin-bottom: $base-line-height-px / 2;
         margin-top:  $base-line-height-px / 2;
+
+        // Blog Entry Featured Image Aligmnmnet
+        .search.blog-entry-featured-image-alignment-center &,
+        .archive.blog-entry-featured-image-alignment-center &,
+        .blog.blog-entry-featured-image-alignment-center & {
+            text-align: center;
+        }
+        .search.blog-entry-featured-image-alignment-right &,
+        .archive.blog-entry-featured-image-alignment-right &,
+        .blog.blog-entry-featured-image-alignment-right & {
+            text-align: right;
+        }
+
+        // Single Blog Featured Image Aligmnmnet
+        .single.single-blog-featured-image-alignment-center & {
+            text-align: center;
+        }
+        .single.single-blog-featured-image-alignment-right & {
+            text-align: right;
+        }
 
         .thumbnail-caption {
             font-size: map-get( $font-sizes, small );
@@ -443,11 +483,23 @@
         color: map-get( $colors, gray );
         font-size: map-get( $font-sizes, small );
 
+        // Blog Entry Meta Aligmnment
+        .archive.blog-entry-meta-alignment-right &,
+        .search.blog-entry-meta-alignment-right &,
         .blog.blog-entry-meta-alignment-right & {
             text-align: right;
         }
-
+        .archive.blog-entry-meta-alignment-center &,
+        .search.blog-entry-meta-alignment-center &,
         .blog.blog-entry-meta-alignment-center & {
+            text-align: center;
+        }
+
+        // Single Blog Meta Aligmnment
+        .single.single-blog-meta-alignment-right & {
+            text-align: right;
+        }
+        .single.single-blog-meta-alignment-center & {
             text-align: center;
         }
 
@@ -463,7 +515,7 @@
 
             &:last-child {
                 &::after {
-                    content: '';
+                    content: '' !important;
                 }
             }
 
@@ -482,7 +534,7 @@
     .read-more {
         margin-bottom: $base-line-height-px;
 
-        a {
+        .more-link {
             .read-more-button & {
                 padding: ($base-line-height-px / 3) 1em;
                 background-color: map-get( $colors, blue );;
@@ -504,19 +556,147 @@
             margin-bottom: 0;
         }
 
-        & > p {
+        .entry-content {
 
-            .blog-entry-content-alignment-center & {
+            // Blog Entry Content Aligmnmnet
+            .archive.blog-entry-content-alignment-center &,
+            .search.blog-entry-content-alignment-center &,
+            .blog.blog-entry-content-alignment-center & {
                 text-align: center;
             }
-
-            .blog-entry-content-alignment-right & {
+            .archive.blog-entry-content-alignment-right &,
+            .search.blog-entry-content-alignment-right &,
+            .blog.blog-entry-content-alignment-right & {
                 text-align: right;
             }
+
+            // Single Blog Content Aligmnmnet
+            .single.single-blog-content-alignment-center & {
+                text-align: center;
+            }
+            .single.single-blog-content-alignment-right & {
+                text-align: right;
+            }
+
         }
     }
+}
+.content-area-wrapper {
+    .responsive-site-style-content-boxed & {
+        background-color: map-get( $colors, white );
+    }
+}
 
+#main-blog.row {
+    align-items: stretch;
 
+    .entry-column {
+        @extend .col-xs-12;
+        @include make-block-element( $grid-gutter-width );
+        margin-top: 0;
+        .responsive-site-style-content-boxed & {
+            margin-bottom: 0;
+        }
+
+        .archive.blog-entry-columns-2 &,
+        .search.blog-entry-columns-2 &,
+        .blog.blog-entry-columns-2 & {
+            @extend .col-md-6;
+        }
+
+        .archive.blog-entry-columns-3 &,
+        .search.blog-entry-columns-3 &,
+        .blog.blog-entry-columns-3 & {
+            @extend .col-md-4;
+        }
+
+        .archive.blog-entry-columns-4 &,
+        .search.blog-entry-columns-4 &,
+        .blog.blog-entry-columns-4 & {
+            @extend .col-md-6;
+            @extend .col-lg-3;
+        }
+    }
+}
+
+.archive,
+.blog,
+.search {
+    @for $i from 2 through 4 {
+        &.blog-entry-columns-#{$i}-masonry #main-blog.row {
+    		display: block;
+    		columns: $i;
+    		column-gap: 0;
+    		.entry-column {
+    			width: 100%;
+    			float: left;
+    			page-break-inside: avoid; /* Firefox */
+    			-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+                break-inside: avoid;
+    		}
+    	}
+    }
+    @media screen and (max-width: map-get( $screens, lg ) ) {
+        &.blog-entry-columns-3-masonry #main-blog.row,
+        &.blog-entry-columns-4-masonry #main-blog.row {
+    		display: block;
+    		columns: 2;
+    		column-gap: 0;
+            .entry-column {
+    			width: 100%;
+    			float: left;
+    			page-break-inside: avoid; /* Firefox */
+    			-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+                break-inside: avoid;
+    		}
+    	}
+    }
+}
+
+/**
+ * Navigation & Comments tyles
+ * -----------------------------------------------------------------------------
+ */
+.navigation {
+    @extend .row;
+    @include make-block-element();
+    background-color: map-get($colors, white);
+    justify-content: space-between;
+    margin-left: 0;
+    margin-right: 0;
+    padding: $base-line-height-px;
+
+    .responsive-site-style-content-boxed & {
+        margin: 0;
+        border-bottom: 1px solid map-get( $colors, light-gray );
+    }
+
+    .blog.responsive-site-style-content-boxed & {
+        border-top: 1px solid map-get( $colors, light-gray );
+    }
+
+    .responsive-site-style-flat & {
+        background-color: transparent;
+        padding: 0;
+    }
+}
+
+#comments,
+.commentlist,
+.comment-respond {
+    @include make-block-element();
+    background-color: map-get($colors, white);
+    padding: $base-line-height-px;
+
+    .responsive-site-style-content-boxed & {
+        margin: 0;
+        border-bottom: 1px solid map-get( $colors, light-gray );
+    }
+
+    .responsive-site-style-flat & {
+        background-color: transparent;
+        padding: 0;
+    }
 }
 
 
@@ -526,7 +706,7 @@
  */
 
 .widget-wrapper {
-    @include make-block-element();
+    @include make-block-element( $grid-gutter-width );
 
     .responsive-site-style-boxed & {
         padding: $base-line-height-px;
@@ -573,6 +753,45 @@
                     margin: 0;
                     padding: 0;
                 }
+            }
+        }
+    }
+}
+.blog,
+.search,
+.archive{
+    &.blog-entry-sidebar-position {
+        &-left {
+            .site-content > .container > .row {
+                flex-direction: row-reverse;
+            }
+        }
+        &-no {
+            .site-content > .container > .row {
+                aside.widget-area {
+                    display: none;
+                }
+                main.content-area {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+.single.single-blog-sidebar-position {
+    &-left {
+        .site-content > .container > .row {
+            flex-direction: row-reverse;
+        }
+    }
+    &-no {
+        .site-content > .container > .row {
+            aside.widget-area {
+                display: none;
+            }
+            main.content-area {
+                margin: 0 auto;
             }
         }
     }

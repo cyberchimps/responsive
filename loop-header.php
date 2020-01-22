@@ -30,7 +30,7 @@ if ( is_home() && responsive_free_get_option( 'blog_post_title_toggle' ) ) {
 	$responsive_page_description = get_the_archive_description( '<div class="taxonomy-description page-description">', '</div>' );
 } elseif ( is_search() ) {
 	// translators: %s is for search query.
-	$reponsive_page_title = '<h1 class="page-title">' . sprintf( esc_html__( 'Search results for: %s', 'responsive' ), '<span>' . get_search_query() . '</span>' ) . '</h1>';
+	$responsive_page_title = '<h1 class="page-title">' . sprintf( esc_html__( 'Search results for: %s', 'responsive' ), '<span>' . get_search_query() . '</span>' ) . '</h1>';
 }
 
 $responsive_show_breadcrumbs = true;

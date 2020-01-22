@@ -73,8 +73,17 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive-blog-options',
 				array(
 					'title'       => __( 'Blog', 'responsive' ),
-					'description' => 'blog Options', // Include html tags such as <p>.
+					'description' => 'Blog Options', // Include html tags such as <p>.
 					'priority'    => 10, // Mixed with top-level-section hierarchy.
+				)
+			);
+
+			$wp_customize->add_panel(
+				'responsive-single-blog-options',
+				array(
+					'title'       => __( 'Single Blog Post', 'responsive' ),
+					'description' => 'Single Blog Options', // Include html tags such as <p>.
+					'priority'    => 11, // Mixed with top-level-section hierarchy.
 				)
 			);
 
@@ -92,7 +101,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Appearance', 'responsive' ),
 					'description' => 'appearance Options', // Include html tags such as <p>.
-					'priority'    => 10, // Mixed with top-level-section hierarchy.
+					'priority'    => 15, // Mixed with top-level-section hierarchy.
 				)
 			);
 			$wp_customize->add_panel(

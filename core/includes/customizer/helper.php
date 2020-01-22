@@ -803,7 +803,7 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 
 		$post_link = sprintf(
 			esc_html( '%s' ),
-			'<a class="" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
+			'<a class="more-link" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
 		);
 
 		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
@@ -1084,6 +1084,7 @@ function responsive_meta_styles( $wp_customize, $element, $section, $priority ) 
  * @param  string  $section      [description].
  * @param  integer $priority     [description].
  * @param  integer $default     [description].
+ * @param  bool    $active_call     [description].
  * @return void               [description].
  */
 function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
@@ -1115,13 +1116,16 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 /**
  * [responsive_drag_number_control description]
  *
- * @param  [type] $wp_customize [description].
- * @param  [type] $element      [description].
- * @param  [type] $label        [description].
- * @param  [type] $section      [description].
- * @param  [type] $priority     [description].
- * @param  [type] $default      [description].
- * @return void               [description].
+ * @param  [type]  $wp_customize [description].
+ * @param  [type]  $element      [description].
+ * @param  [type]  $label        [description].
+ * @param  [type]  $section      [description].
+ * @param  [type]  $priority     [description].
+ * @param  [type]  $default      [description].
+ * @param  [type]  $active_call  [description].
+ * @param  integer $max          [description].
+ * @param  integer $min          [description].
+ * @return void                [description].
  */
 function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1 ) {
 
@@ -1171,7 +1175,7 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
  *
  * @return void               [description].
  */
-function responsive_dropdown_select_control( $wp_customize, $element, $label, $section, $priority, $default, $choice ) {
+function responsive_dropdown_select_control( $wp_customize, $element, $label, $section, $priority, $default, $choices ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -1391,22 +1395,31 @@ function responsive_select_control( $wp_customize, $element, $label, $section, $
 }
 
 /**
- * [active_blog_entry_content_type_excerpt description]
+ * [responsive_active_blog_entry_content_type_excerpt description]
  *
  * @return [type] [description]
  */
-function active_blog_entry_content_type_excerpt() {
+function responsive_active_blog_entry_content_type_excerpt() {
 	return ( 'excerpt' === get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' ) ) ? true : false;
 }
 
 
 /**
- * [active_blog_entry_columns_multi_column description]
+ * [responsive_active_blog_entry_columns_multi_column description]
  *
  * @return [type] [description]
  */
-function active_blog_entry_columns_multi_column() {
-	return ( 1 !== get_theme_mod( 'responsive_blog_entry_columns', 1 ) ) ? true : false;
+function responsive_active_blog_entry_columns_multi_column() {
+	return ( 1 < get_theme_mod( 'responsive_blog_entry_columns', 1 ) ) ? true : false;
+}
+
+/**
+ * [responsive_disabled_mobile_menu description]
+ *
+ * @return [type] [description]
+ */
+function responsive_disabled_mobile_menu() {
+	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
 }
 
 /**

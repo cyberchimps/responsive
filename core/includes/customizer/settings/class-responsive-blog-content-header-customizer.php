@@ -9,11 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_Blog_Content_header_Customizer' ) ) :
+if ( ! class_exists( 'Responsive_Blog_Content_Header_Customizer' ) ) :
 	/**
 	 * Theme Options Customizer Options
 	 */
-	class Responsive_Blog_Content_header_Customizer {
+	class Responsive_Blog_Content_Header_Customizer {
 
 		/**
 		 * Setup class.
@@ -89,4 +89,4 @@ if ( ! class_exists( 'Responsive_Blog_Content_header_Customizer' ) ) :
 
 endif;
 
-return new Responsive_Blog_Content_header_Customizer();
+return new Responsive_Blog_Content_Header_Customizer();

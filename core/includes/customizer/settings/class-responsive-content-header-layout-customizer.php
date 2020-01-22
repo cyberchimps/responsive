@@ -117,10 +117,6 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 					),
 				)
 			);
-
-			// Padding.
-			responsive_padding_control( $wp_customize, 'content_header', 'responsive_content_header_layout', 4, 28, 28 );
-
 		}
 	}
 

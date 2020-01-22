@@ -42,10 +42,6 @@ if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 				)
 			);
 
-			// Background Color.
-			$header_background_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'content_header_background', $header_background_label, 'responsive_content_header_colors', 1, '#efefef' );
-
 			// Title Color.
 			$content_header_heading_color_label = __( 'Tttle Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'content_header_heading', $content_header_heading_color_label, 'responsive_content_header_colors', 3, '#333333' );

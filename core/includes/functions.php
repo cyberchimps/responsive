@@ -540,12 +540,30 @@ function responsive_add_header_classes( $classes ) {
 
 	// Blog Entry Read More Type.
 	$classes[] = 'read-more-' . get_theme_mod( 'responsive_blog_entry_read_more_type', 'link' );
+	// Entry Blog Featured Image Aligmnmnet.
+	$classes[] = 'blog-entry-featured-image-alignment-' . get_theme_mod( 'responsive_blog_entry_featured_image_alignment', 'center' );
 	// Entry Blog Title Aligmnmnet.
 	$classes[] = 'blog-entry-title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', 'left' );
 	// Entry Blog Meta Aligmnmnet.
 	$classes[] = 'blog-entry-meta-alignment-' . get_theme_mod( 'responsive_blog_entry_meta_alignment', 'left' );
 	// Entry Blog Content Aligmnmnet.
 	$classes[] = 'blog-entry-content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
+	// Entry Blog Columns.
+	$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
+	$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', 1 ) . $masonry;
+	// Entry Blog sidebar Position.
+	$classes[] = 'blog-entry-sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', 'right' );
+
+	// Single Blog sidebar Position.
+	$classes[] = 'single-blog-sidebar-position-' . get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' );
+	// Single Blog Featured Image Aligmnmnet.
+	$classes[] = 'single-blog-featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'center' );
+	// Single Blog Title Aligmnmnet.
+	$classes[] = 'single-blog-title-alignment-' . get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
+	// Single Blog Meta Aligmnmnet.
+	$classes[] = 'single-blog-meta-alignment-' . get_theme_mod( 'responsive_single_blog_meta_alignment', 'left' );
+	// Single Blog Content Aligmnmnet.
+	$classes[] = 'single-blog-content-alignment-' . get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 
 	return $classes;
 }

@@ -22,7 +22,7 @@ function responsive_get_breadcrumb_lists() {
 		breadcrumb_trail();
 	} elseif ( function_exists( 'yoast_breadcrumb' ) && true === $yoast_options['breadcrumbs-enable'] ) {
 		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
-	} elseif ( ! is_search() ) {
+	} else {
 		responsive_breadcrumb_lists();
 	}
 

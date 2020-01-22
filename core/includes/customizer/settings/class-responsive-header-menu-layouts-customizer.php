@@ -67,39 +67,23 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				)
 			);
 
+			// Disable Mobile Menu.
+			$disable_mobile_menu_label = __( 'Enable Mobile Menu', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_mobile_menu', $disable_mobile_menu_label, 'responsive_header_menu_layout', 1, 1, null );
+
 			// Breakpoint.
 			$mobile_menu_breakpoint_label = __( 'Breakpoint', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_menu_breakpoint_label, 'responsive_header_menu_layout', 1, 992 );
+			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_menu_breakpoint_label, 'responsive_header_menu_layout', 1, 992, 'responsive_disabled_mobile_menu' );
 
-			// Header Allignment.
-			$wp_customize->add_setting(
-				'responsive_mobile_menu_style',
-				array(
-					'default'           => 'dropdown',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
+			// Mobile Menu Style.
+			$mobile_menu_style_label   = __( 'Style', 'responsive' );
+			$mobile_menu_style_choices = array(
+				'dropdown'   => esc_html__( 'Dropdown', 'responsive' ),
+				'fullscreen' => esc_html__( 'FullScreen', 'responsive' ),
+				'sidebar'    => esc_html__( 'Sidebar', 'responsive' ),
 			);
-			$wp_customize->add_control(
-				'responsive_mobile_menu_style',
-				array(
-					'label'    => __( 'Style', 'responsive' ),
-					'section'  => 'responsive_header_menu_layout',
-					'settings' => 'responsive_mobile_menu_style',
-					'type'     => 'select',
-					'priority' => 2,
-					'choices'  => apply_filters(
-						'responsive_mobile_menu_style_choices',
-						array(
-							'dropdown'   => esc_html__( 'Dropdown', 'responsive' ),
-							'fullscreen' => esc_html__( 'FullScreen', 'responsive' ),
-							'sidebar'    => esc_html__( 'Sidebar', 'responsive' ),
-						)
-					),
-				)
-			);
+			responsive_select_control( $wp_customize, 'mobile_menu_style', $mobile_menu_style_label, 'responsive_header_menu_layout', 2, $mobile_menu_style_choices, 'dropdown', 'responsive_disabled_mobile_menu' );
 		}
-
 
 	}
 

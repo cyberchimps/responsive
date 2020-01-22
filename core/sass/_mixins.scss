@@ -48,9 +48,9 @@
 //
 // Block element mixin
 // -----------------------------------------------------------------------------
-@mixin make-block-element() {
-    margin-bottom: $base-line-height-px;
-    margin-top: $base-line-height-px;
+@mixin make-block-element( $space: $base-line-height-px ) {
+    margin-bottom: $space;
+    margin-top: $space;
 
     &:first-child {
         margin-top: 0;

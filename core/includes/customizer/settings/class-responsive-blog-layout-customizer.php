@@ -46,24 +46,24 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				)
 			);
 
-			$blog_content_width_label = esc_html__( 'Main Content Width', 'responsive' );
+			$blog_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'blog_content_width', $blog_content_width_label, 'responsive_blog_layout', 1, 66, null, 100 );
 
 			$entry_columns_label = esc_html__( 'Entry Columns', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'blog_entry_columns', $entry_columns_label, 'responsive_blog_layout', 2, 1, null, 4 );
 
 			// Display Masonry.
-			$display_masonry_label = esc_html__( 'Display Masonry', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'blog_entry_display_masonry', $display_masonry_label, 'responsive_blog_layout', 3, 0, 'active_blog_entry_columns_multi_column' );
+			$display_masonry_label = esc_html__( 'Enable Masonry Layout', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'blog_entry_display_masonry', $display_masonry_label, 'responsive_blog_layout', 3, 0, 'responsive_active_blog_entry_columns_multi_column' );
 
 			// Sidebar.
-			$sidebar_label   = esc_html__( 'Sidebar', 'responsive' );
+			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
-				'right-sidebar' => esc_html__( 'Right Sidebar', 'responsive' ),
-				'left-sidebar'  => esc_html__( 'Left Sidebar', 'responsive' ),
-				'no-sidebar'    => esc_html__( 'No Sidebar', 'responsive' ),
+				'right' => esc_html__( 'Right Sidebar', 'responsive' ),
+				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
+				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'blog_sidebar', $sidebar_label, 'responsive_blog_layout', 3, $sidebar_choices, 'right-sidebar', null );
+			responsive_select_control( $wp_customize, 'blog_sidebar_position', $sidebar_label, 'responsive_blog_layout', 3, $sidebar_choices, 'right', null );
 
 		}
 
