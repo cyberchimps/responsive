@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div><!-- .skip-container -->
 
 	<div class="site hfeed">
-		<?php get_sidebar( 'header' ); ?>
+		<?php responsive_header_top(); ?>
 
 		<header id="masthead" class="site-header" role="banner">
 			<div class="container">
@@ -58,3 +58,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div>
 			</div>
 		</header>
+
+		<?php responsive_header_bottom(); ?>

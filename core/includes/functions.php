@@ -565,6 +565,20 @@ function responsive_add_header_classes( $classes ) {
 	// Single Blog Content Aligmnmnet.
 	$classes[] = 'single-blog-content-alignment-' . get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 
+	// Page sidebar Position.
+	$classes[] = 'page-sidebar-position-' . get_theme_mod( 'responsive_page_sidebar_position', 'right' );
+	// Page Featured Image Aligmnmnet.
+	$classes[] = 'page-featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'center' );
+	// Page Title Aligmnmnet.
+	$classes[] = 'page-title-alignment-' . get_theme_mod( 'responsive_page_title_alignment', 'left' );
+	// Page Content Aligmnmnet.
+	$classes[] = 'page-content-alignment-' . get_theme_mod( 'responsive_page_content_alignment', 'left' );
+
+	// Header Widget Aligmnmnet.
+	$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
+	// Header Widget POsition.
+	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+
 	return $classes;
 }
 

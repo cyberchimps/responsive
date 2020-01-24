@@ -62,61 +62,22 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			);
 
 			// Breadcrumb Position.
-			$wp_customize->add_setting(
-				'responsive_breadcrumb_position',
-				array(
-					'default'           => 'before',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
+			$breadcrumb_position_label   = esc_html__( 'Breadcrumb Position', 'responsive' );
+			$breadcrumb_position_choices = array(
+				'before' => esc_html__( 'Before Heading', 'responsive' ),
+				'after'  => esc_html__( 'After Heading', 'responsive' ),
 			);
-			$wp_customize->add_control(
-				'responsive_breadcrumb_position',
-				array(
-					'label'           => __( 'Breadcrumb Position', 'responsive' ),
-					'section'         => 'responsive_content_header_layout',
-					'settings'        => 'responsive_breadcrumb_position',
-					'type'            => 'select',
-					'priority'        => 2,
-					'active_callback' => 'responsive_active_breadcrumb',
-					'choices'         => apply_filters(
-						'responsive_breadcrumb_position_choices',
-						array(
-							'before' => esc_html__( 'Before Heading', 'responsive' ),
-							'after'  => esc_html__( 'After Heading', 'responsive' ),
-						)
-					),
-				)
-			);
+			responsive_select_control( $wp_customize, 'breadcrumb_position', $breadcrumb_position_label, 'responsive_content_header_layout', 2, $breadcrumb_position_choices, 'before', 'responsive_active_breadcrumb' );
 
 			// Content Header Allignment.
-			$wp_customize->add_setting(
-				'responsive_content_header_alignment',
-				array(
-					'default'           => 'center',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
+			$content_header_alignment_label   = esc_html__( 'Alignment', 'responsive' );
+			$content_header_alignment_choices = array(
+				'center' => esc_html__( 'Center', 'responsive' ),
+				'left'   => esc_html__( 'Left', 'responsive' ),
+				'right'  => esc_html__( 'Right', 'responsive' ),
 			);
-			$wp_customize->add_control(
-				'responsive_content_header_alignment',
-				array(
-					'label'           => __( 'Alignment', 'responsive' ),
-					'section'         => 'responsive_content_header_layout',
-					'settings'        => 'responsive_content_header_alignment',
-					'type'            => 'select',
-					'priority'        => 3,
-					'active_callback' => null,
-					'choices'         => apply_filters(
-						'responsive_content_header_layout_choices',
-						array(
-							'center' => esc_html__( 'Center', 'responsive' ),
-							'left'   => esc_html__( 'Left', 'responsive' ),
-							'right'  => esc_html__( 'Right', 'responsive' ),
-						)
-					),
-				)
-			);
+			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 3, $content_header_alignment_choices, 'center', null );
+
 		}
 	}
 

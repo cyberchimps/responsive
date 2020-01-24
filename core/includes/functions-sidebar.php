@@ -103,7 +103,7 @@ function responsive_widgets_init() {
 			'id'            => 'header-widgets',
 			'before_title'  => '<div class="widget-title"><h4>',
 			'after_title'   => '</h4></div>',
-			'before_widget' => '<div id="%1$s" class="%2$s">',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 		)
 	);

@@ -126,7 +126,7 @@ html {
  * Row styles
  * -----------------------------------------------------------------------------
  */
-.row, .navigation {
+.row, .navigation, .header-widgets .header-widgets-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -205,7 +205,7 @@ html {
     width: 91.6666666667%;
   }
 
-  .col-xs-12, #main-blog.row .entry-column, #main-blog.navigation .entry-column, .widget-area, .content-area, .main-navigation, .site-branding {
+  .col-xs-12, .widget-area, #main-blog.row .entry-column, #main-blog.navigation .entry-column, .header-widgets #main-blog.header-widgets-wrapper .entry-column, .content-area, .header-widgets .header-widgets-wrapper > .widget, .main-navigation, .site-branding {
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
@@ -303,7 +303,7 @@ html {
     width: 25%;
   }
 
-  .col-md-4, .archive.blog-entry-columns-3 #main-blog.row .entry-column, .archive.blog-entry-columns-3 #main-blog.navigation .entry-column, .search.blog-entry-columns-3 #main-blog.row .entry-column, .search.blog-entry-columns-3 #main-blog.navigation .entry-column, .blog.blog-entry-columns-3 #main-blog.row .entry-column, .blog.blog-entry-columns-3 #main-blog.navigation .entry-column {
+  .col-md-4, .archive.blog-entry-columns-3 #main-blog.row .entry-column, .archive.blog-entry-columns-3 #main-blog.navigation .entry-column, .archive.blog-entry-columns-3 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-3 #main-blog.header-widgets-wrapper .entry-column, .search.blog-entry-columns-3 #main-blog.row .entry-column, .search.blog-entry-columns-3 #main-blog.navigation .entry-column, .search.blog-entry-columns-3 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .search.blog-entry-columns-3 #main-blog.header-widgets-wrapper .entry-column, .blog.blog-entry-columns-3 #main-blog.row .entry-column, .blog.blog-entry-columns-3 #main-blog.navigation .entry-column, .blog.blog-entry-columns-3 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .blog.blog-entry-columns-3 #main-blog.header-widgets-wrapper .entry-column {
     padding-left: 15px;
     padding-right: 15px;
     width: 33.3333333333%;
@@ -315,7 +315,7 @@ html {
     width: 41.6666666667%;
   }
 
-  .col-md-6, .archive.blog-entry-columns-4 #main-blog.row .entry-column, .archive.blog-entry-columns-4 #main-blog.navigation .entry-column, .search.blog-entry-columns-4 #main-blog.row .entry-column, .search.blog-entry-columns-4 #main-blog.navigation .entry-column, .blog.blog-entry-columns-4 #main-blog.row .entry-column, .blog.blog-entry-columns-4 #main-blog.navigation .entry-column, .archive.blog-entry-columns-2 #main-blog.row .entry-column, .archive.blog-entry-columns-2 #main-blog.navigation .entry-column, .search.blog-entry-columns-2 #main-blog.row .entry-column, .search.blog-entry-columns-2 #main-blog.navigation .entry-column, .blog.blog-entry-columns-2 #main-blog.row .entry-column, .blog.blog-entry-columns-2 #main-blog.navigation .entry-column {
+  .col-md-6, .archive.blog-entry-columns-4 #main-blog.row .entry-column, .archive.blog-entry-columns-4 #main-blog.navigation .entry-column, .archive.blog-entry-columns-4 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-4 #main-blog.header-widgets-wrapper .entry-column, .search.blog-entry-columns-4 #main-blog.row .entry-column, .search.blog-entry-columns-4 #main-blog.navigation .entry-column, .search.blog-entry-columns-4 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .search.blog-entry-columns-4 #main-blog.header-widgets-wrapper .entry-column, .blog.blog-entry-columns-4 #main-blog.row .entry-column, .blog.blog-entry-columns-4 #main-blog.navigation .entry-column, .blog.blog-entry-columns-4 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .blog.blog-entry-columns-4 #main-blog.header-widgets-wrapper .entry-column, .archive.blog-entry-columns-2 #main-blog.row .entry-column, .archive.blog-entry-columns-2 #main-blog.navigation .entry-column, .archive.blog-entry-columns-2 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-2 #main-blog.header-widgets-wrapper .entry-column, .search.blog-entry-columns-2 #main-blog.row .entry-column, .search.blog-entry-columns-2 #main-blog.navigation .entry-column, .search.blog-entry-columns-2 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .search.blog-entry-columns-2 #main-blog.header-widgets-wrapper .entry-column, .blog.blog-entry-columns-2 #main-blog.row .entry-column, .blog.blog-entry-columns-2 #main-blog.navigation .entry-column, .blog.blog-entry-columns-2 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .blog.blog-entry-columns-2 #main-blog.header-widgets-wrapper .entry-column {
     padding-left: 15px;
     padding-right: 15px;
     width: 50%;
@@ -370,7 +370,7 @@ html {
     width: 16.6666666667%;
   }
 
-  .col-lg-3, .archive.blog-entry-columns-4 #main-blog.row .entry-column, .archive.blog-entry-columns-4 #main-blog.navigation .entry-column, .search.blog-entry-columns-4 #main-blog.row .entry-column, .search.blog-entry-columns-4 #main-blog.navigation .entry-column, .blog.blog-entry-columns-4 #main-blog.row .entry-column, .blog.blog-entry-columns-4 #main-blog.navigation .entry-column {
+  .col-lg-3, .archive.blog-entry-columns-4 #main-blog.row .entry-column, .archive.blog-entry-columns-4 #main-blog.navigation .entry-column, .archive.blog-entry-columns-4 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-4 #main-blog.header-widgets-wrapper .entry-column, .search.blog-entry-columns-4 #main-blog.row .entry-column, .search.blog-entry-columns-4 #main-blog.navigation .entry-column, .search.blog-entry-columns-4 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .search.blog-entry-columns-4 #main-blog.header-widgets-wrapper .entry-column, .blog.blog-entry-columns-4 #main-blog.row .entry-column, .blog.blog-entry-columns-4 #main-blog.navigation .entry-column, .blog.blog-entry-columns-4 .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .blog.blog-entry-columns-4 #main-blog.header-widgets-wrapper .entry-column {
     padding-left: 15px;
     padding-right: 15px;
     width: 25%;
@@ -424,7 +424,7 @@ html {
     width: 91.6666666667%;
   }
 
-  .col-lg-12 {
+  .col-lg-12, .page-template-gutenberg-fullwidth .content-area {
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
@@ -865,7 +865,7 @@ input[type=submit]:hover {
 }
 
 /**
- * Site header styles
+ * Site header and Header Menu styles
  * -----------------------------------------------------------------------------
  */
 .site-header {
@@ -874,11 +874,11 @@ input[type=submit]:hover {
 .site-header .container, .site-header .site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-header .main-navigation-wrapper {
   position: relative;
 }
-.site-header .row, .site-header .navigation {
+.site-header .row, .site-header .navigation, .site-header .header-widgets .header-widgets-wrapper, .header-widgets .site-header .header-widgets-wrapper {
   align-items: center;
 }
 @media (min-width: 992px) {
-  .site-header .row, .site-header .navigation {
+  .site-header .row, .site-header .navigation, .site-header .header-widgets .header-widgets-wrapper, .header-widgets .site-header .header-widgets-wrapper {
     justify-content: space-between;
   }
 }
@@ -1045,7 +1045,7 @@ input[type=submit]:hover {
 }
 
 @media (min-width: 992px) {
-  .site-header-layout-vertical .site-header .row, .site-header-layout-vertical .site-header .navigation {
+  .site-header-layout-vertical .site-header .row, .site-header-layout-vertical .site-header .navigation, .site-header-layout-vertical .site-header .header-widgets .header-widgets-wrapper, .header-widgets .site-header-layout-vertical .site-header .header-widgets-wrapper {
     flex-direction: column;
   }
 }
@@ -1133,8 +1133,55 @@ input[type=submit]:hover {
   z-index: 9998;
 }
 
+.header-widgets {
+  background-color: #ffffff;
+  font-size: 13px;
+  border-bottom: 1px solid #eaeaea;
+}
+.header-widget-position-with_logo .header-widgets {
+  background-color: transparent;
+}
+.header-widgets .header-widgets-wrapper {
+  justify-content: space-between;
+  padding: 14px;
+}
+.header-widget-alignment-left .header-widgets .header-widgets-wrapper {
+  justify-content: flex-start;
+}
+.header-widget-alignment-right .header-widgets .header-widgets-wrapper {
+  justify-content: flex-end;
+}
+.header-widget-alignment-center .header-widgets .header-widgets-wrapper {
+  justify-content: center;
+}
+.header-widget-alignment-space-around .header-widgets .header-widgets-wrapper {
+  justify-content: space-around;
+}
+.header-widgets .header-widgets-wrapper > .widget {
+  width: auto;
+  align-items: center;
+}
+.site-header-layout-vertical.header-widget-position-with_logo:not(.site-header-alignment-center) .header-widgets {
+  border: none;
+  width: 50%;
+  float: left;
+  padding: 28px 0;
+}
+.site-header-layout-vertical.header-widget-position-with_logo:not(.site-header-alignment-center) .header-widgets .header-widgets-wrapper {
+  flex-direction: row;
+}
+
+.site-header-layout-vertical.header-widget-position-with_logo:not(.site-header-alignment-center) .site-branding .site-branding-wrapper {
+  width: 50%;
+  float: left;
+}
+.site-header-layout-vertical.header-widget-position-with_logo:not(.site-header-alignment-center).site-header-layout-vertical.site-header-alignment-right .site-branding {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 /**
- * Content Area styles
+ * Content Header Area styles
  * -----------------------------------------------------------------------------
  */
 .site-content {
@@ -1153,6 +1200,10 @@ input[type=submit]:hover {
 }
 .site-content-header:last-child {
   margin-bottom: 0;
+}
+.responsive-site-style-flat .site-content-header {
+  background-color: transparent;
+  padding: 0;
 }
 .responsive-site-style-content-boxed .site-content-header {
   margin: 0;
@@ -1235,6 +1286,12 @@ input[type=submit]:hover {
 .single.single-blog-title-alignment-right .hentry .entry-title {
   text-align: right;
 }
+.page.page-title-alignment-center .hentry .entry-title {
+  text-align: center;
+}
+.page.page-title-alignment-right .hentry .entry-title {
+  text-align: right;
+}
 .hentry .thumbnail {
   margin-bottom: 14px;
   margin-top: 14px;
@@ -1249,6 +1306,12 @@ input[type=submit]:hover {
   text-align: center;
 }
 .single.single-blog-featured-image-alignment-right .hentry .thumbnail {
+  text-align: right;
+}
+.page.page-featured-image-alignment-center .hentry .thumbnail {
+  text-align: center;
+}
+.page.page-featured-image-alignment-right .hentry .thumbnail {
   text-align: right;
 }
 .hentry .thumbnail .thumbnail-caption {
@@ -1354,42 +1417,80 @@ input[type=submit]:hover {
 .single.single-blog-content-alignment-right .hentry .post-entry .entry-content {
   text-align: right;
 }
+.page.page-content-alignment-center .hentry .post-entry .entry-content {
+  text-align: center;
+}
+.page.page-content-alignment-right .hentry .post-entry .entry-content {
+  text-align: right;
+}
 
 .responsive-site-style-content-boxed .content-area-wrapper {
   background-color: #ffffff;
 }
 
-#main-blog.row, #main-blog.navigation {
+#main-blog.row, #main-blog.navigation, .header-widgets #main-blog.header-widgets-wrapper {
   align-items: stretch;
 }
-#main-blog.row .entry-column, #main-blog.navigation .entry-column {
+#main-blog.row .entry-column, #main-blog.navigation .entry-column, .header-widgets #main-blog.header-widgets-wrapper .entry-column {
   margin-bottom: 30px;
   margin-top: 30px;
   margin-top: 0;
 }
-#main-blog.row .entry-column:first-child, #main-blog.navigation .entry-column:first-child {
+#main-blog.row .entry-column:first-child, #main-blog.navigation .entry-column:first-child, .header-widgets #main-blog.header-widgets-wrapper .entry-column:first-child {
   margin-top: 0;
 }
-#main-blog.row .entry-column:last-child, #main-blog.navigation .entry-column:last-child {
+#main-blog.row .entry-column:last-child, #main-blog.navigation .entry-column:last-child, .header-widgets #main-blog.header-widgets-wrapper .entry-column:last-child {
   margin-bottom: 0;
 }
-.responsive-site-style-content-boxed #main-blog.row .entry-column, .responsive-site-style-content-boxed #main-blog.navigation .entry-column {
+.responsive-site-style-content-boxed #main-blog.row .entry-column, .responsive-site-style-content-boxed #main-blog.navigation .entry-column, .responsive-site-style-content-boxed .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .responsive-site-style-content-boxed #main-blog.header-widgets-wrapper .entry-column {
   margin-bottom: 0;
 }
-.archive.blog-entry-columns-2-masonry #main-blog.row, .archive.blog-entry-columns-2-masonry #main-blog.navigation,
+.responsive-site-style-content-boxed .content-area-wrapper {
+  background-color: #ffffff;
+}
+
+#main-blog.row, #main-blog.navigation, .header-widgets #main-blog.header-widgets-wrapper {
+  align-items: stretch;
+}
+.responsive-site-style-content-boxed #main-blog.row, .responsive-site-style-content-boxed #main-blog.navigation, .responsive-site-style-content-boxed .header-widgets #main-blog.header-widgets-wrapper, .header-widgets .responsive-site-style-content-boxed #main-blog.header-widgets-wrapper {
+  border-bottom: 1px solid #eaeaea;
+}
+#main-blog.row .entry-column, #main-blog.navigation .entry-column, .header-widgets #main-blog.header-widgets-wrapper .entry-column {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-top: 0;
+}
+#main-blog.row .entry-column:first-child, #main-blog.navigation .entry-column:first-child, .header-widgets #main-blog.header-widgets-wrapper .entry-column:first-child {
+  margin-top: 0;
+}
+#main-blog.row .entry-column:last-child, #main-blog.navigation .entry-column:last-child, .header-widgets #main-blog.header-widgets-wrapper .entry-column:last-child {
+  margin-bottom: 0;
+}
+.responsive-site-style-content-boxed #main-blog.row .entry-column, .responsive-site-style-content-boxed #main-blog.navigation .entry-column, .responsive-site-style-content-boxed .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .responsive-site-style-content-boxed #main-blog.header-widgets-wrapper .entry-column {
+  margin-bottom: 0;
+}
+.archive.blog-entry-columns-2-masonry #main-blog.row, .archive.blog-entry-columns-2-masonry #main-blog.navigation, .archive.blog-entry-columns-2-masonry .header-widgets #main-blog.header-widgets-wrapper, .header-widgets .archive.blog-entry-columns-2-masonry #main-blog.header-widgets-wrapper,
 .blog.blog-entry-columns-2-masonry #main-blog.row,
 .blog.blog-entry-columns-2-masonry #main-blog.navigation,
+.blog.blog-entry-columns-2-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .blog.blog-entry-columns-2-masonry #main-blog.header-widgets-wrapper,
 .search.blog-entry-columns-2-masonry #main-blog.row,
-.search.blog-entry-columns-2-masonry #main-blog.navigation {
+.search.blog-entry-columns-2-masonry #main-blog.navigation,
+.search.blog-entry-columns-2-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .search.blog-entry-columns-2-masonry #main-blog.header-widgets-wrapper {
   display: block;
   columns: 2;
   column-gap: 0;
 }
-.archive.blog-entry-columns-2-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-2-masonry #main-blog.navigation .entry-column,
+.archive.blog-entry-columns-2-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-2-masonry #main-blog.navigation .entry-column, .archive.blog-entry-columns-2-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-2-masonry #main-blog.header-widgets-wrapper .entry-column,
 .blog.blog-entry-columns-2-masonry #main-blog.row .entry-column,
 .blog.blog-entry-columns-2-masonry #main-blog.navigation .entry-column,
+.blog.blog-entry-columns-2-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .blog.blog-entry-columns-2-masonry #main-blog.header-widgets-wrapper .entry-column,
 .search.blog-entry-columns-2-masonry #main-blog.row .entry-column,
-.search.blog-entry-columns-2-masonry #main-blog.navigation .entry-column {
+.search.blog-entry-columns-2-masonry #main-blog.navigation .entry-column,
+.search.blog-entry-columns-2-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .search.blog-entry-columns-2-masonry #main-blog.header-widgets-wrapper .entry-column {
   width: 100%;
   float: left;
   page-break-inside: avoid;
@@ -1398,20 +1499,28 @@ input[type=submit]:hover {
   /* Chrome, Safari, Opera */
   break-inside: avoid;
 }
-.archive.blog-entry-columns-3-masonry #main-blog.row, .archive.blog-entry-columns-3-masonry #main-blog.navigation,
+.archive.blog-entry-columns-3-masonry #main-blog.row, .archive.blog-entry-columns-3-masonry #main-blog.navigation, .archive.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper, .header-widgets .archive.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper,
 .blog.blog-entry-columns-3-masonry #main-blog.row,
 .blog.blog-entry-columns-3-masonry #main-blog.navigation,
+.blog.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .blog.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper,
 .search.blog-entry-columns-3-masonry #main-blog.row,
-.search.blog-entry-columns-3-masonry #main-blog.navigation {
+.search.blog-entry-columns-3-masonry #main-blog.navigation,
+.search.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .search.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper {
   display: block;
   columns: 3;
   column-gap: 0;
 }
-.archive.blog-entry-columns-3-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-3-masonry #main-blog.navigation .entry-column,
+.archive.blog-entry-columns-3-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-3-masonry #main-blog.navigation .entry-column, .archive.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper .entry-column,
 .blog.blog-entry-columns-3-masonry #main-blog.row .entry-column,
 .blog.blog-entry-columns-3-masonry #main-blog.navigation .entry-column,
+.blog.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .blog.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper .entry-column,
 .search.blog-entry-columns-3-masonry #main-blog.row .entry-column,
-.search.blog-entry-columns-3-masonry #main-blog.navigation .entry-column {
+.search.blog-entry-columns-3-masonry #main-blog.navigation .entry-column,
+.search.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .search.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper .entry-column {
   width: 100%;
   float: left;
   page-break-inside: avoid;
@@ -1420,20 +1529,28 @@ input[type=submit]:hover {
   /* Chrome, Safari, Opera */
   break-inside: avoid;
 }
-.archive.blog-entry-columns-4-masonry #main-blog.row, .archive.blog-entry-columns-4-masonry #main-blog.navigation,
+.archive.blog-entry-columns-4-masonry #main-blog.row, .archive.blog-entry-columns-4-masonry #main-blog.navigation, .archive.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper, .header-widgets .archive.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper,
 .blog.blog-entry-columns-4-masonry #main-blog.row,
 .blog.blog-entry-columns-4-masonry #main-blog.navigation,
+.blog.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .blog.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper,
 .search.blog-entry-columns-4-masonry #main-blog.row,
-.search.blog-entry-columns-4-masonry #main-blog.navigation {
+.search.blog-entry-columns-4-masonry #main-blog.navigation,
+.search.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .search.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper {
   display: block;
   columns: 4;
   column-gap: 0;
 }
-.archive.blog-entry-columns-4-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-4-masonry #main-blog.navigation .entry-column,
+.archive.blog-entry-columns-4-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-4-masonry #main-blog.navigation .entry-column, .archive.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper .entry-column,
 .blog.blog-entry-columns-4-masonry #main-blog.row .entry-column,
 .blog.blog-entry-columns-4-masonry #main-blog.navigation .entry-column,
+.blog.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .blog.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper .entry-column,
 .search.blog-entry-columns-4-masonry #main-blog.row .entry-column,
-.search.blog-entry-columns-4-masonry #main-blog.navigation .entry-column {
+.search.blog-entry-columns-4-masonry #main-blog.navigation .entry-column,
+.search.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .search.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper .entry-column {
   width: 100%;
   float: left;
   page-break-inside: avoid;
@@ -1443,28 +1560,44 @@ input[type=submit]:hover {
   break-inside: avoid;
 }
 @media screen and (max-width: 992px) {
-  .archive.blog-entry-columns-3-masonry #main-blog.row, .archive.blog-entry-columns-3-masonry #main-blog.navigation, .archive.blog-entry-columns-4-masonry #main-blog.row, .archive.blog-entry-columns-4-masonry #main-blog.navigation,
+  .archive.blog-entry-columns-3-masonry #main-blog.row, .archive.blog-entry-columns-3-masonry #main-blog.navigation, .archive.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper, .header-widgets .archive.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper, .archive.blog-entry-columns-4-masonry #main-blog.row, .archive.blog-entry-columns-4-masonry #main-blog.navigation, .archive.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper, .header-widgets .archive.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper,
 .blog.blog-entry-columns-3-masonry #main-blog.row,
 .blog.blog-entry-columns-3-masonry #main-blog.navigation,
+.blog.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .blog.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper,
 .blog.blog-entry-columns-4-masonry #main-blog.row,
 .blog.blog-entry-columns-4-masonry #main-blog.navigation,
+.blog.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .blog.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper,
 .search.blog-entry-columns-3-masonry #main-blog.row,
 .search.blog-entry-columns-3-masonry #main-blog.navigation,
+.search.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .search.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper,
 .search.blog-entry-columns-4-masonry #main-blog.row,
-.search.blog-entry-columns-4-masonry #main-blog.navigation {
+.search.blog-entry-columns-4-masonry #main-blog.navigation,
+.search.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper,
+.header-widgets .search.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper {
     display: block;
     columns: 2;
     column-gap: 0;
   }
-  .archive.blog-entry-columns-3-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-3-masonry #main-blog.navigation .entry-column, .archive.blog-entry-columns-4-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-4-masonry #main-blog.navigation .entry-column,
+  .archive.blog-entry-columns-3-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-3-masonry #main-blog.navigation .entry-column, .archive.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper .entry-column, .archive.blog-entry-columns-4-masonry #main-blog.row .entry-column, .archive.blog-entry-columns-4-masonry #main-blog.navigation .entry-column, .archive.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .archive.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper .entry-column,
 .blog.blog-entry-columns-3-masonry #main-blog.row .entry-column,
 .blog.blog-entry-columns-3-masonry #main-blog.navigation .entry-column,
+.blog.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .blog.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper .entry-column,
 .blog.blog-entry-columns-4-masonry #main-blog.row .entry-column,
 .blog.blog-entry-columns-4-masonry #main-blog.navigation .entry-column,
+.blog.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .blog.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper .entry-column,
 .search.blog-entry-columns-3-masonry #main-blog.row .entry-column,
 .search.blog-entry-columns-3-masonry #main-blog.navigation .entry-column,
+.search.blog-entry-columns-3-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .search.blog-entry-columns-3-masonry #main-blog.header-widgets-wrapper .entry-column,
 .search.blog-entry-columns-4-masonry #main-blog.row .entry-column,
-.search.blog-entry-columns-4-masonry #main-blog.navigation .entry-column {
+.search.blog-entry-columns-4-masonry #main-blog.navigation .entry-column,
+.search.blog-entry-columns-4-masonry .header-widgets #main-blog.header-widgets-wrapper .entry-column,
+.header-widgets .search.blog-entry-columns-4-masonry #main-blog.header-widgets-wrapper .entry-column {
     width: 100%;
     float: left;
     page-break-inside: avoid;
@@ -1498,43 +1631,90 @@ input[type=submit]:hover {
   margin: 0;
   border-bottom: 1px solid #eaeaea;
 }
-.blog.responsive-site-style-content-boxed .navigation {
-  border-top: 1px solid #eaeaea;
-}
 .responsive-site-style-flat .navigation {
   background-color: transparent;
   padding: 0;
 }
 
-#comments,
-.commentlist,
-.comment-respond {
+.comments-area {
   margin-bottom: 28px;
   margin-top: 28px;
   background-color: #ffffff;
   padding: 28px;
 }
-#comments:first-child,
-.commentlist:first-child,
-.comment-respond:first-child {
+.comments-area:first-child {
   margin-top: 0;
 }
-#comments:last-child,
-.commentlist:last-child,
-.comment-respond:last-child {
+.comments-area:last-child {
   margin-bottom: 0;
 }
-.responsive-site-style-content-boxed #comments,
-.responsive-site-style-content-boxed .commentlist,
-.responsive-site-style-content-boxed .comment-respond {
+.responsive-site-style-content-boxed .comments-area {
   margin: 0;
   border-bottom: 1px solid #eaeaea;
 }
-.responsive-site-style-flat #comments,
-.responsive-site-style-flat .commentlist,
-.responsive-site-style-flat .comment-respond {
+.responsive-site-style-flat .comments-area {
   background-color: transparent;
   padding: 0;
+}
+.comments-area ol.commentlist {
+  margin: 0;
+  list-style: none;
+}
+.comments-area ol.commentlist ul.children {
+  list-style: none;
+}
+@media (max-width: 576px) {
+  .comments-area ol.commentlist ul.children {
+    margin-left: 0;
+  }
+}
+.comments-area ol.commentlist .says {
+  display: none;
+}
+.comments-area ol.commentlist .reply,
+.comments-area ol.commentlist .comment-meta,
+.comments-area ol.commentlist .comment-author {
+  font-size: 13px;
+}
+.comments-area ol.commentlist .comment-reply-link {
+  float: right;
+  margin-top: 28px;
+}
+.comments-area ol.commentlist .comment-reply-link:before {
+  content: "";
+  font-family: FontAwesome;
+  margin-right: 5.6px;
+  color: inherit;
+}
+.comments-area ol.commentlist .comment-edit-link {
+  float: right;
+}
+.comments-area ol.commentlist .comment-edit-link:before {
+  content: "";
+  font-family: FontAwesome;
+  margin-right: 5.6px;
+}
+.comments-area ol.commentlist .avatar {
+  border-radius: 50%;
+  float: left;
+  margin-right: 14px;
+}
+.comments-area ol.commentlist .comment-body,
+.comments-area ol.commentlist li.comment {
+  margin-bottom: 28px;
+  margin-top: 28px;
+}
+.comments-area ol.commentlist .comment-body:first-child,
+.comments-area ol.commentlist li.comment:first-child {
+  margin-top: 0;
+}
+.comments-area ol.commentlist .comment-body:last-child,
+.comments-area ol.commentlist li.comment:last-child {
+  margin-bottom: 0;
+}
+.comments-area ol.commentlist li.comment {
+  border-top: 1px solid rgba(170, 170, 170, 0.2);
+  padding-top: 28px;
 }
 
 /**
@@ -1544,12 +1724,19 @@ input[type=submit]:hover {
 .widget-wrapper {
   margin-bottom: 30px;
   margin-top: 30px;
+  padding: 28px 0;
 }
 .widget-wrapper:first-child {
   margin-top: 0;
 }
 .widget-wrapper:last-child {
   margin-bottom: 0;
+}
+.widget-wrapper:first-child {
+  padding-top: 0;
+}
+.widget-wrapper:last-child {
+  padding-bottom: 0;
 }
 .responsive-site-style-boxed .widget-wrapper {
   padding: 28px;
@@ -1573,11 +1760,11 @@ input[type=submit]:hover {
   padding: 0;
 }
 #secondary.widget-area .widget-wrapper ul li {
-  border-top: 1px dotted #eaeaea;
+  border-top: 1px dotted rgba(170, 170, 170, 0.2);
   padding: 7px 0;
 }
 #secondary.widget-area .widget-wrapper ul li:last-child {
-  border-bottom: 1px dotted #eaeaea;
+  border-top: 1px dotted rgba(170, 170, 170, 0.2);
 }
 #secondary.widget-area .widget-wrapper .custom-html-widget ul li {
   border: none;
@@ -1585,59 +1772,72 @@ input[type=submit]:hover {
   padding: 0;
 }
 
-.blog.blog-entry-sidebar-position-left .site-content > .container > .row, .blog.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .row, .blog.blog-entry-sidebar-position-left .site-content > .container > .navigation, .blog.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .navigation,
+.blog.blog-entry-sidebar-position-left .site-content > .container > .row, .blog.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .row, .blog.blog-entry-sidebar-position-left .header-widgets .site-content > .container > .header-widgets-wrapper, .blog.blog-entry-sidebar-position-left .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-left .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .header-widgets .blog.blog-entry-sidebar-position-left .site-content > .container > .header-widgets-wrapper, .header-widgets .blog.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .blog.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .blog.blog-entry-sidebar-position-left .site-content > .container > .navigation, .blog.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .navigation,
 .search.blog-entry-sidebar-position-left .site-content > .container > .row,
 .search.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row,
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .search.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .row,
+.search.blog-entry-sidebar-position-left .header-widgets .site-content > .container > .header-widgets-wrapper,
+.search.blog-entry-sidebar-position-left .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper,
+.site-header-full-width-main-navigation:not(.responsive-site-full-width) .search.blog-entry-sidebar-position-left .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper,
+.header-widgets .search.blog-entry-sidebar-position-left .site-content > .container > .header-widgets-wrapper,
+.header-widgets .search.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper,
+.site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .search.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .header-widgets-wrapper,
 .search.blog-entry-sidebar-position-left .site-content > .container > .navigation,
 .search.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation,
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .search.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .navigation,
 .archive.blog-entry-sidebar-position-left .site-content > .container > .row,
 .archive.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row,
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .row,
+.archive.blog-entry-sidebar-position-left .header-widgets .site-content > .container > .header-widgets-wrapper,
+.archive.blog-entry-sidebar-position-left .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper,
+.site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive.blog-entry-sidebar-position-left .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper,
+.header-widgets .archive.blog-entry-sidebar-position-left .site-content > .container > .header-widgets-wrapper,
+.header-widgets .archive.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper,
+.site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .archive.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .header-widgets-wrapper,
 .archive.blog-entry-sidebar-position-left .site-content > .container > .navigation,
 .archive.blog-entry-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation,
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive.blog-entry-sidebar-position-left .site-content > .main-navigation-wrapper > .navigation {
   flex-direction: row-reverse;
 }
-.blog.blog-entry-sidebar-position-no .site-content > .container > .row aside.widget-area, .blog.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row aside.widget-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .row aside.widget-area, .blog.blog-entry-sidebar-position-no .site-content > .container > .navigation aside.widget-area, .blog.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation aside.widget-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation aside.widget-area,
-.search.blog-entry-sidebar-position-no .site-content > .container > .row aside.widget-area,
-.search.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row aside.widget-area,
-.site-header-full-width-main-navigation:not(.responsive-site-full-width) .search.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .row aside.widget-area,
-.search.blog-entry-sidebar-position-no .site-content > .container > .navigation aside.widget-area,
-.search.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation aside.widget-area,
-.site-header-full-width-main-navigation:not(.responsive-site-full-width) .search.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation aside.widget-area,
-.archive.blog-entry-sidebar-position-no .site-content > .container > .row aside.widget-area,
-.archive.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row aside.widget-area,
-.site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .row aside.widget-area,
-.archive.blog-entry-sidebar-position-no .site-content > .container > .navigation aside.widget-area,
-.archive.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation aside.widget-area,
-.site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation aside.widget-area {
-  display: none;
-}
-.blog.blog-entry-sidebar-position-no .site-content > .container > .row main.content-area, .blog.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .row main.content-area, .blog.blog-entry-sidebar-position-no .site-content > .container > .navigation main.content-area, .blog.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation main.content-area,
+.blog.blog-entry-sidebar-position-no .site-content > .container > .row main.content-area, .blog.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .row main.content-area, .blog.blog-entry-sidebar-position-no .header-widgets .site-content > .container > .header-widgets-wrapper main.content-area, .blog.blog-entry-sidebar-position-no .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-no .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .header-widgets .blog.blog-entry-sidebar-position-no .site-content > .container > .header-widgets-wrapper main.content-area, .header-widgets .blog.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .blog.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .blog.blog-entry-sidebar-position-no .site-content > .container > .navigation main.content-area, .blog.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .blog.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation main.content-area,
 .search.blog-entry-sidebar-position-no .site-content > .container > .row main.content-area,
 .search.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row main.content-area,
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .search.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .row main.content-area,
+.search.blog-entry-sidebar-position-no .header-widgets .site-content > .container > .header-widgets-wrapper main.content-area,
+.search.blog-entry-sidebar-position-no .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area,
+.site-header-full-width-main-navigation:not(.responsive-site-full-width) .search.blog-entry-sidebar-position-no .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area,
+.header-widgets .search.blog-entry-sidebar-position-no .site-content > .container > .header-widgets-wrapper main.content-area,
+.header-widgets .search.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area,
+.site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .search.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area,
 .search.blog-entry-sidebar-position-no .site-content > .container > .navigation main.content-area,
 .search.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation main.content-area,
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .search.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation main.content-area,
 .archive.blog-entry-sidebar-position-no .site-content > .container > .row main.content-area,
 .archive.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row main.content-area,
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .row main.content-area,
+.archive.blog-entry-sidebar-position-no .header-widgets .site-content > .container > .header-widgets-wrapper main.content-area,
+.archive.blog-entry-sidebar-position-no .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area,
+.site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive.blog-entry-sidebar-position-no .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area,
+.header-widgets .archive.blog-entry-sidebar-position-no .site-content > .container > .header-widgets-wrapper main.content-area,
+.header-widgets .archive.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area,
+.site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .archive.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area,
 .archive.blog-entry-sidebar-position-no .site-content > .container > .navigation main.content-area,
 .archive.blog-entry-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation main.content-area,
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive.blog-entry-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation main.content-area {
   margin: 0 auto;
 }
 
-.single.single-blog-sidebar-position-left .site-content > .container > .row, .single.single-blog-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-left .site-content > .main-navigation-wrapper > .row, .single.single-blog-sidebar-position-left .site-content > .container > .navigation, .single.single-blog-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-left .site-content > .main-navigation-wrapper > .navigation {
+.single.single-blog-sidebar-position-left .site-content > .container > .row, .single.single-blog-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-left .site-content > .main-navigation-wrapper > .row, .single.single-blog-sidebar-position-left .header-widgets .site-content > .container > .header-widgets-wrapper, .single.single-blog-sidebar-position-left .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-left .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .header-widgets .single.single-blog-sidebar-position-left .site-content > .container > .header-widgets-wrapper, .header-widgets .single.single-blog-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .single.single-blog-sidebar-position-left .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .single.single-blog-sidebar-position-left .site-content > .container > .navigation, .single.single-blog-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-left .site-content > .main-navigation-wrapper > .navigation {
   flex-direction: row-reverse;
 }
-.single.single-blog-sidebar-position-no .site-content > .container > .row aside.widget-area, .single.single-blog-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row aside.widget-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-no .site-content > .main-navigation-wrapper > .row aside.widget-area, .single.single-blog-sidebar-position-no .site-content > .container > .navigation aside.widget-area, .single.single-blog-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation aside.widget-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation aside.widget-area {
-  display: none;
+.single.single-blog-sidebar-position-no .site-content > .container > .row main.content-area, .single.single-blog-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-no .site-content > .main-navigation-wrapper > .row main.content-area, .single.single-blog-sidebar-position-no .header-widgets .site-content > .container > .header-widgets-wrapper main.content-area, .single.single-blog-sidebar-position-no .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-no .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .header-widgets .single.single-blog-sidebar-position-no .site-content > .container > .header-widgets-wrapper main.content-area, .header-widgets .single.single-blog-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .single.single-blog-sidebar-position-no .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .single.single-blog-sidebar-position-no .site-content > .container > .navigation main.content-area, .single.single-blog-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation main.content-area {
+  margin: 0 auto;
 }
-.single.single-blog-sidebar-position-no .site-content > .container > .row main.content-area, .single.single-blog-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-no .site-content > .main-navigation-wrapper > .row main.content-area, .single.single-blog-sidebar-position-no .site-content > .container > .navigation main.content-area, .single.single-blog-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .single.single-blog-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation main.content-area {
+
+.page.page-sidebar-position-left .site-content > .container > .row, .page.page-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .page.page-sidebar-position-left .site-content > .main-navigation-wrapper > .row, .page.page-sidebar-position-left .header-widgets .site-content > .container > .header-widgets-wrapper, .page.page-sidebar-position-left .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .page.page-sidebar-position-left .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .header-widgets .page.page-sidebar-position-left .site-content > .container > .header-widgets-wrapper, .header-widgets .page.page-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .page.page-sidebar-position-left .site-content > .main-navigation-wrapper > .header-widgets-wrapper, .page.page-sidebar-position-left .site-content > .container > .navigation, .page.page-sidebar-position-left .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .page.page-sidebar-position-left .site-content > .main-navigation-wrapper > .navigation {
+  flex-direction: row-reverse;
+}
+.page.page-sidebar-position-no .site-content > .container > .row main.content-area, .page.page-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .row main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .page.page-sidebar-position-no .site-content > .main-navigation-wrapper > .row main.content-area, .page.page-sidebar-position-no .header-widgets .site-content > .container > .header-widgets-wrapper main.content-area, .page.page-sidebar-position-no .header-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .page.page-sidebar-position-no .header-widgets .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .header-widgets .page.page-sidebar-position-no .site-content > .container > .header-widgets-wrapper main.content-area, .header-widgets .page.page-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .header-widgets .page.page-sidebar-position-no .site-content > .main-navigation-wrapper > .header-widgets-wrapper main.content-area, .page.page-sidebar-position-no .site-content > .container > .navigation main.content-area, .page.page-sidebar-position-no .site-header-full-width-main-navigation:not(.responsive-site-full-width) .site-content > .main-navigation-wrapper > .navigation main.content-area, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .page.page-sidebar-position-no .site-content > .main-navigation-wrapper > .navigation main.content-area {
   margin: 0 auto;
 }
 

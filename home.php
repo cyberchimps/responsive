@@ -35,9 +35,6 @@ responsive_wrapper_top(); // before wrapper content hook.
 			<?php
 			responsive_in_wrapper(); // wrapper hook.
 			get_template_part( 'wp-admin/includes', 'plugin' );
-
-			global $responsive_options;
-			$responsive_options = responsive_get_options();
 			?>
 
 			<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
@@ -56,8 +53,7 @@ responsive_wrapper_top(); // before wrapper content hook.
 							?>
 					</div>
 							<?php
-							$blog_pagination = get_theme_mod( 'blog_pagination', 'default' );
-
+							$blog_pagination = get_theme_mod( 'responsive_blog_pagination', 'default' );
 							if ( $wp_query->max_num_pages > 1 ) :
 								if ( 'infinite' === $blog_pagination ) :
 									ob_start();

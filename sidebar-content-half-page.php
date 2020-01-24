@@ -23,21 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php get_header(); ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <div id="wrapper" class="site-content clearfix">
-	<?php if ( responsive_breadcrumb_lists() ) { ?>
-		<div class="content-header">
-			<div class="container">
-				<div class="row">
-					<div class="entry-header">
-						<?php responsive_breadcrumb_lists(); ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	<?php } ?>
 	<div class="content-outer container">
 		<div class="row">
 			<?php responsive_in_wrapper(); // wrapper hook. ?>
 			<main id="primary" class="content-area grid-right col-460 fit" role="main">
+				<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
 				<?php if ( have_posts() ) : ?>
 

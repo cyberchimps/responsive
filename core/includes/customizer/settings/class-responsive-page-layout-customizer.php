@@ -9,11 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
+if ( ! class_exists( 'Responsive_Page_Layout_Customizer' ) ) :
 	/**
 	 * Theme Options Customizer Options
 	 */
-	class Responsive_Single_Blog_Layout_Customizer {
+	class Responsive_Page_Layout_Customizer {
 
 		/**
 		 * Setup class.
@@ -38,17 +38,17 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			 * Section
 			 */
 			$wp_customize->add_section(
-				'responsive_single_blog_layout',
+				'responsive_page_layout',
 				array(
 					'title'    => esc_html__( 'Layout', 'responsive' ),
-					'panel'    => 'responsive-single-blog-options',
+					'panel'    => 'responsive-page-options',
 					'priority' => 1,
 				)
 			);
 
 			// Main Content Width.
-			$single_blog_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'single_blog_content_width', $single_blog_content_width_label, 'responsive_single_blog_layout', 1, 66, null, 100 );
+			$page_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'page_content_width', $page_content_width_label, 'responsive_page_layout', 1, 66, null, 100 );
 
 			// Sidebar.
 			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
 				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'single_blog_sidebar_position', $sidebar_label, 'responsive_single_blog_layout', 3, $sidebar_choices, 'right', null );
+			responsive_select_control( $wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_page_layout', 3, $sidebar_choices, 'right', null );
 
 		}
 
@@ -65,4 +65,4 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 endif;
 
-return new Responsive_Single_Blog_Layout_Customizer();
+return new Responsive_Page_Layout_Customizer();

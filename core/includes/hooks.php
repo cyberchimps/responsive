@@ -1,10 +1,4 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Theme's Action Hooks
  *
@@ -18,6 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link           http://codex.wordpress.org/Plugin_API/Hooks
  * @since          available since Release 1.1
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Just after opening <body> tag
@@ -38,16 +37,7 @@ function responsive_container_end() {
 }
 
 /**
- * Just after opening <div id="container">
- *
- * @see header.php
- */
-function responsive_header() {
-	do_action( 'responsive_header' );
-}
-
-/**
- * Just after opening <div id="header">
+ * Just after opening <header>
  *
  * @see header.php
  */
@@ -55,39 +45,21 @@ function responsive_header_top() {
 	do_action( 'responsive_header_top' );
 }
 /**
- * Just before logo <div id="header">
+ * Just before logo
  *
  * @see header.php
  */
-function responsive_header_before_logo_container() {
-	do_action( 'responsive_header_before_logo_container' );
+function responsive_header_with_logo() {
+	do_action( 'responsive_header_with_logo' );
 }
 
 /**
- * Just after opening <div id="header">
- *
- * @see header.php
- */
-function responsive_in_header() {
-	do_action( 'responsive_in_header' );
-}
-
-/**
- * Just after closing </div><!-- end of #header -->
+ * Just after closing </header><!-- end of #header -->
  *
  * @see header.php
  */
 function responsive_header_bottom() {
 	do_action( 'responsive_header_bottom' );
-}
-
-/**
- * Just after closing </div><!-- end of #header -->
- *
- * @see header.php
- */
-function responsive_header_end() {
-	do_action( 'responsive_header_end' );
 }
 
 /**
@@ -304,3 +276,30 @@ function responsive_open_container() {
 function responsive_close_container() {
 	echo '</div>';
 }
+
+/**
+ * [responsive_header_sidebar description]
+ *
+ * @return void [description]
+ */
+function responsive_header_sidebar() {
+	get_sidebar( 'header' );
+}
+
+/**
+ * [responsive_header_widget_position description]
+ *
+ * @return void [description].
+ */
+function responsive_header_widget_position() {
+
+	if ( 0 === get_theme_mod( 'responsive_enable_header_widget', 0 ) ) {
+		return;
+	}
+
+	$responsive_header_widget_position = 'responsive_header_' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+
+	add_action( $responsive_header_widget_position, 'responsive_header_sidebar' );
+
+}
+add_action( 'wp_head', 'responsive_header_widget_position' );

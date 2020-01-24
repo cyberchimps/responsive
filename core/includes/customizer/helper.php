@@ -396,7 +396,7 @@ if ( ! function_exists( 'responsive_page_single_elements_positioning' ) ) {
 	function responsive_page_single_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'featured_image', 'title', 'content' );
+		$sections = array( 'title', 'featured_image', 'content' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_page_single_elements_positioning', $sections );
@@ -745,7 +745,7 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
 function responsive_read_more_text( $text ) {
 
 	$read_more = get_theme_mod( 'responsive_blog_read_more_text' );
-	if ( '' != $read_more ) {
+	if ( '' !== $read_more ) {
 		$text = $read_more;
 	}
 
@@ -864,6 +864,8 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
  * @param  integer $priority [description].
  * @param  integer $default_values_y [description].
  * @param  integer $default_values_x [description].
+ * @param  bool    $active_call [description].
+ * @param  string  $label [description].
  * @return void
  */
 function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)' ) {
@@ -1006,80 +1008,6 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
  *
  * @param  object  $wp_customize [description].
  * @param  string  $element      [description].
- * @param  string  $section      [description].
- * @param  integer $priority     [description].
- * @return void               [description].
- */
-function responsive_meta_styles( $wp_customize, $element, $section, $priority ) {
-	// Enable Avatar and Icon.
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_meta_icon_display',
-		array(
-			'default'           => true,
-			'type'              => 'theme_mod',
-			'sanitize_callback' => 'responsive_checkbox_validate',
-		)
-	);
-	$wp_customize->add_control(
-		'responsive_' . $element . '_meta_icon_display',
-		array(
-			'label'    => __( 'Show Meta Icons', 'responsive' ),
-			'section'  => $section,
-			'settings' => 'responsive_' . $element . '_meta_icon_display',
-			'type'     => 'checkbox',
-			'priority' => $priority,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_meta_separator',
-		array(
-			'default'           => '|',
-			'sanitize_callback' => 'wp_check_invalid_utf8',
-			'type'              => 'theme_mod',
-		)
-	);
-	$wp_customize->add_control(
-		'responsive_' . $element . '_meta_separator',
-		array(
-			'label'    => __( 'Meta Separator', 'responsive' ),
-			'section'  => $section,
-			'settings' => 'responsive_' . $element . '_meta_separator',
-			'type'     => 'text',
-			'priority' => $priority,
-		)
-	);
-	$wp_customize->add_setting(
-		'responsive_' . $element . '_meta_position',
-		array(
-			'default'           => 'left',
-			'sanitize_callback' => 'responsive_sanitize_select',
-			'transport'         => 'refresh',
-		)
-	);
-	$wp_customize->add_control(
-		'responsive_' . $element . '_meta_position',
-		array(
-			'label'    => __( 'Meta Position', 'responsive' ),
-			'section'  => $section,
-			'settings' => 'responsive_' . $element . '_meta_position',
-			'type'     => 'select',
-			'priority' => $priority,
-			'choices'  => array(
-				'left'   => __( 'Left', 'responsive' ),
-				'center' => __( 'Center', 'responsive' ),
-				'right'  => __( 'Right', 'responsive' ),
-			),
-		)
-	);
-}
-
-
-
-/**
- * Responsive_meta_styles description
- *
- * @param  object  $wp_customize [description].
- * @param  string  $element      [description].
  * @param  string  $label      [description].
  * @param  string  $section      [description].
  * @param  integer $priority     [description].
@@ -1163,42 +1091,6 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
 }
 
 /**
- * [responsive_dropdown_select_control description].
- *
- * @param  [type] $wp_customize [description].
- * @param  [type] $element      [description].
- * @param  [type] $label        [description].
- * @param  [type] $section      [description].
- * @param  [type] $priority     [description].
- * @param  [type] $default      [description].
- * @param  [type] $choices      [description].
- *
- * @return void               [description].
- */
-function responsive_dropdown_select_control( $wp_customize, $element, $label, $section, $priority, $default, $choices ) {
-
-	$wp_customize->add_setting(
-		'responsive_' . $element,
-		array(
-			'default'           => $default,
-			'sanitize_callback' => 'responsive_sanitize_select',
-			'transport'         => 'refresh',
-		)
-	);
-	$wp_customize->add_control(
-		'mobile_menu_style',
-		array(
-			'label'    => $label,
-			'section'  => $section,
-			'settings' => 'responsive_' . $element,
-			'type'     => 'select',
-			'choices'  => $choice,
-			'priority' => $priority,
-		)
-	);
-}
-
-/**
  * [responsive_separator_control description].
  *
  * @param  [type] $wp_customize [description].
@@ -1209,7 +1101,7 @@ function responsive_dropdown_select_control( $wp_customize, $element, $label, $s
  *
  * @return void               [description].
  */
-function responsive_separator_control( $wp_customize, $element, $label, $section, $priority ) {
+function responsive_separator_control( $wp_customize, $element, $label, $section, $priority, $active_call = null ) {
 
 	/**
 	* COLORS Heading.
@@ -1226,9 +1118,10 @@ function responsive_separator_control( $wp_customize, $element, $label, $section
 			$wp_customize,
 			'responsive_' . $element,
 			array(
-				'label'    => $label,
-				'section'  => $section,
-				'priority' => $priority,
+				'label'           => $label,
+				'section'         => $section,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
 			)
 		)
 	);
@@ -1241,9 +1134,17 @@ function responsive_separator_control( $wp_customize, $element, $label, $section
  */
 function responsive_active_vertical_header() {
 
-	$header_layout = get_theme_mod( 'responsive_header_layout', 'horizontal' );
+	return ( 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+}
 
-	return ( 'vertical' === $header_layout ) ? true : false;
+/**
+ * [responsive_active_header_widget description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_header_widget() {
+
+	return ( 1 === get_theme_mod( 'responsive_enable_header_widget', 0 ) ) ? true : false;
 }
 
 /**

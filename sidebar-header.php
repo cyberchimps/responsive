@@ -21,11 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! is_active_sidebar( 'header-widgets' ) ) {
 	return;
 }
-
 ?>
 <div class="header-widgets">
 	<div class="container">
-		<div class="row">
+		<div class="header-widgets-wrapper">
 			<?php dynamic_sidebar( 'header-widgets' ); ?>
 		</div>
 	</div>
