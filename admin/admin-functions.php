@@ -6,19 +6,6 @@
  */
 
 /**
- * Adding the theme menu page
- */
-function responsive_admin_page() {
-	add_theme_page(
-		'Responsive Options',
-		'Responsive Options',
-		'administrator',
-		'responsive-options',
-		'responsive_options'
-	);
-}
-
-/**
  * Admin page design
  */
 function responsive_options() {

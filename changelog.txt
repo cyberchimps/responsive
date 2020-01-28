@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(20/01/20) = Fix - Version 4.0.4
+[!] = Fixed - Header Typography settings are not applied
+[!] = Fixed - Icon for submenu navigation
+[!] = Fixed - Default setting are not rendered in customizer
+
 (10/01/20) = Fix - Version 4.0.3
 [!] = Fixed sale bubble styling for Woocommerce blocks in Gutenberg
 [!] = Fixed CSS for blog page
