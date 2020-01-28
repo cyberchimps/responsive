@@ -25,7 +25,7 @@
       "post-install-cmd": "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
       "post-update-cmd" : "./vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs",
       "phpcsall": [
-        "phpcs --report=full --colors -p --standard=WordPress --ignore=*/vendor/*,*/node_modules/*,*/tests/*,*/jenkincodeception/* functions.php --extensions=php"
+        "phpcs --report=full --colors -p --standard=WordPress --ignore=*/vendor/*,*/node_modules/*,*/tests/*,*/jenkincodeception/* . --extensions=php"
       ]
     },
     "support"    : {
