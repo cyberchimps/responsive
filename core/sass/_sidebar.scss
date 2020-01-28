@@ -1,0 +1,122 @@
+
+.widget-area {
+    @extend .col-xs-12;
+    @extend .col-lg-4;
+}
+
+/**
+ * Aside widget-area Area styles
+ * -----------------------------------------------------------------------------
+ */
+
+.widget-wrapper {
+    @include make-block-element( $grid-gutter-width );
+    padding: $base-line-height-px 0;
+    &:first-child {
+        padding-top: 0;
+    }
+    &:last-child {
+        padding-bottom: 0;
+    }
+
+    .responsive-site-style-boxed & {
+        padding: $base-line-height-px;
+    }
+
+    // Sidebar widget Area
+    .widget-area & {
+        font-size: map-get( $font-sizes, small );
+
+        &.widget_search {
+            .submit {
+                display: none;
+            }
+        }
+
+        .widget-title {
+            display: block;
+            line-height: 1;
+            letter-spacing: 1px;
+            margin: 0 0 ( $base-line-height-px * 2 / 3 );
+            text-transform: uppercase;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                border-top: 1px dotted rgba( 170, 170, 170, 0.2 );
+                padding: ( $base-line-height-px / 4 ) 0;
+
+                &:last-child {
+                    border-top: 1px dotted rgba( 170, 170, 170, 0.2 );
+                }
+            }
+        }
+
+        .custom-html-widget {
+            ul {
+
+                li {
+                    border: none;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+//blog-entry-sidebar-position
+.blog,
+.search,
+.archive {
+    &.blog-entry-sidebar-position {
+        &-left {
+            .site-content > .container > .row {
+                flex-direction: row-reverse;
+            }
+        }
+        &-no {
+            .site-content > .container > .row {
+                main.content-area {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+// single-blog-sidebar-position
+.single.single-blog-sidebar-position {
+    &-left {
+        .site-content > .container > .row {
+            flex-direction: row-reverse;
+        }
+    }
+    &-no {
+        .site-content > .container > .row {
+            main.content-area {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+// page-sidebar-position
+.page.page-sidebar-position {
+    &-left {
+        .site-content > .container > .row {
+            flex-direction: row-reverse;
+        }
+    }
+    &-no {
+        .site-content > .container > .row {
+            main.content-area {
+                margin: 0 auto;
+            }
+        }
+    }
+}

@@ -123,9 +123,9 @@ function responsive_validate_page_layout( $input ) {
  */
 function responsive_sanitize_checkbox( $input ) {
 	if ( $input ) {
-		$output = '1';
+		$output = 1;
 	} else {
-		$output = false;
+		$output = 0;
 	}
 	return $output;
 }
@@ -244,20 +244,33 @@ function responsive_register_options() {
 	// Customizer files array.
 	$files = array(
 		'class-responsive-panel',
-		'class-responsive-header-customizer',
-		'class-responsive-page-customizer',
-		'class-responsive-blog-customizer',
+		'class-responsive-site-layouts-customizer',
+		'class-responsive-site-colors-customizer',
+		'class-responsive-site-typography-customizer',
+		'class-responsive-header-layout-customizer',
+		'class-responsive-header-colors-customizer',
+		'class-responsive-header-typography-customizer',
+		'class-responsive-header-menu-layouts-customizer',
+		'class-responsive-header-menu-colors-customizer',
+		'class-responsive-content-header-colors-customizer',
+		'class-responsive-content-header-layout-customizer',
+		'class-responsive-content-header-typography-customizer',
+		'class-responsive-blog-content-header-customizer',
+		'class-responsive-blog-layout-customizer',
+		'class-responsive-blog-entry-customizer',
+		'class-responsive-single-blog-layout-customizer',
+		'class-responsive-single-blog-entry-customizer',
+		'class-responsive-page-layout-customizer',
+		'class-responsive-page-entry-customizer',
+		'class-responsive-footer-layout-customizer',
+		'class-responsive-footer-colors-customizer',
 		'class-responsive-button-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
 		'class-responsive-layout-customizer',
 		'class-responsive-home-page-customizer',
 		'class-responsive-links-customizer',
-		'class-responsive-footer-customizer',
-		'class-responsive-footer-copyrights-customizer',
-		'class-responsive-menu-customizer',
 		'class-responsive-sidebar-customizer',
-		'class-responsive-footer-color-customizer',
 		'class-responsive-scrolltotop-customizer',
 		'class-responsive-customizer-notices',
 	);

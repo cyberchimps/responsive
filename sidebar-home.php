@@ -24,64 +24,63 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( isset( $responsive_options['home-widgets'] ) && $responsive_options['home-widgets'] != '1' ) {
 	?>
 	<?php responsive_widgets_before(); // above widgets container hook ?>
-<div class="content-outer">
-	<aside id="secondary" class="home-widgets" role="complementary">
-		<div id="home_widget_1" class="grid col-300">
-		<?php responsive_widgets(); // above widgets hook ?>
+	<aside id="secondary" class="widget-area custom-home-widget-section home-widgets" role="complementary">
+		<div class="home-widget-wrapper">
+			<div id="home_widget_1" class="home-widget-1 grid col-300">
+			<?php responsive_widgets(); // above widgets hook ?>
 
-		<?php if ( ! dynamic_sidebar( 'home-widget-1' ) ) : ?>
-				<div class="widget-wrapper">
+			<?php if ( ! dynamic_sidebar( 'home-widget-1' ) ) : ?>
+					<div class="widget-wrapper">
 
-					<div class="widget-title-home"><h3><?php esc_html_e( 'Fermentum', 'responsive' ); ?></h3></div>
-					<div class="textwidget">
-						<img src="<?php echo get_template_directory_uri() . '/images/box1.jpg'; ?>" alt="responsivepro">
-					</div>
-					<div class="textwidget"><?php esc_html_e( 'This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
+						<div class="widget-title-home"><h4><?php esc_html_e( 'Fermentum', 'responsive' ); ?></h4></div>
+						<div class="textwidget">
+							<img src="<?php echo get_template_directory_uri() . '/images/box1.jpg'; ?>" alt="responsivepro">
+						</div>
+						<div class="textwidget"><?php esc_html_e( 'This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
 
+					</div><!-- end of .widget-wrapper -->
+				<?php endif; // end of home-widget-1 ?>
 
-				</div><!-- end of .widget-wrapper -->
-			<?php endif; // end of home-widget-1 ?>
+			<?php responsive_widgets_end(); // responsive after widgets hook ?>
+			</div><!-- end of .col-300 -->
 
-		<?php responsive_widgets_end(); // responsive after widgets hook ?>
-		</div><!-- end of .col-300 -->
+			<div id="home_widget_2" class="home-widget-2 grid col-300">
+			<?php responsive_widgets(); // responsive above widgets hook ?>
 
-		<div id="home_widget_2" class="grid col-300">
-		<?php responsive_widgets(); // responsive above widgets hook ?>
+			<?php if ( ! dynamic_sidebar( 'home-widget-2' ) ) : ?>
+					<div class="widget-wrapper">
 
-		<?php if ( ! dynamic_sidebar( 'home-widget-2' ) ) : ?>
-				<div class="widget-wrapper">
+						<div class="widget-title-home"><h4><?php esc_html_e( 'Elementum', 'responsive' ); ?></h4></div>
+						<div class="textwidget">
+							<img src="<?php echo get_template_directory_uri() . '/images/box2.jpg'; ?>" alt="responsivepro">
+						</div>
+						<div class="textwidget"><?php esc_html_e( 'This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
 
-					<div class="widget-title-home"><h3><?php esc_html_e( 'Elementum', 'responsive' ); ?></h3></div>
-					<div class="textwidget">
-						<img src="<?php echo get_template_directory_uri() . '/images/box2.jpg'; ?>" alt="responsivepro">
-					</div>
-					<div class="textwidget"><?php esc_html_e( 'This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
+					</div><!-- end of .widget-wrapper -->
+				<?php endif; // end of home-widget-2 ?>
 
-				</div><!-- end of .widget-wrapper -->
-			<?php endif; // end of home-widget-2 ?>
+			<?php responsive_widgets_end(); // after widgets hook ?>
+			</div><!-- end of .col-300 -->
 
-		<?php responsive_widgets_end(); // after widgets hook ?>
-		</div><!-- end of .col-300 -->
+			<div id="home_widget_3" class="home-widget-3 grid col-300 fit">
+			<?php responsive_widgets(); // above widgets hook ?>
 
-		<div id="home_widget_3" class="grid col-300 fit">
-		<?php responsive_widgets(); // above widgets hook ?>
+			<?php if ( ! dynamic_sidebar( 'home-widget-3' ) ) : ?>
+					<div class="widget-wrapper">
 
-		<?php if ( ! dynamic_sidebar( 'home-widget-3' ) ) : ?>
-				<div class="widget-wrapper">
+						<div class="widget-title-home"><h4><?php esc_html_e( 'Interdum', 'responsive' ); ?></h4></div>
+						<div class="textwidget">
+							<img src="<?php echo get_template_directory_uri() . '/images/box3.jpg'; ?>" alt="responsivepro">
+						</div>
+							<div class="textwidget"><?php esc_html_e( 'This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
 
-					<div class="widget-title-home"><h3><?php esc_html_e( 'Interdum', 'responsive' ); ?></h3></div>
-					<div class="textwidget">
-						<img src="<?php echo get_template_directory_uri() . '/images/box3.jpg'; ?>" alt="responsivepro">
-					</div>
-						<div class="textwidget"><?php esc_html_e( 'This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
+					</div><!-- end of .widget-wrapper -->
+				<?php endif; // end of home-widget-3 ?>
 
-				</div><!-- end of .widget-wrapper -->
-			<?php endif; // end of home-widget-3 ?>
-
-		<?php responsive_widgets_end(); // after widgets hook ?>
-		</div><!-- end of .col-300 fit -->
+			<?php responsive_widgets_end(); // after widgets hook ?>
+			</div><!-- end of .col-300 fit -->
+		</div>
 	</aside><!-- end of #secondary -->
-</div>
 	<?php responsive_widgets_after(); // after widgets container hook
 }
 ?>

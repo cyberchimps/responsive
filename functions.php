@@ -106,7 +106,6 @@ function responsive_free_setup() {
 			$larger_font_sizes_default_value = $normal_sizes_default_value * $larger_font_sizes_default_value;
 		} else {
 			$larger_font_sizes_default_value = str_replace( 'px', '', $larger_font_sizes['font-size'] );
-
 		}
 	} else {
 		$larger_font_sizes_default_value = 40;
@@ -118,7 +117,6 @@ function responsive_free_setup() {
 			$large_font_sizes_default_value = $normal_sizes_default_value * $large_font_sizes_default_value;
 		} else {
 			$large_font_sizes_default_value = str_replace( 'px', '', $large_font_sizes['font-size'] );
-
 		}
 	} else {
 		$large_font_sizes_default_value = 32;
@@ -154,60 +152,6 @@ function responsive_free_setup() {
 	);
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
-
-add_filter( 'body_class', 'responsive_add_site_layout_classes' );
-
-/**
- * [responsive_add_site_layout_classes description]
- *
- * @param array $classes Class.
- */
-function responsive_add_site_layout_classes( $classes ) {
-	global $responsive_options;
-	$page_layout   = get_theme_mod( 'page_layout_option' );
-	$blog_layout   = get_theme_mod( 'blog_layout_option' );
-	$single_layout = get_theme_mod( 'single_layout_option' );
-	if ( ! empty( $responsive_options['site_layout_option'] ) ) :
-		$classes[] = $responsive_options['site_layout_option'];
-
-	endif;
-
-	if ( ! empty( $page_layout ) ) :
-		$classes[] = 'page-' . $page_layout;
-	endif;
-
-	if ( ! empty( $blog_layout ) ) :
-		$classes[] = 'blog-' . $blog_layout;
-
-	endif;
-
-	if ( ! empty( $single_layout ) ) :
-		$classes[] = 'single-' . $single_layout;
-
-	endif;
-
-	return $classes;
-}
-
-/**
- * Add menu style class to body tag
- *
- * @param array $classes Class.
- */
-function responsive_menu_style_layout_classes( $classes ) {
-	// Handle mobile menu.
-	$menu_style = get_theme_mod( 'mobile_menu_style' );
-	if ( $menu_style ) {
-		$menu_style_class = 'responsive-mobile-' . $menu_style;
-	} else {
-		$menu_style_class = 'responsive-mobile-dropdown';
-	}
-	$classes[] = $menu_style_class;
-
-	return $classes;
-}
-
-add_filter( 'body_class', 'responsive_menu_style_layout_classes' );
 
 $responsive_options = responsive_get_options();
 
@@ -559,22 +503,38 @@ function responsive_admin_rate_us( $footer_text ) {
 
 add_filter( 'admin_footer_text', 'responsive_admin_rate_us' );
 
-
-
 /**
  * Include menu.
  */
-function responsive_display_menu_outside_container() {
+function responsive_display_menu() {
+	$position = get_theme_mod( 'menu_position', 'in_header' );
+	?>
+	<nav id="main-nav" class="main-nav" role="navigation">
+	<?php
+	if ( 'in_header' !== $position ) :
+		?>
+		<div class="container">
+			<div class="row">
+		<?php
+	endif;
 
 	wp_nav_menu(
 		array(
-			'container'       => 'nav',
-			'container_class' => 'main-nav',
-			'container_id'    => 'main-nav',
-			'fallback_cb'     => 'responsive_fallback_menu',
-			'theme_location'  => 'header-menu',
+			'menu_id'        => 'header-menu',
+			'fallback_cb'    => 'responsive_fallback_menu',
+			'theme_location' => 'header-menu',
 		)
 	);
+
+	if ( 'in_header' !== $position ) :
+		?>
+			</div>
+		</div>
+		<?php
+	endif;
+	?>
+	</nav>
+	<?php
 }
 
 

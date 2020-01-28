@@ -1,0 +1,62 @@
+/**
+ * Container styles
+ * -----------------------------------------------------------------------------
+ */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+
+    @each $screen, $width in $screens {
+        @media( min-width: $width ) {
+            max-width: map-get( $containers, $screen );
+        }
+    }
+}
+
+/**
+ * Row styles
+ * -----------------------------------------------------------------------------
+ */
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: $grid-gutter-width/ -2;
+    margin-right: $grid-gutter-width/ -2;
+}
+
+/**
+ * Column styles
+ * -----------------------------------------------------------------------------
+ */
+@each $screen, $width in $screens {
+    @media( min-width: $width ) {
+        @for $i from 1 through $grid-columns {
+            .col-#{$screen}-#{$i} {
+                padding-left: $grid-gutter-width / 2;
+                padding-right: $grid-gutter-width / 2;
+                width: percentage( $i / $grid-columns );
+            }
+        }
+    }
+}
+
+/**
+ * Hide/show styles
+ * -----------------------------------------------------------------------------
+ */
+@each $screen, $width in $screens {
+    .hide-#{$screen} {
+        @media( min-width: $width ) {
+            display: none;
+        }
+    }
+
+    .show-#{$screen} {
+        @media( min-width: $width ) {
+            display: block;
+        }
+    }
+}

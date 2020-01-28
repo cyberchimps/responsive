@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<aside id="secondary" class="grid col-300 fit" role="complementary">
+	<aside id="secondary" class="widget-area grid col-300 fit" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 			<?php dynamic_sidebar( 'main-sidebar' ); ?>
 		<?php responsive_widgets_end(); // after widgets hook ?>

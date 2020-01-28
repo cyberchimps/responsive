@@ -20,11 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php responsive_widgets_before(); // above widgets container hook ?>
-	<aside id="secondary" class="grid col-300 fit gallery-meta" role="complementary">
+	<aside id="secondary" class="widget-area grid col-300 fit gallery-meta" role="complementary">
 		<?php responsive_widgets(); // above widgets hook ?>
 		<div class="widget-wrapper">
 
-			<div class="widget-title"><h3><?php esc_html_e( 'Image Information', 'responsive' ); ?></h3></div>
+			<div class="widget-title"><h4><?php esc_html_e( 'Image Information', 'responsive' ); ?></h4></div>
 			<ul>
 				<?php
 				$responsive_data = get_post_meta( $post->ID, '_wp_attachment_metadata', true );
@@ -86,7 +86,7 @@ if ( ! is_active_sidebar( 'gallery-widget' ) ) {
 
 <?php if ( is_active_sidebar( 'gallery-widget' ) ) : ?>
 
-	<aside id="secondary" class="grid col-300 fit" role="complementary">
+	<aside id="secondary" class="widget-area grid col-300 fit" role="complementary">
 
 		<?php responsive_widgets(); // above widgets hook ?>
 

@@ -56,7 +56,7 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 
 			global $wp_query;
 
-			$blog_pagination            = get_theme_mod( 'blog_pagination', 'default' );
+			$blog_pagination            = get_theme_mod( 'responsive_blog_pagination', 'default' );
 			$blog_infinite_scroll_event = 'scroll';
 
 			$data['query_vars']            = wp_json_encode( $wp_query->query );
@@ -89,32 +89,12 @@ if ( ! class_exists( 'Responsive_Blog_Markup' ) ) :
 			$query_vars['post_status'] = 'publish';
 			$posts                     = new WP_Query( $query_vars );
 
-			global $responsive_options;
-			$responsive_options = responsive_get_options();
-			global $responsive_blog_layout_columns;
-
-			if ( isset( $responsive_options['blog_posts_index_layout_default'] ) && ( in_array( $responsive_options['blog_posts_index_layout_default'], $responsive_blog_layout_columns, true ) ) ) {
-				if ( $posts->have_posts() ) {
-					while ( $posts->have_posts() ) {
-						$posts->the_post(); ?>
-						<div class="section-<?php echo $responsive_options['blog_posts_index_layout_default']; ?> grid">
-							<?php
-							responsive_entry_before();
-							get_template_part( 'partials/entry/layout', get_post_type() );
-							responsive_entry_after();
-							?>
-						</div>
-							<?php
-					}
-				}
-			} else {
-				if ( $posts->have_posts() ) {
-					while ( $posts->have_posts() ) {
-						$posts->the_post();
-						responsive_entry_before();
-						get_template_part( 'partials/entry/layout', get_post_type() );
-						responsive_entry_after();
-					}
+			if ( $posts->have_posts() ) {
+				while ( $posts->have_posts() ) {
+					$posts->the_post();
+					responsive_entry_before();
+					get_template_part( 'partials/entry/layout', get_post_type() );
+					responsive_entry_after();
 				}
 			}
 

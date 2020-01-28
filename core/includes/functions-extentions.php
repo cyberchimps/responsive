@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function responsive_get_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
 	$yoast_options      = get_option( 'wpseo_internallinks' );
-	if ( 1 == $responsive_options['breadcrumb'] ) {
+	if ( 1 === $responsive_options['breadcrumb'] ) {
 		return;
 	} elseif ( function_exists( 'bcn_display' ) ) {
 		echo '<span class="breadcrumb" typeof="v:Breadcrumb">';
@@ -22,7 +22,7 @@ function responsive_get_breadcrumb_lists() {
 		breadcrumb_trail();
 	} elseif ( function_exists( 'yoast_breadcrumb' ) && true === $yoast_options['breadcrumbs-enable'] ) {
 		yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' );
-	} elseif ( ! is_search() ) {
+	} else {
 		responsive_breadcrumb_lists();
 	}
 

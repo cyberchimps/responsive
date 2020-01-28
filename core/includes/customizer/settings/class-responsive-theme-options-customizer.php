@@ -135,22 +135,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 						'type'     => 'checkbox',
 					)
 				);
-				$wp_customize->add_setting(
-					'responsive_theme_options[breadcrumb]',
-					array(
-						'sanitize_callback' => 'responsive_sanitize_checkbox',
-						'type'              => 'option',
-					)
-				);
-				$wp_customize->add_control(
-					'res_breadcrumb',
-					array(
-						'label'    => __( 'Disable breadcrumb list?', 'responsive' ),
-						'section'  => 'theme_elements',
-						'settings' => 'responsive_theme_options[breadcrumb]',
-						'type'     => 'checkbox',
-					)
-				);
 
 				$wp_customize->add_setting(
 					'responsive_theme_options[cta_button]',
