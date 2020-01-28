@@ -1351,7 +1351,7 @@ a {
   text-shadow: 0 -1px 0 #000000;
   white-space: nowrap; }
 
-.menu a:hover {
+.menu li a:hover {
   background-color: #808080;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#808080), to(#363636));
   background-image: -webkit-linear-gradient(top, #808080, #363636);
@@ -3807,12 +3807,15 @@ BDO[DIR="rtl"] {
   font-family: FontAwesome;
   content: "\f107";
   top: 10px;
-  right: 0px;
+  right: 5px;
   color: #ffffff;
   font-size: 15px; }
 
 .menu-item-has-children {
   position: relative; }
+
+li.menu-item-has-children a {
+  padding-right: 20px; }
 
 #footer .social-icons img:hover {
   opacity: 0.8; }
@@ -4102,7 +4105,7 @@ div .wp-block-cover-text {
 #footer .social-icons {
   list-style: none;
   line-height: normal;
-  padding: 0;
+  padding: 20px 0;
   margin: 0;
   width: 100%; }
 
