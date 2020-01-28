@@ -1,0 +1,115 @@
+
+
+/**
+ * Site header and Header Menu styles
+ * -----------------------------------------------------------------------------
+ */
+
+.site-footer {
+    background-color: map-get( $colors, dark-gray );
+    color: map-get( $colors, white );
+    font-size: map-get( $font-sizes, small );
+    @for $i from 1 through 6 {
+        h#{$i} {
+            color: map-get( $colors, white );
+        }
+    }
+
+    a {
+        @include make-link( map-get( $colors, light-gray ), map-get( $colors, white ) );
+    }
+
+}
+
+.footer-widgets {
+    border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
+    padding: $grid-gutter-width * 2  0;
+    .row {
+        justify-content: space-between;
+    }
+
+    .footer-widget {
+        @extend .col-xs-12;
+        .footer-widgets-columns-1 & {
+            @extend .col-lg-12;
+        }
+        .footer-widgets-columns-2 & {
+            @extend .col-lg-6;
+        }
+        .footer-widgets-columns-3 & {
+            @extend .col-lg-4;
+        }
+        .footer-widgets-columns-4 & {
+            @extend .col-lg-3;
+        }
+    }
+
+    .widget-wrapper ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            border-top: 1px dotted rgba(170, 170, 170, 0.2);
+            padding: $base-line-height-px/4 0;
+        }
+    }
+}
+
+.footer-bar {
+    padding: $grid-gutter-width * 2  0;
+
+    .row {
+        .footer-bar-layout-horizontal & {
+            justify-content: space-between;
+        }
+
+        .footer-bar-layout-vertical & {
+            flex-direction: column;
+        }
+
+    }
+
+    .fa {
+        font-size: map-get( $font-sizes, large );
+    }
+}
+
+.footer-navigation,
+.social-icon,
+.copyright {
+    @extend .col-xs-12;
+    padding-top: $grid-gutter-width / 2;
+    padding-bottom: $grid-gutter-width / 2;
+
+    .footer-bar-layout-horizontal & {
+        width: auto;
+    }
+    .footer-bar-layout-vertical & {
+        text-align: center;
+    }
+}
+
+.social-icon,
+.footer-navigation {
+
+    .footer-bar-layout-vertical & {
+        text-align: center;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+
+        & > li {
+            display: inline;
+            border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
+            border-bottom: none;
+            margin: 0 $grid-gutter-width / 2;
+
+            &:first-child {
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme Options Customizer Options
+ * Header Menu Customizer Options
  *
  * @package Responsive WordPress theme
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Responsive_Header_Menu_Colors_Customizer' ) ) :
 	/**
-	 * Theme Options Customizer Options
+	 *  Header Menu Customizer Options
 	 */
 	class Responsive_Header_Menu_Colors_Customizer {
 

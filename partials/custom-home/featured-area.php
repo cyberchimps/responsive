@@ -29,70 +29,67 @@ if ( 1 == $display_slider ) {
 	<?php
 }
 ?>
-<div class="content-outer container">
-	<div class="row">
-<div id="featured" class="grid col-940">
+<div id="featured" class="custom-home-featured-area grid col-940">
 
-	<div id="featured-content" class="grid col-460">
+	<div class="featured-area-wrapper">
+		<div id="featured-content" class="featured-content grid col-460">
 
-		<h1 class="featured-title">
-			<?php
-			if ( isset( $responsive_options['home_headline'] ) ) {
-				echo $responsive_options['home_headline'];
-			}
-			?>
-		</h1>
-
-		<h2 class="featured-subtitle">
-			<?php
-			if ( isset( $responsive_options['home_subheadline'] ) ) {
-				echo $responsive_options['home_subheadline'];
-			}
-			?>
-		</h2>
-
-		<?php
-		if ( isset( $responsive_options['home_content_area'] ) ) {
-			echo do_shortcode( wpautop( $responsive_options['home_content_area'] ) );
-		}
-		?>
-
-
-		<?php if ( $responsive_options['cta_button'] == 0 ) : ?>
-
-			<div class="call-to-action">
+			<h1 class="featured-title">
 				<?php
-							if ( $responsive_options['button_style'] == 'default' ) {
-								$button_class = 'blue button';
-							} elseif ( $responsive_options['button_style'] == 'flat_style' ) {
-								$button_class = 'blue button flat';
-							}
-							?>
-				<a href="<?php echo $responsive_options['cta_url']; ?>" class="<?php echo $button_class; ?>" <?php responsive_schema_markup( 'url' ); ?>>
+				if ( isset( $responsive_options['home_headline'] ) ) {
+					echo $responsive_options['home_headline'];
+				}
+				?>
+			</h1>
+
+			<h2 class="featured-subtitle">
+				<?php
+				if ( isset( $responsive_options['home_subheadline'] ) ) {
+					echo $responsive_options['home_subheadline'];
+				}
+				?>
+			</h2>
+
+			<?php
+			if ( isset( $responsive_options['home_content_area'] ) ) {
+				echo do_shortcode( wpautop( $responsive_options['home_content_area'] ) );
+			}
+			?>
+
+
+			<?php if ( $responsive_options['cta_button'] == 0 ) : ?>
+
+				<div class="call-to-action">
 					<?php
-					if ( isset( $responsive_options['cta_text'] ) ) {
-						echo $responsive_options['cta_text'];
-					}
-					?>
-				</a>
+								if ( $responsive_options['button_style'] == 'default' ) {
+									$button_class = 'blue button';
+								} elseif ( $responsive_options['button_style'] == 'flat_style' ) {
+									$button_class = 'blue button flat';
+								}
+								?>
+					<a href="<?php echo $responsive_options['cta_url']; ?>" class="<?php echo $button_class; ?>" <?php responsive_schema_markup( 'url' ); ?>>
+						<?php
+						if ( isset( $responsive_options['cta_text'] ) ) {
+							echo $responsive_options['cta_text'];
+						}
+						?>
+					</a>
 
-			</div><!-- end of .call-to-action -->
+				</div><!-- end of .call-to-action -->
 
-		<?php endif; ?>
+			<?php endif; ?>
 
-	</div><!-- end of .col-460 -->
+		</div><!-- end of .col-460 -->
 
-	<div id="featured-image" class="grid col-460 fit">
+		<div id="featured-image" class="featured-image grid col-460 fit">
 
-		<?php $featured_content = ( ! empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.png" width="440" height="300" alt="responsivepro featured image" />'; ?>
+			<?php $featured_content = ( ! empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.png" width="440" height="300" alt="responsivepro featured image" />'; ?>
 
-		<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
+			<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
 
-	</div><!-- end of #featured-image -->
-
+		</div><!-- end of #featured-image -->
+	</div>
 </div><!-- end of #featured -->
-</div>
-</div>
 
 <?php if ( isset( $responsive_options['about'] ) && $responsive_options['about'] == '1' ) { ?>
 	<?php
@@ -102,41 +99,36 @@ if ( 1 == $display_slider ) {
 		$button_class = 'blue button flat';
 	}
 	?>
-<div id="about_div" class="grid col-940">
-	<div class="content-outer container">
-		<div class="row">
-	<div class="about-content grid col-620">
-	<?php
-		$responsive_about_title   = isset( $responsive_options['about_title'] ) ? $responsive_options['about_title'] : 'About Box Title';
-		$responsive_about_text    = isset( $responsive_options['about_text'] ) ? $responsive_options['about_text'] : '';
-		$responsive_about_cta_url = isset( $responsive_options['about_cta_url'] ) ? $responsive_options['about_cta_url'] : '';
-	?>
-	<h2 class="section_title"><?php echo esc_html( $responsive_about_title ); ?></h2>
-	<p class="about_text"><?php echo esc_html( $responsive_about_text ); ?></p>
-	</div>
-	<div class="about_cta grid col-300 fit">
-			<a href="<?php echo $responsive_about_cta_url; ?>" class="about-cta-button <?php echo $button_class; ?>">
-			<?php
-			if ( isset( $responsive_options['about_cta_text'] ) ) {
-				echo $responsive_options['about_cta_text'];
-			}
+<div id="about_div" class="custom-home-about-section grid col-940">
+	<div class="about-section-wrapper">
+		<div class="about-content grid col-620">
+		<?php
+			$responsive_about_title   = isset( $responsive_options['about_title'] ) ? $responsive_options['about_title'] : 'About Box Title';
+			$responsive_about_text    = isset( $responsive_options['about_text'] ) ? $responsive_options['about_text'] : '';
+			$responsive_about_cta_url = isset( $responsive_options['about_cta_url'] ) ? $responsive_options['about_cta_url'] : '';
+		?>
+		<h2 class="section_title"><?php echo esc_html( $responsive_about_title ); ?></h2>
+		<p class="about_text"><?php echo esc_html( $responsive_about_text ); ?></p>
+		</div>
+		<div class="about_cta about-cta grid col-300 fit">
+				<a href="<?php echo $responsive_about_cta_url; ?>" class="about-cta-button <?php echo $button_class; ?>">
+				<?php
+				if ( isset( $responsive_options['about_cta_text'] ) ) {
+					echo $responsive_options['about_cta_text'];
+				}
 
-			?>
-		</a>
+				?>
+			</a>
 
+		</div>
 	</div>
-	</div>
-	</div>
-
 </div> <!--  -->
 
 <!--  </div>-->
 <?php } ?>
 
 <?php if ( isset( $responsive_options['feature'] ) && $responsive_options['feature'] == '1' ) { ?>
-<div class="content-outer container">
-	<div class="row">
-<div id="feature_div" class="grid">
+<div id="feature_div" class="custom-home-feature-section grid">
 	<?php
 	$responsive_feature_title = isset( $responsive_options['feature_title'] ) ? $responsive_options['feature_title'] : 'Features';
 
@@ -194,7 +186,7 @@ if ( 1 == $display_slider ) {
 			<span><?php echo esc_html( $responsive_feature_title ); ?></span>
 	</h2>
 
-	<div class="feature_main_div">
+	<div class="feature_main_div feature-main-div">
 		<?php if ( ! $responsive_feature1_post_id == '' ) { ?>
 		<div class="section-feature grid">
 			<div class="feature_img"><img src="<?php echo esc_url( $feature1_showcase_img ); ?>" alt="<?php echo esc_attr( $responsive_alt1_text ); ?>"/></div>
@@ -218,14 +210,10 @@ if ( 1 == $display_slider ) {
 		<?php } ?>
 	</div>
 	</div>
-</div>
-</div>
 <?php } ?>
 
 <?php if ( isset( $responsive_options['testimonials'] ) && $responsive_options['testimonials'] == '1' ) { ?>
-<div id="testimonial_div" class="grid col-940">
-<div class="content-outer container">
-	<div class="row">
+<div id="testimonial_div" class="custom-home-testimonial-section grid col-940">
 	<?php
 
 		$responsive_testimonial_title = isset( $responsive_options['testimonial_title'] ) ? $responsive_options['testimonial_title'] : 'Testimonial';
@@ -245,29 +233,26 @@ if ( 1 == $display_slider ) {
 	<h2 class="section_title">
 			<span><?php echo esc_html( $responsive_testimonial_title ); ?></span>
 	</h2>
-	<?php if ( $responsive_testimonial_id != '' ) { ?>
-	<div id="testimonial-img" class="grid col-300">
-		<div class="testimonial_main_div">
-			<div class="testimonial_img"><img src="<?php echo esc_url( $responsive_testimonial_img ); ?>" alt="<?php echo esc_attr( $responsive_testimonial_alt_text ); ?>"/></div>
+	<div class="testimonial-content">
+		<?php if ( $responsive_testimonial_id != '' ) { ?>
+		<div id="testimonial-img" class="testimonial-img grid col-300">
+			<div class="testimonial_main_div">
+				<div class="testimonial_img"><img src="<?php echo esc_url( $responsive_testimonial_img ); ?>" alt="<?php echo esc_attr( $responsive_testimonial_alt_text ); ?>"/></div>
+			</div>
 		</div>
-	</div>
 
-	<div class="grid col-620 fit">
-		<div class="testimonial_main_text">
-		<p class="testimonial_text"><?php echo $responsive_testimonial_desc_content; ?></p>
-		<p class="testimonial_author"><?php echo esc_html( $responsive_testimonial_name ); ?></p>
+		<div class="testimonial_main_text grid col-620 fit">
+			<i class="fa fa-quote-left" aria-hidden="true"></i>
+			<p class="testimonial_text"><?php echo $responsive_testimonial_desc_content; ?></p>
+			<h3 class="testimonial_author"><?php echo esc_html( $responsive_testimonial_name ); ?></h3>
 		</div>
+		<?php } ?>
 	</div>
-	<?php } ?>
-</div>
-</div>
 </div>
 
 <?php } ?>
 <?php if ( isset( $responsive_options['team'] ) && $responsive_options['team'] == '1' ) { ?>
-<div class="content-outer container">
-	<div class="row">
-<div id="team_div" class="grid">
+<div id="team_div" class="custom-home-team-section grid">
 	<?php
 	$responsive_team_title = isset( $responsive_options['team_title'] ) ? $responsive_options['team_title'] : 'Team';
 	if ( isset( $responsive_options['teammember1'] ) ) {
@@ -340,11 +325,11 @@ if ( 1 == $display_slider ) {
 			<span><?php echo esc_html( $responsive_team_title ); ?></span>
 	</h2>
 
-	<div class="team_main_div">
+	<div class="team_main_div team-main-div">
 		<?php if ( ! $responsive_team1_post_id == '' ) { ?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url( $team1_showcase_img ); ?>" alt="<?php echo esc_attr( $responsive_alt1_text ); ?>"/></div>
-			<div class="team_member"><?php echo esc_html( $team1_showcase_title ); ?></div>
+			<div class="team_member"><h3><?php echo esc_html( $team1_showcase_title ); ?></h3></div>
 			<div class="team_designation"><?php echo esc_html( $team1_showcase_designation ); ?></div>
 			<div class="team_desc"><?php echo $responsive_team1_desc; ?></div>
 			<div class="social">
@@ -365,7 +350,7 @@ if ( 1 == $display_slider ) {
 		<?php if ( ! $responsive_team2_post_id == '' ) { ?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url( $team2_showcase_img ); ?>" alt="<?php echo esc_attr( $responsive_alt2_text ); ?>"/></div>
-			<div class="team_member"><?php echo esc_html( $team2_showcase_title ); ?></div>
+			<div class="team_member"><h3><?php echo esc_html( $team2_showcase_title ); ?></h3></div>
 			<div class="team_designation"><?php echo esc_html( $team2_showcase_designation ); ?></div>
 			<div class="team_desc"><?php echo $responsive_team2_desc; ?></div>
 			<div class="social">
@@ -386,7 +371,7 @@ if ( 1 == $display_slider ) {
 		<?php if ( ! $responsive_team3_post_id == '' ) { ?>
 		<div class="section-team grid">
 			<div class="team_img"><img src="<?php echo esc_url( $team3_showcase_img ); ?>" alt="<?php echo esc_attr( $responsive_alt3_text ); ?>"/></div>
-			<div class="team_member"><?php echo esc_html( $team3_showcase_title ); ?></div>
+			<div class="team_member"><h3><?php echo esc_html( $team3_showcase_title ); ?></h3></div>
 			<div class="team_designation"><?php echo esc_html( $team3_showcase_designation ); ?></div>
 			<div class="team_desc"><?php echo $responsive_team3_desc; ?></div>
 			<div class="social">
@@ -405,7 +390,5 @@ if ( 1 == $display_slider ) {
 		</div>
 		<?php } ?>
 	</div>
-</div>
-</div>
 </div>
 <?php } ?>

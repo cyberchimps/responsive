@@ -58,4 +58,3 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 
 		<?php get_search_form();
 ?>
-</div>

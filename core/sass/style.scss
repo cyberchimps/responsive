@@ -7,6 +7,7 @@
 @import 'header';
 @import 'content';
 @import 'sidebar';
+@import 'footer';
 
 /**
  * Common Site styles
@@ -17,7 +18,9 @@
         max-width: none;
     }
 }
-
+.wp-caption-text {
+    margin-top: $base-line-height-px/2;
+}
 .site-header-full-width-main-navigation {
     &:not(.responsive-site-full-width) {
         .main-navigation-wrapper {

@@ -184,6 +184,23 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		/*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+		add_theme_support(
+			'html5',
+			array(
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+				'script',
+				'style',
+			)
+		);
+
 		/**
 		 * This feature enables woocommerce support for a theme.
 		 *
@@ -523,6 +540,10 @@ function responsive_add_header_classes( $classes ) {
 	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
 	// Header alignment class.
 	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
+	// Header Widget Aligmnmnet.
+	$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
+	// Header Widget POsition.
+	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
 
 	// Full idth menu class.
 	if ( get_theme_mod( 'responsive_header_menu_full_width', 0 ) ) {
@@ -534,10 +555,9 @@ function responsive_add_header_classes( $classes ) {
 	// Content Header Alignment class.
 	$classes[] = 'site-content-header-alignment-' . get_theme_mod( 'responsive_content_header_alignment', 'center' );
 
-	// Site Width class.
+	// blog_posts_index_layout_default class.
 	$responsive_options = responsive_get_options();
 	$classes[]          = 'blog-entry-' . $responsive_options['blog_posts_index_layout_default'];
-
 	// Blog Entry Read More Type.
 	$classes[] = 'read-more-' . get_theme_mod( 'responsive_blog_entry_read_more_type', 'link' );
 	// Entry Blog Featured Image Aligmnmnet.
@@ -574,10 +594,10 @@ function responsive_add_header_classes( $classes ) {
 	// Page Content Aligmnmnet.
 	$classes[] = 'page-content-alignment-' . get_theme_mod( 'responsive_page_content_alignment', 'left' );
 
-	// Header Widget Aligmnmnet.
-	$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
-	// Header Widget POsition.
-	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+	// Footer Element layout class.
+	$classes[] = 'footer-bar-layout-' . get_theme_mod( 'responsive_footer_bar_layout', 'horizontal' );
+	// Footer Widget columns class.
+	$classes[] = 'footer-widgets-columns-' . get_theme_mod( 'responsive_footer_widgets_columns', 0 );
 
 	return $classes;
 }

@@ -214,6 +214,16 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line-height' => '1.75',
 						),
 					),
+					'footer'                     => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => '.site-footer',
+						'panel'    => 'responsive-footer-options',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '13px',
+							'line-height' => '1.75',
+						),
+					),
 
 					// Old.
 					'menu'                 => array(

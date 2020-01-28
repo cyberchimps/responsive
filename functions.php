@@ -148,60 +148,6 @@ function responsive_free_setup() {
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
-add_filter( 'body_class', 'responsive_add_site_layout_classes' );
-
-/**
- * [responsive_add_site_layout_classes description]
- *
- * @param array $classes Class.
- */
-function responsive_add_site_layout_classes( $classes ) {
-	global $responsive_options;
-	$page_layout   = get_theme_mod( 'page_layout_option' );
-	$blog_layout   = get_theme_mod( 'blog_layout_option' );
-	$single_layout = get_theme_mod( 'single_layout_option' );
-	if ( ! empty( $responsive_options['site_layout_option'] ) ) :
-		$classes[] = $responsive_options['site_layout_option'];
-
-	endif;
-
-	if ( ! empty( $page_layout ) ) :
-		$classes[] = 'page-' . $page_layout;
-	endif;
-
-	if ( ! empty( $blog_layout ) ) :
-		$classes[] = 'blog-' . $blog_layout;
-
-	endif;
-
-	if ( ! empty( $single_layout ) ) :
-		$classes[] = 'single-' . $single_layout;
-
-	endif;
-
-	return $classes;
-}
-
-/**
- * Add menu style class to body tag
- *
- * @param array $classes Class.
- */
-function responsive_menu_style_layout_classes( $classes ) {
-	// Handle mobile menu.
-	$menu_style = get_theme_mod( 'mobile_menu_style' );
-	if ( $menu_style ) {
-		$menu_style_class = 'responsive-mobile-' . $menu_style;
-	} else {
-		$menu_style_class = 'responsive-mobile-dropdown';
-	}
-	$classes[] = $menu_style_class;
-
-	return $classes;
-}
-
-add_filter( 'body_class', 'responsive_menu_style_layout_classes' );
-
 $responsive_options = responsive_get_options();
 
 if ( isset( $responsive_options['sticky-header'] ) && $responsive_options['sticky-header'] == '1' ) {

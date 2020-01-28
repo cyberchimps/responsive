@@ -24,7 +24,7 @@
     }
 
     // Sidebar widget Area
-    #secondary.widget-area & {
+    .widget-area & {
         font-size: map-get( $font-sizes, small );
 
         &.widget_search {

@@ -45,7 +45,7 @@ $caption = get_the_post_thumbnail_caption(); ?>
 	<div class="link-entry clr">
 
 		<a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'responsive_link_format', true ) ); ?>" target="_<?php echo esc_attr( get_post_meta( get_the_ID(), 'responsive_link_format_target', true ) ); ?>"><i class="icon-link"></i></a>
-		
+
 	</div>
 
 </div>

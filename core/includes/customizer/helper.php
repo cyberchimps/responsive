@@ -1098,13 +1098,14 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
  * @param  [type] $label        [description].
  * @param  [type] $section      [description].
  * @param  [type] $priority     [description].
+ * @param  [type] $active_call     [description].
  *
  * @return void               [description].
  */
 function responsive_separator_control( $wp_customize, $element, $label, $section, $priority, $active_call = null ) {
 
 	/**
-	* COLORS Heading.
+	*  Heading.
 	*/
 	$wp_customize->add_setting(
 		'responsive_' . $element,

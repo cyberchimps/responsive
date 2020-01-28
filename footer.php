@@ -25,76 +25,68 @@ global $responsive_options;
 $responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
 ?>
-<footer id="footer" class="clearfix" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
-	<?php responsive_footer_top(); ?>
+		<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
+			<?php responsive_footer_top(); ?>
+			<?php get_sidebar( 'footer' ); ?>
 
-		<?php get_sidebar( 'footer' ); ?>
-	<div class="footer-bar grid col-940">
-	<div class="content-outer container">
-	<div class="row">
+			<div class="footer-bar grid col-940">
+				<div class="content-outer container">
+					<div class="row">
 
-			<?php get_sidebar( 'colophon' ); ?>
-			<?php
-			if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
-				$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
-				$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
-				foreach ( $sections as $section ) {
+							<?php get_sidebar( 'colophon' ); ?>
+							<?php
+							if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+								$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+								$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
+								foreach ( $sections as $section ) {
 
-					if ( 'social_icons' === $section ) {
+									// Footer Menu.
+									if ( 'footer_menu' === $section ) {
+										get_template_part( 'partials/footer/footer-menu' );
+									}
 
-						 echo '<div class="footer-layouts social-icon">';
-                            echo responsive_get_social_icons_new() ;// phpcs:ignore
-						 echo '</div>';
-					}
-					// Footer Menu.
-					if ( 'footer_menu' === $section ) {
-						get_template_part( 'template-parts/footer-menu' );
-					}
-					// Copy Rights.
-					if ( 'copy_right_text' == $section ) {
-						get_template_part( 'template-parts/copy-right' );
-					}
-				}
-			} else {
-				echo '<div class="footer-layouts social-icon">';
-                    echo responsive_get_social_icons_new() ;// phpcs:ignore
-				echo '</div>';
-				get_template_part( 'template-parts/copy-right' );
-			}
-			?>
+									if ( 'social_icons' === $section ) {
+										echo '<div class="footer-layouts social-icon">';
+				                            echo responsive_get_social_icons_new() ;// phpcs:ignore
+										echo '</div>';
+									}
 
-	</div>
-	</div>
+									// Copy Rights.
+									if ( 'copy_right_text' === $section ) {
+										get_template_part( 'partials/footer/copy-right' );
+									}
+								}
+							} else {
+								if ( has_nav_menu( 'footer-menu' ) ) {
+									get_template_part( 'partials/footer/footer-menu' );
+								}
+								echo '<div class="footer-layouts social-icon">';
+				                    echo responsive_get_social_icons_new() ;// phpcs:ignore
+								echo '</div>';
+								get_template_part( 'partials/footer/copy-right' );
+							}
+							?>
 
-	</div>
+					</div>
+				</div>
+			</div>
 
-	<?php responsive_footer_bottom(); ?>
-</footer><!-- end #footer -->
-<?php responsive_footer_after(); ?>
-
-</div><!-- end of #container -->
-<?php responsive_container_end(); // after container hook. ?>
-<?php
-if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
-	$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
-	?>
-	<div id="scroll" title="Scroll to Top" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
-	<?php
-}
-?>
-
+			<?php responsive_footer_bottom(); ?>
+		</footer><!-- end #footer -->
+		<?php responsive_footer_after(); ?>
+	</div><!-- end of #container -->
 
 	<?php
-	// If full screen mobile menu style.
-	if ( 'fullscreen' === get_theme_mod( 'mobile_menu_style' ) ) {
-		get_template_part( 'partials/mobile/mobile-fullscreen' );
+	responsive_container_end(); // after container hook.
+
+	if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
+		$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
+		?>
+		<div id="scroll" title="Scroll to Top" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
+		<?php
 	}
 
-	// If sidebar mobile menu style.
-	if ( 'sidebar' === get_theme_mod( 'mobile_menu_style' ) ) {
-		get_template_part( 'partials/mobile/mobile-sidebar' );
-	}
+	wp_footer();
 	?>
-<?php wp_footer(); ?>
 </body>
 </html>

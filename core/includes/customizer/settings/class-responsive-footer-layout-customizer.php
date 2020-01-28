@@ -1,6 +1,5 @@
 <?php
 /**
- *
  * Footer Customizer Options
  *
  * @package Responsive WordPress theme
@@ -10,9 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
-	/** Footer Customizer Options */
-	class Responsive_Footer_Copyrights_Customizer {
+if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
+	/**
+	 * Footer Customizer Options */
+	class Responsive_Footer_Layout_Customizer {
 
 		/**
 		 * Setup class.
@@ -28,185 +28,56 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 		/**
 		 * Customizer options
 		 *
-		 * @param  object $wp_customize    arguments.
-		 * @since 1.0.0
+		 * @since 0.2
+		 *
+		 * @param  object $wp_customize WordPress customization option.
 		 */
 		public function customizer_options( $wp_customize ) {
-			/*
-			------------------------------------------------------------------
-			// Copyright Text
-			-------------------------------------------------------------------
-			*/
-
 			$wp_customize->add_section(
-				'footer_section',
+				'responsive_footer_layout',
 				array(
-					'title'    => __( 'Footer Settings', 'responsive' ),
+					'title'    => esc_html__( 'Layout', 'responsive' ),
 					'panel'    => 'responsive-footer-options',
-					'priority' => 30,
+					'priority' => 1,
+
 				)
 			);
 
-			$wp_customize->add_setting(
-				'responsive_footer_width',
-				array(
-					'default'           => 'container',
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_select',
-				)
-			);
-			$wp_customize->add_control(
-				'responsive_footer_width',
-				array(
-					'label'    => __( 'Footer Width', 'responsive' ),
-					'section'  => 'footer_section',
-					'settings' => 'responsive_footer_width',
-					'type'     => 'select',
-					'choices'  => apply_filters(
-						'responsive_header_width_choices',
-						array(
-							'container' => esc_html__( 'Container', 'responsive' ),
-							'full'      => esc_html__( 'Full', 'responsive' ),
-						)
-					),
-				)
-			);
+			/**
+			 * Footer Widget Separator.
+			 */
+			$footer_widgets_separator_label = esc_html__( 'Footer Widgets', 'responsive' );
+			responsive_separator_control( $wp_customize, 'footer_widgets_separator', $footer_widgets_separator_label, 'responsive_footer_layout', 2 );
 
-			$wp_customize->add_setting(
-				'responsive_footer_layout_options',
-				array(
-					'default'           => 'row',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				'responsive_footer_layout_options',
-				array(
-					'label'    => __( 'Footer Bar Layout', 'responsive' ),
-					'section'  => 'footer_section',
-					'settings' => 'responsive_footer_layout_options',
-					'type'     => 'select',
-					'choices'  => apply_filters(
-						'responsive_header_layout_choices',
-						array(
-							'row'    => esc_html__( 'Horizontal', 'responsive' ),
-							'column' => esc_html__( 'Vertical', 'responsive' ),
-						)
-					),
-				)
-			);
+			// Number of Columns.
+			$number_of_columns_label = __( 'Number of Columns', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_widgets_columns', $number_of_columns_label, 'responsive_footer_layout', 3, 0, null, 4, 0 );
 
-			$wp_customize->add_setting(
-				'responsive_footer_border',
-				array(
-					'transport'         => 'refresh',
-					'default'           => '0',
-					'sanitize_callback' => 'responsive_sanitize_number',
-				)
-			);
+			// Widgets Padding.
+			responsive_padding_control( $wp_customize, 'footer_widgets', 'responsive_footer_layout', 4, 60, 0, null );
 
-			$wp_customize->add_control(
-				new Responsive_Customizer_Range_Control(
-					$wp_customize,
-					'responsive_footer_border',
-					array(
-						'label'       => __( 'Footer Border Width (px)', 'responsive' ),
-						'section'     => 'footer_section',
-						'settings'    => 'responsive_footer_border',
-						'priority'    => 10,
-						'input_attrs' => array(
-							'min'  => 0,
-							'max'  => 100,
-							'step' => 1,
-						),
-					)
-				)
-			);
+			/**
+			 * Footer Bar Separator.
+			 */
+			$footer_bar_separator_label = esc_html__( 'Footer Bar', 'responsive' );
+			responsive_separator_control( $wp_customize, 'footer_bar_separator', $footer_bar_separator_label, 'responsive_footer_layout', 5 );
 
-			$wp_customize->add_setting(
-				'responsive_footer_border_color',
-				array(
-					'default'           => '',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_background',
-					'transport'         => 'refresh',
-				)
+			// Footer Bar Layout.
+			$footer_bar_layout_label = esc_html__( 'Layout', 'responsive' );
+			$footer_layout_choices   = array(
+				'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
+				'vertical'   => esc_html__( 'Vertical', 'responsive' ),
 			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_footer_border_color',
-					array(
-						'label'    => __( 'Footer Border Color', 'responsive' ),
-						'section'  => 'footer_section',
-						'settings' => 'responsive_footer_border_color',
-					)
-				)
-			);
+			responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 6, $footer_layout_choices, 'horizontal', null );
 
-			/*
-			--------------------------------------------------------------
-			// SOCIAL MEDIA SECTION
-			--------------------------------------------------------------
-			*/
+			// Bar Padding.
+			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 8, 60, 0, null );
 
-			$wp_customize->add_section(
-				'responsive_social_media',
-				array(
-					'title'       => __( 'Social Icons', 'responsive' ),
-					'panel'       => 'responsive-footer-options',
-					'priority'    => 40,
-					'description' => __( 'Enter the URL to your account for each service for the icon to appear in the header.', 'responsive' ),
-				)
-			);
-
-			// Color.
-			$wp_customize->add_setting(
-				'responsive_social_icons_color',
-				array(
-					'default'           => '#ffffff',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_background',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_social_icons_color',
-					array(
-						'label'    => __( 'Social Icons Color', 'responsive' ),
-						'section'  => 'responsive_social_media',
-						'settings' => 'responsive_social_icons_color',
-						'priority' => 1,
-					)
-				)
-			);
-
-			// Color.
-			$wp_customize->add_setting(
-				'responsive_social_icons_hover_color',
-				array(
-					'default'           => '',
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_background',
-					'transport'         => 'refresh',
-				)
-			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Color_Control(
-					$wp_customize,
-					'responsive_social_icons_hover_color',
-					array(
-						'label'    => __( 'Social Icons Hover Color', 'responsive' ),
-						'section'  => 'responsive_social_media',
-						'settings' => 'responsive_social_icons_hover_color',
-						'priority' => 1,
-
-					)
-				)
-			);
+			/**
+			 * Social Links Separator.
+			 */
+			$social_links_separator_label = esc_html__( 'Social Links', 'responsive' );
+			responsive_separator_control( $wp_customize, 'social_links_separator', $social_links_separator_label, 'responsive_footer_layout', 9 );
 
 			// Add Twitter Setting.
 			$wp_customize->add_setting(
@@ -222,7 +93,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_twitter',
 					array(
 						'label'    => __( 'Twitter', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[twitter_uid]',
 					)
 				)
@@ -242,7 +113,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_facebook',
 					array(
 						'label'    => __( 'Facebook', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[facebook_uid]',
 					)
 				)
@@ -262,7 +133,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_linkedin',
 					array(
 						'label'    => __( 'LinkedIn', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[linkedin_uid]',
 					)
 				)
@@ -282,7 +153,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_youtube',
 					array(
 						'label'    => __( 'YouTube', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[youtube_uid]',
 					)
 				)
@@ -302,7 +173,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_googleplus',
 					array(
 						'label'    => __( 'Google+', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[googleplus_uid]',
 					)
 				)
@@ -322,7 +193,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_rss',
 					array(
 						'label'    => __( 'RSS Feed', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[rss_uid]',
 					)
 				)
@@ -342,7 +213,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_instagram',
 					array(
 						'label'    => __( 'Instagram', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[instagram_uid]',
 					)
 				)
@@ -362,7 +233,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_pinterest',
 					array(
 						'label'    => __( 'Pinterest', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[pinterest_uid]',
 					)
 				)
@@ -382,7 +253,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_stumble',
 					array(
 						'label'    => __( 'StumbleUpon', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[stumbleupon_uid]',
 					)
 				)
@@ -402,7 +273,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_vimeo',
 					array(
 						'label'    => __( 'Vimeo', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[vimeo_uid]',
 					)
 				)
@@ -422,7 +293,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_yelp',
 					array(
 						'label'    => __( 'Yelp', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[yelp_uid]',
 					)
 				)
@@ -442,7 +313,7 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'res_foursquare',
 					array(
 						'label'    => __( 'Foursquare', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[foursquare_uid]',
 					)
 				)
@@ -460,14 +331,15 @@ if ( ! class_exists( 'Responsive_Footer_Copyrights_Customizer' ) ) :
 					'email_uid',
 					array(
 						'label'    => __( 'Email Address', 'responsive' ),
-						'section'  => 'responsive_social_media',
+						'section'  => 'responsive_footer_layout',
 						'settings' => 'responsive_theme_options[email_uid]',
 					)
 				)
 			);
+
 		}
 	}
 
 endif;
 
-return new Responsive_Footer_Copyrights_Customizer();
+return new Responsive_Footer_Layout_Customizer();

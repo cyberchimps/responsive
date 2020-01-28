@@ -1,6 +1,6 @@
 <?php
 /**
- * Header Customizer Options
+ * Content Header Customizer Options
  *
  * @package Responsive WordPress theme
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 	/**
-	 * Header Customizer Options */
+	 * Content Header Customizer Options */
 	class Responsive_Content_Header_Colors_Customizer {
 
 		/**

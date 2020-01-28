@@ -9,7 +9,19 @@
         color: $hover-color;
     }
 }
+//
+// Button element mixin
+// -----------------------------------------------------------------------------
+@mixin make-button(){
+    padding: ($base-line-height-px / 3) 1em;
+    background-color: map-get( $colors, blue );;
+    color: map-get( $colors, white );
 
+    &:focus,
+    &:hover {
+        background-color: map-get( $colors, dark-blue );;
+    }
+}
 //
 // Normal text mixin
 // -----------------------------------------------------------------------------

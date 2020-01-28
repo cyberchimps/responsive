@@ -1,6 +1,6 @@
 <?php
 /**
- * Footer Customizer Options
+ * Header Customizer Options
  *
  * @package Responsive WordPress theme
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 	/**
-	 * Footer Customizer Options */
+	 * Header Customizer Options */
 	class Responsive_Header_Layout_Customizer {
 
 		/**
