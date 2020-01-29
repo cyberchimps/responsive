@@ -103,23 +103,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 					)
 				);
 				$wp_customize->add_setting(
-					'responsive_theme_options[sticky-header]',
-					array(
-						'sanitize_callback' => 'responsive_sanitize_checkbox',
-						'type'              => 'option',
-						'transport'         => 'postMessage',
-					)
-				);
-				$wp_customize->add_control(
-					'res_sticky-header',
-					array(
-						'label'    => __( 'Enable Sticky Header?', 'responsive' ),
-						'section'  => 'theme_elements',
-						'settings' => 'responsive_theme_options[sticky-header]',
-						'type'     => 'checkbox',
-					)
-				);
-				$wp_customize->add_setting(
 					'responsive_theme_options[featured_images]',
 					array(
 						'sanitize_callback' => 'responsive_sanitize_checkbox',
