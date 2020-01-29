@@ -541,8 +541,6 @@ function responsive_premium_custom_color_styles() {
 			}
 		}";
 	}
-	if ( $single_post_background_color ) {
-		$custom_css .= ".single.single-fullwidth-content #primary,.single.single-fullwidth-stretched #primary,body.single #primary, body.single.single-content-boxed #primary, body.single.single-boxed #primary {background-color: {$single_post_background_color};}";
 
 	// Entry Blog Meta Separator.
 	$blog_entry_meta_separator = get_theme_mod( 'responsive_blog_entry_meta_separator_text', '-' );
@@ -605,26 +603,6 @@ function responsive_premium_custom_color_styles() {
 			.single.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child {
 				margin-top: -{$box_mobile_padding_top}px;
 			}
-		}";
-	}
-	if ( ! empty( $blog_title_color ) ) {
-		$custom_css .= "#main-blog > h1 {
-			color: {$blog_title_color};
-		}";
-	}
-	if ( ! empty( $single_post_title_color ) ) {
-		$custom_css .= "h1.entry-title.post-title {
-			color: {$single_post_title_color};
-		}";
-	}
-	if ( ! empty( $image_width ) ) {
-		$custom_css .= "body.single.single-post img.wp-post-image,body.single.single-post img.attachment-full {
-			width: {$image_width}px;
-		}";
-	}
-	if ( ! empty( $blog_image_width ) ) {
-		$custom_css .= "#content-archive img.wp-post-image, body.blog img.wp-post-image, body.archive.category img.wp-post-image {
-			width: {$blog_image_width}px;
 		}";
 	}
 
