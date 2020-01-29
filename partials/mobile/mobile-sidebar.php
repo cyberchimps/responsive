@@ -23,7 +23,7 @@ $sidebar_mobile_position = get_theme_mod( 'mobile_menu_style_sidebar_position' )
 
 ?>
 
-<div id="mobile-sidebar" class="clr <?php echo $sidebar_mobile_position; ?>">
+<div id="mobile-sidebar" class="clr <?php echo esc_attr( $sidebar_mobile_position ); ?>">
 
 	<div id="mobile-sidebar-inner" class="clr">
 
