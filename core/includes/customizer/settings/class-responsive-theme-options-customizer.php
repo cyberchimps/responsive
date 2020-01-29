@@ -64,7 +64,6 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 			$wp_customize->get_section( 'header_image' )->title = __( 'header Image (Deprecated)', 'responsive' );
 			$wp_customize->get_section( 'header_image' )->panel = 'responsive-theme-options'; // Add to Colors Panel.
 
-
 				/* Blog page setting */
 				$wp_customize->add_section(
 					'blog_page',

@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @file           404.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/404.php

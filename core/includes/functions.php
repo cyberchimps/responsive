@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @file           functions.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.2.1
  * @filesource     wp-content/themes/responsive/includes/functions.php
@@ -32,11 +32,6 @@ function responsive_load_customize_controls() {
 	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/class-responsive-customize-control-checkbox-multiple.php';
 }
 add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
-
-/*
- * Hook options
- */
-add_action( 'admin_init', 'responsive_theme_options_init' );
 
 /**
  * Retrieve Theme option settings

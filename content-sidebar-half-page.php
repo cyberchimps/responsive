@@ -16,8 +16,8 @@ Template Name:  Content/Sidebar Half Page (Deprecated)
  *
  * @file           content-sidebar-half-page.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/content-sidebar-half-page.php

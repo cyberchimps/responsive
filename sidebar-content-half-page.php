@@ -6,8 +6,8 @@
  *
  * @file           sidebar-content-half-page.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/sidebar-content-half-page.php
@@ -76,7 +76,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php if ( comments_open() ) : ?>
 								<div class="post-data">
 									<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-									<?php the_category( __( 'Posted in %s', 'responsive' ) . ', ' ); ?>
+									<?php
+									/* translators: posted in categories */
+									the_category( __( 'Posted in %s', 'responsive' ) . ', ' );
+									?>
 								</div><!-- end of .post-data -->
 							<?php endif; ?>
 
@@ -103,7 +106,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 			</main><!-- end of #primary -->
 
-            <?php get_sidebar( 'main-sidebar' ); ?>
+			<?php get_sidebar( 'main-sidebar' ); ?>
 		</div>
 	</div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
