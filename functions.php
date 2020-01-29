@@ -26,7 +26,6 @@ $responsive_blog_layout_columns = array( 'blog-2-col', 'blog-3-col', 'blog-4-col
 $responsive_template_directory = get_template_directory();
 require $responsive_template_directory . '/core/includes/functions.php';
 require $responsive_template_directory . '/core/includes/functions-update.php';
-require $responsive_template_directory . '/core/includes/functions-about.php';
 require $responsive_template_directory . '/core/includes/functions-sidebar.php';
 require $responsive_template_directory . '/core/includes/functions-install.php';
 require $responsive_template_directory . '/core/includes/functions-admin.php';
