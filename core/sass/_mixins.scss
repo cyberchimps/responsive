@@ -13,13 +13,14 @@
 // Button element mixin
 // -----------------------------------------------------------------------------
 @mixin make-button(){
-    padding: ($base-line-height-px / 3) 1em;
-    background-color: map-get( $colors, blue );;
+    padding: .65em;
+    background-color: map-get( $colors, blue );
     color: map-get( $colors, white );
 
     &:focus,
     &:hover {
-        background-color: map-get( $colors, dark-blue );;
+        background-color: map-get( $colors, dark-blue );
+        color: map-get( $colors, white );
     }
 }
 //
