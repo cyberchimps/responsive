@@ -37,7 +37,7 @@ if ( ! class_exists( 'Responsive_Footer_Colors_Customizer' ) ) :
 				'responsive_footer_colors',
 				array(
 					'title'    => esc_html__( 'Colors', 'responsive' ),
-					'panel'    => 'responsive-footer-options',
+					'panel'    => 'responsive_footer',
 					'priority' => 2,
 				)
 			);

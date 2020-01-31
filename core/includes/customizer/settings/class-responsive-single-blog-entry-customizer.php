@@ -41,7 +41,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Entry_Customizer' ) ) :
 				'responsive_single_blog_entry',
 				array(
 					'title'    => esc_html__( 'Blog Entry', 'responsive' ),
-					'panel'    => 'responsive-single-blog-options',
+					'panel'    => 'responsive_single_blog',
 					'priority' => 2,
 				)
 			);

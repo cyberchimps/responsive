@@ -15,11 +15,11 @@ $cyberchimps_link   = '';
 	<?php
 	if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
 		$copyright_text = $responsive_options['copyright_textbox'];
-		esc_attr_e( ' &copy;', 'responsive' );
+		esc_attr_e( ' &copy; ', 'responsive' );
 		echo esc_attr( gmdate( ' Y' ) );
 		echo esc_attr( ' ' . $copyright_text, 'responsive' );
 	} else {
-		esc_attr_e( '&copy;', 'responsive' );
+		esc_attr_e( '&copy; ', 'responsive' );
 		echo esc_attr( gmdate( 'Y' ) );
 		esc_attr_e( ' ' . get_bloginfo(), 'responsive' );
 	}

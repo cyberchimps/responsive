@@ -37,7 +37,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				'responsive_footer_layout',
 				array(
 					'title'    => esc_html__( 'Layout', 'responsive' ),
-					'panel'    => 'responsive-footer-options',
+					'panel'    => 'responsive_footer',
 					'priority' => 1,
 
 				)

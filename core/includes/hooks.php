@@ -243,21 +243,52 @@ add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_en
  * Responsive_woocommerce_wrapper
  */
 function responsive_woocommerce_wrapper() {
-	echo '<div class="content-outer container"><div class="row">';
-	echo '<div id="content-woocommerce" class="' . esc_attr(implode(' ', responsive_get_content_classes())) . '">';
+	?>
+	<div id="wrapper" class="site-content clearfix">
+			<div class="content-outer container">
+				<div class="row">
+					<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+						<?php
+						if ( is_woocommerce() ) {
+							echo '<div class="site-content-header">';
+						}
 }
 
 /**
  * [responsive_woocommerce_wrapper_end description]
  */
 function responsive_woocommerce_wrapper_end() {
-	echo '</div><!-- end of #content-woocommerce -->';
+	echo '</main><!-- end of #primary -->';
 	if ( is_active_sidebar( 'main-sidebar' ) ) {
 		get_sidebar();
 	}
-	echo '</div></div>';
+	echo '</div></div></div>';
 }
 
+
+/**
+ * [responsive_woocommerce_before_shop_loop description]
+ *
+ * @return void [description].
+ */
+function responsive_woocommerce_archive_description() {
+	?>
+	</div>
+	<div class="products-wrapper">
+		<?php
+}
+
+function responsive_woocommerce_after_single_product_summary() {
+	?>
+	</div>
+	<div class="related-product-wrapper">
+		<?php
+}
+
+add_action( 'woocommerce_after_single_product_summary', 'responsive_woocommerce_after_single_product_summary', 10 );
+add_action( 'woocommerce_after_shop_loop', 'responsive_close_container', 10 );
+add_action( 'woocommerce_archive_description', 'responsive_woocommerce_archive_description', 10 );
+add_action( 'woocommerce_before_single_product', 'responsive_close_container', 10 );
 
 /**
  * [responsive_open_container description]
