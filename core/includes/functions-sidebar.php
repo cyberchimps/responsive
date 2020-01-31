@@ -1,8 +1,8 @@
 <?php
 /**
- * Functions Insatll
+ * Functions Sidebar
  *
- * Functions for installation & activation
+ * Functions for Sidebar initialization
  *
  * @package        Responsive
  * @license        license.txt

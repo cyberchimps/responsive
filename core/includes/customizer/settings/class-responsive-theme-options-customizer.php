@@ -134,6 +134,7 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 						'type'     => 'checkbox',
 					)
 				);
+
 				/*
 				--------------------------------------------------------------
 					// Scripts

@@ -77,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<div class="post-data">
 									<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
 									<?php
-									/* translators: posted in categories */
+									/* translators: %s posted in categories */
 									the_category( __( 'Posted in %s', 'responsive' ) . ', ' );
 									?>
 								</div><!-- end of .post-data -->

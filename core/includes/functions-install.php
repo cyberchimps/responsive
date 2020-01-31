@@ -18,7 +18,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/*
+/**
  * Hide core theme activation message.
  *
  * @since    1.9.5.0

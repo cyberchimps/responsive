@@ -1,10 +1,4 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Post Data Template-Part File
  *
@@ -18,6 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link           http://codex.wordpress.org/Templates
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <?php if ( ! is_page() && ! is_search() ) { ?>

@@ -75,7 +75,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php if ( comments_open() ) : ?>
 								<div class="post-data">
 									<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-									<?php the_category( __( 'Posted in %s', 'responsive' ) . ', ' ); ?>
+									<?php
+										/* translators: %s posted in categories */
+										the_category( __( 'Posted in %s', 'responsive' ) . ', ' );
+									?>
 								</div><!-- end of .post-data -->
 							<?php endif; ?>
 

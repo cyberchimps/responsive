@@ -9,11 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_Site_colors_Customizer' ) ) :
+if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 	/**
 	 * Theme Options Customizer Options
 	 */
-	class Responsive_Site_colors_Customizer {
+	class Responsive_Site_Colors_Customizer {
 
 		/**
 		 * Setup class.
@@ -118,4 +118,4 @@ if ( ! class_exists( 'Responsive_Site_colors_Customizer' ) ) :
 
 endif;
 
-return new Responsive_Site_colors_Customizer();
+return new Responsive_Site_Colors_Customizer();

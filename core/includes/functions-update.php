@@ -1,4 +1,12 @@
 <?php
+/**
+ * Responsive Theme helper functions
+ *
+ * Queries WordPress.org API to get details on responsive theme where we can get the current version number
+ *
+ * @return bool
+ */
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * If there are no posts in the loop,
  * display default content
  */
+/* translators: %s search term */
 $responsive_title = ( is_search() ? sprintf( __( 'Your search for %s did not match any entries.', 'responsive' ), get_search_query() ) : __( '404 &#8212; Fancy meeting you here!', 'responsive' ) );
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -40,6 +41,7 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 	<h6>
 		<?php
 		printf(
+		/* translators: %s home url */
 			__( 'You can return %s or search for the page you were looking for.', 'responsive' ),
 			sprintf(
 			/* Translators: 1 = Site Url, 2 = Home, 3 = Direction */

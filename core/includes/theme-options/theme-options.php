@@ -1,10 +1,4 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Theme Options
  *
@@ -19,11 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Call the options class
  */
 require get_template_directory() . '/core/includes/classes/Responsive_Options.php';
 
+/**
+ * Add inline css
+ */
 function responsive_inline_css() {
 	global $responsive_options;
 	if ( ! empty( $responsive_options['responsive_inline_css'] ) ) {
@@ -36,6 +38,9 @@ function responsive_inline_css() {
 
 add_action( 'wp_head', 'responsive_inline_css', 110 );
 
+/**
+ * Add inline js to head
+ */
 function responsive_inline_js_head() {
 	global $responsive_options;
 	if ( ! empty( $responsive_options['responsive_inline_js_head'] ) ) {
@@ -47,6 +52,9 @@ function responsive_inline_js_head() {
 
 add_action( 'wp_head', 'responsive_inline_js_head' );
 
+/**
+ * Add inline js to footer
+ */
 function responsive_inline_js_footer() {
 	global $responsive_options;
 	if ( ! empty( $responsive_options['responsive_inline_js_footer'] ) ) {
