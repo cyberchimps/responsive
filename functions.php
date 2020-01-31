@@ -155,25 +155,6 @@ add_action( 'after_setup_theme', 'responsive_free_setup' );
 
 $responsive_options = responsive_get_options();
 
-if ( isset( $responsive_options['sticky-header'] ) && $responsive_options['sticky-header'] == '1' ) {
-	add_action( 'wp_footer', 'responsive_fixed_menu_onscroll' );
-	function responsive_fixed_menu_onscroll() {
-		?>
-	<script type="text/javascript">
-	window.addEventListener("scroll", responsiveStickyHeader);
-
-	function responsiveStickyHeader() {
-		if (document.documentElement.scrollTop > 0 ) {
-			document.getElementById("header_section").classList.add( 'sticky-header' );
-		} else {
-			document.getElementById("header_section").classList.remove( 'sticky-header' );
-		}
-	}
-	</script>
-		<?php
-	}
-}
-
 if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 	define( 'ELEMENTOR_PARTNER_ID', 2126 );
 }

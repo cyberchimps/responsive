@@ -220,15 +220,6 @@ function responsive_theme_options_do_page() {
 					'placeholder' => '',
 				),
 				array(
-					'title'       => __( 'Enable Sticky Header?', 'responsive' ),
-					'subtitle'    => '',
-					'heading'     => '',
-					'type'        => 'checkbox',
-					'id'          => 'sticky-header',
-					'description' => __( 'Check to enable', 'responsive' ),
-					'placeholder' => '',
-				),
-				array(
 					'title'       => __( 'Enable Featured images?', 'responsive' ),
 					'subtitle'    => '',
 					'heading'     => '',

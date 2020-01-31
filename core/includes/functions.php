@@ -60,7 +60,6 @@ function responsive_get_option_defaults() {
 		'breadcrumb'                      => false,
 		'cta_button'                      => false,
 		'minified_css'                    => false,
-		'sticky-header'                   => false,
 		'front_page'                      => 0,
 		'home_headline'                   => 'HAPPINESS',
 		'home_subheadline'                => 'IS A WARM CUP',
@@ -375,6 +374,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
+
 
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
