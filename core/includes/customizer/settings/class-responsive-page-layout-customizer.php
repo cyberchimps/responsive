@@ -41,7 +41,7 @@ if ( ! class_exists( 'Responsive_Page_Layout_Customizer' ) ) :
 				'responsive_page_layout',
 				array(
 					'title'    => esc_html__( 'Layout', 'responsive' ),
-					'panel'    => 'responsive-page-options',
+					'panel'    => 'responsive_page',
 					'priority' => 1,
 				)
 			);

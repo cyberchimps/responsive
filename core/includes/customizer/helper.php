@@ -744,7 +744,7 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
  */
 function responsive_read_more_text( $text ) {
 
-	$read_more = get_theme_mod( 'responsive_blog_read_more_text' );
+	$read_more = get_theme_mod( 'responsive_blog_read_more_text', 'Read more ››' );
 	if ( '' !== $read_more ) {
 		$text = $read_more;
 	}

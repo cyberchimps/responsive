@@ -340,62 +340,75 @@ function responsive_get_social_icons() {
 	return $html;
 
 }
+
+/**
+ * [responsive_get_social_icons_new description]
+ *
+ * @return void [description].
+ */
 function responsive_get_social_icons_new() {
 	$responsive_options = responsive_get_options();
-	?>
-	<ul class="social-icons">
-	<?php
-	if ( ! empty( $responsive_options['facebook_uid'] ) ) {
-		?>
-	<li><a href="<?php echo $responsive_options['facebook_uid']; ?>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li><?php } ?>						<?php
-	if ( ! empty( $responsive_options['twitter_uid'] ) ) {
-		?>
-		<li><a href="<?php echo $responsive_options['twitter_uid']; ?>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['rss_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['rss_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-rss" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['googleplus_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['googleplus_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['linkedin_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['linkedin_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-linkedin" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['youtube_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['youtube_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-youtube" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['stumble_uid'] ) ) {
-					?>
-					<li><a href=""<?php echo $responsive_options['stumble_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-stumbleupon" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['instagram_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['instagram_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-instagram" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['pinterest_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['pinterest_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-pinterest" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['yelp_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['yelp_uid']; ?>" target="_blank"><i class="fa fa-yelp" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['vimeo_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['vimeo_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-vimeo" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['foursquare_uid'] ) ) {
-					?>
-					<li><a href="<?php echo $responsive_options['foursquare_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-foursquare" aria-hidden="true"></i></a></li><?php } ?>
-				<?php
-				if ( ! empty( $responsive_options['email_uid'] ) ) {
-					?>
-					<li><a href="mailto:<?php echo $responsive_options['email_uid']; ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>><i class="fa fa-envelope" aria-hidden="true"></i></a></li><?php } ?>
 
-	</ul>
-	<?php
+	$icons = array(
+		'twitter'     => __( 'Twitter', 'responsive' ),
+		'facebook'    => __( 'Facebook', 'responsive' ),
+		'linkedin'    => __( 'LinkedIn', 'responsive' ),
+		'youtube'     => __( 'YouTube', 'responsive' ),
+		'stumbleupon' => __( 'StumbleUpon', 'responsive' ),
+		'rss'         => __( 'RSS Feed', 'responsive' ),
+		'googleplus'  => __( 'Google+', 'responsive' ),
+		'instagram'   => __( 'Instagram', 'responsive' ),
+		'pinterest'   => __( 'Pinterest', 'responsive' ),
+		'yelp'        => __( 'Yelp!', 'responsive' ),
+		'vimeo'       => __( 'Vimeo', 'responsive' ),
+		'foursquare'  => __( 'foursquare', 'responsive' ),
+		'email'       => __( 'Email', 'responsive' ),
+	);
+
+	$count = 0;
+
+	foreach ( $icons as $key => $value ) {
+		if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+			$count++;
+		}
+	}
+	if ( $count > 0 ) {
+		?>
+	<div class="footer-layouts social-icon">
+		<ul class="social-icons">
+		<?php
+		foreach ( $icons as $key => $value ) {
+			if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+				if ( 'email' === $key ) {
+					?>
+					<li>
+						<a href="mailto:<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</a>
+					</li>
+					<?php
+				} elseif ( 'googleplus' === $key ) {
+					?>
+					<li>
+						<a href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+							<i class="fa fa-google-plus" aria-hidden="true"></i>
+						</a>
+					</li>
+					<?php
+				} else {
+					?>
+					<li>
+						<a href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+							<i class="fa fa-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
+						</a>
+					</li>
+					<?php
+				}
+			}
+		}
+		?>
+		</ul>
+	</div>
+		<?php
+	}
 }

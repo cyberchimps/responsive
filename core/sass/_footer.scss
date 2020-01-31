@@ -1,7 +1,5 @@
-
-
 /**
- * Site header and Header Menu styles
+ * Site Footer and footer-widget styles
  * -----------------------------------------------------------------------------
  */
 
@@ -30,6 +28,7 @@
 
     .footer-widget {
         @extend .col-xs-12;
+        @extend .widget-area;
         .footer-widgets-columns-1 & {
             @extend .col-lg-12;
         }
