@@ -18,58 +18,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) || ( is_single() && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) || ( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) ) ) {
+if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) || ( is_single() && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) || ( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) ) || ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() ) ) ) {
 	return;
 }
 
-if ( class_exists( 'WooCommerce' ) ) {
-	$layout = responsive_get_layout();
-	if ( 'full-width-page' === $layout ) {
-			return;
-	}
+responsive_widgets_before(); // above widgets container hook.
 
-	if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) { ?>
-		<aside id="secondary" class="widget-area <?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary">
-			<?php dynamic_sidebar( 'responsive-woo-shop-sidebar' ); ?>
-		</aside>
-		<?php
-	}
-
+if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
 
 	$responsive_options = responsive_get_options();
-	if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) && class_exists( 'WooCommerce' ) && is_product() || is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {
+	if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) || ( 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) && ! is_product() ) || ( 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) && is_product() ) ) {
 		return;
 	}
-}
+	?>
+	<aside id="secondary" class="widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+		<?php dynamic_sidebar( 'responsive-woo-shop-sidebar' ); ?>
+	</aside>
+		<?php
 
-/*
- * Load the correct sidebar according to the page layout
- */
-$layout = responsive_get_layout();
-switch ( $layout ) {
-	case 'sidebar-content-page':
-		get_sidebar( 'left' );
-		return;
-		break;
+} else {
 
-	case 'content-sidebar-page':
-		get_sidebar( 'right' );
-		return;
-		break;
+	?>
+	<aside id="secondary" class="widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 
-	case 'full-width-page':
-		return;
-		break;
-}
-?>
+	<?php
+	responsive_widgets(); // above widgets hook.
+	if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
+	endif; // End of main-sidebar.
+		responsive_widgets_end(); // after widgets hook.
+	?>
 
-<?php responsive_widgets_before(); // above widgets container hook. ?>
-	<aside id="secondary" class="widget-area <?php echo implode( ' ', responsive_get_sidebar_classes() ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
-
-		<?php responsive_widgets(); // above widgets hook. ?>
-		<?php if ( ! dynamic_sidebar( 'main-sidebar' ) ) : ?>
-
-		<?php endif; // End of main-sidebar. ?>
-		<?php responsive_widgets_end(); // after widgets hook. ?>
 	</aside><!-- end of #secondary -->
-<?php responsive_widgets_after(); // after widgets container hook. ?>
+	<?php
+	responsive_widgets_after(); // after widgets container hook.
+}

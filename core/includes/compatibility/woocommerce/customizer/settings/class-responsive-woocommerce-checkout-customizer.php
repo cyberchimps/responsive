@@ -1,6 +1,6 @@
 <?php
 /**
- * Create WooCommerce General section in customizer
+ * Create WooCommerce Checkout section in customizer
  *
  * @package Responsive
  */
@@ -16,11 +16,11 @@ if ( class_exists( 'WooCommerce' ) ) {
 		exit;
 	}
 
-	if ( ! class_exists( 'Responsive_Woocommerce_Customizer' ) ) :
+	if ( ! class_exists( 'Responsive_Woocommerce_Checkout_Customizer' ) ) :
 		/**
 		 * Links Customizer Options
 		 */
-		class Responsive_Woocommerce_Customizer {
+		class Responsive_Woocommerce_Checkout_Customizer {
 
 			/**
 			 * Setup class.
@@ -42,19 +42,22 @@ if ( class_exists( 'WooCommerce' ) ) {
 			 */
 			public function customizer_options( $wp_customize ) {
 				$wp_customize->add_section(
-					'responsive_woocommerce_section',
+					'responsive_woocommerce_checkout_layout',
 					array(
-						'title'    => esc_html__( 'WooCommerce', 'responsive' ),
-						'panel'    => 'responsive-layout-options',
-						'priority' => 295,
+						'title'    => esc_html__( 'Layouts', 'responsive' ),
+						'panel'    => 'responsive-woocommerce-checkout',
+						'priority' => 1,
 					)
 				);
 
+				// Main Content Width.
+				$shop_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
+				responsive_drag_number_control( $wp_customize, 'checkout_content_width', $shop_content_width_label, 'responsive_woocommerce_checkout_layout', 1, 70, null, 100 );
 			}
 		}
 
 	endif;
 
-	return new Responsive_Woocommerce_Customizer();
+	return new Responsive_Woocommerce_Checkout_Customizer();
 
 }

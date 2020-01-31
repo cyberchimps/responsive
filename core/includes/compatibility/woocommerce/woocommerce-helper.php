@@ -38,7 +38,7 @@ if ( ! function_exists( 'responsive_woocommerce_shop_elements_positioning' ) ) {
 	function responsive_woocommerce_shop_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'title', 'price', 'ratings', 'add_cart', 'category' );
+		$sections = array( 'category', 'title', 'price', 'ratings', 'add_cart' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_woocommerce_shop_elements_positioning', $sections );
@@ -66,7 +66,7 @@ if ( ! function_exists( 'responsive_woocommerce_product_elements_positioning' ) 
 	function responsive_woocommerce_product_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'title', 'price', 'ratings', 'short_desc', 'add_cart', 'category' );
+		$sections = array( 'category', 'title', 'price', 'ratings', 'short_desc', 'add_cart' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_woocommerce_product_elements_positioning', $sections );
@@ -96,13 +96,9 @@ if ( ! function_exists( 'responsive_woo_shop_product_short_description' ) ) {
 	 * @since 1.1.0
 	 */
 	function responsive_woo_shop_product_short_description() {
-		?>
-		<?php if ( has_excerpt() ) { ?>
-		<div class="responsive-woo-shop-product-description">
-			<?php the_excerpt(); ?>
-		</div>
-	<?php } ?>
-		<?php
+		if ( has_excerpt() ) {
+			the_excerpt();
+		}
 	}
 }
 /**
@@ -119,7 +115,7 @@ if ( ! function_exists( 'responsive_woo_shop_parent_category' ) ) {
 	function responsive_woo_shop_parent_category() {
 		if ( apply_filters( 'responsive_woo_shop_parent_category', true ) ) {
 
-			echo '<span class="responsive_woo_shop_parent_category">';
+			echo '<p class="responsive_woo_shop_parent_category">';
 
 			global $product;
 			$product_categories = function_exists( 'wc_get_product_category_list' ) ? wc_get_product_category_list( get_the_ID(), ';', '', '' ) : $product->get_categories( ';', '', '' );
@@ -129,7 +125,7 @@ if ( ! function_exists( 'responsive_woo_shop_parent_category' ) ) {
 				list($parent_cat) = explode( ';', $product_categories );
 				echo esc_html( $parent_cat );
 			}
-			echo '</span>';
+			echo '</p>';
 		}
 	}
 }

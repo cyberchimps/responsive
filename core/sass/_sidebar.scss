@@ -1,13 +1,12 @@
+/**
+ * Aside widget-area Area styles
+ * -----------------------------------------------------------------------------
+ */
 
 .widget-area {
     @extend .col-xs-12;
     @extend .col-lg-4;
 }
-
-/**
- * Aside widget-area Area styles
- * -----------------------------------------------------------------------------
- */
 
 .widget-wrapper {
     @include make-block-element( $grid-gutter-width );
@@ -73,7 +72,7 @@
 .blog,
 .search,
 .archive {
-    &.blog-entry-sidebar-position {
+    &:not(.woocommerce).blog-entry-sidebar-position {
         &-left {
             .site-content > .container > .row {
                 flex-direction: row-reverse;
@@ -90,7 +89,7 @@
 }
 
 // single-blog-sidebar-position
-.single.single-blog-sidebar-position {
+.single:not(.woocommerce).single-blog-sidebar-position {
     &-left {
         .site-content > .container > .row {
             flex-direction: row-reverse;
@@ -106,7 +105,7 @@
 }
 
 // page-sidebar-position
-.page.page-sidebar-position {
+.page:not(.woocommerce).page-sidebar-position {
     &-left {
         .site-content > .container > .row {
             flex-direction: row-reverse;

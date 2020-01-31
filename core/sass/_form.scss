@@ -29,3 +29,7 @@ input[type=submit] {
         background-color: map-get( $colors, dark-blue );
     }
 }
+input[type=search] {
+    -webkit-appearance: initial;
+    -moz-appearace: inherit;
+}

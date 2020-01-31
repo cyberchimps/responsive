@@ -55,7 +55,6 @@ function responsive_get_option_defaults() {
 		'breadcrumb'                      => false,
 		'cta_button'                      => false,
 		'minified_css'                    => false,
-		'sticky-header'                   => false,
 		'front_page'                      => 0,
 		'home_headline'                   => 'HAPPINESS',
 		'home_subheadline'                => 'IS A WARM CUP',
@@ -371,6 +370,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
 
+
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
  */
@@ -510,11 +510,11 @@ function responsive_add_class( $classes ) {
 add_filter( 'body_class', 'responsive_add_class' );
 
 /**
- * [responsive_add_header_classes Funtion to add CSS class to body].
+ * [responsive_add_custom_body_classes Funtion to add CSS class to body].
  *
  * @param [type] $classes [description].
  */
-function responsive_add_header_classes( $classes ) {
+function responsive_add_custom_body_classes( $classes ) {
 
 	// Adds element order class.
 	$elements = get_theme_mod(
@@ -598,7 +598,7 @@ function responsive_add_header_classes( $classes ) {
 	return $classes;
 }
 
-add_filter( 'body_class', 'responsive_add_header_classes' );
+add_filter( 'body_class', 'responsive_add_custom_body_classes' );
 
 /**
  * This function prints post meta data.
