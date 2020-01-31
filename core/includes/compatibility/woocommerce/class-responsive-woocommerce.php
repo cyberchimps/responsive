@@ -54,8 +54,6 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			// Register Store Sidebars.
 			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 9 );
 
-			add_action( 'woocommerce_after_shop_loop', array( $this, 'shop_list_grid_view' ), 9 );
-
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
 
 			add_action( 'wp', array( $this, 'single_product_customization' ) );
@@ -66,7 +64,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_custom_scripts' ) );
 
-			add_filter( 'post_class', array( $this, 'post_class' ) );
+			add_filter( 'body_class', array( $this, 'add_body_class' ) );
 
 			add_action( 'wp', array( $this, 'common_actions' ), 999 );
 
@@ -99,12 +97,13 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * @since 3.15.4
 		 */
 		public function customize_register( $wp_customize ) {
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php';
-			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-general-customizer.php';
-			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-customizer.php';
-			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-colors-customizer.php';
-
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php';
 		}
 
 		/**
@@ -112,7 +111,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function cart_page_upselles() {
 
-			$upselles_enabled = get_theme_mod( 'enable_upsells_options' );
+			$upselles_enabled = get_theme_mod( 'responsive_enable_upsells_options' );
 			if ( ! $upselles_enabled ) {
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 			}
@@ -329,31 +328,28 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Post Class
+		 * Body Class
 		 *
 		 * @param array $classes Default argument array.
 		 *
 		 * @return array;
 		 */
-		public function post_class( $classes ) {
+		public function add_body_class( $classes ) {
 
-			$classes[] = 'responsive-product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
+			// Shop Page sidebar Position.
+			$classes[] = 'shop-sidebar-position-' . get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
+
+			// Single Product Page sidebar Position.
+			$classes[] = 'single-product-sidebar-position-' . get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
+
+			$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
+
+			// Shop list grid view.
+			$classes[] = 'catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
+
+			$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );
 
 			return $classes;
-		}
-		/**
-		 * Shop list grid view.
-		 */
-		public function shop_list_grid_view() {
-			if ( 'list' === get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' ) ) {
-				?>
-
-				<script type="text/javascript">
-					jQuery('ul.products').addClass("list");
-				</script>
-
-				<?php
-			}
 		}
 
 		/**

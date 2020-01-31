@@ -41,7 +41,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				'responsive_blog_layout',
 				array(
 					'title'    => esc_html__( 'Layout', 'responsive' ),
-					'panel'    => 'responsive-blog-options',
+					'panel'    => 'responsive_blog',
 					'priority' => 1,
 				)
 			);

@@ -47,6 +47,11 @@ if ( ! class_exists( 'Responsive_Site_colors_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->remove_section( 'colors' );
+			$wp_customize->get_control( 'background_image' )->section  = 'responsive_colors';
+			$wp_customize->get_control( 'background_image' )->priority = 2;
+			$wp_customize->remove_section( 'background_image' );
+
 			// Background Color.
 			$background_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'background', $background_color_label, 'responsive_colors', 1, '#eaeaea' );
