@@ -7142,7 +7142,7 @@
 	       var $child = $( ".customizer-typography-header_site_title-font-family" );
 	       if ( pair ) {
 	           /** @type {string} */
-	           var img = '<style class="customizer-typography-header_site_title-font-family">.site-title{font-family: ' + pair + ";}</style>";
+	           var img = '<style class="customizer-typography-header_site_title-font-family">.site-title a{font-family: ' + pair + ";}</style>";
 	           if ( $child.length ) {
 	               $child.replaceWith( img );
 	           } else {
@@ -7157,7 +7157,7 @@
 	    var $child = $( ".customizer-typography-header_site_title-font-weight" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-header_site_title-font-weight">.site-title{font-weight: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-font-weight">.site-title a{font-weight: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -7187,7 +7187,7 @@
 	    var $child = $( ".customizer-typography-header_site_title-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-header_site_title-font-size">.site-title{font-size: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-font-size">.site-title a{font-size: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -7202,7 +7202,7 @@
 	    var $child = $( ".customizer-typography-header_site_title-tablet-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-header_site_title-tablet-font-size">@media (max-width: 768px){.site-title{font-size: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-tablet-font-size">@media (max-width: 768px){.site-title a{font-size: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -7217,7 +7217,7 @@
 	    var $child = $( ".customizer-typography-header_site_title-mobile-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-header_site_title-mobile-font-size">@media (max-width: 480px){.site-title{font-size: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-mobile-font-size">@media (max-width: 480px){.site-title a{font-size: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
