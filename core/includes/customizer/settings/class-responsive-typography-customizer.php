@@ -397,12 +397,15 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$wp_customize,
 								$element . '_typography[font-family]',
 								array(
+                                    'name'            => $element . '_typography[font-family]',
 									'label'           => esc_html__( 'Font Family', 'responsive' ),
 									'section'         => $section,
 									'settings'        => $element . '_typography[font-family]',
 									'priority'        => $priority,
 									'type'            => 'select',
 									'active_callback' => $active_callback,
+                                    'resp_inherit'    => __( 'Default', 'responsive' ),
+                                    'connect'         => $element . '_typography[font-weight]',
 								)
 							)
 						);
@@ -424,28 +427,34 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						);
 
 						$wp_customize->add_control(
-							$element . '_typography[font-weight]',
-							array(
-								'label'           => esc_html__( 'Font Weight', 'responsive' ),
-								'description'     => esc_html__( 'Important: Not all fonts support every font-weight.', 'responsive' ),
-								'section'         => $section,
-								'settings'        => $element . '_typography[font-weight]',
-								'priority'        => $priority,
-								'type'            => 'select',
-								'active_callback' => $active_callback,
-								'choices'         => array(
-									''    => esc_html__( 'Default', 'responsive' ),
-									'100' => esc_html__( 'Thin: 100', 'responsive' ),
-									'200' => esc_html__( 'Light: 200', 'responsive' ),
-									'300' => esc_html__( 'Book: 300', 'responsive' ),
-									'400' => esc_html__( 'Normal: 400', 'responsive' ),
-									'500' => esc_html__( 'Medium: 500', 'responsive' ),
-									'600' => esc_html__( 'Semibold: 600', 'responsive' ),
-									'700' => esc_html__( 'Bold: 700', 'responsive' ),
-									'800' => esc_html__( 'Extra Bold: 800', 'responsive' ),
-									'900' => esc_html__( 'Black: 900', 'responsive' ),
-								),
-							)
+                            new Responsive_Customizer_Typography_Control(
+                                $wp_customize,
+                                $element . '_typography[font-weight]',
+                                array(
+                                    'name'            => $element . '_typography[font-weight]',
+                                    'label'           => esc_html__( 'Font Weight', 'responsive' ),
+                                    'description'     => esc_html__( 'Important: Not all fonts support every font-weight.', 'responsive' ),
+                                    'section'         => $section,
+                                    'settings'        => $element . '_typography[font-weight]',
+                                    'resp_inherit'    => __( 'Default', 'responsive' ),
+                                    'connect'         => $element . '_typography[font-family]',
+                                    'priority'        => $priority,
+                                    'type'            => 'select',
+                                    'active_callback' => $active_callback,
+                                    'choices'         => array(
+                                        ''    => esc_html__( 'Default', 'responsive' ),
+                                        '100' => esc_html__( 'Thin: 100', 'responsive' ),
+                                        '200' => esc_html__( 'Light: 200', 'responsive' ),
+                                        '300' => esc_html__( 'Book: 300', 'responsive' ),
+                                        '400' => esc_html__( 'Normal: 400', 'responsive' ),
+                                        '500' => esc_html__( 'Medium: 500', 'responsive' ),
+                                        '600' => esc_html__( 'Semibold: 600', 'responsive' ),
+                                        '700' => esc_html__( 'Bold: 700', 'responsive' ),
+                                        '800' => esc_html__( 'Extra Bold: 800', 'responsive' ),
+                                        '900' => esc_html__( 'Black: 900', 'responsive' ),
+                                    ),
+                                )
+                            )
 						);
 					}
 
@@ -701,9 +710,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 * @since 1.0.0
 		 */
 		public function customize_preview_init() {
-			wp_enqueue_script( 'responsive-typography-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/typography-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive-typo-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/typography-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 			wp_localize_script(
-				'responsive-typography-customize-preview',
+				'responsive-typo-customize-preview',
 				'responsive',
 				array(
 					'googleFontsUrl'    => '//fonts.googleapis.com',
