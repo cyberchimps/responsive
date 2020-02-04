@@ -138,6 +138,22 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_setting(
+				'responsive_theme_options[cta_button]',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'type'              => 'option',
+				)
+			);
+			$wp_customize->add_control(
+				'res_cta_button',
+				array(
+					'label'    => __( 'Disable Call to Action Button?', 'responsive' ),
+					'section'  => 'static_front_page',
+					'settings' => 'responsive_theme_options[cta_button]',
+					'type'     => 'checkbox',
+				)
+			);
+			$wp_customize->add_setting(
 				'responsive_theme_options[cta_url]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',

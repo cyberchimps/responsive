@@ -43,76 +43,71 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				array(
 					'title'    => __( 'Layout', 'responsive' ),
 					'panel'    => 'responsive_site',
-					'priority' => 1,
+					'priority' => 10,
 				)
 			);
 
 			// Site Width.
-			$wp_customize->add_setting(
-				'responsive_width',
-				array(
-					'default'           => 'contained',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
+			$responsive_width_label  = __( 'Width', 'responsive' );
+			$responsive_width_choice = array(
+				'contained'  => esc_html__( 'Contained', 'responsive' ),
+				'full-width' => esc_html__( 'Full Width', 'responsive' ),
 			);
-			$wp_customize->add_control(
-				'responsive_width',
-				array(
-					'label'    => __( 'Width', 'responsive' ),
-					'section'  => 'responsive_layout',
-					'settings' => 'responsive_width',
-					'type'     => 'select',
-					'priority' => 1,
-					'choices'  => apply_filters(
-						'responsive_width_choices',
-						array(
-							'contained'  => esc_html__( 'Contained', 'responsive' ),
-							'full-width' => esc_html__( 'Full Width', 'responsive' ),
-						)
-					),
-				)
-			);
+			responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null );
 
 			// Container Width.
 			$container_width_label = __( 'Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 2, 1140, 'responsive_active_site_layout_contained' );
+			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 20, 1140, 'responsive_active_site_layout_contained' );
 
 			// Header Allignment.
-			$wp_customize->add_setting(
-				'responsive_style',
-				array(
-					'default'           => 'boxed',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
+			$responsive_style_label  = __( 'Style', 'responsive' );
+			$responsive_style_choice = array(
+				'boxed'         => esc_html__( 'Boxed', 'responsive' ),
+				'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
+				'flat'          => esc_html__( 'Flat', 'responsive' ),
 			);
-			$wp_customize->add_control(
-				'responsive_style',
-				array(
-					'label'    => __( 'Style', 'responsive' ),
-					'section'  => 'responsive_layout',
-					'settings' => 'responsive_style',
-					'type'     => 'select',
-					'priority' => 2,
-					'choices'  => apply_filters(
-						'responsive_style_choices',
-						array(
-							'boxed'         => esc_html__( 'Boxed', 'responsive' ),
-							'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
-							'flat'          => esc_html__( 'Flat', 'responsive' ),
-						)
-					),
-				)
-			);
+			responsive_select_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, 'boxed', null );
 
 			// Box Padding (px).
-			$box_radius_label = __( 'Box Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 3, 30, 30, 'responsive_not_active_site_style_flat', $box_radius_label );
+			$box_padding_label = __( 'Box Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 40, 30, 30, 'responsive_not_active_site_style_flat', $box_padding_label );
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 4, '', 'responsive_not_active_site_style_flat' );
+			responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, '', 'responsive_not_active_site_style_flat' );
+
+			// Buttons Layout.
+			$buttons_layout_label = esc_html__( 'Buttons', 'responsive' );
+			responsive_separator_control( $wp_customize, 'responsive_layout_button_separator', $buttons_layout_label, 'responsive_layout', 60 );
+
+			// Buttons Padding (px).
+			$buttons_padding_label = __( 'Buttons Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'buttons', 'responsive_layout', 70, 10, 10, null, $buttons_padding_label );
+
+			// Buttons Radius.
+			$buttons_radius_label = __( 'Buttons Radius (px)', 'responsive' );
+			responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_layout', 80, '' );
+
+			// Buttons Border Width.
+			$buttons_border_width_label = __( 'Buttons Border Width (px)', 'responsive' );
+			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_layout', 90, '' );
+
+			// Inputs Layout.
+			$inputs_layout_label = esc_html__( 'Form Inputs', 'responsive' );
+			responsive_separator_control( $wp_customize, 'responsive_layout_input_separator', $inputs_layout_label, 'responsive_layout', 100 );
+
+			// Inputs Padding (px).
+			$inputs_padding_label = __( 'Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'inputs', 'responsive_layout', 110, 3, 3, null, $inputs_padding_label );
+
+			// Inputs Radius.
+			$inputs_radius_label = __( 'Radius (px)', 'responsive' );
+			responsive_number_control( $wp_customize, 'inputs_radius', $inputs_radius_label, 'responsive_layout', 120, '' );
+
+			// Inputs Border Width.
+			$inputs_border_width_label = __( 'Border Width (px)', 'responsive' );
+			responsive_number_control( $wp_customize, 'inputs_border_width', $inputs_border_width_label, 'responsive_layout', 120, 1 );
+
 		}
 
 

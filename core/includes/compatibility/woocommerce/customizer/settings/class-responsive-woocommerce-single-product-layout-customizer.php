@@ -38,17 +38,17 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				array(
 					'title'    => esc_html__( 'Layouts', 'responsive' ),
 					'panel'    => 'responsive-woocommerce-single-product',
-					'priority' => 1,
+					'priority' => 10,
 				)
 			);
 
 			// Layouts.
 			$single_product_layout_elements_label = esc_html__( 'Layouts', 'responsive' );
-			responsive_separator_control( $wp_customize, 'single_product_layout_elements_separator', $single_product_layout_elements_label, 'responsive_woocommerce_single_product_layout', 1 );
+			responsive_separator_control( $wp_customize, 'single_product_layout_elements_separator', $single_product_layout_elements_label, 'responsive_woocommerce_single_product_layout', 10 );
 
 			// Main Content Width.
 			$single_product_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'single_product_content_width', $single_product_content_width_label, 'responsive_woocommerce_single_product_layout', 2, 100, null, 100 );
+			responsive_drag_number_control( $wp_customize, 'single_product_content_width', $single_product_content_width_label, 'responsive_woocommerce_single_product_layout', 20, 100, null, 100 );
 
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
@@ -57,11 +57,11 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
 				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 3, $sidebar_choices, 'no', null );
+			responsive_select_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 30, $sidebar_choices, 'no', null );
 
 			// Product Elements.
 			$single_product_elements_label = esc_html__( 'Product Elements', 'responsive' );
-			responsive_separator_control( $wp_customize, 'single_product_elements_separator', $single_product_elements_label, 'responsive_woocommerce_single_product_layout', 4 );
+			responsive_separator_control( $wp_customize, 'single_product_elements_separator', $single_product_elements_label, 'responsive_woocommerce_single_product_layout', 40 );
 
 			// Gallery Layout.
 			$single_product_gallery_layout_label   = esc_html__( 'Gallery Layout', 'responsive' );
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'vertical'   => __( 'Vertical', 'responsive' ),
 				'horizontal' => __( 'Horizontal', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'single_product_gallery_layout', $single_product_gallery_layout_label, 'responsive_woocommerce_single_product_layout', 5, $single_product_gallery_layout_choices, 'horizontal', null );
+			responsive_select_control( $wp_customize, 'single_product_gallery_layout', $single_product_gallery_layout_label, 'responsive_woocommerce_single_product_layout', 50, $single_product_gallery_layout_choices, 'horizontal', null );
 
 			$wp_customize->add_setting(
 				'responsive_woocommerce_product_elements_positioning',
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 						'label'    => esc_html__( 'Single Product Structure', 'responsive' ),
 						'section'  => 'responsive_woocommerce_single_product_layout',
 						'settings' => 'responsive_woocommerce_product_elements_positioning',
-						'priority' => 10,
+						'priority' => 60,
 						'choices'  => responsive_product_elements(),
 					)
 				)

@@ -9,6 +9,8 @@ select,
 textarea {
     @include make-normal-text();
     background-color: map-get( $colors, white );
+    word-wrap: break-word;
+    -ms-word-wrap: break-word;
 }
 
 /**
