@@ -203,6 +203,7 @@ function responsive_premium_custom_color_styles() {
 	input[type=submit],
 	button,
 	.button,
+	.wp-block-button__link,
 	div.wpforms-container-full .wpforms-form input[type=submit],
 	div.wpforms-container-full .wpforms-form button[type=submit],
 	div.wpforms-container-full .wpforms-form .wpforms-page-button {
@@ -215,6 +216,7 @@ function responsive_premium_custom_color_styles() {
 	@media screen and ( max-width: 992px ) {
 		.read-more-button .hentry .read-more .more-link,
 		input[type=button],
+		.wp-block-button__link,
 		input[type=submit],
 		button,
 		.button,
@@ -228,6 +230,7 @@ function responsive_premium_custom_color_styles() {
 	@media screen and ( max-width: 576px ) {
 		.read-more-button .hentry .read-more .more-link,
 		input[type=button],
+		.wp-block-button__link,
 		input[type=submit],
 		button,
 		.button,
@@ -238,6 +241,18 @@ function responsive_premium_custom_color_styles() {
 		}
 	}
 
+	.wp-block-button__link.has-text-color.has-background:focus,
+	.wp-block-button__link.has-text-color.has-background:hover,
+	.wp-block-button__link.has-text-color:focus,
+	.wp-block-button__link.has-text-color:hover,
+	.wp-block-button__link.has-background:hover,
+	.wp-block-button__link.has-background:focus {
+		color:' . $button_hover_text_color . ' !important;
+		background-color:' . $button_hover_color . ' !important;
+	}
+
+	.wp-block-button__link:focus,
+	.wp-block-button__link:hover,
 	.read-more-button .hentry .read-more .more-link:hover,
 	.read-more-button .hentry .read-more .more-link:focus,
 	input[type=button]:hover,
@@ -1289,6 +1304,7 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce a.button,
 		.woocommerce button.button,
 		.woocommerce input.button {
+			line-height: 1.75;
 			border: ' . $buttons_border_width . 'px solid ' . $cart_buttons_color . ';
 			border-radius:' . $buttons_radius . 'px;
 			padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';

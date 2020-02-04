@@ -86,11 +86,11 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Buttons Radius.
 			$buttons_radius_label = __( 'Buttons Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_layout', 80, '' );
+			responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_layout', 80, 0 );
 
 			// Buttons Border Width.
 			$buttons_border_width_label = __( 'Buttons Border Width (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_layout', 90, '' );
+			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_layout', 90, 0 );
 
 			// Inputs Layout.
 			$inputs_layout_label = esc_html__( 'Form Inputs', 'responsive' );
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Inputs Radius.
 			$inputs_radius_label = __( 'Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'inputs_radius', $inputs_radius_label, 'responsive_layout', 120, '' );
+			responsive_number_control( $wp_customize, 'inputs_radius', $inputs_radius_label, 'responsive_layout', 120, 0 );
 
 			// Inputs Border Width.
 			$inputs_border_width_label = __( 'Border Width (px)', 'responsive' );
