@@ -137,7 +137,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'meta'                       => array(
 						'label'    => esc_html__( 'Meta', 'responsive' ),
-						'target'   => '.post-meta *',
+						'target'   => '.hentry .post-data,.post-meta *',
 						'section'  => 'responsive_typography',
 						'priority' => 16,
 						'exclude'  => array( 'font-color' ),
@@ -176,6 +176,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => '.main-navigation a',
 						'panel'    => 'responsive_header_menu',
 						'exclude'  => array( 'font-color' ),
+						'priority' => 30,
 						'defaults' => array(
 							'font-size'   => '16px',
 							'line-height' => '1.75',
@@ -219,79 +220,10 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => '.site-footer',
 						'panel'    => 'responsive_footer',
 						'exclude'  => array( 'font-color' ),
+						'priority' => 30,
 						'defaults' => array(
 							'font-size'   => '13px',
 							'line-height' => '1.75',
-						),
-					),
-
-					// Old.
-					'menu'                 => array(
-						'label'    => esc_html__( 'Main Menu', 'responsive' ),
-						'target'   => '.main-nav .menu > li > a, .main-nav .menu .sub-menu > li > a',
-						'exclude'  => array( 'font-color', 'line-height' ),
-						'defaults' => array(
-							'font-size'      => '13px',
-							'letter-spacing' => '0.6',
-						),
-					),
-					'menu_dropdown'        => array(
-						'label'    => esc_html__( 'Main Menu: Dropdowns', 'responsive' ),
-						'target'   => '.menu li li a, .main-nav ul li li a',
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '12px',
-							'line-height'    => '1.2',
-							'letter-spacing' => '0.6',
-						),
-					),
-					'mobile_menu_dropdown' => array(
-						'label'    => esc_html__( 'Mobile Menu', 'responsive' ),
-						'target'   => '#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a',
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'   => '15px',
-							'line-height' => '1.75',
-						),
-					),
-					'page_title'           => array(
-						'label'    => esc_html__( 'Page Title', 'responsive' ),
-						'target'   => '.page .post-title, #main-blog h1',
-						'defaults' => array(
-							'color'       => '#333333',
-							'font-size'   => '32px',
-							'line-height' => '1.25',
-						),
-					),
-					'blog_entry_title'     => array(
-						'label'    => esc_html__( 'Blog Entry Title', 'responsive' ),
-						'target'   => '#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a',
-						'defaults' => array(
-							'font-size'      => '24px',
-							'color'          => '#333333',
-							'line-height'    => '1.25',
-							'letter-spacing' => '0.6',
-						),
-					),
-					'blog_post_title'      => array(
-						'label'    => esc_html__( 'Blog Post Title', 'responsive' ),
-						'target'   => '.single-post #primary .post .post-entry .entry-title',
-						'defaults' => array(
-							'font-size'      => '34px',
-							'color'          => '#333333',
-							'line-height'    => '1.25',
-							'letter-spacing' => '0.6',
-						),
-					),
-					'buttons'              => array(
-						'label'    => esc_html__( 'Buttons Typography', 'responsive' ),
-						'target'   => '.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit,.wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button',
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '0.875em',
-							'font-weight'    => '400',
-							'line-height'    => '1.25',
-							'letter-spacing' => '0',
 						),
 					),
 				)
@@ -531,7 +463,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					 */
 					if ( in_array( 'font-size', $attributes, true ) ) {
 
-						$default = ! empty( $array['defaults']['font-size'] ) ? $array['defaults']['font-size'] : NULL;
+						$default = ! empty( $array['defaults']['font-size'] ) ? $array['defaults']['font-size'] : null;
 						$wp_customize->add_setting(
 							$element . '_typography[font-size]',
 							array(

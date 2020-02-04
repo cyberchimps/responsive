@@ -99,3 +99,18 @@
     max-width: 100vw;
     width: 100vw;
 }
+
+//
+// Clear Fix mixin
+// -----------------------------------------------------------------------------
+@mixin make-clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}

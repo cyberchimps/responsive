@@ -86,67 +86,11 @@
     .entry-title {
         margin-bottom: $base-line-height-px / 2;
         margin-top:  $base-line-height-px / 2;
-
-        // Blog Entry Title Aligmnmnet
-        .archive.blog-entry-title-alignment-center &,
-        .search.blog-entry-title-alignment-center &,
-        .blog.blog-entry-title-alignment-center & {
-            text-align: center;
-        }
-        .archive.blog-entry-title-alignment-right &,
-        .search.blog-entry-title-alignment-right &,
-        .blog.blog-entry-title-alignment-right & {
-            text-align: right;
-        }
-
-        // Single Blog Content Aligmnmnet
-        .single.single-blog-title-alignment-center & {
-            text-align: center;
-        }
-        .single.single-blog-title-alignment-right & {
-            text-align: right;
-        }
-
-        // Page Content Aligmnmnet
-        .page.page-title-alignment-center & {
-            text-align: center;
-        }
-        .page.page-title-alignment-right & {
-            text-align: right;
-        }
     }
 
     .thumbnail {
         margin-bottom: $base-line-height-px / 2;
         margin-top:  $base-line-height-px / 2;
-
-        // Blog Entry Featured Image Aligmnmnet
-        .search.blog-entry-featured-image-alignment-center &,
-        .archive.blog-entry-featured-image-alignment-center &,
-        .blog.blog-entry-featured-image-alignment-center & {
-            text-align: center;
-        }
-        .search.blog-entry-featured-image-alignment-right &,
-        .archive.blog-entry-featured-image-alignment-right &,
-        .blog.blog-entry-featured-image-alignment-right & {
-            text-align: right;
-        }
-
-        // Single Blog Featured Image Aligmnmnet
-        .single.single-blog-featured-image-alignment-center & {
-            text-align: center;
-        }
-        .single.single-blog-featured-image-alignment-right & {
-            text-align: right;
-        }
-
-        // Single Blog Featured Image Aligmnmnet
-        .page.page-featured-image-alignment-center & {
-            text-align: center;
-        }
-        .page.page-featured-image-alignment-right & {
-            text-align: right;
-        }
 
         .thumbnail-caption {
             font-size: map-get( $font-sizes, small );
@@ -160,26 +104,6 @@
         margin-top:  $base-line-height-px / 2;
         color: map-get( $colors, gray );
         font-size: map-get( $font-sizes, small );
-
-        // Blog Entry Meta Aligmnment
-        .archive.blog-entry-meta-alignment-right &,
-        .search.blog-entry-meta-alignment-right &,
-        .blog.blog-entry-meta-alignment-right & {
-            text-align: right;
-        }
-        .archive.blog-entry-meta-alignment-center &,
-        .search.blog-entry-meta-alignment-center &,
-        .blog.blog-entry-meta-alignment-center & {
-            text-align: center;
-        }
-
-        // Single Blog Meta Aligmnment
-        .single.single-blog-meta-alignment-right & {
-            text-align: right;
-        }
-        .single.single-blog-meta-alignment-center & {
-            text-align: center;
-        }
 
         a {
             @include make-link( map-get( $colors, gray ), map-get( $colors, blue ) );
@@ -209,6 +133,11 @@
         }
     }
 
+    .pagination,
+    .post-data {
+        clear: both;
+    }
+
     .read-more {
         margin-bottom: $base-line-height-px;
 
@@ -228,35 +157,7 @@
         }
 
         .entry-content {
-
-            // Blog Entry Content Aligmnmnet
-            .archive.blog-entry-content-alignment-center &,
-            .search.blog-entry-content-alignment-center &,
-            .blog.blog-entry-content-alignment-center & {
-                text-align: center;
-            }
-            .archive.blog-entry-content-alignment-right &,
-            .search.blog-entry-content-alignment-right &,
-            .blog.blog-entry-content-alignment-right & {
-                text-align: right;
-            }
-
-            // Single Blog Content Aligmnmnet
-            .single.single-blog-content-alignment-center & {
-                text-align: center;
-            }
-            .single.single-blog-content-alignment-right & {
-                text-align: right;
-            }
-
-            // Single Blog Content Aligmnmnet
-            .page.page-content-alignment-center & {
-                text-align: center;
-            }
-            .page.page-content-alignment-right & {
-                text-align: right;
-            }
-
+            @include make-clearfix;
         }
     }
 
@@ -265,6 +166,96 @@
     }
 
 }
+
+// Featured Image Aligmnmnet
+.page,
+.single,
+.search,
+.archive,
+.blog {
+    &.featured-image-alignment {
+        &-right {
+            .hentry .thumbnail {
+                text-align: right;
+            }
+        }
+        &-center {
+            .hentry .thumbnail {
+                text-align: center;
+            }
+        }
+    }
+}
+
+// Title Aligmnmnet
+.page,
+.single,
+.search,
+.archive,
+.blog {
+    &.title-alignment {
+        &-right {
+            .hentry .entry-title {
+                text-align: right;
+            }
+        }
+        &-center {
+            .hentry .entry-title {
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+// Content Aligmnmnet
+.page,
+.single,
+.search,
+.archive,
+.blog {
+    &.content-alignment {
+        &-right {
+            .hentry .entry-content {
+                text-align: right;
+            }
+        }
+        &-center {
+            .hentry .entry-content {
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+// Meta Aligmnmnet
+.single,
+.search,
+.archive,
+.blog {
+    &.meta-alignment {
+        &-right {
+            .hentry {
+                .post-data,
+                .post-edit-link,
+                .post-meta {
+                    text-align: right;
+                }
+            }
+        }
+        &-center {
+            .hentry {
+                .post-data,
+                .post-edit-link,
+                .post-meta {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
 .content-area-wrapper {
     .responsive-site-style-content-boxed & {
         background-color: map-get( $colors, white );
@@ -376,6 +367,12 @@
     }
 }
 
+.sticky,
+.gallery-caption,
+.bypostauthor {
+    display: block;
+}
+
 /**
  * Page / Post Navigation & Comments tyles
  * -----------------------------------------------------------------------------
@@ -400,6 +397,7 @@
     }
 }
 
+.comment-respond,
 .comments-area {
     @include make-block-element();
     background-color: map-get($colors, white);

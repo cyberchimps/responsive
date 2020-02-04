@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Typography_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Typography', 'responsive' ),
 					'panel'    => 'responsive_content_header',
-					'priority' => 3,
+					'priority' => 30,
 				)
 			);
 
