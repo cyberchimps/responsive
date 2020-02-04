@@ -75,11 +75,14 @@ global $responsive_blog_layout_columns;
 	<?php
 	responsive_container_end(); // after container hook.
 
-	if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
-		$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
-		?>
-		<div id="scroll" class="responsive-scroll" title="Scroll to Top" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
-		<?php
+	if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
+			$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
+			?>
+			<div id="scroll" class="responsive-scroll" title="Scroll to Top"
+				 data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
+			<?php
+		}
 	}
 
 	wp_footer();
