@@ -560,43 +560,72 @@ function responsive_add_custom_body_classes( $classes ) {
 	}
 
 	if ( is_page() ) {
-		// Page sidebar Position.
-		$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_page_sidebar_position', 'right' );
-		// Page Featured Image Aligmnmnet.
-		$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'center' );
-		// Page Title Aligmnmnet.
-		$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_page_title_alignment', 'left' );
-		// Page Content Aligmnmnet.
-		$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_page_content_alignment', 'left' );
-	} elseif ( is_single() ) {
-		// Single Blog sidebar Position.
-		$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' );
-		// Single Blog Featured Image Aligmnmnet.
-		$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'center' );
-		// Single Blog Title Aligmnmnet.
-		$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
-		// Single Blog Meta Aligmnmnet.
-		$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_single_blog_meta_alignment', 'left' );
-		// Single Blog Content Aligmnmnet.
-		$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 
+		if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() ) ) {
+
+			// Do not Add Class.
+			$classes[] = '';
+
+		} else {
+
+			// Page sidebar Position.
+			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_page_sidebar_position', 'right' );
+			// Page Featured Image Aligmnmnet.
+			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'center' );
+			// Page Title Aligmnmnet.
+			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_page_title_alignment', 'left' );
+			// Page Content Aligmnmnet.
+			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_page_content_alignment', 'left' );
+
+		}
+	} elseif ( is_single() ) {
+
+		if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() ) ) {
+
+			// Do not Add Class.
+			$classes[] = '';
+
+		} else {
+
+			// Single Blog sidebar Position.
+			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' );
+			// Single Blog Featured Image Aligmnmnet.
+			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'center' );
+			// Single Blog Title Aligmnmnet.
+			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
+			// Single Blog Meta Aligmnmnet.
+			$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_single_blog_meta_alignment', 'left' );
+			// Single Blog Content Aligmnmnet.
+			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
+
+		}
 	} else {
-		// Blog Entry Read More Type.
-		$classes[] = 'read-more-' . get_theme_mod( 'responsive_blog_entry_read_more_type', 'link' );
-		// Entry Blog Featured Image Aligmnmnet.
-		$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_blog_entry_featured_image_alignment', 'center' );
-		// Entry Blog Title Aligmnmnet.
-		$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', 'left' );
-		// Entry Blog Meta Aligmnmnet.
-		$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_blog_entry_meta_alignment', 'left' );
-		// Entry Blog Content Aligmnmnet.
-		$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
-		// Entry Blog Columns.
-		$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
-		$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', 1 ) . $masonry;
-		// Entry Blog sidebar Position.
-		$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', 'right' );
+		if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() ) ) {
+
+			// Do not Add Class.
+			$classes[] = '';
+
+		} else {
+
+			// Blog Entry Read More Type.
+			$classes[] = 'read-more-' . get_theme_mod( 'responsive_blog_entry_read_more_type', 'link' );
+			// Entry Blog Featured Image Aligmnmnet.
+			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_blog_entry_featured_image_alignment', 'center' );
+			// Entry Blog Title Aligmnmnet.
+			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', 'left' );
+			// Entry Blog Meta Aligmnmnet.
+			$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_blog_entry_meta_alignment', 'left' );
+			// Entry Blog Content Aligmnmnet.
+			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
+			// Entry Blog Columns.
+			$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
+			$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', 1 ) . $masonry;
+			// Entry Blog sidebar Position.
+			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', 'right' );
+
+		}
 	}
+
 	// Footer Element layout class.
 	$classes[] = 'footer-bar-layout-' . get_theme_mod( 'responsive_footer_bar_layout', 'horizontal' );
 	// Footer Widget columns class.
