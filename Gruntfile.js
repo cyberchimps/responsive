@@ -218,6 +218,7 @@ module.exports = function(grunt) {
 					'!**/.csscomb.json',
 					'!.csscomb.json',
 					'!**/sass/**',
+					'!**/vendor/**',
 					'!.sass-cache/**',
 					'!**/sass-cache/**',
 					'!**/automationtest/**',
