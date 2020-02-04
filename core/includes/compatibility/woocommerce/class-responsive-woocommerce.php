@@ -111,8 +111,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function cart_page_upselles() {
 
-			$upselles_enabled = get_theme_mod( 'responsive_enable_upsells_options' );
-			if ( ! $upselles_enabled ) {
+			$crossselles_enabled = get_theme_mod( 'responsive_enable_crosssells_options' );
+			if ( ! $crossselles_enabled ) {
 				remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 			}
 		}
