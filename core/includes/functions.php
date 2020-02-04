@@ -1,26 +1,25 @@
 <?php
-
-// Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Theme's Functions and Definitions
  *
  * @file           functions.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.2.1
  * @filesource     wp-content/themes/responsive/includes/functions.php
  * @link           http://codex.wordpress.org/Theme_Development#Functions_File
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 <?php
-
 /*
  * Globalize Theme options
  */
@@ -32,11 +31,6 @@ function responsive_load_customize_controls() {
 	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/class-responsive-customize-control-checkbox-multiple.php';
 }
 add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
-
-/*
- * Hook options
- */
-add_action( 'admin_init', 'responsive_theme_options_init' );
 
 /**
  * Retrieve Theme option settings
@@ -280,7 +274,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
 
 				/** If static front page template is set to default then set front page toggle of theme option to 1 */
-				if ( 'page' == get_option( 'show_on_front' ) && $template == 'default' ) {
+				if ( 'page' == get_option( 'show_on_front' ) && 'default' == $template ) {
 					$responsive_options['front_page'] = 1;
 				} else {
 					$responsive_options['front_page'] = 0;
@@ -334,43 +328,17 @@ function responsive_fallback_menu() {
  */
 if ( ! function_exists( 'responsive_css' ) ) {
 
+	/**
+	 * Responsive Theme CSS
+	 */
 	function responsive_css() {
 		$theme              = wp_get_theme();
 		$responsive         = wp_get_theme( 'responsive' );
 		$responsive_options = responsive_get_options();
 		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		if ( 1 == $responsive_options['minified_css'] ) {
-			wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
-		// 	wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
-		} else {
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
-		// 	wp_enqueue_style( 'responsive-media-queries', get_template_directory_uri() . "/core/css/responsive{$suffix}.css", false, $responsive['Version'] );
-		}
-		//
-		// if ( is_rtl() ) {
-		// 	wp_enqueue_style( 'responsive-rtl-style', get_template_directory_uri() . '/rtl.css', false, $responsive['Version'] );
-		// }
-		// if ( is_child_theme() ) {
-		// 	wp_enqueue_style( 'responsive-child-style', get_stylesheet_uri(), false, $theme['Version'] );
-		// }
-		//
-		// if ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) {
-		// 	wp_enqueue_style( 'responsive-shop', get_template_directory_uri() . '/core/css/shop.css', false, $responsive['Version'] );
-		// }
-		// $social_array = array( 'res_twitter', 'res_facebook', 'res_linkedin', 'res_youtube', 'res_googleplus', 'res_rss', 'res_printerest', 'res_stumble', 'res_vimeo', 'res_yelp', 'res_foursquare', 'res_email_uid' );
-		//
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
-		//
-		// // Add customizer colors to the gutenberg blocks on front end.
-		// wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
-		//
-		// // If plugin - 'WooCommerce' is active.
-		// if ( class_exists( 'WooCommerce' ) ) {
-		// 	if ( is_woocommerce() || is_shop() || is_cart() || is_checkout() ) {
-		// 		wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
-		// 	}
-		// }
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
@@ -441,6 +409,11 @@ function responsive_team_meta_box_cb() {
 	<?php
 }
 add_action( 'save_post', 'responsive_team_meta_box_save' );
+/**
+ * Save team member meta data
+ *
+ * @param int $post_id Post id.
+ */
 function responsive_team_meta_box_save( $post_id ) {
 	$allowed = array(
 		'a' => array(
@@ -480,6 +453,9 @@ add_action( 'wp_enqueue_scripts', 'responsive_enqueue_comment_reply' );
 
 /**
  * Front Page function starts here. The Front page overides WP's show_on_front option. So when show_on_front option changes it sets the themes front_page to 0 therefore displaying the new option
+ *
+ * @param int $new New Page.
+ * @param int $orig Original Page.
  */
 function responsive_front_page_override( $new, $orig ) {
 	global $responsive_options;
@@ -497,12 +473,14 @@ add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override',
 
 /**
  * Funtion to add CSS class to body
+ *
+ * @param array $classes html classes.
  */
 function responsive_add_class( $classes ) {
 
 	// Get Responsive theme option.
 	global $responsive_options;
-	if ( $responsive_options['front_page'] == 1 && is_front_page() ) {
+	if ( 1 == $responsive_options['front_page'] && is_front_page() ) {
 		$classes[] = 'front-page';
 	}
 
@@ -648,6 +626,9 @@ add_filter( 'body_class', 'responsive_add_custom_body_classes' );
  */
 if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
+	/**
+	 * Prints meta data
+	 */
 	function responsive_post_meta_data() {
 		?>
 		<span class="entry-author">
@@ -671,6 +652,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 							</a>
 						</span>',
 						get_author_posts_url( get_the_author_meta( 'ID' ) ),
+						/* translators: %s: view post by */
 						sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
 						esc_attr( get_the_author() )
 					)
@@ -680,7 +662,10 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 		<span class="entry-category">
 			<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
-			<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+			<?php
+			/* translators: %s: Categories*/
+				printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) );
+			?>
 			</span>
 		</span>
 
@@ -694,6 +679,9 @@ if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
 	add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
 }
 
+/**
+ * Add Upgrade to pro button
+ */
 function responsive_add_pro_button() {
 	$upgrade_link = esc_url_raw( 'https://cyberchimps.com/responsive-go-pro/?utm_source=free-to-pro&utm_medium=responsive-theme&utm_campaign=responsive-pro&utm_content=customizer' );
 	?>

@@ -5,17 +5,17 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Return if there isn't a thumbnail defined
+// Return if there isn't a thumbnail defined.
 if ( ! has_post_thumbnail() ) {
 	return;
 }
 
-// Image args
+// Image args.
 $img_args = array(
 	'alt' => get_the_title(),
 );
@@ -23,16 +23,16 @@ if ( responsive_get_schema_markup( 'image' ) ) {
 	$img_args['itemprop'] = 'image';
 }
 
-// Caption
+// Caption.
 $caption = get_the_post_thumbnail_caption(); ?>
 
 <div class="thumbnail">
 
 	<?php
-	// Display post thumbnail
+	// Display post thumbnail.
 	the_post_thumbnail( 'full', $img_args );
 
-	// Caption
+	// Caption.
 	if ( $caption ) {
 		?>
 		<div class="thumbnail-caption">

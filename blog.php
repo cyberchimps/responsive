@@ -16,8 +16,8 @@ Template Name: Blog (full posts) (Deprecated)
  *
  * @file           blog.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.1.0
  * @filesource     wp-content/themes/responsive/blog.php
@@ -27,7 +27,6 @@ Template Name: Blog (full posts) (Deprecated)
 
 get_header();
 
-$more = 0;
 ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <div id="wrapper" class="site-content clearfix">

@@ -44,7 +44,8 @@ do_action( 'responsive_before_single_post_meta' );
 								<span itemprop="name">%3$s</span>
 							</a>
 						</span>',
-						get_author_posts_url( get_the_author_meta( 'ID' ) ),
+						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+						/* translators: %s view posts by */
 						sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
 						esc_attr( get_the_author() )
 					);
@@ -58,6 +59,7 @@ do_action( 'responsive_before_single_post_meta' );
 				<span class="entry-date">
 					<?php
 					printf(
+						/* Translators: 1 = html Class, 2 = Category */
 						__( '<i class="fa fa-calendar" aria-hidden="true"></i><span>Posted on </span><span class="%1$s" itemprop="datePublished">%2$s</span>', 'responsive' ),
 						'meta-prep meta-prep-author posted',
 						sprintf(
@@ -89,7 +91,11 @@ do_action( 'responsive_before_single_post_meta' );
 			?>
 			<span class="entry-category">
 				<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
-					<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+					<?php
+					$categories_list = get_the_category_list( __( ', ', 'responsive' ) );
+					/* translators: %s posted in categories */
+					printf( __( 'Posted in %s', 'responsive' ), $categories_list );
+					?>
 				</span>
 			</span>
 			<?php

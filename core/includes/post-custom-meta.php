@@ -1,22 +1,21 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Theme Custom Post Meta
  *
  * @file           post-custom-meta.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.1
  * @filesource     wp-content/themes/responsive/includes/post-custom-meta.php
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Globalize Theme options
@@ -102,13 +101,9 @@ function responsive_get_layout() {
 			} else {
 				$layout = $responsive_options['static_page_layout_default'];
 			}
-		}
-		/* Else, if post custom meta is set, use it */
-		elseif ( 'default' != $layout_meta ) {
+		} elseif ( 'default' != $layout_meta ) {
 			$layout = $layout_meta;
-		}
-		/* Else, use the default */
-		else {
+		} else {
 			$layout = $responsive_options['static_page_layout_default'];
 		}
 	}
@@ -118,22 +113,15 @@ function responsive_get_layout() {
 			/* If post custom meta is set, use it */
 			if ( 'default' != $layout_meta ) {
 				$layout = $layout_meta;
-			}
-			/* Else, use the default */
-			else {
+			} else {
 				$layout = $responsive_options['single_post_layout_default'];
 			}
-		}
-		/* Posts index */
-		elseif ( is_home() || is_archive() || is_search() ) {
+		} elseif ( is_home() || is_archive() || is_search() ) {
 			$layout = $responsive_options['blog_posts_index_layout_default'];
-		}
-		/* Fallback */
-		else {
+		} else {
 			$layout = 'default';
 		}
 	}
-
 
 	if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) ) {
 		$layout = get_theme_mod( 'woocommerce_sidebar_layout', 'full-width-page' );
@@ -163,6 +151,7 @@ function responsive_get_valid_layouts() {
  *
  * @link    http://codex.wordpress.org/Function_Reference/_2            __()
  * @link    http://codex.wordpress.org/Function_Reference/add_meta_box    add_meta_box()
+ * @param string $post Post.
  */
 function responsive_add_layout_meta_box( $post ) {
 	global $post, $wp_meta_boxes;
@@ -180,7 +169,7 @@ function responsive_add_layout_meta_box( $post ) {
 	);
 }
 
-// Hook meta boxes into 'add_meta_boxes'
+// Hook meta boxes into 'add_meta_boxes'.
 add_action( 'add_meta_boxes', 'responsive_add_layout_meta_box' );
 
 /**
@@ -209,7 +198,7 @@ function responsive_layout_meta_box() {
 		<select name="_responsive_layout">
 		<?php foreach ( $valid_layouts as $slug => $name ) { ?>
 			<?php $selected = selected( $layout, $slug, false ); ?>
-			<option value="<?php echo $slug; ?>" <?php echo $selected; ?>><?php echo $name; ?></option>
+			<option value="<?php echo esc_html( $slug ); ?>" <?php echo esc_html( $selected ); ?>><?php echo esc_html( $name ); ?></option>
 		<?php } ?>
 		</select>
 	</p>
@@ -242,7 +231,7 @@ function responsive_save_layout_post_metadata() {
 }
 
 // Hook the save layout post custom meta data into
-// publish_{post-type}, draft_{post-type}, and future_{post-type}
+// publish_{post-type}, draft_{post-type}, and future_{post-type}.
 add_action( 'publish_post', 'responsive_save_layout_post_metadata' );
 add_action( 'publish_page', 'responsive_save_layout_post_metadata' );
 add_action( 'draft_post', 'responsive_save_layout_post_metadata' );

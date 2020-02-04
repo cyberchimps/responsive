@@ -1,16 +1,16 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Post Meta-Data Template-Part File for Blog 3 Column
  *
  * @file           post-meta-3-col.php
  * @package        Responsive
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 ?>
 
 <?php if ( is_single() ) : ?>

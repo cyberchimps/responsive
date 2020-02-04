@@ -5,24 +5,24 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Return if there isn't a thumbnail defined
+// Return if there isn't a thumbnail defined.
 if ( ! has_post_thumbnail() ) {
 	return;
 }
 
-// Add images size if blog grid
+// Add images size if blog grid.
 if ( 'grid-entry' == responsive_blog_entry_style() ) {
 	$size = responsive_blog_entry_images_size();
 } else {
 	$size = 'full';
 }
 
-// Overlay class
+// Overlay class.
 if ( is_customize_preview()
 	&& false == get_theme_mod( 'responsive_blog_image_overlay', true ) ) {
 	$class = 'no-overlay';
@@ -30,7 +30,7 @@ if ( is_customize_preview()
 	$class = 'overlay';
 }
 
-// Image args
+// Image args.
 $img_args = array(
 	'alt' => get_the_title(),
 );
@@ -38,7 +38,7 @@ if ( responsive_get_schema_markup( 'image' ) ) {
 	$img_args['itemprop'] = 'image';
 }
 
-// Caption
+// Caption.
 $caption = get_the_post_thumbnail_caption(); ?>
 
 <div class="thumbnail">
@@ -58,7 +58,7 @@ $caption = get_the_post_thumbnail_caption(); ?>
 		the_post_thumbnail( $size, $img_args );
 
 
-		// If overlay
+		// If overlay.
 		if ( is_customize_preview()
 			|| true == get_theme_mod( 'responsive_blog_image_overlay', true ) ) {
 			?>
@@ -68,7 +68,7 @@ $caption = get_the_post_thumbnail_caption(); ?>
 	</a>
 
 	<?php
-	// Caption
+	// Caption.
 	if ( $caption ) {
 		?>
 		<div class="thumbnail-caption">

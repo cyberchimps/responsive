@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @file           comments.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2010 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/comments.php
@@ -36,9 +36,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<h3 id="comments">
 			<?php
 			printf(
+			/* translators: 1 : number of comments, 2 : post title */
 				_n( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'responsive' ),
 				number_format_i18n( get_comments_number() ),
-				'<span>' . get_the_title() . '</span>'
+				'<span>' . esc_html( get_the_title() ) . '</span>'
 			);
 			?>
 		</h3>
@@ -70,12 +71,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php endif; ?>
 
 	<?php
-	if ( ! empty( $comments_by_type['pings'] ) ) : // let's seperate pings/trackbacks from comments
+	if ( ! empty( $comments_by_type['pings'] ) ) : // let's seperate pings/trackbacks from comments.
 		$count                  = count( $comments_by_type['pings'] );
-		( $count !== 1 ) ? $txt = __( 'Pings&#47;Trackbacks', 'responsive' ) : $txt = __( 'Pings&#47;Trackbacks', 'responsive' );
+		( 1 !== $count ) ? $txt = __( 'Pings&#47;Trackbacks', 'responsive' ) : $txt = __( 'Pings&#47;Trackbacks', 'responsive' );
 		?>
 
-		<h6 id="pings"><?php printf( __( '%1$d %2$s for "%3$s"', 'responsive' ), $count, $txt, get_the_title() ); ?></h6>
+		<?php /* translators: 1 : Count, 2 : Pings 3 : Post title */ ?>
+		<h6 id="pings"><?php printf( __( '%1$d %2$s for "%3$s"', 'responsive' ), $count, esc_html( $txt ), esc_html( get_the_title() ) ); ?></h6>
 
 		<ol class="commentlist">
 			<?php wp_list_comments( 'type=pings&max_depth=<em>' ); ?>
@@ -88,7 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php
 		$fields = array(
-			'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'responsive' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
+			'author' => '<p class="comment-form-author"><label for="author">' . __( 'Name', 'responsive' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
 			'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" /></p>',
 			'email'  => '<p class="comment-form-email"><label for="email">' . __( 'E-mail', 'responsive' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
 			'<input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" /></p>',

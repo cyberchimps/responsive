@@ -73,7 +73,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 		/**
 		 * Constructor
 		 */
-		function __construct() {
+		public function __construct() {
 
 			if ( ! is_admin() ) {
 				return;
