@@ -34,6 +34,7 @@ module.exports = function(grunt) {
 			},
 			files: {
 				src:  [
+					'*.php',
 					'**/*.php',
 					'!**/class-tgm-plugin-activation.php',
 					'!node_modules/**',
@@ -123,6 +124,64 @@ module.exports = function(grunt) {
 			main: ['build/<%= pkg.name %>']
 		},
 
+		uglify: {
+			options: {
+				mangle: false
+			},
+			theme_options: {
+				files: [
+					{
+						expand: true,     // Enable dynamic expansion.
+						cwd: 'core/includes/theme-options/',      // Src matches are relative to this path.
+						src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
+						dest: 'core/includes/theme-options/',   // Destination path prefix.
+						ext: '.min.js',   // Dest filepaths will have this extension.
+					},
+				]
+			},
+			frontend: {
+				files: [
+					{
+						expand: true,     // Enable dynamic expansion.
+						cwd: 'core/js-dev/',      // Src matches are relative to this path.
+						src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
+						dest: 'core/js/',   // Destination path prefix.
+						ext: '.min.js',   // Dest filepaths will have this extension.
+					},
+				]
+			}
+		},
+
+		csscomb: {
+			dynamic_mappings: {
+				expand: true,
+				cwd: 'core/css/',
+				src: ['*.css', '!*.min.css'],
+				dest: 'core/css/',
+				ext: '.css'
+			}
+		},
+
+		cssmin: {
+			style: {
+				options: {
+					//banner: '/* Theme Name: Responsive Author: CyberChimps.com Version: 1.9.4.9 Text Domain: responsive */'
+				},
+				files: {
+					'core/css/style.min.css': 'core/css/style.css',
+					'core/css/responsive.min.css':  'core/css/responsive.css',
+					'core/css/woocommerce.min.css':  'core/css/woocommerce.css'
+				}
+			},
+			theme_options: {
+				expand: true,
+				cwd: 'core/includes/theme-options/',
+				src: ['*.css', '!*.min.css'],
+				dest: 'core/includes/theme-options/',
+				ext: '.min.css'
+			}
+		},
+
 		// Copy the theme into the build directory
 		copy: {
 			main: {
@@ -141,6 +200,8 @@ module.exports = function(grunt) {
 					'!package.json',
 					'!composer.json',
 					'!.gitignore',
+					'!.prettierrc',
+					'!.prettierignore',
 					'!composer.json',
 					'!phpcs.xml.dist',
 					'!.gitmodules',
@@ -155,12 +216,19 @@ module.exports = function(grunt) {
 					'!**/*~',
 					'!.editorconfig',
 					'!**/.csscomb.json',
+					'!.csscomb.json',
 					'!**/sass/**',
+					'!**/vendor/**',
+					'!.sass-cache/**',
+					'!**/sass-cache/**',
 					'!**/automationtest/**',
 					'!tests/**',
 					'!bitbucket-pipelines.yml',
-					'!**/jenkincodeception/**'
-
+					'!**/jenkincodeception/**',
+					'!core/css/woocommerce.css.map',
+					'!core/css/style.css.map',
+					'!package-lock.json',
+					'!core/package-lock.json'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
@@ -201,7 +269,8 @@ module.exports = function(grunt) {
 
 	// Default task(s).
 	grunt.registerTask( 'updatefonts', [ 'google-fonts' ] );
-	grunt.registerTask( 'default', [ 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'addtextdomain', ['checktextdomain']);
+	grunt.registerTask( 'default', [ 'addtextdomain', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };
