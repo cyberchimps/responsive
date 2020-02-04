@@ -13,7 +13,7 @@
  * should be made in a child theme.
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -49,21 +49,25 @@ function responsive_get_breadcrumb_lists() {
  */
 if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
+	/**
+	 * Breadcrumb Lists
+	 * Allows visitors to quickly navigate back to a previous section or the root page.
+	 */
 	function responsive_breadcrumb_lists() {
 		/* === OPTIONS === */
-		$text['home']     = __( 'Home', 'responsive' ); // text for the 'Home' link
-		$text['category'] = __( 'Archive for %s', 'responsive' ); // text for a category page
-		$text['search']   = __( 'Search results for: %s', 'responsive' ); // text for a search results page
-		$text['tag']      = __( 'Posts tagged %s', 'responsive' ); // text for a tag page
-		$text['author']   = __( 'View all posts by %s', 'responsive' ); // text for an author page
-		$text['404']      = __( 'Error 404', 'responsive' ); // text for the 404 page
+		$text['home']     = __( 'Home', 'responsive' ); // text for the 'Home' link.
+		$text['category'] = __( 'Archive for %s', 'responsive' ); // text for a category page.
+		$text['search']   = __( 'Search results for: %s', 'responsive' ); // text for a search results page.
+		$text['tag']      = __( 'Posts tagged %s', 'responsive' ); // text for a tag page.
+		$text['author']   = __( 'View all posts by %s', 'responsive' ); // text for an author page.
+		$text['404']      = __( 'Error 404', 'responsive' ); // text for the 404 page.
 
-		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
-		$show['home']    = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
+		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show.
+		$show['home']    = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show.
 
-		$delimiter = ' <span class="chevron">&#8250;</span> '; // delimiter between crumbs
-		$before    = '<span class="breadcrumb-current">'; // tag before the current crumb
-		$after     = '</span>'; // tag after the current crumb
+		$delimiter = ' <span class="chevron">&#8250;</span> '; // delimiter between crumbs.
+		$before    = '<span class="breadcrumb-current">'; // tag before the current crumb.
+		$after     = '</span>'; // tag after the current crumb.
 		/* === END OF OPTIONS === */
 
 		$home_link   = home_url( '/' );
@@ -204,18 +208,22 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		echo $html_output;
 
-	} // end responsive_breadcrumb_lists
+	} // end responsive_breadcrumb_lists.
 }
 
 /**
  * Use shortcode_atts_gallery filter to add new defaults to the WordPress gallery shortcode.
  * Allows user input in the post gallery shortcode.
+ *
+ * @param string $out Output.
+ * @param string $pairs Pairs.
+ * @param array  $atts Attributes.
  */
 function responsive_gallery_atts( $out, $pairs, $atts ) {
 
 	$full_width = is_page_template( 'full-width-page.php' ) || is_page_template( 'landing-page.php' );
 
-	// Check if the size attribute has been set, if so use it and skip the responsive sizes
+	// Check if the size attribute has been set, if so use it and skip the responsive sizes.
 	if ( array_key_exists( 'size', $atts ) ) {
 		$size = $atts['size'];
 	} else {
@@ -223,61 +231,61 @@ function responsive_gallery_atts( $out, $pairs, $atts ) {
 		if ( $full_width ) {
 			switch ( $out['columns'] ) {
 				case 1:
-					$size = 'responsive-900'; // 900
+					$size = 'responsive-900'; // 900.
 					break;
 				case 2:
-					$size = 'responsive-450'; // 450
+					$size = 'responsive-450'; // 450.
 					break;
 				case 3:
-					$size = 'responsive-300'; // 300
+					$size = 'responsive-300'; // 300.
 					break;
 				case 4:
-					$size = 'responsive-200'; // 225
+					$size = 'responsive-200'; // 225.
 					break;
 				case 5:
-					$size = 'responsive-200'; // 180
+					$size = 'responsive-200'; // 180.
 					break;
 				case 6:
-					$size = 'responsive-150'; // 150
+					$size = 'responsive-150'; // 150.
 					break;
 				case 7:
-					$size = 'responsive-150'; // 125
+					$size = 'responsive-150'; // 125.
 					break;
 				case 8:
-					$size = 'responsive-150'; // 112
+					$size = 'responsive-150'; // 112.
 					break;
 				case 9:
-					$size = 'responsive-100'; // 100
+					$size = 'responsive-100'; // 100.
 					break;
 			}
 		} else {
 			switch ( $out['columns'] ) {
 				case 1:
-					$size = 'responsive-600'; // 600
+					$size = 'responsive-600'; // 600.
 					break;
 				case 2:
-					$size = 'responsive-300'; // 300
+					$size = 'responsive-300'; // 300.
 					break;
 				case 3:
-					$size = 'responsive-200'; // 200
+					$size = 'responsive-200'; // 200.
 					break;
 				case 4:
-					$size = 'responsive-150'; // 150
+					$size = 'responsive-150'; // 150.
 					break;
 				case 5:
-					$size = 'responsive-150'; // 120
+					$size = 'responsive-150'; // 120.
 					break;
 				case 6:
-					$size = 'responsive-100'; // 100
+					$size = 'responsive-100'; // 100.
 					break;
 				case 7:
-					$size = 'responsive-100'; // 85
+					$size = 'responsive-100'; // 85.
 					break;
 				case 8:
-					$size = 'responsive-100'; // 75
+					$size = 'responsive-100'; // 75.
 					break;
 				case 9:
-					$size = 'responsive-100'; // 66
+					$size = 'responsive-100'; // 66.
 					break;
 			}
 		}
@@ -298,7 +306,7 @@ function responsive_gallery_atts( $out, $pairs, $atts ) {
 
 add_filter( 'shortcode_atts_gallery', 'responsive_gallery_atts', 10, 3 );
 
-/*
+/**
  * Create image sizes for the galley
  */
 function responsive_add_image_size() {
@@ -312,6 +320,9 @@ function responsive_add_image_size() {
 }
 add_action( 'after_setup_theme', 'responsive_add_image_size' );
 
+/**
+ * Get Social Icons
+ */
 function responsive_get_social_icons_new() {
 	$responsive_options = responsive_get_options();
 

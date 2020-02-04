@@ -110,6 +110,7 @@ function responsive_read_more() {
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and responsive_read_more_link().
+ *
  * @param int $more More.
  */
 function responsive_auto_excerpt_more( $more = 0 ) {
@@ -212,11 +213,12 @@ class responsive_widget_menu_class {
 		return $settings;
 	}
 
-    /**
-     * Navigation Menu arguments
-     * @param array $args Arguments.
-     * @return mixed
-     */
+	/**
+	 * Navigation Menu arguments
+	 *
+	 * @param array $args Arguments.
+	 * @return mixed
+	 */
 	public function wp_nav_menu_args( $args ) {
 		remove_filter( 'wp_nav_menu_args', array( $this, 'wp_nav_menu_args' ) );
 

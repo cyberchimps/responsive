@@ -34,7 +34,7 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 
 ?>
 
-	<h1 class="title-404"><?php echo $responsive_title; ?></h1>
+	<h1 class="title-404"><?php echo esc_html( $responsive_title ); ?></h1>
 
 	<p><?php esc_html_e( 'Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive' ); ?></p>
 
