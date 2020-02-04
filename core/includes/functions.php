@@ -357,9 +357,6 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 		wp_enqueue_script( 'navigation-scripts', $template_directory_uri . '/core/' . $directory . '/navigation' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 		wp_localize_script( 'responsive-scripts', 'responsives', apply_filters( 'responsive_js_localize', array() ) );
-		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
-			wp_enqueue_script( 'responsive-scroll', $template_directory_uri . '/core/' . $directory . '/scroll-to-top' . $suffix . '.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
-		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_js' );
@@ -531,49 +528,59 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Content Header Alignment class.
 	$classes[] = 'site-content-header-alignment-' . get_theme_mod( 'responsive_content_header_alignment', 'center' );
 
-	// blog_posts_index_layout_default class.
+	// Custom Homepage Class class.
 	$responsive_options = responsive_get_options();
-	$classes[]          = 'blog-entry-' . $responsive_options['blog_posts_index_layout_default'];
-	// Blog Entry Read More Type.
-	$classes[] = 'read-more-' . get_theme_mod( 'responsive_blog_entry_read_more_type', 'link' );
-	// Entry Blog Featured Image Aligmnmnet.
-	$classes[] = 'blog-entry-featured-image-alignment-' . get_theme_mod( 'responsive_blog_entry_featured_image_alignment', 'center' );
-	// Entry Blog Title Aligmnmnet.
-	$classes[] = 'blog-entry-title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', 'left' );
-	// Entry Blog Meta Aligmnmnet.
-	$classes[] = 'blog-entry-meta-alignment-' . get_theme_mod( 'responsive_blog_entry_meta_alignment', 'left' );
-	// Entry Blog Content Aligmnmnet.
-	$classes[] = 'blog-entry-content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
-	// Entry Blog Columns.
-	$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
-	$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', 1 ) . $masonry;
-	// Entry Blog sidebar Position.
-	$classes[] = 'blog-entry-sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', 'right' );
+	if ( $responsive_options['front_page'] ) {
+		$classes[] = 'custom-home-page-active';
+	}
 
-	// Single Blog sidebar Position.
-	$classes[] = 'single-blog-sidebar-position-' . get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' );
-	// Single Blog Featured Image Aligmnmnet.
-	$classes[] = 'single-blog-featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'center' );
-	// Single Blog Title Aligmnmnet.
-	$classes[] = 'single-blog-title-alignment-' . get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
-	// Single Blog Meta Aligmnmnet.
-	$classes[] = 'single-blog-meta-alignment-' . get_theme_mod( 'responsive_single_blog_meta_alignment', 'left' );
-	// Single Blog Content Aligmnmnet.
-	$classes[] = 'single-blog-content-alignment-' . get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
+	if ( is_page() ) {
+		// Page sidebar Position.
+		$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_page_sidebar_position', 'right' );
+		// Page Featured Image Aligmnmnet.
+		$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'center' );
+		// Page Title Aligmnmnet.
+		$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_page_title_alignment', 'left' );
+		// Page Content Aligmnmnet.
+		$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_page_content_alignment', 'left' );
+	} elseif ( is_single() ) {
+		// Single Blog sidebar Position.
+		$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' );
+		// Single Blog Featured Image Aligmnmnet.
+		$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'center' );
+		// Single Blog Title Aligmnmnet.
+		$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
+		// Single Blog Meta Aligmnmnet.
+		$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_single_blog_meta_alignment', 'left' );
+		// Single Blog Content Aligmnmnet.
+		$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_single_blog_content_alignment', 'left' );
 
-	// Page sidebar Position.
-	$classes[] = 'page-sidebar-position-' . get_theme_mod( 'responsive_page_sidebar_position', 'right' );
-	// Page Featured Image Aligmnmnet.
-	$classes[] = 'page-featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'center' );
-	// Page Title Aligmnmnet.
-	$classes[] = 'page-title-alignment-' . get_theme_mod( 'responsive_page_title_alignment', 'left' );
-	// Page Content Aligmnmnet.
-	$classes[] = 'page-content-alignment-' . get_theme_mod( 'responsive_page_content_alignment', 'left' );
-
+	} else {
+		// Blog Entry Read More Type.
+		$classes[] = 'read-more-' . get_theme_mod( 'responsive_blog_entry_read_more_type', 'link' );
+		// Entry Blog Featured Image Aligmnmnet.
+		$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_blog_entry_featured_image_alignment', 'center' );
+		// Entry Blog Title Aligmnmnet.
+		$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', 'left' );
+		// Entry Blog Meta Aligmnmnet.
+		$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_blog_entry_meta_alignment', 'left' );
+		// Entry Blog Content Aligmnmnet.
+		$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
+		// Entry Blog Columns.
+		$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
+		$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', 1 ) . $masonry;
+		// Entry Blog sidebar Position.
+		$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', 'right' );
+	}
 	// Footer Element layout class.
 	$classes[] = 'footer-bar-layout-' . get_theme_mod( 'responsive_footer_bar_layout', 'horizontal' );
 	// Footer Widget columns class.
 	$classes[] = 'footer-widgets-columns-' . get_theme_mod( 'responsive_footer_widgets_columns', 0 );
+
+	// Scroll To Top Device class.
+	$classes[] = 'scroll-to-top-device-' . get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
+	// Scroll To Top Aligmnment class.
+	$classes[] = 'scroll-to-top-aligmnment-' . get_theme_mod( 'responsive_scroll_to_top_icon_aligmnment', 'right' );
 
 	return $classes;
 }

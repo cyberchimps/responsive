@@ -42,7 +42,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Header_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Content Header', 'responsive' ),
 					'panel'    => 'responsive_blog',
-					'priority' => 1,
+					'priority' => 10,
 				)
 			);
 
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Header_Customizer' ) ) :
 					'section'  => 'responsive_blog_content_header',
 					'settings' => 'responsive_theme_options[blog_post_title_toggle]',
 					'type'     => 'checkbox',
-					'priority' => 1,
+					'priority' => 10,
 				)
 			);
 
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Header_Customizer' ) ) :
 					'section'  => 'responsive_blog_content_header',
 					'settings' => 'responsive_theme_options[blog_post_title_text]',
 					'type'     => 'text',
-					'priority' => 2,
+					'priority' => 20,
 				)
 			);
 

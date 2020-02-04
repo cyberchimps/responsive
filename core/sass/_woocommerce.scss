@@ -35,6 +35,13 @@ ul.products {
                 margin: 0;
             }
         }
+
+        .product-content-aligmnment-center & {
+            text-align: center;
+        }
+        .product-content-aligmnment-right & {
+            text-align: right;
+        }
     }
 }
 
@@ -240,10 +247,6 @@ div.product div.images .flex-control-thumbs {
 .woocommerce-cart {
     main.content-area {
         margin: 0 auto;
-    }
-
-    .comments-area {
-        display: none;
     }
 }
 

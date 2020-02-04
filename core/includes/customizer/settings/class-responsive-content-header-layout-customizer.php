@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Layout', 'responsive' ),
 					'panel'    => 'responsive_content_header',
-					'priority' => 1,
+					'priority' => 10,
 
 				)
 			);
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 					'section'  => 'responsive_content_header_layout',
 					'settings' => 'responsive_theme_options[breadcrumb]',
 					'type'     => 'checkbox',
-					'priority' => 1,
+					'priority' => 10,
 				)
 			);
 
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				'before' => esc_html__( 'Before Heading', 'responsive' ),
 				'after'  => esc_html__( 'After Heading', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'breadcrumb_position', $breadcrumb_position_label, 'responsive_content_header_layout', 2, $breadcrumb_position_choices, 'before', 'responsive_active_breadcrumb' );
+			responsive_select_control( $wp_customize, 'breadcrumb_position', $breadcrumb_position_label, 'responsive_content_header_layout', 20, $breadcrumb_position_choices, 'before', 'responsive_active_breadcrumb' );
 
 			// Content Header Allignment.
 			$content_header_alignment_label   = esc_html__( 'Alignment', 'responsive' );
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				'left'   => esc_html__( 'Left', 'responsive' ),
 				'right'  => esc_html__( 'Right', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 3, $content_header_alignment_choices, 'center', null );
+			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 30, $content_header_alignment_choices, 'center', null );
 
 		}
 	}
