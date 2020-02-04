@@ -85,41 +85,40 @@ function responsive_free_setup() {
 	add_editor_style( 'core/css/gutenberg-editor.css' );
 	// Gutenberg editor color palette.
 	add_theme_support( 'editor-color-palette', responsive_gutenberg_color_palette() );
-	$small_font_sizes  = get_theme_mod( 'post_meta_typography' );
+	$small_font_sizes  = get_theme_mod( 'meta_typography' );
 	$normal_sizes      = get_theme_mod( 'body_typography' );
 	$larger_font_sizes = get_theme_mod( 'heading_h1_typography' );
 	$large_font_sizes  = get_theme_mod( 'heading_h2_typography' );
-
 	if ( isset( $small_font_sizes['font-size'] ) ) {
 		$small_font_sizes_default_value = ( $small_font_sizes && isset( $small_font_sizes['font-size'] ) ) ? str_replace( 'px', '', $small_font_sizes['font-size'] ) : '12';
 	} else {
-		$small_font_sizes_default_value = 12;
+		$small_font_sizes_default_value = 13;
 	}
 	if ( isset( $normal_sizes['font-size'] ) ) {
-		$normal_sizes_default_value = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '14';
+		$normal_sizes_default_value = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '16';
 	} else {
-		$normal_sizes_default_value = 14;
+		$normal_sizes_default_value = 16;
 	}
 	if ( isset( $larger_font_sizes['font-size'] ) ) {
-		if ( strpos( $larger_font_sizes['font-size'], 'px' ) == false ) {
+		if ( false === strpos( $larger_font_sizes['font-size'], 'px' ) ) {
 			$larger_font_sizes_default_value = ( $larger_font_sizes && isset( $larger_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $larger_font_sizes['font-size'] ) : '2.625';
 			$larger_font_sizes_default_value = $normal_sizes_default_value * $larger_font_sizes_default_value;
 		} else {
 			$larger_font_sizes_default_value = str_replace( 'px', '', $larger_font_sizes['font-size'] );
 		}
 	} else {
-		$larger_font_sizes_default_value = 40;
+		$larger_font_sizes_default_value = 33;
 	}
 
 	if ( isset( $large_font_sizes['font-size'] ) ) {
-		if ( strpos( $large_font_sizes['font-size'], 'px' ) == false ) {
+		if ( false === strpos( $large_font_sizes['font-size'], 'px' ) ) {
 			$large_font_sizes_default_value = ( $large_font_sizes && isset( $large_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $large_font_sizes['font-size'] ) : '2.250';
 			$large_font_sizes_default_value = $normal_sizes_default_value * $large_font_sizes_default_value;
 		} else {
 			$large_font_sizes_default_value = str_replace( 'px', '', $large_font_sizes['font-size'] );
 		}
 	} else {
-		$large_font_sizes_default_value = 32;
+		$large_font_sizes_default_value = 26;
 	}
 	add_theme_support(
 		'editor-font-sizes',
@@ -371,7 +370,7 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 	function responsive_page_featured_image() {
 		// check if the page has a Post Thumbnail assigned to it.
 		$responsive_options = responsive_get_options();
-		if ( has_post_thumbnail() && 1 == $responsive_options['featured_images'] ) {
+		if ( has_post_thumbnail() ) {
 			?>
 						<div class="featured-image">
 							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>

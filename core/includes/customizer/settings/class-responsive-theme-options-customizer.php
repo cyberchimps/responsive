@@ -53,135 +53,23 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 			foreach ( $category_lists as $category ) {
 				$option_all_post_cat[ $category->term_id ] = $category->name;
 			}
-			$wp_customize->add_panel(
-				'responsive-theme-options',
-				array(
-					'title'       => __( 'Extras (Theme Options)', 'responsive' ),
-					'description' => 'All Misc Options', // Include html tags such as <p>.
-					'priority'    => 260, // Mixed with top-level-section hierarchy.
-				)
-			);
-			$wp_customize->get_section( 'header_image' )->title = __( 'header Image (Deprecated)', 'responsive' );
-			$wp_customize->get_section( 'header_image' )->panel = 'responsive-theme-options'; // Add to Colors Panel.
 
 				/* Blog page setting */
-				$wp_customize->add_section(
-					'blog_page',
-					array(
-						'title' => __( 'Blog page Settings', 'responsive' ),
-						'panel' => 'responsive-theme-options',
-					)
-				);
 				$wp_customize->add_setting( 'exclude_post_cat', array( 'sanitize_callback' => 'responsive_sanitize_multiple_checkboxes' ) );
 				$wp_customize->add_control(
 					new Responsive_Customize_Control_Checkbox_Multiple(
 						$wp_customize,
 						'exclude_post_cat',
 						array(
-							'section'     => 'blog_page',
+							'section'     => 'responsive_blog_layout',
 							'label'       => __( 'Exclude Categories from Blog page', 'responsive' ),
 							'description' => __( 'Please choose the post categories that should not be displayed on the blog page', 'responsive' ),
 							'settings'    => 'exclude_post_cat',
 							'choices'     => $option_all_post_cat,
+							'priority'    => 50,
 						)
 					)
 				);
-
-				/*
-				--------------------------------------------------------------
-					// Theme Elements
-				--------------------------------------------------------------
-				*/
-
-				$wp_customize->add_section(
-					'theme_elements',
-					array(
-						'title'    => __( 'Theme Elements', 'responsive' ),
-						'panel'    => 'responsive-theme-options',
-						'priority' => 30,
-					)
-				);
-				$wp_customize->add_setting(
-					'responsive_theme_options[featured_images]',
-					array(
-						'sanitize_callback' => 'responsive_sanitize_checkbox',
-						'type'              => 'option',
-					)
-				);
-				$wp_customize->add_control(
-					'res_featured_images',
-					array(
-						'label'    => __( 'Enable featured images?', 'responsive' ),
-						'section'  => 'theme_elements',
-						'settings' => 'responsive_theme_options[featured_images]',
-						'type'     => 'checkbox',
-					)
-				);
-
-				$wp_customize->add_setting(
-					'responsive_theme_options[cta_button]',
-					array(
-						'sanitize_callback' => 'responsive_sanitize_checkbox',
-						'type'              => 'option',
-					)
-				);
-				$wp_customize->add_control(
-					'res_cta_button',
-					array(
-						'label'    => __( 'Disable Call to Action Button?', 'responsive' ),
-						'section'  => 'theme_elements',
-						'settings' => 'responsive_theme_options[cta_button]',
-						'type'     => 'checkbox',
-					)
-				);
-				/*
-				--------------------------------------------------------------
-					// Scripts
-				--------------------------------------------------------------
-				*/
-
-				$wp_customize->add_section(
-					'scripts',
-					array(
-						'title'    => __( 'Scripts', 'responsive' ),
-						'panel'    => 'responsive-theme-options',
-						'priority' => 300,
-					)
-				);
-				$wp_customize->add_setting(
-					'responsive_theme_options[responsive_inline_js_head]',
-					array(
-						'sanitize_callback' => 'wp_kses_stripslashes',
-						'type'              => 'option',
-					)
-				);
-				$wp_customize->add_control(
-					'res_responsive_inline_js_head',
-					array(
-						'label'    => __( 'Embeds to header.php', 'responsive' ),
-						'section'  => 'scripts',
-						'settings' => 'responsive_theme_options[responsive_inline_js_head]',
-						'type'     => 'textarea',
-					)
-				);
-
-				$wp_customize->add_setting(
-					'responsive_theme_options[responsive_inline_js_footer]',
-					array(
-						'sanitize_callback' => 'wp_kses_stripslashes',
-						'type'              => 'option',
-					)
-				);
-				$wp_customize->add_control(
-					'res_responsive_inline_js_footer',
-					array(
-						'label'    => __( 'Embeds to footer.php', 'responsive' ),
-						'section'  => 'scripts',
-						'settings' => 'responsive_theme_options[responsive_inline_js_footer]',
-						'type'     => 'textarea',
-					)
-				);
-
 		}
 
 

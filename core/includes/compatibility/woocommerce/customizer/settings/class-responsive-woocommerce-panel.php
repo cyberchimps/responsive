@@ -37,7 +37,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive-woocommerce-shop',
 				array(
-					'title'       => __( 'Woocommerce Shop', 'responsive' ),
+					'title'       => __( 'Product Catalog Options', 'responsive' ),
 					'description' => 'Shop Options',
 					'priority'    => 210,
 				)
@@ -46,7 +46,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive-woocommerce-single-product',
 				array(
-					'title'       => __( 'Woocommerce Single Product', 'responsive' ),
+					'title'       => __( 'Product Options', 'responsive' ),
 					'description' => 'Single Product Options',
 					'priority'    => 220,
 				)
@@ -55,20 +55,12 @@ if ( ! class_exists( 'Responsive_Woocommerce_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive-woocommerce-cart',
 				array(
-					'title'       => __( 'Woocommerce Cart', 'responsive' ),
+					'title'       => __( 'Cart Options', 'responsive' ),
 					'description' => 'Cart Options',
 					'priority'    => 230,
 				)
 			);
 
-			$wp_customize->add_panel(
-				'responsive-woocommerce-checkout',
-				array(
-					'title'       => __( 'Woocommerce Checkout', 'responsive' ),
-					'description' => 'Checkout Options',
-					'priority'    => 240,
-				)
-			);
 		}
 	}
 

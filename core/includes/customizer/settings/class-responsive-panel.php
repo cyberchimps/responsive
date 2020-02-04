@@ -37,7 +37,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive_site',
 				array(
-					'title'       => __( 'Theme Option', 'responsive' ),
+					'title'       => __( 'Theme Options', 'responsive' ),
 					'description' => 'header Options',
 					'priority'    => 110,
 				)
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive_blog',
 				array(
-					'title'       => __( 'Blog/Archive', 'responsive' ),
+					'title'       => __( 'Blog / Archive', 'responsive' ),
 					'description' => 'Blog Options',
 					'priority'    => 160,
 				)
@@ -103,15 +103,6 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 					'title'       => __( 'Page', 'responsive' ),
 					'description' => 'page Options',
 					'priority'    => 180,
-				)
-			);
-
-			$wp_customize->add_panel(
-				'responsive-appearance-options',
-				array(
-					'title'       => __( 'Appearance', 'responsive' ),
-					'description' => 'appearance Options',
-					'priority'    => 600,
 				)
 			);
 

@@ -203,21 +203,6 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
 }
 
 /**
- * [responsive_archive_layout_callback description]
- *
- * @return bool
- */
-function responsive_archive_layout_callback() {
-
-	$responsive_options = responsive_get_options();
-	$responsive_options['blog_posts_index_layout_default'];
-	if ( ( 'blog-4-col' === $responsive_options['blog_posts_index_layout_default'] ) || ( 'blog-3-col' === $responsive_options['blog_posts_index_layout_default'] ) || ( 'blog-2-col' === $responsive_options['blog_posts_index_layout_default'] ) ) {
-		return true;
-	} else {
-		return false;
-	}
-}
-/**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function responsive_customize_preview_js() {
@@ -264,14 +249,9 @@ function responsive_register_options() {
 		'class-responsive-page-entry-customizer',
 		'class-responsive-footer-layout-customizer',
 		'class-responsive-footer-colors-customizer',
-		'class-responsive-button-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
-		'class-responsive-layout-customizer',
 		'class-responsive-home-page-customizer',
-		'class-responsive-links-customizer',
-		'class-responsive-sidebar-customizer',
-		'class-responsive-scrolltotop-customizer',
 		'class-responsive-customizer-notices',
 	);
 
