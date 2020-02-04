@@ -1336,7 +1336,7 @@ function responsive_disabled_mobile_menu() {
  * @param  [type] $active_call  [description].
  * @return void               [description].
  */
-function responsive_checkbox_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call ) {
+function responsive_checkbox_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,

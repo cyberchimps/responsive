@@ -43,7 +43,7 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 				array(
 					'title'    => __( 'Typography', 'responsive' ),
 					'panel'    => 'responsive_site',
-					'priority' => 3,
+					'priority' => 30,
 				)
 			);
 

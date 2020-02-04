@@ -31,8 +31,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="comments-area">
-	<?php if ( have_comments() ) : ?>
+<?php if ( have_comments() ) : ?>
+	<div class="comments-area">
 		<h3 id="comments">
 			<?php
 			printf(
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<!-- end of .next -->
 			</div><!-- end of.navigation -->
 		<?php endif; ?>
-
+	</div><!-- end of comments area -->
 	<?php else : ?>
 
 	<?php endif; ?>
@@ -102,5 +102,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 
-	<?php endif; ?>
-</div>
+<?php endif; ?>

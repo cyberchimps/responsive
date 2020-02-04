@@ -335,19 +335,17 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * @return array;
 		 */
 		public function add_body_class( $classes ) {
+			if ( is_woocommerce() && is_product() ) {
+				// Single Product Page sidebar Position.
+				$classes[] = 'single-product-sidebar-position-' . get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
+				$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
 
-			// Shop Page sidebar Position.
-			$classes[] = 'shop-sidebar-position-' . get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
-
-			// Single Product Page sidebar Position.
-			$classes[] = 'single-product-sidebar-position-' . get_theme_mod( 'responsive_single_product_sidebar_position', 'no' );
-
-			$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
-
-			// Shop list grid view.
-			$classes[] = 'catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
-
-			$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );
+			} elseif ( is_woocommerce() || is_cart() ) {
+				$classes[] = 'shop-sidebar-position-' . get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
+				$classes[] = 'catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
+				$classes[] = 'product-sale-style-' . get_theme_mod( 'responsive_product_sale_style', 'circle' );
+				$classes[] = 'product-content-aligmnment-' . get_theme_mod( 'responsive_product_content_aligmnment', 'center' );
+			}
 
 			return $classes;
 		}
