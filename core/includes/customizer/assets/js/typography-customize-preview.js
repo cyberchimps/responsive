@@ -2037,682 +2037,6 @@
 	        }
 	    } );
 	} ),
-	api( "headings_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-headings-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-headings-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-font-family">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-font-weight">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[font-style]", function( $swipe ) {
-	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customize-control-headings_typography-font-style" );
-	        if ( dataAndEvents ) {
-	            /** @type {string} */
-	            var img = '<style class="customize-control-headings_typography-font-style">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-style: ' + dataAndEvents + ";}</style>";
-	            if ( $child.length ) {
-	                $child.replaceWith( img );
-	            } else {
-	                $( "head" ).append( img );
-	            }
-	        } else {
-	            $child.remove();
-	        }
-	    } );
-	} ), api( "headings_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-font-size">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-tablet-font-size">@media (max-width: 768px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-mobile-font-size">@media (max-width: 480px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-color">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-line-height">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-tablet-line-height">@media (max-width: 768px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-mobile-line-height">@media (max-width: 480px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-letter-spacing">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-tablet-letter-spacing">@media (max-width: 768px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-mobile-letter-spacing">@media (max-width: 480px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-text-transform">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-logo-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-logo-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-font-family">#site-logo a.site-logo-text{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-font-weight">#site-logo a.site-logo-text{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-font-style">#site-logo a.site-logo-text{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-font-size">#site-logo a.site-logo-text{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-tablet-font-size">@media (max-width: 768px){#site-logo a.site-logo-text{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-mobile-font-size">@media (max-width: 480px){#site-logo a.site-logo-text{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-color">#site-logo a.site-logo-text{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-line-height">#site-logo a.site-logo-text{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-tablet-line-height">@media (max-width: 768px){#site-logo a.site-logo-text{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-mobile-line-height">@media (max-width: 480px){#site-logo a.site-logo-text{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-letter-spacing">#site-logo a.site-logo-text{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-tablet-letter-spacing">@media (max-width: 768px){#site-logo a.site-logo-text{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-mobile-letter-spacing">@media (max-width: 480px){#site-logo a.site-logo-text{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-text-transform">#site-logo a.site-logo-text{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-top_menu-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-top_menu-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-font-family">#top-bar-content{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-font-weight">#top-bar-content{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-font-style">#top-bar-content{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-font-size">#top-bar-content{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-tablet-font-size">@media (max-width: 768px){#top-bar-content{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-mobile-font-size">@media (max-width: 480px){#top-bar-content{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-color">#top-bar-content{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-line-height">#top-bar-content{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-tablet-line-height">@media (max-width: 768px){#top-bar-content{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-mobile-line-height">@media (max-width: 480px){#top-bar-content{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-letter-spacing">#top-bar-content{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-tablet-letter-spacing">@media (max-width: 768px){#top-bar-content{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-mobile-letter-spacing">@media (max-width: 480px){#top-bar-content{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-text-transform">#top-bar-content{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ),
 	api( "header_menu_typography[font-family]", function( $swipe ) {
 	   $swipe.bind( function( pair ) {
 	       if ( pair ) {
@@ -3612,7 +2936,457 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "heading_h5_typography[font-family]", function( $swipe ) {
+	} ),api( "button_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
+	            /** @type {string} */
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-button-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customizer-typography-button-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-font-family">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-family: ' + pair + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-font-weight">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[font-style]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-font-style">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-font-size">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-size: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_tablet_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-tablet-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-tablet-font-size">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_mobile_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-mobile-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-mobile-font-size">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[color]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-color" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-color">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{color: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-line-height">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-tablet-line-height">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-mobile-line-height">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-letter-spacing">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-tablet-letter-spacing">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-mobile-letter-spacing">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-text-transform">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
+	            /** @type {string} */
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-input-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customizer-typography-input-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-font-family">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-family: ' + pair + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-font-weight">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[font-style]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-font-style">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-font-size">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-size: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_tablet_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-tablet-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-tablet-font-size">@media (max-width: 768px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_mobile_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-mobile-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-mobile-font-size">@media (max-width: 480px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[color]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-color" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-color">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{color: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-line-height">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-tablet-line-height">@media (max-width: 768px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-mobile-line-height">@media (max-width: 480px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-letter-spacing">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-tablet-letter-spacing">@media (max-width: 768px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-mobile-letter-spacing">@media (max-width: 480px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-text-transform">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ),  api( "heading_h5_typography[font-family]", function( $swipe ) {
 		$swipe.bind( function( pair ) {
 			if ( pair ) {
 				/** @type {string} */

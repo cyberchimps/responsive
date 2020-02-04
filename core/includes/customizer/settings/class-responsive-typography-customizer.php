@@ -147,6 +147,28 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'text-transform' => 'uppercase',
 						),
 					),
+					'button'                     => array(
+						'label'    => esc_html__( 'Body', 'responsive' ),
+						'target'   => '.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button',
+						'section'  => 'responsive_typography',
+						'priority' => 18,
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '16px',
+							'line-height' => '1',
+						),
+					),
+					'input'                      => array(
+						'label'    => esc_html__( 'Body', 'responsive' ),
+						'target'   => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea',
+						'section'  => 'responsive_typography',
+						'priority' => 20,
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '16px',
+							'line-height' => '1.75',
+						),
+					),
 					'header_site_title'          => array(
 						'label'    => esc_html__( 'Site Title', 'responsive' ),
 						'target'   => '.site-title a',
