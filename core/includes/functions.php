@@ -328,6 +328,9 @@ function responsive_fallback_menu() {
  */
 if ( ! function_exists( 'responsive_css' ) ) {
 
+	/**
+	 * Responsive Theme CSS
+	 */
 	function responsive_css() {
 		$theme              = wp_get_theme();
 		$responsive         = wp_get_theme( 'responsive' );
@@ -620,6 +623,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 							</a>
 						</span>',
 						get_author_posts_url( get_the_author_meta( 'ID' ) ),
+						/* translators: %s: view post by */
 						sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
 						esc_attr( get_the_author() )
 					)
@@ -629,7 +633,10 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 		<span class="entry-category">
 			<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
-			<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+			<?php
+			/* translators: %s: Categories*/
+				printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) );
+			?>
 			</span>
 		</span>
 

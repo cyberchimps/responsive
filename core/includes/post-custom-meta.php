@@ -151,6 +151,7 @@ function responsive_get_valid_layouts() {
  *
  * @link    http://codex.wordpress.org/Function_Reference/_2            __()
  * @link    http://codex.wordpress.org/Function_Reference/add_meta_box    add_meta_box()
+ * @param string $post Post.
  */
 function responsive_add_layout_meta_box( $post ) {
 	global $post, $wp_meta_boxes;
@@ -197,7 +198,7 @@ function responsive_layout_meta_box() {
 		<select name="_responsive_layout">
 		<?php foreach ( $valid_layouts as $slug => $name ) { ?>
 			<?php $selected = selected( $layout, $slug, false ); ?>
-			<option value="<?php echo $slug; ?>" <?php echo $selected; ?>><?php echo $name; ?></option>
+			<option value="<?php echo esc_html( $slug ); ?>" <?php echo esc_html( $selected ); ?>><?php echo esc_html( $name ); ?></option>
 		<?php } ?>
 		</select>
 	</p>

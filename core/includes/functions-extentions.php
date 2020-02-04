@@ -55,12 +55,16 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 	 */
 	function responsive_breadcrumb_lists() {
 		/* === OPTIONS === */
-		$text['home']     = __( 'Home', 'responsive' ); // text for the 'Home' link.
+		$text['home'] = __( 'Home', 'responsive' ); // text for the 'Home' link.
+		/* translators: %s: Categories */
 		$text['category'] = __( 'Archive for %s', 'responsive' ); // text for a category page.
-		$text['search']   = __( 'Search results for: %s', 'responsive' ); // text for a search results page.
-		$text['tag']      = __( 'Posts tagged %s', 'responsive' ); // text for a tag page.
-		$text['author']   = __( 'View all posts by %s', 'responsive' ); // text for an author page.
-		$text['404']      = __( 'Error 404', 'responsive' ); // text for the 404 page.
+		/* translators: %s: Search result page */
+		$text['search'] = __( 'Search results for: %s', 'responsive' ); // text for a search results page.
+		/* translators: %s: Post Pages */
+		$text['tag'] = __( 'Posts tagged %s', 'responsive' ); // text for a tag page.
+		/* translators: %s: Author pages */
+		$text['author'] = __( 'View all posts by %s', 'responsive' ); // text for an author page.
+		$text['404']    = __( 'Error 404', 'responsive' ); // text for the 404 page.
 
 		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show.
 		$show['home']    = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show.
@@ -197,7 +201,8 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 			}
 
 			if ( get_query_var( 'paged' ) || get_query_var( 'page' ) ) {
-				$page_num     = get_query_var( 'page' ) ? get_query_var( 'page' ) : get_query_var( 'paged' );
+				$page_num = get_query_var( 'page' ) ? get_query_var( 'page' ) : get_query_var( 'paged' );
+				/* translators: %s: Page Number */
 				$html_output .= $delimiter . sprintf( __( 'Page %s', 'responsive' ), $page_num );
 
 			}

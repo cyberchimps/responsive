@@ -156,6 +156,11 @@ $responsive_options = responsive_get_options();
 if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 	define( 'ELEMENTOR_PARTNER_ID', 2126 );
 }
+/**
+ * Edit Customize Register
+ *
+ * @param array $wp_customize WP Customize.
+ */
 function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'blogname',
@@ -330,6 +335,12 @@ function responsive_edit_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );
 
+/**
+ * Custom Category Widget
+ *
+ * @param array $arg Arguments.
+ * @return mixed
+ */
 function responsive_custom_category_widget( $arg ) {
 	$cat = get_theme_mod( 'exclude_post_cat' );
 
@@ -342,6 +353,12 @@ function responsive_custom_category_widget( $arg ) {
 add_filter( 'widget_categories_args', 'responsive_custom_category_widget' );
 add_filter( 'widget_categories_dropdown_args', 'responsive_custom_category_widget' );
 
+/**
+ * Exclude post category recent post widget
+ *
+ * @param array $array Array.
+ * @return mixed
+ */
 function responsive_exclude_post_cat_recentpost_widget( $array ) {
 	$s   = '';
 	$i   = 1;
@@ -366,6 +383,9 @@ add_filter( 'widget_posts_args', 'responsive_exclude_post_cat_recentpost_widget'
 
 if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 
+	/**
+	 * Featured image
+	 */
 	function responsive_page_featured_image() {
 		// check if the page has a Post Thumbnail assigned to it.
 		$responsive_options = responsive_get_options();
@@ -409,6 +429,11 @@ endif;
 add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
 if ( ! function_exists( 'responsive_get_attachment_id_from_url' ) ) :
+	/**
+	 * Get atachment id from URL
+	 *
+	 * @param string $attachment_url URL.
+	 */
 	function responsive_get_attachment_id_from_url( $attachment_url = '' ) {
 		global $wpdb;
 		$attachment_id = false;
@@ -457,7 +482,7 @@ add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
 /**
  * Add rating links to the admin dashboard
  *
- * @param string $footer_text The existing footer text
+ * @param string $footer_text The existing footer text.
  *
  * @return      string
  * @since        2.0.6
