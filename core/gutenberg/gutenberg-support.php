@@ -15,9 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function responsive_gutenberg_color_palette() {
 
-	$body_typography = get_theme_mod( 'body_typography' );
+	$body_typography      = get_theme_mod( 'body_typography' );
+	$body_text_color      = get_theme_mod( 'responsive_body_text_color', '#333333' );
+	$box_background_color = get_theme_mod( 'responsive_box_background_color', '#ffffff' );
 
-	$text_color = ( isset( $body_typography ) && isset( $body_typography['color'] ) ) ? $body_typography['color'] : '#555555';
+	$button_color            = get_theme_mod( 'responsive_button_color', '#0066CC' );
+	$button_hover_color      = get_theme_mod( 'responsive_button_hover_color', '#10659C' );
+	$button_text_color       = get_theme_mod( 'responsive_button_text_color', '#FFFFFF' );
+	$button_hover_text_color = get_theme_mod( 'responsive_button_hover_text_color', '#FFFFFF' );
 
 	$responsive_gutenberg_color_options = array(
 
@@ -25,36 +30,36 @@ function responsive_gutenberg_color_palette() {
 		array(
 			'name'  => __( 'Button Color', 'responsive' ),
 			'slug'  => 'button-color',
-			'color' => esc_html( get_theme_mod( 'button-color', '#1874cd' ) ),
+			'color' => $button_color,
 		),
 		array(
 			'name'  => __( 'Button Hover Color', 'responsive' ),
 			'slug'  => 'button-hover-color',
-			'color' => esc_html( get_theme_mod( 'button-hover-color', '#7db7f0' ) ),
+			'color' => $button_hover_color,
 		),
 		array(
 			'name'  => __( 'Button Hover Text Color', 'responsive' ),
 			'slug'  => 'button-hover-text-color',
-			'color' => esc_html( get_theme_mod( 'button-hover-text-color', '#333333' ) ),
+			'color' => $button_hover_text_color,
 		),
 		array(
 			'name'  => __( 'Button Text Color', 'responsive' ),
 			'slug'  => 'button-text-color',
-			'color' => esc_html( get_theme_mod( 'button-text-color', '#ffffff' ) ),
+			'color' => $button_text_color,
 		),
 
 		// Blog Post Background Color.
 		array(
 			'name'  => __( 'Text color', 'responsive' ),
 			'slug'  => 'responsive-container-background-color',
-			'color' => esc_html( $text_color ),
+			'color' => $body_text_color,
 		),
 
 		// Container Background Color.
 		array(
 			'name'  => __( 'Container Background Color', 'responsive' ),
 			'slug'  => 'responsive-main-container-background-color',
-			'color' => esc_html( get_theme_mod( 'responsive_main_container_background_color', '#ffffff' ) ),
+			'color' => $box_background_color,
 		),
 	);
 
@@ -89,6 +94,8 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
  * @return string.
  */
 function responsive_gutenberg_customizer_css() {
+	$body_text_color = get_theme_mod( 'responsive_body_text_color', '#333333' );
+
 	$link_color       = get_theme_mod( 'responsive_link_color', '#0066CC' );
 	$link_hover_color = get_theme_mod( 'responsive_link_hover_color', '#10659C' );
 
@@ -141,13 +148,27 @@ function responsive_gutenberg_customizer_css() {
 		}
 		$custom_css .= '}';
 	}
+	for ( $i = 1; $i < 7; $i++ ) {
+		$custom_css .= '.edit-post-visual-editor.editor-styles-wrapper .wp-block h' . $i . ',
+		.wp-block-freeform.block-library-rich-text__tinymce h' . $i . ',
+		.wp-block-heading h' . $i . '.editor-rich-text__tinymce {
+			color: ' . get_theme_mod( "responsive_h{$i}_text_color", '#333333' ) . ';
+		}';
+	}
+	$custom_css .= ".edit-post-visual-editor.editor-styles-wrapper,
+
+	.wp-block-freeform,
+	.editor-writing-flow,
+	.editor-styles-wrapper{
+		background-color: {$box_background_color};
+		color: {$body_text_color};
+	}";
 
 	if ( $body_typography ) {
 		$custom_css .= '.edit-post-visual-editor.editor-styles-wrapper,
 		.wp-block-freeform,
 		.editor-writing-flow,
-		.editor-styles-wrapper{
-			background-color: ' . $box_background_color . ';';
+		.editor-styles-wrapper{';
 
 		foreach ( $body_typography as $key => $value ) {
 			$custom_css .= $key . ':' . $value . ';';
@@ -213,14 +234,16 @@ function responsive_gutenberg_customizer_css() {
 
 	$custom_css .= ".edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a,
 	.wp-block-freeform.block-library-rich-text__tinymce a,
-	.editor-writing-flow a{
+	.editor-writing-flow a {
 		color:{$link_color};
 		text-decoration: none;
 	}
 	.edit-post-visual-editor.editor-styles-wrapper{
-	background-color: #{$box_background_color};
+		background-color: {$box_background_color};
 	}
 
+	.edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a:focus,
+	.edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a:hover,
 	.wp-block-freeform.block-library-rich-text__tinymce a:hover,
 	.wp-block-freeform.block-library-rich-text__tinymce a:focus,
 	.editor-writing-flow a:hover,
@@ -237,6 +260,25 @@ function responsive_gutenberg_customizer_css() {
 	    color: ' . $button_text_color . ';
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
     }
+
+	.wp-block-button__link.has-text-color.has-background:focus,
+	.wp-block-button__link.has-text-color.has-background:hover,
+	.wp-block-button__link.has-text-color:focus,
+	.wp-block-button__link.has-text-color:hover,
+	.wp-block-button__link.has-background:hover,
+	.wp-block-button__link.has-background:focus {
+		color:' . $button_hover_text_color . ' !important;
+		background-color:' . $button_hover_color . ' !important;
+	}
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:focus,
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:focus,
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:hover {
+		color:' . $button_hover_text_color . ';
+		border: ' . $buttons_border_width . 'px solid ' . $button_hover_border_color . ';
+		background-color:' . $button_hover_color . ';
+	}
+
 	@media screen and ( max-width: 992px ) {
 		.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,
 		.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button{
