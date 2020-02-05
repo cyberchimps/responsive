@@ -46,7 +46,7 @@ global $responsive_blog_layout_columns;
 									}
 
 									if ( 'social_icons' === $section ) {
-			                            echo responsive_get_social_icons_new() ;// phpcs:ignore
+			                            echo responsive_get_social_icons() ;// phpcs:ignore
 									}
 
 									// Copy Rights.
@@ -58,7 +58,7 @@ global $responsive_blog_layout_columns;
 								if ( has_nav_menu( 'footer-menu' ) ) {
 									get_template_part( 'partials/footer/footer-menu' );
 								}
-			                    echo responsive_get_social_icons_new() ;// phpcs:ignore
+			                    echo responsive_get_social_icons() ;// phpcs:ignore
 								get_template_part( 'partials/footer/copy-right' );
 							}
 							?>

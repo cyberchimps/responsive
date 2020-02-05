@@ -1042,26 +1042,17 @@ function responsive_premium_custom_color_styles() {
 	}
 	";
 
-	// Scroll to Top.
-	$scroll_to_top_icon_size   = get_theme_mod( 'responsive_scroll_to_top_icon_size', 60 );
-	$scroll_to_top_icon_radius = get_theme_mod( 'responsive_scroll_to_top_icon_radius', 60 );
-
-	$custom_css .= "
-	.responsive-scroll {
-		height: {$scroll_to_top_icon_size}px;
-		width: {$scroll_to_top_icon_size}px;
-		border-radius: {$scroll_to_top_icon_radius}%;
-	}";
-
-	if ( class_exists( 'WooCommerce' ) ) {
+	if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {
 		// WooCommerce.
-		$custom_css .= "
+		$woocommerce_custom_css = '';
+
+		$woocommerce_custom_css .= "
 		.woocommerce .woocommerce-breadcrumb,
 		.woocommerce .woocommerce-breadcrumb a {
 			color: {$breadcrumb_color};
 		}";
 
-		$custom_css .= '
+		$woocommerce_custom_css .= '
 		.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,
 		.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,
 		.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,
@@ -1111,7 +1102,7 @@ function responsive_premium_custom_color_styles() {
 		$add_to_cart_button_hover_color      = get_theme_mod( 'responsive_add_to_cart_button_hover_color', '#10659C' );
 		$add_to_cart_button_hover_text_color = get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' );
 
-		$custom_css .= "
+		$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.search.woocommerce .content-area,
 			.archive.woocommerce .content-area {
@@ -1197,7 +1188,7 @@ function responsive_premium_custom_color_styles() {
 		// Single Product Styles.
 		$single_product_content_width = get_theme_mod( 'responsive_single_product_content_width', 100 );
 
-		$custom_css .= "
+		$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.single-product.woocommerce .content-area,
 			.single-product.woocommerce .content-area {
@@ -1221,7 +1212,7 @@ function responsive_premium_custom_color_styles() {
 		$cart_checkout_button_hover_color      = get_theme_mod( 'responsive_cart_checkout_button_hover_color', '#10659C' );
 		$cart_checkout_button_hover_text_color = get_theme_mod( 'responsive_cart_checkout_button_hover_text_color', '#ffffff' );
 
-		$custom_css .= "
+		$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.page.woocommerce-cart .content-area {
 				width:{$cart_content_width}%;
@@ -1255,7 +1246,7 @@ function responsive_premium_custom_color_styles() {
 		// checkout Styles.
 		$checkout_content_width = get_theme_mod( 'responsive_checkout_content_width', 70 );
 
-		$custom_css .= "
+		$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.page.woocommerce-checkout .content-area {
 				width:{$checkout_content_width}%;
@@ -1272,7 +1263,7 @@ function responsive_premium_custom_color_styles() {
 			color: {$cart_checkout_button_hover_text_color};
 		}";
 
-		$custom_css .= '#add_payment_method table.cart td.actions .coupon .input-text,
+		$woocommerce_custom_css .= '#add_payment_method table.cart td.actions .coupon .input-text,
 		.woocommerce-cart table.cart td.actions .coupon .input-text,
 		.woocommerce-checkout table.cart td.actions .coupon .input-text,
 		.woocommerce form .form-row input.input-text,
@@ -1308,7 +1299,7 @@ function responsive_premium_custom_color_styles() {
 		.woocommerce a.button,
 		.woocommerce button.button,
 		.woocommerce input.button {
-			line-height: 1.75;
+			line-height: 1;
 			border: ' . $buttons_border_width . 'px solid ' . $cart_buttons_color . ';
 			border-radius:' . $buttons_radius . 'px;
 			padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
@@ -1338,7 +1329,7 @@ function responsive_premium_custom_color_styles() {
 			}
 		}
 		';
-
+		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', $woocommerce_custom_css ) );
 	}
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );
