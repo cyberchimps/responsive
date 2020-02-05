@@ -329,7 +329,9 @@ function responsive_fallback_menu() {
 if ( ! function_exists( 'responsive_css' ) ) {
 
 	/**
-	 * Responsive Theme CSS
+	 * [responsive_css description]
+	 *
+	 * @return void [description]
 	 */
 	function responsive_css() {
 		$theme              = wp_get_theme();
@@ -339,6 +341,11 @@ if ( ! function_exists( 'responsive_css' ) ) {
 
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
+
+		// If plugin - 'WooCommerce' is active.
+		if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {
+			wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
+		}
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_css' );
@@ -354,12 +361,8 @@ if ( ! function_exists( 'responsive_js' ) ) {
 		$directory              = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? 'js-dev' : 'js';
 		$template_directory_uri = get_template_directory_uri();
 
-		// JS at the bottom for fast page loading.
-		// except for Modernizr which enables HTML5 elements & feature detects.
-		wp_enqueue_script( 'modernizr', $template_directory_uri . '/core/' . $directory . '/responsive-modernizr' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, false );
-		wp_enqueue_script( 'responsive-scripts', $template_directory_uri . '/core/' . $directory . '/responsive-scripts' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
 		wp_enqueue_script( 'navigation-scripts', $template_directory_uri . '/core/' . $directory . '/navigation' . $suffix . '.js', array(), RESPONSIVE_THEME_VERSION, true );
-		wp_localize_script( 'responsive-scripts', 'responsives', apply_filters( 'responsive_js_localize', array() ) );
+
 	}
 }
 add_action( 'wp_enqueue_scripts', 'responsive_js' );
