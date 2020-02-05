@@ -1,23 +1,22 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Image Attachment Template
  *
  * @file           image.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.1
  * @filesource     wp-content/themes/responsive/image.php
  * @link           http://codex.wordpress.org/Using_Image_and_File_Attachments
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <?php get_header(); ?>
 
@@ -35,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php responsive_entry_top(); ?>
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
-				<p><?php esc_html_e( '&#8249; Return to', 'responsive' ); ?> <a href="<?php echo get_permalink( $post->post_parent ); ?>" rel="gallery" <?php responsive_schema_markup( 'url' ); ?>><?php echo get_the_title( $post->post_parent ); ?></a>
+				<p><?php esc_html_e( '&#8249; Return to', 'responsive' ); ?> <a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>" rel="gallery" <?php responsive_schema_markup( 'url' ); ?>><?php echo esc_html( get_the_title( $post->post_parent ) ); ?></a>
 				</p>
 
 				<div class="post-meta">
@@ -51,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<!-- end of .post-meta -->
 
 				<div class="attachment-entry">
-					<a href="<?php echo wp_get_attachment_url( $post->ID ); ?>" <?php responsive_schema_markup( 'url' ); ?>><?php echo wp_get_attachment_image( $post->ID, 'large' ); ?></a>
+					<a href="<?php echo esc_url( wp_get_attachment_url( $post->ID ) ); ?>" <?php responsive_schema_markup( 'url' ); ?>><?php echo wp_get_attachment_image( $post->ID, 'large' ); ?></a>
 					<?php
 					if ( ! empty( $post->post_excerpt ) ) {
 						the_excerpt();
@@ -78,7 +77,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php if ( comments_open() ) : ?>
 					<div class="post-data">
 						<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-						<?php the_category( __( 'Posted in %s', 'responsive' ) . ', ' ); ?>
+						<?php
+							/* translators: %s posted in categories */
+							the_category( __( 'Posted in %s', 'responsive' ) . ', ' );
+						?>
 					</div><!-- end of .post-data -->
 				<?php endif; ?>
 

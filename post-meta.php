@@ -1,23 +1,22 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Post Meta-Data Template-Part File
  *
  * @file           post-meta.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.1.0
  * @filesource     wp-content/themes/responsive/post-meta.php
  * @link           http://codex.wordpress.org/Templates
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <?php if ( is_single() ) : ?>
@@ -41,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 				</span>
 			</span>
-	    <?php
+		<?php
 		endif;
 	?>
 </div><!-- end of .post-meta -->

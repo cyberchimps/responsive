@@ -57,39 +57,6 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			responsive_padding_control( $wp_customize, 'footer_widgets', 'responsive_footer_layout', 30, 60, 0, null );
 
 			/**
-			 * Scroll To Top Separator.
-			 */
-			$scroll_to_top_separator_label = esc_html__( 'Scroll To Top', 'responsive' );
-			responsive_separator_control( $wp_customize, 'scroll_to_top_separator', $scroll_to_top_separator_label, 'responsive_footer_layout', 40 );
-
-			$scroll_to_top_label = esc_html__( 'Enable Scroll To Top', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'scroll_to_top', $scroll_to_top_label, 'responsive_footer_layout', 50, 0 );
-
-			// Display On.
-			$scroll_to_top_on_devices_label   = esc_html__( 'Display On', 'responsive' );
-			$scroll_to_top_on_devices_choices = array(
-				'desktop' => __( 'Desktop', 'responsive' ),
-				'mobile'  => __( 'Mobile', 'responsive' ),
-				'both'    => __( 'Desktop + Mobile', 'responsive' ),
-			);
-			responsive_select_control( $wp_customize, 'scroll_to_top_on_devices', $scroll_to_top_on_devices_label, 'responsive_footer_layout', 60, $scroll_to_top_on_devices_choices, 'both', null );
-
-			// Display On.
-			$scroll_to_top_icon_position_label   = esc_html__( 'Aligmnment', 'responsive' );
-			$scroll_to_top_icon_position_choices = array(
-				'right' => __( 'Right', 'responsive' ),
-				'left'  => __( 'Left', 'responsive' ),
-			);
-			responsive_select_control( $wp_customize, 'scroll_to_top_icon_aligmnment', $scroll_to_top_icon_position_label, 'responsive_footer_layout', 70, $scroll_to_top_icon_position_choices, 'right', null );
-
-			// Icon Size (px).
-			$scroll_to_top_icon_size_label = esc_html__( 'Icon Size (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'scroll_to_top_icon_size', $scroll_to_top_icon_size_label, 'responsive_footer_layout', 80, 60, null );
-
-			// Border Radius (%).
-			$scroll_to_top_icon_size_label = esc_html__( 'Border Radius (%)', 'responsive' );
-			responsive_number_control( $wp_customize, 'scroll_to_top_icon_radius', $scroll_to_top_icon_size_label, 'responsive_footer_layout', 90, 60, null );
-			/**
 			 * Footer Bar Separator.
 			 */
 			$footer_bar_separator_label = esc_html__( 'Footer Bar', 'responsive' );

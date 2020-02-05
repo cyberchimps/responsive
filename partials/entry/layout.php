@@ -38,14 +38,14 @@ if ( 'excerpt' === $responsive_blog_entry_content_type ) {
 		foreach ( $elements as $element ) {
 
 				// Featured Image.
-				if ( 'featured_image' === $element
+			if ( 'featured_image' === $element
 					&& ! post_password_required() ) {
-					get_template_part( 'partials/entry/media/blog-entry', $format );
-				} else {
-					get_template_part( 'partials/entry/' . $element );
-				}
+				get_template_part( 'partials/entry/media/blog-entry', $format );
+			} else {
+				get_template_part( 'partials/entry/' . $element );
 			}
-			?>
+		}
+		?>
 
 			<?php
 			wp_link_pages(

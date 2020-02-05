@@ -5,23 +5,23 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Get audio html
+// Get audio html.
 $audio = responsive_get_post_audio_html();
 
-// Display audio if audio exists and the post isn't protected
+// Display audio if audio exists and the post isn't protected.
 if ( $audio && ! post_password_required() ) : ?>
 
 	<div id="post-media" class="thumbnail clr">
-		<div class="blog-post-audio clr"><?php echo $audio; ?></div>
+		<div class="blog-post-audio clr"><?php echo wp_kses_post( $audio ); ?></div>
 	</div>
 
 	<?php
-	// Else display post thumbnail
+	// Else display post thumbnail.
 else :
 	?>
 

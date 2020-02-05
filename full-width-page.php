@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @file           full-width-page.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/full-width-page.php
@@ -31,7 +31,7 @@ get_header(); ?>
 	<div class="content-outer container">
 		<div class="row">
 			<?php responsive_in_wrapper(); // wrapper hook. ?>
-			<div id="content-full" class="grid col-940">
+			<main id="primary" class="content-area col-940">
 			<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
 			<?php if ( have_posts() ) : ?>
@@ -42,29 +42,7 @@ get_header(); ?>
 					?>
 
 					<?php responsive_entry_before(); ?>
-					<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<?php responsive_entry_top(); ?>
-
-						<?php get_template_part( 'post-meta', get_post_type() ); ?>
-
-						<div class="post-entry">
-							<?php responsive_page_featured_image(); ?>
-							<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-							<?php
-							wp_link_pages(
-								array(
-									'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
-									'after'  => '</div>',
-								)
-							);
-							?>
-						</div>
-						<!-- end of .post-entry -->
-
-						<?php get_template_part( 'post-data', get_post_type() ); ?>
-
-						<?php responsive_entry_bottom(); ?>
-					</div><!-- end of #post-<?php the_ID(); ?> -->
+						<?php get_template_part( 'partials/page/layout', get_post_type() ); ?>
 					<?php responsive_entry_after(); ?>
 
 					<?php responsive_comments_before(); ?>
@@ -72,6 +50,7 @@ get_header(); ?>
 					<?php responsive_comments_after(); ?>
 
 					<?php
+
 				endwhile;
 
 				get_template_part( 'loop-nav', get_post_type() );
@@ -83,7 +62,7 @@ get_header(); ?>
 			endif;
 				?>
 
-		</div><!-- end of #content-full -->
+			</main><!-- end of #content-full -->
 		</div>
 	</div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
