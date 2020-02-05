@@ -1015,7 +1015,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
  * @param  bool    $active_call     [description].
  * @return void               [description].
  */
-function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
+function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '' ) {
 	// Menu Background Color.
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_color',
@@ -1035,6 +1035,7 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 				'settings'        => 'responsive_' . $element . '_color',
 				'priority'        => $priority,
 				'active_callback' => $active_call,
+				'description'     => $desc,
 			)
 		)
 	);

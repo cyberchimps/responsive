@@ -125,6 +125,7 @@ function responsive_gutenberg_customizer_css() {
 	$buttons_border_width = get_theme_mod( 'responsive_buttons_border_width', 0 );
 
 	$box_background_color = get_theme_mod( 'responsive_box_background_color', '#ffffff' );
+	$alt_background_color = get_theme_mod( 'responsive_alt_background_color', '#eaeaea' );
 
 	$h1_typography   = get_theme_mod( 'heading_h1_typography' );
 	$h2_typography   = get_theme_mod( 'heading_h2_typography' );
@@ -249,6 +250,18 @@ function responsive_gutenberg_customizer_css() {
 	.editor-writing-flow a:hover,
 	.editor-writing-flow a:focus{
 		color: {$link_hover_color};
+	}
+
+	.edit-post-visual-editor.editor-styles-wrapper blockquote,
+	.edit-post-visual-editor.editor-styles-wrapper blockquote p,
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-quote,
+	.wp-block-freeform.block-library-rich-text__tinymce code,
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-freeform.block-library-rich-text__tinymce pre,
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-preformatted pre,
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-code .block-editor-plain-text,
+	.edit-post-visual-editor.editor-styles-wrapper .wp-block-verse pre,
+	.edit-post-visual-editor.editor-styles-wrapper pre {
+    	background: {$alt_background_color};
 	}";
 
 	$custom_css .= '

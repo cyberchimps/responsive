@@ -65,9 +65,13 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$box_background_color_label = __( 'Box Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'box_background', $box_background_color_label, 'responsive_colors', 20, '#ffffff', 'responsive_not_active_site_style_flat' );
 
+			// Alt Background Color for pre prequotes blockquotes etc.
+			$alt_background_color_label = __( 'Alternate Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'alt_background', $alt_background_color_label, 'responsive_colors', 21, '#eaeaea', null, 'Used for pre, blockquotes, code etc.' );
+
 			// Texts.
 			$general_texts_label = esc_html__( 'General Text', 'responsive' );
-			responsive_separator_control( $wp_customize, 'responsive_general_texts_separator', $general_texts_label, 'responsive_colors', 20 );
+			responsive_separator_control( $wp_customize, 'responsive_general_texts_separator', $general_texts_label, 'responsive_colors', 29 );
 
 			// Body Text Color.
 			$body_text_color_label = __( 'Body Text Color', 'responsive' );
