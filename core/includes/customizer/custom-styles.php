@@ -38,6 +38,7 @@ function responsive_premium_custom_color_styles() {
 
 	$container_max_width  = get_theme_mod( 'responsive_container_width', 1140 );
 	$box_background_color = get_theme_mod( 'responsive_box_background_color', '#ffffff' );
+	$alt_background_color = get_theme_mod( 'responsive_alt_background_color', '#eaeaea' );
 
 	$custom_css .= "
 	.container,
@@ -71,9 +72,12 @@ function responsive_premium_custom_color_styles() {
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
 	.responsive-site-style-boxed .comment-respond,
-	.responsive-site-style-boxed .widget-wrapper {
+	.responsive-site-style-boxed aside#secondary .widget-wrapper {
 		background-color:{$box_background_color};
 		border-radius:{$box_radius}px;
+	}
+	address, blockquote, pre, code, kbd, tt, var {
+		background-color:{$alt_background_color};
 	}
 	";
 
@@ -866,7 +870,7 @@ function responsive_premium_custom_color_styles() {
 
 	$custom_css .= "
 	@media (min-width:992px) {
-		.page:not(.page-template-gutenberg-fullwidth):not(.woocommerce):not(.woocommerce-cart):not(.woocommerce-checkout) .content-area {
+		.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce):not(.woocommerce-cart):not(.woocommerce-checkout) .content-area {
 			width:{$page_content_width}%;
 		}
 		.page:not(.woocommerce) aside.widget-area {
