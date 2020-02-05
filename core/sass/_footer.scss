@@ -74,6 +74,7 @@
     }
 }
 
+.colophon-widgets,
 .footer-navigation,
 .social-icon,
 .copyright {
@@ -82,7 +83,9 @@
     padding-bottom: $grid-gutter-width / 2;
 
     .footer-bar-layout-horizontal & {
-        width: auto;
+        @media (min-width: map-get( $screens, md ) ) {
+            width: auto;
+        }
     }
     .footer-bar-layout-vertical & {
         text-align: center;
