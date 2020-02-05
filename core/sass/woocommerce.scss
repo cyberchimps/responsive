@@ -1,3 +1,6 @@
+@import 'variables';
+@import 'mixins';
+
 /**
  * WooCommerce styles
  * -----------------------------------------------------------------------------
@@ -59,8 +62,24 @@ ul.products {
 }
 
 .woocommerce-pagination {
-    @extend .navigation;
+    @extend .row;
+    @include make-block-element();
+    background-color: map-get($colors, white);
+    justify-content: space-between;
+    margin-left: 0;
+    margin-right: 0;
     margin-top: 0;
+    padding: $base-line-height-px;
+
+    .responsive-site-style-content-boxed & {
+        margin: 0;
+        border-bottom: 1px solid map-get( $colors, light-gray );
+    }
+
+    .responsive-site-style-flat & {
+        background-color: transparent;
+        padding: 0;
+    }
 
     .responsive-site-style-content-boxed & {
         border-bottom: none;

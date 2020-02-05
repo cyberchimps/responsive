@@ -298,55 +298,13 @@ function responsive_add_image_size() {
 	add_image_size( 'responsive-900', 900, 9999 );
 }
 add_action( 'after_setup_theme', 'responsive_add_image_size' );
-/*
- * Get social icons.
- *
- * @since    1.9.4.9
- */
-function responsive_get_social_icons() {
-
-	$responsive_options = responsive_get_options();
-
-	$sites = array(
-		'twitter'     => __( 'Twitter', 'responsive' ),
-		'facebook'    => __( 'Facebook', 'responsive' ),
-		'linkedin'    => __( 'LinkedIn', 'responsive' ),
-		'youtube'     => __( 'YouTube', 'responsive' ),
-		'stumbleupon' => __( 'StumbleUpon', 'responsive' ),
-		'rss'         => __( 'RSS Feed', 'responsive' ),
-		'googleplus'  => __( 'Google+', 'responsive' ),
-		'instagram'   => __( 'Instagram', 'responsive' ),
-		'pinterest'   => __( 'Pinterest', 'responsive' ),
-		'yelp'        => __( 'Yelp!', 'responsive' ),
-		'vimeo'       => __( 'Vimeo', 'responsive' ),
-		'foursquare'  => __( 'foursquare', 'responsive' ),
-		'email'       => __( 'Email', 'responsive' ),
-	);
-
-	$html = '<ul class="social-icons">';
-	foreach ( $sites as $key => $value ) {
-		if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
-			if ( $key == 'email' ) {
-				$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="mailto:' . $responsive_options[ $key . '_uid' ] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
-			} else {
-				$html .= '<li class="' . esc_attr( $key ) . '-icon"><a href="' . $responsive_options[ $key . '_uid' ] . '">' . '<img src="' . responsive_child_uri( '/core/icons/' . esc_attr( $key ) . '-icon.png' ) . '" width="24" height="24" alt="' . esc_html( $value ) . '">' . '</a></li>';
-			}
-		}
-	}
-	$html .= '</ul><!-- .social-icons -->';
-
-	$html = apply_filters( 'responsive_social_skin', $html );
-
-	return $html;
-
-}
 
 /**
- * [responsive_get_social_icons_new description]
+ * [responsive_get_social_icons description]
  *
  * @return void [description].
  */
-function responsive_get_social_icons_new() {
+function responsive_get_social_icons() {
 	$responsive_options = responsive_get_options();
 
 	$icons = array(
