@@ -1038,17 +1038,6 @@ function responsive_premium_custom_color_styles() {
 	}
 	";
 
-	// Scroll to Top.
-	$scroll_to_top_icon_size   = get_theme_mod( 'responsive_scroll_to_top_icon_size', 60 );
-	$scroll_to_top_icon_radius = get_theme_mod( 'responsive_scroll_to_top_icon_radius', 60 );
-
-	$custom_css .= "
-	.responsive-scroll {
-		height: {$scroll_to_top_icon_size}px;
-		width: {$scroll_to_top_icon_size}px;
-		border-radius: {$scroll_to_top_icon_radius}%;
-	}";
-
 	if ( class_exists( 'WooCommerce' ) ) {
 		// WooCommerce.
 		$custom_css .= "
