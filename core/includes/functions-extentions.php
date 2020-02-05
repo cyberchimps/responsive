@@ -326,9 +326,11 @@ function responsive_add_image_size() {
 add_action( 'after_setup_theme', 'responsive_add_image_size' );
 
 /**
- * Get Social Icons
+ * [responsive_get_social_icons description]
+ *
+ * @return void [description].
  */
-function responsive_get_social_icons_new() {
+function responsive_get_social_icons() {
 	$responsive_options = responsive_get_options();
 
 	$icons = array(
