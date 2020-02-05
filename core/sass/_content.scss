@@ -62,6 +62,7 @@
     @extend .col-xs-12;
     @extend .col-lg-8;
 
+    .page-template-full-width-page &,
     .page-template-gutenberg-fullwidth & {
         @extend .col-lg-12;
     }
@@ -149,6 +150,7 @@
     }
 
     .post-entry {
+        @include make-clearfix;
         & > :first-child {
             margin-top: 0;
         }

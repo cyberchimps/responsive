@@ -206,7 +206,8 @@ html {
     width: 91.6666666667%;
   }
 
-  .col-xs-12, .footer-navigation,
+  .col-xs-12, .colophon-widgets,
+.footer-navigation,
 .social-icon,
 .copyright, .footer-widgets .footer-widget, .widget-area, .blog.front-page aside.home-widgets .home-widget-wrapper .home-widget-1,
 .blog.front-page aside.home-widgets .home-widget-wrapper .home-widget-2,
@@ -460,7 +461,7 @@ html {
     width: 91.6666666667%;
   }
 
-  .col-lg-12, .footer-widgets-columns-1 .footer-widgets .footer-widget, .page-template-gutenberg-fullwidth .content-area {
+  .col-lg-12, .footer-widgets-columns-1 .footer-widgets .footer-widget, .page-template-full-width-page .content-area, .page-template-gutenberg-fullwidth .content-area {
     padding-left: 15px;
     padding-right: 15px;
     width: 100%;
@@ -1388,6 +1389,13 @@ input[type=search] {
 .read-more-button .hentry .read-more .more-link:focus, .read-more-button .hentry .read-more .more-link:hover {
   background-color: #10659c;
   color: #ffffff;
+}
+.hentry .post-entry:before, .hentry .post-entry:after {
+  content: "";
+  display: table;
+}
+.hentry .post-entry:after {
+  clear: both;
 }
 .hentry .post-entry > :first-child {
   margin-top: 0;
@@ -2937,17 +2945,22 @@ input[type=search] {
   font-size: 26px;
 }
 
+.colophon-widgets,
 .footer-navigation,
 .social-icon,
 .copyright {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+@media (min-width: 768px) {
+  .footer-bar-layout-horizontal .colophon-widgets,
 .footer-bar-layout-horizontal .footer-navigation,
 .footer-bar-layout-horizontal .social-icon,
 .footer-bar-layout-horizontal .copyright {
-  width: auto;
+    width: auto;
+  }
 }
+.footer-bar-layout-vertical .colophon-widgets,
 .footer-bar-layout-vertical .footer-navigation,
 .footer-bar-layout-vertical .social-icon,
 .footer-bar-layout-vertical .copyright {
@@ -3008,9 +3021,6 @@ input[type=search] {
 }
 .product-content-aligmnment-right ul.products li.product {
   text-align: right;
-}
-.product-content-aligmnment-center.responsive-catalog-view-list ul.products li.product {
-  justify-content: space-around;
 }
 .product-content-aligmnment-right.responsive-catalog-view-list ul.products li.product {
   justify-content: space-between;
