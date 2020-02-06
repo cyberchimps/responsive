@@ -664,7 +664,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 * @since 1.0.0
 		 */
 		public function customize_preview_init() {
-			wp_enqueue_script( 'responsive-typo-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/responsive-pro-typography-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive-typo-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/typography-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 			wp_localize_script(
 				'responsive-typo-customize-preview',
 				'responsive',
