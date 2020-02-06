@@ -29,7 +29,7 @@
         _initFonts: function()
         {
             var optionName;
-            var elements = ['body', 'heading_h1', 'heading_h2', 'heading_h3', 'heading_h4', 'heading_h5', 'heading_h6', 'meta', 'header_site_title', 'header_site_tagline', 'header_menu', 'content_header_heading', 'content_header_description', 'breadcrumb', 'footer', 'menu', 'menu_dropdown', 'mobile_menu_dropdown','page_title', 'blog_entry_title', 'blog_post_title', 'buttons'];
+            var elements = ['body', 'heading_h1', 'heading_h2', 'heading_h3', 'heading_h4', 'heading_h5', 'heading_h6', 'meta', 'button', 'input', 'header_site_title', 'header_site_tagline', 'header_menu', 'content_header_heading', 'content_header_description', 'breadcrumb', 'footer'];
             for (var i = 0; i < elements.length; i++) {
                 optionName = elements[i] + '_typography[font-family]';
                 ResponsiveTypography._initFont( optionName );
