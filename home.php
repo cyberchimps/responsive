@@ -27,6 +27,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 responsive_wrapper_top(); // before wrapper content hook.
+if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+
+	$blog_pagination = responsive_blog_pagination();
+} else {
+	$blog_pagination = 'default';
+}
 ?>
 
 <div id="wrapper" class="site-content clearfix">
@@ -53,12 +59,11 @@ responsive_wrapper_top(); // before wrapper content hook.
 							?>
 					</div>
 							<?php
-							$blog_pagination = get_theme_mod( 'responsive_blog_pagination', 'default' );
+
 							if ( $wp_query->max_num_pages > 1 ) :
 								if ( 'infinite' === $blog_pagination ) :
 									ob_start();
-
-									do_action( 'responsive_pagination_infinite_enqueue_script' );
+									do_action( 'responsive_pro_pagination_infinite_enqueue_script' );
 									?>
 									<nav class="responsive-pagination-infinite">
 										<div class="responsive-loader">
