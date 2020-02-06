@@ -14,8 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add Ask For Review Admin Notice.
  */
 function ask_for_review_notice() {
-	add_option( 'ask_review_flag', 'false' );
-	if ( 'false' === get_option( 'ask_review_flag' ) ) {
+
+	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
+		return;
+	}
+
+	if ( false === get_option( 'responsive-theme-old-setup' ) ) {
+		set_transient( 'responsive_theme_ask_review_flag', true, MONTH_IN_SECONDS );
+		update_option( 'responsive-theme-old-setup', true );
+	} elseif ( false === get_transient( 'responsive_theme_ask_review_flag' ) && false === get_option( 'responsive_theme_review_notice_dismissed' ) ) {
 
 		$image_path = get_template_directory_uri() . '/admin/images/responsive-thumbnail.jpg';
 		echo sprintf(
@@ -25,25 +32,25 @@ function ask_for_review_notice() {
 								</div>
 								<div class="notice-content">
 									<div class="notice-heading">
-										Hello! Seems like you have used Responsive theme to build this website — Thanks a ton!
+										Hi! Thanks for using the Responsive theme.
 									</div>
-									Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Responsive theme.<br />
+									Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.<br />
 									<div class="responsive-review-notice-container">
 										<a href="%2$s" class="responsive-notice-close responsive-review-notice button-primary" target="_blank">
 										Ok, you deserve it
 										</a>
 										<span class="dashicons dashicons-calendar"></span>
-										<a href="#" data-repeat-notice-after="60" class="responsive-notice-close responsive-review-notice">
+										<a href="?responsive-theme-review-notice-change-timeout=true" data-repeat-notice-after="60" class="responsive-notice-close responsive-review-notice">
 										Nope, maybe later
 										</a>
 										<span class="dashicons dashicons-smiley"></span>
-										<a href="#" class="responsive-notice-close responsive-review-notice">
+										<a href="?responsive-theme-review-notice-dismissed=true" class="responsive-notice-close responsive-review-notice">
 										I already did
 										</a>
 									</div>
 								</div>
 								<div>
-									<a href="?is-my-plugin-dismissed=true">Dismiss</a>
+									<a href="?responsive-theme-review-notice-dismissed=true">Dismiss</a>
 
 								</div>
          					</div>',
@@ -60,12 +67,24 @@ add_action( 'admin_notices', 'ask_for_review_notice' );
 /**
  * Removed Ask For Review Admin Notice when dismissed.
  */
-function my_plugin_notice_dismissed() {
-	if ( isset( $_GET['is-my-plugin-dismissed'] ) ) {
-		update_option( 'ask_review_flag', 'true' );
+function responsive_theme_notice_dismissed() {
+	if ( isset( $_GET['responsive-theme-review-notice-dismissed'] ) ) {
+		update_option( 'responsive_theme_review_notice_dismissed', true );
+		wp_safe_redirect( remove_query_arg( array( 'responsive-theme-review-notice-dismissed' ), wp_get_referer() ) );
 	}
 }
-add_action( 'admin_init', 'my_plugin_notice_dismissed' );
+
+/**
+ * Removed Ask For Review Admin Notice when dismissed.
+ */
+function responsive_theme_notice_change_timeout() {
+	if ( isset( $_GET['responsive-theme-review-notice-change-timeout'] ) ) {
+		set_transient( 'responsive_theme_ask_review_flag', true, DAY_IN_SECONDS );
+		wp_safe_redirect( remove_query_arg( array( 'responsive-theme-review-notice-change-timeout' ), wp_get_referer() ) );
+	}
+}
+add_action( 'admin_init', 'responsive_theme_notice_dismissed' );
+add_action( 'admin_init', 'responsive_theme_notice_change_timeout' );
 add_action( 'admin_head', 'add_review_styling' );
 /**
  * Add styling for ask_for_review_notice function.
@@ -120,7 +139,7 @@ function add_review_styling() {
  	}
 
  	.notice-content {
- 		margin-right: 15px;
+ 		margin-right: 12%;
  	}
 
  	.notice-container {
