@@ -16,27 +16,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 		the_custom_logo();
 
-		if ( is_front_page() && is_home() ) :
+		if ( ! get_theme_mod( 'responsive_hide_title', 0 ) ) :
+			if ( is_front_page() && is_home() ) :
 
-			?>
-			<h1 class="site-title h3"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php
+				?>
+				<h1 class="site-title h3"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php
 
-		else :
+			else :
 
-			?>
-			<p class="site-title h3"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
+				?>
+				<p class="site-title h3"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<?php
 
+			endif;
 		endif;
 
-		$response_description = get_bloginfo( 'description', 'display' );
-		if ( $response_description || is_customize_preview() ) :
+		if ( ! get_theme_mod( 'responsive_hide_tagline', 0 ) ) :
+			$response_description = get_bloginfo( 'description', 'display' );
+			if ( $response_description || is_customize_preview() ) :
 
-			?>
-			<p class="site-description"><?php echo esc_html( $response_description ); ?></p>
-			<?php
+				?>
+				<p class="site-description"><?php echo esc_html( $response_description ); ?></p>
+				<?php
 
+			endif;
 		endif;
 		?>
 	</div>

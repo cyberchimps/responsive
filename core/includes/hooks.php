@@ -334,3 +334,20 @@ function responsive_header_widget_position() {
 
 }
 add_action( 'wp_head', 'responsive_header_widget_position' );
+
+/**
+ * Classes
+ */
+/**
+ * Add No-JS Class.
+ * If we're missing JavaScript support, the HTML element will have a no-js class.
+ */
+function responsive_no_js_class() {
+
+	?>
+	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
+	<?php
+
+}
+
+add_action( 'wp_head', 'responsive_no_js_class' );
