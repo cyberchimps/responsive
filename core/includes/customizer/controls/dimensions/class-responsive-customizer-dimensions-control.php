@@ -130,13 +130,13 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 		<ul class="desktop control-wrap active">
 			<# _.each( data.desktop, function( args, key ) { #>
 				<li class="dimension-wrap {{ key }}">
-					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
+					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }} linked" {{{ args.link }}} value="{{{ args.value }}}" data-element="{{ data.id }}" />
 					<span class="dimension-label">{{ data.l10n[ key ] }}</span>
 				</li>
 				<# } ); #>
 
 			<li class="dimension-wrap">
-				<div class="link-dimensions">
+				<div class="link-dimensions unlinked">
 					<span class="dashicons dashicons-admin-links responsive-linked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
 					<span class="dashicons dashicons-editor-unlink responsive-unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
 				</div>
@@ -146,13 +146,13 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 		<ul class="tablet control-wrap">
 			<# _.each( data.tablet, function( args, key ) { #>
 				<li class="dimension-wrap {{ key }}">
-					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
+					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }} linked" {{{ args.link }}} value="{{{ args.value }}}" data-element="{{ data.id }}_tablet" />
 					<span class="dimension-label">{{ data.l10n[ key ] }}</span>
 				</li>
 				<# } ); #>
 
 			<li class="dimension-wrap">
-				<div class="link-dimensions">
+				<div class="link-dimensions unlinked">
 					<span class="dashicons dashicons-admin-links responsive-linked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
 					<span class="dashicons dashicons-editor-unlink responsive-unlinked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
 				</div>
@@ -162,13 +162,13 @@ class Responsive_Customizer_Dimensions_Control extends WP_Customize_Control {
 		<ul class="mobile control-wrap">
 			<# _.each( data.mobile, function( args, key ) { #>
 				<li class="dimension-wrap {{ key }}">
-					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }}" {{{ args.link }}} value="{{{ args.value }}}" />
+					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }} linked" {{{ args.link }}} value="{{{ args.value }}}" data-element="{{ data.id }}_mobile" />
 					<span class="dimension-label">{{ data.l10n[ key ] }}</span>
 				</li>
 				<# } ); #>
 
 			<li class="dimension-wrap">
-				<div class="link-dimensions">
+				<div class="link-dimensions unlinked">
 					<span class="dashicons dashicons-admin-links responsive-linked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
 					<span class="dashicons dashicons-editor-unlink responsive-unlinked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
 				</div>
