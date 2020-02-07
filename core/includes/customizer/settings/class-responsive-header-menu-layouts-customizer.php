@@ -46,26 +46,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 					'priority' => 10,
 				)
 			);
+
 			// Full Width Menu.
-			$wp_customize->add_setting(
-				'responsive_header_menu_full_width',
-				array(
-					'default'           => 0,
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_checkbox_validate',
-				)
-			);
-			$wp_customize->add_control(
-				'responsive_header_menu_full_width',
-				array(
-					'label'           => __( 'Full Width Main Navigation', 'responsive' ),
-					'section'         => 'responsive_header_menu_layout',
-					'settings'        => 'responsive_header_menu_full_width',
-					'type'            => 'checkbox',
-					'priority'        => 10,
-					'active_callback' => 'responsive_active_vertical_header',
-				)
-			);
+			$header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_menu_full_width', $header_menu_full_width_label, 'responsive_header_menu_layout', 10, 0, 'responsive_active_vertical_header' );
 
 			// Disable Mobile Menu.
 			$disable_mobile_menu_label = __( 'Enable Mobile Menu', 'responsive' );

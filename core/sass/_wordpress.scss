@@ -97,9 +97,15 @@ a img.aligncenter {
     .gallery-columns-#{$i} {
         display: flex;
         flex-wrap: wrap;
+
         .gallery-item {
             width: ( 100% / $i );
             margin-top: 0;
+            padding: 0 $grid-gutter-width/3;
+
+            @media ( max-width: map-get( $screens, sm ) ) {
+                width: 100%;
+            }
         }
     }
 }

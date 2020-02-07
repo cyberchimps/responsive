@@ -67,7 +67,24 @@
         @extend .col-lg-12;
     }
 }
+.page-template-gutenberg-fullwidth {
 
+    .site-content {
+        padding: 0;
+
+        .content-area {
+            padding: 0;
+
+        }
+    }
+
+    &.responsive-site-style-content-boxed,
+    &.responsive-site-style-boxed  {
+        .hentry {
+            background-color: transparent;
+        }
+    }
+}
 /**
  * Hentry Area styles
  * -----------------------------------------------------------------------------
@@ -79,6 +96,12 @@
     .responsive-site-style-boxed & {
         padding: $base-line-height-px;
     }
+
+    .page-template-gutenberg-fullwidth.responsive-site-style-content-boxed &,
+    .page-template-gutenberg-fullwidth.responsive-site-style-boxed & {
+        padding: 0;
+    }
+
     .responsive-site-style-content-boxed & {
         margin: 0;
         border-bottom: 1px solid map-get( $colors, light-gray );

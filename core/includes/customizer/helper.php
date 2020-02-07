@@ -1326,6 +1326,17 @@ function responsive_disabled_mobile_menu() {
 }
 
 /**
+ * [responsive_custom_home_active description]
+ *
+ * @return [type] [description]
+ */
+function responsive_custom_home_active() {
+	$responsive_options = responsive_get_options();
+
+	return ( $responsive_options['front_page'] ) ? true : false;
+}
+
+/**
  * [responsive_checkbox_control description]
  *
  * @param  [type] $wp_customize [description].

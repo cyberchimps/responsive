@@ -87,7 +87,6 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 	return wp_strip_all_tags( $css );
 }
 
-
 /**
  * [customizer_css description].
  *
@@ -128,36 +127,50 @@ function responsive_gutenberg_customizer_css() {
 	$alt_background_color = get_theme_mod( 'responsive_alt_background_color', '#eaeaea' );
 
 	$h1_typography   = get_theme_mod( 'heading_h1_typography' );
-	$h2_typography   = get_theme_mod( 'heading_h2_typography' );
-	$h3_typography   = get_theme_mod( 'heading_h3_typography' );
-	$h4_typography   = get_theme_mod( 'heading_h4_typography' );
-	$h5_typography   = get_theme_mod( 'heading_h5_typography' );
-	$h6_typography   = get_theme_mod( 'heading_h6_typography' );
 	$body_typography = get_theme_mod( 'body_typography' );
 
 	$custom_css = '';
 
 	if ( $h1_typography ) {
-		$custom_css = '.edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input,
-		.editor-post-title__block .editor-post-title__input,
-		.edit-post-visual-editor.editor-styles-wrapper .wp-block h1,
-		.wp-block-freeform.block-library-rich-text__tinymce h1,
-		.wp-block-heading h1.editor-rich-text__tinymce {';
+		$custom_css .= '
+		.edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input,
+		.editor-post-title__block .editor-post-title__input {
+			color: ' . get_theme_mod( 'responsive_h1_text_color', '#333333' ) . ';';
 
 		foreach ( $h1_typography as $key => $value ) {
 			$custom_css .= $key . ':' . $value . ';';
 		}
 		$custom_css .= '}';
 	}
+
 	for ( $i = 1; $i < 7; $i++ ) {
-		$custom_css .= '.edit-post-visual-editor.editor-styles-wrapper .wp-block h' . $i . ',
+		$custom_css .= '
+		.edit-post-visual-editor.editor-styles-wrapper .wp-block h' . $i . ',
 		.wp-block-freeform.block-library-rich-text__tinymce h' . $i . ',
 		.wp-block-heading h' . $i . '.editor-rich-text__tinymce {
 			color: ' . get_theme_mod( "responsive_h{$i}_text_color", '#333333' ) . ';
 		}';
-	}
-	$custom_css .= ".edit-post-visual-editor.editor-styles-wrapper,
 
+		if ( get_theme_mod( 'heading_h' . $i . '_typography' ) ) {
+			foreach ( get_theme_mod( 'heading_h' . $i . '_typography' ) as $key => $value ) {
+				if ( 'font-family' === $key ) {
+					$custom_css .= '.has-h' . $i . '-font-family{' . $key . ':' . $value . '; }';
+				}
+			}
+			$custom_css .= '
+			.edit-post-visual-editor.editor-styles-wrapper .wp-block h' . $i . ',
+			.wp-block-freeform.block-library-rich-text__tinymce h' . $i . ',
+			.wp-block-heading h' . $i . '.editor-rich-text__tinymce {';
+
+			foreach ( get_theme_mod( 'heading_h' . $i . '_typography' ) as $key => $value ) {
+				$custom_css .= $key . ':' . $value . ';';
+			}
+			$custom_css .= '}';
+		}
+	}
+
+	$custom_css .= "
+	.edit-post-visual-editor.editor-styles-wrapper,
 	.wp-block-freeform,
 	.editor-writing-flow,
 	.editor-styles-wrapper{
@@ -166,68 +179,20 @@ function responsive_gutenberg_customizer_css() {
 	}";
 
 	if ( $body_typography ) {
-		$custom_css .= '.edit-post-visual-editor.editor-styles-wrapper,
+
+		foreach ( $body_typography as $key => $value ) {
+			if ( 'font-family' === $key ) {
+				$custom_css .= '.has-body-font-family{' . $key . ':' . $value . '; }';
+			}
+		}
+
+		$custom_css .= '
+		.edit-post-visual-editor.editor-styles-wrapper,
 		.wp-block-freeform,
 		.editor-writing-flow,
 		.editor-styles-wrapper{';
 
 		foreach ( $body_typography as $key => $value ) {
-			$custom_css .= $key . ':' . $value . ';';
-		}
-		$custom_css .= '}';
-	}
-
-	if ( $h2_typography ) {
-
-		$custom_css .= '.edit-post-visual-editor.editor-styles-wrapper .wp-block h2,
-		.wp-block-freeform.block-library-rich-text__tinymce h2,
-		.wp-block-heading h2.editor-rich-text__tinymce {';
-
-		foreach ( $h2_typography as $key => $value ) {
-			$custom_css .= $key . ':' . $value . ';';
-		}
-		$custom_css .= '}';
-	}
-
-	if ( $h3_typography ) {
-		$custom_css .= '.edit-post-visual-editor.editor-styles-wrapper .wp-block h3,
-		.wp-block-freeform.block-library-rich-text__tinymce h3,
-		.wp-block-heading h3.editor-rich-text__tinymce {';
-
-		foreach ( $h3_typography as $key => $value ) {
-			$custom_css .= $key . ':' . $value . ';';
-		}
-		$custom_css .= '}';
-	}
-
-	if ( $h4_typography ) {
-		$custom_css .= '.edit-post-visual-editor.editor-styles-wrapper .wp-block h4,
-		.wp-block-freeform.block-library-rich-text__tinymce h4,
-		.wp-block-heading h4.editor-rich-text__tinymce {';
-
-		foreach ( $h4_typography as $key => $value ) {
-			$custom_css .= $key . ':' . $value . ';';
-		}
-		$custom_css .= '}';
-	}
-
-	if ( $h5_typography ) {
-		$custom_css .= '.edit-post-visual-editor.editor-styles-wrapper .wp-block h5,
-		.wp-block-freeform.block-library-rich-text__tinymce h5,
-		.wp-block-heading h5.editor-rich-text__tinymce {';
-
-		foreach ( $h5_typography as $key => $value ) {
-			$custom_css .= $key . ':' . $value . ';';
-		}
-		$custom_css .= '}';
-	}
-
-	if ( $h6_typography ) {
-		$custom_css .= ' .edit-post-visual-editor.editor-styles-wrapper .wp-block h6,
-		.wp-block-freeform.block-library-rich-text__tinymce h6,
-		.wp-block-heading h6.editor-rich-text__tinymce {';
-
-		foreach ( $h6_typography as $key => $value ) {
 			$custom_css .= $key . ':' . $value . ';';
 		}
 		$custom_css .= '}';
@@ -317,5 +282,6 @@ function responsive_block_styles() {
 
 	// Add customizer colors to Gutenberg editor in backend.
 	wp_add_inline_style( 'responsive-gutenberg-blocks', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
+	wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 }
 add_action( 'enqueue_block_editor_assets', 'responsive_block_styles' );

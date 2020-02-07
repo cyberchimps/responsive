@@ -2,38 +2,120 @@
  * WooCommerce styles
  * -----------------------------------------------------------------------------
  */
-.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce.responsive-site-style-boxed ul.products li.product {
+.responsive-site-style-boxed ul.wc-block-grid__products li.wc-block-grid__product,
+.responsive-site-style-boxed ul.wc-block-grid__products li.product,
+.responsive-site-style-boxed ul.products li.wc-block-grid__product,
+.responsive-site-style-boxed ul.products li.product {
   padding: 28px;
   background-color: #ffffff;
 }
-.woocommerce-page.responsive-site-style-content-boxed ul.products li.product, .woocommerce.responsive-site-style-content-boxed ul.products li.product {
+.responsive-site-style-content-boxed ul.wc-block-grid__products li.wc-block-grid__product,
+.responsive-site-style-content-boxed ul.wc-block-grid__products li.product,
+.responsive-site-style-content-boxed ul.products li.wc-block-grid__product,
+.responsive-site-style-content-boxed ul.products li.product {
   padding-bottom: 28px;
 }
+.responsive-catalog-view-list ul.wc-block-grid__products li.wc-block-grid__product,
+.responsive-catalog-view-list ul.wc-block-grid__products li.product,
+.responsive-catalog-view-list ul.products li.wc-block-grid__product,
 .responsive-catalog-view-list ul.products li.product {
   min-width: 100%;
   display: flex;
   margin: 0 0 30px 0;
 }
+.responsive-catalog-view-list ul.wc-block-grid__products li.wc-block-grid__product .responsive-shop-summary-wrap,
+.responsive-catalog-view-list ul.wc-block-grid__products li.product .responsive-shop-summary-wrap,
+.responsive-catalog-view-list ul.products li.wc-block-grid__product .responsive-shop-summary-wrap,
 .responsive-catalog-view-list ul.products li.product .responsive-shop-summary-wrap {
   padding-left: 28px;
 }
+.responsive-catalog-view-list ul.wc-block-grid__products li.wc-block-grid__product .onsale,
+.responsive-catalog-view-list ul.wc-block-grid__products li.product .onsale,
+.responsive-catalog-view-list ul.products li.wc-block-grid__product .onsale,
 .responsive-catalog-view-list ul.products li.product .onsale {
   top: 0;
   right: auto;
   left: 0;
   margin: 0.5em 0.5em 0 0;
 }
+.responsive-catalog-view-list ul.wc-block-grid__products li.wc-block-grid__product a img,
+.responsive-catalog-view-list ul.wc-block-grid__products li.product a img,
+.responsive-catalog-view-list ul.products li.wc-block-grid__product a img,
 .responsive-catalog-view-list ul.products li.product a img {
   margin: 0;
 }
+.product-content-aligmnment-center ul.wc-block-grid__products li.wc-block-grid__product,
+.product-content-aligmnment-center ul.wc-block-grid__products li.product,
+.product-content-aligmnment-center ul.products li.wc-block-grid__product,
 .product-content-aligmnment-center ul.products li.product {
   text-align: center;
 }
+.product-content-aligmnment-center ul.wc-block-grid__products li.wc-block-grid__product .star-rating,
+.product-content-aligmnment-center ul.wc-block-grid__products li.product .star-rating,
+.product-content-aligmnment-center ul.products li.wc-block-grid__product .star-rating,
+.product-content-aligmnment-center ul.products li.product .star-rating {
+  margin: 0 auto;
+}
+.product-content-aligmnment-right ul.wc-block-grid__products li.wc-block-grid__product,
+.product-content-aligmnment-right ul.wc-block-grid__products li.product,
+.product-content-aligmnment-right ul.products li.wc-block-grid__product,
 .product-content-aligmnment-right ul.products li.product {
   text-align: right;
 }
+.product-content-aligmnment-right ul.wc-block-grid__products li.wc-block-grid__product .star-rating,
+.product-content-aligmnment-right ul.wc-block-grid__products li.product .star-rating,
+.product-content-aligmnment-right ul.products li.wc-block-grid__product .star-rating,
+.product-content-aligmnment-right ul.products li.product .star-rating {
+  margin: 0 0 0 auto;
+}
+.product-content-aligmnment-right.responsive-catalog-view-list ul.wc-block-grid__products li.wc-block-grid__product,
+.product-content-aligmnment-right.responsive-catalog-view-list ul.wc-block-grid__products li.product,
+.product-content-aligmnment-right.responsive-catalog-view-list ul.products li.wc-block-grid__product,
 .product-content-aligmnment-right.responsive-catalog-view-list ul.products li.product {
   justify-content: space-between;
+}
+
+ul.wc-block-grid__products {
+  margin: 0;
+}
+.responsive-site-style-content-boxed.page-template-gutenberg-fullwidth ul.wc-block-grid__products {
+  background-color: transparent;
+}
+.responsive-site-style-boxed.page-template-gutenberg-fullwidth ul.wc-block-grid__products li.wc-block-grid__product {
+  background-color: transparent;
+  padding: 14px;
+}
+
+.wc-block-grid__product-price price,
+.wc-block-grid__product-add-to-cart {
+  font-weight: 700;
+}
+
+.wc-block-grid__product-onsale {
+  background-color: #0066cc;
+  border-radius: 100%;
+  border: none;
+  color: #ffffff;
+  font-size: 0.857em;
+  font-weight: 700;
+  line-height: 3.236;
+  margin: -0.5em -0.5em 0 0;
+  min-height: 3.236em;
+  min-width: 3.236em;
+  padding: 0.202em;
+  position: absolute;
+  text-align: center;
+  top: -0.25em;
+  right: -0.25em;
+  z-index: 9;
+}
+.product-sale-style-square-outline .wc-block-grid__product-onsale, .product-sale-style-circle-outline .wc-block-grid__product-onsale {
+  background-color: #ffffff;
+  border: 2px solid #0066cc;
+  color: #0066cc;
+}
+.product-sale-style-square-outline .wc-block-grid__product-onsale, .product-sale-style-square .wc-block-grid__product-onsale {
+  border-radius: 0;
 }
 
 .woocommerce-page.responsive-site-style-content-boxed .products-wrapper, .woocommerce.responsive-site-style-content-boxed .products-wrapper {
@@ -237,6 +319,19 @@
 }
 .widget-area .widget-wrapper.widget_product_search button {
   display: none;
+}
+
+.wp-block-button__link {
+  font-size: 16px;
+}
+
+.wc-block-grid.has-4-columns:not(.alignwide):not(.alignfull) .wc-block-grid__product,
+.wc-block-grid.has-5-columns:not(.alignfull) .wc-block-grid__product,
+.wc-block-grid.has-6-columns:not(.alignfull) .wc-block-grid__product,
+.wc-block-grid.has-7-columns .wc-block-grid__product,
+.wc-block-grid.has-8-columns .wc-block-grid__product,
+.wp-block-button__link {
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=woocommerce.css.map */
