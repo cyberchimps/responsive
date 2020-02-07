@@ -21,9 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php if ( is_single() ) : ?>
-	<h1 class="entry-title post-title responsive"><?php the_title(); ?></h1>
+	<h1 class="entry-title post-title responsive" itemprop="headline"><?php the_title(); ?></h1>
 <?php else : ?>
-	<h2 class="entry-title post-title">
+	<h2 class="entry-title post-title" itemprop="headline">
 		<a href="<?php the_permalink(); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
 			<?php the_title(); ?>
 		</a>

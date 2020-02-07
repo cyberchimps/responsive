@@ -29,6 +29,9 @@
     @media( min-width: map-get( $screens, lg ) ) {
         width: auto;
     }
+    @media( max-width: map-get( $screens, sm ) ) {
+        max-width: 250px;
+    }
 
     &-wrapper {
         padding-bottom: $base-line-height-px;
@@ -81,14 +84,14 @@
         border: none;
         color: map-get( $colors, dark-gray );
         font-size: map-get( $font-sizes, medium );
-        line-height: $base-line-height-px * 2;
-        height: $base-line-height-px * 2;
+        line-height: $base-line-height-px * 1.75;
+        height: $base-line-height-px * 1.75;
         padding: 0;
         position: absolute;
         right: $grid-gutter-width / 2;
         text-align: center;
-        top: $base-line-height-px;
-        width: $base-line-height-px * 2;
+        top: $base-line-height-px * 0.875;
+        width: $base-line-height-px * 1.75;
 
         &-cancel {
             display: none;

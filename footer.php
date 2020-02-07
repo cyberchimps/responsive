@@ -25,7 +25,7 @@ global $responsive_options;
 $responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
 ?>
-		<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'footer' ); ?>>
+		<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
 			<?php responsive_footer_top(); ?>
 			<?php get_sidebar( 'footer' ); ?>
 

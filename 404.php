@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?>>
 
 				<?php responsive_entry_before(); ?>
-				<article id="post-0" class="error404 hentry">
+				<section id="post-0" class="error404 hentry">
 					<?php responsive_entry_top(); ?>
 
 					<div class="post-entry">
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div><!-- end of .post-entry -->
 
 					<?php responsive_entry_bottom(); ?>
-				</article><!-- end of #post-0 -->
+				</section><!-- end of #post-0 -->
 				<?php responsive_entry_after(); ?>
 
 			</main><!-- end of #content-full -->
