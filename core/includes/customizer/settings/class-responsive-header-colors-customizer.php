@@ -77,11 +77,11 @@ if ( ! class_exists( 'Responsive_Header_Colors_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'header_widget_border', $menu_border_color_label, 'responsive_header_colors', 90, '#eaeaea', 'responsive_active_header_widget' );
 
 			// Link Color.
-			$menu_link_color_label = __( 'Link Color', 'responsive' );
+			$menu_link_color_label = __( 'Links Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_widget_link', $menu_link_color_label, 'responsive_header_colors', 100, '#0066CC', 'responsive_active_header_widget' );
 
 			// Link Hover Color.
-			$menu_link_hover_color_label = __( 'Link Hover Color', 'responsive' );
+			$menu_link_hover_color_label = __( 'Links Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_widget_link_hover', $menu_link_hover_color_label, 'responsive_header_colors', 110, '#10659C', 'responsive_active_header_widget' );
 
 		}
