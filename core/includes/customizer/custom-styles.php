@@ -11,7 +11,7 @@
  *
  * @return void
  */
-function responsive_premium_custom_color_styles() {
+function responsive_customizer_styles() {
 
 	$custom_css = '';
 
@@ -42,6 +42,7 @@ function responsive_premium_custom_color_styles() {
 
 	$custom_css .= "
 	.container,
+	[class*='__inner-container'],
 	.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper {
 		max-width: {$container_max_width}px;
 	}
@@ -131,7 +132,6 @@ function responsive_premium_custom_color_styles() {
 	}';
 
 	$body_text_color      = get_theme_mod( 'responsive_body_text_color', '#333333' );
-	$background_color     = get_theme_mod( 'responsive_background_color', '#eaeaea' );
 	$meta_text_color      = get_theme_mod( 'responsive_meta_text_color', '#999999' );
 	$box_background_color = get_theme_mod( 'responsive_box_background_color', '#ffffff' );
 
@@ -186,12 +186,31 @@ function responsive_premium_custom_color_styles() {
 	$inputs_text_color       = get_theme_mod( 'responsive_inputs_text_color', '#333333' );
 	$inputs_background_color = get_theme_mod( 'responsive_inputs_background_color', '#FFFFFF' );
 
+	$body_typography = get_theme_mod( 'body_typography' );
+
+	if ( $body_typography ) {
+		foreach ( $body_typography as $key => $value ) {
+			if ( 'font-family' === $key ) {
+				$custom_css .= '.has-body-font-family{' . $key . ':' . $value . '; }';
+			}
+		}
+	}
+
+	for ( $i = 1; $i < 7; $i++ ) {
+		if ( get_theme_mod( 'heading_h' . $i . '_typography' ) ) {
+			foreach ( get_theme_mod( 'heading_h' . $i . '_typography' ) as $key => $value ) {
+				if ( 'font-family' === $key ) {
+					$custom_css .= '.has-h' . $i . '-font-family{' . $key . ':' . $value . '; }';
+				}
+			}
+		}
+	}
+
 	$custom_css .= "
 	body {
 		color:{$body_text_color};
-		background-color:{$background_color};
 	}
-	.meta {
+	.hentry .post-data,.post-meta *{
 	    color:{$meta_text_color};
 	}
 	a {
@@ -1042,11 +1061,14 @@ function responsive_premium_custom_color_styles() {
 	}
 	";
 
-	if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {
+	if ( class_exists( 'WooCommerce' ) ) {
 		// WooCommerce.
 		$woocommerce_custom_css = '';
 
 		$woocommerce_custom_css .= "
+		.wc-block-grid__product-title {
+			color:{$body_text_color};
+		}
 		.woocommerce .woocommerce-breadcrumb,
 		.woocommerce .woocommerce-breadcrumb a {
 			color: {$breadcrumb_color};
@@ -1113,11 +1135,20 @@ function responsive_premium_custom_color_styles() {
 				width: calc(100% - {$shop_content_width}%);
 			}
 		}
+
+		.woocommerce span.onsale,
+		.wc-block-grid__product-onsale {
+			color: {$add_to_cart_button_text_color};
+		}
+
+		.product-sale-style-square-outline .wc-block-grid__product-onsale,
+		.product-sale-style-circle-outline .wc-block-grid__product-onsale,
 		.woocommerce span.onsale.square-outline,
 		.woocommerce span.onsale.circle-outline {
 			border-color: {$link_color};
 			color: {$link_color};
 		}
+		.wc-block-grid__product-price,
 		.woocommerce ul.products li.product .price {
 			color: {$shop_product_price_color};
 		}
@@ -1125,6 +1156,7 @@ function responsive_premium_custom_color_styles() {
 			color: {$shop_product_rating_color};
 		}
 
+		.wp-block-button__link.add_to_cart_button,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li a,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li,
 		.woocommerce button.button.alt,
@@ -1133,6 +1165,8 @@ function responsive_premium_custom_color_styles() {
 			background-color: {$add_to_cart_button_color};
 			color: {$add_to_cart_button_text_color};
 		}
+
+		.wp-block-button__link.add_to_cart_button:hover,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li.active a,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li.active,
 		.woocommerce button.button:focus,
@@ -1177,6 +1211,7 @@ function responsive_premium_custom_color_styles() {
 
 		.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
 		.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
+		.wc-block-grid__product-onsale,
 		.woocommerce span.onsale {
 			background-color: {$add_to_cart_button_color};
 		}
@@ -1327,12 +1362,11 @@ function responsive_premium_custom_color_styles() {
 			.woocommerce input.button {
 				padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 			}
-		}
-		';
+		}';
 		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', $woocommerce_custom_css ) );
 	}
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );
 }
 
-add_action( 'wp_enqueue_scripts', 'responsive_premium_custom_color_styles', 99 );
+add_action( 'wp_enqueue_scripts', 'responsive_customizer_styles', 99 );

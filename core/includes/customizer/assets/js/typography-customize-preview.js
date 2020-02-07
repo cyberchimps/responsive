@@ -2956,7 +2956,7 @@
 	        var $child = $( ".customizer-typography-button-font-family" );
 	        if ( pair ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-font-family">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-family: ' + pair + ";}</style>";
+	            var img = '<style class="customizer-typography-button-font-family">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-family: ' + pair + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -2971,7 +2971,7 @@
 	        var $child = $( ".customizer-typography-button-font-weight" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-font-weight">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-weight: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-font-weight">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-weight: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -2986,7 +2986,7 @@
 	        var $child = $( ".customizer-typography-button-font-style" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-font-style">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-style: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-font-style">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-style: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3001,7 +3001,7 @@
 	        var $child = $( ".customizer-typography-button-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-font-size">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-size: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-font-size">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3016,7 +3016,7 @@
 	        var $child = $( ".customizer-typography-button-tablet-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-tablet-font-size">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-size: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-button-tablet-font-size">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3031,7 +3031,7 @@
 	        var $child = $( ".customizer-typography-button-mobile-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-mobile-font-size">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{font-size: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-button-mobile-font-size">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3046,7 +3046,7 @@
 	        var $child = $( ".customizer-typography-button-color" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-color">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{color: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-color">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{color: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3061,7 +3061,7 @@
 	        var $child = $( ".customizer-typography-button-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-line-height">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{line-height: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-line-height">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3076,7 +3076,7 @@
 	        var $child = $( ".customizer-typography-button-tablet-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-tablet-line-height">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{line-height: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-button-tablet-line-height">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3091,7 +3091,7 @@
 	        var $child = $( ".customizer-typography-button-mobile-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-mobile-line-height">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{line-height: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-button-mobile-line-height">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3106,7 +3106,7 @@
 	        var $child = $( ".customizer-typography-button-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-letter-spacing">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            var img = '<style class="customizer-typography-button-letter-spacing">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3121,7 +3121,7 @@
 	        var $child = $( ".customizer-typography-button-tablet-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-tablet-letter-spacing">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            var img = '<style class="customizer-typography-button-tablet-letter-spacing">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3136,7 +3136,7 @@
 	        var $child = $( ".customizer-typography-button-mobile-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-mobile-letter-spacing">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            var img = '<style class="customizer-typography-button-mobile-letter-spacing">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3151,7 +3151,7 @@
 	        var $child = $( ".customizer-typography-button-text-transform" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-text-transform">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button{text-transform: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-text-transform">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{text-transform: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {

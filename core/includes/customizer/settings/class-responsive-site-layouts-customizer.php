@@ -47,6 +47,12 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				)
 			);
 
+			$responsive_hide_title_label = __( 'Hide Site Title', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'title_tagline', 10, 0, null );
+
+			$responsive_hide_tagline_label = __( 'Hide Tagline', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'title_tagline', 11, 0, null );
+
 			// Site Width.
 			$responsive_width_label  = __( 'Width', 'responsive' );
 			$responsive_width_choice = array(
@@ -81,15 +87,15 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'responsive_layout_button_separator', $buttons_layout_label, 'responsive_layout', 60 );
 
 			// Buttons Padding (px).
-			$buttons_padding_label = __( 'Buttons Padding (px)', 'responsive' );
+			$buttons_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'buttons', 'responsive_layout', 70, 10, 10, null, $buttons_padding_label );
 
 			// Buttons Radius.
-			$buttons_radius_label = __( 'Buttons Radius (px)', 'responsive' );
+			$buttons_radius_label = __( 'Radius (px)', 'responsive' );
 			responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_layout', 80, 0 );
 
 			// Buttons Border Width.
-			$buttons_border_width_label = __( 'Buttons Border Width (px)', 'responsive' );
+			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
 			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_layout', 90, 0 );
 
 			// Inputs Layout.
