@@ -69,7 +69,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= '<div class="breadcrumb-list"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
 			}
 		} else {
-			$html_output .= '<div class="breadcrumb-list" xmlns:v="http://rdf.data-vocabulary.org/#">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
+			$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
 
 			if ( is_home() ) {
 				if ( 1 == $show['current'] ) {

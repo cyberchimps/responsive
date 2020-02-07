@@ -346,10 +346,11 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
+		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
 
 		// If plugin - 'WooCommerce' is active.
-		if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) {
+		if ( class_exists( 'WooCommerce' ) ) {
 			wp_enqueue_style( 'responsive-woocommerce-style', get_template_directory_uri() . "/core/css/woocommerce{$suffix}.css", false, $responsive['Version'] );
 		}
 	}
@@ -554,6 +555,10 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_page_content_alignment', 'left' );
 
 		}
+		if ( is_page_template( array( 'full-width-page.php', 'gutenberg-fullwidth.php' ) ) ) {
+			// Page sidebar Position.
+			$classes[] = 'sidebar-position-no';
+		}
 	} elseif ( is_single() ) {
 
 		if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() ) ) {
@@ -707,4 +712,18 @@ function responsive_add_pro_button() {
 
 	</style>
 	<?php
+}
+
+if ( ! function_exists( 'wp_body_open' ) ) {
+	/**
+	 * Fire the wp_body_open action.
+	 *
+	 * Added for backwards compatibility to support WordPress versions prior to 5.2.0.
+	 */
+	function wp_body_open() {
+		/**
+		 * Triggered after the opening <body> tag.
+		 */
+		do_action( 'wp_body_open' );
+	}
 }
