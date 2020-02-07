@@ -191,7 +191,7 @@ function responsive_premium_custom_color_styles() {
 		color:{$body_text_color};
 		background-color:{$background_color};
 	}
-	.meta {
+	.hentry .post-data,.post-meta *{
 	    color:{$meta_text_color};
 	}
 	a {
