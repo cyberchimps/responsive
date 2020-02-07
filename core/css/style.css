@@ -943,6 +943,11 @@ input[type=search] {
     width: auto;
   }
 }
+@media (min-width: 576px) {
+  .site-branding {
+    max-width: 250px;
+  }
+}
 .site-branding-wrapper {
   padding-bottom: 28px;
   padding-top: 28px;
@@ -986,14 +991,14 @@ input[type=search] {
   border: none;
   color: #333333;
   font-size: 20px;
-  line-height: 56px;
-  height: 56px;
+  line-height: 49px;
+  height: 49px;
   padding: 0;
   position: absolute;
   right: 15px;
   text-align: center;
-  top: 28px;
-  width: 56px;
+  top: 24.5px;
+  width: 49px;
 }
 .main-navigation .menu-toggle-cancel {
   display: none;

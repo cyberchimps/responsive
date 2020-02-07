@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_woocommerce_shop_layout',
 				array(
-					'title'    => esc_html__( 'Layouts', 'responsive' ),
+					'title'    => esc_html__( 'Layout', 'responsive' ),
 					'panel'    => 'responsive-woocommerce-shop',
 					'priority' => 10,
 				)

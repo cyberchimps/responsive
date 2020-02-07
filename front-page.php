@@ -50,7 +50,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 		<div class="content-outer container">
 			<div class="row">
 				<main id="primary" class="content-area">
-					<article class="">
+					<article class=""  <?php responsive_schema_markup( 'creativework' ); ?>>
 					<?php
 					responsive_in_wrapper(); // wrapper hook.
 					get_template_part( 'partials/custom-home/featured-area' );
