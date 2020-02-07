@@ -35,11 +35,11 @@ do_action( 'responsive_before_single_post_meta' );
 
 		if ( 'author' === $section ) {
 			?>
-			<span class="entry-author">
+			<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 				<?php
 					echo sprintf(
 						'<span class="author vcard">
-							<a class="url fn n" href="%1$s" title="%2$s" itemscope itemtype="http://schema.org/Person">
+							<a class="url fn n" href="%1$s" title="%2$s" itemprop="url">
 								<i class="fa fa-user"></i>
 								<span itemprop="name">%3$s</span>
 							</a>

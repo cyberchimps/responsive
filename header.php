@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="site hfeed">
 		<?php responsive_header_top(); ?>
 
-		<header id="masthead" class="site-header" role="banner">
+		<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
 			<div class="container">
 				<div class="row">
 					<?php

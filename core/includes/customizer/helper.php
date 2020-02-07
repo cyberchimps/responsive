@@ -661,59 +661,90 @@ if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
 		$itemprop = '';
 		$itemtype = '';
 		// HTML.
-		if ( 'body' === $location ) {
-			$schema = 'itemscope itemtype="http://schema.org/WebPage"';
-			if ( is_search() ) {
-				$schema = 'itemscope itemtype="https://schema.org/SearchResultsPage"';
-			}
-			if ( is_singular( 'post' ) || is_home() ) {
-				$schema = 'itemscope itemtype="https://schema.org/Blog"';
-			}
-		} elseif ( 'header' === $location ) { // Header.
-			$schema = 'itemscope itemtype="http://schema.org/WPHeader"';
-		} elseif ( 'logo' === $location ) { // Logo.
-			$schema = 'itemprop="logo"';
-		} elseif ( 'site_navigation' === $location ) { // Navigation.
-			$schema = 'itemscope itemtype="http://schema.org/SiteNavigationElement"';
-		} elseif ( 'main' === $location ) { // Main.
-			$itemtype = 'http://schema.org/WebPageElement';
-			$itemprop = 'mainContentOfPage';
-			$schema   = "itemscope itemtype=$itemtype";
-			if ( is_singular( 'post' ) ) {
-				$itemprop = '';
-				$itemtype = 'http://schema.org/Blog';
-				$schema   = "itemscope itemtype=$itemtype";
-			}
-		} elseif ( 'sidebar' === $location ) { // Sidebar.
-			$schema = 'itemscope itemtype="http://schema.org/WPSideBar"';
-		} elseif ( 'footer' === $location ) { // Footer widgets.
-			$schema = 'itemscope itemtype="http://schema.org/WPFooter"';
-		} elseif ( 'headline' === $location ) { // Headings.
-			$schema = 'itemscope itemprop="headline"';
-		} elseif ( 'entry_content' === $location ) { // Posts.
-			$schema = 'itemscope itemprop="text"';
-		} elseif ( 'publish_date' === $location ) { // Publish date.
-			$schema = 'itemscope itemprop="datePublished"';
-		} elseif ( 'author_name' === $location ) { // Author name.
-			$schema = 'itemscope itemprop="name"';
-		} elseif ( 'author_link' === $location ) { // Author link.
-			$schema = 'itemscope itemtype="http://schema.org/Person"';
-		} elseif ( 'item' === $location ) { // Item.
-			$schema = 'itemscope itemprop="item"';
-		} elseif ( 'url' === $location ) { // Url.
-			$schema = 'itemscope itemprop="url"';
-		} elseif ( 'position' === $location ) { // Position.
-			$schema = 'itemscope itemprop="position"';
-		} elseif ( 'image' === $location ) { // Image.
-			$schema = 'itemscope itemprop="image" itemtype="https://schema.org/image"';
-		} elseif ( 'tagline' === $location ) {
-			$schema = 'itemprop="description"';
-		} elseif ( 'site_title' === $location ) { // Image.
-			$schema = 'itemprop="name"';
-		} elseif ( 'organization' === $location ) { // Image.
-			$schema = 'itemscope itemtype="https://schema.org/Organization"';
-		} elseif ( 'creativework' === $location ) { // Image.
-			$schema = 'itemscope itemtype="https://schema.org/CreativeWork"';
+		switch ( $location ) {
+
+			case 'body':
+				if ( is_page() ) {
+
+					$schema = 'itemscope itemtype="https://schema.org/WebPage"';
+
+				} elseif ( is_search() ) {
+
+					$schema = 'itemscope itemtype="https://schema.org/SearchResultsPage"';
+
+				} elseif ( is_singular( 'post' ) || is_home() || is_post_type_archive( 'post' ) ) {
+
+					$schema = 'itemscope itemtype="https://schema.org/Blog"';
+
+				} else {
+
+					$schema = 'itemscope itemtype="http://schema.org/WebPage"';
+
+				}
+				break;
+			case 'site-header': // Header.
+				$schema = 'itemscope itemtype="https://schema.org/WPHeader"';
+				break;
+			case 'logo': // Logo.
+				$schema = 'itemprop="logo"';
+				break;
+			case 'site-title': // Site-title.
+				$schema = 'itemprop="name"';
+				break;
+			case 'site-branding': // site-branding.
+				$schema = 'itemscope itemtype="https://schema.org/Organization';
+				break;
+			case 'main-navigation': // Navigation.
+				$schema = 'itemscope itemtype="https://schema.org/SiteNavigationElement"';
+				break;
+			case 'sidebar': // Sidebar.
+				$schema = 'itemscope itemtype="https://schema.org/WPSideBar"';
+				break;
+			case 'site-footer': // Footer widgets.
+				$schema = 'itemscope itemtype="https://schema.org/WPFooter"';
+				break;
+			case 'headline': // Headings.
+				$schema = 'itemscope itemprop="headline"';
+				break;
+			case 'entry_content': // Posts.
+				$schema = 'itemscope itemprop="text"';
+				break;
+			case 'publish_date': // Publish date.
+				$schema = 'itemscope itemprop="datePublished"';
+				break;
+			case 'author_name': // Author name.
+				$schema = 'itemscope itemprop="name"';
+				break;
+			case 'entry-author': // Author link.
+				$schema = 'itemscope itemtype="https://schema.org/Person"';
+				break;
+			case 'item': // Item.
+				$schema = 'itemscope itemprop="item"';
+				break;
+			case 'url': // Url.
+				$schema = 'itemscope itemprop="url"';
+				break;
+			case 'position': // Position.
+				$schema = 'itemscope itemprop="position"';
+				break;
+			case 'image': // Image.
+				$schema = 'itemscope itemprop="image" itemtype="https://schema.org/image"';
+				break;
+			case 'tagline':
+				$schema = 'itemprop="description"';
+				break;
+			case 'site_title': // Image.
+				$schema = 'itemprop="name"';
+				break;
+			case 'organization': // Image.
+				$schema = 'itemscope itemtype="https://schema.org/Organization"';
+				break;
+			case 'creativework': // Image.
+				$schema = 'itemscope itemtype="https://schema.org/CreativeWork"';
+				break;
+			default:
+				$schema = '';
+
 		}
 
 		return ' ' . apply_filters( 'responsive_schema_markup', $schema );

@@ -34,7 +34,7 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 
 ?>
 <div class="entry-column">
-	<article id="404" class="hentry">
+	<section id="404" class="hentry">
 		<h1 class="title-404"><?php echo esc_html( $responsive_title ); ?></h1>
 		<p><?php esc_html_e( 'Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here.', 'responsive' ); ?></p>
 
@@ -53,5 +53,5 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 			</h6>
 
 			<?php get_search_form(); ?>
-	</article>
+	</section>
 </div>

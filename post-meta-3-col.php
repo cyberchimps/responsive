@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php if ( is_single() ) : ?>
-	<h1 class="entry-title post-title"><?php the_title(); ?></h1>
+	<h1 class="entry-title post-title" itemprop="headline"><?php the_title(); ?></h1>
 <?php else : ?>
-	<h2 class="entry-title post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+	<h2 class="entry-title post-title" itemprop="headline"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 <?php endif; ?>
 
 <div class="post-meta">

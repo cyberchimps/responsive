@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 
 <?php do_action( 'responsive_before_blog_entry_content' ); ?>
-	<div class="entry-content">
+	<div class="entry-content" itemprop="text">
 		<?php
 		if ( 'content' === get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' ) ) {
 			the_content( 'Read More ››' );

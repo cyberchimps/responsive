@@ -28,7 +28,7 @@ do_action( 'responsive_before_blog_entry_meta' );
 
 		if ( 'author' === $section ) {
 			?>
-			<span class="entry-author">
+			<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 				<?php
 					printf(
 						__( '<span class="%3$s"> by </span>%4$s', 'responsive' ),
@@ -43,7 +43,7 @@ do_action( 'responsive_before_blog_entry_meta' );
 						'byline',
 						sprintf(
 							'<span class="author vcard">
-								<a class="url fn n" href="%1$s" title="%2$s" itemscope itemtype="http://schema.org/Person">
+								<a class="url fn n" href="%1$s" title="%2$s" itemprop="url">
 									<i class="fa fa-user"></i>
 									<span itemprop="name">%3$s</span>
 								</a>

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<nav id="site-navigation" class="main-navigation" role="navigation">
+<nav id="site-navigation" class="main-navigation" role="navigation"  <?php responsive_schema_markup( 'site-title' ); ?>>
 	<div class="main-navigation-wrapper">
 		<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><i class="fa fa-bars"></i><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
 
