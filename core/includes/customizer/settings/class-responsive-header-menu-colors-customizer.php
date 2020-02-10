@@ -55,33 +55,37 @@ if ( ! class_exists( 'Responsive_Header_Menu_Colors_Customizer' ) ) :
 			$menu_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_menu_border', $menu_border_color_label, 'responsive_header_menu_colors', 20, '#eaeaea', 'responsive_active_vertical_header' );
 
+			// Active Menu Color.
+			$menu_border_color_label = __( 'Active Menu Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_active_menu_background', $menu_border_color_label, 'responsive_header_menu_colors', 30, '#ffffff', null );
+
 			// Link Color.
 			$menu_link_color_label = __( 'Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_menu_link', $menu_link_color_label, 'responsive_header_menu_colors', 30, '#333333' );
+			responsive_color_control( $wp_customize, 'header_menu_link', $menu_link_color_label, 'responsive_header_menu_colors', 40, '#333333' );
 
 			// Link Hover Color.
 			$menu_link_hover_color_label = __( 'Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_menu_link_hover', $menu_link_hover_color_label, 'responsive_header_menu_colors', 40, '#10659C' );
+			responsive_color_control( $wp_customize, 'header_menu_link_hover', $menu_link_hover_color_label, 'responsive_header_menu_colors', 50, '#10659C' );
 
 			// Sub Menu Background Color.
 			$responsive_header_sub_menu_background_color_label = __( 'Sub Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_sub_menu_background', $responsive_header_sub_menu_background_color_label, 'responsive_header_menu_colors', 50, '#ffffff' );
+			responsive_color_control( $wp_customize, 'header_sub_menu_background', $responsive_header_sub_menu_background_color_label, 'responsive_header_menu_colors', 60, '#ffffff' );
 
 			// Sub Menu Link Color.
 			$sub_menu_link_color_label = __( 'Sub Menu Link Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_sub_menu_link', $sub_menu_link_color_label, 'responsive_header_menu_colors', 60, '#333333' );
+			responsive_color_control( $wp_customize, 'header_sub_menu_link', $sub_menu_link_color_label, 'responsive_header_menu_colors', 70, '#333333' );
 
 			// Sub Menu Link Hover Color.
 			$sub_menu_link_hover_color_label = __( 'Sub Menu Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_sub_menu_link_hover', $sub_menu_link_hover_color_label, 'responsive_sub_menu', 70, '#10659C' );
+			responsive_color_control( $wp_customize, 'header_sub_menu_link_hover', $sub_menu_link_hover_color_label, 'responsive_sub_menu', 80, '#10659C' );
 
 			// Menu Toggle Background Color.
 			$menu_toggle_background_color_label = __( 'Menu Toggle Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_menu_toggle_background', $menu_toggle_background_color_label, 'responsive_header_menu_colors', 80, 'transparent' );
+			responsive_color_control( $wp_customize, 'header_menu_toggle_background', $menu_toggle_background_color_label, 'responsive_header_menu_colors', 90, 'transparent' );
 
 			// Menu Toggle Color.
 			$menu_toggle_color_label = __( 'Menu Toggle Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_menu_toggle', $menu_toggle_color_label, 'responsive_header_menu_colors', 90, '#333333' );
+			responsive_color_control( $wp_customize, 'header_menu_toggle', $menu_toggle_color_label, 'responsive_header_menu_colors', 100, '#333333' );
 
 		}
 
