@@ -157,7 +157,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 
 			// Inputs Border Color.
 			$inputs_border_color_label = __( 'Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'inputs_border', $inputs_border_color_label, 'responsive_colors', 220, '#333333' );
+			responsive_color_control( $wp_customize, 'inputs_border', $inputs_border_color_label, 'responsive_colors', 220, '#cccccc' );
 
 		}
 

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="site-branding" <?php responsive_schema_markup( 'site-branding' ); ?>>
+<div class="site-branding" <?php responsive_schema_markup( 'site-branding' ); ?> >
 	<div class="site-branding-wrapper">
 		<?php
 		the_custom_logo();
