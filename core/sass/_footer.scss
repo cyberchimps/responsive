@@ -69,7 +69,7 @@
 
     }
 
-    .fa {
+    [class*="icon-"] {
         font-size: map-get( $font-sizes, large );
     }
 }

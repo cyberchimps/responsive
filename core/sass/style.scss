@@ -15,6 +15,10 @@
  * Common Site styles
  * -----------------------------------------------------------------------------
  */
+body {
+    background-color: map-get( $colors, light-gray );
+}
+
 .responsive-site-full-width {
     .container {
         max-width: none;

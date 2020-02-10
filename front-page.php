@@ -75,13 +75,13 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 							<div class="contact-content">
 								<div class="contact_left grid col-460 fit">
 									<?php if ( '' != $responsive_contact_add ) { ?>
-										<div><i class="fa fa-map-marker" aria-hidden="true"></i><span class="contact_add"><?php echo esc_html( $responsive_contact_add ); ?></span></div>
+										<div><i class="icon-map-marker" aria-hidden="true"></i><span class="contact_add"><?php echo esc_html( $responsive_contact_add ); ?></span></div>
 									<?php } ?>
 									<?php if ( '' != $responsive_contact_email ) { ?>
-										<div><i class="fa fa-envelope" aria-hidden="true"></i><span class="contact_email"><?php echo esc_html( $responsive_contact_email ); ?></span></div>
+										<div><i class="icon-envelope-o" aria-hidden="true"></i><span class="contact_email"><?php echo esc_html( $responsive_contact_email ); ?></span></div>
 									<?php } ?>
 									<?php if ( '' != $responsive_contact_ph ) { ?>
-										<div><i class="fa fa-phone" aria-hidden="true"></i><span class="contact_ph"><?php echo esc_html( $responsive_contact_ph ); ?></span></div>
+										<div><i class="icon-phone" aria-hidden="true"></i><span class="contact_ph"><?php echo esc_html( $responsive_contact_ph ); ?></span></div>
 									<?php } ?>
 								</div>
 								<div class="contact_right grid col-460" >
