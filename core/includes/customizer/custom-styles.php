@@ -210,7 +210,7 @@ function responsive_customizer_styles() {
 	body {
 		color:{$body_text_color};
 	}
-	.hentry .post-data,.post-meta *{
+	.post-meta *, .hentry .post-meta a {
 	    color:{$meta_text_color};
 	}
 	a {
