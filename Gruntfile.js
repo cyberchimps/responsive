@@ -38,6 +38,7 @@ module.exports = function(grunt) {
 					'**/*.php',
 					'!**/class-tgm-plugin-activation.php',
 					'!node_modules/**',
+					'!vendor/**',
 					'!core/**',
 					'!build/**',
 					'!package-lock.json',
@@ -169,8 +170,8 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'core/css/style.min.css': 'core/css/style.css',
-					'core/css/responsive.min.css':  'core/css/responsive.css',
-					'core/css/woocommerce.min.css':  'core/css/woocommerce.css'
+					'core/css/woocommerce.min.css':  'core/css/woocommerce.css',
+					'core/css/gutenberg-editor.min.css':  'core/css/gutenberg-editor.css'
 				}
 			},
 			theme_options: {
