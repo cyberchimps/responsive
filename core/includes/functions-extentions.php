@@ -341,7 +341,7 @@ function responsive_get_social_icons() {
 					?>
 					<li>
 						<a href="mailto:<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="icon-envelope-o" aria-hidden="true"></i>
 						</a>
 					</li>
 					<?php
@@ -349,7 +349,7 @@ function responsive_get_social_icons() {
 					?>
 					<li>
 						<a href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
-							<i class="fa fa-google-plus" aria-hidden="true"></i>
+							<i class="icon-google-plus" aria-hidden="true"></i>
 						</a>
 					</li>
 					<?php
@@ -357,7 +357,7 @@ function responsive_get_social_icons() {
 					?>
 					<li>
 						<a href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
-							<i class="fa fa-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
+							<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
 						</a>
 					</li>
 					<?php

@@ -464,8 +464,8 @@
             margin-top: $base-line-height-px;
 
             &:before {
-                content: "\f0e6";
-                font-family: FontAwesome;
+                content: "\f122";
+                font-family: icomoon;
                 margin-right: $base-line-height-px / 5;
                 color: inherit;
             }
@@ -476,7 +476,7 @@
 
             &:before {
                 content: "\f044";
-                font-family: FontAwesome;
+                font-family: icomoon;
                 margin-right: $base-line-height-px / 5;
             }
         }

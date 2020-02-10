@@ -692,7 +692,7 @@ if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
 				$schema = 'itemprop="name"';
 				break;
 			case 'site-branding': // site-branding.
-				$schema = 'itemscope itemtype="https://schema.org/Organization';
+				$schema = 'itemscope itemtype="https://schema.org/Organization"';
 				break;
 			case 'main-navigation': // Navigation.
 				$schema = 'itemscope itemtype="https://schema.org/SiteNavigationElement"';
