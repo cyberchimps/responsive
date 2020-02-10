@@ -177,6 +177,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 * @see http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'yoast-seo-breadcrumbs' );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments

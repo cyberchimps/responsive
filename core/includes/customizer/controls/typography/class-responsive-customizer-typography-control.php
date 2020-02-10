@@ -197,7 +197,7 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 				<span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
 			<?php endif; ?>
 
-			<select class="responsive-typography-select"
+			<select class="responsive-typography-select responsive-font-family-select"
 				<?php
 				$this->link();
 				$this->render_connect_attribute();
@@ -235,11 +235,9 @@ class Responsive_Customizer_Typography_Control extends WP_Customize_Control {
 					<optgroup label="<?php esc_html_e( 'Standard Fonts', 'responsive' ); ?>">
 						<?php
 						// Loop through font options and add to select.
-						 $i = 0;
 						foreach ( $std_fonts as $key => $font ) {
 							?>
 							<option value="<?php echo esc_html( $key ); ?>" <?php selected( $key, $this_val ); ?>><?php echo esc_html( $key ); ?></option>
-							$i++;
 						<?php } ?>
 					</optgroup>
 					<?php
