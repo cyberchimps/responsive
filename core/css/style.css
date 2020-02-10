@@ -943,6 +943,11 @@ input[type=search] {
     width: auto;
   }
 }
+@media (max-width: 576px) {
+  .site-branding {
+    max-width: 250px;
+  }
+}
 .site-branding-wrapper {
   padding-bottom: 28px;
   padding-top: 28px;
@@ -986,14 +991,14 @@ input[type=search] {
   border: none;
   color: #333333;
   font-size: 20px;
-  line-height: 56px;
-  height: 56px;
+  line-height: 49px;
+  height: 49px;
   padding: 0;
   position: absolute;
   right: 15px;
   text-align: center;
-  top: 28px;
-  width: 56px;
+  top: 24.5px;
+  width: 49px;
 }
 .main-navigation .menu-toggle-cancel {
   display: none;
@@ -1024,7 +1029,7 @@ input[type=search] {
 @media (min-width: 992px) {
   .main-navigation .menu > li.menu-item-has-children > a:after, .main-navigation .menu > li.page_item_has_children > a:after {
     content: "";
-    font-family: Fontawesome;
+    font-family: icomoon;
     margin-left: 5px;
   }
 }
@@ -1067,7 +1072,7 @@ input[type=search] {
 .main-navigation .sub-menu > li.page_item_has_children > a:after {
     content: "";
     float: right;
-    font-family: Fontawesome;
+    font-family: icomoon;
     margin-left: 5px;
   }
 }
@@ -2092,8 +2097,8 @@ input[type=search] {
 }
 .comment-respond ol.commentlist .comment-reply-link:before,
 .comments-area ol.commentlist .comment-reply-link:before {
-  content: "";
-  font-family: FontAwesome;
+  content: "";
+  font-family: icomoon;
   margin-right: 5.6px;
   color: inherit;
 }
@@ -2104,7 +2109,7 @@ input[type=search] {
 .comment-respond ol.commentlist .comment-edit-link:before,
 .comments-area ol.commentlist .comment-edit-link:before {
   content: "";
-  font-family: FontAwesome;
+  font-family: icomoon;
   margin-right: 5.6px;
 }
 .comment-respond ol.commentlist .avatar,
@@ -3058,7 +3063,7 @@ input[type=search] {
 .blog.front-page .footer-bar-layout-vertical .footer-bar .feature-main-div, .footer-bar-layout-vertical .footer-bar .blog.front-page aside.home-widgets .home-widget-wrapper, .blog.front-page aside.home-widgets .footer-bar-layout-vertical .footer-bar .home-widget-wrapper {
   flex-direction: column;
 }
-.footer-bar .fa {
+.footer-bar [class*=icon-] {
   font-size: 26px;
 }
 
@@ -3443,6 +3448,10 @@ a img.aligncenter {
  * Common Site styles
  * -----------------------------------------------------------------------------
  */
+body {
+  background-color: #eaeaea;
+}
+
 .responsive-site-full-width .container, .responsive-site-full-width .site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper, .site-header-full-width-main-navigation:not(.responsive-site-full-width) .responsive-site-full-width .main-navigation-wrapper, .responsive-site-full-width [class*=__inner-container] {
   max-width: none;
 }

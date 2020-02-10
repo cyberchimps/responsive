@@ -20,9 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php if ( is_single() ) : ?>
-	<h1 class="entry-title post-title responsive"><?php the_title(); ?></h1>
+	<h1 class="entry-title post-title responsive" itemprop="headline"><?php the_title(); ?></h1>
 <?php else : ?>
-	<h2 class="entry-title post-title">
+	<h2 class="entry-title post-title" itemprop="headline">
 		<a href="<?php the_permalink(); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
 			<?php the_title(); ?>
 		</a>
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 			<span class="entry-comment">
 				<span class="comments-link">
-					<span class="mdash"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+					<span class="mdash"><i class="icon-comments-o" aria-hidden="true"></i></span>
 					<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 				</span>
 			</span>

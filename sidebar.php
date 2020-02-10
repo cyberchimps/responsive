@@ -27,7 +27,7 @@ responsive_widgets_before(); // above widgets container hook.
 if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
 
 	$responsive_options = responsive_get_options();
-	if ( ( isset( $responsive_options['override_woo'] ) && ( $responsive_options['override_woo'] ) ) || ( 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) && ! is_product() ) || ( 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) && is_product() ) ) {
+	if ( ( 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) && ! is_product() ) || ( 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) && is_product() ) ) {
 		return;
 	}
 	?>

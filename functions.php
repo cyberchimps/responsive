@@ -459,16 +459,6 @@ if ( ! function_exists( 'responsive_get_attachment_id_from_url' ) ) :
 	}
 endif;
 
-
-/* Lightbox support for woocommerce templates */
-	$responsive_options = responsive_get_options();
-if ( isset( $responsive_options['override_woo'] ) && 1 == $responsive_options['override_woo'] ) {
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
-}
-
-
 /**
  * Enqueue customizer styling
  */

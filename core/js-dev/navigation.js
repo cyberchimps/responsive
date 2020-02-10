@@ -43,11 +43,11 @@
 
         icon = button.getElementsByTagName( 'i' )[0]
         if( 'true' === button.getAttribute("aria-expanded")){
-            icon.setAttribute( 'class', 'fa fa-bars' );
-            icon.setAttribute( 'class', 'fa fa-times');
+            icon.setAttribute( 'class', 'icon-bars' );
+            icon.setAttribute( 'class', 'icon-times');
             document.getElementById("sidebar-menu-overlay").style.display = "block";
         } else {
-            icon.setAttribute( 'class', 'fa fa-bars' );
+            icon.setAttribute( 'class', 'icon-bars' );
             document.getElementById("sidebar-menu-overlay").style.display = "none";
         }
 	};

@@ -182,7 +182,7 @@ function responsive_customizer_styles() {
 
 	$inputs_radius           = get_theme_mod( 'responsive_inputs_radius', 0 );
 	$inputs_border_width     = get_theme_mod( 'responsive_inputs_border_width', 1 );
-	$inputs_border_color     = get_theme_mod( 'responsive_inputs_border_color', '#333333' );
+	$inputs_border_color     = get_theme_mod( 'responsive_inputs_border_color', '#cccccc' );
 	$inputs_text_color       = get_theme_mod( 'responsive_inputs_text_color', '#333333' );
 	$inputs_background_color = get_theme_mod( 'responsive_inputs_background_color', '#FFFFFF' );
 
@@ -488,8 +488,8 @@ function responsive_customizer_styles() {
 		    margin-left: 30px;
 		}
 		.main-navigation .menu > li.menu-item-has-children > a:after, .main-navigation .menu > li.page_item_has_children > a:after {
-			content: '\f0d7';
-			font-family: Fontawesome;
+			content: '\\f0d7';
+			font-family: icomoon;
 			margin-left: 5px;
 		}
 		.main-navigation .children,
@@ -518,9 +518,9 @@ function responsive_customizer_styles() {
 	  	.main-navigation .children > li.menu-item-has-children > a:after, .main-navigation .children > li.page_item_has_children > a:after,
 		.main-navigation .sub-menu > li.menu-item-has-children > a:after,
 		.main-navigation .sub-menu > li.page_item_has_children > a:after {
-		    content: '\f0da';
+		    content: '\\f0da';
 		    float: right;
-		    font-family: Fontawesome;
+		    font-family: icomoon;
 		    margin-left: 5px;
 	  	}
 	  	.main-navigation .children a,
@@ -643,6 +643,7 @@ function responsive_customizer_styles() {
 	if ( 'fullscreen' === $mobile_menu_style ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 			.main-navigation.toggled {
+				background-color: {$header_menu_background_color};
 				height: 100%;
 				left: 0;
 			    overflow-y: scroll;
@@ -675,7 +676,7 @@ function responsive_customizer_styles() {
 				transition-delay: 0s;
 			}
 			.mobile-menu-style-sidebar .main-navigation.toggled {
-			    background-color: white;
+			    background-color: {$header_menu_background_color};
 				height: 100%;
 				left: 0;
 			    overflow-y: scroll;

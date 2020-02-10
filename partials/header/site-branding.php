@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div class="site-branding">
+<div class="site-branding" <?php responsive_schema_markup( 'site-branding' ); ?> >
 	<div class="site-branding-wrapper">
 		<?php
 		the_custom_logo();
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			if ( is_front_page() && is_home() ) :
 
 				?>
-				<h1 class="site-title h3"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title h3" <?php responsive_schema_markup( 'site-title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 
 			else :

@@ -69,7 +69,7 @@ class Responsive_Options {
 		}
 
 		echo '<input type="radio"' . $check . ' name="sky-tabs" id="sky-' . $id . '"  class="sky-tab-content-' . $i . '">';
-		echo '<label for="sky-' . $id . '"><span><span><i class="fa fa-bolt"></i>' . esc_html( $title ) . ' </span></span></label>';
+		echo '<label for="sky-' . $id . '"><span><span><i class="icon-bolt"></i>' . esc_html( $title ) . ' </span></span></label>';
 
 	}
 
