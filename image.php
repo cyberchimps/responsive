@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<?php if ( comments_open() ) : ?>
 						<span class="comments-link">
-						<span class="mdash"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+						<span class="mdash"><i class="icon-comments-o" aria-hidden="true"></i></span>
 							<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 						</span>
 					<?php endif; ?>

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php do_action( 'responsive_before_single_post_content' ); ?>
 
-<div class="entry-content">
+<div class="entry-content" itemprop="text">
 	<?php
 	if ( is_single() ) {
 		the_content(

@@ -35,12 +35,12 @@ do_action( 'responsive_before_single_post_meta' );
 
 		if ( 'author' === $section ) {
 			?>
-			<span class="entry-author">
+			<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 				<?php
 					echo sprintf(
 						'<span class="author vcard">
-							<a class="url fn n" href="%1$s" title="%2$s" itemscope itemtype="http://schema.org/Person">
-								<i class="fa fa-user"></i>
+							<a class="url fn n" href="%1$s" title="%2$s" itemprop="url">
+								<i class="icon-user"></i>
 								<span itemprop="name">%3$s</span>
 							</a>
 						</span>',
@@ -59,8 +59,7 @@ do_action( 'responsive_before_single_post_meta' );
 				<span class="entry-date">
 					<?php
 					printf(
-						/* Translators: 1 = html Class, 2 = Category */
-						__( '<i class="fa fa-calendar" aria-hidden="true"></i><span>Posted on </span><span class="%1$s" itemprop="datePublished">%2$s</span>', 'responsive' ),
+						__( '<i class="icon-calendar" aria-hidden="true"></i><span>Posted on </span><span class="%1$s" itemprop="datePublished">%2$s</span>', 'responsive' ),
 						'meta-prep meta-prep-author posted',
 						sprintf(
 							'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
@@ -80,7 +79,7 @@ do_action( 'responsive_before_single_post_meta' );
 				<span class="entry-comment">
 					<?php if ( comments_open() ) : ?>
 						<span class="comments-link">
-						<span class="mdash"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+						<span class="mdash"><i class="icon-comments-o" aria-hidden="true"></i></span>
 							<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 						</span>
 					<?php endif; ?>
@@ -90,12 +89,8 @@ do_action( 'responsive_before_single_post_meta' );
 		if ( 'categories' === $section ) {
 			?>
 			<span class="entry-category">
-				<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
-					<?php
-					$categories_list = get_the_category_list( __( ', ', 'responsive' ) );
-					/* translators: %s posted in categories */
-					printf( __( 'Posted in %s', 'responsive' ), $categories_list );
-					?>
+				<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
+					<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
 				</span>
 			</span>
 			<?php

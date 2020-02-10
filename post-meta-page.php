@@ -19,9 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 	<?php if ( get_post_type() == 'page' && is_search() ) : ?>
-		<h1 class="entry-title post-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+		<h1 class="entry-title post-title" itemprop="headline"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 	<?php else : ?>
-		<h1 class="entry-title post-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title post-title" itemprop="headline"><?php the_title(); ?></h1>
 	<?php endif; ?>
 
 <?php if ( comments_open() ) : ?>
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			?>
 			<span class="entry-comment">
 				<span class="comments-link">
-					<span class="mdash"><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+					<span class="mdash"><i class="icon-comments-o" aria-hidden="true"></i></span>
 						<?php comments_popup_link( __( 'No Comments', 'responsive' ), __( '1 Comment', 'responsive' ), __( '% Comments', 'responsive' ) ); ?>
 				</span>
 			</span>

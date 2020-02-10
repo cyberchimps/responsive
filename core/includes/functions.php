@@ -342,7 +342,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
-		wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/core/css/font-awesome.min.css', false, '4.7.0' );
+		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . '/core/css/icomoon/style.css', false, $responsive['Version'] );
 
 		// If plugin - 'WooCommerce' is active.
 		if ( class_exists( 'WooCommerce' ) ) {
@@ -640,10 +640,10 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 	 */
 	function responsive_post_meta_data() {
 		?>
-		<span class="entry-author">
+		<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 			<?php
 				printf(
-					__( '<i class="fa fa-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
+					__( '<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
 					'meta-prep meta-prep-author posted',
 					sprintf(
 						'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
@@ -655,8 +655,8 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 					'byline',
 					sprintf(
 						'<span class="author vcard">
-							<a class="url fn n" href="%1$s" title="%2$s" itemscope itemtype="http://schema.org/Person">
-								<i class="fa fa-user"></i>
+							<a class="url fn n" href="%1$s" title="%2$s" itemprop="url">
+								<i class="icon-user"></i>
 								<span itemprop="name">%3$s</span>
 							</a>
 						</span>',
@@ -670,11 +670,8 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 		</span>
 
 		<span class="entry-category">
-			<span class='posted-in'><i class="fa fa-folder-open" aria-hidden="true"></i>
-			<?php
-			/* translators: %s: Categories*/
-				printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) );
-			?>
+			<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
+			<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
 			</span>
 		</span>
 
