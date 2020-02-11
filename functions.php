@@ -589,7 +589,7 @@ function responsive_check_previous_version() {
 
 		! get_theme_mod( 'responsive_box_background_color' ) ? set_theme_mod( 'responsive_box_background_color', get_theme_mod( 'responsive_container_background_color', '#ffffff' ) ) : '';
 		if ( '#ffffff' != get_theme_mod( 'responsive_box_background_color' ) ) {
-			set_theme_mod( 'background_color', 'ffffff' );
+			! get_theme_mod( 'background_color' ) ? set_theme_mod( 'background_color', 'ffffff' ) : '';
 		}
 
 		! get_theme_mod( 'responsive_link_color' ) ? set_theme_mod( 'responsive_link_color', get_theme_mod( 'link-color', '#0066CC' ) ) : '';
@@ -627,6 +627,10 @@ function responsive_check_previous_version() {
 			! get_theme_mod( 'responsive_blog_sidebar_position' ) ? set_theme_mod( 'responsive_blog_sidebar_position', 'left' ) : '';
 		}
 
+		if ( get_theme_mod( 'responsive_display_thumbnail_without_padding' ) ) {
+			! get_theme_mod( 'responsive_blog_entry_featured_image_style' ) ? set_theme_mod( 'responsive_blog_entry_featured_image_style', 'stretched' ) : '';
+		}
+
 		if ( 'sidebar-content-page' === $responsive_options['single_post_layout_default'] ) {
 			! get_theme_mod( 'responsive_single_blog_sidebar_position' ) ? set_theme_mod( 'responsive_single_blog_sidebar_position', 'left' ) : '';
 		}
@@ -649,9 +653,44 @@ function responsive_check_previous_version() {
 			! get_theme_mod( 'responsive_width' ) ? set_theme_mod( 'responsive_width', 'full-width' ) : '';
 		}
 
+		$body_typography = get_theme_mod( 'body_typography' );
+		if ( $body_typography && array_key_exists( 'color', $body_typography ) ) {
+			! get_theme_mod( 'responsive_body_text_color' ) ? set_theme_mod( 'responsive_body_text_color', $body_typography['color'] ) : '';
+		}
+
+		$menu_typography        = get_theme_mod( 'menu_typography' );
+		$header_menu_typography = get_theme_mod( 'header_menu_typography' );
+
+		if ( $menu_typography ) {
+			if ( ! $header_menu_typography ) {
+				set_theme_mod( 'header_menu_typography', $menu_typography );
+			}
+		}
+
+		$meta_typography = get_theme_mod( 'meta_typography' );
+		if ( $meta_typography && array_key_exists( 'color', $meta_typography ) ) {
+			! get_theme_mod( 'responsive_meta_text_color' ) ? set_theme_mod( 'responsive_meta_text_color', $meta_typography['color'] ) : '';
+		}
+
 		for ( $i = 1; $i < 7; $i++ ) {
-			if ( get_theme_mod( 'headings_typography' ) && ! get_theme_mod( 'heading_h' . $i . '_typography' ) ) {
-				set_theme_mod( 'heading_h' . $i . '_typography', get_theme_mod( 'headings_typography' ) );
+			$heading_h = get_theme_mod( 'heading_h' . $i . '_typography' );
+			$heading   = get_theme_mod( 'headings_typography' );
+			if ( $heading ) {
+				if ( ! get_theme_mod( 'heading_h' . $i . '_typography' ) ) {
+					set_theme_mod( 'heading_h' . $i . '_typography', $heading );
+				} else {
+					foreach ( $heading as $key => $value ) {
+						if ( ! $heading_h[ $key ] ) {
+							$temp      = array( $key => $value );
+							$heading_h = $temp + get_theme_mod( 'heading_h' . $i . '_typography' );
+							set_theme_mod( 'heading_h' . $i . '_typography', $heading_h );
+						}
+					}
+				}
+			}
+
+			if ( $heading_h && array_key_exists( 'color', $heading_h ) ) {
+				! get_theme_mod( "responsive_h{$i}_text_color" ) ? set_theme_mod( "responsive_h{$i}_text_color", $heading_h['color'] ) : '';
 			}
 		}
 	}

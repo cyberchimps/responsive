@@ -985,6 +985,7 @@ input[type=search] {
 .main-navigation a {
   display: block;
   padding: 5px 15px;
+  font-weight: 600;
 }
 .main-navigation .menu-toggle {
   background-color: transparent;
