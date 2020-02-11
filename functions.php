@@ -537,14 +537,14 @@ function responsive_display_menu() {
  */
 function responsive_check_previous_version() {
 	$theme_data  = wp_get_theme();
-	$new_version = $theme_data->Version;
+	$new_version = $theme_data->get( 'Version' );
 	global $responsive_options;
 	$responsive_options = responsive_get_options();
 	$header_layout      = get_theme_mod( 'header_layout_options' );
 	$menu_position      = get_theme_mod( 'menu_position' );
 
 	// Check if we had a response and compare the current version on wp.org to version 2. If it is version 2 or greater display a message.
-	if ( $new_version && version_compare( $new_version, '4.0.1', '>=' ) ) {
+	if ( $new_version && version_compare( $new_version, '4.1.0', '>=' ) ) {
 
 		if ( ! $responsive_options['home_headline'] ) {
 			$responsive_options['home_headline'] = 'HAPPINESS';
@@ -562,32 +562,51 @@ function responsive_check_previous_version() {
 			$responsive_options['cta_url'] = '#';
 		}
 
-		! get_theme_mod( 'responsive_hide_tagline' ) ? set_theme_mod( 'responsive_hide_tagline', get_theme_mod( 'res_hide_tagline' ) ) : '';
-		! get_theme_mod( 'responsive_hide_title' ) ? set_theme_mod( 'responsive_hide_title', get_theme_mod( 'res_hide_site_title' ) ) : '';
+		! get_theme_mod( 'responsive_hide_tagline' ) ? set_theme_mod( 'responsive_hide_tagline', get_theme_mod( 'res_hide_tagline', 0 ) ) : '';
+		! get_theme_mod( 'responsive_hide_title' ) ? set_theme_mod( 'responsive_hide_title', get_theme_mod( 'res_hide_site_title', 0 ) ) : '';
 
-		! get_theme_mod( 'responsive_button_color' ) ? set_theme_mod( 'responsive_button_color', get_theme_mod( 'button-color' ) ) : '';
-		! get_theme_mod( 'responsive_button_hover_color' ) ? set_theme_mod( 'responsive_button_hover_color', get_theme_mod( 'button-hover-color' ) ) : '';
-		! get_theme_mod( 'responsive_button_text_color' ) ? set_theme_mod( 'responsive_button_text_color', get_theme_mod( 'button-text-color' ) ) : '';
-		! get_theme_mod( 'responsive_button_hover_text_color' ) ? set_theme_mod( 'responsive_button_hover_text_color', get_theme_mod( 'button-text-color' ) ) : '';
+		! get_theme_mod( 'responsive_button_color' ) ? set_theme_mod( 'responsive_button_color', get_theme_mod( 'button-color', '#0066CC' ) ) : '';
+		! get_theme_mod( 'responsive_button_hover_color' ) ? set_theme_mod( 'responsive_button_hover_color', get_theme_mod( 'button-hover-color', '#10659C' ) ) : '';
+		! get_theme_mod( 'responsive_button_text_color' ) ? set_theme_mod( 'responsive_button_text_color', get_theme_mod( 'button-text-color', '#FFFFFF' ) ) : '';
+		! get_theme_mod( 'responsive_button_hover_text_color' ) ? set_theme_mod( 'responsive_button_hover_text_color', get_theme_mod( 'button-hover-text-color', '#FFFFFF' ) ) : '';
 
-		! get_theme_mod( 'responsive_inputs_background_color' ) ? set_theme_mod( 'responsive_inputs_background_color', get_theme_mod( 'input-background-color' ) ) : '';
-		! get_theme_mod( 'responsive_inputs_text_color' ) ? set_theme_mod( 'responsive_inputs_text_color', get_theme_mod( 'input-text-color' ) ) : '';
-		! get_theme_mod( 'responsive_inputs_border_color' ) ? set_theme_mod( 'responsive_inputs_border_color', get_theme_mod( 'input-border-color' ) ) : '';
+		! get_theme_mod( 'responsive_inputs_background_color' ) ? set_theme_mod( 'responsive_inputs_background_color', get_theme_mod( 'input-background-color', '#FFFFFF' ) ) : '';
+		! get_theme_mod( 'responsive_inputs_text_color' ) ? set_theme_mod( 'responsive_inputs_text_color', get_theme_mod( 'input-text-color', '#333333' ) ) : '';
+		! get_theme_mod( 'responsive_inputs_border_color' ) ? set_theme_mod( 'responsive_inputs_border_color', get_theme_mod( 'input-border-color', '#cccccc' ) ) : '';
 
-		! get_theme_mod( 'responsive_label_color' ) ? set_theme_mod( 'responsive_label_color', get_theme_mod( 'label-color' ) ) : '';
+		! get_theme_mod( 'responsive_label_color' ) ? set_theme_mod( 'responsive_label_color', get_theme_mod( 'label-color', '#333333' ) ) : '';
 
-		! get_theme_mod( 'responsive_header_menu_background_color' ) ? set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_menu_background_colorpicker' ) ) : '';
-		! get_theme_mod( 'responsive_header_active_menu_background_color' ) ? set_theme_mod( 'responsive_header_active_menu_background_color', get_theme_mod( 'responsive_menu_active_colorpicker' ) ) : '';
-		! get_theme_mod( 'responsive_header_menu_link_color' ) ? set_theme_mod( 'responsive_header_menu_link_color', get_theme_mod( 'responsive_menu_text_colorpicker' ) ) : '';
-		! get_theme_mod( 'responsive_header_menu_border_color' ) ? set_theme_mod( 'responsive_header_menu_border_color', get_theme_mod( 'responsive_menu_border_color' ) ) : '';
-		! get_theme_mod( 'responsive_header_menu_link_hover_color' ) ? set_theme_mod( 'responsive_header_menu_link_hover_color', get_theme_mod( 'responsive_menu_text_hover_colorpicker' ) ) : '';
+		! get_theme_mod( 'responsive_header_menu_background_color' ) ? set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_menu_background_colorpicker', '#ffffff' ) ) : '';
+		! get_theme_mod( 'responsive_header_active_menu_background_color' ) ? set_theme_mod( 'responsive_header_active_menu_background_color', get_theme_mod( 'responsive_menu_active_colorpicker', '#ffffff' ) ) : '';
+		! get_theme_mod( 'responsive_header_menu_link_color' ) ? set_theme_mod( 'responsive_header_menu_link_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#333333' ) ) : '';
+		! get_theme_mod( 'responsive_header_menu_border_color' ) ? set_theme_mod( 'responsive_header_menu_border_color', get_theme_mod( 'responsive_menu_border_color', '#eaeaea' ) ) : '';
+		! get_theme_mod( 'responsive_header_menu_link_hover_color' ) ? set_theme_mod( 'responsive_header_menu_link_hover_color', get_theme_mod( 'responsive_menu_text_hover_colorpicker', '#10659C' ) ) : '';
 
-		! get_theme_mod( 'responsive_header_background_color' ) ? set_theme_mod( 'responsive_header_background_color', get_theme_mod( 'responsive_fullwidth_header_color' ) ) : '';
-		! get_theme_mod( 'responsive_header_border_color' ) ? set_theme_mod( 'responsive_header_border_color', get_theme_mod( 'responsive_fullwidth_header_color' ) ) : '';
-		! get_theme_mod( 'responsive_header_site_title_color' ) ? set_theme_mod( 'responsive_header_site_title_color', get_theme_mod( 'responsive_fullwidth_sitetitle_color' ) ) : '';
-		! get_theme_mod( 'responsive_header_text_color' ) ? set_theme_mod( 'responsive_header_text_color', get_theme_mod( 'responsive_site_description_color' ) ) : '';
+		! get_theme_mod( 'responsive_header_background_color' ) ? set_theme_mod( 'responsive_header_background_color', get_theme_mod( 'responsive_fullwidth_header_color', '#ffffff' ) ) : '';
+		! get_theme_mod( 'responsive_header_border_color' ) ? set_theme_mod( 'responsive_header_border_color', get_theme_mod( 'responsive_fullwidth_header_color', '#eaeaea' ) ) : '';
+		! get_theme_mod( 'responsive_header_site_title_color' ) ? set_theme_mod( 'responsive_header_site_title_color', get_theme_mod( 'responsive_fullwidth_sitetitle_color', '#333333' ) ) : '';
+		! get_theme_mod( 'responsive_header_text_color' ) ? set_theme_mod( 'responsive_header_text_color', get_theme_mod( 'responsive_site_description_color', '#999999' ) ) : '';
 
-		! get_theme_mod( 'responsive_box_background_color' ) ? set_theme_mod( 'responsive_box_background_color', get_theme_mod( 'responsive_container_background_color' ) ) : '';
+		! get_theme_mod( 'responsive_box_background_color' ) ? set_theme_mod( 'responsive_box_background_color', get_theme_mod( 'responsive_container_background_color', '#ffffff' ) ) : '';
+		! get_theme_mod( 'background_color' ) ? set_theme_mod( 'background_color', get_theme_mod( 'background_color' ) ) : '';
+
+		! get_theme_mod( 'responsive_link_color' ) ? set_theme_mod( 'responsive_link_color', get_theme_mod( 'link-color', '#999999' ) ) : '';
+		! get_theme_mod( 'responsive_link_hover_color' ) ? set_theme_mod( 'responsive_link_hover_color', get_theme_mod( 'link-hover-color', '#999999' ) ) : '';
+
+		$header_layout = array( 'above_header', 'below_header' );
+		if ( in_array( get_theme_mod( 'menu_position' ), $header_layout, true ) ) {
+			! get_theme_mod( 'responsive_header_layout' ) ? set_theme_mod( 'responsive_header_layout', 'vertical' ) : '';
+
+			if ( 'above_header' === get_theme_mod( 'menu_position' ) ) {
+				! get_theme_mod( 'responsive_header_elements' ) ? set_theme_mod( 'responsive_header_elements', array( 'main-navigation', 'site-branding' ) ) : '';
+			}
+		}
+
+		if ( 'in_header' === get_theme_mod( 'menu_position' ) && 'header-logo-right' === get_theme_mod( 'header_layout_options' ) ) {
+			! get_theme_mod( 'responsive_header_elements' ) ? set_theme_mod( 'responsive_header_elements', array( 'main-navigation', 'site-branding' ) ) : '';
+		}
+
+		! get_theme_mod( 'responsive_header_alignment' ) ? set_theme_mod( 'responsive_header_alignment', str_replace( 'header-logo-', '', get_theme_mod( 'header_layout_options' ) ) ) : '';
 
 		$responsive_options_blog = array( 'full-width-page', 'blog-2-col', 'blog-3-col', 'blog-4-col' );
 
@@ -628,18 +647,16 @@ function responsive_check_previous_version() {
 			! get_theme_mod( 'responsive_width' ) ? set_theme_mod( 'responsive_width', 'full-width' ) : '';
 		}
 
-		if ( 'full-width-layout' === $responsive_options['site_layout_option'] || 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
-			$responsive_options['site_layout_option'] = 'fullwidth-content';
-			update_option( 'responsive_theme_options', $responsive_options );
-		} elseif ( 'default-layout' === $responsive_options['site_layout_option'] ) {
-			$responsive_options['site_layout_option'] = 'boxed';
-			update_option( 'responsive_theme_options', $responsive_options );
-		}
-		if ( 'default' === $header_layout || ! $header_layout ) {
-			$menu_position = 'below_header';
-			$header_layout = 'header-logo-left';
-			set_theme_mod( 'menu_position', $menu_position );
-			set_theme_mod( 'header_layout_options', $header_layout );
+		for ( $i = 1; $i < 7; $i++ ) {
+			if ( get_theme_mod( 'headings_typography' ) && ! get_theme_mod( 'heading_h' . $i . '_typography' ) ) {
+				set_theme_mod( 'heading_h' . $i . '_typography', get_theme_mod( 'headings_typography' ) );
+
+				foreach ( get_theme_mod( 'heading_h' . $i . '_typography' ) as $key_h  => $value_h ) {
+
+					foreach ( get_theme_mod( 'headings_typography' ) as $key  => $value ) {
+					}
+				}
+			}
 		}
 	}
 }
