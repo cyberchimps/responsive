@@ -588,10 +588,12 @@ function responsive_check_previous_version() {
 		! get_theme_mod( 'responsive_header_text_color' ) ? set_theme_mod( 'responsive_header_text_color', get_theme_mod( 'responsive_site_description_color', '#999999' ) ) : '';
 
 		! get_theme_mod( 'responsive_box_background_color' ) ? set_theme_mod( 'responsive_box_background_color', get_theme_mod( 'responsive_container_background_color', '#ffffff' ) ) : '';
-		! get_theme_mod( 'background_color' ) ? set_theme_mod( 'background_color', get_theme_mod( 'background_color' ) ) : '';
+		if ( '#ffffff' != get_theme_mod( 'responsive_box_background_color' ) ) {
+			set_theme_mod( 'background_color', 'ffffff' );
+		}
 
-		! get_theme_mod( 'responsive_link_color' ) ? set_theme_mod( 'responsive_link_color', get_theme_mod( 'link-color', '#999999' ) ) : '';
-		! get_theme_mod( 'responsive_link_hover_color' ) ? set_theme_mod( 'responsive_link_hover_color', get_theme_mod( 'link-hover-color', '#999999' ) ) : '';
+		! get_theme_mod( 'responsive_link_color' ) ? set_theme_mod( 'responsive_link_color', get_theme_mod( 'link-color', '#0066CC' ) ) : '';
+		! get_theme_mod( 'responsive_link_hover_color' ) ? set_theme_mod( 'responsive_link_hover_color', get_theme_mod( 'link-hover-color', '#10659C' ) ) : '';
 
 		$header_layout = array( 'above_header', 'below_header' );
 		if ( in_array( get_theme_mod( 'menu_position' ), $header_layout, true ) ) {
@@ -650,12 +652,6 @@ function responsive_check_previous_version() {
 		for ( $i = 1; $i < 7; $i++ ) {
 			if ( get_theme_mod( 'headings_typography' ) && ! get_theme_mod( 'heading_h' . $i . '_typography' ) ) {
 				set_theme_mod( 'heading_h' . $i . '_typography', get_theme_mod( 'headings_typography' ) );
-
-				foreach ( get_theme_mod( 'heading_h' . $i . '_typography' ) as $key_h  => $value_h ) {
-
-					foreach ( get_theme_mod( 'headings_typography' ) as $key  => $value ) {
-					}
-				}
 			}
 		}
 	}
