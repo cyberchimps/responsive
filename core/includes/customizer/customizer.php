@@ -123,9 +123,9 @@ function responsive_validate_page_layout( $input ) {
  */
 function responsive_sanitize_checkbox( $input ) {
 	if ( $input ) {
-		$output = '1';
+		$output = 1;
 	} else {
-		$output = false;
+		$output = 0;
 	}
 	return $output;
 }
@@ -203,21 +203,6 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
 }
 
 /**
- * [responsive_archive_layout_callback description]
- *
- * @return bool
- */
-function responsive_archive_layout_callback() {
-
-	$responsive_options = responsive_get_options();
-	$responsive_options['blog_posts_index_layout_default'];
-	if ( ( 'blog-4-col' === $responsive_options['blog_posts_index_layout_default'] ) || ( 'blog-3-col' === $responsive_options['blog_posts_index_layout_default'] ) || ( 'blog-2-col' === $responsive_options['blog_posts_index_layout_default'] ) ) {
-		return true;
-	} else {
-		return false;
-	}
-}
-/**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function responsive_customize_preview_js() {
@@ -234,7 +219,7 @@ function responsive_register_options() {
 	require get_template_directory() . '/admin/class-responsive-plugin-install-helper.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-abstract-main.php';
-	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-register-customizer-control.php';
+	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-register-customizer-controls.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-panel.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-control.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/types/class-responsive-customizer-partial.php';
@@ -244,22 +229,29 @@ function responsive_register_options() {
 	// Customizer files array.
 	$files = array(
 		'class-responsive-panel',
-		'class-responsive-header-customizer',
-		'class-responsive-page-customizer',
-		'class-responsive-blog-customizer',
-		'class-responsive-button-customizer',
+		'class-responsive-site-layouts-customizer',
+		'class-responsive-site-colors-customizer',
+		'class-responsive-site-typography-customizer',
+		'class-responsive-header-layout-customizer',
+		'class-responsive-header-colors-customizer',
+		'class-responsive-header-typography-customizer',
+		'class-responsive-header-menu-layouts-customizer',
+		'class-responsive-header-menu-colors-customizer',
+		'class-responsive-content-header-colors-customizer',
+		'class-responsive-content-header-layout-customizer',
+		'class-responsive-content-header-typography-customizer',
+		'class-responsive-blog-content-header-customizer',
+		'class-responsive-blog-layout-customizer',
+		'class-responsive-blog-content-customizer',
+		'class-responsive-single-blog-layout-customizer',
+		'class-responsive-single-blog-content-customizer',
+		'class-responsive-page-layout-customizer',
+		'class-responsive-page-content-customizer',
+		'class-responsive-footer-layout-customizer',
+		'class-responsive-footer-colors-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
-		'class-responsive-layout-customizer',
 		'class-responsive-home-page-customizer',
-		'class-responsive-links-customizer',
-		'class-responsive-footer-customizer',
-		'class-responsive-footer-copyrights-customizer',
-		'class-responsive-menu-customizer',
-		'class-responsive-sidebar-customizer',
-		'class-responsive-footer-color-customizer',
-		'class-responsive-header-color-customizer',
-		'class-responsive-scrolltotop-customizer',
 		'class-responsive-customizer-notices',
 	);
 
@@ -320,14 +312,6 @@ function responsive_controls_helpers() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/sanitization-callbacks.php';
 }
 add_action( 'customize_register', 'responsive_controls_helpers' );
-
-/**
- * Responsive_customize_preview_init.
- */
-function responsive_customize_preview_init() {
-	wp_enqueue_script( 'responsive-customize-preview', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
-}
-add_action( 'customize_preview_init', 'responsive_customize_preview_init' );
 
 /**
  * Custom styles and js for customizer

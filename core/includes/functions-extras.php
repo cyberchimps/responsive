@@ -1,6 +1,11 @@
 <?php
+/**
+ * Helper functions for the Responsive theme
+ *
+ * @package Responsive
+ */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -9,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Helps file locations in child themes. If the file is not being overwritten by the child theme then
  * return the parent theme location of the file. Great for images.
  *
- * @param $dir string directory
+ * @param string $dir  directory.
  *
  * @return string complete uri
  */
@@ -32,6 +37,8 @@ function responsive_child_uri( $dir ) {
 /**
  * This function removes WordPress generated category and tag atributes.
  * For W3C validation purposes only.
+ *
+ * @param string $output Output.
  */
 function responsive_category_rel_removal( $output ) {
 	$output = str_replace( ' rel="category tag"', '', $output );
@@ -49,7 +56,7 @@ add_filter( 'the_category', 'responsive_category_rel_removal' );
  * number of comments (count only comments, not
  * trackbacks/pingbacks)
  *
- * Chip Bennett Contribution
+ * @param int $count Number of comments.
  */
 function responsive_comment_count( $count ) {
 	if ( ! is_admin() ) {
@@ -66,10 +73,12 @@ function responsive_comment_count( $count ) {
 add_filter( 'get_comments_number', 'responsive_comment_count', 0 );
 
 /**
- * wp_list_comments() Pings Callback
+ * Pings Callback wp_list_comments()
  *
- * wp_list_comments() Callback function for
+ * Callback function wp_list_comments() for.
  * Pings (Trackbacks/Pingbacks)
+ *
+ * @param string $comment Comment.
  */
 function responsive_comment_list_pings( $comment ) {
 	?>
@@ -101,8 +110,10 @@ function responsive_read_more() {
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and responsive_read_more_link().
+ *
+ * @param int $more More.
  */
-function responsive_auto_excerpt_more( $more ) {
+function responsive_auto_excerpt_more( $more = 0 ) {
 	return '<span class="ellipsis">&hellip;</span>' . responsive_read_more();
 }
 
@@ -110,6 +121,8 @@ add_filter( 'excerpt_more', 'responsive_auto_excerpt_more' );
 
 /**
  * Adds a pretty "Read more" link to custom post excerpts.
+ *
+ * @param string $output Append read more text.
  */
 function responsive_custom_excerpt_more( $output ) {
 	if ( has_excerpt() && ! is_attachment() ) {
@@ -122,6 +135,8 @@ add_filter( 'get_the_excerpt', 'responsive_custom_excerpt_more' );
 
 /**
  * This function removes inline styles set by WordPress gallery.
+ *
+ * @param string $css Replace media gallary css.
  */
 function responsive_remove_gallery_css( $css ) {
 	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
@@ -142,7 +157,7 @@ function responsive_remove_recent_comments_style() {
 add_action( 'widgets_init', 'responsive_remove_recent_comments_style' );
 
 /**
- * wp_title() Filter for better SEO.
+ * Filter for better SEO wp_title().
  *
  * Adopted from Twenty Twelve
  *
@@ -198,6 +213,12 @@ class responsive_widget_menu_class {
 		return $settings;
 	}
 
+	/**
+	 * Navigation Menu arguments
+	 *
+	 * @param array $args Arguments.
+	 * @return mixed
+	 */
 	public function wp_nav_menu_args( $args ) {
 		remove_filter( 'wp_nav_menu_args', array( $this, 'wp_nav_menu_args' ) );
 
@@ -213,6 +234,8 @@ $GLOBALS['nav_menu_widget_classname'] = new responsive_widget_menu_class();
 
 /**
  * Removes div from wp_page_menu() and replace with ul.
+ *
+ * @param string $page_markup Page Markup.
  */
 function responsive_wp_page_menu( $page_markup ) {
 	preg_match( '/^<div class=\"([a-z0-9-_]+)\">/i', $page_markup, $matches );

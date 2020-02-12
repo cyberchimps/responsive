@@ -15,7 +15,7 @@ $format = get_post_format();
 
 	// Add classes to the blog entry post class.
 ?>
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 		<?php responsive_entry_top(); ?>
 		<div class="post-entry">
 			<?php
@@ -31,21 +31,10 @@ $format = get_post_format();
 				if ( 'featured_image' === $element
 					&& ! post_password_required() ) {
 
-
 					get_template_part( 'partials/page/thumbnail' );
 
-				}
-
-				// Title.
-				if ( 'title' === $element ) {
-					get_template_part( 'partials/page/header' );
-
-				}
-
-				// Content.
-				if ( 'content' === $element ) {
-
-					get_template_part( 'partials/page/content' );
+				} else {
+					get_template_part( 'partials/page/' . $element );
 
 				}
 			}
@@ -63,4 +52,4 @@ $format = get_post_format();
 		<?php get_template_part( 'post-data', get_post_type() ); ?>
 
 		<?php responsive_entry_bottom(); ?>
-	</div><!-- end of #post-<?php the_ID(); ?> -->
+	</article><!-- end of #post-<?php the_ID(); ?> -->

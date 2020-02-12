@@ -5,7 +5,7 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( $audio ) : ?>
 
-	<div class="thumbnail"><?php echo $audio; ?></div>
+	<div class="thumbnail"><?php echo wp_kses_post( $audio ); ?></div>
 
 	<?php
-	// Else display post thumbnail
+	// Else display post thumbnail.
 else :
 	?>
 

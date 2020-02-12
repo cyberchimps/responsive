@@ -1135,57 +1135,27 @@
 				$child.remove();
 			}
 		} );
-	} ), api( "headings_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-headings-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-headings-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-font-family">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-font-weight">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[font-style]", function( $swipe ) {
-	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customize-control-headings_typography-font-style" );
-	        if ( dataAndEvents ) {
+	} ),api( "content_header_heading_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
 	            /** @type {string} */
-	            var img = '<style class="customize-control-headings_typography-font-style">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-style: ' + dataAndEvents + ";}</style>";
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-content_header_heading-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customizer-typography-content_header_heading-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-font-family">.site-content-header .page-header .page-title,.site-content-header .page-title{font-family: ' + pair + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -1195,1462 +1165,1103 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "headings_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-font-size">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-tablet-font-size">@media (max-width: 768px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-mobile-font-size">@media (max-width: 480px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-color">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-line-height">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-tablet-line-height">@media (max-width: 768px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-mobile-line-height">@media (max-width: 480px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-letter-spacing">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-tablet-letter-spacing">@media (max-width: 768px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-mobile-letter-spacing">@media (max-width: 480px){h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "headings_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-headings-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-headings-text-transform">h1,h2,h3,h4,h5,h6,.theme-heading,.widget-title,.responsive-widget-recent-posts-title,.comment-reply-title,.sidebar-box .widget-title{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-logo-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-logo-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-font-family">#site-logo a.site-logo-text{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-font-weight">#site-logo a.site-logo-text{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-font-style">#site-logo a.site-logo-text{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-font-size">#site-logo a.site-logo-text{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-tablet-font-size">@media (max-width: 768px){#site-logo a.site-logo-text{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-mobile-font-size">@media (max-width: 480px){#site-logo a.site-logo-text{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-color">#site-logo a.site-logo-text{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-line-height">#site-logo a.site-logo-text{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-tablet-line-height">@media (max-width: 768px){#site-logo a.site-logo-text{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-mobile-line-height">@media (max-width: 480px){#site-logo a.site-logo-text{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-letter-spacing">#site-logo a.site-logo-text{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-tablet-letter-spacing">@media (max-width: 768px){#site-logo a.site-logo-text{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-mobile-letter-spacing">@media (max-width: 480px){#site-logo a.site-logo-text{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "logo_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-logo-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-logo-text-transform">#site-logo a.site-logo-text{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-top_menu-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-top_menu-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-font-family">#top-bar-content{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-font-weight">#top-bar-content{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-font-style">#top-bar-content{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-font-size">#top-bar-content{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-tablet-font-size">@media (max-width: 768px){#top-bar-content{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-mobile-font-size">@media (max-width: 480px){#top-bar-content{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-color">#top-bar-content{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-line-height">#top-bar-content{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-tablet-line-height">@media (max-width: 768px){#top-bar-content{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-mobile-line-height">@media (max-width: 480px){#top-bar-content{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-letter-spacing">#top-bar-content{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-tablet-letter-spacing">@media (max-width: 768px){#top-bar-content{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-mobile-letter-spacing">@media (max-width: 480px){#top-bar-content{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "top_menu_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-top_menu-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-top_menu-text-transform">#top-bar-content{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-menu-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-menu-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-font-family">.main-nav .menu li > a {font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-font-weight">.main-nav .menu > li > a{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-font-style">.main-nav .menu > li > a{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-font-size">.main-nav .menu > li > a{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-tablet-font-size">@media (max-width: 768px){.main-nav .menu > li > a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-mobile-font-size">@media (max-width: 480px){.main-nav .menu > li > a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-color">.main-nav .menu > li > a{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-letter-spacing">.main-nav .menu > li > a{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-tablet-letter-spacing">@media (max-width: 768px){.main-nav .menu > li > a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-mobile-letter-spacing">@media (max-width: 480px){.main-nav .menu > li > a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu-text-transform">.main-nav .menu > li > a{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-menu_dropdown-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-menu_dropdown-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-font-family">.menu li li a{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-font-weight">.menu li li a{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-font-style">.menu li li a{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-font-size">.menu li li a{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-tablet-font-size">@media (max-width: 768px){.menu li li a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-mobile-font-size">@media (max-width: 480px){.menu li li a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-color">.menu li li a{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-line-height">.menu li li a{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-tablet-line-height">@media (max-width: 768px){.menu li li a{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-mobile-line-height">@media (max-width: 480px){.menu li li a{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-letter-spacing">.menu li li a{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-tablet-letter-spacing">@media (max-width: 768px){.menu li li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-mobile-letter-spacing">@media (max-width: 480px){.menu li li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "menu_dropdown_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-menu_dropdown-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-menu_dropdown-text-transform">.menu li li a{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-mobile_menu_dropdown-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-family">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-family: ' + pair + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-weight">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-weight: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-style">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-style: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-font-size"> @media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-font-size">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a,.responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-font-size">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-line-height">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-line-height">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-line-height">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-letter-spacing">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-tablet-letter-spacing">@media (max-width: 768px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-mobile-letter-spacing">@media (max-width: 480px){#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "mobile_menu_dropdown_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-mobile_menu_dropdown-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-mobile_menu_dropdown-text-transform">@media (max-width: responsives.break_point) {#mobile-sidebar .menu li a, mobile-sidebar-inner a, .responsive-mobile-sidebar #mobile-sidebar ul li a, #mobile-fullscreen .menu li a, mobile-fullscreen-inner a, .responsive-mobile-fullscreen #mobile-fullscreen ul li a, .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner .menu > li > a,.js .responsive-mobile-dropdown .main-nav.mobile-dropdown-inner ul li a{text-transform: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var fontName = pair.split(",")[0];
-					fontName = fontName.replace(/'/g, '');
-				var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-page_title-font-family" );
-				var fontSize = fontName.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-page_title-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-font-family">.page .post-title, #main-blog h1{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-font-weight">.page .post-title, #main-blog h1{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-font-style">.page .post-title, #main-blog h1{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-font-size">.page .post-title, #main-blog h1{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-tablet-font-size">@media (max-width: 768px){.page .post-title, #main-blog h1{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-mobile-font-size">@media (max-width: 480px){.page .post-title, #main-blog h1{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-color">.page .post-title, #main-blog h1{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-line-height">.page .post-title, #main-blog h1{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-tablet-line-height">@media (max-width: 768px){.page .post-title, #main-blog h1{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-mobile-line-height">@media (max-width: 480px){.page .post-title, #main-blog h1{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-letter-spacing">.page .post-title, #main-blog h1{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-tablet-letter-spacing">@media (max-width: 768px){.page .post-title, #main-blog h1{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-mobile-letter-spacing">@media (max-width: 480px){.page .post-title, #main-blog h1{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "page_title_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-page_title-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-page_title-text-transform">.page .post-title, #main-blog h1{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
+	} ), api( "content_header_heading_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-font-weight">.site-content-header .page-header .page-title,.site-content-header .page-title{font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_typography[font-style]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-font-style">.site-content-header .page-header .page-title,.site-content-header .page-title{font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-font-size">.site-content-header .page-header .page-title,.site-content-header .page-title{font-size: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_tablet_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-tablet-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-tablet-font-size">@media (max-width: 768px){.site-content-header .page-header .page-title,.site-content-header .page-title{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_mobile_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-mobile-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-mobile-font-size">@media (max-width: 480px){.site-content-header .page-header .page-title,.site-content-header .page-title{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_typography[color]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-color" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-color">.site-content-header .page-header .page-title,.site-content-header .page-title{color: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-line-height">.site-content-header .page-header .page-title,.site-content-header .page-title{line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-tablet-line-height">@media (max-width: 768px){.site-content-header .page-header .page-title,.site-content-header .page-title{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-mobile-line-height">@media (max-width: 480px){.site-content-header .page-header .page-title,.site-content-header .page-title{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-letter-spacing">.site-content-header .page-header .page-title,.site-content-header .page-title{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-tablet-letter-spacing">@media (max-width: 768px){.site-content-header .page-header .page-title,.site-content-header .page-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-mobile-letter-spacing">@media (max-width: 480px){.site-content-header .page-header .page-title,.site-content-header .page-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_heading_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_heading-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_heading-text-transform">.site-content-header .page-header .page-title,.site-content-header .page-title{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ),api( "content_header_description_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
+	            /** @type {string} */
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-content_header_description-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customizer-typography-content_header_description-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-font-family">.site-content-header .page-header .page-description{font-family: ' + pair + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-font-weight">.site-content-header .page-header .page-description{font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_typography[font-style]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-font-style">.site-content-header .page-header .page-description{font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-font-size">.site-content-header .page-header .page-description{font-size: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_tablet_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-tablet-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-tablet-font-size">@media (max-width: 768px){.site-content-header .page-header .page-description{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_mobile_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-mobile-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-mobile-font-size">@media (max-width: 480px){.site-content-header .page-header .page-description{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_typography[color]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-color" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-color">.site-content-header .page-header .page-description{color: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-line-height">.site-content-header .page-header .page-description{line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-tablet-line-height">@media (max-width: 768px){.site-content-header .page-header .page-description{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-mobile-line-height">@media (max-width: 480px){.site-content-header .page-header .page-description{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-letter-spacing">.site-content-header .page-header .page-description{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-tablet-letter-spacing">@media (max-width: 768px){.site-content-header .page-header .page-description{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-mobile-letter-spacing">@media (max-width: 480px){.site-content-header .page-header .page-description{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "content_header_description_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-content_header_description-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-content_header_description-text-transform">.site-content-header .page-header .page-description{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ),api( "breadcrumb_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
+	            /** @type {string} */
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-breadcrumb-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customizer-typography-breadcrumb-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-font-family">.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{font-family: ' + pair + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-font-weight">.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_typography[font-style]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-font-style">.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-font-size">.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{font-size: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_tablet_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-tablet-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-tablet-font-size">@media (max-width: 768px){.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_mobile_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-mobile-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-mobile-font-size">@media (max-width: 480px){.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_typography[color]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-color" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-color">.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{color: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-line-height">.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-tablet-line-height">@media (max-width: 768px){.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-mobile-line-height">@media (max-width: 480px){.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-letter-spacing">.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-tablet-letter-spacing">@media (max-width: 768px){.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-mobile-letter-spacing">@media (max-width: 480px){.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "breadcrumb_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-breadcrumb-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-breadcrumb-text-transform">.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ),
+	api( "footer_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
+	            /** @type {string} */
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-footer_typography-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customize-control-footer_typography-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-font-family">.site-footer {font-family: ' + pair + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-font-weight">.site-footer {font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_typography[font-style]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-font-style">.site-footer {font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-font-size">.site-footer {font-size: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_tablet_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-tablet-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-tablet-font-size">@media (max-width: 768px){.site-footer {font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_mobile_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-mobile-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-mobile-font-size">@media (max-width: 480px){.site-footer {font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_typography[color]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-color" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-color">.site-footer {color: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-line-height">.site-footer {line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-tablet-line-height">@media (max-width: 768px){.site-footer {line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-mobile-line-height">@media (max-width: 480px){.site-footer {line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-letter-spacing">.site-footer {letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-tablet-letter-spacing">@media (max-width: 768px){.site-footer {letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-mobile-letter-spacing">@media (max-width: 480px){.site-footer {letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "footer_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customize-control-footer_typography-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customize-control-footer_typography-text-transform">.site-footer {text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ),
+	api( "header_menu_typography[font-family]", function( $swipe ) {
+	   $swipe.bind( function( pair ) {
+	       if ( pair ) {
+	           /** @type {string} */
+	           var fontName = pair.split(",")[0];
+	               fontName = fontName.replace(/'/g, '');
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-header_menu_typography-font-family" );
+	           var fontSize = fontName.replace( " ", "%20" );
+	           fontSize = fontSize.replace( ",", "%2C" );
+	           /** @type {string} */
+	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	           if ( $( "#" + idfirst ).length ) {
+	               $( "#" + idfirst ).attr( "href", fontSize );
+	           } else {
+	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	           }
+	       }
+	       var $child = $( ".customize-control-header_menu_typography-font-family" );
+	       if ( pair ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-font-family">.main-navigation a{font-family: ' + pair + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[font-weight]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-font-weight" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-font-weight">.main-navigation a{font-weight: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[font-style]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-font-style" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-font-style">.main-navigation a{font-style: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[font-size]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-font-size" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-font-size">.main-navigation a{font-size: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[font-size]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-tablet-font-size" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-tablet-font-size">@media (max-width: 768px){.main-navigation a{font-size: ' + dataAndEvents + ";}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "heading_h1_mobile_typography[font-size]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-mobile-font-size" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-mobile-font-size">@media (max-width: 480px){.main-navigation a{font-size: ' + dataAndEvents + ";}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[color]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-color" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-color">.main-navigation a{color: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[line-height]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-line-height" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-line-height">.main-navigation a{line-height: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[line-height]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-tablet-line-height" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-tablet-line-height">@media (max-width: 768px){.main-navigation a{line-height: ' + dataAndEvents + ";}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "heading_h1_mobile_typography[line-height]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-mobile-line-height" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-mobile-line-height">@media (max-width: 480px){.main-navigation a{line-height: ' + dataAndEvents + ";}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[letter-spacing]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-letter-spacing" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-letter-spacing">.main-navigation a{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[letter-spacing]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-tablet-letter-spacing" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-tablet-letter-spacing">@media (max-width: 768px){.main-navigation a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "heading_h1_mobile_typography[letter-spacing]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-mobile-letter-spacing" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-mobile-letter-spacing">@media (max-width: 480px){.main-navigation a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "header_menu_typography[text-transform]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-header_menu_typography-text-transform" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-header_menu_typography-text-transform">.main-navigation a{text-transform: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
 	} ), api( "page_subheading_typography[font-family]", function( $swipe ) {
 		$swipe.bind( function( pair ) {
 			if ( pair ) {
@@ -3099,492 +2710,28 @@
 				$child.remove();
 			}
 		} );
-	} ), api( "blog_entry_title_typography[font-family]", function( $swipe ) {
-	   $swipe.bind( function( pair ) {
-	       if ( pair ) {
-	           /** @type {string} */
-	           var fontName = pair.split(",")[0];
-	               fontName = fontName.replace(/'/g, '');
-	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-blog_entry_title_typography-font-family" );
-	           var fontSize = fontName.replace( " ", "%20" );
-	           fontSize = fontSize.replace( ",", "%2C" );
-	           /** @type {string} */
-	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	           if ( $( "#" + idfirst ).length ) {
-	               $( "#" + idfirst ).attr( "href", fontSize );
-	           } else {
-	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	           }
-	       }
-	       var $child = $( ".customizer-typography-blog_entry_title_typography-font-family" );
-	       if ( pair ) {
-	           /** @type {string} */
-	           var img = '<style class="customizer-typography-blog_entry_title_typography-font-family">#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{font-family: ' + pair + ";}</style>";
-	           if ( $child.length ) {
-	               $child.replaceWith( img );
-	           } else {
-	               $( "head" ).append( img );
-	           }
-	       } else {
-	           $child.remove();
-	       }
-	   } );
-	} ), api( "blog_entry_title_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-font-weight">#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-font-style">#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-font-size">#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-tablet-font-size">@media (max-width: 768px){#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-mobile-font-size">@media (max-width: 480px){#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-color">#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-line-height">#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-tablet-line-height">@media (max-width: 768px){#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-mobile-line-height">@media (max-width: 480px){#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-letter-spacing">#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-tablet-letter-spacing">@media (max-width: 768px){#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-mobile-letter-spacing">@media (max-width: 480px){#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_entry_title_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_entry_title-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_entry_title-text-transform">#primary .post .post-entry .entry-title a, .wp-block-latest-posts li a{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ),api( "blog_post_title_typography[font-family]", function( $swipe ) {
-	   $swipe.bind( function( pair ) {
-	       if ( pair ) {
-	           /** @type {string} */
-	           var fontName = pair.split(",")[0];
-	               fontName = fontName.replace(/'/g, '');
-	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-blog_post_title_typography-font-family" );
-	           var fontSize = fontName.replace( " ", "%20" );
-	           fontSize = fontSize.replace( ",", "%2C" );
-	           /** @type {string} */
-	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	           if ( $( "#" + idfirst ).length ) {
-	               $( "#" + idfirst ).attr( "href", fontSize );
-	           } else {
-	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	           }
-	       }
-	       var $child = $( ".customizer-typography-blog_post_title_typography-font-family" );
-	       if ( pair ) {
-	           /** @type {string} */
-	           var img = '<style class="customizer-typography-blog_post_title_typography-font-family">.single-post #primary .post .post-entry .entry-title{font-family: ' + pair + ";}</style>";
-	           if ( $child.length ) {
-	               $child.replaceWith( img );
-	           } else {
-	               $( "head" ).append( img );
-	           }
-	       } else {
-	           $child.remove();
-	       }
-	   } );
-	} ), api( "blog_post_title_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-font-weight">.single-post #primary .post .post-entry .entry-title{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-font-style">.single-post #primary .post .post-entry .entry-title{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-font-size">.single-post #primary .post .post-entry .entry-title{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-tablet-font-size">@media (max-width: 768px){.single-post #primary .post .post-entry .entry-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-mobile-font-size">@media (max-width: 480px){.single-post #primary .post .post-entry .entry-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-color">.single-post #primary .post .post-entry .entry-title{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-line-height">.single-post #primary .post .post-entry .entry-title{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-tablet-line-height">@media (max-width: 768px){.single-post #primary .post .post-entry .entry-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-mobile-line-height">@media (max-width: 480px){.single-post #primary .post .post-entry .entry-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-letter-spacing">.single-post #primary .post .post-entry .entry-title{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-tablet-letter-spacing">@media (max-width: 768px){.single-post #primary .post .post-entry .entry-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-mobile-letter-spacing">@media (max-width: 480px){.single-post #primary .post .post-entry .entry-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "blog_post_title_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-blog_post_title-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-blog_post_title-text-transform">.single-post #primary .post .post-entry .entry-title{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ),api( "post_meta_typography[font-family]", function( $swipe ) {
-	   $swipe.bind( function( pair ) {
-	       if ( pair ) {
-	           /** @type {string} */
-	           var fontName = pair.split(",")[0];
-	               fontName = fontName.replace(/'/g, '');
-	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-post_meta_typography-font-family" );
-	           var fontSize = fontName.replace( " ", "%20" );
-	           fontSize = fontSize.replace( ",", "%2C" );
-	           /** @type {string} */
-	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	           if ( $( "#" + idfirst ).length ) {
-	               $( "#" + idfirst ).attr( "href", fontSize );
-	           } else {
-	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	           }
-	       }
-	       var $child = $( ".customizer-typography-post_meta_typography-font-family" );
-	       if ( pair ) {
-	           /** @type {string} */
-	           var img = '<style class="customizer-typography-post_meta_typography-font-family">.post-meta *{font-family: ' + pair + ";}</style>";
-	           if ( $child.length ) {
-	               $child.replaceWith( img );
-	           } else {
-	               $( "head" ).append( img );
-	           }
-	       } else {
-	           $child.remove();
-	       }
-	   } );
-	} ), api( "post_meta_typography[font-weight]", function( $swipe ) {
-	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-font-weight" );
-	        if ( dataAndEvents ) {
+	} ),
+	api( "meta_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-font-weight">.post-meta *{font-weight: ' + dataAndEvents + ";}</style>";
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-meta-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customizer-typography-meta-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-meta-font-family">.hentry .post-data,.post-meta *{font-family: ' + pair + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3594,12 +2741,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_typography[font-style]", function( $swipe ) {
+	} ), api( "meta_typography[font-weight]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-font-style" );
+	        var $child = $( ".customizer-typography-meta-font-weight" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-font-style">.post-meta *{font-style: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-meta-font-weight">.hentry .post-data,.post-meta *{font-weight: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3609,12 +2756,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_typography[font-size]", function( $swipe ) {
+	} ), api( "meta_typography[font-style]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-font-size" );
+	        var $child = $( ".customizer-typography-meta-font-style" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-font-size">.post-meta *{font-size: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-meta-font-style">.hentry .post-data,.post-meta *{font-style: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3624,12 +2771,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_tablet_typography[font-size]", function( $swipe ) {
+	} ), api( "meta_typography[font-size]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-tablet-font-size" );
+	        var $child = $( ".customizer-typography-meta-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-tablet-font-size">@media (max-width: 768px){.post-meta *{font-size: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-meta-font-size">.hentry .post-data,.post-meta *{font-size: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3639,12 +2786,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_mobile_typography[font-size]", function( $swipe ) {
+	} ), api( "meta_tablet_typography[font-size]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-mobile-font-size" );
+	        var $child = $( ".customizer-typography-meta-tablet-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-mobile-font-size">@media (max-width: 480px){.post-meta *{font-size: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-meta-tablet-font-size">@media (max-width: 768px){.hentry .post-data,.post-meta *{font-size: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3654,12 +2801,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_typography[color]", function( $swipe ) {
+	} ), api( "meta_mobile_typography[font-size]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-color" );
+	        var $child = $( ".customizer-typography-meta-mobile-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-color">.post-meta *{color: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-meta-mobile-font-size">@media (max-width: 480px){.hentry .post-data,.post-meta *{font-size: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3669,12 +2816,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_typography[line-height]", function( $swipe ) {
+	} ), api( "meta_typography[color]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-line-height" );
+	        var $child = $( ".customizer-typography-meta-color" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-line-height">.post-meta *{line-height: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-meta-color">.hentry .post-data,.post-meta *{color: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3684,12 +2831,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_tablet_typography[line-height]", function( $swipe ) {
+	} ), api( "meta_typography[line-height]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-tablet-line-height" );
+	        var $child = $( ".customizer-typography-meta-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-tablet-line-height">@media (max-width: 768px){.post-meta *{line-height: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-meta-line-height">.hentry .post-data,.post-meta *{line-height: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3699,12 +2846,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_mobile_typography[line-height]", function( $swipe ) {
+	} ), api( "meta_tablet_typography[line-height]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-mobile-line-height" );
+	        var $child = $( ".customizer-typography-meta-tablet-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-mobile-line-height">@media (max-width: 480px){.post-meta *{line-height: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-meta-tablet-line-height">@media (max-width: 768px){.hentry .post-data,.post-meta *{line-height: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3714,12 +2861,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "meta_mobile_typography[line-height]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-letter-spacing" );
+	        var $child = $( ".customizer-typography-meta-mobile-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-letter-spacing">.post-meta *{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            var img = '<style class="customizer-typography-meta-mobile-line-height">@media (max-width: 480px){.hentry .post-data,.post-meta *{line-height: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3729,12 +2876,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_tablet_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "meta_typography[letter-spacing]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-tablet-letter-spacing" );
+	        var $child = $( ".customizer-typography-meta-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-tablet-letter-spacing">@media (max-width: 768px){.post-meta *{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            var img = '<style class="customizer-typography-meta-letter-spacing">.hentry .post-data,.post-meta *{letter-spacing: ' + dataAndEvents + "px;}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3744,12 +2891,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_mobile_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "meta_tablet_typography[letter-spacing]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-mobile-letter-spacing" );
+	        var $child = $( ".customizer-typography-meta-tablet-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-mobile-letter-spacing">@media (max-width: 480px){.post-meta *{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            var img = '<style class="customizer-typography-meta-tablet-letter-spacing">@media (max-width: 768px){.hentry .post-data,.post-meta *{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3759,12 +2906,12 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "post_meta_typography[text-transform]", function( $swipe ) {
+	} ), api( "meta_mobile_typography[letter-spacing]", function( $swipe ) {
 	    $swipe.bind( function( dataAndEvents ) {
-	        var $child = $( ".customizer-typography-post_meta-text-transform" );
+	        var $child = $( ".customizer-typography-meta-mobile-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-post_meta-text-transform">.post-meta *{text-transform: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-meta-mobile-letter-spacing">@media (max-width: 480px){.hentry .post-data,.post-meta *{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3774,1776 +2921,472 @@
 	            $child.remove();
 	        }
 	    } );
-	} ), api( "sidebar_widget_title_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-sidebar_widget_title-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-sidebar_widget_title-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-font-family">.sidebar-box .widget-title{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-font-weight">.sidebar-box .widget-title{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-font-style">.sidebar-box .widget-title{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-font-size">.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-tablet-font-size">@media (max-width: 768px){.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-mobile-font-size">@media (max-width: 480px){.sidebar-box .widget-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-color">.sidebar-box .widget-title{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-line-height">.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-tablet-line-height">@media (max-width: 768px){.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-mobile-line-height">@media (max-width: 480px){.sidebar-box .widget-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-letter-spacing">.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-tablet-letter-spacing">@media (max-width: 768px){.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-mobile-letter-spacing">@media (max-width: 480px){.sidebar-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "sidebar_widget_title_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-sidebar_widget_title-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-sidebar_widget_title-text-transform">.sidebar-box .widget-title{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-widgets-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-widgets-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-font-family">.sidebar-box, .footer-box{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-font-weight">.sidebar-box, .footer-box{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-font-style">.sidebar-box, .footer-box{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-font-size">.sidebar-box, .footer-box{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-tablet-font-size">@media (max-width: 768px){.sidebar-box, .footer-box{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-mobile-font-size">@media (max-width: 480px){.sidebar-box, .footer-box{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-color">.sidebar-box, .footer-box{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-line-height">.sidebar-box, .footer-box{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-tablet-line-height">@media (max-width: 768px){.sidebar-box, .footer-box{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-mobile-line-height">@media (max-width: 480px){.sidebar-box, .footer-box{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-letter-spacing">.sidebar-box, .footer-box{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-tablet-letter-spacing">@media (max-width: 768px){.sidebar-box, .footer-box{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-mobile-letter-spacing">@media (max-width: 480px){.sidebar-box, .footer-box{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "widgets_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-widgets-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-widgets-text-transform">.sidebar-box, .footer-box{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-footer_widget_title-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-footer_widget_title-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-font-family">#footer-widgets .footer-box .widget-title{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-font-weight">#footer-widgets .footer-box .widget-title{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-font-style">#footer-widgets .footer-box .widget-title{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-font-size">#footer-widgets .footer-box .widget-title{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-tablet-font-size">@media (max-width: 768px){#footer-widgets .footer-box .widget-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-mobile-font-size">@media (max-width: 480px){#footer-widgets .footer-box .widget-title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-color">#footer-widgets .footer-box .widget-title{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-line-height">#footer-widgets .footer-box .widget-title{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-tablet-line-height">@media (max-width: 768px){#footer-widgets .footer-box .widget-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-mobile-line-height">@media (max-width: 480px){#footer-widgets .footer-box .widget-title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-letter-spacing">#footer-widgets .footer-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-tablet-letter-spacing">@media (max-width: 768px){#footer-widgets .footer-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-mobile-letter-spacing">@media (max-width: 480px){#footer-widgets .footer-box .widget-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_widget_title_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_widget_title-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_widget_title-text-transform">#footer-widgets .footer-box .widget-title{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-copyright-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-copyright-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-font-family">#footer-bottom #copyright{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-font-weight">#footer-bottom #copyright{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-font-style">#footer-bottom #copyright{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-font-size">#footer-bottom #copyright{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-tablet-font-size">@media (max-width: 768px){#footer-bottom #copyright{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-mobile-font-size">@media (max-width: 480px){#footer-bottom #copyright{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-color">#footer-bottom #copyright{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-line-height">#footer-bottom #copyright{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-tablet-line-height">@media (max-width: 768px){#footer-bottom #copyright{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-mobile-line-height">@media (max-width: 480px){#footer-bottom #copyright{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-letter-spacing">#footer-bottom #copyright{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-tablet-letter-spacing">@media (max-width: 768px){#footer-bottom #copyright{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-mobile-letter-spacing">@media (max-width: 480px){#footer-bottom #copyright{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "copyright_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-copyright-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-copyright-text-transform">#footer-bottom #copyright{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-footer_menu-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-footer_menu-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-font-family">#footer-bottom #footer-bottom-menu{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-font-weight">#footer-bottom #footer-bottom-menu{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-font-style">#footer-bottom #footer-bottom-menu{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-font-size">#footer-bottom #footer-bottom-menu{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-tablet-font-size">@media (max-width: 768px){#footer-bottom #footer-bottom-menu{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-mobile-font-size">@media (max-width: 480px){#footer-bottom #footer-bottom-menu{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-color">#footer-bottom #footer-bottom-menu{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-line-height">#footer-bottom #footer-bottom-menu{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-tablet-line-height">@media (max-width: 768px){#footer-bottom #footer-bottom-menu{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-mobile-line-height">@media (max-width: 480px){#footer-bottom #footer-bottom-menu{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-letter-spacing">#footer-bottom #footer-bottom-menu{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-tablet-letter-spacing">@media (max-width: 768px){#footer-bottom #footer-bottom-menu{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-mobile-letter-spacing">@media (max-width: 480px){#footer-bottom #footer-bottom-menu{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "footer_menu_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-footer_menu-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-footer_menu-text-transform">#footer-bottom #footer-bottom-menu{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-product-title-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-product-title-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-title-font-family">.woocommerce div.product .product_title{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-title-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-title-font-weight">.woocommerce div.product .product_title{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-title-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-title-font-style">.woocommerce div.product .product_title{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-title-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-title-font-size">.woocommerce div.product .product_title{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_title-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_title-tablet-font-size">@media (max-width: 768px){.woocommerce div.product .product_title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_title-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_title-mobile-font-size">@media (max-width: 480px){.woocommerce div.product .product_title{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-title-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-title-color">.woocommerce div.product .product_title{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-title-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-title-line-height">.woocommerce div.product .product_title{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_title-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_title-tablet-line-height">@media (max-width: 768px){.woocommerce div.product .product_title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_title-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_title-mobile-line-height">@media (max-width: 480px){.woocommerce div.product .product_title{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-title-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-title-letter-spacing">.woocommerce div.product .product_title{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_title-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_title-tablet-letter-spacing">@media (max-width: 768px){.woocommerce div.product .product_title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_title-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_title-mobile-letter-spacing">@media (max-width: 480px){.woocommerce div.product .product_title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_title_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-title-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-title-text-transform">.woocommerce div.product .product_title{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-product-price-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-product-price-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-font-family">.woocommerce div.product p.price{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-font-weight">.woocommerce div.product p.price{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-font-style">.woocommerce div.product p.price{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-font-size">.woocommerce div.product p.price{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-tablet-font-size">@media (max-width: 768px){.woocommerce div.product p.price{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-mobile-font-size">@media (max-width: 480px){.woocommerce div.product p.price{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-line-height">.woocommerce div.product p.price{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-tablet-line-height">@media (max-width: 768px){.woocommerce div.product p.price{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-mobile-line-height">@media (max-width: 480px){.woocommerce div.product p.price{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-letter-spacing">.woocommerce div.product p.price{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-tablet-letter-spacing">@media (max-width: 768px){.woocommerce div.product p.price{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-mobile-letter-spacing">@media (max-width: 480px){.woocommerce div.product p.price{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_price_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-product-price-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-product-price-text-transform">.woocommerce div.product p.price{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_typography[font-family]", function( $swipe ) {
-		$swipe.bind( function( pair ) {
-			if ( pair ) {
-				/** @type {string} */
-				var idfirst = ( pair.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-add-to-cart-font-family" );
-				var fontSize = pair.replace( " ", "%20" );
-				fontSize = fontSize.replace( ",", "%2C" );
-				/** @type {string} */
-				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
-			}
-			var $child = $( ".customizer-typography-add-to-cart-font-family" );
-			if ( pair ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-add-to-cart-font-family">.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{font-family: ' + pair + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_typography[font-weight]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-add-to-cart-font-weight" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-add-to-cart-font-weight">.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{font-weight: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_typography[font-style]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-add-to-cart-font-style" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-add-to-cart-font-style">.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{font-style: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-add-to-cart-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-add-to-cart-font-size">.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{font-size: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_tablet_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_add_to_cart-tablet-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_add_to_cart-tablet-font-size">@media (max-width: 768px){.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_mobile_typography[font-size]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_add_to_cart-mobile-font-size" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_add_to_cart-mobile-font-size">@media (max-width: 480px){.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{font-size: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_typography[color]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-add-to-cart-color" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-add-to-cart-color">.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{color: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-add-to-cart-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-add-to-cart-line-height">.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{line-height: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_tablet_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_add_to_cart-tablet-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_add_to_cart-tablet-line-height">@media (max-width: 768px){.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_mobile_typography[line-height]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_add_to_cart-mobile-line-height" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_add_to_cart-mobile-line-height">@media (max-width: 480px){.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{line-height: ' + dataAndEvents + ";}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-add-to-cart-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-add-to-cart-letter-spacing">.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{letter-spacing: ' + dataAndEvents + "px;}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_tablet_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_add_to_cart-tablet-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_add_to_cart-tablet-letter-spacing">@media (max-width: 768px){.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_mobile_typography[letter-spacing]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-woo_product_add_to_cart-mobile-letter-spacing" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-woo_product_add_to_cart-mobile-letter-spacing">@media (max-width: 480px){.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "woo_product_add_to_cart_typography[text-transform]", function( $swipe ) {
-		$swipe.bind( function( dataAndEvents ) {
-			var $child = $( ".customizer-typography-add-to-cart-text-transform" );
-			if ( dataAndEvents ) {
-				/** @type {string} */
-				var img = '<style class="customizer-typography-add-to-cart-text-transform">.woocommerce ul.products li.product .button, .woocommerce ul.products li.product .product-inner .added_to_cart{text-transform: ' + dataAndEvents + ";}</style>";
-				if ( $child.length ) {
-					$child.replaceWith( img );
-				} else {
-					$( "head" ).append( img );
-				}
-			} else {
-				$child.remove();
-			}
-		} );
-	} ), api( "heading_h5_typography[font-family]", function( $swipe ) {
+	} ), api( "meta_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-meta-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-meta-text-transform">.hentry .post-data,.post-meta *{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ),api( "button_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
+	            /** @type {string} */
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-button-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customizer-typography-button-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-font-family">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-family: ' + pair + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-font-weight">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[font-style]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-font-style">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-font-size">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_tablet_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-tablet-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-tablet-font-size">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_mobile_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-mobile-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-mobile-font-size">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[color]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-color" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-color">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{color: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-line-height">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-tablet-line-height">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-mobile-line-height">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-letter-spacing">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-tablet-letter-spacing">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-mobile-letter-spacing">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "button_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-button-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-button-text-transform">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
+	            /** @type {string} */
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-input-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( $( "#" + idfirst ).length ) {
+	                $( "#" + idfirst ).attr( "href", fontSize );
+	            } else {
+	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	            }
+	        }
+	        var $child = $( ".customizer-typography-input-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-font-family">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-family: ' + pair + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-font-weight">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[font-style]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-font-style" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-font-style">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-style: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-font-size">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-size: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_tablet_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-tablet-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-tablet-font-size">@media (max-width: 768px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_mobile_typography[font-size]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-mobile-font-size" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-mobile-font-size">@media (max-width: 480px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{font-size: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[color]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-color" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-color">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{color: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-line-height">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-tablet-line-height">@media (max-width: 768px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-mobile-line-height">@media (max-width: 480px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-letter-spacing">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-tablet-letter-spacing">@media (max-width: 768px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-mobile-letter-spacing">@media (max-width: 480px){select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "input_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-input-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-input-text-transform">select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ),  api( "heading_h5_typography[font-family]", function( $swipe ) {
 		$swipe.bind( function( pair ) {
 			if ( pair ) {
 				/** @type {string} */
@@ -5993,13 +3836,14 @@
 				$child.remove();
 			}
 		} );
-	} ),api( "site_title_typography[font-family]", function( $swipe ) {
+	} ),
+	api( "header_site_title_typography[font-family]", function( $swipe ) {
 	   $swipe.bind( function( pair ) {
 	       if ( pair ) {
 	           /** @type {string} */
 	           var fontName = pair.split(",")[0];
 	               fontName = fontName.replace(/'/g, '');
-	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-site_title-font-family" );
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-header_site_title-font-family" );
 	           var fontSize = fontName.replace( " ", "%20" );
 	           fontSize = fontSize.replace( ",", "%2C" );
 	           /** @type {string} */
@@ -6010,10 +3854,10 @@
 	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
 	           }
 	       }
-	       var $child = $( ".customizer-typography-site_title-font-family" );
+	       var $child = $( ".customizer-typography-header_site_title-font-family" );
 	       if ( pair ) {
 	           /** @type {string} */
-	           var img = '<style class="customizer-typography-site_title-font-family">.site-name{font-family: ' + pair + ";}</style>";
+	           var img = '<style class="customizer-typography-header_site_title-font-family">.site-title a{font-family: ' + pair + ";}</style>";
 	           if ( $child.length ) {
 	               $child.replaceWith( img );
 	           } else {
@@ -6023,12 +3867,12 @@
 	           $child.remove();
 	       }
 	   } );
-	} ), api( "site_title_typography[font-weight]", function( $swipe ) {
+	} ), api( "header_site_title_typography[font-weight]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-font-weight" );
+	    var $child = $( ".customizer-typography-header_site_title-font-weight" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-font-weight">.site-name{font-weight: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-font-weight">.site-title a{font-weight: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6038,12 +3882,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_typography[font-style]", function( $swipe ) {
+	} ), api( "header_site_title_typography[font-style]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-font-style" );
+	    var $child = $( ".customizer-typography-header_site_title-font-style" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-font-style">.site-name{font-style: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-font-style">.site-title{font-style: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6053,12 +3897,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_typography[font-size]", function( $swipe ) {
+	} ), api( "header_site_title_typography[font-size]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-font-size" );
+	    var $child = $( ".customizer-typography-header_site_title-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-font-size">.site-name{font-size: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-font-size">.site-title a{font-size: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6068,12 +3912,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_tablet_typography[font-size]", function( $swipe ) {
+	} ), api( "header_site_title_tablet_typography[font-size]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-tablet-font-size" );
+	    var $child = $( ".customizer-typography-header_site_title-tablet-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-tablet-font-size">@media (max-width: 768px){.site-name{font-size: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-tablet-font-size">@media (max-width: 768px){.site-title a{font-size: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6083,12 +3927,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_mobile_typography[font-size]", function( $swipe ) {
+	} ), api( "header_site_title_mobile_typography[font-size]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-mobile-font-size" );
+	    var $child = $( ".customizer-typography-header_site_title-mobile-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-mobile-font-size">@media (max-width: 480px){.site-name{font-size: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-mobile-font-size">@media (max-width: 480px){.site-title a{font-size: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6098,12 +3942,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_typography[color]", function( $swipe ) {
+	} ), api( "header_site_title_typography[color]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-color" );
+	    var $child = $( ".customizer-typography-header_site_title-color" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-color">.site-name{color: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-color">.site-title{color: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6113,12 +3957,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_typography[line-height]", function( $swipe ) {
+	} ), api( "header_site_title_typography[line-height]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-line-height" );
+	    var $child = $( ".customizer-typography-header_site_title-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-line-height">.site-name{line-height: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-line-height">.site-title{line-height: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6128,12 +3972,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_tablet_typography[line-height]", function( $swipe ) {
+	} ), api( "header_site_title_tablet_typography[line-height]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-tablet-line-height" );
+	    var $child = $( ".customizer-typography-header_site_title-tablet-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-tablet-line-height">@media (max-width: 768px){.site-name{line-height: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-tablet-line-height">@media (max-width: 768px){.site-title{line-height: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6143,12 +3987,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_mobile_typography[line-height]", function( $swipe ) {
+	} ), api( "header_site_title_mobile_typography[line-height]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-mobile-line-height" );
+	    var $child = $( ".customizer-typography-header_site_title-mobile-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-mobile-line-height">@media (max-width: 480px){.site-name{line-height: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-mobile-line-height">@media (max-width: 480px){.site-title{line-height: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6158,12 +4002,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "header_site_title_typography[letter-spacing]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-letter-spacing" );
+	    var $child = $( ".customizer-typography-header_site_title-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-letter-spacing">.site-name{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-letter-spacing">.site-title{letter-spacing: ' + dataAndEvents + "px;}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6173,12 +4017,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_tablet_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "header_site_title_tablet_typography[letter-spacing]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-tablet-letter-spacing" );
+	    var $child = $( ".customizer-typography-header_site_title-tablet-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-tablet-letter-spacing">@media (max-width: 768px){.site-name{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-tablet-letter-spacing">@media (max-width: 768px){.site-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6188,12 +4032,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_mobile_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "header_site_title_mobile_typography[letter-spacing]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-mobile-letter-spacing" );
+	    var $child = $( ".customizer-typography-header_site_title-mobile-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-mobile-letter-spacing">@media (max-width: 480px){.site-name{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-mobile-letter-spacing">@media (max-width: 480px){.site-title{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6203,12 +4047,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_title_typography[text-transform]", function( $swipe ) {
+	} ), api( "header_site_title_typography[text-transform]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_title-text-transform" );
+	    var $child = $( ".customizer-typography-header_site_title-text-transform" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_title-text-transform">.site-name{text-transform: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_title-text-transform">.site-title{text-transform: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6218,13 +4062,13 @@
 	      $child.remove();
 	    }
 	  } );
-	} ),api( "site_tagline_typography[font-family]", function( $swipe ) {
+	} ),api( "header_site_tagline_typography[font-family]", function( $swipe ) {
 	   $swipe.bind( function( pair ) {
 	       if ( pair ) {
 	           /** @type {string} */
 	           var fontName = pair.split(",")[0];
 	               fontName = fontName.replace(/'/g, '');
-	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-site_tagline-font-family" );
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-header_site_tagline-font-family" );
 	           var fontSize = fontName.replace( " ", "%20" );
 	           fontSize = fontSize.replace( ",", "%2C" );
 	           /** @type {string} */
@@ -6235,10 +4079,10 @@
 	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
 	           }
 	       }
-	       var $child = $( ".customizer-typography-site_tagline-font-family" );
+	       var $child = $( ".customizer-typography-header_site_tagline-font-family" );
 	       if ( pair ) {
 	           /** @type {string} */
-	           var img = '<style class="customizer-typography-site_tagline-font-family">.site-description{font-family: ' + pair + ";}</style>";
+	           var img = '<style class="customizer-typography-header_site_tagline-font-family">.site-description{font-family: ' + pair + ";}</style>";
 	           if ( $child.length ) {
 	               $child.replaceWith( img );
 	           } else {
@@ -6248,12 +4092,12 @@
 	           $child.remove();
 	       }
 	   } );
-	} ), api( "site_tagline_typography[font-weight]", function( $swipe ) {
+	} ), api( "header_site_tagline_typography[font-weight]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-font-weight" );
+	    var $child = $( ".customizer-typography-header_site_tagline-font-weight" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-font-weight">.site-description{font-weight: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-font-weight">.site-description{font-weight: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6263,12 +4107,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_typography[font-style]", function( $swipe ) {
+	} ), api( "header_site_tagline_typography[font-style]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-font-style" );
+	    var $child = $( ".customizer-typography-header_site_tagline-font-style" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-font-style">.site-description{font-style: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-font-style">.site-description{font-style: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6278,12 +4122,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_typography[font-size]", function( $swipe ) {
+	} ), api( "header_site_tagline_typography[font-size]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-font-size" );
+	    var $child = $( ".customizer-typography-header_site_tagline-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-font-size">.site-description{font-size: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-font-size">.site-description{font-size: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6293,12 +4137,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_tablet_typography[font-size]", function( $swipe ) {
+	} ), api( "header_site_tagline_tablet_typography[font-size]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-tablet-font-size" );
+	    var $child = $( ".customizer-typography-header_site_tagline-tablet-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-tablet-font-size">@media (max-width: 768px){.site-description{font-size: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-tablet-font-size">@media (max-width: 768px){.site-description{font-size: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6308,12 +4152,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_mobile_typography[font-size]", function( $swipe ) {
+	} ), api( "header_site_tagline_mobile_typography[font-size]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-mobile-font-size" );
+	    var $child = $( ".customizer-typography-header_site_tagline-mobile-font-size" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-mobile-font-size">@media (max-width: 480px){.site-description{font-size: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-mobile-font-size">@media (max-width: 480px){.site-description{font-size: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6323,12 +4167,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_typography[color]", function( $swipe ) {
+	} ), api( "header_site_tagline_typography[color]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-color" );
+	    var $child = $( ".customizer-typography-header_site_tagline-color" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-color">.site-description{color: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-color">.site-description{color: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6338,12 +4182,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_typography[line-height]", function( $swipe ) {
+	} ), api( "header_site_tagline_typography[line-height]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-line-height" );
+	    var $child = $( ".customizer-typography-header_site_tagline-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-line-height">.site-description{line-height: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-line-height">.site-description{line-height: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6353,12 +4197,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_tablet_typography[line-height]", function( $swipe ) {
+	} ), api( "header_site_tagline_tablet_typography[line-height]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-tablet-line-height" );
+	    var $child = $( ".customizer-typography-header_site_tagline-tablet-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-tablet-line-height">@media (max-width: 768px){.site-description{line-height: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-tablet-line-height">@media (max-width: 768px){.site-description{line-height: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6368,12 +4212,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_mobile_typography[line-height]", function( $swipe ) {
+	} ), api( "header_site_tagline_mobile_typography[line-height]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-mobile-line-height" );
+	    var $child = $( ".customizer-typography-header_site_tagline-mobile-line-height" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-mobile-line-height">@media (max-width: 480px){.site-description{line-height: ' + dataAndEvents + ";}}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-mobile-line-height">@media (max-width: 480px){.site-description{line-height: ' + dataAndEvents + ";}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6383,12 +4227,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "header_site_tagline_typography[letter-spacing]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-letter-spacing" );
+	    var $child = $( ".customizer-typography-header_site_tagline-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-letter-spacing">.site-description{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-letter-spacing">.site-description{letter-spacing: ' + dataAndEvents + "px;}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6398,12 +4242,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_tablet_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "header_site_tagline_tablet_typography[letter-spacing]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-tablet-letter-spacing" );
+	    var $child = $( ".customizer-typography-header_site_tagline-tablet-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-tablet-letter-spacing">@media (max-width: 768px){.site-description{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-tablet-letter-spacing">@media (max-width: 768px){.site-description{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6413,12 +4257,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_mobile_typography[letter-spacing]", function( $swipe ) {
+	} ), api( "header_site_tagline_mobile_typography[letter-spacing]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-mobile-letter-spacing" );
+	    var $child = $( ".customizer-typography-header_site_tagline-mobile-letter-spacing" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-mobile-letter-spacing">@media (max-width: 480px){.site-description{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-mobile-letter-spacing">@media (max-width: 480px){.site-description{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {
@@ -6428,237 +4272,12 @@
 	      $child.remove();
 	    }
 	  } );
-	} ), api( "site_tagline_typography[text-transform]", function( $swipe ) {
+	} ), api( "header_site_tagline_typography[text-transform]", function( $swipe ) {
 	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-site_tagline-text-transform" );
+	    var $child = $( ".customizer-typography-header_site_tagline-text-transform" );
 	    if ( dataAndEvents ) {
 	      /** @type {string} */
-	      var img = '<style class="customizer-typography-site_tagline-text-transform">.site-description{text-transform: ' + dataAndEvents + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ),api( "buttons_typography[font-family]", function( $swipe ) {
-	   $swipe.bind( function( pair ) {
-	       if ( pair ) {
-	           /** @type {string} */
-	           var fontName = pair.split(",")[0];
-	               fontName = fontName.replace(/'/g, '');
-	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-buttons_typography-font-family" );
-	           var fontSize = fontName.replace( " ", "%20" );
-	           fontSize = fontSize.replace( ",", "%2C" );
-	           /** @type {string} */
-	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	           if ( $( "#" + idfirst ).length ) {
-	               $( "#" + idfirst ).attr( "href", fontSize );
-	           } else {
-	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	           }
-	       }
-	       var $child = $( ".customizer-typography-buttons_typography-font-family" );
-	       if ( pair ) {
-	           /** @type {string} */
-	           var img = '<style class="customizer-typography-buttons_typography-font-family">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link{font-family: ' + pair + ";}</style>";
-	           if ( $child.length ) {
-	               $child.replaceWith( img );
-	           } else {
-	               $( "head" ).append( img );
-	           }
-	       } else {
-	           $child.remove();
-	       }
-	   } );
-	} ), api( "buttons_typography[font-weight]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-font-weight" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-font-weight">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{font-weight: ' + dataAndEvents + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_typography[font-style]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-font-style" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-font-style">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{font-style: ' + dataAndEvents + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_typography[font-size]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-font-size" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-font-size">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{font-size: ' + dataAndEvents + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_tablet_typography[font-size]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-tablet-font-size" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-tablet-font-size">@media (max-width: 768px){.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{font-size: ' + dataAndEvents + ";}}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_mobile_typography[font-size]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-mobile-font-size" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-mobile-font-size">@media (max-width: 480px){.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{font-size: ' + dataAndEvents + ";}}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_typography[color]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-color" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-color">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{color: ' + dataAndEvents + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_typography[line-height]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-line-height" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-line-height">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{line-height: ' + dataAndEvents + ";}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_tablet_typography[line-height]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-tablet-line-height" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-tablet-line-height">@media (max-width: 768px){.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{line-height: ' + dataAndEvents + ";}}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_mobile_typography[line-height]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-mobile-line-height" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-mobile-line-height">@media (max-width: 480px){.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{line-height: ' + dataAndEvents + ";}}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_typography[letter-spacing]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-letter-spacing" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-letter-spacing">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{letter-spacing: ' + dataAndEvents + "px;}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_tablet_typography[letter-spacing]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-tablet-letter-spacing" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-tablet-letter-spacing">@media (max-width: 768px){.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_mobile_typography[letter-spacing]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-mobile-letter-spacing" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-mobile-letter-spacing">@media (max-width: 480px){.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{letter-spacing: ' + dataAndEvents + "px;}}</style>";
-	      if ( $child.length ) {
-	        $child.replaceWith( img );
-	      } else {
-	        $( "head" ).append( img );
-	      }
-	    } else {
-	      $child.remove();
-	    }
-	  } );
-	} ), api( "buttons_typography[text-transform]", function( $swipe ) {
-	  $swipe.bind( function( dataAndEvents ) {
-	    var $child = $( ".customizer-typography-buttons-text-transform" );
-	    if ( dataAndEvents ) {
-	      /** @type {string} */
-	      var img = '<style class="customizer-typography-buttons-text-transform">.wp-block-button, #content-woocommerce .product .single_add_to_cart_button, .added_to_cart.wc-forward, .woocommerce ul.products li.product .button, input[type=submit], input[type=button], a.button, .button, .call-to-action a.button, button, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit, .woocommerce .cart .button, .woocommerce .cart input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, #searchsubmit, #footer-widgets #searchsubmit, .wp-block-button__link, .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, div.wpforms-container-full .wpforms-form button{text-transform: ' + dataAndEvents + ";}</style>";
+	      var img = '<style class="customizer-typography-header_site_tagline-text-transform">.site-description{text-transform: ' + dataAndEvents + ";}</style>";
 	      if ( $child.length ) {
 	        $child.replaceWith( img );
 	      } else {

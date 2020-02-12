@@ -19,30 +19,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 responsive_widgets_before(); // above widgets container hook.
-$responsive_footer_column = get_theme_mod( 'responsive_footer_column' );
+$footer_widgets_columns = get_theme_mod( 'responsive_footer_widgets_columns' );
 
-if ( $responsive_footer_column ) :
+if ( $footer_widgets_columns ) :
 	?>
 
-	<div id="footer-widgets" class="grid col-940">
-		<div class="content-outer">
-		<?php
-		responsive_widgets(); // above widgets hook.
+	<div id="footer-widgets" class="footer-widgets grid col-940">
+		<div class="content-outer container">
+			<div class="row">
+			<?php
+			responsive_widgets(); // above widgets hook.
 
-		?>
-		<?php
-		for ( $i = 1;  $i <= $responsive_footer_column; $i++ ) {
-			if ( is_active_sidebar( 'footer-widget-' . $i ) ) :
-				echo '<div class="footer-widget footer-widget-' . esc_html( $i ) . '">';
-					dynamic_sidebar( 'footer-widget-' . $i );
-				echo '</div>';
-			endif; // End of colophon-widget.
-		}
+			?>
+			<?php
+			for ( $i = 1;  $i <= $footer_widgets_columns; $i++ ) {
+				if ( is_active_sidebar( 'footer-widget-' . $i ) ) :
+					echo '<div class="footer-widget footer-widget-' . esc_html( $i ) . '">';
+						dynamic_sidebar( 'footer-widget-' . $i );
+					echo '</div>';
+				endif; // End of colophon-widget.
+			}
 
-		responsive_widgets_end(); // after widgets hook.
-		?>
-	</div>
+			responsive_widgets_end(); // after widgets hook.
+			?>
+			</div>
+		</div>
 	</div><!-- end of #footer-widget -->
 	<?php
 endif;
+
 responsive_widgets_after(); // after widgets container hook. ?>

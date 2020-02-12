@@ -5,31 +5,31 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Get post format
+// Get post format.
 $format = get_post_format();
 
-// Add classes to the blog entry post class
+// Add classes to the blog entry post class.
 $classes = responsive_post_entry_classes();
 
-// Inner classes
+// Inner classes.
 $inner_classes = array();
 
-// Image position
+// Image position.
 $position        = get_theme_mod( 'responsive_blog_thumbnail_image_position', 'left' );
 $position        = $position ? $position : 'left';
 $inner_classes[] = $position . '-position';
 
-// Vertical postion
+// Vertical postion.
 $ver_position    = get_theme_mod( 'responsive_blog_thumbnail_vertical_position', 'center' );
 $ver_position    = $ver_position ? $ver_position : 'center';
 $inner_classes[] = $ver_position;
 
-// Turn inner classes into space seperated string
+// Turn inner classes into space seperated string.
 $inner_classes = implode( ' ', $inner_classes ); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
@@ -37,10 +37,10 @@ $inner_classes = implode( ' ', $inner_classes ); ?>
 	<div class="blog-entry-inner clr <?php echo esc_attr( $inner_classes ); ?>">
 
 		<?php
-		// If image left
+		// If image left.
 		if ( 'left' == $position ) {
 
-			// Featured Image
+			// Featured Image.
 			get_template_part( 'partials/entry/media/blog-entry', $format );
 
 		}
@@ -49,23 +49,23 @@ $inner_classes = implode( ' ', $inner_classes ); ?>
 		<div class="blog-entry-content">
 
 			<?php
-			// Category
+			// Category.
 			get_template_part( 'partials/entry/thumbnail-style/category' );
 
-			// Title
-			get_template_part( 'partials/entry/header' );
+			// Title.
+			get_template_part( 'partials/entry/title' );
 
-			// Content
+			// Content.
 			get_template_part( 'partials/entry/content' );
 			?>
 
 			<div class="blog-entry-bottom clr">
 
 				<?php
-				// Comments
+				// Comments.
 				get_template_part( 'partials/entry/thumbnail-style/comments' );
 
-				// Date
+				// Date.
 				get_template_part( 'partials/entry/thumbnail-style/date' );
 				?>
 
@@ -74,10 +74,10 @@ $inner_classes = implode( ' ', $inner_classes ); ?>
 		</div><!-- .blog-entry-content -->
 
 		<?php
-		// If image right
+		// If image right.
 		if ( 'right' == $position ) {
 
-			// Featured Image
+			// Featured Image.
 			get_template_part( 'partials/entry/media/blog-entry', $format );
 
 		}
