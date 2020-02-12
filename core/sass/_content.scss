@@ -80,6 +80,9 @@
 
     &.responsive-site-style-content-boxed,
     &.responsive-site-style-boxed  {
+        .site-content {
+            background-color: map-get( $colors, white );
+        }
         .hentry {
             background-color: transparent;
         }
@@ -190,6 +193,9 @@
         width: auto;
     }
 
+    .responsive-site-style-boxed .elementor-widget-posts & {
+        background-color: inherit;
+    }
 }
 
 // Featured Image Aligmnmnet

@@ -41,19 +41,23 @@
 			menu.setAttribute( 'aria-expanded', 'true' );
 		}
 
-        icon = button.getElementsByTagName( 'i' )[0]
-        if( 'true' === button.getAttribute("aria-expanded")){
-            icon.setAttribute( 'class', 'icon-bars' );
-            icon.setAttribute( 'class', 'icon-times');
-            document.getElementById("sidebar-menu-overlay").style.display = "block";
-        } else {
-            icon.setAttribute( 'class', 'icon-bars' );
-            document.getElementById("sidebar-menu-overlay").style.display = "none";
-        }
+		icon = button.getElementsByTagName( 'i' )[0]
+		if ( 'true' === button.getAttribute( "aria-expanded" )) {
+			icon.setAttribute( 'class', 'icon-bars' );
+			icon.setAttribute( 'class', 'icon-times' );
+			if (document.body.classList.contains( 'mobile-menu-style-sidebar' )) {
+				document.getElementById( "sidebar-menu-overlay" ).style.display = "block";
+			}
+		} else {
+			icon.setAttribute( 'class', 'icon-bars' );
+			if (document.body.classList.contains( 'mobile-menu-style-sidebar' )) {
+				document.getElementById( "sidebar-menu-overlay" ).style.display = "none";
+			}
+		}
 	};
 
 	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
+	links = menu.getElementsByTagName( 'a' );
 
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( i = 0, len = links.length; i < len; i++ ) {

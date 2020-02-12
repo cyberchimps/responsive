@@ -30,7 +30,9 @@
         width: auto;
     }
     @media( max-width: map-get( $screens, sm ) ) {
-        max-width: 250px;
+        .site-header-layout-horizontal & {
+            max-width: 250px;
+        }
     }
 
     &-wrapper {
@@ -73,7 +75,8 @@
 
     a {
         display: block;
-        padding: ( $input-padding-y * 2 ) 0;
+        padding: ( $input-padding-y * 2 ) ( $grid-gutter-width / 2 );
+        font-weight: 600;
     }
 
     .menu-toggle {
@@ -121,7 +124,6 @@
             @media( min-width: map-get( $screens, lg ) ) {
                 border-bottom: none;
                 float: left;
-                margin-left: $grid-gutter-width;
             }
 
             &.menu-item-has-children > a,
@@ -209,7 +211,6 @@
                 & > li {
                     @media( min-width: map-get( $screens, lg ) ) {
                         margin-left: 0;
-                        margin-right: $grid-gutter-width;
                     }
                 }
             }
@@ -242,7 +243,7 @@
             & > li {
                 @media( min-width: map-get( $screens, lg ) ) {
                     margin-left: 0;
-                    margin-right: $grid-gutter-width;
+                    margin-right: 0;
                 }
             }
         }
@@ -281,8 +282,8 @@
 
                 & > li {
                     @media( min-width: map-get( $screens, lg ) ) {
-                        margin-left: $grid-gutter-width / 2;
-                        margin-right: $grid-gutter-width / 2;
+                        margin-left: 0;
+                        margin-right: 0;
                     }
                 }
             }
@@ -308,7 +309,7 @@
 
                 & > li {
                     @media( min-width: map-get( $screens, lg ) ) {
-                        margin-left: $grid-gutter-width / 2;
+                        margin-left: 0;
                         margin-right: 0;
                     }
                 }

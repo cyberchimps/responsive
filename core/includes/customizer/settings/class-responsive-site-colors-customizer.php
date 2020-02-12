@@ -159,6 +159,14 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$inputs_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'inputs_border', $inputs_border_color_label, 'responsive_colors', 220, '#cccccc' );
 
+			// Labels.
+			$label_label = esc_html__( 'Labels', 'responsive' );
+			responsive_separator_control( $wp_customize, 'responsive_general_labels_separator', $label_label, 'responsive_colors', 230 );
+
+			// Label Color.
+			$label_color_label = __( 'Label Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'label', $inputs_text_color_label, 'responsive_colors', 240, '#333333' );
+
 		}
 
 

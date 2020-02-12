@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/02/20) = Fix - Version 4.0.5
+[*] = Changed - Improved Screenshot
+
 (20/01/20) = Fix - Version 4.0.4
 [!] = Fixed - Header Typography settings are not applied
 [!] = Fixed - Icon for submenu navigation
