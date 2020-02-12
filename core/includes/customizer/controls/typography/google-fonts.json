@@ -2200,17 +2200,6 @@
         }
     },
     {
-        "Courier Prime": {
-            "variants": [
-                "regular",
-                "italic",
-                "700",
-                "700italic"
-            ],
-            "category": "monospace"
-        }
-    },
-    {
         "Cousine": {
             "variants": [
                 "regular",
@@ -3036,12 +3025,12 @@
         "Faustina": {
             "variants": [
                 "regular",
-                "500",
-                "600",
-                "700",
                 "italic",
+                "500",
                 "500italic",
+                "600",
                 "600italic",
+                "700",
                 "700italic"
             ],
             "category": "serif"
@@ -3414,21 +3403,6 @@
         }
     },
     {
-        "Gelasio": {
-            "variants": [
-                "regular",
-                "italic",
-                "500",
-                "500italic",
-                "600",
-                "600italic",
-                "700",
-                "700italic"
-            ],
-            "category": "serif"
-        }
-    },
-    {
         "Gentium Basic": {
             "variants": [
                 "regular",
@@ -3497,14 +3471,6 @@
                 "regular"
             ],
             "category": "serif"
-        }
-    },
-    {
-        "Girassol": {
-            "variants": [
-                "regular"
-            ],
-            "category": "display"
         }
     },
     {
@@ -4171,19 +4137,6 @@
                 "700",
                 "800",
                 "900"
-            ],
-            "category": "serif"
-        }
-    },
-    {
-        "Inria Serif": {
-            "variants": [
-                "300",
-                "300italic",
-                "regular",
-                "italic",
-                "700",
-                "700italic"
             ],
             "category": "serif"
         }
@@ -5471,12 +5424,12 @@
         "Manuale": {
             "variants": [
                 "regular",
-                "500",
-                "600",
-                "700",
                 "italic",
+                "500",
                 "500italic",
+                "600",
                 "600italic",
+                "700",
                 "700italic"
             ],
             "category": "serif"
@@ -5602,9 +5555,7 @@
             "variants": [
                 "regular",
                 "500",
-                "600",
                 "700",
-                "800",
                 "900"
             ],
             "category": "sans-serif"
@@ -7127,16 +7078,10 @@
         "Playfair Display": {
             "variants": [
                 "regular",
-                "500",
-                "600",
-                "700",
-                "800",
-                "900",
                 "italic",
-                "500italic",
-                "600italic",
+                "700",
                 "700italic",
-                "800italic",
+                "900",
                 "900italic"
             ],
             "category": "serif"
@@ -9560,8 +9505,6 @@
                 "200",
                 "300",
                 "regular",
-                "500",
-                "600",
                 "700"
             ],
             "category": "sans-serif"

@@ -4,8 +4,8 @@
  *
  * @file           single.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/single.php
@@ -19,47 +19,49 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 get_header(); ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
-<div id="wrapper" class="clearfix">
-	<div class="content-outer">
-<?php responsive_in_wrapper(); // wrapper hook. ?>
+<div id="wrapper" class="site-content clearfix">
 
-<div id="primary" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
+	<div class="content-outer container">
+		<div class="row">
+			<?php responsive_in_wrapper(); // wrapper hook. ?>
 
-	<?php get_template_part( 'loop-header', get_post_type() ); ?>
+			<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
 
-	<?php if ( have_posts() ) : ?>
+				<?php get_template_part( 'loop-header', get_post_type() ); ?>
+				<?php if ( have_posts() ) : ?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-			?>
+					<?php
+					while ( have_posts() ) :
+						the_post();
+						?>
 
-			<?php responsive_entry_before(); ?>
-			<?php
-				get_template_part( 'partials/single/layout', get_post_type() );
-			?>
-			<?php responsive_entry_after(); ?>
+						<?php responsive_entry_before(); ?>
+						<?php
+							get_template_part( 'partials/single/layout', get_post_type() );
+						?>
+						<?php responsive_entry_after(); ?>
 
-			<?php responsive_comments_before(); ?>
-			<?php comments_template( '', true ); ?>
-			<?php responsive_comments_after(); ?>
+						<?php responsive_comments_before(); ?>
+						<?php comments_template( '', true ); ?>
+						<?php responsive_comments_after(); ?>
 
-			<?php
-		endwhile;
+						<?php
+					endwhile;
 
-		get_template_part( 'loop-nav', get_post_type() );
+					get_template_part( 'loop-nav', get_post_type() );
 
-		else :
+					else :
 
-			get_template_part( 'loop-no-posts', get_post_type() );
+						get_template_part( 'loop-no-posts', get_post_type() );
 
-	endif;
-		?>
+				endif;
+					?>
 
-</div><!-- end of #content -->
+			</main><!-- end of #primary -->
 
-<?php get_sidebar(); ?>
-</div>
+			<?php get_sidebar(); ?>
+		</div>
+	</div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
 <?php responsive_wrapper_end(); // after wrapper hook. ?>

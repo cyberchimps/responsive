@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 
 <?php do_action( 'responsive_before_blog_entry_content' ); ?>
-
-<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-
+	<div class="entry-content" itemprop="text">
+		<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+	</div>
 <?php
 do_action( 'responsive_after_blog_entry_content' );

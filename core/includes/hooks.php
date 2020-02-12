@@ -1,23 +1,22 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Theme's Action Hooks
  *
  * @file           hooks.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/includes/hooks.php
  * @link           http://codex.wordpress.org/Plugin_API/Hooks
  * @since          available since Release 1.1
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Just after opening <body> tag
@@ -38,16 +37,7 @@ function responsive_container_end() {
 }
 
 /**
- * Just after opening <div id="container">
- *
- * @see header.php
- */
-function responsive_header() {
-	do_action( 'responsive_header' );
-}
-
-/**
- * Just after opening <div id="header">
+ * Just after opening <header>
  *
  * @see header.php
  */
@@ -55,39 +45,21 @@ function responsive_header_top() {
 	do_action( 'responsive_header_top' );
 }
 /**
- * Just before logo <div id="header">
+ * Just before logo
  *
  * @see header.php
  */
-function responsive_header_before_logo_container() {
-	do_action( 'responsive_header_before_logo_container' );
+function responsive_header_with_logo() {
+	do_action( 'responsive_header_with_logo' );
 }
 
 /**
- * Just after opening <div id="header">
- *
- * @see header.php
- */
-function responsive_in_header() {
-	do_action( 'responsive_in_header' );
-}
-
-/**
- * Just after closing </div><!-- end of #header -->
+ * Just after closing </header><!-- end of #header -->
  *
  * @see header.php
  */
 function responsive_header_bottom() {
 	do_action( 'responsive_header_bottom' );
-}
-
-/**
- * Just after closing </div><!-- end of #header -->
- *
- * @see header.php
- */
-function responsive_header_end() {
-	do_action( 'responsive_header_end' );
 }
 
 /**
@@ -271,17 +243,111 @@ add_action( 'woocommerce_after_main_content', 'responsive_woocommerce_wrapper_en
  * Responsive_woocommerce_wrapper
  */
 function responsive_woocommerce_wrapper() {
-	echo '<div class="content-outer">';
-	echo '<div id="content-woocommerce" class="' . esc_attr(implode(' ', responsive_get_content_classes())) . '">';
+	?>
+	<div id="wrapper" class="site-content clearfix">
+			<div class="content-outer container">
+				<div class="row">
+					<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+						<?php
+						if ( is_woocommerce() ) {
+							echo '<div class="site-content-header">';
+						}
 }
 
 /**
  * [responsive_woocommerce_wrapper_end description]
  */
 function responsive_woocommerce_wrapper_end() {
-	echo '</div><!-- end of #content-woocommerce -->';
+	echo '</main><!-- end of #primary -->';
 	if ( is_active_sidebar( 'main-sidebar' ) ) {
 		get_sidebar();
 	}
+	echo '</div></div></div>';
+}
+
+
+/**
+ * [responsive_woocommerce_before_shop_loop description]
+ *
+ * @return void [description].
+ */
+function responsive_woocommerce_archive_description() {
+	?>
+	</div>
+	<div class="products-wrapper">
+		<?php
+}
+
+function responsive_woocommerce_after_single_product_summary() {
+	?>
+	</div>
+	<div class="related-product-wrapper">
+		<?php
+}
+
+add_action( 'woocommerce_after_single_product_summary', 'responsive_woocommerce_after_single_product_summary', 10 );
+add_action( 'woocommerce_after_shop_loop', 'responsive_close_container', 10 );
+add_action( 'woocommerce_archive_description', 'responsive_woocommerce_archive_description', 10 );
+add_action( 'woocommerce_before_single_product', 'responsive_close_container', 10 );
+
+/**
+ * [responsive_open_container description]
+ *
+ * @return void [description]
+ */
+function responsive_open_container() {
+	echo '<div class="container">';
+}
+
+/**
+ * [responsive_close_container description]
+ *
+ * @return void [description]
+ */
+function responsive_close_container() {
 	echo '</div>';
 }
+
+/**
+ * [responsive_header_sidebar description]
+ *
+ * @return void [description]
+ */
+function responsive_header_sidebar() {
+	get_sidebar( 'header' );
+}
+
+/**
+ * [responsive_header_widget_position description]
+ *
+ * @return void [description].
+ */
+function responsive_header_widget_position() {
+
+	if ( 0 === get_theme_mod( 'responsive_enable_header_widget', 0 ) ) {
+		return;
+	}
+
+	$responsive_header_widget_position = 'responsive_header_' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+
+	add_action( $responsive_header_widget_position, 'responsive_header_sidebar' );
+
+}
+add_action( 'wp_head', 'responsive_header_widget_position' );
+
+/**
+ * Classes
+ */
+/**
+ * Add No-JS Class.
+ * If we're missing JavaScript support, the HTML element will have a no-js class.
+ */
+function responsive_no_js_class() {
+
+	?>
+	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
+	<?php
+
+}
+
+add_action( 'wp_head', 'responsive_no_js_class' );

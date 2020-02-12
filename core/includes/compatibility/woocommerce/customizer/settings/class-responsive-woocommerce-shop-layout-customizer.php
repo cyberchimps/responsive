@@ -34,14 +34,53 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 		public function customizer_options( $wp_customize ) {
 
 			$wp_customize->add_section(
-				'responsive_woocommerce_shop_page_section',
+				'responsive_woocommerce_shop_layout',
 				array(
-					'title'    => esc_html__( 'Shop', 'responsive' ),
-					'panel'    => 'woocommerce',
-					'priority' => 295,
+					'title'    => esc_html__( 'Layout', 'responsive' ),
+					'panel'    => 'responsive-woocommerce-shop',
+					'priority' => 10,
 				)
 			);
 
+			// Layouts.
+			$shop_layout_elements_label = esc_html__( 'Layouts', 'responsive' );
+			responsive_separator_control( $wp_customize, 'shop_layout_elements_separator', $shop_layout_elements_label, 'responsive_woocommerce_shop_layout', 10 );
+
+			// Main Content Width.
+			$shop_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'shop_content_width', $shop_content_width_label, 'responsive_woocommerce_shop_layout', 20, 100, null, 100 );
+
+			// Sidebar Position.
+			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
+			$sidebar_choices = array(
+				'right' => esc_html__( 'Right Sidebar', 'responsive' ),
+				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
+				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop_layout', 30, $sidebar_choices, 'no', null );
+
+			// Shop Elements.
+			$shop_elements_label = esc_html__( 'Shop Product', 'responsive' );
+			responsive_separator_control( $wp_customize, 'shop_elements_separator', $shop_elements_label, 'responsive_woocommerce_shop_layout', 40 );
+
+			// Catalog View.
+			$woocommerce_catalog_view_label   = esc_html__( 'Catalog View', 'responsive' );
+			$woocommerce_catalog_view_choices = array(
+				'grid' => esc_html__( 'Grid View', 'responsive' ),
+				'list' => esc_html__( 'List View', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'woocommerce_catalog_view', $woocommerce_catalog_view_label, 'responsive_woocommerce_shop_layout', 50, $woocommerce_catalog_view_choices, 'grid', null );
+
+			// Product content Aligmnment.
+			$product_content_aligmnment_label   = esc_html__( 'Content Aligmnment', 'responsive' );
+			$product_content_aligmnment_choices = array(
+				'center' => esc_html__( 'Center', 'responsive' ),
+				'left'   => esc_html__( 'Left', 'responsive' ),
+				'right'  => esc_html__( 'Right', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'product_content_aligmnment', $product_content_aligmnment_label, 'responsive_woocommerce_shop_layout', 60, $product_content_aligmnment_choices, 'center', null );
+
+			// Shop Elements.
 			$wp_customize->add_setting(
 				'responsive_woocommerce_shop_elements_positioning',
 				array(
@@ -56,68 +95,36 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 					$wp_customize,
 					'responsive_woocommerce_shop_elements_positioning',
 					array(
-						'label'    => esc_html__( 'Shop Products Structure', 'responsive' ),
-						'section'  => 'responsive_woocommerce_shop_page_section',
+						'label'    => esc_html__( 'Shop Elements', 'responsive' ),
+						'section'  => 'responsive_woocommerce_shop_layout',
 						'settings' => 'responsive_woocommerce_shop_elements_positioning',
-						'priority' => 10,
+						'priority' => 70,
 						'choices'  => responsive_shoppage_elements(),
 					)
 				)
 			);
+			// Sale Notification.
+			$product_sale_notification_label   = esc_html__( 'Sale Notification', 'responsive' );
+			$product_sale_notification_choices = array(
+				'none'            => __( 'None', 'responsive' ),
+				'default'         => __( 'Default', 'responsive' ),
+				'sale-percentage' => __( 'Custom String', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'product_sale_notification', $product_sale_notification_label, 'responsive_woocommerce_shop_layout', 80, $product_sale_notification_choices, 'default', null );
 
-			$wp_customize->add_setting(
-				'responsive_woocommerce_catalog_view',
-				array(
-					'default'           => 'grid',
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-				)
-			);
+			// Sale % Value.
+			$sale_percent_value_label = esc_html__( 'Sale % Value', 'responsive' );
+			responsive_text_control( $wp_customize, 'sale_percent_value', $sale_percent_value_label, 'responsive_woocommerce_shop_layout', 90, '-[value]%', 'responsive_check_product_price_custom_string' );
 
-			$wp_customize->add_control(
-				'responsive_woocommerce_catalog_view',
-				array(
-					'label'    => __( 'Shop Products Catalog View', 'responsive' ),
-					'section'  => 'responsive_woocommerce_shop_page_section',
-					'settings' => 'responsive_woocommerce_catalog_view',
-					'type'     => 'select',
-					'choices'  => array(
-						'grid' => esc_html__( 'Grid View', 'responsive' ),
-						'list' => esc_html__( 'List View', 'responsive' ),
-					),
-				)
+			// Sale Notification.
+			$product_sale_style_label   = esc_html__( 'Sale Bubble Style', 'responsive' );
+			$product_sale_style_choices = array(
+				'circle'         => __( 'Circle', 'responsive' ),
+				'circle-outline' => __( 'Circle Outline', 'responsive' ),
+				'square'         => __( 'Square', 'responsive' ),
+				'square-outline' => __( 'Square Outline', 'responsive' ),
 			);
-
-			$wp_customize->add_setting(
-				'shop_pagination',
-				array(
-					'default'           => 'default',
-					'transport'         => 'refresh',
-					'sanitize_callback' => 'responsive_sanitize_select',
-				)
-			);
-			$wp_customize->add_control(
-				'shop_pagination',
-				array(
-					'label'    => __( 'Shop Pagination', 'responsive' ),
-					'section'  => 'responsive_woocommerce_shop_page_section',
-					'settings' => 'shop_pagination',
-					'type'     => 'select',
-					'choices'  => array(
-						'default'  => esc_html__( 'Default', 'responsive' ),
-						'infinite' => esc_html__( 'Infinite', 'responsive' ),
-					),
-				)
-			);
-
-			$wp_customize->add_setting(
-				'responsive_container_background_color',
-				array(
-					'type'              => 'theme_mod',
-					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
-				)
-			);
+			responsive_select_control( $wp_customize, 'product_sale_style', $product_sale_style_label, 'responsive_woocommerce_shop_layout', 100, $product_sale_style_choices, 'circle', null );
 
 		}
 	}

@@ -11,15 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 
 <?php do_action( 'responsive_before_blog_entry_content' ); ?>
-
-<?php
-global $responsive_show_excerpt;
-if ( 'content' === $responsive_show_excerpt ) {
-	the_content();
-} else {
-	the_excerpt();
-}
-?>
-
+	<div class="entry-content" itemprop="text">
+		<?php
+		if ( 'content' === get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' ) ) {
+			the_content( 'Read More ››' );
+		} else {
+			the_excerpt();
+		}
+		?>
+	</div>
 <?php
 do_action( 'responsive_after_blog_entry_content' );

@@ -5,22 +5,22 @@
  * @package Responsive WordPress theme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 
-// Get attachments
+// Get attachments.
 $attachments = responsive_get_gallery_ids( get_the_ID() );
 
-// Return standard entry style if password protected or there aren't any attachments
+// Return standard entry style if password protected or there aren't any attachments.
 if ( post_password_required() || empty( $attachments ) ) {
 	get_template_part( 'partials/entry/media/blog-entry' );
 	return;
 }
 
-// Add images size if blog grid
+// Add images size if blog grid.
 if ( 'grid-entry' == responsive_blog_entry_style() ) {
 	$size = responsive_blog_entry_images_size();
 } else {
@@ -32,22 +32,22 @@ if ( 'grid-entry' == responsive_blog_entry_style() ) {
 	<div class="gallery-format clr">
 
 		<?php
-		// Loop through each attachment ID
+		// Loop through each attachment ID.
 		foreach ( $attachments as $attachment ) :
 
-			// Get attachment data
+			// Get attachment data.
 			$attachment_title = get_the_title( $attachment );
 			$attachment_alt   = get_post_meta( $attachment, '_wp_attachment_image_alt', true );
 			$attachment_alt   = $attachment_alt ? $attachment_alt : $attachment_title;
 
-			// Image width
+			// Image width.
 			$img_width  = apply_filters( 'responsive_blog_entry_image_width', absint( get_theme_mod( 'responsive_blog_entry_image_width' ) ) );
 			$img_height = apply_filters( 'responsive_blog_entry_image_height', absint( get_theme_mod( 'responsive_blog_entry_image_height' ) ) );
 
-			// Images url
+			// Images url.
 			$img_url = wp_get_attachment_image_src( $attachment, 'full', true );
 
-				// Image args
+				// Image args.
 				$img_args = array(
 					'alt' => $attachment_alt,
 				);
@@ -55,11 +55,11 @@ if ( 'grid-entry' == responsive_blog_entry_style() ) {
 					$img_args['itemprop'] = 'image';
 				}
 
-				// Get image output
+				// Get image output.
 				$attachment_html = wp_get_attachment_image( $attachment, $size, '', $img_args );
 
 
-				// Display with lightbox
+				// Display with lightbox.
 				if ( responsive_gallery_is_lightbox_enabled() == 'on' ) {
 					?>
 
@@ -68,7 +68,7 @@ if ( 'grid-entry' == responsive_blog_entry_style() ) {
 				</a>
 
 					<?php
-					// Display single image
+					// Display single image.
 				} else {
 					?>
 

@@ -1,0 +1,60 @@
+//
+// Layout variables
+// -----------------------------------------------------------------------------
+$screens: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+
+$containers: (
+    xs: none,
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+);
+
+$grid-gutter-width: 30px;
+
+$grid-columns: 12;
+
+//
+// Typography variables
+// -----------------------------------------------------------------------------
+$code-font: monospace;
+$heading-font: Arial, Helvetica, sans-serif;
+$icon-font: icomoon;
+$text-font: Arial, Helvetica, sans-serif;
+
+$base-font-size: 16px;
+$base-line-height: 1.75;
+$base-line-height-px: $base-font-size * $base-line-height;
+$heading-line-height: 1.25;
+
+$font-sizes: (
+    small:       13px,
+    normal:      16px,
+    medium:      20px,
+    large:       26px,
+    extra-large: 33px,
+);
+
+$colors:(
+    white:      #ffffff,
+    light-gray: #eaeaea,
+    gray:       #999999,
+    dark-gray:  #333333,
+    blue:       #0066cc,
+    dark-blue:  #10659c,
+);
+
+//
+// Form input field variables
+// -----------------------------------------------------------------------------
+$input-height: $base-line-height-px * 1.25;
+$input-border-width: 1px;
+$input-padding-x: 1em;
+$input-padding-y: ( $input-height / 2 - $base-line-height-px / 2 - $input-border-width );

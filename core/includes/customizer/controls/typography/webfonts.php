@@ -14,10 +14,40 @@ function responsive_standard_fonts() {
 	return apply_filters(
 		'responsive_standard_fonts_array',
 		array(
-			'Open Sans',
-			'Times New Roman',
-			'Georgia',
-			'Garamond',
+			'Open Sans'       => array(
+				'weights' => array(
+					300,
+					400,
+					600,
+					700,
+					800,
+				),
+			),
+			'Times New Roman' => array(
+				'weights' => array(
+					400,
+					500,
+					600,
+					700,
+					800,
+					900,
+				),
+			),
+			'Georgia'         => array(
+				'weights' => array(
+					400,
+					700,
+				),
+			),
+			'Garamond'        => array(
+				'weights' => array(
+					400,
+					500,
+					600,
+					700,
+					800,
+				),
+			),
 		)
 	);
 }

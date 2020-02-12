@@ -1,37 +1,36 @@
 <?php
-
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * Gallery Widget Template
  *
  * @file           sidebar-gallery.php
  * @package        Responsive
- * @author         Emil Uzelac
- * @copyright      2003 - 2014 CyberChimps
+ * @author         CyberChimps
+ * @copyright      2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/sidebar-gallery.php
  * @link           http://codex.wordpress.org/Theme_Development#secondary_.28sidebar.php.29
  * @since          available since Release 1.0
  */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
-<?php responsive_widgets_before(); // above widgets container hook ?>
-	<aside id="secondary" class="grid col-300 fit gallery-meta" role="complementary">
-		<?php responsive_widgets(); // above widgets hook ?>
+<?php responsive_widgets_before(); // above widgets container hook. ?>
+	<aside id="secondary" class="widget-area grid col-300 fit gallery-meta" role="complementary">
+		<?php responsive_widgets(); // above widgets hook. ?>
 		<div class="widget-wrapper">
 
-			<div class="widget-title"><h3><?php esc_html_e( 'Image Information', 'responsive' ); ?></h3></div>
+			<div class="widget-title"><h4><?php esc_html_e( 'Image Information', 'responsive' ); ?></h4></div>
 			<ul>
 				<?php
 				$responsive_data = get_post_meta( $post->ID, '_wp_attachment_metadata', true );
 
 				if ( is_array( $responsive_data ) ) {
 					?>
-					<span class="full-size"><?php esc_html_e( 'Full Size:', 'responsive' ); ?> <a href="<?php echo wp_get_attachment_url( $post->ID ); ?>"><?php echo esc_attr( $responsive_data['width'] ) . '&#215;' . esc_attr( $responsive_data['height'] ); ?></a>px</span>
+					<span class="full-size"><?php esc_html_e( 'Full Size:', 'responsive' ); ?> <a href="<?php echo esc_url( wp_get_attachment_url( $post->ID ) ); ?>"><?php echo esc_attr( $responsive_data['width'] ) . '&#215;' . esc_attr( $responsive_data['height'] ); ?></a>px</span>
 
 					<?php
 					if ( is_array( $responsive_data['image_meta'] ) ) {
@@ -86,14 +85,14 @@ if ( ! is_active_sidebar( 'gallery-widget' ) ) {
 
 <?php if ( is_active_sidebar( 'gallery-widget' ) ) : ?>
 
-	<aside id="secondary" class="grid col-300 fit" role="complementary">
+	<aside id="secondary" class="widget-area grid col-300 fit" role="complementary">
 
-		<?php responsive_widgets(); // above widgets hook ?>
+		<?php responsive_widgets(); // above widgets hook. ?>
 
 		<?php dynamic_sidebar( 'gallery-widget' ); ?>
 
-		<?php responsive_widgets_end(); // after widgets hook ?>
+		<?php responsive_widgets_end(); // after widgets hook. ?>
 	</aside><!-- end of #secondary -->
-	<?php responsive_widgets_after(); // after widgets container hook ?>
+	<?php responsive_widgets_after(); // after widgets container hook. ?>
 
 <?php endif; ?>

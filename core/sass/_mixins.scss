@@ -1,0 +1,116 @@
+//
+// Link element mixin
+// -----------------------------------------------------------------------------
+@mixin make-link( $color, $hover-color ) {
+    color: $color;
+
+    &:focus,
+    &:hover {
+        color: $hover-color;
+    }
+}
+//
+// Button element mixin
+// -----------------------------------------------------------------------------
+@mixin make-button(){
+    padding: .65em;
+    background-color: map-get( $colors, blue );
+    color: map-get( $colors, white );
+
+    &:focus,
+    &:hover {
+        background-color: map-get( $colors, dark-blue );
+        color: map-get( $colors, white );
+    }
+}
+//
+// Normal text mixin
+// -----------------------------------------------------------------------------
+@mixin make-normal-text() {
+    color: map-get( $colors, dark-gray );
+    font-family: $text-font;
+    font-size: map-get( $font-sizes, normal );
+    line-height: $base-line-height;
+}
+
+//
+// Heading text mixin
+// -----------------------------------------------------------------------------
+@mixin make-heading-text( $size ) {
+    color: map-get( $colors, dark-gray );
+    font-family: $heading-font;
+    font-size: map-get( $font-sizes, $size );
+    font-weight: bold;
+    line-height: $heading-line-height;
+}
+
+//
+// Meta text mixin
+// -----------------------------------------------------------------------------
+@mixin make-meta-text() {
+    @include make-normal-text();
+    color: map-get( $colors, gray );
+    font-size: map-get( $font-sizes, small );
+
+    a {
+        @include make-link( map-get( $colors, gray ), map-get( $colors, dark-blue ) );
+        text-decoration: none;
+    }
+}
+
+//
+// Block element mixin
+// -----------------------------------------------------------------------------
+@mixin make-block-element( $space: $base-line-height-px ) {
+    margin-bottom: $space;
+    margin-top: $space;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+//
+// Clear floats mixin
+// -----------------------------------------------------------------------------
+@mixin clear-floats() {
+    &:after,
+    &:before {
+        content: '';
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+
+//
+// Align full mixin
+// -----------------------------------------------------------------------------
+@mixin make-full-width() {
+    margin-left: calc( 50% - 50vw );
+    margin-right: calc( 50% - 50vw );
+    max-width: 100vw;
+    width: 100vw;
+}
+
+//
+// Clear Fix mixin
+// -----------------------------------------------------------------------------
+@mixin make-clearfix() {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}

@@ -1,8 +1,8 @@
 <?php
 /**
- * Functions Insatll
+ * Functions Sidebar
  *
- * Functions for installation & activation
+ * Functions for Sidebar initialization
  *
  * @package        Responsive
  * @license        license.txt
@@ -28,8 +28,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Main Sidebar', 'responsive' ),
 			'description'   => __( 'Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates', 'responsive' ),
 			'id'            => 'main-sidebar',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 			'after_widget'  => '</div>',
 		)
@@ -41,8 +41,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Home Widget 1', 'responsive' ),
 			'description'   => __( 'Area 6 - sidebar-home.php - Displays on the Home Page', 'responsive' ),
 			'id'            => 'home-widget-1',
-			'before_title'  => '<div id="widget-title-one" class="widget-title-home"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div id="widget-title-one" class="widget-title-home"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 			'after_widget'  => '</div>',
 		)
@@ -53,8 +53,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Home Widget 2', 'responsive' ),
 			'description'   => __( 'Area 7 - sidebar-home.php - Displays on the Home Page', 'responsive' ),
 			'id'            => 'home-widget-2',
-			'before_title'  => '<div id="widget-title-two" class="widget-title-home"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div id="widget-title-two" class="widget-title-home"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 			'after_widget'  => '</div>',
 		)
@@ -65,8 +65,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Home Widget 3', 'responsive' ),
 			'description'   => __( 'Area 8 - sidebar-home.php - Displays on the Home Page', 'responsive' ),
 			'id'            => 'home-widget-3',
-			'before_title'  => '<div id="widget-title-three" class="widget-title-home"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div id="widget-title-three" class="widget-title-home"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 			'after_widget'  => '</div>',
 		)
@@ -77,8 +77,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Gallery Sidebar', 'responsive' ),
 			'description'   => __( 'Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery', 'responsive' ),
 			'id'            => 'gallery-widget',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
 			'after_widget'  => '</div>',
 		)
@@ -89,8 +89,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Colophon Widget', 'responsive' ),
 			'description'   => __( 'Area 10 - sidebar-colophon.php, 100% width Footer widgets', 'responsive' ),
 			'id'            => 'colophon-widget',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="colophon-widget widget-wrapper %2$s">',
 			'after_widget'  => '</div>',
 		)
@@ -101,9 +101,9 @@ function responsive_widgets_init() {
 			'name'          => __( 'Header Widgets', 'responsive' ),
 			'description'   => __( 'Area 11 - sidebar-top.php - Displays on the right of the header', 'responsive' ),
 			'id'            => 'header-widgets',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
-			'before_widget' => '<div id="%1$s" class="%2$s">',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 		)
 	);
@@ -113,8 +113,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Footer Widgets 1', 'responsive' ),
 			'description'   => __( 'Area 12 - sidebar-footer.php', 'responsive' ),
 			'id'            => 'footer-widget-1',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)
@@ -124,8 +124,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Footer Widgets 2', 'responsive' ),
 			'description'   => __( 'Area 13 - sidebar-footer.php', 'responsive' ),
 			'id'            => 'footer-widget-2',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)
@@ -135,8 +135,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Footer Widgets 3', 'responsive' ),
 			'description'   => __( 'Area 14 - sidebar-footer.php', 'responsive' ),
 			'id'            => 'footer-widget-3',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)
@@ -146,8 +146,8 @@ function responsive_widgets_init() {
 			'name'          => __( 'Footer Widgets 4', 'responsive' ),
 			'description'   => __( 'Area 15 - sidebar-footer.php', 'responsive' ),
 			'id'            => 'footer-widget-4',
-			'before_title'  => '<div class="widget-title"><h3>',
-			'after_title'   => '</h3></div>',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
 			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
 			'after_widget'  => '</div></div>',
 		)

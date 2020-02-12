@@ -59,7 +59,12 @@ class Responsive_Customize_Control_Checkbox_Multiple extends WP_Customize_Contro
 
 				<li>
 					<label>
-						<input type="checkbox" value="<?php echo esc_attr( $value ); ?>" <?php if ( in_array( $value, $multi_values ) ) echo 'checked'; ?> />
+						<input type="checkbox" value="<?php echo esc_attr( $value ); ?>" 
+																 <?php
+																	if ( in_array( $value, $multi_values ) ) {
+																		echo 'checked';}
+																	?>
+						 />
 						<?php echo esc_html( $label ); ?>
 					</label>
 				</li>

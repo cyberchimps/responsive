@@ -34,61 +34,81 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 		 */
 		public function customizer_options( $wp_customize ) {
 
-			// Layout Panel.
 			$wp_customize->add_panel(
-				'responsive-layout-options',
+				'responsive_site',
 				array(
-					'title'       => __( 'Layout', 'responsive' ),
-					'description' => 'Layout Options', // Include html tags such as <p>.
-					'priority'    => 21, // Mixed with top-level-section hierarchy.
+					'title'       => __( 'Theme Options', 'responsive' ),
+					'description' => 'header Options',
+					'priority'    => 110,
 				)
 			);
+
 			$wp_customize->add_panel(
-				'responsive-appearance-options',
-				array(
-					'title'       => __( 'Appearance', 'responsive' ),
-					'description' => 'appearance Options', // Include html tags such as <p>.
-					'priority'    => 10, // Mixed with top-level-section hierarchy.
-				)
-			);
-			$wp_customize->add_panel(
-				'responsive-page-options',
-				array(
-					'title'       => __( 'Page', 'responsive' ),
-					'description' => 'page Options', // Include html tags such as <p>.
-					'priority'    => 13, // Mixed with top-level-section hierarchy.
-				)
-			);
-			$wp_customize->add_panel(
-				'responsive-blog-options',
-				array(
-					'title'       => __( 'Blog', 'responsive' ),
-					'description' => 'blog Options', // Include html tags such as <p>.
-					'priority'    => 12, // Mixed with top-level-section hierarchy.
-				)
-			);
-			$wp_customize->add_panel(
-				'responsive-header-options',
+				'responsive_header',
 				array(
 					'title'       => __( 'Header', 'responsive' ),
-					'description' => 'header Options', // Include html tags such as <p>.
-					'priority'    => 11, // Mixed with top-level-section hierarchy.
+					'description' => 'header Options',
+					'priority'    => 120,
 				)
 			);
+
 			$wp_customize->add_panel(
-				'responsive-footer-options',
+				'responsive_header_menu',
+				array(
+					'title'       => __( 'Main Menu', 'responsive' ),
+					'description' => 'Header Menu Options',
+					'priority'    => 130,
+				)
+			);
+
+			$wp_customize->add_panel(
+				'responsive_footer',
 				array(
 					'title'       => __( 'Footer', 'responsive' ),
-					'description' => 'footer Options', // Include html tags such as <p>.
-					'priority'    => 14, // Mixed with top-level-section hierarchy.
+					'description' => 'footer Options',
+					'priority'    => 140,
 				)
 			);
-			$wp_customize->get_section( 'colors' )->panel = 'responsive-appearance-options'; // Add to Colors Panel.
-			$wp_customize->get_section( 'colors' )->title = __( 'Background Color', 'responsive' );
 
-			$wp_customize->get_setting( 'background_color' )->transport = 'refresh';
+			$wp_customize->add_panel(
+				'responsive_content_header',
+				array(
+					'title'       => __( 'Content Header', 'responsive' ),
+					'description' => 'Content Header',
+					'priority'    => 150,
+				)
+			);
 
-			$wp_customize->get_section( 'background_image' )->panel = 'responsive-appearance-options';
+			$wp_customize->add_panel(
+				'responsive_blog',
+				array(
+					'title'       => __( 'Blog / Archive', 'responsive' ),
+					'description' => 'Blog Options',
+					'priority'    => 160,
+				)
+			);
+
+			$wp_customize->add_panel(
+				'responsive_single_blog',
+				array(
+					'title'       => __( 'Blog Post', 'responsive' ),
+					'description' => 'Single Blog Post',
+					'priority'    => 170,
+				)
+			);
+
+			$wp_customize->add_panel(
+				'responsive_page',
+				array(
+					'title'       => __( 'Page', 'responsive' ),
+					'description' => 'page Options',
+					'priority'    => 180,
+				)
+			);
+
+			$wp_customize->get_section( 'title_tagline' )->priority     = 10;
+			$wp_customize->get_section( 'static_front_page' )->priority = 109;
+			$wp_customize->get_section( 'custom_css' )->priority        = 300;
 		}
 	}
 

@@ -34,31 +34,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				get_template_part( 'partials/single/media/blog-single', $format );
 
-			}
-
-			// Title.
-			if ( 'title' === $element ) {
-
-				get_template_part( 'partials/single/header' );
-
-			}
-
-			// Meta.
-			if ( 'meta' === $element ) {
-
-				get_template_part( 'partials/single/meta' );
-
-			}
-
-			// Content.
-			if ( 'content' === $element ) {
-
-				get_template_part( 'partials/single/content' );
-
+			} else {
+				get_template_part( 'partials/single/' . $element );
 			}
 		}
 		?>
-		<?php if ( get_the_author_meta( 'description' ) != '' ) : ?>
+		<?php if ( '' !== get_the_author_meta( 'description' ) ) : ?>
 
 			<div id="author-meta">
 				<?php
@@ -82,12 +63,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 	</div><!-- end of .post-entry -->
 
-	<div class="navigation">
-		<div class="previous"><?php previous_post_link( '&#8249; %link' ); ?></div>
-		<div class="next"><?php next_post_link( '%link &#8250;' ); ?></div>
-	</div><!-- end of .navigation -->
-
 	<?php get_template_part( 'post-data', get_post_type() ); ?>
 
 	<?php responsive_entry_bottom(); ?>
 </article><!-- end of #post-<?php the_ID(); ?> -->
+<div class="navigation">
+	<div class="previous"><?php previous_post_link( '&#8249; %link' ); ?></div>
+	<div class="next"><?php next_post_link( '%link &#8250;' ); ?></div>
+</div><!-- end of .navigation -->
