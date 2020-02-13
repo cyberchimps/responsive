@@ -29,24 +29,33 @@ get_header(); ?>
 				<?php if ( have_posts() ) : ?>
 
 					<?php
-					while ( have_posts() ) :
-						the_post();
-						?>
+					// Elementor `single` location.
+					if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
 
-						<?php responsive_entry_before(); ?>
+						while ( have_posts() ) :
+							the_post();
+							?>
+
+							<?php responsive_entry_before(); ?>
 							<?php get_template_part( 'partials/page/layout', get_post_type() ); ?>
-						<?php responsive_entry_after(); ?>
+							<?php responsive_entry_after(); ?>
 
-						<?php responsive_comments_before(); ?>
-						<?php comments_template( '', true ); ?>
-						<?php responsive_comments_after(); ?>
+							<?php responsive_comments_before(); ?>
+							<?php comments_template( '', true ); ?>
+							<?php responsive_comments_after(); ?>
 
-						<?php
-					endwhile;
-					get_template_part( 'loop-nav', get_post_type() );
-
+							<?php
+						endwhile;
+						get_template_part( 'loop-nav', get_post_type() );
+					}
+					?>
+					<?php
 					else :
-						get_template_part( 'loop-no-posts', get_post_type() );
+						// Elementor `404` location.
+						if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+
+							get_template_part( 'loop-no-posts', get_post_type() );
+						}
 
 				endif;
 					?>
