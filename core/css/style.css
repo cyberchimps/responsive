@@ -984,7 +984,7 @@ input[type=search] {
 }
 .main-navigation a {
   display: block;
-  padding: 5px 15px;
+  padding: 10px 15px;
   font-weight: 600;
 }
 .main-navigation .menu-toggle {
@@ -1121,12 +1121,37 @@ input[type=search] {
     margin-right: 0;
   }
 }
+@media (max-width: 992px) {
+  .site-header-layout-vertical.site-header-site-branding-main-navigation.site-header-full-width-main-navigation .main-navigation,
 .site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation {
-  border-top: 1px solid #eaeaea;
+    border-top: 1px solid #eaeaea;
+  }
 }
-.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation {
-  border-bottom: 1px solid #eaeaea;
+@media (min-width: 992px) {
+  .site-header-layout-vertical.site-header-site-branding-main-navigation.site-header-full-width-main-navigation .main-navigation div,
+.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation div {
+    border-top: 1px solid #eaeaea;
+  }
+}
+.site-header-layout-vertical.site-header-site-branding-main-navigation.site-header-full-width-main-navigation .main-navigation div {
   border-top: 0;
+}
+@media (max-width: 992px) {
+  .site-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation,
+.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation {
+    border-bottom: 1px solid #eaeaea;
+    border-top: 0;
+  }
+}
+@media (min-width: 992px) {
+  .site-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation div,
+.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation div {
+    border-bottom: 1px solid #eaeaea;
+    border-top: 0;
+  }
+}
+.site-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation div {
+  border-bottom: 0;
 }
 .site-header-layout-vertical.site-header-alignment-center .site-branding {
   text-align: center;
@@ -2302,7 +2327,6 @@ input[type=search] {
 .blog.front-page aside.home-widgets .home-widget-wrapper .home-widget-1 .widget-wrapper,
 .blog.front-page aside.home-widgets .home-widget-wrapper .home-widget-2 .widget-wrapper,
 .blog.front-page aside.home-widgets .home-widget-wrapper .home-widget-3 .widget-wrapper {
-  font-size: 16px;
   margin-top: 0;
 }
 .blog.front-page aside.home-widgets .home-widget-wrapper .home-widget-1 .textwidget,
@@ -2372,7 +2396,7 @@ input[type=search] {
 .responsive-site-style-boxed .widget-wrapper {
   padding: 28px;
 }
-.widget-area .widget-wrapper, .footer-widgets .footer-widget .widget-wrapper {
+.widget-area:not(.home-widgets) .widget-wrapper, .footer-widgets .footer-widget:not(.home-widgets) .widget-wrapper {
   font-size: 13px;
 }
 .widget-area .widget-wrapper.widget_search .submit, .footer-widgets .footer-widget .widget-wrapper.widget_search .submit {

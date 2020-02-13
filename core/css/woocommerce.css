@@ -214,9 +214,6 @@ ul.wc-block-grid__products {
 .woocommerce ul.products {
   margin: 0;
 }
-.woocommerce ul.products li.product {
-  margin-bottom: 28px;
-}
 .woocommerce ul.products li.product .woocommerce-loop-category__title,
 .woocommerce ul.products li.product .woocommerce-loop-product__title,
 .woocommerce ul.products li.product h3 {

@@ -75,7 +75,7 @@
 
     a {
         display: block;
-        padding: ( $input-padding-y * 2 ) ( $grid-gutter-width / 2 );
+        padding: ( $input-padding-y * 4 ) ( $grid-gutter-width / 2 );
         font-weight: 600;
     }
 
@@ -250,15 +250,42 @@
     }
 
     &.site-header-site-branding-main-navigation {
+        &.site-header-full-width-main-navigation .main-navigation,
         .main-navigation {
-            border-top: 1px solid map-get( $colors, light-gray );
+            @media ( max-width: map-get( $screens, lg ) ) {
+                border-top: 1px solid map-get( $colors, light-gray );
+            }
+            div {
+                @media ( min-width: map-get( $screens, lg ) ) {
+                    border-top: 1px solid map-get( $colors, light-gray );
+                }
+            }
         }
+
+        &.site-header-full-width-main-navigation .main-navigation div {
+            border-top: 0;
+        }
+
     }
 
     &.site-header-main-navigation-site-branding {
+        &.site-header-full-width-main-navigation .main-navigation,
         .main-navigation {
-            border-bottom: 1px solid map-get( $colors, light-gray );
-            border-top: 0;
+            @media ( max-width: map-get( $screens, lg ) ) {
+                border-bottom: 1px solid map-get( $colors, light-gray );
+                border-top: 0;
+            }
+            div {
+                @media ( min-width: map-get( $screens, lg ) ) {
+                    border-bottom: 1px solid map-get( $colors, light-gray );
+                    border-top: 0;
+                }
+            }
+        }
+
+
+        &.site-header-full-width-main-navigation .main-navigation div {
+            border-bottom: 0;
         }
     }
 

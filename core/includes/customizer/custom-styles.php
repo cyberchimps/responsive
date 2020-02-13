@@ -598,8 +598,14 @@ function responsive_customizer_styles() {
 		border-bottom-color: {$header_border_color};
 		background-color: {$header_background_color};
 	}
-	.site-header-layout-vertical .main-navigation {
+	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,
+	.site-header-layout-vertical .main-navigation div {
 		background-color: {$header_menu_background_color};
+	}
+	@media ( max-width: {$mobile_menu_breakpoint}px ) {
+		.site-header-layout-vertical .main-navigation {
+			background-color: {$header_menu_background_color};
+		}
 	}
 	.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation{
 		border-top-color:{$header_menu_border_color};
@@ -1071,6 +1077,8 @@ function responsive_customizer_styles() {
 	}
 	";
 
+	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
+
 	if ( class_exists( 'WooCommerce' ) ) {
 		// WooCommerce.
 		$woocommerce_custom_css = '';
@@ -1373,10 +1381,22 @@ function responsive_customizer_styles() {
 				padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 			}
 		}';
-		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', $woocommerce_custom_css ) );
+		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $woocommerce_custom_css ) ) );
 	}
 
-	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', $custom_css ) );
 }
-
 add_action( 'wp_enqueue_scripts', 'responsive_customizer_styles', 99 );
+
+/**
+ * [responsive_minimize_css description].
+ *
+ * @param  string $css [description].
+ * @return string      [description]
+ */
+function responsive_minimize_css( $css ) {
+	$css = preg_replace( '/\/\*((?!\*\/).)*\*\//', '', $css ); // negative look ahead.
+	$css = preg_replace( '/\s{2,}/', ' ', $css );
+	$css = preg_replace( '/\s*([:;{}])\s*/', '$1', $css );
+	$css = preg_replace( '/;}/', '}', $css );
+	return $css;
+}
