@@ -517,6 +517,10 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Site Style class.
 	$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 
+	// Header width.
+	if ( get_theme_mod( 'responsive_header_full_width', 0 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
+		$classes[] = 'header-full-width';
+	}
 	// Header Element layout class.
 	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
 	// Header alignment class.
@@ -613,6 +617,10 @@ function responsive_add_custom_body_classes( $classes ) {
 		}
 	}
 
+	// Footer width.
+	if ( get_theme_mod( 'responsive_footer_full_width', 0 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
+		$classes[] = 'footer-full-width';
+	}
 	// Footer Element layout class.
 	$classes[] = 'footer-bar-layout-' . get_theme_mod( 'responsive_footer_bar_layout', 'horizontal' );
 	// Footer Widget columns class.

@@ -2262,6 +2262,231 @@
 	           $child.remove();
 	       }
 	   } );
+	} ),api( "sidebar_typography[font-family]", function( $swipe ) {
+	   $swipe.bind( function( pair ) {
+	       if ( pair ) {
+	           /** @type {string} */
+	           var fontName = pair.split(",")[0];
+	               fontName = fontName.replace(/'/g, '');
+	           var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customize-control-sidebar_typography-font-family" );
+	           var fontSize = fontName.replace( " ", "%20" );
+	           fontSize = fontSize.replace( ",", "%2C" );
+	           /** @type {string} */
+	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	           if ( $( "#" + idfirst ).length ) {
+	               $( "#" + idfirst ).attr( "href", fontSize );
+	           } else {
+	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+	           }
+	       }
+	       var $child = $( ".customize-control-sidebar_typography-font-family" );
+	       if ( pair ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-font-family">.site-content .widget-area:not(.home-widgets) .widget-wrapper {font-family: ' + pair + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[font-weight]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-font-weight" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-font-weight">.site-content .widget-area:not(.home-widgets) .widget-wrapper {font-weight: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[font-style]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-font-style" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-font-style">.site-content .widget-area:not(.home-widgets) .widget-wrapper {font-style: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[font-size]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-font-size" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-font-size">.site-content .widget-area:not(.home-widgets) .widget-wrapper {font-size: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[font-size]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-tablet-font-size" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-tablet-font-size">@media (max-width: 768px){.site-content .widget-area:not(.home-widgets) .widget-wrapper {font-size: ' + dataAndEvents + ";}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "heading_h1_mobile_typography[font-size]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-mobile-font-size" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-mobile-font-size">@media (max-width: 480px){.site-content .widget-area:not(.home-widgets) .widget-wrapper {font-size: ' + dataAndEvents + ";}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[color]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-color" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-color">.site-content .widget-area:not(.home-widgets) .widget-wrapper {color: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[line-height]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-line-height" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-line-height">.site-content .widget-area:not(.home-widgets) .widget-wrapper {line-height: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[line-height]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-tablet-line-height" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-tablet-line-height">@media (max-width: 768px){.site-content .widget-area:not(.home-widgets) .widget-wrapper {line-height: ' + dataAndEvents + ";}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "heading_h1_mobile_typography[line-height]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-mobile-line-height" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-mobile-line-height">@media (max-width: 480px){.site-content .widget-area:not(.home-widgets) .widget-wrapper {line-height: ' + dataAndEvents + ";}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[letter-spacing]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-letter-spacing" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-letter-spacing">.site-content .widget-area:not(.home-widgets) .widget-wrapper {letter-spacing: ' + dataAndEvents + "px;}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[letter-spacing]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-tablet-letter-spacing" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-tablet-letter-spacing">@media (max-width: 768px){.site-content .widget-area:not(.home-widgets) .widget-wrapper {letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "heading_h1_mobile_typography[letter-spacing]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-mobile-letter-spacing" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-mobile-letter-spacing">@media (max-width: 480px){.site-content .widget-area:not(.home-widgets) .widget-wrapper {letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
+	} ), api( "sidebar_typography[text-transform]", function( $swipe ) {
+	   $swipe.bind( function( dataAndEvents ) {
+	       var $child = $( ".customize-control-sidebar_typography-text-transform" );
+	       if ( dataAndEvents ) {
+	           /** @type {string} */
+	           var img = '<style class="customize-control-sidebar_typography-text-transform">.site-content .widget-area:not(.home-widgets) .widget-wrapper {text-transform: ' + dataAndEvents + ";}</style>";
+	           if ( $child.length ) {
+	               $child.replaceWith( img );
+	           } else {
+	               $( "head" ).append( img );
+	           }
+	       } else {
+	           $child.remove();
+	       }
+	   } );
 	} ), api( "page_subheading_typography[font-family]", function( $swipe ) {
 		$swipe.bind( function( pair ) {
 			if ( pair ) {

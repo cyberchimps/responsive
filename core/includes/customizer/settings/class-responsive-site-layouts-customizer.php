@@ -80,7 +80,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, '', 'responsive_not_active_site_style_flat' );
+			responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, 0, 'responsive_not_active_site_style_flat' );
 
 			// Buttons Layout.
 			$buttons_layout_label = esc_html__( 'Buttons', 'responsive' );

@@ -22,6 +22,9 @@
         text-decoration: none;
     }
 }
+.header-full-width .site-header .container {
+    max-width: none;
+}
 
 .site-branding {
     @extend .col-xs-12;
@@ -75,7 +78,7 @@
 
     a {
         display: block;
-        padding: ( $input-padding-y * 2 ) ( $grid-gutter-width / 2 );
+        padding: ( $input-padding-y * 4 ) ( $base-line-height-px / 2 );
         font-weight: 600;
     }
 
@@ -124,6 +127,7 @@
             @media( min-width: map-get( $screens, lg ) ) {
                 border-bottom: none;
                 float: left;
+                margin-left: 2px;
             }
 
             &.menu-item-has-children > a,
@@ -211,6 +215,7 @@
                 & > li {
                     @media( min-width: map-get( $screens, lg ) ) {
                         margin-left: 0;
+                        margin-right: 2px;
                     }
                 }
             }
@@ -243,22 +248,55 @@
             & > li {
                 @media( min-width: map-get( $screens, lg ) ) {
                     margin-left: 0;
-                    margin-right: 0;
+                    margin-right: 2px;
                 }
             }
         }
     }
 
     &.site-header-site-branding-main-navigation {
-        .main-navigation {
+        &.site-header-full-width-main-navigation .main-navigation {
             border-top: 1px solid map-get( $colors, light-gray );
         }
+        .main-navigation {
+            @media ( max-width: map-get( $screens, lg ) ) {
+                border-top: 1px solid map-get( $colors, light-gray );
+            }
+        }
+        &.site-header-site-branding-main-navigation:not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
+            @media ( min-width: map-get( $screens, lg ) ) {
+                border-top: 1px solid map-get( $colors, light-gray );
+            }
+        }
+
+
+        &.site-header-full-width-main-navigation .main-navigation div {
+            border-top: 0;
+        }
+
     }
 
     &.site-header-main-navigation-site-branding {
-        .main-navigation {
+        &.site-header-full-width-main-navigation .main-navigation {
             border-bottom: 1px solid map-get( $colors, light-gray );
             border-top: 0;
+        }
+        .main-navigation {
+            @media ( max-width: map-get( $screens, lg ) ) {
+                border-bottom: 1px solid map-get( $colors, light-gray );
+                border-top: 0;
+            }
+        }
+        &.site-header-main-navigation-site-branding:not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
+            @media ( min-width: map-get( $screens, lg ) ) {
+                border-bottom: 1px solid map-get( $colors, light-gray );
+                border-top: 0;
+            }
+        }
+
+
+        &.site-header-full-width-main-navigation .main-navigation div {
+            border-bottom: 0;
         }
     }
 
@@ -282,8 +320,8 @@
 
                 & > li {
                     @media( min-width: map-get( $screens, lg ) ) {
-                        margin-left: 0;
-                        margin-right: 0;
+                        margin-left: 1px;
+                        margin-right: 1px;
                     }
                 }
             }
@@ -309,8 +347,8 @@
 
                 & > li {
                     @media( min-width: map-get( $screens, lg ) ) {
-                        margin-left: 0;
-                        margin-right: 0;
+                        margin-left: 1px;
+                        margin-right: 1px;
                     }
                 }
             }

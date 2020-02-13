@@ -196,13 +196,12 @@ ul.wc-block-grid__products {
     .woocommerce-ordering select {
         border-radius: 0px;
         height: 2em;
-        margin-bottom: 14px;
+        margin-bottom: $base-line-height-px / 2;
     }
 
     ul.products {
         margin: 0;
         li.product {
-            margin-bottom: $base-line-height-px;
             .woocommerce-loop-category__title,
             .woocommerce-loop-product__title,
             h3 {

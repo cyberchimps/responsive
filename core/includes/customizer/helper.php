@@ -272,36 +272,6 @@ if ( ! function_exists( 'responsive_shoppage_elements' ) ) {
 }
 
 /**
- * Adds custom classes to the array of body classes.
- */
-if ( ! function_exists( 'responsive_body_classes' ) ) {
-
-	/**
-	 * Adds custom classes to the array of body classes.
-	 *
-	 * @since 1.0.0
-	 * @param array $classes Classes for the body element.
-	 * @return array
-	 */
-	function responsive_body_classes( $classes ) {
-
-		// Apply separate container class to the body.
-		$content_layout = responsive_get_content_layout();
-		if ( 'fullwidth' === $content_layout ) {
-			$classes[] = 'fullwidth-layout';
-		}
-		if ( 'content-boxed' === $content_layout ) {
-			$classes[] = 'content-boxed-layout';
-		}
-
-		return $classes;
-	}
-}
-
-add_filter( 'body_class', 'responsive_body_classes' );
-
-
-/**
  * Return current content layout
  */
 if ( ! function_exists( 'responsive_get_content_layout' ) ) {

@@ -43,6 +43,10 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				)
 			);
 
+			// Full Width Footer.
+			$footer_full_width_label = __( 'Full Width Footer', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'footer_full_width', $footer_full_width_label, 'responsive_footer_layout', 10, 0, 'responsive_active_site_layout_contained' );
+
 			/**
 			 * Footer Widget Separator.
 			 */
@@ -54,7 +58,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			responsive_drag_number_control( $wp_customize, 'footer_widgets_columns', $number_of_columns_label, 'responsive_footer_layout', 20, 0, null, 4, 0 );
 
 			// Widgets Padding.
-			responsive_padding_control( $wp_customize, 'footer_widgets', 'responsive_footer_layout', 30, 60, 0, null );
+			responsive_padding_control( $wp_customize, 'footer_widgets', 'responsive_footer_layout', 30, 20, 0, null );
 
 			/**
 			 * Footer Bar Separator.
@@ -71,7 +75,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 110, $footer_layout_choices, 'horizontal', null );
 
 			// Bar Padding.
-			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 120, 60, 0, null );
+			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 120, 20, 0, null );
 
 			/**
 			 * Social Links Separator.
