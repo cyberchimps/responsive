@@ -593,6 +593,10 @@ function responsive_check_previous_version() {
 		! get_theme_mod( 'responsive_header_site_title_color' ) ? set_theme_mod( 'responsive_header_site_title_color', get_theme_mod( 'responsive_fullwidth_sitetitle_color', '#333333' ) ) : '';
 		! get_theme_mod( 'responsive_header_text_color' ) ? set_theme_mod( 'responsive_header_text_color', get_theme_mod( 'responsive_site_description_color', '#999999' ) ) : '';
 
+		! get_theme_mod( 'responsive_header_sub_menu_background_color' ) ? set_theme_mod( 'responsive_header_sub_menu_background_color', get_theme_mod( 'responsive_header_menu_background_color', '#ffffff' ) ) : '';
+		! get_theme_mod( 'responsive_header_sub_menu_link_color' ) ? set_theme_mod( 'responsive_header_sub_menu_link_color', get_theme_mod( 'responsive_header_menu_link_color', '#333333' ) ) : '';
+		! get_theme_mod( 'responsive_header_sub_menu_link_hover_color' ) ? set_theme_mod( 'responsive_header_sub_menu_link_hover_color', get_theme_mod( 'responsive_header_menu_link_hover_color', '#10659C' ) ) : '';
+
 		! get_theme_mod( 'responsive_box_background_color' ) ? set_theme_mod( 'responsive_box_background_color', get_theme_mod( 'responsive_container_background_color', '#ffffff' ) ) : '';
 		if ( '#ffffff' !== get_theme_mod( 'responsive_box_background_color' ) ) {
 			! get_theme_mod( 'background_color' ) ? set_theme_mod( 'background_color', 'ffffff' ) : '';
@@ -601,10 +605,14 @@ function responsive_check_previous_version() {
 		! get_theme_mod( 'responsive_link_color' ) ? set_theme_mod( 'responsive_link_color', get_theme_mod( 'link-color', '#0066CC' ) ) : '';
 		! get_theme_mod( 'responsive_link_hover_color' ) ? set_theme_mod( 'responsive_link_hover_color', get_theme_mod( 'link-hover-color', '#10659C' ) ) : '';
 
+		if ( get_theme_mod( 'responsive_display_read_more_as_button' ) ) {
+			! get_theme_mod( 'responsive_blog_entry_read_more_type' ) ? set_theme_mod( 'responsive_blog_entry_read_more_type', 'button' ) : '';
+		}
+
 		if ( '#ffffff' === get_theme_mod( 'responsive_footer_background_color' ) ) {
 			! get_theme_mod( 'responsive_footer_text_color' ) ? set_theme_mod( 'responsive_footer_text_color', '#333333' ) : '';
-			! get_theme_mod( 'responsive_footer_link_color' ) ? set_theme_mod( 'responsive_footer_link_color', '#999999' ) : '';
-			! get_theme_mod( 'responsive_footer_link_hover_color' ) ? set_theme_mod( 'responsive_footer_link_hover_color', '#333333' ) : '';
+			! get_theme_mod( 'responsive_footer_links_color' ) ? set_theme_mod( 'responsive_footer_links_color', '#999999' ) : '';
+			! get_theme_mod( 'responsive_footer_links_hover_color' ) ? set_theme_mod( 'responsive_footer_links_hover_color', '#333333' ) : '';
 		}
 
 		$header_layout = array( 'above_header', 'below_header' );
@@ -663,7 +671,6 @@ function responsive_check_previous_version() {
 		}
 
 		if ( 'fullwidth-stretched' === $responsive_options['site_layout_option'] ) {
-			! get_theme_mod( 'responsive_width' ) ? set_theme_mod( 'responsive_width', 'full-width' ) : '';
 			if ( '#ffffff' === get_theme_mod( 'responsive_box_background_color' ) ) {
 				'ffffff' !== get_theme_mod( 'background_color' ) ? set_theme_mod( 'background_color', 'ffffff' ) : '';
 			}
