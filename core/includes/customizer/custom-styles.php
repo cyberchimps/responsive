@@ -1201,6 +1201,7 @@ function responsive_customizer_styles() {
 			color: {$shop_product_rating_color};
 		}
 
+		.woocommerce #respond input#submit,
 		.wp-block-button__link.add_to_cart_button,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li a,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li,
@@ -1211,6 +1212,7 @@ function responsive_customizer_styles() {
 			color: {$add_to_cart_button_text_color};
 		}
 
+		.woocommerce #respond input#submit:hover,
 		.wp-block-button__link.add_to_cart_button:hover,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li.active a,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li.active,
@@ -1408,6 +1410,15 @@ function responsive_customizer_styles() {
 				padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 			}
 		}';
+
+		for ( $i = 1; $i < 11; $i++ ) {
+			$woocommerce_custom_css .= "
+			.woocommerce-page ul.products.columns-$i li.product,
+			.woocommerce ul.products.columns-$i li.product {
+				width: calc( ( 100% / $i )  - (19px + {$i}px));
+			}";
+		}
+
 		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $woocommerce_custom_css ) ) );
 	}
 
