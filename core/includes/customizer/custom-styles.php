@@ -227,6 +227,7 @@ function responsive_customizer_styles() {
 	";
 
 	$custom_css .= '
+	.blog.front-page .button,
 	.read-more-button .hentry .read-more .more-link,
 	input[type=button],
 	input[type=submit],
@@ -243,6 +244,7 @@ function responsive_customizer_styles() {
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
 	}
 	@media screen and ( max-width: 992px ) {
+		.blog.front-page .button,
 		.read-more-button .hentry .read-more .more-link,
 		input[type=button],
 		.wp-block-button__link,
@@ -257,6 +259,7 @@ function responsive_customizer_styles() {
 	}
 
 	@media screen and ( max-width: 576px ) {
+		.blog.front-page .button,
 		.read-more-button .hentry .read-more .more-link,
 		input[type=button],
 		.wp-block-button__link,
@@ -270,6 +273,8 @@ function responsive_customizer_styles() {
 		}
 	}
 
+	.blog.front-page .button:focus,
+	.blog.front-page .button:hover,
 	.wp-block-button__link.has-text-color.has-background:focus,
 	.wp-block-button__link.has-text-color.has-background:hover,
 	.wp-block-button__link.has-text-color:focus,
