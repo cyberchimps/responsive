@@ -50,41 +50,51 @@ if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
 					<div id="main-blog" class="row">
 						<?php
 						if ( have_posts() ) :
-							while ( have_posts() ) :
-								the_post();
-								responsive_entry_before();
-								get_template_part( 'partials/entry/layout', get_post_type() );
-								responsive_entry_after();
-							endwhile;
-							?>
-					</div>
-							<?php
+							// Elementor `archive` location.
+							if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) {
 
-							if ( $wp_query->max_num_pages > 1 ) :
-								if ( 'infinite' === $blog_pagination ) :
-									ob_start();
-									do_action( 'responsive_pro_pagination_infinite_enqueue_script' );
-									?>
-									<nav class="responsive-pagination-infinite">
-										<div class="responsive-loader">
-											<div class="responsive-loader-1"></div>
-											<div class="responsive-loader-2"></div>
-											<div class="responsive-loader-3"></div>
-										</div>
-									</nav>
-									<?php
-								else :
-									the_posts_pagination(
-										array(
-											'mid_size'  => 2,
-											'prev_text' => __( 'Previous', 'responsive' ),
-											'next_text' => __( 'Next', 'responsive' ),
-										)
-									);
-								endif;
-							endif;
+								while ( have_posts() ) :
+									the_post();
+									responsive_entry_before();
+									get_template_part( 'partials/entry/layout', get_post_type() );
+									responsive_entry_after();
+							endwhile;
+								?>
+					</div>
+								<?php
+
+								if ( $wp_query->max_num_pages > 1 ) :
+									if ( 'infinite' === $blog_pagination ) :
+										ob_start();
+										do_action( 'responsive_pro_pagination_infinite_enqueue_script' );
+										?>
+						<nav class="responsive-pagination-infinite">
+							<div class="responsive-loader">
+								<div class="responsive-loader-1"></div>
+								<div class="responsive-loader-2"></div>
+								<div class="responsive-loader-3"></div>
+							</div>
+						</nav>
+										<?php
+										else :
+											the_posts_pagination(
+												array(
+													'mid_size' => 2,
+													'prev_text' => __( 'Previous', 'responsive' ),
+													'next_text' => __( 'Next', 'responsive' ),
+												)
+											);
+										endif;
+					endif;
+							}
+							?>
+							<?php
 					else :
-						get_template_part( 'loop-no-posts', get_post_type() );
+						// Elementor `404` location.
+						if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+
+							get_template_part( 'loop-no-posts', get_post_type() );
+						}
 					endif;
 					?>
 				</div>

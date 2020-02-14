@@ -780,3 +780,15 @@ function responsive_wpkses_post_tags( $tags, $context ) {
 	return $tags;
 }
 add_filter( 'wp_kses_allowed_html', 'responsive_wpkses_post_tags', 10, 2 );
+
+/**
+ * Register theme locations
+ *
+ * @param array $elementor_theme_manager  Theme manager.
+ */
+function responsive_register_elementor_locations( $elementor_theme_manager ) {
+
+	$elementor_theme_manager->register_all_core_location();
+
+}
+add_action( 'elementor/theme/register_locations', 'responsive_register_elementor_locations' );

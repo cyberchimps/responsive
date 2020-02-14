@@ -61,6 +61,20 @@ ul.products {
 
     }
 }
+.woocommerce-page,
+.woocommerce {
+    @for $i from 1 through 10 {
+        ul.products.columns-#{$i} {
+            li.product:nth-child(#{$i}n) {
+                margin-right: 0;
+                clear: right;
+            }
+            li.product {
+                margin: 0 $grid-gutter-width $grid-gutter-width 0;
+            }
+        }
+    }
+}
 
 // Block product
 

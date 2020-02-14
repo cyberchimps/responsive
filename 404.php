@@ -35,9 +35,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php responsive_entry_top(); ?>
 
 					<div class="post-entry">
+						<?php
+						// Elementor `404` location.
+						if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+							?>
 
-						<?php get_template_part( 'loop-no-posts', get_post_type() ); ?>
-
+							<?php get_template_part( 'loop-no-posts', get_post_type() ); ?>
+						<?php } ?>
 					</div><!-- end of .post-entry -->
 
 					<?php responsive_entry_bottom(); ?>
