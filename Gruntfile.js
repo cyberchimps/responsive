@@ -303,7 +303,8 @@ module.exports = function(grunt) {
 
 	// SASS compile
 	grunt.registerTask('scss', ['sass']);
-	grunt.registerTask( 'default', [ 'addtextdomain', 'scss', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'default', [ 'scss', 'uglify', 'cssmin' ] );
+	grunt.registerTask( 'build', [ 'addtextdomain', 'scss', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };

@@ -36,5 +36,6 @@ core/css/style.min.css
 core/includes/theme-options/sky-tabs-ie8.min.js
 core/includes/theme-options/sky-tabs.min.css
 core/js/jquery.min.js
+core/js/navigation.min.js
 core/css/woocommerce.min.css
 jenkincodeception/vendor
