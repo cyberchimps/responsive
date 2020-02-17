@@ -332,9 +332,6 @@
 
 #main-blog.row {
     align-items: stretch;
-    .responsive-site-style-content-boxed & {
-        border-bottom: 1px solid map-get( $colors, light-gray );
-    }
     .entry-column {
         @extend .col-xs-12;
         @include make-block-element( $grid-gutter-width );

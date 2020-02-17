@@ -649,8 +649,8 @@ function responsive_customizer_styles() {
 		color: {$header_menu_link_color};
 	}
 
-	.main-navigation .menu > .current_page_item a,
-	.main-navigation .menu > .current-menu-item a,
+	.main-navigation .menu > .current_page_item > a,
+	.main-navigation .menu > .current-menu-item > a,
 	.main-navigation .menu > li > a:hover {
 		color: {$header_menu_link_hover_color};
 		background-color: {$header_active_menu_background_color};

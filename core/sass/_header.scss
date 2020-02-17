@@ -263,7 +263,7 @@
                 border-top: 1px solid map-get( $colors, light-gray );
             }
         }
-        &.site-header-site-branding-main-navigation:not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
+        &.site-header-site-branding-main-navigation:not(.responsive-site-full-width):not(.header-full-width):not(.site-header-full-width-main-navigation) .main-navigation div {
             @media ( min-width: map-get( $screens, lg ) ) {
                 border-top: 1px solid map-get( $colors, light-gray );
             }
@@ -427,7 +427,7 @@
         float: left;
     }
 
-    &.site-header-layout-vertical.site-header-alignment-right .site-branding {
+    &.site-header-alignment-right .site-branding {
         display: flex;
         flex-direction: row-reverse;
     }
