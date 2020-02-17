@@ -2,6 +2,7 @@
 module.exports = function(grunt) {
 
 	require('load-grunt-tasks')(grunt);
+	const sass = require('node-sass');
 
 	// Project configuration.
 	grunt.initConfig({
@@ -103,6 +104,34 @@ module.exports = function(grunt) {
 					ext: '.mo',
 					nonull: true
 				}]
+			}
+		},
+
+		sass: {
+			options: {
+				implementation: sass,
+				sourcemap: 'none',
+				outputStyle: 'expanded',
+				linefeed: 'lf',
+			},
+			dist: {
+				files: [
+
+					/* Main CSS file */
+					{
+						'core/css/style.css': 'core/sass/style.scss'
+					},
+
+					/* WooCommerce */
+					{
+						'core/css/woocommerce.css': 'core/sass/woocommerce.scss',
+					},
+
+					/* Gutenberg Editor */
+					{
+						'core/css/gutenberg-editor.css': 'core/sass/gutenberg-editor.scss',
+					},
+				]
 			}
 		},
 
@@ -271,7 +300,11 @@ module.exports = function(grunt) {
 	// Default task(s).
 	grunt.registerTask( 'updatefonts', [ 'google-fonts' ] );
 	grunt.registerTask( 'addtextdomain', ['checktextdomain']);
-	grunt.registerTask( 'default', [ 'addtextdomain', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
+
+	// SASS compile
+	grunt.registerTask('scss', ['sass']);
+	grunt.registerTask( 'default', [ 'scss', 'uglify', 'cssmin' ] );
+	grunt.registerTask( 'build', [ 'addtextdomain', 'scss', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };

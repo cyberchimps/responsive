@@ -12,7 +12,15 @@ atlassian*
 /robots.txt
 .DS_Store
 /tests/_output/
+/core/css/style.css
+/core/css/style.min.css
 /core/css/style.css.map
+/core/css/woocommerce.css
+/core/css/woocommerce.min.css
+/core/css/woocommerce.css.map
+/core/css/gutenberg-editor.css
+/core/css/gutenberg-editor.min.css
+/core/css/gutenberg-editor.css.map
 node_modules
 *.jar
 *.phar
@@ -28,5 +36,6 @@ core/css/style.min.css
 core/includes/theme-options/sky-tabs-ie8.min.js
 core/includes/theme-options/sky-tabs.min.css
 core/js/jquery.min.js
+core/js/navigation.min.js
 core/css/woocommerce.min.css
 jenkincodeception/vendor

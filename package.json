@@ -22,7 +22,12 @@
     "lint-staged": "^9.5.0",
     "load-grunt-tasks": "~0.2.0",
     "prettier": "^1.19.1",
-    "grunt-csscomb": "~3.0.0"
+    "grunt-csscomb": "~3.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-postcss": "^0.9.0",
+    "grunt-rtlcss": "^2.0.1",
+    "grunt-sass": "^3.0.2",
+    "node-sass": "^4.12.0"
   },
   "dependencies": {
     "google-fonts": "^1.0.0",
