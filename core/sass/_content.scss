@@ -393,6 +393,22 @@
     		}
     	}
     }
+    @media screen and (max-width: map-get( $screens, sm ) ) {
+        &.blog-entry-columns-2-masonry #main-blog.row,
+        &.blog-entry-columns-3-masonry #main-blog.row,
+        &.blog-entry-columns-4-masonry #main-blog.row {
+    		display: block;
+    		columns: 1;
+    		column-gap: 0;
+            .entry-column {
+    			width: 100%;
+    			float: left;
+    			page-break-inside: avoid; /* Firefox */
+    			-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+                break-inside: avoid;
+    		}
+    	}
+    }
 }
 
 .sticky,
