@@ -13,6 +13,8 @@ atlassian*
 .DS_Store
 /tests/_output/
 /core/css/style.css.map
+/core/css/gutenberg-editor.css.map
+/core/css/woocommerce.css.map
 node_modules
 *.jar
 *.phar
