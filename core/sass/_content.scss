@@ -761,3 +761,10 @@
         }
     }
 }
+
+article.product {
+    @extend .hentry;
+    .responsive-site-style-boxed .site-content & {
+            background-color: map-get( $colors, white );
+    }
+}

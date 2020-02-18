@@ -73,7 +73,8 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
 	.responsive-site-style-boxed .comment-respond,
-	.responsive-site-style-boxed aside#secondary .widget-wrapper {
+	.responsive-site-style-boxed aside#secondary .widget-wrapper,
+	.responsive-site-style-boxed .site-content article.product {
 		background-color:{$box_background_color};
 		border-radius:{$box_radius}px;
 	}
@@ -93,7 +94,8 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
 	.blog.front-page.responsive-site-style-flat .widget-wrapper,
-	.responsive-site-style-boxed .widget-wrapper {
+	.responsive-site-style-boxed .widget-wrapper,
+	.responsive-site-style-boxed .site-content article.product {
 	    padding: ' . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ';
 	}
 
@@ -109,7 +111,8 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
-		.responsive-site-style-boxed .widget-wrapper {
+		.responsive-site-style-boxed .widget-wrapper,
+		.responsive-site-style-boxed .site-content article.product {
 		    padding: ' . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ';
 		}
 	}
@@ -126,7 +129,8 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
-		.responsive-site-style-boxed .widget-wrapper {
+		.responsive-site-style-boxed .widget-wrapper,
+		.responsive-site-style-boxed .site-content article.product {
 			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 		}
 	}';
@@ -803,6 +807,7 @@ function responsive_customizer_styles() {
 		.blog .thumbnail-caption {
 			text-align: center;
 		}
+		.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,
 		.search.responsive-site-style-content-boxed .hentry .thumbnail,
 		.search.responsive-site-style-boxed .hentry .thumbnail,
 		.archive.responsive-site-style-content-boxed .hentry .thumbnail,
@@ -812,6 +817,7 @@ function responsive_customizer_styles() {
 			margin-left: -{$box_padding_left}px;
 			margin-right: -{$box_padding_right}px;
 		}
+		.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,
 		.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
 		.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,
 		.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
@@ -821,6 +827,7 @@ function responsive_customizer_styles() {
 			margin-top: -{$box_padding_top}px;
 		}
 		@media (max-width:992px) {
+			.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,
 			.search.responsive-site-style-content-boxed .hentry .thumbnail,
 			.search.responsive-site-style-boxed .hentry .thumbnail,
 			.archive.responsive-site-style-content-boxed .hentry .thumbnail,
@@ -830,6 +837,7 @@ function responsive_customizer_styles() {
 				margin-left: -{$box_tablet_padding_left}px;
 				margin-right: -{$box_tablet_padding_right}px;
 			}
+			.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,
 			.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
 			.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,
 			.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
@@ -840,6 +848,7 @@ function responsive_customizer_styles() {
 			}
 		}
 		@media (max-width:576px) {
+			.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,
 			.search.responsive-site-style-content-boxed .hentry .thumbnail,
 			.search.responsive-site-style-boxed .hentry .thumbnail,
 			.archive.responsive-site-style-content-boxed .hentry .thumbnail,
@@ -849,6 +858,7 @@ function responsive_customizer_styles() {
 				margin-left: -{$box_mobile_padding_left}px;
 				margin-right: -{$box_mobile_padding_right}px;
 			}
+			.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,
 			.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
 			.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,
 			.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
