@@ -62,6 +62,15 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			);
 
 			$wp_customize->add_panel(
+				'responsive_sidebar',
+				array(
+					'title'       => __( 'Sidebar', 'responsive' ),
+					'description' => 'Sidebar Options',
+					'priority'    => 131,
+				)
+			);
+
+			$wp_customize->add_panel(
 				'responsive_footer',
 				array(
 					'title'       => __( 'Footer', 'responsive' ),

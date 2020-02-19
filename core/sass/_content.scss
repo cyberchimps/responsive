@@ -332,9 +332,6 @@
 
 #main-blog.row {
     align-items: stretch;
-    .responsive-site-style-content-boxed & {
-        border-bottom: 1px solid map-get( $colors, light-gray );
-    }
     .entry-column {
         @extend .col-xs-12;
         @include make-block-element( $grid-gutter-width );
@@ -386,6 +383,22 @@
         &.blog-entry-columns-4-masonry #main-blog.row {
     		display: block;
     		columns: 2;
+    		column-gap: 0;
+            .entry-column {
+    			width: 100%;
+    			float: left;
+    			page-break-inside: avoid; /* Firefox */
+    			-webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+                break-inside: avoid;
+    		}
+    	}
+    }
+    @media screen and (max-width: map-get( $screens, sm ) ) {
+        &.blog-entry-columns-2-masonry #main-blog.row,
+        &.blog-entry-columns-3-masonry #main-blog.row,
+        &.blog-entry-columns-4-masonry #main-blog.row {
+    		display: block;
+    		columns: 1;
     		column-gap: 0;
             .entry-column {
     			width: 100%;
@@ -705,7 +718,6 @@
                     margin-top: $base-line-height-px;
                 }
                 .widget-wrapper {
-                    font-size: map-get( $font-sizes, normal );
                     margin-top: 0;
                 }
                 .textwidget,
@@ -747,5 +759,12 @@
             padding: $base-line-height-px;
             background-color: map-get( $colors, white );
         }
+    }
+}
+
+article.product {
+    @extend .hentry;
+    .responsive-site-style-boxed .site-content & {
+            background-color: map-get( $colors, white );
     }
 }

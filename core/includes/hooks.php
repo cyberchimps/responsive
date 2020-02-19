@@ -324,7 +324,7 @@ function responsive_header_sidebar() {
  */
 function responsive_header_widget_position() {
 
-	if ( 0 === get_theme_mod( 'responsive_enable_header_widget', 0 ) ) {
+	if ( ! get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
 		return;
 	}
 

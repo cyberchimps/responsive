@@ -204,6 +204,16 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line-height' => '1.75',
 						),
 					),
+					'sidebar'                    => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
+						'panel'    => 'responsive_sidebar',
+						'exclude'  => array( 'font-color' ),
+						'priority' => 30,
+						'defaults' => array(
+							'font-size' => '13px',
+						),
+					),
 					'content_header_heading'     => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
 						'target'   => '.site-content-header .page-header .page-title,.site-content-header .page-title',
@@ -671,6 +681,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				array(
 					'googleFontsUrl'    => '//fonts.googleapis.com',
 					'googleFontsWeight' => '100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i',
+					'googleFonts'       => responsive_get_google_fonts(),
 				)
 			);
 		}

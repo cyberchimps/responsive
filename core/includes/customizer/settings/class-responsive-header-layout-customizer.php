@@ -42,6 +42,11 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 				)
 			);
+
+			// Full Width Header.
+			$header_full_width_label = __( 'Full Width Header', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_full_width', $header_full_width_label, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained' );
+
 			/**
 			 * Header Elements Positioning
 			 */
@@ -103,7 +108,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$header_widget_position_label   = esc_html__( 'Widgets Position', 'responsive' );
 			$header_widget_position_choices = array(
 				'top'       => esc_html__( 'Above Header', 'responsive' ),
-				'with_logo' => esc_html__( 'With Logo', 'responsive' ),
+				'with_logo' => esc_html__( 'In Header', 'responsive' ),
 				'bottom'    => esc_html__( 'Below Header', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'header_widget_position', $header_widget_position_label, 'responsive_header_layout', 70, $header_widget_position_choices, 'top', 'responsive_active_header_widget' );

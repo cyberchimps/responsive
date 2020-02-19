@@ -23,8 +23,11 @@
     }
 
     // Sidebar widget Area
-    .widget-area & {
+    .widget-area:not(.home-widgets) & {
         font-size: map-get( $font-sizes, small );
+    }
+    
+    .widget-area & {
 
         &.widget_search {
             .submit {

@@ -29,31 +29,39 @@ get_header(); ?>
 
 				<?php get_template_part( 'loop-header', get_post_type() ); ?>
 				<?php if ( have_posts() ) : ?>
-
 					<?php
-					while ( have_posts() ) :
-						the_post();
+					// Elementor `single` location.
+					if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
 						?>
 
-						<?php responsive_entry_before(); ?>
 						<?php
+						while ( have_posts() ) :
+							the_post();
+							?>
+
+							<?php responsive_entry_before(); ?>
+							<?php
 							get_template_part( 'partials/single/layout', get_post_type() );
-						?>
-						<?php responsive_entry_after(); ?>
+							?>
+							<?php responsive_entry_after(); ?>
 
-						<?php responsive_comments_before(); ?>
-						<?php comments_template( '', true ); ?>
-						<?php responsive_comments_after(); ?>
+							<?php responsive_comments_before(); ?>
+							<?php comments_template( '', true ); ?>
+							<?php responsive_comments_after(); ?>
 
-						<?php
-					endwhile;
+							<?php
+						endwhile;
 
-					get_template_part( 'loop-nav', get_post_type() );
-
+						get_template_part( 'loop-nav', get_post_type() );
+					}
+					?>
+					<?php
 					else :
+						// Elementor `404` location.
+						if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
 
-						get_template_part( 'loop-no-posts', get_post_type() );
-
+							get_template_part( 'loop-no-posts', get_post_type() );
+						}
 				endif;
 					?>
 

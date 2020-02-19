@@ -19,6 +19,10 @@
 
 }
 
+.footer-full-width .site-footer .container {
+    max-width: none;
+}
+
 .footer-widgets {
     border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
     padding: $grid-gutter-width * 2  0;
@@ -85,6 +89,7 @@
     .footer-bar-layout-horizontal & {
         @media (min-width: map-get( $screens, md ) ) {
             width: auto;
+            margin: auto 0;
         }
     }
     .footer-bar-layout-vertical & {
@@ -107,11 +112,7 @@
             display: inline;
             border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
             border-bottom: none;
-            margin: 0 $grid-gutter-width / 2;
-
-            &:first-child {
-                margin: 0;
-            }
+            margin-right: $grid-gutter-width / 2;
         }
     }
 }
