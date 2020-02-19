@@ -4,8 +4,7 @@
  *
  * @file           sidebar-top.php
  * @package        Responsive
- * @author         CyberChimps
- * @copyright      2020 CyberChimps
+ * @copyright      2003 - 2020 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
  * @filesource     wp-content/themes/responsive/sidebar-top.php
@@ -18,23 +17,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-?>
-<?php
-if ( ! is_active_sidebar( 'header-widgets' )
-) {
+if ( ! is_active_sidebar( 'header-widgets' ) ) {
 	return;
 }
 ?>
-<?php responsive_widgets_before(); // above widgets container hook. ?>
-	<div id="header-widgets" class="header-widgets">
-		<?php responsive_widgets(); // above widgets hook. ?>
-
-		<?php if ( is_active_sidebar( 'header-widgets' ) ) : ?>
-
+<div class="header-widgets">
+	<div class="container">
+		<div class="header-widgets-wrapper">
 			<?php dynamic_sidebar( 'header-widgets' ); ?>
-
-		<?php endif; // end of header-widgets. ?>
-
-		<?php responsive_widgets_end(); // after widgets hook. ?>
-	</div><!-- end of #header-widgets -->
-<?php responsive_widgets_after(); // after widgets container hook. ?>
+		</div>
+	</div>
+</div>

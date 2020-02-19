@@ -25,50 +25,55 @@ global $responsive_options;
 $responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
 ?>
-		<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
-			<?php responsive_footer_top(); ?>
-			<?php get_sidebar( 'footer' ); ?>
+		<?php
+		// Elementor `footer` location.
+		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
+			?>
+			<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
+				<?php responsive_footer_top(); ?>
+				<?php get_sidebar( 'footer' ); ?>
 
-			<div class="footer-bar grid col-940">
-				<div class="content-outer container">
-					<div class="row">
+				<div class="footer-bar grid col-940">
+					<div class="content-outer container">
+						<div class="row">
 
-							<?php get_sidebar( 'colophon' ); ?>
-							<?php
-							if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
-								$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
-								$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
-								foreach ( $sections as $section ) {
+								<?php get_sidebar( 'colophon' ); ?>
+								<?php
+								if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+									$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+									$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
+									foreach ( $sections as $section ) {
 
-									// Footer Menu.
-									if ( 'footer_menu' === $section ) {
+										// Footer Menu.
+										if ( 'footer_menu' === $section ) {
+											get_template_part( 'partials/footer/footer-menu' );
+										}
+
+										if ( 'social_icons' === $section ) {
+                                            echo responsive_get_social_icons() ;// phpcs:ignore
+										}
+
+										// Copy Rights.
+										if ( 'copy_right_text' === $section ) {
+											get_template_part( 'partials/footer/copy-right' );
+										}
+									}
+								} else {
+									if ( has_nav_menu( 'footer-menu' ) ) {
 										get_template_part( 'partials/footer/footer-menu' );
 									}
-
-									if ( 'social_icons' === $section ) {
-			                            echo responsive_get_social_icons() ;// phpcs:ignore
-									}
-
-									// Copy Rights.
-									if ( 'copy_right_text' === $section ) {
-										get_template_part( 'partials/footer/copy-right' );
-									}
+                                    echo responsive_get_social_icons() ;// phpcs:ignore
+									get_template_part( 'partials/footer/copy-right' );
 								}
-							} else {
-								if ( has_nav_menu( 'footer-menu' ) ) {
-									get_template_part( 'partials/footer/footer-menu' );
-								}
-			                    echo responsive_get_social_icons() ;// phpcs:ignore
-								get_template_part( 'partials/footer/copy-right' );
-							}
-							?>
+								?>
 
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<?php responsive_footer_bottom(); ?>
-		</footer><!-- end #footer -->
+				<?php responsive_footer_bottom(); ?>
+			</footer><!-- end #footer -->
+		<?php } ?>
 		<?php responsive_footer_after(); ?>
 	</div><!-- end of #container -->
 

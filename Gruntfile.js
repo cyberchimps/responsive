@@ -2,6 +2,7 @@
 module.exports = function(grunt) {
 
 	require('load-grunt-tasks')(grunt);
+	const sass = require('node-sass');
 
 	// Project configuration.
 	grunt.initConfig({
@@ -106,6 +107,34 @@ module.exports = function(grunt) {
 			}
 		},
 
+		sass: {
+			options: {
+				implementation: sass,
+				sourcemap: 'none',
+				outputStyle: 'expanded',
+				linefeed: 'lf',
+			},
+			dist: {
+				files: [
+
+					/* Main CSS file */
+					{
+						'core/css/style.css': 'core/sass/style.scss'
+					},
+
+					/* WooCommerce */
+					{
+						'core/css/woocommerce.css': 'core/sass/woocommerce.scss',
+					},
+
+					/* Gutenberg Editor */
+					{
+						'core/css/gutenberg-editor.css': 'core/sass/gutenberg-editor.scss',
+					},
+				]
+			}
+		},
+
 		//Compress build directory into <name>.zip and <name>-<version>.zip
 		compress: {
 			main: {
@@ -150,7 +179,18 @@ module.exports = function(grunt) {
 						ext: '.min.js',   // Dest filepaths will have this extension.
 					},
 				]
-			}
+			},
+			typography_customize_preview: {
+				files: [
+					{
+						expand: true, // Enable dynamic expansion.
+						cwd: 'core/includes/customizer/assets/js/', // Src matches are relative to this path.
+						src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
+						dest: 'core/includes/customizer/assets/js/', // Destination path prefix.
+						ext: '.min.js', // Dest filepaths will have this extension.
+					},
+				]
+			},
 		},
 
 		csscomb: {
@@ -271,7 +311,11 @@ module.exports = function(grunt) {
 	// Default task(s).
 	grunt.registerTask( 'updatefonts', [ 'google-fonts' ] );
 	grunt.registerTask( 'addtextdomain', ['checktextdomain']);
-	grunt.registerTask( 'default', [ 'addtextdomain', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
+
+	// SASS compile
+	grunt.registerTask('scss', ['sass']);
+	grunt.registerTask( 'default', [ 'scss', 'uglify', 'cssmin' ] );
+	grunt.registerTask( 'build', [ 'addtextdomain', 'scss', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
 
 };

@@ -56,8 +56,11 @@ get_header(); ?>
 				get_template_part( 'loop-nav', get_post_type() );
 
 				else :
+						// Elementor `404` location.
+					if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
 
-					get_template_part( 'loop-no-posts', get_post_type() );
+						get_template_part( 'loop-no-posts', get_post_type() );
+					}
 
 			endif;
 				?>

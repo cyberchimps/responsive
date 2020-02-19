@@ -50,9 +50,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						)
 					);
 
-					// Loop through elements.
-					foreach ( $responsive_header_elements as $element ) {
-						get_template_part( 'partials/header/' . $element );
+					// Elementor `header` location.
+					if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) {
+
+						// Loop through elements.
+						foreach ( $responsive_header_elements as $element ) {
+							get_template_part( 'partials/header/' . $element );
+						}
 					}
 					?>
 				</div>
