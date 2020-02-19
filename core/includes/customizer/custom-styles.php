@@ -353,6 +353,13 @@ function responsive_customizer_styles() {
 		border-radius: ' . $inputs_radius . 'px;
 		line-height: 1.75;
 		padding: ' . responsive_spacing_css( $inputs_padding_top, $inputs_padding_right, $inputs_padding_bottom, $inputs_padding_left ) . ';
+		height: auto;
+	}
+	div.wpforms-container-full .wpforms-form select,
+	select {
+		background-image:
+			linear-gradient(45deg, transparent 50%, ' . $inputs_text_color . ' 50%),
+			linear-gradient(135deg, ' . $inputs_text_color . ' 50%, transparent 50%);
 	}
 	div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,
 	div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,
