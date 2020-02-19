@@ -432,3 +432,27 @@
         flex-direction: row-reverse;
     }
 }
+
+.header-widget-position-with_logo {
+	.site-branding{
+		display: flex;
+		flex-wrap: wrap;
+		width: -webkit-fill-available;
+	}
+	.site-branding-wrapper{
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	    flex: auto;
+	}
+	.header-widgets{
+		justify-content: flex-end;
+		display: flex;
+		flex-wrap: wrap;
+		flex: auto;
+		border-bottom: none;
+
+		.container {
+			margin-right: 0;
+		}
+	}
+}
