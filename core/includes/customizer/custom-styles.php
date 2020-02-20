@@ -1435,9 +1435,11 @@ function responsive_customizer_styles() {
 
 		for ( $i = 1; $i < 11; $i++ ) {
 			$woocommerce_custom_css .= "
-			.woocommerce-page ul.products.columns-$i li.product,
-			.woocommerce ul.products.columns-$i li.product {
-				width: calc( ( 100% / $i )  - (19px + {$i}px));
+			@media screen and ( min-width: 992px ) {
+				.woocommerce-page ul.products.columns-$i li.product,
+				.woocommerce ul.products.columns-$i li.product {
+					width: calc( ( 100% / $i )  - (19px + {$i}px));
+				}
 			}";
 		}
 
