@@ -77,7 +77,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Colors_Customizer' ) ) :
 
 			// Sub Menu Link Hover Color.
 			$sub_menu_link_hover_color_label = __( 'Sub Menu Link Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_sub_menu_link_hover', $sub_menu_link_hover_color_label, 'responsive_sub_menu', 80, '#10659C' );
+			responsive_color_control( $wp_customize, 'header_sub_menu_link_hover', $sub_menu_link_hover_color_label, 'responsive_header_menu_colors', 80, '#10659C' );
 
 			// Menu Toggle Background Color.
 			$menu_toggle_background_color_label = __( 'Menu Toggle Background Color', 'responsive' );

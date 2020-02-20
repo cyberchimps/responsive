@@ -112,11 +112,7 @@
             display: inline;
             border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
             border-bottom: none;
-            margin: 0 $grid-gutter-width / 2;
-
-            &:first-child {
-                margin: 0;
-            }
+            margin-right: $grid-gutter-width / 2;
         }
     }
 }

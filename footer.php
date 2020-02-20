@@ -46,7 +46,9 @@ global $responsive_blog_layout_columns;
 
 										// Footer Menu.
 										if ( 'footer_menu' === $section ) {
-											get_template_part( 'partials/footer/footer-menu' );
+											if ( has_nav_menu( 'footer-menu' ) ) {
+												get_template_part( 'partials/footer/footer-menu' );
+											}
 										}
 
 										if ( 'social_icons' === $section ) {

@@ -21,11 +21,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-body-font-family" );
 			if ( pair ) {
@@ -246,11 +248,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-heading_h1-font-family" );
 			if ( pair ) {
@@ -471,11 +475,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-heading_h2-font-family" );
 			if ( pair ) {
@@ -696,11 +702,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-heading_h3-font-family" );
 			if ( pair ) {
@@ -921,11 +929,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-heading_h4-font-family" );
 			if ( pair ) {
@@ -1146,11 +1156,13 @@
 	            fontSize = fontSize.replace( ",", "%2C" );
 	            /** @type {string} */
 	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	            if ( $( "#" + idfirst ).length ) {
-	                $( "#" + idfirst ).attr( "href", fontSize );
-	            } else {
-	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	            }
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 	        }
 	        var $child = $( ".customizer-typography-content_header_heading-font-family" );
 	        if ( pair ) {
@@ -1371,11 +1383,13 @@
 	            fontSize = fontSize.replace( ",", "%2C" );
 	            /** @type {string} */
 	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	            if ( $( "#" + idfirst ).length ) {
-	                $( "#" + idfirst ).attr( "href", fontSize );
-	            } else {
-	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	            }
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 	        }
 	        var $child = $( ".customizer-typography-content_header_description-font-family" );
 	        if ( pair ) {
@@ -1596,11 +1610,13 @@
 	            fontSize = fontSize.replace( ",", "%2C" );
 	            /** @type {string} */
 	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	            if ( $( "#" + idfirst ).length ) {
-	                $( "#" + idfirst ).attr( "href", fontSize );
-	            } else {
-	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	            }
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 	        }
 	        var $child = $( ".customizer-typography-breadcrumb-font-family" );
 	        if ( pair ) {
@@ -1822,11 +1838,13 @@
 	            fontSize = fontSize.replace( ",", "%2C" );
 	            /** @type {string} */
 	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	            if ( $( "#" + idfirst ).length ) {
-	                $( "#" + idfirst ).attr( "href", fontSize );
-	            } else {
-	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	            }
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 	        }
 	        var $child = $( ".customize-control-footer_typography-font-family" );
 	        if ( pair ) {
@@ -2048,11 +2066,13 @@
 	           fontSize = fontSize.replace( ",", "%2C" );
 	           /** @type {string} */
 	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	           if ( $( "#" + idfirst ).length ) {
-	               $( "#" + idfirst ).attr( "href", fontSize );
-	           } else {
-	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	           }
+               if ( fontName in responsive.googleFonts ) {
+                   if ($("#" + idfirst).length) {
+                       $("#" + idfirst).attr("href", fontSize);
+                   } else {
+                       $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                   }
+               }
 	       }
 	       var $child = $( ".customize-control-header_menu_typography-font-family" );
 	       if ( pair ) {
@@ -2273,11 +2293,13 @@
 	           fontSize = fontSize.replace( ",", "%2C" );
 	           /** @type {string} */
 	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	           if ( $( "#" + idfirst ).length ) {
-	               $( "#" + idfirst ).attr( "href", fontSize );
-	           } else {
-	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	           }
+               if ( fontName in responsive.googleFonts ) {
+                   if ($("#" + idfirst).length) {
+                       $("#" + idfirst).attr("href", fontSize);
+                   } else {
+                       $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                   }
+               }
 	       }
 	       var $child = $( ".customize-control-sidebar_typography-font-family" );
 	       if ( pair ) {
@@ -2498,11 +2520,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-page_subheading-font-family" );
 			if ( pair ) {
@@ -2721,11 +2745,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + pair + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                    if ($("#" + idfirst).length) {
+                        $("#" + idfirst).attr("href", fontSize);
+                    } else {
+                        $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-breadcrumbs-font-family" );
 			if ( pair ) {
@@ -2947,11 +2973,13 @@
 	            fontSize = fontSize.replace( ",", "%2C" );
 	            /** @type {string} */
 	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	            if ( $( "#" + idfirst ).length ) {
-	                $( "#" + idfirst ).attr( "href", fontSize );
-	            } else {
-	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	            }
+                if ( fontName in responsive.googleFonts ) {
+                	if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
 	        }
 	        var $child = $( ".customizer-typography-meta-font-family" );
 	        if ( pair ) {
@@ -3172,11 +3200,13 @@
 	            fontSize = fontSize.replace( ",", "%2C" );
 	            /** @type {string} */
 	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	            if ( $( "#" + idfirst ).length ) {
-	                $( "#" + idfirst ).attr( "href", fontSize );
-	            } else {
-	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	            }
+                if ( fontName in responsive.googleFonts ) {
+                	if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
 	        }
 	        var $child = $( ".customizer-typography-button-font-family" );
 	        if ( pair ) {
@@ -3397,11 +3427,13 @@
 	            fontSize = fontSize.replace( ",", "%2C" );
 	            /** @type {string} */
 	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	            if ( $( "#" + idfirst ).length ) {
-	                $( "#" + idfirst ).attr( "href", fontSize );
-	            } else {
-	                $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	            }
+                if ( fontName in responsive.googleFonts ) {
+                	if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
 	        }
 	        var $child = $( ".customizer-typography-input-font-family" );
 	        if ( pair ) {
@@ -3622,11 +3654,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                	if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-heading_h5-font-family" );
 			if ( pair ) {
@@ -3847,11 +3881,13 @@
 				fontSize = fontSize.replace( ",", "%2C" );
 				/** @type {string} */
 				fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-				if ( $( "#" + idfirst ).length ) {
-					$( "#" + idfirst ).attr( "href", fontSize );
-				} else {
-					$( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-				}
+                if ( fontName in responsive.googleFonts ) {
+                	if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
 			}
 			var $child = $( ".customizer-typography-heading_h6-font-family" );
 			if ( pair ) {
@@ -4073,11 +4109,13 @@
 	           fontSize = fontSize.replace( ",", "%2C" );
 	           /** @type {string} */
 	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	           if ( $( "#" + idfirst ).length ) {
-	               $( "#" + idfirst ).attr( "href", fontSize );
-	           } else {
-	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	           }
+               if ( fontName in responsive.googleFonts ) {
+					if ( $( "#" + idfirst ).length ) {
+                       $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                       $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+               }
 	       }
 	       var $child = $( ".customizer-typography-header_site_title-font-family" );
 	       if ( pair ) {
@@ -4298,11 +4336,13 @@
 	           fontSize = fontSize.replace( ",", "%2C" );
 	           /** @type {string} */
 	           fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
-	           if ( $( "#" + idfirst ).length ) {
-	               $( "#" + idfirst ).attr( "href", fontSize );
-	           } else {
-	               $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
-	           }
+               if ( fontName in responsive.googleFonts ) {
+               		if ( $( "#" + idfirst ).length ) {
+                       $( "#" + idfirst ).attr( "href", fontSize );
+                   	} else {
+                       $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                   	}
+               }
 	       }
 	       var $child = $( ".customizer-typography-header_site_tagline-font-family" );
 	       if ( pair ) {

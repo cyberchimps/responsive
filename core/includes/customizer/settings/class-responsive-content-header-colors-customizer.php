@@ -43,7 +43,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 			);
 
 			// Title Color.
-			$content_header_heading_color_label = __( 'Tttle Color', 'responsive' );
+			$content_header_heading_color_label = __( 'Title Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'content_header_heading', $content_header_heading_color_label, 'responsive_content_header_colors', 10, '#333333' );
 
 			// Header Description.

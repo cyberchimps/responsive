@@ -179,7 +179,18 @@ module.exports = function(grunt) {
 						ext: '.min.js',   // Dest filepaths will have this extension.
 					},
 				]
-			}
+			},
+			typography_customize_preview: {
+				files: [
+					{
+						expand: true, // Enable dynamic expansion.
+						cwd: 'core/includes/customizer/assets/js/', // Src matches are relative to this path.
+						src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
+						dest: 'core/includes/customizer/assets/js/', // Destination path prefix.
+						ext: '.min.js', // Dest filepaths will have this extension.
+					},
+				]
+			},
 		},
 
 		csscomb: {

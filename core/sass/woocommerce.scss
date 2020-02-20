@@ -59,6 +59,9 @@ ul.products {
             justify-content: space-between;
         }
 
+        .onsale {
+            line-height: 2.9;
+        }
     }
 }
 .woocommerce-page,
@@ -69,9 +72,11 @@ ul.products {
                 margin-right: 0;
                 clear: right;
             }
-            li.product {
-                margin: 0 $grid-gutter-width $grid-gutter-width 0;
-            }
+			@media screen and ( min-width: 992px ) {
+		        li.product {
+		            margin: 0 $grid-gutter-width $grid-gutter-width 0;
+		        }
+			}
         }
     }
 }
@@ -205,12 +210,6 @@ ul.wc-block-grid__products {
     ul.products li.product .price {
         color: map-get( $colors, dark-gray );
         font-weight: bold;
-    }
-
-    .woocommerce-ordering select {
-        border-radius: 0px;
-        height: 2em;
-        margin-bottom: $base-line-height-px / 2;
     }
 
     ul.products {
@@ -376,4 +375,8 @@ div.product div.images .flex-control-thumbs {
 .wc-block-grid.has-8-columns .wc-block-grid__product,
 .wp-block-button__link {
     font-size: map-get($font-sizes,normal);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+	margin-right: 10px;
 }

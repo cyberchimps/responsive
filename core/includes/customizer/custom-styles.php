@@ -73,7 +73,8 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
 	.responsive-site-style-boxed .comment-respond,
-	.responsive-site-style-boxed aside#secondary .widget-wrapper {
+	.responsive-site-style-boxed aside#secondary .widget-wrapper,
+	.responsive-site-style-boxed .site-content article.product {
 		background-color:{$box_background_color};
 		border-radius:{$box_radius}px;
 	}
@@ -93,7 +94,8 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
 	.blog.front-page.responsive-site-style-flat .widget-wrapper,
-	.responsive-site-style-boxed .widget-wrapper {
+	.responsive-site-style-boxed .widget-wrapper,
+	.responsive-site-style-boxed .site-content article.product {
 	    padding: ' . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ';
 	}
 
@@ -109,7 +111,8 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
-		.responsive-site-style-boxed .widget-wrapper {
+		.responsive-site-style-boxed .widget-wrapper,
+		.responsive-site-style-boxed .site-content article.product {
 		    padding: ' . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ';
 		}
 	}
@@ -126,7 +129,8 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
-		.responsive-site-style-boxed .widget-wrapper {
+		.responsive-site-style-boxed .widget-wrapper,
+		.responsive-site-style-boxed .site-content article.product {
 			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 		}
 	}';
@@ -349,6 +353,13 @@ function responsive_customizer_styles() {
 		border-radius: ' . $inputs_radius . 'px;
 		line-height: 1.75;
 		padding: ' . responsive_spacing_css( $inputs_padding_top, $inputs_padding_right, $inputs_padding_bottom, $inputs_padding_left ) . ';
+		height: auto;
+	}
+	div.wpforms-container-full .wpforms-form select,
+	select {
+		background-image:
+			linear-gradient(45deg, transparent 50%, ' . $inputs_text_color . ' 50%),
+			linear-gradient(135deg, ' . $inputs_text_color . ' 50%, transparent 50%);
 	}
 	div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,
 	div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,
@@ -649,9 +660,9 @@ function responsive_customizer_styles() {
 		color: {$header_menu_link_color};
 	}
 
-	.main-navigation .menu > .current_page_item a,
-	.main-navigation .menu > .current-menu-item a,
-	.main-navigation .menu > li > a:hover {
+	.main-navigation .menu  .current_page_item > a,
+	.main-navigation .menu  .current-menu-item > a,
+	.main-navigation .menu  li > a:hover {
 		color: {$header_menu_link_hover_color};
 		background-color: {$header_active_menu_background_color};
 	}
@@ -803,6 +814,7 @@ function responsive_customizer_styles() {
 		.blog .thumbnail-caption {
 			text-align: center;
 		}
+		.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,
 		.search.responsive-site-style-content-boxed .hentry .thumbnail,
 		.search.responsive-site-style-boxed .hentry .thumbnail,
 		.archive.responsive-site-style-content-boxed .hentry .thumbnail,
@@ -812,6 +824,7 @@ function responsive_customizer_styles() {
 			margin-left: -{$box_padding_left}px;
 			margin-right: -{$box_padding_right}px;
 		}
+		.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,
 		.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
 		.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,
 		.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
@@ -821,6 +834,7 @@ function responsive_customizer_styles() {
 			margin-top: -{$box_padding_top}px;
 		}
 		@media (max-width:992px) {
+			.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,
 			.search.responsive-site-style-content-boxed .hentry .thumbnail,
 			.search.responsive-site-style-boxed .hentry .thumbnail,
 			.archive.responsive-site-style-content-boxed .hentry .thumbnail,
@@ -830,6 +844,7 @@ function responsive_customizer_styles() {
 				margin-left: -{$box_tablet_padding_left}px;
 				margin-right: -{$box_tablet_padding_right}px;
 			}
+			.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,
 			.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
 			.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,
 			.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
@@ -840,6 +855,7 @@ function responsive_customizer_styles() {
 			}
 		}
 		@media (max-width:576px) {
+			.search.responsive-site-style-boxed .site-content article.product .post-entry .thumbnail,
 			.search.responsive-site-style-content-boxed .hentry .thumbnail,
 			.search.responsive-site-style-boxed .hentry .thumbnail,
 			.archive.responsive-site-style-content-boxed .hentry .thumbnail,
@@ -849,6 +865,7 @@ function responsive_customizer_styles() {
 				margin-left: -{$box_mobile_padding_left}px;
 				margin-right: -{$box_mobile_padding_right}px;
 			}
+			.search.responsive-site-style-boxed article.product .post-entry > .thumbnail:first-child,
 			.search.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
 			.search.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child,
 			.archive.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,
@@ -1418,9 +1435,11 @@ function responsive_customizer_styles() {
 
 		for ( $i = 1; $i < 11; $i++ ) {
 			$woocommerce_custom_css .= "
-			.woocommerce-page ul.products.columns-$i li.product,
-			.woocommerce ul.products.columns-$i li.product {
-				width: calc( ( 100% / $i )  - (19px + {$i}px));
+			@media screen and ( min-width: 992px ) {
+				.woocommerce-page ul.products.columns-$i li.product,
+				.woocommerce ul.products.columns-$i li.product {
+					width: calc( ( 100% / $i )  - (19px + {$i}px));
+				}
 			}";
 		}
 

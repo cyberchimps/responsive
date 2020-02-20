@@ -562,51 +562,51 @@ function responsive_check_previous_version() {
 			$responsive_options['cta_url'] = '#';
 		}
 
-		! get_theme_mod( 'responsive_hide_tagline' ) ? set_theme_mod( 'responsive_hide_tagline', get_theme_mod( 'res_hide_tagline', 0 ) ) : '';
-		! get_theme_mod( 'responsive_hide_title' ) ? set_theme_mod( 'responsive_hide_title', get_theme_mod( 'res_hide_site_title', 0 ) ) : '';
+		( ! get_theme_mod( 'responsive_hide_tagline' ) && get_theme_mod( 'res_hide_tagline' ) ) ? set_theme_mod( 'responsive_hide_tagline', get_theme_mod( 'res_hide_tagline', 0 ) ) : '';
+		( ! get_theme_mod( 'responsive_hide_title' ) && get_theme_mod( 'res_hide_site_title' ) ) ? set_theme_mod( 'responsive_hide_title', get_theme_mod( 'res_hide_site_title', 0 ) ) : '';
 
-		! get_theme_mod( 'responsive_button_color' ) ? set_theme_mod( 'responsive_button_color', get_theme_mod( 'button-color', '#0066CC' ) ) : '';
-		! get_theme_mod( 'responsive_button_hover_color' ) ? set_theme_mod( 'responsive_button_hover_color', get_theme_mod( 'button-hover-color', '#10659C' ) ) : '';
-		! get_theme_mod( 'responsive_button_text_color' ) ? set_theme_mod( 'responsive_button_text_color', get_theme_mod( 'button-text-color', '#FFFFFF' ) ) : '';
-		! get_theme_mod( 'responsive_button_hover_text_color' ) ? set_theme_mod( 'responsive_button_hover_text_color', get_theme_mod( 'button-hover-text-color', '#FFFFFF' ) ) : '';
+		( ! get_theme_mod( 'responsive_button_color' ) && get_theme_mod( 'button-color' ) ) ? set_theme_mod( 'responsive_button_color', get_theme_mod( 'button-color', '#0066CC' ) ) : '';
+		( ! get_theme_mod( 'responsive_button_hover_color' ) && get_theme_mod( 'button-hover-color' ) ) ? set_theme_mod( 'responsive_button_hover_color', get_theme_mod( 'button-hover-color', '#10659C' ) ) : '';
+		( ! get_theme_mod( 'responsive_button_text_color' ) && get_theme_mod( 'button-text-color' ) ) ? set_theme_mod( 'responsive_button_text_color', get_theme_mod( 'button-text-color', '#FFFFFF' ) ) : '';
+		( ! get_theme_mod( 'responsive_button_hover_text_color' ) && get_theme_mod( 'button-hover-text-color' ) ) ? set_theme_mod( 'responsive_button_hover_text_color', get_theme_mod( 'button-hover-text-color', '#FFFFFF' ) ) : '';
 
-		! get_theme_mod( 'responsive_inputs_background_color' ) ? set_theme_mod( 'responsive_inputs_background_color', get_theme_mod( 'input-background-color', '#FFFFFF' ) ) : '';
-		! get_theme_mod( 'responsive_inputs_text_color' ) ? set_theme_mod( 'responsive_inputs_text_color', get_theme_mod( 'input-text-color', '#333333' ) ) : '';
-		! get_theme_mod( 'responsive_inputs_border_color' ) ? set_theme_mod( 'responsive_inputs_border_color', get_theme_mod( 'input-border-color', '#cccccc' ) ) : '';
+		( ! get_theme_mod( 'responsive_inputs_background_color' ) && get_theme_mod( 'input-background-color' ) ) ? set_theme_mod( 'responsive_inputs_background_color', get_theme_mod( 'input-background-color', '#FFFFFF' ) ) : '';
+		( ! get_theme_mod( 'responsive_inputs_text_color' ) && get_theme_mod( 'input-text-color' ) ) ? set_theme_mod( 'responsive_inputs_text_color', get_theme_mod( 'input-text-color', '#333333' ) ) : '';
+		( ! get_theme_mod( 'responsive_inputs_border_color' ) && get_theme_mod( 'input-border-color' ) ) ? set_theme_mod( 'responsive_inputs_border_color', get_theme_mod( 'input-border-color', '#cccccc' ) ) : '';
 
-		! get_theme_mod( 'responsive_label_color' ) ? set_theme_mod( 'responsive_label_color', get_theme_mod( 'label-color', '#333333' ) ) : '';
+		( ! get_theme_mod( 'responsive_label_color' ) && get_theme_mod( 'label-color' ) ) ? set_theme_mod( 'responsive_label_color', get_theme_mod( 'label-color', '#333333' ) ) : '';
 
-		! get_theme_mod( 'responsive_header_menu_background_color' ) ? set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_menu_background_colorpicker', '#ffffff' ) ) : '';
-		! get_theme_mod( 'responsive_header_active_menu_background_color' ) ? set_theme_mod( 'responsive_header_active_menu_background_color', get_theme_mod( 'responsive_menu_active_colorpicker', '#ffffff' ) ) : '';
-		if ( '#ffffff' !== get_theme_mod( 'responsive_header_menu_background_color' ) ) {
+		( ! get_theme_mod( 'responsive_header_menu_background_color' ) && get_theme_mod( 'responsive_menu_background_colorpicker' ) ) ? set_theme_mod( 'responsive_header_menu_background_color', get_theme_mod( 'responsive_menu_background_colorpicker', '#ffffff' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_active_menu_background_color' ) && get_theme_mod( 'responsive_menu_active_colorpicker' ) ) ? set_theme_mod( 'responsive_header_active_menu_background_color', get_theme_mod( 'responsive_menu_active_colorpicker', '#ffffff' ) ) : '';
+		if ( '#ffffff' !== get_theme_mod( 'responsive_header_menu_background_color', '#ffffff' ) ) {
 			! get_theme_mod( 'responsive_header_menu_link_color' ) ? set_theme_mod( 'responsive_header_menu_link_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#ffffff' ) ) : '';
 			! get_theme_mod( 'responsive_header_menu_toggle_color' ) ? set_theme_mod( 'responsive_header_menu_toggle_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#ffffff' ) ) : '';
 		}
-		if ( '#ffffff' !== get_theme_mod( 'responsive_header_active_menu_background_color' ) ) {
+		if ( '#ffffff' !== get_theme_mod( 'responsive_header_active_menu_background_color', '#ffffff' ) ) {
 			! get_theme_mod( 'responsive_header_menu_link_hover_color' ) ? set_theme_mod( 'responsive_header_menu_link_hover_color', get_theme_mod( 'responsive_menu_text_hover_colorpicker', '#ffffff' ) ) : '';
 		}
-		! get_theme_mod( 'responsive_header_menu_toggle_color' ) ? set_theme_mod( 'responsive_header_menu_toggle_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#333333' ) ) : '';
-		! get_theme_mod( 'responsive_header_menu_link_color' ) ? set_theme_mod( 'responsive_header_menu_link_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#333333' ) ) : '';
-		! get_theme_mod( 'responsive_header_menu_border_color' ) ? set_theme_mod( 'responsive_header_menu_border_color', get_theme_mod( 'responsive_menu_border_color', '#eaeaea' ) ) : '';
-		! get_theme_mod( 'responsive_header_menu_link_hover_color' ) ? set_theme_mod( 'responsive_header_menu_link_hover_color', get_theme_mod( 'responsive_menu_text_hover_colorpicker', '#10659C' ) ) : '';
-		! get_theme_mod( 'responsive_header_background_color' ) ? set_theme_mod( 'responsive_header_background_color', get_theme_mod( 'responsive_fullwidth_header_color', '#ffffff' ) ) : '';
-		! get_theme_mod( 'responsive_header_site_title_color' ) ? set_theme_mod( 'responsive_header_site_title_color', get_theme_mod( 'responsive_fullwidth_sitetitle_color', '#333333' ) ) : '';
-		! get_theme_mod( 'responsive_header_text_color' ) ? set_theme_mod( 'responsive_header_text_color', get_theme_mod( 'responsive_site_description_color', '#999999' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_menu_toggle_color' ) && get_theme_mod( 'responsive_menu_text_colorpicker' ) ) ? set_theme_mod( 'responsive_header_menu_toggle_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#333333' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_menu_link_color' ) && get_theme_mod( 'responsive_menu_text_colorpicker' ) ) ? set_theme_mod( 'responsive_header_menu_link_color', get_theme_mod( 'responsive_menu_text_colorpicker', '#333333' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_menu_border_color' ) && get_theme_mod( 'responsive_menu_border_color' ) ) ? set_theme_mod( 'responsive_header_menu_border_color', get_theme_mod( 'responsive_menu_border_color', '#eaeaea' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_menu_link_hover_color' ) && get_theme_mod( 'responsive_menu_text_hover_colorpicker' ) ) ? set_theme_mod( 'responsive_header_menu_link_hover_color', get_theme_mod( 'responsive_menu_text_hover_colorpicker', '#10659C' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_background_color' ) && get_theme_mod( 'responsive_fullwidth_header_color' ) ) ? set_theme_mod( 'responsive_header_background_color', get_theme_mod( 'responsive_fullwidth_header_color', '#ffffff' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_site_title_color' ) && get_theme_mod( 'responsive_fullwidth_sitetitle_color' ) ) ? set_theme_mod( 'responsive_header_site_title_color', get_theme_mod( 'responsive_fullwidth_sitetitle_color', '#333333' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_text_color' ) && get_theme_mod( 'responsive_site_description_color' ) ) ? set_theme_mod( 'responsive_header_text_color', get_theme_mod( 'responsive_site_description_color', '#999999' ) ) : '';
 
-		! get_theme_mod( 'responsive_header_sub_menu_background_color' ) ? set_theme_mod( 'responsive_header_sub_menu_background_color', get_theme_mod( 'responsive_header_menu_background_color', '#ffffff' ) ) : '';
-		! get_theme_mod( 'responsive_header_sub_menu_link_color' ) ? set_theme_mod( 'responsive_header_sub_menu_link_color', get_theme_mod( 'responsive_header_menu_link_color', '#333333' ) ) : '';
-		! get_theme_mod( 'responsive_header_sub_menu_link_hover_color' ) ? set_theme_mod( 'responsive_header_sub_menu_link_hover_color', get_theme_mod( 'responsive_header_menu_link_hover_color', '#10659C' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_sub_menu_background_color' ) && get_theme_mod( 'responsive_header_menu_background_color' ) ) ? set_theme_mod( 'responsive_header_sub_menu_background_color', get_theme_mod( 'responsive_header_menu_background_color', '#ffffff' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_sub_menu_link_color' ) && get_theme_mod( 'responsive_header_menu_link_color' ) ) ? set_theme_mod( 'responsive_header_sub_menu_link_color', get_theme_mod( 'responsive_header_menu_link_color', '#333333' ) ) : '';
+		( ! get_theme_mod( 'responsive_header_sub_menu_link_hover_color' ) && get_theme_mod( 'responsive_header_menu_link_hover_color' ) ) ? set_theme_mod( 'responsive_header_sub_menu_link_hover_color', get_theme_mod( 'responsive_header_menu_link_hover_color', '#10659C' ) ) : '';
 
-		! get_theme_mod( 'responsive_box_background_color' ) ? set_theme_mod( 'responsive_box_background_color', get_theme_mod( 'responsive_container_background_color', '#ffffff' ) ) : '';
-		if ( '#ffffff' !== get_theme_mod( 'responsive_box_background_color' ) ) {
+		( ! get_theme_mod( 'responsive_box_background_color' ) && get_theme_mod( 'responsive_container_background_color' ) ) ? set_theme_mod( 'responsive_box_background_color', get_theme_mod( 'responsive_container_background_color', '#ffffff' ) ) : '';
+		if ( '#ffffff' !== get_theme_mod( 'responsive_box_background_color', '#ffffff' ) ) {
 			! get_theme_mod( 'background_color' ) ? set_theme_mod( 'background_color', 'ffffff' ) : '';
 		}
 
-		! get_theme_mod( 'responsive_link_color' ) ? set_theme_mod( 'responsive_link_color', get_theme_mod( 'link-color', '#0066CC' ) ) : '';
-		! get_theme_mod( 'responsive_link_hover_color' ) ? set_theme_mod( 'responsive_link_hover_color', get_theme_mod( 'link-hover-color', '#10659C' ) ) : '';
+		( ! get_theme_mod( 'responsive_link_color' ) && get_theme_mod( 'link-color' ) ) ? set_theme_mod( 'responsive_link_color', get_theme_mod( 'link-color', '#0066CC' ) ) : '';
+		( ! get_theme_mod( 'responsive_link_hover_color' ) && get_theme_mod( 'link-hover-color' ) ) ? set_theme_mod( 'responsive_link_hover_color', get_theme_mod( 'link-hover-color', '#10659C' ) ) : '';
 
 		if ( get_theme_mod( 'responsive_display_read_more_as_button' ) ) {
-			! get_theme_mod( 'responsive_blog_entry_read_more_type' ) ? set_theme_mod( 'responsive_blog_entry_read_more_type', 'button' ) : '';
+			( ! get_theme_mod( 'responsive_blog_entry_read_more_type' ) && get_theme_mod( 'responsive_blog_entry_read_more_type' ) ) ? set_theme_mod( 'responsive_blog_entry_read_more_type', 'button' ) : '';
 		}
 
 		if ( '#ffffff' === get_theme_mod( 'responsive_footer_background_color' ) ) {
@@ -731,32 +731,31 @@ function responsive_check_previous_version() {
 		}
 
 		if ( class_exists( 'woocommerce' ) ) {
-			! get_theme_mod( 'responsive_shop_product_rating_color' ) ? set_theme_mod( 'responsive_shop_product_rating_color', get_theme_mod( 'responsive_product_rating_color', '#0066CC' ) ) : '';
+			( ! get_theme_mod( 'responsive_shop_product_rating_color' ) && get_theme_mod( 'responsive_product_rating_color' ) ) ? set_theme_mod( 'responsive_shop_product_rating_color', get_theme_mod( 'responsive_product_rating_color', '#0066CC' ) ) : '';
 
-			! get_theme_mod( 'responsive_add_to_cart_button_color' ) ? set_theme_mod( 'responsive_add_to_cart_button_color', get_theme_mod( 'responsive_button_color', '#0066CC' ) ) : '';
-			! get_theme_mod( 'responsive_add_to_cart_button_text_color' ) ? set_theme_mod( 'responsive_add_to_cart_button_text_color', get_theme_mod( 'responsive_button_text_color', '#ffffff' ) ) : '';
-			! get_theme_mod( 'responsive_add_to_cart_button_hover_color' ) ? set_theme_mod( 'responsive_add_to_cart_button_hover_color', get_theme_mod( 'responsive_button_hover_color', '#10659C' ) ) : '';
-			! get_theme_mod( 'responsive_add_to_cart_button_hover_text_color' ) ? set_theme_mod( 'responsive_add_to_cart_button_hover_text_color', get_theme_mod( 'responsive_button_hover_text_color', '#ffffff' ) ) : '';
+			( ! get_theme_mod( 'responsive_add_to_cart_button_color' ) && get_theme_mod( 'responsive_button_color' ) ) ? set_theme_mod( 'responsive_add_to_cart_button_color', get_theme_mod( 'responsive_button_color', '#0066CC' ) ) : '';
+			( ! get_theme_mod( 'responsive_add_to_cart_button_text_color' ) && get_theme_mod( 'responsive_button_text_color' ) ) ? set_theme_mod( 'responsive_add_to_cart_button_text_color', get_theme_mod( 'responsive_button_text_color', '#ffffff' ) ) : '';
+			( ! get_theme_mod( 'responsive_add_to_cart_button_hover_color' ) && get_theme_mod( 'responsive_button_hover_color' ) ) ? set_theme_mod( 'responsive_add_to_cart_button_hover_color', get_theme_mod( 'responsive_button_hover_color', '#10659C' ) ) : '';
+			( ! get_theme_mod( 'responsive_add_to_cart_button_hover_text_color' ) && get_theme_mod( 'responsive_button_hover_text_color' ) ) ? set_theme_mod( 'responsive_add_to_cart_button_hover_text_color', get_theme_mod( 'responsive_button_hover_text_color', '#ffffff' ) ) : '';
 
-			! get_theme_mod( 'responsive_cart_buttons_color' ) ? set_theme_mod( 'responsive_cart_buttons_color', get_theme_mod( 'responsive_button_color', '#0066CC' ) ) : '';
-			! get_theme_mod( 'responsive_cart_buttons_text_color' ) ? set_theme_mod( 'responsive_cart_buttons_text_color', get_theme_mod( 'responsive_button_text_color', '#ffffff' ) ) : '';
-			! get_theme_mod( 'responsive_cart_buttons_hover_color' ) ? set_theme_mod( 'responsive_cart_buttons_hover_color', get_theme_mod( 'responsive_button_hover_color', '#10659C' ) ) : '';
-			! get_theme_mod( 'responsive_cart_buttons_hover_text_color' ) ? set_theme_mod( 'responsive_cart_buttons_hover_text_color', get_theme_mod( 'responsive_button_hover_text_color', '#ffffff' ) ) : '';
+			( ! get_theme_mod( 'responsive_cart_buttons_color' ) && get_theme_mod( 'responsive_button_color' ) ) ? set_theme_mod( 'responsive_cart_buttons_color', get_theme_mod( 'responsive_button_color', '#0066CC' ) ) : '';
+			( ! get_theme_mod( 'responsive_cart_buttons_text_color' ) && get_theme_mod( 'responsive_button_text_color' ) ) ? set_theme_mod( 'responsive_cart_buttons_text_color', get_theme_mod( 'responsive_button_text_color', '#ffffff' ) ) : '';
+			( ! get_theme_mod( 'responsive_cart_buttons_hover_color' ) && get_theme_mod( 'responsive_button_hover_color' ) ) ? set_theme_mod( 'responsive_cart_buttons_hover_color', get_theme_mod( 'responsive_button_hover_color', '#10659C' ) ) : '';
+			( ! get_theme_mod( 'responsive_cart_buttons_hover_text_color' ) && get_theme_mod( 'responsive_button_hover_text_color' ) ) ? set_theme_mod( 'responsive_cart_buttons_hover_text_color', get_theme_mod( 'responsive_button_hover_text_color', '#ffffff' ) ) : '';
 
-			! get_theme_mod( 'responsive_cart_checkout_button_color' ) ? set_theme_mod( 'responsive_cart_checkout_button_color', get_theme_mod( 'responsive_button_color', '#0066CC' ) ) : '';
-			! get_theme_mod( 'responsive_cart_checkout_button_text_color' ) ? set_theme_mod( 'responsive_cart_checkout_button_text_color', get_theme_mod( 'responsive_button_text_color', '#ffffff' ) ) : '';
-			! get_theme_mod( 'responsive_cart_checkout_button_hover_color' ) ? set_theme_mod( 'responsive_cart_checkout_button_hover_color', get_theme_mod( 'responsive_button_hover_color', '#10659C' ) ) : '';
-			! get_theme_mod( 'responsive_cart_checkout_button_hover_text_color' ) ? set_theme_mod( 'responsive_cart_checkout_button_hover_text_color', get_theme_mod( 'responsive_button_hover_text_color', '#ffffff' ) ) : '';
-			! get_theme_mod( 'responsive_breadcrumb_color' ) ? set_theme_mod( 'responsive_breadcrumb_color', get_theme_mod( 'responsive_product_breadcrumb_color', '#0066CC' ) ) : '';
+			( ! get_theme_mod( 'responsive_cart_checkout_button_color' ) && get_theme_mod( 'responsive_button_color' ) ) ? set_theme_mod( 'responsive_cart_checkout_button_color', get_theme_mod( 'responsive_button_color', '#0066CC' ) ) : '';
+			( ! get_theme_mod( 'responsive_cart_checkout_button_text_color' ) && get_theme_mod( 'responsive_button_text_color' ) ) ? set_theme_mod( 'responsive_cart_checkout_button_text_color', get_theme_mod( 'responsive_button_text_color', '#ffffff' ) ) : '';
+			( ! get_theme_mod( 'responsive_cart_checkout_button_hover_color' ) && get_theme_mod( 'responsive_button_hover_color' ) ) ? set_theme_mod( 'responsive_cart_checkout_button_hover_color', get_theme_mod( 'responsive_button_hover_color', '#10659C' ) ) : '';
+			( ! get_theme_mod( 'responsive_cart_checkout_button_hover_text_color' ) && get_theme_mod( 'responsive_button_hover_text_color' ) ) ? set_theme_mod( 'responsive_cart_checkout_button_hover_text_color', get_theme_mod( 'responsive_button_hover_text_color', '#ffffff' ) ) : '';
+			( ! get_theme_mod( 'responsive_breadcrumb_color' ) && get_theme_mod( 'responsive_product_breadcrumb_color' ) ) ? set_theme_mod( 'responsive_breadcrumb_color', get_theme_mod( 'responsive_product_breadcrumb_color', '#0066CC' ) ) : '';
 
 		}
 	}
 }
-if ( is_admin() ) {
-	add_action( 'admin_init', 'responsive_check_previous_version', 5 );
-} else {
-	add_action( 'wp', 'responsive_check_previous_version', 5 );
-}
+
+add_action( 'admin_init', 'responsive_check_previous_version', 5 );
+add_action( 'customize_preview_init', 'responsive_check_previous_version' );
+add_action( 'wp', 'responsive_check_previous_version', 5 );
 
 
 /**
