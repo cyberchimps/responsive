@@ -25,8 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 responsive_wrapper_top(); // before wrapper content hook.
-?>
-<?php // Elementor `archive` location.
+// Elementor `archive` location.
 if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) {
 ?>
 <div id="wrapper" class="site-content clearfix">
@@ -101,6 +100,6 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 	</div>
 	<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
-    <?php }?>
-<?php responsive_wrapper_end(); // after wrapper hook. ?>
+    <?php }
+    responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

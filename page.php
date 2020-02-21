@@ -18,8 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 get_header(); ?>
-<?php responsive_wrapper_top(); // before wrapper content hook. ?>
-<?php
+<?php responsive_wrapper_top(); // before wrapper content hook.
 // Elementor `single` location.
 if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
 ?>
@@ -69,6 +68,6 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 	</div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
-<?php }?>
-<?php responsive_wrapper_end(); // after wrapper hook. ?>
+<?php }
+responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

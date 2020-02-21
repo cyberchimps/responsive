@@ -33,8 +33,6 @@ if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
 } else {
 	$blog_pagination = 'default';
 }
-?>
-<?php
 // Elementor `archive` location.
 if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) {
 ?>
@@ -106,7 +104,6 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 
 	<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
-<?php }?>
-
-<?php responsive_wrapper_end(); // after wrapper hook. ?>
+<?php }
+responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>
