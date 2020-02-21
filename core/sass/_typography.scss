@@ -77,14 +77,23 @@ hr {
 
 h1 {
     @include make-heading-text( extra-large );
+    @media ( max-width: map-get( $screens, md ) ) {
+        font-size: 30px;
+    }
 }
 
 h2 {
     @include make-heading-text( large );
+    @media ( max-width: map-get( $screens, md ) ) {
+        font-size: 25px;
+    }
 }
 
 h3 {
     @include make-heading-text( medium );
+    @media ( max-width: map-get( $screens, md ) ) {
+        font-size: 20px;
+    }
 }
 
 h4 {

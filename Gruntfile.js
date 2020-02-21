@@ -269,7 +269,8 @@ module.exports = function(grunt) {
 					'!core/css/woocommerce.css.map',
 					'!core/css/style.css.map',
 					'!package-lock.json',
-					'!core/package-lock.json'
+					'!core/package-lock.json',
+					'!core/css/icomoon/selection.json'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
