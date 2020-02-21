@@ -129,3 +129,42 @@ if ( ! function_exists( 'responsive_woo_shop_parent_category' ) ) {
 		}
 	}
 }
+
+/**
+ * Adds cart icon to menu
+ *
+ * @param string $menu default menu.
+ * @param array  $args check menu.
+ */
+function responsive_menu_cart_icon( $menu, $args ) {
+
+	$menu_cart = get_theme_mod( 'responsive_menu_cart_icon' );
+	// Only used for the main menu.
+	if ( 'header-menu' === $args->theme_location ) {
+		if ( 'icon-opencart' === $menu_cart ) {
+			if ( null !== WC()->cart ) {
+				$cart_contents_count = WC()->cart->get_cart_contents_count();
+				$cart_total_markup   = '<span class="res-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
+			}
+			if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+				$cart_title_markup = '<span class="res-woo-header-cart-title">' . __( 'Cart', 'responsive' ) . '</span>';
+				$cart_title = get_theme_mod( 'responsive_cart_title' );
+				$cart_icon  = get_theme_mod( 'responsive_cart_icon' );
+				$cart_total = get_theme_mod( 'responsive_cart_count' );
+				if ( '1' == $cart_title && '1' == $cart_total ) {
+					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-header-cart-info-wrap"> ' . $cart_title_markup . '' . __( ' / ', 'responsive' ) . '' . $cart_total_markup . '</span><span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
+				} elseif ( isset( $cart_title ) && '1' == $cart_title ) {
+					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap">' . $cart_title_markup . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
+				} elseif ( isset( $cart_total ) && '1' == $cart_total ) {
+					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"> ' . $cart_total_markup . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
+				} else {
+					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-cart-icon fa ' . esc_attr( $cart_icon ) . '"  data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
+				}
+			} else {
+				$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-cart-icon fa ' . esc_attr( $menu_cart ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
+			}
+		}
+	}
+	return $menu;
+}
+add_filter( 'wp_nav_menu_items', 'responsive_menu_cart_icon', 10, 2 );
