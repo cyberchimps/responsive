@@ -24,8 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $responsive_options;
 $responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
-?>
-		<?php
+
 		// Elementor `footer` location.
 		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
 			?>
@@ -75,8 +74,8 @@ global $responsive_blog_layout_columns;
 
 				<?php responsive_footer_bottom(); ?>
 			</footer><!-- end #footer -->
-		<?php } ?>
-		<?php responsive_footer_after(); ?>
+		<?php }
+		responsive_footer_after(); ?>
 	</div><!-- end of #container -->
 
 	<?php
