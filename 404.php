@@ -24,6 +24,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <?php get_header(); ?>
 <?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<?php
+// Elementor `404` location.
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+?>
 <div id="wrapper" class="site-content clearfix">
 	<div class="content-outer container">
 		<div class="row">
@@ -35,13 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php responsive_entry_top(); ?>
 
 					<div class="post-entry">
-						<?php
-						// Elementor `404` location.
-						if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
-							?>
-
 							<?php get_template_part( 'loop-no-posts', get_post_type() ); ?>
-						<?php } ?>
 					</div><!-- end of .post-entry -->
 
 					<?php responsive_entry_bottom(); ?>
@@ -54,5 +52,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 	</div> <!-- row -->
 </div> <!-- end of #wrapper -->
+<?php } ?>
 <?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

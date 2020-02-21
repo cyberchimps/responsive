@@ -34,7 +34,10 @@ if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
 	$blog_pagination = 'default';
 }
 ?>
-
+<?php
+// Elementor `archive` location.
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) {
+?>
 <div id="wrapper" class="site-content clearfix">
 	<div class="content-outer container">
 		<div class="row">
@@ -50,8 +53,6 @@ if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
 					<div id="main-blog" class="row">
 						<?php
 						if ( have_posts() ) :
-							// Elementor `archive` location.
-							if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) {
 
 								while ( have_posts() ) :
 									the_post();
@@ -86,7 +87,6 @@ if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
 											);
 										endif;
 					endif;
-							}
 							?>
 							<?php
 					else :
@@ -106,6 +106,7 @@ if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
 
 	<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
+<?php }?>
 
 <?php responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>
