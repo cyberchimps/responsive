@@ -1180,6 +1180,9 @@ function responsive_customizer_styles() {
 			.woocommerce.single-product:not(.responsive-site-style-flat) div.product {
 				padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 			}
+			.woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product{
+		        width:100%;
+		    }
 		}';
 
 		// Shop Styles.

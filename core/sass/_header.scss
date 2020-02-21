@@ -455,4 +455,11 @@
 			margin-right: 0;
 		}
 	}
+	.site-header .row {
+		flex-wrap: wrap;
+	}
+}
+
+.site-header-layout-horizontal .site-header .row {
+	flex-wrap: nowrap;
 }
