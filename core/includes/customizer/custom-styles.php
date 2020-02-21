@@ -46,6 +46,7 @@ function responsive_customizer_styles() {
 	.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper {
 		max-width: {$container_max_width}px;
 	}
+	.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
 	.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
 	.responsive-site-style-content-boxed .custom-home-about-section,
 	.responsive-site-style-content-boxed .custom-home-feature-section,
@@ -93,6 +94,7 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed .navigation,
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
+	.page.front-page.responsive-site-style-flat .widget-wrapper,
 	.blog.front-page.responsive-site-style-flat .widget-wrapper,
 	.responsive-site-style-boxed .widget-wrapper,
 	.responsive-site-style-boxed .site-content article.product {
@@ -110,6 +112,7 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .navigation,
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
+		.page.front-page.responsive-site-style-flat .widget-wrapper,
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
 		.responsive-site-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product {
@@ -128,6 +131,7 @@ function responsive_customizer_styles() {
 		.responsive-site-style-boxed .navigation,
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
+		.page.front-page.responsive-site-style-flat .widget-wrapper,
 		.blog.front-page.responsive-site-style-flat .widget-wrapper,
 		.responsive-site-style-boxed .widget-wrapper,
 		.responsive-site-style-boxed .site-content article.product {
@@ -231,6 +235,7 @@ function responsive_customizer_styles() {
 	";
 
 	$custom_css .= '
+	.page.front-page .button,
 	.blog.front-page .button,
 	.read-more-button .hentry .read-more .more-link,
 	input[type=button],
@@ -248,6 +253,7 @@ function responsive_customizer_styles() {
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
 	}
 	@media screen and ( max-width: 992px ) {
+		.page.front-page .button,
 		.blog.front-page .button,
 		.read-more-button .hentry .read-more .more-link,
 		input[type=button],
@@ -263,6 +269,7 @@ function responsive_customizer_styles() {
 	}
 
 	@media screen and ( max-width: 576px ) {
+		.page.front-page .button,
 		.blog.front-page .button,
 		.read-more-button .hentry .read-more .more-link,
 		input[type=button],
@@ -277,7 +284,9 @@ function responsive_customizer_styles() {
 		}
 	}
 
+	.page.front-page .button:focus,
 	.blog.front-page .button:focus,
+	.page.front-page .button:hover,
 	.blog.front-page .button:hover,
 	.wp-block-button__link.has-text-color.has-background:focus,
 	.wp-block-button__link.has-text-color.has-background:hover,
@@ -957,7 +966,7 @@ function responsive_customizer_styles() {
 		.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce):not(.woocommerce-cart):not(.woocommerce-checkout) .content-area {
 			width:{$page_content_width}%;
 		}
-		.page:not(.woocommerce) aside.widget-area {
+		.page:not(.woocommerce) aside.widget-area:not(.home-widgets) {
 			width: calc(100% - {$page_content_width}%);
 		}
 	}";

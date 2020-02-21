@@ -67,7 +67,7 @@
         @extend .col-lg-12;
     }
 }
-.page-template-gutenberg-fullwidth {
+.page-template-gutenberg-fullwidth:not(.front-page) {
 
     .site-content {
         padding: 0;
@@ -522,6 +522,7 @@
  * Custom Home Page support styles
  * -----------------------------------------------------------------------------
  */
+.page.front-page,
 .blog.front-page {
     .content-area {
         width: 100%;
@@ -748,6 +749,7 @@
             background-color: map-get( $colors, white );
         }
 
+        .page.front-page.responsive-site-style-content-boxed &,
         .blog.front-page.responsive-site-style-content-boxed & {
             margin-bottom: 0;
             border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
@@ -755,6 +757,7 @@
     }
 
     &-widget-section.home-widgets {
+        .page.front-page.responsive-site-style-content-boxed &,
         .blog.front-page.responsive-site-style-content-boxed & {
             padding: $base-line-height-px;
             background-color: map-get( $colors, white );

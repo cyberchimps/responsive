@@ -542,7 +542,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	// Custom Homepage Class class.
 	$responsive_options = responsive_get_options();
-	if ( $responsive_options['front_page'] ) {
+	if ( is_front_page() && $responsive_options['front_page'] ) {
 		$classes[] = 'custom-home-page-active';
 	}
 
