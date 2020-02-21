@@ -247,7 +247,7 @@ if ( ! function_exists( 'responsive_product_elements' ) ) {
 
 if ( ! function_exists( 'responsive_shoppage_elements' ) ) {
 	/**
-	 * Returns single product view on shop page
+	 * Returns product view on shop page
 	 *
 	 * @since 0.2
 	 */

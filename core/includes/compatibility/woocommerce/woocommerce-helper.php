@@ -38,7 +38,7 @@ if ( ! function_exists( 'responsive_woocommerce_shop_elements_positioning' ) ) {
 	function responsive_woocommerce_shop_elements_positioning() {
 
 		// Default sections.
-		$sections = array( 'category', 'title', 'price', 'ratings', 'add_cart' );
+		$sections = array( 'category', 'title', 'price', 'short_desc', 'ratings', 'add_cart' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_woocommerce_shop_elements_positioning', $sections );
