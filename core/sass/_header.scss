@@ -459,7 +459,8 @@
 		flex-wrap: wrap;
 	}
 }
-
+@media screen and ( min-width: 992px ) {
 .site-header-layout-horizontal .site-header .row {
 	flex-wrap: nowrap;
+}
 }
