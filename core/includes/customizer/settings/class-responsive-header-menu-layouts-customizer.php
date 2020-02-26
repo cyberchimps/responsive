@@ -67,6 +67,15 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'sidebar'    => esc_html__( 'Sidebar', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'mobile_menu_style', $mobile_menu_style_label, 'responsive_header_menu_layout', 30, $mobile_menu_style_choices, 'dropdown', 'responsive_disabled_mobile_menu' );
+
+			// Sidebar Menu Alignment.
+			$sidebar_menu_alignment_label   = esc_html__( 'Sidebar Menu Alignment', 'responsive' );
+			$sidebar_menu_alignment_choices = array(
+				'left'  => esc_html__( 'Left', 'responsive' ),
+				'right' => esc_html__( 'Right', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'sidebar_menu_alignment', $sidebar_menu_alignment_label, 'responsive_header_menu_layout', 40, $sidebar_menu_alignment_choices, 'left', 'responsive_active_sidebar_menu' );
+
 		}
 
 	}

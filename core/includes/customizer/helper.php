@@ -754,21 +754,6 @@ function responsive_read_more_text( $text ) {
 }
 
 /**
- * Read more class.
- *
- * @param array $class default classes.
- * @return array classes
- */
-function responsive_read_more_class( $class ) {
-
-	$read_more_button = get_theme_mod( 'responsive_display_read_more_as_button' );
-
-	if ( $read_more_button ) {
-		$class[] = 'button';
-	}
-	return $class;
-}
-/**
  * Returns excerpt length
  *
  * @param  integer $length Length of excerpt.
@@ -1138,6 +1123,16 @@ function responsive_separator_control( $wp_customize, $element, $label, $section
 function responsive_active_vertical_header() {
 
 	return ( 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+}
+
+/**
+ * [responsive_active_sidebar_menu description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_sidebar_menu() {
+
+	return ( 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) ? true : false;
 }
 
 /**

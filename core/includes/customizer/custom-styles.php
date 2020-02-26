@@ -244,7 +244,7 @@ function responsive_customizer_styles() {
 	.button,
 	.wp-block-button__link,
 	div.wpforms-container-full .wpforms-form input[type=submit],
-	div.wpforms-container-full .wpforms-form button[type=submit],
+	body div.wpforms-container-full .wpforms-form button[type=submit],
 	div.wpforms-container-full .wpforms-form .wpforms-page-button {
 		background-color:' . $button_color . ';
 		border: ' . $buttons_border_width . 'px solid ' . $button_border_color . ';
@@ -343,7 +343,7 @@ function responsive_customizer_styles() {
 	div.wpforms-container-full .wpforms-form input[type=date],
 	div.wpforms-container-full .wpforms-form input[type=datetime],
 	div.wpforms-container-full .wpforms-form input[type=datetime-local],
-	div.wpforms-container-full .wpforms-form input[type=email],
+	body div.wpforms-container-full .wpforms-form input[type=email],
 	div.wpforms-container-full .wpforms-form input[type=month],
 	div.wpforms-container-full .wpforms-form input[type=number],
 	div.wpforms-container-full .wpforms-form input[type=password],
@@ -512,6 +512,9 @@ function responsive_customizer_styles() {
 		.main-navigation .menu-toggle {
 			display: none;
 		}
+		.site-branding {
+			width: auto;
+		}
 		.main-navigation .menu {
 			display: block;
 		}
@@ -598,6 +601,9 @@ function responsive_customizer_styles() {
 		    max-width: 100vw;
 		    width: 100vw;
 	  	}
+		.site-header-layout-horizontal .site-header .row {
+	    	flex-wrap: nowrap;
+	    }
 	}
   	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
 		.site-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
@@ -724,7 +730,7 @@ function responsive_customizer_styles() {
 				font-weight: bold;
 			}
 			.main-navigation.toggled .menu {
-				margin-top: 45px;
+				margin-top: 70px;
 			    margin: 0 auto;
 			}
 			.site-header-layout-vertical .main-navigation.toggled .menu {
@@ -753,15 +759,17 @@ function responsive_customizer_styles() {
 				width: 300px;
 			    z-index: 100000;
 			}
+			.mobile-menu-style-sidebar .main-navigation.toggled .menu-toggle {
+				position: absolute;
+				top: 28px;
+				right: 15px;
+			}
 			.main-navigation .menu > li > a {
 				font-weight: bold;
 			}
+			.site-header-layout-vertical .main-navigation.toggled .menu,
 			.main-navigation.toggled .menu {
-				margin-top: 45px;
-			}
-			.site-header-alignment-right .main-navigation.toggled {
-				left: auto;
-				right: 0;
+				margin-top: 70px;
 			}
 			.site-header-layout-vertical.site-header-alignment-left .main-navigation.toggled .menu-toggle {
 				text-align: right;
@@ -769,12 +777,20 @@ function responsive_customizer_styles() {
 			.site-header-layout-vertical.site-header-alignment-right .main-navigation.toggled .menu-toggle {
 				text-align: left;
 			}
-			.site-header-layout-vertical .main-navigation.toggled .menu {
-				margin-top: 0px;
-			}
-
 		}";
 
+		if ( 'right' === get_theme_mod( 'responsive_sidebar_menu_alignment', 'left' ) ) {
+			$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
+				.mobile-menu-style-sidebar .main-navigation.toggled {
+					left: auto;
+					right: 0;
+				}
+				.mobile-menu-style-sidebar .main-navigation.toggled .menu-toggle {
+					left: 15px;
+					right: auto;
+				}
+			}";
+		}
 	}
 
 	// Content_Header colors.
