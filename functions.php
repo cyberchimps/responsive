@@ -464,7 +464,7 @@ endif;
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
-	wp_enqueue_style( 'responsive-blocks', get_stylesheet_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+	wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
