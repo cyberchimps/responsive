@@ -12,7 +12,7 @@
     .row {
         align-items: center;
 
-        @media( min-width: map-get( $screens, lg ) ) {
+        @media( min-width: map-get( $screens, xxxl ) ) {
             justify-content: space-between;
         }
     }
@@ -29,7 +29,7 @@
 .site-branding {
     @extend .col-xs-12;
 
-    @media( min-width: map-get( $screens, lg ) ) {
+    @media( min-width: map-get( $screens, xxxl ) ) {
         width: auto;
     }
     @media( max-width: map-get( $screens, sm ) ) {
@@ -49,6 +49,7 @@
     line-height: $base-line-height-px;
     margin-bottom: 0;
     margin-top: 0;
+    display: inline-block;
 }
 
 .site-title {
@@ -64,7 +65,7 @@
     @extend .col-xs-12;
     @include clear-floats();
 
-    @media( min-width: map-get( $screens, lg ) ) {
+    @media( min-width: map-get( $screens, xxxl ) ) {
         width: auto;
     }
 
@@ -84,7 +85,7 @@
 
     .menu-toggle {
         @extend .show-xs;
-        @extend .hide-lg;
+        @extend .hide-xxxl;
 
         background-color: transparent;
         border: none;
@@ -102,11 +103,15 @@
         &-cancel {
             display: none;
         }
+
+        i {
+            margin: 0;
+        }
     }
 
     .menu {
         @extend .hide-xs;
-        @extend .show-lg;
+        @extend .show-xxxl;
         @include clear-floats();
 
         margin: 0;
@@ -124,7 +129,7 @@
         & > li {
             border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
 
-            @media( min-width: map-get( $screens, lg ) ) {
+            @media( min-width: map-get( $screens, xxxl ) ) {
                 border-bottom: none;
                 float: left;
                 margin-left: 2px;
@@ -132,7 +137,7 @@
 
             &.menu-item-has-children > a,
             &.page_item_has_children > a {
-                @media( min-width: map-get( $screens, lg ) ) {
+                @media( min-width: map-get( $screens, xxxl ) ) {
                     &:after {
                         content: '\f0d7';
                         font-family: $icon-font;
@@ -145,7 +150,7 @@
 
     .children,
     .sub-menu {
-        @media( min-width: map-get( $screens, lg ) ) {
+        @media( min-width: map-get( $screens, xxxl ) ) {
             background-color: map-get( $colors, white );
             box-shadow: 0 5px 10px map-get( $colors, light-gray );
             left: -9999em;
@@ -161,7 +166,7 @@
 
             &.focus,
             &:hover {
-                @media( min-width: map-get( $screens, lg ) ) {
+                @media( min-width: map-get( $screens, xxxl ) ) {
                     & > .children,
                     & > .sub-menu {
                         left: 100%;
@@ -171,14 +176,14 @@
             }
 
             &:first-child {
-                @media( min-width: map-get( $screens, lg ) ) {
+                @media( min-width: map-get( $screens, xxxl ) ) {
                     border-top: none;
                 }
             }
 
             &.menu-item-has-children > a,
             &.page_item_has_children > a {
-                @media( min-width: map-get( $screens, lg ) ) {
+                @media( min-width: map-get( $screens, xxxl ) ) {
                     &:after {
                         content: '\f0da';
                         float: right;
@@ -190,7 +195,7 @@
         }
 
         a {
-            @media( min-width: map-get( $screens, lg ) ) {
+            @media( min-width: map-get( $screens, xxxl ) ) {
                 padding: ( $input-padding-y * 2 ) ( $grid-gutter-width / 2 );
             }
         }
@@ -213,7 +218,7 @@
 
             .menu {
                 & > li {
-                    @media( min-width: map-get( $screens, lg ) ) {
+                    @media( min-width: map-get( $screens, xxxl ) ) {
                         margin-left: 0;
                         margin-right: 2px;
                     }
@@ -221,11 +226,16 @@
             }
         }
     }
+    &.site-header-site-branding-main-navigation {
+        .main-navigation:not(.toggled) .menu {
+            float: right;
+        }
+    }
 }
 
 .site-header-layout-vertical {
     .site-header .row {
-        @media( min-width: map-get( $screens, lg ) ) {
+        @media( min-width: map-get( $screens, xxxl ) ) {
             flex-direction: column;
         }
     }
@@ -241,12 +251,16 @@
             right: auto;
             text-align: left;
             top: auto;
-            width: 100%;
+            width: auto;
+
+            i {
+                padding: $grid-gutter-width / 2;
+            }
         }
 
         .menu {
             & > li {
-                @media( min-width: map-get( $screens, lg ) ) {
+                @media( min-width: map-get( $screens, xxxl ) ) {
                     margin-left: 0;
                     margin-right: 2px;
                 }
@@ -259,12 +273,12 @@
             border-top: 1px solid map-get( $colors, light-gray );
         }
         .main-navigation {
-            @media ( max-width: map-get( $screens, lg ) ) {
+            @media ( max-width: map-get( $screens, xxxl ) ) {
                 border-top: 1px solid map-get( $colors, light-gray );
             }
         }
         &.site-header-site-branding-main-navigation:not(.responsive-site-full-width):not(.header-full-width):not(.site-header-full-width-main-navigation) .main-navigation div {
-            @media ( min-width: map-get( $screens, lg ) ) {
+            @media ( min-width: map-get( $screens, xxxl ) ) {
                 border-top: 1px solid map-get( $colors, light-gray );
             }
         }
@@ -282,13 +296,13 @@
             border-top: 0;
         }
         .main-navigation {
-            @media ( max-width: map-get( $screens, lg ) ) {
+            @media ( max-width: map-get( $screens, xxxl ) ) {
                 border-bottom: 1px solid map-get( $colors, light-gray );
                 border-top: 0;
             }
         }
         &.site-header-main-navigation-site-branding:not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
-            @media ( min-width: map-get( $screens, lg ) ) {
+            @media ( min-width: map-get( $screens, xxxl ) ) {
                 border-bottom: 1px solid map-get( $colors, light-gray );
                 border-top: 0;
             }
@@ -308,10 +322,11 @@
         .main-navigation {
             .menu-toggle {
                 text-align: center;
+                margin: auto;
             }
 
             .menu {
-                @media( min-width: map-get( $screens, lg ) ) {
+                @media( min-width: map-get( $screens, xxxl ) ) {
                     display: table;
                     margin-left: auto;
                     margin-right: auto;
@@ -319,7 +334,7 @@
                 }
 
                 & > li {
-                    @media( min-width: map-get( $screens, lg ) ) {
+                    @media( min-width: map-get( $screens, xxxl ) ) {
                         margin-left: 1px;
                         margin-right: 1px;
                     }
@@ -336,17 +351,18 @@
         .main-navigation {
             .menu-toggle {
                 text-align: right;
+                float:right;
             }
 
             .menu {
-                @media( min-width: map-get( $screens, lg ) ) {
+                @media( min-width: map-get( $screens, xxxl ) ) {
                     display: table;
                     margin-right: 0;
                     margin-left: auto;
                 }
 
                 & > li {
-                    @media( min-width: map-get( $screens, lg ) ) {
+                    @media( min-width: map-get( $screens, xxxl ) ) {
                         margin-left: 1px;
                         margin-right: 1px;
                     }
@@ -357,7 +373,7 @@
 
     &.site-header-full-width-main-navigation {
         .main-navigation {
-            @media( min-width: map-get( $screens, lg ) ) {
+            @media( min-width: map-get( $screens, xxxl ) ) {
                 @include make-full-width();
             }
         }
@@ -434,7 +450,7 @@
 }
 
 .site-header-layout-horizontal.header-widget-position-with_logo {
-	.site-branding{
+	.site-branding {
 		display: flex;
 		flex-wrap: wrap;
 		width: -webkit-fill-available;
@@ -460,6 +476,8 @@
 	}
 }
 
-.site-header-layout-horizontal .site-header .row {
-	flex-wrap: nowrap;
+@media screen and ( min-width: map-get( $screens, xxxl ) ) {
+    .site-header-layout-horizontal .site-header .row {
+    	flex-wrap: nowrap;
+    }
 }
