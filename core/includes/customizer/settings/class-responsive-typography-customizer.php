@@ -201,6 +201,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'priority' => 30,
 						'defaults' => array(
 							'font-size'   => '16px',
+							'font-weight' => '600',
 							'line-height' => '1.75',
 						),
 					),
