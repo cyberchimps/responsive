@@ -730,7 +730,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 						set_theme_mod( 'heading_h' . $i . '_typography', $heading );
 					} else {
 						foreach ( $heading as $key => $value ) {
-							if ( 'color' !== $key && ! $heading_h[ $key ] ) {
+							if ( 'color' !== $key && ( ! array_key_exists( $key, get_theme_mod( 'heading_h' . $i . '_typography' ) ) ) ) {
 								$temp      = array( $key => $value );
 								$heading_h = $temp + get_theme_mod( 'heading_h' . $i . '_typography' );
 								set_theme_mod( 'heading_h' . $i . '_typography', $heading_h );
