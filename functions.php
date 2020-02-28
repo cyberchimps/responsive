@@ -642,7 +642,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 				! get_theme_mod( 'responsive_header_elements' ) ? set_theme_mod( 'responsive_header_elements', array( 'main-navigation', 'site-branding' ) ) : '';
 			}
 
-			! get_theme_mod( 'responsive_header_alignment' ) ? set_theme_mod( 'responsive_header_alignment', str_replace( 'header-logo-', '', get_theme_mod( 'header_layout_options' ) ) ) : '';
+			! get_theme_mod( 'responsive_header_alignment' ) && get_theme_mod( 'header_layout_options' ) ? set_theme_mod( 'responsive_header_alignment', str_replace( 'header-logo-', '', get_theme_mod( 'header_layout_options' ) ) ) : '';
 			! get_theme_mod( 'responsive_container_width' ) ? set_theme_mod( 'responsive_container_width', get_theme_mod( 'responsive_main_container_width', 1140 ) ) : '';
 
 			$responsive_options_blog = array( 'full-width-page', 'blog-2-col', 'blog-3-col', 'blog-4-col' );
