@@ -7,6 +7,8 @@ $screens: (
     md: 768px,
     lg: 992px,
     xl: 1200px,
+    xxl: 2400px,
+    xxxl: 4800px,
 );
 
 $containers: (
@@ -15,6 +17,8 @@ $containers: (
     md: 720px,
     lg: 960px,
     xl: 1140px,
+    xxl: 2320px,
+    xxxl: 4640px,
 );
 
 $grid-gutter-width: 30px;

@@ -56,6 +56,28 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 				$enable_crosssells_options_label = esc_html__( 'Enable Cross-sells', 'responsive' );
 				responsive_checkbox_control( $wp_customize, 'enable_crosssells_options', $enable_crosssells_options_label, 'responsive_woocommerce_cart_layout', 2, 1, null );
+
+				$wp_customize->add_setting(
+					'responsive_menu_cart_icon',
+					array(
+						'sanitize_callback' => 'responsive_sanitize_select',
+						'transport'         => 'refresh',
+						'default'           => 'disabled',
+					)
+				);
+				$wp_customize->add_control(
+					'responsive_menu_cart_icon',
+					array(
+						'label'    => __( 'Cart Icon Visibility', 'responsive' ),
+						'section'  => 'responsive_woocommerce_cart_layout',
+						'settings' => 'responsive_menu_cart_icon',
+						'type'     => 'select',
+						'choices'  => array(
+							'icon-opencart' => __( 'Display On All Devices', 'responsive' ),
+							'disabled'      => __( 'Disabled On All Devices', 'responsive' ),
+						),
+					)
+				);
 			}
 		}
 

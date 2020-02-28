@@ -8,6 +8,21 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(28/02/20) = Changed - Version 4.1.0
+[+] = Added - Option to control content width of Single Page, Blog Page and Cart Page.
+[+] = Added - Option to add menu toggle button in desktop by increasing width of Mobile Menu Breakpoint.
+[+] = Added - Compatibility with latest Elementor.
+[+] = Added - Option to add WooCommerce mini cart in menu.
+[+] = Added - Option to enable WooCommerce cross-sells.
+[*] = Optimized CSS and reduced bloat.
+[^] = Refactored Sticky Header option. Added to Responsive Pro plugin.
+[^] = Refactored Scroll to top option. Added to Responsive Pro plugin.
+[x] = Removed deprecated page templates, widget areas and other theme elements.
+[x] = Removed the data-vocabulary schema (Google’s going to stop support from April 6, 2020)
+[!] = Fixed - Schema.org attributes for all the major markup elements.
+[!] = Fixed - Breadcrumb compatibility with Yoast Seo.
+[!] = Fixed - Mobile menu scrolling issue for dropdown items.
+
 (10/02/20) = Fix - Version 4.0.5
 [*] = Changed - Improved Screenshot
 

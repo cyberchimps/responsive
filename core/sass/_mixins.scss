@@ -38,7 +38,6 @@
 // -----------------------------------------------------------------------------
 @mixin make-heading-text( $size ) {
     color: map-get( $colors, dark-gray );
-    font-family: $heading-font;
     font-size: map-get( $font-sizes, $size );
     font-weight: bold;
     line-height: $heading-line-height;
