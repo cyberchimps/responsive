@@ -542,7 +542,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	// Custom Homepage Class class.
 	$responsive_options = responsive_get_options();
-	if ( $responsive_options['front_page'] ) {
+	if ( is_front_page() && $responsive_options['front_page'] ) {
 		$classes[] = 'custom-home-page-active';
 	}
 
@@ -558,7 +558,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			// Page sidebar Position.
 			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_page_sidebar_position', 'right' );
 			// Page Featured Image Aligmnmnet.
-			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'center' );
+			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'left' );
 			// Page Title Aligmnmnet.
 			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_page_title_alignment', 'left' );
 			// Page Content Aligmnmnet.
@@ -581,7 +581,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			// Single Blog sidebar Position.
 			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' );
 			// Single Blog Featured Image Aligmnmnet.
-			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'center' );
+			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_single_blog_featured_image_alignment', 'left' );
 			// Single Blog Title Aligmnmnet.
 			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_single_blog_title_alignment', 'left' );
 			// Single Blog Meta Aligmnmnet.
@@ -601,7 +601,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			// Blog Entry Read More Type.
 			$classes[] = 'read-more-' . get_theme_mod( 'responsive_blog_entry_read_more_type', 'link' );
 			// Entry Blog Featured Image Aligmnmnet.
-			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_blog_entry_featured_image_alignment', 'center' );
+			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_blog_entry_featured_image_alignment', 'left' );
 			// Entry Blog Title Aligmnmnet.
 			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', 'left' );
 			// Entry Blog Meta Aligmnmnet.

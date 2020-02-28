@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?v58k2g');
-  src:  url('fonts/icomoon.eot?v58k2g#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?v58k2g') format('truetype'),
-    url('fonts/icomoon.woff?v58k2g') format('woff'),
-    url('fonts/icomoon.svg?v58k2g#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?wdwyuk');
+  src:  url('fonts/icomoon.eot?wdwyuk#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?wdwyuk') format('truetype'),
+    url('fonts/icomoon.woff?wdwyuk') format('woff'),
+    url('fonts/icomoon.svg?wdwyuk#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -19,13 +19,24 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  padding-right: 5px;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-shopping-cart:before {
+  content: "\f07a";
+}
+.icon-opencart:before {
+  content: "\f23d";
+}
+.icon-shopping-bag:before {
+  content: "\f290";
+}
+.icon-shopping-basket:before {
+  content: "\f291";
+}
 .icon-search:before {
   content: "\f002";
 }

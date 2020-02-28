@@ -18,7 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 get_header(); ?>
-<?php responsive_wrapper_top(); // before wrapper content hook. ?>
+<?php responsive_wrapper_top(); // before wrapper content hook.
+// Elementor `single` location.
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+?>
 <div id="wrapper" class="site-content clearfix">
 
 	<div class="content-outer container">
@@ -29,10 +32,6 @@ get_header(); ?>
 
 				<?php get_template_part( 'loop-header', get_post_type() ); ?>
 				<?php if ( have_posts() ) : ?>
-					<?php
-					// Elementor `single` location.
-					if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
-						?>
 
 						<?php
 						while ( have_posts() ) :
@@ -53,7 +52,6 @@ get_header(); ?>
 						endwhile;
 
 						get_template_part( 'loop-nav', get_post_type() );
-					}
 					?>
 					<?php
 					else :
@@ -72,5 +70,6 @@ get_header(); ?>
 	</div>
 <?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
-<?php responsive_wrapper_end(); // after wrapper hook. ?>
+<?php }
+responsive_wrapper_end(); // after wrapper hook. ?>
 <?php get_footer(); ?>

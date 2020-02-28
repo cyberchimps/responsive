@@ -24,8 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $responsive_options;
 $responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
-?>
-		<?php
+
 		// Elementor `footer` location.
 		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
 			?>
@@ -46,7 +45,9 @@ global $responsive_blog_layout_columns;
 
 										// Footer Menu.
 										if ( 'footer_menu' === $section ) {
-											get_template_part( 'partials/footer/footer-menu' );
+											if ( has_nav_menu( 'footer-menu' ) ) {
+												get_template_part( 'partials/footer/footer-menu' );
+											}
 										}
 
 										if ( 'social_icons' === $section ) {
@@ -73,8 +74,8 @@ global $responsive_blog_layout_columns;
 
 				<?php responsive_footer_bottom(); ?>
 			</footer><!-- end #footer -->
-		<?php } ?>
-		<?php responsive_footer_after(); ?>
+		<?php }
+		responsive_footer_after(); ?>
 	</div><!-- end of #container -->
 
 	<?php
@@ -84,8 +85,7 @@ global $responsive_blog_layout_columns;
 		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 			$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
 			?>
-			<div id="scroll" class="responsive-scroll" title="Scroll to Top"
-				 data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
+			<div id="scroll" class="responsive-scroll" title="Scroll to Top" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
 			<?php
 		}
 	}

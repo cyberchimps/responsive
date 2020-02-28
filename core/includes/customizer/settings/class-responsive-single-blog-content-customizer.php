@@ -98,7 +98,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'single_blog_featured_image_alignment', $featured_image_alignment_label, 'responsive_single_blog_content', 50, $featured_image_alignment_choices, 'center', null );
+			responsive_select_control( $wp_customize, 'single_blog_featured_image_alignment', $featured_image_alignment_label, 'responsive_single_blog_content', 50, $featured_image_alignment_choices, 'left', null );
 
 			/**
 			* Entry Elements.
