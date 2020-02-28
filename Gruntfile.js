@@ -270,7 +270,9 @@ module.exports = function(grunt) {
 					'!core/css/style.css.map',
 					'!package-lock.json',
 					'!core/package-lock.json',
-					'!core/css/icomoon/selection.json'
+					'!core/css/icomoon/selection.json',
+					'!travis.yml',
+					'!phpunit.xml.dist'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
