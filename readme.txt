@@ -10,7 +10,7 @@ Responsive is a fully customizable, fast & responsive WordPress theme.
 
 == Description ==
 
-Responsive is a fully customizable, fast & responsive WordPress theme. It is a perfect choice for your blog, business website, or WooCommerce store. With 150+ customizer options, you can customize every aspect of the theme. Responsive comes with minified scripts to improve website speed. It also comes with other features including - nine layout options for pages and blog, WooCommerce design options, and compatibility with the Elementor page builder. It works great on a mobile, tablet, desktop, and across all browsers. Responsive is also available in 45 languages and is search engine friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-websites/. Learn more about its features: https://cyberchimps.com/responsive-features/.
+Responsive is a fully customizable, fast & responsive WordPress theme. It is a perfect choice for your blog, business website, or WooCommerce store. With 150+ customizer options, you can customize every aspect of the theme. Responsive comes with minified scripts to improve website speed. It also comes with other features including - nine layout options for pages and blog, WooCommerce design options, and compatibility with the Elementor page builder. It works great on a mobile, tablet, desktop, and across all browsers. Responsive is also available in 45 languages and is search engine friendly.
 
 == Copyright ==
 
