@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/03/20) = Changed - Version 4.1.1
+[*] = Changed - Improved Readme
+
 (02/03/20) = Changed - Version 4.1.0
 [+] = Added - Option to control content width of Single Page, Blog Page and Cart Page.
 [+] = Added - Option to add menu toggle button in desktop by increasing width of Mobile Menu Breakpoint.

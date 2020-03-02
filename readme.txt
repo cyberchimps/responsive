@@ -1,75 +1,23 @@
--------------------------------------------------------
-    Thank you for downloading Responsive Theme!
--------------------------------------------------------
-This and any other Theme provided by CyberChimps should
-be free of bugs, however do note that we're only humans
-and if you spot a bug do us a favor and report here
-http://cyberchimps.com/forum/free/responsive/
+=== Responsive ===
+Contributors: CyberChimps
+Tested up to: 5.3.2
+Stable tag: 4.1.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-If something goes wrong, or you need our assistance with anything
-just register and post your question(s).
+Responsive Theme.
 
--------------------------------------------------------
-    Responsive Features:
--------------------------------------------------------
+== Description ==
+Responsive is a fully customizable, fast & responsive WordPress theme. It is a perfect choice for your blog, business website, or WooCommerce store. With 150+ customizer options, you can customize every aspect of the theme. Responsive comes with minified scripts to improve website speed. It also comes with other features including - nine layout options for pages and blog, WooCommerce design options, and compatibility with the Elementor page builder. It works great on a mobile, tablet, desktop, and across all browsers. Responsive is also available in 45 languages and is search engine friendly. See Responsive in action: <a href="https://cyberchimps.com/responsive-ready-websites/">https://cyberchimps.com/responsive-ready-websites/</a>. Learn more about its features: <a href="https://cyberchimps.com/responsive-features/">https://cyberchimps.com/responsive-features/</a>.
 
-- Theme Options
-From here you can customize your above the fold
-section such as your headline, sub-headline and content.
-Also your call to action button text and URL. As well as
-an image on the right. Image can be just that or even YouTube
-or any other video too.
+== Copyright ==
+It's GPL so yes you can base your Themes from Responsive please note that if you do the GPLv3 License needs to stay as well as all copyright notices included in all parts of this Theme as well as third-party add-ons as listed above.
 
-- Widgets
-Well you're in luck my friend, Responsive offers 9 of them.
-And yes 3 boxes in your home.php are widgets as well.
+All derivative Themes must be much different from the original work, which includes the Theme design as well as all the codes from Responsive Theme.
 
-- Page Templates
-There is plenty of that. 9 Templates are very much self-explanatory
-once you're on done with the content on your page, go to Page Attributes
-on the right and choose any available Template.
+== License ==
+Yes I know, but we have to say a few words about that.
 
-We Have:
-Blog (full posts), Blog Summaries, Content/Sidebar, Sidebar/Content,
-Content/Sidebar Half, Sidebar/Content Half, Full Width Page, even a
-landing page in case that you don't want anything else but the clean
-white design and your logo, perfect for PPC or anything else. There's
-also a sitemap Template.
-
-- Menus
-Oh boy, we love menus and that's why we decided to give you little bit
-more than what you're probably use to. Responsive offers 4 of them
-One at very top, second in header, third just after the header, we like
-to call that sub-header menu and the fourth one is all the way down in
-footer area.
-
-What's great about this is that the other 3 are kind of on-demand,
-activate when needed, if not oh well...
-
--------------------------------------------------------
-    License:
--------------------------------------------------------
-
-Yes I know, but we have to say few words about
-that.
-
-The Theme itself is nothing but 100% GPL3.
-See license.txt for further details. There
-are however some parts of this Theme which are not
-GPL, however they are GPL-Compatible and thats still
-good.
+The Theme itself is nothing but 100% GPL3. See license.txt for further details. There are however some parts of this Theme which are not GPL, however they are GPL-Compatible and that's still good.
 
 See headers of JS files for further details.
-
--------------------------------------------------------
-    Adopting Responsive Theme (Theme Re-Distribution):
--------------------------------------------------------
-
-It's GPL so yes you can base your Themes from Responsive
-please note that if you do the GPLv3 License needs to stay
-as well as all copyright notices included in all parts of
-this Theme as well as third-party add-ons as listed above.
-
-All derivative Themes must be much different from the original
-work, which includes the Theme design as well as all the codes
-from Responsive Theme.
