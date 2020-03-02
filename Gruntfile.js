@@ -234,6 +234,7 @@ module.exports = function(grunt) {
 					'**',
 					'!node_modules/**',
 					'!**/node_modules/**',
+					'!bin/**',
 					'!build/**',
 					'!.git/**',
 					'!**/.git/**',
@@ -272,7 +273,10 @@ module.exports = function(grunt) {
 					'!core/package-lock.json',
 					'!core/css/icomoon/selection.json',
 					'!travis.yml',
-					'!phpunit.xml.dist'
+					'!phpunit.xml.dist',
+					'!.codeclimate.yml',
+					'!.travis.yml',
+					'!.phpcs.xml.dist'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
