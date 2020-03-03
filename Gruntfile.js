@@ -158,17 +158,6 @@ module.exports = function(grunt) {
 			options: {
 				mangle: false
 			},
-			theme_options: {
-				files: [
-					{
-						expand: true,     // Enable dynamic expansion.
-						cwd: 'core/includes/theme-options/',      // Src matches are relative to this path.
-						src: ['*.js', '!*.min.js'], // Actual pattern(s) to match.
-						dest: 'core/includes/theme-options/',   // Destination path prefix.
-						ext: '.min.js',   // Dest filepaths will have this extension.
-					},
-				]
-			},
 			frontend: {
 				files: [
 					{
@@ -213,13 +202,6 @@ module.exports = function(grunt) {
 					'core/css/woocommerce.min.css':  'core/css/woocommerce.css',
 					'core/css/gutenberg-editor.min.css':  'core/css/gutenberg-editor.css'
 				}
-			},
-			theme_options: {
-				expand: true,
-				cwd: 'core/includes/theme-options/',
-				src: ['*.css', '!*.min.css'],
-				dest: 'core/includes/theme-options/',
-				ext: '.min.css'
 			}
 		},
 

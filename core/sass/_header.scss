@@ -49,7 +49,12 @@
     line-height: $base-line-height-px;
     margin-bottom: 0;
     margin-top: 0;
-    display: inline-block;
+}
+
+.site-header-layout-horizontal {
+	.site-description, .site-title {
+		display: inline-block;
+	}
 }
 
 .site-title {
@@ -480,4 +485,12 @@
     .site-header-layout-horizontal .site-header .row {
     	flex-wrap: nowrap;
     }
+}
+
+body.mega-menu-header-menu button.menu-toggle {
+	display: none;
+}
+
+.header-widgets-wrapper form#searchform{
+	display: flex;
 }

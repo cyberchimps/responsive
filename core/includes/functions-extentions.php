@@ -366,7 +366,7 @@ function responsive_get_social_icons() {
 				if ( 'email' === $key ) {
 					?>
 					<li>
-						<a href="mailto:<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+						<a aria-label="email" title="email" href="mailto:<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
 							<i class="icon-envelope-o" aria-hidden="true"></i>
 						</a>
 					</li>
@@ -374,7 +374,7 @@ function responsive_get_social_icons() {
 				} elseif ( 'googleplus' === $key ) {
 					?>
 					<li>
-						<a href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+						<a aria-label="googleplus" title="googleplus" href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
 							<i class="icon-google-plus" aria-hidden="true"></i>
 						</a>
 					</li>
@@ -382,7 +382,7 @@ function responsive_get_social_icons() {
 				} else {
 					?>
 					<li>
-						<a href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+						<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
 							<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
 						</a>
 					</li>

@@ -39,7 +39,7 @@ if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
 } else {
 
 	?>
-	<aside id="secondary" class="widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+	<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 
 	<?php
 	responsive_widgets(); // above widgets hook.
