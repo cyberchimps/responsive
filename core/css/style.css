@@ -1986,6 +1986,10 @@ article.product .post-meta > span .avatar {
   background-color: inherit;
 }
 
+.responsive-blocks-post-grid-item:first-child {
+  margin-top: auto;
+}
+
 .page.featured-image-alignment-right .hentry .thumbnail, .page.featured-image-alignment-right article.product .thumbnail,
 .single.featured-image-alignment-right .hentry .thumbnail,
 .single.featured-image-alignment-right article.product .thumbnail,
