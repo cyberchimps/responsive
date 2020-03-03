@@ -8,7 +8,24 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(28/02/20) = Changed - Version 4.1.0
+(03/03/20) = Changed - Version 4.1.5
+[*] = Changed - Added translations for theme options page
+[*] = Changed - Updated copyrights
+[*] = Added - Option to add script in header and footer
+
+(03/03/20) = Changed - Version 4.1.4
+[*] = Changed - Improved style.css
+
+(02/03/20) = Changed - Version 4.1.3
+[*] = Changed - Improved style.css
+
+(02/03/20) = Changed - Version 4.1.2
+[*] = Changed - Improved style.css
+
+(02/03/20) = Changed - Version 4.1.1
+[*] = Changed - Improved Readme
+
+(02/03/20) = Changed - Version 4.1.0
 [+] = Added - Option to control content width of Single Page, Blog Page and Cart Page.
 [+] = Added - Option to add menu toggle button in desktop by increasing width of Mobile Menu Breakpoint.
 [+] = Added - Compatibility with latest Elementor.
