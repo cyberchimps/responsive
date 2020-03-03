@@ -1287,6 +1287,9 @@ select {
   line-height: 28px;
   margin-bottom: 0;
   margin-top: 0;
+}
+
+.site-header-layout-horizontal .site-description, .site-header-layout-horizontal .site-title {
   display: inline-block;
 }
 
@@ -1720,6 +1723,14 @@ select {
   .site-header-layout-horizontal .site-header .blog.front-page aside.home-widgets .home-widget-wrapper, .blog.front-page aside.home-widgets .site-header-layout-horizontal .site-header .home-widget-wrapper {
     flex-wrap: nowrap;
   }
+}
+
+body.mega-menu-header-menu button.menu-toggle {
+  display: none;
+}
+
+.header-widgets-wrapper form#searchform {
+  display: flex;
 }
 
 /**
@@ -3861,6 +3872,12 @@ article.product .post-meta > span .avatar {
  * Aside widget-area Area styles
  * -----------------------------------------------------------------------------
  */
+@media (max-width: 768px) {
+  .main-sidebar {
+    margin-top: 28px;
+  }
+}
+
 .widget-wrapper {
   margin-bottom: 30px;
   margin-top: 30px;

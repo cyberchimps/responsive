@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.1.5' );
+define( 'RESPONSIVE_THEME_VERSION', '4.1.6' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -153,9 +153,6 @@ add_action( 'after_setup_theme', 'responsive_free_setup' );
 
 $responsive_options = responsive_get_options();
 
-if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
-	define( 'ELEMENTOR_PARTNER_ID', 2126 );
-}
 /**
  * Edit Customize Register
  *
