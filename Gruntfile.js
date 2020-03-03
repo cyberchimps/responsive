@@ -276,7 +276,8 @@ module.exports = function(grunt) {
 					'!phpunit.xml.dist',
 					'!.codeclimate.yml',
 					'!.travis.yml',
-					'!.phpcs.xml.dist'
+					'!.phpcs.xml.dist',
+					'!phpcs.xml'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},

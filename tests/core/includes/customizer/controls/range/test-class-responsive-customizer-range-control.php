@@ -79,7 +79,11 @@ class Test_Responsive_Customizer_Range_Control extends WP_UnitTestCase {
 
 		$range_class->to_json();
 
-		$this->assertEquals( '<li id="customize-control-logo_width_mobile" class="customize-control customize-control-responsive-range"></li>', $range_class->json['content'] );
+		$this->assertEquals( '<li id="customize-control-logo_width_mobile" class="customize-control customize-control-responsive-range"><input
+id="_customize-input-logo_width_mobile"
+ type="responsive-range"
+  value="100"
+   data-customize-setting-link="logo_width_mobile" ></li>', $range_class->json['content'] );
 
 	}
 
@@ -88,7 +92,11 @@ class Test_Responsive_Customizer_Range_Control extends WP_UnitTestCase {
 	 */
 	function test_range_control_content_template() {
 
-		$this->expectOutputRegex( '/<input type="range" data-input-type="range" class="range_control__track" value="{{ data.value }}" data-default-value="{{ data.defaultValue }}"  min="{{ data.input_attrs\[\'min\'] }}" max="{{ data.input_attrs\[\'max\'] }}" step="{{ data.input_attrs\[\'step\'] }}" {{{ data.link }}} \/>/' );
+		$this->expectOutputRegex( '/<div class="control-wrap">
+				<input type="range" {{{ data.inputAttrs }}} value="{{ data.value }}" {{{ data.link }}} data-reset_value="{{ data.default }}" \/>
+				<input type="number" {{{ data.inputAttrs }}} class="responsive-range-input" value="{{ data.value }}" \/>
+				<span class="responsive-reset-slider"><span class="dashicons dashicons-image-rotate"><\/span><\/span>
+			<\/div>/' );
 
 		$method = new ReflectionMethod( 'Responsive_Customizer_Range_Control', 'content_template' );
 		$method->setAccessible( true );

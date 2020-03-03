@@ -1,27 +1,12 @@
-/*
-Theme Name: Responsive
-Theme URI: http://cyberchimps.com/responsive
-Description: Responsive is a fully customizable, fast & responsive WordPress theme. It is a perfect choice for your blog, business website, or WooCommerce store. With 150+ customizer options, you can customize every aspect of the theme. Responsive comes with minified scripts to improve website speed. It also comes with other features including - nine layout options for pages and blog, WooCommerce design options, and compatibility with the Elementor page builder. It works great on a mobile, tablet, desktop, and across all browsers. Responsive is also available in 45 languages and is search engine friendly.
-Author: CyberChimps.com
-Author URI: http://cyberchimps.com
-Version: 4.1.3
-Tags: custom-menu, custom-header, custom-background, one-column, two-columns, left-sidebar, right-sidebar, theme-options, threaded-comments, full-width-template, sticky-post, translation-ready, rtl-language-support, featured-images, blog, e-commerce, editor-style
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: responsive
-
-Responsive WordPress Theme, Copyright (C) 2020, cyberchimps.com
-
---------------------------------------------------------------
-WARNING: (BEFORE YOU MAKE ANY CHANGES)
---------------------------------------------------------------
-Please do not edit style.css or any other Theme files or Templates directly. If you do, your customizations will be lost as soon as you update Responsive.
-
-WordPress and CyberChimps highly recommends Child Theme.
-
-Read More:
-
-- http://codex.wordpress.org/Child_Themes
-- http://cyberchimps.com/guide/child-theme-example/
-- http://cyberchimps.com/guide-tags/child-theme-2/
-*/
+/**
+ * Theme name: 	Responsive
+ * Version:		4.1.4
+ * Theme URI:	https://cyberchimps.com/responsive
+ * Author name: CyberChimps
+ * Author URI: 	https://cyberchimps.com/
+ * Description: Responsive is a full-customizable, fast and mobile-friendly WordPress theme.
+ * Tags: 		blog, grid-layout, one-column, two-columns, left-sidebar, right-sidebar, custom-background, custom-header, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, sticky-post, theme-options, threaded-comments, translation-ready
+ * License: 	GNU General Public License v2 or later
+ * License URI:	http://www.gnu.org/licenses/gpl-2.0.html
+ * Text domain:	responsive
+ */
