@@ -2,7 +2,11 @@
  * Aside widget-area Area styles
  * -----------------------------------------------------------------------------
  */
-
+@media( max-width: map-get( $screens, md ) ) {
+    .main-sidebar{
+        margin-top: $base-line-height-px;
+    }
+}
 .widget-area {
     @extend .col-xs-12;
     @extend .col-lg-4;
