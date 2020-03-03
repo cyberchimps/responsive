@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/03/20) = Changed - Version 4.1.5
+[*] = Changed - Added translations for theme options page
+[*] = Changed - Updated copyrights
+[*] = Added - Option to add script in header and footer
+
 (03/03/20) = Changed - Version 4.1.4
 [*] = Changed - Improved style.css
 

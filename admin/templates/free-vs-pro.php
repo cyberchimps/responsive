@@ -12,64 +12,64 @@
 			<table class="responsive-features-table" border="1">
 				<thead class="responsive-features-heading">
 				<tr>
-					<th class="header-responsive-features">Features</th>
-					<th class="header-responsive-features">Free</th>
-					<th class="header-responsive-features">Pro</th>
+					<th class="header-responsive-features"><?php esc_html_e( 'Features', 'responsive' ); ?></th>
+					<th class="header-responsive-features"><?php esc_html_e( 'Free', 'responsive' ); ?></th>
+					<th class="header-responsive-features"><?php esc_html_e( 'Pro', 'responsive' ); ?></th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr>
 					<td class="feature">
-						<div class="feature-title">Mobile Friendly</div>
-						<div class="feature-description">Slider, portfolio, pricing tables, WooCommerce widgets etc</div>
+						<div class="feature-title"><?php esc_html_e( 'Mobile Friendly', 'responsive' ); ?></div>
+						<div class="feature-description"><?php esc_html_e( 'Slider, portfolio, pricing tables, WooCommerce widgets etc', 'responsive' ); ?></div>
 					</td>
 					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 				</tr>
 				<tr>
 					<td class="feature">
-						<div class="feature-title">Blazing Fast Speed</div>
-						<div class="feature-description">Optimized for speed, loads in under 2 seconds</div>
+						<div class="feature-title"><?php esc_html_e( 'Blazing Fast Speed', 'responsive' ); ?></div>
+						<div class="feature-description"><?php esc_html_e( 'Optimized for speed, loads in under 2 seconds', 'responsive' ); ?></div>
 					</td>
 					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 				</tr>
 				<tr>
 					<td class="feature">
-						<div class="feature-title">Fully Customizable</div>
-						<div class="feature-description">Using the customizer options for layout, fonts & colors</div>
+						<div class="feature-title"><?php esc_html_e( 'Fully Customizable', 'responsive' ); ?></div>
+						<div class="feature-description"><?php esc_html_e( 'Using the customizer options for layout, fonts & colors', 'responsive' ); ?></div>
 					</td>
-					<td class="feature-status">Limited Options</span></td>
+					<td class="feature-status"><?php esc_html_e( 'Limited Options', 'responsive' ); ?></span></td>
 					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 				</tr>
 				<tr>
 					<td class="feature">
-						<div class="feature-title">Ready-to-use Website Templates</div>
-						<div class="feature-description">Ready-to-use Elementor page builder and Gutenberg website templates</div>
+						<div class="feature-title"><?php esc_html_e( 'Ready-to-use Website Templates', 'responsive' ); ?></div>
+						<div class="feature-description"><?php esc_html_e( 'Ready-to-use Elementor page builder and Gutenberg website templates', 'responsive' ); ?></div>
 					</td>
-					<td class="feature-status">17</td>
-					<td class="feature-status">30+</td>
+					<td class="feature-status"><?php esc_html_e( 'Pro', 'responsive' ); ?>17</td>
+					<td class="feature-status"><?php esc_html_e( 'Pro', 'responsive' ); ?>30+</td>
 				</tr>
 				<tr>
 					<td class="feature">
-						<div class="feature-title">Exclusive Widgets</div>
-						<div class="feature-description">Slider, portfolio, pricing tables, WooCommerce widgets etc</div>
-					</td>
-					<td class="feature-status featureno"><span class='dashicons-before dashicons-no'></span></td>
-					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>
-				</tr>
-				<tr>
-					<td class="feature">
-						<div class="feature-title">Exclusive Content, Deals & Offers</div>
-						<div class="feature-description">Get access to exclusive WordPress content, deals & offers</div>
+						<div class="feature-title"><?php esc_html_e( 'Exclusive Widgets', 'responsive' ); ?></div>
+						<div class="feature-description"><?php esc_html_e( 'Slider, portfolio, pricing tables, WooCommerce widgets etc', 'responsive' ); ?></div>
 					</td>
 					<td class="feature-status featureno"><span class='dashicons-before dashicons-no'></span></td>
 					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>
 				</tr>
 				<tr>
 					<td class="feature">
-						<div class="feature-title">Private Priority Email Support</div>
-						<div class="feature-description">Need help? Just raise a support ticket to get priority email support</div>
+						<div class="feature-title"><?php esc_html_e( 'Exclusive Content, Deals & Offers', 'responsive' ); ?></div>
+						<div class="feature-description"><?php esc_html_e( 'Get access to exclusive WordPress content, deals & offers', 'responsive' ); ?></div>
+					</td>
+					<td class="feature-status featureno"><span class='dashicons-before dashicons-no'></span></td>
+					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>
+				</tr>
+				<tr>
+					<td class="feature">
+						<div class="feature-title"><?php esc_html_e( 'Private Priority Email Support', 'responsive' ); ?></div>
+						<div class="feature-description"><?php esc_html_e( 'Need help? Just raise a support ticket to get priority email support', 'responsive' ); ?></div>
 					</td>
 					<td class="feature-status featureno"><span class='dashicons-before dashicons-no'></span></td>
 					<td class="feature-status featureyes"><span class='dashicons-before dashicons-yes'></span></td>

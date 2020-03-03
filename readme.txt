@@ -3,8 +3,8 @@ Contributors: cyberchimps
 Requires at least: 5.0
 Tested up to: 5.3.2
 Requires PHP: 5.6
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Responsive is a fully customizable, fast & responsive WordPress theme.
 
@@ -14,9 +14,29 @@ Responsive is a fully customizable, fast & responsive WordPress theme. It is a p
 
 == Copyright ==
 
-It's GPL so yes you can base your Themes from Responsive please note that if you do the GPLv3 License needs to stay as well as all copyright notices included in all parts of this Theme as well as third-party add-ons as listed above.
+Responsive WordPress Theme, Copyright 2020 cyberchimps.com
+Responsive Theme is distributed under the terms of the GNU GPL.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 
 All derivative Themes must be much different from the original work, which includes the Theme design as well as all the codes from Responsive Theme.
+
+Responsive Theme bundles the following third-party resources:
+
+IcoMoon Icons
+Copyright (c) 2020 IcoMoon.io
+License: GPL License, https://github.com/Keyamoon/IcoMoon-Free/blob/master/License.txt
+Source: https://github.com/Keyamoon/IcoMoon-Free/
+Used for post meta icons, and the link icon in the social icons, woocommerce mini cart icons.
+
 
 == License ==
 

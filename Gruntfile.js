@@ -277,7 +277,8 @@ module.exports = function(grunt) {
 					'!.codeclimate.yml',
 					'!.travis.yml',
 					'!.phpcs.xml.dist',
-					'!phpcs.xml'
+					'!phpcs.xml',
+					'!core/js/jquery.min.js'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
