@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.1.0' );
+define( 'RESPONSIVE_THEME_VERSION', '4.1.6' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -153,9 +153,6 @@ add_action( 'after_setup_theme', 'responsive_free_setup' );
 
 $responsive_options = responsive_get_options();
 
-if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
-	define( 'ELEMENTOR_PARTNER_ID', 2126 );
-}
 /**
  * Edit Customize Register
  *
@@ -642,7 +639,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 				! get_theme_mod( 'responsive_header_elements' ) ? set_theme_mod( 'responsive_header_elements', array( 'main-navigation', 'site-branding' ) ) : '';
 			}
 
-			! get_theme_mod( 'responsive_header_alignment' ) ? set_theme_mod( 'responsive_header_alignment', str_replace( 'header-logo-', '', get_theme_mod( 'header_layout_options' ) ) ) : '';
+			! get_theme_mod( 'responsive_header_alignment' ) && get_theme_mod( 'header_layout_options' ) ? set_theme_mod( 'responsive_header_alignment', str_replace( 'header-logo-', '', get_theme_mod( 'header_layout_options' ) ) ) : '';
 			! get_theme_mod( 'responsive_container_width' ) ? set_theme_mod( 'responsive_container_width', get_theme_mod( 'responsive_main_container_width', 1140 ) ) : '';
 
 			$responsive_options_blog = array( 'full-width-page', 'blog-2-col', 'blog-3-col', 'blog-4-col' );
@@ -730,7 +727,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 						set_theme_mod( 'heading_h' . $i . '_typography', $heading );
 					} else {
 						foreach ( $heading as $key => $value ) {
-							if ( 'color' !== $key && ! $heading_h[ $key ] ) {
+							if ( 'color' !== $key && ( ! array_key_exists( $key, get_theme_mod( 'heading_h' . $i . '_typography' ) ) ) ) {
 								$temp      = array( $key => $value );
 								$heading_h = $temp + get_theme_mod( 'heading_h' . $i . '_typography' );
 								set_theme_mod( 'heading_h' . $i . '_typography', $heading_h );

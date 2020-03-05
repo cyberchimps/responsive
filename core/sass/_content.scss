@@ -198,6 +198,12 @@
     }
 }
 
+.responsive-blocks-post-grid-item{
+	&:first-child{
+		margin-top:auto;
+	}
+}
+
 // Featured Image Aligmnmnet
 .page,
 .single,
@@ -438,6 +444,12 @@
     .responsive-site-style-flat & {
         background-color: transparent;
         padding: 0;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 }
 
