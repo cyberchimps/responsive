@@ -462,6 +462,22 @@ function responsive_customizer_styles() {
 		}';
 	}
 
+	// Site Content Padding.
+	$site_content_padding_right  = get_theme_mod( 'responsive_site_content_right_padding' );
+	$site_content_padding_left   = get_theme_mod( 'responsive_site_content_left_padding' );
+	$site_content_padding_top    = get_theme_mod( 'responsive_site_content_top_padding', 28 );
+	$site_content_padding_bottom = get_theme_mod( 'responsive_site_content_bottom_padding', 28 );
+
+	$site_content_tablet_padding_right  = get_theme_mod( 'responsive_site_content_tablet_right_padding' );
+	$site_content_tablet_padding_left   = get_theme_mod( 'responsive_site_content_tablet_left_padding' );
+	$site_content_tablet_padding_top    = get_theme_mod( 'responsive_site_content_tablet_top_padding', 28 );
+	$site_content_tablet_padding_bottom = get_theme_mod( 'responsive_site_content_tablet_bottom_padding', 28 );
+
+	$site_content_mobile_padding_right  = get_theme_mod( 'responsive_site_content_mobile_right_padding' );
+	$site_content_mobile_padding_left   = get_theme_mod( 'responsive_site_content_mobile_left_padding' );
+	$site_content_mobile_padding_top    = get_theme_mod( 'responsive_site_content_mobile_top_padding', 28 );
+	$site_content_mobile_padding_bottom = get_theme_mod( 'responsive_site_content_mobile_bottom_padding', 28 );
+
 	// Header Padding.
 	$header_padding_right  = get_theme_mod( 'responsive_header_right_padding' );
 	$header_padding_left   = get_theme_mod( 'responsive_header_left_padding' );
@@ -714,6 +730,20 @@ function responsive_customizer_styles() {
 	@media screen and ( max-width: 576px ) {
 		.site-branding-wrapper {
 			padding: ' . responsive_spacing_css( $header_mobile_padding_top, $header_mobile_padding_right, $header_mobile_padding_bottom, $header_mobile_padding_left ) . ';
+		}
+	}';
+	$custom_css .= '.res-transparent-header .site-content {
+		padding: ' . responsive_spacing_css( $site_content_padding_top, $site_content_padding_right, $site_content_padding_bottom, $site_content_padding_left ) . ';
+
+	}
+	@media screen and ( max-width: 992px ) {
+		.res-transparent-header .site-content {
+			padding: ' . responsive_spacing_css( $site_content_tablet_padding_top, $site_content_tablet_padding_right, $site_content_tablet_padding_bottom, $site_content_tablet_padding_left ) . ';
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.res-transparent-header .site-content {
+			padding: ' . responsive_spacing_css( $site_content_mobile_padding_top, $site_content_mobile_padding_right, $site_content_mobile_padding_bottom, $site_content_mobile_padding_left ) . ';
 		}
 	}';
 
