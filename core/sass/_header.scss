@@ -494,3 +494,12 @@ body.mega-menu-header-menu button.menu-toggle {
 .header-widgets-wrapper form#searchform{
 	display: flex;
 }
+
+.res-transparent-header #masthead{
+    position:absolute;
+    left:0;
+    right:0;
+    background: none;
+    border:none;
+    z-index: 99999;
+}

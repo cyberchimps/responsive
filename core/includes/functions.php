@@ -521,6 +521,10 @@ function responsive_add_custom_body_classes( $classes ) {
 	if ( get_theme_mod( 'responsive_header_full_width', 0 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
 		$classes[] = 'header-full-width';
 	}
+	// Transparent Header.
+	if ( is_transparent_header() ) {
+		$classes[] = 'res-transparent-header';
+	}
 	// Header Element layout class.
 	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
 	// Header alignment class.
@@ -746,5 +750,43 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 		 * Triggered after the opening <body> tag.
 		 */
 		do_action( 'wp_body_open' );
+	}
+}
+if ( ! function_exists( 'is_transparent_header' ) ) {
+	/**
+	 * Returns true if transparent header is enabled
+	 */
+	function is_transparent_header() {
+		$enable_trans_header = get_theme_mod( 'responsive_transparent_header', 0 );
+		if ( $enable_trans_header ) {
+
+			if ( ( is_archive() || is_search() || is_404() ) && get_theme_mod( 'responsive_disable_archive_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+
+			if ( is_home() && get_theme_mod( 'responsive_disable_blog_page_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+
+			if ( is_front_page() && get_theme_mod( 'responsive_disable_latest_posts_page_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+
+			if ( is_page() && get_theme_mod( 'responsive_disable_pages_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+
+			if ( is_single() && get_theme_mod( 'responsive_disable_posts_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+		}
+
+		if ( class_exists( 'WooCommerce' ) ) {
+			if ( is_product() && get_theme_mod( 'responsive_disable_woo_products_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+		}
+
+		return $enable_trans_header;
 	}
 }
