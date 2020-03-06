@@ -15,7 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="site-branding-wrapper">
 		<?php
 		the_custom_logo();
-
+		?>
+		<div class="site-title-tagline">
+		<?php
 		if ( ! get_theme_mod( 'responsive_hide_title', 0 ) ) :
 			if ( is_front_page() && is_home() ) :
 
@@ -43,6 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			endif;
 		endif;
 		?>
+		</div>
 	</div>
 	<?php responsive_header_with_logo(); ?>
 </div>

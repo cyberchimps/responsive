@@ -51,12 +51,6 @@
     margin-top: 0;
 }
 
-.site-header-layout-horizontal {
-	.site-description, .site-title {
-		display: inline-block;
-	}
-}
-
 .site-title {
     @extend h3;
 }
@@ -474,6 +468,9 @@
 
 		.container {
 			margin-right: 0;
+			align-items: center;
+			vertical-align: middle;
+			display: inline-flex;
 		}
 	}
 	.site-header .row {
@@ -495,6 +492,11 @@ body.mega-menu-header-menu button.menu-toggle {
 	display: flex;
 }
 
+.inline-logo-site-title .site-branding-wrapper {
+	display: inline-flex;
+	vertical-align: middle;
+	align-items: center;
+}
 .res-transparent-header #masthead{
     position:absolute;
     left:0;
