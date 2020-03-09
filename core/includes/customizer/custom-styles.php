@@ -533,6 +533,13 @@ function responsive_customizer_styles() {
 	if ( get_theme_mod( 'responsive_transparent_header', 0 ) ) {
 		$trans_header_menu_background_color = 'none';
 		$trans_header_menu_border_color     = 'none';
+
+		$custom_css .= "
+        .res-transparent-header .site-header .main-navigation.toggled{
+            border-bottom-color: 'none';
+            background-color: {$header_background_color};
+        }
+		";
 	}
 	$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
 		.main-navigation .menu-toggle {
