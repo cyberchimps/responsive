@@ -529,11 +529,11 @@ function responsive_customizer_styles() {
 	}
 
 	$trans_header_menu_background_color = $header_menu_background_color;
-    $trans_header_menu_border_color = $header_menu_border_color;
-	if(get_theme_mod('responsive_transparent_header', 0)){
-        $trans_header_menu_background_color = 'none';
-        $trans_header_menu_border_color = 'none';
-    }
+	$trans_header_menu_border_color     = $header_menu_border_color;
+	if ( get_theme_mod( 'responsive_transparent_header', 0 ) ) {
+		$trans_header_menu_background_color = 'none';
+		$trans_header_menu_border_color     = 'none';
+	}
 	$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
 		.main-navigation .menu-toggle {
 			display: none;
