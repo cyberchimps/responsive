@@ -529,10 +529,18 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
 	// Header alignment class.
 	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
-	// Header Widget Aligmnmnet.
-	$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
-	// Header Widget POsition.
-	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+
+	if ( get_theme_mod( 'responsive_enable_header_widget' ) ) {
+		// Header Widget Aligmnmnet.
+		$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
+		// Header Widget POsition.
+		$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+	}
+
+	// Header width.
+	if ( get_theme_mod( 'responsive_inline_logo_site_title', 0 ) ) {
+		$classes[] = 'inline-logo-site-title';
+	}
 
 	// Full idth menu class.
 	if ( get_theme_mod( 'responsive_header_menu_full_width', 0 ) ) {
