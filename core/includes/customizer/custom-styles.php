@@ -528,6 +528,12 @@ function responsive_customizer_styles() {
 		$mobile_menu_breakpoint = 0;
 	}
 
+	$trans_header_menu_background_color = $header_menu_background_color;
+    $trans_header_menu_border_color = $header_menu_border_color;
+	if(get_theme_mod('responsive_transparent_header', 0)){
+        $trans_header_menu_background_color = 'none';
+        $trans_header_menu_border_color = 'none';
+    }
 	$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
 		.main-navigation .menu-toggle {
 			display: none;
@@ -654,21 +660,24 @@ function responsive_customizer_styles() {
 		border-bottom-color: {$header_border_color};
 		background-color: {$header_background_color};
 	}
+	.res-transparent-header .main-navigation.toggled {
+		background-color: {$header_menu_background_color};
+	}
 	.header-full-width.site-header-layout-vertical .main-navigation,
 	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,
 	.responsive-site-full-width.site-header-layout-vertical .main-navigation,
 	.site-header-layout-vertical .main-navigation div {
-		background-color: {$header_menu_background_color};
+		background-color: {$trans_header_menu_background_color};
 	}
 	@media ( max-width: {$mobile_menu_breakpoint}px ) {
 		.site-header-layout-vertical .main-navigation {
-			background-color: {$header_menu_background_color};
+			background-color: {$trans_header_menu_background_color};
 		}
 		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation {
-			border-top: 1px solid {$header_menu_border_color};
+			border-top: 1px solid {$trans_header_menu_border_color};
 		}
 		.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation) .main-navigation {
-			border-bottom: 1px solid {$header_menu_border_color};
+			border-bottom: 1px solid {$trans_header_menu_border_color};
 		}
 
 	}
@@ -676,20 +685,20 @@ function responsive_customizer_styles() {
 		.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
 		.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
 		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
-			border-top: 1px solid {$header_menu_border_color};
+			border-top: 1px solid {$trans_header_menu_border_color};
 		}
 
 		.header-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
 		.responsive-site-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
 		.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
-			border-bottom: 1px solid {$header_menu_border_color};
+			border-bottom: 1px solid {$trans_header_menu_border_color};
 		}
 	}
 	.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-site-branding-main-navigation .main-navigation {
-		border-top: 1px solid {$header_menu_border_color};
+		border-top: 1px solid {$trans_header_menu_border_color};
 	}
 	.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-main-navigation-site-branding .main-navigation {
-		border-bottom: 1px solid {$header_menu_border_color};
+		border-bottom: 1px solid {$trans_header_menu_border_color};
 	}
 	.main-navigation .menu > li > a {
 		color: {$header_menu_link_color};
