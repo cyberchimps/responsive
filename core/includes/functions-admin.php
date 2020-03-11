@@ -55,7 +55,7 @@ function ask_for_review_notice() {
 								</div>
          					</div>',
 			esc_url( $image_path ),
-			'https://wordpress.org/support/theme/responsive/reviews/?filter=5#new-post'
+			'https://wordpress.org/support/theme/responsive/reviews/#new-post'
 		);
 		do_action( 'tag_review' );
 	}

@@ -33,7 +33,7 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Fermentum', 'responsive' ); ?></h4></div>
 						<div class="textwidget">
-							<img src="<?php echo get_template_directory_uri() . '/images/box1.jpg'; ?>" alt="responsivepro">
+							<img src="<?php echo get_template_directory_uri() . '/images/box1.jpg'; ?>" alt="">
 						</div>
 						<div class="textwidget"><?php esc_html_e( 'This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
 
@@ -51,7 +51,7 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Elementum', 'responsive' ); ?></h4></div>
 						<div class="textwidget">
-							<img src="<?php echo get_template_directory_uri() . '/images/box2.jpg'; ?>" alt="responsivepro">
+							<img src="<?php echo get_template_directory_uri() . '/images/box2.jpg'; ?>" alt="">
 						</div>
 						<div class="textwidget"><?php esc_html_e( 'This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
 
@@ -69,7 +69,7 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Interdum', 'responsive' ); ?></h4></div>
 						<div class="textwidget">
-							<img src="<?php echo get_template_directory_uri() . '/images/box3.jpg'; ?>" alt="responsivepro">
+							<img src="<?php echo get_template_directory_uri() . '/images/box3.jpg'; ?>" alt="">
 						</div>
 							<div class="textwidget"><?php esc_html_e( 'This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
 

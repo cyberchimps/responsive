@@ -391,7 +391,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							<?php esc_html_e( 'Hi! Thanks for using the Responsive theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?>
 						</p>
 						<?php
-						$responsive_submit_review_link      = 'https://wordpress.org/support/view/theme-reviews/responsive?filter=5#postform';
+						$responsive_submit_review_link      = 'https://wordpress.org/support/theme/responsive/reviews/#new-post';
 						$responsive_submit_review_link_text = __( 'Submit Review »', 'responsive' );
 
 						printf(

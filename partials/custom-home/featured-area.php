@@ -137,7 +137,7 @@ if ( 1 == $display_slider ) {
 			$responsive_feature1_desc = $responsive_feature1_post->post_content;
 			$feature1_showcase_img    = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature1_post_id ) );
 			$feature1_showcase_title  = get_the_title( $responsive_feature1_post_id );
-			$image_id                 = responsive_get_attachment_id_from_url( $feature1_showcase_img );
+			$image_id                 = attachment_url_to_postid( $feature1_showcase_img );
 			$responsive_alt1_text     = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt1_text ) {
 				$responsive_alt1_text = get_the_title( $responsive_feature1_post_id );
@@ -154,7 +154,7 @@ if ( 1 == $display_slider ) {
 			$responsive_feature2_desc = $responsive_feature2_post->post_content;
 			$feature2_showcase_img    = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature2_post_id ) );
 			$feature2_showcase_title  = get_the_title( $responsive_feature2_post_id );
-			$image_id                 = responsive_get_attachment_id_from_url( $feature2_showcase_img );
+			$image_id                 = attachment_url_to_postid( $feature2_showcase_img );
 			$responsive_alt2_text     = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt2_text ) {
 				$responsive_alt2_text = get_the_title( $responsive_feature2_post_id );
@@ -170,7 +170,7 @@ if ( 1 == $display_slider ) {
 			$responsive_feature3_desc = $responsive_feature3_post->post_content;
 			$feature3_showcase_img    = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature3_post_id ) );
 			$feature3_showcase_title  = get_the_title( $responsive_feature3_post_id );
-			$image_id                 = responsive_get_attachment_id_from_url( $feature3_showcase_img );
+			$image_id                 = attachment_url_to_postid( $feature3_showcase_img );
 			$responsive_alt3_text     = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt3_text ) {
 				$responsive_alt3_text = get_the_title( $responsive_feature3_post_id );
@@ -219,7 +219,7 @@ if ( 1 == $display_slider ) {
 	if ( '' != $responsive_testimonial_id ) {
 		$responsive_testimonial_desc     = get_post( $responsive_testimonial_id );
 		$responsive_testimonial_img      = wp_get_attachment_url( get_post_thumbnail_id( $responsive_testimonial_id ) );
-		$image_id                        = responsive_get_attachment_id_from_url( $responsive_testimonial_img );
+		$image_id                        = attachment_url_to_postid( $responsive_testimonial_img );
 		$responsive_testimonial_alt_text = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 		if ( '' == $responsive_testimonial_alt_text ) {
 			$responsive_testimonial_alt_text = get_the_title( $responsive_testimonial_id );
@@ -265,7 +265,7 @@ if ( 1 == $display_slider ) {
 			$team1_showcase_twitter     = get_post_meta( $responsive_team1_post_id, 'responsive_meta_box_twitter', true );
 			$team1_showcase_googleplus  = get_post_meta( $responsive_team1_post_id, 'responsive_meta_box_googleplus', true );
 			$team1_showcase_linkedin    = get_post_meta( $responsive_team1_post_id, 'responsive_meta_box_text_linkedin', true );
-			$image_id                   = responsive_get_attachment_id_from_url( $team1_showcase_img );
+			$image_id                   = attachment_url_to_postid( $team1_showcase_img );
 			$responsive_alt1_text       = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt1_text ) {
 				$responsive_alt1_text = get_the_title( $responsive_team1_post_id );
@@ -287,7 +287,7 @@ if ( 1 == $display_slider ) {
 			$team2_showcase_twitter     = get_post_meta( $responsive_team2_post_id, 'responsive_meta_box_twitter', true );
 			$team2_showcase_googleplus  = get_post_meta( $responsive_team2_post_id, 'responsive_meta_box_googleplus', true );
 			$team2_showcase_linkedin    = get_post_meta( $responsive_team2_post_id, 'responsive_meta_box_text_linkedin', true );
-			$image_id                   = responsive_get_attachment_id_from_url( $team2_showcase_img );
+			$image_id                   = attachment_url_to_postid( $team2_showcase_img );
 			$responsive_alt2_text       = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt2_text ) {
 				$responsive_alt2_text = get_the_title( $responsive_team2_post_id );
@@ -309,7 +309,7 @@ if ( 1 == $display_slider ) {
 			$team3_showcase_twitter     = get_post_meta( $responsive_team3_post_id, 'responsive_meta_box_twitter', true );
 			$team3_showcase_googleplus  = get_post_meta( $responsive_team3_post_id, 'responsive_meta_box_googleplus', true );
 			$team3_showcase_linkedin    = get_post_meta( $responsive_team3_post_id, 'responsive_meta_box_text_linkedin', true );
-			$image_id                   = responsive_get_attachment_id_from_url( $team3_showcase_img );
+			$image_id                   = attachment_url_to_postid( $team3_showcase_img );
 			$responsive_alt3_text       = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt3_text ) {
 				$responsive_alt3_text = get_the_title( $responsive_team2_post_id );
