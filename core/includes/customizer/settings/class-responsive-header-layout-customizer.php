@@ -110,25 +110,25 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Site Content Padding.
 			$site_content_padding_label = esc_html__( 'Site Content Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'site_content', 'responsive_header_layout', 50, 28, 0, 'is_transparent_header_enabled', $site_content_padding_label );
+			responsive_padding_control( $wp_customize, 'site_content', 'responsive_header_layout', 50, 28, 0, 'responsive_is_transparent_header_enabled', $site_content_padding_label );
 
 			$disable_archive_transparent_header_label = __( 'Disable on 404, Search & Archives?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_archive_transparent_header', $disable_archive_transparent_header_label, 'responsive_header_layout', 50, 0, 'is_transparent_header_enabled' );
+			responsive_checkbox_control( $wp_customize, 'disable_archive_transparent_header', $disable_archive_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_blog_page_transparent_header_label = __( 'Disable on Blog page?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_blog_page_transparent_header', $disable_blog_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'is_transparent_header_enabled' );
+			responsive_checkbox_control( $wp_customize, 'disable_blog_page_transparent_header', $disable_blog_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_latest_posts_page_transparent_header_label = __( 'Disable on Latest Posts Page?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_latest_posts_page_transparent_header', $disable_latest_posts_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'is_transparent_header_enabled' );
+			responsive_checkbox_control( $wp_customize, 'disable_latest_posts_page_transparent_header', $disable_latest_posts_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_pages_transparent_header_label = __( 'Disable on Pages?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_pages_transparent_header', $disable_pages_transparent_header_label, 'responsive_header_layout', 50, 0, 'is_transparent_header_enabled' );
+			responsive_checkbox_control( $wp_customize, 'disable_pages_transparent_header', $disable_pages_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_posts_transparent_header_label = __( 'Disable on Posts?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_posts_transparent_header', $disable_posts_transparent_header_label, 'responsive_header_layout', 50, 0, 'is_transparent_header_enabled' );
+			responsive_checkbox_control( $wp_customize, 'disable_posts_transparent_header', $disable_posts_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_woo_products_transparent_header_label = __( 'Disable on WooCommerce Product Pages?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_woo_products_transparent_header', $disable_woo_products_transparent_header_label, 'responsive_header_layout', 50, 0, 'is_transparent_header_enabled' );
+			responsive_checkbox_control( $wp_customize, 'disable_woo_products_transparent_header', $disable_woo_products_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			/**
 			 * Header Widget Separator.

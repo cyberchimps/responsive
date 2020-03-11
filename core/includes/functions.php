@@ -522,7 +522,7 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'header-full-width';
 	}
 	// Transparent Header.
-	if ( is_transparent_header() ) {
+	if ( responsive_is_transparent_header() ) {
 		$classes[] = 'res-transparent-header';
 	}
 	// Header Element layout class.
@@ -760,11 +760,11 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 		do_action( 'wp_body_open' );
 	}
 }
-if ( ! function_exists( 'is_transparent_header' ) ) {
+if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 	/**
 	 * Returns true if transparent header is enabled
 	 */
-	function is_transparent_header() {
+	function responsive_is_transparent_header() {
 		$enable_trans_header = get_theme_mod( 'responsive_transparent_header', 0 );
 		if ( $enable_trans_header ) {
 

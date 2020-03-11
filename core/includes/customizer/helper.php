@@ -5,11 +5,11 @@
  * @package Responsive
  */
 
-if ( ! function_exists( 'is_transparent_header_enabled' ) ) {
+if ( ! function_exists( 'responsive_is_transparent_header_enabled' ) ) {
 	/**
 	 * Returns true if transparent header is enabled
 	 */
-	function is_transparent_header_enabled() {
+	function responsive_is_transparent_header_enabled() {
 
 		$flag = get_theme_mod( 'responsive_transparent_header', 0 );
 		if ( $flag ) {

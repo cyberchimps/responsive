@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Add Ask For Review Admin Notice.
  */
-function ask_for_review_notice() {
+function responsive_ask_for_review_notice() {
 
 	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
 		return;
@@ -62,7 +62,7 @@ function ask_for_review_notice() {
 
 }
 
-add_action( 'admin_notices', 'ask_for_review_notice' );
+add_action( 'admin_notices', 'responsive_ask_for_review_notice' );
 
 /**
  * Removed Ask For Review Admin Notice when dismissed.
@@ -87,7 +87,7 @@ add_action( 'admin_init', 'responsive_theme_notice_dismissed' );
 add_action( 'admin_init', 'responsive_theme_notice_change_timeout' );
 add_action( 'admin_head', 'add_review_styling' );
 /**
- * Add styling for ask_for_review_notice function.
+ * Add styling for responsive_ask_for_review_notice function.
  */
 function add_review_styling() {
 	echo <<<HTML
