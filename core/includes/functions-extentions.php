@@ -366,7 +366,7 @@ function responsive_get_social_icons() {
 				if ( 'email' === $key ) {
 					?>
 					<li>
-						<a aria-label="email" title="email" href="mailto:<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+						<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
 							<i class="icon-envelope-o" aria-hidden="true"></i>
 						</a>
 					</li>
