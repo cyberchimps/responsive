@@ -21,8 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="post-meta">
 	<?php
-	require_once ABSPATH . 'wp-admin/includes/plugin.php';
-	if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
+	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 
 		responsivepro_plugin_posted_on();
 		responsivepro_plugin_posted_by();
