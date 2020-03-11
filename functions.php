@@ -389,7 +389,7 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 		if ( has_post_thumbnail() ) {
 			?>
 						<div class="featured-image">
-							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
+							<a href="<?php the_permalink(); ?>" aria-label="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
 								<?php	the_post_thumbnail(); ?>
 							</a>
 						</div>
