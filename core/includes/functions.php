@@ -55,10 +55,10 @@ function responsive_get_option_defaults() {
 		'cta_button'                      => false,
 		'minified_css'                    => false,
 		'front_page'                      => 0,
-		'home_headline'                   => 'HAPPINESS',
-		'home_subheadline'                => 'IS A WARM CUP',
-		'home_content_area'               => 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.',
-		'cta_text'                        => 'Call to Action',
+		'home_headline'                   => __( 'HAPPINESS', 'responsive' ),
+		'home_subheadline'                => __( 'IS A WARM CUP', 'responsive' ),
+		'home_content_area'               => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ),
+		'cta_text'                        => __( 'Call to Action', 'responsive' ),
 		'cta_url'                         => '#nogo',
 		'featured_content'                => null,
 		'testimonials'                    => 0,
@@ -374,7 +374,7 @@ add_action( 'add_meta_boxes', 'responsive_team_add_meta_box' );
 function responsive_team_add_meta_box() {
 	global $post;
 
-	add_meta_box( 'responsive_team_meta_box', 'Team Section Options', 'responsive_team_meta_box_cb', 'post', 'normal', 'high' );
+	add_meta_box( 'responsive_team_meta_box', __( 'Team Section Options', 'responsive' ), 'responsive_team_meta_box_cb', 'post', 'normal', 'high' );
 }
 /** Function for team meta box */
 function responsive_team_meta_box_cb() {

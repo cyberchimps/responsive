@@ -239,7 +239,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
                         <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 						<?php
 						$responsive_facebook_group_link      = 'https://wordpress.org/plugins/responsive-add-ons';
-						$responsive_facebook_group_link_text = __( 'Learn More »', 'responsive' );
+						$responsive_facebook_group_link_text = __( 'Learn More &raquo;', 'responsive' );
 
 						printf(
 							'%1$s',
@@ -274,7 +274,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					</p>
 					<?php
 					$responsive_support_link           = 'https://wordpress.org/support/theme/responsive/';
-					$responsive_support_link_link_text = __( 'Request Support »', 'responsive' );
+					$responsive_support_link_link_text = __( 'Request Support &raquo;', 'responsive' );
 
 					printf(
 					/* translators: %1$s: Responsive Support link. */
@@ -370,7 +370,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						</p>
 						<?php
 						$responsive_facebook_group_link      = 'https://www.facebook.com/groups/responsive.theme';
-						$responsive_facebook_group_link_text = __( 'Join Facebook Group »', 'responsive' );
+						$responsive_facebook_group_link_text = __( 'Join Facebook Group &raquo;', 'responsive' );
 
 						printf(
 							'%1$s',
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						</p>
 						<?php
 						$responsive_submit_review_link      = 'https://wordpress.org/support/theme/responsive/reviews/#new-post';
-						$responsive_submit_review_link_text = __( 'Submit Review »', 'responsive' );
+						$responsive_submit_review_link_text = __( 'Submit Review &raquo;', 'responsive' );
 
 						printf(
 							'%1$s',
@@ -418,7 +418,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				'responsive_header_top_links',
 				array(
 					'responsive-theme-info' => array(
-						'title' => __( '⚡ Blazing Fast, mobile-friendly, fully-customizable WordPress theme.', 'responsive' ),
+						'title' => __( 'Blazing Fast, mobile-friendly, fully-customizable WordPress theme.', 'responsive' ),
 					),
 				)
 			);

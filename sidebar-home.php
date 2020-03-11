@@ -28,7 +28,7 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 			<div id="home_widget_1" class="home-widget-1 grid col-300">
 			<?php responsive_widgets(); // above widgets hook. ?>
 
-			<?php if ( ! dynamic_sidebar( 'home-widget-1' ) ) : ?>
+			<?php if ( ! dynamic_sidebar( 'home-widget-1' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
 					<div class="widget-wrapper">
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Fermentum', 'responsive' ); ?></h4></div>
@@ -48,7 +48,7 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 			<div id="home_widget_2" class="home-widget-2 grid col-300">
 			<?php responsive_widgets(); // responsive above widgets hook. ?>
 
-			<?php if ( ! dynamic_sidebar( 'home-widget-2' ) ) : ?>
+			<?php if ( ! dynamic_sidebar( 'home-widget-2' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
 					<div class="widget-wrapper">
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Elementum', 'responsive' ); ?></h4></div>
@@ -68,7 +68,7 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 			<div id="home_widget_3" class="home-widget-3 grid col-300 fit">
 			<?php responsive_widgets(); // above widgets hook. ?>
 
-			<?php if ( ! dynamic_sidebar( 'home-widget-3' ) ) : ?>
+			<?php if ( ! dynamic_sidebar( 'home-widget-3' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
 					<div class="widget-wrapper">
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Interdum', 'responsive' ); ?></h4></div>

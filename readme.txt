@@ -37,6 +37,12 @@ License: GPL License, https://github.com/Keyamoon/IcoMoon-Free/blob/master/Licen
 Source: https://github.com/Keyamoon/IcoMoon-Free/
 Used for post meta icons, and the link icon in the social icons, woocommerce mini cart icons.
 
+Select2 - jQuery based replacement for select boxes.
+Copyright (c) 2012-2017 Kevin Brown, Igor Vaynberg, and Select2 contributors
+License: The MIT License (MIT), https://github.com/select2/select2/blob/develop/LICENSE.md
+Source: https://github.com/select2/select2
+Used to render fonts in typography settings
+
 
 == License ==
 

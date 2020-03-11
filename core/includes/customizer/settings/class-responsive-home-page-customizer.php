@@ -191,7 +191,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				'responsive_theme_options[cta_text]',
 				array(
 					'sanitize_callback' => 'sanitize_text_field',
-					'default'           => 'Call to Action',
+					'default'           => __( 'Call to Action', 'responsive' ),
 					'transport'         => 'postMessage',
 					'type'              => 'option',
 				)
@@ -320,7 +320,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				'responsive_theme_options[about_cta_text]',
 				array(
 					'sanitize_callback' => 'sanitize_text_field',
-					'default'           => 'Call to Action',
+					'default'           => __( 'Call to Action', 'responsive' ),
 					'transport'         => 'postMessage',
 					'type'              => 'option',
 				)
