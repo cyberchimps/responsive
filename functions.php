@@ -523,19 +523,19 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 		if ( $new_version && version_compare( $new_version, '4.1.0', '>=' ) ) {
 
 			if ( ! $responsive_options['home_headline'] ) {
-				$responsive_options['home_headline'] = 'HAPPINESS';
+				$responsive_options['home_headline'] = __( 'HAPPINESS', 'responsive' );
 			}
 			if ( ! $responsive_options['home_subheadline'] ) {
-				$responsive_options['home_subheadline'] = 'IS A WARM CUP';
+				$responsive_options['home_subheadline'] = __( 'IS A WARM CUP', 'responsive' );
 			}
 			if ( ! $responsive_options['home_content_area'] ) {
-				$responsive_options['home_content_area'] = 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.';
+				$responsive_options['home_content_area'] = __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' );
 			}
 			if ( ! $responsive_options['cta_text'] ) {
-				$responsive_options['cta_text'] = 'Call to Action';
+				$responsive_options['cta_text'] = __( 'Call to Action', 'responsive' );
 			}
 			if ( ! $responsive_options['cta_url'] ) {
-				$responsive_options['cta_url'] = '#';
+				$responsive_options['cta_url'] = __( '#', 'responsive' );
 			}
 
 			( ! get_theme_mod( 'responsive_hide_tagline' ) && get_theme_mod( 'res_hide_tagline' ) ) ? set_theme_mod( 'responsive_hide_tagline', get_theme_mod( 'res_hide_tagline', 0 ) ) : '';

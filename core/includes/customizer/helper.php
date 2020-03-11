@@ -760,7 +760,7 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
  */
 function responsive_read_more_text( $text ) {
 
-	$read_more = get_theme_mod( 'responsive_blog_read_more_text', 'Read more ››' );
+	$read_more = get_theme_mod( 'responsive_blog_read_more_text', 'Read more &raquo;' );
 	if ( '' !== $read_more ) {
 		$text = $read_more;
 	}
