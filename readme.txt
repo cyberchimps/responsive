@@ -50,6 +50,11 @@ Used to render fonts in typography settings
 * Responsive: /images/box2.jpg, CC0, https://unsplash.com/photos/De3-PUfrO5Q
 * Responsive: /images/box3.jpg, CC0, https://unsplash.com/photos/1h112EKgBLE
 * Responsive: /core/images/featured-image.jpg, CC0, https://unsplash.com/photos/OJZB0VUQKKc
+* Responsive: /admin/images/responsive-thumbnail.jpg CC0
+* Responsive: /images/responsive-starter-sites.jpg CC0
+* Responsive: /core/images/cc-responsive-wp-theme-logo.png CC0
+* Responsive: /core/includes/customizer/controls/color/transparency-grid.png CC0
+* Responsive: /screenshot.png CC0
 
 == License ==
 
