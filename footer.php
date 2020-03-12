@@ -38,7 +38,7 @@ global $responsive_blog_layout_columns;
 
 								<?php get_sidebar( 'colophon' ); ?>
 								<?php
-								if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+								if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 									$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
 									$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
 									foreach ( $sections as $section ) {
@@ -81,7 +81,7 @@ global $responsive_blog_layout_columns;
 	<?php
 	responsive_container_end(); // after container hook.
 
-	if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 			$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
 			?>

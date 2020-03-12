@@ -25,12 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /* translators: %s search term */
 $responsive_title = ( is_search() ? sprintf( __( 'Your search for %s did not match any entries.', 'responsive' ), get_search_query() ) : __( '404 &#8212; Fancy meeting you here!', 'responsive' ) );
 
-if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-	if ( responsivepro_plugin_get_option( '404_title' ) ) {
-		$responsive_title = responsivepro_plugin_get_option( '404_title' );
-	}
-}
-
 ?>
 <div class="entry-column">
 	<section id="404" class="hentry">
