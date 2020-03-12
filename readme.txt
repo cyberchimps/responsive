@@ -43,6 +43,11 @@ License: The MIT License (MIT), https://github.com/select2/select2/blob/develop/
 Source: https://github.com/select2/select2
 Used to render fonts in typography settings
 
+= Images =
+* Responsive: /images/box1.jpg, CC0, https://unsplash.com/photos/_-hjiem5TqI
+* Responsive: /images/box2.jpg, CC0, https://unsplash.com/photos/De3-PUfrO5Q
+* Responsive: /images/box3.jpg, CC0, https://unsplash.com/photos/1h112EKgBLE
+* Responsive: /core/images/featured-image.jpg, CC0, https://unsplash.com/photos/OJZB0VUQKKc
 
 == License ==
 

@@ -468,7 +468,7 @@ add_filter( 'admin_footer_text', 'responsive_admin_rate_us' );
 function responsive_display_menu() {
 	$position = get_theme_mod( 'menu_position', 'in_header' );
 	?>
-	<nav id="main-nav" class="main-nav" role="navigation">
+	<nav id="main-nav" class="main-nav" role="navigation" aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>">
 	<?php
 	if ( 'in_header' !== $position ) :
 		?>
