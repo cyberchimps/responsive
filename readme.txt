@@ -29,7 +29,9 @@ GNU General Public License for more details.
 
 All derivative Themes must be much different from the original work, which includes the Theme design as well as all the codes from Responsive Theme.
 
-Responsive Theme bundles the following third-party resources:
+== Resources ==
+* Sortable.js - Default scripts and js libraries of WordPress
+* Alpha js files - https://github.com/BraadMartin/components
 
 IcoMoon Icons
 Copyright (c) 2020 IcoMoon.io
