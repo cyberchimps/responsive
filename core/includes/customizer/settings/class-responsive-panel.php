@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_site',
 				array(
 					'title'       => __( 'Theme Options', 'responsive' ),
-					'description' => 'header Options',
+					'description' => __( 'Header Options', 'responsive' ),
 					'priority'    => 110,
 				)
 			);
@@ -47,7 +47,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_header',
 				array(
 					'title'       => __( 'Header', 'responsive' ),
-					'description' => 'header Options',
+					'description' => __( 'Header Options', 'responsive' ),
 					'priority'    => 120,
 				)
 			);
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_header_menu',
 				array(
 					'title'       => __( 'Main Menu', 'responsive' ),
-					'description' => 'Header Menu Options',
+					'description' => __( 'Header Menu Options', 'responsive' ),
 					'priority'    => 130,
 				)
 			);
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_sidebar',
 				array(
 					'title'       => __( 'Sidebar', 'responsive' ),
-					'description' => 'Sidebar Options',
+					'description' => __( 'Sidebar Options', 'responsive' ),
 					'priority'    => 131,
 				)
 			);
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_footer',
 				array(
 					'title'       => __( 'Footer', 'responsive' ),
-					'description' => 'footer Options',
+					'description' => __( 'Footer Options', 'responsive' ),
 					'priority'    => 140,
 				)
 			);
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_content_header',
 				array(
 					'title'       => __( 'Content Header', 'responsive' ),
-					'description' => 'Content Header',
+					'description' => __( 'Content Header', 'responsive' ),
 					'priority'    => 150,
 				)
 			);
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_blog',
 				array(
 					'title'       => __( 'Blog / Archive', 'responsive' ),
-					'description' => 'Blog Options',
+					'description' => __( 'Blog Options', 'responsive' ),
 					'priority'    => 160,
 				)
 			);
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_single_blog',
 				array(
 					'title'       => __( 'Blog Post', 'responsive' ),
-					'description' => 'Single Blog Post',
+					'description' => __( 'Single Blog Post', 'responsive' ),
 					'priority'    => 170,
 				)
 			);
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_page',
 				array(
 					'title'       => __( 'Page', 'responsive' ),
-					'description' => 'page Options',
+					'description' => __( 'Page Options', 'responsive' ),
 					'priority'    => 180,
 				)
 			);

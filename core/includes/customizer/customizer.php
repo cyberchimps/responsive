@@ -61,8 +61,8 @@ add_action( 'customize_register', 'responsive_customize_register' );
 function responsive_pro_button_style_validate( $input ) {
 	/** An array of valid results */
 	$valid = array(
-		'default'    => 'Gradient',
-		'flat_style' => 'Flat',
+		'default'    => __( 'Gradient', 'responsive' ),
+		'flat_style' => __( 'Flat', 'responsive' ),
 	);
 
 	if ( array_key_exists( $input, $valid ) ) {
@@ -72,50 +72,6 @@ function responsive_pro_button_style_validate( $input ) {
 	}
 }
 
-/**
- * Function for site layouts
- *
- * @param object $input arguments.
- */
-function responsive_validate_site_layout( $input ) {
-	/** An array of valid results */
-
-	$valid = array(
-		'boxed'               => 'Boxed',
-		'content-boxed'       => 'Content Boxed',
-		'fullwidth-content'   => 'Full Width / Contained',
-		'fullwidth-stretched' => 'Full Width / Stretched',
-	);
-
-	if ( array_key_exists( $input, $valid ) ) {
-		return $input;
-	} else {
-		return '';
-	}
-}
-
-/**
- * Function for page layouts
- *
- * @param object $input arguments.
- */
-function responsive_validate_page_layout( $input ) {
-	/** An array of valid results */
-
-	$valid = array(
-		'default'             => 'Default',
-		'boxed'               => 'Boxed',
-		'content-boxed'       => 'Content Boxed',
-		'fullwidth-content'   => 'Full Width / Contained',
-		'fullwidth-stretched' => 'Full Width / Stretched',
-	);
-
-	if ( array_key_exists( $input, $valid ) ) {
-		return $input;
-	} else {
-		return '';
-	}
-}
 /**
  * Function for sanitizing
  *
@@ -135,17 +91,6 @@ function responsive_sanitize_checkbox( $input ) {
  *
  * @param object $input arguments.
  */
-function responsive_sanitize_textarea( $input ) {
-	global $allowedposttags;
-	$output = wp_kses( $input, $allowedposttags );
-	return $output;
-}
-
-/**
- * Function for sanitizing
- *
- * @param object $input arguments.
- */
 function responsive_sanitize_posts( $input ) {
 	$output            = '';
 	$options_posts     = array();
@@ -155,35 +100,6 @@ function responsive_sanitize_posts( $input ) {
 		$options_posts[ $posts->ID ] = $posts->post_title;
 	}
 	$option = $options_posts;
-	if ( array_key_exists( $input, $option ) ) {
-		$output = $input;
-	}
-	return $output;
-}
-
-/**
- * Function for sanitizing layouts
- *
- * @param object $input arguments.
- */
-function responsive_sanitize_default_layouts( $input ) {
-	$output = '';
-	$option = Responsive_Options::valid_layouts();
-	if ( array_key_exists( $input, $option ) ) {
-		$output = $input;
-	}
-
-	return $output;
-}
-
-/**
- * Function for sanitizing blog layouts
- *
- * @param object $input arguments.
- */
-function responsive_sanitize_blog_default_layouts( $input ) {
-	$output = '';
-	$option = Responsive_Options::blog_valid_layouts();
 	if ( array_key_exists( $input, $option ) ) {
 		$output = $input;
 	}
