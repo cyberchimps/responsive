@@ -277,7 +277,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					$responsive_support_link_link_text = __( 'Request Support &raquo;', 'responsive' );
 
 					printf(
-					/* translators: %1$s: Responsive Support link. */
+						/* translators: %1$s: Responsive Support link. */
 						'%1$s',
 						! empty( $responsive_support_link ) ? '<a href=' . esc_url( $responsive_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $responsive_support_link_link_text ) . '</a>' :
 							esc_html( $responsive_support_link_link_text )
@@ -429,14 +429,25 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					<ul>
 						<?php
 						foreach ( (array) $top_links as $key => $info ) {
-							/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
-							printf(
-								'<li><%1$s %2$s %3$s > %4$s </%1$s>',
-								isset( $info['url'] ) ? 'a' : 'span',
-								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '',
-								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '',
-								esc_html( $info['title'] )
-							);
+							if ( isset( $info['url'] ) ) {
+								printf(
+									/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
+									'<li><%1$s %2$s %3$s > %4$s </%1$s>',
+									'a',
+									'href="' . esc_url( $info['url'] ) . '"',
+									'target="_blank" rel="noopener"',
+									esc_html( $info['title'] )
+								);
+							} else {
+								printf(
+									/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
+									'<li><%1$s %2$s %3$s > %4$s </%1$s>',
+									'span',
+									'',
+									'',
+									esc_html( $info['title'] )
+								);
+							}
 						}
 						?>
 					</ul>
