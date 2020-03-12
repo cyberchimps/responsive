@@ -18,7 +18,14 @@ function responsive_admin_scripts( $hook ) {
 		'responsive-admin-js',
 		'responsiveAboutPluginInstall',
 		array(
-			'activating' => esc_html__( 'Activating ', 'responsive' ),
+			'activating'            => esc_html__( 'Activating ', 'responsive' ),
+			'verify_network'        => esc_html__( 'Not connect. Verify Network.', 'responsive' ),
+			'page_not_found'        => esc_html__( 'Requested page not found. [404]', 'responsive' ),
+			'internal_server_error' => esc_html__( 'Internal Server Error [500]', 'responsive' ),
+			'json_parse_failed'     => esc_html__( 'Requested JSON parse failed', 'responsive' ),
+			'timeout_error'         => esc_html__( 'Time out error', 'responsive' ),
+			'ajax_req_aborted'      => esc_html__( 'Ajax request aborted', 'responsive' ),
+			'uncaught_error'        => esc_html__( 'Uncaught Error', 'responsive' ),
 		)
 	);
 }

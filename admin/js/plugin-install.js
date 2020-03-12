@@ -15,28 +15,32 @@ jQuery( document ).ready(
 
 			'handleInstall': function () {
 				var self = this;
-				$( 'body' ).on( 'click', '.responsive-install-plugin', function ( e ) {
-					e.preventDefault();
-					var button = $( this );
-					var slug = button.attr( 'data-slug' );
-					var url = button.attr( 'href' );
-					var redirect = $( button ).data( 'redirect' );
-					button.text( wp.updates.l10n.installing );
-					button.addClass( 'updating-message' );
-					wp.updates.installPlugin(
-						{
-							slug: slug,
-							success: function () {
-								button.text( responsiveAboutPluginInstall.activating + '...' );
-								self.activatePlugin( url, redirect );
+				$( 'body' ).on(
+					'click',
+					'.responsive-install-plugin',
+					function ( e ) {
+						e.preventDefault();
+						var button   = $( this );
+						var slug     = button.attr( 'data-slug' );
+						var url      = button.attr( 'href' );
+						var redirect = $( button ).data( 'redirect' );
+						button.text( wp.updates.l10n.installing );
+						button.addClass( 'updating-message' );
+						wp.updates.installPlugin(
+							{
+								slug: slug,
+								success: function () {
+									button.text( responsiveAboutPluginInstall.activating + '...' );
+									self.activatePlugin( url, redirect );
+								}
 							}
-						}
-					);
-				} );
+						);
+					}
+				);
 			},
 
 			'activatePlugin': function ( url, redirect ) {
-				if ( typeof url === 'undefined' || !url ) {
+				if ( typeof url === 'undefined' || ! url ) {
 					return;
 				}
 				jQuery.ajax(
@@ -56,19 +60,19 @@ jQuery( document ).ready(
 						error: function ( jqXHR, exception ) {
 							var msg = '';
 							if ( jqXHR.status === 0 ) {
-								msg = 'Not connect.\n Verify Network.';
+								msg = responsiveAboutPluginInstall.verify_network;
 							} else if ( jqXHR.status === 404 ) {
-								msg = 'Requested page not found. [404]';
+								msg = responsiveAboutPluginInstall.page_not_found;
 							} else if ( jqXHR.status === 500 ) {
-								msg = 'Internal Server Error [500].';
+								msg = responsiveAboutPluginInstall.internal_server_error;
 							} else if ( exception === 'parsererror' ) {
-								msg = 'Requested JSON parse failed.';
+								msg = responsiveAboutPluginInstall.json_parse_failed;
 							} else if ( exception === 'timeout' ) {
-								msg = 'Time out error.';
+								msg = responsiveAboutPluginInstall.timeout_error;
 							} else if ( exception === 'abort' ) {
-								msg = 'Ajax request aborted.';
+								msg = responsiveAboutPluginInstall.ajax_req_aborted;
 							} else {
-								msg = 'Uncaught Error.\n' + jqXHR.responseText;
+								msg = responsiveAboutPluginInstall.uncaught_error;
 							}
 							console.log( msg );
 						},
@@ -78,15 +82,19 @@ jQuery( document ).ready(
 
 			'handleActivate': function () {
 				var self = this;
-				$( 'body' ).on( 'click', '.activate-now', function ( e ) {
-					e.preventDefault();
-					var button = $( this );
-					var url = button.attr( 'href' );
-					var redirect = button.attr( 'data-redirect' );
-					button.addClass( 'updating-message' );
-					button.text( responsiveAboutPluginInstall.activating + '...' );
-					self.activatePlugin( url, redirect );
-				} );
+				$( 'body' ).on(
+					'click',
+					'.activate-now',
+					function ( e ) {
+						e.preventDefault();
+						var button   = $( this );
+						var url      = button.attr( 'href' );
+						var redirect = button.attr( 'data-redirect' );
+						button.addClass( 'updating-message' );
+						button.text( responsiveAboutPluginInstall.activating + '...' );
+						self.activatePlugin( url, redirect );
+					}
+				);
 			},
 		};
 		$.pluginInstall.init();
