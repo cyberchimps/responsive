@@ -321,7 +321,7 @@ function responsive_fallback_menu() {
 	$prepend = '<div id="header-menu" class="menu">';
 	$append  = '</div>';
 	$output  = $prepend . $pages . $append;
-	echo $output;
+	echo wp_kses_post( $output );
 }
 
 /**
@@ -392,23 +392,23 @@ function responsive_team_meta_box_cb() {
 	</p>
 	<p>
 		<label for="responsive_meta_box_designation"><?php echo esc_html( __( 'Member designation', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo $responsive_meta_box_designation; ?>" />
+		<input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo esc_attr( $responsive_meta_box_designation ); ?>" />
 	</p>
 	<p>
 		<label for="responsive_meta_box_facebook"><?php echo esc_html( __( 'Facebook Link', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo $responsive_meta_box_facebook; ?>" />
+		<input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo esc_attr( $responsive_meta_box_facebook ); ?>" />
 	</p>
 	<p>
 		<label for="responsive_meta_box_twitter"><?php echo esc_html( __( 'Twitter Link', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo $responsive_meta_box_twitter; ?>" />
+		<input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo esc_attr( $responsive_meta_box_twitter ); ?>" />
 	</p>
 	<p>
 		<label for="responsive_meta_box_googleplus"><?php echo esc_html( __( 'GooglePlus Link', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo $responsive_meta_box_googleplus; ?>" />
+		<input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo esc_attr( $responsive_meta_box_googleplus ); ?>" />
 	</p>
 	<p>
 		<label for="responsive_meta_box_text_linkedin"><?php echo esc_html( __( 'LinkedIn Link', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo $responsive_meta_box_linkedin; ?>" />
+		<input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo esc_attr( $responsive_meta_box_linkedin ); ?>" />
 	</p>
 
 	<?php
@@ -663,7 +663,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 		<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 			<?php
 				printf(
-					__( '<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
+					'<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">' . esc_html_e( 'Posted on', 'responsive' ) . '</span>%2$s<span class="%3$s"> ' . esc_html_e( 'By', 'responsive' ) . ' </span>%4$s',
 					'meta-prep meta-prep-author posted',
 					sprintf(
 						'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
@@ -680,7 +680,7 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 								<span itemprop="name">%3$s</span>
 							</a>
 						</span>',
-						get_author_posts_url( get_the_author_meta( 'ID' ) ),
+						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 						/* translators: %s: view post by */
 						sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
 						esc_attr( get_the_author() )
@@ -691,7 +691,10 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 		<span class="entry-category">
 			<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
-			<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+				<?php
+				/* translators: %s: category list */
+				printf( esc_html__( 'Posted in %s', 'responsive' ), wp_kses_post( get_the_category_list( __( ', ', 'responsive' ) ) ) );
+				?>
 			</span>
 		</span>
 

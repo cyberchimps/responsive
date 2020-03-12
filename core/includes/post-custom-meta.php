@@ -106,9 +106,8 @@ function responsive_get_layout() {
 		} else {
 			$layout = $responsive_options['static_page_layout_default'];
 		}
-	}
-	/* Single blog posts */
-	else {
+	} else {
+		/* Single blog posts */
 		if ( is_single() ) {
 			/* If post custom meta is set, use it */
 			if ( 'default' != $layout_meta ) {
@@ -225,7 +224,7 @@ function responsive_save_layout_post_metadata() {
 		return;
 	}
 	$valid_layouts = responsive_get_valid_layouts();
-	$layout        = ( isset( $_POST['_responsive_layout'] ) && array_key_exists( $_POST['_responsive_layout'], $valid_layouts ) ? $_POST['_responsive_layout'] : 'default' );
+	$layout        = ( isset( $_POST['_responsive_layout'] ) && array_key_exists( wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_responsive_layout'] ) ) ), $valid_layouts ) ? wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_responsive_layout'] ) ) ) : 'default' );
 
 	update_post_meta( $post->ID, '_responsive_layout', $layout );
 }

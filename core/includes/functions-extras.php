@@ -82,7 +82,7 @@ add_filter( 'get_comments_number', 'responsive_comment_count', 0 );
  */
 function responsive_comment_list_pings( $comment ) {
 	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo comment_author_link(); ?></li>
+	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>"><?php echo wp_kses_post( comment_author_link() ); ?></li>
 	<?php
 }
 
@@ -186,6 +186,7 @@ if ( ! function_exists( 'responsive_wp_title' ) && ! defined( 'AIOSEOP_VERSION' 
 
 		// Add a page number if necessary.
 		if ( $paged >= 2 || $page >= 2 ) {
+			/* translators: %s: author */
 			$title .= " $sep " . sprintf( __( 'Page %s', 'responsive' ), max( $paged, $page ) );
 		}
 

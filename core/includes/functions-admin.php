@@ -85,118 +85,117 @@ function responsive_theme_notice_change_timeout() {
 }
 add_action( 'admin_init', 'responsive_theme_notice_dismissed' );
 add_action( 'admin_init', 'responsive_theme_notice_change_timeout' );
-add_action( 'admin_head', 'add_review_styling' );
+add_action( 'admin_head', 'responsive_add_review_styling' );
 /**
  * Add styling for responsive_ask_for_review_notice function.
  */
-function add_review_styling() {
-	echo <<<HTML
-     <style>
-     .ask-for-review-notice {
-     	display:flex;
-     	padding: 15px;
-     }
+function responsive_add_review_styling() {
+	?>
+	<style>
+	.ask-for-review-notice {
+		display:flex;
+		padding: 15px;
+	}
 
- 	.notice-image {
- 		align-self: center;
- 	}
+	.notice-image {
+		align-self: center;
+	}
 
- 	.notice-content {
- 		padding-left: 20px;
- 	}
+	.notice-content {
+		padding-left: 20px;
+	}
 
- 	.responsive-review-notice-container .dashicons {
- 		margin-left: 10px;
- 		padding-right: 5px !important;
- 	}
+	.responsive-review-notice-container .dashicons {
+		margin-left: 10px;
+		padding-right: 5px !important;
+	}
 
- 	.responsive-review-notice-container {
- 		display: flex;
- 		align-items: center;
- 		padding-top: 10px;
- 	}
+	.responsive-review-notice-container {
+		display: flex;
+		align-items: center;
+		padding-top: 10px;
+	}
 
- 	.responsive-review-notice-container .dashicons {
- 		font-size: 1.4em;
- 		padding-right: 10px;
- 	}
+	.responsive-review-notice-container .dashicons {
+		font-size: 1.4em;
+		padding-right: 10px;
+	}
 
- 	.responsive-review-notice-container a {
- 		padding-right: 5px;
- 		text-decoration: none;
- 	}
+	.responsive-review-notice-container a {
+		padding-right: 5px;
+		text-decoration: none;
+	}
 
- 	.responsive-review-notice-container .dashicons:first-child {
- 		padding-right: 0;
- 	}
+	.responsive-review-notice-container .dashicons:first-child {
+		padding-right: 0;
+	}
 
- 	.notice-image img {
- 		max-width: 90px;
- 	}
+	.notice-image img {
+		max-width: 90px;
+	}
 
- 	.notice-content .notice-heading {
- 		padding-bottom: 5px;
- 	}
+	.notice-content .notice-heading {
+		padding-bottom: 5px;
+	}
 
- 	.notice-content {
- 		margin-right: 12%;
- 	}
+	.notice-content {
+		margin-right: 12%;
+	}
 
- 	.notice-container {
- 		padding-top: 10px;
- 		padding-bottom: 10px;
- 		display: flex;
- 		justify-content: left;
- 		align-items: center;
- 	}
+	.notice-container {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		display: flex;
+		justify-content: left;
+		align-items: center;
+	}
 
- 	#responsive-sites-on-active .notice-image img {
- 		max-width: 60px;
- 		margin-right: 5px;
- 	}
+	#responsive-sites-on-active .notice-image img {
+		max-width: 60px;
+		margin-right: 5px;
+	}
 
- 	#responsive-sites-on-active .notice-content .notice-heading {
- 		margin: 0 0 8px;
- 		padding: 0;
- 		font-weight: bolder;
- 		font-size: 1.3em;
- 		color: #2e4453;
- 	}
+	#responsive-sites-on-active .notice-content .notice-heading {
+		margin: 0 0 8px;
+		padding: 0;
+		font-weight: bolder;
+		font-size: 1.3em;
+		color: #2e4453;
+	}
 
- 	#responsive-sites-on-active .notice-content p {
- 		padding-top: 0;
- 		margin-top: 0;
- 		margin-bottom: 6px;
- 	}
+	#responsive-sites-on-active .notice-content p {
+		padding-top: 0;
+		margin-top: 0;
+		margin-bottom: 6px;
+	}
 
- 	#responsive-sites-on-active .notice-container {
- 		padding: 18px 0 18px;
- 		align-items: start;
- 	}
+	#responsive-sites-on-active .notice-container {
+		padding: 18px 0 18px;
+		align-items: start;
+	}
 
- 	#responsive-sites-on-active .button.button-hero {
- 		font-size: 13px;
- 		min-height: 30px;
- 		line-height: 26px;
- 		padding: 0 12px;
- 		height: 30px;
- 	}
+	#responsive-sites-on-active .button.button-hero {
+		font-size: 13px;
+		min-height: 30px;
+		line-height: 26px;
+		padding: 0 12px;
+		height: 30px;
+	}
 
- 	#responsive-sites-on-active .responsive-review-notice-container {
- 		padding-top: 5px;
- 	}
+	#responsive-sites-on-active .responsive-review-notice-container {
+		padding-top: 5px;
+	}
 
- 	#responsive-sites-on-active .button-primary {
- 		box-shadow: 0 1px 0 #006799;
- 	}
+	#responsive-sites-on-active .button-primary {
+		box-shadow: 0 1px 0 #006799;
+	}
 
- 	#responsive-sites-on-active .button.updating-message:before,
- 	#responsive-sites-on-active .button.updated-message:before,
- 	#responsive-sites-on-active .button.installed:before,
- 	#responsive-sites-on-active .button.installing:before {
- 		margin: 4px -1px 0px 5px;
- 	}
-
-     </style>
-HTML;
+	#responsive-sites-on-active .button.updating-message:before,
+	#responsive-sites-on-active .button.updated-message:before,
+	#responsive-sites-on-active .button.installed:before,
+	#responsive-sites-on-active .button.installing:before {
+		margin: 4px -1px 0px 5px;
+	}
+	</style>
+	<?php
 }

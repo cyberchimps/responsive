@@ -211,7 +211,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		}
 
-		echo $html_output;
+		echo wp_kses_post( $html_output );
 
 	} // end responsive_breadcrumb_lists.
 }
