@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/12/20) = Improvement - Version 4.1.7
+[x] = Deleted - Removed redundant code from theme.
+[*] = Added - License for the Images and third party scripts
+[*] = Added - Translation Support
+
 (03/03/20) = Changed - Version 4.1.6
 [x] = Deleted - Removed redundant code from theme.
 [!] = Fixed - Compatibility with Mega Menu plugin.
