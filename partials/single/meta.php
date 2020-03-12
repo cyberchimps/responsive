@@ -59,7 +59,8 @@ do_action( 'responsive_before_single_post_meta' );
 				<span class="entry-date">
 					<?php
 					printf(
-						__( '<i class="icon-calendar" aria-hidden="true"></i><span>Posted on </span><span class="%1$s" itemprop="datePublished">%2$s</span>', 'responsive' ),
+						/* translators: 1: class, 2: date */
+						wp_kses_post( '<i class="icon-calendar" aria-hidden="true"></i><span>Posted on </span><span class="%1$s" itemprop="datePublished">%2$s</span>' ),
 						'meta-prep meta-prep-author posted',
 						sprintf(
 							'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s" itemprop="dateModified">%4$s</time></a>',
@@ -90,7 +91,10 @@ do_action( 'responsive_before_single_post_meta' );
 			?>
 			<span class="entry-category">
 				<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
-					<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+					<?php
+					/* translators: %s: category list */
+					printf( esc_html__( 'Posted in %s', 'responsive' ), wp_kses_post( get_the_category_list( __( ', ', 'responsive' ) ) ) );
+					?>
 				</span>
 			</span>
 			<?php

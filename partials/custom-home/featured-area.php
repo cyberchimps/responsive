@@ -102,7 +102,7 @@ if ( 1 == $display_slider ) {
 	<div class="about-section-wrapper">
 		<div class="about-content grid col-620">
 		<?php
-			$responsive_about_title   = isset( $responsive_options['about_title'] ) ? $responsive_options['about_title'] : 'About Box Title';
+			$responsive_about_title   = isset( $responsive_options['about_title'] ) ? $responsive_options['about_title'] : __( 'About Box Title', 'responsive' );
 			$responsive_about_text    = isset( $responsive_options['about_text'] ) ? $responsive_options['about_text'] : '';
 			$responsive_about_cta_url = isset( $responsive_options['about_cta_url'] ) ? $responsive_options['about_cta_url'] : '';
 		?>
@@ -128,7 +128,7 @@ if ( 1 == $display_slider ) {
 <?php if ( isset( $responsive_options['feature'] ) && '1' == $responsive_options['feature'] ) { ?>
 <div id="feature_div" class="custom-home-feature-section grid">
 	<?php
-	$responsive_feature_title = isset( $responsive_options['feature_title'] ) ? $responsive_options['feature_title'] : 'Features';
+	$responsive_feature_title = isset( $responsive_options['feature_title'] ) ? $responsive_options['feature_title'] : __( 'Features', 'responsive' );
 
 	if ( isset( $responsive_options['feature1'] ) ) {
 		$responsive_feature1_post_id = $responsive_options['feature1'];
@@ -214,7 +214,7 @@ if ( 1 == $display_slider ) {
 <div id="testimonial_div" class="custom-home-testimonial-section grid col-940">
 	<?php
 
-		$responsive_testimonial_title = isset( $responsive_options['testimonial_title'] ) ? $responsive_options['testimonial_title'] : 'Testimonial';
+		$responsive_testimonial_title = isset( $responsive_options['testimonial_title'] ) ? $responsive_options['testimonial_title'] : __( 'Testimonial', 'responsive' );
 		$responsive_testimonial_id    = $responsive_options['testimonial_val'];
 	if ( '' != $responsive_testimonial_id ) {
 		$responsive_testimonial_desc     = get_post( $responsive_testimonial_id );
@@ -241,7 +241,7 @@ if ( 1 == $display_slider ) {
 
 		<div class="testimonial_main_text grid col-620 fit">
 			<i class="icon-quote-left" aria-hidden="true"></i>
-			<p class="testimonial_text"><?php echo $responsive_testimonial_desc_content; ?></p>
+			<p class="testimonial_text"><?php echo wp_kses_post( $responsive_testimonial_desc_content ); ?></p>
 			<h3 class="testimonial_author"><?php echo esc_html( $responsive_testimonial_name ); ?></h3>
 		</div>
 		<?php } ?>
@@ -252,7 +252,7 @@ if ( 1 == $display_slider ) {
 <?php if ( isset( $responsive_options['team'] ) && '1' == $responsive_options['team'] ) { ?>
 <div id="team_div" class="custom-home-team-section grid">
 	<?php
-	$responsive_team_title = isset( $responsive_options['team_title'] ) ? $responsive_options['team_title'] : 'Team';
+	$responsive_team_title = isset( $responsive_options['team_title'] ) ? $responsive_options['team_title'] : __( 'Team', 'responsive' );
 	if ( isset( $responsive_options['teammember1'] ) ) {
 		$responsive_team1_post_id = $responsive_options['teammember1'];
 		if ( ! '' == $responsive_team1_post_id ) {

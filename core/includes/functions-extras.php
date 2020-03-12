@@ -156,15 +156,18 @@ function responsive_remove_recent_comments_style() {
 
 add_action( 'widgets_init', 'responsive_remove_recent_comments_style' );
 
-/**
- * Filter for better SEO wp_title().
- *
- * Adopted from Twenty Twelve
- *
- * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
- */
+
 if ( ! function_exists( 'responsive_wp_title' ) && ! defined( 'AIOSEOP_VERSION' ) ) :
 
+	/**
+	 * Filter for better SEO wp_title().
+	 * Adopted from Twenty Twelve
+	 *
+	 * @param  [type] $title [description].
+	 * @param  [type] $sep   [description].
+	 * @return [type]        [description].
+	 * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
+	 */
 	function responsive_wp_title( $title, $sep ) {
 		global $page, $paged;
 
@@ -222,7 +225,7 @@ class responsive_widget_menu_class {
 	public function wp_nav_menu_args( $args ) {
 		remove_filter( 'wp_nav_menu_args', array( $this, 'wp_nav_menu_args' ) );
 
-		if ( 'menu' == $args['menu_class'] ) {
+		if ( 'menu' === $args['menu_class'] ) {
 			$args['menu_class'] = apply_filters( 'responsive_menu_widget_class', 'menu-widget' );
 		}
 

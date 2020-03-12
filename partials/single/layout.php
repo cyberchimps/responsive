@@ -69,9 +69,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 </article><!-- end of #post-<?php the_ID(); ?> -->
 <?php
 the_post_navigation(
-    array(
-        'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post is ', 'responsive' ) . ' </span>' .  '&#8249; %title' ,
-        'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post is', 'responsive' ) . ' </span>' . '%title &#8250;' ,
-    )
+	array(
+		'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post is ', 'responsive' ) . ' </span>&#8249; %title',
+		'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post is', 'responsive' ) . ' </span>%title &#8250;',
+	)
 );
 ?>

@@ -14,7 +14,7 @@ $cyberchimps_link   = '';
 <div class="footer-layouts copyright">
 	<?php
 	if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
-		$copyright_text = $responsive_options['copyright_textbox'] . ' | Powered by ';
+		$copyright_text = $responsive_options['copyright_textbox'] . __( ' | Powered by ', 'responsive' );
 		esc_attr_e( ' &copy; ', 'responsive' );
 		echo esc_attr( gmdate( ' Y' ) );
 		echo esc_html( ' ' . $copyright_text );
