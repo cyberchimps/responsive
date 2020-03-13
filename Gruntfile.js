@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 					processPot: function( pot, options ) {
 						pot.headers['report-msgid-bugs-to'] = 'https://cyberchimps.com/forum/free/responsive/';
 						pot.headers['plural-forms'] = 'nplurals=2; plural=n != 1;';
-						pot.headers['last-translator'] = 'Ulrich Pogson <ulrich@cyberchimps.com>\n';
+						pot.headers['last-translator'] = 'CyberChimps <support@cyberchimps.com>\n';
 						pot.headers['language-team'] = 'CyberChimps Translate <support@cyberchimps.com>\n';
 						pot.headers['x-poedit-basepath'] = '.\n';
 						pot.headers['x-poedit-language'] = 'English\n';
@@ -306,7 +306,7 @@ module.exports = function(grunt) {
 	// SASS compile
 	grunt.registerTask('scss', ['sass']);
 	grunt.registerTask( 'default', [ 'scss', 'uglify', 'cssmin' ] );
-	grunt.registerTask( 'build', [ 'addtextdomain', 'scss', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
-	grunt.registerTask( 'i18n', [ 'exec', 'po2mo' ] );
+	grunt.registerTask( 'build', [ 'i18n', 'scss', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'i18n', [ 'addtextdomain', 'makepot' ] );
 
 };
