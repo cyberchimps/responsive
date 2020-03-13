@@ -19,11 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Call the options class
- */
-require get_template_directory() . '/core/includes/classes/Responsive_Options.php';
-
-/**
  * Add inline css
  */
 function responsive_inline_css() {
@@ -31,7 +26,8 @@ function responsive_inline_css() {
 	if ( ! empty( $responsive_options['responsive_inline_css'] ) ) {
 		echo '<!-- Custom CSS Styles -->' . "\n";
 		echo '<style type="text/css" media="screen">' . "\n";
-		echo $responsive_options['responsive_inline_css'] . "\n";
+		// Ignoring EscapeOutput to print CSS.
+		echo $responsive_options['responsive_inline_css'] . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '</style>' . "\n";
 	}
 }
@@ -45,7 +41,8 @@ function responsive_inline_js_head() {
 	global $responsive_options;
 	if ( ! empty( $responsive_options['responsive_inline_js_head'] ) ) {
 		echo '<!-- Custom Scripts -->' . "\n";
-		echo $responsive_options['responsive_inline_js_head'];
+		// Ignoring EscapeOutput to print Script.
+		echo $responsive_options['responsive_inline_js_head']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo "\n";
 	}
 }
@@ -59,7 +56,8 @@ function responsive_inline_js_footer() {
 	global $responsive_options;
 	if ( ! empty( $responsive_options['responsive_inline_js_footer'] ) ) {
 		echo '<!-- Custom Scripts -->' . "\n";
-		echo $responsive_options['responsive_inline_js_footer'];
+		// Ignoring EscapeOutput to print Script.
+		echo $responsive_options['responsive_inline_js_footer']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo "\n";
 	}
 }

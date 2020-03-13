@@ -177,7 +177,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							<a href="<?php echo esc_url( $responsive_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $responsive_icon ) { ?>
 									<img src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'core/images/cc-responsive-wp-theme-logo.png' ); ?>" class="responsive-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
-									<span class="responsive-theme-version"><?php echo RESPONSIVE_THEME_VERSION; ?></span>
+									<span class="responsive-theme-version"><?php echo esc_html( RESPONSIVE_THEME_VERSION ); ?></span>
 								<?php } ?>
 								<?php do_action( 'responsive_welcome_page_header_title' ); ?>
 							</a>

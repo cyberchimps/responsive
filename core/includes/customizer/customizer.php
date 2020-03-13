@@ -266,6 +266,8 @@ function responsive_tooltip_script() {
 
 	$output .= '</script>';
 
-	echo $output;
+	// Ignoring EscapeOutput to print JS.
+	echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
 }
 add_action( 'customize_controls_print_scripts', 'responsive_tooltip_script' );

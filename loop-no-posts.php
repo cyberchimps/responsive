@@ -34,7 +34,8 @@ $responsive_title = ( is_search() ? sprintf( __( 'Your search for %s did not mat
 		<h6>
 			<?php
 			printf(
-				__( 'You can return %s or search for the page you were looking for.', 'responsive' ),
+				/* translators: %s: link */
+				wp_kses_post( 'You can return %s or search for the page you were looking for.', 'responsive' ),
 				sprintf(
 					'<a href="%1$s" aria-label="%2$s" title="%2$s">%3$s</a>',
 					esc_url( get_home_url() ),
