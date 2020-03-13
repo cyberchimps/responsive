@@ -35,7 +35,6 @@ function responsive_widgets_init() {
 		)
 	);
 
-
 	register_sidebar(
 		array(
 			'name'          => __( 'Home Widget 1', 'responsive' ),

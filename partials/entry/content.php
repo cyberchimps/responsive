@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="entry-content" itemprop="text">
 		<?php
 		if ( 'content' === get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' ) ) {
-			the_content( 'Read More ››' );
+			the_content( __( 'Read More &raquo;', 'responsive' ) );
 		} else {
 			the_excerpt();
 		}

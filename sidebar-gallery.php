@@ -54,12 +54,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 								if ( ( 1 / $responsive_data['image_meta']['shutter_speed'] ) > 1 ) {
 									echo '1/';
 									if ( number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1 ) == number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0 ) ) {
-										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0, '.', '' ) . ' ' . __( 'sec', 'responsive' );
+										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0, '.', '' ) . ' ' . esc_html__( 'sec', 'responsive' );
 									} else {
-										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1, '.', '' ) . ' ' . __( 'sec', 'responsive' );
+										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1, '.', '' ) . ' ' . esc_html__( 'sec', 'responsive' );
 									}
 								} else {
-									echo esc_attr( $responsive_data['image_meta']['shutter_speed'] ) . ' ' . __( 'sec', 'responsive' );
+									echo esc_attr( $responsive_data['image_meta']['shutter_speed'] ) . ' ' . esc_html__( 'sec', 'responsive' );
 								}
 								?>
 								</span>

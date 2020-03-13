@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.1.6' );
+define( 'RESPONSIVE_THEME_VERSION', '4.1.8' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -389,7 +389,7 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 		if ( has_post_thumbnail() ) {
 			?>
 						<div class="featured-image">
-							<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
+							<a href="<?php the_permalink(); ?>" aria-label="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
 								<?php	the_post_thumbnail(); ?>
 							</a>
 						</div>
@@ -425,38 +425,6 @@ if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
 endif;
 add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
 
-if ( ! function_exists( 'responsive_get_attachment_id_from_url' ) ) :
-	/**
-	 * Get atachment id from URL
-	 *
-	 * @param string $attachment_url URL.
-	 */
-	function responsive_get_attachment_id_from_url( $attachment_url = '' ) {
-		global $wpdb;
-		$attachment_id = false;
-		// If there is no url, return.
-		if ( '' == $attachment_url ) {
-			return;
-		}
-		// Get the upload directory paths.
-		$upload_dir_paths = wp_upload_dir();
-
-		// Make sure the upload path base directory exists in the attachment URL, to verify that we're working with a media library image.
-		if ( false !== strpos( $attachment_url, $upload_dir_paths['baseurl'] ) ) {
-
-			// If this is the URL of an auto-generated thumbnail, get the URL of the original image.
-			$attachment_url = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $attachment_url );
-
-			// Remove the upload path base directory from the attachment URL.
-			$attachment_url = str_replace( $upload_dir_paths['baseurl'] . '/', '', $attachment_url );
-
-			// Finally, run a custom database query to get the attachment ID from the modified attachment URL.
-			$attachment_id = $wpdb->get_var( $wpdb->prepare( "SELECT wposts.ID FROM $wpdb->posts wposts, $wpdb->postmeta wpostmeta WHERE wposts.ID = wpostmeta.post_id AND wpostmeta.meta_key = '_wp_attached_file' AND wpostmeta.meta_value = %s AND wposts.post_type = 'attachment'", $attachment_url ) );
-		}
-		return $attachment_id;
-	}
-endif;
-
 /**
  * Enqueue customizer styling
  */
@@ -483,7 +451,7 @@ function responsive_admin_rate_us( $footer_text ) {
 		$rate_text = sprintf(
 			/* translators: %s Link to 5 star rating */
 			__( 'If you like <strong>Responsive Theme</strong> please leave us a %s rating. It takes a minute and helps a lot. Thanks in advance!', 'responsive' ),
-			'<a href="https://wordpress.org/support/view/theme-reviews/responsive?filter=5#postform" target="_blank" class="responsive-rating-link" style="text-decoration:none;" data-rated="' . esc_attr__( 'Thanks :)', 'responsive' ) . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
+			'<a href="https://wordpress.org/support/theme/responsive/reviews/#new-post" target="_blank" class="responsive-rating-link" style="text-decoration:none;" data-rated="' . esc_attr__( 'Thanks :)', 'responsive' ) . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
 		);
 
 		return $rate_text;
@@ -500,7 +468,7 @@ add_filter( 'admin_footer_text', 'responsive_admin_rate_us' );
 function responsive_display_menu() {
 	$position = get_theme_mod( 'menu_position', 'in_header' );
 	?>
-	<nav id="main-nav" class="main-nav" role="navigation">
+	<nav id="main-nav" class="main-nav" role="navigation" aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>">
 	<?php
 	if ( 'in_header' !== $position ) :
 		?>
@@ -538,7 +506,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 	function responsive_check_previous_version() {
 		$theme_data = wp_get_theme();
 
-		$is_child = is_child_theme_wp( $theme_data );
+		$is_child = is_child_theme( $theme_data );
 
 		if ( $is_child ) {
 			$new_version = $theme_data->parent()->get( 'Version' );
@@ -555,19 +523,19 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 		if ( $new_version && version_compare( $new_version, '4.1.0', '>=' ) ) {
 
 			if ( ! $responsive_options['home_headline'] ) {
-				$responsive_options['home_headline'] = 'HAPPINESS';
+				$responsive_options['home_headline'] = __( 'HAPPINESS', 'responsive' );
 			}
 			if ( ! $responsive_options['home_subheadline'] ) {
-				$responsive_options['home_subheadline'] = 'IS A WARM CUP';
+				$responsive_options['home_subheadline'] = __( 'IS A WARM CUP', 'responsive' );
 			}
 			if ( ! $responsive_options['home_content_area'] ) {
-				$responsive_options['home_content_area'] = 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.';
+				$responsive_options['home_content_area'] = __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' );
 			}
 			if ( ! $responsive_options['cta_text'] ) {
-				$responsive_options['cta_text'] = 'Call to Action';
+				$responsive_options['cta_text'] = __( 'Call to Action', 'responsive' );
 			}
 			if ( ! $responsive_options['cta_url'] ) {
-				$responsive_options['cta_url'] = '#';
+				$responsive_options['cta_url'] = __( '#', 'responsive' );
 			}
 
 			( ! get_theme_mod( 'responsive_hide_tagline' ) && get_theme_mod( 'res_hide_tagline' ) ) ? set_theme_mod( 'responsive_hide_tagline', get_theme_mod( 'res_hide_tagline', 0 ) ) : '';
@@ -618,7 +586,6 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 			( ! get_theme_mod( 'responsive_blog_entry_meta_alignment' ) && get_theme_mod( 'responsive_blog_entries_meta_position' ) ) ? set_theme_mod( 'responsive_blog_entry_meta_alignment', get_theme_mod( 'responsive_blog_entries_meta_position', 'left' ) ) : '';
 			( ! get_theme_mod( 'responsive_single_blog_title_alignment' ) && get_theme_mod( 'responsive_single_title_alignment_options' ) ) ? set_theme_mod( 'responsive_single_blog_title_alignment', get_theme_mod( 'responsive_single_title_alignment_options', 'left' ) ) : '';
 			( ! get_theme_mod( 'responsive_single_blog_meta_alignment' ) && get_theme_mod( 'responsive_single_post_meta_position' ) ) ? set_theme_mod( 'responsive_single_blog_meta_alignment', get_theme_mod( 'responsive_single_post_meta_position', 'left' ) ) : '';
-
 
 			if ( '#ffffff' === get_theme_mod( 'responsive_footer_background_color' ) ) {
 				! get_theme_mod( 'responsive_footer_text_color' ) ? set_theme_mod( 'responsive_footer_text_color', '#333333' ) : '';
@@ -802,15 +769,3 @@ function responsive_register_elementor_locations( $elementor_theme_manager ) {
 
 }
 add_action( 'elementor/theme/register_locations', 'responsive_register_elementor_locations' );
-
-/**
- * Check is child theme
- */
-function is_child_theme_wp( $theme_data ) {
-	// For limitation of empty() write in var
-	$parent = $theme_data->parent();
-	if ( ! empty( $parent ) ) {
-		return true;
-	}
-	return false;
-}

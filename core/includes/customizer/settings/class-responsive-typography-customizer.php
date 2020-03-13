@@ -889,7 +889,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 			if ( $live_preview_styles ) {
 				foreach ( $live_preview_styles as $key => $val ) {
 					if ( ! empty( $val ) ) {
-						echo '<style class="' . esc_html( $key ) . '"> ' . ( $val ) . '</style>';
+						echo '<style class="' . esc_attr( $key ) . '"> ' . esc_html( $val ) . '</style>';
 					}
 				}
 			}

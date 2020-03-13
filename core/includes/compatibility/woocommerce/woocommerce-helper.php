@@ -146,7 +146,7 @@ function responsive_menu_cart_icon( $menu, $args ) {
 				$cart_contents_count = WC()->cart->get_cart_contents_count();
 				$cart_total_markup   = '<span class="res-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
 			}
-			if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 				$cart_title_markup = '<span class="res-woo-header-cart-title">' . __( 'Cart', 'responsive' ) . '</span>';
 				$cart_title = get_theme_mod( 'responsive_cart_title' );
 				$cart_icon  = get_theme_mod( 'responsive_cart_icon' );

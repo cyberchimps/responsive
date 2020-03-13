@@ -35,12 +35,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="comments-area">
 		<h3 id="comments">
 			<?php
-			printf(
-			/* translators: 1 : number of comments, 2 : post title */
-				_n( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'responsive' ),
-				number_format_i18n( get_comments_number() ),
-				'<span>' . esc_html( get_the_title() ) . '</span>'
-			);
+			$responsive_comment_count = get_comments_number();
+			if ( '1' === $responsive_comment_count ) {
+				printf(
+					/* translators: 1: title. */
+					esc_html__( 'One Comment on &ldquo;%1$s&rdquo;', 'responsive' ),
+					'<span>' . esc_html( get_the_title() ) . '</span>'
+				);
+			} else {
+				printf( // WPCS: XSS OK.
+					/* translators: 1: comment count number, 2: title. */
+					esc_html( _nx( '%1$s Comment on &ldquo;%2$s&rdquo;', '%1$s Comments on &ldquo;%2$s&rdquo;', $responsive_comment_count, 'comments title', 'responsive' ) ),
+					number_format_i18n( $responsive_comment_count ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			}
 			?>
 		</h3>
 
@@ -77,7 +86,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 		<?php /* translators: 1 : Count, 2 : Pings 3 : Post title */ ?>
-		<h6 id="pings"><?php printf( __( '%1$d %2$s for "%3$s"', 'responsive' ), $count, esc_html( $txt ), esc_html( get_the_title() ) ); ?></h6>
+		<h6 id="pings"><?php printf( '%1$d %2$s for "%3$s"', esc_html( $count ), esc_html( $txt ), esc_html( get_the_title() ) ); ?></h6>
 
 		<ol class="commentlist">
 			<?php wp_list_comments( 'type=pings&max_depth=<em>' ); ?>

@@ -27,8 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 responsive_wrapper_top(); // before wrapper content hook.
-if ( is_plugin_active( 'responsive-addons-pro/responsive-addons-pro.php' ) ) {
 
+if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 	$blog_pagination = responsive_blog_pagination();
 } else {
 	$blog_pagination = 'default';
@@ -41,7 +41,6 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 		<div class="row">
 			<?php
 			responsive_in_wrapper(); // wrapper hook.
-			get_template_part( 'wp-admin/includes', 'plugin' );
 			?>
 
 			<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">

@@ -445,6 +445,12 @@
         background-color: transparent;
         padding: 0;
     }
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .comment-respond,
@@ -486,7 +492,6 @@
 
         .comment-reply-link {
             float: right;
-            margin-top: $base-line-height-px;
 
             &:before {
                 content: "\f122";

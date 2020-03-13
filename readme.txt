@@ -29,7 +29,9 @@ GNU General Public License for more details.
 
 All derivative Themes must be much different from the original work, which includes the Theme design as well as all the codes from Responsive Theme.
 
-Responsive Theme bundles the following third-party resources:
+== Resources ==
+* Sortable.js - Default scripts and js libraries of WordPress
+* Alpha js files - https://github.com/BraadMartin/components
 
 IcoMoon Icons
 Copyright (c) 2020 IcoMoon.io
@@ -37,6 +39,22 @@ License: GPL License, https://github.com/Keyamoon/IcoMoon-Free/blob/master/Licen
 Source: https://github.com/Keyamoon/IcoMoon-Free/
 Used for post meta icons, and the link icon in the social icons, woocommerce mini cart icons.
 
+Select2 - jQuery based replacement for select boxes.
+Copyright (c) 2012-2017 Kevin Brown, Igor Vaynberg, and Select2 contributors
+License: The MIT License (MIT), https://github.com/select2/select2/blob/develop/LICENSE.md
+Source: https://github.com/select2/select2
+Used to render fonts in typography settings
+
+= Images =
+* Responsive: /images/box1.jpg, CC0, https://unsplash.com/photos/_-hjiem5TqI
+* Responsive: /images/box2.jpg, CC0, https://unsplash.com/photos/De3-PUfrO5Q
+* Responsive: /images/box3.jpg, CC0, https://unsplash.com/photos/1h112EKgBLE
+* Responsive: /core/images/featured-image.jpg, CC0, https://unsplash.com/photos/OJZB0VUQKKc
+* Responsive: /admin/images/responsive-thumbnail.jpg GPLv3, https://www.cyberchimps.com
+* Responsive: /images/responsive-starter-sites.jpg GPLv3, https://www.cyberchimps.com, The thumbnail images are taken from https://unsplash.com and https://www.pexels.com/
+* Responsive: /core/images/cc-responsive-wp-theme-logo.png GPLv3, https://www.cyberchimps.com
+* Responsive: /core/includes/customizer/controls/color/transparency-grid.png GPLv3, https://www.cyberchimps.com
+* Responsive: /screenshot.png GPLv3, https://www.cyberchimps.com
 
 == License ==
 

@@ -65,9 +65,9 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				$options_posts[ $posts->ID ] = $posts->post_title;
 			}
 
-			// Cutom Home Section.
-			$cutom_home_page_section_label = esc_html__( 'Cutom Home Page', 'responsive' );
-			responsive_separator_control( $wp_customize, 'cutom_home_page_section_separtor', $cutom_home_page_section_label, 'static_front_page', 10 );
+			// Custom Home Section.
+			$custom_home_page_section_label = esc_html__( 'Custom Home Page', 'responsive' );
+			responsive_separator_control( $wp_customize, 'custom_home_page_section_separtor', $custom_home_page_section_label, 'static_front_page', 10 );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[front_page]',
@@ -90,8 +90,8 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			);
 
 			// Hero Area.
-			$cutom_hero_area_label = esc_html__( 'Hero Area', 'responsive' );
-			responsive_separator_control( $wp_customize, 'cutom_hero_area_separtor', $cutom_hero_area_label, 'static_front_page', 10, 'responsive_custom_home_active' );
+			$custom_hero_area_label = esc_html__( 'Hero Area', 'responsive' );
+			responsive_separator_control( $wp_customize, 'custom_hero_area_separtor', $custom_hero_area_label, 'static_front_page', 10, 'responsive_custom_home_active' );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[home_headline]',
@@ -256,8 +256,8 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			);
 
 			// About Section.
-			$cutom_about_section_label = esc_html__( 'About Section', 'responsive' );
-			responsive_separator_control( $wp_customize, 'cutom_about_section_separtor', $cutom_about_section_label, 'static_front_page', 21, 'responsive_custom_home_active' );
+			$custom_about_section_label = esc_html__( 'About Section', 'responsive' );
+			responsive_separator_control( $wp_customize, 'custom_about_section_separtor', $custom_about_section_label, 'static_front_page', 21, 'responsive_custom_home_active' );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[about]',
@@ -366,8 +366,8 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			);
 
 			// Feature Section.
-			$cutom_feature_section_label = esc_html__( 'Feature Section', 'responsive' );
-			responsive_separator_control( $wp_customize, 'cutom_feature_section_separtor', $cutom_feature_section_label, 'static_front_page', 22, 'responsive_custom_home_active' );
+			$custom_feature_section_label = esc_html__( 'Feature Section', 'responsive' );
+			responsive_separator_control( $wp_customize, 'custom_feature_section_separtor', $custom_feature_section_label, 'static_front_page', 22, 'responsive_custom_home_active' );
 
 			$wp_customize->add_control(
 				'feature_front_page',
@@ -463,8 +463,8 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			);
 
 			// Testimonial Section.
-			$cutom_testimonial_section_label = esc_html__( 'Testimonial Section', 'responsive' );
-			responsive_separator_control( $wp_customize, 'cutom_testimonial_section_separtor', $cutom_testimonial_section_label, 'static_front_page', 24, 'responsive_custom_home_active' );
+			$custom_testimonial_section_label = esc_html__( 'Testimonial Section', 'responsive' );
+			responsive_separator_control( $wp_customize, 'custom_testimonial_section_separtor', $custom_testimonial_section_label, 'static_front_page', 24, 'responsive_custom_home_active' );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[testimonials]',
@@ -525,8 +525,8 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			// Team Section.
-			$cutom_team_section_label = esc_html__( 'Team Section', 'responsive' );
-			responsive_separator_control( $wp_customize, 'cutom_team_section_separtor', $cutom_team_section_label, 'static_front_page', 35, 'responsive_custom_home_active' );
+			$custom_team_section_label = esc_html__( 'Team Section', 'responsive' );
+			responsive_separator_control( $wp_customize, 'custom_team_section_separtor', $custom_team_section_label, 'static_front_page', 35, 'responsive_custom_home_active' );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[team]',
@@ -645,8 +645,8 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			// Contact Section.
-			$cutom_contact_section_label = esc_html__( 'Contact Section', 'responsive' );
-			responsive_separator_control( $wp_customize, 'cutom_contact_section_separtor', $cutom_contact_section_label, 'static_front_page', 41, 'responsive_custom_home_active' );
+			$custom_contact_section_label = esc_html__( 'Contact Section', 'responsive' );
+			responsive_separator_control( $wp_customize, 'custom_contact_section_separtor', $custom_contact_section_label, 'static_front_page', 41, 'responsive_custom_home_active' );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[contact]',
