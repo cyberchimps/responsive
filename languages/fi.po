@@ -1,1018 +1,2588 @@
+# <!=Copyright (C) 2020
+# This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive Theme\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-28 06:06:33 UTC\n"
-"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
-"Language-Team: Finnish\n"
+"Project-Id-Version: Responsive 4.1.7\n"
+"Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
+"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: WebTranslateIt.com\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"PO-Revision-Date: 2020-03-13 17:16+0530\n"
+"Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language: fi\n"
 
-#: page.php
-#: landing-page.php
-#: index.php
-#: image.php
-#: full-width-page.php
-#: content-sidebar-page.php
-#: content-sidebar-half-page.php
-#: blog.php
-#: blog-excerpt.php
-#: archive.php
-#: home.php
-#: search.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: sitemap.php
-msgid "Pages:"
-msgstr "Sivut:"
+#: admin/templates/free-vs-pro.php:50
+msgid "17"
+msgstr "17"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "&#8249; Older posts"
-msgstr "‹ Vanhemmat julkaisut"
+#: admin/admin-functions.php:21
+#: admin/class-responsive-plugin-install-helper.php:157
+msgid "Activating "
+msgstr "Aktivoidaan"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "Newer posts &#8250;"
-msgstr "Uudemmat julkaisut ›"
+#: admin/admin-functions.php:22
+msgid "Not connect. Verify Network."
+msgstr "Ei yhteyttä. Vahvista verkko."
 
-#: blog.php
-#: content-sidebar-half-page.php
-#: content-sidebar-page.php
-#: full-width-page.php
-#: home.php
-#: image.php
-#: index.php
-#: landing-page.php
-#: page.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: core/includes/functions.php
-msgid "Read more &#8250;"
-msgstr "Lue lisää ›"
+#: admin/admin-functions.php:23
+msgid "Requested page not found. [404]"
+msgstr "Pyydettyä sivua ei löytynyt. [404]"
 
-#: comments.php
-msgid "This post is password protected. Enter the password to view any comments."
-msgstr "Tämä julkaisu on turvattu salasanalla. Syötä salasana nähdäksesi kommentit."
+#: admin/admin-functions.php:24
+msgid "Internal Server Error [500]"
+msgstr "Sisäinen palvelinvirhe 500"
 
-#: comments.php
-#: comments.php
+#: admin/admin-functions.php:25
+msgid "Requested JSON parse failed"
+msgstr "Pyydetty JSON-jäsentäminen epäonnistui"
+
+#: admin/admin-functions.php:26
+msgid "Time out error"
+msgstr "Aikakatkaisuvirhe"
+
+#: admin/admin-functions.php:27
+msgid "Ajax request aborted"
+msgstr "Pyyntö keskeytetty"
+
+#: admin/admin-functions.php:28
+msgid "Uncaught Error"
+msgstr "Tahaton virhe"
+
+#: admin/class-responsive-plugin-install-helper.php:93
+msgid "Install and activate &raquo;"
+msgstr "Asenna ja aktivoi »"
+
+#: admin/class-responsive-plugin-install-helper.php:97
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Activate"
+msgstr "Aktivoi"
+
+#: admin/class-responsive-plugin-install-helper.php:112
+msgid "Deactivate"
+msgstr "Poista käytöstä"
+
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Jetpack Portfolio"
+msgstr "Jetpack Portfolio"
+
+#: admin/templates/free-vs-pro.php:15
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:389
+#: partials/custom-home/featured-area.php:131
+msgid "Features"
+msgstr "Ominaisuudet"
+
+#: admin/templates/free-vs-pro.php:16
+msgid "Free"
+msgstr "Ilmainen"
+
+#: admin/templates/free-vs-pro.php:17 admin/templates/free-vs-pro.php:50
+#: admin/templates/free-vs-pro.php:51
+msgid "Pro"
+msgstr "Pro"
+
+#: admin/templates/free-vs-pro.php:23
+msgid "Mobile Friendly"
+msgstr "Mobiiliystävällinen"
+
+#: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
+msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
+msgstr "Liukukansio, portfolio, hinnoittelutaulut, WooCommerce-widgetit jne"
+
+#: admin/templates/free-vs-pro.php:31
+msgid "Blazing Fast Speed"
+msgstr "Blazing nopea"
+
+#: admin/templates/free-vs-pro.php:32
+msgid "Optimized for speed, loads in under 2 seconds"
+msgstr "Optimoitu nopeudelle, latautuu alle 2 sekunnissa"
+
+#: admin/templates/free-vs-pro.php:39
+msgid "Fully Customizable"
+msgstr "Täysin muokattavissa."
+
+#: admin/templates/free-vs-pro.php:40
+msgid "Using the customizer options for layout, fonts & colors"
+msgstr "Mukautusasetusten käyttäminen asetteluun, fontteihin ja väreihin"
+
+#: admin/templates/free-vs-pro.php:42
+msgid "Limited Options"
+msgstr "Rajoitetut vaihtoehdot"
+
+#: admin/templates/free-vs-pro.php:47
+msgid "Ready-to-use Website Templates"
+msgstr "Käyttövalmiit verkkosivustojen mallit"
+
+#: admin/templates/free-vs-pro.php:48
+msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
+msgstr ""
+"Käyttövalmiit Elementor-sivunmuodostajat ja Gutenbergin verkkosivumallit"
+
+#: admin/templates/free-vs-pro.php:51
+msgid "30+"
+msgstr "30"
+
+#: admin/templates/free-vs-pro.php:55
+msgid "Exclusive Widgets"
+msgstr "Yksinoikeudella widgetit"
+
+#: admin/templates/free-vs-pro.php:63
+msgid "Exclusive Content, Deals & Offers"
+msgstr "Ainutlaatuinen sisältö, tarjoukset ja tarjoukset"
+
+#: admin/templates/free-vs-pro.php:64
+msgid "Get access to exclusive WordPress content, deals & offers"
+msgstr ""
+"Pääset yksinoikeudella olevaan WordPress-sisältöön, tarjouksiin ja "
+"tarjouksiin"
+
+#: admin/templates/free-vs-pro.php:71
+msgid "Private Priority Email Support"
+msgstr "Yksityisen prioriteetin sähköpostituki"
+
+#: admin/templates/free-vs-pro.php:72
+msgid "Need help? Just raise a support ticket to get priority email support"
+msgstr ""
+"Tarvitsetko apua? Nosta vain tukilippu saadaksesi ensisijainen sähköpostituki"
+
+#. Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr "Responsiivinen"
+
+#: comments.php:27
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Tämä viesti on suojattu salasanalla. Kirjoita salasana, jos haluat "
+"tarkastella kommentteja."
+
+#. translators: 1: title.
+#: comments.php:42
+msgid "One Comment on &ldquo;%1$s&rdquo;"
+msgstr "Yksi kommentti aiheesta \"%1$s\""
+
+#: comments.php:58 comments.php:71
 msgid "&#8249; Older comments"
-msgstr "‹ Vanhemmat kommentit"
+msgstr "Vanhemmat kommentit"
 
-#: comments.php
-#: comments.php
+#: comments.php:60 comments.php:73
 msgid "Newer comments &#8250;"
-msgstr "Uudemmat kommentit ›"
+msgstr "Uudemmat kommentit"
 
-#: comments.php
+#: comments.php:85
 msgid "Pings&#47;Trackbacks"
-msgstr "Yhteydet/Seurannat"
+msgstr "Ping / Paluuviitteet"
 
-#: comments.php
-msgid "%1$d %2$s for \"%3$s\""
-msgstr "%1$d %2$s varten \"%3$s\""
-
-#: comments.php
+#. translators: 1 : Count, 2 : Pings 3 : Post title
+#: comments.php:102
 msgid "Name"
 msgstr "Nimi"
 
-#: comments.php
+#: comments.php:104
 msgid "E-mail"
-msgstr "Sähköposti"
+msgstr "Sähköpostiosoite"
 
-#: comments.php
+#: comments.php:106
 msgid "Website"
-msgstr "Kotisivu"
+msgstr "Verkkosivu"
 
-#: footer.php
-msgid "&copy;"
-msgstr "©"
+#: core/gutenberg/gutenberg-support.php:31
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:58
+msgid "Button Color"
+msgstr "Painikkeen väri"
 
-#: footer.php
-msgid "scroll to top"
-msgstr "vieritä ylös"
+#: core/gutenberg/gutenberg-support.php:36
+msgid "Button Hover Color"
+msgstr "Painikkeen hover-väri"
 
-#: footer.php
-msgid "&uarr;"
-msgstr "↑"
+#: core/gutenberg/gutenberg-support.php:41
+msgid "Button Hover Text Color"
+msgstr "Painikkeen hover-väri"
 
-#: footer.php
-msgid "Responsive Theme"
-msgstr "Responsive Theme"
+#: core/gutenberg/gutenberg-support.php:46
+msgid "Button Text Color"
+msgstr "Painikkeen tekstin väri"
 
-#: footer.php
-msgid "powered by"
-msgstr "mukana"
+#: core/gutenberg/gutenberg-support.php:53
+msgid "Text color"
+msgstr "Tekstin väri"
 
-#: footer.php
-msgid "WordPress"
-msgstr "WordPress"
+#: core/gutenberg/gutenberg-support.php:60
+msgid "Container Background Color"
+msgstr "Sisältölaatikon taustaväri"
 
-#: image.php
-msgid "&#8249; Return to"
-msgstr "‹ Palaa"
+#: core/includes/classes/class-responsive-admin-settings.php:91
+msgid "Responsive Options"
+msgstr "Responsiivisuusasetukset"
 
-#: image.php
-#: post-meta-page.php
-#: post-meta.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "No Comments &darr;"
-msgstr "Ei kommentteja ↓"
+#: core/includes/classes/class-responsive-admin-settings.php:194
+msgid "Get Started"
+msgstr "Aloita käyttö"
 
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "1 Comment &darr;"
-msgstr "1 kommentti ↓"
+#: core/includes/classes/class-responsive-admin-settings.php:196
+msgid "Free Vs Pro "
+msgstr "Ilmaisen ja PRO-version erot"
 
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "% Comments &darr;"
-msgstr "% kommenttia ↓"
+#: core/includes/classes/class-responsive-admin-settings.php:231
+msgid "Import a website template(FREE)"
+msgstr "Tuo verkkosivupohja (ILMAINEN)"
 
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Tagged with:"
-msgstr "Merkitty:"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Posted in %s"
-msgstr "Julkaistu kohteessa %s"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: sitemap.php
-msgid "Edit"
-msgstr "Muokkaa"
-
-#: loop-no-posts.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 — Hienoa tavata sinut täällä!"
-
-#: loop-no-posts.php
-msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
-msgstr "Ei hätää, selviämme tästä yhdessä. Tutkikaamme vaihtoehtoja."
-
-#: loop-no-posts.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Voit palata %s tai etsiä hakemaasi sivua"
-
-#: loop-no-posts.php
-#: core/includes/functions.php
-msgid "Home"
-msgstr "Koti"
-
-#: loop-no-posts.php
-msgid "&larr; Home"
-msgstr "← Alkuun"
-
-#: loop-header.php
-msgid "Daily Archives: %s"
-msgstr "Arkistot päivittäin: %s"
-
-#: loop-header.php
-msgid "Monthly Archives: %s"
-msgstr "Arkistot kuukausittain: %s"
-
-#: loop-header.php
-msgid "Yearly Archives: %s"
-msgstr "Arkistot vuosittain: %s"
-
-#: loop-header.php
-msgid "Blog Archives"
-msgstr "Blogiarkistot"
-
-#: loop-no-posts.php
-msgid "Your search for %s did not match any entries."
-msgstr "Ei hakuasi %s vastaavia hakutuloksia"
-
-#: sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Pysyvä linkki sivulle %s"
-
-#: core/includes/functions.php
-#: loop-header.php
-msgid "Search results for: %s"
-msgstr "Etsi tuloksia haulle: %s"
-
-#: searchform.php
-msgid "search here &hellip;"
-msgstr "Etsi tästä ..."
-
-#: searchform.php
-msgid "Go"
-msgstr "Mene"
-
-#: sidebar-gallery.php
-msgid "Image Information"
-msgstr "Kuvan tiedot"
-
-#: sidebar-gallery.php
-msgid "Full Size:"
-msgstr "Täysi koko:"
-
-#: sidebar-gallery.php
-msgid "Aperture: f&#47;"
-msgstr "Aukko: f/"
-
-#: sidebar-gallery.php
-msgid "Focal Length:"
-msgstr "Polttoväli:"
-
-#: sidebar-gallery.php
-msgid "mm"
-msgstr "mm"
-
-#: sidebar-gallery.php
-msgid "ISO:"
-msgstr "ISO:"
-
-#: sidebar-gallery.php
-msgid "Shutter:"
-msgstr "Sulkija:"
-
-#: sidebar-gallery.php
-msgid "Camera:"
-msgstr "Kamera:"
-
-#: sidebar.php
-#: sidebar-right.php
-#: sidebar-right-half.php
-#: sidebar-left.php
-#: sidebar-left-half.php
-#: sidebar-half-left.php
-msgid "In Archive"
-msgstr "Arkistossa"
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 1"
-msgstr "Koti-Vempain 1"
-
-#: sidebar-home.php
-msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
-msgstr "Tämä on ensimmäinen kotivempain-laatikkosi. Muokataksesi mene Ulkoasu > Widgetit ja valitse kuudes widgetti ylhäältä alueella kuusi nimeltään Koti Widgetti 1. Otsikko on myös muokattavissa kohdasta Widgetit."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 2"
-msgstr "Koti-Vempain 2"
-
-#: sidebar-home.php
-msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
-msgstr "Tämä on toinen kotivempain-laatikkosi. Muokataksesi mene Ulkoasu > Widgetit ja valitse seitsemäs widgetti ylhäältä alueella seitsemän nimeltään Koti Widgetti 2. Otsikko on myös muokattavissa kohdasta Widgetit."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 3"
-msgstr "Koti-Vempain 3"
-
-#: sidebar-home.php
-msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
-msgstr "Tämä on kolmas kotivempain-laatikkosi. Muokataksesi mene Ulkoasu > Widgetit ja valitse kahdeksas widgetti ylhäältä alueella kahdeksan nimeltään Koti Widgetti 3. Otsikko on myös muokattavissa kohdasta Widgetit."
-
-#: single.php
-msgid "About"
-msgstr "Tietoa"
-
-#: sitemap.php
-msgid "Categories"
-msgstr "Luokat"
-
-#: sitemap.php
-msgid "Latest Posts"
-msgstr "Uusimmat julkaisut"
-
-#: sitemap.php
-msgid "Pages"
-msgstr "Sivut"
-
-#: core/includes/functions.php
-msgid "Top Menu"
-msgstr "Päävalikko"
-
-#: core/includes/functions.php
-msgid "Header Menu"
-msgstr "Ylätunnistevalikko"
-
-#: core/includes/functions.php
-msgid "Sub-Header Menu"
-msgstr "Ylätunnisteen alavalikko"
-
-#: core/includes/functions.php
-msgid "Footer Menu"
-msgstr "Alatunnistevalikko"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Page %s"
+#: core/includes/classes/class-responsive-admin-settings.php:237
+msgid ""
+"Install Responsive Add-ons to get ready-to-use website templates that can be "
+"imported with one click."
 msgstr ""
+"Asenna reagoivat lisäosat saadaksesi käyttövalmiita verkkosivustojen "
+"malleja, jotka voidaan tuoda yhdellä napsautuksella."
 
-#: core/includes/functions.php
-msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
-msgstr "<span class=\"%1$s\">Julkaistu </span>%2$s<span class=\"%3$s\"> Julkaisija </span>%4$s"
+#: core/includes/classes/class-responsive-admin-settings.php:242
+msgid "Learn More &raquo;"
+msgstr "Lisätietoja »"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "View all posts by %s"
-msgstr "Näytä kaikki julkaisut henkilöltä %s"
+#: core/includes/classes/class-responsive-admin-settings.php:269
+msgid "Support"
+msgstr "Tuki"
 
-#: core/includes/functions.php
-msgid "Archive for %s"
-msgstr "Arkisto %s"
+#: core/includes/classes/class-responsive-admin-settings.php:273
+msgid "Have questions? Get in touch with us. We'll be happy to help"
+msgstr "Onko sinulla kysymyksiä? Ole meihin yhteydessä. Autamme mielellämme"
 
-#: core/includes/functions.php
-msgid "Posts tagged %s"
-msgstr "Merkityt julkaisut %s"
+#: core/includes/classes/class-responsive-admin-settings.php:277
+msgid "Request Support &raquo;"
+msgstr "Pyydä tukea »"
 
-#: core/includes/functions.php
-msgid "Error 404"
-msgstr "Virhe 404"
+#. translators: %1$s: Responsive Support link.
+#: core/includes/classes/class-responsive-admin-settings.php:303
+msgid "Change site layout"
+msgstr "Muuta sivuston asettelua"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "More Themes"
-msgstr "Lisää teemoja"
+#: core/includes/classes/class-responsive-admin-settings.php:308
+msgid "Customize fonts/typography"
+msgstr "Mukauta fontteja / typografiaa"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Showcase"
-msgstr "Portfolio"
+#: core/includes/classes/class-responsive-admin-settings.php:313
+msgid "Upload logo & site icon"
+msgstr "Lataa logo & sivustokuvake"
 
-#: core/includes/functions-sidebar.php
-msgid "Main Sidebar"
-msgstr "Pää-sivupalkki"
+#: core/includes/classes/class-responsive-admin-settings.php:318
+msgid "Add/edit navigation menu"
+msgstr "Lisää / muokkaa navigointivalikkoa"
 
-#: core/includes/functions-sidebar.php
+#: core/includes/classes/class-responsive-admin-settings.php:323
+msgid "Customize header options"
+msgstr "Muokkaa otsikkovaihtoehtoja"
+
+#: core/includes/classes/class-responsive-admin-settings.php:328
+msgid "Customize footer options"
+msgstr "Muokkaa alatunnisteasetuksia"
+
+#: core/includes/classes/class-responsive-admin-settings.php:333
+msgid "Update blog layout"
+msgstr "Päivitä blogin asettelu"
+
+#: core/includes/classes/class-responsive-admin-settings.php:338
+msgid "Update page layout"
+msgstr "Päivitä sivun asettelu"
+
+#: core/includes/classes/class-responsive-admin-settings.php:346
+msgid "Quick Start:"
+msgstr "Pikaopas"
+
+#: core/includes/classes/class-responsive-admin-settings.php:365
+msgid "Community"
+msgstr "Yhteisö"
+
+#: core/includes/classes/class-responsive-admin-settings.php:369
+msgid ""
+"Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
+"and help each other"
+msgstr ""
+"Tapaa reagoivat energiankäyttäjät. Sano hei, kysy kysymyksiä, anna "
+"palautetta ja autta toisiaan"
+
+#: core/includes/classes/class-responsive-admin-settings.php:373
+msgid "Join Facebook Group &raquo;"
+msgstr "Liity Facebook-ryhmään »"
+
+#: core/includes/classes/class-responsive-admin-settings.php:387
+msgid "Feedback"
+msgstr "Palaute"
+
+#: core/includes/classes/class-responsive-admin-settings.php:391
+msgid ""
+"Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
+"give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
+"the Responsive community."
+msgstr ""
+"Moi! Kiitos Responsive-teeman käytöstä. Voisitko tehdä meille palvelun ja "
+"antaa meille 5 tähden arvosanan? Palautteesi pitää meidät motivoituneina ja "
+"auttaa meitä kasvamaan Responsive-yhteisöä."
+
+#: core/includes/classes/class-responsive-admin-settings.php:395
+msgid "Submit Review &raquo;"
+msgstr "Lähetä arvostelu \""
+
+#: core/includes/classes/class-responsive-admin-settings.php:421
+msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
+msgstr "Upea nopea, mobiiliystävällinen, täysin muokattava WordPress-teema."
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+msgid "Sale!"
+msgstr "Tarjous!"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+msgid "WooCommerce Sidebar"
+msgstr "WooCommercen sivupalkki"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+msgid ""
+"This sidebar will be used on Product archive, Cart, Checkout and My Account "
+"pages."
+msgstr ""
+"Tätä sivupalkkia käytetään tuotearkisto-, ostoskori-, maksaminen ja oma tili "
+"-sivuilla."
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:44
+msgid "Colors"
+msgstr "Värit"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
+msgid "Cart Buttons"
+msgstr "Ostoskorin napit"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:222
+msgid "Button"
+msgstr "Painike"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:74
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:62
+msgid "Button Text"
+msgstr "Painikkeen teksti"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:78
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:66
+msgid "Button Hover"
+msgstr "Painikkeen hovertehoste"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
+msgid "Button Hover Text"
+msgstr "Painikkeen hovertehoste"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
+msgid "Checkout Button"
+msgstr "Kassanäppäin"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:46
+msgid "Layouts"
+msgstr "Sommitelmat"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
+msgid "Main Content Width (%)"
+msgstr "Sisällön leveys (%)"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
+msgid "Enable Cross-sells"
+msgstr "Ota ristimyynti käyttöön"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
+msgid "Cart Icon Visibility"
+msgstr "Kuvakkeen läpikuultamattomuus"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
+msgid "Display On All Devices"
+msgstr "Näytä kaikissa laitteissa"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
+msgid "Disabled On All Devices"
+msgstr "Ei käytössä kaikissa laitteissa"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
+msgid "Product Catalog Options"
+msgstr "Tuoteluettelon vaihtoehdot"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
+msgid "Shop Options"
+msgstr "Kauppa-asetukset"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
+msgid "Product Options"
+msgstr "CPO tuotevaihtoehdot"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
+msgid "Single Product Options"
+msgstr "Yhden tuotteen vaihtoehdot"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
+msgid "Cart Options"
+msgstr "Ostoskorin asetukset"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
+msgid "Rating Color"
+msgstr "Arvostelun väri"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
+msgid "Price Color"
+msgstr "Hinnan väri"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
+msgid "Add To Cart Buttons"
+msgstr "Lisää koriin painikkeet"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:44
+#: core/includes/post-custom-meta.php:163
+msgid "Layout"
+msgstr "Asettelu"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:60
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:54
+msgid "Sidebar Position"
+msgstr "﻿Sivupalkin sijainti"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:56
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:62
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:56
 msgid "Right Sidebar"
 msgstr "Oikea sivupalkki"
 
-#: core/includes/functions-sidebar.php
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:57
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:57
 msgid "Left Sidebar"
 msgstr "Vasen sivupalkki"
 
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar Half Page"
-msgstr "Vasen sivupalkki puolessavälissä sivua"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:64
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
+msgid "No Sidebar"
+msgstr "Ei sivupalkkia"
 
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar Half Page"
-msgstr "Oikea sivupalkki puolessavälissä sivua"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
+msgid "Shop Product"
+msgstr "Osta tuote"
 
-#: core/includes/functions-sidebar.php
-msgid "Gallery Sidebar"
-msgstr "Gallerian sivupalkki"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
+msgid "Catalog View"
+msgstr "Luettelonäkymä"
 
-#: core/includes/functions-sidebar.php
-msgid "Colophon Widget"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
+msgid "Grid View"
+msgstr "Ruudukko"
 
-#: core/includes/functions-sidebar.php
-msgid "Top Widget"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:70
+msgid "List View"
+msgstr "Listanäkymä"
 
-#: blog.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog (full posts)"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
+msgid "Content Aligmnment"
+msgstr "Sisällön korvaus"
 
-#: blog-excerpt.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog Excerpt (summary)"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:91
+msgid "Center"
+msgstr "Keskitetty"
 
-#: content-sidebar-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:78
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:194
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:198
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:202
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:204
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:92
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:156
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:74
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:96
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:111
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:126
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:196
+msgid "Left"
+msgstr "Vasen"
 
-#: sidebar-content-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:79
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:192
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:196
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:200
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:205
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:93
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:157
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:127
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:197
+msgid "Right"
+msgstr "Oikea"
 
-#: content-sidebar-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar Half Page"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
+msgid "Shop Elements"
+msgstr "Elementit"
 
-#: sidebar-content-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content Half Page"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
+msgid "Sale Notification"
+msgstr "Ilmoitus"
 
-#: full-width-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Full Width Page (no sidebar)"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
+msgid "None"
+msgstr "Ei mitään"
 
-#: landing-page.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Landing Page (no menu)"
-msgstr ""
-
-#: sitemap.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sitemap"
-msgstr ""
-
-#: core/includes/post-custom-meta.php
-msgid "Layout"
-msgstr ""
-
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/post-custom-meta.php
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:110
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:64
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:372
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:404
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:410
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:484
+#: core/includes/post-custom-meta.php:136
 msgid "Default"
-msgstr ""
+msgstr "Oletus"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Hello, World!"
-msgstr "Terve, maailma!"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
+msgid "Custom String"
+msgstr "Muokattu merkkijono"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your H2 subheadline here"
-msgstr "H2-alaotsikkosi tähän"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
+msgid "Sale % Value"
+msgstr "Myynti% arvo"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
-msgstr "Otsikkosi, alaotsikkosi ja sisältösi ovat muokattavissa Teeman asetuksissa, kuin myös Call to Action -nappi ja sen osoite. Kuvasi oikealla voi olla valokuva tai jopa YouTube-video jos niin tahdot."
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
+msgid "Sale Bubble Style"
+msgstr "Myynti Bubble Style"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Call to Action"
-msgstr "Kutsu Toimintaan"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
+msgid "Circle"
+msgstr "Ympyrä"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Options"
-msgstr "Teeman asetukset"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
+msgid "Circle Outline"
+msgstr "Ympyrä ääriviivat"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Options Saved"
-msgstr "Asetukset tallennettu"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
+msgid "Square"
+msgstr "Neliö"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Elements"
-msgstr "Teeman osat"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
+msgid "Square Outline"
+msgstr "Neliön ääriviivat"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Disable Call to Action Button?"
-msgstr "Estetäänkö toimintaankutsu-nappi?"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
+msgid "Product Elements"
+msgstr "Tuoteelementit"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Save Options"
-msgstr "Tallenna asetukset"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:67
+msgid "Gallery Layout"
+msgstr "Gallerian asettelu"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Restore Defaults"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
+msgid "Vertical"
+msgstr "Pystysuuntainen"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Logo Upload"
-msgstr "Lataa logo"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
+msgid "Horizontal"
+msgstr "Vaakasuuntainen"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Header"
-msgstr "Mukautettu otsikko"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
+msgid "Single Product Structure"
+msgstr "Yhden tuotteen rakenne"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Need to replace or remove default logo?"
-msgstr "Haluatko korvata tai poistaa oletuslogon?"
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
+msgid "Cart"
+msgstr "Ostoskori"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Home Page"
-msgstr "Kotisivu"
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+msgid " / "
+msgstr "/"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Headline"
-msgstr "Otsikko"
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
+msgid "Link values together"
+msgstr "Yhdistä arvot toisiinsa"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your headline"
-msgstr "Syötä otsikko"
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+#: footer.php:90
+msgid "Top"
+msgstr "Ylhäällä"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Subheadline"
-msgstr "Alaotsikko"
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:193
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:197
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:201
+msgid "Bottom"
+msgstr "Alhaalla"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your subheadline"
-msgstr "Syötä alaotsikko"
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:122
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:127
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
+msgid "px - em - rem"
+msgstr "px - em - rem"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Content Area"
-msgstr "Sisältö-alue"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
+msgid "Inherit"
+msgstr "Peri"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your content"
-msgstr "Syötä sisältö"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:65
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
+msgid "Thin: 100"
+msgstr "Ohut 100"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (URL)"
-msgstr "Toimintaan-kutsu (URL)"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
+msgid "Light: 200"
+msgstr "Kevyt 100"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action URL"
-msgstr "Täytä toimintaan-kutsu URL-linkki"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
+msgid "Book: 300"
+msgstr "Varaa"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (Text)"
-msgstr "Toimintaan-kutsu (Teksti)"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
+msgid "Normal: 400"
+msgstr "Normaali 400"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action text"
-msgstr "Syötä Toimintaan-kutsu tekstisi"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
+msgid "Medium: 500"
+msgstr "Keskipitkä 500"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Featured Content"
-msgstr "Suositeltua sisältöä"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
+msgid "Semibold: 600"
+msgstr "Semibold: 600"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "See Docs"
-msgstr "Katso dokumenteista"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
+msgid "Bold: 700"
+msgstr "Lihavoitu 700"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Paste your shortcode, video or image source"
-msgstr ""
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
+msgid "Extra Bold: 800"
+msgstr "Extra-Bold 800"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Layouts"
-msgstr ""
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
+msgid "Black: 900"
+msgstr "Musta: 900"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Static Page Layout"
-msgstr ""
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
+msgid "Arial, Helvetica, sans-serif"
+msgstr "Arial, Helvetica, sans-serif"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Single Blog Post Layout"
-msgstr ""
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:219
+msgid "Custom Fonts"
+msgstr "Muokatut kirjasimet sivulle"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Blog Posts Index Layout"
-msgstr ""
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:236
+msgid "Standard Fonts"
+msgstr "Vakiofontit"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Social Icons"
-msgstr "Sosiaaliset kuvakkeet"
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:250
+msgid "Google Fonts"
+msgstr "Google Fontit"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Twitter"
-msgstr "Twitter"
+#: core/includes/customizer/controls/upsell/class-responsive-control-upsell.php:72
+#: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
+msgid "PRO"
+msgstr "PRO"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Twitter URL"
-msgstr "Syötä Twitter-sivusi URL"
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
+msgid "View PRO Features"
+msgstr "PRO ominaisuudet"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Facebook"
-msgstr "Facebook"
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
+msgid "Pro Ready Sites"
+msgstr "Pro-valmis sivustot"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Facebook URL"
-msgstr "Syötä Facebook-sivusi URL"
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
+msgid "Form Builder"
+msgstr "Lomakkeen luonti"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "LinkedIn"
-msgstr "LinkedIn"
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
+msgid "Interactive Sliders and Carousels"
+msgstr "Interaktiiviset liukusäätimet ja karusellit"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your LinkedIn URL"
-msgstr "Syötä LinkedIn-sivusi URL"
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
+msgid "Pricing Tables"
+msgstr "﻿Hinnoittelutaulukot"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "YouTube"
-msgstr "YouTube"
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
+msgid "Portfolio and Post Layouts"
+msgstr "Portfolio ja postiasettelut"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your YouTube URL"
-msgstr "Syötä YouTube-sivusi URL"
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
+msgid "Private, Priority Support"
+msgstr "Yksityinen, ensisijainen tuki"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "StumbleUpon"
-msgstr "StumbleUpon"
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
+msgid "Get the PRO version!"
+msgstr "Hanki PRO-versio!"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your StumbleUpon URL"
-msgstr "Syötä StumbleUpon-sivusi URL"
+#: core/includes/customizer/customizer.php:29
+msgid "CSS Styles"
+msgstr "Tyylit"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "RSS Feed"
-msgstr "RSS-syöte"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your RSS Feed URL"
-msgstr "Syötä RSS-syötteesi URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Google+ URL"
-msgstr "Syötä Google+ -sivusi URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Instagram"
-msgstr "Instagram"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Instagram URL"
-msgstr "Syötä instagram-sivusi URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Pinterest"
-msgstr "Pinterest"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Pinterest URL"
-msgstr "Syötä Pinterest-sivusi URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Yelp!"
-msgstr "Yelp!"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Yelp! URL"
-msgstr "Syötä Yelp! -sivusi URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Vimeo"
-msgstr "Vimeo"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Vimeo URL"
-msgstr "Syötä Vimeo-sivusi URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "foursquare"
-msgstr "foursquare"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your foursquare URL"
-msgstr "Syötä forsquare-sivusi URL"
-
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/customizer.php:43
 msgid "Custom CSS Styles"
 msgstr "Mukautetut CSS-tyylit"
 
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Tutorial"
-msgstr "CSS-opastus"
+#: core/includes/customizer/customizer.php:64
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
+msgid "Gradient"
+msgstr "Liukuväri"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom CSS styles."
-msgstr "Syötä mukautetut CSS-tyylit."
+#: core/includes/customizer/customizer.php:65
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:232
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
+msgid "Flat"
+msgstr "Litteä"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Scripts for Header and Footer"
-msgstr ""
+#: core/includes/customizer/customizer.php:98
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
+msgid "Choose Post"
+msgstr "Valitse"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Quick Tutorial"
-msgstr ""
+#: core/includes/customizer/helper.php:35
+#: core/includes/customizer/helper.php:118
+#: core/includes/customizer/helper.php:224
+#: core/includes/customizer/helper.php:247
+#: core/includes/customizer/helper.php:274
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:48
+msgid "Title"
+msgstr "Otsikko"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to header.php &darr;"
-msgstr ""
+#: core/includes/customizer/helper.php:36
+#: core/includes/customizer/helper.php:119
+#: core/includes/customizer/helper.php:225
+msgid "Featured Image"
+msgstr "Artikkelikuva"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom header script."
-msgstr ""
+#: core/includes/customizer/helper.php:37
+#: core/includes/customizer/helper.php:120
+#: core/includes/customizer/helper.php:252
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:79
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:139
+msgid "Meta"
+msgstr "Meta"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to footer.php &darr;"
-msgstr ""
+#: core/includes/customizer/helper.php:38
+#: core/includes/customizer/helper.php:121
+#: core/includes/customizer/helper.php:226
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:196
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:43
+msgid "Content"
+msgstr "Sisältö"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom footer script."
-msgstr ""
+#: core/includes/customizer/helper.php:173
+msgid "Site Branding"
+msgstr "Sivuston nimitiedot"
 
-#: core/includes/functions.php
-msgid "Activate Add Ons"
-msgstr ""
+#: core/includes/customizer/helper.php:174
+msgid "Main Navigation"
+msgstr "Päänavigaatio"
 
-#: core/includes/functions.php
-msgid "All plugins installed and activated successfully. %s"
-msgstr ""
+#: core/includes/customizer/helper.php:248
+msgid "Rating"
+msgstr "Arvostelu"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "All theme settings will be lost!"
-msgstr ""
+#: core/includes/customizer/helper.php:249
+#: core/includes/customizer/helper.php:276
+msgid "Price"
+msgstr "Hinta"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr ""
+#: core/includes/customizer/helper.php:250
+#: core/includes/customizer/helper.php:278
+msgid "Short Description"
+msgstr "Lyhyt kuvaus"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr ""
+#: core/includes/customizer/helper.php:251
+#: core/includes/customizer/helper.php:279
+msgid "Add to Cart"
+msgstr "Lisää ostoskoriin"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
-msgstr ""
+#: core/includes/customizer/helper.php:275
+msgid "Category"
+msgstr "Kategoria"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
-msgstr ""
+#: core/includes/customizer/helper.php:277
+msgid "Ratings"
+msgstr "Arvioinnit"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
-msgstr ""
+#: core/includes/customizer/helper.php:763
+msgid "Read more &raquo;"
+msgstr "Lue lisää &raquo;"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
-msgstr ""
+#: core/includes/customizer/helper.php:803
+#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+msgid "Read More &raquo;"
+msgstr "Lue lisää &raquo;"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
+msgid "Entry Elements"
+msgstr "Tuloelementit"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
+msgid "Entry Featured Image"
+msgstr "Pääsy esitelty kuva"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:87
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:69
+msgid "Style"
+msgstr "Tyyli"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:91
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:90
+msgid "Stretched"
+msgstr "Venytetty"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:110
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:109
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:110
+msgid "Alignment"
+msgstr "Tasaus"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:206
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:158
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:128
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:198
+msgid "center"
+msgstr "Keskellä"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Blog"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:106
+msgid "Entry Title"
+msgstr "Kilpailun otsikko"
 
-#: core/includes/functions-update.php
-msgid "blog post"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
+msgid "Entry Meta"
+msgstr "Artikkelien meta"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Blog Title Toggle"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
+msgid "Meta Elements"
+msgstr "Elementit"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "check to disable"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
+msgid "Author"
+msgstr "Tekijä"
 
-#: core/includes/theme-options/theme-options.php
-msgid "check to enable"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:149
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:149
+msgid "Date"
+msgstr "Päivämäärä"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Click here"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:150
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:150
+msgid "Categories"
+msgstr "Kategoriat"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Click OK to Restore."
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:151
+msgid "Comments"
+msgstr "Kommentit"
 
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Styles"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:170
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
+msgid "Meta Separator"
+msgstr "Metatietojen erotin"
 
-#. Author of the plugin/theme
-# INSTRUCTION: Author of the plugin/theme
-msgid "CyberChimps.com"
-msgstr "CyberChimps.com"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
+msgid "Meta Alignment"
+msgstr "Suuntaus"
 
-#: header.php
-msgid "&darr; Skip to Main Content"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
+msgid "Entry Content"
+msgstr "Sisäänkirjautumisen sisältö"
 
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
+msgid "Content Type"
+msgstr "Sisällön tyyppi"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:197
+msgid "Excerpt"
+msgstr "Ote"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:124
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:194
+msgid "Content Alignment"
+msgstr "Sisällön tasaus"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:211
+msgid "Excerpt Length"
+msgstr "Otteen pituus"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:215
+msgid "Read More Text"
+msgstr "Lue lisää teksti"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
+msgid "Read More Type"
+msgstr "Lue lisää"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
+msgid "Link"
+msgstr "Linkki"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-panel.php:85
+#: core/includes/customizer/settings/class-responsive-panel.php:86
+msgid "Content Header"
+msgstr "sisällön otsikko"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
+msgid "Enable Blog Page Title"
+msgstr "Ota blogisivun otsikko käyttöön"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
+msgid "Blog Page Title"
+msgstr "Blogi Sivun Otsikko"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
+msgid "Entry Columns"
+msgstr "Tulosarakkeet"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
+msgid "Enable Masonry Layout"
+msgstr "Ota muurauksen asettelu käyttöön"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
+msgid "Title Color"
+msgstr "Otsikon väri"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:50
+msgid "Description Color"
+msgstr "Kuvauksen väri"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
+msgid "Breadcrumb Color"
+msgstr "Leivänrummun väri"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
 msgid "Disable breadcrumb list?"
-msgstr ""
+msgstr "Poista muropolku käytöstä"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Do you want to restore?"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
+msgid "Breadcrumb Position"
+msgstr "Leipärumpun sijainti"
 
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
+msgid "Before Heading"
+msgstr "Ennen otsikkoa"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
+msgid "After Heading"
+msgstr "Ylätunnisteen jälkeen"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:197
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:209
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:219
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:230
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:241
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:252
+msgid "Typography"
+msgstr "Typografia"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:53
+msgid "Description"
+msgstr "Kuvaus"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:59
+msgid "Breadcrumb"
+msgstr "Murupolku"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:79
+msgid "Documentation"
+msgstr "Dokumentaatio"
+
+#. translators: %1$s is Plugin Name
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+msgid "To have access to a shop section please install and configure %1$s."
+msgstr ""
+"Jos haluat käyttää verkkokauppatoimintoja, ole hyvä ja asenna ja lisää "
+"asetukset lisäosalle %1$s."
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+msgid "WooCommerce plugin"
+msgstr "WooCommerce-lisäosa"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
+msgid "Recommended Plugins"
+msgstr "Suositellut lisäosat"
+
+#. translators: Orbit Fox Companion
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+msgid ""
+"Get access to even more powerful features that will help you build a "
+"beautiful fast and responsive website in no time at all."
+msgstr ""
+"Pääset entistä tehokkaampiin ominaisuuksiin, joiden avulla voit rakentaa "
+"kauniin nopean ja reagoivan verkkosivuston nopeasti."
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:51
+msgid "Background Color"
+msgstr "Taustaväri"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:68
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:131
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:155
+msgid "Text Color"
+msgstr "Tekstin väri"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:80
+msgid "Links Color"
+msgstr "Linkkien väri"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
+msgid "Links Hover Color"
+msgstr "Linkit 'Hover' väri"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
+msgid "Full Width Footer"
+msgstr "Koko leveys alatunniste"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
+msgid "Footer Widgets"
+msgstr "Sivun alareunan vimpaimet"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:57
+msgid "Number of Columns"
+msgstr "Sarakkeiden määrä"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:66
+msgid "Footer Bar"
+msgstr "Sivun alapalkki"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+msgid "Social Links"
+msgstr "Somelinkit"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
+#: core/includes/functions-extentions.php:337
+msgid "Twitter"
+msgstr "Twitter"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
+#: core/includes/functions-extentions.php:338
+msgid "Facebook"
+msgstr "Facebook"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
+#: core/includes/functions-extentions.php:339
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
+#: core/includes/functions-extentions.php:340
+msgid "YouTube"
+msgstr "YouTube"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
+#: core/includes/functions-extentions.php:343
+msgid "Google+"
+msgstr "Google+"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
+#: core/includes/functions-extentions.php:342
+msgid "RSS Feed"
+msgstr "RSS-syöte"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
+#: core/includes/functions-extentions.php:344
+msgid "Instagram"
+msgstr "Instagram"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
+#: core/includes/functions-extentions.php:345
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
+#: core/includes/functions-extentions.php:341
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
+#: core/includes/functions-extentions.php:347
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+msgid "Yelp"
+msgstr "Yelp"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+msgid "Foursquare"
+msgstr "Foursquare"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+msgid "Email Address"
+msgstr "Sähköpostiosoite"
+
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:39
+msgid "Scripts"
+msgstr "Komentosarjat"
+
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
+msgid "Embeds to footer.php"
+msgstr "Upottaa footer.php-tiedostoon"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:139
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:159
+msgid "Border Color"
+msgstr "Reunaviivan väri"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
+msgid "Site Title Color"
+msgstr "Sivuston otsikon väri"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
+msgid "Site Title Hover Color"
+msgstr "Sivuston nimi Hover Color"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
+msgid "Site Tagline Color"
+msgstr "Sivuston tagline väri"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
+msgid "Header Widget"
+msgstr "Otsikko-widget"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
+msgid "Full Width Header"
+msgstr "Koko leveys otsikko"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
+msgid "Inline logo & Site Title"
+msgstr "Sisäinen logo ja sivuston otsikko"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
+msgid "Header Elements"
+msgstr "Otsikon elementit"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:81
+msgid "Header Layout"
+msgstr "Ylätunnisteen  asettelu"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
+msgid "Header Alignment"
+msgstr "Ylätunnisteen tasaus"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
+msgid "Logo Padding (px)"
+msgstr "Logotyyny (px)"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
+msgid "Transparent Header"
+msgstr "Läpinäkyvä otsikko"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
+msgid "Enable on Complete Website"
+msgstr "Ota käyttöön täydellisessä verkkosivustossa"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
+msgid "Site Content Padding (px)"
+msgstr "Sivuston sisällön täyte (px)"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
+msgid "Disable on 404, Search & Archives?"
+msgstr "Poistetaanko 404, haku ja arkistot käytöstä?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
+msgid "Disable on Blog page?"
+msgstr "Poistetaanko blogisivulta?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
+msgid "Disable on Latest Posts Page?"
+msgstr "Poistetaanko käytöstä uusimpien viestien sivulla?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
+msgid "Disable on Pages?"
+msgstr "Poistetaanko käytöstä sivuilla?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
+msgid "Disable on Posts?"
+msgstr "Poistetaanko käytöstä viesteissä?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
+msgid "Disable on WooCommerce Product Pages?"
+msgstr "Poistetaanko käytöstä WooCommerce-tuotesivuilla?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
+#: core/includes/functions-sidebar.php:100
+msgid "Header Widgets"
+msgstr "Yläosan vimpaimet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
+msgid "Enable Header Widgets"
+msgstr "Ota otsikkowidgetit käyttöön"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
+msgid "Widgets Position"
+msgstr "Widgetien sijainti"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
+msgid "Above Header"
+msgstr "Otsikon yläpuolella"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
+msgid "In Header"
+msgstr "Koko yläpalkissa"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
+msgid "Below Header"
+msgstr "Otsikon alla"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
+msgid "Widgets Alignment"
+msgstr "Widgetit Kohdistus"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
+msgid "Spread"
+msgstr "Levitä"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
+msgid "Space Around"
+msgstr "Avaruus ympärillä"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
+msgid "Active Menu Background Color"
+msgstr "Aktiivisen valikon taustaväri"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
+msgid "Menu Item Link Color"
+msgstr "Valikon linkin väri"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
+msgid "Menu Item Link Hover Color"
+msgstr "Valikkokohta Link Hover Color"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
+msgid "Sub Menu Background Color"
+msgstr "Alavalikon taustaväri"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+msgid "Sub Menu Item Link Color"
+msgstr "Alivalikon kohta Linkin väri"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+msgid "Sub Menu Item Link Hover Color"
+msgstr "Alavalikkokohta Link Hover Color"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+msgid "Menu Toggle Background Color"
+msgstr "Valikko Vaihtaa taustavärin"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+msgid "Menu Toggle Color"
+msgstr "Valikon vaihto väri"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
+msgid "Full Width Main Navigation"
+msgstr "Täysleveä päänavigointi"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
+msgid "Enable Mobile Menu"
+msgstr "Ota mobiilivalikko käyttöön"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
+msgid "Breakpoint"
+msgstr "Laitetyyppi"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:65
+msgid "Dropdown"
+msgstr "Pudotusvalikko"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
+msgid "FullScreen"
+msgstr "Koko näyttö"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-panel.php:67
+msgid "Sidebar"
+msgstr "Sivupalkki"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+msgid "Sidebar Menu Alignment"
+msgstr "Sivupalkin valikon kohdistus"
+
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
+msgid "Embeds to header.php"
+msgstr "Upottaa otsikkoon.php"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
+msgid "Site Title"
+msgstr "Sivuston otsikko"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
+msgid "Site Tagline"
+msgstr "Sivuston kuvaus"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
+msgid "Choose Category"
+msgstr "Valitse kategoria"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
+msgid "Custom Home Page"
+msgstr "Muokattu kotisivu"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 msgid "Enable Custom Front Page"
-msgstr ""
+msgstr "Ota mukautettu etusivu käyttöön"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enable minified css?"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
+msgid "Overrides the WordPress front page option"
+msgstr "Ohittaa WordPress-etusivun"
 
-#: core/includes/functions-sidebar.php
-msgid "Footer Widget"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
+msgid "Hero Area"
+msgstr "Sankarialue"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Help"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
+#: core/includes/functions.php:58 functions.php:526
+msgid "HAPPINESS"
+msgstr "onnellisuus"
 
-#. Author URI of the plugin/theme
-# INSTRUCTION: Author URI of the plugin/theme
-msgid "http://cyberchimps.com"
-msgstr "http://cyberchimps.com"
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:108
+msgid "Headline"
+msgstr "Otsikko"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
+#: core/includes/functions.php:59 functions.php:529
+msgid "IS A WARM CUP"
+msgstr "ON SILMÄTUPPA"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
+msgid "Subheadline"
+msgstr "* Subheadline:"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
+#: core/includes/functions.php:60 functions.php:532
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Otsikko, tekstitys ja tämä sisältö ovat muokattavissa teemaoptiosta. Kutsu "
+"toimintapainike ja myös sen kohdelinkki. Oikeallasi oleva kuva voi olla kuva "
+"tai jopa YouTube-video, jos haluat."
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
+msgid "Content Area"
+msgstr "Sisältöalue"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
+msgid "Disable Call to Action Button?"
+msgstr "Poistetaanko toimintakehotuspainike käytöstä?"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
+msgid "Call to Action (URL)"
+msgstr "Toimintopainikkeen URL-osoite"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
+msgid "Call to Action (Text)"
+msgstr "Toimintokehote: Teksti"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
+msgid "Call to Action Button Style"
+msgstr "Toimintopainike"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
+msgid "Featured Content"
+msgstr "Featured Content #"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
+msgid "Paste your shortcode, video or image source"
+msgstr "Liitä lyhytkoodi, video tai kuvalähde"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
+msgid "About Section"
+msgstr "Tietoja osiosta"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
+msgid "Enable About Section"
+msgstr "Ota käyttöön Tietoja-osio"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
+#: partials/custom-home/featured-area.php:105
+msgid "About Box Title"
+msgstr "Tietoja laatikon otsikosta"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
+msgid "About Title"
+msgstr "Tietoja otsikosta"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
+msgid "About Text"
+msgstr "Tietoja tekstistä"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
+msgid "Enter url as http://www.example.com"
+msgstr "Kirjoita URL-osoite muodossa http://www.esimerkki.com"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
+msgid "Feature Section"
+msgstr "Ominaisuusosa"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
+msgid "Enable Feature Section"
+msgstr "Ota ominaisuusosa käyttöön"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
+msgid "Feature Title"
+msgstr "Ominaisuuden otsikko"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
+msgid "Select post for feature 1"
+msgstr "Valitse viesti ominaisuudelle 1"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:457
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the feature. Recommended image size for the featured images: 130 x 130px"
+msgstr ""
+"Esitelty kuva, otsikko ja viestien sisältö käytetään ominaisuuden "
+"näyttämiseen. Suositeltujen kuvien koko esiteltyihin kuviin: 130 x 130 "
+"kuvapistettä"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
+msgid "Select post for feature 2"
+msgstr "Valitse viesti ominaisuudelle 2"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
+msgid "Select post for feature 3"
+msgstr "Valitse viesti ominaisuudelle 3"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
+msgid "Testimonial Section"
+msgstr "Suosittelun jakso"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
+msgid "Enable Testimonial Section"
+msgstr "Ota suositusosasto käyttöön"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
+#: partials/custom-home/featured-area.php:217
+msgid "Testimonial"
+msgstr "Asiakaskommentti"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
+msgid "Testimonial Title"
+msgstr "Todistusotsikko"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
+msgid "Select Post"
+msgstr "Valitse tyyppi"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the client testimonials. Recommended image size for the featured images: 178 "
+"x 178px"
+msgstr ""
+"Esiteltyä kuvaa, otsikkoa ja viestien sisältöä käytetään asiakkaiden "
+"suositusten näyttämiseen. Suositeltujen kuvien koko esiteltyihin kuviin: 178 "
+"x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
+msgid "Team Section"
+msgstr "Tiimimme -osio"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
+msgid "Enable Team Section"
+msgstr "Ota joukkueosasto käyttöön"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
+msgid "team"
+msgstr "joukkueemme"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
+msgid "Team Title"
+msgstr "Otsikko"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
+msgid "Select post for team member1"
+msgstr "Valitse viesti joukkueen jäsenelle1"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:622
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the team member. Recommended image size for the featured images: 178 x 178px"
+msgstr ""
+"Esitelty kuva, otsikko ja viestien sisältö käytetään tiimin jäsenen "
+"näyttämiseen. Suositeltujen kuvien koko esiteltyihin kuviin: 178 x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
+msgid "Select post for team member2"
+msgstr "Valitse viesti joukkueen jäsenelle2"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
+msgid "Select post for team member3"
+msgstr "Valitse viesti joukkueen jäsenelle3"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
+msgid "Click to disable home page widgets"
+msgstr "Napsauta poistaaksesi kotisivun widgetit"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
+msgid "Contact Section"
+msgstr "Yhteysosasto"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
+msgid "Enable Contact Section"
+msgstr "Ota yhteysosasto käyttöön"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
+msgid "Contact Us"
+msgstr "Ota yhteyttä"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
+msgid "Contact section Title"
+msgstr "Ota yhteyttä -osion otsikko"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
+msgid "Contact subtitle"
+msgstr "Ota yhteyttä tekstitys"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
+msgid "Contact section Subtitle"
+msgstr "Ota yhteyttä -osion alaotsikko"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
+msgid "Address"
+msgstr "Osoite"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
+#: core/includes/functions-extentions.php:349
+msgid "Email"
+msgstr "Sähköposti"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
+msgid "Phone no"
+msgstr "Puhelin."
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
+msgid "Contact form shortcode"
+msgstr "Yhteydenottolomakkeen lyhytkoodi"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
+msgid "You can put Contact Form 7 shortcode here."
+msgstr "Voit laittaa Contact Form 7 -koodin tähän."
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
+msgid "Page Elements"
+msgstr "Sivuelementit"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
+msgid "Post Elements"
+msgstr "Lähetä elementit"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
+msgid "Page Featured Image"
+msgstr "Artikkelikuva"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
+msgid "Page Title"
+msgstr "Sivun otsikko"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:120
+msgid "Page Content"
+msgstr "Sivun sisältö"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:40
+msgid "Theme Options"
+msgstr "Teeman asetukset"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:41
+#: core/includes/customizer/settings/class-responsive-panel.php:50
+msgid "Header Options"
+msgstr "Ylätunnistevalinnat"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:49
+msgid "Header"
+msgstr "Ylätunniste"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:58
+#: functions.php:471 partials/header/main-navigation.php:14
+msgid "Main Menu"
+msgstr "Päävalikko"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:59
+msgid "Header Menu Options"
+msgstr "Otsikko-valikon asetukset"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:68
+msgid "Sidebar Options"
+msgstr "Sivupalkin asetukset"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:76
+msgid "Footer"
+msgstr "Alatunniste"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:77
+msgid "Footer Options"
+msgstr "Footer Valinnat"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:94
+msgid "Blog / Archive"
+msgstr "Blogi / Arkisto"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:95
+msgid "Blog Options"
+msgstr "Blogin asetukset"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:103
+msgid "Blog Post"
+msgstr "Blogiartikkeli"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:104
+msgid "Single Blog Post"
+msgstr "Yksi blogin viesti"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:112
+msgid "Page"
+msgstr "Sivu"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:113
+msgid "Page Options"
+msgstr "Sivuasetukset"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
+msgid "Post Featured Image"
+msgstr "Artikkelin artikkelikuva"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:106
+msgid "Post Title"
+msgstr "Artikkelin otsikko"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:121
+msgid "Post Meta"
+msgstr "Artikkelin metatiedot"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:190
+msgid "Post Content"
+msgstr "Artikkelin sisältö"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:59
+msgid "Backgrounds"
+msgstr "Taustat"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
+msgid "Box Background Color"
+msgstr "Laatikon taustaväri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
+msgid "Alternate Background Color"
+msgstr "Vuoroin vaihtuva taustaväri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
+msgid "General Text"
+msgstr "Yleinen teksti"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
+msgid "Body Text Color"
+msgstr "Leipätekstin väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
+msgid "Heading 1 (H1) Color"
+msgstr "Otsake 1 (H1) Väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
+msgid "Heading 2 (H2) Color"
+msgstr "Otsake 2 (H2) Väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
+msgid "Heading 3 (H3) Color"
+msgstr "Otsake 3 (H3) Väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
+msgid "Heading 4 (H4) Color"
+msgstr "Otsake 4 (H4) Väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
+msgid "Heading 5 (H5) Color"
+msgstr "Otsake 5 (H5) Väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
+msgid "Heading 6 (H6) Color"
+msgstr "Otsake 6 (H6) Väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
+msgid "Meta Text Color"
+msgstr "Metatietojen tekstin väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
+msgid "Links"
+msgstr "Linkit"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:111
+msgid "Link Color"
+msgstr "Linkin väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:115
+msgid "Link Hover Color"
+msgstr "Linkin väri kun osoitin kohdalla"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:119
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:83
+msgid "Buttons"
+msgstr "Painikkeet"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:123
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:151
+msgid "Color"
+msgstr "Väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:127
+msgid "Hover Color"
+msgstr "Tekstin väri kun osoitin kohdalla"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:135
+msgid "Hover Text Color"
+msgstr "Tekstin väri kun osoitin kohdalla"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:143
+msgid "Hover Border Color"
+msgstr "Laatikon hover-reunaviivan väri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:147
+msgid "Inputs"
+msgstr "Syötteet"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:163
+msgid "Labels"
+msgstr "Kenttien otsikot"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:167
+msgid "Label Color"
+msgstr "Etiketin väri"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
+msgid "Hide Site Title"
+msgstr "Sivuston otsikko"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
+msgid "Hide Tagline"
+msgstr "Piilota sivuston kuvaus"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
+msgid "Width"
+msgstr "Leveys"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:59
+msgid "Contained"
+msgstr "Sisälsi"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:60
+msgid "Full Width"
+msgstr "Koko näytön levyinen"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
+msgid "Container Width (px)"
+msgstr "Sisältöalueen leveys (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
+msgid "Boxed"
+msgstr "Kiinteä leveys"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
+msgid "Content Boxed"
+msgstr "Kiinteälevyinen sisältö"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
+msgid "Box Padding (px)"
+msgstr "Laatikkotäyte (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+msgid "Box Radius (px)"
+msgstr "Ruudun säde (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
+msgid "Padding (px)"
+msgstr "Pehmuste (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
+msgid "Radius (px)"
+msgstr "Säde (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
+msgid "Border Width (px)"
+msgstr "Reunan leveys"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
+msgid "Form Inputs"
+msgstr "Lomakkeen syötteet"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:162
+msgid "Body"
+msgstr "Runko"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
+msgid "Heading 1 (H1)"
+msgstr "Otsikko 1 (H1)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
+msgid "Heading 2 (H2)"
+msgstr "Otsikko 2 (H2)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
+msgid "Heading 3 (H3)"
+msgstr "Otsikko 3 (H3)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
+msgid "Heading 4 (H4)"
+msgstr "Otsake 4 (H4)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
+msgid "Heading 5 (H5)"
+msgstr "Otsikko 5 (H5)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
+msgid "Heading 6 (H6)"
+msgstr "Otsake 6 (H6)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
+msgid "Input Fields"
+msgstr "Syöttökentät"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
+msgid "Exclude Categories from Blog page"
+msgstr "Sulje luokat pois blogisivulta"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
+msgid ""
+"Please choose the post categories that should not be displayed on the blog "
+"page"
+msgstr "Valitse viestiluokat, joita ei tule näyttää blogisivulla"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
+msgid "General Typography"
+msgstr "Yleinen typografia"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
+msgid "Font Family"
+msgstr "Fonttiperhe"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:400
+msgid "Font Weight"
+msgstr "Fontin paino"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
+msgid "Important: Not all fonts support every font-weight."
+msgstr "Tärkeää: Kaikki fontit eivät tue kaikkia fonttipainoja."
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
+msgid "Font Style"
+msgstr "Fontin tyyli"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:451
+msgid "Normal"
+msgstr "Normaali"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:452
+msgid "Italic"
+msgstr "Kursiivi"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:477
+msgid "Text Transform"
+msgstr "Tekstin muuntelu"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:485
+msgid "Capitalize"
+msgstr "Isot alkukirjaimet"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:486
+msgid "Lowercase"
+msgstr "Pienet kirjaimet"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:487
+msgid "Uppercase"
+msgstr "Isot kirjaimet"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:531
+msgid "Font Size"
+msgstr "Fontin koko"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
+msgid "You can add: px-em-%"
+msgstr "Voit lisätä: px-em-%"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
+msgid "Line Height"
+msgstr "Rivin korkeus"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
+msgid "Letter Spacing (px)"
+msgstr "Kirjainväli (px)"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:659
+msgid "Font Color"
+msgstr "Fontin väri"
+
+#. translators: %s: link
+#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+msgid "Home"
+msgstr "Etusivu"
+
+#. translators: %s: Categories
+#: core/includes/functions-extentions.php:60
+msgid "Archive for %s"
+msgstr "Arkisto: %s"
+
+#. translators: %s: Search result page
+#. translators: %s is for search query.
+#: core/includes/functions-extentions.php:62 loop-header.php:33
+msgid "Search results for: %s"
+msgstr "Hakutulokset haulle: %s"
+
+#. translators: %s: Post Pages
+#: core/includes/functions-extentions.php:64
+msgid "Posts tagged %s"
+msgstr "Artikkelit avainsanalla <ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>"
+
+#. translators: %s: Author pages
+#. translators: %s: view post by
+#. translators: view all posts by author
+#. translators: %s view posts by
+#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: partials/entry/meta.php:54 partials/single/meta.php:49
+msgid "View all posts by %s"
+msgstr "Selaa kaikkia artikkeleja käyttäjältä %s"
+
+#: core/includes/functions-extentions.php:67
+msgid "Error 404"
+msgstr "Virhe 404"
+
+#. translators: %s: Page Number
+#. translators: %s: author
+#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extras.php:190
+msgid "Page %s"
+msgstr "Sivu %s"
+
+#: core/includes/functions-extentions.php:346
+msgid "Yelp!"
+msgstr "Yelp"
+
+#: core/includes/functions-extentions.php:348
+msgid "foursquare"
+msgstr "neliö"
+
+#: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
+#: image.php:59 index.php:56 partials/page/content.php:15
+msgid "Read more &#8250;"
+msgstr "Lue lisää"
+
+#: core/includes/functions-sidebar.php:28
+msgid "Main Sidebar"
+msgstr "Ensisijainen sivupalkki"
+
+#: core/includes/functions-sidebar.php:29
+msgid ""
+"Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr "Alue 1 - sidebar.php - Näyttää oletus-, blogi-, blogi-ote-sivumallit"
+
+#: core/includes/functions-sidebar.php:40
+msgid "Home Widget 1"
+msgstr "Koti-widget 1"
+
+#: core/includes/functions-sidebar.php:41
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr "Alue 6 - sidebar-home.php - Näyttää kotisivulla"
+
+#: core/includes/functions-sidebar.php:52
+msgid "Home Widget 2"
+msgstr "Koti-widget 2"
+
+#: core/includes/functions-sidebar.php:53
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr "Alue 7 - sidebar-home.php - Näyttää kotisivulla"
+
+#: core/includes/functions-sidebar.php:64
+msgid "Home Widget 3"
+msgstr "Koti-widget 3"
+
+#: core/includes/functions-sidebar.php:65
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr "Alue 8 - sidebar-home.php - Näyttää kotisivulla"
+
+#: core/includes/functions-sidebar.php:76
+msgid "Gallery Sidebar"
+msgstr "Gallerian sivupalkki"
+
+#: core/includes/functions-sidebar.php:77
+msgid ""
+"Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
+"clicked in a Gallery"
+msgstr ""
+"Alue 9 - sidebar-gallery.php - Näkyy sivulla, kun kuvaa on napsautettu "
+"galleriassa"
+
+#: core/includes/functions-sidebar.php:88
+msgid "Colophon Widget"
+msgstr "Colophon-widget"
+
+#: core/includes/functions-sidebar.php:89
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr "Alue 10 - sidebar-colophon.php, 100% leveät alatunniste-widgetit"
+
+#: core/includes/functions-sidebar.php:101
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr "Alue 11 - sidebar-top.php - Näyttää otsikon oikealla puolella"
+
+#: core/includes/functions-sidebar.php:112
+msgid "Footer Widgets 1"
+msgstr "Sivun alareunan vimpaimet"
+
+#: core/includes/functions-sidebar.php:113
+msgid "Area 12 - sidebar-footer.php"
+msgstr "Alue 12 - sivupalkki-jalka.php"
+
+#: core/includes/functions-sidebar.php:123
+msgid "Footer Widgets 2"
+msgstr "Sivun alareunan vimpaimet"
+
+#: core/includes/functions-sidebar.php:124
+msgid "Area 13 - sidebar-footer.php"
+msgstr "Alue 13 - sivupalkin jalka.php"
+
+#: core/includes/functions-sidebar.php:134
+msgid "Footer Widgets 3"
+msgstr "Sivun alareunan vimpaimet"
+
+#: core/includes/functions-sidebar.php:135
+msgid "Area 14 - sidebar-footer.php"
+msgstr "Alue 14 - sivupalkki-jalka.php"
+
+#: core/includes/functions-sidebar.php:145
+msgid "Footer Widgets 4"
+msgstr "Sivun alareunan vimpaimet"
+
+#: core/includes/functions-sidebar.php:146
+msgid "Area 15 - sidebar-footer.php"
+msgstr "Alue 15 - sivupalkki-jalka.php"
+
+#: core/includes/functions.php:61 functions.php:535
+msgid "Call to Action"
+msgstr "Kehotustoiminta"
+
+#: core/includes/functions.php:216
+msgid "Header Menu"
+msgstr "Päävalikko"
+
+#: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+msgid "Footer Menu"
+msgstr "Sivun alareunan valikko"
+
+#: core/includes/functions.php:377
+msgid "Team Section Options"
+msgstr "Valinnat:"
+
+#: core/includes/functions.php:391
+msgid ""
+"To use this post for front page's team section, please enter below details:"
+msgstr ""
+"Kirjoita tiedot alle, jotta voit käyttää tätä viestiä etusivun joukkueosioon."
+
+#: core/includes/functions.php:394
+msgid "Member designation"
+msgstr "Jäsenen nimeäminen"
+
+#: core/includes/functions.php:398
+msgid "Facebook Link"
+msgstr "Facebook Linkki"
+
+#: core/includes/functions.php:402
+msgid "Twitter Link"
+msgstr "Twitter Linkki"
+
+#: core/includes/functions.php:406
+msgid "GooglePlus Link"
+msgstr "GooglePlus Link"
+
+#: core/includes/functions.php:410
+msgid "LinkedIn Link"
+msgstr "Linkedin-linkki"
+
+#: core/includes/functions.php:666
+msgid "Posted on"
+msgstr "Julkaistu"
+
+#: core/includes/functions.php:666
+msgid "By"
+msgstr "Kirjoittanut"
+
+#. translators: %s: category list
+#. translators: %s posted in categories
+#. translators: %s: category list
+#: core/includes/functions.php:696 image.php:82 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid "Posted in %s"
+msgstr "Julkaistu kategoriassa %s"
+
+#: core/includes/functions.php:696 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid ", "
+msgstr ", "
+
+#: core/includes/functions.php:719
+msgid "Upgrade To Pro"
+msgstr "Päivitä PRO -versioon"
+
+#: core/includes/post-custom-meta.php:137
+msgid "Content/Sidebar"
+msgstr "Sisältö / Sivupalkki"
+
+#: core/includes/post-custom-meta.php:138
+msgid "Sidebar/Content"
+msgstr "Sivupalkki - Sisältö"
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page (no sidebar)"
+msgstr "Koko leveä (ei sivupalkkia)"
+
+#: core/includes/post-custom-meta.php:140
+msgid "Blog 2 Column"
+msgstr "2 saraketta"
+
+#: core/includes/post-custom-meta.php:141
+msgid "Blog 3 Column"
+msgstr "3 saraketta"
+
+#: core/includes/post-custom-meta.php:142
+msgid "Blog 4 Column"
+msgstr "4 saraketta"
+
+#: footer.php:90
+msgid "Scroll to Top"
+msgstr "Vieritä ylös"
+
+#: functions.php:392
+msgid "Permalink to %s"
+msgstr "Kestolinkki sivulle %s"
+
+#. translators: %s Link to 5 star rating
+#: functions.php:453
+msgid ""
+"If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
+"It takes a minute and helps a lot. Thanks in advance!"
+msgstr ""
+"Jos pidät <strong>responsiivisesta teemasta,</strong> jätä meille%s -"
+"luokitus. Se vie minuutin ja auttaa paljon. Kiitos etukäteen!"
+
+#: functions.php:454
+msgid "Thanks :)"
+msgstr "Kiitos :)"
+
+#: functions.php:538
+msgid "#"
+msgstr "#"
+
+#: gutenberg-fullwidth.php:46 image.php:63 index.php:60
+#: partials/entry/layout.php:53 partials/page/layout.php:45
+#: partials/single/content.php:38 partials/single/layout.php:59
+msgid "Pages:"
+msgstr "Sivut:"
+
+#: header.php:35
+msgid "&darr; Skip to Main Content"
+msgstr "↓ Siirry pääsisältöön"
+
+#: home.php:81
+msgid "Previous"
+msgstr "Edellinen"
+
+#: home.php:82
+msgid "Next"
+msgstr "Seuraava"
+
+#: image.php:37
+msgid "&#8249; Return to"
+msgstr "Palaa takaisin"
+
+#: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "No Comments"
+msgstr "Ei kommentteja"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "1 Comment"
+msgstr "1 kommentti"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "% Comments"
+msgstr "% kommenttia"
+
+#: image.php:79 post-data.php:25
+msgid "Tagged with:"
+msgstr "Tunniste:"
+
+#: image.php:87 post-data.php:29
+msgid "<span class=\"post-edit\">Edit</span>"
+msgstr "<span class=\"post-edit\">Muokata</span>"
+
+#: loop-nav.php:28
+msgid "&#8249; Older posts"
+msgstr ""
+"<ph id=\"mtc_1\" equiv-text=\"base64:"
+"Jmx0O3NwYW4gY2xhc3M9Imljb24tYW5nbGUtbGVmdCImZ3Q7\"/><ph id=\"mtc_2\" equiv-"
+"text=\"base64:Jmx0Oy9zcGFuJmd0Ow==\"/> Vanhemmat artikkelit"
+
+#: loop-nav.php:29
+msgid "Newer posts &#8250;"
+msgstr "Uudemmat artikkelit"
+
+#. translators: %s search term
+#: loop-no-posts.php:26
+msgid "Your search for %s did not match any entries."
+msgstr "%s-haku ei vastannut yhtään merkintää."
+
+#: loop-no-posts.php:26
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 - Haluatko tavata sinut täällä!"
+
+#: loop-no-posts.php:32
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Älä paniikki, saamme tämän läpi yhdessä. Tutkitaan vaihtoehtojamme täällä."
+
+#: loop-no-posts.php:43
+msgid "&larr; Home"
+msgstr "← Koti"
+
+#: partials/custom-home/featured-area.php:255
+msgid "Team"
+msgstr "Tiimi"
+
+#. translators: 1: byline, 2: author
+#: partials/entry/meta.php:35
+msgid "By "
+msgstr "Kirjoittaja "
+
+#. translators: 1: class, 2: date
+#: partials/entry/meta.php:69 partials/single/meta.php:63
+msgid "Posted on "
+msgstr "Julkaistu "
+
+#: partials/entry/thumbnail-style/comments.php:16
+msgid "0 Comments"
+msgstr "0 kommenttia"
+
+#: partials/footer/copy-right.php:17
+msgid " &copy; "
+msgstr "©"
+
+#: partials/footer/copy-right.php:21
+msgid "&copy; "
+msgstr "©"
+
+#: partials/footer/copy-right.php:29
+msgid " | Powered by Responsive Theme"
+msgstr "| Powered by Responsive Theme"
+
+#: partials/header/main-navigation.php:16
+msgid "Menu"
+msgstr "Valikko"
+
+#. translators: %s Name of current post. Only visible to screen readers
+#: partials/single/content.php:22
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Jatka lukemista<span class=\"screen-reader-text\">%s</span>"
+
+#: partials/single/layout.php:50
+msgid "About"
+msgstr "Tietoja"
+
+#: partials/single/layout.php:73
+msgid "Previous Post is "
+msgstr "Edellinen"
+
+#: partials/single/layout.php:74
+msgid "Next Post is"
+msgstr "Seuraava artikkeli"
+
+#: searchform.php:22
+msgid "Search for:"
+msgstr "Hae:"
+
+#: searchform.php:23
+msgid "Search here &hellip;"
+msgstr "Etsi täältä …"
+
+#: searchform.php:24
+msgid "Go"
+msgstr "Mene"
+
+#: sidebar-gallery.php:26
+msgid "Image Information"
+msgstr "Kuvan tallennus"
+
+#: sidebar-gallery.php:33
+msgid "Full Size:"
+msgstr "Täysikokoinen"
+
+#: sidebar-gallery.php:39
+msgid "Aperture: f&#47;"
+msgstr "Aukko: f /"
+
+#: sidebar-gallery.php:44
+msgid "Focal Length:"
+msgstr "Polttoväli:"
+
+#: sidebar-gallery.php:44
+msgid "mm"
+msgstr "kk"
+
+#: sidebar-gallery.php:48
+msgid "ISO:"
+msgstr "ISO:"
+
+#: sidebar-gallery.php:52
+msgid "Shutter:"
+msgstr "Suljin"
+
+#: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
+msgid "sec"
+msgstr "sek"
+
+#: sidebar-gallery.php:69
+msgid "Camera:"
+msgstr "Kamera:"
+
+#: sidebar-home.php:34
+msgid "Fermentum"
+msgstr "fermentum"
+
+#: sidebar-home.php:40
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Tämä on ensimmäinen kotisi widget-laatikko. Muokataksesi siirry kohtaan "
+"Ulkoasu> Widgetit ja valitse kuudes widget alueen 6 nimeltä Home Widget 1. "
+"Ylhäältä. Otsikkoa voidaan hallita myös widgetistä."
+
+#: sidebar-home.php:54
+msgid "Elementum"
+msgstr "Elementum"
+
+#: sidebar-home.php:60
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Tämä on toisen kodin widget-laatikko. Muokataksesi siirry kohtaan Ulkoasu> "
+"Widgetit ja valitse seitsemäs widget alueen 7, nimeltään Kotiwidgetti 2, "
+"ylhäältä. Otsikkoa voidaan hallita myös widgetistä."
+
+#: sidebar-home.php:74
+msgid "Interdum"
+msgstr "Interdum"
+
+#: sidebar-home.php:78
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Tämä on kolmas kotisi widget-laatikko. Muokataksesi siirry kohtaan Ulkoasu> "
+"Widgetit ja valitse kahdeksas widget alueen 8 nimeltä Home Widget 3. "
+"Ylhäältä. Otsikkoa voidaan hallita myös widgetistä."
 
 #. Theme URI of the plugin/theme
-# INSTRUCTION: Theme URI of the plugin/theme
-msgid "http://cyberchimps.com/responsive-theme/"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Instructions"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Activate installed plugin"
-msgid_plural "Activate installed plugins"
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Plugin activated successfully."
-msgstr ""
-
-#. Theme Name of the plugin/theme
-# INSTRUCTION: Theme Name of the plugin/theme
-msgid "Responsive"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Responsive Add Features"
-msgstr ""
+msgid "https://cyberchimps.com/responsive"
+msgstr "https://cyberchimps.com/responsive"
 
 #. Description of the plugin/theme
-# INSTRUCTION: Description of the plugin/theme
-msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgid ""
+"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
 msgstr ""
+"Responsive on täysin muokattava, nopea ja mobiiliystävällinen WordPress-"
+"teema."
 
-#: core/includes/functions.php
-msgid "Return to Required Plugins Installer"
-msgstr ""
+#. Author URI of the plugin/theme
+msgid "https://cyberchimps.com/"
+msgstr "https://cyberchimps.com/"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Scripts"
-msgstr ""
+#. Template Name of the plugin/theme
+msgid "Gutenberg Fullwidth No title"
+msgstr "Gutenberg Koko leveys Ei otsikkoa"
 
-#: searchform.php
-msgid "Search for:"
-msgstr ""
+#. translators: 1: comment count number, 2: title.
+#: comments.php:48
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s kommentti tuotteelle%2$s"
+msgstr[1] "%1$s Kommentit tuotteelle “%2$s”"
 
-#: core/includes/functions.php
-msgid "Something went wrong with the plugin API."
-msgstr ""
+#: functions.php:126
+msgctxt "Name of the small font size in the block editor"
+msgid "Small"
+msgstr "Pieni"
 
-#: core/includes/functions-update.php
-#. Translators: This is a big update. Please read the blog post beforeupdating.
-# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
-msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
-msgstr ""
+#: functions.php:127
+msgctxt "Short name of the small font size in the block editor."
+msgid "S"
+msgstr "S"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+#: functions.php:132
+msgctxt "Name of the regular font size in the block editor"
+msgid "Regular"
+msgstr "Normaali"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+#: functions.php:133
+msgctxt "Short name of the regular font size in the block editor."
+msgid "M"
+msgstr "M"
 
-#: core/includes/upsell/theme-upsell.php
-msgid "Themes You Can Trust"
-msgstr ""
+#: functions.php:138
+msgctxt "Name of the large font size in the block editor"
+msgid "Large"
+msgstr "Suuri"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Title Text"
-msgstr ""
+#: functions.php:139
+msgctxt "Short name of the large font size in the block editor."
+msgid "L"
+msgstr "L"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Translate"
-msgstr ""
+#: functions.php:144
+msgctxt "Name of the larger font size in the block editor"
+msgid "Larger"
+msgstr "Suurempi"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Upgrade"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr ""
-
+#: functions.php:145
+msgctxt "Short name of the larger font size in the block editor."
+msgid "XL"
+msgstr "XL"

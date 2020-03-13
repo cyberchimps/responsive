@@ -1,1025 +1,2592 @@
+# <!=Copyright (C) 2020
+# This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive Theme\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-28 06:06:32 UTC\n"
-"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
-"Language-Team: Danish, Denmark\n"
+"Project-Id-Version: Responsive 4.1.7\n"
+"Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
+"POT-Creation-Date: 2020-03-13 09:36:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: WebTranslateIt.com\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"PO-Revision-Date: 2020-03-13 15:25+0530\n"
+"Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language: da_DK\n"
 
-#: page.php
-#: landing-page.php
-#: index.php
-#: image.php
-#: full-width-page.php
-#: content-sidebar-page.php
-#: content-sidebar-half-page.php
-#: blog.php
-#: blog-excerpt.php
-#: archive.php
-#: home.php
-#: search.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: sitemap.php
-msgid "Pages:"
-msgstr "Sider:"
+#: admin/templates/free-vs-pro.php:50
+msgid "17"
+msgstr "17"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "&#8249; Older posts"
-msgstr "&#8249; Ældre artikler"
+#: admin/admin-functions.php:21
+#: admin/class-responsive-plugin-install-helper.php:157
+msgid "Activating "
+msgstr "Aktivering"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "Newer posts &#8250;"
-msgstr "Nyere artikler &#8250;"
+#: admin/admin-functions.php:22
+msgid "Not connect. Verify Network."
+msgstr "Ikke forbinde. Bekræft netværk."
 
-#: blog.php
-#: content-sidebar-half-page.php
-#: content-sidebar-page.php
-#: full-width-page.php
-#: home.php
-#: image.php
-#: index.php
-#: landing-page.php
-#: page.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: core/includes/functions.php
-msgid "Read more &#8250;"
-msgstr "Læs mere &#8250;"
+#: admin/admin-functions.php:23
+msgid "Requested page not found. [404]"
+msgstr "Den anmodede side blev ikke fundet. [404]"
 
-#: comments.php
-msgid "This post is password protected. Enter the password to view any comments."
-msgstr "Artiklen er beskyttet af kodeord. Indtast kodeordet for at se kommentarerne."
+#: admin/admin-functions.php:24
+msgid "Internal Server Error [500]"
+msgstr "Intern serverfejl [500]"
 
-#: comments.php
-#: comments.php
+#: admin/admin-functions.php:25
+msgid "Requested JSON parse failed"
+msgstr "Anmodede JSON-fortolkning mislykkedes"
+
+#: admin/admin-functions.php:26
+msgid "Time out error"
+msgstr "Fejl ved timeout"
+
+#: admin/admin-functions.php:27
+msgid "Ajax request aborted"
+msgstr "Ajax anmodning afbrudt"
+
+#: admin/admin-functions.php:28
+msgid "Uncaught Error"
+msgstr "Ikke-fanget fejl"
+
+#: admin/class-responsive-plugin-install-helper.php:93
+msgid "Install and activate &raquo;"
+msgstr "Installer og aktiver &amp; raquo;"
+
+#: admin/class-responsive-plugin-install-helper.php:97
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Activate"
+msgstr "Aktiver"
+
+#: admin/class-responsive-plugin-install-helper.php:112
+msgid "Deactivate"
+msgstr "Deaktiver"
+
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Jetpack Portfolio"
+msgstr "Jetpack-portefølje"
+
+#: admin/templates/free-vs-pro.php:15
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:389
+#: partials/custom-home/featured-area.php:131
+msgid "Features"
+msgstr "Funktioner"
+
+#: admin/templates/free-vs-pro.php:16
+msgid "Free"
+msgstr "Gratis"
+
+#: admin/templates/free-vs-pro.php:17 admin/templates/free-vs-pro.php:50
+#: admin/templates/free-vs-pro.php:51
+msgid "Pro"
+msgstr "Pro-version"
+
+#: admin/templates/free-vs-pro.php:23
+msgid "Mobile Friendly"
+msgstr "Mobilvenlig"
+
+#: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
+msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
+msgstr "Skyder, portefølje, prissætning tabeller, WooCommerce widgets osv."
+
+#: admin/templates/free-vs-pro.php:31
+msgid "Blazing Fast Speed"
+msgstr "Forrygende hurtig hastighed"
+
+#: admin/templates/free-vs-pro.php:32
+msgid "Optimized for speed, loads in under 2 seconds"
+msgstr "Optimeret til hastighed, belastninger på under 2 sekunder"
+
+#: admin/templates/free-vs-pro.php:39
+msgid "Fully Customizable"
+msgstr "Kan tilpasses fuldt ud"
+
+#: admin/templates/free-vs-pro.php:40
+msgid "Using the customizer options for layout, fonts & colors"
+msgstr "Brug af tilpasningsindstillinger for layout, skrifttyper & farver"
+
+#: admin/templates/free-vs-pro.php:42
+msgid "Limited Options"
+msgstr "Begrænsede indstillinger"
+
+#: admin/templates/free-vs-pro.php:47
+msgid "Ready-to-use Website Templates"
+msgstr "Skabeloner til websteder, der er klar til brug"
+
+#: admin/templates/free-vs-pro.php:48
+msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
+msgstr ""
+"Skabeloner til Elementor-sidebyggerog Gutenbergs webstedsskabeloner, der er "
+"klar til brug"
+
+#: admin/templates/free-vs-pro.php:51
+msgid "30+"
+msgstr "30+"
+
+#: admin/templates/free-vs-pro.php:55
+msgid "Exclusive Widgets"
+msgstr "Eksklusive widgets"
+
+#: admin/templates/free-vs-pro.php:63
+msgid "Exclusive Content, Deals & Offers"
+msgstr "Eksklusivt indhold, tilbud og tilbud"
+
+#: admin/templates/free-vs-pro.php:64
+msgid "Get access to exclusive WordPress content, deals & offers"
+msgstr "Få adgang til eksklusivt WordPress-indhold, tilbud og tilbud"
+
+#: admin/templates/free-vs-pro.php:71
+msgid "Private Priority Email Support"
+msgstr "Understøttelse af e-mail med privat prioritet"
+
+#: admin/templates/free-vs-pro.php:72
+msgid "Need help? Just raise a support ticket to get priority email support"
+msgstr ""
+"Har du brug for hjælp? Bare hæv en supportbillet for at få prioriteret e-"
+"mail-support"
+
+#. Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr "Responsivt"
+
+#: comments.php:27
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Dette indlæg er beskyttet med adgangskode. Skriv adgangskoden for at se "
+"eventuelle kommentarer."
+
+#. translators: 1: title.
+#: comments.php:42
+msgid "One Comment on &ldquo;%1$s&rdquo;"
+msgstr "En kommentar til \"%1$s\""
+
+#: comments.php:58 comments.php:71
 msgid "&#8249; Older comments"
 msgstr "&#8249; Ældre kommentarer"
 
-#: comments.php
-#: comments.php
+#: comments.php:60 comments.php:73
 msgid "Newer comments &#8250;"
 msgstr "Nyere kommentarer &#8250;"
 
-#: comments.php
+#: comments.php:85
 msgid "Pings&#47;Trackbacks"
-msgstr "Pings&#47;Trackbacks"
+msgstr "Pings &#47; Trackbacks"
 
-#: comments.php
-msgid "%1$d %2$s for \"%3$s\""
-msgstr "%1$d %2$s for \"%3$s\""
-
-#: comments.php
+#. translators: 1 : Count, 2 : Pings 3 : Post title
+#: comments.php:102
 msgid "Name"
 msgstr "Navn"
 
-#: comments.php
+#: comments.php:104
 msgid "E-mail"
-msgstr "Email"
+msgstr "E-mail"
 
-#: comments.php
+#: comments.php:106
 msgid "Website"
 msgstr "Hjemmeside"
 
-#: footer.php
-msgid "&copy;"
-msgstr "&copy;"
-
-#: footer.php
-msgid "scroll to top"
-msgstr "Til toppen"
-
-#: footer.php
-msgid "&uarr;"
-msgstr "&uarr;"
-
-#: footer.php
-msgid "Responsive Theme"
-msgstr "Responsive-tema"
-
-#: footer.php
-msgid "powered by"
-msgstr "på"
-
-#: footer.php
-msgid "WordPress"
-msgstr "WordPress"
-
-#: image.php
-msgid "&#8249; Return to"
-msgstr "&#8249; Tilbage til"
-
-#: image.php
-#: post-meta-page.php
-#: post-meta.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "No Comments &darr;"
-msgstr "Ingen kommentarer &darr;"
-
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "1 Comment &darr;"
-msgstr "1 kommentar &darr;"
-
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "% Comments &darr;"
-msgstr "% kommentarer &darr;"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Tagged with:"
-msgstr "Mærker:"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Posted in %s"
-msgstr "Udgivet i %s"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: sitemap.php
-msgid "Edit"
-msgstr "Rediger"
-
-#: loop-no-posts.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404-fejl!"
-
-#: loop-no-posts.php
-msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
-msgstr "Desværre blev indholdet ikke fundet. Prøv igen."
-
-#: loop-no-posts.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Du kan vende tilbage %s eller søge efter siden, du ledte efter."
-
-#: loop-no-posts.php
-#: core/includes/functions.php
-msgid "Home"
-msgstr "Forside"
-
-#: loop-no-posts.php
-msgid "&larr; Home"
-msgstr "&larr; Hjem"
-
-#: loop-header.php
-msgid "Daily Archives: %s"
-msgstr "Dagligt arkiv: %s"
-
-#: loop-header.php
-msgid "Monthly Archives: %s"
-msgstr "Månedligt arkiv: %s"
-
-#: loop-header.php
-msgid "Yearly Archives: %s"
-msgstr "Årligt arkiv: %s"
-
-#: loop-header.php
-msgid "Blog Archives"
-msgstr "Blog-arkiv"
-
-#: loop-no-posts.php
-msgid "Your search for %s did not match any entries."
-msgstr "Din søgning efter %s matchede ikke noget indhold."
-
-#: sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Permanent link til %s"
-
-#: core/includes/functions.php
-#: loop-header.php
-msgid "Search results for: %s"
-msgstr "Søgeresultater for: %s"
-
-#: searchform.php
-msgid "search here &hellip;"
-msgstr "søg her &hellip;"
-
-#: searchform.php
-msgid "Go"
-msgstr "Gå"
-
-#: sidebar-gallery.php
-msgid "Image Information"
-msgstr "Billedinformation"
-
-#: sidebar-gallery.php
-msgid "Full Size:"
-msgstr "Fuld opløsning:"
-
-#: sidebar-gallery.php
-msgid "Aperture: f&#47;"
-msgstr "Blænde: f&#47;"
-
-#: sidebar-gallery.php
-msgid "Focal Length:"
-msgstr "Brændvidde:"
-
-#: sidebar-gallery.php
-msgid "mm"
-msgstr "mm"
-
-#: sidebar-gallery.php
-msgid "ISO:"
-msgstr "ISO:"
-
-#: sidebar-gallery.php
-msgid "Shutter:"
-msgstr "Shutter:"
-
-#: sidebar-gallery.php
-msgid "Camera:"
-msgstr "Kamera:"
-
-#: sidebar.php
-#: sidebar-right.php
-#: sidebar-right-half.php
-#: sidebar-left.php
-#: sidebar-left-half.php
-#: sidebar-half-left.php
-msgid "In Archive"
-msgstr "I arkiv"
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 1"
-msgstr "Hjemmewidget 1"
-
-msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
-msgstr "Dette er din første widget-boks på forsiden. For at redigere den skal du gå til Udseende > Widgets og vælge den 6. widget fra toppen i område seks kaldet Hjemmewidget 1. Titlen kan også ændres."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 2"
-msgstr "Hjemmewidget 2"
-
-msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
-msgstr "Dette er din anden widget-boks på forsiden. For at redigere den skal du gå til Udseende > Widgets og vælge den 7. widget fra toppen i område seks kaldet Hjemmewidget 2. Titlen kan også ændres."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 3"
-msgstr "Hjemmewidget 3"
-
-msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
-msgstr "Dette er din trejde widget-boks på forsiden. For at redigere den skal du gå til Udseende > Widgets og vælge den 8. widget fra toppen i område seks kaldet Hjemmewidget 3. Titlen kan også ændres."
-
-#: single.php
-msgid "About"
-msgstr "Om"
-
-#: sitemap.php
-msgid "Categories"
-msgstr "Kategorier"
-
-#: sitemap.php
-msgid "Latest Posts"
-msgstr "Nyeste artikler"
-
-#: sitemap.php
-msgid "Pages"
-msgstr "Sider"
-
-#: core/includes/functions.php
-msgid "Top Menu"
-msgstr "Topmenu"
-
-#: core/includes/functions.php
-msgid "Header Menu"
-msgstr "Header-menu"
-
-#: core/includes/functions.php
-msgid "Sub-Header Menu"
-msgstr "Subheader-menu"
-
-#: core/includes/functions.php
-msgid "Footer Menu"
-msgstr "Footer-menu"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Page %s"
-msgstr "Side %s"
-
-#: core/includes/functions.php
-msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
-msgstr "<span class=\"%1$s\">Udgivet den </span>%2$s<span class=\"%3$s\"> af </span>%4$s"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "View all posts by %s"
-msgstr "Se alle artikler af %s"
-
-#: core/includes/functions.php
-msgid "Archive for %s"
-msgstr "Arkiv for %s"
-
-#: core/includes/functions.php
-msgid "Posts tagged %s"
-msgstr "Artikler med mærket %s"
-
-#: core/includes/functions.php
-msgid "Error 404"
-msgstr "Fejl 404"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "More Themes"
-msgstr "Flere temaer"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Showcase"
-msgstr "Fremvisning"
-
-#: core/includes/functions-sidebar.php
-msgid "Main Sidebar"
-msgstr "Hovedpanel"
-
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar"
-msgstr "Højre panel"
-
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar"
-msgstr "Venstre panel"
-
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar Half Page"
-msgstr "Venstre panel - Halv side"
-
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar Half Page"
-msgstr "Højre panel - Halv side"
-
-#: core/includes/functions-sidebar.php
-msgid "Gallery Sidebar"
-msgstr "Galleri-panel"
-
-#: core/includes/functions-sidebar.php
-msgid "Colophon Widget"
-msgstr "Kolofon-widget"
-
-#: core/includes/functions-sidebar.php
-msgid "Top Widget"
-msgstr "Topwidget"
-
-#: blog.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog (full posts)"
-msgstr "Blog (hele artikler)"
-
-#: blog-excerpt.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog Excerpt (summary)"
-msgstr "Bloguddrag (sammendrag)"
-
-#: content-sidebar-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar"
-msgstr "Indhold/Panel"
-
-#: sidebar-content-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content"
-msgstr "Panel/Indhold"
-
-#: content-sidebar-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar Half Page"
-msgstr "Indhold/Panel halv side"
-
-#: sidebar-content-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content Half Page"
-msgstr "Panel/Indhold halv side"
-
-#: full-width-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Full Width Page (no sidebar)"
-msgstr "Fuld sidebrede (intet panel)"
-
-#: landing-page.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Landing Page (no menu)"
-msgstr "Start side (ingen menu)"
-
-#: sitemap.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sitemap"
-msgstr "Sitemap"
-
-#: core/includes/post-custom-meta.php
+#: core/gutenberg/gutenberg-support.php:31
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:58
+msgid "Button Color"
+msgstr "Knapfarve"
+
+#: core/gutenberg/gutenberg-support.php:36
+msgid "Button Hover Color"
+msgstr "Knappegefarve"
+
+#: core/gutenberg/gutenberg-support.php:41
+msgid "Button Hover Text Color"
+msgstr "Tekstfarve på knap ved mouse-over"
+
+#: core/gutenberg/gutenberg-support.php:46
+msgid "Button Text Color"
+msgstr "Knap tekstfarve"
+
+#: core/gutenberg/gutenberg-support.php:53
+msgid "Text color"
+msgstr "Tekstfarve"
+
+#: core/gutenberg/gutenberg-support.php:60
+msgid "Container Background Color"
+msgstr "Beholder baggrundsfarve"
+
+#: core/includes/classes/class-responsive-admin-settings.php:91
+msgid "Responsive Options"
+msgstr "Responsive muligheder"
+
+#: core/includes/classes/class-responsive-admin-settings.php:194
+msgid "Get Started"
+msgstr "Kom i gang"
+
+#: core/includes/classes/class-responsive-admin-settings.php:196
+msgid "Free Vs Pro "
+msgstr "Gratis Vs Pro"
+
+#: core/includes/classes/class-responsive-admin-settings.php:231
+msgid "Import a website template(FREE)"
+msgstr "Importere en webstedsskabelon(GRATIS)"
+
+#: core/includes/classes/class-responsive-admin-settings.php:237
+msgid ""
+"Install Responsive Add-ons to get ready-to-use website templates that can be "
+"imported with one click."
+msgstr ""
+"Installer responsive tilføjelsesprogram for at få brugsskabeloner, der kan "
+"importeres med et enkelt klik."
+
+#: core/includes/classes/class-responsive-admin-settings.php:242
+msgid "Learn More &raquo;"
+msgstr "Få mere at vide &amp; raquo;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:269
+msgid "Support"
+msgstr "Support"
+
+#: core/includes/classes/class-responsive-admin-settings.php:273
+msgid "Have questions? Get in touch with us. We'll be happy to help"
+msgstr "Har du spørgsmål? Kontakt os. Vi vil være glade for at hjælpe"
+
+#: core/includes/classes/class-responsive-admin-settings.php:277
+msgid "Request Support &raquo;"
+msgstr "Anmod om support &raquo;"
+
+#. translators: %1$s: Responsive Support link.
+#: core/includes/classes/class-responsive-admin-settings.php:303
+msgid "Change site layout"
+msgstr "Ændre webstedslayout"
+
+#: core/includes/classes/class-responsive-admin-settings.php:308
+msgid "Customize fonts/typography"
+msgstr "Tilpasse skrifttyper/typografi"
+
+#: core/includes/classes/class-responsive-admin-settings.php:313
+msgid "Upload logo & site icon"
+msgstr "Upload logo & site ikon"
+
+#: core/includes/classes/class-responsive-admin-settings.php:318
+msgid "Add/edit navigation menu"
+msgstr "Menuen Tilføj/rediger navigation"
+
+#: core/includes/classes/class-responsive-admin-settings.php:323
+msgid "Customize header options"
+msgstr "Tilpasse indstillinger for sidehoved"
+
+#: core/includes/classes/class-responsive-admin-settings.php:328
+msgid "Customize footer options"
+msgstr "Tilpasse indstillinger for sidefod"
+
+#: core/includes/classes/class-responsive-admin-settings.php:333
+msgid "Update blog layout"
+msgstr "Opdatere bloglayout"
+
+#: core/includes/classes/class-responsive-admin-settings.php:338
+msgid "Update page layout"
+msgstr "Opdater sidelayout"
+
+#: core/includes/classes/class-responsive-admin-settings.php:346
+msgid "Quick Start:"
+msgstr "Hurtig start:"
+
+#: core/includes/classes/class-responsive-admin-settings.php:365
+msgid "Community"
+msgstr "Fællesskab"
+
+#: core/includes/classes/class-responsive-admin-settings.php:369
+msgid ""
+"Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
+"and help each other"
+msgstr ""
+"Mød responsive power-brugere. Sig hej, stil spørgsmål, giv feedback, og "
+"hjælp hinanden"
+
+#: core/includes/classes/class-responsive-admin-settings.php:373
+msgid "Join Facebook Group &raquo;"
+msgstr "Bliv medlem af Facebook-gruppen &amp; raquo;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:387
+msgid "Feedback"
+msgstr "Feedback"
+
+#: core/includes/classes/class-responsive-admin-settings.php:391
+msgid ""
+"Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
+"give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
+"the Responsive community."
+msgstr ""
+"Hej! Tak for at bruge Responsive tema. Kan du gøre os en tjeneste og give os "
+"en 5-stjernet bedømmelse? Din feedback holder os motiverede og hjælper os "
+"med at udvikle responsive-fællesskabet."
+
+#: core/includes/classes/class-responsive-admin-settings.php:395
+msgid "Submit Review &raquo;"
+msgstr "Indsend anmeldelse &raquo;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:421
+msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
+msgstr "Lynhurtig, mobilvenlig WordPress-tema, der kan tilpasses fuldt ud."
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+msgid "Sale!"
+msgstr "Tilbud!"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+msgid "WooCommerce Sidebar"
+msgstr "WooCommerce sidebjælke"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+msgid ""
+"This sidebar will be used on Product archive, Cart, Checkout and My Account "
+"pages."
+msgstr ""
+"Denne sidebjælke anvendes på vare visninger, Kurv, Betaling og på Min Kunde "
+"side."
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:44
+msgid "Colors"
+msgstr "Farver"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
+msgid "Cart Buttons"
+msgstr "Indkøbsvognsknapper"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:222
+msgid "Button"
+msgstr "Knap"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:74
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:62
+msgid "Button Text"
+msgstr "Knap tekst"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:78
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:66
+msgid "Button Hover"
+msgstr "Knap, når du er overt"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
+msgid "Button Hover Text"
+msgstr "Knap, hold markøren over tekst"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
+msgid "Checkout Button"
+msgstr "Knappen Udtjekning"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:46
+msgid "Layouts"
+msgstr "Layouts"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
+msgid "Main Content Width (%)"
+msgstr "Hovedindhold Bredde (%)"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
+msgid "Enable Cross-sells"
+msgstr "Aktiver krydssælger"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
+msgid "Cart Icon Visibility"
+msgstr "Synlighed af vognikon"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
+msgid "Display On All Devices"
+msgstr "Vis på alle enheder"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
+msgid "Disabled On All Devices"
+msgstr "Deaktiveret på alle enheder"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
+msgid "Product Catalog Options"
+msgstr "Indstillinger for produktkatalog"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
+msgid "Shop Options"
+msgstr "Webshop indstillinger"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
+msgid "Product Options"
+msgstr "Produkt indstillinger"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
+msgid "Single Product Options"
+msgstr "Indstillinger for enkelt produkt"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
+msgid "Cart Options"
+msgstr "Indkøbsvognsindstillinger"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
+msgid "Rating Color"
+msgstr "Bedømmelses farve"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
+msgid "Price Color"
+msgstr "Pris farver"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
+msgid "Add To Cart Buttons"
+msgstr "Føj til indkøbsvognsknapper"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:44
+#: core/includes/post-custom-meta.php:163
 msgid "Layout"
 msgstr "Layout"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/post-custom-meta.php
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:60
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:54
+msgid "Sidebar Position"
+msgstr "Sidebarens placering"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:56
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:62
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:56
+msgid "Right Sidebar"
+msgstr "Højre Sidebar"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:57
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:57
+msgid "Left Sidebar"
+msgstr "Venstre Sidebar"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:64
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
+msgid "No Sidebar"
+msgstr "Ingen sidebar"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
+msgid "Shop Product"
+msgstr "Butik produkt"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
+msgid "Catalog View"
+msgstr "Katalogvisning"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
+msgid "Grid View"
+msgstr "Gittervisning"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:70
+msgid "List View"
+msgstr "Listevisning"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
+msgid "Content Aligmnment"
+msgstr "Indhold Aligmnment"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:91
+msgid "Center"
+msgstr "Center"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:78
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:194
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:198
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:202
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:204
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:92
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:156
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:74
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:96
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:111
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:126
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:196
+msgid "Left"
+msgstr "Venstre"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:79
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:192
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:196
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:200
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:205
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:93
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:157
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:127
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:197
+msgid "Right"
+msgstr "Højre"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
+msgid "Shop Elements"
+msgstr "Butikselementer"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
+msgid "Sale Notification"
+msgstr "Meddelelse om salg"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
+msgid "None"
+msgstr "Ingen"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:110
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:64
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:372
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:404
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:410
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:484
+#: core/includes/post-custom-meta.php:136
 msgid "Default"
 msgstr "Standard"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Hello, World!"
-msgstr "Hej Verden!"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
+msgid "Custom String"
+msgstr "Brugerdefineret streng"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your H2 subheadline here"
-msgstr "Din H2-overskrift her"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
+msgid "Sale % Value"
+msgstr "Salg % værdi"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
-msgstr "Din titel, undertitel og indholdet er redigerbar fra Temafunktioner. Billedet i den højre side kan være et billede eller endda en YouTube-video, hvis du ønsker."
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
+msgid "Sale Bubble Style"
+msgstr "Salg Bubble Style"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Call to Action"
-msgstr "Klik her"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
+msgid "Circle"
+msgstr "Cirkel"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Options"
-msgstr "Temafunktioner"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
+msgid "Circle Outline"
+msgstr "Cirkelkontur"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Options Saved"
-msgstr "Indstillinger er gemt"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
+msgid "Square"
+msgstr "Firkant"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Elements"
-msgstr "Layout-elementer"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
+msgid "Square Outline"
+msgstr "Firkantet kontur"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Disable Call to Action Button?"
-msgstr "Deaktiver 'Klik her'-knap"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
+msgid "Product Elements"
+msgstr "Produktelementer"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Save Options"
-msgstr "Gem indstillinger"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:67
+msgid "Gallery Layout"
+msgstr "Gallerilayout"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Restore Defaults"
-msgstr "Gendan standarder"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
+msgid "Vertical"
+msgstr "Vertikal"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Logo Upload"
-msgstr "Logo-upload"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
+msgid "Horizontal"
+msgstr "Horisontal"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Header"
-msgstr "Brugerdefineret header"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
+msgid "Single Product Structure"
+msgstr "Enkelt produktstruktur"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Need to replace or remove default logo?"
-msgstr "Vil du ændre eller fjerne standard-logoet?"
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
+msgid "Cart"
+msgstr "Kurv"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Home Page"
-msgstr "Forside"
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+msgid " / "
+msgstr "/"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Headline"
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
+msgid "Link values together"
+msgstr "Sammenkæde værdier sammen"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+msgid "Top"
+msgstr "Top"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:193
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:197
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:201
+msgid "Bottom"
+msgstr "Bund"
+
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:122
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:127
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
+msgid "px - em - rem"
+msgstr "px - em - rem"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
+msgid "Inherit"
+msgstr "Arv"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:65
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
+msgid "Thin: 100"
+msgstr "Tynd: 100"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
+msgid "Light: 200"
+msgstr "Lys: 200"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
+msgid "Book: 300"
+msgstr "Bog: 300"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
+msgid "Normal: 400"
+msgstr "Normal: 400"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
+msgid "Medium: 500"
+msgstr "Medium: 500"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
+msgid "Semibold: 600"
+msgstr "Semibold: 600"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
+msgid "Bold: 700"
+msgstr "Fed: 700"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
+msgid "Extra Bold: 800"
+msgstr "Ekstra fed: 800"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
+msgid "Black: 900"
+msgstr "Sort: 900"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
+msgid "Arial, Helvetica, sans-serif"
+msgstr "Arial, Helvetica, sans-serif"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:219
+msgid "Custom Fonts"
+msgstr "Tilpasse skrifttyper"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:236
+msgid "Standard Fonts"
+msgstr "Standardskrifttyper"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:250
+msgid "Google Fonts"
+msgstr "Google Skrifttyper"
+
+#: core/includes/customizer/controls/upsell/class-responsive-control-upsell.php:72
+#: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
+msgid "PRO"
+msgstr "Pro"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
+msgid "View PRO Features"
+msgstr "Vis PRO-funktioner"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
+msgid "Pro Ready Sites"
+msgstr "Pro-forberedte websteder"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
+msgid "Form Builder"
+msgstr "Formular Builder"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
+msgid "Interactive Sliders and Carousels"
+msgstr "Interaktive skydere og karruseller"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
+msgid "Pricing Tables"
+msgstr "Pristabeller"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
+msgid "Portfolio and Post Layouts"
+msgstr "Portefølje- og indlægslayout"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
+msgid "Private, Priority Support"
+msgstr "Privat, prioriteret support"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
+msgid "Get the PRO version!"
+msgstr "Få PRO version!"
+
+#: core/includes/customizer/customizer.php:29
+msgid "CSS Styles"
+msgstr "CSS-typografier"
+
+#: core/includes/customizer/customizer.php:43
+msgid "Custom CSS Styles"
+msgstr "Brugerdefinerede CSS-typografier"
+
+#: core/includes/customizer/customizer.php:64
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
+msgid "Gradient"
+msgstr "Gradient"
+
+#: core/includes/customizer/customizer.php:65
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:232
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
+msgid "Flat"
+msgstr "Flad"
+
+#: core/includes/customizer/customizer.php:98
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
+msgid "Choose Post"
+msgstr "Vælg Indlæg"
+
+#: core/includes/customizer/helper.php:35
+#: core/includes/customizer/helper.php:118
+#: core/includes/customizer/helper.php:224
+#: core/includes/customizer/helper.php:247
+#: core/includes/customizer/helper.php:274
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:48
+msgid "Title"
 msgstr "Titel"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your headline"
-msgstr "Indtast din titel"
+#: core/includes/customizer/helper.php:36
+#: core/includes/customizer/helper.php:119
+#: core/includes/customizer/helper.php:225
+msgid "Featured Image"
+msgstr "Udvalgt billede"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Subheadline"
-msgstr "Undertitel"
+#: core/includes/customizer/helper.php:37
+#: core/includes/customizer/helper.php:120
+#: core/includes/customizer/helper.php:252
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:79
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:139
+msgid "Meta"
+msgstr "Meta"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your subheadline"
-msgstr "Indtast undertitel"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Content Area"
+#: core/includes/customizer/helper.php:38
+#: core/includes/customizer/helper.php:121
+#: core/includes/customizer/helper.php:226
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:196
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:43
+msgid "Content"
 msgstr "Indhold"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your content"
-msgstr "Indtast dit indhold"
+#: core/includes/customizer/helper.php:173
+msgid "Site Branding"
+msgstr "Branding af websteder"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (URL)"
-msgstr "Klik her (URL)"
+#: core/includes/customizer/helper.php:174
+msgid "Main Navigation"
+msgstr "Primærnavigation"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action URL"
-msgstr "Indtast 'Klik her'-URL"
+#: core/includes/customizer/helper.php:248
+msgid "Rating"
+msgstr "Bedømmelse"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (Text)"
-msgstr "'Klik her' (Tekst)"
+#: core/includes/customizer/helper.php:249
+#: core/includes/customizer/helper.php:276
+msgid "Price"
+msgstr "Pris"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action text"
-msgstr "Indtast teksten til 'Klik her'"
+#: core/includes/customizer/helper.php:250
+#: core/includes/customizer/helper.php:278
+msgid "Short Description"
+msgstr "Kort Beskrivelse"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Featured Content"
-msgstr "Fremhævet indhold"
+#: core/includes/customizer/helper.php:251
+#: core/includes/customizer/helper.php:279
+msgid "Add to Cart"
+msgstr "Tilføj til kurv"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "See Docs"
-msgstr "Se dokumentationen"
+#: core/includes/customizer/helper.php:275
+msgid "Category"
+msgstr "Kategori"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Paste your shortcode, video or image source"
-msgstr "Indsæt din shortcode-, video- eller billedekilde"
+#: core/includes/customizer/helper.php:277
+msgid "Ratings"
+msgstr "Bedømmelser"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Layouts"
-msgstr "Standard-layouts"
+#: core/includes/customizer/helper.php:763
+msgid "Read more &raquo;"
+msgstr "Læs mere &raquo;"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Static Page Layout"
-msgstr "Standard statisk side-layout"
+#: core/includes/customizer/helper.php:803
+#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+msgid "Read More &raquo;"
+msgstr "Læs mere &raquo;"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Single Blog Post Layout"
-msgstr "Standard enkelt-blogindlæg-layout"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
+msgid "Entry Elements"
+msgstr "Indgangselementer"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Blog Posts Index Layout"
-msgstr "Standard blogindlæg-indeks-layout"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
+msgid "Entry Featured Image"
+msgstr "Udvalgte billeder for indtastning"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Social Icons"
-msgstr "Sociale ikoner"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:87
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:69
+msgid "Style"
+msgstr "Stil"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:91
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:90
+msgid "Stretched"
+msgstr "Strukket"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:110
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:109
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:110
+msgid "Alignment"
+msgstr "Justering"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:206
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:158
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:128
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:198
+msgid "center"
+msgstr "center"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:106
+msgid "Entry Title"
+msgstr "Titel"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
+msgid "Entry Meta"
+msgstr "Indlæg metabeskrivelse"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
+msgid "Meta Elements"
+msgstr "Metaelementer"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
+msgid "Author"
+msgstr "Forfatter"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:149
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:149
+msgid "Date"
+msgstr "Dato"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:150
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:150
+msgid "Categories"
+msgstr "Kategorier"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:151
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:170
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
+msgid "Meta Separator"
+msgstr "Metaseparator"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
+msgid "Meta Alignment"
+msgstr "Metajustering"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
+msgid "Entry Content"
+msgstr "Ingang indhold"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
+msgid "Content Type"
+msgstr "Indholdstype"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:197
+msgid "Excerpt"
+msgstr "Uddrag"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:124
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:194
+msgid "Content Alignment"
+msgstr "Indholds justering"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:211
+msgid "Excerpt Length"
+msgstr "Uddragets længde"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:215
+msgid "Read More Text"
+msgstr "Læs Mere Tekst"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
+msgid "Read More Type"
+msgstr "Læs mere type"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
+msgid "Link"
+msgstr "Link"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-panel.php:85
+#: core/includes/customizer/settings/class-responsive-panel.php:86
+msgid "Content Header"
+msgstr "Sidehoved for indhold"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
+msgid "Enable Blog Page Title"
+msgstr "Aktiver titel på blogside"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
+msgid "Blog Page Title"
+msgstr "Opslagstavle sidetitel"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
+msgid "Entry Columns"
+msgstr "Indtastningskolonner"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
+msgid "Enable Masonry Layout"
+msgstr "Aktiver layout af murværk"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
+msgid "Title Color"
+msgstr "Titel Farve"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:50
+msgid "Description Color"
+msgstr "Beskrivelses farve"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
+msgid "Breadcrumb Color"
+msgstr "Brødkrummefarve"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
+msgid "Disable breadcrumb list?"
+msgstr "Deaktivere brødkrumme liste?"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
+msgid "Breadcrumb Position"
+msgstr "Brødkrummeposition"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
+msgid "Before Heading"
+msgstr "Før overskrift"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
+msgid "After Heading"
+msgstr "Efter overskrift"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:197
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:209
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:219
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:230
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:241
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:252
+msgid "Typography"
+msgstr "Typografi"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:53
+msgid "Description"
+msgstr "Beskrivelse"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:59
+msgid "Breadcrumb"
+msgstr "Brødkrummer"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:79
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#. translators: %1$s is Plugin Name
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+msgid "To have access to a shop section please install and configure %1$s."
+msgstr ""
+"Hvis du vil have adgang til et forretningsafsnit, skal du installere og "
+"konfigurere %1$s."
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+msgid "WooCommerce plugin"
+msgstr "WooCommerce plugin"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
+msgid "Recommended Plugins"
+msgstr "Anbefalede Plugins"
+
+#. translators: Orbit Fox Companion
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+msgid ""
+"Get access to even more powerful features that will help you build a "
+"beautiful fast and responsive website in no time at all."
+msgstr ""
+"Få adgang til endnu mere kraftfulde funktioner, der vil hjælpe dig med at "
+"opbygge en smuk hurtig og lydhør hjemmeside på ingen tid overhovedet."
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:51
+msgid "Background Color"
+msgstr "Baggrundsfarve"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:68
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:131
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:155
+msgid "Text Color"
+msgstr "Tekstfarve"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:80
+msgid "Links Color"
+msgstr "Links Farve"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
+msgid "Links Hover Color"
+msgstr "Links Hover Color"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
+msgid "Full Width Footer"
+msgstr "Sidefod i fuld bredde"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
+msgid "Footer Widgets"
+msgstr "Sidefod widgets"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:57
+msgid "Number of Columns"
+msgstr "Antal kolonner"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:66
+msgid "Footer Bar"
+msgstr "Footer bjælken"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+msgid "Social Links"
+msgstr "Sociale links"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
+#: core/includes/functions-extentions.php:337
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Twitter URL"
-msgstr "Indtast din Twitter-URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
+#: core/includes/functions-extentions.php:338
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Facebook URL"
-msgstr "Indtast din Facebook-URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
+#: core/includes/functions-extentions.php:339
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your LinkedIn URL"
-msgstr "Indtast din LinkedIn-URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
+#: core/includes/functions-extentions.php:340
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your YouTube URL"
-msgstr "Indtast din YouTube-URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "StumbleUpon"
-msgstr "StumbleUpon"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your StumbleUpon URL"
-msgstr "Indtast din StumbleUpon-URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "RSS Feed"
-msgstr "RSS-feed"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your RSS Feed URL"
-msgstr "Indtast din RSS-feed-URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
+#: core/includes/functions-extentions.php:343
 msgid "Google+"
 msgstr "Google+"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Google+ URL"
-msgstr "Indtast din Google+-URL"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
+#: core/includes/functions-extentions.php:342
+msgid "RSS Feed"
+msgstr "RSS-Feed"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
+#: core/includes/functions-extentions.php:344
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Instagram URL"
-msgstr "Indtast din Instagram-URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
+#: core/includes/functions-extentions.php:345
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Pinterest URL"
-msgstr "Indtast din Pinterest-URL"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
+#: core/includes/functions-extentions.php:341
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Yelp!"
-msgstr "Yelp!"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Yelp! URL"
-msgstr "Indtast din Yelp!-URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
+#: core/includes/functions-extentions.php:347
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Vimeo URL"
-msgstr "Indtast din Vimeo-URL"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+msgid "Yelp"
+msgstr "Yelp"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "foursquare"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your foursquare URL"
-msgstr "Indtast din foursquare-URL"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+msgid "Email Address"
+msgstr "E-mail Adresse"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom CSS Styles"
-msgstr "Brugerdefinerede CSS-styles"
-
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Tutorial"
-msgstr "CCS-vejledning"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom CSS styles."
-msgstr "Indtast brugerdefineret CSS."
-
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Scripts for Header and Footer"
-msgstr "Brugerdefinerede scripts for header og footer"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Quick Tutorial"
-msgstr "Kort vejledning"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to header.php &darr;"
-msgstr "Indsæt i header.php &darr;"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom header script."
-msgstr "Indtast dit brugerdefinerede header-script."
-
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to footer.php &darr;"
-msgstr "Indsæt i footer.php &darr;"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom footer script."
-msgstr "Indtast dit brugerdefinerede footer-script."
-
-#: core/includes/functions.php
-msgid "Activate Add Ons"
-msgstr "Aktiver tilføjelser"
-
-#: core/includes/functions.php
-msgid "All plugins installed and activated successfully. %s"
-msgstr "Alle plugins blev installeret og aktiveret. %s"
-
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "All theme settings will be lost!"
-msgstr "Alle temaindstillinger vil gå tabt!"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr "Område 10 - sidebar-colophon.php, 100% bredde footer-widgets"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr "Område 11 - sidebar-top.php - Vises til højre på headeren"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
-msgstr "Område 12 - sidebar-footer.php - Max 3 widgets pr. række"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
-msgstr "Område 1 - sidebar.php - Vises på siderne Standard, Blog, Bloguddrag"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
-msgstr "Område 2 - sidebar-right.php - Vises på siden Indhold/Panel"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
-msgstr "Område 3 - sidebar-left.php - Vises på siden Panel/Indhold"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
-msgstr "Område 4 - sidebar-left-half.php - Vises på siden Panel/Indhold halv side"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
-msgstr "Område 5 - sidebar-right-half.php - Vises på siden Panel/Indhold halv side"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr "Område 6 - sidebar-home.php - Vises på forsiden"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr "Område 7 - sidebar-home.php - Vises på forsiden"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr "Område 8 - sidebar-home.php - Vises på forsiden"
-
-#: core/includes/functions-sidebar.php
-msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
-msgstr "Område 9 - sidebar-gallery.php - Vises på siden efter et billede er blevet klikket på i et galleri"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Blog"
-msgstr "Blog"
-
-#: core/includes/functions-update.php
-msgid "blog post"
-msgstr "blogindlægget"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Blog Title Toggle"
-msgstr "Blogtitel til/fra"
-
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "check to disable"
-msgstr "klik for at deaktivere"
-
-#: core/includes/theme-options/theme-options.php
-msgid "check to enable"
-msgstr "klik for at aktivere"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Click here"
-msgstr "Klik her"
-
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Click OK to Restore."
-msgstr "Klik OK for at gendanne."
-
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Styles"
-msgstr "CSS-styles"
-
-#. Author of the plugin/theme
-# INSTRUCTION: Author of the plugin/theme
-msgid "CyberChimps.com"
-msgstr "CyberChimps.com"
-
-#: header.php
-msgid "&darr; Skip to Main Content"
-msgstr "&darr; Hop til hovedindhold"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Disable breadcrumb list?"
-msgstr "Slå hierarkisk liste fra?"
-
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Do you want to restore?"
-msgstr "Ønsker du at gendanne?"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enable Custom Front Page"
-msgstr "Aktivér brugerdefineret forside"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enable minified css?"
-msgstr "Aktiver minificeret css?"
-
-#: core/includes/functions-sidebar.php
-msgid "Footer Widget"
-msgstr "Footer-widget"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Help"
-msgstr "Hjælp"
-
-#. Author URI of the plugin/theme
-# INSTRUCTION: Author URI of the plugin/theme
-msgid "http://cyberchimps.com"
-msgstr "http://cyberchimps.com"
-
-#. Theme URI of the plugin/theme
-# INSTRUCTION: Theme URI of the plugin/theme
-msgid "http://cyberchimps.com/responsive-theme/"
-msgstr "http://cyberchimps.com/responsive-theme/"
-
-#: core/includes/functions.php
-msgid "Installing Plugin: %s"
-msgstr "Installerer plugin: %s"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Instructions"
-msgstr "Instruktioner"
-
-#: core/includes/functions.php
-msgid "Activate installed plugin"
-msgid_plural "Activate installed plugins"
-msgstr[0] "Aktiver det installerede plugin"
-msgstr[1] "Aktiver de installerede plugins"
-
-#: core/includes/functions.php
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] "Installer plugin"
-msgstr[1] "Installer plugins"
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "En kommentar til &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s kommentarer til &ldquo;%2$s&rdquo;"
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
-msgid_plural ""
-msgstr[0] "Beklager, du ikke har de korrekte tilladelser til at aktivere plugin'et %s. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'et aktiveret."
-msgstr[1] "Beklager, du ikke har de korrekte tilladelser til at aktivere plugin'erne. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'erne aktiveret."
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
-msgid_plural ""
-msgstr[0] "Beklager, du ikke har de korrekte tilladelser til at installere plugin'et %s. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'et installeret."
-msgstr[1] "Beklager, du ikke har de korrekte tilladelser til at installere plugin'erne. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'erne installeret."
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
-msgid_plural ""
-msgstr[0] "Beklager, du ikke har de korrekte tilladelser til at opdatere plugin'et %s. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'et opdateret."
-msgstr[1] "Beklager, du ikke har de korrekte tilladelser til at opdatere plugin'erne. Kontakt administratoren af ​​denne hjemmeside for at få hjælp til at få plugin'erne opdateret."
-
-#: core/includes/functions.php
-msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
-msgid_plural ""
-msgstr[0] "Følgende plugin skal opdateres til den seneste version for at sikre maksimal kompatibilitet med dette tema: %1$s."
-msgstr[1] "Følgende plugins skal opdateres til den seneste version for at sikre maksimal kompatibilitet med dette tema: %1$s."
-
-#: core/includes/functions.php
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] "Det følgende anbefalede plugin er deaktiveret: %1$s."
-msgstr[1] "De følgende anbefalede plugins er deaktiveret: %1$s."
-
-#: core/includes/functions.php
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] "Det følgende krævede plugin er deaktiveret: %1$s."
-msgstr[1] "De følgende krævede plugins er deaktiveret: %1$s."
-
-#: core/includes/functions.php
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] "Dette tema anbefaler det følgende plugin: %1$s."
-msgstr[1] "Dette tema anbefaler de følgende plugins: %1$s."
-
-#: core/includes/functions.php
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] "Dette tema kræver det følgende plugin: %1$s."
-msgstr[1] "Dette tema kræver de følgende plugins: %1$s."
-
-#: core/includes/theme-options/theme-options.php
-msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr "Tilsidesætter WordPress %1sforsideindstillinger%2s"
-
-#: core/includes/functions.php
-msgid "Plugin activated successfully."
-msgstr "Plugin aktiveret."
-
-#. Theme Name of the plugin/theme
-# INSTRUCTION: Theme Name of the plugin/theme
-msgid "Responsive"
-msgstr "Responsive"
-
-#: core/includes/functions.php
-msgid "Responsive Add Features"
-msgstr "Responsive tilføj funktioner"
-
-#. Description of the plugin/theme
-# INSTRUCTION: Description of the plugin/theme
-msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
-msgstr "Responsive Theme er et fleksibelt fundament med et flydende grid-system, der tilpasser din hjemmeside til mobile enheder, computer eller ethvert andet visningsmiljø. Temaet har 9 sideskabeloner, 11 widget-områder, 6 skabelon-layouts, 4 menupositioner og meget mere. Kraftfulde men simple temaindstillinger for fuld CMS-kontrol med let logo-upload, social networking og Webmaster Tools osv. Responsive er WooCommerce-kompatibel, klar til flersprogethed (WPML), har RTL-sprogunderstøttelse, er Retina-klar, søgemaskineoptimeret, W3C Markup-valideret og i øjeblikket oversat til 45 sprog. Cross-browser kompatibel. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Officielt support-forum</a> (http://cyberchimps.com/forum/free/responsive/)"
-
-#: core/includes/functions.php
-msgid "Return to Required Plugins Installer"
-msgstr "Tilbage til installationen af påkrævede plugins"
-
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:39
 msgid "Scripts"
 msgstr "Scripts"
 
-#: searchform.php
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
+msgid "Embeds to footer.php"
+msgstr "Integrertil footer.php"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:139
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:159
+msgid "Border Color"
+msgstr "Kantfarve"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
+msgid "Site Title Color"
+msgstr "Sidetitel Farve"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
+msgid "Site Title Hover Color"
+msgstr "Site titel hover-farve"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
+msgid "Site Tagline Color"
+msgstr "Farve på webstedskodelinje"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
+msgid "Header Widget"
+msgstr "Header Widget"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
+msgid "Full Width Header"
+msgstr "Sidehoved i fuld bredde"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
+msgid "Inline logo & Site Title"
+msgstr "Inline logo & Site Titel"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
+msgid "Header Elements"
+msgstr "Overskriftselementer"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:81
+msgid "Header Layout"
+msgstr "Header layout"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
+msgid "Header Alignment"
+msgstr "Justering af sidehoved"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
+msgid "Logo Padding (px)"
+msgstr "Logo polstring (px)"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
+msgid "Transparent Header"
+msgstr "Gennemsigtig header"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
+msgid "Enable on Complete Website"
+msgstr "Aktiver på komplet websted"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
+msgid "Site Content Padding (px)"
+msgstr "Udfyldning af webstedsindhold (px)"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
+msgid "Disable on 404, Search & Archives?"
+msgstr "Deaktiver på 404, Søg & Arkiv?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
+msgid "Disable on Blog page?"
+msgstr "Deaktiver på blog side?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
+msgid "Disable on Latest Posts Page?"
+msgstr "Deaktiver på seneste indlæg side?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
+msgid "Disable on Pages?"
+msgstr "Vil du deaktivere på sider?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
+msgid "Disable on Posts?"
+msgstr "Deaktivere på stillinger?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
+msgid "Disable on WooCommerce Product Pages?"
+msgstr "Deaktiver på WooCommerce produktsider?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
+#: core/includes/functions-sidebar.php:100
+msgid "Header Widgets"
+msgstr "Widgets til sidehoved"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
+msgid "Enable Header Widgets"
+msgstr "Aktiver sidehoved widgets"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
+msgid "Widgets Position"
+msgstr "Widgets Position"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
+msgid "Above Header"
+msgstr "Over sidehoved"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
+msgid "In Header"
+msgstr "I overskrift"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
+msgid "Below Header"
+msgstr "Under Overskrift"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
+msgid "Widgets Alignment"
+msgstr "Justering af widgets"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
+msgid "Spread"
+msgstr "Sprede"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
+msgid "Space Around"
+msgstr "Mellemrum omkring"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
+msgid "Active Menu Background Color"
+msgstr "Baggrundsfarve i aktiv menu"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
+msgid "Menu Item Link Color"
+msgstr "Kædefarve for menupunkt"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
+msgid "Menu Item Link Hover Color"
+msgstr "Link farve over menupunkt"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
+msgid "Sub Menu Background Color"
+msgstr "Undermenu baggrundsfarve"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+msgid "Sub Menu Item Link Color"
+msgstr "Farve på link farve i undermenupunkt"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+msgid "Sub Menu Item Link Hover Color"
+msgstr "Link farve over undermenupunkt"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+msgid "Menu Toggle Background Color"
+msgstr "Menu slå baggrundsfarve til/fra"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+msgid "Menu Toggle Color"
+msgstr "Menu til/fra-farve"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
+msgid "Full Width Main Navigation"
+msgstr "Hovednavigation i fuld bredde"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
+msgid "Enable Mobile Menu"
+msgstr "Aktivér menuen Mobil"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
+msgid "Breakpoint"
+msgstr "Pausepunkt"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:65
+msgid "Dropdown"
+msgstr "Dropdown"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
+msgid "FullScreen"
+msgstr "Fullscreen"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-panel.php:67
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+msgid "Sidebar Menu Alignment"
+msgstr "Justering af menu i sidepanel"
+
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
+msgid "Embeds to header.php"
+msgstr "Integrertil header.php"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
+msgid "Site Title"
+msgstr "Side Titel"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
+msgid "Site Tagline"
+msgstr "Side beskrivelse"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
+msgid "Choose Category"
+msgstr "Vælg kategori"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
+msgid "Custom Home Page"
+msgstr "Brugerdefineret startside"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
+msgid "Enable Custom Front Page"
+msgstr "Aktivere brugerdefineret forside"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
+msgid "Overrides the WordPress front page option"
+msgstr "Tilsidesætter indstillingen WordPress-forside"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
+msgid "Hero Area"
+msgstr "Helten område"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
+#: core/includes/functions.php:58 functions.php:526
+msgid "HAPPINESS"
+msgstr "Lykke"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:108
+msgid "Headline"
+msgstr "Overskrift"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
+#: core/includes/functions.php:59 functions.php:529
+msgid "IS A WARM CUP"
+msgstr "ER EN VARM KOP"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
+msgid "Subheadline"
+msgstr "Underoverskrift"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
+#: core/includes/functions.php:60 functions.php:532
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Din titel, undertitel og dette meget indhold kan redigeres fra Tema Option. "
+"Knappen Opfordring til handling og dens destinationslink. Billede til højre "
+"kan være et billede eller endda YouTube-video, hvis du vil."
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
+msgid "Content Area"
+msgstr "Indholdsområde"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
+msgid "Disable Call to Action Button?"
+msgstr "Vil du deaktivere knappen Opfordring til handling?"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
+msgid "Call to Action (URL)"
+msgstr "Call to Action URL"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
+msgid "Call to Action (Text)"
+msgstr "Call to Action TEXT"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
+msgid "Call to Action Button Style"
+msgstr "Typografi for handlingsknap"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
+msgid "Featured Content"
+msgstr "Fremhævet indhold"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
+msgid "Paste your shortcode, video or image source"
+msgstr "Indsætte din kortkode, video eller billedkilde"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
+msgid "About Section"
+msgstr "Om sektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
+msgid "Enable About Section"
+msgstr "Aktiver om sektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
+#: partials/custom-home/featured-area.php:105
+msgid "About Box Title"
+msgstr "Om bokstitel"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
+msgid "About Title"
+msgstr "Om titel"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
+msgid "About Text"
+msgstr "Om tekst"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
+msgid "Enter url as http://www.example.com"
+msgstr "Angiv url'en som http://www.example.com"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
+msgid "Feature Section"
+msgstr "Afsnittet Funktion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
+msgid "Enable Feature Section"
+msgstr "Aktivér funktionssektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
+msgid "Feature Title"
+msgstr "Fremhævet titel"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
+msgid "Select post for feature 1"
+msgstr "Vælg indlæg for funktion 1"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:457
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the feature. Recommended image size for the featured images: 130 x 130px"
+msgstr ""
+"Det fremhævede billede, titel og indhold fra indlæggene vil blive brugt til "
+"at vise funktionen. Anbefalet billedstørrelse for de fremhævede billeder: "
+"130 x 130px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
+msgid "Select post for feature 2"
+msgstr "Vælg indlæg for funktion 2"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
+msgid "Select post for feature 3"
+msgstr "Vælg indlæg for funktion 3"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
+msgid "Testimonial Section"
+msgstr "Vidnesbyrd sektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
+msgid "Enable Testimonial Section"
+msgstr "Aktivér sektionen For testimonial"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
+#: partials/custom-home/featured-area.php:217
+msgid "Testimonial"
+msgstr "Udtalelse"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
+msgid "Testimonial Title"
+msgstr "Testimonial titel"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
+msgid "Select Post"
+msgstr "Vælg post"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the client testimonials. Recommended image size for the featured images: 178 "
+"x 178px"
+msgstr ""
+"Den fremhævede billede, titel og indhold fra de stillinger, vil blive brugt "
+"til at vise kunden testimonials. Anbefalet billedstørrelse for de fremhævede "
+"billeder: 178 x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
+msgid "Team Section"
+msgstr "Holdsektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
+msgid "Enable Team Section"
+msgstr "Aktivér teamsektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
+msgid "team"
+msgstr "stab"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
+msgid "Team Title"
+msgstr "Holdtitel"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
+msgid "Select post for team member1"
+msgstr "Vælg indlæg til teammedlem1"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:622
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the team member. Recommended image size for the featured images: 178 x 178px"
+msgstr ""
+"Det fremhævede billede, titel og indhold fra indlæggene vil blive brugt til "
+"at vise teammedlemmet. Anbefalet billedstørrelse for de fremhævede billeder: "
+"178 x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
+msgid "Select post for team member2"
+msgstr "Vælg indlæg for teammedlem2"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
+msgid "Select post for team member3"
+msgstr "Vælg indlæg for teammedlem3"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
+msgid "Click to disable home page widgets"
+msgstr "Klik her for at deaktivere widgets på startsiden"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
+msgid "Contact Section"
+msgstr "Kontaktsektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
+msgid "Enable Contact Section"
+msgstr "Aktiver kontaktsektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
+msgid "Contact Us"
+msgstr "Kontakt os"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
+msgid "Contact section Title"
+msgstr "Titel på kontaktsektion"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
+msgid "Contact subtitle"
+msgstr "Kontakt undertitel"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
+msgid "Contact section Subtitle"
+msgstr "Kontakt sektion Undertitel"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
+msgid "Address"
+msgstr "Adresse"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
+#: core/includes/functions-extentions.php:349
+msgid "Email"
+msgstr "E-mail"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
+msgid "Phone no"
+msgstr "Telefonnummer"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
+msgid "Contact form shortcode"
+msgstr "Kontaktformular kortkode"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
+msgid "You can put Contact Form 7 shortcode here."
+msgstr "Du kan sætte Kontakt Formular 7 kortkode her."
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
+msgid "Page Elements"
+msgstr "Sideelementer"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
+msgid "Post Elements"
+msgstr "Indlæg elementer"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
+msgid "Page Featured Image"
+msgstr "Billede med udvalgt side"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
+msgid "Page Title"
+msgstr "Side titel"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:120
+msgid "Page Content"
+msgstr "Side Indhold"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:40
+msgid "Theme Options"
+msgstr "Temaindstillinger"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:41
+#: core/includes/customizer/settings/class-responsive-panel.php:50
+msgid "Header Options"
+msgstr "Header-indstillinger"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:49
+msgid "Header"
+msgstr "Header"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:58
+#: functions.php:471 partials/header/main-navigation.php:14
+msgid "Main Menu"
+msgstr "Hovedmenu"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:59
+msgid "Header Menu Options"
+msgstr "Indstillinger for menuen Sidehoved"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:68
+msgid "Sidebar Options"
+msgstr "Sidebar options"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:76
+msgid "Footer"
+msgstr "Footer"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:77
+msgid "Footer Options"
+msgstr "Footer Indstillinger"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:94
+msgid "Blog / Archive"
+msgstr "Blog / Arkiv"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:95
+msgid "Blog Options"
+msgstr "Blog indstillinger"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:103
+msgid "Blog Post"
+msgstr "Opslag"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:104
+msgid "Single Blog Post"
+msgstr "Enkelt blogindlæg"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:112
+msgid "Page"
+msgstr "Side"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:113
+msgid "Page Options"
+msgstr "Sideindstillinger"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
+msgid "Post Featured Image"
+msgstr "Post Featured Billede"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:106
+msgid "Post Title"
+msgstr "Indlægs titel"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:121
+msgid "Post Meta"
+msgstr "Indlæg meta"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:190
+msgid "Post Content"
+msgstr "Indhold"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:59
+msgid "Backgrounds"
+msgstr "Baggrunde"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
+msgid "Box Background Color"
+msgstr "Boksens baggrundsfarve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
+msgid "Alternate Background Color"
+msgstr "Alternativ baggrundsfarve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
+msgid "General Text"
+msgstr "Generel tekst"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
+msgid "Body Text Color"
+msgstr "Body Tekstfarve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
+msgid "Heading 1 (H1) Color"
+msgstr "Overskrift 1 (H1) Farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
+msgid "Heading 2 (H2) Color"
+msgstr "Overskrift 2 (H2) Farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
+msgid "Heading 3 (H3) Color"
+msgstr "Overskrift 3 (H3) Farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
+msgid "Heading 4 (H4) Color"
+msgstr "Overskrift 4 (H4) Farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
+msgid "Heading 5 (H5) Color"
+msgstr "Overskrift 5 (H5) Farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
+msgid "Heading 6 (H6) Color"
+msgstr "Overskrift 6 (H6) Farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
+msgid "Meta Text Color"
+msgstr "Metatekstfarve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
+msgid "Links"
+msgstr "Links"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:111
+msgid "Link Color"
+msgstr "Linkfarve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:115
+msgid "Link Hover Color"
+msgstr "Link hover-farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:119
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:83
+msgid "Buttons"
+msgstr "Knapper"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:123
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:151
+msgid "Color"
+msgstr "Farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:127
+msgid "Hover Color"
+msgstr "Hover Farve"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:135
+msgid "Hover Text Color"
+msgstr "Farve på pegefølsom tekst"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:143
+msgid "Hover Border Color"
+msgstr "Farve på pegekant"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:147
+msgid "Inputs"
+msgstr "Indgange"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:163
+msgid "Labels"
+msgstr "Etiketter"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:167
+msgid "Label Color"
+msgstr "Labelfarve"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
+msgid "Hide Site Title"
+msgstr "Skjul webstedstitel"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
+msgid "Hide Tagline"
+msgstr "Skjul slogan"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
+msgid "Width"
+msgstr "Bredde"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:59
+msgid "Contained"
+msgstr "Indeholdt"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:60
+msgid "Full Width"
+msgstr "Fuld bredde"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
+msgid "Container Width (px)"
+msgstr "Containerbredde (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
+msgid "Boxed"
+msgstr "Indrammet"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
+msgid "Content Boxed"
+msgstr "Indhold indrammet"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
+msgid "Box Padding (px)"
+msgstr "Bokspolstring (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+msgid "Box Radius (px)"
+msgstr "Boksradius (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
+msgid "Padding (px)"
+msgstr "Polstring (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
+msgid "Radius (px)"
+msgstr "Radius (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
+msgid "Border Width (px)"
+msgstr "Kantbredde (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
+msgid "Form Inputs"
+msgstr "Formular felter"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:162
+msgid "Body"
+msgstr "Body"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
+msgid "Heading 1 (H1)"
+msgstr "Overskrift 1 (H1)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
+msgid "Heading 2 (H2)"
+msgstr "Overskrift 2 (H2)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
+msgid "Heading 3 (H3)"
+msgstr "Overskrift 3 (H3)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
+msgid "Heading 4 (H4)"
+msgstr "Overskrift 4 (H4)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
+msgid "Heading 5 (H5)"
+msgstr "Overskrift 5 (H5)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
+msgid "Heading 6 (H6)"
+msgstr "Overskrift 6 (H6)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
+msgid "Input Fields"
+msgstr "Inputfelter"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
+msgid "Exclude Categories from Blog page"
+msgstr "Ekskludere kategorier fra blogside"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
+msgid ""
+"Please choose the post categories that should not be displayed on the blog "
+"page"
+msgstr "Vælg de indlægskategorier, der ikke skal vises på blogsiden"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
+msgid "General Typography"
+msgstr "Generel typografi"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
+msgid "Font Family"
+msgstr "Skrifttyper"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:400
+msgid "Font Weight"
+msgstr "Skrifttype vægt"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
+msgid "Important: Not all fonts support every font-weight."
+msgstr "Vigtigt: Ikke alle skrifttyper understøtter alle skrifttyper."
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
+msgid "Font Style"
+msgstr "Skrifttype stil"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:451
+msgid "Normal"
+msgstr "Normal"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:452
+msgid "Italic"
+msgstr "Kursiv"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:477
+msgid "Text Transform"
+msgstr "Transformér Tekst"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:485
+msgid "Capitalize"
+msgstr "Lav om til store bogstaver"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:486
+msgid "Lowercase"
+msgstr "Små bogstaver"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:487
+msgid "Uppercase"
+msgstr "Store bogstaver"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:531
+msgid "Font Size"
+msgstr "Tekst størrelse"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
+msgid "You can add: px-em-%"
+msgstr "Du kan tilføje: px-em-%"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
+msgid "Line Height"
+msgstr "Linje højde"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
+msgid "Letter Spacing (px)"
+msgstr "Bogstavafstand (px)"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:659
+msgid "Font Color"
+msgstr "Skriftfarve"
+
+#. translators: %s: link
+#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+msgid "Home"
+msgstr "Hjem"
+
+#. translators: %s: Categories
+#: core/includes/functions-extentions.php:60
+msgid "Archive for %s"
+msgstr "Arkiv for %s"
+
+#. translators: %s: Search result page
+#. translators: %s is for search query.
+#: core/includes/functions-extentions.php:62 loop-header.php:33
+msgid "Search results for: %s"
+msgstr "Søge resultater for: %s"
+
+#. translators: %s: Post Pages
+#: core/includes/functions-extentions.php:64
+msgid "Posts tagged %s"
+msgstr "Indlæg mærket %s"
+
+#. translators: %s: Author pages
+#. translators: %s: view post by
+#. translators: view all posts by author
+#. translators: %s view posts by
+#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: partials/entry/meta.php:54 partials/single/meta.php:49
+msgid "View all posts by %s"
+msgstr "Vis alle indlæg af %s"
+
+#: core/includes/functions-extentions.php:67
+msgid "Error 404"
+msgstr "Fejl 404"
+
+#. translators: %s: Page Number
+#. translators: %s: author
+#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extras.php:190
+msgid "Page %s"
+msgstr "Side %s"
+
+#: core/includes/functions-extentions.php:346
+msgid "Yelp!"
+msgstr "Yelp!"
+
+#: core/includes/functions-extentions.php:348
+msgid "foursquare"
+msgstr "firkant"
+
+#: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
+#: image.php:59 index.php:56 partials/page/content.php:15
+msgid "Read more &#8250;"
+msgstr "Læs mere &#8250;"
+
+#: core/includes/functions-sidebar.php:28
+msgid "Main Sidebar"
+msgstr "Primær sidebjælke"
+
+#: core/includes/functions-sidebar.php:29
+msgid ""
+"Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr ""
+"Område 1 - sidebar.php - Skærme på Standard, Blog, Blog Uddrag side "
+"skabeloner"
+
+#: core/includes/functions-sidebar.php:40
+msgid "Home Widget 1"
+msgstr "Hjem Widget 1"
+
+#: core/includes/functions-sidebar.php:41
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr "Område 6 - sidebar-home.php - Skærme på hjemmesiden"
+
+#: core/includes/functions-sidebar.php:52
+msgid "Home Widget 2"
+msgstr "Hjem Widget 2"
+
+#: core/includes/functions-sidebar.php:53
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr "Område 7 - sidebar-home.php - Skærme på hjemmesiden"
+
+#: core/includes/functions-sidebar.php:64
+msgid "Home Widget 3"
+msgstr "Hjem Widget 3"
+
+#: core/includes/functions-sidebar.php:65
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr "Område 8 - sidebar-home.php - Skærme på hjemmesiden"
+
+#: core/includes/functions-sidebar.php:76
+msgid "Gallery Sidebar"
+msgstr "Galleri sidepanel"
+
+#: core/includes/functions-sidebar.php:77
+msgid ""
+"Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
+"clicked in a Gallery"
+msgstr ""
+"Område 9 - sidebar-gallery.php - Vises på siden efter et billede er blevet "
+"klikket i et galleri"
+
+#: core/includes/functions-sidebar.php:88
+msgid "Colophon Widget"
+msgstr "Colophon Widget"
+
+#: core/includes/functions-sidebar.php:89
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr "Område 10 - sidebar-colophon.php, 100% bredde Footer widgets"
+
+#: core/includes/functions-sidebar.php:101
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr "Område 11 - sidebar-top.php - Skærme til højre for overskriften"
+
+#: core/includes/functions-sidebar.php:112
+msgid "Footer Widgets 1"
+msgstr "Sidefod Widgets 1"
+
+#: core/includes/functions-sidebar.php:113
+msgid "Area 12 - sidebar-footer.php"
+msgstr "Område 12 - sidebar-footer.php"
+
+#: core/includes/functions-sidebar.php:123
+msgid "Footer Widgets 2"
+msgstr "Sidefod Widgets 2"
+
+#: core/includes/functions-sidebar.php:124
+msgid "Area 13 - sidebar-footer.php"
+msgstr "Område 13 - sidebar-footer.php"
+
+#: core/includes/functions-sidebar.php:134
+msgid "Footer Widgets 3"
+msgstr "Sidefod Widgets 3"
+
+#: core/includes/functions-sidebar.php:135
+msgid "Area 14 - sidebar-footer.php"
+msgstr "Område 14 - sidebar-footer.php"
+
+#: core/includes/functions-sidebar.php:145
+msgid "Footer Widgets 4"
+msgstr "Sidefod Widgets 4"
+
+#: core/includes/functions-sidebar.php:146
+msgid "Area 15 - sidebar-footer.php"
+msgstr "Område 15 - sidebar-footer.php"
+
+#: core/includes/functions.php:61 functions.php:535
+msgid "Call to Action"
+msgstr "Call to Action"
+
+#: core/includes/functions.php:216
+msgid "Header Menu"
+msgstr "Header Menu"
+
+#: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+msgid "Footer Menu"
+msgstr "Sidefod Menu"
+
+#: core/includes/functions.php:377
+msgid "Team Section Options"
+msgstr "Indstillinger for teamsektion"
+
+#: core/includes/functions.php:391
+msgid ""
+"To use this post for front page's team section, please enter below details:"
+msgstr ""
+"For at bruge dette indlæg til forsiden team sektion, skal du indtaste "
+"nedenfor detaljer:"
+
+#: core/includes/functions.php:394
+msgid "Member designation"
+msgstr "Udnævnelse af medlem"
+
+#: core/includes/functions.php:398
+msgid "Facebook Link"
+msgstr "Facebook-link"
+
+#: core/includes/functions.php:402
+msgid "Twitter Link"
+msgstr "Twitter Link"
+
+#: core/includes/functions.php:406
+msgid "GooglePlus Link"
+msgstr "GooglePlus-link"
+
+#: core/includes/functions.php:410
+msgid "LinkedIn Link"
+msgstr "LinkedIn Link"
+
+#: core/includes/functions.php:666
+msgid "Posted on"
+msgstr "Udgivet den"
+
+#: core/includes/functions.php:666
+msgid "By"
+msgstr "Af"
+
+#. translators: %s: category list
+#. translators: %s posted in categories
+#. translators: %s: category list
+#: core/includes/functions.php:696 image.php:82 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid "Posted in %s"
+msgstr "Publiceret i %s"
+
+#: core/includes/functions.php:696 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid ", "
+msgstr ", "
+
+#: core/includes/functions.php:719
+msgid "Upgrade To Pro"
+msgstr "Opgrader til Pro"
+
+#: core/includes/post-custom-meta.php:137
+msgid "Content/Sidebar"
+msgstr "Indhold/sidepanel"
+
+#: core/includes/post-custom-meta.php:138
+msgid "Sidebar/Content"
+msgstr "Sidepanel/indhold"
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page (no sidebar)"
+msgstr "Side i fuld bredde (ingen sidepanel)"
+
+#: core/includes/post-custom-meta.php:140
+msgid "Blog 2 Column"
+msgstr "Blog 2 Kolonne"
+
+#: core/includes/post-custom-meta.php:141
+msgid "Blog 3 Column"
+msgstr "Blog 3 Kolonne"
+
+#: core/includes/post-custom-meta.php:142
+msgid "Blog 4 Column"
+msgstr "Blog 4 Kolonne"
+
+#: footer.php:88
+msgid "Scroll to Top"
+msgstr "Rul til toppen"
+
+#: functions.php:392
+msgid "Permalink to %s"
+msgstr "Permalink til %s"
+
+#. translators: %s Link to 5 star rating
+#: functions.php:453
+msgid ""
+"If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
+"It takes a minute and helps a lot. Thanks in advance!"
+msgstr ""
+"Hvis du kan lide <strong>Responsive Tema</strong> kan du efterlade os en %s "
+"rating. Det tager et minut og hjælper meget. Tak på forhånd!"
+
+#: functions.php:454
+msgid "Thanks :)"
+msgstr "Tak :)"
+
+#: functions.php:538
+msgid "#"
+msgstr "#"
+
+#: gutenberg-fullwidth.php:46 image.php:63 index.php:60
+#: partials/entry/layout.php:53 partials/page/layout.php:45
+#: partials/single/content.php:38 partials/single/layout.php:59
+msgid "Pages:"
+msgstr "Sider:"
+
+#: header.php:35
+msgid "&darr; Skip to Main Content"
+msgstr "&Darr; Gå til hovedindhold"
+
+#: home.php:81
+msgid "Previous"
+msgstr "Forrige"
+
+#: home.php:82
+msgid "Next"
+msgstr "Næste"
+
+#: image.php:37
+msgid "&#8249; Return to"
+msgstr "&#8249; Tilbage til"
+
+#: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "No Comments"
+msgstr "Ingen kommentarer"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "1 Comment"
+msgstr "1 kommentar"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "% Comments"
+msgstr "% kommentarer"
+
+#: image.php:79 post-data.php:25
+msgid "Tagged with:"
+msgstr "Mærket med:"
+
+#: image.php:87 post-data.php:29
+msgid "<span class=\"post-edit\">Edit</span>"
+msgstr "<span class=\"post-edit\">Redigere</span>"
+
+#: loop-nav.php:28
+msgid "&#8249; Older posts"
+msgstr "&#8249; Ældre indlæg"
+
+#: loop-nav.php:29
+msgid "Newer posts &#8250;"
+msgstr "Nyere indlæg &#8250;"
+
+#. translators: %s search term
+#: loop-no-posts.php:26
+msgid "Your search for %s did not match any entries."
+msgstr "Søgningen efter %s svarede ikke til nogen poster."
+
+#: loop-no-posts.php:26
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; Fantastisk at se dig her!"
+
+#: loop-no-posts.php:32
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Ingen panik, vi &#39; kan gennemgå dette sammen. Lad os udforske vores "
+"muligheder her."
+
+#: loop-no-posts.php:43
+msgid "&larr; Home"
+msgstr "&Larr; Hjem"
+
+#: partials/custom-home/featured-area.php:255
+msgid "Team"
+msgstr "Team"
+
+#. translators: 1: byline, 2: author
+#: partials/entry/meta.php:35
+msgid "By "
+msgstr "Af "
+
+#. translators: 1: class, 2: date
+#: partials/entry/meta.php:69 partials/single/meta.php:63
+msgid "Posted on "
+msgstr "Tilføjet den"
+
+#: partials/entry/thumbnail-style/comments.php:16
+msgid "0 Comments"
+msgstr "0 Kommentarer"
+
+#: partials/footer/copy-right.php:17
+msgid " | Powered by "
+msgstr "| Styret af"
+
+#: partials/footer/copy-right.php:18
+msgid " &copy; "
+msgstr "&copy;"
+
+#: partials/footer/copy-right.php:23
+msgid "&copy; "
+msgstr "&copy;"
+
+#: partials/footer/copy-right.php:32
+msgid "Responsive Theme"
+msgstr "Responsivt tema"
+
+#: partials/header/main-navigation.php:16
+msgid "Menu"
+msgstr "Menu"
+
+#. translators: %s Name of current post. Only visible to screen readers
+#: partials/single/content.php:22
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Læs mere<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: partials/single/layout.php:50
+msgid "About"
+msgstr "Om"
+
+#: partials/single/layout.php:73
+msgid "Previous Post is "
+msgstr "Forrige indlæg er"
+
+#: partials/single/layout.php:74
+msgid "Next Post is"
+msgstr "Næste indlæg er"
+
+#: searchform.php:22
 msgid "Search for:"
 msgstr "Søg efter:"
 
-#: core/includes/functions.php
-msgid "Something went wrong with the plugin API."
-msgstr "Noget gik galt med plugin-API'et"
+#: searchform.php:23
+msgid "Search here &hellip;"
+msgstr "Søg her &amp; hellip;"
 
-#: core/includes/functions-update.php
-#. Translators: This is a big update. Please read the blog post beforeupdating.
-# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
-msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
-msgstr "<strong>Advarsel:</strong> Der er en stor <strong>Responsive Theme</strong> opdatering tilgængelig. Læs venligst %1$s før du opdaterer."
+#: searchform.php:24
+msgid "Go"
+msgstr "Gå"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr "Den brugerdefinerede forside er slået fra. Du kan slå den til i <a href=\"%1$s\">temaindstillingerne</a>"
+#: sidebar-gallery.php:26
+msgid "Image Information"
+msgstr "Oplysninger om billede"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr "Den brugerdefinerede forside er slået til. Du kan slå den fra i <a href=\"%1$s\">temaindstillingerne</a>"
+#: sidebar-gallery.php:33
+msgid "Full Size:"
+msgstr "Fuld størrelse:"
 
-#: core/includes/upsell/theme-upsell.php
-msgid "Themes You Can Trust"
-msgstr "Temaer du kan stole på"
+#: sidebar-gallery.php:39
+msgid "Aperture: f&#47;"
+msgstr "Blænde: f&#47;"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Title Text"
-msgstr "Titeltekst"
+#: sidebar-gallery.php:44
+msgid "Focal Length:"
+msgstr "Brændvidde:"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Translate"
-msgstr "Overæt"
+#: sidebar-gallery.php:44
+msgid "mm"
+msgstr "mm"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Upgrade"
-msgstr "Opgrader"
+#: sidebar-gallery.php:48
+msgid "ISO:"
+msgstr "Iso:"
 
-#: core/includes/functions.php
-msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr "Velkommen til %1$s! Opgrader til %2$s i dag."
+#: sidebar-gallery.php:52
+msgid "Shutter:"
+msgstr "Lukkeren:"
+
+#: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
+msgid "sec"
+msgstr "sek"
+
+#: sidebar-gallery.php:69
+msgid "Camera:"
+msgstr "Kamera:"
+
+#: sidebar-home.php:34
+msgid "Fermentum"
+msgstr "Fermentum (Fermentum)"
+
+#: sidebar-home.php:40
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Dette er din første hjem widget boks. Hvis du vil redigere, skal du gå til "
+"Widgets til udseende og vælge 6. widget øverst i område 6 kaldet Home Widget "
+"1. Titel er også håndterbar fra widgets så godt."
+
+#: sidebar-home.php:54
+msgid "Elementum"
+msgstr "Elementum (Elementum)"
+
+#: sidebar-home.php:60
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Dette er dit andet hjem widget boks. Hvis du vil redigere, skal du gå til "
+"Udseende - Widgets og vælge 7. widget øverst i område 7 kaldet Home Widget "
+"2. Titel er også håndterbar fra widgets så godt."
+
+#: sidebar-home.php:74
+msgid "Interdum"
+msgstr "Interdum (Interdum)"
+
+#: sidebar-home.php:78
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Dette er din tredje hjem widget boks. Hvis du vil redigere, skal du gå til "
+"Udseende - Widgets og vælge 8. widget øverst i område 8 kaldet Home Widget "
+"3. Titel er også håndterbar fra widgets så godt."
+
+#. Theme URI of the plugin/theme
+msgid "https://cyberchimps.com/responsive"
+msgstr "https://cyberchimps.com/responsive"
+
+#. Description of the plugin/theme
+msgid ""
+"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+msgstr "Responsive er et komplet, hurtigt og mobilvenligt WordPress-tema."
+
+#. Author URI of the plugin/theme
+msgid "https://cyberchimps.com/"
+msgstr "https://cyberchimps.com/"
+
+#. Template Name of the plugin/theme
+msgid "Gutenberg Fullwidth No title"
+msgstr "Gutenberg Fullwidth Ingen titel"
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:48
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s Kommentar til \"%2$s\""
+msgstr[1] "%1$s Kommentarer til \"%2$s\""
+
+#: functions.php:126
+msgctxt "Name of the small font size in the block editor"
+msgid "Small"
+msgstr "Lille"
+
+#: functions.php:127
+msgctxt "Short name of the small font size in the block editor."
+msgid "S"
+msgstr "S"
+
+#: functions.php:132
+msgctxt "Name of the regular font size in the block editor"
+msgid "Regular"
+msgstr "Almindelig"
+
+#: functions.php:133
+msgctxt "Short name of the regular font size in the block editor."
+msgid "M"
+msgstr "M"
+
+#: functions.php:138
+msgctxt "Name of the large font size in the block editor"
+msgid "Large"
+msgstr "Stor"
+
+#: functions.php:139
+msgctxt "Short name of the large font size in the block editor."
+msgid "L"
+msgstr "L"
+
+#: functions.php:144
+#, fuzzy
+msgctxt "Name of the larger font size in the block editor"
+msgid "Larger"
+msgstr "Større"
+
+#: functions.php:145
+msgctxt "Short name of the larger font size in the block editor."
+msgid "XL"
+msgstr "XL"

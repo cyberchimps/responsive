@@ -1,1018 +1,2593 @@
+# <!=Copyright (C) 2020
+# This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive Theme\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-28 06:06:32 UTC\n"
-"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
-"Language-Team: Welsh\n"
+"Project-Id-Version: Responsive 4.1.7\n"
+"Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
+"POT-Creation-Date: 2020-03-13 07:02:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: WebTranslateIt.com\n"
-"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != 11) ? 2 : 3;\n"
+"PO-Revision-Date: 2020-03-13 15:15+0530\n"
+"Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n==3 ? "
+"3 : n==6 ? 4 : 5);\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language: cy\n"
 
-#: page.php
-#: landing-page.php
-#: index.php
-#: image.php
-#: full-width-page.php
-#: content-sidebar-page.php
-#: content-sidebar-half-page.php
-#: blog.php
-#: blog-excerpt.php
-#: archive.php
-#: home.php
-#: search.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: sitemap.php
-msgid "Pages:"
-msgstr "Tudalennau:"
+#: admin/templates/free-vs-pro.php:50
+msgid "17"
+msgstr "17"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "&#8249; Older posts"
-msgstr "&#8249; Postiadau hŷn"
+#: admin/admin-functions.php:21
+#: admin/class-responsive-plugin-install-helper.php:157
+msgid "Activating "
+msgstr "Ysgogi"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "Newer posts &#8250;"
-msgstr "Postiadau mwy diweddar &#8250;"
+#: admin/admin-functions.php:22
+msgid "Not connect. Verify Network."
+msgstr "Ddim cysylltu. Gwirio'r rhwydwaith."
 
-#: blog.php
-#: content-sidebar-half-page.php
-#: content-sidebar-page.php
-#: full-width-page.php
-#: home.php
-#: image.php
-#: index.php
-#: landing-page.php
-#: page.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: core/includes/functions.php
-msgid "Read more &#8250;"
-msgstr "Darllen mwy &#8250;"
+#: admin/admin-functions.php:23
+msgid "Requested page not found. [404]"
+msgstr "Heb ganfod y dudalen y gofynnwyd amdani. [404]"
 
-#: comments.php
-msgid "This post is password protected. Enter the password to view any comments."
-msgstr "Mae cyfrinair ar y post hwn. Mewnbynnwch y cyfrinair er mwyn gweld unrhyw sylwadau."
+#: admin/admin-functions.php:24
+msgid "Internal Server Error [500]"
+msgstr "Gwall gweinydd mewnol [500]"
 
-#: comments.php
-#: comments.php
+#: admin/admin-functions.php:25
+msgid "Requested JSON parse failed"
+msgstr "Wedi methu dosrannu JSON y gofynnwyd amdano"
+
+#: admin/admin-functions.php:26
+msgid "Time out error"
+msgstr "Gwall amser allan"
+
+#: admin/admin-functions.php:27
+msgid "Ajax request aborted"
+msgstr "Erthylwyd cais AJAX"
+
+#: admin/admin-functions.php:28
+msgid "Uncaught Error"
+msgstr "Gwall heb ei ddal"
+
+#: admin/class-responsive-plugin-install-helper.php:93
+msgid "Install and activate &raquo;"
+msgstr "Gosod a activate &raquo;"
+
+#: admin/class-responsive-plugin-install-helper.php:97
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Activate"
+msgstr "Gweithredu"
+
+#: admin/class-responsive-plugin-install-helper.php:112
+msgid "Deactivate"
+msgstr "Ddatgymhwyso"
+
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Jetpack Portfolio"
+msgstr "Portffolio jeti'r pecyn"
+
+#: admin/templates/free-vs-pro.php:15
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:389
+#: partials/custom-home/featured-area.php:131
+msgid "Features"
+msgstr "Nodweddion"
+
+#: admin/templates/free-vs-pro.php:16
+msgid "Free"
+msgstr "Am ddim"
+
+#: admin/templates/free-vs-pro.php:17 admin/templates/free-vs-pro.php:50
+#: admin/templates/free-vs-pro.php:51
+msgid "Pro"
+msgstr "Pro"
+
+#: admin/templates/free-vs-pro.php:23
+msgid "Mobile Friendly"
+msgstr "Gyfeillgar symudol"
+
+#: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
+msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
+msgstr "Llithrydd, portffolio, tablau prisio, teclynnau WooCommerce ac ati"
+
+#: admin/templates/free-vs-pro.php:31
+msgid "Blazing Fast Speed"
+msgstr "Cyflym arloesol"
+
+#: admin/templates/free-vs-pro.php:32
+msgid "Optimized for speed, loads in under 2 seconds"
+msgstr "Optimeiddio ar gyfer cyflymder, llwythi mewn o dan 2 eiliad"
+
+#: admin/templates/free-vs-pro.php:39
+msgid "Fully Customizable"
+msgstr "Yn gwbl Customizable"
+
+#: admin/templates/free-vs-pro.php:40
+msgid "Using the customizer options for layout, fonts & colors"
+msgstr "Defnyddio'r dewisiadau customizer ar gyfer gosodiad, ffontiau"
+
+#: admin/templates/free-vs-pro.php:42
+msgid "Limited Options"
+msgstr "Opsiynau cyfyngedig"
+
+#: admin/templates/free-vs-pro.php:47
+msgid "Ready-to-use Website Templates"
+msgstr "Templedi gwefan sy'n barod i'w defnyddio"
+
+#: admin/templates/free-vs-pro.php:48
+msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
+msgstr ""
+"Templedi ar wefan Elfentyn parod-i-'w-ddefnyddio ac ar gyfer gwefan Gutenberg"
+
+#: admin/templates/free-vs-pro.php:51
+msgid "30+"
+msgstr "30 +"
+
+#: admin/templates/free-vs-pro.php:55
+msgid "Exclusive Widgets"
+msgstr "Teclynnau ecsgliwsif"
+
+#: admin/templates/free-vs-pro.php:63
+msgid "Exclusive Content, Deals & Offers"
+msgstr "Cynnwys ecsgliwsif, mae bargeinion yn cynnig"
+
+#: admin/templates/free-vs-pro.php:64
+msgid "Get access to exclusive WordPress content, deals & offers"
+msgstr "Cael mynediad i gynnwys WordPress unigryw, mae bargeinion yn cynnig"
+
+#: admin/templates/free-vs-pro.php:71
+msgid "Private Priority Email Support"
+msgstr "Cymorth e-bost blaenoriaeth preifat"
+
+#: admin/templates/free-vs-pro.php:72
+msgid "Need help? Just raise a support ticket to get priority email support"
+msgstr ""
+"Angen help? Dim ond codi tocyn cymorth i gael cymorth e-bost blaenoriaeth"
+
+#. Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr "Ymatebol"
+
+#: comments.php:27
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Mae'r swydd hon wedi'i diogelu gan gyfrinair. Rhowch y cyfrinair i weld "
+"unrhyw sylwadau."
+
+#. translators: 1: title.
+#: comments.php:42
+msgid "One Comment on &ldquo;%1$s&rdquo;"
+msgstr "Un sylw ar \"%1$s\""
+
+#: comments.php:58 comments.php:71
 msgid "&#8249; Older comments"
-msgstr "&#8249; Sylwadau hŷn"
+msgstr "& #8249; sylwadau hyn"
 
-#: comments.php
-#: comments.php
+#: comments.php:60 comments.php:73
 msgid "Newer comments &#8250;"
-msgstr "Sylwadau mwy diweddar &#8250;"
+msgstr "Sylwadau mwy diweddar & #8250;"
 
-#: comments.php
+#: comments.php:85
 msgid "Pings&#47;Trackbacks"
-msgstr "Pingiau&#47; Ôl-lwybrau"
+msgstr "INS & #47; traciau"
 
-#: comments.php
-msgid "%1$d %2$s for \"%3$s\""
-msgstr "%1$d %2$s ar gyfer \"%3$s\""
-
-#: comments.php
+#. translators: 1 : Count, 2 : Pings 3 : Post title
+#: comments.php:102
 msgid "Name"
 msgstr "Enw"
 
-#: comments.php
+#: comments.php:104
 msgid "E-mail"
 msgstr "E-bost"
 
-#: comments.php
+#: comments.php:106
 msgid "Website"
-msgstr "Gwefan"
-
-#: footer.php
-msgid "&copy;"
-msgstr "&copy;"
-
-#: footer.php
-msgid "scroll to top"
-msgstr "sgrolio i'r brig"
-
-#: footer.php
-msgid "&uarr;"
-msgstr "&uarr;"
-
-#: footer.php
-msgid "Responsive Theme"
-msgstr "Responsive Theme"
-
-#: footer.php
-msgid "powered by"
-msgstr "pwerir gan"
-
-#: footer.php
-msgid "WordPress"
-msgstr "WordPress"
-
-#: image.php
-msgid "&#8249; Return to"
-msgstr "&#8249; Dychwelyd at"
-
-#: image.php
-#: post-meta-page.php
-#: post-meta.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "No Comments &darr;"
-msgstr "Dim Sylwadau &darr;"
-
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "1 Comment &darr;"
-msgstr "1 Sylw &darr;"
-
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "% Comments &darr;"
-msgstr "% Sylw &darr;"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Tagged with:"
-msgstr "Tagiwyd:"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Posted in %s"
-msgstr "Postiwyd yn %s"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: sitemap.php
-msgid "Edit"
-msgstr "Golygu"
-
-#: loop-no-posts.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 &#8212; Wel, helo!"
-
-#: loop-no-posts.php
-msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
-msgstr "Paid becso, nawn ni ffeindio ein ffordd rhywsut. Gad i ni edrych ar ein dewisiadau fan hyn."
-
-#: loop-no-posts.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Gallwch ddychwelyd %s neu edrych am y dudalen roeddech chi eisiau"
-
-#: loop-no-posts.php
-#: core/includes/functions.php
-msgid "Home"
-msgstr "Hafan"
-
-#: loop-no-posts.php
-msgid "&larr; Home"
-msgstr "&larr; Adref"
-
-#: loop-header.php
-msgid "Daily Archives: %s"
-msgstr "Archifau Dyddiol: %s"
-
-#: loop-header.php
-msgid "Monthly Archives: %s"
-msgstr "Archifau Misol: %s"
-
-#: loop-header.php
-msgid "Yearly Archives: %s"
-msgstr "Archifau Blynyddol: %s"
-
-#: loop-header.php
-msgid "Blog Archives"
-msgstr "Archifau Blog"
-
-#: loop-no-posts.php
-msgid "Your search for %s did not match any entries."
-msgstr "Eich chwiliad ar gyfer %s na wnaeth cydfynd ag unrhyw gofnod"
-
-#: sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Dolen Barhaol i %s"
-
-#: core/includes/functions.php
-#: loop-header.php
-msgid "Search results for: %s"
-msgstr "Canlyniadau chwilio ar gyfer: %s"
-
-#: searchform.php
-msgid "search here &hellip;"
-msgstr "chwilio yma &hellip;"
-
-#: searchform.php
-msgid "Go"
-msgstr "Ewch"
-
-#: sidebar-gallery.php
-msgid "Image Information"
-msgstr "Gwybodaeth y Delwedd"
-
-#: sidebar-gallery.php
-msgid "Full Size:"
-msgstr "Maint Llawn:"
-
-#: sidebar-gallery.php
-msgid "Aperture: f&#47;"
-msgstr "Agorfa: f&#47;"
-
-#: sidebar-gallery.php
-msgid "Focal Length:"
-msgstr "Hyd Ffocal:"
-
-#: sidebar-gallery.php
-msgid "mm"
-msgstr "mm"
-
-#: sidebar-gallery.php
-msgid "ISO:"
-msgstr "ISO:"
-
-#: sidebar-gallery.php
-msgid "Shutter:"
-msgstr "Mwgwd:"
-
-#: sidebar-gallery.php
-msgid "Camera:"
-msgstr "Camera:"
-
-#: sidebar.php
-#: sidebar-right.php
-#: sidebar-right-half.php
-#: sidebar-left.php
-#: sidebar-left-half.php
-#: sidebar-half-left.php
-msgid "In Archive"
-msgstr "Yn yr Archif"
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 1"
-msgstr "Teclyn Cartref 1"
-
-#: sidebar-home.php
-msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
-msgstr "Dyma blwch teclyn gyntaf eich hafan. I'w olygu, ewch i Appearance > Widgets a dewiswch y 6ed teclyn o'r brig yn ardal chwech a enwir yn Teclyn Hafan 1. Gellir hefyd newid y teitl o'r fan honno."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 2"
-msgstr "Teclyn Cartref 2"
-
-#: sidebar-home.php
-msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
-msgstr "Dyma ail flwch teclyn eich hafan. I'w olygu, ewch i Appearance > Widgets a dewiswch y 7fed teclyn o'r brig yn ardal chwech a enwir yn Teclyn Hafan 2. Gellir hefyd newid y teitl o'r fan honno."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 3"
-msgstr "Teclyn Cartref 3"
-
-#: sidebar-home.php
-msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
-msgstr "Dyma trydydd blwch teclyn eich hafan. I'w olygu, ewch i Appearance > Widgets a dewiswch yr 8fed teclyn o'r brig yn ardal chwech a enwir yn Teclyn Hafan 3. Gellir hefyd newid y teitl o'r fan honno."
-
-#: single.php
-msgid "About"
-msgstr "Amdan"
-
-#: sitemap.php
-msgid "Categories"
-msgstr "Categorïau"
-
-#: sitemap.php
-msgid "Latest Posts"
-msgstr "Postiau Diweddar"
-
-#: sitemap.php
-msgid "Pages"
-msgstr "Tudalennau"
-
-#: core/includes/functions.php
-msgid "Top Menu"
-msgstr "Prif Ddewislen"
-
-#: core/includes/functions.php
-msgid "Header Menu"
-msgstr "Dewislen y Pennawd"
-
-#: core/includes/functions.php
-msgid "Sub-Header Menu"
-msgstr "Dewislen yr Is-Bennawd"
-
-#: core/includes/functions.php
-msgid "Footer Menu"
-msgstr "Dewislen y Troedyn"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Page %s"
-msgstr "Tudalen %s"
-
-#: core/includes/functions.php
-msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
-msgstr "<span class=\"%1$s\">Postiwyd ar </span>%2$s<span class=\"%3$s\"> gan </span>%4$s"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "View all posts by %s"
-msgstr "Gweld pob postiad gan %s"
-
-#: core/includes/functions.php
-msgid "Archive for %s"
-msgstr "Archif ar gyfer %s"
-
-#: core/includes/functions.php
-msgid "Posts tagged %s"
-msgstr "Postiau a dagiwyd %s"
-
-#: core/includes/functions.php
-msgid "Error 404"
-msgstr "Gwall 404"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "More Themes"
-msgstr "Mwy o Themâu"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Showcase"
-msgstr "Arddangosfa"
-
-#: core/includes/functions-sidebar.php
-msgid "Main Sidebar"
-msgstr "Prif Far Ochr"
-
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar"
-msgstr "Bar Ochr Dde"
-
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar"
-msgstr "Bar Ochr Chwith"
-
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar Half Page"
-msgstr "Bar Ochr Chwith Hanner-Tudalen"
-
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar Half Page"
-msgstr "Bar Ochr Dde Hanner-Tudalen"
-
-#: core/includes/functions-sidebar.php
-msgid "Gallery Sidebar"
-msgstr "Bar Ochr Galeri"
-
-#: core/includes/functions-sidebar.php
-msgid "Colophon Widget"
-msgstr "Teclyn Colophon"
-
-#: core/includes/functions-sidebar.php
-msgid "Top Widget"
-msgstr "Teclyn ar y Brig"
-
-#: blog.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog (full posts)"
+msgstr "Wefan"
+
+#: core/gutenberg/gutenberg-support.php:31
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:58
+msgid "Button Color"
+msgstr "Lliw botwm "
+
+#: core/gutenberg/gutenberg-support.php:36
+msgid "Button Hover Color"
+msgstr "Lliw hofran botwm"
+
+#: core/gutenberg/gutenberg-support.php:41
+msgid "Button Hover Text Color"
+msgstr "Lliw testun hofran botwm"
+
+#: core/gutenberg/gutenberg-support.php:46
+msgid "Button Text Color"
+msgstr "Lliw testun botwm"
+
+#: core/gutenberg/gutenberg-support.php:53
+msgid "Text color"
+msgstr "Lliw testun"
+
+#: core/gutenberg/gutenberg-support.php:60
+msgid "Container Background Color"
+msgstr "Lliw cefndir y cynhwysydd"
+
+#: core/includes/classes/class-responsive-admin-settings.php:91
+msgid "Responsive Options"
+msgstr "Dewisiadau ymatebol"
+
+#: core/includes/classes/class-responsive-admin-settings.php:194
+msgid "Get Started"
+msgstr "Cychwyn Arni"
+
+#: core/includes/classes/class-responsive-admin-settings.php:196
+msgid "Free Vs Pro "
+msgstr "Am ddim vs pro"
+
+#: core/includes/classes/class-responsive-admin-settings.php:231
+msgid "Import a website template(FREE)"
+msgstr "Mewngludo templed gwefan (am ddim)"
+
+#: core/includes/classes/class-responsive-admin-settings.php:237
+msgid ""
+"Install Responsive Add-ons to get ready-to-use website templates that can be "
+"imported with one click."
 msgstr ""
+"Gosod Adia-ONS ymatebol i gael templedi gwefan barod i'w defnyddio y gellir "
+"eu mewnforio gydag un clic."
 
-#: blog-excerpt.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog Excerpt (summary)"
+#: core/includes/classes/class-responsive-admin-settings.php:242
+msgid "Learn More &raquo;"
+msgstr "Ddysgu mwy &raquo;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:269
+msgid "Support"
+msgstr "Cymorth"
+
+#: core/includes/classes/class-responsive-admin-settings.php:273
+msgid "Have questions? Get in touch with us. We'll be happy to help"
+msgstr "Gael cwestiynau? Cysylltwch â ni. Byddwn yn hapus i helpu"
+
+#: core/includes/classes/class-responsive-admin-settings.php:277
+msgid "Request Support &raquo;"
+msgstr "Ofyn am gymorth &raquo;"
+
+#. translators: %1$s: Responsive Support link.
+#: core/includes/classes/class-responsive-admin-settings.php:303
+msgid "Change site layout"
+msgstr "Newid cynllun y safle"
+
+#: core/includes/classes/class-responsive-admin-settings.php:308
+msgid "Customize fonts/typography"
+msgstr "Addasu ffontiau/Teipograffeg"
+
+#: core/includes/classes/class-responsive-admin-settings.php:313
+msgid "Upload logo & site icon"
+msgstr "Llwytho i fyny eicon y logo"
+
+#: core/includes/classes/class-responsive-admin-settings.php:318
+msgid "Add/edit navigation menu"
+msgstr "Ychwanegu/golygu Dewislen llywio"
+
+#: core/includes/classes/class-responsive-admin-settings.php:323
+msgid "Customize header options"
+msgstr "Addasu opsiynau pennawd"
+
+#: core/includes/classes/class-responsive-admin-settings.php:328
+msgid "Customize footer options"
+msgstr "Addasu dewisiadau footer"
+
+#: core/includes/classes/class-responsive-admin-settings.php:333
+msgid "Update blog layout"
+msgstr "Cynllun blog diweddaru"
+
+#: core/includes/classes/class-responsive-admin-settings.php:338
+msgid "Update page layout"
+msgstr "Cynllun Tudalen diweddaru"
+
+#: core/includes/classes/class-responsive-admin-settings.php:346
+msgid "Quick Start:"
+msgstr "Cychwyn cyflym:"
+
+#: core/includes/classes/class-responsive-admin-settings.php:365
+msgid "Community"
+msgstr "Cymuned"
+
+#: core/includes/classes/class-responsive-admin-settings.php:369
+msgid ""
+"Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
+"and help each other"
 msgstr ""
+"Cwrdd â'r defnyddwyr pŵer ymatebol. Dweud helo, gofyn cwestiynau, rhoi "
+"adborth, a helpu eich gilydd"
 
-#: content-sidebar-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar"
+#: core/includes/classes/class-responsive-admin-settings.php:373
+msgid "Join Facebook Group &raquo;"
+msgstr "Ymunwch â grŵp Facebook &raquo;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:387
+msgid "Feedback"
+msgstr "Adborth"
+
+#: core/includes/classes/class-responsive-admin-settings.php:391
+msgid ""
+"Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
+"give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
+"the Responsive community."
 msgstr ""
+"Siwmae! Diolch am ddefnyddio'r thema ymatebol. A allwch chi wneud o blaid, "
+"os gwelwch yn dda, a rhoi sgôr 5 seren i ni? Mae eich adborth yn ein cadw'n "
+"frwdfrydig ac yn ein helpu i dyfu'r gymuned ymatebol."
 
-#: sidebar-content-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content"
+#: core/includes/classes/class-responsive-admin-settings.php:395
+msgid "Submit Review &raquo;"
+msgstr "Cyflwyno'r adolygiad &raquo;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:421
+msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
+msgstr "Thema WordPress cyflym, symudol-gyfeillgar, llawn-customizable."
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+msgid "Sale!"
+msgstr "Gwerthu!"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+msgid "WooCommerce Sidebar"
+msgstr "Bar ochr WooCommerce"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+msgid ""
+"This sidebar will be used on Product archive, Cart, Checkout and My Account "
+"pages."
 msgstr ""
+"Bydd y bar ochr hwn yn cael ei ddefnyddio ar archif cynnyrch, cart, til a fy "
+"nhudalennau cyfrif."
 
-#: content-sidebar-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar Half Page"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:44
+msgid "Colors"
+msgstr "Lliwiau"
 
-#: sidebar-content-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content Half Page"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
+msgid "Cart Buttons"
+msgstr "Botymau cart"
 
-#: full-width-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Full Width Page (no sidebar)"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:222
+msgid "Button"
+msgstr "Botwm"
 
-#: landing-page.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Landing Page (no menu)"
-msgstr ""
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:74
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:62
+msgid "Button Text"
+msgstr "botwm Testun"
 
-#: sitemap.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sitemap"
-msgstr "Map o'r safle"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:78
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:66
+msgid "Button Hover"
+msgstr "Botwm hofran"
 
-#: core/includes/post-custom-meta.php
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
+msgid "Button Hover Text"
+msgstr "Testun hofran botwm"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
+msgid "Checkout Button"
+msgstr "Botwm talu"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:46
+msgid "Layouts"
+msgstr "Cynlluniau"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
+msgid "Main Content Width (%)"
+msgstr "Lled y prif gynnwys (%)"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
+msgid "Enable Cross-sells"
+msgstr "Galluogi croeswerthu"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
+msgid "Cart Icon Visibility"
+msgstr "Gwelededd eicon cart"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
+msgid "Display On All Devices"
+msgstr "Dangos ar bob dyfais"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
+msgid "Disabled On All Devices"
+msgstr "Anabl ar bob dyfais"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
+msgid "Product Catalog Options"
+msgstr "Dewisiadau catalog cynnyrch"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
+msgid "Shop Options"
+msgstr "Dewisiadau siop"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
+msgid "Product Options"
+msgstr "Dewisiadau cynnyrch"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
+msgid "Single Product Options"
+msgstr "Dewisiadau cynnyrch sengl"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
+msgid "Cart Options"
+msgstr "Dewisiadau cart"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
+msgid "Rating Color"
+msgstr "Lliw sgôr"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
+msgid "Price Color"
+msgstr "Lliw pris"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
+msgid "Add To Cart Buttons"
+msgstr "Ychwanegu at fotymau cart"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:44
+#: core/includes/post-custom-meta.php:163
 msgid "Layout"
 msgstr "Cynllun"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/post-custom-meta.php
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:60
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:54
+msgid "Sidebar Position"
+msgstr "Safle'r bar ochr"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:56
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:62
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:56
+msgid "Right Sidebar"
+msgstr "Bar ochr dde"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:57
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:57
+msgid "Left Sidebar"
+msgstr "Bar ochr chwith"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:64
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
+msgid "No Sidebar"
+msgstr "Dim bar ochr"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
+msgid "Shop Product"
+msgstr "Cynnyrch siop"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
+msgid "Catalog View"
+msgstr "Golwg catalog"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
+msgid "Grid View"
+msgstr "Golwg Grid"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:70
+msgid "List View"
+msgstr "Dangos Rhestr"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
+msgid "Content Aligmnment"
+msgstr "Aliniad y cynnwys"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:91
+msgid "Center"
+msgstr "Ganolfan"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:78
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:194
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:198
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:202
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:204
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:92
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:156
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:74
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:96
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:111
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:126
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:196
+msgid "Left"
+msgstr "Gadael"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:79
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:192
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:196
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:200
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:205
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:93
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:157
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:127
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:197
+msgid "Right"
+msgstr "De"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
+msgid "Shop Elements"
+msgstr "Elfennau'r siop"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
+msgid "Sale Notification"
+msgstr "Hysbysiad gwerthu"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
+msgid "None"
+msgstr "Dim"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:110
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:64
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:372
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:404
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:410
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:484
+#: core/includes/post-custom-meta.php:136
 msgid "Default"
-msgstr "Diofyn"
+msgstr "Rhagosodedig"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Hello, World!"
-msgstr "Helo, Fyd!"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
+msgid "Custom String"
+msgstr "Llinyn addasedig"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your H2 subheadline here"
-msgstr "Eich is-bennawd H2 yma"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
+msgid "Sale % Value"
+msgstr "Gwerthu% value"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
-msgstr "Gallwch olygu eich teitl, is-deitl a'r cynnwys hwn o ddewisiadau'r Thema, a hefyd y botwm Galw Ynghyd a'r lleoliad pen ei daith. Gall y ddelwedd ar y dde fod yn ddelwedd wahanol neu hyd yn oed fideo YouTube."
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
+msgid "Sale Bubble Style"
+msgstr "Arddull swigen gwerthu"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Call to Action"
-msgstr "Galw Ynghyd"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
+msgid "Circle"
+msgstr "Cylch"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Options"
-msgstr "Dewisiadau'r Thema"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
+msgid "Circle Outline"
+msgstr "Amlinelliad o'r cylch"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Options Saved"
-msgstr "Arbedwyd eich Dewisiadau"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
+msgid "Square"
+msgstr "Sgwâr"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Elements"
-msgstr "Elfennau'r Thema"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
+msgid "Square Outline"
+msgstr "Amlinell sgwâr"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Disable Call to Action Button?"
-msgstr "Analluogi'r Botwm Galw Ynghyd?"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
+msgid "Product Elements"
+msgstr "Elfennau cynnyrch"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Save Options"
-msgstr "Cadw Dewisiadau"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:67
+msgid "Gallery Layout"
+msgstr "Cynllun oriel"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Restore Defaults"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
+msgid "Vertical"
+msgstr "Fertigol"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
+msgid "Horizontal"
+msgstr "Llorweddol"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
+msgid "Single Product Structure"
+msgstr "Strwythur un cynnyrch"
+
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
+msgid "Cart"
+msgstr "Basged"
+
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+msgid " / "
+msgstr "/"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
+msgid "Link values together"
+msgstr "Cysylltu gwerthoedd â'i gilydd"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+msgid "Top"
+msgstr "Top"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:193
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:197
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:201
+msgid "Bottom"
+msgstr "Waelod"
+
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:122
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:127
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
+msgid "px - em - rem"
+msgstr "px-EM-REM"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
+msgid "Inherit"
+msgstr "Etifeddu"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:65
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
+msgid "Thin: 100"
+msgstr "Tenau: 100"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
+msgid "Light: 200"
+msgstr "Golau: 200"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
+msgid "Book: 300"
+msgstr "Llyfr: 300"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
+msgid "Normal: 400"
+msgstr "Normal: 400"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
+msgid "Medium: 500"
+msgstr "Canolig: 500"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
+msgid "Semibold: 600"
+msgstr "Semibold: 600"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
+msgid "Bold: 700"
+msgstr "Print trwm: 700"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
+msgid "Extra Bold: 800"
+msgstr "Ychwanegol beiddgar: 800"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
+msgid "Black: 900"
+msgstr "Black: 900"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
+msgid "Arial, Helvetica, sans-serif"
+msgstr "Arial, Helvetica, sanau-serif"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:219
+msgid "Custom Fonts"
+msgstr "Ffontiau addasedig"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:236
+msgid "Standard Fonts"
+msgstr "Ffontiau safonol"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:250
+msgid "Google Fonts"
+msgstr "Ffontiau Google"
+
+#: core/includes/customizer/controls/upsell/class-responsive-control-upsell.php:72
+#: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
+msgid "PRO"
+msgstr "Pro"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
+msgid "View PRO Features"
+msgstr "Gweld nodweddion PRO"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
+msgid "Pro Ready Sites"
+msgstr "Safleoedd parod pro"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
+msgid "Form Builder"
+msgstr "Adeiladwr ffurflen"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
+msgid "Interactive Sliders and Carousels"
+msgstr "Llithryddion rhyngweithiol a cylchol"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
+msgid "Pricing Tables"
+msgstr "Tablau prisio"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
+msgid "Portfolio and Post Layouts"
+msgstr "Portffolio a chynllun post"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
+msgid "Private, Priority Support"
+msgstr "Preifat, cymorth â blaenoriaeth"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
+msgid "Get the PRO version!"
+msgstr "Cael y fersiwn PRO!"
+
+#: core/includes/customizer/customizer.php:29
+msgid "CSS Styles"
+msgstr "Arddulliau CSS"
+
+#: core/includes/customizer/customizer.php:43
+msgid "Custom CSS Styles"
+msgstr "Arddulliau CSS personol"
+
+#: core/includes/customizer/customizer.php:64
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
+msgid "Gradient"
+msgstr "Graddiant"
+
+#: core/includes/customizer/customizer.php:65
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:232
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
+msgid "Flat"
+msgstr "Fflat"
+
+#: core/includes/customizer/customizer.php:98
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
+msgid "Choose Post"
+msgstr "Dewis post"
+
+#: core/includes/customizer/helper.php:35
+#: core/includes/customizer/helper.php:118
+#: core/includes/customizer/helper.php:224
+#: core/includes/customizer/helper.php:247
+#: core/includes/customizer/helper.php:274
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:48
+msgid "Title"
+msgstr "Teitl"
+
+#: core/includes/customizer/helper.php:36
+#: core/includes/customizer/helper.php:119
+#: core/includes/customizer/helper.php:225
+msgid "Featured Image"
+msgstr "Delwedd Nodwedd"
+
+#: core/includes/customizer/helper.php:37
+#: core/includes/customizer/helper.php:120
+#: core/includes/customizer/helper.php:252
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:79
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:139
+msgid "Meta"
+msgstr "Meta"
+
+#: core/includes/customizer/helper.php:38
+#: core/includes/customizer/helper.php:121
+#: core/includes/customizer/helper.php:226
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:196
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:43
+msgid "Content"
+msgstr "Cynnwys"
+
+#: core/includes/customizer/helper.php:173
+msgid "Site Branding"
+msgstr "Brandio safle"
+
+#: core/includes/customizer/helper.php:174
+msgid "Main Navigation"
+msgstr "Prif fordwyo"
+
+#: core/includes/customizer/helper.php:248
+msgid "Rating"
+msgstr "Marc"
+
+#: core/includes/customizer/helper.php:249
+#: core/includes/customizer/helper.php:276
+msgid "Price"
+msgstr "Pris"
+
+#: core/includes/customizer/helper.php:250
+#: core/includes/customizer/helper.php:278
+msgid "Short Description"
+msgstr "Disgrifiad byr"
+
+#: core/includes/customizer/helper.php:251
+#: core/includes/customizer/helper.php:279
+msgid "Add to Cart"
+msgstr "Rhoi yn y Fasged"
+
+#: core/includes/customizer/helper.php:275
+msgid "Category"
+msgstr "categori"
+
+#: core/includes/customizer/helper.php:277
+msgid "Ratings"
+msgstr "Graddau"
+
+#: core/includes/customizer/helper.php:763
+msgid "Read more &raquo;"
+msgstr "Darllen mwy &raquo;"
+
+#: core/includes/customizer/helper.php:803
+#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+msgid "Read More &raquo;"
+msgstr "Darllen mwy &raquo;"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
+msgid "Entry Elements"
+msgstr "Elfennau mynediad"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
+msgid "Entry Featured Image"
+msgstr "Delwedd nodwedd Cofnod"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:87
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:69
+msgid "Style"
+msgstr "Arddull"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:91
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:90
+msgid "Stretched"
+msgstr "Ymestyn"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:110
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:109
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:110
+msgid "Alignment"
+msgstr "Aliniad"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:206
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:158
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:128
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:198
+msgid "center"
+msgstr "Ganolfan"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:106
+msgid "Entry Title"
+msgstr "Teitl y cofnod"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
+msgid "Entry Meta"
+msgstr "Meta mynediad"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
+msgid "Meta Elements"
+msgstr "Elfennau meta"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
+msgid "Author"
+msgstr "Awdur"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:149
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:149
+msgid "Date"
+msgstr "Dyddiad"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:150
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:150
+msgid "Categories"
+msgstr "Categorïau"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:151
+msgid "Comments"
+msgstr "Sylwadau"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:170
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
+msgid "Meta Separator"
+msgstr "Gwahanydd meta"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
+msgid "Meta Alignment"
+msgstr "Aliniad meta"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
+msgid "Entry Content"
+msgstr "Cynnwys mynediad"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
+msgid "Content Type"
+msgstr "Math o gynnwys"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:197
+msgid "Excerpt"
+msgstr "Darn o destun"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:124
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:194
+msgid "Content Alignment"
+msgstr "Aliniad cynnwys"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:211
+msgid "Excerpt Length"
+msgstr "Hyd y darn"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:215
+msgid "Read More Text"
+msgstr "Darllen mwy o destun"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
+msgid "Read More Type"
+msgstr "Darllen mwy math"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
+msgid "Link"
+msgstr "Dolen"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-panel.php:85
+#: core/includes/customizer/settings/class-responsive-panel.php:86
+msgid "Content Header"
+msgstr "Pennawd y cynnwys"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
+msgid "Enable Blog Page Title"
+msgstr "Galluogi Teitl Tudalen blog"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
+msgid "Blog Page Title"
+msgstr "Teitl Tudalen blog"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
+msgid "Entry Columns"
+msgstr "Colofnau mynediad"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
+msgid "Enable Masonry Layout"
+msgstr "Galluogi cynllun gwaith maen"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
+msgid "Title Color"
+msgstr "Lliw'r teitl"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:50
+msgid "Description Color"
+msgstr "Lliw disgrifiad"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
+msgid "Breadcrumb Color"
+msgstr "Lliw briwsion"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
+msgid "Disable breadcrumb list?"
+msgstr "Analluogi'r rhestr briwsion bara?"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
+msgid "Breadcrumb Position"
+msgstr "Safle briwsion bara"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
+msgid "Before Heading"
+msgstr "Cyn pennawd"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
+msgid "After Heading"
+msgstr "Ar ôl pennawd"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:197
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:209
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:219
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:230
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:241
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:252
+msgid "Typography"
+msgstr "Teipograffeg"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:53
+msgid "Description"
+msgstr "Disgrifiad"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:59
+msgid "Breadcrumb"
+msgstr "Briwsion bara"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:79
+msgid "Documentation"
+msgstr "Dogfennaeth"
+
+#. translators: %1$s is Plugin Name
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+msgid "To have access to a shop section please install and configure %1$s."
+msgstr "I gael mynediad i adran siop Gosodwch a Ffurfweddwch %1$s."
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+msgid "WooCommerce plugin"
+msgstr "Ategyn WooCommerce"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
+msgid "Recommended Plugins"
+msgstr "Ategion a argymhellir"
+
+#. translators: Orbit Fox Companion
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+msgid ""
+"Get access to even more powerful features that will help you build a "
+"beautiful fast and responsive website in no time at all."
 msgstr ""
+"Cael mynediad i nodweddion hyd yn oed yn fwy pwerus a fydd yn eich helpu i "
+"adeiladu gwefan hardd gyflym ac ymatebol mewn dim o dro."
 
-#: core/includes/theme-options/theme-options.php
-msgid "Logo Upload"
-msgstr "Uwchlwytho Logo"
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:51
+msgid "Background Color"
+msgstr "Lliw'r Cefndir"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Header"
-msgstr "Pennyn Dewisol"
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:68
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:131
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:155
+msgid "Text Color"
+msgstr "Lliw'r Testun"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Need to replace or remove default logo?"
-msgstr "A oes angen newid neu dynnu'r logo rhagosodedig?"
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:80
+msgid "Links Color"
+msgstr "Dolenni lliw"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Home Page"
-msgstr "Tudalen Gartref"
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
+msgid "Links Hover Color"
+msgstr "Lliw hofran dolenni"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Headline"
-msgstr "Pennawd"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
+msgid "Full Width Footer"
+msgstr "Troedyn llawn lled"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your headline"
-msgstr "Mewnbynnwch eich pennawd"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
+msgid "Footer Widgets"
+msgstr "Teclyn Troedyn"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Subheadline"
-msgstr "Is-bennawd"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:57
+msgid "Number of Columns"
+msgstr "Nifer y colofnau"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your subheadline"
-msgstr "Mewnbynnwch eich is-bennawd"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:66
+msgid "Footer Bar"
+msgstr "Bar troedyn"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Content Area"
-msgstr "Ardal Gynnwys"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+msgid "Social Links"
+msgstr "Cysylltiadau cymdeithasol"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your content"
-msgstr "Mewnbynnwch eich cynnwys"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (URL)"
-msgstr "Galw Ynghyd (URL)"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action URL"
-msgstr "Mewnbynnwch eich URL galw ynghyd"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (Text)"
-msgstr "Galw Ynghyd (Testun)"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action text"
-msgstr "Mewnbynnwch eich testun galw ynghyd"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Featured Content"
-msgstr "Cynnwys Blaenllaw"
-
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "See Docs"
-msgstr "Gweld Dogfennau"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Paste your shortcode, video or image source"
-msgstr "Gludwch eich côd byr, fideo neu ffynhonnell eich delwedd"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Default Layouts"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Default Static Page Layout"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Default Single Blog Post Layout"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Default Blog Posts Index Layout"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Social Icons"
-msgstr "Eiconau Cymdeithasol"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
+#: core/includes/functions-extentions.php:337
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Twitter URL"
-msgstr "Mewnbynnwch eich URL Twitter"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
+#: core/includes/functions-extentions.php:338
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Facebook URL"
-msgstr "Mewnbynnwch eich URL Facebook"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
+#: core/includes/functions-extentions.php:339
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your LinkedIn URL"
-msgstr "Mewnbynnwch eich URL LinkedIn"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
+#: core/includes/functions-extentions.php:340
 msgid "YouTube"
-msgstr "YouTube"
+msgstr "Youtube"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your YouTube URL"
-msgstr "Mewnbynnwch eich URL YouTube"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "StumbleUpon"
-msgstr "StumbleUpon"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your StumbleUpon URL"
-msgstr "Mewnbynnwch eich URL StumbleUpon"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "RSS Feed"
-msgstr "Ffrwd RSS"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your RSS Feed URL"
-msgstr "Mewnbynnwch URL eich Ffrwd RSS"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
+#: core/includes/functions-extentions.php:343
 msgid "Google+"
-msgstr "Google+"
+msgstr "Google +"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Google+ URL"
-msgstr "Mewnbynnwch eich URL Google+"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
+#: core/includes/functions-extentions.php:342
+msgid "RSS Feed"
+msgstr "RSS Feed"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
+#: core/includes/functions-extentions.php:344
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Instagram URL"
-msgstr "Mewnbynnwch eich URL Instagram"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
+#: core/includes/functions-extentions.php:345
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Pinterest URL"
-msgstr "Mewnbynnwch eich URL Pinterest"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
+#: core/includes/functions-extentions.php:341
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Yelp!"
-msgstr "Yelp!"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Yelp! URL"
-msgstr "Mewnbynnwch eich URL Yelp!"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
+#: core/includes/functions-extentions.php:347
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Vimeo URL"
-msgstr "Mewnbynnwch eich URL Vimeo"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+msgid "Yelp"
+msgstr "Yelp"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "foursquare"
-msgstr "foursquare"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+msgid "Foursquare"
+msgstr "Foursquare"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your foursquare URL"
-msgstr "Mewnbynnwch eich URL foursquare"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+msgid "Email Address"
+msgstr "Cyfeiriad E-bost"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom CSS Styles"
-msgstr "Arddulliau CSS Dewisol"
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:39
+msgid "Scripts"
+msgstr "Sgriptiau"
 
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Tutorial"
-msgstr "Tiwtorial CSS"
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
+msgid "Embeds to footer.php"
+msgstr "Ymgorffori i'r troednod. php"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom CSS styles."
-msgstr "Mewnbynnwch eich arddulliau CSS dewisol."
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:139
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:159
+msgid "Border Color"
+msgstr "Lliw'r ffin"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Scripts for Header and Footer"
-msgstr "Sgriptiau Dewsiol ar gyfer y Pennyn a'r Troedyn"
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
+msgid "Site Title Color"
+msgstr "Lliw teitl y safle"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Quick Tutorial"
-msgstr "Tiwtorial Cyflym"
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
+msgid "Site Title Hover Color"
+msgstr "Lliw hofran teitl y safle"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to header.php &darr;"
-msgstr "Gosodwyd yn header.php &darr;"
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
+msgid "Site Tagline Color"
+msgstr "Lliw Taglin y safle"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom header script."
-msgstr "Mewnbynnwch eich sgript pennyn dewisedig."
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
+msgid "Header Widget"
+msgstr "Teclyn pennawd"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to footer.php &darr;"
-msgstr "Gosodwyd yn footer.php &darr;"
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
+msgid "Full Width Header"
+msgstr "Pennawd lled llawn"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom footer script."
-msgstr "Mewnbynnwch eich sgript troedyn dewisedig."
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
+msgid "Inline logo & Site Title"
+msgstr "Logo mewnline teitl safle"
 
-#: core/includes/functions.php
-msgid "Activate Add Ons"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
+msgid "Header Elements"
+msgstr "Elfennau pennawd"
 
-#: core/includes/functions.php
-msgid "All plugins installed and activated successfully. %s"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:81
+msgid "Header Layout"
+msgstr "Cynllun pennyn"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "All theme settings will be lost!"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
+msgid "Header Alignment"
+msgstr "Aliniad pennawd"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
+msgid "Logo Padding (px)"
+msgstr "Padding logo (px)"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
+msgid "Transparent Header"
+msgstr "Pennawd tryloyw"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
+msgid "Enable on Complete Website"
+msgstr "Galluogi ar y wefan gyflawn"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
+msgid "Site Content Padding (px)"
+msgstr "Padding cynnwys y safle (px)"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
+msgid "Disable on 404, Search & Archives?"
+msgstr "Analluogi ar 404, chwilio am archifau?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
+msgid "Disable on Blog page?"
+msgstr "Analluogi ar dudalen blog?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
+msgid "Disable on Latest Posts Page?"
+msgstr "Analluogi ar y dudalen swyddi diweddaraf?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
+msgid "Disable on Pages?"
+msgstr "Analluogi ar dudalennau?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
+msgid "Disable on Posts?"
+msgstr "Analluogi ar swyddi?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
+msgid "Disable on WooCommerce Product Pages?"
+msgstr "Analluogi ar dudalennau cynnyrch WooCommerce?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
+#: core/includes/functions-sidebar.php:100
+msgid "Header Widgets"
+msgstr "Teclynnau pennawd"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
+msgid "Enable Header Widgets"
+msgstr "Galluogi teclynnau pennawd"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Blog"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
+msgid "Widgets Position"
+msgstr "Safle'r widgets"
 
-#: core/includes/functions-update.php
-msgid "blog post"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
+msgid "Above Header"
+msgstr "Pennawd uchod"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Blog Title Toggle"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
+msgid "In Header"
+msgstr "Yn y pennawd"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "check to disable"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
+msgid "Below Header"
+msgstr "Pennawd isod"
 
-#: core/includes/theme-options/theme-options.php
-msgid "check to enable"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
+msgid "Widgets Alignment"
+msgstr "Aliniad y widgets"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Click here"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
+msgid "Spread"
+msgstr "Lledaenu"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Click OK to Restore."
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
+msgid "Space Around"
+msgstr "Gofod o gwmpas"
 
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Styles"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
+msgid "Active Menu Background Color"
+msgstr "Lliw cefndir y ddewislen weithredol"
 
-#. Author of the plugin/theme
-# INSTRUCTION: Author of the plugin/theme
-msgid "CyberChimps.com"
-msgstr "CyberChimps.com"
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
+msgid "Menu Item Link Color"
+msgstr "Lliw cyswllt eitem dewislen"
 
-#: header.php
-msgid "&darr; Skip to Main Content"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
+msgid "Menu Item Link Hover Color"
+msgstr "Lliw hofran cyswllt eitem dewislen"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Disable breadcrumb list?"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
+msgid "Sub Menu Background Color"
+msgstr "Lliw cefndir is-ddewislen"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Do you want to restore?"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+msgid "Sub Menu Item Link Color"
+msgstr "Lliw cyswllt eitemau is-ddewislen"
 
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+msgid "Sub Menu Item Link Hover Color"
+msgstr "Lliw hofran cyswllt eitem yr is-ddewislen"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+msgid "Menu Toggle Background Color"
+msgstr "Lliw cefndir Toglo dewislen"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+msgid "Menu Toggle Color"
+msgstr "Lliw Toglo'r ddewislen"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
+msgid "Full Width Main Navigation"
+msgstr "Prif lywiwr lled llawn"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
+msgid "Enable Mobile Menu"
+msgstr "Galluogi dewislen symudol"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
+msgid "Breakpoint"
+msgstr "Torbwynt"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:65
+msgid "Dropdown"
+msgstr "Dewislen"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
+msgid "FullScreen"
+msgstr "Sgrin lawn"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-panel.php:67
+msgid "Sidebar"
+msgstr "Bar Ochr"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+msgid "Sidebar Menu Alignment"
+msgstr "Aliniad dewislen bar ochr"
+
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
+msgid "Embeds to header.php"
+msgstr "Ymgorffori i'r pennawd. php"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
+msgid "Site Title"
+msgstr "Teitl y safle"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
+msgid "Site Tagline"
+msgstr "Safle tagline"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
+msgid "Choose Category"
+msgstr "Dewis categori"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
+msgid "Cutom Home Page"
+msgstr "Tudalen gartref cutom"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 msgid "Enable Custom Front Page"
-msgstr ""
+msgstr "Galluogi Tudalen flaen arferol"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enable minified css?"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
+msgid "Overrides the WordPress front page option"
+msgstr "Diystyru'r opsiwn Tudalen flaen WordPress"
 
-#: core/includes/functions-sidebar.php
-msgid "Footer Widget"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
+msgid "Hero Area"
+msgstr "Ardal arwr"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Help"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
+#: core/includes/functions.php:58 functions.php:526
+msgid "HAPPINESS"
+msgstr "Hapusrwydd"
 
-#. Author URI of the plugin/theme
-# INSTRUCTION: Author URI of the plugin/theme
-msgid "http://cyberchimps.com"
-msgstr "http://cyberchimps.com"
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:108
+msgid "Headline"
+msgstr "Prif"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
+#: core/includes/functions.php:59 functions.php:529
+msgid "IS A WARM CUP"
+msgstr "YN GWPAN CYNNES"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
+msgid "Subheadline"
+msgstr "Is-bennawd"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
+#: core/includes/functions.php:60 functions.php:532
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Mae eich teitl, Isdeitl a'r union gynnwys hwn yn editable o thema opsiwn. "
+"Galwad i weithredu botwm a'i gyswllt cyrchfan hefyd. Gall delwedd ar eich "
+"hawl fod yn ddelwedd neu hyd yn oed fideo YouTube os mynnwch."
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
+msgid "Content Area"
+msgstr "Ardal gynnwys"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
+msgid "Disable Call to Action Button?"
+msgstr "Analluogi'r alwad i weithredu botwm?"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
+msgid "Call to Action (URL)"
+msgstr "Galwad i weithredu (URL)"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
+msgid "Call to Action (Text)"
+msgstr "Galwad i weithredu (testun)"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
+msgid "Call to Action Button Style"
+msgstr "Arddull botwm gweithredu"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
+msgid "Featured Content"
+msgstr "Cynnwys Arbennig"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
+msgid "Paste your shortcode, video or image source"
+msgstr "Gludwch eich shortcode, fideo neu ddelwedd Ffynhonnell"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
+msgid "About Section"
+msgstr "Am adran"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
+msgid "Enable About Section"
+msgstr "Galluogi ynghylch adran"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
+#: partials/custom-home/featured-area.php:105
+msgid "About Box Title"
+msgstr "Ynglŷn â theitl y blwch"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
+msgid "About Title"
+msgstr "Ynglŷn â theitl"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
+msgid "About Text"
+msgstr "Ynglŷn â thestun"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
+msgid "Enter url as http://www.example.com"
+msgstr "Rhowch y URL fel http://www.example.com"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
+msgid "Feature Section"
+msgstr "Adran nodwedd"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
+msgid "Enable Feature Section"
+msgstr "Galluogi adran nodwedd"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
+msgid "Feature Title"
+msgstr "Teitl y nodwedd"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
+msgid "Select post for feature 1"
+msgstr "Dewiswch swydd ar gyfer nodwedd 1"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:457
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the feature. Recommended image size for the featured images: 130 x 130px"
+msgstr ""
+"Bydd y ddelwedd, teitl a chynnwys o'r swyddi yn cael eu defnyddio i ddangos "
+"y nodwedd. Maint y ddelwedd a argymhellir ar gyfer y delweddau dan sylw: 130 "
+"x 130px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
+msgid "Select post for feature 2"
+msgstr "Dewiswch swydd ar gyfer nodwedd 2"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
+msgid "Select post for feature 3"
+msgstr "Dewiswch post ar gyfer nodwedd 3"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
+msgid "Testimonial Section"
+msgstr "Adran dysteb"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
+msgid "Enable Testimonial Section"
+msgstr "Galluogi adran dysteb"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
+#: partials/custom-home/featured-area.php:217
+msgid "Testimonial"
+msgstr "Tysteb"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
+msgid "Testimonial Title"
+msgstr "Tysteb teitl"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
+msgid "Select Post"
+msgstr "Dewis Cofnod"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the client testimonials. Recommended image size for the featured images: 178 "
+"x 178px"
+msgstr ""
+"Bydd y ddelwedd, teitl a chynnwys o'r swyddi yn cael eu defnyddio i ddangos "
+"Tystebau'r cleient. Maint y ddelwedd a argymhellir ar gyfer y delweddau dan "
+"sylw: 178 x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
+msgid "Team Section"
+msgstr "Adran tîm"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
+msgid "Enable Team Section"
+msgstr "Galluogi adran tîm"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
+msgid "team"
+msgstr "Tîm"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
+msgid "Team Title"
+msgstr "Teitl y tîm"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
+msgid "Select post for team member1"
+msgstr "Dewiswch post ar gyfer tîm member1"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:622
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the team member. Recommended image size for the featured images: 178 x 178px"
+msgstr ""
+"Bydd y ddelwedd, teitl a chynnwys o'r swyddi yn cael eu defnyddio i ddangos "
+"yr aelod o'r tîm. Maint y ddelwedd a argymhellir ar gyfer y delweddau dan "
+"sylw: 178 x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
+msgid "Select post for team member2"
+msgstr "Dewiswch post ar gyfer tîm member2"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
+msgid "Select post for team member3"
+msgstr "Dewiswch post ar gyfer tîm member3"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
+msgid "Click to disable home page widgets"
+msgstr "Cliciwch i analluogi teclynnau tudalen gartref"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
+msgid "Contact Section"
+msgstr "Adran cyswllt"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
+msgid "Enable Contact Section"
+msgstr "Galluogi adran cyswllt"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
+msgid "Contact Us"
+msgstr "Cysylltu â Ni"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
+msgid "Contact section Title"
+msgstr "Teitl yr adran gyswllt"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
+msgid "Contact subtitle"
+msgstr "Contact Isdeitl"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
+msgid "Contact section Subtitle"
+msgstr "Adran cyswllt is-deitl"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
+msgid "Address"
+msgstr "Cyfeiriad"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
+#: core/includes/functions-extentions.php:349
+msgid "Email"
+msgstr "E-bost"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
+msgid "Phone no"
+msgstr "Rhif ffôn"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
+msgid "Contact form shortcode"
+msgstr "Ffurflen gysylltu cod byr"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
+msgid "You can put Contact Form 7 shortcode here."
+msgstr "Gallwch gyflwyno ffurflen 7 shortcode yma."
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
+msgid "Page Elements"
+msgstr "Elfennau Tudalen"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
+msgid "Post Elements"
+msgstr "Elfennau ôl"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
+msgid "Page Featured Image"
+msgstr "Delwedd nodwedd Tudalen"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
+msgid "Page Title"
+msgstr "Teitl y dudalen"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:120
+msgid "Page Content"
+msgstr "Cynnwys y dudalen "
+
+#: core/includes/customizer/settings/class-responsive-panel.php:40
+msgid "Theme Options"
+msgstr "Dewisiadau thema"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:41
+#: core/includes/customizer/settings/class-responsive-panel.php:50
+msgid "Header Options"
+msgstr "Dewisiadau pennyn"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:49
+msgid "Header"
+msgstr "Pennyn"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:58
+#: functions.php:471 partials/header/main-navigation.php:14
+msgid "Main Menu"
+msgstr "Prif ddewislen"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:59
+msgid "Header Menu Options"
+msgstr "Dewisiadau dewislen pennyn"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:68
+msgid "Sidebar Options"
+msgstr "Dewisiadau bar ochr"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:76
+msgid "Footer"
+msgstr "Troedyn"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:77
+msgid "Footer Options"
+msgstr "Dewisiadau troedyn"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:94
+msgid "Blog / Archive"
+msgstr "Blog/archif"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:95
+msgid "Blog Options"
+msgstr "Dewisiadau blog"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:103
+msgid "Blog Post"
+msgstr "Post blog"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:104
+msgid "Single Blog Post"
+msgstr "Un post blog"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:112
+msgid "Page"
+msgstr "Tudalen"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:113
+msgid "Page Options"
+msgstr "Dewisiadau Tudalen"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
+msgid "Post Featured Image"
+msgstr "Delwedd Nodwedd Cofnod"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:106
+msgid "Post Title"
+msgstr "Teitlau Cofnod"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:121
+msgid "Post Meta"
+msgstr "Ôl-meta"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:190
+msgid "Post Content"
+msgstr "Cynnwys Cofnod"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:59
+msgid "Backgrounds"
+msgstr "Gefndiroedd"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
+msgid "Box Background Color"
+msgstr "Lliw cefndir y blwch"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
+msgid "Alternate Background Color"
+msgstr "Lliw cefndir eiledol"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
+msgid "General Text"
+msgstr "Testun cyffredinol"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
+msgid "Body Text Color"
+msgstr "Lliw testun y corff"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
+msgid "Heading 1 (H1) Color"
+msgstr "Pennawd 1 (H1) lliw"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
+msgid "Heading 2 (H2) Color"
+msgstr "Pennawd 2 (H2) lliw"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
+msgid "Heading 3 (H3) Color"
+msgstr "Pennawd 3 (H3) lliw"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
+msgid "Heading 4 (H4) Color"
+msgstr "Pennawd 4 (H4) lliw"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
+msgid "Heading 5 (H5) Color"
+msgstr "Pennawd 5 (H5) lliw"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
+msgid "Heading 6 (H6) Color"
+msgstr "Pennawd 6 (H6) lliw"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
+msgid "Meta Text Color"
+msgstr "Lliw testun meta"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
+msgid "Links"
+msgstr "Cysylltiadau"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:111
+msgid "Link Color"
+msgstr "Lliw cyswllt"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:115
+msgid "Link Hover Color"
+msgstr "Lliw hofran cyswllt"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:119
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:83
+msgid "Buttons"
+msgstr "Botymau"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:123
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:151
+msgid "Color"
+msgstr "Lliw"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:127
+msgid "Hover Color"
+msgstr "Lliw hofran"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:135
+msgid "Hover Text Color"
+msgstr "Lliw testun hofran"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:143
+msgid "Hover Border Color"
+msgstr "Lliw border hofran"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:147
+msgid "Inputs"
+msgstr "Mewnbynnau"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:163
+msgid "Labels"
+msgstr "Labeli"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:167
+msgid "Label Color"
+msgstr "Lliw label"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
+msgid "Hide Site Title"
+msgstr "Cuddio teitl y safle"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
+msgid "Hide Tagline"
+msgstr "Cuddio'r Taglin"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
+msgid "Width"
+msgstr "Lled"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:59
+msgid "Contained"
+msgstr "Cynnwys"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:60
+msgid "Full Width"
+msgstr "Lled llawn"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
+msgid "Container Width (px)"
+msgstr "Lled y cynhwysydd (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
+msgid "Boxed"
+msgstr "Mewn bocs"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
+msgid "Content Boxed"
+msgstr "Cynnwys mewn blwch"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
+msgid "Box Padding (px)"
+msgstr "Blwch padding (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+msgid "Box Radius (px)"
+msgstr "Radiws blwch (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
+msgid "Padding (px)"
+msgstr "Padding (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
+msgid "Radius (px)"
+msgstr "Radiws (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
+msgid "Border Width (px)"
+msgstr "Lled y ffin (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
+msgid "Form Inputs"
+msgstr "Ffurfio mewnbynnau"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:162
+msgid "Body"
+msgstr "Corff"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
+msgid "Heading 1 (H1)"
+msgstr "Pennawd 1 (H1)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
+msgid "Heading 2 (H2)"
+msgstr "Pennawd 2 (H2)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
+msgid "Heading 3 (H3)"
+msgstr "Pennawd 3 (H3)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
+msgid "Heading 4 (H4)"
+msgstr "Pennawd 4 (H4)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
+msgid "Heading 5 (H5)"
+msgstr "Pennawd 5 (H5)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
+msgid "Heading 6 (H6)"
+msgstr "Pennawd 6 (H6)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
+msgid "Input Fields"
+msgstr "Meysydd mewnbwn"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
+msgid "Exclude Categories from Blog page"
+msgstr "Eithrio categorïau o dudalen blog"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
+msgid ""
+"Please choose the post categories that should not be displayed on the blog "
+"page"
+msgstr "Dewiswch y categorïau post na ddylid eu dangos ar y dudalen blog"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
+msgid "General Typography"
+msgstr "Teipograffeg cyffredinol"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
+msgid "Font Family"
+msgstr "Teulu ffont"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:400
+msgid "Font Weight"
+msgstr "Pwysau ffont"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
+msgid "Important: Not all fonts support every font-weight."
+msgstr "Pwysig: Nid yw pob wynebfath yn cefnogi pob pwysau ffont."
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
+msgid "Font Style"
+msgstr "Arddull ffont"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:451
+msgid "Normal"
+msgstr "Arferol"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:452
+msgid "Italic"
+msgstr "Italig"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:477
+msgid "Text Transform"
+msgstr "Trawsnewid testun"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:485
+msgid "Capitalize"
+msgstr "Prif Lythrennu"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:486
+msgid "Lowercase"
+msgstr "Isafswm"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:487
+msgid "Uppercase"
+msgstr "Uchafswm"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:531
+msgid "Font Size"
+msgstr "Maint ffont"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
+msgid "You can add: px-em-%"
+msgstr "Gallwch ychwanegu: px-EM-%"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
+msgid "Line Height"
+msgstr "Uchder y llinell"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
+msgid "Letter Spacing (px)"
+msgstr "Bylchu llythrennau (px)"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:659
+msgid "Font Color"
+msgstr "Lliw Ffont"
+
+#. translators: %s: link
+#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+msgid "Home"
+msgstr "Cartref"
+
+#. translators: %s: Categories
+#: core/includes/functions-extentions.php:60
+msgid "Archive for %s"
+msgstr "Archif ar gyfer %s"
+
+#. translators: %s: Search result page
+#. translators: %s is for search query.
+#: core/includes/functions-extentions.php:62 loop-header.php:33
+msgid "Search results for: %s"
+msgstr "Canlyniadau chwilio ar gyfer: %s"
+
+#. translators: %s: Post Pages
+#: core/includes/functions-extentions.php:64
+msgid "Posts tagged %s"
+msgstr "Swyddi wedi'u tagio %s"
+
+#. translators: %s: Author pages
+#. translators: %s: view post by
+#. translators: view all posts by author
+#. translators: %s view posts by
+#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: partials/entry/meta.php:54 partials/single/meta.php:49
+msgid "View all posts by %s"
+msgstr "Gweld pob cofnod gan %s"
+
+#: core/includes/functions-extentions.php:67
+msgid "Error 404"
+msgstr "Gwall 404"
+
+#. translators: %s: Page Number
+#. translators: %s: author
+#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extras.php:190
+msgid "Page %s"
+msgstr "Tudalen %s"
+
+#: core/includes/functions-extentions.php:346
+msgid "Yelp!"
+msgstr "Yelp!"
+
+#: core/includes/functions-extentions.php:348
+msgid "foursquare"
+msgstr "Foursquare"
+
+#: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
+#: image.php:59 index.php:56 partials/page/content.php:15
+msgid "Read more &#8250;"
+msgstr "Darllenwch fwy & #8250;"
+
+#: core/includes/functions-sidebar.php:28
+msgid "Main Sidebar"
+msgstr "Prif Far Ochr"
+
+#: core/includes/functions-sidebar.php:29
+msgid ""
+"Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr ""
+"Arwynebedd 1-bar ochr. php-arddangosiadau ar ddiofyn, blog, blog dyfyniad "
+"Tudalen"
+
+#: core/includes/functions-sidebar.php:40
+msgid "Home Widget 1"
+msgstr "Teclyn cartref 1"
+
+#: core/includes/functions-sidebar.php:41
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr "Ardal 6-sidebar-home-arddangosiadau ar y dudalen hafan"
+
+#: core/includes/functions-sidebar.php:52
+msgid "Home Widget 2"
+msgstr "Teclyn cartref 2"
+
+#: core/includes/functions-sidebar.php:53
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr "Maes 7-sidebar-home-arddangosiadau ar y dudalen hafan"
+
+#: core/includes/functions-sidebar.php:64
+msgid "Home Widget 3"
+msgstr "Teclyn cartref 3"
+
+#: core/includes/functions-sidebar.php:65
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr "Ardal 8-sidebar-home-arddangosiadau ar y dudalen hafan"
+
+#: core/includes/functions-sidebar.php:76
+msgid "Gallery Sidebar"
+msgstr "Bar ochr yr oriel"
+
+#: core/includes/functions-sidebar.php:77
+msgid ""
+"Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
+"clicked in a Gallery"
+msgstr ""
+"Ardal 9-sidebar-Gallery-arddangosiadau ar y dudalen ar ôl i ddelwedd gael ei "
+"chlicio mewn oriel"
+
+#: core/includes/functions-sidebar.php:88
+msgid "Colophon Widget"
+msgstr "Teclyn colophon"
+
+#: core/includes/functions-sidebar.php:89
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr "Area 10-sidebar-colophon, 100% teclynnau troedyn lled"
+
+#: core/includes/functions-sidebar.php:101
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr "Area 11-sidebar-Top-arddangosiadau ar ochr dde'r pennyn"
+
+#: core/includes/functions-sidebar.php:112
+msgid "Footer Widgets 1"
+msgstr "Teclynnau troedyn 1"
+
+#: core/includes/functions-sidebar.php:113
+msgid "Area 12 - sidebar-footer.php"
+msgstr "Ardal 12-sidebar-footer"
+
+#: core/includes/functions-sidebar.php:123
+msgid "Footer Widgets 2"
+msgstr "Teclynnau troedyn 2"
+
+#: core/includes/functions-sidebar.php:124
+msgid "Area 13 - sidebar-footer.php"
+msgstr "Ardal 13-sidebar-footer"
+
+#: core/includes/functions-sidebar.php:134
+msgid "Footer Widgets 3"
+msgstr "Teclynnau troedyn 3"
+
+#: core/includes/functions-sidebar.php:135
+msgid "Area 14 - sidebar-footer.php"
+msgstr "Area 14-sidebar-footer"
+
+#: core/includes/functions-sidebar.php:145
+msgid "Footer Widgets 4"
+msgstr "Teclynnau footer 4"
+
+#: core/includes/functions-sidebar.php:146
+msgid "Area 15 - sidebar-footer.php"
+msgstr "Ardal 15-sidebar-footer"
+
+#: core/includes/functions.php:61 functions.php:535
+msgid "Call to Action"
+msgstr "Galwad i weithredu"
+
+#: core/includes/functions.php:216
+msgid "Header Menu"
+msgstr "Dewislen pennyn"
+
+#: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+msgid "Footer Menu"
+msgstr "Dewislen troedyn"
+
+#: core/includes/functions.php:377
+msgid "Team Section Options"
+msgstr "Opsiynau adran tîm"
+
+#: core/includes/functions.php:391
+msgid ""
+"To use this post for front page's team section, please enter below details:"
+msgstr ""
+"I ddefnyddio'r neges hon ar gyfer tîm y dudalen flaen, nodwch y manylion "
+"isod:"
+
+#: core/includes/functions.php:394
+msgid "Member designation"
+msgstr "Dynodiad aelod"
+
+#: core/includes/functions.php:398
+msgid "Facebook Link"
+msgstr "Cyswllt Facebook"
+
+#: core/includes/functions.php:402
+msgid "Twitter Link"
+msgstr "Cyswllt Twitter"
+
+#: core/includes/functions.php:406
+msgid "GooglePlus Link"
+msgstr "Cyswllt GooglePlus"
+
+#: core/includes/functions.php:410
+msgid "LinkedIn Link"
+msgstr "Cyswllt LinkedIn"
+
+#: core/includes/functions.php:666
+msgid "Posted on"
+msgstr "Cofnodwyd ar"
+
+#: core/includes/functions.php:666
+msgid "By"
+msgstr "Gan"
+
+#. translators: %s: category list
+#. translators: %s posted in categories
+#. translators: %s: category list
+#: core/includes/functions.php:696 image.php:82 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid "Posted in %s"
+msgstr "Postiwyd yn %s"
+
+#: core/includes/functions.php:696 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid ", "
+msgstr ", "
+
+#: core/includes/functions.php:719
+msgid "Upgrade To Pro"
+msgstr "Uwchraddio i pro"
+
+#: core/includes/post-custom-meta.php:137
+msgid "Content/Sidebar"
+msgstr "Cynnwys/bar ochr"
+
+#: core/includes/post-custom-meta.php:138
+msgid "Sidebar/Content"
+msgstr "Bar ochr/cynnwys"
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page (no sidebar)"
+msgstr "Tudalen lled llawn (dim bar ochr)"
+
+#: core/includes/post-custom-meta.php:140
+msgid "Blog 2 Column"
+msgstr "Blog 2 Colofn"
+
+#: core/includes/post-custom-meta.php:141
+msgid "Blog 3 Column"
+msgstr "Blog 3 Colofn"
+
+#: core/includes/post-custom-meta.php:142
+msgid "Blog 4 Column"
+msgstr "Blog 4 Colofn"
+
+#: footer.php:88
+msgid "Scroll to Top"
+msgstr "Sgroliwch i'r brig"
+
+#: functions.php:392
+msgid "Permalink to %s"
+msgstr "Permalink i %s"
+
+#. translators: %s Link to 5 star rating
+#: functions.php:453
+msgid ""
+"If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
+"It takes a minute and helps a lot. Thanks in advance!"
+msgstr ""
+"Os ydych chi'n hoffi <strong>thema ymatebol</strong> , gadewch i ni gael "
+"sgôr o %s. Mae'n cymryd munud ac yn helpu llawer. Diolch o flaen llaw!"
+
+#: functions.php:454
+msgid "Thanks :)"
+msgstr "Diolch:)"
+
+#: functions.php:538
+msgid "#"
+msgstr "#"
+
+#: gutenberg-fullwidth.php:46 image.php:63 index.php:60
+#: partials/entry/layout.php:53 partials/page/layout.php:45
+#: partials/single/content.php:38 partials/single/layout.php:59
+msgid "Pages:"
+msgstr "Tudalennau:"
+
+#: header.php:35
+msgid "&darr; Skip to Main Content"
+msgstr "&darr; Neidio i'r prif gynnwys"
+
+#: home.php:81
+msgid "Previous"
+msgstr "Blaenorol"
+
+#: home.php:82
+msgid "Next"
+msgstr "Nesaf"
+
+#: image.php:37
+msgid "&#8249; Return to"
+msgstr "& #8249; yn ôl i"
+
+#: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "No Comments"
+msgstr "Dim sylwadau"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "1 Comment"
+msgstr "1 Sylw"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "% Comments"
+msgstr "% Sylw"
+
+#: image.php:79 post-data.php:25
+msgid "Tagged with:"
+msgstr "Tagged gyda:"
+
+#: image.php:87 post-data.php:29
+msgid "<span class=\"post-edit\">Edit</span>"
+msgstr "<span class=\"post-edit\">Golygu</span>"
+
+#: loop-nav.php:28
+msgid "&#8249; Older posts"
+msgstr "& #8249; swyddi hŷn"
+
+#: loop-nav.php:29
+msgid "Newer posts &#8250;"
+msgstr "Swyddi mwy newydd & #8250;"
+
+#. translators: %s search term
+#: loop-no-posts.php:26
+msgid "Your search for %s did not match any entries."
+msgstr "Doedd eich chwiliad ar gyfer %s ddim yn cyfateb i unrhyw gofnodion."
+
+#: loop-no-posts.php:26
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 & #8212; ffansi cwrdd â chi yma!"
+
+#: loop-no-posts.php:32
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Don & #39; t panig, rydym & #39; yn mynd drwy hyn gyda'n gilydd. Gadewch i & "
+"#39; s archwilio ein hopsiynau yma."
+
+#: loop-no-posts.php:43
+msgid "&larr; Home"
+msgstr "&larr; Cartref"
+
+#: partials/custom-home/featured-area.php:255
+msgid "Team"
+msgstr "Tîm"
+
+#. translators: 1: byline, 2: author
+#: partials/entry/meta.php:35
+msgid "By "
+msgstr "Gan"
+
+#. translators: 1: class, 2: date
+#: partials/entry/meta.php:69 partials/single/meta.php:63
+msgid "Posted on "
+msgstr "Bostio ar"
+
+#: partials/entry/thumbnail-style/comments.php:16
+msgid "0 Comments"
+msgstr "0 sylwadau"
+
+#: partials/footer/copy-right.php:17
+msgid " | Powered by "
+msgstr "| Wedi'i bweru gan"
+
+#: partials/footer/copy-right.php:18
+msgid " &copy; "
+msgstr "&copy;"
+
+#: partials/footer/copy-right.php:23
+msgid "&copy; "
+msgstr "&copy;"
+
+#: partials/footer/copy-right.php:32
+msgid "Responsive Theme"
+msgstr "Thema ymatebol"
+
+#: partials/header/main-navigation.php:16
+msgid "Menu"
+msgstr "Dewislen"
+
+#. translators: %s Name of current post. Only visible to screen readers
+#: partials/single/content.php:22
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Parhau i ddarllen<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: partials/single/layout.php:50
+msgid "About"
+msgstr "Am"
+
+#: partials/single/layout.php:73
+msgid "Previous Post is "
+msgstr "Swydd flaenorol yw"
+
+#: partials/single/layout.php:74
+msgid "Next Post is"
+msgstr "Swydd nesaf yw"
+
+#: searchform.php:22
+msgid "Search for:"
+msgstr "Chwilio am:"
+
+#: searchform.php:23
+msgid "Search here &hellip;"
+msgstr "Chwilio yma &hellip;"
+
+#: searchform.php:24
+msgid "Go"
+msgstr "Ewch"
+
+#: sidebar-gallery.php:26
+msgid "Image Information"
+msgstr "Gwybodaeth am ddelweddau"
+
+#: sidebar-gallery.php:33
+msgid "Full Size:"
+msgstr "Maint llawn:"
+
+#: sidebar-gallery.php:39
+msgid "Aperture: f&#47;"
+msgstr "Agorfa: f & #47;"
+
+#: sidebar-gallery.php:44
+msgid "Focal Length:"
+msgstr "Hyd ffocal:"
+
+#: sidebar-gallery.php:44
+msgid "mm"
+msgstr "Mm"
+
+#: sidebar-gallery.php:48
+msgid "ISO:"
+msgstr "Iso:"
+
+#: sidebar-gallery.php:52
+msgid "Shutter:"
+msgstr "Caead"
+
+#: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
+msgid "sec"
+msgstr "eil"
+
+#: sidebar-gallery.php:69
+msgid "Camera:"
+msgstr "Camera:"
+
+#: sidebar-home.php:34
+msgid "Fermentum"
+msgstr "Fermentum"
+
+#: sidebar-home.php:40
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Dyma eich blwch teclyn cartref cyntaf. I olygu ewch i edrychiad} widgets a "
+"dewiswch y 6ed teclyn o'r brig yn ardal 6 o'r enw teclyn cartref 1. Teitl "
+"hefyd yn hydrin gan widgets yn ogystal."
+
+#: sidebar-home.php:54
+msgid "Elementum"
+msgstr "Elfenwm"
+
+#: sidebar-home.php:60
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Dyma'ch bocs teclyn cartref. I olygu, ewch i'r golwg} teclynnau a dewiswch "
+"7fed teclyn o'r brig yn ardal 7 o'r enw teclyn cartref 2. Teitl hefyd yn "
+"hydrin gan widgets yn ogystal."
+
+#: sidebar-home.php:74
+msgid "Interdum"
+msgstr "Interdum"
+
+#: sidebar-home.php:78
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Dyma eich blwch teclyn trydydd cartref. I olygu ewch i edrychiad} widgets a "
+"dewiswch 8fed teclyn o'r brig yn ardal 8 o'r enw teclyn cartref 3. Teitl "
+"hefyd yn hydrin gan widgets yn ogystal."
 
 #. Theme URI of the plugin/theme
-# INSTRUCTION: Theme URI of the plugin/theme
-msgid "http://cyberchimps.com/responsive-theme/"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Instructions"
-msgstr "Cyfarwyddiadau"
-
-#: core/includes/functions.php
-msgid "Activate installed plugin"
-msgid_plural "Activate installed plugins"
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Plugin activated successfully."
-msgstr ""
-
-#. Theme Name of the plugin/theme
-# INSTRUCTION: Theme Name of the plugin/theme
-msgid "Responsive"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Responsive Add Features"
-msgstr ""
+msgid "https://cyberchimps.com/responsive"
+msgstr "https://cyberchimps.com/responsive"
 
 #. Description of the plugin/theme
-# INSTRUCTION: Description of the plugin/theme
-msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+msgid ""
+"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
 msgstr ""
+"Ymatebol yn thema WordPress llawn customizable, gyflym a symudol-gyfeillgar."
 
-#: core/includes/functions.php
-msgid "Return to Required Plugins Installer"
-msgstr ""
+#. Author URI of the plugin/theme
+msgid "https://cyberchimps.com/"
+msgstr "https://cyberchimps.com/"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Scripts"
-msgstr ""
+#. Template Name of the plugin/theme
+msgid "Gutenberg Fullwidth No title"
+msgstr "Gutenberg Fulllled dim teitl"
 
-#: searchform.php
-msgid "Search for:"
-msgstr ""
+#. translators: 1: comment count number, 2: title.
+#: comments.php:48
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s sylw ar \"%2$s\""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
-#: core/includes/functions.php
-msgid "Something went wrong with the plugin API."
-msgstr ""
+#: functions.php:126
+msgctxt "Name of the small font size in the block editor"
+msgid "Small"
+msgstr "Bach"
 
-#: core/includes/functions-update.php
-#. Translators: This is a big update. Please read the blog post beforeupdating.
-# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
-msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
-msgstr ""
+#: functions.php:127
+msgctxt "Short name of the small font size in the block editor."
+msgid "S"
+msgstr "S"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+#: functions.php:132
+msgctxt "Name of the regular font size in the block editor"
+msgid "Regular"
+msgstr "Arferol"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+#: functions.php:133
+msgctxt "Short name of the regular font size in the block editor."
+msgid "M"
+msgstr "M"
 
-#: core/includes/upsell/theme-upsell.php
-msgid "Themes You Can Trust"
-msgstr ""
+#: functions.php:138
+msgctxt "Name of the large font size in the block editor"
+msgid "Large"
+msgstr "Mawr"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Title Text"
-msgstr ""
+#: functions.php:139
+msgctxt "Short name of the large font size in the block editor."
+msgid "L"
+msgstr "M"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Translate"
-msgstr "Cyfieithu"
+#: functions.php:144
+msgctxt "Name of the larger font size in the block editor"
+msgid "Larger"
+msgstr "Mwy"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Upgrade"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr ""
-
+#: functions.php:145
+msgctxt "Short name of the larger font size in the block editor."
+msgid "XL"
+msgstr "MWY"

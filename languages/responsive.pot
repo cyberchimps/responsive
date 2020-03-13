@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.1.7\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 09:36:56+00:00\n"
+"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -652,6 +652,7 @@ msgstr ""
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+#: footer.php:90
 msgid "Top"
 msgstr ""
 
@@ -2245,7 +2246,7 @@ msgstr ""
 msgid "Blog 4 Column"
 msgstr ""
 
-#: footer.php:88
+#: footer.php:90
 msgid "Scroll to Top"
 msgstr ""
 
@@ -2361,19 +2362,15 @@ msgid "0 Comments"
 msgstr ""
 
 #: partials/footer/copy-right.php:17
-msgid " | Powered by "
-msgstr ""
-
-#: partials/footer/copy-right.php:18
 msgid " &copy; "
 msgstr ""
 
-#: partials/footer/copy-right.php:23
+#: partials/footer/copy-right.php:21
 msgid "&copy; "
 msgstr ""
 
-#: partials/footer/copy-right.php:32
-msgid "Responsive Theme"
+#: partials/footer/copy-right.php:29
+msgid " | Powered by Responsive Theme"
 msgstr ""
 
 #: partials/header/main-navigation.php:16

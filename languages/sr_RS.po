@@ -1,1018 +1,2590 @@
+# <!=Copyright (C) 2020
+# This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive Theme\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-28 06:06:38 UTC\n"
-"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
-"Language-Team: Serbian (Cyrillic)\n"
+"Project-Id-Version: Responsive 4.1.7\n"
+"Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
+"POT-Creation-Date: 2020-03-13 09:36:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: WebTranslateIt.com\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"PO-Revision-Date: 2020-03-13 16:10+0530\n"
+"Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language: sr_RS\n"
 
-#: page.php
-#: landing-page.php
-#: index.php
-#: image.php
-#: full-width-page.php
-#: content-sidebar-page.php
-#: content-sidebar-half-page.php
-#: blog.php
-#: blog-excerpt.php
-#: archive.php
-#: home.php
-#: search.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: sitemap.php
-msgid "Pages:"
-msgstr "Странице:"
+#: admin/templates/free-vs-pro.php:50
+msgid "17"
+msgstr "17"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "&#8249; Older posts"
-msgstr "‹ Старији чланци"
+#: admin/admin-functions.php:21
+#: admin/class-responsive-plugin-install-helper.php:157
+msgid "Activating "
+msgstr "Активирање"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "Newer posts &#8250;"
-msgstr "Новији чланци ›"
+#: admin/admin-functions.php:22
+msgid "Not connect. Verify Network."
+msgstr "Није повезан. Верификуј мрежу."
 
-#: blog.php
-#: content-sidebar-half-page.php
-#: content-sidebar-page.php
-#: full-width-page.php
-#: home.php
-#: image.php
-#: index.php
-#: landing-page.php
-#: page.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: core/includes/functions.php
-msgid "Read more &#8250;"
-msgstr "Прочитајте више ›"
+#: admin/admin-functions.php:23
+msgid "Requested page not found. [404]"
+msgstr "Захтевана страница није пронађена. [404]"
 
-#: comments.php
-msgid "This post is password protected. Enter the password to view any comments."
-msgstr "Овај чланак је заштићен лозинком. Унесите лозинку да бисте видели коментаре."
+#: admin/admin-functions.php:24
+msgid "Internal Server Error [500]"
+msgstr "Унутрашња грешка сервера [500]"
 
-#: comments.php
-#: comments.php
+#: admin/admin-functions.php:25
+msgid "Requested JSON parse failed"
+msgstr "Захтевано ЈСОН рашчлање неуспешно"
+
+#: admin/admin-functions.php:26
+msgid "Time out error"
+msgstr "Грешка у одјаву"
+
+#: admin/admin-functions.php:27
+msgid "Ajax request aborted"
+msgstr "Ајаx захтев је прекинут"
+
+#: admin/admin-functions.php:28
+msgid "Uncaught Error"
+msgstr "Неухваћена грешка"
+
+#: admin/class-responsive-plugin-install-helper.php:93
+msgid "Install and activate &raquo;"
+msgstr "Инсталирај и Активирај &раqуо;"
+
+#: admin/class-responsive-plugin-install-helper.php:97
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Activate"
+msgstr "Aktiviraj"
+
+#: admin/class-responsive-plugin-install-helper.php:112
+msgid "Deactivate"
+msgstr "Деактивирај"
+
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Jetpack Portfolio"
+msgstr "Јетпацк портфолио"
+
+#: admin/templates/free-vs-pro.php:15
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:389
+#: partials/custom-home/featured-area.php:131
+msgid "Features"
+msgstr "Карактеристике"
+
+#: admin/templates/free-vs-pro.php:16
+msgid "Free"
+msgstr "Бесплатно"
+
+#: admin/templates/free-vs-pro.php:17 admin/templates/free-vs-pro.php:50
+#: admin/templates/free-vs-pro.php:51
+msgid "Pro"
+msgstr "Про"
+
+#: admin/templates/free-vs-pro.php:23
+msgid "Mobile Friendly"
+msgstr "Погодан за мобилну"
+
+#: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
+msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
+msgstr "Клизач , портфолио, столови за ценовник, виџета Вуоцоммерце"
+
+#: admin/templates/free-vs-pro.php:31
+msgid "Blazing Fast Speed"
+msgstr "Брзина брзог преблажења"
+
+#: admin/templates/free-vs-pro.php:32
+msgid "Optimized for speed, loads in under 2 seconds"
+msgstr "Оптимизовано за брзину, учитава се у мање од 2 секунде"
+
+#: admin/templates/free-vs-pro.php:39
+msgid "Fully Customizable"
+msgstr "Потпуно прилагодљива"
+
+#: admin/templates/free-vs-pro.php:40
+msgid "Using the customizer options for layout, fonts & colors"
+msgstr "Коришћење цустомизер опција за распоред, фонтови & боје"
+
+#: admin/templates/free-vs-pro.php:42
+msgid "Limited Options"
+msgstr "Ограничене опције"
+
+#: admin/templates/free-vs-pro.php:47
+msgid "Ready-to-use Website Templates"
+msgstr "Предлошци за Wеб локације који су спремни за коришћење"
+
+#: admin/templates/free-vs-pro.php:48
+msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
+msgstr ""
+"Израда Елементерогених и Wеб страница за израду странице спреман за коришћење"
+
+#: admin/templates/free-vs-pro.php:51
+msgid "30+"
+msgstr "30 +"
+
+#: admin/templates/free-vs-pro.php:55
+msgid "Exclusive Widgets"
+msgstr "Ексклузивни виџета"
+
+#: admin/templates/free-vs-pro.php:63
+msgid "Exclusive Content, Deals & Offers"
+msgstr "Ексклузивни садржај, послови & понуде"
+
+#: admin/templates/free-vs-pro.php:64
+msgid "Get access to exclusive WordPress content, deals & offers"
+msgstr "Добијте приступ ексклузивним WордПресс садржајима, понуде & понуда"
+
+#: admin/templates/free-vs-pro.php:71
+msgid "Private Priority Email Support"
+msgstr "Подршка за е-пошту приватног приоритета"
+
+#: admin/templates/free-vs-pro.php:72
+msgid "Need help? Just raise a support ticket to get priority email support"
+msgstr ""
+"Потребна вам је помоћ? Само подигните карту за подршку да бисте добили "
+"приоритетну подршку за е-пошту"
+
+#. Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr "Одзив"
+
+#: comments.php:27
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Ovaj post je zaštićen lozinkom. Unesite lozinku da vidite bilo kakve "
+"komentare."
+
+#. translators: 1: title.
+#: comments.php:42
+msgid "One Comment on &ldquo;%1$s&rdquo;"
+msgstr "Један коментар на \"%1 $ с\""
+
+#: comments.php:58 comments.php:71
 msgid "&#8249; Older comments"
-msgstr "‹ Старији коментари"
+msgstr "& #8249; старије коментаре"
 
-#: comments.php
-#: comments.php
+#: comments.php:60 comments.php:73
 msgid "Newer comments &#8250;"
-msgstr "Новији коментари ›"
+msgstr "Новији коментари & #8250;"
 
-#: comments.php
+#: comments.php:85
 msgid "Pings&#47;Trackbacks"
-msgstr "Пингови/повратне везе"
+msgstr "Исечци & #47; веза за праћење"
 
-#: comments.php
-msgid "%1$d %2$s for \"%3$s\""
-msgstr "%1$d %2$s за \"%3$s\""
-
-#: comments.php
+#. translators: 1 : Count, 2 : Pings 3 : Post title
+#: comments.php:102
 msgid "Name"
-msgstr "Име"
+msgstr "Ime"
 
-#: comments.php
+#: comments.php:104
 msgid "E-mail"
-msgstr "Е-пошта"
+msgstr "E-mail"
 
-#: comments.php
+#: comments.php:106
 msgid "Website"
 msgstr "Вебсајт"
 
-#: footer.php
-msgid "&copy;"
-msgstr "©"
-
-#: footer.php
-msgid "scroll to top"
-msgstr "повратак на врх"
-
-#: footer.php
-msgid "&uarr;"
-msgstr "↑"
-
-#: footer.php
-msgid "Responsive Theme"
-msgstr "Responsive Theme"
-
-#: footer.php
-msgid "powered by"
-msgstr "базирано на"
-
-#: footer.php
-msgid "WordPress"
-msgstr "Wordpress"
-
-#: image.php
-msgid "&#8249; Return to"
-msgstr "‹ Повратак на"
-
-#: image.php
-#: post-meta-page.php
-#: post-meta.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "No Comments &darr;"
-msgstr "Без коментара ↓"
-
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "1 Comment &darr;"
-msgstr "1 коментар ↓"
-
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "% Comments &darr;"
-msgstr "% коментара ↓"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Tagged with:"
-msgstr "Означено са:"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Posted in %s"
-msgstr "Објављено у %s"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: sitemap.php
-msgid "Edit"
-msgstr "Уреди"
-
-#: loop-no-posts.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 — Лепо је срести Вас овде!"
-
-#: loop-no-posts.php
-msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
-msgstr "Без панике, заједно ћемо решити ово. Да погледамо које су нам опције."
-
-#: loop-no-posts.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Можете се вратити %s или даље тражити жељену страницу."
-
-#: loop-no-posts.php
-#: core/includes/functions.php
-msgid "Home"
-msgstr "Почетна"
-
-#: loop-no-posts.php
-msgid "&larr; Home"
-msgstr "← Почетна"
-
-#: loop-header.php
-msgid "Daily Archives: %s"
-msgstr "Дневни архив: %s"
-
-#: loop-header.php
-msgid "Monthly Archives: %s"
-msgstr "Месечни архив: %s"
-
-#: loop-header.php
-msgid "Yearly Archives: %s"
-msgstr "Годишњи архив: %s"
-
-#: loop-header.php
-msgid "Blog Archives"
-msgstr "Архив блога"
-
-#: loop-no-posts.php
-msgid "Your search for %s did not match any entries."
-msgstr "Ваша претрага за %s се не подудара ни са једним уносом."
-
-#: sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Стална веза ка %s"
-
-#: core/includes/functions.php
-#: loop-header.php
-msgid "Search results for: %s"
-msgstr "Резултати претраге: %s"
-
-#: searchform.php
-msgid "search here &hellip;"
-msgstr "претрага ..."
-
-#: searchform.php
-msgid "Go"
-msgstr "Крените"
-
-#: sidebar-gallery.php
-msgid "Image Information"
-msgstr "Подаци о слици"
-
-#: sidebar-gallery.php
-msgid "Full Size:"
-msgstr "Пуна величина:"
-
-#: sidebar-gallery.php
-msgid "Aperture: f&#47;"
-msgstr "Отвор објектива: f/"
-
-#: sidebar-gallery.php
-msgid "Focal Length:"
-msgstr "Дужина фокуса:"
-
-#: sidebar-gallery.php
-msgid "mm"
-msgstr "мм"
-
-#: sidebar-gallery.php
-msgid "ISO:"
-msgstr "ИСО:"
-
-#: sidebar-gallery.php
-msgid "Shutter:"
-msgstr "Бленда:"
-
-#: sidebar-gallery.php
-msgid "Camera:"
-msgstr "Фото апарат:"
-
-#: sidebar.php
-#: sidebar-right.php
-#: sidebar-right-half.php
-#: sidebar-left.php
-#: sidebar-left-half.php
-#: sidebar-half-left.php
-msgid "In Archive"
-msgstr "У архиви"
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 1"
-msgstr "Виџет на почетној страни 1"
-
-#: sidebar-home.php
-msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
-msgstr "Ово је први простор за виџет на почетној страници. За уређивање молимо вас идите на Изглед > Виџети и изаберете шести виџет од врха у простор шест назван Виџет на почетној 1. Наслов је такође могуће променити у самом виџету."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 2"
-msgstr "Виџет на почетној страни 2"
-
-#: sidebar-home.php
-msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
-msgstr "Ово је други простор за виџет на почетној страници. За уређивање молимо вас идите на Изглед > Виџети и изаберете седми виџет од врха у простор шест назван Виџет на почетној 2. Наслов је такође могуће променити у самом виџету."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 3"
-msgstr "Виџет на почетној страни 3"
-
-#: sidebar-home.php
-msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
-msgstr "Ово је трећи простор за виџет на почетној страници. За уређивање молимо вас идите на Изглед > Виџети и изаберете осми виџет од врха у простор осам назван Виџет на почетној 3. Наслов је такође могуће променити у самом виџету."
-
-#: single.php
-msgid "About"
-msgstr "О"
-
-#: sitemap.php
-msgid "Categories"
-msgstr "Категорије"
-
-#: sitemap.php
-msgid "Latest Posts"
-msgstr "Најновији чланци"
-
-#: sitemap.php
-msgid "Pages"
-msgstr "Стране"
-
-#: core/includes/functions.php
-msgid "Top Menu"
-msgstr "Мени на врху стране"
-
-#: core/includes/functions.php
-msgid "Header Menu"
-msgstr "Мени у заглављу"
-
-#: core/includes/functions.php
-msgid "Sub-Header Menu"
-msgstr "Мени у подзаглављу"
-
-#: core/includes/functions.php
-msgid "Footer Menu"
-msgstr "Мени на дну стране"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Page %s"
-msgstr "Страна %s"
-
-#: core/includes/functions.php
-msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
-msgstr "<span class=\"%1$s\">Објављено </span>%2$s<span class=\"%3$s\"> од </span>%4$s"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "View all posts by %s"
-msgstr "Погледајте све чланке од %s"
-
-#: core/includes/functions.php
-msgid "Archive for %s"
-msgstr "Архива за %s"
-
-#: core/includes/functions.php
-msgid "Posts tagged %s"
-msgstr "Чланци означени %s"
-
-#: core/includes/functions.php
-msgid "Error 404"
-msgstr "Грешка 404"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "More Themes"
-msgstr "Још тема"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Showcase"
-msgstr "Излог"
-
-#: core/includes/functions-sidebar.php
-msgid "Main Sidebar"
-msgstr "Главнa бочни мени"
-
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar"
-msgstr "Десни бочни мени"
-
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar"
-msgstr "Леви бочни мени"
-
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar Half Page"
-msgstr "Леви бочни мени половина странице"
-
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar Half Page"
-msgstr "Десни бочни мени половина странице"
-
-#: core/includes/functions-sidebar.php
-msgid "Gallery Sidebar"
-msgstr "Бочни мени за галерију"
-
-#: core/includes/functions-sidebar.php
-msgid "Colophon Widget"
-msgstr "Виџет у колофону"
-
-#: core/includes/functions-sidebar.php
-msgid "Top Widget"
-msgstr "Виџет на врху странице"
-
-#: blog.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog (full posts)"
-msgstr "Блог (цели чланци)"
-
-#: blog-excerpt.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog Excerpt (summary)"
-msgstr "Исечак блога (сажетак)"
-
-#: content-sidebar-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar"
-msgstr "Садржај/бочна трака"
-
-#: sidebar-content-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content"
-msgstr "Бочна трака/садржај"
-
-#: content-sidebar-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar Half Page"
-msgstr "Садржај/бочна трака половина странице"
-
-#: sidebar-content-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content Half Page"
-msgstr "Бочна трака/садржај половина странице"
-
-#: full-width-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Full Width Page (no sidebar)"
-msgstr "Пуна ширина странице (без бочне траке)"
-
-#: landing-page.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Landing Page (no menu)"
-msgstr "Крајња страница (без менија)"
-
-#: sitemap.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sitemap"
-msgstr "Мапа сајта"
-
-#: core/includes/post-custom-meta.php
+#: core/gutenberg/gutenberg-support.php:31
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:58
+msgid "Button Color"
+msgstr "Боја дугмета"
+
+#: core/gutenberg/gutenberg-support.php:36
+msgid "Button Hover Color"
+msgstr "Боја за задржавање дугмета"
+
+#: core/gutenberg/gutenberg-support.php:41
+msgid "Button Hover Text Color"
+msgstr "Боја дугмета за задржавање текста"
+
+#: core/gutenberg/gutenberg-support.php:46
+msgid "Button Text Color"
+msgstr "Боја текста дугмета"
+
+#: core/gutenberg/gutenberg-support.php:53
+msgid "Text color"
+msgstr "Text color"
+
+#: core/gutenberg/gutenberg-support.php:60
+msgid "Container Background Color"
+msgstr "Boja pozadine"
+
+#: core/includes/classes/class-responsive-admin-settings.php:91
+msgid "Responsive Options"
+msgstr "Опције одзива"
+
+#: core/includes/classes/class-responsive-admin-settings.php:194
+msgid "Get Started"
+msgstr "Крени"
+
+#: core/includes/classes/class-responsive-admin-settings.php:196
+msgid "Free Vs Pro "
+msgstr "Бесплатни вс про"
+
+#: core/includes/classes/class-responsive-admin-settings.php:231
+msgid "Import a website template(FREE)"
+msgstr "Увоз предлошка Wеб локације (бесплатно)"
+
+#: core/includes/classes/class-responsive-admin-settings.php:237
+msgid ""
+"Install Responsive Add-ons to get ready-to-use website templates that can be "
+"imported with one click."
+msgstr ""
+"Инсталирајте додатке који се одазивају да бисте добили готове предлошке Wеб "
+"локација који могу да се увезу једним кликом."
+
+#: core/includes/classes/class-responsive-admin-settings.php:242
+msgid "Learn More &raquo;"
+msgstr "Сазнајте више &раqуо;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:269
+msgid "Support"
+msgstr "Подршка"
+
+#: core/includes/classes/class-responsive-admin-settings.php:273
+msgid "Have questions? Get in touch with us. We'll be happy to help"
+msgstr "Имате питања? Добијте контакт са нама. Бићемо сретни да помогнемо"
+
+#: core/includes/classes/class-responsive-admin-settings.php:277
+msgid "Request Support &raquo;"
+msgstr "Захтевај подршку &раqуо;"
+
+#. translators: %1$s: Responsive Support link.
+#: core/includes/classes/class-responsive-admin-settings.php:303
+msgid "Change site layout"
+msgstr "Промена распореда локације"
+
+#: core/includes/classes/class-responsive-admin-settings.php:308
+msgid "Customize fonts/typography"
+msgstr "Прилагоди фонтове/типографију"
+
+#: core/includes/classes/class-responsive-admin-settings.php:313
+msgid "Upload logo & site icon"
+msgstr "Икона \"отпремање логотипа & локације\""
+
+#: core/includes/classes/class-responsive-admin-settings.php:318
+msgid "Add/edit navigation menu"
+msgstr "Додај /Уреди мени навигације"
+
+#: core/includes/classes/class-responsive-admin-settings.php:323
+msgid "Customize header options"
+msgstr "Прилагођавање опција заглавља"
+
+#: core/includes/classes/class-responsive-admin-settings.php:328
+msgid "Customize footer options"
+msgstr "Прилагођавање опција подножја"
+
+#: core/includes/classes/class-responsive-admin-settings.php:333
+msgid "Update blog layout"
+msgstr "Ажурирај распоред блога"
+
+#: core/includes/classes/class-responsive-admin-settings.php:338
+msgid "Update page layout"
+msgstr "Ажурирај распоред странице"
+
+#: core/includes/classes/class-responsive-admin-settings.php:346
+msgid "Quick Start:"
+msgstr "Брзи Старт:"
+
+#: core/includes/classes/class-responsive-admin-settings.php:365
+msgid "Community"
+msgstr "Заједнице"
+
+#: core/includes/classes/class-responsive-admin-settings.php:369
+msgid ""
+"Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
+"and help each other"
+msgstr ""
+"Упознајте се са напајањем које се одазивају. Реците Здраво, поставите "
+"питања, пружите повратну информацију и помозите једни другима"
+
+#: core/includes/classes/class-responsive-admin-settings.php:373
+msgid "Join Facebook Group &raquo;"
+msgstr "Придруживање Фацебоок групи &раqуо;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:387
+msgid "Feedback"
+msgstr "Повратна информација"
+
+#: core/includes/classes/class-responsive-admin-settings.php:391
+msgid ""
+"Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
+"give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
+"the Responsive community."
+msgstr ""
+"Здраво! Хвала вам што користите тему \"Одази\". Можете ли нам учинити услугу "
+"и дати нам оцену од 5 звездица? Ваше повратне информације су нас мотивисане "
+"и помажу нам да растемо нашу заједницу."
+
+#: core/includes/classes/class-responsive-admin-settings.php:395
+msgid "Submit Review &raquo;"
+msgstr "Проследи редиговање &раqуо;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:421
+msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
+msgstr "Преблажено брза, мобилна и потпуно прилагодљива WордПресс тема."
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+msgid "Sale!"
+msgstr "Akcija!"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+msgid "WooCommerce Sidebar"
+msgstr "WооЦоммерце бочна трака"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+msgid ""
+"This sidebar will be used on Product archive, Cart, Checkout and My Account "
+"pages."
+msgstr ""
+"Ова бочна трака ће се користити за архиву производа, корпе, поручивање и "
+"странице мог налога."
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:44
+msgid "Colors"
+msgstr "Boje"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
+msgid "Cart Buttons"
+msgstr "Дугмад корпе"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:222
+msgid "Button"
+msgstr "Дугме"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:74
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:62
+msgid "Button Text"
+msgstr "Текст дугмета"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:78
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:66
+msgid "Button Hover"
+msgstr "Задржавање дугмета"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
+msgid "Button Hover Text"
+msgstr "Текст на задржавању показивача"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
+msgid "Checkout Button"
+msgstr "Дугме\"поручивање\""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:46
+msgid "Layouts"
+msgstr "Layouts"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
+msgid "Main Content Width (%)"
+msgstr "Ширина главног садржаја (%)"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
+msgid "Enable Cross-sells"
+msgstr "Омогући издвојено складиштење"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
+msgid "Cart Icon Visibility"
+msgstr "Видљивост иконе корпе"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
+msgid "Display On All Devices"
+msgstr "Прикажи на свим уређајима"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
+msgid "Disabled On All Devices"
+msgstr "Онемогућено на свим уређајима"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
+msgid "Product Catalog Options"
+msgstr "Опције каталога производа"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
+msgid "Shop Options"
+msgstr "Опције погона"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
+msgid "Product Options"
+msgstr "Опције производа"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
+msgid "Single Product Options"
+msgstr "Опције за појединачне производе"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
+msgid "Cart Options"
+msgstr "Опције корпе"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
+msgid "Rating Color"
+msgstr "Боја оцењивања"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
+msgid "Price Color"
+msgstr "Боја цене"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
+msgid "Add To Cart Buttons"
+msgstr "Додај на дугмад корпе"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:44
+#: core/includes/post-custom-meta.php:163
 msgid "Layout"
-msgstr "Прелом"
+msgstr "Raspored"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/post-custom-meta.php
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:60
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:54
+msgid "Sidebar Position"
+msgstr "Pozicija bočne trake"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:56
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:62
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:56
+msgid "Right Sidebar"
+msgstr "Десни слајдер"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:57
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:57
+msgid "Left Sidebar"
+msgstr "Леви слајдер"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:64
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
+msgid "No Sidebar"
+msgstr "Без бочне траке"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
+msgid "Shop Product"
+msgstr "Куповина производа"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
+msgid "Catalog View"
+msgstr "Приказ каталога"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
+msgid "Grid View"
+msgstr "Grid"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:70
+msgid "List View"
+msgstr "Pregled liste"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
+msgid "Content Aligmnment"
+msgstr "Цонтент Алигмнмент"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:91
+msgid "Center"
+msgstr "Centar"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:78
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:194
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:198
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:202
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:204
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:92
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:156
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:74
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:96
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:111
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:126
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:196
+msgid "Left"
+msgstr "Levo"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:79
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:192
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:196
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:200
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:205
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:93
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:157
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:127
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:197
+msgid "Right"
+msgstr "Десно"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
+msgid "Shop Elements"
+msgstr "Елементи погона"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
+msgid "Sale Notification"
+msgstr "Обавештење о продаји"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
+msgid "None"
+msgstr "Nijedan"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:110
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:64
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:372
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:404
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:410
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:484
+#: core/includes/post-custom-meta.php:136
 msgid "Default"
-msgstr "Основа"
+msgstr "Default"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Hello, World!"
-msgstr "Здраво, свете!"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
+msgid "Custom String"
+msgstr "Прилагођена ниска"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your H2 subheadline here"
-msgstr "Ваш H2 поднаслов овде"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
+msgid "Sale % Value"
+msgstr "Вредност продаје%"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
-msgstr "Наслов, поднаслов као и овај садржај можете уредити под ”Опције за тему”. Такође и дугме ”Позив на акцију” и његов циљ. Слика на десној страни може бити слика или чак и видео са Јутјуба, ако желите."
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
+msgid "Sale Bubble Style"
+msgstr "Продајни стил мехурића"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Call to Action"
-msgstr "Позив на акцију"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
+msgid "Circle"
+msgstr "Круг"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Options"
-msgstr "Опције теме"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
+msgid "Circle Outline"
+msgstr "Приказ структуре круга"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Options Saved"
-msgstr "Опције су сачуване"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
+msgid "Square"
+msgstr "Kocka"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Elements"
-msgstr "Елементи теме"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
+msgid "Square Outline"
+msgstr "Квадратни приказ структуре"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Disable Call to Action Button?"
-msgstr "Искључити дугме Позив на акцију?"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
+msgid "Product Elements"
+msgstr "Елементи производа"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Save Options"
-msgstr "Сачувати подешене опције"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:67
+msgid "Gallery Layout"
+msgstr "Распоред галерије"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Restore Defaults"
-msgstr "Повратак на основе"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
+msgid "Vertical"
+msgstr "Вертикално"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Logo Upload"
-msgstr "Унос логотипа"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
+msgid "Horizontal"
+msgstr "Водоравно"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Header"
-msgstr "Сопствено прилагођено заглавље"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
+msgid "Single Product Structure"
+msgstr "Једна структура производа"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Need to replace or remove default logo?"
-msgstr "Желите да замените или склоните логотип?"
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
+msgid "Cart"
+msgstr "Korpa"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Home Page"
-msgstr "Почетна страница"
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+msgid " / "
+msgstr "/"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Headline"
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
+msgid "Link values together"
+msgstr "Повежи вредности заједно"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+msgid "Top"
+msgstr "Врх"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:193
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:197
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:201
+msgid "Bottom"
+msgstr "Dno"
+
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:122
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:127
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
+msgid "px - em - rem"
+msgstr "пx-ем-Рем"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
+msgid "Inherit"
+msgstr "Naslediti"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:65
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
+msgid "Thin: 100"
+msgstr "Танак : 100"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
+msgid "Light: 200"
+msgstr "Светло : 200"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
+msgid "Book: 300"
+msgstr "Боок : 300"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
+msgid "Normal: 400"
+msgstr "Нормал : 400"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
+msgid "Medium: 500"
+msgstr "Средњи : 500"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
+msgid "Semibold: 600"
+msgstr "Семиболд : 600"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
+msgid "Bold: 700"
+msgstr "Подебљано: 700"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
+msgid "Extra Bold: 800"
+msgstr "Еxтра подебљано: 800"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
+msgid "Black: 900"
+msgstr "Блацк : 900"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
+msgid "Arial, Helvetica, sans-serif"
+msgstr "Ариал , хелветица, Санс-Серифни"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:219
+msgid "Custom Fonts"
+msgstr "Прилагођени фонтови"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:236
+msgid "Standard Fonts"
+msgstr "Стандардни фонтови"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:250
+msgid "Google Fonts"
+msgstr "Гугл фонтови"
+
+#: core/includes/customizer/controls/upsell/class-responsive-control-upsell.php:72
+#: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
+msgid "PRO"
+msgstr "Про"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
+msgid "View PRO Features"
+msgstr "Приказ ПРО функција"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
+msgid "Pro Ready Sites"
+msgstr "Про Реадy сајтови"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
+msgid "Form Builder"
+msgstr "Израда обрасца"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
+msgid "Interactive Sliders and Carousels"
+msgstr "Интерактивни клизачи и Карусели"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
+msgid "Pricing Tables"
+msgstr "Tabela sa cenama"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
+msgid "Portfolio and Post Layouts"
+msgstr "Портфолио и распоред поста"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
+msgid "Private, Priority Support"
+msgstr "Приватна , приоритетна подршка"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
+msgid "Get the PRO version!"
+msgstr "Преузмите ПРО верзију!"
+
+#: core/includes/customizer/customizer.php:29
+msgid "CSS Styles"
+msgstr "ЦСС стилови"
+
+#: core/includes/customizer/customizer.php:43
+msgid "Custom CSS Styles"
+msgstr "Прилагођени ЦСС стилови"
+
+#: core/includes/customizer/customizer.php:64
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
+msgid "Gradient"
+msgstr "Прелив"
+
+#: core/includes/customizer/customizer.php:65
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:232
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
+msgid "Flat"
+msgstr "Ravno"
+
+#: core/includes/customizer/customizer.php:98
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
+msgid "Choose Post"
+msgstr "Одабери пост"
+
+#: core/includes/customizer/helper.php:35
+#: core/includes/customizer/helper.php:118
+#: core/includes/customizer/helper.php:224
+#: core/includes/customizer/helper.php:247
+#: core/includes/customizer/helper.php:274
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:48
+msgid "Title"
 msgstr "Наслов"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your headline"
-msgstr "Унесите наслов"
+#: core/includes/customizer/helper.php:36
+#: core/includes/customizer/helper.php:119
+#: core/includes/customizer/helper.php:225
+msgid "Featured Image"
+msgstr "Истакнута слика"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Subheadline"
-msgstr "Поднаслов"
+#: core/includes/customizer/helper.php:37
+#: core/includes/customizer/helper.php:120
+#: core/includes/customizer/helper.php:252
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:79
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:139
+msgid "Meta"
+msgstr "Mета"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your subheadline"
-msgstr "Унесите поднаслов"
+#: core/includes/customizer/helper.php:38
+#: core/includes/customizer/helper.php:121
+#: core/includes/customizer/helper.php:226
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:196
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:43
+msgid "Content"
+msgstr "Sadržaj"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Content Area"
-msgstr "Простор за садржај"
+#: core/includes/customizer/helper.php:173
+msgid "Site Branding"
+msgstr "Брендирање локације"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your content"
-msgstr "Унесите садржај"
+#: core/includes/customizer/helper.php:174
+msgid "Main Navigation"
+msgstr "Главна Навигација"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (URL)"
-msgstr "Позив на акцију (URL)"
+#: core/includes/customizer/helper.php:248
+msgid "Rating"
+msgstr "Ocena"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action URL"
-msgstr "Унесите свој URL за позив на акцију"
+#: core/includes/customizer/helper.php:249
+#: core/includes/customizer/helper.php:276
+msgid "Price"
+msgstr "Cena"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (Text)"
-msgstr "Позив на акцију (текст)"
+#: core/includes/customizer/helper.php:250
+#: core/includes/customizer/helper.php:278
+msgid "Short Description"
+msgstr "Кратак опис"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action text"
-msgstr "Унесите текст позива на акцију"
+#: core/includes/customizer/helper.php:251
+#: core/includes/customizer/helper.php:279
+msgid "Add to Cart"
+msgstr "Dodaj u korpu"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Featured Content"
-msgstr "Предложени садржај"
+#: core/includes/customizer/helper.php:275
+msgid "Category"
+msgstr "Категорија"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "See Docs"
-msgstr "Погледајте документацију"
+#: core/includes/customizer/helper.php:277
+msgid "Ratings"
+msgstr "Оцене"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Paste your shortcode, video or image source"
-msgstr "Унесите свој кратки код, видео записа или слике"
+#: core/includes/customizer/helper.php:763
+msgid "Read more &raquo;"
+msgstr "Прочитајте више &раqуо;"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Layouts"
-msgstr "Основни прелом"
+#: core/includes/customizer/helper.php:803
+#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+msgid "Read More &raquo;"
+msgstr "Прочитајте више &раqуо;"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Static Page Layout"
-msgstr "Основни прелом статичне странице"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
+msgid "Entry Elements"
+msgstr "Елемената уноса"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Single Blog Post Layout"
-msgstr "Основни прелом појединачног чланка на блогу"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
+msgid "Entry Featured Image"
+msgstr "Слика са представљеног уноса"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Blog Posts Index Layout"
-msgstr "Основни прелом индекса чланака на блогу"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:87
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:69
+msgid "Style"
+msgstr "Stil"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Social Icons"
-msgstr "Друштвене иконице"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:91
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:90
+msgid "Stretched"
+msgstr "Растегнут"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:110
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:109
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:110
+msgid "Alignment"
+msgstr "Поравнавање"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:206
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:158
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:128
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:198
+msgid "center"
+msgstr "Центар"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:106
+msgid "Entry Title"
+msgstr "Наслов улаза"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
+msgid "Entry Meta"
+msgstr "Улазак мета"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
+msgid "Meta Elements"
+msgstr "Мета елементи"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
+msgid "Author"
+msgstr "Autor"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:149
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:149
+msgid "Date"
+msgstr "Datum"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:150
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:150
+msgid "Categories"
+msgstr "Kategorije"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:151
+msgid "Comments"
+msgstr "Komentari"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:170
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
+msgid "Meta Separator"
+msgstr "Мета знак за раздвајање"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
+msgid "Meta Alignment"
+msgstr "Мета поравнање"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
+msgid "Entry Content"
+msgstr "Садржај ставке"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
+msgid "Content Type"
+msgstr "Тип садржаја"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:197
+msgid "Excerpt"
+msgstr "Одломак"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:124
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:194
+msgid "Content Alignment"
+msgstr "Поравнање садржаја"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:211
+msgid "Excerpt Length"
+msgstr "Dužina sažetka"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:215
+msgid "Read More Text"
+msgstr "Teks: pogledajte više"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
+msgid "Read More Type"
+msgstr "Прочитај још врста"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
+msgid "Link"
+msgstr "Линк"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-panel.php:85
+#: core/includes/customizer/settings/class-responsive-panel.php:86
+msgid "Content Header"
+msgstr "Заглавље садржаја"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
+msgid "Enable Blog Page Title"
+msgstr "Омогући наслов странице блога"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
+msgid "Blog Page Title"
+msgstr "Наслов странице блога"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
+msgid "Entry Columns"
+msgstr "Колоне ставки"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
+msgid "Enable Masonry Layout"
+msgstr "Омогући распоред Масерза"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
+msgid "Title Color"
+msgstr "Boja naslova"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:50
+msgid "Description Color"
+msgstr "Боја описа"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
+msgid "Breadcrumb Color"
+msgstr "Боја са путањом"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
+msgid "Disable breadcrumb list?"
+msgstr "Онемогући листу са путањом?"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
+msgid "Breadcrumb Position"
+msgstr "Положај путање"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
+msgid "Before Heading"
+msgstr "Пре одласка"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
+msgid "After Heading"
+msgstr "После наслова"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:197
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:209
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:219
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:230
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:241
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:252
+msgid "Typography"
+msgstr "Tipografija"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:53
+msgid "Description"
+msgstr "Opis"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:59
+msgid "Breadcrumb"
+msgstr "Мрвице"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:79
+msgid "Documentation"
+msgstr "Документација"
+
+#. translators: %1$s is Plugin Name
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+msgid "To have access to a shop section please install and configure %1$s."
+msgstr ""
+"Да бисте имали приступ секцији погона, инсталирајте и конфигуришите %1 $ с."
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+msgid "WooCommerce plugin"
+msgstr "Компонента \"Вулоцоммерце\""
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
+msgid "Recommended Plugins"
+msgstr "Препоручене додатне компоненте"
+
+#. translators: Orbit Fox Companion
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+msgid ""
+"Get access to even more powerful features that will help you build a "
+"beautiful fast and responsive website in no time at all."
+msgstr ""
+"Приступите још моћнијим функцијама које ће вам помоћи да у сваком тренутку "
+"направите прелепу и брзу Веб локацију."
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:51
+msgid "Background Color"
+msgstr "Боја позадине"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:68
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:131
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:155
+msgid "Text Color"
+msgstr "Boja teksta"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:80
+msgid "Links Color"
+msgstr "Боја веза"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
+msgid "Links Hover Color"
+msgstr "Линкови боја за задржавање"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
+msgid "Full Width Footer"
+msgstr "Подножје пуне ширине"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
+msgid "Footer Widgets"
+msgstr "Виџета у подножју странице"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:57
+msgid "Number of Columns"
+msgstr "Број колна"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:66
+msgid "Footer Bar"
+msgstr "Futer"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+msgid "Social Links"
+msgstr "Linkovi za društvene mreže"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
+#: core/includes/functions-extentions.php:337
 msgid "Twitter"
 msgstr "Твитер"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Twitter URL"
-msgstr "Унесите свој Твитер URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
+#: core/includes/functions-extentions.php:338
 msgid "Facebook"
-msgstr "Фејсбук"
+msgstr "Facebook"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Facebook URL"
-msgstr "Унесите свој Фејсбук URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
+#: core/includes/functions-extentions.php:339
 msgid "LinkedIn"
-msgstr "Линкдин"
+msgstr "LinkedIn"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your LinkedIn URL"
-msgstr "Унесите свој Линкедин URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
+#: core/includes/functions-extentions.php:340
 msgid "YouTube"
-msgstr "Јутјуб"
+msgstr "YouTube"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your YouTube URL"
-msgstr "Унесите свој Јутјуб URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "StumbleUpon"
-msgstr "Стамблапон"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your StumbleUpon URL"
-msgstr "Унесите свој Стамблапон URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "RSS Feed"
-msgstr "RSS фид"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your RSS Feed URL"
-msgstr "Унесите URL свог RSS фида"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
+#: core/includes/functions-extentions.php:343
 msgid "Google+"
-msgstr "Гугл+"
+msgstr "Google+"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Google+ URL"
-msgstr "Унесите свој Гугл+ URL"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
+#: core/includes/functions-extentions.php:342
+msgid "RSS Feed"
+msgstr "﻿RSS вест"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
+#: core/includes/functions-extentions.php:344
 msgid "Instagram"
 msgstr "Инстаграм"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Instagram URL"
-msgstr "Унесите свој Инстаграм URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
+#: core/includes/functions-extentions.php:345
 msgid "Pinterest"
-msgstr "Пинтерест"
+msgstr "Pinterest"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Pinterest URL"
-msgstr "Унесите свој Пинтерест URL"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
+#: core/includes/functions-extentions.php:341
+msgid "StumbleUpon"
+msgstr "СтумблеУпон"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Yelp!"
-msgstr "Јелп!"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Yelp! URL"
-msgstr "Унесите свој Јелп! URL"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
+#: core/includes/functions-extentions.php:347
 msgid "Vimeo"
-msgstr "Вимео"
+msgstr "Vimeo"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Vimeo URL"
-msgstr "Унесите свој Вимео URL"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+msgid "Yelp"
+msgstr "Жута"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "foursquare"
-msgstr "Форсквер"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+msgid "Foursquare"
+msgstr "Фоурсqуаре"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your foursquare URL"
-msgstr "Унесите свој Форсквер URL"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+msgid "Email Address"
+msgstr "Адреса е-поште"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom CSS Styles"
-msgstr "Сопствени CSS стилови"
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:39
+msgid "Scripts"
+msgstr "Скрипте"
 
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Tutorial"
-msgstr "CSS упутство"
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
+msgid "Embeds to footer.php"
+msgstr "Уграђује се у подножје. пхп"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom CSS styles."
-msgstr "Унесите сопствене CSS стилове."
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:139
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:159
+msgid "Border Color"
+msgstr "Боја ивица"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Scripts for Header and Footer"
-msgstr "Прилагођене скрипте за заглавље и дно странице"
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
+msgid "Site Title Color"
+msgstr "Боја наслова локације"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Quick Tutorial"
-msgstr "Кратко упутство"
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
+msgid "Site Title Hover Color"
+msgstr "Боја држања наслова локације"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to header.php &darr;"
-msgstr "Уградња у заглавље.php &darr;"
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
+msgid "Site Tagline Color"
+msgstr "Боја странице Таглине"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom header script."
-msgstr "Унесите сопствену скрипту за заглавље."
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
+msgid "Header Widget"
+msgstr "Виџет за заглавље"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to footer.php &darr;"
-msgstr "Уградња у footer.php &darr;"
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
+msgid "Full Width Header"
+msgstr "Заглавље пуне ширине"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom footer script."
-msgstr "Унесите сопствену скрипту за заглавље."
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
+msgid "Inline logo & Site Title"
+msgstr "Уметнути лого & наслов локације"
 
-#: core/includes/functions.php
-msgid "Activate Add Ons"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
+msgid "Header Elements"
+msgstr "Елементи заглавља"
 
-#: core/includes/functions.php
-msgid "All plugins installed and activated successfully. %s"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:81
+msgid "Header Layout"
+msgstr "Распоред заглавља"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "All theme settings will be lost!"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
+msgid "Header Alignment"
+msgstr "Поравнање заглавља"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
+msgid "Logo Padding (px)"
+msgstr "Лого Пдодати (пx)"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
+msgid "Transparent Header"
+msgstr "Транспарентно заглавље"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
+msgid "Enable on Complete Website"
+msgstr "Омогући на Доврш, Wеб локацију"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
+msgid "Site Content Padding (px)"
+msgstr "Додавање садржаја локације (пx)"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
+msgid "Disable on 404, Search & Archives?"
+msgstr "Онемогућите 404, Претражујте & архиве?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
+msgid "Disable on Blog page?"
+msgstr "Онемогући на страници блога?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
+msgid "Disable on Latest Posts Page?"
+msgstr "Онемогући на најновијим функцијама странице?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
+msgid "Disable on Pages?"
+msgstr "Онемогући на страницама?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
+msgid "Disable on Posts?"
+msgstr "Онемогући на објавама?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
+msgid "Disable on WooCommerce Product Pages?"
+msgstr "Онемогућите на страници \"Вулоцоммерце\" производа?"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
+#: core/includes/functions-sidebar.php:100
+msgid "Header Widgets"
+msgstr "Виџета заглавља"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
+msgid "Enable Header Widgets"
+msgstr "Омогући виџета заглавља"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Blog"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
+msgid "Widgets Position"
+msgstr "Функција виџета"
 
-#: core/includes/functions-update.php
-msgid "blog post"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
+msgid "Above Header"
+msgstr "Изнад заглавља"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Blog Title Toggle"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
+msgid "In Header"
+msgstr "У заглављу"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "check to disable"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
+msgid "Below Header"
+msgstr "Ispod zaglavlja"
 
-#: core/includes/theme-options/theme-options.php
-msgid "check to enable"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
+msgid "Widgets Alignment"
+msgstr "Поравнавање виџета"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Click here"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
+msgid "Spread"
+msgstr "Ширити"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Click OK to Restore."
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
+msgid "Space Around"
+msgstr "Простора око"
 
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Styles"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
+msgid "Active Menu Background Color"
+msgstr "Боја позадине активног менија"
 
-#. Author of the plugin/theme
-# INSTRUCTION: Author of the plugin/theme
-msgid "CyberChimps.com"
-msgstr "CyberChimps.com"
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
+msgid "Menu Item Link Color"
+msgstr "Боја везе ставке менија"
 
-#: header.php
-msgid "&darr; Skip to Main Content"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
+msgid "Menu Item Link Hover Color"
+msgstr "Веза ставке менија боја задржавања"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Disable breadcrumb list?"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
+msgid "Sub Menu Background Color"
+msgstr "Боја позадине у потменију"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Do you want to restore?"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+msgid "Sub Menu Item Link Color"
+msgstr "Боја везе за ставке у потменију"
 
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+msgid "Sub Menu Item Link Hover Color"
+msgstr "Веза за ставке у потменију боја задржавања"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+msgid "Menu Toggle Background Color"
+msgstr "Мени преклопник боје позадине"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+msgid "Menu Toggle Color"
+msgstr "Преклапање менија боја"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
+msgid "Full Width Main Navigation"
+msgstr "Главна навигација у пуној ширини"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
+msgid "Enable Mobile Menu"
+msgstr "Омогући мобилни мени"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
+msgid "Breakpoint"
+msgstr "Рачунаре"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:65
+msgid "Dropdown"
+msgstr "Падајући мени"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
+msgid "FullScreen"
+msgstr "Репродукцију"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-panel.php:67
+msgid "Sidebar"
+msgstr "Bočna traka"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+msgid "Sidebar Menu Alignment"
+msgstr "Поравнавање менија бочне траке"
+
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
+msgid "Embeds to header.php"
+msgstr "Уграђује се у заглавље. пхп"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
+msgid "Site Title"
+msgstr "Наслов сајта"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
+msgid "Site Tagline"
+msgstr "Слоган локације"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
+msgid "Choose Category"
+msgstr "Izaberite kategoriju"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
+msgid "Custom Home Page"
+msgstr "Прилагођена матична страница"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 msgid "Enable Custom Front Page"
-msgstr ""
+msgstr "Омогући прилагођену страницу са предње стране"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enable minified css?"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
+msgid "Overrides the WordPress front page option"
+msgstr "Замењује опцију WордПресс предње странице"
 
-#: core/includes/functions-sidebar.php
-msgid "Footer Widget"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
+msgid "Hero Area"
+msgstr "Хероју област"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Help"
-msgstr ""
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
+#: core/includes/functions.php:58 functions.php:526
+msgid "HAPPINESS"
+msgstr "Срежу"
 
-#. Author URI of the plugin/theme
-# INSTRUCTION: Author URI of the plugin/theme
-msgid "http://cyberchimps.com"
-msgstr "http://cyberchimps.com"
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:108
+msgid "Headline"
+msgstr "Главни наслов"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
+#: core/includes/functions.php:59 functions.php:529
+msgid "IS A WARM CUP"
+msgstr "ЈЕ ТОПЛА ШОЉА"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
+msgid "Subheadline"
+msgstr "Поднаслов"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
+#: core/includes/functions.php:60 functions.php:532
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Наслов , поднаслов и овај веома садржај се може уређивати из опције \"Тема"
+"\". Позив на радно дугме и њену одредишну везу. Слика на десној страни може "
+"бити слика или чак YоуТубе видео ако желите."
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
+msgid "Content Area"
+msgstr "Област садржаја"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
+msgid "Disable Call to Action Button?"
+msgstr "Онемогући дугме \"Позови на радњу\"?"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
+msgid "Call to Action (URL)"
+msgstr "Позив на радњу (УРЛ)"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
+msgid "Call to Action (Text)"
+msgstr "Позив на радњу (текст)"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
+msgid "Call to Action Button Style"
+msgstr "Позив на стил дугмета радње"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
+msgid "Featured Content"
+msgstr "Истакнути садржај"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
+msgid "Paste your shortcode, video or image source"
+msgstr "Лепљење кода, видео записа или извора слике"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
+msgid "About Section"
+msgstr "О секцији"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
+msgid "Enable About Section"
+msgstr "Омогући о секцији"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
+#: partials/custom-home/featured-area.php:105
+msgid "About Box Title"
+msgstr "Наслов оквира"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
+msgid "About Title"
+msgstr "О наслову"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
+msgid "About Text"
+msgstr "О тексту"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
+msgid "Enter url as http://www.example.com"
+msgstr "Унесите УРЛ адресу као http://www.example.com"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
+msgid "Feature Section"
+msgstr "Одељак \"опција\""
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
+msgid "Enable Feature Section"
+msgstr "Омогући одељак са функцијама"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
+msgid "Feature Title"
+msgstr "Наслов функције"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
+msgid "Select post for feature 1"
+msgstr "Изаберите ставку \"Прокњижи за опцију 1\""
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:457
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the feature. Recommended image size for the featured images: 130 x 130px"
+msgstr ""
+"За приказивање ове функције користиће се истакнути имиџ, наслов и садржај из "
+"објава. Препоручена величина слике за обликоване слике: 130 x 130px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
+msgid "Select post for feature 2"
+msgstr "Изаберите ставку \"Прокњижи за опцију 2\""
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
+msgid "Select post for feature 3"
+msgstr "Изаберите функцију \"објави за 3\""
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
+msgid "Testimonial Section"
+msgstr "Препорука"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
+msgid "Enable Testimonial Section"
+msgstr "Омогућавање секције са препорука"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
+#: partials/custom-home/featured-area.php:217
+msgid "Testimonial"
+msgstr "Testemonijal"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
+msgid "Testimonial Title"
+msgstr "Назив препоруке"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
+msgid "Select Post"
+msgstr "Изаберите Прокњижи"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the client testimonials. Recommended image size for the featured images: 178 "
+"x 178px"
+msgstr ""
+"Приказана слика, наслов и садржај из објава, користиће се за приказивање "
+"препорука клијента. Препоручена величина слике за обликоване слике: 178 x "
+"178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
+msgid "Team Section"
+msgstr "Секција тима"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
+msgid "Enable Team Section"
+msgstr "Омогући одељак тима"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
+msgid "team"
+msgstr "tim"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
+msgid "Team Title"
+msgstr "Наслов тима"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
+msgid "Select post for team member1"
+msgstr "Изаберите ставку \"Прокњижи за Теам member1\""
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:622
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the team member. Recommended image size for the featured images: 178 x 178px"
+msgstr ""
+"Приказана слика, наслов и садржај из објава, користиће се за приказивање "
+"члана тима. Препоручена величина слике за обликоване слике: 178 x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
+msgid "Select post for team member2"
+msgstr "Изаберите ставку \"Прокњижи за Теам member2\""
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
+msgid "Select post for team member3"
+msgstr "Изаберите ставку \"Прокњижи за Теам member3\""
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
+msgid "Click to disable home page widgets"
+msgstr "Кликните да бисте онемогућили виџета матичне странице"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
+msgid "Contact Section"
+msgstr "Одељак \"Контакт\""
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
+msgid "Enable Contact Section"
+msgstr "Омогући одељак контакта"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
+msgid "Contact Us"
+msgstr "Kontakt"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
+msgid "Contact section Title"
+msgstr "Наслов одељка контакта"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
+msgid "Contact subtitle"
+msgstr "Контакт поднаслов"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
+msgid "Contact section Subtitle"
+msgstr "Поднаслов одељка контакта"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
+msgid "Address"
+msgstr "Adresa"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
+#: core/includes/functions-extentions.php:349
+msgid "Email"
+msgstr "Email"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
+msgid "Phone no"
+msgstr "Тел"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
+msgid "Contact form shortcode"
+msgstr "Шифра обрасца контакта"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
+msgid "You can put Contact Form 7 shortcode here."
+msgstr "Овде можете поставити Контакт формулар 7."
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
+msgid "Page Elements"
+msgstr "Елементи странице"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
+msgid "Post Elements"
+msgstr "Прокњижи елементе"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
+msgid "Page Featured Image"
+msgstr "Слика са истакнутих страница"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
+msgid "Page Title"
+msgstr "Наслов стране"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:120
+msgid "Page Content"
+msgstr "Садржај странице"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:40
+msgid "Theme Options"
+msgstr "Opcije teme"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:41
+#: core/includes/customizer/settings/class-responsive-panel.php:50
+msgid "Header Options"
+msgstr "Опције заглавља"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:49
+msgid "Header"
+msgstr "Заглавље"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:58
+#: functions.php:471 partials/header/main-navigation.php:14
+msgid "Main Menu"
+msgstr "Главни мени"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:59
+msgid "Header Menu Options"
+msgstr "Опције менија заглавља"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:68
+msgid "Sidebar Options"
+msgstr "Подешавање сајдбара"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:76
+msgid "Footer"
+msgstr "Futer"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:77
+msgid "Footer Options"
+msgstr "Опције футера "
+
+#: core/includes/customizer/settings/class-responsive-panel.php:94
+msgid "Blog / Archive"
+msgstr "Блог/архива"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:95
+msgid "Blog Options"
+msgstr "Опције блога"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:103
+msgid "Blog Post"
+msgstr "Објава на блогу"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:104
+msgid "Single Blog Post"
+msgstr "Једна објава на блогу"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:112
+msgid "Page"
+msgstr "Страница"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:113
+msgid "Page Options"
+msgstr "Page Options"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
+msgid "Post Featured Image"
+msgstr "Књижење истакнутих слика"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:106
+msgid "Post Title"
+msgstr "Наслов поста"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:121
+msgid "Post Meta"
+msgstr "Post Meta"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:190
+msgid "Post Content"
+msgstr "Објављивање садржаја"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:59
+msgid "Backgrounds"
+msgstr "Позадине"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
+msgid "Box Background Color"
+msgstr "Боја позадине оквира"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
+msgid "Alternate Background Color"
+msgstr "Алтернативна боја позадине"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
+msgid "General Text"
+msgstr "Општи текст"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
+msgid "Body Text Color"
+msgstr "Боја тела текста"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
+msgid "Heading 1 (H1) Color"
+msgstr "Боја првог наслова 1 (H1)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
+msgid "Heading 2 (H2) Color"
+msgstr "Наслов 2 (H2)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
+msgid "Heading 3 (H3) Color"
+msgstr "Наслов 3 (H3) боја"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
+msgid "Heading 4 (H4) Color"
+msgstr "Наслов 4 (H4)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
+msgid "Heading 5 (H5) Color"
+msgstr "Наслов 5 (H5) боја"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
+msgid "Heading 6 (H6) Color"
+msgstr "Наслов 6 (H6)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
+msgid "Meta Text Color"
+msgstr "Мета боја текста"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
+msgid "Links"
+msgstr "Везе"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:111
+msgid "Link Color"
+msgstr "Бoja линкова"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:115
+msgid "Link Hover Color"
+msgstr "Повежи боју при задржавању показивача"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:119
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:83
+msgid "Buttons"
+msgstr "Дугмад"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:123
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:151
+msgid "Color"
+msgstr "Boja"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:127
+msgid "Hover Color"
+msgstr "Hover boja"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:135
+msgid "Hover Text Color"
+msgstr "Ховер боја текста"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:143
+msgid "Hover Border Color"
+msgstr "Ховер боја ивице"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:147
+msgid "Inputs"
+msgstr "Улаза"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:163
+msgid "Labels"
+msgstr "Oznaka"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:167
+msgid "Label Color"
+msgstr "Боја ознаке"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
+msgid "Hide Site Title"
+msgstr "Сакриј наслов локације"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
+msgid "Hide Tagline"
+msgstr "Сакриј Таглине"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
+msgid "Width"
+msgstr "Ширина"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:59
+msgid "Contained"
+msgstr "Садржи"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:60
+msgid "Full Width"
+msgstr "Puna širina"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
+msgid "Container Width (px)"
+msgstr "Ширина контејнера (пx)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
+msgid "Boxed"
+msgstr "Uokviren"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
+msgid "Content Boxed"
+msgstr "Уоквирена садржај"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
+msgid "Box Padding (px)"
+msgstr "Оквир за сабирање (пx)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+msgid "Box Radius (px)"
+msgstr "Пречник оквира (пx)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
+msgid "Padding (px)"
+msgstr "Пдодаје (пx)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
+msgid "Radius (px)"
+msgstr "Полупречник (пx)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
+msgid "Border Width (px)"
+msgstr "Ширина ивице (пx)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
+msgid "Form Inputs"
+msgstr "Улаза образаца"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:162
+msgid "Body"
+msgstr "Тело"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
+msgid "Heading 1 (H1)"
+msgstr "Наслов 1 (H1)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
+msgid "Heading 2 (H2)"
+msgstr "Наслов 2 (H2)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
+msgid "Heading 3 (H3)"
+msgstr "Наслов 3 (H3)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
+msgid "Heading 4 (H4)"
+msgstr "Наслов 4 (H4)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
+msgid "Heading 5 (H5)"
+msgstr "Наслов 5 (H5)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
+msgid "Heading 6 (H6)"
+msgstr "Наслов 6 (H6)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
+msgid "Input Fields"
+msgstr "Поља за унос"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
+msgid "Exclude Categories from Blog page"
+msgstr "Изузми категорије са странице блога"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
+msgid ""
+"Please choose the post categories that should not be displayed on the blog "
+"page"
+msgstr ""
+"Одаберите категорије поште које не би требало приказати на страници блога"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
+msgid "General Typography"
+msgstr "Општа типографија"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
+msgid "Font Family"
+msgstr "Фамилија фонта"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:400
+msgid "Font Weight"
+msgstr "Дебљина фонта"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
+msgid "Important: Not all fonts support every font-weight."
+msgstr "Важно : неки фонтови не подржавају сваки фонт-тежина."
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
+msgid "Font Style"
+msgstr "Стил фонта"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:451
+msgid "Normal"
+msgstr "Нормално"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:452
+msgid "Italic"
+msgstr "Курзив"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:477
+msgid "Text Transform"
+msgstr "Трансформација текста"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:485
+msgid "Capitalize"
+msgstr "Veliko slovo"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:486
+msgid "Lowercase"
+msgstr "Pretvara u mala slova"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:487
+msgid "Uppercase"
+msgstr "Pretvara u velika slova"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:531
+msgid "Font Size"
+msgstr "Величина фонта"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
+msgid "You can add: px-em-%"
+msgstr "Можете додати: пx-ем-%"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
+msgid "Line Height"
+msgstr "Висина линија"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
+msgid "Letter Spacing (px)"
+msgstr "Размак између слова (пx)"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:659
+msgid "Font Color"
+msgstr "Боја фонта"
+
+#. translators: %s: link
+#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+msgid "Home"
+msgstr "Početna"
+
+#. translators: %s: Categories
+#: core/includes/functions-extentions.php:60
+msgid "Archive for %s"
+msgstr "Архива за% с"
+
+#. translators: %s: Search result page
+#. translators: %s is for search query.
+#: core/includes/functions-extentions.php:62 loop-header.php:33
+msgid "Search results for: %s"
+msgstr "Резултати претраживања за:% с"
+
+#. translators: %s: Post Pages
+#: core/includes/functions-extentions.php:64
+msgid "Posts tagged %s"
+msgstr "Постс Таггед% с"
+
+#. translators: %s: Author pages
+#. translators: %s: view post by
+#. translators: view all posts by author
+#. translators: %s view posts by
+#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: partials/entry/meta.php:54 partials/single/meta.php:49
+msgid "View all posts by %s"
+msgstr "Прегледај све постове од %s"
+
+#: core/includes/functions-extentions.php:67
+msgid "Error 404"
+msgstr "Грешка 404"
+
+#. translators: %s: Page Number
+#. translators: %s: author
+#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extras.php:190
+msgid "Page %s"
+msgstr "Страна %s"
+
+#: core/includes/functions-extentions.php:346
+msgid "Yelp!"
+msgstr "Жута!"
+
+#: core/includes/functions-extentions.php:348
+msgid "foursquare"
+msgstr "Фоурсqуаре"
+
+#: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
+#: image.php:59 index.php:56 partials/page/content.php:15
+msgid "Read more &#8250;"
+msgstr "Прочитајте више & #8250;"
+
+#: core/includes/functions-sidebar.php:28
+msgid "Main Sidebar"
+msgstr "Главна бочна трака"
+
+#: core/includes/functions-sidebar.php:29
+msgid ""
+"Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+msgstr ""
+"Област 1-бочна трака. пхп-дисплеји на подразумеваном, блогу, предложак "
+"странице извод из блога"
+
+#: core/includes/functions-sidebar.php:40
+msgid "Home Widget 1"
+msgstr "Кућни Виџет 1"
+
+#: core/includes/functions-sidebar.php:41
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr "Површина 6-Сидебар-Хоме. пхп-дисплеји на матичној страници"
+
+#: core/includes/functions-sidebar.php:52
+msgid "Home Widget 2"
+msgstr "Кућни виџет 2"
+
+#: core/includes/functions-sidebar.php:53
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr "Површина 7-Сидебар-Хоме. пхп-дисплеји на матичној страници"
+
+#: core/includes/functions-sidebar.php:64
+msgid "Home Widget 3"
+msgstr "Кућни виџет 3"
+
+#: core/includes/functions-sidebar.php:65
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr "Површина 8-Сидебар-Хоме. пхп-екрани на матичној страници"
+
+#: core/includes/functions-sidebar.php:76
+msgid "Gallery Sidebar"
+msgstr "Трака са галеријом"
+
+#: core/includes/functions-sidebar.php:77
+msgid ""
+"Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
+"clicked in a Gallery"
+msgstr ""
+"Површина 9-Сидебар-Галлерy. пхп-дисплеји на страници након што се кликне на "
+"слику у галерији"
+
+#: core/includes/functions-sidebar.php:88
+msgid "Colophon Widget"
+msgstr "Колопхон виџет"
+
+#: core/includes/functions-sidebar.php:89
+msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
+msgstr "Површина 10-Сидебар-Цолопхон. пхп, 100% ширина подножја у подножју"
+
+#: core/includes/functions-sidebar.php:101
+msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
+msgstr "Површина 11-Сидебар-топ. пхп-екрани на десној страни заглавља"
+
+#: core/includes/functions-sidebar.php:112
+msgid "Footer Widgets 1"
+msgstr "Виџета у подножју странице 1"
+
+#: core/includes/functions-sidebar.php:113
+msgid "Area 12 - sidebar-footer.php"
+msgstr "Површина 12-Сидебар-фоотер. пхп"
+
+#: core/includes/functions-sidebar.php:123
+msgid "Footer Widgets 2"
+msgstr "Виџета у подножју странице 2"
+
+#: core/includes/functions-sidebar.php:124
+msgid "Area 13 - sidebar-footer.php"
+msgstr "Површина 13-Сидебар-фоотер. пхп"
+
+#: core/includes/functions-sidebar.php:134
+msgid "Footer Widgets 3"
+msgstr "Виџета у подножју странице 3"
+
+#: core/includes/functions-sidebar.php:135
+msgid "Area 14 - sidebar-footer.php"
+msgstr "Површина 14-Сидебар-фоотер. пхп"
+
+#: core/includes/functions-sidebar.php:145
+msgid "Footer Widgets 4"
+msgstr "Виџета у подножју странице 4"
+
+#: core/includes/functions-sidebar.php:146
+msgid "Area 15 - sidebar-footer.php"
+msgstr "Површина 15-Сидебар-фоотер. пхп"
+
+#: core/includes/functions.php:61 functions.php:535
+msgid "Call to Action"
+msgstr "Позив за акцију"
+
+#: core/includes/functions.php:216
+msgid "Header Menu"
+msgstr "Мени заглавља"
+
+#: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+msgid "Footer Menu"
+msgstr "Footer Menu"
+
+#: core/includes/functions.php:377
+msgid "Team Section Options"
+msgstr "Опције одељка тима"
+
+#: core/includes/functions.php:391
+msgid ""
+"To use this post for front page's team section, please enter below details:"
+msgstr ""
+"Да бисте користили ову објаву за одељак тима са предње стране странице, "
+"молимо вас да унесете испод детаља:"
+
+#: core/includes/functions.php:394
+msgid "Member designation"
+msgstr "Ознака члана"
+
+#: core/includes/functions.php:398
+msgid "Facebook Link"
+msgstr "Facebook link"
+
+#: core/includes/functions.php:402
+msgid "Twitter Link"
+msgstr "Twitter link"
+
+#: core/includes/functions.php:406
+msgid "GooglePlus Link"
+msgstr "ГооглеПлус Линк"
+
+#: core/includes/functions.php:410
+msgid "LinkedIn Link"
+msgstr "Веза са ЛинкедИн"
+
+#: core/includes/functions.php:666
+msgid "Posted on"
+msgstr "Објављено"
+
+#: core/includes/functions.php:666
+msgid "By"
+msgstr "Od"
+
+#. translators: %s: category list
+#. translators: %s posted in categories
+#. translators: %s: category list
+#: core/includes/functions.php:696 image.php:82 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid "Posted in %s"
+msgstr "Прокњижено у% с"
+
+#: core/includes/functions.php:696 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid ", "
+msgstr ","
+
+#: core/includes/functions.php:719
+msgid "Upgrade To Pro"
+msgstr "Надоградња на про"
+
+#: core/includes/post-custom-meta.php:137
+msgid "Content/Sidebar"
+msgstr "Садржај /бочна трака"
+
+#: core/includes/post-custom-meta.php:138
+msgid "Sidebar/Content"
+msgstr "Бочна трака/садржај"
+
+#. Template Name of the plugin/theme
+msgid "Full Width Page (no sidebar)"
+msgstr "Страница са пуном ширином (без бочне траке)"
+
+#: core/includes/post-custom-meta.php:140
+msgid "Blog 2 Column"
+msgstr "Колона 2 блога"
+
+#: core/includes/post-custom-meta.php:141
+msgid "Blog 3 Column"
+msgstr "Колона \"блог 3\""
+
+#: core/includes/post-custom-meta.php:142
+msgid "Blog 4 Column"
+msgstr "Колона \"блог 4\""
+
+#: footer.php:88
+msgid "Scroll to Top"
+msgstr "Померање на врх"
+
+#: functions.php:392
+msgid "Permalink to %s"
+msgstr "Пермалинк на% с"
+
+#. translators: %s Link to 5 star rating
+#: functions.php:453
+msgid ""
+"If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
+"It takes a minute and helps a lot. Thanks in advance!"
+msgstr ""
+"Ако вам се допада нека <strong>Тема</strong> , оставите нам% с оцену. "
+"Потребно је минуту и пуно ће вам помоћи. Хвала унапред!"
+
+#: functions.php:454
+msgid "Thanks :)"
+msgstr "Захваљујемо :)"
+
+#: functions.php:538
+msgid "#"
+msgstr "#"
+
+#: gutenberg-fullwidth.php:46 image.php:63 index.php:60
+#: partials/entry/layout.php:53 partials/page/layout.php:45
+#: partials/single/content.php:38 partials/single/layout.php:59
+msgid "Pages:"
+msgstr "Странице:"
+
+#: header.php:35
+msgid "&darr; Skip to Main Content"
+msgstr "&дарр; Прескакање на главни садржај"
+
+#: home.php:81
+msgid "Previous"
+msgstr "Претходно"
+
+#: home.php:82
+msgid "Next"
+msgstr "Следеће"
+
+#: image.php:37
+msgid "&#8249; Return to"
+msgstr "& #8249; се вратите у"
+
+#: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "No Comments"
+msgstr "Nema komentara"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "1 Comment"
+msgstr "1 Коментар"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "% Comments"
+msgstr "% komentara"
+
+#: image.php:79 post-data.php:25
+msgid "Tagged with:"
+msgstr "Таггед wитх:"
+
+#: image.php:87 post-data.php:29
+msgid "<span class=\"post-edit\">Edit</span>"
+msgstr "<span class=\"post-edit\">Уређивање</span>"
+
+#: loop-nav.php:28
+msgid "&#8249; Older posts"
+msgstr "&#8249; Старији чланци"
+
+#: loop-nav.php:29
+msgid "Newer posts &#8250;"
+msgstr "Новији чланци &#8250;"
+
+#. translators: %s search term
+#: loop-no-posts.php:26
+msgid "Your search for %s did not match any entries."
+msgstr "Ваша потрага за% с се не подудара са било којим ставкама."
+
+#: loop-no-posts.php:26
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 & #8212; да вам се допадне састанак!"
+
+#: loop-no-posts.php:32
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
+msgstr ""
+"Дон & #39; т паника, ми ћемо & #39; проћи кроз ово заједно. Пустите & #39; с "
+"да истражи наше опције."
+
+#: loop-no-posts.php:43
+msgid "&larr; Home"
+msgstr "&ларр; Кући"
+
+#: partials/custom-home/featured-area.php:255
+msgid "Team"
+msgstr "Тим"
+
+#. translators: 1: byline, 2: author
+#: partials/entry/meta.php:35
+msgid "By "
+msgstr "Аутор "
+
+#. translators: 1: class, 2: date
+#: partials/entry/meta.php:69 partials/single/meta.php:63
+msgid "Posted on "
+msgstr "Објављен на "
+
+#: partials/entry/thumbnail-style/comments.php:16
+msgid "0 Comments"
+msgstr "0 komentara"
+
+#: partials/footer/copy-right.php:17
+msgid " | Powered by "
+msgstr "| оснажен"
+
+#: partials/footer/copy-right.php:18
+msgid " &copy; "
+msgstr "&цопy;"
+
+#: partials/footer/copy-right.php:23
+msgid "&copy; "
+msgstr "&цопy;"
+
+#: partials/footer/copy-right.php:32
+msgid "Responsive Theme"
+msgstr "Тема \"Одази\""
+
+#: partials/header/main-navigation.php:16
+msgid "Menu"
+msgstr "Meni"
+
+#. translators: %s Name of current post. Only visible to screen readers
+#: partials/single/content.php:22
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Настави читање<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: partials/single/layout.php:50
+msgid "About"
+msgstr "О"
+
+#: partials/single/layout.php:73
+msgid "Previous Post is "
+msgstr "Претходна објава је"
+
+#: partials/single/layout.php:74
+msgid "Next Post is"
+msgstr "Следећа објава је"
+
+#: searchform.php:22
+msgid "Search for:"
+msgstr "Pretraga za:"
+
+#: searchform.php:23
+msgid "Search here &hellip;"
+msgstr "Овде потражите &хеллип;"
+
+#: searchform.php:24
+msgid "Go"
+msgstr "Idi"
+
+#: sidebar-gallery.php:26
+msgid "Image Information"
+msgstr "Информације о слици"
+
+#: sidebar-gallery.php:33
+msgid "Full Size:"
+msgstr "Пуна величина:"
+
+#: sidebar-gallery.php:39
+msgid "Aperture: f&#47;"
+msgstr "Апертуре : ф & #47;"
+
+#: sidebar-gallery.php:44
+msgid "Focal Length:"
+msgstr "Дужина фокуса:"
+
+#: sidebar-gallery.php:44
+msgid "mm"
+msgstr "мм"
+
+#: sidebar-gallery.php:48
+msgid "ISO:"
+msgstr "Исо:"
+
+#: sidebar-gallery.php:52
+msgid "Shutter:"
+msgstr "Бленде"
+
+#: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
+msgid "sec"
+msgstr "секунда"
+
+#: sidebar-gallery.php:69
+msgid "Camera:"
+msgstr "Камеру:"
+
+#: sidebar-home.php:34
+msgid "Fermentum"
+msgstr "Ферментум"
+
+#: sidebar-home.php:40
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Ово је ваш први кућни виџет. Да бисте уредили, идите на изглед > виџета и "
+"одаберите 6 виџета од врха у подручју 6 под називом кућни Виџет 1. Наслов се "
+"такође може контролисати и из виџета."
+
+#: sidebar-home.php:54
+msgid "Elementum"
+msgstr "Елементум"
+
+#: sidebar-home.php:60
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Ово је ваш други кућни виџет. Да бисте уредили, идите на изглед > виџета и "
+"одаберите 7 виџета од врха у подручју 7 под називом кућни виџет 2. Наслов се "
+"такође може контролисати и из виџета."
+
+#: sidebar-home.php:74
+msgid "Interdum"
+msgstr "Интердум"
+
+#: sidebar-home.php:78
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
+msgstr ""
+"Ово је трећи кућни виџет. Да бисте уредили, идите на изглед > виџета и "
+"одаберите 8 виџета од врха у подручју 8 под називом кућни виџет 3. Наслов се "
+"такође може контролисати и из виџета."
 
 #. Theme URI of the plugin/theme
-# INSTRUCTION: Theme URI of the plugin/theme
-msgid "http://cyberchimps.com/responsive-theme/"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Instructions"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Activate installed plugin"
-msgid_plural "Activate installed plugins"
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Plugin activated successfully."
-msgstr ""
-
-#. Theme Name of the plugin/theme
-# INSTRUCTION: Theme Name of the plugin/theme
-msgid "Responsive"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Responsive Add Features"
-msgstr ""
+msgid "https://cyberchimps.com/responsive"
+msgstr "https://cyberchimps.com/responsive"
 
 #. Description of the plugin/theme
-# INSTRUCTION: Description of the plugin/theme
-msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
-msgstr ""
+msgid ""
+"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+msgstr "Реагује је пуна прилагодљива, брза и мобилна WордПресс тема."
 
-#: core/includes/functions.php
-msgid "Return to Required Plugins Installer"
-msgstr ""
+#. Author URI of the plugin/theme
+msgid "https://cyberchimps.com/"
+msgstr "https://cyberchimps.com/"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Scripts"
-msgstr ""
+#. Template Name of the plugin/theme
+msgid "Gutenberg Fullwidth No title"
+msgstr "Гутенберг сва ширина без наслова"
 
-#: searchform.php
-msgid "Search for:"
-msgstr ""
+#. translators: 1: comment count number, 2: title.
+#: comments.php:48
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1 $ с коментар на \"%2 $ с\""
+msgstr[1] ""
+msgstr[2] ""
 
-#: core/includes/functions.php
-msgid "Something went wrong with the plugin API."
-msgstr ""
+#: functions.php:126
+msgctxt "Name of the small font size in the block editor"
+msgid "Small"
+msgstr "Malo"
 
-#: core/includes/functions-update.php
-#. Translators: This is a big update. Please read the blog post beforeupdating.
-# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
-msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
-msgstr ""
+#: functions.php:127
+msgctxt "Short name of the small font size in the block editor."
+msgid "S"
+msgstr "N"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+#: functions.php:132
+msgctxt "Name of the regular font size in the block editor"
+msgid "Regular"
+msgstr "Редовне"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+#: functions.php:133
+msgctxt "Short name of the regular font size in the block editor."
+msgid "M"
+msgstr "P"
 
-#: core/includes/upsell/theme-upsell.php
-msgid "Themes You Can Trust"
-msgstr ""
+#: functions.php:138
+msgctxt "Name of the large font size in the block editor"
+msgid "Large"
+msgstr "Велика"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Title Text"
-msgstr ""
+#: functions.php:139
+msgctxt "Short name of the large font size in the block editor."
+msgid "L"
+msgstr "Л"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Translate"
-msgstr ""
+#: functions.php:144
+msgctxt "Name of the larger font size in the block editor"
+msgid "Larger"
+msgstr "Veće"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Upgrade"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr ""
-
+#: functions.php:145
+msgctxt "Short name of the larger font size in the block editor."
+msgid "XL"
+msgstr "Xл"
