@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.1.7\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 07:02:29+00:00\n"
+"POT-Creation-Date: 2020-03-13 09:36:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1406,7 +1406,7 @@ msgid "Choose Category"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
-msgid "Cutom Home Page"
+msgid "Custom Home Page"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
