@@ -26,47 +26,47 @@ $responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
 
 		// Elementor `footer` location.
-		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
-			?>
+if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
+	?>
 			<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
-				<?php responsive_footer_top(); ?>
-				<?php get_sidebar( 'footer' ); ?>
+		<?php responsive_footer_top(); ?>
+		<?php get_sidebar( 'footer' ); ?>
 
 				<div class="footer-bar grid col-940">
 					<div class="content-outer container">
 						<div class="row">
 
-								<?php get_sidebar( 'colophon' ); ?>
-								<?php
-								if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-									$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
-									$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
-									foreach ( $sections as $section ) {
+						<?php get_sidebar( 'colophon' ); ?>
+						<?php
+						if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+							$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+							$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
+							foreach ( $sections as $section ) {
 
-										// Footer Menu.
-										if ( 'footer_menu' === $section ) {
-											if ( has_nav_menu( 'footer-menu' ) ) {
-												get_template_part( 'partials/footer/footer-menu' );
-											}
-										}
-
-										if ( 'social_icons' === $section ) {
-                                            echo responsive_get_social_icons() ;// phpcs:ignore
-										}
-
-										// Copy Rights.
-										if ( 'copy_right_text' === $section ) {
-											get_template_part( 'partials/footer/copy-right' );
-										}
-									}
-								} else {
+								// Footer Menu.
+								if ( 'footer_menu' === $section ) {
 									if ( has_nav_menu( 'footer-menu' ) ) {
 										get_template_part( 'partials/footer/footer-menu' );
 									}
-                                    echo responsive_get_social_icons() ;// phpcs:ignore
+								}
+
+								if ( 'social_icons' === $section ) {
+									echo responsive_get_social_icons() ;// phpcs:ignore
+								}
+
+								// Copy Rights.
+								if ( 'copy_right_text' === $section ) {
 									get_template_part( 'partials/footer/copy-right' );
 								}
-								?>
+							}
+						} else {
+							if ( has_nav_menu( 'footer-menu' ) ) {
+								get_template_part( 'partials/footer/footer-menu' );
+							}
+							echo responsive_get_social_icons() ;// phpcs:ignore
+							get_template_part( 'partials/footer/copy-right' );
+						}
+						?>
 
 						</div>
 					</div>
@@ -74,8 +74,10 @@ global $responsive_blog_layout_columns;
 
 				<?php responsive_footer_bottom(); ?>
 			</footer><!-- end #footer -->
-		<?php }
-		responsive_footer_after(); ?>
+		<?php
+}
+		responsive_footer_after();
+?>
 	</div><!-- end of #container -->
 
 	<?php
@@ -85,7 +87,7 @@ global $responsive_blog_layout_columns;
 		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
 			$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
 			?>
-			<div id="scroll" class="responsive-scroll" aria-label="<?php esc_attr_e('Scroll to Top', 'responsive') ?>" title="<?php esc_attr_e('Scroll to Top', 'responsive') ?>" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>">Top<span></span></div>
+			<div id="scroll" class="responsive-scroll" aria-label="<?php esc_attr_e( 'Scroll to Top', 'responsive' ); ?>" title="<?php esc_attr_e( 'Scroll to Top', 'responsive' ); ?>" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>"><span><?php esc_html_e( 'Top', 'responsive' ); ?></span></div>
 			<?php
 		}
 	}

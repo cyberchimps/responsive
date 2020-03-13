@@ -32,8 +32,9 @@
     @media( min-width: map-get( $screens, xxxl ) ) {
         width: auto;
     }
-    @media( max-width: map-get( $screens, sm ) ) {
-        .site-header-layout-horizontal & {
+    .site-header-layout-horizontal & {
+        min-width: 20%;
+        @media( max-width: map-get( $screens, sm ) ) {
             max-width: 250px;
         }
     }
@@ -488,15 +489,22 @@ body.mega-menu-header-menu button.menu-toggle {
 	display: none;
 }
 
-.header-widgets-wrapper form#searchform{
+.header-widgets-wrapper form#searchform {
 	display: flex;
 }
 
 .inline-logo-site-title .site-branding-wrapper {
-	display: inline-flex;
-	vertical-align: middle;
-	align-items: center;
+    @media screen and ( min-width: map-get( $screens, sm ) ) {
+    	display: inline-flex;
+    	vertical-align: middle;
+    	align-items: center;
+
+            .site-title {
+                margin-left: $grid-gutter-width / 2;
+        }
+    }
 }
+
 .res-transparent-header #masthead{
     position:absolute;
     left:0;
