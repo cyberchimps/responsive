@@ -47,6 +47,10 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$header_full_width_label = __( 'Full Width Header', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_full_width', $header_full_width_label, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained' );
 
+			// Full Width Header.
+			$inline_logo_site_title = __( 'Inline logo & Site Title', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'inline_logo_site_title', $inline_logo_site_title, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained' );
+
 			/**
 			 * Header Elements Positioning
 			 */
@@ -95,14 +99,46 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, 28, 0, null, $logo_padding_label );
 
 			/**
+			 * Transparent Header Separator.
+			 */
+			$transparent_header_separator_label = esc_html__( 'Transparent Header', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_separator', $transparent_header_separator_label, 'responsive_header_layout', 50 );
+
+			// Transperant Header.
+			$transparent_header_label = __( 'Enable on Complete Website', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'transparent_header', $transparent_header_label, 'responsive_header_layout', 50, 0, null );
+
+			// Site Content Padding.
+			$site_content_padding_label = esc_html__( 'Site Content Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'site_content', 'responsive_header_layout', 50, 28, 0, 'responsive_is_transparent_header_enabled', $site_content_padding_label );
+
+			$disable_archive_transparent_header_label = __( 'Disable on 404, Search & Archives?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_archive_transparent_header', $disable_archive_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
+
+			$disable_blog_page_transparent_header_label = __( 'Disable on Blog page?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_blog_page_transparent_header', $disable_blog_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
+
+			$disable_latest_posts_page_transparent_header_label = __( 'Disable on Latest Posts Page?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_latest_posts_page_transparent_header', $disable_latest_posts_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
+
+			$disable_pages_transparent_header_label = __( 'Disable on Pages?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_pages_transparent_header', $disable_pages_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
+
+			$disable_posts_transparent_header_label = __( 'Disable on Posts?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_posts_transparent_header', $disable_posts_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
+
+			$disable_woo_products_transparent_header_label = __( 'Disable on WooCommerce Product Pages?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_woo_products_transparent_header', $disable_woo_products_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
+
+			/**
 			 * Header Widget Separator.
 			 */
 			$header_widget_separator_label = esc_html__( 'Header Widgets', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_widget_separator', $header_widget_separator_label, 'responsive_header_layout', 50 );
+			responsive_separator_control( $wp_customize, 'header_widget_separator', $header_widget_separator_label, 'responsive_header_layout', 60 );
 
 			// Header Widget.
 			$header_widget_label = esc_html__( 'Enable Header Widgets', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'enable_header_widget', $header_widget_label, 'responsive_header_layout', 60, 1, null );
+			responsive_checkbox_control( $wp_customize, 'enable_header_widget', $header_widget_label, 'responsive_header_layout', 70, 1, null );
 
 			// Header Widget Position.
 			$header_widget_position_label   = esc_html__( 'Widgets Position', 'responsive' );

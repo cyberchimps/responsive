@@ -67,7 +67,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php responsive_entry_bottom(); ?>
 </article><!-- end of #post-<?php the_ID(); ?> -->
-<div class="navigation">
-	<div class="previous"><?php previous_post_link( '&#8249; %link' ); ?></div>
-	<div class="next"><?php next_post_link( '%link &#8250;' ); ?></div>
-</div><!-- end of .navigation -->
+<?php
+the_post_navigation(
+	array(
+		'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post is ', 'responsive' ) . ' </span>&#8249; %title',
+		'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next Post is', 'responsive' ) . ' </span>%title &#8250;',
+	)
+);
+?>

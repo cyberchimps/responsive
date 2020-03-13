@@ -48,7 +48,7 @@ if ( post_password_required() || empty( $attachments ) ) {
 			if ( responsive_gallery_is_lightbox_enabled() == 'on' ) :
 				?>
 
-				<a href="<?php echo esc_url( wp_get_attachment_url( $attachment ) ); ?>" title="<?php echo esc_attr( $attachment_alt ); ?>" class="gallery-lightbox">
+				<a href="<?php echo esc_url( wp_get_attachment_url( $attachment ) ); ?>" aria-label="<?php echo esc_attr( $attachment_alt ); ?>" title="<?php echo esc_attr( $attachment_alt ); ?>" class="gallery-lightbox">
 					<?php echo wp_kses_post( $attachment_html ); ?>
 				</a>
 

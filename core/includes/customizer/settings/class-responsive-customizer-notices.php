@@ -160,7 +160,7 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 						'redirect' => admin_url( 'customize.php' ),
 					),
 					/* translators: Orbit Fox Companion */
-					'description' => sprintf( esc_html__( 'Get access to even more powerful features that will help you build a beautiful fast and responsive website in no time at all.', 'responsive' ), sprintf( '<strong>%s</strong>', 'Upgrade To Pro' ) ),
+					'description' => sprintf( esc_html__( 'Get access to even more powerful features that will help you build a beautiful fast and responsive website in no time at all.', 'responsive' ), sprintf('<strong>%s</strong>', 'Upgrade To Pro' ) ),
 				),
 				'Responsive_Main_Notice_Section'
 			)

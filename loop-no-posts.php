@@ -25,13 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /* translators: %s search term */
 $responsive_title = ( is_search() ? sprintf( __( 'Your search for %s did not match any entries.', 'responsive' ), get_search_query() ) : __( '404 &#8212; Fancy meeting you here!', 'responsive' ) );
 
-require_once ABSPATH . 'wp-admin/includes/plugin.php';
-if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
-	if ( responsivepro_plugin_get_option( '404_title' ) ) {
-		$responsive_title = responsivepro_plugin_get_option( '404_title' );
-	}
-}
-
 ?>
 <div class="entry-column">
 	<section id="404" class="hentry">
@@ -41,9 +34,10 @@ if ( is_plugin_active( 'responsivepro-plugin/index.php' ) ) {
 		<h6>
 			<?php
 			printf(
-				__( 'You can return %s or search for the page you were looking for.', 'responsive' ),
+				/* translators: %s: link */
+				wp_kses_post( 'You can return %s or search for the page you were looking for.', 'responsive' ),
 				sprintf(
-					'<a href="%1$s" title="%2$s">%3$s</a>',
+					'<a href="%1$s" aria-label="%2$s" title="%2$s">%3$s</a>',
 					esc_url( get_home_url() ),
 					esc_attr__( 'Home', 'responsive' ),
 					esc_attr__( '&larr; Home', 'responsive' )

@@ -55,10 +55,10 @@ function responsive_get_option_defaults() {
 		'cta_button'                      => false,
 		'minified_css'                    => false,
 		'front_page'                      => 0,
-		'home_headline'                   => 'HAPPINESS',
-		'home_subheadline'                => 'IS A WARM CUP',
-		'home_content_area'               => 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.',
-		'cta_text'                        => 'Call to Action',
+		'home_headline'                   => __( 'HAPPINESS', 'responsive' ),
+		'home_subheadline'                => __( 'IS A WARM CUP', 'responsive' ),
+		'home_content_area'               => __( 'Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like.', 'responsive' ),
+		'cta_text'                        => __( 'Call to Action', 'responsive' ),
 		'cta_url'                         => '#nogo',
 		'featured_content'                => null,
 		'testimonials'                    => 0,
@@ -321,7 +321,7 @@ function responsive_fallback_menu() {
 	$prepend = '<div id="header-menu" class="menu">';
 	$append  = '</div>';
 	$output  = $prepend . $pages . $append;
-	echo $output;
+	echo wp_kses_post( $output );
 }
 
 /**
@@ -374,7 +374,7 @@ add_action( 'add_meta_boxes', 'responsive_team_add_meta_box' );
 function responsive_team_add_meta_box() {
 	global $post;
 
-	add_meta_box( 'responsive_team_meta_box', 'Team Section Options', 'responsive_team_meta_box_cb', 'post', 'normal', 'high' );
+	add_meta_box( 'responsive_team_meta_box', __( 'Team Section Options', 'responsive' ), 'responsive_team_meta_box_cb', 'post', 'normal', 'high' );
 }
 /** Function for team meta box */
 function responsive_team_meta_box_cb() {
@@ -392,23 +392,23 @@ function responsive_team_meta_box_cb() {
 	</p>
 	<p>
 		<label for="responsive_meta_box_designation"><?php echo esc_html( __( 'Member designation', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo $responsive_meta_box_designation; ?>" />
+		<input type="text" name="responsive_meta_box_designation" id="responsive_meta_box_designationion" value="<?php echo esc_attr( $responsive_meta_box_designation ); ?>" />
 	</p>
 	<p>
 		<label for="responsive_meta_box_facebook"><?php echo esc_html( __( 'Facebook Link', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo $responsive_meta_box_facebook; ?>" />
+		<input type="text" name="responsive_meta_box_facebook" id="responsive_meta_box_facebook" value="<?php echo esc_attr( $responsive_meta_box_facebook ); ?>" />
 	</p>
 	<p>
 		<label for="responsive_meta_box_twitter"><?php echo esc_html( __( 'Twitter Link', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo $responsive_meta_box_twitter; ?>" />
+		<input type="text" name="responsive_meta_box_twitter" id="responsive_meta_box_twitter" value="<?php echo esc_attr( $responsive_meta_box_twitter ); ?>" />
 	</p>
 	<p>
 		<label for="responsive_meta_box_googleplus"><?php echo esc_html( __( 'GooglePlus Link', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo $responsive_meta_box_googleplus; ?>" />
+		<input type="text" name="responsive_meta_box_googleplus" id="responsive_meta_box_googleplus" value="<?php echo esc_attr( $responsive_meta_box_googleplus ); ?>" />
 	</p>
 	<p>
 		<label for="responsive_meta_box_text_linkedin"><?php echo esc_html( __( 'LinkedIn Link', 'responsive' ) ); ?></label>
-		<input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo $responsive_meta_box_linkedin; ?>" />
+		<input type="text" name="responsive_meta_box_text_linkedin" id="responsive_meta_box_text_linkedin" value="<?php echo esc_attr( $responsive_meta_box_linkedin ); ?>" />
 	</p>
 
 	<?php
@@ -521,14 +521,26 @@ function responsive_add_custom_body_classes( $classes ) {
 	if ( get_theme_mod( 'responsive_header_full_width', 0 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
 		$classes[] = 'header-full-width';
 	}
+	// Transparent Header.
+	if ( responsive_is_transparent_header() ) {
+		$classes[] = 'res-transparent-header';
+	}
 	// Header Element layout class.
 	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
 	// Header alignment class.
 	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
-	// Header Widget Aligmnmnet.
-	$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
-	// Header Widget POsition.
-	$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+
+	if ( get_theme_mod( 'responsive_enable_header_widget' ) ) {
+		// Header Widget Aligmnmnet.
+		$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
+		// Header Widget POsition.
+		$classes[] = 'header-widget-position-' . get_theme_mod( 'responsive_header_widget_position', 'top' );
+	}
+
+	// Header width.
+	if ( get_theme_mod( 'responsive_inline_logo_site_title', 0 ) ) {
+		$classes[] = 'inline-logo-site-title';
+	}
 
 	// Full idth menu class.
 	if ( get_theme_mod( 'responsive_header_menu_full_width', 0 ) ) {
@@ -651,10 +663,10 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 		<span class="entry-author" <?php responsive_schema_markup( 'entry-author' ); ?>>
 			<?php
 				printf(
-					__( '<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">Posted on </span>%2$s<span class="%3$s"> by </span>%4$s', 'responsive' ),
+					'<i class="icon-calendar" aria-hidden="true"></i><span class="%1$s">' . esc_html_e( 'Posted on', 'responsive' ) . '</span>%2$s<span class="%3$s"> ' . esc_html_e( 'By', 'responsive' ) . ' </span>%4$s',
 					'meta-prep meta-prep-author posted',
 					sprintf(
-						'<a href="%1$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
+						'<a href="%1$s" aria-label="%2$s" title="%2$s" rel="bookmark"><time class="timestamp updated" datetime="%3$s">%4$s</time></a>',
 						esc_url( get_permalink() ),
 						esc_attr( get_the_title() ),
 						esc_html( get_the_date( 'c' ) ),
@@ -663,12 +675,12 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 					'byline',
 					sprintf(
 						'<span class="author vcard">
-							<a class="url fn n" href="%1$s" title="%2$s" itemprop="url">
+							<a class="url fn n" href="%1$s" aria-label="%2$s" title="%2$s" itemprop="url">
 								<i class="icon-user"></i>
 								<span itemprop="name">%3$s</span>
 							</a>
 						</span>',
-						get_author_posts_url( get_the_author_meta( 'ID' ) ),
+						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 						/* translators: %s: view post by */
 						sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
 						esc_attr( get_the_author() )
@@ -679,7 +691,10 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 		<span class="entry-category">
 			<span class='posted-in'><i class="icon-folder-open" aria-hidden="true"></i>
-			<?php printf( __( 'Posted in %s', 'responsive' ), get_the_category_list( ', ' ) ); ?>
+				<?php
+				/* translators: %s: category list */
+				printf( esc_html__( 'Posted in %s', 'responsive' ), wp_kses_post( get_the_category_list( __( ', ', 'responsive' ) ) ) );
+				?>
 			</span>
 		</span>
 
@@ -746,5 +761,43 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 		 * Triggered after the opening <body> tag.
 		 */
 		do_action( 'wp_body_open' );
+	}
+}
+if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
+	/**
+	 * Returns true if transparent header is enabled
+	 */
+	function responsive_is_transparent_header() {
+		$enable_trans_header = get_theme_mod( 'responsive_transparent_header', 0 );
+		if ( $enable_trans_header ) {
+
+			if ( ( is_archive() || is_search() || is_404() ) && get_theme_mod( 'responsive_disable_archive_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+
+			if ( is_home() && get_theme_mod( 'responsive_disable_blog_page_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+
+			if ( is_front_page() && get_theme_mod( 'responsive_disable_latest_posts_page_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+
+			if ( is_page() && get_theme_mod( 'responsive_disable_pages_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+
+			if ( is_single() && get_theme_mod( 'responsive_disable_posts_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+		}
+
+		if ( class_exists( 'WooCommerce' ) ) {
+			if ( is_product() && get_theme_mod( 'responsive_disable_woo_products_transparent_header', 0 ) ) {
+				$enable_trans_header = false;
+			}
+		}
+
+		return $enable_trans_header;
 	}
 }

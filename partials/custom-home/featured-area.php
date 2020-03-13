@@ -102,7 +102,7 @@ if ( 1 == $display_slider ) {
 	<div class="about-section-wrapper">
 		<div class="about-content grid col-620">
 		<?php
-			$responsive_about_title   = isset( $responsive_options['about_title'] ) ? $responsive_options['about_title'] : 'About Box Title';
+			$responsive_about_title   = isset( $responsive_options['about_title'] ) ? $responsive_options['about_title'] : __( 'About Box Title', 'responsive' );
 			$responsive_about_text    = isset( $responsive_options['about_text'] ) ? $responsive_options['about_text'] : '';
 			$responsive_about_cta_url = isset( $responsive_options['about_cta_url'] ) ? $responsive_options['about_cta_url'] : '';
 		?>
@@ -128,7 +128,7 @@ if ( 1 == $display_slider ) {
 <?php if ( isset( $responsive_options['feature'] ) && '1' == $responsive_options['feature'] ) { ?>
 <div id="feature_div" class="custom-home-feature-section grid">
 	<?php
-	$responsive_feature_title = isset( $responsive_options['feature_title'] ) ? $responsive_options['feature_title'] : 'Features';
+	$responsive_feature_title = isset( $responsive_options['feature_title'] ) ? $responsive_options['feature_title'] : __( 'Features', 'responsive' );
 
 	if ( isset( $responsive_options['feature1'] ) ) {
 		$responsive_feature1_post_id = $responsive_options['feature1'];
@@ -137,7 +137,7 @@ if ( 1 == $display_slider ) {
 			$responsive_feature1_desc = $responsive_feature1_post->post_content;
 			$feature1_showcase_img    = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature1_post_id ) );
 			$feature1_showcase_title  = get_the_title( $responsive_feature1_post_id );
-			$image_id                 = responsive_get_attachment_id_from_url( $feature1_showcase_img );
+			$image_id                 = attachment_url_to_postid( $feature1_showcase_img );
 			$responsive_alt1_text     = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt1_text ) {
 				$responsive_alt1_text = get_the_title( $responsive_feature1_post_id );
@@ -154,7 +154,7 @@ if ( 1 == $display_slider ) {
 			$responsive_feature2_desc = $responsive_feature2_post->post_content;
 			$feature2_showcase_img    = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature2_post_id ) );
 			$feature2_showcase_title  = get_the_title( $responsive_feature2_post_id );
-			$image_id                 = responsive_get_attachment_id_from_url( $feature2_showcase_img );
+			$image_id                 = attachment_url_to_postid( $feature2_showcase_img );
 			$responsive_alt2_text     = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt2_text ) {
 				$responsive_alt2_text = get_the_title( $responsive_feature2_post_id );
@@ -170,7 +170,7 @@ if ( 1 == $display_slider ) {
 			$responsive_feature3_desc = $responsive_feature3_post->post_content;
 			$feature3_showcase_img    = wp_get_attachment_url( get_post_thumbnail_id( $responsive_feature3_post_id ) );
 			$feature3_showcase_title  = get_the_title( $responsive_feature3_post_id );
-			$image_id                 = responsive_get_attachment_id_from_url( $feature3_showcase_img );
+			$image_id                 = attachment_url_to_postid( $feature3_showcase_img );
 			$responsive_alt3_text     = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt3_text ) {
 				$responsive_alt3_text = get_the_title( $responsive_feature3_post_id );
@@ -214,12 +214,12 @@ if ( 1 == $display_slider ) {
 <div id="testimonial_div" class="custom-home-testimonial-section grid col-940">
 	<?php
 
-		$responsive_testimonial_title = isset( $responsive_options['testimonial_title'] ) ? $responsive_options['testimonial_title'] : 'Testimonial';
+		$responsive_testimonial_title = isset( $responsive_options['testimonial_title'] ) ? $responsive_options['testimonial_title'] : __( 'Testimonial', 'responsive' );
 		$responsive_testimonial_id    = $responsive_options['testimonial_val'];
 	if ( '' != $responsive_testimonial_id ) {
 		$responsive_testimonial_desc     = get_post( $responsive_testimonial_id );
 		$responsive_testimonial_img      = wp_get_attachment_url( get_post_thumbnail_id( $responsive_testimonial_id ) );
-		$image_id                        = responsive_get_attachment_id_from_url( $responsive_testimonial_img );
+		$image_id                        = attachment_url_to_postid( $responsive_testimonial_img );
 		$responsive_testimonial_alt_text = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 		if ( '' == $responsive_testimonial_alt_text ) {
 			$responsive_testimonial_alt_text = get_the_title( $responsive_testimonial_id );
@@ -241,7 +241,7 @@ if ( 1 == $display_slider ) {
 
 		<div class="testimonial_main_text grid col-620 fit">
 			<i class="icon-quote-left" aria-hidden="true"></i>
-			<p class="testimonial_text"><?php echo $responsive_testimonial_desc_content; ?></p>
+			<p class="testimonial_text"><?php echo wp_kses_post( $responsive_testimonial_desc_content ); ?></p>
 			<h3 class="testimonial_author"><?php echo esc_html( $responsive_testimonial_name ); ?></h3>
 		</div>
 		<?php } ?>
@@ -252,7 +252,7 @@ if ( 1 == $display_slider ) {
 <?php if ( isset( $responsive_options['team'] ) && '1' == $responsive_options['team'] ) { ?>
 <div id="team_div" class="custom-home-team-section grid">
 	<?php
-	$responsive_team_title = isset( $responsive_options['team_title'] ) ? $responsive_options['team_title'] : 'Team';
+	$responsive_team_title = isset( $responsive_options['team_title'] ) ? $responsive_options['team_title'] : __( 'Team', 'responsive' );
 	if ( isset( $responsive_options['teammember1'] ) ) {
 		$responsive_team1_post_id = $responsive_options['teammember1'];
 		if ( ! '' == $responsive_team1_post_id ) {
@@ -265,7 +265,7 @@ if ( 1 == $display_slider ) {
 			$team1_showcase_twitter     = get_post_meta( $responsive_team1_post_id, 'responsive_meta_box_twitter', true );
 			$team1_showcase_googleplus  = get_post_meta( $responsive_team1_post_id, 'responsive_meta_box_googleplus', true );
 			$team1_showcase_linkedin    = get_post_meta( $responsive_team1_post_id, 'responsive_meta_box_text_linkedin', true );
-			$image_id                   = responsive_get_attachment_id_from_url( $team1_showcase_img );
+			$image_id                   = attachment_url_to_postid( $team1_showcase_img );
 			$responsive_alt1_text       = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt1_text ) {
 				$responsive_alt1_text = get_the_title( $responsive_team1_post_id );
@@ -287,7 +287,7 @@ if ( 1 == $display_slider ) {
 			$team2_showcase_twitter     = get_post_meta( $responsive_team2_post_id, 'responsive_meta_box_twitter', true );
 			$team2_showcase_googleplus  = get_post_meta( $responsive_team2_post_id, 'responsive_meta_box_googleplus', true );
 			$team2_showcase_linkedin    = get_post_meta( $responsive_team2_post_id, 'responsive_meta_box_text_linkedin', true );
-			$image_id                   = responsive_get_attachment_id_from_url( $team2_showcase_img );
+			$image_id                   = attachment_url_to_postid( $team2_showcase_img );
 			$responsive_alt2_text       = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt2_text ) {
 				$responsive_alt2_text = get_the_title( $responsive_team2_post_id );
@@ -309,7 +309,7 @@ if ( 1 == $display_slider ) {
 			$team3_showcase_twitter     = get_post_meta( $responsive_team3_post_id, 'responsive_meta_box_twitter', true );
 			$team3_showcase_googleplus  = get_post_meta( $responsive_team3_post_id, 'responsive_meta_box_googleplus', true );
 			$team3_showcase_linkedin    = get_post_meta( $responsive_team3_post_id, 'responsive_meta_box_text_linkedin', true );
-			$image_id                   = responsive_get_attachment_id_from_url( $team3_showcase_img );
+			$image_id                   = attachment_url_to_postid( $team3_showcase_img );
 			$responsive_alt3_text       = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
 			if ( '' == $responsive_alt3_text ) {
 				$responsive_alt3_text = get_the_title( $responsive_team2_post_id );

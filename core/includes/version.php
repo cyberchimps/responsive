@@ -49,7 +49,7 @@ add_action( 'wp_head', 'responsive_theme_data' );
 function responsive_get_theme_name() {
 	$theme = wp_get_theme();
 
-	return $theme->Name;
+	return $theme->get( 'Name' );
 }
 
 /**
@@ -60,7 +60,7 @@ function responsive_get_theme_name() {
 function responsive_get_theme_version() {
 	$theme = wp_get_theme();
 
-	return $theme->Version;
+	return $theme->get( 'Version' );
 }
 
 /**
@@ -75,7 +75,7 @@ function responsive_get_template_name() {
 		$theme = $parent;
 	}
 
-	return $theme->Name;
+	return $theme->get( 'Name' );
 }
 
 /**
@@ -90,5 +90,5 @@ function responsive_get_template_version() {
 		$theme = $parent;
 	}
 
-	return $theme->Version;
+	return $theme->get( 'Version' );
 }

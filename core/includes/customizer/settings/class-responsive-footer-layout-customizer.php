@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			 * Footer Widget Separator.
 			 */
 			$footer_widgets_separator_label = esc_html__( 'Footer Widgets', 'responsive' );
-			responsive_separator_control( $wp_customize, 'footer_widgets_separator', $footer_widgets_separator_label, 'responsive_footer_layout', 10 );
+			responsive_separator_control( $wp_customize, 'footer_widgets_separator', $footer_widgets_separator_label, 'responsive_footer_layout', 15 );
 
 			// Number of Columns.
 			$number_of_columns_label = __( 'Number of Columns', 'responsive' );

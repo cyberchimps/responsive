@@ -7,7 +7,7 @@
  */
 
 ?>
-<nav id="footer-site-navigation" class="footer-navigation" role="navigation">
+<nav id="footer-site-navigation" class="footer-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'responsive' ); ?>">
 	<?php
 	wp_nav_menu(
 		array(

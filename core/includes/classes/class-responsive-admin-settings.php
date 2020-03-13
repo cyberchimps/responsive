@@ -177,7 +177,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							<a href="<?php echo esc_url( $responsive_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $responsive_icon ) { ?>
 									<img src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'core/images/cc-responsive-wp-theme-logo.png' ); ?>" class="responsive-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
-									<span class="responsive-theme-version"><?php echo RESPONSIVE_THEME_VERSION; ?></span>
+									<span class="responsive-theme-version"><?php echo esc_html( RESPONSIVE_THEME_VERSION ); ?></span>
 								<?php } ?>
 								<?php do_action( 'responsive_welcome_page_header_title' ); ?>
 							</a>
@@ -239,7 +239,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
                         <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 						<?php
 						$responsive_facebook_group_link      = 'https://wordpress.org/plugins/responsive-add-ons';
-						$responsive_facebook_group_link_text = __( 'Learn More »', 'responsive' );
+						$responsive_facebook_group_link_text = __( 'Learn More &raquo;', 'responsive' );
 
 						printf(
 							'%1$s',
@@ -274,10 +274,10 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					</p>
 					<?php
 					$responsive_support_link           = 'https://wordpress.org/support/theme/responsive/';
-					$responsive_support_link_link_text = __( 'Request Support »', 'responsive' );
+					$responsive_support_link_link_text = __( 'Request Support &raquo;', 'responsive' );
 
 					printf(
-					/* translators: %1$s: Responsive Support link. */
+						/* translators: %1$s: Responsive Support link. */
 						'%1$s',
 						! empty( $responsive_support_link ) ? '<a href=' . esc_url( $responsive_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $responsive_support_link_link_text ) . '</a>' :
 							esc_html( $responsive_support_link_link_text )
@@ -370,7 +370,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						</p>
 						<?php
 						$responsive_facebook_group_link      = 'https://www.facebook.com/groups/responsive.theme';
-						$responsive_facebook_group_link_text = __( 'Join Facebook Group »', 'responsive' );
+						$responsive_facebook_group_link_text = __( 'Join Facebook Group &raquo;', 'responsive' );
 
 						printf(
 							'%1$s',
@@ -391,8 +391,8 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							<?php esc_html_e( 'Hi! Thanks for using the Responsive theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?>
 						</p>
 						<?php
-						$responsive_submit_review_link      = 'https://wordpress.org/support/view/theme-reviews/responsive?filter=5#postform';
-						$responsive_submit_review_link_text = __( 'Submit Review »', 'responsive' );
+						$responsive_submit_review_link      = 'https://wordpress.org/support/theme/responsive/reviews/#new-post';
+						$responsive_submit_review_link_text = __( 'Submit Review &raquo;', 'responsive' );
 
 						printf(
 							'%1$s',
@@ -418,7 +418,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				'responsive_header_top_links',
 				array(
 					'responsive-theme-info' => array(
-						'title' => __( '⚡ Blazing Fast, mobile-friendly, fully-customizable WordPress theme.', 'responsive' ),
+						'title' => __( 'Blazing Fast, mobile-friendly, fully-customizable WordPress theme.', 'responsive' ),
 					),
 				)
 			);
@@ -429,14 +429,25 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					<ul>
 						<?php
 						foreach ( (array) $top_links as $key => $info ) {
-							/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
-							printf(
-								'<li><%1$s %2$s %3$s > %4$s </%1$s>',
-								isset( $info['url'] ) ? 'a' : 'span',
-								isset( $info['url'] ) ? 'href="' . esc_url( $info['url'] ) . '"' : '',
-								isset( $info['url'] ) ? 'target="_blank" rel="noopener"' : '',
-								esc_html( $info['title'] )
-							);
+							if ( isset( $info['url'] ) ) {
+								printf(
+									/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
+									'<li><%1$s %2$s %3$s > %4$s </%1$s>',
+									'a',
+									'href="' . esc_url( $info['url'] ) . '"',
+									'target="_blank" rel="noopener"',
+									esc_html( $info['title'] )
+								);
+							} else {
+								printf(
+									/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
+									'<li><%1$s %2$s %3$s > %4$s </%1$s>',
+									'span',
+									'',
+									'',
+									esc_html( $info['title'] )
+								);
+							}
 						}
 						?>
 					</ul>

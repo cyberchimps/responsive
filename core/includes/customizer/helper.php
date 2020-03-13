@@ -5,6 +5,21 @@
  * @package Responsive
  */
 
+if ( ! function_exists( 'responsive_is_transparent_header_enabled' ) ) {
+	/**
+	 * Returns true if transparent header is enabled
+	 */
+	function responsive_is_transparent_header_enabled() {
+
+		$flag = get_theme_mod( 'responsive_transparent_header', 0 );
+		if ( $flag ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
 if ( ! function_exists( 'responsive_blog_entry_elements' ) ) {
 	/**
 	 * Returns blog entry elements for the customizer
@@ -745,7 +760,7 @@ if ( ! function_exists( 'responsive_schema_markup' ) ) {
  */
 function responsive_read_more_text( $text ) {
 
-	$read_more = get_theme_mod( 'responsive_blog_read_more_text', 'Read more ››' );
+	$read_more = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more &raquo;', 'responsive' ) );
 	if ( '' !== $read_more ) {
 		$text = $read_more;
 	}

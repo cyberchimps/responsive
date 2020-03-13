@@ -36,7 +36,7 @@ $caption = get_the_post_thumbnail_caption(); ?>
 	if ( $caption ) {
 		?>
 		<div class="thumbnail-caption">
-			<?php echo esc_attr( $caption ); ?>
+			<?php echo esc_html( $caption ); ?>
 		</div>
 		<?php
 	}
