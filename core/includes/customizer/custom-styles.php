@@ -1022,7 +1022,7 @@ function responsive_customizer_styles() {
 
 	$custom_css .= "
 	@media (min-width:992px) {
-		.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce):not(.woocommerce-cart):not(.woocommerce-checkout) .content-area {
+		.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce):not(.woocommerce-cart):not(.woocommerce-checkout):not(.front-page) .content-area {
 			width:{$page_content_width}%;
 		}
 		.page:not(.woocommerce) aside.widget-area:not(.home-widgets) {
