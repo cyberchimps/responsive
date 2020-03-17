@@ -58,6 +58,7 @@ function responsive_customizer_styles() {
 	.responsive-site-style-content-boxed .site-content-header,
 	.responsive-site-style-content-boxed .content-area-wrapper,
 	.responsive-site-style-content-boxed .site-content .hentry,
+	.responsive-site-style-content-boxed .give-wrap .give_forms,
 	.responsive-site-style-content-boxed .navigation,
 	.responsive-site-style-content-boxed .comments-area,
 	.responsive-site-style-content-boxed .comment-respond,
@@ -70,6 +71,7 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed .custom-home-featured-area,
 	.responsive-site-style-boxed .site-content-header,
 	.responsive-site-style-boxed .site-content .hentry,
+	.responsive-site-style-boxed .give-wrap .give_forms,
 	.responsive-site-style-boxed .navigation,
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
@@ -85,10 +87,12 @@ function responsive_customizer_styles() {
 	";
 
 	$custom_css .= '.responsive-site-style-content-boxed .hentry,
+	.responsive-site-style-content-boxed .give-wrap .give_forms,
 	.responsive-site-style-content-boxed .navigation,
 	.responsive-site-style-content-boxed .site-content-header,
 	.responsive-site-style-content-boxed .comments-area,
 	.responsive-site-style-content-boxed .comment-respond,
+	.responsive-site-style-boxed .give-wrap .give_forms,
 	.responsive-site-style-boxed .hentry,
 	.responsive-site-style-boxed .site-content-header,
 	.responsive-site-style-boxed .navigation,
@@ -103,12 +107,14 @@ function responsive_customizer_styles() {
 
 	@media screen and ( max-width: 992px ) {
 		.responsive-site-style-content-boxed .hentry,
+		.responsive-site-style-content-boxed .give-wrap .give_forms,
 		.responsive-site-style-content-boxed .site-content-header,
 		.responsive-site-style-content-boxed .navigation,
 		.responsive-site-style-content-boxed .comments-area,
 		.responsive-site-style-content-boxed .comment-respond,
 		.responsive-site-style-boxed .site-content-header,
 		.responsive-site-style-boxed .hentry,
+		.responsive-site-style-boxed .give-wrap .give_forms,
 		.responsive-site-style-boxed .navigation,
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
@@ -124,12 +130,14 @@ function responsive_customizer_styles() {
 
 	@media screen and ( max-width: 576px ) {
 		.responsive-site-style-content-boxed .site-content-header,
+		.responsive-site-style-content-boxed .give-wrap .give_forms,
 		.responsive-site-style-content-boxed .hentry,
 		.responsive-site-style-content-boxed .navigation,
 		.responsive-site-style-content-boxed .comments-area,
 		.responsive-site-style-content-boxed .comment-respond,
 		.responsive-site-style-boxed .site-content-header,
 		.responsive-site-style-boxed .hentry,
+		.responsive-site-style-boxed .give-wrap .give_forms,
 		.responsive-site-style-boxed .navigation,
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
