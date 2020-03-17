@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/16/20) = Improvement - Version 4.1.9
+[*] = Fix - Schema.org compatibility
+
 (03/12/20) = Improvement - Version 4.1.8
 [*] = Added - Language Translations
 [x] = Deleted - Removed redundant code from theme.

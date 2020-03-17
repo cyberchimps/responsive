@@ -82,7 +82,7 @@ if ( 1 == $display_slider ) {
 
 		<div id="featured-image" class="featured-image grid col-460 fit">
 
-			<?php $featured_content = ( ! empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.jpg" width="440" height="300" alt="responsivepro featured image" />'; ?>
+			<?php $featured_content = ( ! empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.jpg" width="440" height="300" alt="featured image" />'; ?>
 
 			<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
 

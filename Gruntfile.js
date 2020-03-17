@@ -307,6 +307,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('scss', ['sass']);
 	grunt.registerTask( 'default', [ 'scss', 'uglify', 'cssmin' ] );
 	grunt.registerTask( 'build', [ 'i18n', 'scss', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
-	grunt.registerTask( 'i18n', [ 'addtextdomain' ] );
+	grunt.registerTask( 'i18n', [ 'addtextdomain', 'makepot' ] );
 
 };

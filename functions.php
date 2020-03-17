@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.1.8' );
+define( 'RESPONSIVE_THEME_VERSION', '4.1.9' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -31,7 +31,7 @@ require $responsive_template_directory . '/core/includes/functions-sidebar.php';
 require $responsive_template_directory . '/core/includes/functions-install.php';
 require $responsive_template_directory . '/core/includes/functions-admin.php';
 require $responsive_template_directory . '/core/includes/functions-extras.php';
-require $responsive_template_directory . '/core/includes/functions-extentions.php';
+require $responsive_template_directory . '/core/includes/functions-extensions.php';
 require $responsive_template_directory . '/core/includes/theme-options/theme-options.php';
 require $responsive_template_directory . '/core/includes/post-custom-meta.php';
 require $responsive_template_directory . '/core/includes/hooks.php';
@@ -752,6 +752,20 @@ function responsive_wpkses_post_tags( $tags, $context ) {
 			'width'           => true,
 			'frameborder'     => true,
 			'allowfullscreen' => true,
+		);
+		$tags['meta']   = array(
+			'content'  => true,
+			'itemprop' => true,
+		);
+		$tags['span']   = array(
+			'itemprop'  => true,
+			'itemscope' => true,
+			'itemtype'  => true,
+			'class'     => true,
+		);
+		$tags['a']      = array(
+			'itemprop' => true,
+			'href'     => true,
 		);
 	}
 	return $tags;

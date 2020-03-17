@@ -16,13 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 function responsive_gutenberg_color_palette() {
 
 	$body_typography      = get_theme_mod( 'body_typography' );
-	$body_text_color      = get_theme_mod( 'responsive_body_text_color', '#333333' );
-	$box_background_color = get_theme_mod( 'responsive_box_background_color', '#ffffff' );
+	$body_text_color      = esc_html( get_theme_mod( 'responsive_body_text_color', '#333333' ) );
+	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
 
-	$button_color            = get_theme_mod( 'responsive_button_color', '#0066CC' );
-	$button_hover_color      = get_theme_mod( 'responsive_button_hover_color', '#10659C' );
-	$button_text_color       = get_theme_mod( 'responsive_button_text_color', '#FFFFFF' );
-	$button_hover_text_color = get_theme_mod( 'responsive_button_hover_text_color', '#FFFFFF' );
+	$button_color            = esc_html( get_theme_mod( 'responsive_button_color', '#0066CC' ) );
+	$button_hover_color      = esc_html( get_theme_mod( 'responsive_button_hover_color', '#10659C' ) );
+	$button_text_color       = esc_html( get_theme_mod( 'responsive_button_text_color', '#FFFFFF' ) );
+	$button_hover_text_color = esc_html( get_theme_mod( 'responsive_button_hover_text_color', '#FFFFFF' ) );
 
 	$responsive_gutenberg_color_options = array(
 
@@ -93,38 +93,38 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
  * @return string.
  */
 function responsive_gutenberg_customizer_css() {
-	$body_text_color = get_theme_mod( 'responsive_body_text_color', '#333333' );
+	$body_text_color = esc_html( get_theme_mod( 'responsive_body_text_color', '#333333' ) );
 
-	$link_color       = get_theme_mod( 'responsive_link_color', '#0066CC' );
-	$link_hover_color = get_theme_mod( 'responsive_link_hover_color', '#10659C' );
+	$link_color       = esc_html( get_theme_mod( 'responsive_link_color', '#0066CC' ) );
+	$link_hover_color = esc_html( get_theme_mod( 'responsive_link_hover_color', '#10659C' ) );
 
-	$button_color              = get_theme_mod( 'responsive_button_color', '#0066CC' );
-	$button_hover_color        = get_theme_mod( 'responsive_button_hover_color', '#10659C' );
-	$button_text_color         = get_theme_mod( 'responsive_button_text_color', '#FFFFFF' );
-	$button_hover_text_color   = get_theme_mod( 'responsive_button_hover_text_color', '#FFFFFF' );
-	$button_border_color       = get_theme_mod( 'responsive_button_border_color', '#10659C' );
-	$button_hover_border_color = get_theme_mod( 'responsive_button_hover_border_color', '#0066CC' );
+	$button_color              = esc_html( get_theme_mod( 'responsive_button_color', '#0066CC' ) );
+	$button_hover_color        = esc_html( get_theme_mod( 'responsive_button_hover_color', '#10659C' ) );
+	$button_text_color         = esc_html( get_theme_mod( 'responsive_button_text_color', '#FFFFFF' ) );
+	$button_hover_text_color   = esc_html( get_theme_mod( 'responsive_button_hover_text_color', '#FFFFFF' ) );
+	$button_border_color       = esc_html( get_theme_mod( 'responsive_button_border_color', '#10659C' ) );
+	$button_hover_border_color = esc_html( get_theme_mod( 'responsive_button_hover_border_color', '#0066CC' ) );
 
-	$buttons_padding_right  = get_theme_mod( 'responsive_buttons_right_padding', 10 );
-	$buttons_padding_left   = get_theme_mod( 'responsive_buttons_left_padding', 10 );
-	$buttons_padding_top    = get_theme_mod( 'responsive_buttons_top_padding', 10 );
-	$buttons_padding_bottom = get_theme_mod( 'responsive_buttons_bottom_padding', 10 );
+	$buttons_padding_right  = esc_html( get_theme_mod( 'responsive_buttons_right_padding', 10 ) );
+	$buttons_padding_left   = esc_html( get_theme_mod( 'responsive_buttons_left_padding', 10 ) );
+	$buttons_padding_top    = esc_html( get_theme_mod( 'responsive_buttons_top_padding', 10 ) );
+	$buttons_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_bottom_padding', 10 ) );
 
-	$buttons_tablet_padding_right  = get_theme_mod( 'responsive_buttons_tablet_right_padding', 10 );
-	$buttons_tablet_padding_left   = get_theme_mod( 'responsive_buttons_tablet_left_padding', 10 );
-	$buttons_tablet_padding_top    = get_theme_mod( 'responsive_buttons_tablet_top_padding', 10 );
-	$buttons_tablet_padding_bottom = get_theme_mod( 'responsive_buttons_tablet_bottom_padding', 10 );
+	$buttons_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_buttons_tablet_right_padding', 10 ) );
+	$buttons_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_buttons_tablet_left_padding', 10 ) );
+	$buttons_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_buttons_tablet_top_padding', 10 ) );
+	$buttons_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_tablet_bottom_padding', 10 ) );
 
-	$buttons_mobile_padding_right  = get_theme_mod( 'responsive_buttons_mobile_right_padding', 10 );
-	$buttons_mobile_padding_left   = get_theme_mod( 'responsive_buttons_mobile_left_padding', 10 );
-	$buttons_mobile_padding_top    = get_theme_mod( 'responsive_buttons_mobile_top_padding', 10 );
-	$buttons_mobile_padding_bottom = get_theme_mod( 'responsive_buttons_mobile_bottom_padding', 10 );
+	$buttons_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_buttons_mobile_right_padding', 10 ) );
+	$buttons_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_buttons_mobile_left_padding', 10 ) );
+	$buttons_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_buttons_mobile_top_padding', 10 ) );
+	$buttons_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_mobile_bottom_padding', 10 ) );
 
-	$buttons_radius       = get_theme_mod( 'responsive_buttons_radius', 0 );
-	$buttons_border_width = get_theme_mod( 'responsive_buttons_border_width', 0 );
+	$buttons_radius       = esc_html( get_theme_mod( 'responsive_buttons_radius', 0 ) );
+	$buttons_border_width = esc_html( get_theme_mod( 'responsive_buttons_border_width', 0 ) );
 
-	$box_background_color = get_theme_mod( 'responsive_box_background_color', '#ffffff' );
-	$alt_background_color = get_theme_mod( 'responsive_alt_background_color', '#eaeaea' );
+	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
+	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', '#eaeaea' ) );
 
 	$h1_typography   = get_theme_mod( 'heading_h1_typography' );
 	$body_typography = get_theme_mod( 'body_typography' );
@@ -135,7 +135,7 @@ function responsive_gutenberg_customizer_css() {
 		$custom_css .= '
 		.edit-post-visual-editor.editor-styles-wrapper .editor-post-title__block .editor-post-title__input,
 		.editor-post-title__block .editor-post-title__input {
-			color: ' . get_theme_mod( 'responsive_h1_text_color', '#333333' ) . ';';
+			color: ' . esc_html( get_theme_mod( 'responsive_h1_text_color', '#333333' ) ) . ';';
 
 		foreach ( $h1_typography as $key => $value ) {
 			$custom_css .= $key . ':' . $value . ';';
@@ -148,7 +148,7 @@ function responsive_gutenberg_customizer_css() {
 		.edit-post-visual-editor.editor-styles-wrapper .wp-block h' . $i . ',
 		.wp-block-freeform.block-library-rich-text__tinymce h' . $i . ',
 		.wp-block-heading h' . $i . '.editor-rich-text__tinymce {
-			color: ' . get_theme_mod( "responsive_h{$i}_text_color", '#333333' ) . ';
+			color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", '#333333' ) ) . ';
 		}';
 
 		if ( get_theme_mod( 'heading_h' . $i . '_typography' ) ) {

@@ -530,7 +530,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Header alignment class.
 	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
 
-	if ( get_theme_mod( 'responsive_enable_header_widget' ) ) {
+	if ( get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
 		// Header Widget Aligmnmnet.
 		$classes[] = 'header-widget-alignment-' . get_theme_mod( 'responsive_header_widget_alignment', 'spread' );
 		// Header Widget POsition.

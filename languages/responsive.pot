@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.1.8\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-16 12:59:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -322,15 +322,15 @@ msgstr ""
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
@@ -862,12 +862,12 @@ msgstr ""
 msgid "Ratings"
 msgstr ""
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
 msgstr ""
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr ""
 
@@ -1135,52 +1135,52 @@ msgid "Social Links"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/functions-extensions.php:354
 msgid "Twitter"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/functions-extensions.php:355
 msgid "Facebook"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/functions-extensions.php:356
 msgid "LinkedIn"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/functions-extensions.php:357
 msgid "YouTube"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
+#: core/includes/functions-extensions.php:360
 msgid "Google+"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/functions-extensions.php:359
 msgid "RSS Feed"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/functions-extensions.php:361
 msgid "Instagram"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/functions-extensions.php:362
 msgid "Pinterest"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/functions-extensions.php:358
 msgid "StumbleUpon"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/functions-extensions.php:364
 msgid "Vimeo"
 msgstr ""
 
@@ -1634,7 +1634,7 @@ msgid "Address"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:366
 msgid "Email"
 msgstr ""
 
@@ -2015,28 +2015,50 @@ msgstr ""
 msgid "Font Color"
 msgstr ""
 
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-admin.php:59
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr ""
+
+#: core/includes/functions-admin.php:60
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+
+#: core/includes/functions-admin.php:61
+msgid "Ok, you deserve it"
+msgstr ""
+
+#: core/includes/functions-admin.php:62
+msgid "Nope, maybe later"
+msgstr ""
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr ""
+
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 #. translators: %s: link
 msgid "Home"
 msgstr ""
 
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 #. translators: %s: Categories
 msgid "Archive for %s"
 msgstr ""
 
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 #. translators: %s: Search result page
 #. translators: %s is for search query.
 msgid "Search results for: %s"
 msgstr ""
 
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 #. translators: %s: Post Pages
 msgid "Posts tagged %s"
 msgstr ""
 
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 #. translators: %s: Author pages
 #. translators: %s: view post by
@@ -2045,22 +2067,22 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr ""
 
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:208
 #: core/includes/functions-extras.php:190
 #. translators: %s: Page Number
 #. translators: %s: author
 msgid "Page %s"
 msgstr ""
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:363
 msgid "Yelp!"
 msgstr ""
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:365
 msgid "foursquare"
 msgstr ""
 

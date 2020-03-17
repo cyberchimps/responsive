@@ -727,6 +727,9 @@ if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
 			case 'creativework': // Image.
 				$schema = 'itemscope itemtype="https://schema.org/CreativeWork"';
 				break;
+            case 'breadcrumb':
+                $schema = 'itemscope itemtype="https://schema.org/BreadcrumbList"';
+                break;
 			default:
 				$schema = '';
 
