@@ -46,12 +46,12 @@ Source: https://github.com/select2/select2
 Used to render fonts in typography settings
 
 = Images =
-* Responsive: /images/box1.jpg, CC0, https://unsplash.com/photos/_-hjiem5TqI
-* Responsive: /images/box2.jpg, CC0, https://unsplash.com/photos/De3-PUfrO5Q
-* Responsive: /images/box3.jpg, CC0, https://unsplash.com/photos/1h112EKgBLE
-* Responsive: /core/images/featured-image.jpg, CC0, https://unsplash.com/photos/OJZB0VUQKKc
+* Responsive: /images/box1.jpg, CC0, https://stocksnap.io/photo/2RHWIACZP0
+* Responsive: /images/box2.jpg, CC0, https://stocksnap.io/photo/47E77904CB
+* Responsive: /images/box3.jpg, CC0, https://stocksnap.io/photo/XQDKTDJD8K
+* Responsive: /core/images/featured-image.jpg, CC0, https://stocksnap.io/photo/C5Y10KIIHA
 * Responsive: /admin/images/responsive-thumbnail.jpg GPLv3, https://www.cyberchimps.com
-* Responsive: /images/responsive-starter-sites.jpg GPLv3, https://www.cyberchimps.com, The thumbnail images are taken from https://unsplash.com and https://www.pexels.com/
+* Responsive: /images/responsive-starter-sites.jpg GPLv3, https://www.cyberchimps.com, The thumbnail images(all CC0) are sourced from https://stocksnap.io/, https://www.pexels.com/ and https://www.foodiesfeed.com/
 * Responsive: /core/images/cc-responsive-wp-theme-logo.png GPLv3, https://www.cyberchimps.com
 * Responsive: /core/includes/customizer/controls/color/transparency-grid.png GPLv3, https://www.cyberchimps.com
 * Responsive: /screenshot.png GPLv3, https://www.cyberchimps.com

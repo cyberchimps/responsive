@@ -32,20 +32,20 @@ function responsive_ask_for_review_notice() {
 								</div>
 								<div class="notice-content">
 									<div class="notice-heading">
-										Hi! Thanks for using the Responsive theme.
+										%3$s
 									</div>
-									Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.<br />
+									%4$s<br />
 									<div class="responsive-review-notice-container">
 										<a href="%2$s" class="responsive-notice-close responsive-review-notice button-primary" target="_blank">
-										Ok, you deserve it
+										%5$s
 										</a>
 										<span class="dashicons dashicons-calendar"></span>
 										<a href="?responsive-theme-review-notice-change-timeout=true" data-repeat-notice-after="60" class="responsive-notice-close responsive-review-notice">
-										Nope, maybe later
+										%6$s
 										</a>
 										<span class="dashicons dashicons-smiley"></span>
 										<a href="?responsive-theme-review-notice-dismissed=true" class="responsive-notice-close responsive-review-notice">
-										I already did
+										%7$s
 										</a>
 									</div>
 								</div>
@@ -55,7 +55,12 @@ function responsive_ask_for_review_notice() {
 								</div>
          					</div>',
 			esc_url( $image_path ),
-			'https://wordpress.org/support/theme/responsive/reviews/#new-post'
+			'https://wordpress.org/support/theme/responsive/reviews/#new-post',
+			__( 'Hi! Thanks for using the Responsive theme.', 'responsive' ),
+			__( 'Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ),
+			__( 'Ok, you deserve it', 'responsive' ),
+			__( 'Nope, maybe later', 'responsive' ),
+			__( 'I already did', 'responsive' )
 		);
 		do_action( 'tag_review' );
 	}

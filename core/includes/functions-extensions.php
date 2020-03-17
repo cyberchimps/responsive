@@ -71,14 +71,14 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		$delimiter = ' <span class="chevron">&#8250;</span> '; // delimiter between crumbs.
 		$before    = '<span class="breadcrumb-current">'; // tag before the current crumb.
-		$after     = '</span>'; // tag after the current crumb.
+		$after     = '</span>'; // t    ag after the current crumb.
 		/* === END OF OPTIONS === */
 
 		$home_link   = home_url( '/' );
-		$before_link = '<span class="breadcrumb" typeof="v:Breadcrumb" vocab="https://schema.org/">';
+		$before_link = '<span class="breadcrumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
 		$after_link  = '</span>';
-		$link_att    = ' rel="v:url" property="v:title"';
-		$link        = $before_link . '<a' . $link_att . ' href="%1$s">%2$s</a>' . $after_link;
+		$link_att    = '';
+		$link        = $before_link . '<a itemprop="item"' . $link_att . ' href="%1$s"><span itemprop="name">%2$s</span></a>' . $after_link;
 
 		$post      = get_queried_object();
 		$parent_id = isset( $post->post_parent ) ? $post->post_parent : '';
@@ -87,7 +87,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		if ( is_front_page() ) {
 			if ( 1 == $show['home'] ) {
-				$html_output .= '<div class="breadcrumb-list"><a href="' . $home_link . '">' . $text['home'] . '</a></div>';
+				$html_output .= '<div class="breadcrumb-list"><a itemprop="item" href="' . $home_link . '"><span itemprop="name">' . $text['home'] . '</span></a></div>';
 			}
 		} else {
 			$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
@@ -100,7 +100,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$this_cat = get_category( get_query_var( 'cat' ), false );
 				if ( 0 != $this_cat->parent ) {
 					$cats         = get_category_parents( $this_cat->parent, true, $delimiter );
-					$cats         = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
+					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
 					$html_output .= $cats;
 				}
@@ -136,8 +136,9 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 					if ( 0 == $show['current'] ) {
 							$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
 					}
-					$cats         = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
+					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = str_replace( $cat->name, '<span itemprop="name">' . $cat->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
 					if ( 1 == $show['current'] ) {
 						$html_output .= $before . get_the_title() . $after;
@@ -157,8 +158,9 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 				if ( $cat ) {
 					$cats         = get_category_parents( $cat, true, $delimiter );
-					$cats         = str_replace( '<a', $before_link . '<a' . $link_att, $cats );
+					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = str_replace( $cat->name, '<span itemprop="name">' . $cat->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
 				}
 
@@ -211,7 +213,22 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		}
 
-		echo wp_kses_post( $html_output );
+		libxml_use_internal_errors( true );
+		$doc = new DOMDocument();
+		$doc->loadHTML( $html_output );
+		$finder    = new DomXPath( $doc );
+		$classname = 'breadcrumb';
+		$nodes     = $finder->query( "//span[contains(@class, '$classname')]" );
+		$position  = 1;
+		foreach ( $nodes as $node ) {
+			if ( $position != $nodes->length ) {
+				$fragment = $doc->createDocumentFragment();
+				$fragment->appendXML( '<meta itemprop="position" content="' . $position . '" />' );
+				$node->appendChild( $fragment );
+				$position++;
+			}
+		}
+		echo wp_kses_post( $doc->saveHTML() );
 
 	} // end responsive_breadcrumb_lists.
 }
