@@ -99,10 +99,13 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 			} elseif ( is_category() ) {
 				$this_cat = get_category( get_query_var( 'cat' ), false );
 				if ( 0 != $this_cat->parent ) {
+					$parent       = get_category( $this_cat->parent );
 					$cats         = get_category_parents( $this_cat->parent, true, $delimiter );
 					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
+					$cats         = str_replace( $parent->name, '<span itemprop="name">' . $parent->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
+
 				}
 				$html_output .= $before . sprintf( $text['category'], single_cat_title( '', false ) ) . $after;
 
