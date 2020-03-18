@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/18/20) = Improvement - Version 4.2.0
+[*] = Fix - Schema.org compatibility
+[*] = Added - Image Licenses
+
 (03/16/20) = Improvement - Version 4.1.9
 [*] = Fix - Schema.org compatibility
 
