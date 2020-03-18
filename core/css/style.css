@@ -1760,7 +1760,8 @@ body.mega-menu-header-menu button.menu-toggle {
  * Content Header Area styles
  * -----------------------------------------------------------------------------
  */
-.site-content {
+.site-content,
+.give-wrap {
   padding: 28px 0;
 }
 
