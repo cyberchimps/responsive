@@ -342,7 +342,7 @@ if ( ! function_exists( 'responsive_css' ) ) {
 
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
-		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . '/core/css/icomoon/style.css', false, $responsive['Version'] );
+		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
 
 		// If plugin - 'WooCommerce' is active.
 		if ( class_exists( 'WooCommerce' ) ) {

@@ -21,6 +21,7 @@ atlassian*
 /core/css/gutenberg-editor.css
 /core/css/gutenberg-editor.min.css
 /core/css/gutenberg-editor.css.map
+/core/css/icomoon/style.min.css
 node_modules
 *.jar
 *.phar
