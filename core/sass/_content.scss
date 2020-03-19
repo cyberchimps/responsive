@@ -783,3 +783,8 @@ article.product {
             background-color: map-get( $colors, white );
     }
 }
+
+/* for give Wp plugin */
+.give-wrap > div#content[role^="main"] {
+    padding: 0 $base-line-height-px / 2;
+}
