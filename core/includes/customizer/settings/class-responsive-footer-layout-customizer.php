@@ -167,27 +167,6 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				)
 			);
 
-			// Add Google+ Setting.
-			$wp_customize->add_setting(
-				'responsive_theme_options[googleplus_uid]',
-				array(
-					'sanitize_callback' => 'esc_url_raw',
-					'type'              => 'option',
-				)
-			);
-			$wp_customize->add_control(
-				new WP_Customize_Control(
-					$wp_customize,
-					'res_googleplus',
-					array(
-						'label'    => __( 'Google+', 'responsive' ),
-						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[googleplus_uid]',
-						'priority' => 131,
-					)
-				)
-			);
-
 			// Add RSS Setting.
 			$wp_customize->add_setting(
 				'responsive_theme_options[rss_uid]',
