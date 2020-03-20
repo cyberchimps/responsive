@@ -304,6 +304,9 @@ div.product div.images .flex-control-thumbs {
     }
 }
 
+.woocommerce-page.single-product div.product {
+    display: flow-root;
+}
 
 
 // Sidebar widget Area

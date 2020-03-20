@@ -36,6 +36,7 @@ blockquote,
 pre {
     background-color: map-get( $colors, light-gray );
     padding: $base-line-height-px;
+    font-style: italic;
 }
 
 pre {
@@ -227,4 +228,3 @@ sub {
 sup {
     top: -0.5em;
 }
-

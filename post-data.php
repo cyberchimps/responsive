@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<?php if ( ! is_page() && ! is_search() ) { ?>
+<?php if ( ! is_page() && ! is_search() && has_tag() ) { ?>
 
 	<div class="post-data">
 		<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
