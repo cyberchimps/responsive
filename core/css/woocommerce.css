@@ -449,6 +449,10 @@ ul.wc-block-grid__products {
   padding: 0.5em;
 }
 
+.woocommerce-page.single-product div.product {
+  display: flow-root;
+}
+
 .single-product.woocommerce.sidebar-position-left .site-content > .container > .row, .single-product.woocommerce.sidebar-position-left .site-content > .container > .woocommerce-pagination,
 .search.woocommerce.sidebar-position-left .site-content > .container > .row,
 .search.woocommerce.sidebar-position-left .site-content > .container > .woocommerce-pagination,

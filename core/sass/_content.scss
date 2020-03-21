@@ -167,7 +167,7 @@
     }
 
     .read-more {
-        margin-bottom: $base-line-height-px;
+        margin-bottom: $base-line-height-px / 2;
 
         .more-link {
             .read-more-button & {
@@ -451,6 +451,23 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
+
+        @media screen and (min-width: map-get( $screens, sm ) ) {
+            display: inline-block;
+
+            a {
+                margin: 0 $base-line-height-px / 2;
+
+                &.next.page-numbers {
+                    float: right;
+                }
+
+                &:first-child,
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
     }
 }
 
@@ -782,4 +799,9 @@ article.product {
     .responsive-site-style-boxed .site-content & {
             background-color: map-get( $colors, white );
     }
+}
+
+/* for give Wp plugin */
+.give-wrap > div#content[role^="main"] {
+    padding: 0 $base-line-height-px / 2;
 }

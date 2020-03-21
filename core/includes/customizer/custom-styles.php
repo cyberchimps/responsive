@@ -572,7 +572,7 @@ function responsive_customizer_styles() {
 		.main-navigation .children,
 		.main-navigation .sub-menu {
 		    background-color: #ffffff;
-		    box-shadow: 0 5px 10px #eaeaea;
+		    box-shadow: 0 0px 2px #cccccc;
 		    left: -9999em;
 		    margin-left: 0;
 		    top: 100%;
