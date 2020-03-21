@@ -200,7 +200,8 @@ module.exports = function(grunt) {
 				files: {
 					'core/css/style.min.css': 'core/css/style.css',
 					'core/css/woocommerce.min.css':  'core/css/woocommerce.css',
-					'core/css/gutenberg-editor.min.css':  'core/css/gutenberg-editor.css'
+					'core/css/gutenberg-editor.min.css':  'core/css/gutenberg-editor.css',
+					'core/css/icomoon/style.min.css': 'core/css/icomoon/style.css'
 				}
 			}
 		},

@@ -943,6 +943,7 @@ blockquote,
 pre {
   background-color: #eaeaea;
   padding: 28px;
+  font-style: italic;
 }
 
 pre {
@@ -1365,7 +1366,7 @@ select {
 .main-navigation .menu li.focus > .children,
 .main-navigation .menu li.focus > .sub-menu, .main-navigation .menu li:hover > .children,
 .main-navigation .menu li:hover > .sub-menu {
-  left: -15px;
+  left: 0;
 }
 
 .main-navigation .menu > li {
@@ -1973,7 +1974,7 @@ article.product .post-meta > span .avatar {
 }
 
 .hentry .read-more, article.product .read-more {
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 
 .read-more-button .hentry .read-more .more-link, .read-more-button article.product .read-more .more-link {
@@ -3431,6 +3432,21 @@ article.product .post-meta > span .avatar {
   justify-content: space-between;
 }
 
+@media screen and (min-width: 576px) {
+  .navigation .nav-links {
+    display: inline-block;
+  }
+  .navigation .nav-links a {
+    margin: 0 14px;
+  }
+  .navigation .nav-links a.next.page-numbers {
+    float: right;
+  }
+  .navigation .nav-links a:first-child, .navigation .nav-links a:last-child {
+    margin: 0;
+  }
+}
+
 .comment-respond,
 .comments-area {
   margin-bottom: 28px;
@@ -3895,6 +3911,11 @@ article.product .post-meta > span .avatar {
 
 .responsive-site-style-boxed .site-content article.product {
   background-color: #ffffff;
+}
+
+/* for give Wp plugin */
+.give-wrap > div#content[role^="main"] {
+  padding: 0 14px;
 }
 
 /**
