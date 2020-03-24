@@ -760,7 +760,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							$fonts[] = $val;
 
 							// No brackets can be added as it cause issue with sans serif fonts.
-							$val = $val;
+							if ( 'preview_styles' === $return ) {
+								$val = str_replace( '\'', '', $val );
+							} else {
+								$val = $val;
+							}
 						}
 
 						// Add to inline CSS.
