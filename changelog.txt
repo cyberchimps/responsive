@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/24/20) = Improvement - Version 4.2.2
+[*] = Fix - Option to edit footer copyright text
+
 (03/20/20) = Improvement - Version 4.2.1
 [*] = Fix - Improved Screnshot
 [*] = Deleted - Google Plus link option
