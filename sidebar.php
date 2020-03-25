@@ -22,11 +22,11 @@ if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 
 	return;
 }
 
-responsive_widgets_before(); // above widgets container hook.
+Responsive\responsive_widgets_before(); // above widgets container hook.
 
 if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
 
-	$responsive_options = responsive_get_options();
+	$responsive_options = Responsive\Core\responsive_get_options();
 	if ( ( 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) && ! is_product() ) || ( 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) && is_product() ) ) {
 		return;
 	}
@@ -42,13 +42,13 @@ if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
 	<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 
 	<?php
-	responsive_widgets(); // above widgets hook.
+	Responsive\responsive_widgets(); // above widgets hook.
 	if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
 	endif; // End of main-sidebar.
-		responsive_widgets_end(); // after widgets hook.
+		Responsive\responsive_widgets_end(); // after widgets hook.
 	?>
 
 	</aside><!-- end of #secondary -->
 	<?php
-	responsive_widgets_after(); // after widgets container hook.
+	Responsive\responsive_widgets_after(); // after widgets container hook.
 }

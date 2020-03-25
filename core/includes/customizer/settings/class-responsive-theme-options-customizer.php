@@ -55,7 +55,7 @@ if ( ! class_exists( 'Responsive_Theme_Options_Customizer' ) ) :
 			}
 
 				/* Blog page setting */
-				$wp_customize->add_setting( 'exclude_post_cat', array( 'sanitize_callback' => 'responsive_sanitize_multiple_checkboxes' ) );
+				$wp_customize->add_setting( 'exclude_post_cat', array( 'sanitize_callback' => Responsive\Customizer\responsive_sanitize_multiple_checkboxes() ) );
 				$wp_customize->add_control(
 					new Responsive_Customize_Control_Checkbox_Multiple(
 						$wp_customize,

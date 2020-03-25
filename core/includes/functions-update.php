@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since    1.9.4.9
  */
 function responsive_update_social_icon_options() {
-	$responsive_options = responsive_get_options();
+	$responsive_options = Responsive\Core\responsive_get_options();
 	// If new option does not exist then copy the option.
 	if ( ! isset( $responsive_options['stumbleupon_uid'] ) ) {
 		$responsive_options['stumbleupon_uid'] = $responsive_options['stumble_uid'];
@@ -30,8 +30,9 @@ function responsive_update_social_icon_options() {
 	update_option( 'responsive_theme_options', $responsive_options );
 }
 
-add_action( 'after_setup_theme', 'responsive_update_social_icon_options' );
 
+	add_action( 'after_setup_theme', 'responsive_update_social_icon_options' );
+	add_action( 'after_switch_theme', 'responsive_update_page_template_meta' );
 /**
  * Update page templete meta data
  *
@@ -69,7 +70,6 @@ function responsive_update_page_template_meta() {
 		}
 	}
 }
-add_action( 'after_switch_theme', 'responsive_update_page_template_meta' );
 
 /**
  * Responsive 2.0 update check

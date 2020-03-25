@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div><!-- .skip-container -->
 	<div class="site hfeed">
 		<?php
-		responsive_header_top();
+		Responsive\responsive_header_top();
 		// Elementor `header` location.
 		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) {
 			?>
@@ -65,5 +65,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php
 		}
-		responsive_header_bottom();
+		Responsive\responsive_header_bottom();
 		?>

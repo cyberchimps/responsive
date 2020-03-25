@@ -23,7 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 ?>
-<?php if ( post_password_required() ) { ?>
+<?php
+Responsive\responsive_comments_before();
+
+if ( post_password_required() ) {
+	?>
 	<p class="nocomments"><?php esc_html_e( 'This post is password protected. Enter the password to view any comments.', 'responsive' ); ?></p>
 
 	<?php
@@ -86,11 +90,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 		<?php /* translators: 1 : Count, 2 : Pings 3 : Post title */ ?>
-		<h6 id="pings"><?php printf( '%1$d %2$s for "%3$s"', esc_html( $count ), esc_html( $txt ), esc_html( get_the_title() ) ); ?></h6>
+		<div class="comments-area">
+			<h6 id="pings"><?php printf( '%1$d %2$s for "%3$s"', esc_html( $count ), esc_html( $txt ), esc_html( get_the_title() ) ); ?></h6>
 
-		<ol class="commentlist">
-			<?php wp_list_comments( 'type=pings&max_depth=<em>' ); ?>
-		</ol>
+			<ol class="commentlist">
+				<?php wp_list_comments( 'type=pings&max_depth=<em>' ); ?>
+			</ol>
+		</div>
 
 
 	<?php endif; ?>
@@ -113,4 +119,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 
-<?php endif; ?>
+<?php endif;
+	Responsive\responsive_comments_after();
+	?>

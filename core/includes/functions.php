@@ -13,13 +13,44 @@
  * @since          available since Release 1.0
  */
 
+namespace Responsive\Core;
+
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-?>
-<?php
+
+/**
+ * Set up theme defaults and register supported WordPress features.
+ *
+ * @return void
+ */
+function setup() {
+	$n = function( $function ) {
+		return __NAMESPACE__ . "\\$function";
+	};
+
+	add_action( 'customize_register', $n( 'responsive_load_customize_controls' ) );
+	add_action( 'after_setup_theme', $n( 'responsive_setup' ) );
+	add_action( 'template_redirect', $n( 'responsive_content_width' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_css' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_js' ) );
+	add_action( 'add_meta_boxes', $n( 'responsive_team_add_meta_box' ) );
+	add_action( 'save_post', $n( 'responsive_team_meta_box_save' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_comment_reply' ) );
+	add_filter( 'pre_update_option_show_on_front', $n( 'responsive_front_page_override' ), 10, 2 );
+	add_filter( 'body_class', $n( 'responsive_add_class' ) );
+	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ) );
+
+	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
+		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
+	}
+
+}
+
 /*
  * Globalize Theme options
  */
@@ -30,7 +61,6 @@ function responsive_load_customize_controls() {
 
 	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/class-responsive-customize-control-checkbox-multiple.php';
 }
-add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
 
 /**
  * Retrieve Theme option settings
@@ -108,8 +138,6 @@ function responsive_get_option_defaults() {
 /**
  * Fire up the engines boys and girls let's start theme setup.
  */
-add_action( 'after_setup_theme', 'responsive_setup' );
-
 if ( ! function_exists( 'responsive_setup' ) ) :
 	/** Function to setup */
 	function responsive_setup() {
@@ -300,7 +328,6 @@ function responsive_content_width() {
 		$content_width = 918;
 	}
 }
-add_action( 'template_redirect', 'responsive_content_width' );
 
 /**
  * Set a fallback menu that will show a home link.
@@ -350,8 +377,6 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		}
 	}
 }
-add_action( 'wp_enqueue_scripts', 'responsive_css' );
-
 
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
@@ -367,9 +392,7 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 	}
 }
-add_action( 'wp_enqueue_scripts', 'responsive_js' );
 
-add_action( 'add_meta_boxes', 'responsive_team_add_meta_box' );
 /** Function for team section options */
 function responsive_team_add_meta_box() {
 	global $post;
@@ -413,7 +436,7 @@ function responsive_team_meta_box_cb() {
 
 	<?php
 }
-add_action( 'save_post', 'responsive_team_meta_box_save' );
+
 /**
  * Save team member meta data
  *
@@ -454,8 +477,6 @@ function responsive_enqueue_comment_reply() {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'responsive_enqueue_comment_reply' );
-
 /**
  * Front Page function starts here. The Front page overides WP's show_on_front option. So when show_on_front option changes it sets the themes front_page to 0 therefore displaying the new option
  *
@@ -474,8 +495,6 @@ function responsive_front_page_override( $new, $orig ) {
 	return $new;
 }
 
-add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override', 10, 2 );
-
 /**
  * Funtion to add CSS class to body
  *
@@ -491,8 +510,6 @@ function responsive_add_class( $classes ) {
 
 	return $classes;
 }
-
-add_filter( 'body_class', 'responsive_add_class' );
 
 /**
  * [responsive_add_custom_body_classes Funtion to add CSS class to body].
@@ -646,8 +663,6 @@ function responsive_add_custom_body_classes( $classes ) {
 	return $classes;
 }
 
-add_filter( 'body_class', 'responsive_add_custom_body_classes' );
-
 /**
  * This function prints post meta data.
  *
@@ -700,12 +715,6 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 		<?php
 	}
-}
-
-require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
-	add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
 }
 
 /**

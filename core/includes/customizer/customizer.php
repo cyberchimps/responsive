@@ -5,6 +5,28 @@
  * @package responsive
  */
 
+namespace Responsive\Customizer;
+
+/**
+ * Set up theme defaults and register supported WordPress features.
+ *
+ * @return void
+ */
+function setup() {
+	$n = function( $function ) {
+		return __NAMESPACE__ . "\\$function";
+	};
+
+	add_action( 'customize_register', $n( 'responsive_customize_register' ) );
+	add_action( 'customize_preview_init', $n( 'responsive_customize_preview_js' ) );
+	add_action( 'after_setup_theme', $n( 'responsive_register_options' ) );
+	add_action( 'customize_register', $n( 'responsive_custom_controls' ) );
+	add_action( 'customize_controls_print_scripts', $n( 'responsive_tooltip_script' ) );
+	add_action( 'customize_register', $n( 'responsive_controls_helpers' ) );
+	add_action( 'customize_controls_enqueue_scripts', $n( 'responsive_custom_customize_enqueue' ) );
+
+}
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -49,7 +71,6 @@ function responsive_customize_register( $wp_customize ) {
 	}
 
 }
-add_action( 'customize_register', 'responsive_customize_register' );
 
 /**
  * Validates the Call to Action Button styles
@@ -58,7 +79,7 @@ add_action( 'customize_register', 'responsive_customize_register' );
  *
  * @return string
  */
-function responsive_pro_button_style_validate( $input ) {
+function responsive_pro_button_style_validate( $input = '' ) {
 	/** An array of valid results */
 	$valid = array(
 		'default'    => __( 'Gradient', 'responsive' ),
@@ -77,7 +98,7 @@ function responsive_pro_button_style_validate( $input ) {
  *
  * @param object $input arguments.
  */
-function responsive_sanitize_checkbox( $input ) {
+function responsive_sanitize_checkbox( $input = '' ) {
 	if ( $input ) {
 		$output = 1;
 	} else {
@@ -91,7 +112,7 @@ function responsive_sanitize_checkbox( $input ) {
  *
  * @param object $input arguments.
  */
-function responsive_sanitize_posts( $input ) {
+function responsive_sanitize_posts( $input = '' ) {
 	$output            = '';
 	$options_posts     = array();
 	$options_posts_obj = get_posts( 'posts_per_page=-1' );
@@ -111,7 +132,7 @@ function responsive_sanitize_posts( $input ) {
  *
  * @param object $values arguments.
  */
-function responsive_sanitize_multiple_checkboxes( $values ) {
+function responsive_sanitize_multiple_checkboxes( $values = '' ) {
 
 	$multi_values = ! is_array( $values ) ? explode( ',', $values ) : $values;
 
@@ -123,8 +144,8 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
  */
 function responsive_customize_preview_js() {
 	wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive_theme_customizer', get_template_directory_uri() . '/core/js/theme-customizer.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 }
-add_action( 'customize_preview_init', 'responsive_customize_preview_js' );
 
 /**
  * Adds customizer options
@@ -181,8 +202,6 @@ function responsive_register_options() {
 	}
 }
 
-add_action( 'after_setup_theme', 'responsive_register_options' );
-
 /**
  * Adds custom controls.
  *
@@ -221,7 +240,6 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Heading_Control' );
 
 }
-add_action( 'customize_register', 'responsive_custom_controls' );
 
 /**
  * Adds customizer helpers
@@ -229,7 +247,6 @@ add_action( 'customize_register', 'responsive_custom_controls' );
 function responsive_controls_helpers() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/sanitization-callbacks.php';
 }
-add_action( 'customize_register', 'responsive_controls_helpers' );
 
 /**
  * Custom styles and js for customizer
@@ -238,7 +255,6 @@ function responsive_custom_customize_enqueue() {
 	wp_enqueue_style( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/css/general.min.css', RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive-general', get_template_directory_uri() . '/core/includes/customizer/assets/min/js/general.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 }
-add_action( 'customize_controls_enqueue_scripts', 'responsive_custom_customize_enqueue' );
 
 /**
  * Tooltip script
@@ -270,4 +286,3 @@ function responsive_tooltip_script() {
 	echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 }
-add_action( 'customize_controls_print_scripts', 'responsive_tooltip_script' );

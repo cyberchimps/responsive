@@ -53,6 +53,18 @@ if ( is_admin() ) {
 }
 
 /**
+ * Run setup functions.
+ */
+Responsive\setup();
+Responsive\Admin\setup();
+Responsive\Customizer\setup();
+Responsive\Core\setup();
+Responsive\Extra\setup();
+if ( class_exists( 'WooCommerce' ) ) {
+	Responsive\WooCommerce\setup();
+}
+
+/**
  * Return value of the supplied responsive free theme option.
  *
  * @param  array   $option  options.
@@ -151,7 +163,7 @@ function responsive_free_setup() {
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
-$responsive_options = responsive_get_options();
+$responsive_options = Responsive\Core\responsive_get_options();
 
 /**
  * Edit Customize Register
@@ -385,7 +397,7 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 	 */
 	function responsive_page_featured_image() {
 		// check if the page has a Post Thumbnail assigned to it.
-		$responsive_options = responsive_get_options();
+		$responsive_options = Responsive\Core\responsive_get_options();
 		if ( has_post_thumbnail() ) {
 			?>
 						<div class="featured-image">
@@ -409,7 +421,7 @@ if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
 	 * @param  object $query Query.
 	 */
 	function responsive_exclude_post_cat( $query ) {
-		$responsive_options = responsive_get_options();
+		$responsive_options = Responsive\Core\responsive_get_options();
 		$cat                = get_theme_mod( 'exclude_post_cat' );
 
 		if ( $cat && ! is_admin() && $query->is_main_query() ) {
@@ -515,7 +527,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 		}
 
 		global $responsive_options;
-		$responsive_options = responsive_get_options();
+		$responsive_options = Responsive\Core\responsive_get_options();
 		$header_layout      = get_theme_mod( 'header_layout_options' );
 		$menu_position      = get_theme_mod( 'menu_position' );
 

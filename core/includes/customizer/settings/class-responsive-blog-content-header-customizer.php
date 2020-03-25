@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Header_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[blog_post_title_toggle]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => Responsive\Customizer\responsive_sanitize_checkbox(),
 					'type'              => 'option',
 				)
 			);

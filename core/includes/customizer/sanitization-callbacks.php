@@ -177,7 +177,7 @@ if ( ! function_exists( 'responsive_check_layout_type' ) ) {
 	 */
 	function responsive_check_layout_type() {
 		global $responsive_options;
-		$responsive_options = responsive_get_options();
+		$responsive_options = Responsive\Core\responsive_get_options();
 
 		if ( 'full-width-no-box' === $responsive_options['site_layout_option'] ) {
 			return true;

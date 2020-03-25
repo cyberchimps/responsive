@@ -47,5 +47,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 		</div>
 	</div>
-	<?php responsive_header_with_logo(); ?>
+	<?php Responsive\responsive_header_with_logo(); ?>
 </div>
