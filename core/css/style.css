@@ -3447,6 +3447,10 @@ article.product .post-meta > span .avatar {
   }
 }
 
+.single .navigation .nav-links {
+  display: flex;
+}
+
 .comment-respond,
 .comments-area {
   margin-bottom: 28px;

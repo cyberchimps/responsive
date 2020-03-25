@@ -471,6 +471,10 @@
     }
 }
 
+.single .navigation .nav-links {
+    display: flex;
+}
+
 .comment-respond,
 .comments-area {
     @include make-block-element();

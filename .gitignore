@@ -9,11 +9,12 @@ lcov.info
 *.out
 *.pid
 *.gz
-
+core/css/style.css.map
 pids
 logs
 results
 build
 .grunt
-
+jenkincodeception/
+vendor
 node_modules
