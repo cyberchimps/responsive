@@ -429,7 +429,7 @@ add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
-	wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+	   wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
@@ -752,20 +752,6 @@ function responsive_wpkses_post_tags( $tags, $context ) {
 			'width'           => true,
 			'frameborder'     => true,
 			'allowfullscreen' => true,
-		);
-		$tags['meta']   = array(
-			'content'  => true,
-			'itemprop' => true,
-		);
-		$tags['span']   = array(
-			'itemprop'  => true,
-			'itemscope' => true,
-			'itemtype'  => true,
-			'class'     => true,
-		);
-		$tags['a']      = array(
-			'itemprop' => true,
-			'href'     => true,
 		);
 	}
 	return $tags;
