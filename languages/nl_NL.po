@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 21:27+0530\n"
+"PO-Revision-Date: 2020-03-27 16:14+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -32,7 +32,7 @@ msgstr "Activeren "
 #: admin/admin-functions.php:22
 #, fuzzy
 msgid "Not connect. Verify Network."
-msgstr "Niet verbonden. Controleer netwerk."
+msgstr "Geen verbinding. Netwerk verifiëren."
 
 #: admin/admin-functions.php:23
 #, fuzzy
@@ -42,32 +42,32 @@ msgstr "Gevraagde pagina niet gevonden. [404]"
 #: admin/admin-functions.php:24
 #, fuzzy
 msgid "Internal Server Error [500]"
-msgstr "Interne fout van de server."
+msgstr "Interne serverfout [500]"
 
 #: admin/admin-functions.php:25
 #, fuzzy
 msgid "Requested JSON parse failed"
-msgstr "Het aangevraagde JSON-parseren is mislukt"
+msgstr "Aangevraagde JSON-parse is mislukt"
 
 #: admin/admin-functions.php:26
 #, fuzzy
 msgid "Time out error"
-msgstr "time-outfout"
+msgstr "Time-outfout"
 
 #: admin/admin-functions.php:27
 #, fuzzy
 msgid "Ajax request aborted"
-msgstr "Verzoek afgebroken"
+msgstr "Ajax-verzoek afgebroken"
 
 #: admin/admin-functions.php:28
 #, fuzzy
 msgid "Uncaught Error"
-msgstr "Uncaught Error"
+msgstr "Fout zonder gevangen"
 
 #: admin/class-responsive-plugin-install-helper.php:93
 #, fuzzy
 msgid "Install and activate &raquo;"
-msgstr "Installeren en activeren »"
+msgstr "Installeren en activeren &raquo;"
 
 #: admin/class-responsive-plugin-install-helper.php:97
 #: admin/class-responsive-plugin-install-helper.php:117
@@ -106,7 +106,7 @@ msgstr "Mobiel vriendelijk"
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
 #, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
-msgstr "Slider, portfolio, prijstabellen, WooCommerce-widgets enz"
+msgstr "Slider, portfolio, prijstabellen, WooCommerce widgets etc"
 
 #: admin/templates/free-vs-pro.php:31
 #, fuzzy
@@ -116,22 +116,22 @@ msgstr "Razendsnelle snelheid"
 #: admin/templates/free-vs-pro.php:32
 #, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
-msgstr "Geoptimaliseerd voor snelheid, laadt in minder dan 2 seconden"
+msgstr "Geoptimaliseerd voor snelheid, belastingen in minder dan 2 seconden"
 
 #: admin/templates/free-vs-pro.php:39
 #, fuzzy
 msgid "Fully Customizable"
-msgstr "Volledig aanpasbaar ."
+msgstr "Volledig aanpasbaar"
 
 #: admin/templates/free-vs-pro.php:40
 #, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
-msgstr "De aanpassingsopties gebruiken voor lay-out, lettertypen en kleuren"
+msgstr "Met behulp van de opties voor de lay-out, lettertypen & kleuren"
 
 #: admin/templates/free-vs-pro.php:42
 #, fuzzy
 msgid "Limited Options"
-msgstr "Zeer beperkte opties"
+msgstr "Beperkte opties"
 
 #: admin/templates/free-vs-pro.php:47
 #, fuzzy
@@ -141,7 +141,7 @@ msgstr "Kant-en-klare websitesjablonen"
 #: admin/templates/free-vs-pro.php:48
 #, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
-msgstr "Kant-en-klare Elementor-paginabuilder en Gutenberg-websitesjablonen"
+msgstr "Kant-en-klare Elementor-paginabouwer en Gutenberg-websitesjablonen"
 
 #: admin/templates/free-vs-pro.php:51
 msgid "30+"
@@ -155,24 +155,25 @@ msgstr "Exclusieve widgets"
 #: admin/templates/free-vs-pro.php:63
 #, fuzzy
 msgid "Exclusive Content, Deals & Offers"
-msgstr "Exclusieve inhoud, aanbiedingen en aanbiedingen"
+msgstr "Exclusieve content, aanbiedingen & aanbiedingen"
 
 #: admin/templates/free-vs-pro.php:64
 #, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
-msgstr "Krijg toegang tot exclusieve WordPress-inhoud, deals en aanbiedingen"
+msgstr ""
+"Krijg toegang tot exclusieve WordPress content, aanbiedingen & aanbiedingen"
 
 #: admin/templates/free-vs-pro.php:71
 #, fuzzy
 msgid "Private Priority Email Support"
-msgstr "E-mailsupport met prioriteit"
+msgstr "Ondersteuning voor e-mail met privéprioriteit"
 
 #: admin/templates/free-vs-pro.php:72
 #, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
 msgstr ""
-"Hulp nodig? Stel gewoon een ondersteuningsticket in om voorrang te krijgen "
-"via e-mail"
+"Hulp nodig? Verhoog gewoon een ondersteuningsticket om prioriteite e-"
+"mailondersteuning te krijgen"
 
 #. Theme Name of the plugin/theme
 msgid "Responsive"
@@ -189,9 +190,7 @@ msgstr ""
 #: comments.php:42
 #, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
-msgstr ""
-"Een reactie op &ldquo;<ph id=\"mtc_1\" equiv-text=\"base64:JTEkcw==\"/"
-">&rdquo;"
+msgstr "Een reactie op \"%1$s\""
 
 #: comments.php:58 comments.php:71
 msgid "&#8249; Older comments"
@@ -258,7 +257,7 @@ msgstr "Gratis vs Pro"
 #: core/includes/classes/class-responsive-admin-settings.php:231
 #, fuzzy
 msgid "Import a website template(FREE)"
-msgstr "Importeer een websitesjabloon (GRATIS)"
+msgstr "Een websitesjabloon importeren(GRATIS)"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
 #, fuzzy
@@ -266,13 +265,13 @@ msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
 msgstr ""
-"Installeer responsieve add-ons om kant-en-klare websitesjablonen te krijgen "
-"die met één klik kunnen worden geïmporteerd."
+"Installeer responsieve invoegtoepassingen om kant-en-klare websitesjablonen "
+"te krijgen die met één klik kunnen worden geïmporteerd."
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
 #, fuzzy
 msgid "Learn More &raquo;"
-msgstr "Kom meer te weten \""
+msgstr "Meer informatie &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:269
 msgid "Support"
@@ -281,48 +280,48 @@ msgstr "Ondersteuning"
 #: core/includes/classes/class-responsive-admin-settings.php:273
 #, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
-msgstr "Vragen hebben? Neem contact op met ons. We helpen u graag verder"
+msgstr "Heb je vragen? Neem contact met ons op. We helpen je graag"
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
 #, fuzzy
 msgid "Request Support &raquo;"
-msgstr "Ondersteuning aanvragen »"
+msgstr "Ondersteuning aanvragen &raquo;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
 #, fuzzy
 msgid "Change site layout"
-msgstr "Wijzig de lay-out van de site"
+msgstr "Site-indeling wijzigen"
 
 #: core/includes/classes/class-responsive-admin-settings.php:308
 #, fuzzy
 msgid "Customize fonts/typography"
-msgstr "Pas lettertypen / typografie aan"
+msgstr "Lettertypen/typografie aanpassen"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
 #, fuzzy
 msgid "Upload logo & site icon"
-msgstr "Upload logo & site icoon"
+msgstr "Pictogram Uploaden & site"
 
 #: core/includes/classes/class-responsive-admin-settings.php:318
 #, fuzzy
 msgid "Add/edit navigation menu"
-msgstr "Navigatie Menu toevoegen"
+msgstr "Navigatiemenu toevoegen/bewerken"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
 #, fuzzy
 msgid "Customize header options"
-msgstr "Pas koptekstopties aan"
+msgstr "Kopopties aanpassen"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
 #, fuzzy
 msgid "Customize footer options"
-msgstr "Pas voettekstopties aan"
+msgstr "Voettekstopties aanpassen"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
 #, fuzzy
 msgid "Update blog layout"
-msgstr "Bloglay-out bijwerken"
+msgstr "Blogindeling bijwerken"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
 #, fuzzy
@@ -332,7 +331,7 @@ msgstr "Pagina-indeling bijwerken"
 #: core/includes/classes/class-responsive-admin-settings.php:346
 #, fuzzy
 msgid "Quick Start:"
-msgstr "Snel starten"
+msgstr "Snel aan de slag:"
 
 #: core/includes/classes/class-responsive-admin-settings.php:365
 msgid "Community"
@@ -344,13 +343,13 @@ msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
-"Ontmoet de Responsive Power-gebruikers. Zeg hallo, stel vragen, geef "
+"Maak kennis met de Responsive Power-gebruikers. Zeg hallo, stel vragen, geef "
 "feedback en help elkaar"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
 #, fuzzy
 msgid "Join Facebook Group &raquo;"
-msgstr "Word lid van Facebook Group »"
+msgstr "Word lid van Facebook Group &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:387
 msgid "Feedback"
@@ -363,29 +362,29 @@ msgid ""
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
-"Hoi! Bedankt voor het gebruiken van het responsieve thema. Kun je ons een "
-"plezier doen en ons een 5-sterrenbeoordeling geven? Uw feedback houdt ons "
-"gemotiveerd en helpt ons de responsieve gemeenschap te laten groeien."
+"Hallo! Bedankt voor het gebruik van het Responsive thema. u ons een plezier "
+"doen en ons een 5-sterren rating geven? Uw feedback houdt ons gemotiveerd en "
+"helpt ons de Responsive community te laten groeien."
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
 #, fuzzy
 msgid "Submit Review &raquo;"
-msgstr "Review versturen \""
+msgstr "Stuur Review &raquo in;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
 #, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
-msgstr "Razendsnel, mobielvriendelijk, volledig aanpasbaar WordPress-thema."
+msgstr "Blazing Fast, mobielvriendelijk, volledig aanpasbaar WordPress-thema."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "Aanbieding!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "WooCommerce zijbalk"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
@@ -406,7 +405,7 @@ msgstr "Kleuren"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
 #, fuzzy
 msgid "Cart Buttons"
-msgstr "Winkelwagen knoppen"
+msgstr "Winkelwagenknoppen"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
@@ -431,12 +430,12 @@ msgstr "Mouse-over knop"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
 #, fuzzy
 msgid "Button Hover Text"
-msgstr "Knop aanwijs tekst"
+msgstr "Button Hover Tekstkleur"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
 #, fuzzy
 msgid "Checkout Button"
-msgstr "Afrekenen knop:"
+msgstr "Knop Afrekenen"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
@@ -454,7 +453,7 @@ msgstr "Lay-outs"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
 #, fuzzy
 msgid "Main Content Width (%)"
-msgstr "Content breedte (%)"
+msgstr "Hoofdinhoudsbreedte (%)"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
 #, fuzzy
@@ -469,7 +468,7 @@ msgstr "Zichtbaarheid van winkelwagenpictogram"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
 #, fuzzy
 msgid "Display On All Devices"
-msgstr "Toon alle apparaten"
+msgstr "Weergeven op alle apparaten"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
 #, fuzzy
@@ -479,7 +478,7 @@ msgstr "Uitgeschakeld op alle apparaten"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
 #, fuzzy
 msgid "Product Catalog Options"
-msgstr "Productcatalogus opties"
+msgstr "Opties voor productcatalogus"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
 msgid "Shop Options"
@@ -492,13 +491,13 @@ msgstr "Productopties"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
 #, fuzzy
 msgid "Single Product Options"
-msgstr "Product detail pagina opties"
+msgstr "Opties voor één product"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
 #, fuzzy
 msgid "Cart Options"
-msgstr "Winkelwagen opties"
+msgstr "Winkelwagenopties"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
 msgid "Rating Color"
@@ -511,13 +510,13 @@ msgstr "Prijs kleur"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
 #, fuzzy
 msgid "Add To Cart Buttons"
-msgstr "Toevoegen aan winkelwagen knoppen"
+msgstr "Knoppen toevoegen aan winkelwagentjes"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -562,12 +561,12 @@ msgstr "Geen zijbalk"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
 #, fuzzy
 msgid "Shop Product"
-msgstr "Productlus winkelen"
+msgstr "Product kopen"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
 #, fuzzy
 msgid "Catalog View"
-msgstr "Catalogus"
+msgstr "Catalogusweergave"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
 msgid "Grid View"
@@ -580,7 +579,7 @@ msgstr "Lijst weergave"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
 #, fuzzy
 msgid "Content Aligmnment"
-msgstr "Inhoudsaanpassing"
+msgstr "Inhoud Aligmnment"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
@@ -661,17 +660,17 @@ msgstr "Standaard"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
 #, fuzzy
 msgid "Custom String"
-msgstr "Aangepaste string"
+msgstr "Aangepaste tekenreeks"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
 #, fuzzy
 msgid "Sale % Value"
-msgstr "verkoopwaarde"
+msgstr "Verkoop % Waarde"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
 #, fuzzy
 msgid "Sale Bubble Style"
-msgstr "Verkoop Bubble Style"
+msgstr "Verkoop Bubble Stijl"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
 msgid "Circle"
@@ -680,7 +679,7 @@ msgstr "Cirkel"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
 #, fuzzy
 msgid "Circle Outline"
-msgstr "Cirkel overzicht"
+msgstr "Cirkeloverzicht"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
 msgid "Square"
@@ -701,13 +700,13 @@ msgid "Gallery Layout"
 msgstr "Galerij layout"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "Verticaal"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "Horizontaal"
@@ -715,7 +714,7 @@ msgstr "Horizontaal"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
 #, fuzzy
 msgid "Single Product Structure"
-msgstr "Enkele productstructuur"
+msgstr "Eén productstructuur"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
 msgid "Cart"
@@ -776,7 +775,7 @@ msgstr "Normaal: 400"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
 #, fuzzy
 msgid "Medium: 500"
-msgstr "Medium 500"
+msgstr "Gemiddeld: 500"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
@@ -845,12 +844,12 @@ msgstr "Prijstabellen"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
 #, fuzzy
 msgid "Portfolio and Post Layouts"
-msgstr "Portfolio- en berichtlay-outs"
+msgstr "Indelingen van portfolio's en posten"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
 #, fuzzy
 msgid "Private, Priority Support"
-msgstr "Privé, prioriteitsondersteuning"
+msgstr "Ondersteuning voor privé, prioriteit"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
 msgid "Get the PRO version!"
@@ -916,9 +915,10 @@ msgstr "Inhoud"
 #: core/includes/customizer/helper.php:173
 #, fuzzy
 msgid "Site Branding"
-msgstr "Merk"
+msgstr "Sitebranding"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "Hoofdnavigatie"
 
@@ -949,12 +949,12 @@ msgstr "Categorie"
 msgid "Ratings"
 msgstr "Beoordelingen"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
 msgstr "Lees verder &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "Lees verder &raquo;"
 
@@ -962,12 +962,12 @@ msgstr "Lees verder &raquo;"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
 #, fuzzy
 msgid "Entry Elements"
-msgstr "Invoerelementen"
+msgstr "Instapelementen"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
 #, fuzzy
 msgid "Entry Featured Image"
-msgstr "Vermelding uitgelichte afbeelding"
+msgstr "Afbeelding van aanbevolen vermelding invoeren"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
@@ -1046,7 +1046,7 @@ msgstr "Reacties"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
 #, fuzzy
 msgid "Meta Separator"
-msgstr "Scheidingsteken"
+msgstr "Meta-afscheider"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
@@ -1083,7 +1083,7 @@ msgstr "Lees meer tekst"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
 #, fuzzy
 msgid "Read More Type"
-msgstr "Lees meer"
+msgstr "Lees meer type"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
 msgid "Link"
@@ -1107,7 +1107,7 @@ msgstr "Blog pagina titel"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
 #, fuzzy
 msgid "Entry Columns"
-msgstr "Ingangskolommen"
+msgstr "Invoerkolommen"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
 msgid "Enable Masonry Layout"
@@ -1124,12 +1124,12 @@ msgstr "Omschrijving Kleur"
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
 #, fuzzy
 msgid "Breadcrumb Color"
-msgstr "Breadcrumb Kleur"
+msgstr "Broodkruimelkleur"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
 #, fuzzy
 msgid "Disable breadcrumb list?"
-msgstr "Kruimelpad uitschakelen"
+msgstr "Broodkruimellijst uitschakelen?"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
 msgid "Breadcrumb Position"
@@ -1138,12 +1138,12 @@ msgstr "Breadcrumb positie"
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
 #, fuzzy
 msgid "Before Heading"
-msgstr "Voor koptekst"
+msgstr "Vóór kop"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
 #, fuzzy
 msgid "After Heading"
-msgstr "Na koptekst"
+msgstr "Na kop"
 
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
@@ -1191,8 +1191,8 @@ msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
 msgstr ""
-"Krijg toegang tot nog krachtigere functies waarmee u in een mum van tijd een "
-"prachtige snelle en responsieve website kunt bouwen."
+"Krijg toegang tot nog krachtigere functies die je zullen helpen om in een "
+"mum van tijd een prachtige snelle en responsieve website te bouwen."
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
@@ -1221,7 +1221,7 @@ msgstr "Links Hover kleur"
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
 #, fuzzy
 msgid "Full Width Footer"
-msgstr "Voettekst over de volledige breedte"
+msgstr "Voettekst over volle breedte"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
 msgid "Footer Widgets"
@@ -1235,69 +1235,73 @@ msgstr "Aantal kolommen"
 msgid "Footer Bar"
 msgstr "Footer balk"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "Copyright tekst"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Pictogram Aangedreven door responsief verbergen"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "Sociale Media links"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "RSS Feed"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "E-mailadres"
 
@@ -1341,7 +1345,7 @@ msgstr "Volledige breedte header"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
 #, fuzzy
 msgid "Inline logo & Site Title"
-msgstr "Inline logo en sitetitel"
+msgstr "Inline logo & Site Titel"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
 msgid "Header Elements"
@@ -1358,7 +1362,7 @@ msgstr "Header uitlijning"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #, fuzzy
 msgid "Logo Padding (px)"
-msgstr "Padding (px)"
+msgstr "Opvulling van het logo (px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
 msgid "Transparent Header"
@@ -1371,7 +1375,7 @@ msgstr "Inschakelen op volledige website"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
 #, fuzzy
 msgid "Site Content Padding (px)"
-msgstr "Padding site-content"
+msgstr "Opvulling van site-inhoud (px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
 msgid "Disable on 404, Search & Archives?"
@@ -1405,12 +1409,12 @@ msgstr "Header-widgets"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
 #, fuzzy
 msgid "Enable Header Widgets"
-msgstr "Schakel koptekstwidgets in"
+msgstr "Koptekstwidgets inschakelen"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
 #, fuzzy
 msgid "Widgets Position"
-msgstr "Positie van widgets"
+msgstr "Positie widgets"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
 msgid "Above Header"
@@ -1419,7 +1423,7 @@ msgstr "Boven de koptekst"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
 #, fuzzy
 msgid "In Header"
-msgstr "in header"
+msgstr "Header"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
 msgid "Below Header"
@@ -1428,7 +1432,7 @@ msgstr "Onder de kop"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
 #, fuzzy
 msgid "Widgets Alignment"
-msgstr "Uitlijning van widgets"
+msgstr "Uitlijning widgets"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
 msgid "Spread"
@@ -1437,22 +1441,22 @@ msgstr "Spreiden"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
 #, fuzzy
 msgid "Space Around"
-msgstr "Ruimte rond"
+msgstr "Ruimte Rond"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #, fuzzy
 msgid "Active Menu Background Color"
-msgstr "Achtergrondkleur actief menu"
+msgstr "Achtergrondkleur van het actieve menu"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
 #, fuzzy
 msgid "Menu Item Link Color"
-msgstr "Menu-item Koppelingskleur"
+msgstr "Koppelingskleur menu-item"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
 #, fuzzy
 msgid "Menu Item Link Hover Color"
-msgstr "Menu Link hover kleur"
+msgstr "Afbeelding van het menu Item Koppeling Kleur"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
 msgid "Sub Menu Background Color"
@@ -1461,22 +1465,22 @@ msgstr "Submenu Achtergrondkleur"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
 #, fuzzy
 msgid "Sub Menu Item Link Color"
-msgstr "Koppelingskleur submenu"
+msgstr "Koppelingskleur submenu-item"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
 #, fuzzy
 msgid "Sub Menu Item Link Hover Color"
-msgstr "Aanwijzerkleur voor submenu's"
+msgstr "Afbeelding van de koppeling submenu-item-kleur"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
 #, fuzzy
 msgid "Menu Toggle Background Color"
-msgstr "Menu Toggle Achtergrondkleur"
+msgstr "Achtergrondkleur van menu in- of uitschakelen"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
 #, fuzzy
 msgid "Menu Toggle Color"
-msgstr "Wissel kleur"
+msgstr "Kleur in het menu in- of uitschakelen"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
 #, fuzzy
@@ -1486,7 +1490,7 @@ msgstr "Hoofdnavigatie over de volledige breedte"
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
 #, fuzzy
 msgid "Enable Mobile Menu"
-msgstr "Schakel Mobiel menu in"
+msgstr "Mobiel menu inschakelen"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
 msgid "Breakpoint"
@@ -1508,7 +1512,7 @@ msgstr "Zijbalk"
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
 #, fuzzy
 msgid "Sidebar Menu Alignment"
-msgstr "Uitlijning zijbalkmenu"
+msgstr "Uitlijning van het menu zijbalk"
 
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
 msgid "Embeds to header.php"
@@ -1546,7 +1550,7 @@ msgid "Hero Area"
 msgstr "Hero sectie"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 msgid "HAPPINESS"
 msgstr "GELUK"
 
@@ -1555,7 +1559,7 @@ msgid "Headline"
 msgstr "Kopregel"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 msgid "IS A WARM CUP"
 msgstr "GEEFT EEN WARM GEVOEL"
 
@@ -1564,7 +1568,7 @@ msgid "Subheadline"
 msgstr "Secundaire kopregel"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -1596,7 +1600,7 @@ msgstr "Actieknop (Tekst)"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
 #, fuzzy
 msgid "Call to Action Button Style"
-msgstr "Knop Oproep tot actie"
+msgstr "Stijl van actieknop bellen"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
 msgid "Featured Content"
@@ -1618,12 +1622,12 @@ msgstr "Over sectie inschakelen"
 #: partials/custom-home/featured-area.php:105
 #, fuzzy
 msgid "About Box Title"
-msgstr "Over Box Titel"
+msgstr "Over vaktitel"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
 #, fuzzy
 msgid "About Title"
-msgstr "Titel Over ons"
+msgstr "Over titel"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
 msgid "About Text"
@@ -1632,7 +1636,7 @@ msgstr "Over Tekst"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
 #, fuzzy
 msgid "Enter url as http://www.example.com"
-msgstr "Voer url in als http://www.voorbeeld.com"
+msgstr "Voer url in als http://www.example.com"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
 msgid "Feature Section"
@@ -1661,7 +1665,7 @@ msgid ""
 msgstr ""
 "De aanbevolen afbeelding, titel en inhoud van de berichten worden gebruikt "
 "om de functie weer te geven. Aanbevolen afbeeldingsgrootte voor de "
-"afgebeelde afbeeldingen: 130 x 130 px"
+"aanbevolen afbeeldingen: 130 x 130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
 #, fuzzy
@@ -1701,9 +1705,9 @@ msgid ""
 "the client testimonials. Recommended image size for the featured images: 178 "
 "x 178px"
 msgstr ""
-"De afgebeelde afbeelding, titel en inhoud van de berichten worden gebruikt "
-"om de getuigenissen van klanten weer te geven. Aanbevolen afbeeldingsgrootte "
-"voor de aanbevolen afbeeldingen: 178 x 178 px"
+"De aanbevolen afbeelding, titel en inhoud van de berichten zal worden "
+"gebruikt om de getuigenissen van de klant weer te geven. Aanbevolen "
+"afbeeldingsgrootte voor de aanbevolen afbeeldingen: 178 x 178 px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
 msgid "Team Section"
@@ -1720,12 +1724,12 @@ msgstr "team"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
 #, fuzzy
 msgid "Team Title"
-msgstr "Title"
+msgstr "Teamtitel"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
 #, fuzzy
 msgid "Select post for team member1"
-msgstr "Selecteer bericht voor teamlid 1"
+msgstr "Selecteer bericht voor teamlid1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
@@ -1735,24 +1739,24 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
 msgstr ""
-"De afgebeelde afbeelding, titel en inhoud van de berichten worden gebruikt "
+"De aanbevolen afbeelding, titel en inhoud van de berichten worden gebruikt "
 "om het teamlid weer te geven. Aanbevolen afbeeldingsgrootte voor de "
 "aanbevolen afbeeldingen: 178 x 178 px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
 #, fuzzy
 msgid "Select post for team member2"
-msgstr "Selecteer bericht voor teamlid 2"
+msgstr "Bericht selecteren voor teamlid2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
 #, fuzzy
 msgid "Select post for team member3"
-msgstr "Selecteer bericht voor teamlid 3"
+msgstr "Bericht selecteren voor teamlid3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
 #, fuzzy
 msgid "Click to disable home page widgets"
-msgstr "Klik om startpagina-widgets uit te schakelen"
+msgstr "Klik hier om widgets op de startpagina uit te schakelen"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
 msgid "Contact Section"
@@ -1769,31 +1773,31 @@ msgstr "Neem contact met ons op"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
 #, fuzzy
 msgid "Contact section Title"
-msgstr "Titel Contact Deel"
+msgstr "Titel van de sectie Contactpersoon"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
 #, fuzzy
 msgid "Contact subtitle"
-msgstr "Contact ondertitel"
+msgstr "Neem contact op met ondertitel"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
 #, fuzzy
 msgid "Contact section Subtitle"
-msgstr "Neem contact op sectie ondertitel"
+msgstr "Ondertitel van de contactsectie"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
 msgid "Address"
 msgstr "Adres"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "E-mail"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
 #, fuzzy
 msgid "Phone no"
-msgstr "Telefoonnummer"
+msgstr "Telefoon nee"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
 msgid "Contact form shortcode"
@@ -1802,7 +1806,7 @@ msgstr "Contactformulier-shortcode"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
 #, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
-msgstr "U kunt hier de shortcode van Contactformulier 7 plaatsen."
+msgstr "U contactformulier 7 shortcode hier."
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
 msgid "Page Elements"
@@ -1813,12 +1817,12 @@ msgstr "Pagina elementen"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
 #, fuzzy
 msgid "Post Elements"
-msgstr "Postelementen"
+msgstr "Elementen plaatsen"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
 #, fuzzy
 msgid "Page Featured Image"
-msgstr "InDeKijker afbeelding"
+msgstr "Afbeelding van uitgelichte pagina"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
 msgid "Page Title"
@@ -1849,7 +1853,7 @@ msgstr "Hoofdmenu"
 #: core/includes/customizer/settings/class-responsive-panel.php:59
 #, fuzzy
 msgid "Header Menu Options"
-msgstr "Hoofdmenu Opties"
+msgstr "Opties voor het menu met koptekst"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:68
 msgid "Sidebar Options"
@@ -1866,7 +1870,7 @@ msgstr "Footer Opties"
 #: core/includes/customizer/settings/class-responsive-panel.php:94
 #, fuzzy
 msgid "Blog / Archive"
-msgstr "Blog/archief"
+msgstr "Blog / Archief"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:95
 msgid "Blog Options"
@@ -1919,7 +1923,7 @@ msgstr "Beurtelings afwisselende achtergrondkleur gebruiken"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
 #, fuzzy
 msgid "General Text"
-msgstr "Lettertype algemene tekst"
+msgstr "Algemene tekst"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
 msgid "Body Text Color"
@@ -1928,37 +1932,37 @@ msgstr "Body Tekstkleur"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
 #, fuzzy
 msgid "Heading 1 (H1) Color"
-msgstr "Header 1 (H1) Tekstkleur"
+msgstr "Kleur van kop 1 (H1)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
 #, fuzzy
 msgid "Heading 2 (H2) Color"
-msgstr "Helder 2 (H2) Tekstkleur"
+msgstr "Kleur van kop 2 (H2)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
 #, fuzzy
 msgid "Heading 3 (H3) Color"
-msgstr "Header 3 (H3) Tekstkleur"
+msgstr "Kleur van kop 3 (H3)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
 #, fuzzy
 msgid "Heading 4 (H4) Color"
-msgstr "Header 4 (H4) tekstkleur"
+msgstr "Kleur van kop 4 (H4)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
 #, fuzzy
 msgid "Heading 5 (H5) Color"
-msgstr "Header 5 (H5) Tekstkleur"
+msgstr "Kleur van kop 5 (H5)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
 #, fuzzy
 msgid "Heading 6 (H6) Color"
-msgstr "Heading 6 (H6) Tekstkleur"
+msgstr "Kleur van kop 6 (H6)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
 #, fuzzy
 msgid "Meta Text Color"
-msgstr "Kleur metatekst"
+msgstr "Meta-tekstkleur"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
 msgid "Links"
@@ -2030,7 +2034,7 @@ msgstr "Volledige breedte"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
 #, fuzzy
 msgid "Container Width (px)"
-msgstr "Container breedte (px)"
+msgstr "Containerbreedte (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
 msgid "Boxed"
@@ -2043,12 +2047,12 @@ msgstr "Content Boxed"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
 #, fuzzy
 msgid "Box Padding (px)"
-msgstr "Padding (px)"
+msgstr "Opvulling van vak (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
 #, fuzzy
 msgid "Box Radius (px)"
-msgstr "Box Radius (px)"
+msgstr "Vakstraal (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
@@ -2081,37 +2085,37 @@ msgstr "Body"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
 #, fuzzy
 msgid "Heading 1 (H1)"
-msgstr "Heading 1 (h1) Grootte"
+msgstr "Post 1 (H1)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
 #, fuzzy
 msgid "Heading 2 (H2)"
-msgstr "Kop 2 (h2)"
+msgstr "Post 2 (H2)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
 #, fuzzy
 msgid "Heading 3 (H3)"
-msgstr "Kop 3 (h3)"
+msgstr "Post 3 (H3)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
 #, fuzzy
 msgid "Heading 4 (H4)"
-msgstr "Kop 4 (h4)"
+msgstr "Post 4 (H4)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
 #, fuzzy
 msgid "Heading 5 (H5)"
-msgstr "Kop 5 (h5)"
+msgstr "Post 5 (H5)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
 #, fuzzy
 msgid "Heading 6 (H6)"
-msgstr "Kop 6 (h6)"
+msgstr "Post 6 (H6)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
 #, fuzzy
@@ -2129,7 +2133,7 @@ msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
 msgstr ""
-"Kies de berichtcategorieën die niet op de blogpagina mogen worden weergegeven"
+"Kies de postcategorieën die niet op de blogpagina mogen worden weergegeven"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
 msgid "General Typography"
@@ -2182,7 +2186,7 @@ msgstr "Lettergrootte"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
 #, fuzzy
 msgid "You can add: px-em-%"
-msgstr "Je kunt toevoegen: px-em-%"
+msgstr "U toevoegen: px-em-%"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
 msgid "Line Height"
@@ -2196,24 +2200,50 @@ msgstr "Letterafstand (px)"
 msgid "Font Color"
 msgstr "Lettertype kleur"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "Hallo! Bedankt voor het gebruik van het Responsive thema."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"u ons een plezier doen en ons een 5-sterren rating geven? Uw feedback houdt "
+"ons gemotiveerd en helpt ons de Responsive community te laten groeien."
+
+#: core/includes/functions-admin.php:61
+msgid "Ok, you deserve it"
+msgstr "Ok, je verdient het"
+
+#: core/includes/functions-admin.php:62
+msgid "Nope, maybe later"
+msgstr "Nee, misschien later"
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "Ik heb het al gedaan"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "Home"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 msgid "Archive for %s"
 msgstr "Archief voor %s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "Zoekresultaten voor: %s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 msgid "Posts tagged %s"
 msgstr "Berichten gelabeld met %s"
 
@@ -2221,28 +2251,28 @@ msgstr "Berichten gelabeld met %s"
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "Bekijk alle berichten van %s"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "Fout 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "Pagina %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 #, fuzzy
 msgid "Yelp!"
 msgstr "Yelp"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr "foursquare"
 
@@ -2250,7 +2280,7 @@ msgstr "foursquare"
 #: image.php:59 index.php:56 partials/page/content.php:15
 #, fuzzy
 msgid "Read more &#8250;"
-msgstr "Lees meer"
+msgstr "Lees meer &#8250;"
 
 #: core/includes/functions-sidebar.php:28
 msgid "Main Sidebar"
@@ -2316,7 +2346,7 @@ msgstr "Gebied 11 - sidebar-top.php - Wordt rechts van de header weergegeven"
 #: core/includes/functions-sidebar.php:112
 #, fuzzy
 msgid "Footer Widgets 1"
-msgstr "Footer widgets 1"
+msgstr "Voettekstwidgets 1"
 
 #: core/includes/functions-sidebar.php:113
 #, fuzzy
@@ -2326,7 +2356,7 @@ msgstr "Gebied 12 - sidebar-footer.php"
 #: core/includes/functions-sidebar.php:123
 #, fuzzy
 msgid "Footer Widgets 2"
-msgstr "Footer widgets 2"
+msgstr "Voettekstwidgets 2"
 
 #: core/includes/functions-sidebar.php:124
 #, fuzzy
@@ -2336,7 +2366,7 @@ msgstr "Gebied 13 - sidebar-footer.php"
 #: core/includes/functions-sidebar.php:134
 #, fuzzy
 msgid "Footer Widgets 3"
-msgstr "Footer widgets 3"
+msgstr "Voettekstwidgets 3"
 
 #: core/includes/functions-sidebar.php:135
 #, fuzzy
@@ -2346,14 +2376,14 @@ msgstr "Gebied 14 - sidebar-footer.php"
 #: core/includes/functions-sidebar.php:145
 #, fuzzy
 msgid "Footer Widgets 4"
-msgstr "Footer widgets 4"
+msgstr "Voettekstwidgets 4"
 
 #: core/includes/functions-sidebar.php:146
 #, fuzzy
 msgid "Area 15 - sidebar-footer.php"
-msgstr "Gebied 15 - sidebar-footer.php"
+msgstr "Area 15 - sidebar-footer.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "Call to Action"
 
@@ -2362,13 +2392,14 @@ msgid "Header Menu"
 msgstr "Header Menu"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "Footer Menu"
 
 #: core/includes/functions.php:377
 #, fuzzy
 msgid "Team Section Options"
-msgstr "Opties voor teamsecties"
+msgstr "Opties voor teamsectie"
 
 #: core/includes/functions.php:391
 msgid ""
@@ -2425,12 +2456,12 @@ msgstr "Upgrade naar Pro"
 #: core/includes/post-custom-meta.php:137
 #, fuzzy
 msgid "Content/Sidebar"
-msgstr "Content/Zijbalk"
+msgstr "Inhoud/zijbalk"
 
 #: core/includes/post-custom-meta.php:138
 #, fuzzy
 msgid "Sidebar/Content"
-msgstr "Zijbalk/Content"
+msgstr "Zijbalk/inhoud"
 
 #. Template Name of the plugin/theme
 msgid "Full Width Page (no sidebar)"
@@ -2443,12 +2474,12 @@ msgstr "Blog 2 Kolom"
 #: core/includes/post-custom-meta.php:141
 #, fuzzy
 msgid "Blog 3 Column"
-msgstr "3 kolommen"
+msgstr "Blog 3 Kolom"
 
 #: core/includes/post-custom-meta.php:142
 #, fuzzy
 msgid "Blog 4 Column"
-msgstr "4 Kolom"
+msgstr "Blog 4 Kolom"
 
 #: footer.php:90
 msgid "Scroll to Top"
@@ -2465,14 +2496,14 @@ msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
-"Als je van <strong>Responsive Theme houdt</strong> , laat ons dan een%s-"
-"beoordeling achter. Het duurt even en helpt veel. Bij voorbaat bedankt!"
+"Als je <strong>responsive thema</strong> leuk vindt, laat ons dan een %s "
+"rating achter. Het duurt een minuut en helpt veel. Alvast bedankt!"
 
 #: functions.php:454
 msgid "Thanks :)"
 msgstr "Bedankt :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2485,7 +2516,7 @@ msgstr "Pagina’s:"
 #: header.php:35
 #, fuzzy
 msgid "&darr; Skip to Main Content"
-msgstr "↓ Doorgaan naar hoofdinhoud"
+msgstr "&darr; Overslaan naar hoofdinhoud"
 
 #: home.php:81
 msgid "Previous"
@@ -2523,17 +2554,17 @@ msgstr "Getagd met:"
 #: image.php:87 post-data.php:29
 #, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
-msgstr "<span class=\"post-edit\">Bewerk</span>"
+msgstr "<span class=\"post-edit\">Bewerken</span>"
 
 #: loop-nav.php:28
 #, fuzzy
 msgid "&#8249; Older posts"
-msgstr "Eerdere artikelen"
+msgstr "&#8249; Oudere berichten"
 
 #: loop-nav.php:29
 #, fuzzy
 msgid "Newer posts &#8250;"
-msgstr "Nieuwere berichten"
+msgstr "Nieuwere berichten &#8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
@@ -2577,7 +2608,7 @@ msgstr "0 Reacties"
 #: partials/footer/copy-right.php:17
 #, fuzzy
 msgid " &copy; "
-msgstr "©"
+msgstr "Nieuwsplatform "
 
 #: partials/footer/copy-right.php:21
 msgid "&copy; "
@@ -2586,9 +2617,9 @@ msgstr "Nieuwsplatform "
 #: partials/footer/copy-right.php:29
 #, fuzzy
 msgid " | Powered by Responsive Theme"
-msgstr "| Aangedreven door Responsive Theme"
+msgstr "| Aangedreven door responsief thema"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "Menu"
 
@@ -2604,12 +2635,12 @@ msgstr "Over"
 #: partials/single/layout.php:73
 #, fuzzy
 msgid "Previous Post is "
-msgstr "Vorig bericht"
+msgstr "Vorige bericht is"
 
 #: partials/single/layout.php:74
 #, fuzzy
 msgid "Next Post is"
-msgstr "Volgend bericht"
+msgstr "Volgende bericht is"
 
 #: searchform.php:22
 msgid "Search for:"
@@ -2618,7 +2649,7 @@ msgstr "Zoek naar:"
 #: searchform.php:23
 #, fuzzy
 msgid "Search here &hellip;"
-msgstr "zoeken &hellip;"
+msgstr "Zoek hier &hellip;"
 
 #: searchform.php:24
 msgid "Go"
@@ -2663,7 +2694,7 @@ msgstr "Camera:"
 #: sidebar-home.php:34
 #, fuzzy
 msgid "Fermentum"
-msgstr "Fermentum"
+msgstr "Fermentum Fermentum"
 
 #: sidebar-home.php:40
 msgid ""
@@ -2678,7 +2709,7 @@ msgstr ""
 #: sidebar-home.php:54
 #, fuzzy
 msgid "Elementum"
-msgstr "Elementum"
+msgstr "Elementum (Elementum)"
 
 #: sidebar-home.php:60
 msgid ""
@@ -2693,7 +2724,7 @@ msgstr ""
 #: sidebar-home.php:74
 #, fuzzy
 msgid "Interdum"
-msgstr "Interdum"
+msgstr "Interdum Interdum"
 
 #: sidebar-home.php:78
 msgid ""
@@ -2707,21 +2738,46 @@ msgstr ""
 
 #. Theme URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
 #, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
-"Responsive is een volledig aanpasbaar, snel en mobielvriendelijk WordPress-"
-"thema."
+"Responsive is een volledig aanpasbaar, zoekmachinegeoptimaliseerd & mobiel-"
+"vriendelijk WordPress thema. Compatibel met de Gutenberg-blokeditor, het is "
+"een perfecte keuze voor uw blog, zakelijke website of WooCommerce-winkel. "
+"Met bijna onbeperkte customizer opties, u elke functie van uw website "
+"aanpassen. Responsive wordt geleverd met minified scripts om de snelheid van "
+"de website te verbeteren. Het wordt ook geleverd met andere functies, "
+"waaronder - negen lay-outopties voor pagina's en blog, WooCommerce-"
+"ontwerpopties en compatibiliteit met de Elementor-paginabouwer. Het werkt "
+"geweldig op een mobiel, tablet, desktop en in alle browsers. Responsive is "
+"ook beschikbaar in 45 talen en is zoekmachinevriendelijk. Zie Reageren in "
+"actie: https://cyberchimps.com/responsive-ready-websites/. Meer informatie "
+"over de functies: https://cyberchimps.com/responsive-features/."
+
+#. Author of the plugin/theme
+msgid "CyberChimps"
+msgstr "CyberChimps"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
 #, fuzzy

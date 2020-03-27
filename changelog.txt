@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/27/20) = Improvement - Version 4.2.3
+[*] = Fix - Coupon code is not working on Checkout page
+[*] = Fix - Language translations - German
+[*] = Added - Added accessibility ready support.
+
 (03/24/20) = Improvement - Version 4.2.2
 [*] = Fix - Option to edit footer copyright text
 

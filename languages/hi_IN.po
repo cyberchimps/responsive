@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 20:53+0530\n"
+"PO-Revision-Date: 2020-03-27 15:41+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
@@ -36,37 +36,37 @@ msgstr "कनेक्ट नहीं है। नेटवर्क सत�
 #: admin/admin-functions.php:23
 #, fuzzy
 msgid "Requested page not found. [404]"
-msgstr "अनुरोधित पृष्ठ नहीं मिला। [404]"
+msgstr "अनुरोध किया पृष्ठ नहीं मिला। [404]"
 
 #: admin/admin-functions.php:24
 #, fuzzy
 msgid "Internal Server Error [500]"
-msgstr "अंदरूनी सर्वर गड़बड़ी."
+msgstr "आंतरिक सर्वर त्रुटि [500]"
 
 #: admin/admin-functions.php:25
 #, fuzzy
 msgid "Requested JSON parse failed"
-msgstr "अनुरोधित JSON पार्स विफल रहा"
+msgstr "अनुरोध JSON पार्स विफल"
 
 #: admin/admin-functions.php:26
 #, fuzzy
 msgid "Time out error"
-msgstr "टाइम आउट एरर"
+msgstr "समय से बाहर त्रुटि"
 
 #: admin/admin-functions.php:27
 #, fuzzy
 msgid "Ajax request aborted"
-msgstr "अजाक्स अनुरोध निरस्त कर दिया गया"
+msgstr "अजाक्स अनुरोध निरस्त"
 
 #: admin/admin-functions.php:28
 #, fuzzy
 msgid "Uncaught Error"
-msgstr "बिना त्रुटि के"
+msgstr "बिना पकड़ी गई त्रुटि"
 
 #: admin/class-responsive-plugin-install-helper.php:93
 #, fuzzy
 msgid "Install and activate &raquo;"
-msgstr "स्थापित करें और सक्रिय करें »"
+msgstr "स्थापित करें और सक्रिय करें और रको;"
 
 #: admin/class-responsive-plugin-install-helper.php:97
 #: admin/class-responsive-plugin-install-helper.php:117
@@ -78,7 +78,6 @@ msgid "Deactivate"
 msgstr "निष्क्रिय"
 
 #: admin/class-responsive-plugin-install-helper.php:117
-#, fuzzy
 msgid "Jetpack Portfolio"
 msgstr "जेटपैक पोर्टफोलियो"
 
@@ -98,14 +97,12 @@ msgid "Pro"
 msgstr "प्रो"
 
 #: admin/templates/free-vs-pro.php:23
-#, fuzzy
 msgid "Mobile Friendly"
-msgstr "मोबाइल के अनुकूल"
+msgstr "मोबाइल फ्रेंडली"
 
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
-#, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
-msgstr "स्लाइडर, पोर्टफोलियो, मूल्य निर्धारण टेबल, WooCommerce विगेट्स आदि"
+msgstr "स्लाइडर, पोर्टफोलियो, मूल्य निर्धारण तालिकाएं, वूकॉमर्स विजेट्स आदि"
 
 #: admin/templates/free-vs-pro.php:31
 #, fuzzy
@@ -115,17 +112,17 @@ msgstr "धधकती तेज गति"
 #: admin/templates/free-vs-pro.php:32
 #, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
-msgstr "गति के लिए अनुकूलित, 2 सेकंड के भीतर लोड"
+msgstr "गति के लिए अनुकूलित, 2 सेकंड से कम समय में लोड"
 
 #: admin/templates/free-vs-pro.php:39
 #, fuzzy
 msgid "Fully Customizable"
-msgstr "पूरी तरह से अनुकूलन"
+msgstr "पूरी तरह से अनुकूलन योग्य"
 
 #: admin/templates/free-vs-pro.php:40
 #, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
-msgstr "लेआउट, फोंट और रंगों के लिए कस्टमाइज़र विकल्पों का उपयोग करना"
+msgstr "लेआउट, फोंट और रंगों के लिए अनुकूलन विकल्पों का उपयोग करना"
 
 #: admin/templates/free-vs-pro.php:42
 #, fuzzy
@@ -135,32 +132,32 @@ msgstr "सीमित विकल्प"
 #: admin/templates/free-vs-pro.php:47
 #, fuzzy
 msgid "Ready-to-use Website Templates"
-msgstr "रेडी-टू-यूज़ वेबसाइट टेम्प्लेट"
+msgstr "रेडी-टू-यूज वेबसाइट टेम्पलेट्स"
 
 #: admin/templates/free-vs-pro.php:48
 #, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
-msgstr "रेडी-टू-यूज एलिमेंट पेज बिल्डर और गुटेनबर्ग वेबसाइट टेम्प्लेट"
+msgstr "रेडी-टू-यूज एलिमेंटर पेज बिल्डर और गुटेनबर्ग वेबसाइट टेम्पलेट्स"
 
 #: admin/templates/free-vs-pro.php:51
 #, fuzzy
 msgid "30+"
-msgstr "30"
+msgstr "30+"
 
 #: admin/templates/free-vs-pro.php:55
 #, fuzzy
 msgid "Exclusive Widgets"
-msgstr "अनन्य विजेट"
+msgstr "एक्सक्लूसिव विजेट्स"
 
 #: admin/templates/free-vs-pro.php:63
 #, fuzzy
 msgid "Exclusive Content, Deals & Offers"
-msgstr "विशेष सामग्री, सौदे और प्रस्ताव"
+msgstr "विशेष सामग्री, सौदों और प्रस्ताव"
 
 #: admin/templates/free-vs-pro.php:64
 #, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
-msgstr "अनन्य WordPress सामग्री, सौदों और ऑफ़र तक पहुंच प्राप्त करें"
+msgstr "विशेष वर्डप्रेस सामग्री, सौदों और ऑफ़र तक पहुंच प्राप्त करें"
 
 #: admin/templates/free-vs-pro.php:71
 #, fuzzy
@@ -170,7 +167,8 @@ msgstr "निजी प्राथमिकता ईमेल समर्थ
 #: admin/templates/free-vs-pro.php:72
 #, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
-msgstr "मदद की ज़रूरत है? प्राथमिकता ईमेल समर्थन प्राप्त करने के लिए बस समर्थन टिकट बढ़ाएं"
+msgstr ""
+"मदद की जरूरत है? बस प्राथमिकता ईमेल समर्थन प्राप्त करने के लिए एक समर्थन टिकट बढ़ाएं"
 
 #. Theme Name of the plugin/theme
 msgid "Responsive"
@@ -185,22 +183,22 @@ msgstr "यह पोस्ट पासवर्ड सुरक्षित �
 #: comments.php:42
 #, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
-msgstr "एक टिप्पणी \"%1$s\" पर"
+msgstr "\"%1$s\" पर एक टिप्पणी"
 
 #: comments.php:58 comments.php:71
 #, fuzzy
 msgid "&#8249; Older comments"
-msgstr "पूरानी टिप्पणियां"
+msgstr "और #8249; पुरानी टिप्पणियां"
 
 #: comments.php:60 comments.php:73
 #, fuzzy
 msgid "Newer comments &#8250;"
-msgstr "नई टिप्पणियां"
+msgstr "नई टिप्पणियां और #8250;"
 
 #: comments.php:85
 #, fuzzy
 msgid "Pings&#47;Trackbacks"
-msgstr "पिंग्स / ट्रैकबैक"
+msgstr "पिंग्स एंड #47;ट्रैकबैक"
 
 #. translators: 1 : Count, 2 : Pings 3 : Post title
 #: comments.php:102
@@ -219,7 +217,7 @@ msgstr "वेबसाइट"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:58
 #, fuzzy
 msgid "Button Color"
-msgstr "बटन का रंग"
+msgstr "बटन रंग"
 
 #: core/gutenberg/gutenberg-support.php:36
 #, fuzzy
@@ -229,7 +227,7 @@ msgstr "बटन होवर रंग"
 #: core/gutenberg/gutenberg-support.php:41
 #, fuzzy
 msgid "Button Hover Text Color"
-msgstr "बटन होवर टेक्स्ट का रंग"
+msgstr "बटन होवर टेक्स्ट कलर"
 
 #: core/gutenberg/gutenberg-support.php:46
 msgid "Button Text Color"
@@ -242,7 +240,7 @@ msgstr "पाठ रंग"
 #: core/gutenberg/gutenberg-support.php:60
 #, fuzzy
 msgid "Container Background Color"
-msgstr "कंटेनर पृष्ठभूमि रंग"
+msgstr "कंटेनर बैकग्राउंड कलर"
 
 #: core/includes/classes/class-responsive-admin-settings.php:91
 #, fuzzy
@@ -256,12 +254,12 @@ msgstr "शुरू होई जाओ"
 #: core/includes/classes/class-responsive-admin-settings.php:196
 #, fuzzy
 msgid "Free Vs Pro "
-msgstr "नि: शुल्क बनाम प्रो"
+msgstr "फ्री वीएस प्रो"
 
 #: core/includes/classes/class-responsive-admin-settings.php:231
 #, fuzzy
 msgid "Import a website template(FREE)"
-msgstr "वेबसाइट टेम्पलेट आयात करें (मुफ़्त)"
+msgstr "वेबसाइट टेम्पलेट (मुफ़्त) आयात करें"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
 #, fuzzy
@@ -269,13 +267,13 @@ msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
 msgstr ""
-"रेडी-टू-यूज़ वेबसाइट टेम्पलेट प्राप्त करने के लिए उत्तरदायी ऐड-ऑन स्थापित करें जिन्हें एक क्लिक "
-"से आयात किया जा सकता है।"
+"तैयार करने के लिए उपयोग वेबसाइट टेम्पलेट्स कि एक क्लिक के साथ आयात किया जा सकता है पाने "
+"के लिए उत्तरदायी ऐड-ऑन स्थापित करें ।"
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
 #, fuzzy
 msgid "Learn More &raquo;"
-msgstr "और अधिक जानें \""
+msgstr "अधिक जानें और raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:269
 msgid "Support"
@@ -284,12 +282,12 @@ msgstr "मदद"
 #: core/includes/classes/class-responsive-admin-settings.php:273
 #, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
-msgstr "कोई सवाल? हम से संपर्क में रहें। हम मदद करके खुश होंगे"
+msgstr "सवाल है? हमारे साथ संपर्क में जाओ। हम मदद करने के लिए खुश हो जाएगा"
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
 #, fuzzy
 msgid "Request Support &raquo;"
-msgstr "समर्थन का अनुरोध करें »"
+msgstr "समर्थन और raquo का अनुरोध;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
@@ -300,7 +298,7 @@ msgstr "साइट लेआउट बदलें"
 #: core/includes/classes/class-responsive-admin-settings.php:308
 #, fuzzy
 msgid "Customize fonts/typography"
-msgstr "फोंट / टाइपोग्राफी को अनुकूलित करें"
+msgstr "फोंट/टाइपोग्राफी को कस्टमाइज करें"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
 #, fuzzy
@@ -310,22 +308,22 @@ msgstr "लोगो और साइट आइकन अपलोड करे�
 #: core/includes/classes/class-responsive-admin-settings.php:318
 #, fuzzy
 msgid "Add/edit navigation menu"
-msgstr "नेविगेशन मेनू जोड़ें / संपादित करें"
+msgstr "नेविगेशन मेनू जोड़ें/संपादित करें"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
 #, fuzzy
 msgid "Customize header options"
-msgstr "हेडर विकल्प को अनुकूलित करें"
+msgstr "हेडर विकल्पों को अनुकूलित करें"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
 #, fuzzy
 msgid "Customize footer options"
-msgstr "पाद लेख विकल्प अनुकूलित करें"
+msgstr "पाद लेख विकल्पों को अनुकूलित करें"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
 #, fuzzy
 msgid "Update blog layout"
-msgstr "ब्लॉग लेआउट अपडेट करें"
+msgstr "अपडेट ब्लॉग लेआउट"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
 #, fuzzy
@@ -335,7 +333,7 @@ msgstr "पेज लेआउट अपडेट करें"
 #: core/includes/classes/class-responsive-admin-settings.php:346
 #, fuzzy
 msgid "Quick Start:"
-msgstr "जल्दी शुरू:"
+msgstr "त्वरित शुरुआत:"
 
 #: core/includes/classes/class-responsive-admin-settings.php:365
 msgid "Community"
@@ -347,13 +345,13 @@ msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
-"रिस्पॉन्सिव पावर-यूजर्स से मिलें। नमस्ते कहो, सवाल पूछो, प्रतिक्रिया दो और एक दूसरे की मदद "
-"करो"
+"उत्तरदायी पावर-उपयोगकर्ताओं से मिलें। नमस्ते कहो, सवाल पूछें, प्रतिक्रिया दें, और एक दूसरे की "
+"मदद करें"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
 #, fuzzy
 msgid "Join Facebook Group &raquo;"
-msgstr "फेसबुक ग्रुप »से जुड़ें"
+msgstr "फेसबुक ग्रुप और राको में शामिल हों;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:387
 msgid "Feedback"
@@ -366,36 +364,36 @@ msgid ""
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
-"नमस्ते! उत्तरदायी विषय का उपयोग करने के लिए धन्यवाद। क्या आप हमें एक एहसान कर सकते हैं "
-"और हमें 5-स्टार रेटिंग दे सकते हैं? आपकी प्रतिक्रिया हमें प्रेरित करती है और हमें उत्तरदायी "
-"समुदाय को विकसित करने में मदद करती है।"
+"नमस्ते! उत्तरदायी विषय का उपयोग करने के लिए धन्यवाद। क्या आप कृपया हमें एक एहसान कर "
+"सकते हैं और हमें 5-स्टार रेटिंग दे सकते हैं? आपकी प्रतिक्रिया हमें प्रेरित रखती है और हमें "
+"उत्तरदायी समुदाय को विकसित करने में मदद करती है।"
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
 #, fuzzy
 msgid "Submit Review &raquo;"
-msgstr "समीक्षा जमा करें \""
+msgstr "समीक्षा और raquo सबमिट करें;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
 #, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
-msgstr "धधकते तेज, मोबाइल के अनुकूल, पूरी तरह से अनुकूलन वर्डप्रेस विषय।"
+msgstr "धधकते तेजी से, मोबाइल के अनुकूल, पूरी तरह से अनुकूलन वर्डप्रेस विषय।"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "बलकृत बिक्री!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 #, fuzzy
 msgid "WooCommerce Sidebar"
-msgstr "WooCommerce साइडबार"
+msgstr "वूकॉमर्स साइडबार"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 #, fuzzy
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
-"इस साइडबार का उपयोग उत्पाद संग्रह, कार्ट, चेकआउट और मेरे खाता पृष्ठों पर किया जाएगा।"
+"इस साइडबार का उपयोग उत्पाद संग्रह, कार्ट, चेकआउट और माई अकाउंट पेजों पर किया जाएगा।"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
@@ -410,7 +408,7 @@ msgstr "रंग"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
 #, fuzzy
 msgid "Cart Buttons"
-msgstr "बटन"
+msgstr "कार्ट बटन"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
@@ -423,7 +421,7 @@ msgstr "बटन"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:62
 #, fuzzy
 msgid "Button Text"
-msgstr "बटन"
+msgstr "बटन पाठ रंग"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:78
@@ -437,7 +435,7 @@ msgstr "बटन होवर"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
 #, fuzzy
 msgid "Button Hover Text"
-msgstr "बटन होवर पाठ"
+msgstr "बटन होवर टेक्स्ट"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
 #, fuzzy
@@ -465,7 +463,7 @@ msgstr "मुख्य सामग्री चौड़ाई (%)"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
 #, fuzzy
 msgid "Enable Cross-sells"
-msgstr "क्रॉस-सेल सक्षम करें"
+msgstr "क्रॉस-सेल को सक्षम करें"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
 #, fuzzy
@@ -480,7 +478,7 @@ msgstr "सभी उपकरणों पर प्रदर्शन"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
 #, fuzzy
 msgid "Disabled On All Devices"
-msgstr "सभी उपकरणों पर अक्षम"
+msgstr "सभी उपकरणों पर विकलांग"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
 #, fuzzy
@@ -490,7 +488,7 @@ msgstr "उत्पाद सूची विकल्प"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
 #, fuzzy
 msgid "Shop Options"
-msgstr "विकल्प"
+msgstr "दुकान विकल्प"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
 #, fuzzy
@@ -506,12 +504,12 @@ msgstr "एकल उत्पाद विकल्प"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
 #, fuzzy
 msgid "Cart Options"
-msgstr "विकल्प"
+msgstr "कार्ट विकल्प"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
 #, fuzzy
 msgid "Rating Color"
-msgstr "रेटिंग का रंग"
+msgstr "रेटिंग रंग"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
 #, fuzzy
@@ -527,7 +525,7 @@ msgstr "कार्ट बटन में जोड़ें"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -562,7 +560,7 @@ msgstr "राइट साइडबार"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:57
 #, fuzzy
 msgid "Left Sidebar"
-msgstr "साइडबार"
+msgstr "लेफ्ट साइडबार"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:58
@@ -571,22 +569,22 @@ msgstr "साइडबार"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
 #, fuzzy
 msgid "No Sidebar"
-msgstr "कोई साइडबार नहीं"
+msgstr "साइडबार"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
 #, fuzzy
 msgid "Shop Product"
-msgstr "उत्पाद"
+msgstr "शॉप प्रोडक्ट"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
 #, fuzzy
 msgid "Catalog View"
-msgstr "कैटलॉग"
+msgstr "कैटलॉग व्यू"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
 #, fuzzy
 msgid "Grid View"
-msgstr "ग्रीड दृश्य"
+msgstr "ग्रिड व्यू"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:70
 msgid "List View"
@@ -595,7 +593,7 @@ msgstr "सूची दृश्य"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
 #, fuzzy
 msgid "Content Aligmnment"
-msgstr "सामग्री"
+msgstr "सामग्री एलिग्निमेंट"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
@@ -650,12 +648,12 @@ msgstr "सही"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
 #, fuzzy
 msgid "Shop Elements"
-msgstr "तत्व"
+msgstr "दुकान तत्व"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
 #, fuzzy
 msgid "Sale Notification"
-msgstr "अधिसूचना"
+msgstr "बिक्री अधिसूचना"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
 msgid "None"
@@ -682,7 +680,7 @@ msgstr "कस्टम स्ट्रिंग"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
 #, fuzzy
 msgid "Sale % Value"
-msgstr "बिक्री% मान"
+msgstr "बिक्री % मूल्य"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
 #, fuzzy
@@ -696,7 +694,7 @@ msgstr "वृत्त"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
 #, fuzzy
 msgid "Circle Outline"
-msgstr "सर्कल की रूपरेखा"
+msgstr "सर्किल आउटलाइन"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
 msgid "Square"
@@ -705,7 +703,7 @@ msgstr "वर्ग"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
 #, fuzzy
 msgid "Square Outline"
-msgstr "चौकोर रूपरेखा"
+msgstr "स्क्वायर आउटलाइन"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
 #, fuzzy
@@ -718,13 +716,13 @@ msgid "Gallery Layout"
 msgstr "गैलरी लेआउट"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "खड़ा"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "आड़ा"
@@ -737,16 +735,17 @@ msgstr "एकल उत्पाद संरचना"
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
 #, fuzzy
 msgid "Cart"
-msgstr "कार्ट"
+msgstr "गाड़ी"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+#, fuzzy
 msgid " / "
 msgstr "/"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
 #, fuzzy
 msgid "Link values together"
-msgstr "मूल्यों को एक साथ जोड़ना"
+msgstr "मूल्यों को एक साथ लिंक करें"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
@@ -760,14 +759,14 @@ msgstr "ऊपर"
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:201
 #, fuzzy
 msgid "Bottom"
-msgstr "तल"
+msgstr "नीचे"
 
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:122
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:127
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
 #, fuzzy
 msgid "px - em - rem"
-msgstr "px - em - रेम"
+msgstr "पीएक्स - उन्हें - रेम"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
 #, fuzzy
@@ -778,13 +777,13 @@ msgstr "इनहेरिट"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
 #, fuzzy
 msgid "Thin: 100"
-msgstr "पतला: 100"
+msgstr "पतली: 100"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
 #, fuzzy
 msgid "Light: 200"
-msgstr "प्रकाश: 200"
+msgstr "लाइट: 200"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
@@ -808,7 +807,7 @@ msgstr "मध्यम: 500"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
 #, fuzzy
 msgid "Semibold: 600"
-msgstr "सेमिबॉल्ड: 600"
+msgstr "सेमीबोल्ड: 600"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
@@ -831,17 +830,17 @@ msgstr "काला: 900"
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
 #, fuzzy
 msgid "Arial, Helvetica, sans-serif"
-msgstr "एरियल, हेल्वेटिका, सैंस-सेरिफ़"
+msgstr "एरियल, हेलवेटिका, बिना-सेरिफ"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:219
 #, fuzzy
 msgid "Custom Fonts"
-msgstr "कस्टम फ़ॉन्ट का उपयोग करें"
+msgstr "कस्टम फोंट"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:236
 #, fuzzy
 msgid "Standard Fonts"
-msgstr "मानक फ़ॉन्ट्स"
+msgstr "स्टैंडर्ड फॉन्ट"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:250
 msgid "Google Fonts"
@@ -856,7 +855,7 @@ msgstr "प्रो"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
 #, fuzzy
 msgid "View PRO Features"
-msgstr "प्रो सुविधाएँ देखें"
+msgstr "देखें प्रो फीचर्स"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
 #, fuzzy
@@ -871,12 +870,12 @@ msgstr "फॉर्म बिल्डर"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
 #, fuzzy
 msgid "Interactive Sliders and Carousels"
-msgstr "इंटरएक्टिव स्लाइडर और हिंडोला"
+msgstr "इंटरएक्टिव स्लाइडर्स और हिंडोला"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
 #, fuzzy
 msgid "Pricing Tables"
-msgstr "मूल्य निर्धारण तालिकाएँ"
+msgstr "मूल्य निर्धारण तालिकाएं"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
 #, fuzzy
@@ -891,17 +890,17 @@ msgstr "निजी, प्राथमिकता समर्थन"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
 #, fuzzy
 msgid "Get the PRO version!"
-msgstr "प्रो संस्करण जाओ!"
+msgstr "प्रो संस्करण प्राप्त करें!"
 
 #: core/includes/customizer/customizer.php:29
 #, fuzzy
 msgid "CSS Styles"
-msgstr "सीएसएस शैलियाँ"
+msgstr "सीएसएस स्टाइल्स"
 
 #: core/includes/customizer/customizer.php:43
 #, fuzzy
 msgid "Custom CSS Styles"
-msgstr "कस्टम सीएसएस शैलियाँ"
+msgstr "कस्टम सीएसएस शैलियों"
 
 #: core/includes/customizer/customizer.php:64
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
@@ -913,13 +912,13 @@ msgstr "अनुपात"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
 #, fuzzy
 msgid "Flat"
-msgstr "सपाट"
+msgstr "समतल"
 
 #: core/includes/customizer/customizer.php:98
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
 #, fuzzy
 msgid "Choose Post"
-msgstr "चुनें"
+msgstr "पोस्ट चुनें"
 
 #: core/includes/customizer/helper.php:35
 #: core/includes/customizer/helper.php:118
@@ -959,10 +958,11 @@ msgstr "सामग्री"
 msgid "Site Branding"
 msgstr "साइट ब्रांडिंग"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 #, fuzzy
 msgid "Main Navigation"
-msgstr "नेविगेशन"
+msgstr "मुख्य नेविगेशन"
 
 #: core/includes/customizer/helper.php:248
 msgid "Rating"
@@ -992,16 +992,16 @@ msgstr "वर्ग"
 msgid "Ratings"
 msgstr "रेटिंग"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 #, fuzzy
 msgid "Read more &raquo;"
-msgstr "अधिक पढ़ें \""
+msgstr "आगे पढ़ें और रक्का;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 #, fuzzy
 msgid "Read More &raquo;"
-msgstr "अधिक पढ़ें \""
+msgstr "और पढ़ें और raquo;"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
@@ -1012,7 +1012,7 @@ msgstr "प्रवेश तत्व"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
 #, fuzzy
 msgid "Entry Featured Image"
-msgstr "एंट्री फीचर्ड इमेज"
+msgstr "प्रवेश विशेष रुप से प्रदर्शित छवि"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
@@ -1027,7 +1027,7 @@ msgstr "शैली"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:90
 #, fuzzy
 msgid "Stretched"
-msgstr "तनी"
+msgstr "फैला"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:95
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:110
@@ -1053,7 +1053,7 @@ msgstr "एलाइनमेंट"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:198
 #, fuzzy
 msgid "center"
-msgstr "मध्य"
+msgstr "केंद्र"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:106
 #, fuzzy
@@ -1063,13 +1063,13 @@ msgstr "प्रवेश शीर्षक"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
 #, fuzzy
 msgid "Entry Meta"
-msgstr "प्रविष्टि"
+msgstr "प्रवेश मेटा"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
 #, fuzzy
 msgid "Meta Elements"
-msgstr "तत्व"
+msgstr "मेटा एलिमेंट्स"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
@@ -1101,7 +1101,7 @@ msgstr "मेटा सेपरेटर"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
 #, fuzzy
 msgid "Meta Alignment"
-msgstr "मेटा संरेखण"
+msgstr "मेटा अलाइनमेंट"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
 #, fuzzy
@@ -1111,7 +1111,7 @@ msgstr "प्रवेश सामग्री"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
 #, fuzzy
 msgid "Content Type"
-msgstr "सामग्री"
+msgstr "सामग्री का प्रकार"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:197
 msgid "Excerpt"
@@ -1127,7 +1127,7 @@ msgstr "सामग्री संरेखण"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:211
 #, fuzzy
 msgid "Excerpt Length"
-msgstr "उद्धरण की लंबाई"
+msgstr "अंश लंबाई"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:215
 #, fuzzy
@@ -1148,27 +1148,27 @@ msgstr "लिंक"
 #: core/includes/customizer/settings/class-responsive-panel.php:86
 #, fuzzy
 msgid "Content Header"
-msgstr "सामग्री हैडर"
+msgstr "कंटेंट हेडर"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
 #, fuzzy
 msgid "Enable Blog Page Title"
-msgstr "ब्लॉग पेज शीर्षक सक्षम करें"
+msgstr "ब्लॉग पेज शीर्षक को सक्षम करें"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
 #, fuzzy
 msgid "Blog Page Title"
-msgstr "ब्लॉग पेज का शीर्षक"
+msgstr "ब्लॉग पेज शीर्षक"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
 #, fuzzy
 msgid "Entry Columns"
-msgstr "प्रवेश कॉलम"
+msgstr "प्रवेश स्तंभ"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
 #, fuzzy
 msgid "Enable Masonry Layout"
-msgstr "चिनाई लेआउट सक्षम करें"
+msgstr "चिनाई लेआउट सक्षम"
 
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
 #, fuzzy
@@ -1178,22 +1178,22 @@ msgstr "शीर्षक रंग"
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:50
 #, fuzzy
 msgid "Description Color"
-msgstr "वर्णन रंग"
+msgstr "विवरण रंग"
 
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
 #, fuzzy
 msgid "Breadcrumb Color"
-msgstr "ब्रेडक्रंब रंग"
+msgstr "ब्रेडक्रम्ब रंग"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
 #, fuzzy
 msgid "Disable breadcrumb list?"
-msgstr "ब्रेडक्रंब सूची अक्षम करें?"
+msgstr "ब्रेडक्रम्ब सूची को अक्षम करें?"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
 #, fuzzy
 msgid "Breadcrumb Position"
-msgstr "ब्रेडक्रंब स्थिति"
+msgstr "ब्रेडक्रम्ब स्थिति"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
 #, fuzzy
@@ -1216,7 +1216,7 @@ msgstr "शीर्षक के बाद"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:252
 #, fuzzy
 msgid "Typography"
-msgstr "टाइपोग्राफी"
+msgstr "Typography"
 
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:53
 msgid "Description"
@@ -1235,12 +1235,12 @@ msgstr "प्रलेखन"
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
 #, fuzzy
 msgid "To have access to a shop section please install and configure %1$s."
-msgstr "दुकान अनुभाग तक पहुँच स्थापित करने के लिए कृपया%1$s को स्थापित और कॉन्फ़िगर करें।"
+msgstr "दुकान अनुभाग तक पहुंच बनाने के लिए कृपया %1$s इंस्टॉल करें और कॉन्फ़िगर करें।"
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
 #, fuzzy
 msgid "WooCommerce plugin"
-msgstr "WooCommerce प्लगइन"
+msgstr "वूकॉमर्स प्लगइन"
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
 #, fuzzy
@@ -1254,8 +1254,8 @@ msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
 msgstr ""
-"और भी अधिक शक्तिशाली सुविधाओं तक पहुँच प्राप्त करें जो आपको कुछ ही समय में एक सुंदर तेज और "
-"उत्तरदायी वेबसाइट बनाने में मदद करेंगे।"
+"और भी शक्तिशाली सुविधाओं तक पहुंच प्राप्त करें जो आपको कुछ ही समय में एक सुंदर तेज और "
+"उत्तरदायी वेबसाइट बनाने में मदद करेगी।"
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
@@ -1276,7 +1276,7 @@ msgstr "पाठ रंग"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:80
 #, fuzzy
 msgid "Links Color"
-msgstr "कड़ियाँ रंग"
+msgstr "लिंक रंग"
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:58
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
@@ -1287,12 +1287,12 @@ msgstr "लिंक होवर रंग"
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
 #, fuzzy
 msgid "Full Width Footer"
-msgstr "पूर्ण चौड़ाई पाद"
+msgstr "पूर्ण चौड़ाई पाद लेख"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
 #, fuzzy
 msgid "Footer Widgets"
-msgstr "पाद विजेट"
+msgstr "पाद लेख विजेट्स"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:57
 #, fuzzy
@@ -1302,76 +1302,81 @@ msgstr "स्तंभों की संख्या"
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:66
 #, fuzzy
 msgid "Footer Bar"
-msgstr "फुटर बार"
+msgstr "पाद लेख बार"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+#, fuzzy
+msgid "Copyright text"
+msgstr "कॉपीराइट टेक्स्ट"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "उत्तरदायी विषय द्वारा संचालित छुपाएं"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 #, fuzzy
 msgid "Social Links"
 msgstr "सामाजिक लिंक"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "लिंक्डइन"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "यूट्यूब"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 #, fuzzy
 msgid "RSS Feed"
-msgstr "आरएसएस फ़ीड"
+msgstr "आरएसएस का फीड"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "इंस्टाग्राम"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "पिनट्रेस्ट"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 #, fuzzy
 msgid "StumbleUpon"
-msgstr "पर ठोकर"
+msgstr "Stumbleupon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 #, fuzzy
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 #, fuzzy
 msgid "Foursquare"
-msgstr "सचाई से"
+msgstr "सचाई"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "ईमेल पता"
 
@@ -1384,7 +1389,7 @@ msgstr "स्क्रिप्ट"
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
 #, fuzzy
 msgid "Embeds to footer.php"
-msgstr "Footer.php पर एम्बेड करता है"
+msgstr "footer.php करने के लिए एम्बेड"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
@@ -1397,12 +1402,12 @@ msgstr "किनारा रंग"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
 #, fuzzy
 msgid "Site Title Color"
-msgstr "साइट का शीर्षक रंग"
+msgstr "साइट शीर्षक रंग"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
 #, fuzzy
 msgid "Site Title Hover Color"
-msgstr "साइट का शीर्षक हॉवर कलर"
+msgstr "साइट शीर्षक होवर रंग"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
 #, fuzzy
@@ -1417,7 +1422,7 @@ msgstr "हेडर विजेट"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
 #, fuzzy
 msgid "Full Width Header"
-msgstr "पूर्ण चौड़ाई हैडर"
+msgstr "पूर्ण चौड़ाई हेडर"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
 #, fuzzy
@@ -1427,57 +1432,57 @@ msgstr "इनलाइन लोगो और साइट शीर्षक"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
 #, fuzzy
 msgid "Header Elements"
-msgstr "हैडर तत्व"
+msgstr "हेडर एलिमेंट्स"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:81
 #, fuzzy
 msgid "Header Layout"
-msgstr "हैडर लेआउट"
+msgstr "हेडर लेआउट"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
 #, fuzzy
 msgid "Header Alignment"
-msgstr "हैडर संरेखण"
+msgstr "हेडर एलाइनमेंट"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #, fuzzy
 msgid "Logo Padding (px)"
-msgstr "लोगो पैडिंग (px)"
+msgstr "लोगो पैडिंग (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
 #, fuzzy
 msgid "Transparent Header"
-msgstr "पारदर्शी हैडर"
+msgstr "पारदर्शी हेडर"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
 #, fuzzy
 msgid "Enable on Complete Website"
-msgstr "पूर्ण वेबसाइट पर सक्षम करें"
+msgstr "पूरी वेबसाइट पर सक्षम करें"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
 #, fuzzy
 msgid "Site Content Padding (px)"
-msgstr "साइट सामग्री पैडिंग (px)"
+msgstr "साइट कंटेंट पैडिंग (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
 #, fuzzy
 msgid "Disable on 404, Search & Archives?"
-msgstr "404, खोज और अभिलेखागार पर अक्षम करें?"
+msgstr "४०४, खोज और अभिलेखागार पर अक्षम?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
 #, fuzzy
 msgid "Disable on Blog page?"
-msgstr "ब्लॉग पेज पर अक्षम करें?"
+msgstr "ब्लॉग पेज पर अक्षम?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
 #, fuzzy
 msgid "Disable on Latest Posts Page?"
-msgstr "नवीनतम पोस्ट पृष्ठ पर अक्षम करें?"
+msgstr "नवीनतम पोस्ट पेज पर अक्षम?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
 #, fuzzy
 msgid "Disable on Pages?"
-msgstr "पृष्ठों पर अक्षम करें?"
+msgstr "पेजों पर अक्षम?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
 #, fuzzy
@@ -1487,58 +1492,58 @@ msgstr "पदों पर अक्षम?"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
 #, fuzzy
 msgid "Disable on WooCommerce Product Pages?"
-msgstr "WooCommerce उत्पाद पृष्ठों पर अक्षम करें?"
+msgstr "वूकॉमर्स उत्पाद पृष्ठों पर अक्षम करें?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
 #: core/includes/functions-sidebar.php:100
 #, fuzzy
 msgid "Header Widgets"
-msgstr "हेडर विजेट"
+msgstr "हेडर विजेट्स"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
 #, fuzzy
 msgid "Enable Header Widgets"
-msgstr "हैडर विजेट सक्षम करें"
+msgstr "हेडर विजेट्स को सक्षम करें"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
 #, fuzzy
 msgid "Widgets Position"
-msgstr "विजेट स्थिति"
+msgstr "विजेट्स स्थिति"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
 #, fuzzy
 msgid "Above Header"
-msgstr "हैडर से ऊपर"
+msgstr "हेडर के ऊपर"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
 #, fuzzy
 msgid "In Header"
-msgstr "हेडर में"
+msgstr "हेडर"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
 #, fuzzy
 msgid "Below Header"
-msgstr "नीचे हैडर"
+msgstr "हेडर के नीचे"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
 #, fuzzy
 msgid "Widgets Alignment"
-msgstr "विजेट संरेखण"
+msgstr "विजेट्स अलाइनमेंट"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
 #, fuzzy
 msgid "Spread"
-msgstr "Bichana"
+msgstr "फैलना"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
 #, fuzzy
 msgid "Space Around"
-msgstr "चारों ओर अंतरिक्ष"
+msgstr "अंतरिक्ष के आसपास"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #, fuzzy
 msgid "Active Menu Background Color"
-msgstr "सक्रिय मेनू पृष्ठभूमि रंग"
+msgstr "सक्रिय मेनू बैकग्राउंड कलर"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
 #, fuzzy
@@ -1548,27 +1553,27 @@ msgstr "मेनू आइटम लिंक रंग"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
 #, fuzzy
 msgid "Menu Item Link Hover Color"
-msgstr "मेनू आइटम लिंक हॉवर रंग"
+msgstr "मेनू आइटम लिंक होवर रंग"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
 #, fuzzy
 msgid "Sub Menu Background Color"
-msgstr "मेनू की पृष्ठभूमि का रंग"
+msgstr "सब मेनू बैकग्राउंड कलर"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
 #, fuzzy
 msgid "Sub Menu Item Link Color"
-msgstr "उप मेनू आइटम लिंक रंग"
+msgstr "सब मेनू आइटम लिंक रंग"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
 #, fuzzy
 msgid "Sub Menu Item Link Hover Color"
-msgstr "उप मेनू आइटम लिंक हॉवर रंग"
+msgstr "सब मेनू आइटम लिंक होवर रंग"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
 #, fuzzy
 msgid "Menu Toggle Background Color"
-msgstr "मेनू टॉगल पृष्ठभूमि रंग"
+msgstr "मेनू टॉगल बैकग्राउंड कलर"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
 #, fuzzy
@@ -1583,22 +1588,22 @@ msgstr "पूर्ण चौड़ाई मुख्य नेविगेश
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
 #, fuzzy
 msgid "Enable Mobile Menu"
-msgstr "मोबाइल मेनू सक्षम करें"
+msgstr "मोबाइल मेनू को सक्षम करें"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
 #, fuzzy
 msgid "Breakpoint"
-msgstr "ब्रेकप्वाइंट"
+msgstr "Breakpoint"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:65
 #, fuzzy
 msgid "Dropdown"
-msgstr "ड्रॉप डाउन"
+msgstr "ड्रॉपडाउन"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
 #, fuzzy
 msgid "FullScreen"
-msgstr "पूर्ण स्क्रीन"
+msgstr "Fullscreen"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-panel.php:67
@@ -1608,30 +1613,30 @@ msgstr "साइडबार"
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
 #, fuzzy
 msgid "Sidebar Menu Alignment"
-msgstr "साइडबार मेनू संरेखण"
+msgstr "साइडबार मेनू अलाइनमेंट"
 
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
 #, fuzzy
 msgid "Embeds to header.php"
-msgstr "शीर्षकों के लिए एम्बेड करता है"
+msgstr "हेडर.पीएचपी के लिए एम्बेड"
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
 #, fuzzy
 msgid "Site Title"
-msgstr "साइट शीर्षक छुपाएं"
+msgstr "साइट शीर्षक"
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
 #, fuzzy
 msgid "Site Tagline"
-msgstr "साइट टैगलाइन छुपाएं"
+msgstr "साइट टैगलाइन"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:50
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
 #, fuzzy
 msgid "Choose Category"
-msgstr "वर्ग चुने"
+msgstr "श्रेणी चुनें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
 #, fuzzy
@@ -1641,7 +1646,7 @@ msgstr "कस्टम होम पेज"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 #, fuzzy
 msgid "Enable Custom Front Page"
-msgstr "कस्टम फ्रंट पेज सक्षम करें"
+msgstr "कस्टम फ्रंट पेज को सक्षम करें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
 #, fuzzy
@@ -1654,10 +1659,10 @@ msgid "Hero Area"
 msgstr "हीरो एरिया"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 #, fuzzy
 msgid "HAPPINESS"
-msgstr "प्रसन्नता"
+msgstr "खुशी"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:108
 #, fuzzy
@@ -1665,74 +1670,74 @@ msgid "Headline"
 msgstr "शीर्षक"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 #, fuzzy
 msgid "IS A WARM CUP"
-msgstr "एक कृषि कप है"
+msgstr "एक गर्म कप है"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
 #, fuzzy
 msgid "Subheadline"
-msgstr "उप शीर्षक"
+msgstr "उपशीर्षक"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 #, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
 "can be an image or even YouTube video if you like."
 msgstr ""
-"आपका शीर्षक, उपशीर्षक और यह बहुत सामग्री थीम विकल्प से संपादन योग्य है। कॉल टू एक्शन "
-"बटन और उसके गंतव्य लिंक को भी। यदि आप चाहें तो आपके दाईं ओर छवि एक छवि या यहां तक कि "
-"YouTube वीडियो भी हो सकती है।"
+"आपका शीर्षक, उपशीर्षक और यह बहुत ही सामग्री थीम विकल्प से संपादित है। एक्शन बटन और "
+"इसके गंतव्य लिंक पर भी कॉल करें। अपने दाईं ओर छवि एक छवि या यहां तक कि यूट्यूब वीडियो हो "
+"सकता है यदि आप चाहें।"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
 #, fuzzy
 msgid "Content Area"
-msgstr "सामग्री"
+msgstr "सामग्री क्षेत्र"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
 #, fuzzy
 msgid "Disable Call to Action Button?"
-msgstr "कॉल बटन को अक्षम करें?"
+msgstr "कॉल टू एक्शन बटन को अक्षम करें?"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
 #, fuzzy
 msgid "Call to Action (URL)"
-msgstr "कॉल टू एक्शन"
+msgstr "कॉल टू एक्शन (यूआरएल)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
 #, fuzzy
 msgid "Call to Action (Text)"
-msgstr "कॉल टू एक्शन"
+msgstr "कॉल टू एक्शन (टेक्स्ट)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
 #, fuzzy
 msgid "Call to Action Button Style"
-msgstr "एक्शन बटन स्टाइल पर कॉल करें"
+msgstr "कॉल टू एक्शन बटन स्टाइल"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
 #, fuzzy
 msgid "Featured Content"
-msgstr "ख़ास पेशकश"
+msgstr "विशेष रुप से प्रदर्शित सामग्री"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
 #, fuzzy
 msgid "Paste your shortcode, video or image source"
-msgstr "अपना शोर्ट, वीडियो या छवि स्रोत चिपकाएँ"
+msgstr "अपना शॉर्टकोड, वीडियो या इमेज सोर्स चिपकाएं"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
 #, fuzzy
 msgid "About Section"
-msgstr "अनुभाग के बारे में"
+msgstr "धारा के बारे में"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
 #, fuzzy
 msgid "Enable About Section"
-msgstr "अनुभाग के बारे में सक्षम करें"
+msgstr "धारा के बारे में सक्षम करें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
 #: partials/custom-home/featured-area.php:105
@@ -1743,17 +1748,17 @@ msgstr "बॉक्स शीर्षक के बारे में"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
 #, fuzzy
 msgid "About Title"
-msgstr "पदवी के बारे में"
+msgstr "शीर्षक के बारे में"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
 #, fuzzy
 msgid "About Text"
-msgstr "मेरे बारे मेँ पाठ्य"
+msgstr "पाठ के बारे में"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
 #, fuzzy
 msgid "Enter url as http://www.example.com"
-msgstr "Url को http://www.example.com के रूप में दर्ज करें"
+msgstr "http://www.example.com के रूप में यूआरएल दर्ज करें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
 #, fuzzy
@@ -1763,7 +1768,7 @@ msgstr "फ़ीचर अनुभाग"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
 #, fuzzy
 msgid "Enable Feature Section"
-msgstr "फ़ीचर सेक्शन सक्षम करें"
+msgstr "सक्षम फ़ीचर अनुभाग"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
 #, fuzzy
@@ -1773,7 +1778,7 @@ msgstr "फ़ीचर शीर्षक"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
 #, fuzzy
 msgid "Select post for feature 1"
-msgstr "सुविधा 1 के लिए पोस्ट का चयन करें"
+msgstr "फीचर 1 के लिए पोस्ट चुनें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
@@ -1783,18 +1788,19 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the feature. Recommended image size for the featured images: 130 x 130px"
 msgstr ""
-"फीचर प्रदर्शित करने के लिए पोस्ट से चित्रित छवि, शीर्षक और सामग्री का उपयोग किया "
-"जाएगा। चित्रित छवियों के लिए अनुशंसित छवि आकार: 130 x 130px"
+"इस सुविधा को प्रदर्शित करने के लिए पोस्ट से विशेष रुप से प्रदर्शित छवि, शीर्षक और सामग्री "
+"का उपयोग किया जाएगा। विशेष रुप से प्रदर्शित छवियों के लिए अनुशंसित छवि आकार: 130 x "
+"130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
 #, fuzzy
 msgid "Select post for feature 2"
-msgstr "सुविधा 2 के लिए पोस्ट का चयन करें"
+msgstr "फीचर 2 के लिए पोस्ट चुनें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
 #, fuzzy
 msgid "Select post for feature 3"
-msgstr "सुविधा 3 के लिए पोस्ट का चयन करें"
+msgstr "फीचर 3 के लिए पोस्ट चुनें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
 #, fuzzy
@@ -1810,7 +1816,7 @@ msgstr "प्रशंसापत्र अनुभाग सक्षम क
 #: partials/custom-home/featured-area.php:217
 #, fuzzy
 msgid "Testimonial"
-msgstr "गुणों का वर्ण - पत्र"
+msgstr "प्रशंसापत्र"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
 #, fuzzy
@@ -1820,7 +1826,7 @@ msgstr "प्रशंसापत्र शीर्षक"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
 #, fuzzy
 msgid "Select Post"
-msgstr "चयन करें"
+msgstr "पोस्ट का चयन करें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
 #, fuzzy
@@ -1829,13 +1835,14 @@ msgid ""
 "the client testimonials. Recommended image size for the featured images: 178 "
 "x 178px"
 msgstr ""
-"क्लाइंट प्रशंसापत्र प्रदर्शित करने के लिए पोस्ट से चित्रित छवि, शीर्षक और सामग्री का उपयोग "
-"किया जाएगा। चित्रित छवियों के लिए अनुशंसित छवि आकार: 178 x 178px"
+"पोस्ट से विशेष रुप से प्रदर्शित छवि, शीर्षक और सामग्री ग्राहक प्रशंसापत्र प्रदर्शित करने के "
+"लिए इस्तेमाल किया जाएगा । विशेष रुप से प्रदर्शित छवियों के लिए अनुशंसित छवि आकार: 178 x "
+"178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
 #, fuzzy
 msgid "Team Section"
-msgstr "खंड"
+msgstr "टीम अनुभाग"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
 #, fuzzy
@@ -1850,12 +1857,12 @@ msgstr "टीम"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
 #, fuzzy
 msgid "Team Title"
-msgstr "शीर्षक"
+msgstr "टीम का खिताब"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
 #, fuzzy
 msgid "Select post for team member1"
-msgstr "टीम सदस्य के लिए पद का चयन करें १"
+msgstr "टीम मेंबर 1 के लिए पोस्ट चुनें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
@@ -1865,23 +1872,24 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
 msgstr ""
-"टीम के सदस्य को प्रदर्शित करने के लिए पोस्ट से चित्रित छवि, शीर्षक और सामग्री का उपयोग "
-"किया जाएगा। चित्रित छवियों के लिए अनुशंसित छवि आकार: 178 x 178px"
+"विशेष रुप से प्रदर्शित छवि, शीर्षक और पदों से सामग्री टीम के सदस्य को प्रदर्शित करने के लिए "
+"इस्तेमाल किया जाएगा । विशेष रुप से प्रदर्शित छवियों के लिए अनुशंसित छवि आकार: 178 x "
+"178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
 #, fuzzy
 msgid "Select post for team member2"
-msgstr "टीम के सदस्य के लिए पोस्ट का चयन करें 2"
+msgstr "टीम मेंबर2 के लिए पोस्ट चुनें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
 #, fuzzy
 msgid "Select post for team member3"
-msgstr "टीम के सदस्य के लिए पोस्ट का चयन करें 3"
+msgstr "टीम मेंबर 3 के लिए पोस्ट चुनें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
 #, fuzzy
 msgid "Click to disable home page widgets"
-msgstr "होम पेज विजेट को डिसेबल करने के लिए क्लिक करें"
+msgstr "होम पेज विजेट्स को अक्षम करने के लिए क्लिक करें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
 #, fuzzy
@@ -1891,7 +1899,7 @@ msgstr "संपर्क अनुभाग"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
 #, fuzzy
 msgid "Enable Contact Section"
-msgstr "संपर्क अनुभाग सक्षम करें"
+msgstr "संपर्क अनुभाग को सक्षम करें"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
 msgid "Contact Us"
@@ -1917,62 +1925,62 @@ msgid "Address"
 msgstr "पता"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "ईमेल"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
 #, fuzzy
 msgid "Phone no"
-msgstr "फोन नंबर"
+msgstr "फोन नहीं"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
 #, fuzzy
 msgid "Contact form shortcode"
-msgstr "संपर्क फ़ॉर्म शोर्ट"
+msgstr "संपर्क फॉर्म शॉर्टकोड"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
 #, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
-msgstr "आप यहाँ संपर्क फ़ॉर्म 7 शोर्ट डाल सकते हैं।"
+msgstr "आप यहां कॉन्टैक्ट फॉर्म 7 शॉर्टकोड डाल सकते हैं।"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
 #, fuzzy
 msgid "Page Elements"
-msgstr "तत्व"
+msgstr "पेज एलिमेंट्स"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
 #, fuzzy
 msgid "Post Elements"
-msgstr "तत्व"
+msgstr "पोस्ट एलिमेंट्स"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
 #, fuzzy
 msgid "Page Featured Image"
-msgstr "पेज चित्रित छवि"
+msgstr "पेज विशेष रुप से प्रदर्शित छवि"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
 #, fuzzy
 msgid "Page Title"
-msgstr "पृष्ठ शीर्षकः"
+msgstr "पेज शीर्षक"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:120
 #, fuzzy
 msgid "Page Content"
-msgstr "सामग्री"
+msgstr "पेज सामग्री"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:40
 #, fuzzy
 msgid "Theme Options"
-msgstr "विषय विकल्प"
+msgstr "थीम विकल्प"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:41
 #: core/includes/customizer/settings/class-responsive-panel.php:50
 #, fuzzy
 msgid "Header Options"
-msgstr "हैडर विकल्प"
+msgstr "हेडर विकल्प"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:49
 msgid "Header"
@@ -1986,7 +1994,7 @@ msgstr "मुख्य मेनू"
 #: core/includes/customizer/settings/class-responsive-panel.php:59
 #, fuzzy
 msgid "Header Menu Options"
-msgstr "हैडर मेनू विकल्प"
+msgstr "हेडर मेनू विकल्प"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:68
 #, fuzzy
@@ -2000,17 +2008,17 @@ msgstr "पादिका"
 #: core/includes/customizer/settings/class-responsive-panel.php:77
 #, fuzzy
 msgid "Footer Options"
-msgstr "पाद विकल्प"
+msgstr "पाद लेख विकल्प"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:94
 #, fuzzy
 msgid "Blog / Archive"
-msgstr "ब्लॉग आर्काइव"
+msgstr "ब्लॉग/"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:95
 #, fuzzy
 msgid "Blog Options"
-msgstr "विकल्प"
+msgstr "ब्लॉग विकल्प"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:103
 #, fuzzy
@@ -2020,7 +2028,7 @@ msgstr "ब्लॉग पोस्ट"
 #: core/includes/customizer/settings/class-responsive-panel.php:104
 #, fuzzy
 msgid "Single Blog Post"
-msgstr "सिंगल ब्लॉग पोस्ट"
+msgstr "एकल ब्लॉग पोस्ट"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:112
 msgid "Page"
@@ -2029,7 +2037,7 @@ msgstr "पृष्ठ"
 #: core/includes/customizer/settings/class-responsive-panel.php:113
 #, fuzzy
 msgid "Page Options"
-msgstr "विकल्प"
+msgstr "पेज विकल्प"
 
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
 msgid "Post Featured Image"
@@ -2056,17 +2064,17 @@ msgstr "पृष्ठभूमि"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
 #, fuzzy
 msgid "Box Background Color"
-msgstr "पृष्ठभूमि रंग"
+msgstr "बॉक्स बैकग्राउंड कलर"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
 #, fuzzy
 msgid "Alternate Background Color"
-msgstr "आइटम की पंक्ति के पृष्ठभूमि का रंग"
+msgstr "वैकल्पिक पृष्ठभूमि रंग"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
 #, fuzzy
 msgid "General Text"
-msgstr "आम"
+msgstr "सामान्य पाठ"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
 #, fuzzy
@@ -2076,12 +2084,12 @@ msgstr "बॉडी टेक्स्ट कलर"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
 #, fuzzy
 msgid "Heading 1 (H1) Color"
-msgstr "शीर्ष 1 (एच 1) रंग"
+msgstr "शीर्षक 1 (H1) रंग"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
 #, fuzzy
 msgid "Heading 2 (H2) Color"
-msgstr "शीर्ष 2 (H2) रंग"
+msgstr "शीर्षक 2 (H2) रंग"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
 #, fuzzy
@@ -2101,7 +2109,7 @@ msgstr "शीर्षक 5 (H5) रंग"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
 #, fuzzy
 msgid "Heading 6 (H6) Color"
-msgstr "हेडिंग 6 (H6) कलर"
+msgstr "शीर्षक 6 (H6) रंग"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
 #, fuzzy
@@ -2111,7 +2119,7 @@ msgstr "मेटा टेक्स्ट कलर"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
 #, fuzzy
 msgid "Links"
-msgstr "कड़ियां"
+msgstr "लिंक"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:111
 msgid "Link Color"
@@ -2140,7 +2148,7 @@ msgstr "लिंक हॉवर रंग"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:135
 #, fuzzy
 msgid "Hover Text Color"
-msgstr "होवर पाठ का रंग"
+msgstr "होवर टेक्स्ट कलर"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:143
 #, fuzzy
@@ -2168,7 +2176,7 @@ msgstr "साइट शीर्षक छुपाएं"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
 #, fuzzy
 msgid "Hide Tagline"
-msgstr "साइट टैगलाइन छुपाएं"
+msgstr "टैगलाइन छिपाएं"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
 msgid "Width"
@@ -2182,12 +2190,12 @@ msgstr "निहित"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:60
 #, fuzzy
 msgid "Full Width"
-msgstr "चौड़ाई"
+msgstr "पूर्ण चौड़ाई"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
 #, fuzzy
 msgid "Container Width (px)"
-msgstr "कंटेनर चौड़ाई (px)"
+msgstr "कंटेनर चौड़ाई (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
 #, fuzzy
@@ -2197,40 +2205,40 @@ msgstr "बॉक्स्ड"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
 #, fuzzy
 msgid "Content Boxed"
-msgstr "कंटेंट बॉक्सिंग"
+msgstr "सामग्री बॉक्स्ड"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
 #, fuzzy
 msgid "Box Padding (px)"
-msgstr "बॉक्स पैडिंग (px)"
+msgstr "बॉक्स पैडिंग (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
 #, fuzzy
 msgid "Box Radius (px)"
-msgstr "बॉक्स त्रिज्या (px)"
+msgstr "बॉक्स त्रिज्या (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
 #, fuzzy
 msgid "Padding (px)"
-msgstr "पैडिंग (px)"
+msgstr "पैडिंग (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
 #, fuzzy
 msgid "Radius (px)"
-msgstr "त्रिज्या (px)"
+msgstr "त्रिज्या (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
 #, fuzzy
 msgid "Border Width (px)"
-msgstr "सीमा चौड़ाई (px)"
+msgstr "सीमा चौड़ाई (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
 #, fuzzy
 msgid "Form Inputs"
-msgstr "प्रपत्र इनपुट"
+msgstr "फॉर्म इनपुट"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
@@ -2278,24 +2286,24 @@ msgstr "शीर्षक 6 (H6)"
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
 #, fuzzy
 msgid "Input Fields"
-msgstr "* उपयोगकर्ता इनपुट फ़ील्ड"
+msgstr "इनपुट फील्ड्स"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
 #, fuzzy
 msgid "Exclude Categories from Blog page"
-msgstr "ब्लॉग पेज से श्रेणियाँ छोड़ें"
+msgstr "ब्लॉग पेज से श्रेणियों को बाहर करें"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
 #, fuzzy
 msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
-msgstr "कृपया उन पोस्ट श्रेणियों को चुनें जो ब्लॉग पेज पर प्रदर्शित नहीं होनी चाहिए"
+msgstr "कृपया पोस्ट श्रेणियों का चयन करें जिन्हें ब्लॉग पेज पर प्रदर्शित नहीं किया जाना चाहिए"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
 #, fuzzy
 msgid "General Typography"
-msgstr "सामान्य टाइपोग्राफी"
+msgstr "जनरल टाइपोग्राफी"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
 #, fuzzy
@@ -2305,17 +2313,17 @@ msgstr "फ़ॉन्ट परिवार"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:400
 #, fuzzy
 msgid "Font Weight"
-msgstr "भार"
+msgstr "फ़ॉन्ट वजन"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
 #, fuzzy
 msgid "Important: Not all fonts support every font-weight."
-msgstr "महत्वपूर्ण: सभी फ़ॉन्ट हर फ़ॉन्ट-वजन का समर्थन नहीं करते हैं।"
+msgstr "महत्वपूर्ण: सभी फोंट हर फ़ॉन्ट-वजन का समर्थन नहीं करते हैं।"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
 #, fuzzy
 msgid "Font Style"
-msgstr "शैली"
+msgstr "फ़ॉन्ट स्टाइल"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:451
 msgid "Normal"
@@ -2328,12 +2336,12 @@ msgstr "इटेलिक"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:477
 #, fuzzy
 msgid "Text Transform"
-msgstr "पाठ रूपांतरण"
+msgstr "टेक्स्ट ट्रांसफॉर्म"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:485
 #, fuzzy
 msgid "Capitalize"
-msgstr "मूल बनाना"
+msgstr "कैपिटल"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:486
 #, fuzzy
@@ -2348,93 +2356,122 @@ msgstr "अपरकेस"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:531
 #, fuzzy
 msgid "Font Size"
-msgstr "फॉन्ट का आकार..."
+msgstr "फ़ॉन्ट आकार"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
 #, fuzzy
 msgid "You can add: px-em-%"
-msgstr "आप जोड़ सकते हैं: px-em-%"
+msgstr "आप जोड़ सकते हैं: पीएक्स-उन्हें-%"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
 #, fuzzy
 msgid "Line Height"
-msgstr "ऊँचाई"
+msgstr "लाइन हाइट"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
 #, fuzzy
 msgid "Letter Spacing (px)"
-msgstr "पत्र रिक्ति (px)"
+msgstr "पत्र अंतर (पीएक्स)"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:659
 #, fuzzy
 msgid "Font Color"
-msgstr "शरीर के फॉण्ट का रंग"
+msgstr "फ़ॉन्ट रंग"
+
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "नमस्ते! उत्तरदायी विषय का उपयोग करने के लिए धन्यवाद।"
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"क्या आप कृपया हमें एक एहसान कर सकते हैं और हमें 5-स्टार रेटिंग दे सकते हैं? आपकी प्रतिक्रिया "
+"हमें प्रेरित रखती है और हमें उत्तरदायी समुदाय को विकसित करने में मदद करती है।"
+
+#: core/includes/functions-admin.php:61
+#, fuzzy
+msgid "Ok, you deserve it"
+msgstr "ठीक है, आप इसके लायक हैं"
+
+#: core/includes/functions-admin.php:62
+#, fuzzy
+msgid "Nope, maybe later"
+msgstr "नहींं, शायद बाद में"
+
+#: core/includes/functions-admin.php:63
+#, fuzzy
+msgid "I already did"
+msgstr "मैंने पहले ही किया था"
 
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "घर"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 #, fuzzy
 msgid "Archive for %s"
-msgstr "%s के लिए पुरालेख"
+msgstr "% एस के लिए आर्काइव"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 #, fuzzy
 msgid "Search results for: %s"
-msgstr "के लिए सर्च परिणाम :"
+msgstr "खोज परिणाम के लिए: %s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 #, fuzzy
 msgid "Posts tagged %s"
-msgstr "पोस्ट%s को टैग किया गया"
+msgstr "पोस्ट टैग  %s"
 
 #. translators: %s: Author pages
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 #, fuzzy
 msgid "View all posts by %s"
-msgstr "%s द्वारा सभी पोस्ट देखें"
+msgstr "सभी पदों को % एस द्वारा देखें"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "त्रुटि 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "पृष्ठ %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 #, fuzzy
 msgid "Yelp!"
 msgstr "Yelp"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 #, fuzzy
 msgid "foursquare"
-msgstr "सचाई से"
+msgstr "सचाई"
 
 #: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
 #: image.php:59 index.php:56 partials/page/content.php:15
 #, fuzzy
 msgid "Read more &#8250;"
-msgstr "hi"
+msgstr "और पढ़ें और #8250;"
 
 #: core/includes/functions-sidebar.php:28
 #, fuzzy
 msgid "Main Sidebar"
-msgstr "साइडबार"
+msgstr "मुख्य साइडबार"
 
 #: core/includes/functions-sidebar.php:29
 #, fuzzy
@@ -2451,7 +2488,7 @@ msgstr "होम विजेट 1"
 #: core/includes/functions-sidebar.php:41
 #, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr "क्षेत्र 6 - साइडबार- home.php - होम पेज पर प्रदर्शित करता है"
+msgstr "क्षेत्र 6 - साइडबार-home.php - होम पेज पर प्रदर्शित करता है"
 
 #: core/includes/functions-sidebar.php:52
 #, fuzzy
@@ -2461,7 +2498,7 @@ msgstr "होम विजेट 2"
 #: core/includes/functions-sidebar.php:53
 #, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr "क्षेत्र 7 - साइडबार- home.php - होम पेज पर प्रदर्शित करता है"
+msgstr "क्षेत्र 7 - साइडबार-home.php - होम पेज पर प्रदर्शित करता है"
 
 #: core/includes/functions-sidebar.php:64
 #, fuzzy
@@ -2471,7 +2508,7 @@ msgstr "होम विजेट 3"
 #: core/includes/functions-sidebar.php:65
 #, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr "क्षेत्र 8 - साइडबार- home.php - होम पेज पर प्रदर्शित करता है"
+msgstr "क्षेत्र 8 - साइडबार-home.php - होम पेज पर प्रदर्शित करता है"
 
 #: core/includes/functions-sidebar.php:76
 #, fuzzy
@@ -2484,88 +2521,90 @@ msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
 msgstr ""
-"क्षेत्र 9 - साइडबार-गैलरी. एफपी - एक गैलरी में एक छवि को क्लिक करने के बाद पृष्ठ पर "
-"प्रदर्शित होता है"
+"क्षेत्र 9 - साइडबार-gallery.php - एक गैलरी में एक छवि क्लिक किए जाने के बाद पृष्ठ पर "
+"प्रदर्शित करता है"
 
 #: core/includes/functions-sidebar.php:88
 #, fuzzy
 msgid "Colophon Widget"
-msgstr "कोलोफॉन विजेट"
+msgstr "कोलोफोन विजेट"
 
 #: core/includes/functions-sidebar.php:89
 #, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr "क्षेत्र 10 - साइडबार- colophon.php, 100% चौड़ाई पाद विजेट"
+msgstr "क्षेत्र 10 - साइडबार-colophon.php, 100% चौड़ाई पाद लेख विजेट्स"
 
 #: core/includes/functions-sidebar.php:101
 #, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr "क्षेत्र 11 - साइडबार- top.php - हेडर के दाईं ओर प्रदर्शित होता है"
+msgstr "क्षेत्र 11 - साइडबार-top.php - हेडर के दाईं ओर प्रदर्शित करता है"
 
 #: core/includes/functions-sidebar.php:112
 #, fuzzy
 msgid "Footer Widgets 1"
-msgstr "पाद विजेट 1"
+msgstr "पाद लेख विजेट्स 1"
 
 #: core/includes/functions-sidebar.php:113
 #, fuzzy
 msgid "Area 12 - sidebar-footer.php"
-msgstr "क्षेत्र 12 - साइडबार-पाद लेख। एफपीपी"
+msgstr "क्षेत्र 12 - साइडबार-footer.php"
 
 #: core/includes/functions-sidebar.php:123
 #, fuzzy
 msgid "Footer Widgets 2"
-msgstr "पाद विजेट 2"
+msgstr "पाद लेख विजेट्स 2"
 
 #: core/includes/functions-sidebar.php:124
 #, fuzzy
 msgid "Area 13 - sidebar-footer.php"
-msgstr "क्षेत्र 13 - साइडबार-पाद लेख। एफपीपी"
+msgstr "क्षेत्र 13 - साइडबार-footer.php"
 
 #: core/includes/functions-sidebar.php:134
 #, fuzzy
 msgid "Footer Widgets 3"
-msgstr "पाद विजेट 3"
+msgstr "पाद लेख विजेट्स 3"
 
 #: core/includes/functions-sidebar.php:135
 #, fuzzy
 msgid "Area 14 - sidebar-footer.php"
-msgstr "क्षेत्र 14 - साइडबार-पाद लेख। एफपीपी"
+msgstr "क्षेत्र 14 - साइडबार-footer.php"
 
 #: core/includes/functions-sidebar.php:145
 #, fuzzy
 msgid "Footer Widgets 4"
-msgstr "पाद विजेट 4"
+msgstr "पाद लेख विजेट्स 4"
 
 #: core/includes/functions-sidebar.php:146
 #, fuzzy
 msgid "Area 15 - sidebar-footer.php"
-msgstr "क्षेत्र 15 - साइडबार-पाद लेख। एफपीपी"
+msgstr "क्षेत्र 15 - साइडबार-footer.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "कॉल टू एक्शन"
 
 #: core/includes/functions.php:216
 #, fuzzy
 msgid "Header Menu"
-msgstr "हेडर"
+msgstr "हेडर मेनू"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 #, fuzzy
 msgid "Footer Menu"
-msgstr "पाद मेनू"
+msgstr "पाद लेख मेनू"
 
 #: core/includes/functions.php:377
 #, fuzzy
 msgid "Team Section Options"
-msgstr "अनुभाग विकल्प"
+msgstr "टीम अनुभाग विकल्प"
 
 #: core/includes/functions.php:391
 #, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
-msgstr "इस पोस्ट का उपयोग फ्रंट पेज के टीम सेक्शन के लिए करें, कृपया नीचे विवरण दर्ज करें:"
+msgstr ""
+"फ्रंट पेज के टीम सेक्शन के लिए इस पोस्ट का उपयोग करने के लिए, कृपया नीचे विवरण दर्ज करें:"
 
 #: core/includes/functions.php:394
 #, fuzzy
@@ -2575,17 +2614,17 @@ msgstr "सदस्य पदनाम"
 #: core/includes/functions.php:398
 #, fuzzy
 msgid "Facebook Link"
-msgstr "फेसबुक"
+msgstr "फेसबुक लिंक"
 
 #: core/includes/functions.php:402
 #, fuzzy
 msgid "Twitter Link"
-msgstr "ट्विटर"
+msgstr "ट्विटर लिंक"
 
 #: core/includes/functions.php:406
 #, fuzzy
 msgid "GooglePlus Link"
-msgstr "GooglePlus लिंक"
+msgstr "गूगलप्लस लिंक"
 
 #: core/includes/functions.php:410
 #, fuzzy
@@ -2595,7 +2634,7 @@ msgstr "लिंक्डइन लिंक"
 #: core/includes/functions.php:666
 #, fuzzy
 msgid "Posted on"
-msgstr "पर पोस्ट किया गया था:"
+msgstr "पोस्ट ऑन"
 
 #: core/includes/functions.php:666
 msgid "By"
@@ -2608,7 +2647,7 @@ msgstr "在"
 #: partials/single/meta.php:96
 #, fuzzy
 msgid "Posted in %s"
-msgstr "%s में पोस्ट किया गया"
+msgstr "% एस में पोस्ट किया गया"
 
 #: core/includes/functions.php:696 partials/entry/meta.php:104
 #: partials/single/meta.php:96
@@ -2618,17 +2657,17 @@ msgstr ", "
 #: core/includes/functions.php:719
 #, fuzzy
 msgid "Upgrade To Pro"
-msgstr "प्रो में अपग्रेड"
+msgstr "प्रो में अपग्रेड करें"
 
 #: core/includes/post-custom-meta.php:137
 #, fuzzy
 msgid "Content/Sidebar"
-msgstr "सामग्री / साइडबार"
+msgstr "सामग्री/साइडबार"
 
 #: core/includes/post-custom-meta.php:138
 #, fuzzy
 msgid "Sidebar/Content"
-msgstr "साइडबार / सामग्री"
+msgstr "साइडबार/कंटेंट"
 
 #. Template Name of the plugin/theme
 #, fuzzy
@@ -2653,12 +2692,12 @@ msgstr "ब्लॉग 4 कॉलम"
 #: footer.php:90
 #, fuzzy
 msgid "Scroll to Top"
-msgstr "शीर्ष तक स्क्रॉल करें"
+msgstr "ऊपर से स्क्रॉल करें"
 
 #: functions.php:392
 #, fuzzy
 msgid "Permalink to %s"
-msgstr "%s पर पर्मलिंक"
+msgstr "%s करने के लिए Permalink"
 
 #. translators: %s Link to 5 star rating
 #: functions.php:453
@@ -2667,14 +2706,15 @@ msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
-"यदि आप <strong>उत्तरदायी थीम</strong> पसंद करते हैं, तो कृपया हमें%s रेटिंग छोड़ दें। इसमें "
-"एक मिनट लगता है और बहुत मदद मिलती है। अग्रिम में धन्यवाद!"
+"यदि आप <strong>उत्तरदायी विषय</strong> पसंद करते हैं तो कृपया हमें एक % रेटिंग छोड़ दें। "
+"इसमें एक मिनट का समय लगता है और इसमें काफी मदद मिलती है। पहले से धन्यवाद!"
 
 #: functions.php:454
 msgid "Thanks :)"
 msgstr "शुक्रिया :)"
 
-#: functions.php:538
+#: functions.php:539
+#, fuzzy
 msgid "#"
 msgstr "#"
 
@@ -2687,7 +2727,7 @@ msgstr "पृष्ठों:"
 #: header.php:35
 #, fuzzy
 msgid "&darr; Skip to Main Content"
-msgstr "↓ मुख्य सामग्री पर जाएं"
+msgstr "और darr; मुख्य सामग्री के लिए छोड़ें"
 
 #: home.php:81
 msgid "Previous"
@@ -2700,7 +2740,7 @@ msgstr "अगला"
 #: image.php:37
 #, fuzzy
 msgid "&#8249; Return to"
-msgstr "वापसी"
+msgstr "और #8249; वापसी करने के लिए"
 
 #: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
 #: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
@@ -2718,50 +2758,52 @@ msgstr "1 टिप्पणी"
 #: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
 #, fuzzy
 msgid "% Comments"
-msgstr "% टिप्पण"
+msgstr "कोई टिप्पणी नहीं"
 
 #: image.php:79 post-data.php:25
 #, fuzzy
 msgid "Tagged with:"
-msgstr "साथ टैग किया गया:"
+msgstr "के साथ टैग:"
 
 #: image.php:87 post-data.php:29
 #, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
-msgstr "<span class=\"post-edit\">संपादित करें</span>"
+msgstr "<span class=\"post-edit\">संपादित</span>"
 
 #: loop-nav.php:28
 #, fuzzy
 msgid "&#8249; Older posts"
-msgstr "< पुराने पोस्ट"
+msgstr "और #8249; पुराने पद"
 
 #: loop-nav.php:29
 #, fuzzy
 msgid "Newer posts &#8250;"
-msgstr "नए पोस्टस >"
+msgstr "नए पद और #8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "Your search for %s did not match any entries."
-msgstr "%s के लिए आपकी खोज किसी भी प्रविष्टि से मेल नहीं खाती।"
+msgstr "%s के लिए आपकी खोज किसी भी प्रविष्टियों से मेल नहीं खाती थी।"
 
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 - आप यहाँ फैंसी बैठक!"
+msgstr "404 और #8212; फैंसी आप यहां बैठक!"
 
 #: loop-no-posts.php:32
 #, fuzzy
 msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
-msgstr "घबराओ मत, हम इसके माध्यम से मिलेंगे। आइए हमारे विकल्प यहां देखें।"
+msgstr ""
+"डॉन एंड #39 टी घबराहट, हम और #39; इस के माध्यम से एक साथ मिल जाएगा । Let&#39;s "
+"यहां हमारे विकल्पों का पता लगाएं ।"
 
 #: loop-no-posts.php:43
 #, fuzzy
 msgid "&larr; Home"
-msgstr "← घर"
+msgstr "&larr; होम"
 
 #: partials/custom-home/featured-area.php:255
 msgid "Team"
@@ -2771,35 +2813,35 @@ msgstr "टीम"
 #: partials/entry/meta.php:35
 #, fuzzy
 msgid "By "
-msgstr "bye ko hindi me kya bolte hain"
+msgstr "द्वारा"
 
 #. translators: 1: class, 2: date
 #: partials/entry/meta.php:69 partials/single/meta.php:63
 #, fuzzy
 msgid "Posted on "
-msgstr "पर पोस्ट किया गया था:"
+msgstr "पोस्ट ऑन"
 
 #: partials/entry/thumbnail-style/comments.php:16
 #, fuzzy
 msgid "0 Comments"
-msgstr "टिप्पणियाँ"
+msgstr "0 टिप्पणियां"
 
 #: partials/footer/copy-right.php:17
 #, fuzzy
 msgid " &copy; "
-msgstr "©"
+msgstr "और कॉपी;"
 
 #: partials/footer/copy-right.php:21
 #, fuzzy
 msgid "&copy; "
-msgstr "©"
+msgstr "और कॉपी;"
 
 #: partials/footer/copy-right.php:29
 #, fuzzy
 msgid " | Powered by Responsive Theme"
-msgstr "| उत्तरदायी थीम द्वारा संचालित"
+msgstr "| उत्तरदायी विषय द्वारा संचालित"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "मेन्यू"
 
@@ -2807,7 +2849,7 @@ msgstr "मेन्यू"
 #: partials/single/content.php:22
 #, fuzzy
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr "<span class=\"screen-reader-text\">\"%s\"</span> पढ़ना जारी रखें"
+msgstr "पढ़ना जारी रखें<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #: partials/single/layout.php:50
 msgid "About"
@@ -2830,12 +2872,12 @@ msgstr "के लिए खोजें:"
 #: searchform.php:23
 #, fuzzy
 msgid "Search here &hellip;"
-msgstr "यहाँ ढूँढे …"
+msgstr "यहां खोजें और हेलिप;"
 
 #: searchform.php:24
 #, fuzzy
 msgid "Go"
-msgstr "Go"
+msgstr "जाना"
 
 #: sidebar-gallery.php:26
 #, fuzzy
@@ -2850,7 +2892,7 @@ msgstr "पूर्ण आकार:"
 #: sidebar-gallery.php:39
 #, fuzzy
 msgid "Aperture: f&#47;"
-msgstr "एपर्चर: एफ /"
+msgstr "अपर्चर: एफएंड#47;"
 
 #: sidebar-gallery.php:44
 msgid "Focal Length:"
@@ -2867,7 +2909,7 @@ msgstr "आईएसओ:"
 #: sidebar-gallery.php:52
 #, fuzzy
 msgid "Shutter:"
-msgstr "शटर"
+msgstr "शटर:"
 
 #: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
 #, fuzzy
@@ -2877,12 +2919,12 @@ msgstr "सेकंड"
 #: sidebar-gallery.php:69
 #, fuzzy
 msgid "Camera:"
-msgstr "कैमरा"
+msgstr "कैमरा:"
 
 #: sidebar-home.php:34
 #, fuzzy
 msgid "Fermentum"
-msgstr "किण्व"
+msgstr "किण्वनम"
 
 #: sidebar-home.php:40
 #, fuzzy
@@ -2891,14 +2933,13 @@ msgid ""
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"यह आपका पहला होम विजेट बॉक्स है। कृपया संपादित करने के लिए सूरत> विजेट पर जाएं और 6 "
-"क्षेत्र में ऊपर से 6 विजेट चुनें, जिसे होम विजेट 1 कहा जाता है। शीर्षक विजेट्स से भी प्रबंधनीय "
-"है।"
+"यह आपका पहला घर विजेट बॉक्स है। संपादित करने के लिए कृपया उपस्थिति > विजेट्स पर जाएं और "
+"होम विजेट 1 नामक क्षेत्र 6 में ऊपर से 6 विजेट चुनें। शीर्षक भी विजेट्स से प्रबंधनीय है।"
 
 #: sidebar-home.php:54
 #, fuzzy
 msgid "Elementum"
-msgstr "Elementum"
+msgstr "एलिमियम"
 
 #: sidebar-home.php:60
 #, fuzzy
@@ -2907,13 +2948,13 @@ msgid ""
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"यह आपका दूसरा होम विजेट बॉक्स है। कृपया संपादित करने के लिए सूरत> विजेट पर जाएं और 7 "
-"विजेट नामक क्षेत्र में ऊपर से 7 वें विजेट का चयन करें। शीर्षक विजेट्स से भी प्रबंधनीय है।"
+"यह आपका दूसरा घर विजेट बॉक्स है। संपादित करने के लिए कृपया उपस्थिति > विजेट्स पर जाएं और "
+"होम विजेट 2 नामक क्षेत्र 7 में शीर्ष से 7वां विजेट चुनें। शीर्षक भी विजेट्स से प्रबंधनीय है।"
 
 #: sidebar-home.php:74
 #, fuzzy
 msgid "Interdum"
-msgstr "Interdum"
+msgstr "इंटरडम"
 
 #: sidebar-home.php:78
 #, fuzzy
@@ -2922,30 +2963,55 @@ msgid ""
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"यह आपका तीसरा होम विजेट बॉक्स है। कृपया संपादित करने के लिए सूरत> विजेट पर जाएं और "
-"क्षेत्र में शीर्ष से 8 वें विजेट का चयन करें जिसे होम विजेट 3 कहा जाता है। शीर्षक विजेट से भी "
-"प्रबंधनीय है।"
+"यह आपका तीसरा घर विजेट बॉक्स है। संपादित करने के लिए कृपया उपस्थिति > विजेट्स पर जाएं "
+"और होम विजेट 3 नामक क्षेत्र 8 में ऊपर से 8वां विजेट चुनें। शीर्षक भी विजेट्स से प्रबंधनीय है।"
 
 #. Theme URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
 #, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
-msgstr "उत्तरदायी पूर्ण-अनुकूलन योग्य, तेज़ और मोबाइल-अनुकूल वर्डप्रेस थीम है।"
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
+msgstr ""
+"उत्तरदायी एक पूरी तरह से अनुकूलन योग्य, खोज इंजन अनुकूलित और मोबाइल के अनुकूल वर्डप्रेस "
+"विषय है। गुटेनबर्ग ब्लॉक संपादक के साथ संगत, यह आपके ब्लॉग, व्यापार वेबसाइट या वूकॉमर्स "
+"स्टोर के लिए एक आदर्श विकल्प है। लगभग असीमित अनुकूलन विकल्पों के साथ, आप अपनी वेबसाइट "
+"की हर सुविधा को अनुकूलित कर सकते हैं। उत्तरदायी वेबसाइट की गति में सुधार करने के लिए "
+"मिफाइड स्क्रिप्ट के साथ आता है। यह अन्य सुविधाओं के साथ भी आता है जिसमें पृष्ठों और ब्लॉग के "
+"लिए नौ लेआउट विकल्प, वूकॉमर्स डिजाइन विकल्प और एलिमेंटर पेज बिल्डर के साथ अनुकूलता शामिल "
+"हैं। यह मोबाइल, टैबलेट, डेस्कटॉप और सभी ब्राउज़रों पर बहुत अच्छा काम करता है। उत्तरदायी "
+"भी 45 भाषाओं में उपलब्ध है और खोज इंजन के अनुकूल है। कार्रवाई में उत्तरदायी देखें: https://"
+"cyberchimps.com/responsive-ready-websites/। इसकी विशेषताओं के बारे में अधिक जानें: "
+"https://cyberchimps.com/responsive-features/।"
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "साइबरचिम्प्स"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Gutenberg Fullwidth No title"
-msgstr "गुटेनबर्ग फ़ुलफ़ॉर्मेशन नो टाइटल"
+msgstr "गुटेनबर्ग फुलविड्थ कोई शीर्षक नहीं"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:48
@@ -2953,8 +3019,8 @@ msgstr "गुटेनबर्ग फ़ुलफ़ॉर्मेशन न�
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s \"%2$s\" पर टिप्पणी करें"
-msgstr[1] "\"%2$s\" पर%1$s टिप्पणियाँ"
+msgstr[0] "%1 $ पर टिप्पणी \"%2$s\""
+msgstr[1] "%1 $ पर टिप्पणियां \"%2$s\""
 
 #: functions.php:126
 msgctxt "Name of the small font size in the block editor"
@@ -2980,7 +3046,7 @@ msgstr "M"
 #, fuzzy
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
-msgstr "विशाल"
+msgstr "बड़े"
 
 #: functions.php:139
 msgctxt "Short name of the large font size in the block editor."

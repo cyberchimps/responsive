@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 17:16+0530\n"
+"PO-Revision-Date: 2020-03-27 15:35+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -334,15 +334,15 @@ msgstr "Lähetä arvostelu \""
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr "Upea nopea, mobiiliystävällinen, täysin muokattava WordPress-teema."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "Tarjous!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "WooCommercen sivupalkki"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
@@ -462,7 +462,7 @@ msgstr "Lisää koriin painikkeet"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -636,13 +636,13 @@ msgid "Gallery Layout"
 msgstr "Gallerian asettelu"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "Pystysuuntainen"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "Vaakasuuntainen"
@@ -656,6 +656,7 @@ msgid "Cart"
 msgstr "Ostoskori"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+#, fuzzy
 msgid " / "
 msgstr "/"
 
@@ -845,7 +846,8 @@ msgstr "Sisältö"
 msgid "Site Branding"
 msgstr "Sivuston nimitiedot"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "Päänavigaatio"
 
@@ -876,12 +878,12 @@ msgstr "Kategoria"
 msgid "Ratings"
 msgstr "Arvioinnit"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
 msgstr "Lue lisää &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "Lue lisää &raquo;"
 
@@ -1148,69 +1150,73 @@ msgstr "Sarakkeiden määrä"
 msgid "Footer Bar"
 msgstr "Sivun alapalkki"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "Copyright teksti"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Piilota Powered By Reagoiva teema"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "Somelinkit"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "RSS-syöte"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "Sähköpostiosoite"
 
@@ -1441,7 +1447,7 @@ msgid "Hero Area"
 msgstr "Sankarialue"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 msgid "HAPPINESS"
 msgstr "onnellisuus"
 
@@ -1450,7 +1456,7 @@ msgid "Headline"
 msgstr "Otsikko"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 msgid "IS A WARM CUP"
 msgstr "ON SILMÄTUPPA"
 
@@ -1459,7 +1465,7 @@ msgid "Subheadline"
 msgstr "* Subheadline:"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -1661,7 +1667,7 @@ msgid "Address"
 msgstr "Osoite"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "Sähköposti"
 
@@ -2042,24 +2048,53 @@ msgstr "Kirjainväli (px)"
 msgid "Font Color"
 msgstr "Fontin väri"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "Moikka! Kiitos, että käytät Reagoiva teema."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"Moi! Kiitos Responsive-teeman käytöstä. Voisitko tehdä meille palvelun ja "
+"antaa meille 5 tähden arvosanan? Palautteesi pitää meidät motivoituneina ja "
+"auttaa meitä kasvamaan Responsive-yhteisöä."
+
+#: core/includes/functions-admin.php:61
+#, fuzzy
+msgid "Ok, you deserve it"
+msgstr "Ansaitset sen."
+
+#: core/includes/functions-admin.php:62
+#, fuzzy
+msgid "Nope, maybe later"
+msgstr "Ei, ehkä myöhemmin."
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "Olen jo tehnyt"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "Etusivu"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 msgid "Archive for %s"
 msgstr "Arkisto: %s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "Hakutulokset haulle: %s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 msgid "Posts tagged %s"
 msgstr "Artikkelit avainsanalla <ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>"
 
@@ -2067,27 +2102,28 @@ msgstr "Artikkelit avainsanalla <ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>"
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "Selaa kaikkia artikkeleja käyttäjältä %s"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "Virhe 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "Sivu %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
+#, fuzzy
 msgid "Yelp!"
 msgstr "Yelp"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr "neliö"
 
@@ -2185,7 +2221,7 @@ msgstr "Sivun alareunan vimpaimet"
 msgid "Area 15 - sidebar-footer.php"
 msgstr "Alue 15 - sivupalkki-jalka.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "Kehotustoiminta"
 
@@ -2194,6 +2230,7 @@ msgid "Header Menu"
 msgstr "Päävalikko"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "Sivun alareunan valikko"
 
@@ -2297,7 +2334,7 @@ msgstr ""
 msgid "Thanks :)"
 msgstr "Kiitos :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2402,6 +2439,7 @@ msgid " &copy; "
 msgstr "©"
 
 #: partials/footer/copy-right.php:21
+#, fuzzy
 msgid "&copy; "
 msgstr "©"
 
@@ -2409,7 +2447,7 @@ msgstr "©"
 msgid " | Powered by Responsive Theme"
 msgstr "| Powered by Responsive Theme"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "Valikko"
 
@@ -2521,18 +2559,48 @@ msgstr ""
 "Ylhäältä. Otsikkoa voidaan hallita myös widgetistä."
 
 #. Theme URI of the plugin/theme
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+#, fuzzy
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
-"Responsive on täysin muokattava, nopea ja mobiiliystävällinen WordPress-"
-"teema."
+"Reagoiva on täysin muokattavissa, hakukone optimoitu ja mobiili-ystävällinen "
+"WordPress teema. Yhteensopiva Gutenberg-lohkoeditorin kanssa, se on "
+"täydellinen valinta blogiisi, yrityssivustoosi tai WooCommerce-kauppaan. "
+"Lähes rajattomasti mukauttaja vaihtoehtoja, voit muokata jokaisen "
+"ominaisuuden sivustosi. Reagoiva mukana minified skriptejä parantaa sivuston "
+"nopeutta. Se kin johtua avulla toinen erikoisartikkeli käsittävä - yhdeksän "
+"asemakaava etuosto-oikeus ajaksi hotellipoika ja blog, WooCommerce aikoa "
+"etuosto-oikeus, ja yhteensopivuus avulla Elementor hotellipoika "
+"rakennusmestari. Se toimii hyvin mobiililaitteilla, tableteilla, "
+"pöytäkoneilla ja kaikilla selaimilla. Reagoiva on saatavilla myös 45 "
+"kielellä ja on hakukoneystävällinen. Katso Responsiivinen toiminnassa: "
+"https://cyberchimps.com/responsive-ready-websites/. Lue lisää sen "
+"ominaisuuksista: https://cyberchimps.com/responsive-features/."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "CyberChimps (kybersimpanssi)"
 
 #. Author URI of the plugin/theme
-msgid "https://cyberchimps.com/"
+#, fuzzy
+msgid "https://cyberchimps.com"
 msgstr "https://cyberchimps.com/"
 
 #. Template Name of the plugin/theme
