@@ -49,7 +49,7 @@ if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front
 	<div id="wrapper" class="site-content clearfix">
 		<div class="content-outer container">
 			<div class="row">
-				<main id="primary" class="content-area">
+				<main id="primary" class="content-area" role="main">
 					<article class=""  <?php responsive_schema_markup( 'creativework' ); ?>>
 					<?php
 					Responsive\responsive_in_wrapper(); // wrapper hook.

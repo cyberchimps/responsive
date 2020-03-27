@@ -76,7 +76,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				'left'   => esc_html__( 'Left', 'responsive' ),
 				'right'  => esc_html__( 'Right', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 30, $content_header_alignment_choices, 'center', null );
+			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 30, $content_header_alignment_choices, 'center', null, 'postMessage' );
 
 		}
 	}

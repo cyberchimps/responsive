@@ -88,7 +88,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'default'   => esc_html__( 'Default', 'responsive' ),
 				'stretched' => esc_html__( 'Stretched', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'page_featured_image_style', $featured_image_style_label, 'responsive_page_content', 40, $featured_image_style_choices, 'default', null );
+			responsive_select_control( $wp_customize, 'page_featured_image_style', $featured_image_style_label, 'responsive_page_content', 40, $featured_image_style_choices, 'default', null, 'postMessage' );
 
 			// Featured Image Alignment.
 			$featured_image_alignment_label   = esc_html__( 'Alignment', 'responsive' );

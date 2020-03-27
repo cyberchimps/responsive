@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 09:36:56+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 15:25+0530\n"
+"PO-Revision-Date: 2020-03-27 16:24+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -30,6 +30,7 @@ msgid "Activating "
 msgstr "Etkinleştiriliyor "
 
 #: admin/admin-functions.php:22
+#, fuzzy
 msgid "Not connect. Verify Network."
 msgstr "Bağlanmamak. Ağı doğrulayın."
 
@@ -38,26 +39,32 @@ msgid "Requested page not found. [404]"
 msgstr "İstekte bulunulan sayfa bulunamadı. [404]"
 
 #: admin/admin-functions.php:24
+#, fuzzy
 msgid "Internal Server Error [500]"
 msgstr "Dahili Sunucu Hatası [500]"
 
 #: admin/admin-functions.php:25
+#, fuzzy
 msgid "Requested JSON parse failed"
 msgstr "İstenen JSON ayrıştarı başarısız oldu"
 
 #: admin/admin-functions.php:26
+#, fuzzy
 msgid "Time out error"
 msgstr "Zaman dışında hata"
 
 #: admin/admin-functions.php:27
+#, fuzzy
 msgid "Ajax request aborted"
 msgstr "Ajax talebi iptal edildi"
 
 #: admin/admin-functions.php:28
+#, fuzzy
 msgid "Uncaught Error"
 msgstr "Yakalanmayan Hata"
 
 #: admin/class-responsive-plugin-install-helper.php:93
+#, fuzzy
 msgid "Install and activate &raquo;"
 msgstr "&amp;"
 
@@ -71,6 +78,7 @@ msgid "Deactivate"
 msgstr "Devre dışı bırak"
 
 #: admin/class-responsive-plugin-install-helper.php:117
+#, fuzzy
 msgid "Jetpack Portfolio"
 msgstr "Jetpack Portföy"
 
@@ -90,65 +98,80 @@ msgid "Pro"
 msgstr "Pro"
 
 #: admin/templates/free-vs-pro.php:23
+#, fuzzy
 msgid "Mobile Friendly"
 msgstr "Mobil Dostu"
 
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
+#, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
 msgstr ""
 "Kaydırıcı, portföy, fiyatlandırma tabloları, WooCommerce widget'ları vb."
 
 #: admin/templates/free-vs-pro.php:31
+#, fuzzy
 msgid "Blazing Fast Speed"
 msgstr "Yanan Hızlı Hız"
 
 #: admin/templates/free-vs-pro.php:32
+#, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
 msgstr "Hız için optimize edilmiş, 2 saniyenin altında yükler"
 
 #: admin/templates/free-vs-pro.php:39
+#, fuzzy
 msgid "Fully Customizable"
 msgstr "Tamamen Özelleştirilebilir"
 
 #: admin/templates/free-vs-pro.php:40
+#, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
 msgstr "Düzen, yazı tipleri ve renkler için özelleyici seçeneklerini kullanma"
 
 #: admin/templates/free-vs-pro.php:42
+#, fuzzy
 msgid "Limited Options"
 msgstr "Sınırlı Seçenekler"
 
 #: admin/templates/free-vs-pro.php:47
+#, fuzzy
 msgid "Ready-to-use Website Templates"
 msgstr "Kullanıma Hazır Web Sitesi Şablonları"
 
 #: admin/templates/free-vs-pro.php:48
+#, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
 msgstr ""
 "Kullanıma hazır Elementor sayfası oluşturucusu ve Gutenberg web sitesi "
 "şablonları"
 
 #: admin/templates/free-vs-pro.php:51
+#, fuzzy
 msgid "30+"
 msgstr "30+"
 
 #: admin/templates/free-vs-pro.php:55
+#, fuzzy
 msgid "Exclusive Widgets"
 msgstr "Özel Widget'lar"
 
 #: admin/templates/free-vs-pro.php:63
+#, fuzzy
 msgid "Exclusive Content, Deals & Offers"
 msgstr "Özel İçerik, Fırsatlar ve Teklifler"
 
 #: admin/templates/free-vs-pro.php:64
+#, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
 msgstr "Özel WordPress içeriğine, fırsatlarına ve tekliflere erişin"
 
 #: admin/templates/free-vs-pro.php:71
+#, fuzzy
 msgid "Private Priority Email Support"
 msgstr "Özel Öncelikli E-posta Desteği"
 
 #: admin/templates/free-vs-pro.php:72
+#, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
 msgstr ""
 "Yardıma mı ihtiyacın var? Sadece öncelikli e-posta desteği almak için bir "
@@ -165,6 +188,7 @@ msgstr "Bu yazı şifre korumalıdır. Tüm yorumları görmek için şifreyi gi
 
 #. translators: 1: title.
 #: comments.php:42
+#, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
 msgstr "One Comment on \"%1$s\""
 
@@ -182,8 +206,9 @@ msgstr "Pings&#47;Trackbacks"
 
 #. translators: 1 : Count, 2 : Pings 3 : Post title
 #: comments.php:102
+#, fuzzy
 msgid "Name"
-msgstr "Ad"
+msgstr "İsim"
 
 #: comments.php:104
 msgid "E-mail"
@@ -227,14 +252,17 @@ msgid "Get Started"
 msgstr "Şimdi Başlayın"
 
 #: core/includes/classes/class-responsive-admin-settings.php:196
+#, fuzzy
 msgid "Free Vs Pro "
 msgstr "Ücretsiz Vs Pro"
 
 #: core/includes/classes/class-responsive-admin-settings.php:231
+#, fuzzy
 msgid "Import a website template(FREE)"
 msgstr "Bir web sitesi şablonu alma (ÜCRETSİz)"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
+#, fuzzy
 msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
@@ -243,6 +271,7 @@ msgstr ""
 "almak için Yanıt Veren Eklentileri yükleyin."
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
+#, fuzzy
 msgid "Learn More &raquo;"
 msgstr "Daha Fazla Bilgi &amp;"
 
@@ -251,44 +280,54 @@ msgid "Support"
 msgstr "Destek"
 
 #: core/includes/classes/class-responsive-admin-settings.php:273
+#, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
 msgstr ""
 "Sorularınız mı var? Bizimle temasa geçin. Yardım etmekten mutluluk duyarım."
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
+#, fuzzy
 msgid "Request Support &raquo;"
 msgstr "Destek İsteği &amp;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
+#, fuzzy
 msgid "Change site layout"
 msgstr "Site düzenini değiştirme"
 
 #: core/includes/classes/class-responsive-admin-settings.php:308
+#, fuzzy
 msgid "Customize fonts/typography"
 msgstr "Yazı tiplerini/tipografiyi özelleştirme"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
+#, fuzzy
 msgid "Upload logo & site icon"
 msgstr "Logo ve site simgesini yükleyin"
 
 #: core/includes/classes/class-responsive-admin-settings.php:318
+#, fuzzy
 msgid "Add/edit navigation menu"
 msgstr "Gezinti menüsü ekleme/değiştirme"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
+#, fuzzy
 msgid "Customize header options"
 msgstr "Üstbilgi seçeneklerini özelleştir"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
+#, fuzzy
 msgid "Customize footer options"
 msgstr "Altbilgi seçeneklerini özelleştirme"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
+#, fuzzy
 msgid "Update blog layout"
 msgstr "Blog düzenini güncelleştirme"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
+#, fuzzy
 msgid "Update page layout"
 msgstr "Sayfa düzenini güncelleştirme"
 
@@ -301,6 +340,7 @@ msgid "Community"
 msgstr "Topluluk"
 
 #: core/includes/classes/class-responsive-admin-settings.php:369
+#, fuzzy
 msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
@@ -309,6 +349,7 @@ msgstr ""
 "bildirimde deyin ve birbiriniz için yardım edin"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
+#, fuzzy
 msgid "Join Facebook Group &raquo;"
 msgstr "Facebook Group &raquo'ya katılın;"
 
@@ -317,6 +358,7 @@ msgid "Feedback"
 msgstr "Geri Bildirim"
 
 #: core/includes/classes/class-responsive-admin-settings.php:391
+#, fuzzy
 msgid ""
 "Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
@@ -327,22 +369,24 @@ msgstr ""
 "bizi motive eder ve Duyarlı topluluğu büyütmemize yardımcı olur."
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
+#, fuzzy
 msgid "Submit Review &raquo;"
 msgstr "İnceleme gönder &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
+#, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr "Yanan Hızlı, mobil dostu, tamamen özelleştirilebilir WordPress teması."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "İndirim!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "WooCommerce Kenar Çubuğu"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
@@ -361,6 +405,7 @@ msgid "Colors"
 msgstr "Renkler"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
+#, fuzzy
 msgid "Cart Buttons"
 msgstr "Sepet Düğmeleri"
 
@@ -385,10 +430,12 @@ msgstr "Buton Vurgu"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
+#, fuzzy
 msgid "Button Hover Text"
 msgstr "Düğme Hover Metin"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
+#, fuzzy
 msgid "Checkout Button"
 msgstr "Ödeme Düğmesi"
 
@@ -406,26 +453,32 @@ msgstr "Düzenler"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:49
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:50
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
+#, fuzzy
 msgid "Main Content Width (%)"
 msgstr "Ana İçerik Genişliği (%)"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
+#, fuzzy
 msgid "Enable Cross-sells"
 msgstr "Çapraz satışları etkinleştirme"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
+#, fuzzy
 msgid "Cart Icon Visibility"
 msgstr "Sepet Simgesi Görünürlüğü"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
+#, fuzzy
 msgid "Display On All Devices"
 msgstr "Tüm Cihazlarda Görüntüle"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
+#, fuzzy
 msgid "Disabled On All Devices"
 msgstr "Tüm Cihazlarda Devre Dışı"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
+#, fuzzy
 msgid "Product Catalog Options"
 msgstr "Ürün Katalog Seçenekleri"
 
@@ -443,6 +496,7 @@ msgstr "Tek Ürün Seçenekleri"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
+#, fuzzy
 msgid "Cart Options"
 msgstr "Sepet Seçenekleri"
 
@@ -455,6 +509,7 @@ msgid "Price Color"
 msgstr "Fiyat Rengi"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
+#, fuzzy
 msgid "Add To Cart Buttons"
 msgstr "Sepete Ekle Düğmeleri"
 
@@ -462,7 +517,7 @@ msgstr "Sepete Ekle Düğmeleri"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -521,6 +576,7 @@ msgid "List View"
 msgstr "Liste Görünümü"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
+#, fuzzy
 msgid "Content Aligmnment"
 msgstr "İçerik Aligmnment"
 
@@ -575,6 +631,7 @@ msgid "Right"
 msgstr "Sağ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
+#, fuzzy
 msgid "Shop Elements"
 msgstr "Dükkan Elemanları"
 
@@ -628,6 +685,7 @@ msgid "Square Outline"
 msgstr "Kare anahat"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
+#, fuzzy
 msgid "Product Elements"
 msgstr "Ürün Elemanları"
 
@@ -636,13 +694,13 @@ msgid "Gallery Layout"
 msgstr "Galeri Düzeni"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "Dikey"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "Yatay"
@@ -666,6 +724,7 @@ msgstr "Bağlantı değerleri birlikte"
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+#: footer.php:90
 msgid "Top"
 msgstr "Üst"
 
@@ -678,6 +737,7 @@ msgstr "Alt"
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:122
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:127
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
+#, fuzzy
 msgid "px - em - rem"
 msgstr "px - em - rem"
 
@@ -687,50 +747,60 @@ msgstr "Devralma"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:65
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
+#, fuzzy
 msgid "Thin: 100"
 msgstr "İnce: 100"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
+#, fuzzy
 msgid "Light: 200"
 msgstr "Işık: 200"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
+#, fuzzy
 msgid "Book: 300"
 msgstr "Kitap: 300"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
+#, fuzzy
 msgid "Normal: 400"
 msgstr "Normal: 400"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
+#, fuzzy
 msgid "Medium: 500"
 msgstr "Orta: 500"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
+#, fuzzy
 msgid "Semibold: 600"
 msgstr "Yarı kalın: 600"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
+#, fuzzy
 msgid "Bold: 700"
 msgstr "Kalın: 700"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
+#, fuzzy
 msgid "Extra Bold: 800"
 msgstr "Ekstra Kalın: 800"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
+#, fuzzy
 msgid "Black: 900"
 msgstr "Siyah: 900"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
+#, fuzzy
 msgid "Arial, Helvetica, sans-serif"
 msgstr "Arial, Helvetica, sans-serif"
 
@@ -752,10 +822,12 @@ msgid "PRO"
 msgstr "PRO"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
+#, fuzzy
 msgid "View PRO Features"
 msgstr "PRO Özelliklerini Görüntüle"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
+#, fuzzy
 msgid "Pro Ready Sites"
 msgstr "Pro Hazır Siteler"
 
@@ -764,6 +836,7 @@ msgid "Form Builder"
 msgstr "Form Oluşturucu"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
+#, fuzzy
 msgid "Interactive Sliders and Carousels"
 msgstr "İnteraktif Sürgüler ve Atlıkarıncalar"
 
@@ -772,14 +845,17 @@ msgid "Pricing Tables"
 msgstr "Fiyatlandırma Tabloları"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
+#, fuzzy
 msgid "Portfolio and Post Layouts"
 msgstr "Portföy ve Posta Düzenleri"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
+#, fuzzy
 msgid "Private, Priority Support"
 msgstr "Özel, Öncelikli Destek"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
+#, fuzzy
 msgid "Get the PRO version!"
 msgstr "PRO sürümünü alın!"
 
@@ -804,6 +880,7 @@ msgstr "Düz"
 
 #: core/includes/customizer/customizer.php:98
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
+#, fuzzy
 msgid "Choose Post"
 msgstr "Gönder'i Seçin"
 
@@ -844,7 +921,8 @@ msgstr "İçerik"
 msgid "Site Branding"
 msgstr "Site Başlığınız"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "Ana Navigasyon"
 
@@ -875,21 +953,23 @@ msgstr "Kategori"
 msgid "Ratings"
 msgstr "Puanlar"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
 msgstr "Detaylar &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "Devamını Oku &raquo;"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
+#, fuzzy
 msgid "Entry Elements"
 msgstr "Giriş Elemanları"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
+#, fuzzy
 msgid "Entry Featured Image"
 msgstr "Giriş Özellikli Resim"
 
@@ -938,10 +1018,11 @@ msgstr "Giriş Başlığı"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
 msgid "Entry Meta"
-msgstr "yazı metası"
+msgstr "Meta Girişi"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
+#, fuzzy
 msgid "Meta Elements"
 msgstr "Meta Elementler"
 
@@ -967,15 +1048,18 @@ msgstr "Yorumlar"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:170
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
+#, fuzzy
 msgid "Meta Separator"
 msgstr "Meta Ayırıcı"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
+#, fuzzy
 msgid "Meta Alignment"
 msgstr "Meta Hizalama"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
+#, fuzzy
 msgid "Entry Content"
 msgstr "Giriş İçeriği"
 
@@ -1002,6 +1086,7 @@ msgid "Read More Text"
 msgstr "Devamını Oku"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
+#, fuzzy
 msgid "Read More Type"
 msgstr "Devamını Oku Türü"
 
@@ -1024,6 +1109,7 @@ msgid "Blog Page Title"
 msgstr "Blog Sayfası Başlığı"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
+#, fuzzy
 msgid "Entry Columns"
 msgstr "Giriş Sütunları"
 
@@ -1044,6 +1130,7 @@ msgid "Breadcrumb Color"
 msgstr "Breadcrumb Rengi"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
+#, fuzzy
 msgid "Disable breadcrumb list?"
 msgstr "Ekmek kırıntısı listesini devre dışı mı?"
 
@@ -1085,12 +1172,14 @@ msgstr "Belgeler"
 
 #. translators: %1$s is Plugin Name
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+#, fuzzy
 msgid "To have access to a shop section please install and configure %1$s."
 msgstr ""
 "Bir mağaza bölümüne erişmek için lütfen %1$'lık ları yükleyin ve "
 "yapılandırın."
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+#, fuzzy
 msgid "WooCommerce plugin"
 msgstr "WooCommerce eklentisi"
 
@@ -1100,6 +1189,7 @@ msgstr "Önerilen Eklentiler"
 
 #. translators: Orbit Fox Companion
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+#, fuzzy
 msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
@@ -1132,6 +1222,7 @@ msgid "Links Hover Color"
 msgstr "Bağlantılar Vurgulu Rengi"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
+#, fuzzy
 msgid "Full Width Footer"
 msgstr "Tam Genişlikli Altbilgi"
 
@@ -1147,69 +1238,73 @@ msgstr "Sütun sayısı"
 msgid "Footer Bar"
 msgstr "Altbilgi Çubuğu"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "Telif hakkı metni"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Duyarlı Tema ile Güçlendirilmiş Gizle"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "Sosyal Linkler"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "RSS Feed"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "E-posta Adresi"
 
@@ -1219,6 +1314,7 @@ msgid "Scripts"
 msgstr "Özel Kodlar"
 
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
+#, fuzzy
 msgid "Embeds to footer.php"
 msgstr "Footer.php'ye gömme"
 
@@ -1251,6 +1347,7 @@ msgid "Full Width Header"
 msgstr "Tam Genişlik Başlık"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
+#, fuzzy
 msgid "Inline logo & Site Title"
 msgstr "Satır İçi logo & Site Adı"
 
@@ -1263,10 +1360,12 @@ msgid "Header Layout"
 msgstr "Başlık Düzeni"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
+#, fuzzy
 msgid "Header Alignment"
 msgstr "Üstbilgi Hizalama"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
+#, fuzzy
 msgid "Logo Padding (px)"
 msgstr "Logo Dolgu (px)"
 
@@ -1279,6 +1378,7 @@ msgid "Enable on Complete Website"
 msgstr "Komple Web Sitesinde Etkinleştir"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
+#, fuzzy
 msgid "Site Content Padding (px)"
 msgstr "Site İçerik Dolgusu (px)"
 
@@ -1312,10 +1412,12 @@ msgid "Header Widgets"
 msgstr "Başlık yok"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
+#, fuzzy
 msgid "Enable Header Widgets"
 msgstr "Üstbilgi Widget'larını etkinleştir"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
+#, fuzzy
 msgid "Widgets Position"
 msgstr "Widget Pozisyonu"
 
@@ -1324,6 +1426,7 @@ msgid "Above Header"
 msgstr "Üst kısmın üstünde"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
+#, fuzzy
 msgid "In Header"
 msgstr "Üstbilgide"
 
@@ -1332,6 +1435,7 @@ msgid "Below Header"
 msgstr "Üst kısmın altında"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
+#, fuzzy
 msgid "Widgets Alignment"
 msgstr "Widget'lar Hizalama"
 
@@ -1340,18 +1444,22 @@ msgid "Spread"
 msgstr "Yayıldı"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
+#, fuzzy
 msgid "Space Around"
 msgstr "Uzay Çevresinde"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
+#, fuzzy
 msgid "Active Menu Background Color"
 msgstr "Etkin Menü Arka Plan Rengi"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
+#, fuzzy
 msgid "Menu Item Link Color"
 msgstr "Menü Öğesi Bağlantı Rengi"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
+#, fuzzy
 msgid "Menu Item Link Hover Color"
 msgstr "Menü Öğesi Bağlantı Hover Renk"
 
@@ -1360,30 +1468,37 @@ msgid "Sub Menu Background Color"
 msgstr "Alt Menü Arkaplan Rengi"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+#, fuzzy
 msgid "Sub Menu Item Link Color"
 msgstr "Alt Menü Öğe Bağlantı Rengi"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+#, fuzzy
 msgid "Sub Menu Item Link Hover Color"
 msgstr "Alt Menü Öğe Link Hover Renk"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+#, fuzzy
 msgid "Menu Toggle Background Color"
 msgstr "Menü Arka Plan Rengini Değiştirme"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+#, fuzzy
 msgid "Menu Toggle Color"
 msgstr "Menü Renk Değiştirme"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
+#, fuzzy
 msgid "Full Width Main Navigation"
 msgstr "Tam Genişlikli Ana Navigasyon"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
+#, fuzzy
 msgid "Enable Mobile Menu"
 msgstr "Mobil Menüyü Etkinleştir"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
+#, fuzzy
 msgid "Breakpoint"
 msgstr "Kesme noktası"
 
@@ -1392,6 +1507,7 @@ msgid "Dropdown"
 msgstr "Açılır Menü"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
+#, fuzzy
 msgid "FullScreen"
 msgstr "Fullscreen"
 
@@ -1401,10 +1517,12 @@ msgid "Sidebar"
 msgstr "Kenar Çubuğu"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+#, fuzzy
 msgid "Sidebar Menu Alignment"
 msgstr "Kenar Çubuğu Menü Hizalama"
 
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
+#, fuzzy
 msgid "Embeds to header.php"
 msgstr "Header.php'ye gömme"
 
@@ -1428,10 +1546,12 @@ msgid "Custom Home Page"
 msgstr "Özel Ana Sayfa"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
+#, fuzzy
 msgid "Enable Custom Front Page"
 msgstr "Özel Ön Sayfayı Etkinleştir"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
+#, fuzzy
 msgid "Overrides the WordPress front page option"
 msgstr "WordPress ön sayfa seçeneğini geçersiz kılar"
 
@@ -1440,7 +1560,8 @@ msgid "Hero Area"
 msgstr "Kahraman Alanı"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
+#, fuzzy
 msgid "HAPPINESS"
 msgstr "Mutluluk"
 
@@ -1449,7 +1570,8 @@ msgid "Headline"
 msgstr "Başlık"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
+#, fuzzy
 msgid "IS A WARM CUP"
 msgstr "SICAK Bİr KUPADIR"
 
@@ -1458,7 +1580,8 @@ msgid "Subheadline"
 msgstr "Alt Ana Başlık"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
+#, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -1487,6 +1610,7 @@ msgid "Call to Action (Text)"
 msgstr "Arama Butonu( Yazı )"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
+#, fuzzy
 msgid "Call to Action Button Style"
 msgstr "Eylem Düğmesi Stiline Çağrı"
 
@@ -1508,10 +1632,12 @@ msgstr "Hakkında Bölümünü Etkinleştir"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
 #: partials/custom-home/featured-area.php:105
+#, fuzzy
 msgid "About Box Title"
 msgstr "Kutu Başlığı Hakkında"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
+#, fuzzy
 msgid "About Title"
 msgstr "Başlık Hakkında"
 
@@ -1520,6 +1646,7 @@ msgid "About Text"
 msgstr "Hakkımda"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
+#, fuzzy
 msgid "Enter url as http://www.example.com"
 msgstr "url'yi http://www.example.com olarak girin"
 
@@ -1528,6 +1655,7 @@ msgid "Feature Section"
 msgstr "Özellikler Bölümü"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
+#, fuzzy
 msgid "Enable Feature Section"
 msgstr "Özellik Bölümünü Etkinleştir"
 
@@ -1536,12 +1664,14 @@ msgid "Feature Title"
 msgstr "Özellik Başlığı"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
+#, fuzzy
 msgid "Select post for feature 1"
 msgstr "Özellik 1 için gönderiyi seçin"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:457
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the feature. Recommended image size for the featured images: 130 x 130px"
@@ -1551,20 +1681,22 @@ msgstr ""
 "130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
+#, fuzzy
 msgid "Select post for feature 2"
 msgstr "Özellik 2 için gönderiyi seçin"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
+#, fuzzy
 msgid "Select post for feature 3"
 msgstr "Özellik 3 için gönderiyi seçin"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
 msgid "Testimonial Section"
-msgstr "Deneyimler bölümü"
+msgstr "Referans Bölümü"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
 msgid "Enable Testimonial Section"
-msgstr "Görüşler Bölümünü etkinleştir"
+msgstr "Referans Bölümü'nü etkinleştir"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
 #: partials/custom-home/featured-area.php:217
@@ -1580,6 +1712,7 @@ msgid "Select Post"
 msgstr "Yazı Seç"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the client testimonials. Recommended image size for the featured images: 178 "
@@ -1591,27 +1724,30 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
 msgid "Team Section"
-msgstr "Ekip bölümü"
+msgstr "Takım Bölümü"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
 msgid "Enable Team Section"
-msgstr "Takım Bölümünü Etkinleştir"
+msgstr "Ekip Bölümünü Etkinleştir"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
 msgid "team"
 msgstr "takım"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
+#, fuzzy
 msgid "Team Title"
 msgstr "Takım Adı"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
+#, fuzzy
 msgid "Select post for team member1"
 msgstr "Takım üyesi için gönderiyi seçin1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:622
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
@@ -1621,14 +1757,17 @@ msgstr ""
 "178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
+#, fuzzy
 msgid "Select post for team member2"
 msgstr "Takım üyesi için gönderiyi seçin2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
+#, fuzzy
 msgid "Select post for team member3"
 msgstr "Takım üyesi için gönderiyi seçin3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
+#, fuzzy
 msgid "Click to disable home page widgets"
 msgstr "Giriş sayfası widget'larını devre dışı kalmak için tıklayın"
 
@@ -1637,6 +1776,7 @@ msgid "Contact Section"
 msgstr "İletişim Bölümü ID"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
+#, fuzzy
 msgid "Enable Contact Section"
 msgstr "İletişim Bölümünü Etkinleştir"
 
@@ -1645,14 +1785,17 @@ msgid "Contact Us"
 msgstr "Bize Ulaşın"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
+#, fuzzy
 msgid "Contact section Title"
 msgstr "İletişim bölümü Başlık"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
+#, fuzzy
 msgid "Contact subtitle"
 msgstr "İletişim alt yazısı"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
+#, fuzzy
 msgid "Contact section Subtitle"
 msgstr "İletişim bölümü Altyazı"
 
@@ -1661,7 +1804,7 @@ msgid "Address"
 msgstr "Adres"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "E-posta"
 
@@ -1674,6 +1817,7 @@ msgid "Contact form shortcode"
 msgstr "İletişim formu kısa kodu"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
+#, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
 msgstr "İletişim Formu 7 kısa kodunu buraya koyabilirsiniz."
 
@@ -1688,6 +1832,7 @@ msgid "Post Elements"
 msgstr "Gönderi Öğeleri"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
+#, fuzzy
 msgid "Page Featured Image"
 msgstr "Sayfa Özellikli Resim"
 
@@ -1746,6 +1891,7 @@ msgid "Blog Post"
 msgstr "Blog yazısı"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:104
+#, fuzzy
 msgid "Single Blog Post"
 msgstr "Tek Blog Yazısı"
 
@@ -1758,6 +1904,7 @@ msgid "Page Options"
 msgstr "Sayfa Seçenekleri"
 
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
+#, fuzzy
 msgid "Post Featured Image"
 msgstr "Öne Çıkan Görüntü Sonrası"
 
@@ -1786,6 +1933,7 @@ msgid "Alternate Background Color"
 msgstr "Alternatif Arka Plan Rengi"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
+#, fuzzy
 msgid "General Text"
 msgstr "Genel Metin"
 
@@ -1794,26 +1942,32 @@ msgid "Body Text Color"
 msgstr "Gövde Metin Rengi"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
+#, fuzzy
 msgid "Heading 1 (H1) Color"
 msgstr "Başlık 1 (H1) Renk"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
+#, fuzzy
 msgid "Heading 2 (H2) Color"
 msgstr "Başlık 2 (H2) Renk"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
+#, fuzzy
 msgid "Heading 3 (H3) Color"
 msgstr "Başlık 3 (H3) Renk"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
+#, fuzzy
 msgid "Heading 4 (H4) Color"
 msgstr "Başlık 4 (H4) Renk"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
+#, fuzzy
 msgid "Heading 5 (H5) Color"
 msgstr "Başlık 5 (H5) Renk"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
+#, fuzzy
 msgid "Heading 6 (H6) Color"
 msgstr "Başlık 6 (H6) Renk"
 
@@ -1889,6 +2043,7 @@ msgid "Full Width"
 msgstr "Tam Genişlik"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
+#, fuzzy
 msgid "Container Width (px)"
 msgstr "Konteyner Genişliği (px)"
 
@@ -1901,20 +2056,24 @@ msgid "Content Boxed"
 msgstr "İçerik Kutulu"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
+#, fuzzy
 msgid "Box Padding (px)"
 msgstr "Kutu Dolgusu (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+#, fuzzy
 msgid "Box Radius (px)"
 msgstr "Kutu Yarıçapı (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
+#, fuzzy
 msgid "Padding (px)"
 msgstr "Dolgu (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
+#, fuzzy
 msgid "Radius (px)"
 msgstr "Yarıçap (px)"
 
@@ -1965,14 +2124,17 @@ msgid "Heading 6 (H6)"
 msgstr "Başlık 6 (H6)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
+#, fuzzy
 msgid "Input Fields"
 msgstr "Giriş Alanları"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
+#, fuzzy
 msgid "Exclude Categories from Blog page"
 msgstr "Kategorileri Blog sayfasından hariç tut"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
+#, fuzzy
 msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
@@ -1992,6 +2154,7 @@ msgid "Font Weight"
 msgstr "Font İcon"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
+#, fuzzy
 msgid "Important: Not all fonts support every font-weight."
 msgstr "Önemli: Tüm yazı tipleri her yazı tipi ağırlığını desteklemez."
 
@@ -2028,6 +2191,7 @@ msgid "Font Size"
 msgstr "Yazı Boyutu"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
+#, fuzzy
 msgid "You can add: px-em-%"
 msgstr "Ekleyebilirsiniz: px-em-%"
 
@@ -2043,24 +2207,50 @@ msgstr "Harf Aralığı, px"
 msgid "Font Color"
 msgstr "Yazı rengi"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "Merhaba! Duyarlı tema kullandığınız için teşekkür ederiz."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"Lütfen bize bir iyilik yapıp 5 yıldızlı bir reyting verebilir misiniz? Geri "
+"bildiriminiz bizi motive eder ve Duyarlı topluluğu büyütmemize yardımcı olur."
+
+#: core/includes/functions-admin.php:61
+msgid "Ok, you deserve it"
+msgstr "Tamam, bunu hakettin"
+
+#: core/includes/functions-admin.php:62
+msgid "Nope, maybe later"
+msgstr "Hayır, belki sonra"
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "Zaten yaptım"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "Anasayfa"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 msgid "Archive for %s"
 msgstr "%s arşivi"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "%s için arama sonuçları"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 msgid "Posts tagged %s"
 msgstr "Yazı Etiketleri %s"
 
@@ -2068,32 +2258,33 @@ msgstr "Yazı Etiketleri %s"
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "Bütün mesajları %s göster"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "Hata 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "Sayfa %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 msgid "Yelp!"
 msgstr "Yelp!"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr "foursquare"
 
 #: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
 #: image.php:59 index.php:56 partials/page/content.php:15
+#, fuzzy
 msgid "Read more &#8250;"
 msgstr "Devamını oku &#8250;"
 
@@ -2102,6 +2293,7 @@ msgid "Main Sidebar"
 msgstr "Ana Kenar Çubuğu"
 
 #: core/includes/functions-sidebar.php:29
+#, fuzzy
 msgid ""
 "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
 msgstr ""
@@ -2109,26 +2301,32 @@ msgstr ""
 "şablonları"
 
 #: core/includes/functions-sidebar.php:40
+#, fuzzy
 msgid "Home Widget 1"
 msgstr "Ev Widget 1"
 
 #: core/includes/functions-sidebar.php:41
+#, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
 msgstr "Alan 6 - kenar çubuğu-home.php - Giriş Sayfasında Görüntüler"
 
 #: core/includes/functions-sidebar.php:52
+#, fuzzy
 msgid "Home Widget 2"
 msgstr "Ev Widget 2"
 
 #: core/includes/functions-sidebar.php:53
+#, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
 msgstr "Alan 7 - kenar çubuğu-home.php - Ana Sayfada Görüntüler"
 
 #: core/includes/functions-sidebar.php:64
+#, fuzzy
 msgid "Home Widget 3"
 msgstr "Ev Widget 3"
 
 #: core/includes/functions-sidebar.php:65
+#, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
 msgstr "Alan 8 - kenar çubuğu-home.php - Giriş Sayfasında Görüntüler"
 
@@ -2137,6 +2335,7 @@ msgid "Gallery Sidebar"
 msgstr "Galeri Kenar Çubuğu"
 
 #: core/includes/functions-sidebar.php:77
+#, fuzzy
 msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
@@ -2149,46 +2348,56 @@ msgid "Colophon Widget"
 msgstr "Widget Klavyesi"
 
 #: core/includes/functions-sidebar.php:89
+#, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
 msgstr "Alan 10 - kenar çubuğu-colophon.php, 100% genişlik Footer widget"
 
 #: core/includes/functions-sidebar.php:101
+#, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
 msgstr "Alan 11 - kenar çubuğu-top.php - Üstbilginin sağında görüntüler"
 
 #: core/includes/functions-sidebar.php:112
+#, fuzzy
 msgid "Footer Widgets 1"
 msgstr "Altbilgi Widget'ları 1"
 
 #: core/includes/functions-sidebar.php:113
+#, fuzzy
 msgid "Area 12 - sidebar-footer.php"
 msgstr "Alan 12 - kenar çubuğu-footer.php"
 
 #: core/includes/functions-sidebar.php:123
+#, fuzzy
 msgid "Footer Widgets 2"
 msgstr "Altbilgi Widgets 2"
 
 #: core/includes/functions-sidebar.php:124
+#, fuzzy
 msgid "Area 13 - sidebar-footer.php"
 msgstr "Alan 13 - kenar çubuğu-footer.php"
 
 #: core/includes/functions-sidebar.php:134
+#, fuzzy
 msgid "Footer Widgets 3"
 msgstr "Altbilgi Widgets 3"
 
 #: core/includes/functions-sidebar.php:135
+#, fuzzy
 msgid "Area 14 - sidebar-footer.php"
 msgstr "Alan 14 - kenar çubuğu-footer.php"
 
 #: core/includes/functions-sidebar.php:145
+#, fuzzy
 msgid "Footer Widgets 4"
 msgstr "Altbilgi Widgets 4"
 
 #: core/includes/functions-sidebar.php:146
+#, fuzzy
 msgid "Area 15 - sidebar-footer.php"
 msgstr "Alan 15 - kenar çubuğu-footer.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "Eylem çağrısı"
 
@@ -2197,14 +2406,17 @@ msgid "Header Menu"
 msgstr "Başlık Menüsü"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "Altbilgi Menüsü"
 
 #: core/includes/functions.php:377
+#, fuzzy
 msgid "Team Section Options"
 msgstr "Takım Bölümü Seçenekleri"
 
 #: core/includes/functions.php:391
+#, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
 msgstr ""
@@ -2212,6 +2424,7 @@ msgstr ""
 "ayrıntıları girin:"
 
 #: core/includes/functions.php:394
+#, fuzzy
 msgid "Member designation"
 msgstr "Üye ataması"
 
@@ -2224,6 +2437,7 @@ msgid "Twitter Link"
 msgstr "Twitter Bağlantısı"
 
 #: core/includes/functions.php:406
+#, fuzzy
 msgid "GooglePlus Link"
 msgstr "GooglePlus Bağlantısı"
 
@@ -2257,30 +2471,36 @@ msgid "Upgrade To Pro"
 msgstr "Güncelle Pro'ya Yükselt"
 
 #: core/includes/post-custom-meta.php:137
+#, fuzzy
 msgid "Content/Sidebar"
 msgstr "İçerik/Kenar Çubuğu"
 
 #: core/includes/post-custom-meta.php:138
+#, fuzzy
 msgid "Sidebar/Content"
 msgstr "Kenar Çubuğu/İçerik"
 
 #. Template Name of the plugin/theme
+#, fuzzy
 msgid "Full Width Page (no sidebar)"
 msgstr "Tam Genişlik Sayfası (kenar çubuğu yok)"
 
 #: core/includes/post-custom-meta.php:140
+#, fuzzy
 msgid "Blog 2 Column"
 msgstr "Blog 2 Sütun"
 
 #: core/includes/post-custom-meta.php:141
+#, fuzzy
 msgid "Blog 3 Column"
 msgstr "Blog 3 Sütun"
 
 #: core/includes/post-custom-meta.php:142
+#, fuzzy
 msgid "Blog 4 Column"
 msgstr "Blog 4 Sütun"
 
-#: footer.php:88
+#: footer.php:90
 msgid "Scroll to Top"
 msgstr "Yukarıya ilerleyin"
 
@@ -2290,6 +2510,7 @@ msgstr "Kalıcı bağlantı %s"
 
 #. translators: %s Link to 5 star rating
 #: functions.php:453
+#, fuzzy
 msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
@@ -2301,7 +2522,7 @@ msgstr ""
 msgid "Thanks :)"
 msgstr "Teşekkürler :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2312,6 +2533,7 @@ msgid "Pages:"
 msgstr "Sayfalar:"
 
 #: header.php:35
+#, fuzzy
 msgid "&darr; Skip to Main Content"
 msgstr "&gt; Ana İçeriğe Atla"
 
@@ -2324,6 +2546,7 @@ msgid "Next"
 msgstr "Sonraki"
 
 #: image.php:37
+#, fuzzy
 msgid "&#8249; Return to"
 msgstr "&#8249; Geri dönüş"
 
@@ -2349,6 +2572,7 @@ msgid "Tagged with:"
 msgstr "Etiketler:"
 
 #: image.php:87 post-data.php:29
+#, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
 msgstr "<span class=\"post-edit\">Düzenle</span>"
 
@@ -2362,14 +2586,17 @@ msgstr "en yeni paylaşımlar &#8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
+#, fuzzy
 msgid "Your search for %s did not match any entries."
 msgstr "%s aramanız hiçbir girişle eşleşmedi."
 
 #: loop-no-posts.php:26
+#, fuzzy
 msgid "404 &#8212; Fancy meeting you here!"
 msgstr "404 &#8212; Süslü toplantı burada!"
 
 #: loop-no-posts.php:32
+#, fuzzy
 msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
@@ -2400,22 +2627,20 @@ msgid "0 Comments"
 msgstr "0 Yorum"
 
 #: partials/footer/copy-right.php:17
-msgid " | Powered by "
-msgstr "| Destekçi"
-
-#: partials/footer/copy-right.php:18
+#, fuzzy
 msgid " &copy; "
 msgstr "&gt;"
 
-#: partials/footer/copy-right.php:23
+#: partials/footer/copy-right.php:21
 msgid "&copy; "
 msgstr "&Kopya;"
 
-#: partials/footer/copy-right.php:32
-msgid "Responsive Theme"
-msgstr "Duyarlı Tema"
+#: partials/footer/copy-right.php:29
+#, fuzzy
+msgid " | Powered by Responsive Theme"
+msgstr "| Duyarlı Tema ile Desteklenmektedir"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "Menü"
 
@@ -2429,10 +2654,12 @@ msgid "About"
 msgstr "Hakkında"
 
 #: partials/single/layout.php:73
+#, fuzzy
 msgid "Previous Post is "
 msgstr "Önceki Yazı"
 
 #: partials/single/layout.php:74
+#, fuzzy
 msgid "Next Post is"
 msgstr "Sonraki Mesaj"
 
@@ -2453,14 +2680,17 @@ msgid "Image Information"
 msgstr "Resim Bilgisi"
 
 #: sidebar-gallery.php:33
+#, fuzzy
 msgid "Full Size:"
 msgstr "Tam Boy:"
 
 #: sidebar-gallery.php:39
+#, fuzzy
 msgid "Aperture: f&#47;"
 msgstr "Diyafram: f&#47;"
 
 #: sidebar-gallery.php:44
+#, fuzzy
 msgid "Focal Length:"
 msgstr "Odak:"
 
@@ -2469,10 +2699,12 @@ msgid "mm"
 msgstr "mm"
 
 #: sidebar-gallery.php:48
+#, fuzzy
 msgid "ISO:"
 msgstr "ıso:"
 
 #: sidebar-gallery.php:52
+#, fuzzy
 msgid "Shutter:"
 msgstr "Deklanşör:"
 
@@ -2481,14 +2713,17 @@ msgid "sec"
 msgstr "saniye"
 
 #: sidebar-gallery.php:69
+#, fuzzy
 msgid "Camera:"
 msgstr "Kamera:"
 
 #: sidebar-home.php:34
+#, fuzzy
 msgid "Fermentum"
 msgstr "Fermentum"
 
 #: sidebar-home.php:40
+#, fuzzy
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
@@ -2498,10 +2733,12 @@ msgstr ""
 "Widget 1 adı verilen 6. Başlık da widget'lardan yönetilebilir."
 
 #: sidebar-home.php:54
+#, fuzzy
 msgid "Elementum"
 msgstr "Elementum"
 
 #: sidebar-home.php:60
+#, fuzzy
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
@@ -2511,10 +2748,12 @@ msgstr ""
 "Widget 2 adı verilen 7. Başlık da widget'lardan yönetilebilir."
 
 #: sidebar-home.php:74
+#, fuzzy
 msgid "Interdum"
 msgstr "Interdum"
 
 #: sidebar-home.php:78
+#, fuzzy
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
@@ -2524,24 +2763,57 @@ msgstr ""
 "da widget'lardan yönetilebilir."
 
 #. Theme URI of the plugin/theme
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+#, fuzzy
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
-msgstr "Yanıt tam özelleştirilebilir, hızlı ve mobil dostu WordPress tema."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
+msgstr ""
+"Responsive tamamen özelleştirilebilir, arama motoru optimize edilmiş ve "
+"mobil dostu WordPress temasıdır. Gutenberg blok editörü ile uyumlu, bu blog, "
+"iş web sitesi veya WooCommerce mağaza için mükemmel bir seçimdir. Neredeyse "
+"sınırsız özelleştirici seçenekleri ile web sitenizin her özelliğini "
+"özelleştirebilirsiniz. Yanıt web sitesi hızını artırmak için minified komut "
+"dosyaları ile birlikte gelir. Ayrıca diğer özellikleri de dahil olmak üzere "
+"geliyor - sayfaları ve blog için dokuz düzen seçenekleri, WooCommerce "
+"tasarım seçenekleri, ve Elementor sayfa oluşturucu ile uyumluluk. Bir mobil, "
+"tablet, masaüstü ve tüm tarayıcılarda harika çalışır. Responsive 45 dilde de "
+"mevcuttur ve arama motoru dostudur. Bkz. Yanıt eylem: https://cyberchimps."
+"com/responsive-ready-websites/. Özellikleri hakkında daha fazla bilgi "
+"edinin: https://cyberchimps.com/responsive-features/."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "CyberChimps"
 
 #. Author URI of the plugin/theme
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+#, fuzzy
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
+#, fuzzy
 msgid "Gutenberg Fullwidth No title"
 msgstr "Gutenberg Fullwidth Başlık yok"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:48
+#, fuzzy
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"

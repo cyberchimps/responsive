@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Page_Layout_Customizer' ) ) :
 
 			// Main Content Width.
 			$page_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'page_content_width', $page_content_width_label, 'responsive_page_layout', 10, 66, null, 100 );
+			responsive_drag_number_control( $wp_customize, 'page_content_width', $page_content_width_label, 'responsive_page_layout', 10, 66, null, 100, 1, 'postMessage' );
 
 			// Sidebar.
 			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );

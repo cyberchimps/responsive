@@ -52,7 +52,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 				// Main Content Width.
 				$shop_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
-				responsive_drag_number_control( $wp_customize, 'cart_content_width', $shop_content_width_label, 'responsive_woocommerce_cart_layout', 10, 70, null, 100 );
+				responsive_drag_number_control( $wp_customize, 'cart_content_width', $shop_content_width_label, 'responsive_woocommerce_cart_layout', 10, 70, null, 100, 1, 'postMessage' );
 
 				$enable_crosssells_options_label = esc_html__( 'Enable Cross-sells', 'responsive' );
 				responsive_checkbox_control( $wp_customize, 'enable_crosssells_options', $enable_crosssells_options_label, 'responsive_woocommerce_cart_layout', 2, 1, null );
@@ -68,11 +68,12 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$wp_customize->add_control(
 					'responsive_menu_cart_icon',
 					array(
-						'label'    => __( 'Cart Icon Visibility', 'responsive' ),
-						'section'  => 'responsive_woocommerce_cart_layout',
-						'settings' => 'responsive_menu_cart_icon',
-						'type'     => 'select',
-						'choices'  => array(
+						'label'       => __( 'Cart Icon Visibility', 'responsive' ),
+						'description' => __( 'Cart Icon Will be displayed only when Header Menu is set', 'responsive' ),
+						'section'     => 'responsive_woocommerce_cart_layout',
+						'settings'    => 'responsive_menu_cart_icon',
+						'type'        => 'select',
+						'choices'     => array(
 							'icon-opencart' => __( 'Display On All Devices', 'responsive' ),
 							'disabled'      => __( 'Disabled On All Devices', 'responsive' ),
 						),

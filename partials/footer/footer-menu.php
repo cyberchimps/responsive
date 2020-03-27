@@ -8,6 +8,7 @@
 
 ?>
 <nav id="footer-site-navigation" class="footer-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'responsive' ); ?>">
+    <h2 class="screen-reader-text"><?php esc_html_e( 'Footer Menu', 'responsive' ); ?></h2>
 	<?php
 	wp_nav_menu(
 		array(

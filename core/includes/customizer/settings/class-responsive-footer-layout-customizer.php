@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Full Width Footer.
 			$footer_full_width_label = __( 'Full Width Footer', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_full_width', $footer_full_width_label, 'responsive_footer_layout', 10, 0, 'responsive_active_site_layout_contained' );
+			responsive_checkbox_control( $wp_customize, 'footer_full_width', $footer_full_width_label, 'responsive_footer_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
 
 			/**
 			 * Footer Widget Separator.
@@ -55,7 +55,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Number of Columns.
 			$number_of_columns_label = __( 'Number of Columns', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'footer_widgets_columns', $number_of_columns_label, 'responsive_footer_layout', 20, 0, null, 4, 0 );
+			responsive_drag_number_control( $wp_customize, 'footer_widgets_columns', $number_of_columns_label, 'responsive_footer_layout', 20, 0, null, 4, 0, 'postMessage' );
 
 			// Widgets Padding.
 			responsive_padding_control( $wp_customize, 'footer_widgets', 'responsive_footer_layout', 30, 20, 0, null );
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				'responsive_theme_options[poweredby_link]',
 				array(
 					'default'           => false,
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => Responsive\Customizer\responsive_sanitize_checkbox(),
 					'type'              => 'option',
 				)
 			);
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
 				'vertical'   => esc_html__( 'Vertical', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 130, $footer_layout_choices, 'horizontal', null );
+			responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 130, $footer_layout_choices, 'horizontal', null, 'postMessage' );
 
 			// Bar Padding.
 			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 120, 20, 0, null );

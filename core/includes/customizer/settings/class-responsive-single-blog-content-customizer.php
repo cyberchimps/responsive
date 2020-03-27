@@ -89,7 +89,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Content_Customizer' ) ) :
 				'default'   => esc_html__( 'Default', 'responsive' ),
 				'stretched' => esc_html__( 'Stretched', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'single_blog_featured_image_style', $featured_image_style_label, 'responsive_single_blog_content', 40, $featured_image_style_choices, 'default', null );
+			responsive_select_control( $wp_customize, 'single_blog_featured_image_style', $featured_image_style_label, 'responsive_single_blog_content', 40, $featured_image_style_choices, 'default', null, 'postMessage' );
 
 			// Featured Image Alignment.
 			$featured_image_alignment_label   = esc_html__( 'Alignment', 'responsive' );
@@ -162,6 +162,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Content_Customizer' ) ) :
 					'default'           => '-',
 					'sanitize_callback' => 'wp_check_invalid_utf8',
 					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
 				)
 			);
 			$wp_customize->add_control(

@@ -45,11 +45,11 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Full Width Header.
 			$header_full_width_label = __( 'Full Width Header', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_full_width', $header_full_width_label, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained' );
+			responsive_checkbox_control( $wp_customize, 'header_full_width', $header_full_width_label, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
 
 			// Full Width Header.
 			$inline_logo_site_title = __( 'Inline logo & Site Title', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'inline_logo_site_title', $inline_logo_site_title, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained' );
+			responsive_checkbox_control( $wp_customize, 'inline_logo_site_title', $inline_logo_site_title, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
 
 			/**
 			 * Header Elements Positioning
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
 				'vertical'   => esc_html__( 'Vertical', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_layout', $header_layout_label, 'responsive_header_layout', 20, $header_layout_choices, 'horizontal', null );
+			responsive_select_control( $wp_customize, 'header_layout', $header_layout_label, 'responsive_header_layout', 20, $header_layout_choices, 'horizontal', null, 'postMessage' );
 
 			// Header Alignment.
 			$header_alignment_label   = esc_html__( 'Header Alignment', 'responsive' );
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'left'   => esc_html__( 'Left', 'responsive' ),
 				'right'  => esc_html__( 'Right', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_alignment', $header_alignment_label, 'responsive_header_layout', 30, $header_alignment_choices, 'center', 'responsive_active_vertical_header' );
+			responsive_select_control( $wp_customize, 'header_alignment', $header_alignment_label, 'responsive_header_layout', 30, $header_alignment_choices, 'center', 'responsive_active_vertical_header', 'postMessage' );
 
 			// Logo Padding.
 			$logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Header Widget.
 			$header_widget_label = esc_html__( 'Enable Header Widgets', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'enable_header_widget', $header_widget_label, 'responsive_header_layout', 70, 1, null );
+			responsive_checkbox_control( $wp_customize, 'enable_header_widget', $header_widget_label, 'responsive_header_layout', 70, 1, null, 'postMessage' );
 
 			// Header Widget Position.
 			$header_widget_position_label   = esc_html__( 'Widgets Position', 'responsive' );
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'with_logo' => esc_html__( 'In Header', 'responsive' ),
 				'bottom'    => esc_html__( 'Below Header', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_widget_position', $header_widget_position_label, 'responsive_header_layout', 70, $header_widget_position_choices, 'top', 'responsive_active_header_widget' );
+			responsive_select_control( $wp_customize, 'header_widget_position', $header_widget_position_label, 'responsive_header_layout', 70, $header_widget_position_choices, 'top', 'responsive_active_header_widget', 'postMessage' );
 
 			// Header Alignment.
 			$header_widget_alignment_label   = esc_html__( 'Widgets Alignment', 'responsive' );
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'center'       => esc_html__( 'center', 'responsive' ),
 				'space-around' => esc_html__( 'Space Around', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_widget_alignment', $header_widget_alignment_label, 'responsive_header_layout', 80, $header_widget_alignment_choices, 'spread', 'responsive_active_header_widget' );
+			responsive_select_control( $wp_customize, 'header_widget_alignment', $header_widget_alignment_label, 'responsive_header_layout', 80, $header_widget_alignment_choices, 'spread', 'responsive_active_header_widget', 'postMessage' );
 
 		}
 	}

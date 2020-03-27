@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 18:44+0530\n"
+"PO-Revision-Date: 2020-03-27 15:39+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
@@ -328,15 +328,15 @@ msgstr "הגיש ביקורת »"
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr "בוערת נושא וורדפרס מהיר, ידידותי לנייד, הניתן להתאמה אישית לחלוטין."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "מבצע!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "סרגל צד ווקומרס"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
@@ -454,7 +454,7 @@ msgstr "הוסף לסל כפתורי"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -628,13 +628,13 @@ msgid "Gallery Layout"
 msgstr "פריסת גלריה"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "אנכי"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "אופקי"
@@ -648,6 +648,7 @@ msgid "Cart"
 msgstr "סל קניות"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+#, fuzzy
 msgid " / "
 msgstr "/"
 
@@ -741,6 +742,7 @@ msgstr "פונטי גוגל"
 
 #: core/includes/customizer/controls/upsell/class-responsive-control-upsell.php:72
 #: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
+#, fuzzy
 msgid "PRO"
 msgstr "פרו"
 
@@ -837,7 +839,8 @@ msgstr "תוכן"
 msgid "Site Branding"
 msgstr "מיתוג אתרים"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "ניווט ראשי"
 
@@ -868,12 +871,12 @@ msgstr "קטגוריה"
 msgid "Ratings"
 msgstr "דירוגים"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
 msgstr "קרא עוד \""
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr " קרא עוד &raquo;"
 
@@ -1138,69 +1141,73 @@ msgstr "מספר העמודות"
 msgid "Footer Bar"
 msgstr "סרגל תחתון"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "טקסט לכתובת אתר זכויות יוצרים"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "הסתר מופעל על ידי נושא תגובה"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "קישורים חברתיים"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "טוויטר"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "פייסבוק"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "לינקדאין"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "יוטיוב"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "פיד RSS"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "אינסטגרם"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "פינטרסט"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "וימאו"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "‫  FourSquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "כתובת אימייל"
 
@@ -1431,7 +1438,7 @@ msgid "Hero Area"
 msgstr "אזור הגיבורים"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 msgid "HAPPINESS"
 msgstr "שמחה"
 
@@ -1440,7 +1447,7 @@ msgid "Headline"
 msgstr "כותרת גג"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 msgid "IS A WARM CUP"
 msgstr "כותרת משנה"
 
@@ -1449,7 +1456,7 @@ msgid "Subheadline"
 msgstr "כותרת משנה"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -1653,7 +1660,7 @@ msgid "Address"
 msgstr "כתובת"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "אימייל"
 
@@ -2034,24 +2041,53 @@ msgstr "ריווח אותיות (px)"
 msgid "Font Color"
 msgstr "צבע גופן הכותרת"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "היי! תודה שאתה משתמש בערכת הנושא ' תגובה '."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"היי! תודה שהשתמשת בנושא התגובה. האם אתה יכול בבקשה לעשות לנו טובה ולתת לנו "
+"דירוג של 5 כוכבים? המשוב שלך שומר עלינו מוטיבציה ועוזר לנו לגדל את הקהילה "
+"המגיבה."
+
+#: core/includes/functions-admin.php:61
+#, fuzzy
+msgid "Ok, you deserve it"
+msgstr ". בסדר, זה מגיע לך"
+
+#: core/includes/functions-admin.php:62
+#, fuzzy
+msgid "Nope, maybe later"
+msgstr ". לא, אולי מאוחר יותר"
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "כבר עשיתי, "
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "דף הבית"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 msgid "Archive for %s"
 msgstr "ארכיון של %s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "תוצאות חיפוש עבור:  %s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 msgid "Posts tagged %s"
 msgstr "פוסטים שתויגו \"<ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>\""
 
@@ -2059,27 +2095,28 @@ msgstr "פוסטים שתויגו \"<ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "צפה בכל הרשומות  מאת %s"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "שגיאה 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "עמוד %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
+#, fuzzy
 msgid "Yelp!"
 msgstr "Yelp"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr "ריבוע"
 
@@ -2175,7 +2212,7 @@ msgstr "ווידג'טים בפוטר"
 msgid "Area 15 - sidebar-footer.php"
 msgstr "אזור 15 - sidebar-footer.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "קריאה לפעולה"
 
@@ -2184,6 +2221,7 @@ msgid "Header Menu"
 msgstr "תפריט האדר"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "תפריט פוטר"
 
@@ -2287,7 +2325,7 @@ msgstr ""
 msgid "Thanks :)"
 msgstr "תודה :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2388,6 +2426,7 @@ msgid " &copy; "
 msgstr "©"
 
 #: partials/footer/copy-right.php:21
+#, fuzzy
 msgid "&copy; "
 msgstr "©"
 
@@ -2395,7 +2434,7 @@ msgstr "©"
 msgid " | Powered by Responsive Theme"
 msgstr "| מופעל על ידי נושא רספונסיבי"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "תפריט"
 
@@ -2507,16 +2546,45 @@ msgstr ""
 "מהווידג'טים."
 
 #. Theme URI of the plugin/theme
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+#, fuzzy
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
-msgstr "Responsive הוא נושא וורדפרס להתאמה אישית מלאה, מהיר וידידותי לנייד."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
+msgstr ""
+"תגובה היא להתאמה אישית מלאה, מנוע החיפוש אופטימיזציה & נייד ידידותית לנושא "
+"וורדפרס. תואם לעורך בלוק גוטנברג, זוהי הבחירה המושלמת עבור הבלוג שלך, אתר "
+"האינטרנט, או חנות WooCommerce. עם אפשרויות התאמה אישית כמעט בלתי מוגבלות, "
+"באפשרותך להתאים את כל התכונות של אתר האינטרנט שלך. תגובה מגיעה עם סקריפטים "
+"מינילי כדי לשפר את מהירות האתר. הוא מגיע גם עם תכונות אחרות כולל-תשע "
+"אפשרויות פריסה עבור דפים ובלוג, אפשרויות עיצוב WooCommerce, ותאימות עם בונה "
+"הדף האלמנטים. זה עובד נהדר על נייד, לוח, שולחן עבודה, ולרוחב כל הדפדפנים. "
+"תגובה זמינה גם ב 45 שפות והוא ידידותי למנועי חיפוש. ראה היענות בפעולה: "
+"https://cyberchimps.com/responsive-ready-websites/. למד עוד אודות התכונות "
+"שלו: https://cyberchimps.com/responsive-features/."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "אנשי סייבר"
 
 #. Author URI of the plugin/theme
-msgid "https://cyberchimps.com/"
+#, fuzzy
+msgid "https://cyberchimps.com"
 msgstr "https://cyberchimps.com/"
 
 #. Template Name of the plugin/theme
@@ -2525,10 +2593,11 @@ msgstr "גוטנברג רוחב מלא אין כותרת"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:48
+#, fuzzy
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s תגובה על \"%2$s\""
+msgstr[0] "הערה %1$s ב-' ' %2$s ' '"
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""

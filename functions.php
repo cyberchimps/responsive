@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.2.2' );
+define( 'RESPONSIVE_THEME_VERSION', '4.3.0-beta.2' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -441,7 +441,7 @@ add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
-	wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+	   wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
@@ -481,6 +481,7 @@ function responsive_display_menu() {
 	$position = get_theme_mod( 'menu_position', 'in_header' );
 	?>
 	<nav id="main-nav" class="main-nav" role="navigation" aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>">
+        <h2 class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></h2>
 	<?php
 	if ( 'in_header' !== $position ) :
 		?>
@@ -764,20 +765,6 @@ function responsive_wpkses_post_tags( $tags, $context ) {
 			'width'           => true,
 			'frameborder'     => true,
 			'allowfullscreen' => true,
-		);
-		$tags['meta']   = array(
-			'content'  => true,
-			'itemprop' => true,
-		);
-		$tags['span']   = array(
-			'itemprop'  => true,
-			'itemscope' => true,
-			'itemtype'  => true,
-			'class'     => true,
-		);
-		$tags['a']      = array(
-			'itemprop' => true,
-			'href'     => true,
 		);
 	}
 	return $tags;

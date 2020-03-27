@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-25 03:47:44+00:00\n"
+"POT-Creation-Date: 2020-03-27 11:51:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -155,37 +155,37 @@ msgstr ""
 msgid "Responsive"
 msgstr ""
 
-#: comments.php:31
+#: comments.php:27
 msgid "This post is password protected. Enter the password to view any comments."
 msgstr ""
 
-#: comments.php:46
+#: comments.php:42
 #. translators: 1: title.
 msgid "One Comment on &ldquo;%1$s&rdquo;"
 msgstr ""
 
-#: comments.php:62 comments.php:75
+#: comments.php:58 comments.php:71
 msgid "&#8249; Older comments"
 msgstr ""
 
-#: comments.php:64 comments.php:77
+#: comments.php:60 comments.php:73
 msgid "Newer comments &#8250;"
 msgstr ""
 
-#: comments.php:89
+#: comments.php:85
 msgid "Pings&#47;Trackbacks"
 msgstr ""
 
-#: comments.php:108
+#: comments.php:102
 #. translators: 1 : Count, 2 : Pings 3 : Post title
 msgid "Name"
 msgstr ""
 
-#: comments.php:110
+#: comments.php:104
 msgid "E-mail"
 msgstr ""
 
-#: comments.php:112
+#: comments.php:106
 msgid "Website"
 msgstr ""
 
@@ -637,11 +637,11 @@ msgstr ""
 msgid "Single Product Structure"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/woocommerce-helper.php:165
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
 msgid "Cart"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/woocommerce-helper.php:170
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
 msgid " / "
 msgstr ""
 
@@ -770,26 +770,26 @@ msgstr ""
 msgid "Get the PRO version!"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:51
+#: core/includes/customizer/customizer.php:29
 msgid "CSS Styles"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:65
+#: core/includes/customizer/customizer.php:43
 msgid "Custom CSS Styles"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:85
+#: core/includes/customizer/customizer.php:64
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
 msgid "Gradient"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:86
+#: core/includes/customizer/customizer.php:65
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:232
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
 msgid "Flat"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:119
+#: core/includes/customizer/customizer.php:98
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
 msgid "Choose Post"
 msgstr ""
@@ -831,7 +831,8 @@ msgstr ""
 msgid "Site Branding"
 msgstr ""
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr ""
 
@@ -1143,47 +1144,47 @@ msgid "Social Links"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
-#: core/includes/functions-extensions.php:358
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
-#: core/includes/functions-extensions.php:359
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
-#: core/includes/functions-extensions.php:360
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
-#: core/includes/functions-extensions.php:361
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
-#: core/includes/functions-extensions.php:363
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
-#: core/includes/functions-extensions.php:364
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
-#: core/includes/functions-extensions.php:365
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
-#: core/includes/functions-extensions.php:362
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
-#: core/includes/functions-extensions.php:367
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr ""
 
@@ -1426,7 +1427,7 @@ msgid "Hero Area"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:88 functions.php:538
+#: core/includes/functions.php:58 functions.php:527
 msgid "HAPPINESS"
 msgstr ""
 
@@ -1435,7 +1436,7 @@ msgid "Headline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:89 functions.php:541
+#: core/includes/functions.php:59 functions.php:530
 msgid "IS A WARM CUP"
 msgstr ""
 
@@ -1444,7 +1445,7 @@ msgid "Subheadline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:90 functions.php:544
+#: core/includes/functions.php:60 functions.php:533
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -1637,7 +1638,7 @@ msgid "Address"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extensions.php:369
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr ""
 
@@ -1689,7 +1690,7 @@ msgid "Header"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-panel.php:58
-#: functions.php:483 partials/header/main-navigation.php:14
+#: functions.php:471 partials/header/main-navigation.php:14
 msgid "Main Menu"
 msgstr ""
 
@@ -2018,25 +2019,25 @@ msgstr ""
 msgid "Font Color"
 msgstr ""
 
-#: core/includes/functions-admin.php:78
+#: core/includes/functions-admin.php:59
 msgid "Hi! Thanks for using the Responsive theme."
 msgstr ""
 
-#: core/includes/functions-admin.php:79
+#: core/includes/functions-admin.php:60
 msgid ""
 "Can you please do us a favor and give us a 5-star rating? Your feedback "
 "keeps us motivated and helps us grow the Responsive community."
 msgstr ""
 
-#: core/includes/functions-admin.php:80
+#: core/includes/functions-admin.php:61
 msgid "Ok, you deserve it"
 msgstr ""
 
-#: core/includes/functions-admin.php:81
+#: core/includes/functions-admin.php:62
 msgid "Nope, maybe later"
 msgstr ""
 
-#: core/includes/functions-admin.php:82
+#: core/includes/functions-admin.php:63
 msgid "I already did"
 msgstr ""
 
@@ -2061,7 +2062,7 @@ msgstr ""
 msgid "Posts tagged %s"
 msgstr ""
 
-#: core/includes/functions-extensions.php:66 core/includes/functions.php:700
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 #. translators: %s: Author pages
 #. translators: %s: view post by
@@ -2075,21 +2076,22 @@ msgid "Error 404"
 msgstr ""
 
 #: core/includes/functions-extensions.php:211
-#: core/includes/functions-extras.php:203
+#: core/includes/functions-extras.php:190
 #. translators: %s: Page Number
+#. translators: %s: author
 msgid "Page %s"
 msgstr ""
 
-#: core/includes/functions-extensions.php:366
+#: core/includes/functions-extensions.php:365
 msgid "Yelp!"
 msgstr ""
 
-#: core/includes/functions-extensions.php:368
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr ""
 
-#: core/includes/functions-extras.php:132 gutenberg-fullwidth.php:46
-#: image.php:59 partials/page/content.php:15
+#: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
+#: image.php:59 index.php:56 partials/page/content.php:15
 msgid "Read more &#8250;"
 msgstr ""
 
@@ -2181,55 +2183,56 @@ msgstr ""
 msgid "Area 15 - sidebar-footer.php"
 msgstr ""
 
-#: core/includes/functions.php:91 functions.php:547
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr ""
 
-#: core/includes/functions.php:244
+#: core/includes/functions.php:216
 msgid "Header Menu"
 msgstr ""
 
-#: core/includes/functions.php:245 partials/footer/footer-menu.php:10
+#: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr ""
 
-#: core/includes/functions.php:400
+#: core/includes/functions.php:377
 msgid "Team Section Options"
 msgstr ""
 
-#: core/includes/functions.php:414
+#: core/includes/functions.php:391
 msgid "To use this post for front page's team section, please enter below details:"
 msgstr ""
 
-#: core/includes/functions.php:417
+#: core/includes/functions.php:394
 msgid "Member designation"
 msgstr ""
 
-#: core/includes/functions.php:421
+#: core/includes/functions.php:398
 msgid "Facebook Link"
 msgstr ""
 
-#: core/includes/functions.php:425
+#: core/includes/functions.php:402
 msgid "Twitter Link"
 msgstr ""
 
-#: core/includes/functions.php:429
+#: core/includes/functions.php:406
 msgid "GooglePlus Link"
 msgstr ""
 
-#: core/includes/functions.php:433
+#: core/includes/functions.php:410
 msgid "LinkedIn Link"
 msgstr ""
 
-#: core/includes/functions.php:681
+#: core/includes/functions.php:666
 msgid "Posted on"
 msgstr ""
 
-#: core/includes/functions.php:681
+#: core/includes/functions.php:666
 msgid "By"
 msgstr ""
 
-#: core/includes/functions.php:711 image.php:82 partials/entry/meta.php:104
+#: core/includes/functions.php:696 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -2237,12 +2240,12 @@ msgstr ""
 msgid "Posted in %s"
 msgstr ""
 
-#: core/includes/functions.php:711 partials/entry/meta.php:104
+#: core/includes/functions.php:696 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 msgid ", "
 msgstr ""
 
-#: core/includes/functions.php:728
+#: core/includes/functions.php:719
 msgid "Upgrade To Pro"
 msgstr ""
 
@@ -2274,43 +2277,41 @@ msgstr ""
 msgid "Scroll to Top"
 msgstr ""
 
-#: functions.php:404
+#: functions.php:392
 msgid "Permalink to %s"
 msgstr ""
 
-#: functions.php:465
+#: functions.php:453
 #. translators: %s Link to 5 star rating
 msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
 
-#: functions.php:466
+#: functions.php:454
 msgid "Thanks :)"
 msgstr ""
 
-#: functions.php:550
+#: functions.php:539
 msgid "#"
 msgstr ""
 
-#: gutenberg-fullwidth.php:49 image.php:63 partials/entry/layout.php:55
-#: partials/page/layout.php:45 partials/single/content.php:38
-#: partials/single/layout.php:60
+#: gutenberg-fullwidth.php:46 image.php:63 index.php:60
+#: partials/entry/layout.php:53 partials/page/layout.php:45
+#: partials/single/content.php:38 partials/single/layout.php:59
 msgid "Pages:"
-msgstr ""
-
-#: gutenberg-fullwidth.php:57 image.php:79 partials/entry/layout.php:64
-#: partials/page/layout.php:53 partials/single/layout.php:68
-msgid "Tagged with:"
-msgstr ""
-
-#: gutenberg-fullwidth.php:60 image.php:87 partials/entry/layout.php:66
-#: partials/page/layout.php:55 partials/single/layout.php:70
-msgid "<span class=\"post-edit\">Edit</span>"
 msgstr ""
 
 #: header.php:35
 msgid "&darr; Skip to Main Content"
+msgstr ""
+
+#: home.php:81
+msgid "Previous"
+msgstr ""
+
+#: home.php:82
+msgid "Next"
 msgstr ""
 
 #: image.php:37
@@ -2318,17 +2319,28 @@ msgid "&#8249; Return to"
 msgstr ""
 
 #: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
 msgid "No Comments"
 msgstr ""
 
 #: image.php:46 partials/entry/meta.php:90
 #: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
 msgid "1 Comment"
 msgstr ""
 
 #: image.php:46 partials/entry/meta.php:90
 #: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
 msgid "% Comments"
+msgstr ""
+
+#: image.php:79 post-data.php:25
+msgid "Tagged with:"
+msgstr ""
+
+#: image.php:87 post-data.php:29
+msgid "<span class=\"post-edit\">Edit</span>"
 msgstr ""
 
 #: loop-nav.php:28
@@ -2388,7 +2400,7 @@ msgstr ""
 msgid " | Powered by Responsive Theme"
 msgstr ""
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr ""
 
@@ -2397,15 +2409,15 @@ msgstr ""
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: partials/single/layout.php:51
+#: partials/single/layout.php:50
 msgid "About"
 msgstr ""
 
-#: partials/single/layout.php:77
+#: partials/single/layout.php:73
 msgid "Previous Post is "
 msgstr ""
 
-#: partials/single/layout.php:78
+#: partials/single/layout.php:74
 msgid "Next Post is"
 msgstr ""
 
@@ -2421,69 +2433,69 @@ msgstr ""
 msgid "Go"
 msgstr ""
 
-#: sidebar-gallery.php:25
+#: sidebar-gallery.php:26
 msgid "Image Information"
 msgstr ""
 
-#: sidebar-gallery.php:32
+#: sidebar-gallery.php:33
 msgid "Full Size:"
 msgstr ""
 
-#: sidebar-gallery.php:38
+#: sidebar-gallery.php:39
 msgid "Aperture: f&#47;"
 msgstr ""
 
-#: sidebar-gallery.php:43
+#: sidebar-gallery.php:44
 msgid "Focal Length:"
 msgstr ""
 
-#: sidebar-gallery.php:43
+#: sidebar-gallery.php:44
 msgid "mm"
 msgstr ""
 
-#: sidebar-gallery.php:47
+#: sidebar-gallery.php:48
 msgid "ISO:"
 msgstr ""
 
-#: sidebar-gallery.php:51
+#: sidebar-gallery.php:52
 msgid "Shutter:"
 msgstr ""
 
-#: sidebar-gallery.php:56 sidebar-gallery.php:58 sidebar-gallery.php:61
+#: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
 msgid "sec"
 msgstr ""
 
-#: sidebar-gallery.php:68
+#: sidebar-gallery.php:69
 msgid "Camera:"
 msgstr ""
 
-#: sidebar-home.php:33
+#: sidebar-home.php:34
 msgid "Fermentum"
 msgstr ""
 
-#: sidebar-home.php:39
+#: sidebar-home.php:40
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
 
-#: sidebar-home.php:53
+#: sidebar-home.php:54
 msgid "Elementum"
 msgstr ""
 
-#: sidebar-home.php:59
+#: sidebar-home.php:60
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
 
-#: sidebar-home.php:73
+#: sidebar-home.php:74
 msgid "Interdum"
 msgstr ""
 
-#: sidebar-home.php:77
+#: sidebar-home.php:78
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
@@ -2522,7 +2534,7 @@ msgstr ""
 msgid "Gutenberg Fullwidth No title"
 msgstr ""
 
-#: comments.php:52
+#: comments.php:48
 #. translators: 1: comment count number, 2: title.
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
@@ -2530,42 +2542,42 @@ msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions.php:138
+#: functions.php:126
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr ""
 
-#: functions.php:139
+#: functions.php:127
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr ""
 
-#: functions.php:144
+#: functions.php:132
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr ""
 
-#: functions.php:145
+#: functions.php:133
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr ""
 
-#: functions.php:150
+#: functions.php:138
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr ""
 
-#: functions.php:151
+#: functions.php:139
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr ""
 
-#: functions.php:156
+#: functions.php:144
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr ""
 
-#: functions.php:157
+#: functions.php:145
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr ""

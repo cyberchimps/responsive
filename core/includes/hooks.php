@@ -389,9 +389,13 @@ function responsive_header_widget_position() {
 		return;
 	}
 
+	$n = function( $function ) {
+		return __NAMESPACE__ . "\\$function";
+	};
+
 	$responsive_header_widget_position = 'responsive_header_' . get_theme_mod( 'responsive_header_widget_position', 'top' );
 
-	add_action( $responsive_header_widget_position, 'responsive_header_sidebar' );
+	add_action( $responsive_header_widget_position, $n( 'responsive_header_sidebar' ) );
 
 }
 /**

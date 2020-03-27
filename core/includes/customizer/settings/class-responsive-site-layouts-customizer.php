@@ -59,11 +59,11 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				'contained'  => esc_html__( 'Contained', 'responsive' ),
 				'full-width' => esc_html__( 'Full Width', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null );
+				responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
 
 			// Container Width.
 			$container_width_label = __( 'Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 20, 1140, 'responsive_active_site_layout_contained' );
+			responsive_drag_number_control( $wp_customize, 'container_width', $container_width_label, 'responsive_layout', 20, 1140, 'responsive_active_site_layout_contained', 4096, 1, 'postMessage' );
 
 			// Header Allignment.
 			$responsive_style_label  = __( 'Style', 'responsive' );
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
 				'flat'          => esc_html__( 'Flat', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, 'boxed', null );
+			responsive_select_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, 'boxed', null, 'postMessage' );
 
 			// Box Padding (px).
 			$box_padding_label = __( 'Box Padding (px)', 'responsive' );

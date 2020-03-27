@@ -231,7 +231,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$position++;
 			}
 		}
-		echo wp_kses_post( $doc->saveHTML() );
+		echo $doc->saveHTML(); // phpcs:ignore
 
 	} // end responsive_breadcrumb_lists.
 }

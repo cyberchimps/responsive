@@ -1,1018 +1,2958 @@
+# <!=Copyright (C) 2020 CyberChimps
+# This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive Theme\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-25 13:42:58 UTC\n"
-"PO-Revision-Date: 2014-05-28 06:06:37 UTC\n"
-"Last-Translator: Web Translate It <support@webtranslateit.com>\n"
-"Language-Team: Romanian, Romania\n"
+"Project-Id-Version: Responsive 4.2.2\n"
+"Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: WebTranslateIt.com\n"
-"Plural-Forms: nplurals=3; plural=(n == 1 ? 0: (((n % 100 > 19) || ((n % 100 == 0) && (n != 0))) ? 2: 1));\n"
+"PO-Revision-Date: 2020-03-27 16:19+0530\n"
+"Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
+"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n"
+"%100<=19) ? 1 : 2);\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"Last-Translator: \n"
+"Language: ro_RO\n"
 
-#: page.php
-#: landing-page.php
-#: index.php
-#: image.php
-#: full-width-page.php
-#: content-sidebar-page.php
-#: content-sidebar-half-page.php
-#: blog.php
-#: blog-excerpt.php
-#: archive.php
-#: home.php
-#: search.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: sitemap.php
-msgid "Pages:"
-msgstr "Pagini:"
+#: admin/templates/free-vs-pro.php:50
+msgid "17"
+msgstr "R — Pentru audiență adultă peste 17 ani"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "&#8249; Older posts"
-msgstr "Postări anterioare"
+#: admin/admin-functions.php:21
+#: admin/class-responsive-plugin-install-helper.php:157
+#, fuzzy
+msgid "Activating "
+msgstr "Activarea"
 
-#: blog-excerpt.php
-#: blog.php
-#: loop-nav.php
-msgid "Newer posts &#8250;"
-msgstr "Postări noi"
+#: admin/admin-functions.php:22
+#, fuzzy
+msgid "Not connect. Verify Network."
+msgstr "Nu se conectează. Verificați rețeaua."
 
-#: blog.php
-#: content-sidebar-half-page.php
-#: content-sidebar-page.php
-#: full-width-page.php
-#: home.php
-#: image.php
-#: index.php
-#: landing-page.php
-#: page.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: single.php
-#: core/includes/functions.php
-msgid "Read more &#8250;"
-msgstr "Citește mai mult"
+#: admin/admin-functions.php:23
+#, fuzzy
+msgid "Requested page not found. [404]"
+msgstr "Pagina solicitată nu a fost găsită. [404]"
 
-#: comments.php
-msgid "This post is password protected. Enter the password to view any comments."
-msgstr "Această postare este protejată cu parolă. Introdu parola pentru a vizualiza comentariile."
+#: admin/admin-functions.php:24
+#, fuzzy
+msgid "Internal Server Error [500]"
+msgstr "Eroare internă de server [500]"
 
-#: comments.php
-#: comments.php
+#: admin/admin-functions.php:25
+#, fuzzy
+msgid "Requested JSON parse failed"
+msgstr "Analiza JSON solicitată nu a reușit"
+
+#: admin/admin-functions.php:26
+#, fuzzy
+msgid "Time out error"
+msgstr "Eroare de expirare"
+
+#: admin/admin-functions.php:27
+#, fuzzy
+msgid "Ajax request aborted"
+msgstr "Ajax cerere anulate"
+
+#: admin/admin-functions.php:28
+#, fuzzy
+msgid "Uncaught Error"
+msgstr "Eroare neprinsă"
+
+#: admin/class-responsive-plugin-install-helper.php:93
+#, fuzzy
+msgid "Install and activate &raquo;"
+msgstr "Instalați și activați &gt;"
+
+#: admin/class-responsive-plugin-install-helper.php:97
+#: admin/class-responsive-plugin-install-helper.php:117
+msgid "Activate"
+msgstr "Activează"
+
+#: admin/class-responsive-plugin-install-helper.php:112
+msgid "Deactivate"
+msgstr "Dezactivați"
+
+#: admin/class-responsive-plugin-install-helper.php:117
+#, fuzzy
+msgid "Jetpack Portfolio"
+msgstr "Portofoliu Jetpack"
+
+#: admin/templates/free-vs-pro.php:15
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:389
+#: partials/custom-home/featured-area.php:131
+msgid "Features"
+msgstr "Caracteristici"
+
+#: admin/templates/free-vs-pro.php:16
+msgid "Free"
+msgstr "Gratuit"
+
+#: admin/templates/free-vs-pro.php:17 admin/templates/free-vs-pro.php:50
+#: admin/templates/free-vs-pro.php:51
+msgid "Pro"
+msgstr "Pro"
+
+#: admin/templates/free-vs-pro.php:23
+#, fuzzy
+msgid "Mobile Friendly"
+msgstr "Mobil Friendly (Mobil Friendly)"
+
+#: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
+#, fuzzy
+msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
+msgstr ""
+"Slider, portofoliu, tabele de stabilire a prețurilor, Widget-uri "
+"WooCommerce, etc"
+
+#: admin/templates/free-vs-pro.php:31
+#, fuzzy
+msgid "Blazing Fast Speed"
+msgstr "Viteză maximă"
+
+#: admin/templates/free-vs-pro.php:32
+#, fuzzy
+msgid "Optimized for speed, loads in under 2 seconds"
+msgstr "Optimizat pentru viteză, sarcini în mai puțin de 2 secunde"
+
+#: admin/templates/free-vs-pro.php:39
+#, fuzzy
+msgid "Fully Customizable"
+msgstr "Complet personalizabil"
+
+#: admin/templates/free-vs-pro.php:40
+#, fuzzy
+msgid "Using the customizer options for layout, fonts & colors"
+msgstr ""
+"Utilizarea opțiunilor de particularizare pentru aspect, fonturi și culori"
+
+#: admin/templates/free-vs-pro.php:42
+#, fuzzy
+msgid "Limited Options"
+msgstr "Opțiuni limitate"
+
+#: admin/templates/free-vs-pro.php:47
+#, fuzzy
+msgid "Ready-to-use Website Templates"
+msgstr "Șabloane de site-uri web gata de utilizare"
+
+#: admin/templates/free-vs-pro.php:48
+#, fuzzy
+msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
+msgstr ""
+"Gata de utilizare Elementor pagina constructor și Gutenberg site-ul template-"
+"uri"
+
+#: admin/templates/free-vs-pro.php:51
+#, fuzzy
+msgid "30+"
+msgstr "30."
+
+#: admin/templates/free-vs-pro.php:55
+#, fuzzy
+msgid "Exclusive Widgets"
+msgstr "Widget-uri exclusive"
+
+#: admin/templates/free-vs-pro.php:63
+#, fuzzy
+msgid "Exclusive Content, Deals & Offers"
+msgstr "Conținut exclusiv, oferte & oferte"
+
+#: admin/templates/free-vs-pro.php:64
+#, fuzzy
+msgid "Get access to exclusive WordPress content, deals & offers"
+msgstr "Obțineți acces la conținut exclusiv WordPress, oferte & oferte"
+
+#: admin/templates/free-vs-pro.php:71
+#, fuzzy
+msgid "Private Priority Email Support"
+msgstr "Asistență pentru e-mail cu prioritate privată"
+
+#: admin/templates/free-vs-pro.php:72
+#, fuzzy
+msgid "Need help? Just raise a support ticket to get priority email support"
+msgstr ""
+"Ai nevoie de ajutor? Trebuie doar să ridicați un bilet de asistență pentru a "
+"obține asistență pentru e-mail prioritară"
+
+#. Theme Name of the plugin/theme
+msgid "Responsive"
+msgstr "Responsive"
+
+#: comments.php:27
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"Acest articol este protejat cu parolă. Introdu parola pentru a vedea "
+"comentariile."
+
+#. translators: 1: title.
+#: comments.php:42
+#, fuzzy
+msgid "One Comment on &ldquo;%1$s&rdquo;"
+msgstr "Un comentariu la \"%1$s\""
+
+#: comments.php:58 comments.php:71
+#, fuzzy
 msgid "&#8249; Older comments"
-msgstr "Comentarii anterioare"
+msgstr "&#8249; Comentarii mai vechi"
 
-#: comments.php
-#: comments.php
+#: comments.php:60 comments.php:73
+#, fuzzy
 msgid "Newer comments &#8250;"
-msgstr "Comentarii noi"
+msgstr "Comentarii mai noi &#8250;"
 
-#: comments.php
+#: comments.php:85
+#, fuzzy
 msgid "Pings&#47;Trackbacks"
-msgstr "Ping-uri&#47;Trackback-uri"
+msgstr "Ping&#47;Urmăritori"
 
-#: comments.php
-msgid "%1$d %2$s for \"%3$s\""
-msgstr "%1$d %2$s pentru \"%3$s\""
-
-#: comments.php
+#. translators: 1 : Count, 2 : Pings 3 : Post title
+#: comments.php:102
 msgid "Name"
 msgstr "Nume"
 
-#: comments.php
+#: comments.php:104
 msgid "E-mail"
 msgstr "E-mail"
 
-#: comments.php
+#: comments.php:106
 msgid "Website"
-msgstr "Pagina web"
-
-#: footer.php
-msgid "&copy;"
-msgstr "&copy;"
-
-#: footer.php
-msgid "scroll to top"
-msgstr "defilați în susul paginii"
-
-#: footer.php
-msgid "&uarr;"
-msgstr "&uarr;"
-
-#: footer.php
-msgid "Responsive Theme"
-msgstr "Tema Responsive"
-
-#: footer.php
-msgid "powered by"
-msgstr "Rulează pe"
-
-#: footer.php
-msgid "WordPress"
-msgstr "WordPress"
-
-#: image.php
-msgid "&#8249; Return to"
-msgstr "Întoarce-te la"
-
-#: image.php
-#: post-meta-page.php
-#: post-meta.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "No Comments &darr;"
-msgstr "Nici un comentariu"
-
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "1 Comment &darr;"
-msgstr "Un comentariu"
-
-#: post-meta-page.php
-#: post-meta.php
-#: image.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "% Comments &darr;"
-msgstr "% comentarii"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Tagged with:"
-msgstr "Etichetat cu:"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-msgid "Posted in %s"
-msgstr "Postat în %s"
-
-#: image.php
-#: post-data.php
-#: sidebar-content-half-page.php
-#: sidebar-content-page.php
-#: sitemap.php
-msgid "Edit"
-msgstr "Editare"
-
-#: loop-no-posts.php
-msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 &#8212; Ciudat să te întâlnesc aici!"
-
-#: loop-no-posts.php
-msgid "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our options here."
-msgstr "Nu te panica, Vom trece peste împreună. Hai să luăm în calcul toate opțiunile."
-
-#: loop-no-posts.php
-msgid "You can return %s or search for the page you were looking for."
-msgstr "Poți reveni la %s sau caută pentru pagina pe care o dorești."
-
-#: loop-no-posts.php
-#: core/includes/functions.php
-msgid "Home"
-msgstr "Acasă"
-
-#: loop-no-posts.php
-msgid "&larr; Home"
-msgstr "&larr; Acasă"
-
-#: loop-header.php
-msgid "Daily Archives: %s"
-msgstr "Arhive zilnice: %s"
-
-#: loop-header.php
-msgid "Monthly Archives: %s"
-msgstr "Arhive lunare: %s"
-
-#: loop-header.php
-msgid "Yearly Archives: %s"
-msgstr "Arhive anuale: %s"
-
-#: loop-header.php
-msgid "Blog Archives"
-msgstr "Arhivele Blog-ului"
-
-#: loop-no-posts.php
-msgid "Your search for %s did not match any entries."
-msgstr "Nu există rezultate pentru căutarea după expresia %s"
-
-#: sitemap.php
-msgid "Permanent Link to %s"
-msgstr "Legătură permanentă către %s"
-
-#: core/includes/functions.php
-#: loop-header.php
-msgid "Search results for: %s"
-msgstr "Rezultate căutare pentru: %s"
-
-#: searchform.php
-msgid "search here &hellip;"
-msgstr "caută aici &hellip;"
-
-#: searchform.php
-msgid "Go"
-msgstr "Start"
-
-#: sidebar-gallery.php
-msgid "Image Information"
-msgstr "Informații despre imagine"
-
-#: sidebar-gallery.php
-msgid "Full Size:"
-msgstr "Mărime completă:"
-
-#: sidebar-gallery.php
-msgid "Aperture: f&#47;"
-msgstr "Deschidere:"
-
-#: sidebar-gallery.php
-msgid "Focal Length:"
-msgstr "Lungime focală:"
-
-#: sidebar-gallery.php
-msgid "mm"
-msgstr "mm"
-
-#: sidebar-gallery.php
-msgid "ISO:"
-msgstr "ISO:"
-
-#: sidebar-gallery.php
-msgid "Shutter:"
-msgstr "Închizător:"
-
-#: sidebar-gallery.php
-msgid "Camera:"
-msgstr "Cameră:"
-
-#: sidebar.php
-#: sidebar-right.php
-#: sidebar-right-half.php
-#: sidebar-left.php
-#: sidebar-left-half.php
-#: sidebar-half-left.php
-msgid "In Archive"
-msgstr "În arhivă"
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 1"
-msgstr "Widget Acasă 1"
-
-#: sidebar-home.php
-msgid "This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well."
-msgstr "Acesta este widget-ul pentru prima pagina acasă. Pentru a-l edita, navigați la Aspect > Widget-uri și alegeți al șaselea widget de sus in zona numită Widget Acasă 1. Titlul se poate personaliza, de asemenea."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 2"
-msgstr "Widget Acasă 2"
-
-#: sidebar-home.php
-msgid "This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well."
-msgstr "Acesta este widget-ul pentru a doua pagina acasă. Pentru a-l edita, navigați la Aspect > Widget-uri și alegeți al șaptelea widget de sus in zona numită Widget Acasă 2. Titlul se poate personaliza, de asemenea."
-
-#: core/includes/functions-sidebar.php
-#: sidebar-home.php
-msgid "Home Widget 3"
-msgstr "Widget Acasă 3"
-
-#: sidebar-home.php
-msgid "This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well."
-msgstr "Acesta este widget-ul pentru a treia pagina acasă. Pentru a-l edita, navigați la Aspect > Widget-uri și alegeți al optulea widget de sus in zona numită Widget Acasă 3. Titlul se poate personaliza, de asemenea."
-
-#: single.php
-msgid "About"
-msgstr "Despre"
-
-#: sitemap.php
-msgid "Categories"
-msgstr "Categorii"
-
-#: sitemap.php
-msgid "Latest Posts"
-msgstr "Ultimele articole"
-
-#: sitemap.php
-msgid "Pages"
-msgstr "Pagini"
-
-#: core/includes/functions.php
-msgid "Top Menu"
-msgstr "Meniu Sus"
-
-#: core/includes/functions.php
-msgid "Header Menu"
-msgstr "Meniu antet"
-
-#: core/includes/functions.php
-msgid "Sub-Header Menu"
-msgstr "Meniu sub-antet"
-
-#: core/includes/functions.php
-msgid "Footer Menu"
-msgstr "Meniu subsol"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Page %s"
-msgstr "Pagina %s"
-
-#: core/includes/functions.php
-msgid "<span class=\"%1$s\">Posted on </span>%2$s<span class=\"%3$s\"> by </span>%4$s"
-msgstr "<span class=\"%1$s\">Postat în </span>%2$s<span class=\"%3$s\"> de </span>%4$s"
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "View all posts by %s"
-msgstr "Vezi toate postările lui %s"
-
-#: core/includes/functions.php
-msgid "Archive for %s"
-msgstr "Arhivă pentru %s"
-
-#: core/includes/functions.php
-msgid "Posts tagged %s"
-msgstr "Postări etichetate %s"
-
-#: core/includes/functions.php
-msgid "Error 404"
-msgstr "Eroare 404 "
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "More Themes"
-msgstr "Mai multe teme."
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Showcase"
-msgstr "Prezentare"
-
-#: core/includes/functions-sidebar.php
-msgid "Main Sidebar"
-msgstr "Bara laterală principală"
-
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar"
-msgstr "Bara laterală - dreapta"
-
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar"
-msgstr "Bară laterală - stânga"
-
-#: core/includes/functions-sidebar.php
-msgid "Left Sidebar Half Page"
-msgstr "Bară laterală - stânga - pe mijlocul paginii"
-
-#: core/includes/functions-sidebar.php
-msgid "Right Sidebar Half Page"
-msgstr "Bară laterală - dreapta - pe mijlocul paginii"
-
-#: core/includes/functions-sidebar.php
-msgid "Gallery Sidebar"
-msgstr "Bară laterală - galerie"
-
-#: core/includes/functions-sidebar.php
-msgid "Colophon Widget"
-msgstr "Widget Colophon"
-
-#: core/includes/functions-sidebar.php
-msgid "Top Widget"
-msgstr "Widget Sus"
-
-#: blog.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog (full posts)"
-msgstr "Blog (inregistrări complete)"
-
-#: blog-excerpt.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Blog Excerpt (summary)"
-msgstr "Blog Excerpt (sumar)"
-
-#: content-sidebar-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar"
-msgstr "Conținut/Bară laterală"
-
-#: sidebar-content-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content"
-msgstr "Bară laterală/Conținut"
-
-#: content-sidebar-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Content/Sidebar Half Page"
-msgstr "Conținut/Bară laterală Jumătate de pagină"
-
-#: sidebar-content-half-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sidebar/Content Half Page"
-msgstr "Bară laterală/Conținut Jumătate de pagină"
-
-#: full-width-page.php
-#: core/includes/post-custom-meta.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Full Width Page (no sidebar)"
-msgstr "Pagină întreagă (fără bară laterală)"
-
-#: landing-page.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Landing Page (no menu)"
-msgstr "Pagină de destinație (fără meniu)"
-
-#: sitemap.php
-#. Template Name of the plugin/theme
-# INSTRUCTION: Template Name of the plugin/theme
-msgid "Sitemap"
-msgstr "Harta site"
-
-#: core/includes/post-custom-meta.php
+msgstr "Website"
+
+#: core/gutenberg/gutenberg-support.php:31
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:58
+msgid "Button Color"
+msgstr "Culoare buton"
+
+#: core/gutenberg/gutenberg-support.php:36
+msgid "Button Hover Color"
+msgstr "Culoare buton hover"
+
+#: core/gutenberg/gutenberg-support.php:41
+#, fuzzy
+msgid "Button Hover Text Color"
+msgstr "Culoare text planor buton"
+
+#: core/gutenberg/gutenberg-support.php:46
+msgid "Button Text Color"
+msgstr "Culoare text buton"
+
+#: core/gutenberg/gutenberg-support.php:53
+msgid "Text color"
+msgstr "Culoarea textului"
+
+#: core/gutenberg/gutenberg-support.php:60
+msgid "Container Background Color"
+msgstr "Culoare fundal container"
+
+#: core/includes/classes/class-responsive-admin-settings.php:91
+msgid "Responsive Options"
+msgstr "Opțiuni responsive"
+
+#: core/includes/classes/class-responsive-admin-settings.php:194
+msgid "Get Started"
+msgstr "Să începem"
+
+#: core/includes/classes/class-responsive-admin-settings.php:196
+#, fuzzy
+msgid "Free Vs Pro "
+msgstr "Gratuit Vs Pro"
+
+#: core/includes/classes/class-responsive-admin-settings.php:231
+#, fuzzy
+msgid "Import a website template(FREE)"
+msgstr "Importul unui șablon de site web (GRATUIT)"
+
+#: core/includes/classes/class-responsive-admin-settings.php:237
+#, fuzzy
+msgid ""
+"Install Responsive Add-ons to get ready-to-use website templates that can be "
+"imported with one click."
+msgstr ""
+"Instalați programe de completare adaptabile pentru a obține șabloane de site-"
+"uri web gata de utilizare care pot fi importate cu un singur clic."
+
+#: core/includes/classes/class-responsive-admin-settings.php:242
+#, fuzzy
+msgid "Learn More &raquo;"
+msgstr "Aflați mai multe &amp; raquo;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:269
+msgid "Support"
+msgstr "Suport"
+
+#: core/includes/classes/class-responsive-admin-settings.php:273
+#, fuzzy
+msgid "Have questions? Get in touch with us. We'll be happy to help"
+msgstr "Ai întrebări? Ia legătura cu noi. Vom fi bucuroși să vă ajutăm."
+
+#: core/includes/classes/class-responsive-admin-settings.php:277
+#, fuzzy
+msgid "Request Support &raquo;"
+msgstr "Cerere de sprijin &raquo;"
+
+#. translators: %1$s: Responsive Support link.
+#: core/includes/classes/class-responsive-admin-settings.php:303
+#, fuzzy
+msgid "Change site layout"
+msgstr "Modificarea aspectului site-ului"
+
+#: core/includes/classes/class-responsive-admin-settings.php:308
+#, fuzzy
+msgid "Customize fonts/typography"
+msgstr "Particularizarea fonturilor/tipografiei"
+
+#: core/includes/classes/class-responsive-admin-settings.php:313
+#, fuzzy
+msgid "Upload logo & site icon"
+msgstr "Pictograma Încărcare logo & site"
+
+#: core/includes/classes/class-responsive-admin-settings.php:318
+#, fuzzy
+msgid "Add/edit navigation menu"
+msgstr "Adăugarea/editarea meniului de navigare"
+
+#: core/includes/classes/class-responsive-admin-settings.php:323
+#, fuzzy
+msgid "Customize header options"
+msgstr "Particularizarea opțiunilor antetului"
+
+#: core/includes/classes/class-responsive-admin-settings.php:328
+#, fuzzy
+msgid "Customize footer options"
+msgstr "Particularizarea opțiunilor subsolului"
+
+#: core/includes/classes/class-responsive-admin-settings.php:333
+#, fuzzy
+msgid "Update blog layout"
+msgstr "Actualizare aspect blog"
+
+#: core/includes/classes/class-responsive-admin-settings.php:338
+#, fuzzy
+msgid "Update page layout"
+msgstr "Actualizare aspect pagină"
+
+#: core/includes/classes/class-responsive-admin-settings.php:346
+#, fuzzy
+msgid "Quick Start:"
+msgstr "Pornire rapidă:"
+
+#: core/includes/classes/class-responsive-admin-settings.php:365
+msgid "Community"
+msgstr "Comunitate"
+
+#: core/includes/classes/class-responsive-admin-settings.php:369
+#, fuzzy
+msgid ""
+"Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
+"and help each other"
+msgstr ""
+"Faceți cunoștință cu utilizatorii de energie receptivă. Salutați-vă, puneți "
+"întrebări, oferiți feedback și ajutați-vă reciproc"
+
+#: core/includes/classes/class-responsive-admin-settings.php:373
+#, fuzzy
+msgid "Join Facebook Group &raquo;"
+msgstr "Alăturați-vă Grupului Facebook &gt;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:387
+msgid "Feedback"
+msgstr "Feedback"
+
+#: core/includes/classes/class-responsive-admin-settings.php:391
+#, fuzzy
+msgid ""
+"Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
+"give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
+"the Responsive community."
+msgstr ""
+"Bună! Vă mulțumim pentru utilizarea tema Receptiv. Poți să ne faci o favoare "
+"și să ne dai un rating de 5 stele? Feedback-ul dumneavoastră ne motivează și "
+"ne ajută să dezvoltăm comunitatea Receptivă."
+
+#: core/includes/classes/class-responsive-admin-settings.php:395
+#, fuzzy
+msgid "Submit Review &raquo;"
+msgstr "Trimiteti Review &amp; raquo;"
+
+#: core/includes/classes/class-responsive-admin-settings.php:421
+#, fuzzy
+msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
+msgstr "Blazing Rapid, mobil-friendly, complet personalizabil WordPress temă."
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
+msgid "Sale!"
+msgstr "Ofertă!"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
+msgid "WooCommerce Sidebar"
+msgstr "Bara laterală WooCommerce"
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
+#, fuzzy
+msgid ""
+"This sidebar will be used on Product archive, Cart, Checkout and My Account "
+"pages."
+msgstr ""
+"Această bară laterală va fi utilizată în paginile Arhivă produs, Coș, "
+"Extragere și Contul meu."
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:44
+msgid "Colors"
+msgstr "Culori"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
+#, fuzzy
+msgid "Cart Buttons"
+msgstr "Butoane cărucior"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:222
+msgid "Button"
+msgstr "Buton"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:74
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:62
+msgid "Button Text"
+msgstr "Text Buton"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:78
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:66
+#, fuzzy
+msgid "Button Hover"
+msgstr "Buton hover"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
+#, fuzzy
+msgid "Button Hover Text"
+msgstr "Text cu mouse-ul butonului"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
+msgid "Checkout Button"
+msgstr "Textul butonului de plată"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:39
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:46
+msgid "Layouts"
+msgstr "Aspect"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php:46
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
+#, fuzzy
+msgid "Main Content Width (%)"
+msgstr "Lățime a conținutului principal (%)"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
+#, fuzzy
+msgid "Enable Cross-sells"
+msgstr "Activare cross-sells"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
+#, fuzzy
+msgid "Cart Icon Visibility"
+msgstr "Vizibilitate pictogramă coș"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
+#, fuzzy
+msgid "Display On All Devices"
+msgstr "Afișare pe toate dispozitivele"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
+#, fuzzy
+msgid "Disabled On All Devices"
+msgstr "Dezactivat pe toate dispozitivele"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
+#, fuzzy
+msgid "Product Catalog Options"
+msgstr "Opțiuni catalog de produse"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
+#, fuzzy
+msgid "Shop Options"
+msgstr "Opțiuni magazin"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
+msgid "Product Options"
+msgstr ""
+"Selectează opțiunile produsului înainte de a adăuga acest produs în coșul "
+"tău."
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
+#, fuzzy
+msgid "Single Product Options"
+msgstr "Opțiuni pentru un singur produs"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
+#, fuzzy
+msgid "Cart Options"
+msgstr "Opțiuni coș"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
+msgid "Rating Color"
+msgstr "Culoare de evaluare"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
+msgid "Price Color"
+msgstr "Culoare preț"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
+#, fuzzy
+msgid "Add To Cart Buttons"
+msgstr "Adăugare la butoanele coșului"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:44
+#: core/includes/post-custom-meta.php:163
 msgid "Layout"
 msgstr "Aspect"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/post-custom-meta.php
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:54
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:60
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:54
+msgid "Sidebar Position"
+msgstr "Poziţie bară laterală"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:56
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:62
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:56
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:56
+msgid "Right Sidebar"
+msgstr "Bară laterală dreapta"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:57
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:57
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:57
+msgid "Left Sidebar"
+msgstr "Bară laterală stânga"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:58
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:64
+#: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
+msgid "No Sidebar"
+msgstr "Fără bara laterală"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
+msgid "Shop Product"
+msgstr "Magazin de marfuri"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
+#, fuzzy
+msgid "Catalog View"
+msgstr "Vizualizare catalog"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
+msgid "Grid View"
+msgstr "Vizualizare grilă"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:70
+msgid "List View"
+msgstr "Vizualizare listă"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
+#, fuzzy
+msgid "Content Aligmnment"
+msgstr "Aligmnment de conținut"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:91
+msgid "Center"
+msgstr "Centru"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:78
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:194
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:198
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:202
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:204
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:92
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:156
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:74
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:96
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:111
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:126
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:196
+msgid "Left"
+msgstr "Stânga"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:79
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:192
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:196
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:200
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:205
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:77
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:93
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:157
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:112
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:127
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:197
+msgid "Right"
+msgstr "Dreapta"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
+#, fuzzy
+msgid "Shop Elements"
+msgstr "Elemente de magazin"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
+#, fuzzy
+msgid "Sale Notification"
+msgstr "Notificare de vânzare"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
+msgid "None"
+msgstr "Nici unul"
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:110
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:64
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:372
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:404
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:410
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:484
+#: core/includes/post-custom-meta.php:136
 msgid "Default"
 msgstr "Implicit"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Hello, World!"
-msgstr "Salut, lume!"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
+#, fuzzy
+msgid "Custom String"
+msgstr "Șir particularizat"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your H2 subheadline here"
-msgstr "Subtitlul tău H2 aici"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
+#, fuzzy
+msgid "Sale % Value"
+msgstr "Valoare % vânzare"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Your title, subtitle and this very content is editable from Theme Option. Call to Action button and its destination link as well. Image on your right can be an image or even YouTube video if you like."
-msgstr "Titlul, subtitlul si conținutul sunt editabile din Opțiuni Temă. Butonul și destinația de asemenea. Imaginea din dreapta poate fi o imagine sau chiar un video YouTube, daca doriți."
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
+#, fuzzy
+msgid "Sale Bubble Style"
+msgstr "Vanzare Bubble Stil"
 
-#: core/includes/theme-options/theme-options.php
-#: front-page.php
-msgid "Call to Action"
-msgstr "Acționează"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
+msgid "Circle"
+msgstr "Cerc"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Options"
-msgstr "Opțiuni șablon"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
+#, fuzzy
+msgid "Circle Outline"
+msgstr "Contur cerc"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Options Saved"
-msgstr "Opțiunile au fost salvate."
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
+msgid "Square"
+msgstr "Pătrat"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Theme Elements"
-msgstr "Elementele șablonului"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
+#, fuzzy
+msgid "Square Outline"
+msgstr "Contur pătrat"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Disable Call to Action Button?"
-msgstr "Dezactivează butonul Acționeaza?"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
+#, fuzzy
+msgid "Product Elements"
+msgstr "Elemente de produs"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Save Options"
-msgstr "Salvează opțiunile"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:67
+msgid "Gallery Layout"
+msgstr "Galerie Layout"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Restore Defaults"
-msgstr "Restaurează la implicit"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
+msgid "Vertical"
+msgstr "Vertical"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Logo Upload"
-msgstr "Încarcă Logo"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
+msgid "Horizontal"
+msgstr "Orizontal"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Header"
-msgstr "Antet personalizat"
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
+#, fuzzy
+msgid "Single Product Structure"
+msgstr "Structura unui singur produs"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Need to replace or remove default logo?"
-msgstr "Aveți nevoie să inlocuiți sau să stergeți logo-ul inițial?"
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
+msgid "Cart"
+msgstr "Coș"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Home Page"
-msgstr "Pagină de start"
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+msgid " / "
+msgstr "/"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Headline"
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
+msgid "Link values together"
+msgstr "Leagă valorile împreună"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+#: footer.php:90
+msgid "Top"
+msgstr "Sus"
+
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:193
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:197
+#: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:201
+msgid "Bottom"
+msgstr "Jos"
+
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:122
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:127
+#: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
+msgid "px - em - rem"
+msgstr "px - em - rem"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
+msgid "Inherit"
+msgstr "Moștenit"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:65
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
+msgid "Thin: 100"
+msgstr "Subțire (100)"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
+msgid "Light: 200"
+msgstr "Light: 200"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
+#, fuzzy
+msgid "Book: 300"
+msgstr "Rezervă: 300"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
+msgid "Normal: 400"
+msgstr "Normal: 400"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
+#, fuzzy
+msgid "Medium: 500"
+msgstr "Mediu: 500"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
+#, fuzzy
+msgid "Semibold: 600"
+msgstr "Semibold: 600"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
+#, fuzzy
+msgid "Bold: 700"
+msgstr "Bold: 700"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
+msgid "Extra Bold: 800"
+msgstr "Extra Bold: 800"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
+msgid "Black: 900"
+msgstr "Negru: 900"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
+#, fuzzy
+msgid "Arial, Helvetica, sans-serif"
+msgstr ""
+"Arial, Helvetica, sans-serif Arial, Helvetica, sans-serif Arial, Helvetica, "
+"sans-serif Arial"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:219
+msgid "Custom Fonts"
+msgstr "Fonturi personalizate"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:236
+msgid "Standard Fonts"
+msgstr "Fonturi standard"
+
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:250
+msgid "Google Fonts"
+msgstr "Fonturi Google"
+
+#: core/includes/customizer/controls/upsell/class-responsive-control-upsell.php:72
+#: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
+#, fuzzy
+msgid "PRO"
+msgstr "Pro"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
+#, fuzzy
+msgid "View PRO Features"
+msgstr "Vezi caracteristici PRO"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
+#, fuzzy
+msgid "Pro Ready Sites"
+msgstr "Pro Ready Site-uri"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
+msgid "Form Builder"
+msgstr "Constructor"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
+#, fuzzy
+msgid "Interactive Sliders and Carousels"
+msgstr "Slidere interactive și carusele"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
+msgid "Pricing Tables"
+msgstr "Tabel preţuri"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
+#, fuzzy
+msgid "Portfolio and Post Layouts"
+msgstr "Portofoliu și Post Layouts"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
+#, fuzzy
+msgid "Private, Priority Support"
+msgstr "Asistență privată, prioritară"
+
+#: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
+#, fuzzy
+msgid "Get the PRO version!"
+msgstr "Ia versiunea PRO!"
+
+#: core/includes/customizer/customizer.php:29
+#, fuzzy
+msgid "CSS Styles"
+msgstr "Stiluri CSS"
+
+#: core/includes/customizer/customizer.php:43
+#, fuzzy
+msgid "Custom CSS Styles"
+msgstr "Stiluri CSS particularizate"
+
+#: core/includes/customizer/customizer.php:64
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
+msgid "Gradient"
+msgstr "Gradient"
+
+#: core/includes/customizer/customizer.php:65
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:232
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
+msgid "Flat"
+msgstr "Apartament"
+
+#: core/includes/customizer/customizer.php:98
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
+msgid "Choose Post"
+msgstr "Alege tipul de articol"
+
+#: core/includes/customizer/helper.php:35
+#: core/includes/customizer/helper.php:118
+#: core/includes/customizer/helper.php:224
+#: core/includes/customizer/helper.php:247
+#: core/includes/customizer/helper.php:274
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:48
+msgid "Title"
 msgstr "Titlu"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your headline"
-msgstr "Introdu titlul"
+#: core/includes/customizer/helper.php:36
+#: core/includes/customizer/helper.php:119
+#: core/includes/customizer/helper.php:225
+msgid "Featured Image"
+msgstr "Imagine recomandată"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Subheadline"
-msgstr "Subtitlu"
+#: core/includes/customizer/helper.php:37
+#: core/includes/customizer/helper.php:120
+#: core/includes/customizer/helper.php:252
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:79
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:139
+msgid "Meta"
+msgstr "Meta"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your subheadline"
-msgstr "Introdu subtitlul"
+#: core/includes/customizer/helper.php:38
+#: core/includes/customizer/helper.php:121
+#: core/includes/customizer/helper.php:226
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:196
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:43
+msgid "Content"
+msgstr "Conținut"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Content Area"
-msgstr "Zona de conținut"
+#: core/includes/customizer/helper.php:173
+#, fuzzy
+msgid "Site Branding"
+msgstr "Site-ul de branding"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your content"
-msgstr "Introdu conținutul"
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
+msgid "Main Navigation"
+msgstr "Navigare primară"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (URL)"
-msgstr "Acționează (URL)"
+#: core/includes/customizer/helper.php:248
+msgid "Rating"
+msgstr "Evaluare"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action URL"
-msgstr "Introdu URL-ul pentru acționare"
+#: core/includes/customizer/helper.php:249
+#: core/includes/customizer/helper.php:276
+msgid "Price"
+msgstr "Preț"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Call to Action (Text)"
-msgstr "Acționare (Text)"
+#: core/includes/customizer/helper.php:250
+#: core/includes/customizer/helper.php:278
+msgid "Short Description"
+msgstr "Descriere scurta a produsului"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your call to action text"
-msgstr "Introdu textul pentru acționare"
+#: core/includes/customizer/helper.php:251
+#: core/includes/customizer/helper.php:279
+msgid "Add to Cart"
+msgstr "Adaugă în Coș"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Featured Content"
-msgstr "Conținut promovat"
+#: core/includes/customizer/helper.php:275
+msgid "Category"
+msgstr "Categorie"
 
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "See Docs"
-msgstr "Vezi Documentație"
+#: core/includes/customizer/helper.php:277
+msgid "Ratings"
+msgstr "Evaluări"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Paste your shortcode, video or image source"
-msgstr "Introduceți sursa legăturii scurte, video sau imagine."
+#: core/includes/customizer/helper.php:766
+msgid "Read more &raquo;"
+msgstr "Citeste mai mult &raquo;"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Layouts"
-msgstr "Aspecte implicite"
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
+msgid "Read More &raquo;"
+msgstr "Citeste mai mult &raquo;"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Static Page Layout"
-msgstr "Aspectul predefinit pentru pagina statică"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
+#, fuzzy
+msgid "Entry Elements"
+msgstr "Elemente de intrare"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Single Blog Post Layout"
-msgstr "Aspectul predefinit pentru pagina unei postări"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
+#, fuzzy
+msgid "Entry Featured Image"
+msgstr "Imagine caracteristică intrare"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Default Blog Posts Index Layout"
-msgstr "Aspectul predefinit pentru pagina postări"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:87
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:69
+msgid "Style"
+msgstr "Stil"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Social Icons"
-msgstr "Pictograme Rețele Sociale"
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:91
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:89
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:90
+#, fuzzy
+msgid "Stretched"
+msgstr "Întins"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:110
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:109
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:110
+msgid "Alignment"
+msgstr "Aliniere"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:206
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:158
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:128
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:99
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:114
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:183
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:198
+msgid "center"
+msgstr "centru"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:106
+msgid "Entry Title"
+msgstr "Titlu anunțului"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
+msgid "Entry Meta"
+msgstr "Entry Meta"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
+#, fuzzy
+msgid "Meta Elements"
+msgstr "Meta Elemente"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
+msgid "Author"
+msgstr "Autor"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:149
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:149
+msgid "Date"
+msgstr "Data"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:150
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:150
+msgid "Categories"
+msgstr "Categorii"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:151
+msgid "Comments"
+msgstr "Comentarii"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:170
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
+#, fuzzy
+msgid "Meta Separator"
+msgstr "Meta Separator"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
+#, fuzzy
+msgid "Meta Alignment"
+msgstr "Aliniere meta"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
+#, fuzzy
+msgid "Entry Content"
+msgstr "Conținut de intrare"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
+msgid "Content Type"
+msgstr "Tip Conținut"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:197
+msgid "Excerpt"
+msgstr "Rezumat"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:124
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:194
+msgid "Content Alignment"
+msgstr "Aliniere Conținut"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:211
+msgid "Excerpt Length"
+msgstr "Lungime extras"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:215
+msgid "Read More Text"
+msgstr "Text Citeşte mai mult"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
+#, fuzzy
+msgid "Read More Type"
+msgstr "Citiți mai multe tipuri"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
+msgid "Link"
+msgstr "Link"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:43
+#: core/includes/customizer/settings/class-responsive-panel.php:85
+#: core/includes/customizer/settings/class-responsive-panel.php:86
+#, fuzzy
+msgid "Content Header"
+msgstr "Antet conținut"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
+#, fuzzy
+msgid "Enable Blog Page Title"
+msgstr "Activare titlu pagină blog"
+
+#: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
+#, fuzzy
+msgid "Blog Page Title"
+msgstr "Blog Page Titlu"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
+#, fuzzy
+msgid "Entry Columns"
+msgstr "Coloane intrare"
+
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
+#, fuzzy
+msgid "Enable Masonry Layout"
+msgstr "Activare aspect zidărie"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
+msgid "Title Color"
+msgstr "Culoare titlu"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:50
+msgid "Description Color"
+msgstr "Culoare Descriere"
+
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
+#, fuzzy
+msgid "Breadcrumb Color"
+msgstr "Culoare pesmet"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
+#, fuzzy
+msgid "Disable breadcrumb list?"
+msgstr "Dezactivează lista de pesmet?"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
+#, fuzzy
+msgid "Breadcrumb Position"
+msgstr "Poziția pesmetului"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
+#, fuzzy
+msgid "Before Heading"
+msgstr "Înainte de titlu"
+
+#: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
+#, fuzzy
+msgid "After Heading"
+msgstr "După titlu"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:197
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:209
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:219
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:230
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:241
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:252
+msgid "Typography"
+msgstr "Tipografie"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:53
+msgid "Description"
+msgstr "Descriere"
+
+#: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:59
+msgid "Breadcrumb"
+msgstr "Firimitură"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:79
+msgid "Documentation"
+msgstr "Documentație"
+
+#. translators: %1$s is Plugin Name
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+#, fuzzy
+msgid "To have access to a shop section please install and configure %1$s."
+msgstr ""
+"Pentru a avea acces la o secțiune de magazin, instalați și configurați %1$s."
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+#, fuzzy
+msgid "WooCommerce plugin"
+msgstr "WooCommerce plug-in"
+
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
+msgid "Recommended Plugins"
+msgstr "Plugin-uri recomandate"
+
+#. translators: Orbit Fox Companion
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+#, fuzzy
+msgid ""
+"Get access to even more powerful features that will help you build a "
+"beautiful fast and responsive website in no time at all."
+msgstr ""
+"Obțineți acces la caracteristici și mai puternice, care vă vor ajuta să "
+"construiți un site web frumos rapid și receptiv în cel mai scurt timp."
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:51
+msgid "Background Color"
+msgstr "Culoare fundal"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:68
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:131
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:155
+msgid "Text Color"
+msgstr "Culoare text"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:80
+msgid "Links Color"
+msgstr "Culoare Linkuri"
+
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:58
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
+msgid "Links Hover Color"
+msgstr "Culoare Link-uri Hover"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
+#, fuzzy
+msgid "Full Width Footer"
+msgstr "Subsol cu lățime completă"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
+msgid "Footer Widgets"
+msgstr "Footer Widgets"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:57
+msgid "Number of Columns"
+msgstr "Număr de coloane"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:66
+msgid "Footer Bar"
+msgstr "Subsol"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "Text copyright"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Ascunde powered by Receptiv Tematica"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
+msgid "Social Links"
+msgstr "Link-uri retele sociale"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Twitter URL"
-msgstr "Introduceți adresa dvs. petru Twitter"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Facebook URL"
-msgstr "Introduceți adresa dvs. pentru Facebook"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your LinkedIn URL"
-msgstr "Introduceți adresa dvs. pentru LinkedIn"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
-msgstr "YouTube"
+msgstr "Youtube"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your YouTube URL"
-msgstr "Introduceți adresa dvs. pentru YouTube"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "StumbleUpon"
-msgstr "StumbleUpon"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your StumbleUpon URL"
-msgstr "Introduceți adresa dvs. pentru StumbleUpon"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
-msgstr "Flux RSS"
+msgstr "RSS Feed"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your RSS Feed URL"
-msgstr "Introduceți adresa fluxului dvs. RSS"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Google+ URL"
-msgstr "Introduceți adresa dvs. Google+"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Instagram URL"
-msgstr "Introduceți adresa dvs. Instagram"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Pinterest URL"
-msgstr "Introduceți adresa dvs. Pinterest"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
+msgid "StumbleUpon"
+msgstr "Stumbleupon"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
-msgid "Yelp!"
-msgstr "Yelp!"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Yelp! URL"
-msgstr "Introduceți adresa dvs. Yelp!"
-
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your Vimeo URL"
-msgstr "Introduceți adresa dvs. Vimeo"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
+msgid "Yelp"
+msgstr "Yelp"
 
-#: core/includes/functions.php
-#: core/includes/theme-options/theme-options.php
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
+msgid "Foursquare"
+msgstr "Foursquare"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
+msgid "Email Address"
+msgstr "Adresa email"
+
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:39
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:39
+#, fuzzy
+msgid "Scripts"
+msgstr "Scripturi"
+
+#: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
+#, fuzzy
+msgid "Embeds to footer.php"
+msgstr "Embeds la subsol.php"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:139
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:159
+msgid "Border Color"
+msgstr "Culoare bordură"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
+#, fuzzy
+msgid "Site Title Color"
+msgstr "Culoare titlu site"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
+msgid "Site Title Hover Color"
+msgstr "Culoare deasupra titlu site"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
+#, fuzzy
+msgid "Site Tagline Color"
+msgstr "Culoare slogan site"
+
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
+#, fuzzy
+msgid "Header Widget"
+msgstr "Widget antet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
+#, fuzzy
+msgid "Full Width Header"
+msgstr "Antet lățime completă"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
+#, fuzzy
+msgid "Inline logo & Site Title"
+msgstr "Logo-ul Inline & Titlul site-ului"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
+msgid "Header Elements"
+msgstr "Elemente antet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:81
+msgid "Header Layout"
+msgstr "Aspect antet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
+#, fuzzy
+msgid "Header Alignment"
+msgstr "Aliniere antet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
+#, fuzzy
+msgid "Logo Padding (px)"
+msgstr "Sigla (px)"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
+msgid "Transparent Header"
+msgstr "Antet transparent"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
+#, fuzzy
+msgid "Enable on Complete Website"
+msgstr "Activare pe site-ul complet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
+#, fuzzy
+msgid "Site Content Padding (px)"
+msgstr "Padding conținut site-ului (px)"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
+#, fuzzy
+msgid "Disable on 404, Search & Archives?"
+msgstr "Dezactivați pe 404, Search & Archives?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
+#, fuzzy
+msgid "Disable on Blog page?"
+msgstr "Dezactivați pe pagina de blog?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
+#, fuzzy
+msgid "Disable on Latest Posts Page?"
+msgstr "Dezactivați pe Ultimele Posturi Page?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
+#, fuzzy
+msgid "Disable on Pages?"
+msgstr "Dezactivați pe Pagini?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
+#, fuzzy
+msgid "Disable on Posts?"
+msgstr "Dezactivați pe posturi?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
+#, fuzzy
+msgid "Disable on WooCommerce Product Pages?"
+msgstr "Dezactivați pe WooCommerce pagini de produse?"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
+#: core/includes/functions-sidebar.php:100
+#, fuzzy
+msgid "Header Widgets"
+msgstr "Widget-uri antet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
+#, fuzzy
+msgid "Enable Header Widgets"
+msgstr "Activare widgeturi antet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
+#, fuzzy
+msgid "Widgets Position"
+msgstr "Widgets Poziția"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
+#, fuzzy
+msgid "Above Header"
+msgstr "Antet deasupra"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
+#, fuzzy
+msgid "In Header"
+msgstr "În antet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
+#, fuzzy
+msgid "Below Header"
+msgstr "Sub antet"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
+#, fuzzy
+msgid "Widgets Alignment"
+msgstr "Widget-uri alinierea"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
+msgid "Spread"
+msgstr "Răspândește"
+
+#: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
+#, fuzzy
+msgid "Space Around"
+msgstr "Spațiu în jurul"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
+#, fuzzy
+msgid "Active Menu Background Color"
+msgstr "Culoare fundal meniu activ"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
+#, fuzzy
+msgid "Menu Item Link Color"
+msgstr "Culoare legătură element meniu"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
+#, fuzzy
+msgid "Menu Item Link Hover Color"
+msgstr "Culoare legătură element meniu"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
+msgid "Sub Menu Background Color"
+msgstr "Culoare de fundal sub-meniu"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+#, fuzzy
+msgid "Sub Menu Item Link Color"
+msgstr "Culoare legătură element submeniu"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+#, fuzzy
+msgid "Sub Menu Item Link Hover Color"
+msgstr "Sub meniu element link-ul de culoare hover"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+#, fuzzy
+msgid "Menu Toggle Background Color"
+msgstr "Comutare meniu Culoare fundal"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+#, fuzzy
+msgid "Menu Toggle Color"
+msgstr "Culoare comutare meniu"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
+#, fuzzy
+msgid "Full Width Main Navigation"
+msgstr "Navigare principală la lățime completă"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
+#, fuzzy
+msgid "Enable Mobile Menu"
+msgstr "Activare meniu mobil"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
+#, fuzzy
+msgid "Breakpoint"
+msgstr "Întrerupere"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:65
+msgid "Dropdown"
+msgstr "Lista verticală"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
+msgid "FullScreen"
+msgstr "Fullscreen"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-panel.php:67
+msgid "Sidebar"
+msgstr "Bară laterală"
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+#, fuzzy
+msgid "Sidebar Menu Alignment"
+msgstr "Aliniere meniu bară laterală"
+
+#: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
+#, fuzzy
+msgid "Embeds to header.php"
+msgstr "Încorporează la header.php"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
+msgid "Site Title"
+msgstr "Titlul Site-ului"
+
+#: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
+msgid "Site Tagline"
+msgstr "Site Tagline"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:50
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
+msgid "Choose Category"
+msgstr "Alegeți categoria"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
+#, fuzzy
+msgid "Custom Home Page"
+msgstr "Pagină de pornire particularizată"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
+#, fuzzy
+msgid "Enable Custom Front Page"
+msgstr "Activare pagină front particularizată"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
+#, fuzzy
+msgid "Overrides the WordPress front page option"
+msgstr "Suprascrie opțiunea WordPress prima pagină"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
+#, fuzzy
+msgid "Hero Area"
+msgstr "Zona erou"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
+#: core/includes/functions.php:58 functions.php:527
+#, fuzzy
+msgid "HAPPINESS"
+msgstr "Fericire"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:108
+msgid "Headline"
+msgstr "Titlu"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
+#: core/includes/functions.php:59 functions.php:530
+#, fuzzy
+msgid "IS A WARM CUP"
+msgstr "ESTE O CEAȘCĂ CALDĂ"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
+#, fuzzy
+msgid "Subheadline"
+msgstr "Subtitlu"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
+#: core/includes/functions.php:60 functions.php:533
+#, fuzzy
+msgid ""
+"Your title, subtitle and this very content is editable from Theme Option. "
+"Call to Action button and its destination link as well. Image on your right "
+"can be an image or even YouTube video if you like."
+msgstr ""
+"Titlul, subtitrare a acestui conținut foarte este editabil de la Opțiunea "
+"Tematica. Apel la acțiune buton și link-ul său de destinație, de asemenea. "
+"Imaginea din dreapta poate fi o imagine sau chiar un videoclip YouTube, dacă "
+"doriți."
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
+msgid "Content Area"
+msgstr "Zona Conţinut"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
+#, fuzzy
+msgid "Disable Call to Action Button?"
+msgstr "Dezactivați butonul Apel la acțiune?"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
+#, fuzzy
+msgid "Call to Action (URL)"
+msgstr "Apel la acțiune (URL)"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
+#, fuzzy
+msgid "Call to Action (Text)"
+msgstr "Apel la acțiune (Text)"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
+#, fuzzy
+msgid "Call to Action Button Style"
+msgstr "Stil buton apel la acțiune"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
+msgid "Featured Content"
+msgstr "Conținut recomandat"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
+#, fuzzy
+msgid "Paste your shortcode, video or image source"
+msgstr "Lipiți codul scurt, video sau sursa de imagine"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
+#, fuzzy
+msgid "About Section"
+msgstr "Despre secțiune"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
+#, fuzzy
+msgid "Enable About Section"
+msgstr "Activare secțiune despre"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
+#: partials/custom-home/featured-area.php:105
+#, fuzzy
+msgid "About Box Title"
+msgstr "Despre titlul casetei"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
+#, fuzzy
+msgid "About Title"
+msgstr "Despre titlu"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
+msgid "About Text"
+msgstr "Text Despre"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
+#, fuzzy
+msgid "Enter url as http://www.example.com"
+msgstr "Introduceți URL-ul ca http://www.example.com"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
+#, fuzzy
+msgid "Feature Section"
+msgstr "Secțiunea caracteristici"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
+#, fuzzy
+msgid "Enable Feature Section"
+msgstr "Activare secțiune caracteristică"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
+msgid "Feature Title"
+msgstr "Titlu caracteristică"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
+#, fuzzy
+msgid "Select post for feature 1"
+msgstr "Selectare post pentru caracteristica 1"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:457
+#, fuzzy
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the feature. Recommended image size for the featured images: 130 x 130px"
+msgstr ""
+"Imaginea, titlul și conținutul recomandate din postări vor fi utilizate "
+"pentru a afișa funcția. Dimensiunea recomandată a imaginii pentru imaginile "
+"prezentate: 130 x 130px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
+#, fuzzy
+msgid "Select post for feature 2"
+msgstr "Selectare post pentru caracteristica 2"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
+#, fuzzy
+msgid "Select post for feature 3"
+msgstr "Selectare post pentru caracteristica 3"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
+#, fuzzy
+msgid "Testimonial Section"
+msgstr "Secțiunea mărturie"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
+#, fuzzy
+msgid "Enable Testimonial Section"
+msgstr "Activare secțiunea Mărturie"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
+#: partials/custom-home/featured-area.php:217
+msgid "Testimonial"
+msgstr "Recomandare"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
+msgid "Testimonial Title"
+msgstr "Titlu testimoniale"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
+msgid "Select Post"
+msgstr "Selectează articol"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
+#, fuzzy
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the client testimonials. Recommended image size for the featured images: 178 "
+"x 178px"
+msgstr ""
+"Imaginea, titlul și conținutul recomandate din postări vor fi utilizate "
+"pentru a afișa mărturiile clienților. Dimensiunea recomandată a imaginii "
+"pentru imaginile prezentate: 178 x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
+#, fuzzy
+msgid "Team Section"
+msgstr "Secțiunea echipei"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
+#, fuzzy
+msgid "Enable Team Section"
+msgstr "Activare secțiune echipă"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
+msgid "team"
+msgstr "echipa"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
+#, fuzzy
+msgid "Team Title"
+msgstr "Titlul echipei"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
+#, fuzzy
+msgid "Select post for team member1"
+msgstr "Selectare post pentru membrul echipei1"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:622
+#, fuzzy
+msgid ""
+"The featured image, title and content from the posts will be used to display "
+"the team member. Recommended image size for the featured images: 178 x 178px"
+msgstr ""
+"Imaginea, titlul și conținutul recomandate din postări vor fi utilizate "
+"pentru a afișa membrul echipei. Dimensiunea recomandată a imaginii pentru "
+"imaginile prezentate: 178 x 178px"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
+#, fuzzy
+msgid "Select post for team member2"
+msgstr "Selectare post pentru membrul echipei2"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
+#, fuzzy
+msgid "Select post for team member3"
+msgstr "Selectare post pentru membrul echipei3"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
+#, fuzzy
+msgid "Click to disable home page widgets"
+msgstr "Faceți clic pentru a dezactiva widgeturile paginilor de pornire"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
+#, fuzzy
+msgid "Contact Section"
+msgstr "Secțiunea de contact"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
+#, fuzzy
+msgid "Enable Contact Section"
+msgstr "Activare secțiune persoană de contact"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
+msgid "Contact Us"
+msgstr "Contactează-ne"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
+#, fuzzy
+msgid "Contact section Title"
+msgstr "Titlul secțiunii de contact"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
+#, fuzzy
+msgid "Contact subtitle"
+msgstr "A lua legatura cu subtitrare"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
+#, fuzzy
+msgid "Contact section Subtitle"
+msgstr "Contact secțiune Subtitrare"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
+msgid "Address"
+msgstr "Adresa"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
+#: core/includes/functions-extensions.php:368
+#, fuzzy
+msgid "Email"
+msgstr "Email"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
+#, fuzzy
+msgid "Phone no"
+msgstr "Nr. telefon"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
+#, fuzzy
+msgid "Contact form shortcode"
+msgstr "Cod scurt formular de contact"
+
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
+#, fuzzy
+msgid "You can put Contact Form 7 shortcode here."
+msgstr "Puteți pune formularul de contact 7 shortcode aici."
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
+msgid "Page Elements"
+msgstr "Elementele pe Pagină"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
+#, fuzzy
+msgid "Post Elements"
+msgstr "Elemente de publicare"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
+#, fuzzy
+msgid "Page Featured Image"
+msgstr "Imagine recomandate pagină"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
+msgid "Page Title"
+msgstr "Titlu pagină"
+
+#: core/includes/customizer/settings/class-responsive-page-content-customizer.php:120
+msgid "Page Content"
+msgstr "Continut Pagina"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:40
+msgid "Theme Options"
+msgstr "Opțiuni temă"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:41
+#: core/includes/customizer/settings/class-responsive-panel.php:50
+msgid "Header Options"
+msgstr "Opțiuni antet"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:49
+msgid "Header"
+msgstr "Antet"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:58
+#: functions.php:471 partials/header/main-navigation.php:14
+msgid "Main Menu"
+msgstr "Meniu Principal"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:59
+#, fuzzy
+msgid "Header Menu Options"
+msgstr "Opțiuni meniu antet"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:68
+msgid "Sidebar Options"
+msgstr "Opțiuni Sidebar"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:76
+msgid "Footer"
+msgstr "Subsol"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:77
+msgid "Footer Options"
+msgstr "Opțiuni subsol"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:94
+#, fuzzy
+msgid "Blog / Archive"
+msgstr "Blog / Arhiva"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:95
+msgid "Blog Options"
+msgstr "Optiuni blog"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:103
+msgid "Blog Post"
+msgstr "Articol Blog"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:104
+#, fuzzy
+msgid "Single Blog Post"
+msgstr "Un singur blog post"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:112
+msgid "Page"
+msgstr "Pagină"
+
+#: core/includes/customizer/settings/class-responsive-panel.php:113
+msgid "Page Options"
+msgstr "Opțiuni pagină"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
+#, fuzzy
+msgid "Post Featured Image"
+msgstr "Post recomandate Imagine"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:106
+msgid "Post Title"
+msgstr "Titlul postării"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:121
+msgid "Post Meta"
+msgstr "Post Meta"
+
+#: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:190
+msgid "Post Content"
+msgstr "Conținutul mesajului (postării)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:59
+msgid "Backgrounds"
+msgstr "Fundaluri"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
+msgid "Box Background Color"
+msgstr "Modifică culoare fundal"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
+msgid "Alternate Background Color"
+msgstr "Culoare fundal alternativă"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
+#, fuzzy
+msgid "General Text"
+msgstr "General Text"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
+msgid "Body Text Color"
+msgstr "Culoare Body Text"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
+#, fuzzy
+msgid "Heading 1 (H1) Color"
+msgstr "Culoare titlu 1 (H1)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
+#, fuzzy
+msgid "Heading 2 (H2) Color"
+msgstr "Culoare titlu 2 (H2)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
+#, fuzzy
+msgid "Heading 3 (H3) Color"
+msgstr "Culoare titlu 3 (H3)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
+#, fuzzy
+msgid "Heading 4 (H4) Color"
+msgstr "Culoare a capului 4 (H4)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
+#, fuzzy
+msgid "Heading 5 (H5) Color"
+msgstr "Culoare titlu 5 (H5)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
+#, fuzzy
+msgid "Heading 6 (H6) Color"
+msgstr "Culoare titlu 6 (H6)"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
+#, fuzzy
+msgid "Meta Text Color"
+msgstr "Culoare text meta"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
+msgid "Links"
+msgstr "Legături"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:111
+msgid "Link Color"
+msgstr "Culoare Link"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:115
+msgid "Link Hover Color"
+msgstr "Link Hover Color"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:119
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:83
+msgid "Buttons"
+msgstr "Butoane"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:123
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:151
+msgid "Color"
+msgstr "Culoare"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:127
+msgid "Hover Color"
+msgstr "Culoare Hover"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:135
+msgid "Hover Text Color"
+msgstr "Culoarea textului on-hover"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:143
+msgid "Hover Border Color"
+msgstr "Culoare bordură peste"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:147
+msgid "Inputs"
+msgstr "Intrări"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:163
+msgid "Labels"
+msgstr "Etichete"
+
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:167
+msgid "Label Color"
+msgstr "Culoare etichetă"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
+#, fuzzy
+msgid "Hide Site Title"
+msgstr "Ascundere titlu site"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
+#, fuzzy
+msgid "Hide Tagline"
+msgstr "Ascundere slogan"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
+msgid "Width"
+msgstr "Lăţime"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:59
+#, fuzzy
+msgid "Contained"
+msgstr "Conţinute"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:60
+msgid "Full Width"
+msgstr "Lățime completă"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
+#, fuzzy
+msgid "Container Width (px)"
+msgstr "Lățime container (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
+msgid "Boxed"
+msgstr "Boxed"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
+#, fuzzy
+msgid "Content Boxed"
+msgstr "Conținut în cutie"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
+#, fuzzy
+msgid "Box Padding (px)"
+msgstr "Căptușeală box (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+#, fuzzy
+msgid "Box Radius (px)"
+msgstr "Rază de cutie (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
+msgid "Padding (px)"
+msgstr "Spațiere interioara (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
+#, fuzzy
+msgid "Radius (px)"
+msgstr "Rază (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
+#, fuzzy
+msgid "Border Width (px)"
+msgstr "Lățimebord (px)"
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
+#, fuzzy
+msgid "Form Inputs"
+msgstr "Intrări formular"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:162
+msgid "Body"
+msgstr "Corp"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:55
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
+msgid "Heading 1 (H1)"
+msgstr "Titlu 1 (H1)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
+msgid "Heading 2 (H2)"
+msgstr "Titlu 2 (H2)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
+msgid "Heading 3 (H3)"
+msgstr "Titlu 3 (H3)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
+msgid "Heading 4 (H4)"
+msgstr "Titlu 4 (H4)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
+#, fuzzy
+msgid "Heading 5 (H5)"
+msgstr "Poziția 5 (H5)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
+#, fuzzy
+msgid "Heading 6 (H6)"
+msgstr "Poziția 6 (H6)"
+
+#: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
+#, fuzzy
+msgid "Input Fields"
+msgstr "Câmpuri de intrare"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
+#, fuzzy
+msgid "Exclude Categories from Blog page"
+msgstr "Exclude categorii din pagina de blog"
+
+#: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
+#, fuzzy
+msgid ""
+"Please choose the post categories that should not be displayed on the blog "
+"page"
+msgstr ""
+"Vă rugăm să alegeți categoriile de post care nu ar trebui să fie afișate pe "
+"pagina de blog"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
+msgid "General Typography"
+msgstr "General Typography"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
+msgid "Font Family"
+msgstr "Familie Font"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:400
+msgid "Font Weight"
+msgstr "Greutate"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
+#, fuzzy
+msgid "Important: Not all fonts support every font-weight."
+msgstr "Important: Nu toate fonturile acceptă fiecare font-greutate."
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
+msgid "Font Style"
+msgstr "Stilul fontului"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:451
+msgid "Normal"
+msgstr "Normal"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:452
+msgid "Italic"
+msgstr "Înclinat"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:477
+msgid "Text Transform"
+msgstr "Transforma text"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:485
+msgid "Capitalize"
+msgstr "Capitalizează text"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:486
+msgid "Lowercase"
+msgstr "Litere mici"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:487
+msgid "Uppercase"
+msgstr "Uppercase"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:531
+msgid "Font Size"
+msgstr "Mărime Font"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
+#, fuzzy
+msgid "You can add: px-em-%"
+msgstr "Puteți adăuga: px-em-%"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
+msgid "Line Height"
+msgstr "Înălţime linie"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
+msgid "Letter Spacing (px)"
+msgstr "Spațiul dintre litere (px)"
+
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:659
+msgid "Font Color"
+msgstr "Culoare font"
+
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "Bună! Vă mulțumim pentru utilizarea tema Receptiv."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"Poți să ne faci o favoare și să ne dai un rating de 5 stele? Feedback-ul "
+"dumneavoastră ne motivează și ne ajută să dezvoltăm comunitatea Receptivă."
+
+#: core/includes/functions-admin.php:61
+msgid "Ok, you deserve it"
+msgstr "Bine, o meriți"
+
+#: core/includes/functions-admin.php:62
+msgid "Nope, maybe later"
+msgstr "Nu, poate mai târziu"
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "Am făcut-o deja"
+
+#. translators: %s: link
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
+msgid "Home"
+msgstr "Acasă"
+
+#. translators: %s: Categories
+#: core/includes/functions-extensions.php:60
+msgid "Archive for %s"
+msgstr "Arhivă pentru  %s"
+
+#. translators: %s: Search result page
+#. translators: %s is for search query.
+#: core/includes/functions-extensions.php:62 loop-header.php:33
+msgid "Search results for: %s"
+msgstr "Rezultatele căutării pentru: %s"
+
+#. translators: %s: Post Pages
+#: core/includes/functions-extensions.php:64
+#, fuzzy
+msgid "Posts tagged %s"
+msgstr "Posturi etichetate %s"
+
+#. translators: %s: Author pages
+#. translators: %s: view post by
+#. translators: view all posts by author
+#. translators: %s view posts by
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
+#: partials/entry/meta.php:54 partials/single/meta.php:49
+msgid "View all posts by %s"
+msgstr "Vezi toate articolele din %s"
+
+#: core/includes/functions-extensions.php:67
+msgid "Error 404"
+msgstr "Eroare 404"
+
+#. translators: %s: Page Number
+#. translators: %s: author
+#: core/includes/functions-extensions.php:211
+#: core/includes/functions-extras.php:190
+msgid "Page %s"
+msgstr "Pagina %s"
+
+#: core/includes/functions-extensions.php:365
+#, fuzzy
+msgid "Yelp!"
+msgstr "Scheunătură!"
+
+#: core/includes/functions-extensions.php:367
+#, fuzzy
 msgid "foursquare"
-msgstr "foursquare"
+msgstr "Foursquare"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your foursquare URL"
-msgstr "Introduceți adresa dvs. foursquare"
+#: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
+#: image.php:59 index.php:56 partials/page/content.php:15
+#, fuzzy
+msgid "Read more &#8250;"
+msgstr "Citeste mai mult &#8250;"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Custom CSS Styles"
-msgstr "Stiluri CSS personalizate"
+#: core/includes/functions-sidebar.php:28
+msgid "Main Sidebar"
+msgstr "Bara laterală principală"
 
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Tutorial"
-msgstr "Tutorial CSS"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom CSS styles."
-msgstr "Introduceți stilurile dvs. CSS personalizate"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Custom Scripts for Header and Footer"
-msgstr "Scripturi personalizate pentru Antet sau Subsol."
-
-#: core/includes/theme-options/theme-options.php
-msgid "Quick Tutorial"
-msgstr "Tutorial Rapid"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to header.php &darr;"
-msgstr "Fixează in header.php &darr;"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom header script."
-msgstr "Introduceți scriptul personalizat pentru antet."
-
-#: core/includes/theme-options/theme-options.php
-msgid "Embeds to footer.php &darr;"
-msgstr "Fixează in footer.php &darr;"
-
-#: core/includes/theme-options/theme-options.php
-msgid "Enter your custom footer script."
-msgstr "Introduceți scriptul personalizat pentru subsol."
-
-#: core/includes/functions.php
-msgid "Activate Add Ons"
+#: core/includes/functions-sidebar.php:29
+#, fuzzy
+msgid ""
+"Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
 msgstr ""
+"Zona 1 - sidebar.php - Afișează pe implicit, Blog, Blog Excerpt pagina "
+"template-uri"
 
-#: core/includes/functions.php
-msgid "All plugins installed and activated successfully. %s"
+#: core/includes/functions-sidebar.php:40
+#, fuzzy
+msgid "Home Widget 1"
+msgstr "Acasă Widget 1"
+
+#: core/includes/functions-sidebar.php:41
+#, fuzzy
+msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
+msgstr "Zona 6 - bara laterală-home.php - Afișează pe pagina de pornire"
+
+#: core/includes/functions-sidebar.php:52
+#, fuzzy
+msgid "Home Widget 2"
+msgstr "Acasă Widget 2"
+
+#: core/includes/functions-sidebar.php:53
+#, fuzzy
+msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
+msgstr "Zona 7 - bara laterală-home.php - Afișează pe pagina de pornire"
+
+#: core/includes/functions-sidebar.php:64
+#, fuzzy
+msgid "Home Widget 3"
+msgstr "Acasă Widget 3"
+
+#: core/includes/functions-sidebar.php:65
+#, fuzzy
+msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
+msgstr "Zona 8 - bara laterală-home.php - Afișează pe pagina de pornire"
+
+#: core/includes/functions-sidebar.php:76
+#, fuzzy
+msgid "Gallery Sidebar"
+msgstr "Bara laterală galerie"
+
+#: core/includes/functions-sidebar.php:77
+#, fuzzy
+msgid ""
+"Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
+"clicked in a Gallery"
 msgstr ""
+"Zona 9 - bara laterală-gallery.php - Afișează pe pagină după o imagine a "
+"fost făcut clic într-o galerie"
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "All theme settings will be lost!"
-msgstr ""
+#: core/includes/functions-sidebar.php:88
+#, fuzzy
+msgid "Colophon Widget"
+msgstr "Colophon Widget"
 
-#: core/includes/functions-sidebar.php
+#: core/includes/functions-sidebar.php:89
+#, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr ""
+msgstr "Zona 10 - bara laterală-colophon.php, 100% lățime Subsol widget-uri"
 
-#: core/includes/functions-sidebar.php
+#: core/includes/functions-sidebar.php:101
+#, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
 msgstr ""
+"Zona 11 - bara laterală-top.php - Afișează pe partea dreaptă a antetului"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 12 - sidebar-footer.php - Maximum of 3 widgets per row"
+#: core/includes/functions-sidebar.php:112
+#, fuzzy
+msgid "Footer Widgets 1"
+msgstr "Widget-uri subsol 1"
+
+#: core/includes/functions-sidebar.php:113
+#, fuzzy
+msgid "Area 12 - sidebar-footer.php"
+msgstr "Zona 12 - bara laterală-footer.php"
+
+#: core/includes/functions-sidebar.php:123
+#, fuzzy
+msgid "Footer Widgets 2"
+msgstr "Subsol Widgets 2"
+
+#: core/includes/functions-sidebar.php:124
+#, fuzzy
+msgid "Area 13 - sidebar-footer.php"
+msgstr "Zona 13 - bara laterală-footer.php"
+
+#: core/includes/functions-sidebar.php:134
+#, fuzzy
+msgid "Footer Widgets 3"
+msgstr "Subsol Widgets 3"
+
+#: core/includes/functions-sidebar.php:135
+#, fuzzy
+msgid "Area 14 - sidebar-footer.php"
+msgstr "Zona 14 - bara laterală-footer.php"
+
+#: core/includes/functions-sidebar.php:145
+#, fuzzy
+msgid "Footer Widgets 4"
+msgstr "Subsol Widgets 4"
+
+#: core/includes/functions-sidebar.php:146
+#, fuzzy
+msgid "Area 15 - sidebar-footer.php"
+msgstr "Zona 15 - bara laterală-footer.php"
+
+#: core/includes/functions.php:61 functions.php:536
+msgid "Call to Action"
+msgstr "Acțiune"
+
+#: core/includes/functions.php:216
+msgid "Header Menu"
+msgstr "Meniu Antet"
+
+#: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
+msgid "Footer Menu"
+msgstr "Meniu Subsol"
+
+#: core/includes/functions.php:377
+#, fuzzy
+msgid "Team Section Options"
+msgstr "Opțiuni secțiune echipă"
+
+#: core/includes/functions.php:391
+#, fuzzy
+msgid ""
+"To use this post for front page's team section, please enter below details:"
 msgstr ""
+"Pentru a utiliza acest post pentru secțiunea echipei prima pagină, vă rugăm "
+"să introduceți mai jos detalii:"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
+#: core/includes/functions.php:394
+#, fuzzy
+msgid "Member designation"
+msgstr "Denumirea de membru"
+
+#: core/includes/functions.php:398
+msgid "Facebook Link"
+msgstr "Link Facebook"
+
+#: core/includes/functions.php:402
+msgid "Twitter Link"
+msgstr "Link Twitter"
+
+#: core/includes/functions.php:406
+#, fuzzy
+msgid "GooglePlus Link"
+msgstr "Link-ul GooglePlus"
+
+#: core/includes/functions.php:410
+msgid "LinkedIn Link"
+msgstr "Link Linkedin"
+
+#: core/includes/functions.php:666
+msgid "Posted on"
+msgstr "Publicat în"
+
+#: core/includes/functions.php:666
+msgid "By"
+msgstr "De"
+
+#. translators: %s: category list
+#. translators: %s posted in categories
+#. translators: %s: category list
+#: core/includes/functions.php:696 image.php:82 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid "Posted in %s"
+msgstr "Publicat în %s"
+
+#: core/includes/functions.php:696 partials/entry/meta.php:104
+#: partials/single/meta.php:96
+msgid ", "
+msgstr ", "
+
+#: core/includes/functions.php:719
+#, fuzzy
+msgid "Upgrade To Pro"
+msgstr "Upgrade la Pro"
+
+#: core/includes/post-custom-meta.php:137
+#, fuzzy
+msgid "Content/Sidebar"
+msgstr "Conținut/Bară laterală"
+
+#: core/includes/post-custom-meta.php:138
+#, fuzzy
+msgid "Sidebar/Content"
+msgstr "Bară laterală/Conținut"
+
+#. Template Name of the plugin/theme
+#, fuzzy
+msgid "Full Width Page (no sidebar)"
+msgstr "Pagină cu lățime completă (fără bară laterală)"
+
+#: core/includes/post-custom-meta.php:140
+#, fuzzy
+msgid "Blog 2 Column"
+msgstr "Blog 2 Coloana"
+
+#: core/includes/post-custom-meta.php:141
+#, fuzzy
+msgid "Blog 3 Column"
+msgstr "Blog 3 Coloana"
+
+#: core/includes/post-custom-meta.php:142
+#, fuzzy
+msgid "Blog 4 Column"
+msgstr "Blog 4 Coloana"
+
+#: footer.php:90
+#, fuzzy
+msgid "Scroll to Top"
+msgstr "Defilare la început"
+
+#: functions.php:392
+msgid "Permalink to %s"
+msgstr "Legătură permanentă: %s"
+
+#. translators: %s Link to 5 star rating
+#: functions.php:453
+#, fuzzy
+msgid ""
+"If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
+"It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
+"Dacă vă place <strong>Responsive Theme,</strong> vă rugăm să ne lăsați un "
+"rating %s. Este nevoie de un minut și ajută foarte mult. Multumesc anticipat!"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 2 - sidebar-right.php - Displays on Content/Sidebar page templates"
-msgstr ""
+#: functions.php:454
+msgid "Thanks :)"
+msgstr "Mulțumim :)"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 3 - sidebar-left.php - Displays on Sidebar/Content page templates"
-msgstr ""
+#: functions.php:539
+msgid "#"
+msgstr "#"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 4 - sidebar-left-half.php - Displays on Sidebar Half Page/Content page templates"
-msgstr ""
+#: gutenberg-fullwidth.php:46 image.php:63 index.php:60
+#: partials/entry/layout.php:53 partials/page/layout.php:45
+#: partials/single/content.php:38 partials/single/layout.php:59
+msgid "Pages:"
+msgstr "Pagini:"
 
-#: core/includes/functions-sidebar.php
-msgid "Area 5 - sidebar-right-half.php - Displays on Content/Sidebar Half Page page templates"
-msgstr ""
-
-#: core/includes/functions-sidebar.php
-msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
-
-#: core/includes/functions-sidebar.php
-msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
-
-#: core/includes/functions-sidebar.php
-msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr ""
-
-#: core/includes/functions-sidebar.php
-msgid "Area 9 - sidebar-gallery.php - Displays on the page after an image has been clicked in a Gallery"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Blog"
-msgstr ""
-
-#: core/includes/functions-update.php
-msgid "blog post"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Blog Title Toggle"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-#: core/includes/theme-options/theme-options.php
-msgid "check to disable"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "check to enable"
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Click here"
-msgstr ""
-
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Click OK to Restore."
-msgstr ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "CSS Styles"
-msgstr ""
-
-#. Author of the plugin/theme
-# INSTRUCTION: Author of the plugin/theme
-msgid "CyberChimps.com"
-msgstr "CyberChimps.com"
-
-#: header.php
+#: header.php:35
+#, fuzzy
 msgid "&darr; Skip to Main Content"
+msgstr "&darr; Treci la conținutul principal"
+
+#: home.php:81
+msgid "Previous"
+msgstr "Anterior"
+
+#: home.php:82
+msgid "Next"
+msgstr "Următor"
+
+#: image.php:37
+#, fuzzy
+msgid "&#8249; Return to"
+msgstr "&#8249; Revenire la"
+
+#: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "No Comments"
+msgstr "Niciun comentariu"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "1 Comment"
+msgstr "1 Comentariu"
+
+#: image.php:46 partials/entry/meta.php:90
+#: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
+#: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+msgid "% Comments"
+msgstr "% Comentarii"
+
+#: image.php:79 post-data.php:25
+#, fuzzy
+msgid "Tagged with:"
+msgstr "Etichetate cu:"
+
+#: image.php:87 post-data.php:29
+#, fuzzy
+msgid "<span class=\"post-edit\">Edit</span>"
+msgstr "<span class=\"post-edit\">Editare</span>"
+
+#: loop-nav.php:28
+#, fuzzy
+msgid "&#8249; Older posts"
+msgstr "&#8249; Postări mai vechi"
+
+#: loop-nav.php:29
+#, fuzzy
+msgid "Newer posts &#8250;"
+msgstr "Posturi mai noi &#8250;"
+
+#. translators: %s search term
+#: loop-no-posts.php:26
+#, fuzzy
+msgid "Your search for %s did not match any entries."
+msgstr "Căutarea %s nu s-a potrivit cu nicio intrare."
+
+#: loop-no-posts.php:26
+#, fuzzy
+msgid "404 &#8212; Fancy meeting you here!"
+msgstr "404 &#8212; Fancy te cunosc aici!"
+
+#: loop-no-posts.php:32
+#, fuzzy
+msgid ""
+"Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
+"options here."
 msgstr ""
+"Nu te #39 panica, vom #39 trece prin asta împreună. Let&#39;s explora "
+"opțiunile noastre aici."
 
-#: core/includes/theme-options/theme-options.php
-msgid "Disable breadcrumb list?"
+#: loop-no-posts.php:43
+#, fuzzy
+msgid "&larr; Home"
+msgstr "&a larr; Pagina principală"
+
+#: partials/custom-home/featured-area.php:255
+msgid "Team"
+msgstr "Echipa"
+
+#. translators: 1: byline, 2: author
+#: partials/entry/meta.php:35
+msgid "By "
+msgstr "De"
+
+#. translators: 1: class, 2: date
+#: partials/entry/meta.php:69 partials/single/meta.php:63
+msgid "Posted on "
+msgstr "Publicat la "
+
+#: partials/entry/thumbnail-style/comments.php:16
+msgid "0 Comments"
+msgstr "0 Comentarii"
+
+#: partials/footer/copy-right.php:17
+#, fuzzy
+msgid " &copy; "
+msgstr "&a face o copie;"
+
+#: partials/footer/copy-right.php:21
+msgid "&copy; "
+msgstr "&copy; "
+
+#: partials/footer/copy-right.php:29
+#, fuzzy
+msgid " | Powered by Responsive Theme"
+msgstr "| Powered by Receptiv Tematica"
+
+#: partials/header/main-navigation.php:17
+msgid "Menu"
+msgstr "Meniu"
+
+#. translators: %s Name of current post. Only visible to screen readers
+#: partials/single/content.php:22
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Citeste mai mult<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#: partials/single/layout.php:50
+msgid "About"
+msgstr "Despre"
+
+#: partials/single/layout.php:73
+#, fuzzy
+msgid "Previous Post is "
+msgstr "Previous Post este"
+
+#: partials/single/layout.php:74
+#, fuzzy
+msgid "Next Post is"
+msgstr "Următorul mesaj este"
+
+#: searchform.php:22
+msgid "Search for:"
+msgstr "Caută după:"
+
+#: searchform.php:23
+#, fuzzy
+msgid "Search here &hellip;"
+msgstr "Cauta aici &amp; hellip;"
+
+#: searchform.php:24
+msgid "Go"
+msgstr "Mergi"
+
+#: sidebar-gallery.php:26
+#, fuzzy
+msgid "Image Information"
+msgstr "Informații imagine"
+
+#: sidebar-gallery.php:33
+#, fuzzy
+msgid "Full Size:"
+msgstr "Dimensiune completă:"
+
+#: sidebar-gallery.php:39
+#, fuzzy
+msgid "Aperture: f&#47;"
+msgstr "Diafragmă: f&#47;"
+
+#: sidebar-gallery.php:44
+#, fuzzy
+msgid "Focal Length:"
+msgstr "Focală:"
+
+#: sidebar-gallery.php:44
+msgid "mm"
+msgstr "mm"
+
+#: sidebar-gallery.php:48
+#, fuzzy
+msgid "ISO:"
+msgstr "Iso:"
+
+#: sidebar-gallery.php:52
+#, fuzzy
+msgid "Shutter:"
+msgstr "Obturator:"
+
+#: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
+msgid "sec"
+msgstr "sec"
+
+#: sidebar-gallery.php:69
+#, fuzzy
+msgid "Camera:"
+msgstr "Cameră foto:"
+
+#: sidebar-home.php:34
+#, fuzzy
+msgid "Fermentum"
+msgstr "Fermentum (fermentum)"
+
+#: sidebar-home.php:40
+#, fuzzy
+msgid ""
+"This is your first home widget box. To edit please go to Appearance > "
+"Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
+"Title is also manageable from widgets as well."
 msgstr ""
+"Aceasta este prima ta casetă widget acasă. Pentru a edita vă rugăm să "
+"mergeți la Aspect > Widgets și alegeți widget 6a din partea de sus în zona 6 "
+"numit Home Widget 1. Titlul este, de asemenea, ușor de gestionat de la "
+"widget-uri, de asemenea."
 
-#: core/includes/classes/Responsive_Options.php
-#: core/includes/theme-options/theme-options.php
-msgid "Do you want to restore?"
+#: sidebar-home.php:54
+#, fuzzy
+msgid "Elementum"
+msgstr "Elementum (elementum)"
+
+#: sidebar-home.php:60
+#, fuzzy
+msgid ""
+"This is your second home widget box. To edit please go to Appearance > "
+"Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
+"Title is also manageable from widgets as well."
 msgstr ""
+"Aceasta este a doua casetă widget acasă. Pentru a edita vă rugăm să mergeți "
+"la Aspect > Widgets și alegeți widget 7a din partea de sus în zona 7 numit "
+"Home Widget 2. Titlul este, de asemenea, ușor de gestionat de la widget-uri, "
+"de asemenea."
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enable Custom Front Page"
-msgstr "Permite prima pagină personalizată"
+#: sidebar-home.php:74
+#, fuzzy
+msgid "Interdum"
+msgstr "Interdum (În)"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Enable minified css?"
+#: sidebar-home.php:78
+#, fuzzy
+msgid ""
+"This is your third home widget box. To edit please go to Appearance > "
+"Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
+"Title is also manageable from widgets as well."
 msgstr ""
-
-#: core/includes/functions-sidebar.php
-msgid "Footer Widget"
-msgstr ""
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Help"
-msgstr "Ajutor"
-
-#. Author URI of the plugin/theme
-# INSTRUCTION: Author URI of the plugin/theme
-msgid "http://cyberchimps.com"
-msgstr "http://cyberchimps.com"
+"Aceasta este a treia casetă widget acasă. Pentru a edita vă rugăm să mergeți "
+"la Aspect > Widgets și alegeți widget 8a din partea de sus în zona 8 numit "
+"Home Widget 3. Titlul este, de asemenea, ușor de gestionat de la widget-uri, "
+"de asemenea."
 
 #. Theme URI of the plugin/theme
-# INSTRUCTION: Theme URI of the plugin/theme
-msgid "http://cyberchimps.com/responsive-theme/"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Instructions"
-msgstr "Instrucţiuni"
-
-#: core/includes/functions.php
-msgid "Activate installed plugin"
-msgid_plural "Activate installed plugins"
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-
-#: comments.php
-msgid "One comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
-msgid_plural ""
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-
-#: core/includes/functions.php
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-
-#: core/includes/theme-options/theme-options.php
-msgid "Overrides the WordPress %1sfront page option%2s"
-msgstr "Înlocuieşte opţiunea WordPress %1sfront page option%2s"
-
-#: core/includes/functions.php
-msgid "Plugin activated successfully."
-msgstr ""
-
-#. Theme Name of the plugin/theme
-# INSTRUCTION: Theme Name of the plugin/theme
-msgid "Responsive"
-msgstr ""
-
-#: core/includes/functions.php
-msgid "Responsive Add Features"
-msgstr ""
+#, fuzzy
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
-# INSTRUCTION: Description of the plugin/theme
-msgid "Responsive Theme is a flexible foundation with fluid grid system that adapts your website to mobile devices and the desktop or any other viewing environment. Theme features 9 Page Templates, 11 Widget Areas, 6 Template Layouts, 4 Menu Positions and more. Powerful but simple Theme Options for full CMS control with easy Logo Upload, Social Networking and Webmaster Tools etc. Responsive is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly, W3C Markup Validated and currently translated into 45 languages. Cross-Browser compatible. <a href=\"http://cyberchimps.com/forum/free/responsive/\">Official support forum</a> (http://cyberchimps.com/forum/free/responsive/)"
+#, fuzzy
+msgid ""
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
+"Responsive este un motor de căutare complet personalizabil, optimizat & "
+"mobile-friendly WordPress temă. Compatibil cu editorul bloc UluiTenberg, "
+"este o alegere perfectă pentru blogul dvs., site-ul de afaceri sau magazinul "
+"WooCommerce. Cu opțiuni de personalizare aproape nelimitate, puteți "
+"personaliza fiecare caracteristică a site-ului dvs. Receptiv vine cu script-"
+"uri minified pentru a îmbunătăți viteza site-ului. It de asemenea a veni cu "
+"alt features a cuprinde nouă layout opțiune pentru pagină și blog, "
+"WooCommerce design opțiune, și compatibility cu elementor pagină clădire. It "
+"works mare on un mobile, masă, pupitru, și vizavi tot browsers. Receptiv "
+"este, de asemenea, disponibil în 45 de limbi și este motor de căutare "
+"prietenos. Consultați Receptiv în acțiune: https://cyberchimps.com/"
+"responsive-ready-websites/. Aflați mai multe despre caracteristicile sale: "
+"https://cyberchimps.com/responsive-features/."
 
-#: core/includes/functions.php
-msgid "Return to Required Plugins Installer"
-msgstr ""
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "CyberChimps (CyberChimps)"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Scripts"
-msgstr ""
+#. Author URI of the plugin/theme
+#, fuzzy
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
-#: searchform.php
-msgid "Search for:"
-msgstr ""
+#. Template Name of the plugin/theme
+#, fuzzy
+msgid "Gutenberg Fullwidth No title"
+msgstr "Gutenberg Fullwidth Nici un titlu"
 
-#: core/includes/functions.php
-msgid "Something went wrong with the plugin API."
-msgstr ""
+#. translators: 1: comment count number, 2: title.
+#: comments.php:48
+#, fuzzy
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s Comentariu la \"%2$s\""
+msgstr[1] ""
+msgstr[2] ""
 
-#: core/includes/functions-update.php
-#. Translators: This is a big update. Please read the blog post beforeupdating.
-# INSTRUCTION: Translators: This is a big update. Please read the blog post beforeupdating.
-msgid "<strong>WARNING:</strong> There is a big <strong>Responsive Theme</strong> update available. Please read the %1$s before updating."
-msgstr ""
+#: functions.php:126
+msgctxt "Name of the small font size in the block editor"
+msgid "Small"
+msgstr "Mic"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is disabled. You can enable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+#: functions.php:127
+msgctxt "Short name of the small font size in the block editor."
+msgid "S"
+msgstr "S"
 
-#: core/includes/functions.php
-msgid "The Custom Front Page is enabled. You can disable it in the <a href=\"%1$s\">theme settings</a>."
-msgstr ""
+#: functions.php:132
+msgctxt "Name of the regular font size in the block editor"
+msgid "Regular"
+msgstr "Normal"
 
-#: core/includes/upsell/theme-upsell.php
-msgid "Themes You Can Trust"
-msgstr ""
+#: functions.php:133
+msgctxt "Short name of the regular font size in the block editor."
+msgid "M"
+msgstr "M"
 
-#: core/includes/theme-options/theme-options.php
-msgid "Title Text"
-msgstr ""
+#: functions.php:138
+msgctxt "Name of the large font size in the block editor"
+msgid "Large"
+msgstr "Mare"
 
-#: core/includes/functions.php
-#: core/includes/functions.php
-msgid "Translate"
-msgstr "Traducere"
+#: functions.php:139
+msgctxt "Short name of the large font size in the block editor."
+msgid "L"
+msgstr "L"
 
-#: core/includes/classes/Responsive_Options.php
-msgid "Upgrade"
-msgstr ""
+#: functions.php:144
+msgctxt "Name of the larger font size in the block editor"
+msgid "Larger"
+msgstr "Mai mare"
 
-#: core/includes/functions.php
-msgid "Welcome to %1$s! Upgrade to %2$s today."
-msgstr "Bine ați venit la %1$s! Upgrade la %2$s astăzi."
-
+#: functions.php:145
+msgctxt "Short name of the larger font size in the block editor."
+msgid "XL"
+msgstr "XL"
