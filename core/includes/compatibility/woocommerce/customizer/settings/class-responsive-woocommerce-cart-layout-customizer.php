@@ -68,11 +68,12 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$wp_customize->add_control(
 					'responsive_menu_cart_icon',
 					array(
-						'label'    => __( 'Cart Icon Visibility', 'responsive' ),
-						'section'  => 'responsive_woocommerce_cart_layout',
-						'settings' => 'responsive_menu_cart_icon',
-						'type'     => 'select',
-						'choices'  => array(
+						'label'       => __( 'Cart Icon Visibility', 'responsive' ),
+						'description' => __( 'Cart Icon Will be displayed only when Header Menu is set', 'responsive' ),
+						'section'     => 'responsive_woocommerce_cart_layout',
+						'settings'    => 'responsive_menu_cart_icon',
+						'type'        => 'select',
+						'choices'     => array(
 							'icon-opencart' => __( 'Display On All Devices', 'responsive' ),
 							'disabled'      => __( 'Disabled On All Devices', 'responsive' ),
 						),
