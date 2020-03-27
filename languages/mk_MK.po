@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 21:21+0530\n"
+"PO-Revision-Date: 2020-03-27 16:10+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n%10==1 && n%100!=11);\n"
@@ -394,16 +394,16 @@ msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr ""
 "Блескава брза, мобилна-пријателска, целосно прилагодлива тема на WordPress."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "Акција!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 #, fuzzy
 msgid "WooCommerce Sidebar"
 msgstr "PF WooCommerce Лента"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 #, fuzzy
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
@@ -541,7 +541,7 @@ msgstr "Додај во кошничките копчиња"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -582,7 +582,7 @@ msgstr "Лева лента"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
 #, fuzzy
 msgid "No Sidebar"
-msgstr "Нема странична лента"
+msgstr "Странична лента"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
 #, fuzzy
@@ -728,13 +728,13 @@ msgid "Gallery Layout"
 msgstr "Распоред на галерија"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "Вертикално"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "Насловна линија:"
@@ -966,7 +966,8 @@ msgstr "Содржина"
 msgid "Site Branding"
 msgstr "Мапа на брендирање"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 #, fuzzy
 msgid "Main Navigation"
 msgstr "Навигација"
@@ -1000,13 +1001,13 @@ msgstr "Категорија"
 msgid "Ratings"
 msgstr "Оцени"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 #, fuzzy
 msgid "Read more &raquo;"
 msgstr "Прочитај Повеќе &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 #, fuzzy
 msgid "Read More &raquo;"
 msgstr "Прочитај Повеќе &raquo;"
@@ -1313,74 +1314,79 @@ msgstr "ÐÐ·Ð±ÑÐ¸ÑÐ¸ ÑÐ° ÐºÐ¾Ð»Ð¾Ð½Ð°ÑÐ° �
 msgid "Footer Bar"
 msgstr "Подножје бар"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+#, fuzzy
+msgid "Copyright text"
+msgstr "Авторски права"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Сокриј се напојува од одговорна тема"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 #, fuzzy
 msgid "Social Links"
 msgstr "Мени со социјални мрежи"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 #, fuzzy
 msgid "RSS Feed"
 msgstr "RSS известувања"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 #, fuzzy
 msgid "StumbleUpon"
 msgstr "Се сопнуваат"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 #, fuzzy
 msgid "Yelp"
 msgstr "Јелп"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 #, fuzzy
 msgid "Foursquare"
 msgstr "Четврток"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "Е-маил адреса"
 
@@ -1521,7 +1527,7 @@ msgstr "Над заглавието"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
 #, fuzzy
 msgid "In Header"
-msgstr "Во заглавието"
+msgstr "Заглавие"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
 #, fuzzy
@@ -1659,7 +1665,7 @@ msgid "Hero Area"
 msgstr "Област со херој"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 #, fuzzy
 msgid "HAPPINESS"
 msgstr "Среќа"
@@ -1669,7 +1675,7 @@ msgid "Headline"
 msgstr "Наслов"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 #, fuzzy
 msgid "IS A WARM CUP"
 msgstr "Е ВАРМ КУП"
@@ -1680,7 +1686,7 @@ msgid "Subheadline"
 msgstr "Поднаслов"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 #, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
@@ -1851,7 +1857,7 @@ msgstr "Овозможете го тимот дел"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
 #, fuzzy
 msgid "team"
-msgstr "тим"
+msgstr "Тим"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
 #, fuzzy
@@ -1926,7 +1932,7 @@ msgid "Address"
 msgstr "Адреса"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "Е-маил"
 
@@ -2375,26 +2381,56 @@ msgstr "Просторно писмо (px)"
 msgid "Font Color"
 msgstr "Боја на Фонт"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "Здраво! Ви благодариме што ја користите темата Одговора."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"Можете ли да ни помогнете и да ни дадете оценка од 5 везди? Вашите повратни "
+"информации нè одржуваат мотивирани и ни помага да ја зголемиме заедницата за "
+"одговор."
+
+#: core/includes/functions-admin.php:61
+#, fuzzy
+msgid "Ok, you deserve it"
+msgstr "Ок, вие го заслужувате тоа"
+
+#: core/includes/functions-admin.php:62
+#, fuzzy
+msgid "Nope, maybe later"
+msgstr "Не, можеби подоцна"
+
+#: core/includes/functions-admin.php:63
+#, fuzzy
+msgid "I already did"
+msgstr "Јас веќе направив"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "Почетна"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 #, fuzzy
 msgid "Archive for %s"
 msgstr "Архива за%s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr ""
 "Резултати од пребарување за: <ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 #, fuzzy
 msgid "Posts tagged %s"
 msgstr "Тагирани постови: <ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>"
@@ -2403,28 +2439,28 @@ msgstr "Тагирани постови: <ph id=\"mtc_1\" equiv-text=\"base64:JX
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "Погледни ги сите постови од %s"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "Грешка 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "Страна %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 #, fuzzy
 msgid "Yelp!"
 msgstr "Јелп!"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 #, fuzzy
 msgid "foursquare"
 msgstr "четириаголник"
@@ -2551,7 +2587,7 @@ msgstr "Подносни додатоци 4"
 msgid "Area 15 - sidebar-footer.php"
 msgstr "Површина 15 - странична лента-подножје.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 #, fuzzy
 msgid "Call to Action"
 msgstr "Повик за акција."
@@ -2562,6 +2598,7 @@ msgid "Header Menu"
 msgstr "Заглавие"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "Footer мени"
 
@@ -2683,7 +2720,7 @@ msgstr ""
 msgid "Thanks :)"
 msgstr "Ви благодарам."
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2812,7 +2849,7 @@ msgstr "©"
 msgid " | Powered by Responsive Theme"
 msgstr "| Напојувано од одговорна тема"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "Мени"
 
@@ -2942,21 +2979,34 @@ msgstr ""
 
 #. Theme URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
-#, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
-"Responsive е целосна прилагодлива, брза и прифатлива тема за WordPress за "
-"мобилни телефони."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "CyberChimps"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
 #, fuzzy

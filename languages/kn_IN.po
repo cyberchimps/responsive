@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 21:10+0530\n"
+"PO-Revision-Date: 2020-03-27 16:03+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
@@ -29,12 +29,12 @@ msgstr "17"
 #: admin/class-responsive-plugin-install-helper.php:157
 #, fuzzy
 msgid "Activating "
-msgstr "ಸಕ್ರಿಯಗೊಳಿಸಲಾಗುತ್ತಿದೆ"
+msgstr "ಆಕ್ಟಿವೇಟ್"
 
 #: admin/admin-functions.php:22
 #, fuzzy
 msgid "Not connect. Verify Network."
-msgstr "ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ. ನೆಟ್‌ವರ್ಕ್ ಪರಿಶೀಲಿಸಿ."
+msgstr "ಕನೆಕ್ಟ್ ಆಗಿಲ್ಲ. ನೆಟ್ ವರ್ಕ್ ಪರಿಶೀಲಿಸಿ."
 
 #: admin/admin-functions.php:23
 #, fuzzy
@@ -44,32 +44,32 @@ msgstr "ವಿನಂತಿಸಿದ ಪುಟ ಕಂಡುಬಂದಿಲ್ಲ.
 #: admin/admin-functions.php:24
 #, fuzzy
 msgid "Internal Server Error [500]"
-msgstr "ಆಂತರಿಕ ಸರ್ವರ್ ದೋಷ [500]"
+msgstr "ಆಂತರಿಕ ಸರ್ವರ್ ದೋಷ [500]."
 
 #: admin/admin-functions.php:25
 #, fuzzy
 msgid "Requested JSON parse failed"
-msgstr "ವಿನಂತಿಸಿದ JSON ಪಾರ್ಸ್ ವಿಫಲವಾಗಿದೆ"
+msgstr "ವಿನಂತಿಸಿದ ಜೆನ್ಸನ್ ಪರ್ಸೆ ವಿಫಲರಾದರು"
 
 #: admin/admin-functions.php:26
 #, fuzzy
 msgid "Time out error"
-msgstr "ಸಮಯ ಮೀರಿದೆ"
+msgstr "ಟೈಮ್ ಔಟ್ ದೋಷ"
 
 #: admin/admin-functions.php:27
 #, fuzzy
 msgid "Ajax request aborted"
-msgstr "ಅಜಾಕ್ಸ್ ವಿನಂತಿಯನ್ನು ರದ್ದುಪಡಿಸಲಾಗಿದೆ"
+msgstr "ಅಜಾಕ್ಸ್ ಕೋರಿಕೆ ಗರ್ಭಪಾತವಾಗಿದೆ"
 
 #: admin/admin-functions.php:28
 #, fuzzy
 msgid "Uncaught Error"
-msgstr "ಅಜ್ಞಾತ ದೋಷ"
+msgstr "ಸಿಕ್ಕಿಬಿದ್ದ ದೋಷ"
 
 #: admin/class-responsive-plugin-install-helper.php:93
 #, fuzzy
 msgid "Install and activate &raquo;"
-msgstr "ಸ್ಥಾಪಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ »"
+msgstr "ಇನ್ಸ್ಟಾಲ್ ಮಾಡಿ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ &raquo;"
 
 #: admin/class-responsive-plugin-install-helper.php:97
 #: admin/class-responsive-plugin-install-helper.php:117
@@ -79,12 +79,12 @@ msgstr "ಸಕ್ರಿಯಗೊಳಿಸು"
 #: admin/class-responsive-plugin-install-helper.php:112
 #, fuzzy
 msgid "Deactivate"
-msgstr "ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು"
+msgstr "ಆ್ಯಕ್ಟಿವೇಟ್"
 
 #: admin/class-responsive-plugin-install-helper.php:117
 #, fuzzy
 msgid "Jetpack Portfolio"
-msgstr "ಜೆಟ್‌ಪ್ಯಾಕ್ ಪೋರ್ಟ್ಫೋಲಿಯೊ"
+msgstr "ಜೆಟ್ಪ್ಯಾಕ್ ಪೋರ್ಟ್ ಫೋಲಿಯೊ"
 
 #: admin/templates/free-vs-pro.php:15
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:389
@@ -102,7 +102,7 @@ msgstr "ಉಚಿತ"
 #: admin/templates/free-vs-pro.php:51
 #, fuzzy
 msgid "Pro"
-msgstr "ಪಿಆರ್‌ಒ"
+msgstr "ಪ್ರೊ"
 
 #: admin/templates/free-vs-pro.php:23
 #, fuzzy
@@ -112,27 +112,27 @@ msgstr "ಮೊಬೈಲ್ ಸ್ನೇಹಿ"
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
 #, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
-msgstr "ಸ್ಲೈಡರ್, ಪೋರ್ಟ್ಫೋಲಿಯೊ, ಬೆಲೆ ಕೋಷ್ಟಕಗಳು, ವಲ್ಕ್ ವಿಜೆಟ್ ಇತ್ಯಾದಿ"
+msgstr "ಸ್ಲೈಡರ್, ಪೋರ್ಟ್ ಫೋಲಿಯೊ, ದರ ಕೋಷ್ಟಕಗಳು, ವುಕಾಮರ್ಸ್ ವಿಜೆಟ್ ಗಳು ಇತ್ಯಾದಿ"
 
 #: admin/templates/free-vs-pro.php:31
 #, fuzzy
 msgid "Blazing Fast Speed"
-msgstr "ಬೆಳಗುತ್ತಿರುವ ವೇಗದ ವೇಗ"
+msgstr "ಜ್ವಲಿಸುವ ವೇಗದ ವೇಗ"
 
 #: admin/templates/free-vs-pro.php:32
 #, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
-msgstr "ವೇಗಕ್ಕಾಗಿ ಹೊಂದುವಂತೆ ಮಾಡಲಾಗಿದೆ, 2 ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಲೋಡ್ ಆಗುತ್ತದೆ"
+msgstr "ವೇಗಕ್ಕೆ ಆಪ್ಟಿಮೈಸ್ಡ್, 2 ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಲೋಡ್"
 
 #: admin/templates/free-vs-pro.php:39
 #, fuzzy
 msgid "Fully Customizable"
-msgstr "ಸಂಪೂರ್ಣವಾಗಿ ಗ್ರಾಹಕೀಯಗೊಳಿಸಬಹುದಾಗಿದೆ"
+msgstr "ಸಂಪೂರ್ಣ ಅನುಷ್ಟಾನ"
 
 #: admin/templates/free-vs-pro.php:40
 #, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
-msgstr "ಲೇ layout ಟ್, ಫಾಂಟ್‌ಗಳು ಮತ್ತು ಬಣ್ಣಗಳಿಗಾಗಿ ಕಸ್ಟಮೈಜರ್ ಆಯ್ಕೆಗಳನ್ನು ಬಳಸುವುದು"
+msgstr "ಲೇಔಟ್, ಫಾಂಟ್ ಮತ್ತು ಕಲರ್ಸ್ ಗೆ ಕಸ್ಟಮೈಜರ್ ಆಯ್ಕೆಗಳನ್ನು ಬಳಸುವುದು"
 
 #: admin/templates/free-vs-pro.php:42
 #, fuzzy
@@ -142,74 +142,75 @@ msgstr "ಸೀಮಿತ ಆಯ್ಕೆಗಳು"
 #: admin/templates/free-vs-pro.php:47
 #, fuzzy
 msgid "Ready-to-use Website Templates"
-msgstr "ಬಳಸಲು ಸಿದ್ಧ ವೆಬ್‌ಸೈಟ್ ಟೆಂಪ್ಲೇಟ್‌ಗಳು"
+msgstr "ಸಿದ್ಧ-ಬಳಕೆಯ ವೆಬ್ಸೈಟ್ ಟೆಂಪ್ಲೇಟ್ ಗಳು"
 
 #: admin/templates/free-vs-pro.php:48
 #, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
-msgstr "ಬಳಸಲು ಸಿದ್ಧ ಎಲಿಮೆಂಟರ್ ಪುಟ ಬಿಲ್ಡರ್ ಮತ್ತು ಗುಟೆನ್‌ಬರ್ಗ್ ವೆಬ್‌ಸೈಟ್ ಟೆಂಪ್ಲೆಟ್"
+msgstr "ಸಿದ್ಧ-ಬಳಕೆಯ ಎಲೆಮೆಂಟರ್ ಪೇಜ್ ಬಿಲ್ಡರ್ ಮತ್ತು ಗುಟೆನ್ ಬರ್ಗ್ ವೆಬ್ ಸೈಟ್ ಟೆಂಪ್ಲೇಟ್"
 
 #: admin/templates/free-vs-pro.php:51
 #, fuzzy
 msgid "30+"
-msgstr "30"
+msgstr "30 +"
 
 #: admin/templates/free-vs-pro.php:55
 #, fuzzy
 msgid "Exclusive Widgets"
-msgstr "ವಿಶೇಷ ವಿಜೆಟ್‌ಗಳು"
+msgstr "ಪ್ರತ್ಯೇಕ ವಿಡ್ಗೆಟ್ ಗಳು"
 
 #: admin/templates/free-vs-pro.php:63
 #, fuzzy
 msgid "Exclusive Content, Deals & Offers"
-msgstr "ವಿಶೇಷ ವಿಷಯ, ಡೀಲ್‌ಗಳು ಮತ್ತು ಕೊಡುಗೆಗಳು"
+msgstr "ಪ್ರತ್ಯೇಕ ವಿಷಯ, ಡೀಲ್ ಮತ್ತು ಆಫರ್ ಗಳು"
 
 #: admin/templates/free-vs-pro.php:64
 #, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
-msgstr "ವಿಶೇಷ ವರ್ಡ್ಪ್ರೆಸ್ ವಿಷಯ, ವ್ಯವಹಾರಗಳು ಮತ್ತು ಕೊಡುಗೆಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಪಡೆಯಿರಿ"
+msgstr "ಪ್ರತ್ಯೇಕ ವರ್ಡ್ ಪ್ರೆಸ್ ಕಂಟೆಂಟ್, ಡೀಲ್ ಗಳು ಮತ್ತು ಆಫರ್ ಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಪಡೆಯಿರಿ"
 
 #: admin/templates/free-vs-pro.php:71
 #, fuzzy
 msgid "Private Priority Email Support"
-msgstr "ಖಾಸಗಿ ಆದ್ಯತೆಯ ಇಮೇಲ್ ಬೆಂಬಲ"
+msgstr "ಪ್ರೈವೇಟ್ ಆದ್ಯತೆಯ ಇಮೇಲ್ ಸಪೋರ್ಟ್"
 
 #: admin/templates/free-vs-pro.php:72
 #, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
-msgstr "ಸಹಾಯ ಬೇಕೇ? ಆದ್ಯತೆಯ ಇಮೇಲ್ ಬೆಂಬಲವನ್ನು ಪಡೆಯಲು ಬೆಂಬಲ ಟಿಕೆಟ್ ಅನ್ನು ಹೆಚ್ಚಿಸಿ"
+msgstr ""
+"ಸಹಾಯ ಬೇಕೇ? ಆದ್ಯತೆಯ ಇಮೇಲ್ ಬೆಂಬಲವನ್ನು ಪಡೆಯಲು ಕೇವಲ ಬೆಂಬಲ ಟಿಕೆಟ್ ಅನ್ನು ಏರಿಸುವುದು"
 
 #. Theme Name of the plugin/theme
 #, fuzzy
 msgid "Responsive"
-msgstr "ಸ್ಪಂದಿಸುತ್ತದೆ"
+msgstr "ಸ್ಪಂದನಶೀಲ"
 
 #: comments.php:27
 #, fuzzy
 msgid ""
 "This post is password protected. Enter the password to view any comments."
-msgstr "ಈ ಪೋಸ್ಟ್ ಪಾಸ್ವರ್ಡ್ ರಕ್ಷಿತವಾಗಿದೆ. ಯಾವುದೇ ಕಾಮೆಂಟ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ."
+msgstr "ಈ ಪೋಸ್ಟ್ ಪಾಸ್ ವರ್ಡ್ ರಕ್ಷಿತ. ಯಾವುದೇ ಕಾಮೆಂಟ್ ಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಪಾಸ್ ವರ್ಡ್ ನಮೂದಿಸಿ."
 
 #. translators: 1: title.
 #: comments.php:42
 #, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
-msgstr "“%1$s” ನಲ್ಲಿ ಒಂದು ಕಾಮೆಂಟ್"
+msgstr "\"%1$s\" ಬಗ್ಗೆ ಒಂದು ವ್ಯಾಖ್ಯಾನ"
 
 #: comments.php:58 comments.php:71
 #, fuzzy
 msgid "&#8249; Older comments"
-msgstr "ಹಳೆಯ ಕಾಮೆಂಟ್‌ಗಳು"
+msgstr "& #8249; ಹಳೆಯ ಕಾಮೆಂಟ್"
 
 #: comments.php:60 comments.php:73
 #, fuzzy
 msgid "Newer comments &#8250;"
-msgstr "ಹೊಸ ಕಾಮೆಂಟ್‌ಗಳು"
+msgstr "ಹೊಸ ಕಾಮೆಂಟ್ & #8250;"
 
 #: comments.php:85
 #, fuzzy
 msgid "Pings&#47;Trackbacks"
-msgstr "ಪಿಂಗ್ಸ್ / ಟ್ರ್ಯಾಕ್ಬ್ಯಾಕ್ಗಳು"
+msgstr "& #47; ಟ್ರ್ಯಾಕ್ಸ್ ಬ್ಯಾಕ್ ಗಳು"
 
 #. translators: 1 : Count, 2 : Pings 3 : Post title
 #: comments.php:102
@@ -228,22 +229,22 @@ msgstr "ಜಾಲತಾಣ"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:58
 #, fuzzy
 msgid "Button Color"
-msgstr "ಬಟನ್ ಬಣ್ಣ"
+msgstr "ಬಟನ್ ಕಲರ್"
 
 #: core/gutenberg/gutenberg-support.php:36
 #, fuzzy
 msgid "Button Hover Color"
-msgstr "ಬಟನ್ ಹೂವರ್ ಬಣ್ಣ"
+msgstr "ಬಟನ್ ಹೋವರ್ ಕಲರ್."
 
 #: core/gutenberg/gutenberg-support.php:41
 #, fuzzy
 msgid "Button Hover Text Color"
-msgstr "ಬಟನ್ ಹೂವರ್ ಪಠ್ಯ ಬಣ್ಣ"
+msgstr "ಬಟನ್ ಹೊವರ್ ಟೆಕ್ಸ್ಟ್ ಕಲರ್."
 
 #: core/gutenberg/gutenberg-support.php:46
 #, fuzzy
 msgid "Button Text Color"
-msgstr "ಬಟನ್ ಪಠ್ಯ ಬಣ್ಣ"
+msgstr "ಬಟನ್ ಟೆಕ್ಸ್ಟ್ ಕಲರ್"
 
 #: core/gutenberg/gutenberg-support.php:53
 msgid "Text color"
@@ -252,27 +253,27 @@ msgstr "ಪಠ್ಯ ಬಣ್ಣ"
 #: core/gutenberg/gutenberg-support.php:60
 #, fuzzy
 msgid "Container Background Color"
-msgstr "ಕಂಟೇನರ್ ಹಿನ್ನೆಲೆ ಬಣ್ಣ"
+msgstr "ಕಂಟೇನರ್ ಹಿನ್ನಲೆ ಬಣ್ಣ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:91
 #, fuzzy
 msgid "Responsive Options"
-msgstr "ಜವಾಬ್ದಾರಿಯುತ ಆಯ್ಕೆಗಳು"
+msgstr "ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/classes/class-responsive-admin-settings.php:194
 #, fuzzy
 msgid "Get Started"
-msgstr "ಪ್ರಾರಂಭಿಸಿ"
+msgstr "ಶುರು"
 
 #: core/includes/classes/class-responsive-admin-settings.php:196
 #, fuzzy
 msgid "Free Vs Pro "
-msgstr "ಉಚಿತ Vs ಪ್ರೊ"
+msgstr "ಫ್ರೀ Vs ಪ್ರೋ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:231
 #, fuzzy
 msgid "Import a website template(FREE)"
-msgstr "ವೆಬ್‌ಸೈಟ್ ಟೆಂಪ್ಲೆಟ್ ಅನ್ನು ಆಮದು ಮಾಡಿ (ಉಚಿತ)"
+msgstr "ವೆಬ್ ಸೈಟ್ ಟೆಂಪ್ಲೇಟ್ (ಉಚಿತ) ಅನ್ನು ಆಮದು ಮಾಡಿ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
 #, fuzzy
@@ -280,13 +281,13 @@ msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
 msgstr ""
-"ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಆಮದು ಮಾಡಿಕೊಳ್ಳಲು ಸಿದ್ಧವಾದ ವೆಬ್‌ಸೈಟ್ ಟೆಂಪ್ಲೆಟ್ಗಳನ್ನು ಪಡೆಯಲು ರೆಸ್ಪಾನ್ಸಿವ್ "
-"ಆಡ್-ಆನ್‌ಗಳನ್ನು ಸ್ಥಾಪಿಸಿ."
+"ಒಂದು ಕ್ಲಿಕ್ ನೊಂದಿಗೆ ಆಮದು ಮಾಡಬಹುದಾದ ಸಿದ್ಧ-ಬಳಕೆಯ ವೆಬ್ಸೈಟ್ ಟೆಂಪ್ಲೇಟ್ ಗಳನ್ನು ಪಡೆಯಲು "
+"ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಆಡ್-ಆನ್ ಗಳನ್ನು ಇನ್ಸ್ಟಾಲ್ ಮಾಡಿ."
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
 #, fuzzy
 msgid "Learn More &raquo;"
-msgstr "ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ »"
+msgstr "ಇನ್ನಷ್ಟು ತಿಳಿದುಕೊಳ್ಳಿ &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:269
 #, fuzzy
@@ -296,33 +297,33 @@ msgstr "ಬೆಂಬಲ"
 #: core/includes/classes/class-responsive-admin-settings.php:273
 #, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
-msgstr "ಪ್ರಶ್ನೆಗಳಿವೆಯೇ? ನಮ್ಮೊಂದಿಗೆ ಸಂಪರ್ಕದಲ್ಲಿರಿ. ನಾವು ಸಹಾಯ ಮಾಡಲು ಸಂತೋಷಪಡುತ್ತೇವೆ"
+msgstr "ಪ್ರಶ್ನೆಗಳಿವೆಯೇ? ನಮ್ಮೊಂದಿಗೆ ಸಂಪರ್ಕ ಪಡೆಯಿರಿ. ನಾವು ಸಹಾಯ ಮಾಡಲು ಖುಷಿಯಾಗುತ್ತೇವೆ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
 #, fuzzy
 msgid "Request Support &raquo;"
-msgstr "ಬೆಂಬಲವನ್ನು ವಿನಂತಿಸಿ »"
+msgstr "ಬೆಂಬಲ ಕೋರಿಕೆ &raquo;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
 #, fuzzy
 msgid "Change site layout"
-msgstr "ಸೈಟ್ ವಿನ್ಯಾಸವನ್ನು ಬದಲಾಯಿಸಿ"
+msgstr "ಸ್ಥಳ ವಿನ್ಯಾಸ [ಬದಲಾಯಿಸಿ]"
 
 #: core/includes/classes/class-responsive-admin-settings.php:308
 #, fuzzy
 msgid "Customize fonts/typography"
-msgstr "ಫಾಂಟ್‌ಗಳು / ಮುದ್ರಣಕಲೆಯನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ"
+msgstr "ಅಕ್ಷರಶೈಲಿಗಳು/ಟೈಪೋಟೋಗ್ರಫಿ ಕಸ್ಟಮೈಸ್"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
 #, fuzzy
 msgid "Upload logo & site icon"
-msgstr "ಲೋಗೋ ಮತ್ತು ಸೈಟ್ ಐಕಾನ್ ಅನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ"
+msgstr "ಲೋಗೋ ಮತ್ತು ತಾಣದ ಐಕಾನ್ ಅಪ್ಲೋಡ್ ಮಾಡಿ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:318
 #, fuzzy
 msgid "Add/edit navigation menu"
-msgstr "ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಸೇರಿಸಿ / ಸಂಪಾದಿಸಿ"
+msgstr "ನ್ಯಾವಿಗೇಶನ್ ಪರಿವಿಡಿ ಸೇರಿಸಿ/ಪರಿಷ್ಕರಿಸಿ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
 #, fuzzy
@@ -332,22 +333,22 @@ msgstr "ಹೆಡರ್ ಆಯ್ಕೆಗಳನ್ನು ಕಸ್ಟಮೈಸ�
 #: core/includes/classes/class-responsive-admin-settings.php:328
 #, fuzzy
 msgid "Customize footer options"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ಆಯ್ಕೆಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ"
+msgstr "ಆಹಾರಗಾರ ಆಯ್ಕೆಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
 #, fuzzy
 msgid "Update blog layout"
-msgstr "ಬ್ಲಾಗ್ ವಿನ್ಯಾಸವನ್ನು ನವೀಕರಿಸಿ"
+msgstr "ಬ್ಲಾಗ್ ವಿನ್ಯಾಸ ನವೀಕರಿಸಿ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
 #, fuzzy
 msgid "Update page layout"
-msgstr "ಪುಟ ವಿನ್ಯಾಸವನ್ನು ನವೀಕರಿಸಿ"
+msgstr "ಪುಟದ ವಿನ್ಯಾಸ (ಅಪ್ ಡೇಟ್)"
 
 #: core/includes/classes/class-responsive-admin-settings.php:346
 #, fuzzy
 msgid "Quick Start:"
-msgstr "ತ್ವರಿತ ಪ್ರಾರಂಭ:"
+msgstr "ಶೀಘ್ರ ಆರಂಭ:."
 
 #: core/includes/classes/class-responsive-admin-settings.php:365
 msgid "Community"
@@ -359,13 +360,13 @@ msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
-"ರೆಸ್ಪಾನ್ಸಿವ್ ಪವರ್-ಬಳಕೆದಾರರನ್ನು ಭೇಟಿ ಮಾಡಿ. ಹಲೋ ಹೇಳಿ, ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಿ, ಪ್ರತಿಕ್ರಿಯೆ "
-"ನೀಡಿ ಮತ್ತು ಪರಸ್ಪರ ಸಹಾಯ ಮಾಡಿ"
+"ಸ್ಪಂದನಶೀಲ ಶಕ್ತಿ-ಬಳಕೆದಾರರನ್ನು ಭೇಟಿಯಾಗಿ. ಹಲೋ ಹೇಳಿ, ಪ್ರಶ್ನೆ ಕೇಳಿ, ಫೀಡ್ ಬ್ಯಾಕ್ ಕೊಡಿ, "
+"ಒಬ್ಬರಿಗೊಬ್ಬರು ಸಹಾಯ ಮಾಡಿ"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
 #, fuzzy
 msgid "Join Facebook Group &raquo;"
-msgstr "ಫೇಸ್‌ಬುಕ್ ಗ್ರೂಪ್‌ಗೆ ಸೇರಿ »"
+msgstr "ಫೇಸ್ ಬುಕ್ ಗ್ರೂಪ್ ಗೆ ಸೇರಿಕೊಳ್ಳಿ &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:387
 msgid "Feedback"
@@ -378,38 +379,38 @@ msgid ""
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
-"Namasthe! ರೆಸ್ಪಾನ್ಸಿವ್ ಥೀಮ್ ಬಳಸಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು. ದಯವಿಟ್ಟು ನಮಗೆ ಸಹಾಯ ಮಾಡಿ ಮತ್ತು "
-"ನಮಗೆ 5-ಸ್ಟಾರ್ ರೇಟಿಂಗ್ ನೀಡಬಹುದೇ? ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆ ನಮ್ಮನ್ನು ಪ್ರೇರೇಪಿಸುತ್ತದೆ ಮತ್ತು "
-"ಜವಾಬ್ದಾರಿಯುತ ಸಮುದಾಯವನ್ನು ಬೆಳೆಸಲು ನಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ."
+"ನಮಸ್ತೆ! ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಥೀಮ್ ಅನ್ನು ಬಳಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು. ದಯವಿಟ್ಟು ನಮಗೆ ಒಂದು ಉಪಕಾರ "
+"ಮಾಡಿ ನಮಗೆ 5-ಸ್ಟಾರ್ ರೇಟಿಂಗ್ ಕೊಡುತ್ತೀರಾ? ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಯು ನಮ್ಮನ್ನು ಪ್ರೇರೇಪಿಸುತ್ತಲೇ "
+"ಇರುತ್ತದೆ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಸಮುದಾಯವನ್ನು ಬೆಳೆಸಲು ನಮಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ."
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
 #, fuzzy
 msgid "Submit Review &raquo;"
-msgstr "ವಿಮರ್ಶೆಯನ್ನು ಸಲ್ಲಿಸಿ »"
+msgstr "ಪರಿಶೀಲನೆ &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
 #, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
-msgstr "ಬೆಳಗುತ್ತಿರುವ ವೇಗದ, ಮೊಬೈಲ್ ಸ್ನೇಹಿ, ಸಂಪೂರ್ಣ ಗ್ರಾಹಕೀಯಗೊಳಿಸಬಹುದಾದ ವರ್ಡ್ಪ್ರೆಸ್ ಥೀಮ್."
+msgstr "ಜ್ವಲಿಸುವ ವೇಗದ, ಮೊಬೈಲ್-ಸ್ನೇಹಿ, ಸಂಪೂರ್ಣ-ಅನುಷ್ಟಾನ ವರ್ಡ್ ಪ್ರೆಸ್ ಥೀಮ್."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 #, fuzzy
 msgid "Sale!"
 msgstr "ಮಾರಾಟ!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 #, fuzzy
 msgid "WooCommerce Sidebar"
-msgstr "WooCommerce ಸೈಡ್‌ಬಾರ್"
+msgstr "ವುಕಾಮರ್ಸ್ ಬದಿಪಟ್ಟಿ."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 #, fuzzy
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
-"ಈ ಸೈಡ್‌ಬಾರ್ ಅನ್ನು ಉತ್ಪನ್ನ ಆರ್ಕೈವ್, ಕಾರ್ಟ್, ಚೆಕ್‌ out ಟ್ ಮತ್ತು ನನ್ನ ಖಾತೆ ಪುಟಗಳಲ್ಲಿ "
-"ಬಳಸಲಾಗುತ್ತದೆ."
+"ಈ ಸೈಡ್ ಬಾರ್ ಅನ್ನು ಪ್ರಾಡಕ್ಟ್ ಆರ್ಕೈವ್, ಕಾರ್ಟ್, ಚೆಕ್ ಔಟ್ ಮತ್ತು ಮೈ ಅಕೌಂಟ್ ಪುಟಗಳ ಮೇಲೆ "
+"ಬಳಸಲಾಗುವುದು."
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
@@ -424,7 +425,7 @@ msgstr "ಬಣ್ಣಗಳು"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
 #, fuzzy
 msgid "Cart Buttons"
-msgstr "ಕಾರ್ಟ್ ಗುಂಡಿಗಳು"
+msgstr "ಗಾಡಿ ಗುಂಡಿಗಳು"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
@@ -452,12 +453,12 @@ msgstr "ಬಟನ್ ಹೋವರ್"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
 #, fuzzy
 msgid "Button Hover Text"
-msgstr "ಬಟನ್ ಹೂವರ್ ಪಠ್ಯ"
+msgstr "ಬಟನ್ ಹೊವರ್ ಟೆಕ್ಸ್ಟ್"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
 #, fuzzy
 msgid "Checkout Button"
-msgstr "ಚೆಕ್ out ಟ್ ಬಟನ್"
+msgstr "ಚೆಕ್ ಔಟ್ ಬಟನ್"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
@@ -465,7 +466,7 @@ msgstr "ಚೆಕ್ out ಟ್ ಬಟನ್"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:46
 #, fuzzy
 msgid "Layouts"
-msgstr "ವಿನ್ಯಾಸಗಳು"
+msgstr "ಲೇಟ್ಸ್"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:54
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php:46
@@ -481,7 +482,7 @@ msgstr "ಮುಖ್ಯ ವಿಷಯ ಅಗಲ (%)"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
 #, fuzzy
 msgid "Enable Cross-sells"
-msgstr "ಅಡ್ಡ-ಮಾರಾಟಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಕ್ರಾಸ್-ಮಾರಾಟ ಮಾಡಲು ಸಾಧ್ಯವಾಗುವಂತೆ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
 #, fuzzy
@@ -491,59 +492,59 @@ msgstr "ಕಾರ್ಟ್ ಐಕಾನ್ ಗೋಚರತೆ"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
 #, fuzzy
 msgid "Display On All Devices"
-msgstr "ಎಲ್ಲಾ ಸಾಧನಗಳಲ್ಲಿ ಪ್ರದರ್ಶಿಸಿ"
+msgstr "ಎಲ್ಲಾ ಸಾಧನಗಳ ಮೇಲೆ ಪ್ರದರ್ಶನ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
 #, fuzzy
 msgid "Disabled On All Devices"
-msgstr "ಎಲ್ಲಾ ಸಾಧನಗಳಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"
+msgstr "ಎಲ್ಲಾ ಸಾಧನಗಳ ಮೇಲೆ ನಿಷ್ಕ್ರಿಯತೆ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
 #, fuzzy
 msgid "Product Catalog Options"
-msgstr "ಉತ್ಪನ್ನ ಕ್ಯಾಟಲಾಗ್ ಆಯ್ಕೆಗಳು"
+msgstr "ಪ್ರಾಡಕ್ಟ್ ಕ್ಯಾಟಲಾಗ್ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
 #, fuzzy
 msgid "Shop Options"
-msgstr "ಆಯ್ಕೆಗಳು"
+msgstr "ಅಂಗಡಿ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
 #, fuzzy
 msgid "Product Options"
-msgstr "ಉತ್ಪನ್ನ ಆಯ್ಕೆಗಳು"
+msgstr "ಉತ್ಪನ್ನದ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
 #, fuzzy
 msgid "Single Product Options"
-msgstr "ಏಕ ಉತ್ಪನ್ನ ಆಯ್ಕೆಗಳು"
+msgstr "ಏಕ ಉತ್ಪನ್ನದ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
 #, fuzzy
 msgid "Cart Options"
-msgstr "ಆಯ್ಕೆಗಳು"
+msgstr "ಕಾರ್ಟ್ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
 #, fuzzy
 msgid "Rating Color"
-msgstr "ರೇಟಿಂಗ್ ಬಣ್ಣ"
+msgstr "ರೇಟಿಂಗ್ ಕಲರ್"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
 #, fuzzy
 msgid "Price Color"
-msgstr "ಬೆಲೆ ಬಣ್ಣ"
+msgstr "ಪ್ರೈಸ್ ಕಲರ್"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
 #, fuzzy
 msgid "Add To Cart Buttons"
-msgstr "ಕಾರ್ಟ್ ಬಟನ್‌ಗಳಿಗೆ ಸೇರಿಸಿ"
+msgstr "ಗಾಡಿಯ ಬಟನ್ ಗಳನ್ನು ಸೇರಿಸಿ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -560,7 +561,7 @@ msgstr "ವಿನ್ಯಾಸ"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:54
 #, fuzzy
 msgid "Sidebar Position"
-msgstr "ಸೈಡ್ಬಾರ್ ಸ್ಥಾನ"
+msgstr "ಸೈಡ್ ಬಾರ್ ಸ್ಥಾನ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:56
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:56
@@ -569,7 +570,7 @@ msgstr "ಸೈಡ್ಬಾರ್ ಸ್ಥಾನ"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:56
 #, fuzzy
 msgid "Right Sidebar"
-msgstr "ಬಲ ಅಡ್ಡಪಟ್ಟಿ"
+msgstr "ಬಲ ಬದಿಪಟ್ಟಿ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:57
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:57
@@ -578,7 +579,7 @@ msgstr "ಬಲ ಅಡ್ಡಪಟ್ಟಿ"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:57
 #, fuzzy
 msgid "Left Sidebar"
-msgstr "ಎಡ ಸೈಡ್‌ಬಾರ್"
+msgstr "ಎಡ ಬದಿಪಟ್ಟಿ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:58
@@ -587,7 +588,7 @@ msgstr "ಎಡ ಸೈಡ್‌ಬಾರ್"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
 #, fuzzy
 msgid "No Sidebar"
-msgstr "ಸೈಡ್‌ಬಾರ್ ಇಲ್ಲ"
+msgstr "ಬದಿಯ ಪಟ್ಟಿName"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
 #, fuzzy
@@ -597,22 +598,22 @@ msgstr "ಅಂಗಡಿ ಉತ್ಪನ್ನ"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
 #, fuzzy
 msgid "Catalog View"
-msgstr "ಕ್ಯಾಟಲಾಗ್ ವೀಕ್ಷಣೆ"
+msgstr "ಕ್ಯಾಟಲಾಗ್ ವ್ಯೂ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
 #, fuzzy
 msgid "Grid View"
-msgstr "ಗ್ರಿಡ್ ವೀಕ್ಷಣೆ"
+msgstr "ಗ್ರಿಡ್ ವ್ಯೂ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:70
 #, fuzzy
 msgid "List View"
-msgstr "ಪಟ್ಟಿ ವೀಕ್ಷಣೆ"
+msgstr "ಪಟ್ಟಿ ನೋಟ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
 #, fuzzy
 msgid "Content Aligmnment"
-msgstr "ವಿಷಯ ಜೋಡಣೆ"
+msgstr "ಕಂಟೆಂಟ್ ಅಲಿಮೆಂಟ್"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
@@ -667,12 +668,12 @@ msgstr "ಬಲ"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
 #, fuzzy
 msgid "Shop Elements"
-msgstr "ಅಂಗಡಿ ಅಂಶಗಳು"
+msgstr "ಅಂಗಡಿ ಅಂಶಗಳನ್ನು"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
 #, fuzzy
 msgid "Sale Notification"
-msgstr "ಮಾರಾಟ ಅಧಿಸೂಚನೆ"
+msgstr "ಸೇಲ್ ನೋಟಿಫಿಕೇಷನ್"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
 msgid "None"
@@ -704,7 +705,7 @@ msgstr "ಮಾರಾಟ% ಮೌಲ್ಯ"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
 #, fuzzy
 msgid "Sale Bubble Style"
-msgstr "ಮಾರಾಟ ಬಬಲ್ ಶೈಲಿ"
+msgstr "ಸೇಲ್ ಬಬಲ್ ಸ್ಟೈಲ್."
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
 #, fuzzy
@@ -714,36 +715,36 @@ msgstr "ವೃತ್ತ"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
 #, fuzzy
 msgid "Circle Outline"
-msgstr "ವೃತ್ತದ line ಟ್‌ಲೈನ್"
+msgstr "ವೃತ್ತದ ರೂಪರೇಖೆ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
 #, fuzzy
 msgid "Square"
-msgstr "ಆಯತ"
+msgstr "ಚದರ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
 #, fuzzy
 msgid "Square Outline"
-msgstr "ಸ್ಕ್ವೇರ್ line ಟ್‌ಲೈನ್"
+msgstr "ಚೌಕ ರೂಪರೇಖೆ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
 #, fuzzy
 msgid "Product Elements"
-msgstr "ಉತ್ಪನ್ನ ಅಂಶಗಳು"
+msgstr "ಉತ್ಪನ್ನದ ಅಂಶಗಳನ್ನು"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:67
 #, fuzzy
 msgid "Gallery Layout"
-msgstr "ಗ್ಯಾಲರಿ ವಿನ್ಯಾಸ"
+msgstr "ಗ್ಯಾಲರಿ ಲೇಔಟ್"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "ಸಮತಲ"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "ಅಡ್ಡ"
@@ -756,16 +757,17 @@ msgstr "ಏಕ ಉತ್ಪನ್ನ ರಚನೆ"
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
 #, fuzzy
 msgid "Cart"
-msgstr "ಬಂಡಿ"
+msgstr "ಗಾಡಿ"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+#, fuzzy
 msgid " / "
 msgstr "/"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
 #, fuzzy
 msgid "Link values together"
-msgstr "ಮೌಲ್ಯಗಳನ್ನು ಒಟ್ಟಿಗೆ ಲಿಂಕ್ ಮಾಡಿ"
+msgstr "ಮೌಲ್ಯಗಳನ್ನು ಒಂದೊಂದಾಗಿ ಅನುಸಂಧಾನ ಮಾಡಿ"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
@@ -785,7 +787,7 @@ msgstr "ಕೆಳಕ್ಕೆ"
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
 #, fuzzy
 msgid "px - em - rem"
-msgstr "px - em - rem"
+msgstr "px-ಎಎಮ್-ರೆಮ್"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
 #, fuzzy
@@ -796,7 +798,7 @@ msgstr "ಆನುವಂಶಿಕವಾಗಿ"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
 #, fuzzy
 msgid "Thin: 100"
-msgstr "ತೆಳುವಾದ: 100"
+msgstr "ತೆಳು: 100"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
@@ -826,19 +828,19 @@ msgstr "ಮಧ್ಯಮ: 500"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
 #, fuzzy
 msgid "Semibold: 600"
-msgstr "ಸೆಮಿಬಾಲ್ಡ್: 600"
+msgstr "ಸೆಮಿಬೋಲ್ಡ್: 600"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
 #, fuzzy
 msgid "Bold: 700"
-msgstr "ದಪ್ಪ: 700"
+msgstr "ಬೋಲ್ಡ್: 700"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
 #, fuzzy
 msgid "Extra Bold: 800"
-msgstr "ಹೆಚ್ಚುವರಿ ದಪ್ಪ: 800"
+msgstr "ಹೆಚ್ಚುವರಿ ಬೋಲ್ಡ್: 800"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
@@ -849,38 +851,38 @@ msgstr "ಕಪ್ಪು: 900"
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
 #, fuzzy
 msgid "Arial, Helvetica, sans-serif"
-msgstr "ಏರಿಯಲ್, ಹೆಲ್ವೆಟಿಕಾ, ಸಾನ್ಸ್-ಸೆರಿಫ್"
+msgstr "ರಿಯಲ್, ಹೆಲ್ವೆಟಿಕಾ, ಸಾನ್ಸ್-ಸೆರೆ"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:219
 #, fuzzy
 msgid "Custom Fonts"
-msgstr "ಗ್ರಾಹಕೀಯ ಲಿಪಿಶೈಲಿಗಳು"
+msgstr "ಕಸ್ಟಮ್ ಫಾಂಟ್ ಗಳು"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:236
 #, fuzzy
 msgid "Standard Fonts"
-msgstr "ಸ್ಟ್ಯಾಂಡರ್ಡ್ ಫಾಂಟ್‌ಗಳು"
+msgstr "ಪ್ರಮಾಣಿತ ಫಾಂಟ್ ಗಳು"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:250
 #, fuzzy
 msgid "Google Fonts"
-msgstr "Google ಫಾಂಟ್‌ಗಳು"
+msgstr "ಗೂಗಲ್ ಫಾಂಟ್ ಗಳು"
 
 #: core/includes/customizer/controls/upsell/class-responsive-control-upsell.php:72
 #: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
 #, fuzzy
 msgid "PRO"
-msgstr "ಪಿಆರ್‌ಒ"
+msgstr "ಪ್ರೊ"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
 #, fuzzy
 msgid "View PRO Features"
-msgstr "PRO ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವೀಕ್ಷಿಸಿ"
+msgstr "ವ್ಯೂ ಪ್ರೋ ಫೀಚರ್ಸ್"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
 #, fuzzy
 msgid "Pro Ready Sites"
-msgstr "ಪ್ರೊ ರೆಡಿ ಸೈಟ್‌ಗಳು"
+msgstr "ಪ್ರೋ ರೆಡಿ ತಾಣಗಳು."
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
 #, fuzzy
@@ -890,17 +892,17 @@ msgstr "ಫಾರ್ಮ್ ಬಿಲ್ಡರ್"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
 #, fuzzy
 msgid "Interactive Sliders and Carousels"
-msgstr "ಇಂಟರ್ಯಾಕ್ಟಿವ್ ಸ್ಲೈಡರ್‌ಗಳು ಮತ್ತು ಏರಿಳಿಕೆಗಳು"
+msgstr "ಪಾರಸ್ಪರಿಕ ಸ್ಲೈಡರ್ ಗಳು ಮತ್ತು ಕಾರ್ಟೌಸೆಲ್ಸ್"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
 #, fuzzy
 msgid "Pricing Tables"
-msgstr "ಬೆಲೆ ಕೋಷ್ಟಕಗಳು"
+msgstr "ದರ ಕೋಷ್ಟಕಗಳು"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
 #, fuzzy
 msgid "Portfolio and Post Layouts"
-msgstr "ಪೋರ್ಟ್ಫೋಲಿಯೊ ಮತ್ತು ಪೋಸ್ಟ್ ವಿನ್ಯಾಸಗಳು"
+msgstr "ಪೋರ್ಟ್ ಫೋಲಿಯೊ ಮತ್ತು ಪೋಸ್ಟ್ ಲೇಟ್ಸ್"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
 #, fuzzy
@@ -910,17 +912,17 @@ msgstr "ಖಾಸಗಿ, ಆದ್ಯತೆಯ ಬೆಂಬಲ"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
 #, fuzzy
 msgid "Get the PRO version!"
-msgstr "ಪ್ರೊ ಆವೃತ್ತಿಯನ್ನು ಪಡೆಯಿರಿ!"
+msgstr "ಪ್ರೋ ವರ್ಷನ್ ಪಡೆಯಿರಿ!"
 
 #: core/includes/customizer/customizer.php:29
 #, fuzzy
 msgid "CSS Styles"
-msgstr "ಸಿಎಸ್ಎಸ್ ಸ್ಟೈಲ್ಸ್"
+msgstr "ಸಿಎಸ್ ಎಸ್ ಶೈಲಿಗಳು"
 
 #: core/includes/customizer/customizer.php:43
 #, fuzzy
 msgid "Custom CSS Styles"
-msgstr "ಕಸ್ಟಮ್ ಸಿಎಸ್ಎಸ್ ಸ್ಟೈಲ್ಸ್"
+msgstr "ಕಸ್ಟಮ್ ಸಿಎಸ್ ಎಸ್ ಶೈಲಿಗಳು"
 
 #: core/includes/customizer/customizer.php:64
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
@@ -933,13 +935,13 @@ msgstr "ಗ್ರೇಡಿಯಂಟ್"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
 #, fuzzy
 msgid "Flat"
-msgstr "ಫ್ಲಾಟ್"
+msgstr "ಫ್ಲ್ಯಾಟ್"
 
 #: core/includes/customizer/customizer.php:98
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
 #, fuzzy
 msgid "Choose Post"
-msgstr "ಪೋಸ್ಟ್ ಆಯ್ಕೆಮಾಡಿ"
+msgstr "ಪೋಸ್ಟ್ ಆಯ್ಕೆ"
 
 #: core/includes/customizer/helper.php:35
 #: core/includes/customizer/helper.php:118
@@ -955,7 +957,7 @@ msgstr "ಬಿರುದು"
 #: core/includes/customizer/helper.php:225
 #, fuzzy
 msgid "Featured Image"
-msgstr "ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರ"
+msgstr "ಪ್ರದರ್ಶಿಸಿದ ಚಿತ್ರ"
 
 #: core/includes/customizer/helper.php:37
 #: core/includes/customizer/helper.php:120
@@ -978,12 +980,13 @@ msgstr "ವಿಷಯ"
 #: core/includes/customizer/helper.php:173
 #, fuzzy
 msgid "Site Branding"
-msgstr "ಸೈಟ್ ಬ್ರ್ಯಾಂಡಿಂಗ್"
+msgstr "ಸೈಟ್ ಬ್ರಾಂಡಿಂಗ್"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 #, fuzzy
 msgid "Main Navigation"
-msgstr "ಮುಖ್ಯ ಸಂಚರಣೆ"
+msgstr "ಮುಖ್ಯ ಸಂಚಾರ"
 
 #: core/includes/customizer/helper.php:248
 msgid "Rating"
@@ -999,13 +1002,13 @@ msgstr "ಬೆಲೆ"
 #: core/includes/customizer/helper.php:278
 #, fuzzy
 msgid "Short Description"
-msgstr "ಸಣ್ಣ ವಿವರಣೆ"
+msgstr "ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ"
 
 #: core/includes/customizer/helper.php:251
 #: core/includes/customizer/helper.php:279
 #, fuzzy
 msgid "Add to Cart"
-msgstr "ಕಾರ್ಟ್‌ಗೆ ಸೇರಿಸಿ"
+msgstr "ಗಾಡಿಗೆ ಸೇರಿಸಿ"
 
 #: core/includes/customizer/helper.php:275
 msgid "Category"
@@ -1014,29 +1017,29 @@ msgstr "ವರ್ಗ"
 #: core/includes/customizer/helper.php:277
 #, fuzzy
 msgid "Ratings"
-msgstr "ರೇಟಿಂಗ್‌ಗಳು"
+msgstr "ರೇಟಿಂಗ್"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 #, fuzzy
 msgid "Read more &raquo;"
-msgstr "ಮತ್ತಷ್ಟು ಓದು \""
+msgstr "Read more &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 #, fuzzy
 msgid "Read More &raquo;"
-msgstr "ಮತ್ತಷ್ಟು ಓದು \""
+msgstr "Read more &raquo;"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
 #, fuzzy
 msgid "Entry Elements"
-msgstr "ಪ್ರವೇಶ ಅಂಶಗಳು"
+msgstr "ಎಂಟ್ರಿ ಎಲಿಮೆಂಟ್ಸ್"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
 #, fuzzy
 msgid "Entry Featured Image"
-msgstr "ಪ್ರವೇಶ ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರ"
+msgstr "ಪ್ರವೇಶ ಪ್ರದರ್ಶಿತ ಚಿತ್ರ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
@@ -1051,7 +1054,7 @@ msgstr "ವೈಖರಿ"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:90
 #, fuzzy
 msgid "Stretched"
-msgstr "ವಿಸ್ತರಿಸಿದೆ"
+msgstr "ಹಿಗ್ಗಾಮುಗ್ಗಾ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:95
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:110
@@ -1062,7 +1065,7 @@ msgstr "ವಿಸ್ತರಿಸಿದೆ"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:110
 #, fuzzy
 msgid "Alignment"
-msgstr "ಜೋಡಣೆ"
+msgstr "ಹೊಂದಾಣಿಕೆ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:99
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:114
@@ -1088,7 +1091,7 @@ msgstr "ಪ್ರವೇಶ ಶೀರ್ಷಿಕೆ"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
 #, fuzzy
 msgid "Entry Meta"
-msgstr "ಪ್ರವೇಶ ಮೆಟಾ"
+msgstr "ಎಂಟ್ರಿ ಮೆಟಾ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
@@ -1110,7 +1113,7 @@ msgstr "ದಿನಾಂಕ"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:150
 #, fuzzy
 msgid "Categories"
-msgstr "ವರ್ಗಗಳು:"
+msgstr "ವರ್ಗಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:151
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:151
@@ -1121,13 +1124,13 @@ msgstr "ಪ್ರತಿಕ್ರಿಯೆಗಳುಲ"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
 #, fuzzy
 msgid "Meta Separator"
-msgstr "ಮೆಟಾ ಸೆಪರೇಟರ್"
+msgstr "ಮೆಟಾ ಸಪರೇಟರ್"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
 #, fuzzy
 msgid "Meta Alignment"
-msgstr "ಮೆಟಾ ಜೋಡಣೆ"
+msgstr "ಮೆಟಾ ಅಲೈನ್ ಮೆಂಟ್"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
 #, fuzzy
@@ -1137,66 +1140,66 @@ msgstr "ಪ್ರವೇಶ ವಿಷಯ"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
 #, fuzzy
 msgid "Content Type"
-msgstr "ವಿಷಯ ಪ್ರಕಾರ"
+msgstr "ವಿಷಯ ವಿಧ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:197
 #, fuzzy
 msgid "Excerpt"
-msgstr "ಆಯ್ದ ಭಾಗಗಳು"
+msgstr "ಎಕ್ಸೆಪ್ಶನ್"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:202
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:124
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:194
 #, fuzzy
 msgid "Content Alignment"
-msgstr "ವಿಷಯ ಜೋಡಣೆ"
+msgstr "ವಿಷಯ ಹೊಂದಾಣಿಕೆ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:211
 #, fuzzy
 msgid "Excerpt Length"
-msgstr "ಆಯ್ದ ಉದ್ದ"
+msgstr "ಎಕ್ಸೆಪ್ಶನ್ ಉದ್ದ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:215
 #, fuzzy
 msgid "Read More Text"
-msgstr "ಇನ್ನಷ್ಟು ಓದಿ ಪಠ್ಯ"
+msgstr "ಹೆಚ್ಚಿನ ಪಠ್ಯವನ್ನು ಓದಿ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
 #, fuzzy
 msgid "Read More Type"
-msgstr "ಮುಂದೆ ಓದಿ ಪ್ರಕಾರ"
+msgstr "ಹೆಚ್ಚು ಬಗೆಯನ್ನು ಓದಿ"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
 #, fuzzy
 msgid "Link"
-msgstr "ಸಂಪರ್ಕಕೊಂಡಿ"
+msgstr "ಲಿಂಕ್"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-panel.php:85
 #: core/includes/customizer/settings/class-responsive-panel.php:86
 #, fuzzy
 msgid "Content Header"
-msgstr "ವಿಷಯ ಹೆಡರ್"
+msgstr "ಕಂಟೆಂಟ್ ಹೆಡರ್"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
 #, fuzzy
 msgid "Enable Blog Page Title"
-msgstr "ಬ್ಲಾಗ್ ಪುಟ ಶೀರ್ಷಿಕೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಬ್ಲಾಗ್ ಪುಟದ ಶೀರ್ಷಿಕೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
 #, fuzzy
 msgid "Blog Page Title"
-msgstr "ಬ್ಲಾಗ್ ಪುಟ ಶೀರ್ಷಿಕೆ"
+msgstr "ಬ್ಲಾಗ್ ಪೇಜ್ ಟೈಟಲ್"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
 #, fuzzy
 msgid "Entry Columns"
-msgstr "ಪ್ರವೇಶ ಕಾಲಮ್‌ಗಳು"
+msgstr "ಪ್ರವೇಶ ಕಾಲಂಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
 #, fuzzy
 msgid "Enable Masonry Layout"
-msgstr "ಕಲ್ಲು ವಿನ್ಯಾಸವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಕಲ್ಲು ವಿನ್ಯಾಸವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
 #, fuzzy
@@ -1206,32 +1209,32 @@ msgstr "ಶೀರ್ಷಿಕೆ ಬಣ್ಣ"
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:50
 #, fuzzy
 msgid "Description Color"
-msgstr "ವಿವರಣೆ ಬಣ್ಣ"
+msgstr "ವಿವರಣೆಯ ಬಣ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
 #, fuzzy
 msgid "Breadcrumb Color"
-msgstr "ಬ್ರೆಡ್‌ಕ್ರಂಬ್ ಬಣ್ಣ"
+msgstr "Breadcrumb ಬಣ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
 #, fuzzy
 msgid "Disable breadcrumb list?"
-msgstr "ಬ್ರೆಡ್‌ಕ್ರಂಬ್ ಪಟ್ಟಿಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದೇ?"
+msgstr "Breadcrumb ಪಟ್ಟಿಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು?"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
 #, fuzzy
 msgid "Breadcrumb Position"
-msgstr "ಬ್ರೆಡ್‌ಕ್ರಂಬ್ ಸ್ಥಾನ"
+msgstr "Breadcrumb ಸ್ಥಾನ"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
 #, fuzzy
 msgid "Before Heading"
-msgstr "ಶಿರೋನಾಮೆ ಮೊದಲು"
+msgstr "ತಲೆಬರಹದ ಮೊದಲು"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
 #, fuzzy
 msgid "After Heading"
-msgstr "ಶಿರೋನಾಮೆ ನಂತರ"
+msgstr "ತಲೆಬರಹದ ನಂತರ"
 
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
@@ -1244,7 +1247,7 @@ msgstr "ಶಿರೋನಾಮೆ ನಂತರ"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:252
 #, fuzzy
 msgid "Typography"
-msgstr "ಮುದ್ರಣಕಲೆ"
+msgstr "ಟೈಪೋಗ್ರಾಫಿ"
 
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:53
 msgid "Description"
@@ -1253,7 +1256,7 @@ msgstr "ವಿವರಣೆ"
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:59
 #, fuzzy
 msgid "Breadcrumb"
-msgstr "ಬ್ರೆಡ್‌ಕ್ರಂಬ್"
+msgstr "Breadcrumb"
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:79
 msgid "Documentation"
@@ -1264,17 +1267,18 @@ msgstr "ದಸ್ತಾವೇಜೀಕರಣ@ info: shell"
 #, fuzzy
 msgid "To have access to a shop section please install and configure %1$s."
 msgstr ""
-"ಅಂಗಡಿ ವಿಭಾಗಕ್ಕೆ ಪ್ರವೇಶ ಪಡೆಯಲು ದಯವಿಟ್ಟು%1$s ಅನ್ನು ಸ್ಥಾಪಿಸಿ ಮತ್ತು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ."
+"ಒಂದು ಅಂಗಡಿಯ ವಿಭಾಗಕ್ಕೆ ಪ್ರವೇಶವನ್ನು ಹೊಂದಲು ದಯವಿಟ್ಟು 1 $ s ಅನ್ನು ಇನ್ ಸ್ಟಾಲ್ ಮಾಡಿ ಮತ್ತು "
+"ಸಂರಚಿಸಿ."
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
 #, fuzzy
 msgid "WooCommerce plugin"
-msgstr "WooCommerce ಪ್ಲಗಿನ್"
+msgstr "ವುಕಾಮರ್ಸ್ ಪ್ಲ್ಯಾನ್."
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
 #, fuzzy
 msgid "Recommended Plugins"
-msgstr "ಶಿಫಾರಸು ಮಾಡಲಾದ ಪ್ಲಗಿನ್‌ಗಳು"
+msgstr "ಪ್ಲಗ್ ಇನ್ ಗಳನ್ನು ಶಿಫಾರಸ್ಸು"
 
 #. translators: Orbit Fox Companion
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
@@ -1283,8 +1287,8 @@ msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
 msgstr ""
-"ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಸುಂದರ ವೇಗದ ಮತ್ತು ಸ್ಪಂದಿಸುವ ವೆಬ್‌ಸೈಟ್ ನಿರ್ಮಿಸಲು ಸಹಾಯ ಮಾಡುವ ಇನ್ನಷ್ಟು "
-"ಶಕ್ತಿಶಾಲಿ ವೈಶಿಷ್ಟ್ಯಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಪಡೆಯಿರಿ."
+"ಇನ್ನೂ ಹೆಚ್ಚು ಶಕ್ತಿಶಾಲಿ ಫೀಚರ್ ಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಪಡೆಯಿರಿ, ಅದು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಒಂದು "
+"ಸುಂದರ ವೇಗದ ಮತ್ತು ಸ್ಪಂದನಶೀಲ ವೆಬ್ ಸೈಟ್ ಅನ್ನು ನಿರ್ಮಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ."
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
@@ -1292,7 +1296,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:51
 #, fuzzy
 msgid "Background Color"
-msgstr "ಹಿನ್ನೆಲೆ ಬಣ್ಣ"
+msgstr "ಹಿನ್ನಲೆ ಬಣ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:50
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:68
@@ -1306,107 +1310,111 @@ msgstr "ಪಠ್ಯ ಬಣ್ಣ"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:80
 #, fuzzy
 msgid "Links Color"
-msgstr "ಲಿಂಕ್ಸ್ ಬಣ್ಣ"
+msgstr "ಬಣ್ಣಗಳ ಕೊಂಡಿಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:58
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
 #, fuzzy
 msgid "Links Hover Color"
-msgstr "ಲಿಂಕ್ಸ್ ಹೂವರ್ ಬಣ್ಣ"
+msgstr "ಲಿಂಕ್ ಹೋವರ್ ಕಲರ್"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
 #, fuzzy
 msgid "Full Width Footer"
-msgstr "ಪೂರ್ಣ ಅಗಲ ಅಡಿಟಿಪ್ಪಣಿ"
+msgstr "ಫುಲ್ ಅಗಲ ಫುಟರ್."
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
 #, fuzzy
 msgid "Footer Widgets"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ವಿಜೆಟ್‌ಗಳು"
+msgstr "ಫುಟರ್ ವಿಡ್ಗೆಟ್ ಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:57
 #, fuzzy
 msgid "Number of Columns"
-msgstr "ಲಂಬಸಾಲುಗಳ ಸಂಖ್ಯೆ:"
+msgstr "ಲಂಬಸಾಲುಗಳ ಸಂಖ್ಯೆ"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:66
 #, fuzzy
 msgid "Footer Bar"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ಪಟ್ಟಿ"
+msgstr "ಫುಟರ್ ಬಾರ್"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+#, fuzzy
+msgid "Copyright text"
+msgstr "ಕಾಪಿರೈಟ್ ಟೆಕ್ಸ್ಟ್"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "ಪ್ರತಿಕ್ರಿಯಾಶೀಲ ಥೀಮ್ ಮೂಲಕ ಅಡಗಿಸು"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 #, fuzzy
 msgid "Social Links"
-msgstr "ಸಾಮಾಜಿಕ ಲಿಂಕ್‌ಗಳು"
+msgstr "ಸಾಮಾಜಿಕ ಸಂಪರ್ಕಗಳು"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "ಫೇಸ್‌ಬುಕ್‌"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 #, fuzzy
 msgid "LinkedIn"
-msgstr "ಲಿಂಕ್ಡ್‌ಇನ್"
+msgstr "ಲಿಂಕ್ಡ್ಇನ್"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "ಯೂಟ್ಯೂಬ್‌"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-#, fuzzy
-msgid "Google+"
-msgstr "ಗೂಗಲ್Query"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 #, fuzzy
 msgid "RSS Feed"
-msgstr "ಆರ್ಎಸ್ಎಸ್ ಫೀಡ್"
+msgstr "RSS ಫೀಡ್"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 #, fuzzy
 msgid "Instagram"
-msgstr "ಒ Instagram ಅರ್ಥ"
+msgstr "ಇನ್ ಸ್ಟಾಗ್ರಾಮ್"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 #, fuzzy
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 #, fuzzy
 msgid "StumbleUpon"
-msgstr "ಎಡವು"
+msgstr "ಸ್ತಂಬೆಮೇಲೆ"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 #, fuzzy
 msgid "Vimeo"
-msgstr "ವಿಮಿಯೋನಲ್ಲಿನ"
+msgstr "ವಿಮೇಯೋ"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 #, fuzzy
 msgid "Yelp"
-msgstr "ಕೂಗು"
+msgstr "ಯಲಹಂಕ"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 #, fuzzy
 msgid "Foursquare"
-msgstr "ಫೊರ್ಸ್ಕ್ವೇರ್"
+msgstr "ಚತುರ್ವರ್ಗ"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "ಇಮೇಲ್ ವಿಳಾಸ"
 
@@ -1414,12 +1422,12 @@ msgstr "ಇಮೇಲ್ ವಿಳಾಸ"
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:39
 #, fuzzy
 msgid "Scripts"
-msgstr "ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳು"
+msgstr "ಲಿಪಿಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
 #, fuzzy
 msgid "Embeds to footer.php"
-msgstr "Footer.php ಗೆ ಎಂಬೆಡ್ ಮಾಡುತ್ತದೆ"
+msgstr "ಎಮಬೆಡ್ ಟು ಫುಟರ್. php"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
@@ -1432,17 +1440,17 @@ msgstr "ಅಂಚಿನ ಬಣ್ಣ"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
 #, fuzzy
 msgid "Site Title Color"
-msgstr "ಸೈಟ್ ಶೀರ್ಷಿಕೆ ಬಣ್ಣ"
+msgstr "ಸ್ಥಳ ಶೀರ್ಷಿಕೆ ಬಣ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
 #, fuzzy
 msgid "Site Title Hover Color"
-msgstr "ಸೈಟ್ ಶೀರ್ಷಿಕೆ ಹೂವರ್ ಬಣ್ಣ"
+msgstr "ಸೈಟ್ ಶೀರ್ಷಿಕೆ ಹೋವರ್ ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
 #, fuzzy
 msgid "Site Tagline Color"
-msgstr "ಸೈಟ್ ಟ್ಯಾಗ್‌ಲೈನ್ ಬಣ್ಣ"
+msgstr "ಸ್ಥಳ ಟ್ಯಾಗ್ ಲೈನ್ ವರ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
 #, fuzzy
@@ -1457,27 +1465,27 @@ msgstr "ಪೂರ್ಣ ಅಗಲ ಹೆಡರ್"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
 #, fuzzy
 msgid "Inline logo & Site Title"
-msgstr "ಇನ್ಲೈನ್ ಲೋಗೋ ಮತ್ತು ಸೈಟ್ ಶೀರ್ಷಿಕೆ"
+msgstr "ಇನ್ ಲೈನ್ ಲೋಗೋ & ತಾಣದ ಶೀರ್ಷಿಕೆ"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
 #, fuzzy
 msgid "Header Elements"
-msgstr "ಹೆಡರ್ ಅಂಶಗಳು"
+msgstr "ಹೆಡರ್ ಎಲಿಮೆಂಟ್ಸ್"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:81
 #, fuzzy
 msgid "Header Layout"
-msgstr "ಹೆಡರ್ ವಿನ್ಯಾಸ"
+msgstr "ಹೆಡರ್ ಲೇಔಟ್"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
 #, fuzzy
 msgid "Header Alignment"
-msgstr "ಹೆಡರ್ ಜೋಡಣೆ"
+msgstr "ಹೆಡರ್ ಹೊಂದಾಣಿಕೆ"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #, fuzzy
 msgid "Logo Padding (px)"
-msgstr "ಲೋಗೋ ಪ್ಯಾಡಿಂಗ್ (ಪಿಎಕ್ಸ್)"
+msgstr "ಲೋಗೋ ಪ್ಯಾಡಿಂಗ್ (px)."
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
 #, fuzzy
@@ -1487,58 +1495,58 @@ msgstr "ಪಾರದರ್ಶಕ ಹೆಡರ್"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
 #, fuzzy
 msgid "Enable on Complete Website"
-msgstr "ಸಂಪೂರ್ಣ ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿ ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಸಂಪೂರ್ಣ ವೆಬ್ ಸೈಟ್ ನಲ್ಲಿ ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
 #, fuzzy
 msgid "Site Content Padding (px)"
-msgstr "ಸೈಟ್ ವಿಷಯ ಪ್ಯಾಡಿಂಗ್ (ಪಿಎಕ್ಸ್)"
+msgstr "ಸೈಟ್ ಕಂಟೆಂಟ್ ಪ್ಯಾಡಿಂಗ್ (px)."
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
 #, fuzzy
 msgid "Disable on 404, Search & Archives?"
-msgstr "404, ಹುಡುಕಾಟ ಮತ್ತು ದಾಖಲೆಗಳಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದೇ?"
+msgstr "404, ಸರ್ಚ್ & ಆರ್ಕೈವ್ಸ್ ಮೇಲೆ ನಿಷ್ಕ್ರಿಯೆ?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
 #, fuzzy
 msgid "Disable on Blog page?"
-msgstr "ಬ್ಲಾಗ್ ಪುಟದಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದೇ?"
+msgstr "ಬ್ಲಾಗ್ ಪುಟದಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
 #, fuzzy
 msgid "Disable on Latest Posts Page?"
-msgstr "ಇತ್ತೀಚಿನ ಪೋಸ್ಟ್‌ಗಳ ಪುಟದಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದೇ?"
+msgstr "ತಾಜಾ ಹುದ್ದೆಗಳ ಪುಟದಲ್ಲಿ ನಿಷ್ಕ್ರಿಯೆ?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
 #, fuzzy
 msgid "Disable on Pages?"
-msgstr "ಪುಟಗಳಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದೇ?"
+msgstr "ಪುಟಗಳ ಮೇಲೆ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
 #, fuzzy
 msgid "Disable on Posts?"
-msgstr "ಪೋಸ್ಟ್‌ಗಳಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದೇ?"
+msgstr "ಹುದ್ದೆಗಳ ಮೇಲೆ ನಿಷ್ಕ್ರಿಯೆ?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
 #, fuzzy
 msgid "Disable on WooCommerce Product Pages?"
-msgstr "WooCommerce ಉತ್ಪನ್ನ ಪುಟಗಳಲ್ಲಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದೇ?"
+msgstr "ವುಕಾಮರ್ಸ್ ಉತ್ಪನ್ನದ ಪುಟಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
 #: core/includes/functions-sidebar.php:100
 #, fuzzy
 msgid "Header Widgets"
-msgstr "ಹೆಡರ್ ವಿಡ್ಗೆಟ್‌ಗಳು"
+msgstr "ಹೆಡರ್ ವಿಡ್ಗೆಟ್"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
 #, fuzzy
 msgid "Enable Header Widgets"
-msgstr "ಹೆಡರ್ ವಿಜೆಟ್‌ಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಹೆಡರ್ ವಿಡ್ಗೆಟ್ ಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
 #, fuzzy
 msgid "Widgets Position"
-msgstr "ವಿಜೆಟ್ಸ್ ಸ್ಥಾನ"
+msgstr "ವಿಡ್ಗೆಟ್ ಸ್ಥಾನ"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
 #, fuzzy
@@ -1548,7 +1556,7 @@ msgstr "ಮೇಲಿನ ಹೆಡರ್"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
 #, fuzzy
 msgid "In Header"
-msgstr "ಹೆಡರ್ನಲ್ಲಿ"
+msgstr "ಹೆಡರ್"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
 #, fuzzy
@@ -1558,17 +1566,17 @@ msgstr "ಹೆಡರ್ ಕೆಳಗೆ"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
 #, fuzzy
 msgid "Widgets Alignment"
-msgstr "ವಿಜೆಟ್‌ಗಳ ಜೋಡಣೆ"
+msgstr "ವಿಜೆಟ್ ಗಳ ಹೊಂದಾಣಿಕೆ"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
 #, fuzzy
 msgid "Spread"
-msgstr "ಹರಡುವಿಕೆ"
+msgstr "ಹರಡಿ"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
 #, fuzzy
 msgid "Space Around"
-msgstr "ಸುತ್ತಲಿನ ಸ್ಥಳ"
+msgstr "ಸುತ್ತಲೂ ಜಾಗ"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #, fuzzy
@@ -1578,62 +1586,62 @@ msgstr "ಸಕ್ರಿಯ ಮೆನು ಹಿನ್ನೆಲೆ ಬಣ್ಣ"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
 #, fuzzy
 msgid "Menu Item Link Color"
-msgstr "ಮೆನು ಐಟಂ ಲಿಂಕ್ ಬಣ್ಣ"
+msgstr "ಮೆನು ಐಟಂ ಲಿಂಕ್ ಕಲರ್"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
 #, fuzzy
 msgid "Menu Item Link Hover Color"
-msgstr "ಮೆನು ಐಟಂ ಲಿಂಕ್ ಹೂವರ್ ಬಣ್ಣ"
+msgstr "ಮೆನು ಐಟಂ ಲಿಂಕ್ ಹೋವರ್ ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
 #, fuzzy
 msgid "Sub Menu Background Color"
-msgstr "ಉಪ ಮೆನು ಹಿನ್ನೆಲೆ ಬಣ್ಣ"
+msgstr "ಉಪ ಪರಿವಿಡಿ ಹಿನ್ನೆಲೆ ಬಣ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
 #, fuzzy
 msgid "Sub Menu Item Link Color"
-msgstr "ಉಪ ಮೆನು ಐಟಂ ಲಿಂಕ್ ಬಣ್ಣ"
+msgstr "ಉಪ ಮೆನು ಐಟಂ ಲಿಂಕ್ ಕಲರ್"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
 #, fuzzy
 msgid "Sub Menu Item Link Hover Color"
-msgstr "ಉಪ ಮೆನು ಐಟಂ ಲಿಂಕ್ ಹೂವರ್ ಬಣ್ಣ"
+msgstr "ಸಬ್ ಮೆನು ಐಟಂ ಲಿಂಕ್ ಹೋವರ್ ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
 #, fuzzy
 msgid "Menu Toggle Background Color"
-msgstr "ಮೆನು ಹಿನ್ನೆಲೆ ಬಣ್ಣವನ್ನು ಟಾಗಲ್ ಮಾಡಿ"
+msgstr "ಮೆನು ಟಾಗಲ್ ಹಿನ್ನಲೆ ಬಣ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
 #, fuzzy
 msgid "Menu Toggle Color"
-msgstr "ಮೆನು ಬಣ್ಣವನ್ನು ಟಾಗಲ್ ಮಾಡಿ"
+msgstr "ಮೆನು ಟಾಗಲ್ ಕಲರ್"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
 #, fuzzy
 msgid "Full Width Main Navigation"
-msgstr "ಪೂರ್ಣ ಅಗಲ ಮುಖ್ಯ ಸಂಚರಣೆ"
+msgstr "ಪೂರ್ಣ ಅಗಲ ಮುಖ್ಯ ಸಂಚಾರ"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
 #, fuzzy
 msgid "Enable Mobile Menu"
-msgstr "ಮೊಬೈಲ್ ಮೆನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಮೊಬೈಲ್ ಮೆನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
 #, fuzzy
 msgid "Breakpoint"
-msgstr "ಬ್ರೇಕ್ಪಾಯಿಂಟ್"
+msgstr "ಬ್ರೇಕ್ ಪಾಯಿಂಟ್"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:65
 #, fuzzy
 msgid "Dropdown"
-msgstr "ಡ್ರಾಪ್ಡೌನ್"
+msgstr "ಡ್ರಾಡೌನ್"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
 #, fuzzy
 msgid "FullScreen"
-msgstr "ಪೂರ್ಣಸ್ಕ್ರೀನ್"
+msgstr "ಪೂರ್ಣತೆರೆ"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-panel.php:67
@@ -1643,45 +1651,45 @@ msgstr "ಬದಿಯ ಪಟ್ಟಿName"
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
 #, fuzzy
 msgid "Sidebar Menu Alignment"
-msgstr "ಸೈಡ್ಬಾರ್ ಮೆನು ಜೋಡಣೆ"
+msgstr "ಸೈಡ್ ಬಾರ್ ಪರಿವಿಡಿ ಹೊಂದಾಣಿಕೆ"
 
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
 #, fuzzy
 msgid "Embeds to header.php"
-msgstr "Header.php ಗೆ ಎಂಬೆಡ್ ಮಾಡುತ್ತದೆ"
+msgstr "ಎಬೆಂಡ್ಸ್ ಟು ಹೆಡರ್. php"
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
 #, fuzzy
 msgid "Site Title"
-msgstr "ಬಿರುದು"
+msgstr "ಸೈಟ್ ಶೀರ್ಷಿಕೆ"
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
 #, fuzzy
 msgid "Site Tagline"
-msgstr "ಸೈಟ್ ಟ್ಯಾಗ್‌ಲೈನ್"
+msgstr "ಸ್ಥಳ ಟ್ಯಾಗೋರರು"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:50
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
 #, fuzzy
 msgid "Choose Category"
-msgstr "ವರ್ಗವನ್ನು ಆರಿಸಿ"
+msgstr "ವರ್ಗವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
 #, fuzzy
 msgid "Custom Home Page"
-msgstr "ಕಸ್ಟಮ್ ಮುಖಪುಟ"
+msgstr "ಕಸ್ಟಮ್ ಹೋಮ್ ಪೇಜ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 #, fuzzy
 msgid "Enable Custom Front Page"
-msgstr "ಕಸ್ಟಮ್ ಮುಂದಿನ ಪುಟವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಕಸ್ಟಮ್ ಫ್ರಂಟ್ ಪೇಜ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
 #, fuzzy
 msgid "Overrides the WordPress front page option"
-msgstr "ವರ್ಡ್ಪ್ರೆಸ್ ಮೊದಲ ಪುಟ ಆಯ್ಕೆಯನ್ನು ಅತಿಕ್ರಮಿಸುತ್ತದೆ"
+msgstr "ವರ್ಡ್ ಪ್ರೆಸ್ ಫ್ರಂಟ್ ಪೇಜ್ ಆಯ್ಕೆಯನ್ನು ಓವರ್ ರೈಡ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
 #, fuzzy
@@ -1689,96 +1697,96 @@ msgid "Hero Area"
 msgstr "ಹೀರೋ ಏರಿಯಾ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 #, fuzzy
 msgid "HAPPINESS"
-msgstr "ಸಂತೋಷ"
+msgstr "ಸುಖ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:108
 #, fuzzy
 msgid "Headline"
-msgstr "ಶೀರ್ಷಿಕೆ"
+msgstr "ಹೆಡ್ ಲೈನ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 #, fuzzy
 msgid "IS A WARM CUP"
-msgstr "ಒಂದು ವಾರ್ಮ್ ಕಪ್ ಆಗಿದೆ"
+msgstr "ಒಂದು ಬೆಚ್ಚಗಿನ ಕಪ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
 #, fuzzy
 msgid "Subheadline"
-msgstr "ಉಪಶೀರ್ಷಿಕೆ"
+msgstr "ಉಪಹೆಡ್ ಲೈನ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 #, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
 "can be an image or even YouTube video if you like."
 msgstr ""
-"ನಿಮ್ಮ ಶೀರ್ಷಿಕೆ, ಉಪಶೀರ್ಷಿಕೆ ಮತ್ತು ಈ ವಿಷಯವನ್ನು ಥೀಮ್ ಆಯ್ಕೆಯಿಂದ ಸಂಪಾದಿಸಬಹುದಾಗಿದೆ. ಆಕ್ಷನ್ "
-"ಬಟನ್ ಮತ್ತು ಅದರ ಗಮ್ಯಸ್ಥಾನ ಲಿಂಕ್‌ಗೆ ಕರೆ ಮಾಡಿ. ನಿಮ್ಮ ಬಲಭಾಗದಲ್ಲಿರುವ ಚಿತ್ರವು ನಿಮಗೆ "
-"ಇಷ್ಟವಾದರೆ ಚಿತ್ರ ಅಥವಾ ಯೂಟ್ಯೂಬ್ ವೀಡಿಯೊ ಆಗಿರಬಹುದು."
+"ನಿಮ್ಮ ಶೀರ್ಷಿಕೆ, ಉಪಶೀರ್ಷಿಕೆ ಮತ್ತು ಈ ತುಂಬಾ ಕಂಟೆಂಟ್ ಅನ್ನು ಥೀಮ್ ಆಯ್ಕೆಯಿಂದ ಎಡಿಟೆಡ್ "
+"ಮಾಡಲಾಗಿದೆ. ಆಕ್ಷನ್ ಬಟನ್ ಗೆ ಕರೆ ಮಾಡಿ ಅದರ ಡೆಸ್ಟಿನೇಷನ್ ಲಿಂಕ್ ಅಷ್ಟೇ. ನಿಮ್ಮ ಬಲಭಾಗದಲ್ಲಿ ಇರುವ "
+"ಇಮೇಜ್ ನಿಮಗೆ ಇಷ್ಟವಿದ್ದರೆ ಇಮೇಜ್ ಅಥವಾ ಯೂಟ್ಯೂಬ್ ವಿಡಿಯೋ ಕೂಡ ಆಗಬಹುದು."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
 #, fuzzy
 msgid "Content Area"
-msgstr "ವಿಷಯ ಪ್ರದೇಶ"
+msgstr "ಕಂಟೆಂಟ್ ಏರಿಯಾ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
 #, fuzzy
 msgid "Disable Call to Action Button?"
-msgstr "ಆಕ್ಷನ್ ಬಟನ್‌ಗೆ ಕರೆ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವುದೇ?"
+msgstr "ಆಕ್ಷನ್ ಬಟನ್ ಗೆ ಕರೆಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸು?"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
 #, fuzzy
 msgid "Call to Action (URL)"
-msgstr "ಕ್ರಿಯೆಗೆ ಕರೆ ಮಾಡಿ (URL)"
+msgstr "ಕಾಲ್ ಟು ಆಕ್ಷನ್ (URL)."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
 #, fuzzy
 msgid "Call to Action (Text)"
-msgstr "ಕ್ರಿಯೆಗೆ ಕರೆ ಮಾಡಿ (ಪಠ್ಯ)"
+msgstr "ಕ್ರಿಯೆಗೆ ಕರೆ (ಟೆಕ್ಸ್ಟ್)."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
 #, fuzzy
 msgid "Call to Action Button Style"
-msgstr "ಆಕ್ಷನ್ ಬಟನ್ ಶೈಲಿಗೆ ಕರೆ ಮಾಡಿ"
+msgstr "ಆಕ್ಷನ್ ಬಟನ್ ಸ್ಟೈಲ್ ಗೆ ಕರೆ."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
 #, fuzzy
 msgid "Featured Content"
-msgstr "ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ವಿಷಯ"
+msgstr "ಪ್ರದರ್ಶಿಸಿದ ವಿಷಯ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
 #, fuzzy
 msgid "Paste your shortcode, video or image source"
-msgstr "ನಿಮ್ಮ ಶಾರ್ಟ್‌ಕೋಡ್, ವಿಡಿಯೋ ಅಥವಾ ಇಮೇಜ್ ಮೂಲವನ್ನು ಅಂಟಿಸಿ"
+msgstr "ನಿಮ್ಮ ಸಂಕ್ಷಿಪ್ತ ಸಂಕೇತ, ವೀಡಿಯೊ ಅಥವಾ ಇಮೇಜ್ ಮೂಲವನ್ನು ಅಂಟಿಸಿ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
 #, fuzzy
 msgid "About Section"
-msgstr "ವಿಭಾಗದ ಬಗ್ಗೆ"
+msgstr "ಸೆಕ್ಷನ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
 #, fuzzy
 msgid "Enable About Section"
-msgstr "ವಿಭಾಗದ ಬಗ್ಗೆ ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಒಂದು ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
 #: partials/custom-home/featured-area.php:105
 #, fuzzy
 msgid "About Box Title"
-msgstr "ಬಾಕ್ಸ್ ಶೀರ್ಷಿಕೆಯ ಬಗ್ಗೆ"
+msgstr "ಬಾಕ್ಸ್ ಟೈಟಲ್ ಬಗ್ಗೆ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
 #, fuzzy
 msgid "About Title"
-msgstr "ಶೀರ್ಷಿಕೆ ಬಗ್ಗೆ"
+msgstr "ಶೀರ್ಷಿಕೆಯ ಬಗ್ಗೆ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
 #, fuzzy
@@ -1788,27 +1796,27 @@ msgstr "ಪಠ್ಯದ ಬಗ್ಗೆ"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
 #, fuzzy
 msgid "Enter url as http://www.example.com"
-msgstr "URL ಅನ್ನು http://www.example.com ಎಂದು ನಮೂದಿಸಿ"
+msgstr "Http://www.example.com ಎಂದು url ಅನ್ನು ನಮೂದಿಸಿ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
 #, fuzzy
 msgid "Feature Section"
-msgstr "ವೈಶಿಷ್ಟ್ಯ ವಿಭಾಗ"
+msgstr "ಫೀಚರ್ ಸೆಕ್ಷನ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
 #, fuzzy
 msgid "Enable Feature Section"
-msgstr "ವೈಶಿಷ್ಟ್ಯ ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಫೀಚರ್ ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
 #, fuzzy
 msgid "Feature Title"
-msgstr "ವೈಶಿಷ್ಟ್ಯ ಶೀರ್ಷಿಕೆ"
+msgstr "ಫೀಚರ್ ಟೈಟಲ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
 #, fuzzy
 msgid "Select post for feature 1"
-msgstr "ವೈಶಿಷ್ಟ್ಯ 1 ಗಾಗಿ ಪೋಸ್ಟ್ ಆಯ್ಕೆಮಾಡಿ"
+msgstr "ವೈಶಿಷ್ಟ್ಯಕ್ಕಾಗಿ post ಆಯ್ಕೆ 1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
@@ -1818,45 +1826,44 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the feature. Recommended image size for the featured images: 130 x 130px"
 msgstr ""
-"ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಪ್ರದರ್ಶಿಸಲು ಪೋಸ್ಟ್‌ಗಳಿಂದ ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರ, ಶೀರ್ಷಿಕೆ ಮತ್ತು ವಿಷಯವನ್ನು "
-"ಬಳಸಲಾಗುತ್ತದೆ. ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರಗಳಿಗಾಗಿ ಶಿಫಾರಸು ಮಾಡಲಾದ ಚಿತ್ರದ ಗಾತ್ರ: 130 x "
-"130px"
+"ಪೋಸ್ಟ್ ಗಳಿಂದ ಪ್ರದರ್ಶಿತ ಇಮೇಜ್, ಟೈಟಲ್ ಮತ್ತು ಕಂಟೆಂಟ್ ಗಳನ್ನು ಫೀಚರ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಲು "
+"ಬಳಸಲಾಗುವುದು. ಪ್ರದರ್ಶಿತ ಚಿತ್ರಗಳಿಗೆ ಶಿಫಾರಸು ಮಾಡಲಾದ ಪ್ರತಿಬಿಂಬದ ಗಾತ್ರ: 130 x 130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
 #, fuzzy
 msgid "Select post for feature 2"
-msgstr "ವೈಶಿಷ್ಟ್ಯ 2 ಗಾಗಿ ಪೋಸ್ಟ್ ಆಯ್ಕೆಮಾಡಿ"
+msgstr "ಫೀಚರ್ 2 ಗಾಗಿ ಆಯ್ಕೆ ಪೋಸ್ಟ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
 #, fuzzy
 msgid "Select post for feature 3"
-msgstr "ವೈಶಿಷ್ಟ್ಯ 3 ಗಾಗಿ ಪೋಸ್ಟ್ ಆಯ್ಕೆಮಾಡಿ"
+msgstr "ಫೀಚರ್ 3 ಗಾಗಿ ಆಯ್ಕೆ ಪೋಸ್ಟ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
 #, fuzzy
 msgid "Testimonial Section"
-msgstr "ಪ್ರಶಂಸಾಪತ್ರ ವಿಭಾಗ"
+msgstr "ವೃಷ್ಮಿಯಲ್ ವಿಭಾಗ."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
 #, fuzzy
 msgid "Enable Testimonial Section"
-msgstr "ಪ್ರಶಂಸಾಪತ್ರ ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ವೃಷ್ಮಿಯಲ್ ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
 #: partials/custom-home/featured-area.php:217
 #, fuzzy
 msgid "Testimonial"
-msgstr "ಪ್ರಶಂಸಾಪತ್ರ"
+msgstr "ವೃಷ್ಮಿಯಲ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
 #, fuzzy
 msgid "Testimonial Title"
-msgstr "ಪ್ರಶಂಸಾಪತ್ರ ಶೀರ್ಷಿಕೆ"
+msgstr "ವೃಷ್ಮಿಯಲ್ ಶೀರ್ಷಿಕೆ."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
 #, fuzzy
 msgid "Select Post"
-msgstr "ಪೋಸ್ಟ್ ಆಯ್ಕೆ ಮಾಡಿ"
+msgstr "ಆಯ್ಕೆ Post"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
 #, fuzzy
@@ -1865,19 +1872,18 @@ msgid ""
 "the client testimonials. Recommended image size for the featured images: 178 "
 "x 178px"
 msgstr ""
-"ಕ್ಲೈಂಟ್ ಪ್ರಶಂಸಾಪತ್ರಗಳನ್ನು ಪ್ರದರ್ಶಿಸಲು ಪೋಸ್ಟ್‌ಗಳಿಂದ ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರ, ಶೀರ್ಷಿಕೆ ಮತ್ತು "
-"ವಿಷಯವನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರಗಳಿಗಾಗಿ ಶಿಫಾರಸು ಮಾಡಲಾದ ಚಿತ್ರದ ಗಾತ್ರ: "
-"178 x 178px"
+"ಪೋಸ್ಟ್ ಗಳಿಂದ ಪ್ರದರ್ಶಿತ ಚಿತ್ರ, ಶೀರ್ಷಿಕೆ ಮತ್ತು ವಿಷಯಗಳನ್ನು ಕ್ಲೈಂಟ್ ವೃಷಗಳನ್ನು ಪ್ರದರ್ಶಿಸಲು "
+"ಬಳಸಲಾಗುವುದು. ಪ್ರದರ್ಶಿತ ಚಿತ್ರಗಳಿಗೆ ಶಿಫಾರಸು ಮಾಡಲಾದ ಪ್ರತಿಬಿಂಬದ ಗಾತ್ರ: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
 #, fuzzy
 msgid "Team Section"
-msgstr "ತಂಡದ ವಿಭಾಗ"
+msgstr "ತಂಡ ವಿಭಾಗ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
 #, fuzzy
 msgid "Enable Team Section"
-msgstr "ತಂಡದ ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ತಂಡದ ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
 #, fuzzy
@@ -1887,12 +1893,12 @@ msgstr "ತಂಡ"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
 #, fuzzy
 msgid "Team Title"
-msgstr "ಬಿರುದು"
+msgstr "ತಂಡ ಶೀರ್ಷಿಕೆ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
 #, fuzzy
 msgid "Select post for team member1"
-msgstr "ತಂಡದ ಸದಸ್ಯ 1 ಗಾಗಿ ಪೋಸ್ಟ್ ಆಯ್ಕೆಮಾಡಿ"
+msgstr "ತಂಡಕ್ಕೆ ಆಯ್ಕೆ post member1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
@@ -1902,24 +1908,23 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
 msgstr ""
-"ತಂಡದ ಸದಸ್ಯರನ್ನು ಪ್ರದರ್ಶಿಸಲು ಪೋಸ್ಟ್‌ಗಳಿಂದ ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರ, ಶೀರ್ಷಿಕೆ ಮತ್ತು ವಿಷಯವನ್ನು "
-"ಬಳಸಲಾಗುತ್ತದೆ. ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರಗಳಿಗಾಗಿ ಶಿಫಾರಸು ಮಾಡಲಾದ ಚಿತ್ರದ ಗಾತ್ರ: 178 x "
-"178px"
+"ಪೋಸ್ಟ್ ಗಳಿಂದ ಪ್ರದರ್ಶಿತ ಇಮೇಜ್, ಟೈಟಲ್ ಮತ್ತು ಕಂಟೆಂಟ್ ಗಳನ್ನು ತಂಡದ ಸದಸ್ಯನನ್ನು ಪ್ರದರ್ಶಿಸಲು "
+"ಬಳಸಲಾಗುವುದು. ಪ್ರದರ್ಶಿತ ಚಿತ್ರಗಳಿಗೆ ಶಿಫಾರಸು ಮಾಡಲಾದ ಪ್ರತಿಬಿಂಬದ ಗಾತ್ರ: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
 #, fuzzy
 msgid "Select post for team member2"
-msgstr "ತಂಡದ ಸದಸ್ಯ 2 ಗಾಗಿ ಪೋಸ್ಟ್ ಆಯ್ಕೆಮಾಡಿ"
+msgstr "ತಂಡಕ್ಕೆ ಆಯ್ಕೆ post member2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
 #, fuzzy
 msgid "Select post for team member3"
-msgstr "ತಂಡದ ಸದಸ್ಯ 3 ಗಾಗಿ ಪೋಸ್ಟ್ ಆಯ್ಕೆಮಾಡಿ"
+msgstr "ತಂಡಕ್ಕೆ ಆಯ್ಕೆ post member3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
 #, fuzzy
 msgid "Click to disable home page widgets"
-msgstr "ಮುಖಪುಟದ ವಿಜೆಟ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ"
+msgstr "ಹೋಮ್ ಪೇಜ್ ವಿಡ್ಗೆಟ್ ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
 #, fuzzy
@@ -1929,7 +1934,7 @@ msgstr "ಸಂಪರ್ಕ ವಿಭಾಗ"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
 #, fuzzy
 msgid "Enable Contact Section"
-msgstr "ಸಂಪರ್ಕ ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ"
+msgstr "ಸಂಪರ್ಕ ವಿಭಾಗವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
 msgid "Contact Us"
@@ -1948,53 +1953,53 @@ msgstr "ಉಪಶೀರ್ಷಿಕೆಯನ್ನು ಸಂಪರ್ಕಿಸ�
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
 #, fuzzy
 msgid "Contact section Subtitle"
-msgstr "ಸಂಪರ್ಕ ವಿಭಾಗ ಉಪಶೀರ್ಷಿಕೆ"
+msgstr "ವಿಭಾಗ ಉಪಶೀರ್ಷಿಕೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
 msgid "Address"
 msgstr "ವಿಳಾಸ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "ಇಮೇಲ್"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
 #, fuzzy
 msgid "Phone no"
-msgstr "ದೂರವಾಣಿ ಸಂಖ್ಯೆ"
+msgstr "ಫೋನ್ ನಂ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
 #, fuzzy
 msgid "Contact form shortcode"
-msgstr "ಫಾರ್ಮ್ ಶಾರ್ಟ್‌ಕೋಡ್ ಅನ್ನು ಸಂಪರ್ಕಿಸಿ"
+msgstr "ನಮೂನೆ ಸಂಕ್ಷಿಪ್ತ ಸಂಕೇತವನ್ನು ಸಂಪರ್ಕಿಸಿ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
 #, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
-msgstr "ನೀವು ಸಂಪರ್ಕ ಫಾರ್ಮ್ 7 ಶಾರ್ಟ್‌ಕೋಡ್ ಅನ್ನು ಇಲ್ಲಿ ಹಾಕಬಹುದು."
+msgstr "ಇಲ್ಲಿ ನೀವು ಕಾಂಟ್ಯಾಕ್ಟ್ ಫಾರಂ 7 ಸಂಕ್ಷಿಪ್ತ ಕೋಡ್ ಅನ್ನು ಹಾಕಬಹುದು."
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
 #, fuzzy
 msgid "Page Elements"
-msgstr "ಪುಟ ಅಂಶಗಳು"
+msgstr "ಪುಟದ ಅಂಶಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
 #, fuzzy
 msgid "Post Elements"
-msgstr "ಅಂಶಗಳನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿ"
+msgstr "ಪೋಸ್ಟ್ ಎಲಿಮೆಂಟ್ಸ್"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
 #, fuzzy
 msgid "Page Featured Image"
-msgstr "ಪುಟ ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರ"
+msgstr "ಪುಟ ಪ್ರದರ್ಶಿಸಿದ ಚಿತ್ರ"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
 #, fuzzy
 msgid "Page Title"
-msgstr "ಬಿರುದು"
+msgstr "ಪೇಜ್ ಟೈಟಲ್"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:120
 #, fuzzy
@@ -2020,7 +2025,7 @@ msgstr "ಹೆಡರ್"
 #: functions.php:471 partials/header/main-navigation.php:14
 #, fuzzy
 msgid "Main Menu"
-msgstr "ಮುಖ್ಯ ಪಟ್ಟಿ"
+msgstr "ಮುಖ್ಯ ಮೆನು"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:59
 #, fuzzy
@@ -2030,27 +2035,27 @@ msgstr "ಹೆಡರ್ ಮೆನು ಆಯ್ಕೆಗಳು"
 #: core/includes/customizer/settings/class-responsive-panel.php:68
 #, fuzzy
 msgid "Sidebar Options"
-msgstr "ಸೈಡ್ಬಾರ್ ಆಯ್ಕೆಗಳು"
+msgstr "ಬದಿಪಟ್ಟಿ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:76
 #, fuzzy
 msgid "Footer"
-msgstr "ಪಾದ ಲೇಖ"
+msgstr "ಫೂಟರ್"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:77
 #, fuzzy
 msgid "Footer Options"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ಆಯ್ಕೆಗಳು"
+msgstr "ಫುಟರ್ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:94
 #, fuzzy
 msgid "Blog / Archive"
-msgstr "ಬ್ಲಾಗ್ / ಆರ್ಕೈವ್"
+msgstr "ಬ್ಲಾಗ್/ಆರ್ಕೈವ್."
 
 #: core/includes/customizer/settings/class-responsive-panel.php:95
 #, fuzzy
 msgid "Blog Options"
-msgstr "ಆಯ್ಕೆಗಳು"
+msgstr "ಬ್ಲಾಗ್ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:103
 #, fuzzy
@@ -2060,7 +2065,7 @@ msgstr "ಬ್ಲಾಗ್ ಪೋಸ್ಟ್"
 #: core/includes/customizer/settings/class-responsive-panel.php:104
 #, fuzzy
 msgid "Single Blog Post"
-msgstr "ಏಕ ಬ್ಲಾಗ್ ಪೋಸ್ಟ್"
+msgstr "ಸಿಂಗಲ್ ಬ್ಲಾಗ್ ಪೋಸ್ಟ್"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:112
 msgid "Page"
@@ -2069,37 +2074,37 @@ msgstr "ಪುಟ"
 #: core/includes/customizer/settings/class-responsive-panel.php:113
 #, fuzzy
 msgid "Page Options"
-msgstr "ಆಯ್ಕೆಗಳು"
+msgstr "ಪುಟದ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
 #, fuzzy
 msgid "Post Featured Image"
-msgstr "ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಚಿತ್ರವನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿ"
+msgstr "ಪೋಸ್ಟ್ ಪ್ರದರ್ಶಿತ ಚಿತ್ರ"
 
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:106
 #, fuzzy
 msgid "Post Title"
-msgstr "ಬಿರುದು"
+msgstr "ಪೋಸ್ಟ್ ಟೈಟಲ್"
 
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:121
 #, fuzzy
 msgid "Post Meta"
-msgstr "ಪೋಸ್ಟ್ ಮೆಟಾ"
+msgstr "ನಂತರದ ಮೆಟಾ"
 
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:190
 #, fuzzy
 msgid "Post Content"
-msgstr "ವಿಷಯವನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿ"
+msgstr "ಪೋಸ್ಟ್ ಕಂಟೆಂಟ್"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:59
 #, fuzzy
 msgid "Backgrounds"
-msgstr "ಹಿನ್ನೆಲೆಗಳು"
+msgstr "ಹಿನ್ನೆಲೆಗಳನ್ನು"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
 #, fuzzy
 msgid "Box Background Color"
-msgstr "ಹಿನ್ನೆಲೆ ಬಣ್ಣ"
+msgstr "ಬಾಕ್ಸ್ ಹಿನ್ನಲೆ ಬಣ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
 #, fuzzy
@@ -2114,42 +2119,42 @@ msgstr "ಸಾಮಾನ್ಯ ಪಠ್ಯ"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
 #, fuzzy
 msgid "Body Text Color"
-msgstr "ಪಠ್ಯ ಬಣ್ಣ"
+msgstr "ಬಾಡಿ ಟೆಕ್ಸ್ಟ್ ಕಲರ್"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
 #, fuzzy
 msgid "Heading 1 (H1) Color"
-msgstr "ಶಿರೋನಾಮೆ 1 (ಎಚ್ 1) ಬಣ್ಣ"
+msgstr "ತಲೆಬರಹದ 1 (ಎಚ್1) ಬಣ್ಣ"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
 #, fuzzy
 msgid "Heading 2 (H2) Color"
-msgstr "ಶಿರೋನಾಮೆ 2 (ಎಚ್ 2) ಬಣ್ಣ"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 2 (H2) ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
 #, fuzzy
 msgid "Heading 3 (H3) Color"
-msgstr "ಶಿರೋನಾಮೆ 3 (ಎಚ್ 3) ಬಣ್ಣ"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 3 (H3) ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
 #, fuzzy
 msgid "Heading 4 (H4) Color"
-msgstr "ಶಿರೋನಾಮೆ 4 (ಎಚ್ 4) ಬಣ್ಣ"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 4 (H4) ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
 #, fuzzy
 msgid "Heading 5 (H5) Color"
-msgstr "ಶಿರೋನಾಮೆ 5 (ಎಚ್ 5) ಬಣ್ಣ"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 5 (H5) ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
 #, fuzzy
 msgid "Heading 6 (H6) Color"
-msgstr "ಶಿರೋನಾಮೆ 6 (ಎಚ್ 6) ಬಣ್ಣ"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 6 (H6) ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
 #, fuzzy
 msgid "Meta Text Color"
-msgstr "ಪಠ್ಯ ಬಣ್ಣ"
+msgstr "ಮೆಟಾ ಟೆಕ್ಸ್ಟ್ ಕಲರ್"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
 msgid "Links"
@@ -2158,12 +2163,12 @@ msgstr "ಲಿಂಕ್ಸ್Name"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:111
 #, fuzzy
 msgid "Link Color"
-msgstr "ಬಣ್ಣ"
+msgstr "ಲಿಂಕ್ ಕಲರ್"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:115
 #, fuzzy
 msgid "Link Hover Color"
-msgstr "ಲಿಂಕ್ ಹೂವರ್ ಬಣ್ಣ"
+msgstr "ಲಿಂಕ್ ಹೋವರ್ ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:119
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:86
@@ -2179,22 +2184,22 @@ msgstr "ಬಣ್ಣ"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:127
 #, fuzzy
 msgid "Hover Color"
-msgstr "ಹೂವರ್ ಬಣ್ಣ"
+msgstr "ಹೋವರ್ ಕಲರ್"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:135
 #, fuzzy
 msgid "Hover Text Color"
-msgstr "ಪಠ್ಯ ಬಣ್ಣವನ್ನು ಸುಳಿದಾಡಿ"
+msgstr "ಹೋವರ್ ಟೆಕ್ಸ್ಟ್ ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:143
 #, fuzzy
 msgid "Hover Border Color"
-msgstr "ಬಾರ್ಡರ್ ಬಣ್ಣವನ್ನು ಸುಳಿದಾಡಿ"
+msgstr "ಹೋವರ್ ಬಾರ್ಡರ್ ಕಲರ್."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:147
 #, fuzzy
 msgid "Inputs"
-msgstr "ಒಳಹರಿವು"
+msgstr "ಆ್ಯಪ್ ಗಳನ್ನು"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:163
 msgid "Labels"
@@ -2208,12 +2213,12 @@ msgstr "ಲೇಬಲ್ ಬಣ್ಣ"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
 #, fuzzy
 msgid "Hide Site Title"
-msgstr "ಸೈಟ್ ಶೀರ್ಷಿಕೆಯನ್ನು ಮರೆಮಾಡಿ"
+msgstr "ತಾಣದ ಶೀರ್ಷಿಕೆಯನ್ನು ಅಡಗಿಸು"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
 #, fuzzy
 msgid "Hide Tagline"
-msgstr "ಟ್ಯಾಗ್‌ಲೈನ್ ಅನ್ನು ಮರೆಮಾಡಿ"
+msgstr "ಬಚ್ಚಿಟ್ಟ ಟ್ಯಾಗ್ ಲೈನ್"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
 msgid "Width"
@@ -2222,60 +2227,60 @@ msgstr "ಅಗಲ"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:59
 #, fuzzy
 msgid "Contained"
-msgstr "ಒಳಗೊಂಡಿದೆ"
+msgstr "ಅಡಕವಾಗಿರುವ"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:60
 #, fuzzy
 msgid "Full Width"
-msgstr "ಅಗಲ"
+msgstr "ಪೂರ್ಣ ಅಗಲ"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
 #, fuzzy
 msgid "Container Width (px)"
-msgstr "ಕಂಟೇನರ್ ಅಗಲ (ಪಿಎಕ್ಸ್)"
+msgstr "ಕಂಟೇನರ್ ಅಗಲ (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
 #, fuzzy
 msgid "Boxed"
-msgstr "ಪೆಟ್ಟಿಗೆಯಲ್ಲಿದೆ"
+msgstr "ಬೊಸ್ಡ್"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
 #, fuzzy
 msgid "Content Boxed"
-msgstr "ವಿಷಯ ಪೆಟ್ಟಿಗೆಯಾಗಿದೆ"
+msgstr "ಕಂಟೆಂಟ್ ಬೋಸ್ಡ್"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
 #, fuzzy
 msgid "Box Padding (px)"
-msgstr "ಬಾಕ್ಸ್ ಪ್ಯಾಡಿಂಗ್ (ಪಿಎಕ್ಸ್)"
+msgstr "ಬಾಕ್ಸ್ ಪ್ಯಾಡಿಂಗ್ (px)."
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
 #, fuzzy
 msgid "Box Radius (px)"
-msgstr "ಬಾಕ್ಸ್ ತ್ರಿಜ್ಯ (ಪಿಎಕ್ಸ್)"
+msgstr "ಬಾಕ್ಸ್ ತ್ರಿಜ್ಯವು (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
 #, fuzzy
 msgid "Padding (px)"
-msgstr "ಪ್ಯಾಡಿಂಗ್ (ಪಿಎಕ್ಸ್)"
+msgstr "ಪ್ಯಾಡಿಂಗ್ (px)."
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
 #, fuzzy
 msgid "Radius (px)"
-msgstr "ತ್ರಿಜ್ಯ (ಪಿಎಕ್ಸ್)"
+msgstr "ತ್ರಿಜ್ಯೀಯ (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
 #, fuzzy
 msgid "Border Width (px)"
-msgstr "ಗಡಿ ಅಗಲ (ಪಿಎಕ್ಸ್)"
+msgstr "ಬಾರ್ಡರ್ ಅಗಲ (px)."
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
 #, fuzzy
 msgid "Form Inputs"
-msgstr "ಇನ್‌ಪುಟ್‌ಗಳನ್ನು ರೂಪಿಸಿ"
+msgstr "ನಮೂನೆ ಇನ್ ಪುಟ್ ಗಳನ್ನು"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
@@ -2288,59 +2293,59 @@ msgstr "ಶರೀರ"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
 #, fuzzy
 msgid "Heading 1 (H1)"
-msgstr "ಶಿರೋನಾಮೆ 1 (ಎಚ್ 1)"
+msgstr "ತಲೆಬರಹದ 1 (ಎಚ್1ಎನ್1)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
 #, fuzzy
 msgid "Heading 2 (H2)"
-msgstr "ಶಿರೋನಾಮೆ 2 (ಎಚ್ 2)"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 2 (H2)."
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
 #, fuzzy
 msgid "Heading 3 (H3)"
-msgstr "ಶಿರೋನಾಮೆ 3 (ಎಚ್ 3)"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 3 (H3)."
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
 #, fuzzy
 msgid "Heading 4 (H4)"
-msgstr "ಶಿರೋನಾಮೆ 4 (ಎಚ್ 4)"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 4 (H4)."
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
 #, fuzzy
 msgid "Heading 5 (H5)"
-msgstr "ಶಿರೋನಾಮೆ 5 (ಎಚ್ 5)"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 5 (H5)."
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
 #, fuzzy
 msgid "Heading 6 (H6)"
-msgstr "ಶಿರೋನಾಮೆ 6 (ಎಚ್ 6)"
+msgstr "ಹೆಡ್ಡಿಂಗ್ 6 (H6)."
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
 #, fuzzy
 msgid "Input Fields"
-msgstr "ಇನ್ಪುಟ್ ಕ್ಷೇತ್ರಗಳು"
+msgstr "ಇನ್ ಪುಟ್ ಫೀಲ್ಡ್ಸ್"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
 #, fuzzy
 msgid "Exclude Categories from Blog page"
-msgstr "ಬ್ಲಾಗ್ ಪುಟದಿಂದ ವರ್ಗಗಳನ್ನು ಹೊರಗಿಡಿ"
+msgstr "ಬ್ಲಾಗ್ ಪುಟದಿಂದ ವರ್ಗಗಳನ್ನು ಹೊರಗಿಡುವುದು"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
 #, fuzzy
 msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
-msgstr "ದಯವಿಟ್ಟು ಬ್ಲಾಗ್ ಪುಟದಲ್ಲಿ ಪ್ರದರ್ಶಿಸದ ಪೋಸ್ಟ್ ವಿಭಾಗಗಳನ್ನು ಆರಿಸಿ"
+msgstr "ಬ್ಲಾಗ್ ಪುಟದಲ್ಲಿ ಪ್ರದರ್ಶಿಸಲ್ಪಡಬಾರದು ಎಂಬ ಪೋಸ್ಟ್ ವರ್ಗಗಳನ್ನು ದಯವಿಟ್ಟು ಆಯ್ಕೆಮಾಡಿ"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
 #, fuzzy
 msgid "General Typography"
-msgstr "ಸಾಮಾನ್ಯ ಮುದ್ರಣಕಲೆ"
+msgstr "ಜನರಲ್ ಟೈಪೋಟೋಗ್ರಫಿ"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
 msgid "Font Family"
@@ -2349,17 +2354,17 @@ msgstr "ಅಕ್ಷರಶೈಲಿ ಪರಿವಾರ"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:400
 #, fuzzy
 msgid "Font Weight"
-msgstr "à²à²£à²à²¦ à²à²à³à²·à²°à²¶à³à²²à²¿à²¯à²¨à³à²¨à³ à²¬à²³à²¸à³"
+msgstr "ಲಿಪಿಶೈಲಿ ತೂಕ"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
 #, fuzzy
 msgid "Important: Not all fonts support every font-weight."
-msgstr "ಪ್ರಮುಖ: ಎಲ್ಲಾ ಫಾಂಟ್‌ಗಳು ಪ್ರತಿ ಫಾಂಟ್-ತೂಕವನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ."
+msgstr "ಮುಖ್ಯ: ಎಲ್ಲಾ ಫಾಂಟ್ ಗಳು ಪ್ರತಿಯೊಂದು ಫಾಂಟ್-ತೂಕವನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ."
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
 #, fuzzy
 msgid "Font Style"
-msgstr "ಅಕ್ಷರಶೈಲಿ ವಿನ್ಯಾಸ:"
+msgstr "ಫಾಂಟ್ ಶೈಲಿ"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:451
 msgid "Normal"
@@ -2372,22 +2377,22 @@ msgstr "ಇಟಾಲಿಕ್"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:477
 #, fuzzy
 msgid "Text Transform"
-msgstr "ಪಠ್ಯ ರೂಪಾಂತರ"
+msgstr "ಪಠ್ಯ ಪರಿವರ್ತನೆ"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:485
 #, fuzzy
 msgid "Capitalize"
-msgstr "ದೊಡ್ಡಕ್ಷರ ಮಾಡಿ"
+msgstr "ಕ್ಯಾಪಿಡಿಕೀಕರಣ"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:486
 #, fuzzy
 msgid "Lowercase"
-msgstr "ಲೋವರ್ಕೇಸ್"
+msgstr "ಲೋವರ್ ಕೇಸ್ ಲೆಟರ್"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:487
 #, fuzzy
 msgid "Uppercase"
-msgstr "ದೊಡ್ಡಕ್ಷರ"
+msgstr "ಅಪ್ಪರ್ ಕೇಸ್"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:531
 msgid "Font Size"
@@ -2396,131 +2401,162 @@ msgstr "ಅಕ್ಷರಶೈಲಿಯ ಗಾತ್ರ( z)"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
 #, fuzzy
 msgid "You can add: px-em-%"
-msgstr "ನೀವು ಸೇರಿಸಬಹುದು: px-em-%"
+msgstr "ನೀವು ಸೇರಿಸಬಹುದು: px-ಎಎಮ್-%"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
 #, fuzzy
 msgid "Line Height"
-msgstr "ಎತ್ತರ"
+msgstr "ಲೈನ್ ಎತ್ತರ"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
 #, fuzzy
 msgid "Letter Spacing (px)"
-msgstr "ಲೆಟರ್ ಸ್ಪೇಸಿಂಗ್ (ಪಿಎಕ್ಸ್)"
+msgstr "ಅಕ್ಷರದ ಅಂತರ (px)"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:659
 msgid "Font Color"
 msgstr "ಅಕ್ಷರಶೈಲಿಯ ಬಣ್ಣ"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "ನಮಸ್ತೆ! ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಥೀಮ್ ಅನ್ನು ಬಳಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"ದಯವಿಟ್ಟು ನಮಗೆ ಒಂದು ಉಪಕಾರ ಮಾಡಿ ನಮಗೆ 5-ಸ್ಟಾರ್ ರೇಟಿಂಗ್ ಕೊಡುತ್ತೀರಾ? ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಯು "
+"ನಮ್ಮನ್ನು ಪ್ರೇರೇಪಿಸುತ್ತಲೇ ಇರುತ್ತದೆ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಸಮುದಾಯವನ್ನು ಬೆಳೆಸಲು ನಮಗೆ ಸಹಾಯ "
+"ಮಾಡುತ್ತದೆ."
+
+#: core/includes/functions-admin.php:61
+#, fuzzy
+msgid "Ok, you deserve it"
+msgstr "ಓಕೆ, ನೀವು ಅದಕ್ಕೆ ಅರ್ಹರು"
+
+#: core/includes/functions-admin.php:62
+#, fuzzy
+msgid "Nope, maybe later"
+msgstr "ನೋಪೆ, ಬಹುಶಃ ನಂತರ"
+
+#: core/includes/functions-admin.php:63
+#, fuzzy
+msgid "I already did"
+msgstr "ನಾನು ಈಗಾಗಲೇ"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "ಮನೆ"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 #, fuzzy
 msgid "Archive for %s"
-msgstr "%s ಗಾಗಿ ಆರ್ಕೈವ್ ಮಾಡಿ"
+msgstr "ಆರ್ಕೈವ್ ಗೆ %s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 #, fuzzy
 msgid "Search results for: %s"
-msgstr "ಇದಕ್ಕಾಗಿ ಹುಡುಕಾಟ ಫಲಿತಾಂಶಗಳು:%s"
+msgstr "ಹುಡುಕು ಫಲಿತಾಂಶಗಳು: %s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 #, fuzzy
 msgid "Posts tagged %s"
-msgstr "ಪೋಸ್ಟ್‌ಗಳನ್ನು ಟ್ಯಾಗ್ ಮಾಡಲಾಗಿದೆ%s"
+msgstr "ಹುದ್ದೆಗಳು tagged %s"
 
 #. translators: %s: Author pages
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 #, fuzzy
 msgid "View all posts by %s"
-msgstr "ಎಲ್ಲಾ ಪೋಸ್ಟ್‌ಗಳನ್ನು%s ನಿಂದ ವೀಕ್ಷಿಸಿ"
+msgstr "ಎಲ್ಲಾ ಹುದ್ದೆಗಳನ್ನು %s ಮೂಲಕ ವೀಕ್ಷಿಸಲು"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 #, fuzzy
 msgid "Error 404"
-msgstr "ದೋಷ"
+msgstr "ದೋಷ 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 #, fuzzy
 msgid "Page %s"
-msgstr "ಪುಟ%s"
+msgstr "ಪುಟ %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 #, fuzzy
 msgid "Yelp!"
-msgstr "ಕೂಗು!"
+msgstr "ಯಲಹಂಕ!"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 #, fuzzy
 msgid "foursquare"
-msgstr "ಫೊರ್ಸ್ಕ್ವೇರ್"
+msgstr "ಚತುರ್ವರ್ಗ"
 
 #: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
 #: image.php:59 index.php:56 partials/page/content.php:15
 #, fuzzy
 msgid "Read more &#8250;"
-msgstr "ಮತ್ತಷ್ಟು ಓದು >"
+msgstr "Read more & #8250;"
 
 #: core/includes/functions-sidebar.php:28
 #, fuzzy
 msgid "Main Sidebar"
-msgstr "ಮುಖ್ಯ ಅಡ್ಡಪಟ್ಟಿ"
+msgstr "ಮುಖ್ಯ ಬದಿಪಟ್ಟಿ"
 
 #: core/includes/functions-sidebar.php:29
 #, fuzzy
 msgid ""
 "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
 msgstr ""
-"ಪ್ರದೇಶ 1 - sidebar.php - ಡೀಫಾಲ್ಟ್, ಬ್ಲಾಗ್, ಬ್ಲಾಗ್ ಆಯ್ದ ಭಾಗ ಟೆಂಪ್ಲೆಟ್ಗಳಲ್ಲಿ ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
+"ವಿಸ್ತೀರ್ಣ 1-ಬದಿಪಟ್ಟಿ php-ಪೂರ್ವನಿಯೋಜಿತ, ಬ್ಲಾಗ್, ಬ್ಲಾಗ್ ಎಕ್ಸೆಪ್ಶನ್ ಪುಟದ ಟೆಂಪ್ಲೇಟ್ ಗಳ ಮೇಲೆ "
+"ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
 
 #: core/includes/functions-sidebar.php:40
 #, fuzzy
 msgid "Home Widget 1"
-msgstr "ಮುಖಪುಟ ವಿಜೆಟ್ 1"
+msgstr "ಹೋಮ್ ವಿಜೆಟ್ 1"
 
 #: core/includes/functions-sidebar.php:41
 #, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr "ಪ್ರದೇಶ 6 - ಸೈಡ್ಬಾರ್-home.php - ಮುಖಪುಟದಲ್ಲಿ ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
+msgstr "ವಿಸ್ತೀರ್ಣ ೬-sidebar-home. php-ಹೋಮ್ ಪೇಜ್ ನಲ್ಲಿ ಪ್ರದರ್ಶಕಗಳು"
 
 #: core/includes/functions-sidebar.php:52
 #, fuzzy
 msgid "Home Widget 2"
-msgstr "ಮುಖಪುಟ ವಿಜೆಟ್ 2"
+msgstr "ಹೋಮ್ ವಿಜೆಟ್ 2"
 
 #: core/includes/functions-sidebar.php:53
 #, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr "ಪ್ರದೇಶ 7 - ಸೈಡ್ಬಾರ್-home.php - ಮುಖಪುಟದಲ್ಲಿ ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
+msgstr "ವಿಸ್ತೀರ್ಣ ೭-sidebar-home. php-ಹೋಮ್ ಪೇಜ್ ನಲ್ಲಿ ಪ್ರದರ್ಶಕಗಳು"
 
 #: core/includes/functions-sidebar.php:64
 #, fuzzy
 msgid "Home Widget 3"
-msgstr "ಮುಖಪುಟ ವಿಜೆಟ್ 3"
+msgstr "ಹೋಮ್ ವಿಜೆಟ್ 3"
 
 #: core/includes/functions-sidebar.php:65
 #, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr "ಪ್ರದೇಶ 8 - ಸೈಡ್ಬಾರ್-home.php - ಮುಖಪುಟದಲ್ಲಿ ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
+msgstr "ವಿಸ್ತೀರ್ಣ 8-sidebar-home. php-ಹೋಮ್ ಪೇಜ್ ನಲ್ಲಿ ಡಿಸ್ ಪ್ಲೇಗಳು"
 
 #: core/includes/functions-sidebar.php:76
 #, fuzzy
 msgid "Gallery Sidebar"
-msgstr "ಗ್ಯಾಲರಿ ಸೈಡ್‌ಬಾರ್"
+msgstr "ಗ್ಯಾಲರಿ ಬದಿಪಟ್ಟಿ"
 
 #: core/includes/functions-sidebar.php:77
 #, fuzzy
@@ -2528,68 +2564,68 @@ msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
 msgstr ""
-"ಪ್ರದೇಶ 9 - ಸೈಡ್ಬಾರ್-ಗ್ಯಾಲರಿ.ಪಿಪಿ - ಗ್ಯಾಲರಿಯಲ್ಲಿ ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿದ ನಂತರ ಪುಟದಲ್ಲಿ "
-"ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
+"ವಿಸ್ತೀರ್ಣ 9-sidebar-gallery. php-ಒಂದು ಪ್ರತಿಮೆ ಗ್ಯಾಲರಿಯಲ್ಲಿ ಕ್ಲಿಕ್ ಆದ ನಂತರ ಪುಟದ ಮೇಲೆ "
+"ಪ್ರದರ್ಶನಗಳು"
 
 #: core/includes/functions-sidebar.php:88
 #, fuzzy
 msgid "Colophon Widget"
-msgstr "ಕೊಲೊಫೋನ್ ವಿಜೆಟ್"
+msgstr "ಕೊಲಾಫಿಡಾನ್ ವಿಜೆಟ್."
 
 #: core/includes/functions-sidebar.php:89
 #, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr "ಪ್ರದೇಶ 10 - ಸೈಡ್‌ಬಾರ್-ಕೊಲೊಫೋನ್.ಪಿಪಿ, 100% ಅಗಲ ಅಡಿಟಿಪ್ಪಣಿ ವಿಜೆಟ್‌ಗಳು"
+msgstr "ವಿಸ್ತೀರ್ಣ 10-sidebar-colophon. php, 100% ಅಗಲ ಫುಟರ್ ವಿಡ್ಗೆಟ್ ಗಳು"
 
 #: core/includes/functions-sidebar.php:101
 #, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr "ಪ್ರದೇಶ 11 - ಸೈಡ್‌ಬಾರ್-ಟಾಪ್.ಪಿಪಿ - ಹೆಡರ್ ಬಲಭಾಗದಲ್ಲಿ ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
+msgstr "ವಿಸ್ತೀರ್ಣ ೧೧-sidebar-top. php-ಹೆಡ್ಡರ್ ನ ಬಲಭಾಗದಲ್ಲಿ ಪ್ರದರ್ಶಿಸುತ್ತದೆ"
 
 #: core/includes/functions-sidebar.php:112
 #, fuzzy
 msgid "Footer Widgets 1"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ವಿಜೆಟ್‌ಗಳು 1"
+msgstr "ಫುಟರ್ ವಿಜೆಟ್ ಗಳು 1"
 
 #: core/includes/functions-sidebar.php:113
 #, fuzzy
 msgid "Area 12 - sidebar-footer.php"
-msgstr "ಪ್ರದೇಶ 12 - ಸೈಡ್‌ಬಾರ್-ಅಡಿಟಿಪ್ಪಣಿ. Php"
+msgstr "ವಿಸ್ತೀರ್ಣ ೧೨-sidebar-footer. php"
 
 #: core/includes/functions-sidebar.php:123
 #, fuzzy
 msgid "Footer Widgets 2"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ವಿಜೆಟ್‌ಗಳು 2"
+msgstr "ಫುಟರ್ ವಿಜೆಟ್ 2"
 
 #: core/includes/functions-sidebar.php:124
 #, fuzzy
 msgid "Area 13 - sidebar-footer.php"
-msgstr "ಪ್ರದೇಶ 13 - ಸೈಡ್ಬಾರ್-ಅಡಿಟಿಪ್ಪಣಿ. Php"
+msgstr "ವಿಸ್ತೀರ್ಣ ೧೩-sidebar-footer. php"
 
 #: core/includes/functions-sidebar.php:134
 #, fuzzy
 msgid "Footer Widgets 3"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ವಿಜೆಟ್‌ಗಳು 3"
+msgstr "ಫುಟರ್ ವಿಜೆಟ್ 3"
 
 #: core/includes/functions-sidebar.php:135
 #, fuzzy
 msgid "Area 14 - sidebar-footer.php"
-msgstr "ಪ್ರದೇಶ 14 - ಸೈಡ್ಬಾರ್-ಅಡಿಟಿಪ್ಪಣಿ. Php"
+msgstr "ವಿಸ್ತೀರ್ಣ ೧೪-sidebar-footer. php"
 
 #: core/includes/functions-sidebar.php:145
 #, fuzzy
 msgid "Footer Widgets 4"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ವಿಜೆಟ್‌ಗಳು 4"
+msgstr "ಫುಟರ್ ವಿಜೆಟ್ 4."
 
 #: core/includes/functions-sidebar.php:146
 #, fuzzy
 msgid "Area 15 - sidebar-footer.php"
-msgstr "ಪ್ರದೇಶ 15 - ಸೈಡ್‌ಬಾರ್-ಅಡಿಟಿಪ್ಪಣಿ. Php"
+msgstr "ವಿಸ್ತೀರ್ಣ ೧೫-sidebar-footer. php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 #, fuzzy
 msgid "Call to Action"
-msgstr "ಕ್ರಿಯೆಗೆ ಕರೆ ಮಾಡಿ"
+msgstr "ಕಾರ್ಯಾಚರಣೆಗೆ ಕರೆ"
 
 #: core/includes/functions.php:216
 #, fuzzy
@@ -2597,57 +2633,58 @@ msgid "Header Menu"
 msgstr "ಹೆಡರ್ ಮೆನು"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 #, fuzzy
 msgid "Footer Menu"
-msgstr "ಅಡಿಟಿಪ್ಪಣಿ ಮೆನು"
+msgstr "ಫುಟರ್ ಮೆನು."
 
 #: core/includes/functions.php:377
 #, fuzzy
 msgid "Team Section Options"
-msgstr "ತಂಡದ ವಿಭಾಗ ಆಯ್ಕೆಗಳು"
+msgstr "ತಂಡ ವಿಭಾಗ ಆಯ್ಕೆಗಳು"
 
 #: core/includes/functions.php:391
 #, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
 msgstr ""
-"ಮೊದಲ ಪುಟದ ತಂಡದ ವಿಭಾಗಕ್ಕಾಗಿ ಈ ಪೋಸ್ಟ್ ಅನ್ನು ಬಳಸಲು, ದಯವಿಟ್ಟು ಕೆಳಗಿನ ವಿವರಗಳನ್ನು "
+"ಈ ಪೋಸ್ಟ್ ಅನ್ನು ಫ್ರಂಟ್ ಪೇಜ್ ನ ತಂಡದ ವಿಭಾಗಕ್ಕೆ ಬಳಸಲು, ದಯವಿಟ್ಟು ಈ ಕೆಳಗಿನ ವಿವರಗಳನ್ನು "
 "ನಮೂದಿಸಿ:"
 
 #: core/includes/functions.php:394
 #, fuzzy
 msgid "Member designation"
-msgstr "ಸದಸ್ಯರ ಹುದ್ದೆ"
+msgstr "ಸದಸ್ಯ ಹುದ್ದೆ"
 
 #: core/includes/functions.php:398
 #, fuzzy
 msgid "Facebook Link"
-msgstr "ಫೇಸ್ಬುಕ್ ಲಿಂಕ್"
+msgstr "ಫೇಸ್ ಬುಕ್ ಲಿಂಕ್"
 
 #: core/includes/functions.php:402
 #, fuzzy
 msgid "Twitter Link"
-msgstr "ಟ್ವಿಟರ್ ಲಿಂಕ್"
+msgstr "ಟ್ವಿಟ್ಟರ್ ಲಿಂಕ್"
 
 #: core/includes/functions.php:406
 #, fuzzy
 msgid "GooglePlus Link"
-msgstr "GooglePlus ಲಿಂಕ್"
+msgstr "ಗೂಡ್ಲೆಪ್ಲಸ್ ಲಿಂಕ್."
 
 #: core/includes/functions.php:410
 #, fuzzy
 msgid "LinkedIn Link"
-msgstr "ಲಿಂಕ್ಡ್ಇನ್ ಲಿಂಕ್"
+msgstr "ಲಿಂಲಿಂಕ್"
 
 #: core/includes/functions.php:666
 #, fuzzy
 msgid "Posted on"
-msgstr "ಪೋಸ್ಟ್ ಮಾಡಲಾಗಿದೆ"
+msgstr "ಮೇಲೆ ಪೋಸ್ಟ್"
 
 #: core/includes/functions.php:666
 #, fuzzy
 msgid "By"
-msgstr "ಇಂದ"
+msgstr "ಮೂಲಕ"
 
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -2656,57 +2693,58 @@ msgstr "ಇಂದ"
 #: partials/single/meta.php:96
 #, fuzzy
 msgid "Posted in %s"
-msgstr "%s ನಲ್ಲಿ ಪೋಸ್ಟ್ ಮಾಡಲಾಗಿದೆ"
+msgstr "Posted in %s"
 
 #: core/includes/functions.php:696 partials/entry/meta.php:104
 #: partials/single/meta.php:96
+#, fuzzy
 msgid ", "
 msgstr ","
 
 #: core/includes/functions.php:719
 #, fuzzy
 msgid "Upgrade To Pro"
-msgstr "ಪ್ರೊಗೆ ಅಪ್ಗ್ರೇಡ್ ಮಾಡಿ"
+msgstr "ಉನ್ನತೀಕರಣಕ್ಕೆ ಪ್ರೊ."
 
 #: core/includes/post-custom-meta.php:137
 #, fuzzy
 msgid "Content/Sidebar"
-msgstr "ವಿಷಯ / ಅಡ್ಡಪಟ್ಟಿ"
+msgstr "ವಿಷಯ/ಬದಿಪಟ್ಟಿ"
 
 #: core/includes/post-custom-meta.php:138
 #, fuzzy
 msgid "Sidebar/Content"
-msgstr "ಅಡ್ಡಪಟ್ಟಿ / ವಿಷಯ"
+msgstr "ಸೈಡ್ ಬಾರ್/ಕಂಟೆಂಟ್"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Full Width Page (no sidebar)"
-msgstr "ಪೂರ್ಣ ಅಗಲ ಪುಟ (ಸೈಡ್‌ಬಾರ್ ಇಲ್ಲ)"
+msgstr "ಪೂರ್ಣ ಅಗಲ ಪುಟ (ಸೈಡ್ ಬಾರ್ ಇಲ್ಲ)"
 
 #: core/includes/post-custom-meta.php:140
 #, fuzzy
 msgid "Blog 2 Column"
-msgstr "ಬ್ಲಾಗ್ 2 ಕಾಲಮ್"
+msgstr "ಬ್ಲಾಗ್ 2 ಕಾಲಂ"
 
 #: core/includes/post-custom-meta.php:141
 #, fuzzy
 msgid "Blog 3 Column"
-msgstr "ಬ್ಲಾಗ್ 3 ಕಾಲಮ್"
+msgstr "ಬ್ಲಾಗ್ 3 ಕಾಲಂ"
 
 #: core/includes/post-custom-meta.php:142
 #, fuzzy
 msgid "Blog 4 Column"
-msgstr "ಬ್ಲಾಗ್ 4 ಕಾಲಮ್"
+msgstr "ಬ್ಲಾಗ್ 4 ಕಾಲಂ"
 
 #: footer.php:90
 #, fuzzy
 msgid "Scroll to Top"
-msgstr "ಮೇಲಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ"
+msgstr "ಮೇಲ್ಭಾಗಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ"
 
 #: functions.php:392
 #, fuzzy
 msgid "Permalink to %s"
-msgstr "%s ಗೆ ಪರ್ಮಾಲಿಂಕ್"
+msgstr "ಪೆರೆಮಾಲ್ಇಂಕ್ %s ಗೆ"
 
 #. translators: %s Link to 5 star rating
 #: functions.php:453
@@ -2715,15 +2753,17 @@ msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
-"ನೀವು <strong>ರೆಸ್ಪಾನ್ಸಿವ್ ಥೀಮ್</strong> ಬಯಸಿದರೆ ದಯವಿಟ್ಟು ನಮಗೆ%s ರೇಟಿಂಗ್ ನೀಡಿ. ಇದು "
-"ಒಂದು ನಿಮಿಷ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ ಮತ್ತು ಸಾಕಷ್ಟು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ಮುಂಚಿತವಾಗಿ ಧನ್ಯವಾದಗಳು!"
+"ನಿಮಗೆ <strong>ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಥೀಮ್</strong> ಇಷ್ಟವಾಗಿದ್ದರೆ ದಯವಿಟ್ಟು ನಮಗೆ %s ರೇಟಿಂಗ್ "
+"ಅನ್ನು ಬಿಟ್ಟುಬಿಡಿ. ಇದು ಒಂದು ನಿಮಿಷ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ ಮತ್ತು ತುಂಬಾ ಸಹಾಯ ಮಾಡುತ್ತದೆ. "
+"ಮುಂಗಡವಾಗಿ ಥ್ಯಾಂಕ್ಸ್!"
 
 #: functions.php:454
 #, fuzzy
 msgid "Thanks :)"
-msgstr "Thanks"
+msgstr "ಥ್ಯಾಂಕ್ಸ್:)"
 
-#: functions.php:538
+#: functions.php:539
+#, fuzzy
 msgid "#"
 msgstr "#"
 
@@ -2737,7 +2777,7 @@ msgstr "ಪುಟಗಳು"
 #: header.php:35
 #, fuzzy
 msgid "&darr; Skip to Main Content"
-msgstr "Main ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ತೆರಳಿ"
+msgstr "&darr; ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಲು"
 
 #: home.php:81
 msgid "Previous"
@@ -2750,13 +2790,13 @@ msgstr "ಮುಂದಿನ"
 #: image.php:37
 #, fuzzy
 msgid "&#8249; Return to"
-msgstr "< ಮರಳಲು"
+msgstr "& #8249; ಮರಳುವ"
 
 #: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
 #: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
 #, fuzzy
 msgid "No Comments"
-msgstr "ಯಾವುದೇ ಟೀಕೆಗಳಿಲ್ಲ"
+msgstr "ಪ್ರತಿಕ್ರಿಯೆಗಳುಲ"
 
 #: image.php:46 partials/entry/meta.php:90
 #: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
@@ -2775,45 +2815,46 @@ msgstr "ಪ್ರತಿಕ್ರಿಯೆಗಳುಲ"
 #: image.php:79 post-data.php:25
 #, fuzzy
 msgid "Tagged with:"
-msgstr "ಇದರೊಂದಿಗೆ ಟ್ಯಾಗ್ ಮಾಡಲಾಗಿದೆ:"
+msgstr "Tagged ಇದರೊಂದಿಗೆ:"
 
 #: image.php:87 post-data.php:29
 #, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
-msgstr "<span class=\"post-edit\">ತಿದ್ದು</span>"
+msgstr "<span class=\"post-edit\">ಬದಲಾಯಿಸಿ</span>"
 
 #: loop-nav.php:28
 #, fuzzy
 msgid "&#8249; Older posts"
-msgstr "Posts ಹಳೆಯ ಪೋಸ್ಟ್‌ಗಳು"
+msgstr "& #8249; ಹಳೆಯ ಹುದ್ದೆಗಳು"
 
 #: loop-nav.php:29
 #, fuzzy
 msgid "Newer posts &#8250;"
-msgstr "ಹೊಸ ಪೋಸ್ಟ್‌ಗಳು"
+msgstr "ಹೊಸ ಹುದ್ದೆಗಳು & #8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "Your search for %s did not match any entries."
-msgstr "%s ಗಾಗಿ ನಿಮ್ಮ ಹುಡುಕಾಟವು ಯಾವುದೇ ನಮೂದುಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗಲಿಲ್ಲ."
+msgstr "%s ನ ಹುಡುಕಾಟವು ಯಾವುದೇ ನಮೂದುಗಳನ್ನು ಹೊಂದಿರಲಿಲ್ಲ."
 
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 - ಫ್ಯಾನ್ಸಿ ನಿಮ್ಮನ್ನು ಇಲ್ಲಿ ಭೇಟಿಯಾಗುತ್ತಾರೆ!"
+msgstr "404 & #8212; ಫ್ಯಾನ್ಸಿ ಮೀಟಿಂಗ್ ನೀವು ಇಲ್ಲಿ!"
 
 #: loop-no-posts.php:32
 #, fuzzy
 msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
-msgstr "ಭಯಪಡಬೇಡಿ, ನಾವು ಇದನ್ನು ಒಟ್ಟಿಗೆ ಪಡೆಯುತ್ತೇವೆ. ನಮ್ಮ ಆಯ್ಕೆಗಳನ್ನು ಇಲ್ಲಿ ಅನ್ವೇಷಿಸೋಣ."
+msgstr ""
+"& #39; ಭಯವಾಗಿ, ನಾವು ಇದನ್ನು ಒಟ್ಟಿಗೆ & #39;. & #39; ನಮ್ಮ ಆಯ್ಕೆಗಳನ್ನು ಇಲ್ಲಿ ಅನ್ವೇಷಿಸೋಣ."
 
 #: loop-no-posts.php:43
 #, fuzzy
 msgid "&larr; Home"
-msgstr "ಮನೆ"
+msgstr "&larr; ಮನೆಗೆ"
 
 #: partials/custom-home/featured-area.php:255
 #, fuzzy
@@ -2824,35 +2865,35 @@ msgstr "ತಂಡ"
 #: partials/entry/meta.php:35
 #, fuzzy
 msgid "By "
-msgstr "ಇಂದ"
+msgstr "ಮೂಲಕ"
 
 #. translators: 1: class, 2: date
 #: partials/entry/meta.php:69 partials/single/meta.php:63
 #, fuzzy
 msgid "Posted on "
-msgstr "ಪೋಸ್ಟ್ ಮಾಡಲಾಗಿದೆ"
+msgstr "ಮೇಲೆ ಪೋಸ್ಟ್"
 
 #: partials/entry/thumbnail-style/comments.php:16
 #, fuzzy
 msgid "0 Comments"
-msgstr "ಪ್ರತಿಕ್ರಿಯೆಗಳುಲ"
+msgstr "0 Comments"
 
 #: partials/footer/copy-right.php:17
 #, fuzzy
 msgid " &copy; "
-msgstr "©"
+msgstr "&copy;"
 
 #: partials/footer/copy-right.php:21
 #, fuzzy
 msgid "&copy; "
-msgstr "©"
+msgstr "&copy;"
 
 #: partials/footer/copy-right.php:29
 #, fuzzy
 msgid " | Powered by Responsive Theme"
-msgstr "| ರೆಸ್ಪಾನ್ಸಿವ್ ಥೀಮ್‌ನಿಂದ ನಡೆಸಲ್ಪಡುತ್ತಿದೆ"
+msgstr "| ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಥೀಮ್ ನಿಂದ ಚಾಲಿತವಾಗಿದೆ"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "ಮೆನು"
 
@@ -2860,7 +2901,7 @@ msgstr "ಮೆನು"
 #: partials/single/content.php:22
 #, fuzzy
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr "<span class=\"screen-reader-text\">\"%s\"</span> ಓದುವುದನ್ನು ಮುಂದುವರಿಸಿ"
+msgstr "ಓದನ್ನು ಮುಂದುವರಿಸಿ<span class=\"screen-reader-text\"> \" %s\"</span>"
 
 #: partials/single/layout.php:50
 msgid "About"
@@ -2869,22 +2910,22 @@ msgstr "ಬಗ್ಗೆ"
 #: partials/single/layout.php:73
 #, fuzzy
 msgid "Previous Post is "
-msgstr "ಹಿಂದಿನ ಪೋಸ್ಟ್ ಆಗಿದೆ"
+msgstr "ಹಿಂದಿನ ಪೋಸ್ಟ್"
 
 #: partials/single/layout.php:74
 #, fuzzy
 msgid "Next Post is"
-msgstr "ಮುಂದಿನ ಪೋಸ್ಟ್ ಆಗಿದೆ"
+msgstr "ಮುಂದಿನ ಪೋಸ್ಟ್"
 
 #: searchform.php:22
 #, fuzzy
 msgid "Search for:"
-msgstr "ಇದಕ್ಕಾಗಿ ಹುಡುಕು:"
+msgstr "ಹುಡುಕು:"
 
 #: searchform.php:23
 #, fuzzy
 msgid "Search here &hellip;"
-msgstr "ಇಲ್ಲಿ ಹುಡುಕಿ…"
+msgstr "ಇಲ್ಲಿ ಹುಡುಕಿ &hellip;"
 
 #: searchform.php:24
 msgid "Go"
@@ -2903,7 +2944,7 @@ msgstr "ಪೂರ್ಣ ಗಾತ್ರ:"
 #: sidebar-gallery.php:39
 #, fuzzy
 msgid "Aperture: f&#47;"
-msgstr "ದ್ಯುತಿರಂಧ್ರ: ಎಫ್ /"
+msgstr "ಅಪರ್ಚರ್: ಎಫ್ & #47;."
 
 #: sidebar-gallery.php:44
 msgid "Focal Length:"
@@ -2912,7 +2953,7 @@ msgstr "ಫೋಕಲ್ ಲೆಂತ್: On a camera"
 #: sidebar-gallery.php:44
 #, fuzzy
 msgid "mm"
-msgstr "mm"
+msgstr "ಮಿ"
 
 #: sidebar-gallery.php:48
 #, fuzzy
@@ -2922,7 +2963,7 @@ msgstr "ISO"
 #: sidebar-gallery.php:52
 #, fuzzy
 msgid "Shutter:"
-msgstr "ಶಟರ್"
+msgstr "ಷಟರ್"
 
 #: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
 msgid "sec"
@@ -2935,7 +2976,7 @@ msgstr "ಕ್ಯಾಮೆರಾ: Length in millimeters"
 #: sidebar-home.php:34
 #, fuzzy
 msgid "Fermentum"
-msgstr "ಹುದುಗುವಿಕೆ"
+msgstr "ಫೆರ್ಮೆಟಮ್"
 
 #: sidebar-home.php:40
 #, fuzzy
@@ -2944,14 +2985,14 @@ msgid ""
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"ಇದು ನಿಮ್ಮ ಮೊದಲ ಮನೆ ವಿಜೆಟ್ ಬಾಕ್ಸ್ ಆಗಿದೆ. ಸಂಪಾದಿಸಲು ದಯವಿಟ್ಟು ಗೋಚರತೆ> ವಿಜೆಟ್‌ಗಳಿಗೆ "
-"ಹೋಗಿ ಮತ್ತು ಹೋಮ್ ವಿಜೆಟ್ 1 ಎಂದು ಕರೆಯಲ್ಪಡುವ 6 ನೇ ಪ್ರದೇಶದ ಮೇಲಿನಿಂದ 6 ನೇ ವಿಜೆಟ್ ಅನ್ನು "
-"ಆರಿಸಿ. ಶೀರ್ಷಿಕೆ ವಿಜೆಟ್‌ಗಳಿಂದಲೂ ನಿರ್ವಹಿಸಲ್ಪಡುತ್ತದೆ."
+"ಇದು ನಿಮ್ಮ ಮೊದಲ ಹೋಮ್ ವಿಜೆಟ್ ಬಾಕ್ಸ್. ಎಡಿಟ್ ಮಾಡಲು ದಯವಿಟ್ಟು ರೂಪ > ವಿಡ್ಗೆಟ್ ಗಳನ್ನು ಮಾಡಿ "
+"ಮತ್ತು ಹೋಮ್ ವಿಜೆಟ್ 1 ಎಂದು ಕರೆಯಲಾಗುವ ಏರಿಯಾ 6ನೇ ಮೇಲಿನಿಂದ 6ನೇ ವಿಡ್ಗೆಟ್ ಅನ್ನು ಆಯ್ಕೆ "
+"ಮಾಡಿ. ಹಾಗೆಯೇ ವಿಡ್ಗೆಟ್ ಗಳಿಂದ ಶೀರ್ಷಿಕೆ ಕೂಡ ನಿಭಾಯಿಸಬಹುದಷ್ಟೇ."
 
 #: sidebar-home.php:54
 #, fuzzy
 msgid "Elementum"
-msgstr "ಎಲಿಮೆಂಟಮ್"
+msgstr "ಎಲೆಮೆಟಮ್"
 
 #: sidebar-home.php:60
 #, fuzzy
@@ -2960,9 +3001,9 @@ msgid ""
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"ಇದು ನಿಮ್ಮ ಎರಡನೇ ಮನೆಯ ವಿಜೆಟ್ ಬಾಕ್ಸ್ ಆಗಿದೆ. ಸಂಪಾದಿಸಲು ದಯವಿಟ್ಟು ಗೋಚರತೆ> ವಿಜೆಟ್‌ಗಳಿಗೆ "
-"ಹೋಗಿ ಮತ್ತು ಹೋಮ್ ವಿಜೆಟ್ 2 ಎಂದು ಕರೆಯಲ್ಪಡುವ ಏರಿಯಾ 7 ರಲ್ಲಿ ಮೇಲಿನಿಂದ 7 ನೇ ವಿಜೆಟ್ ಅನ್ನು "
-"ಆರಿಸಿ. ಶೀರ್ಷಿಕೆ ವಿಜೆಟ್‌ಗಳಿಂದಲೂ ಸಹ ನಿರ್ವಹಿಸಲ್ಪಡುತ್ತದೆ."
+"ಇದು ನಿಮ್ಮ ಎರಡನೇ ಹೋಮ್ ವಿಜೆಟ್ ಬಾಕ್ಸ್. ಎಡಿಟ್ ಮಾಡಲು ದಯವಿಟ್ಟು ರೂಪ > ವಿಡ್ಗೆಟ್ ಗಳಿಗೆ ಹೋಗಿ "
+"ಮತ್ತು ಹೋಮ್ ವಿಜೆಟ್ 2 ಎಂದು ಕರೆಯಲಾಗುವ ಏರಿಯಾ 7 ರಲ್ಲಿ ಮೇಲಿನಿಂದ 7ನೇ ವಿಡ್ಗೆಟ್ ಅನ್ನು ಆಯ್ಕೆ "
+"ಮಾಡಿ. ಹಾಗೆಯೇ ವಿಡ್ಗೆಟ್ ಗಳಿಂದ ಶೀರ್ಷಿಕೆ ಕೂಡ ನಿಭಾಯಿಸಬಹುದಷ್ಟೇ."
 
 #: sidebar-home.php:74
 #, fuzzy
@@ -2976,31 +3017,58 @@ msgid ""
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"ಇದು ನಿಮ್ಮ ಮೂರನೇ ಮನೆಯ ವಿಜೆಟ್ ಬಾಕ್ಸ್ ಆಗಿದೆ. ಸಂಪಾದಿಸಲು ದಯವಿಟ್ಟು ಗೋಚರತೆ> ವಿಜೆಟ್‌ಗಳಿಗೆ "
-"ಹೋಗಿ ಮತ್ತು ಹೋಮ್ ವಿಜೆಟ್ 3 ಎಂದು ಕರೆಯಲ್ಪಡುವ ಪ್ರದೇಶ 8 ರಲ್ಲಿ ಮೇಲಿನಿಂದ 8 ನೇ ವಿಜೆಟ್ ಅನ್ನು "
-"ಆರಿಸಿ. ಶೀರ್ಷಿಕೆ ವಿಜೆಟ್‌ಗಳಿಂದಲೂ ನಿರ್ವಹಿಸಲ್ಪಡುತ್ತದೆ."
+"ಇದು ನಿಮ್ಮ ಥರ್ಡ್ ಹೋಮ್ ವಿಜೆಟ್ ಬಾಕ್ಸ್. ಎಡಿಟ್ ಮಾಡಲು ದಯವಿಟ್ಟು ರೂಪ > ವಿಡ್ಗೆಟ್ ಗಳಿಗೆ ಹೋಗಿ ಮತ್ತು "
+"ಹೋಮ್ ವಿಜೆಟ್ 3 ಎಂಬ ಏರಿಯಾ 8ನೇ ಮೇಲಿನಿಂದ 8ನೇ ವಿಡ್ಗೆಟ್ ಆಯ್ಕೆ ಮಾಡಿ. ಹಾಗೆಯೇ ವಿಡ್ಗೆಟ್ ಗಳಿಂದ "
+"ಶೀರ್ಷಿಕೆ ಕೂಡ ನಿಭಾಯಿಸಬಹುದಷ್ಟೇ."
 
 #. Theme URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
 #, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
-"ರೆಸ್ಪಾನ್ಸಿವ್ ಪೂರ್ಣ-ಗ್ರಾಹಕೀಯಗೊಳಿಸಬಹುದಾದ, ವೇಗದ ಮತ್ತು ಮೊಬೈಲ್ ಸ್ನೇಹಿ ವರ್ಡ್ಪ್ರೆಸ್ ಥೀಮ್ ಆಗಿದೆ."
+"ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ಒಂದು ಸಂಪೂರ್ಣ ಅನುಷ್ಟಾನ, ಸರ್ಚ್ ಇಂಜಿನ್ ಆಪ್ಟಿಮೈಸ್ಡ್ & ಮೊಬೈಲ್-ಸ್ನೇಹಿ ವರ್ಡ್ ಪ್ರೆಸ್ "
+"ಥೀಮ್. ಗುಟೆನ್ ಬರ್ಗ್ ಬ್ಲಾಕ್ ಎಡಿಟರ್ ಗೆ ಹೊಂದಿಕೆಯಾಗುವಂತೆ, ಇದು ನಿಮ್ಮ ಬ್ಲಾಗ್, ಬ್ಯುಸಿನೆಸ್ ವೆಬ್ "
+"ಸೈಟ್, ಅಥವಾ ವುಕಾಮರ್ಸ್ ಸ್ಟೋರ್ ಗೆ ಪರಿಪೂರ್ಣ ಆಯ್ಕೆಯಾಗಿದೆ. ಬಹುತೇಕ ಅನಿಯಮಿತ ಕಸ್ಟಮೈಜರ್ "
+"ಆಯ್ಕೆಗಳನ್ನು ಹೊಂದಿದ್ದು, ನಿಮ್ಮ ವೆಬ್ ಸೈಟ್ ನ ಪ್ರತಿಯೊಂದು ವೈಶಿಷ್ಟ್ಯವನ್ನು ಕಸ್ಟಮೈಸ್ "
+"ಮಾಡಿಕೊಳ್ಳಬಹುದು. ಪ್ರತಿಕ್ರಿಯಾತ್ಮಕ ವೆಬ್ ಸೈಟ್ ವೇಗವನ್ನು ಸುಧಾರಿಸಲು ಮಿನಿಫೈಡ್ ಸ್ಕ್ರಿಪ್ಟ್ ಗಳು "
+"ಬರುತ್ತದೆ. ಇದರಲ್ಲಿ ಪುಟಗಳು ಮತ್ತು ಬ್ಲಾಗ್ ಗೆ ಒಂಬತ್ತು ಲೇಔಟ್ ಆಯ್ಕೆಗಳು, ವುಕಾಮರ್ಸ್ ವಿನ್ಯಾಸದ "
+"ಆಯ್ಕೆಗಳು, ಮತ್ತು ಎಲೆಮೆಂಟರ್ ಪೇಜ್ ಬಿಲ್ಡರ್ ಜೊತೆ ಅನುಕೂಲ ಸೇರಿದಂತೆ ಇತರ ವೈಶಿಷ್ಟ್ಯಗಳೂ "
+"ಬರುತ್ತದೆ. ಇದು ಮೊಬೈಲ್, ಟ್ಯಾಬ್ಲೆಟ್, ಡೆಸ್ಕ್ ಟಾಪ್ ಮತ್ತು ಎಲ್ಲಾ ಬ್ರೌಸರ್ಗಳ ಉದ್ದಕ್ಕೂ ಮಹತ್ತರ "
+"ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಸ್ಪಂದನೆ ಕೂಡ 45 ಭಾಷೆಗಳಲ್ಲಿ ಲಭ್ಯವಿದ್ದು, ಸರ್ಚ್ ಇಂಜಿನ್ ಸ್ನೇಹಿಯಾಗಿದೆ. "
+"ಕ್ರಿಯಾಯೋಜನೆಯಲ್ಲಿ ಸ್ಪಂದನೆ ನೋಡಿ: https://cyberchimps.com/responsive-ready-"
+"websites/. ಇದರ ವೈಶಿಷ್ಟ್ಯಗಳ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿದುಕೊಳ್ಳಿ: https://cyberchimps.com/"
+"responsive-features/."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "ಸೈಚಿಪ್ಸ್"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Gutenberg Fullwidth No title"
-msgstr "ಗುಟೆನ್ಬರ್ಗ್ ಪೂರ್ಣ ಅಗಲ ಯಾವುದೇ ಶೀರ್ಷಿಕೆ ಇಲ್ಲ"
+msgstr "ಗುಟೆನ್ ಬರ್ಗ್ ಫುರ ಅಗಲ ಯಾವುದೇ ಶೀರ್ಷಿಕೆ"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:48
@@ -3008,8 +3076,8 @@ msgstr "ಗುಟೆನ್ಬರ್ಗ್ ಪೂರ್ಣ ಅಗಲ ಯಾವು
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s “%2$s” ನಲ್ಲಿ ಕಾಮೆಂಟ್ ಮಾಡಿ"
-msgstr[1] "%1$s “%2$s” ನಲ್ಲಿ ಪ್ರತಿಕ್ರಿಯೆಗಳು"
+msgstr[0] "%1$s \"%2$s\" ಮೇಲೆ ಕಾಮೆಂಟ್ ಮಾಡಿ"
+msgstr[1] "\"%2$s\" ನ %1$s ಟಿಪ್ಪಣಿಗಳು"
 
 #: functions.php:126
 msgctxt "Name of the small font size in the block editor"
@@ -3040,16 +3108,16 @@ msgstr "ದೊಡ್ಡ"
 #, fuzzy
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
-msgstr "L:"
+msgstr "ಎಲ್"
 
 #: functions.php:144
 #, fuzzy
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
-msgstr "ದೊಡ್ಡದು"
+msgstr "ದೊಡ್ಡ"
 
 #: functions.php:145
 #, fuzzy
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
-msgstr "ಎಕ್ಸ್‌ಎಲ್"
+msgstr "XL"

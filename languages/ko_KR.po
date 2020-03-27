@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 21:14+0530\n"
+"PO-Revision-Date: 2020-03-27 16:05+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -32,32 +32,32 @@ msgstr "활성화 중..."
 #: admin/admin-functions.php:22
 #, fuzzy
 msgid "Not connect. Verify Network."
-msgstr "연결하지 않았습니다. 네트워크를 확인하십시오."
+msgstr "연결되지 않습니다. 네트워크를 확인합니다."
 
 #: admin/admin-functions.php:23
 #, fuzzy
 msgid "Requested page not found. [404]"
-msgstr "요청한 페이지를 찾을 수 없습니다. [404]"
+msgstr "요청된 페이지를 찾을 수 없습니다. [404]"
 
 #: admin/admin-functions.php:24
 #, fuzzy
 msgid "Internal Server Error [500]"
-msgstr "내부 서버 오류"
+msgstr "내부 서버 오류 [500]"
 
 #: admin/admin-functions.php:25
 #, fuzzy
 msgid "Requested JSON parse failed"
-msgstr "요청한 JSON 구문 분석에 실패했습니다"
+msgstr "요청된 JSON 구문 분석 실패"
 
 #: admin/admin-functions.php:26
 #, fuzzy
 msgid "Time out error"
-msgstr "시간 초과 오류"
+msgstr "시간 시간 시간 오류"
 
 #: admin/admin-functions.php:27
 #, fuzzy
 msgid "Ajax request aborted"
-msgstr "요청 중단됨"
+msgstr "아약스 요청 중단"
 
 #: admin/admin-functions.php:28
 #, fuzzy
@@ -67,7 +67,7 @@ msgstr "잡히지 않은 오류"
 #: admin/class-responsive-plugin-install-helper.php:93
 #, fuzzy
 msgid "Install and activate &raquo;"
-msgstr "설치 및 활성화»"
+msgstr "설치 및 활성화 및 라쿠오;"
 
 #: admin/class-responsive-plugin-install-helper.php:97
 #: admin/class-responsive-plugin-install-helper.php:117
@@ -81,7 +81,7 @@ msgstr "비활성화"
 #: admin/class-responsive-plugin-install-helper.php:117
 #, fuzzy
 msgid "Jetpack Portfolio"
-msgstr "제트 팩 포트폴리오"
+msgstr "제트팩 포트폴리오"
 
 #: admin/templates/free-vs-pro.php:15
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:389
@@ -101,12 +101,12 @@ msgstr "프로"
 #: admin/templates/free-vs-pro.php:23
 #, fuzzy
 msgid "Mobile Friendly"
-msgstr "모바일 친화적 테스트"
+msgstr "모바일 친화적 인"
 
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
 #, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
-msgstr "슬라이더, 포트폴리오, 가격표, WooCommerce 위젯 등"
+msgstr "슬라이더, 포트폴리오, 가격 표, WooCommerce 위젯 등"
 
 #: admin/templates/free-vs-pro.php:31
 #, fuzzy
@@ -116,17 +116,17 @@ msgstr "타오르는 빠른 속도"
 #: admin/templates/free-vs-pro.php:32
 #, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
-msgstr "속도에 최적화, 2 초 이내에로드"
+msgstr "속도에 최적화되어 있으며, 2초 이내에 하중"
 
 #: admin/templates/free-vs-pro.php:39
 #, fuzzy
 msgid "Fully Customizable"
-msgstr "완전 맞춤형"
+msgstr "완벽하게 사용자 정의 가능"
 
 #: admin/templates/free-vs-pro.php:40
 #, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
-msgstr "레이아웃, 글꼴 및 색상에 대한 사용자 정의 옵션 사용"
+msgstr "레이아웃, 글꼴 및 색상에 대한 사용자 지정 옵션 사용"
 
 #: admin/templates/free-vs-pro.php:42
 #, fuzzy
@@ -136,12 +136,12 @@ msgstr "제한된 옵션"
 #: admin/templates/free-vs-pro.php:47
 #, fuzzy
 msgid "Ready-to-use Website Templates"
-msgstr "바로 사용 가능한 웹 사이트 템플릿"
+msgstr "바로 사용할 수 있는 웹 사이트 템플릿"
 
 #: admin/templates/free-vs-pro.php:48
 #, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
-msgstr "바로 사용 가능한 Elementor 페이지 빌더 및 Gutenberg 웹 사이트 템플릿"
+msgstr "즉시 사용 이용 엘리멘터 페이지 빌더 및 구텐베르크 웹 사이트 템플릿"
 
 #: admin/templates/free-vs-pro.php:51
 msgid "30+"
@@ -155,22 +155,24 @@ msgstr "독점 위젯"
 #: admin/templates/free-vs-pro.php:63
 #, fuzzy
 msgid "Exclusive Content, Deals & Offers"
-msgstr "독점 컨텐츠, 거래 및 오퍼"
+msgstr "독점 콘텐츠, 거래 및 제안"
 
 #: admin/templates/free-vs-pro.php:64
 #, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
-msgstr "독점적 인 WordPress 컨텐츠, 거래 및 오퍼에 액세스"
+msgstr "독점 워드 프레스 콘텐츠에 액세스 할 수, 거래 및 이벤트"
 
 #: admin/templates/free-vs-pro.php:71
 #, fuzzy
 msgid "Private Priority Email Support"
-msgstr "개인 우선 이메일 지원"
+msgstr "개인 우선 순위 이메일 지원"
 
 #: admin/templates/free-vs-pro.php:72
 #, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
-msgstr "도움이 필요하다? 우선 지원 이메일을 받으려면 지원 티켓을 올리십시오."
+msgstr ""
+"도움이 필요하신가요? 우선 순위 이메일 지원을 얻기 위해 지원 티켓을 올리기만 "
+"하면 됩니다."
 
 #. Theme Name of the plugin/theme
 msgid "Responsive"
@@ -186,22 +188,22 @@ msgstr ""
 #: comments.php:42
 #, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
-msgstr "“%1$s”에 대한 한 가지 의견"
+msgstr "\"%1$s\"에 대한 코멘트 1개"
 
 #: comments.php:58 comments.php:71
 #, fuzzy
 msgid "&#8249; Older comments"
-msgstr "이전 댓글"
+msgstr "&amp;#8249; 이전 댓글"
 
 #: comments.php:60 comments.php:73
 #, fuzzy
 msgid "Newer comments &#8250;"
-msgstr "최근 댓글"
+msgstr "새로운 의견 및 #8250;"
 
 #: comments.php:85
 #, fuzzy
 msgid "Pings&#47;Trackbacks"
-msgstr "핑 / 트랙백"
+msgstr "핑스 앤 #47;트랙백"
 
 #. translators: 1 : Count, 2 : Pings 3 : Post title
 #: comments.php:102
@@ -252,12 +254,12 @@ msgstr "도움말 문서 연결"
 #: core/includes/classes/class-responsive-admin-settings.php:196
 #, fuzzy
 msgid "Free Vs Pro "
-msgstr "무료/프로"
+msgstr "무료 대 프로"
 
 #: core/includes/classes/class-responsive-admin-settings.php:231
 #, fuzzy
 msgid "Import a website template(FREE)"
-msgstr "웹 사이트 템플릿 가져 오기 (FREE)"
+msgstr "웹 사이트 템플릿 가져오기(무료)"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
 #, fuzzy
@@ -265,13 +267,13 @@ msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
 msgstr ""
-"한 번의 클릭으로 가져올 수있는 즉시 사용 가능한 웹 사이트 템플릿을 얻으려면 "
-"반응 형 추가 기능을 설치하십시오."
+"반응형 추가 기능을 설치하여 한 번의 클릭으로 가져올 수 있는 즉시 사용이 간편"
+"한 웹 사이트 템플릿을 얻을 수 있습니다."
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
 #, fuzzy
 msgid "Learn More &raquo;"
-msgstr "더 알아보기 \""
+msgstr "자세히 알아보기 &amp; 라쿠오;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:269
 msgid "Support"
@@ -280,12 +282,12 @@ msgstr "지원"
 #: core/includes/classes/class-responsive-admin-settings.php:273
 #, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
-msgstr "질문이 있습니까? 우리와 연락하십시오. 기꺼이 도와 드리겠습니다"
+msgstr "질문이 있으십니까? 저희에게 연락하십시오. 기꺼이 도와드리겠습니다."
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
 #, fuzzy
 msgid "Request Support &raquo;"
-msgstr "지원 요청»"
+msgstr "요청 지원 및 라쿠오;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
@@ -296,7 +298,7 @@ msgstr "사이트 레이아웃 변경"
 #: core/includes/classes/class-responsive-admin-settings.php:308
 #, fuzzy
 msgid "Customize fonts/typography"
-msgstr "글꼴 / 타이포그래피 사용자 정의"
+msgstr "글꼴/타이포그래피 사용자 지정"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
 #, fuzzy
@@ -306,17 +308,17 @@ msgstr "로고 및 사이트 아이콘 업로드"
 #: core/includes/classes/class-responsive-admin-settings.php:318
 #, fuzzy
 msgid "Add/edit navigation menu"
-msgstr "탐색 메뉴 추가 / 편집"
+msgstr "탐색 메뉴 추가/편집"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
 #, fuzzy
 msgid "Customize header options"
-msgstr "헤더 옵션 사용자 정의"
+msgstr "헤더 옵션 사용자 지정"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
 #, fuzzy
 msgid "Customize footer options"
-msgstr "바닥 글 옵션 사용자 정의"
+msgstr "바닥글 옵션 사용자 지정"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
 #, fuzzy
@@ -331,7 +333,7 @@ msgstr "페이지 레이아웃 업데이트"
 #: core/includes/classes/class-responsive-admin-settings.php:346
 #, fuzzy
 msgid "Quick Start:"
-msgstr "빠른 설치"
+msgstr "빠른 시작:"
 
 #: core/includes/classes/class-responsive-admin-settings.php:365
 msgid "Community"
@@ -343,13 +345,13 @@ msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
-"반응 형 파워 유저를 만나보십시오. 인사하고, 질문하고, 의견을주고 서로 도와주"
-"세요."
+"반응형 파워 유저를 만나보세요. 인사하고, 질문을 하고, 피드백을 주고, 서로 돕"
+"습니다."
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
 #, fuzzy
 msgid "Join Facebook Group &raquo;"
-msgstr "Facebook 그룹 가입»"
+msgstr "페이스 북 그룹에 가입 &amp; 라쿠오;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:387
 msgid "Feedback"
@@ -362,37 +364,36 @@ msgid ""
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
-"안녕하세요! 반응 형 테마를 사용해 주셔서 감사합니다. 우리에게 호의를 베풀고 "
-"5 성급 등급을 줄 수 있습니까? 귀하의 의견은 우리에게 동기를 부여하고 반응 형 "
-"커뮤니티를 성장시키는 데 도움이됩니다."
+"안녕! 응답 테마를 사용하여 주셔서 감사합니다. 당신은 우리에게 호의를 베풀고 "
+"우리에게 5 성급 등급을 줄 수 있습니까? 귀하의 의견은 우리에게 동기를 유지하"
+"고 우리가 반응 커뮤니티를 성장하는 데 도움이됩니다."
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
 #, fuzzy
 msgid "Submit Review &raquo;"
-msgstr "검토 제출»"
+msgstr "리뷰 제출 및 라쿠오;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
 #, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
-msgstr ""
-"빠르고, 모바일 친화적이며, 완벽하게 사용자 정의 할 수있는 WordPress 테마."
+msgstr "타오르는 빠른, 모바일 친화적 인, 완전히 사용자 정의 워드 프레스 테마."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "세일!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 #, fuzzy
 msgid "WooCommerce Sidebar"
-msgstr "우커머스 숍 사이드바"
+msgstr "우커머스 사이드바"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 #, fuzzy
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
-"이 사이드 바는 제품 보관함, 장바구니, 결제 및 내 계정 페이지에서 사용됩니다."
+"이 사이드바는 제품 아카이브, 카트, 체크아웃 및 내 계정 페이지에서 사용됩니다."
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
@@ -454,7 +455,7 @@ msgstr "레이아웃"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
 #, fuzzy
 msgid "Main Content Width (%)"
-msgstr "콘텐츠 너비"
+msgstr "주요 콘텐츠 너비(%)"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
 #, fuzzy
@@ -464,7 +465,7 @@ msgstr "교차 판매 사용"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
 #, fuzzy
 msgid "Cart Icon Visibility"
-msgstr "카트 아이콘 가시성"
+msgstr "장바구니 아이콘 가시성"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
 msgid "Display On All Devices"
@@ -496,7 +497,7 @@ msgstr "단일 제품 옵션"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
 #, fuzzy
 msgid "Cart Options"
-msgstr "카트 옵션"
+msgstr "장바구니 옵션"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
 msgid "Rating Color"
@@ -509,13 +510,13 @@ msgstr "가격 색상"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
 #, fuzzy
 msgid "Add To Cart Buttons"
-msgstr "장바구니 버튼에 추가"
+msgstr "장바구니에 추가 단추"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -560,12 +561,12 @@ msgstr "사이드바 없음"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
 #, fuzzy
 msgid "Shop Product"
-msgstr "제품 쇼핑"
+msgstr "제품 쇼핑하기"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
 #, fuzzy
 msgid "Catalog View"
-msgstr "카탈로그"
+msgstr "카탈로그 보기"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
 msgid "Grid View"
@@ -578,7 +579,7 @@ msgstr "목록 보기"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
 #, fuzzy
 msgid "Content Aligmnment"
-msgstr "콘텐츠 승인"
+msgstr "콘텐츠 알리그멘먼트"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
@@ -633,7 +634,7 @@ msgstr "오른쪽"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
 #, fuzzy
 msgid "Shop Elements"
-msgstr "상점 요소"
+msgstr "요소 쇼핑하기"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
 msgid "Sale Notification"
@@ -659,12 +660,12 @@ msgstr "기본값"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
 #, fuzzy
 msgid "Custom String"
-msgstr "맞춤 문자열"
+msgstr "사용자 지정 문자열"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
 #, fuzzy
 msgid "Sale % Value"
-msgstr "판매 % 가치"
+msgstr "판매 % 값"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
 msgid "Sale Bubble Style"
@@ -677,7 +678,7 @@ msgstr "원형"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
 #, fuzzy
 msgid "Circle Outline"
-msgstr "서클 개요"
+msgstr "원 윤곽선"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
 msgid "Square"
@@ -686,7 +687,7 @@ msgstr "사각형"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
 #, fuzzy
 msgid "Square Outline"
-msgstr "광장 개요"
+msgstr "정사각형 윤곽선"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
 #, fuzzy
@@ -699,13 +700,13 @@ msgid "Gallery Layout"
 msgstr "갤러리 레이아웃"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "수직"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "가로"
@@ -745,7 +746,7 @@ msgstr "하단"
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
 #, fuzzy
 msgid "px - em - rem"
-msgstr "px-em-렘"
+msgstr "px - em - rem"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
 msgid "Inherit"
@@ -755,60 +756,60 @@ msgstr "상속"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
 #, fuzzy
 msgid "Thin: 100"
-msgstr "Thin 100"
+msgstr "얇은: 100"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
 #, fuzzy
 msgid "Light: 200"
-msgstr "Light 200"
+msgstr "라이트: 200"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
 #, fuzzy
 msgid "Book: 300"
-msgstr "Book 300"
+msgstr "예약: 300장"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
 #, fuzzy
 msgid "Normal: 400"
-msgstr "Normal 400"
+msgstr "보통: 400"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
 #, fuzzy
 msgid "Medium: 500"
-msgstr "Medium 500"
+msgstr "중간 크기: 500"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
 #, fuzzy
 msgid "Semibold: 600"
-msgstr "세미 볼트 : 600"
+msgstr "세미볼드: 600"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
 #, fuzzy
 msgid "Bold: 700"
-msgstr "Bold 700"
+msgstr "굵게: 700"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
 #, fuzzy
 msgid "Extra Bold: 800"
-msgstr "Extra-Bold 800"
+msgstr "엑스트라 굵게: 800"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
 #, fuzzy
 msgid "Black: 900"
-msgstr "Black 900"
+msgstr "블랙: 900"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
 #, fuzzy
 msgid "Arial, Helvetica, sans-serif"
-msgstr "Arial, Helvetica, 산세 리프"
+msgstr "아리알, 헬베티카, 산세리프"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:219
 msgid "Custom Fonts"
@@ -830,12 +831,12 @@ msgstr "프로"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
 #, fuzzy
 msgid "View PRO Features"
-msgstr "프로 기능"
+msgstr "프로 기능 보기"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
 #, fuzzy
 msgid "Pro Ready Sites"
-msgstr "프로 레디 사이트"
+msgstr "프로 준비 사이트"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
 msgid "Form Builder"
@@ -844,7 +845,7 @@ msgstr "폼 빌더"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
 #, fuzzy
 msgid "Interactive Sliders and Carousels"
-msgstr "대화식 슬라이더 및 회전식 메뉴"
+msgstr "대화형 슬라이더 및 회전목마"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
 msgid "Pricing Tables"
@@ -853,12 +854,12 @@ msgstr "가격 테이블"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
 #, fuzzy
 msgid "Portfolio and Post Layouts"
-msgstr "포트폴리오 및 게시물 레이아웃"
+msgstr "포트폴리오 및 포스트 레이아웃"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
 #, fuzzy
 msgid "Private, Priority Support"
-msgstr "개인 우선 지원"
+msgstr "개인, 우선 순위 지원"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
 #, fuzzy
@@ -872,7 +873,7 @@ msgstr "CSS 스타일"
 #: core/includes/customizer/customizer.php:43
 #, fuzzy
 msgid "Custom CSS Styles"
-msgstr "사용자 정의 CSS 스타일"
+msgstr "사용자 지정 CSS 스타일"
 
 #: core/includes/customizer/customizer.php:64
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
@@ -889,7 +890,7 @@ msgstr "플랫"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
 #, fuzzy
 msgid "Choose Post"
-msgstr "포스트 유형 선택"
+msgstr "게시물 선택"
 
 #: core/includes/customizer/helper.php:35
 #: core/includes/customizer/helper.php:118
@@ -927,9 +928,10 @@ msgstr "내용"
 #: core/includes/customizer/helper.php:173
 #, fuzzy
 msgid "Site Branding"
-msgstr "브랜딩"
+msgstr "사이트 브랜딩"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "메인 메뉴 (Main Navigation)"
 
@@ -960,13 +962,13 @@ msgstr "카테고리"
 msgid "Ratings"
 msgstr "평점"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 #, fuzzy
 msgid "Read more &raquo;"
 msgstr "더 보기 &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "더 보기 &raquo;"
 
@@ -974,12 +976,12 @@ msgstr "더 보기 &raquo;"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
 #, fuzzy
 msgid "Entry Elements"
-msgstr "엔트리 요소"
+msgstr "항목 요소"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
 #, fuzzy
 msgid "Entry Featured Image"
-msgstr "추천 이미지"
+msgstr "항목 추천 이미지"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
@@ -1027,13 +1029,13 @@ msgstr "제모"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
 #, fuzzy
 msgid "Entry Meta"
-msgstr "입력값"
+msgstr "엔트리 메타"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
 #, fuzzy
 msgid "Meta Elements"
-msgstr "블로그 메타 요소"
+msgstr "메타 엘리먼트"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
@@ -1059,18 +1061,18 @@ msgstr "댓글"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
 #, fuzzy
 msgid "Meta Separator"
-msgstr "구분자"
+msgstr "메타 분리기"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
 #, fuzzy
 msgid "Meta Alignment"
-msgstr "정렬"
+msgstr "메타 정렬"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
 #, fuzzy
 msgid "Entry Content"
-msgstr "도입 내용"
+msgstr "엔트리 콘텐츠"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
 msgid "Content Type"
@@ -1097,7 +1099,7 @@ msgstr "더보기 텍스트"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
 #, fuzzy
 msgid "Read More Type"
-msgstr "자세히 보기"
+msgstr "더 보기 유형"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
 msgid "Link"
@@ -1122,12 +1124,12 @@ msgstr "블로그 페이지 제목"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
 #, fuzzy
 msgid "Entry Columns"
-msgstr "엔트리 칼럼"
+msgstr "항목 열"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
 #, fuzzy
 msgid "Enable Masonry Layout"
-msgstr "벽돌 레이아웃 사용"
+msgstr "석조 레이아웃 사용"
 
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
 msgid "Title Color"
@@ -1145,7 +1147,7 @@ msgstr "이동 경로 색상"
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
 #, fuzzy
 msgid "Disable breadcrumb list?"
-msgstr "이동 경로 목록을 사용 중지 하시겠습니까?"
+msgstr "이동 경로 목록을 사용하지 않도록 설정?"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
 #, fuzzy
@@ -1155,12 +1157,12 @@ msgstr "이동 경로 위치"
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
 #, fuzzy
 msgid "Before Heading"
-msgstr "향하기 전에"
+msgstr "향하기 전"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
 #, fuzzy
 msgid "After Heading"
-msgstr "제목 후"
+msgstr "헤딩 후"
 
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
@@ -1190,12 +1192,12 @@ msgstr "문서"
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
 #, fuzzy
 msgid "To have access to a shop section please install and configure %1$s."
-msgstr "상점 섹션에 액세스하려면 %1$s을 (를) 설치하고 구성하십시오."
+msgstr "상점 섹션에 액세스하려면 설치및 %1$s를 구성하십시오."
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
 #, fuzzy
 msgid "WooCommerce plugin"
-msgstr "WooCommerce 플러그인"
+msgstr "우커머스 플러그인"
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
 msgid "Recommended Plugins"
@@ -1208,8 +1210,8 @@ msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
 msgstr ""
-"더 빠르고 반응이 빠른 웹 사이트를 구축하는 데 도움이되는 더욱 강력한 기능에 "
-"액세스하십시오."
+"당신이 전혀 시간에 아름다운 빠르고 응답 웹 사이트를 구축하는 데 도움이됩니다 "
+"훨씬 더 강력한 기능에 액세스 할 수 있습니다."
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
@@ -1238,7 +1240,7 @@ msgstr "마우스 오버 링크 컬러"
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
 #, fuzzy
 msgid "Full Width Footer"
-msgstr "전각 바닥 글"
+msgstr "전체 너비 바닥글"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
 msgid "Footer Widgets"
@@ -1252,69 +1254,73 @@ msgstr "열의 개수"
 msgid "Footer Bar"
 msgstr "Footer Bar"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "카피라이트"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "반응형 테마로 구동되는 숨기기"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "소셜 링크"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "트위터"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "페이스북"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "링크드인"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "유튜브"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "구글+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "RSS 피드"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "인스타그램"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "핀터레스트"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "네이버 라인"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "비메오"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "옐프"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "포스퀘어"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "이메일 주소"
 
@@ -1326,7 +1332,7 @@ msgstr "스크립트"
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
 #, fuzzy
 msgid "Embeds to footer.php"
-msgstr "footer.php에 포함"
+msgstr "푸터에 내장.php"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
@@ -1343,12 +1349,12 @@ msgstr "사이트 제목 색상"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
 #, fuzzy
 msgid "Site Title Hover Color"
-msgstr "타이틀 Hover"
+msgstr "사이트 제목 가리키기 색상"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
 #, fuzzy
 msgid "Site Tagline Color"
-msgstr "사이트 태그 라인 색상"
+msgstr "사이트 태그라인 색상"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
 #, fuzzy
@@ -1380,7 +1386,7 @@ msgstr "헤더 정렬"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #, fuzzy
 msgid "Logo Padding (px)"
-msgstr "패딩(xx)"
+msgstr "로고 패딩(px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
 msgid "Transparent Header"
@@ -1389,42 +1395,42 @@ msgstr "투명 헤더"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
 #, fuzzy
 msgid "Enable on Complete Website"
-msgstr "완전한 웹 사이트에서 활성화"
+msgstr "전체 웹 사이트에서 사용"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
 #, fuzzy
 msgid "Site Content Padding (px)"
-msgstr "안쪽 여백 (px)"
+msgstr "사이트 콘텐츠 패딩(px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
 #, fuzzy
 msgid "Disable on 404, Search & Archives?"
-msgstr "404, 검색 및 보관에서 사용 중지 하시겠습니까?"
+msgstr "에서 비활성화 404, 검색 및 아카이브?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
 #, fuzzy
 msgid "Disable on Blog page?"
-msgstr "블로그 페이지에서 비활성화 하시겠습니까?"
+msgstr "블로그 페이지에서 비활성화?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
 #, fuzzy
 msgid "Disable on Latest Posts Page?"
-msgstr "최신 게시물 페이지에서 사용 중지 하시겠습니까?"
+msgstr "최신 게시물 페이지에서 비활성화?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
 #, fuzzy
 msgid "Disable on Pages?"
-msgstr "페이지에서 비활성화"
+msgstr "페이지에서 비활성화?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
 #, fuzzy
 msgid "Disable on Posts?"
-msgstr "게시물에서 비활성화"
+msgstr "게시물에서 비활성화?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
 #, fuzzy
 msgid "Disable on WooCommerce Product Pages?"
-msgstr "WooCommerce 제품 페이지에서 비활성화 하시겠습니까?"
+msgstr "WooCommerce 제품 페이지에서 사용 안 함?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
 #: core/includes/functions-sidebar.php:100
@@ -1449,7 +1455,7 @@ msgstr "헤더 위"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
 #, fuzzy
 msgid "In Header"
-msgstr "in header"
+msgstr "헤더"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
 msgid "Below Header"
@@ -1467,22 +1473,22 @@ msgstr "펼치기"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
 #, fuzzy
 msgid "Space Around"
-msgstr "주위 공간"
+msgstr "주변 공간"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #, fuzzy
 msgid "Active Menu Background Color"
-msgstr "활성 메뉴 배경색"
+msgstr "활성 메뉴 배경 색상"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
 #, fuzzy
 msgid "Menu Item Link Color"
-msgstr "메뉴 아이템 색상"
+msgstr "메뉴 항목 링크 색상"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
 #, fuzzy
 msgid "Menu Item Link Hover Color"
-msgstr "메뉴 아이템 호버시 폰트 색상"
+msgstr "메뉴 항목 링크 호버 색상"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
 msgid "Sub Menu Background Color"
@@ -1501,22 +1507,22 @@ msgstr "하위 메뉴 항목 링크 호버 색상"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
 #, fuzzy
 msgid "Menu Toggle Background Color"
-msgstr "열린 토글 배경 색"
+msgstr "메뉴 배경 색 을 토글"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
 #, fuzzy
 msgid "Menu Toggle Color"
-msgstr "메뉴 토글 색상"
+msgstr "메뉴 색상 토글"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
 #, fuzzy
 msgid "Full Width Main Navigation"
-msgstr "전폭 메인 네비게이션"
+msgstr "전체 너비 메인 탐색"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
 #, fuzzy
 msgid "Enable Mobile Menu"
-msgstr "모바일 메뉴 활성화"
+msgstr "모바일 메뉴 사용"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
 msgid "Breakpoint"
@@ -1538,12 +1544,12 @@ msgstr "사이드바"
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
 #, fuzzy
 msgid "Sidebar Menu Alignment"
-msgstr "사이드 바 메뉴 정렬"
+msgstr "사이드바 메뉴 정렬"
 
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
 #, fuzzy
 msgid "Embeds to header.php"
-msgstr "header.php에 포함"
+msgstr "헤더에 포함됩니다.php"
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
@@ -1559,7 +1565,7 @@ msgstr "사이트 태그"
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
 #, fuzzy
 msgid "Choose Category"
-msgstr "카테고리를 선택하십시오"
+msgstr "범주 선택"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
 msgid "Custom Home Page"
@@ -1568,19 +1574,19 @@ msgstr "사용자 정의 홈 페이지"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 #, fuzzy
 msgid "Enable Custom Front Page"
-msgstr "맞춤 프론트 페이지 사용"
+msgstr "사용자 지정 첫 페이지 사용"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
 #, fuzzy
 msgid "Overrides the WordPress front page option"
-msgstr "WordPress 첫 페이지 옵션을 재정의"
+msgstr "워드 프레스 첫 페이지 옵션을 재정의"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
 msgid "Hero Area"
 msgstr "히어로 영역"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 #, fuzzy
 msgid "HAPPINESS"
 msgstr "행복"
@@ -1590,7 +1596,7 @@ msgid "Headline"
 msgstr "헤드라인"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 #, fuzzy
 msgid "IS A WARM CUP"
 msgstr "따뜻한 컵입니다"
@@ -1598,19 +1604,19 @@ msgstr "따뜻한 컵입니다"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
 #, fuzzy
 msgid "Subheadline"
-msgstr "부헤드라인"
+msgstr "하위 제목"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 #, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
 "can be an image or even YouTube video if you like."
 msgstr ""
-"제목, 자막 및 바로이 내용은 테마 옵션에서 편집 할 수 있습니다. 클릭 유도 문"
-"안 버튼과 대상 링크도 있습니다. 오른쪽 이미지는 원하는 경우 이미지 또는 "
-"YouTube 비디오 일 수 있습니다."
+"제목, 자막 및이 매우 콘텐츠테마 옵션에서 편집 할 수 있습니다. 클릭 유도버튼"
+"과 대상 링크도 있습니다. 당신이 좋아하는 경우에 오른쪽이미지는 이미지 또는 "
+"YouTube 동영상이 될 수 있습니다."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
 msgid "Content Area"
@@ -1619,24 +1625,24 @@ msgstr "컨텐츠 영역"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
 #, fuzzy
 msgid "Disable Call to Action Button?"
-msgstr "클릭 유도 문안 버튼을 사용 중지 하시겠습니까?"
+msgstr "클릭 유도하기 버튼 사용 안 함?"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
 #, fuzzy
 msgid "Call to Action (URL)"
-msgstr "클릭 유도 문안 (URL)"
+msgstr "클릭 유도문전(URL)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
 #, fuzzy
 msgid "Call to Action (Text)"
-msgstr "클릭 유도 문안 텍스트"
+msgstr "클릭 유도문헌(텍스트)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
 #, fuzzy
 msgid "Call to Action Button Style"
-msgstr "콜 투 액션 버트"
+msgstr "클릭 유도문클릭 버튼 스타일"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
 msgid "Featured Content"
@@ -1645,48 +1651,48 @@ msgstr "추천 자료"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
 #, fuzzy
 msgid "Paste your shortcode, video or image source"
-msgstr "단축 코드, 비디오 또는 이미지 소스 붙여 넣기"
+msgstr "단축코드, 비디오 또는 이미지 소스 붙여넣기"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
 #, fuzzy
 msgid "About Section"
-msgstr "어바웃 섹션"
+msgstr "섹션 소개"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
 #, fuzzy
 msgid "Enable About Section"
-msgstr "섹션 정보 활성화"
+msgstr "섹션 에 대한 사용"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
 #: partials/custom-home/featured-area.php:105
 #, fuzzy
 msgid "About Box Title"
-msgstr "상자 제목 정보"
+msgstr "상자 제목 소개"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
 #, fuzzy
 msgid "About Title"
-msgstr "제목"
+msgstr "제목 에 대해"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
 #, fuzzy
 msgid "About Text"
-msgstr "텍스트"
+msgstr "텍스트 정보"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
 #, fuzzy
 msgid "Enter url as http://www.example.com"
-msgstr "http://www.example.com으로 url을 입력하십시오"
+msgstr "url을 http://www.example.com 입력합니다."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
 #, fuzzy
 msgid "Feature Section"
-msgstr "기능 섹션"
+msgstr "피처 섹션"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
 #, fuzzy
 msgid "Enable Feature Section"
-msgstr "기능 섹션 사용"
+msgstr "피쳐 섹션 사용"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
 msgid "Feature Title"
@@ -1695,7 +1701,7 @@ msgstr "기능 제목"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
 #, fuzzy
 msgid "Select post for feature 1"
-msgstr "기능 1의 게시물 선택"
+msgstr "피처 1의 게시물 선택"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
@@ -1705,28 +1711,28 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the feature. Recommended image size for the featured images: 130 x 130px"
 msgstr ""
-"게시물의 추천 이미지, 제목 및 콘텐츠가 기능을 표시하는 데 사용됩니다. 추천 이"
-"미지의 권장 이미지 크기 : 130 x 130px"
+"게시물의 추천 이미지, 제목 및 콘텐츠는 기능을 표시하는 데 사용됩니다. 추천 이"
+"미지에 권장되는 이미지 크기: 130 x 130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
 #, fuzzy
 msgid "Select post for feature 2"
-msgstr "기능 2에 대한 게시물 선택"
+msgstr "피처 2의 게시물 선택"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
 #, fuzzy
 msgid "Select post for feature 3"
-msgstr "기능 3의 게시물 선택"
+msgstr "피처 3의 게시물 선택"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
 #, fuzzy
 msgid "Testimonial Section"
-msgstr "회원 평가 섹션"
+msgstr "후기 섹션"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
 #, fuzzy
 msgid "Enable Testimonial Section"
-msgstr "회원 평가 섹션 사용"
+msgstr "사용 후기 섹션"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
 #: partials/custom-home/featured-area.php:217
@@ -1736,7 +1742,7 @@ msgstr "추천사"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
 #, fuzzy
 msgid "Testimonial Title"
-msgstr "평가 제목"
+msgstr "사용 후기 제목"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
 msgid "Select Post"
@@ -1749,13 +1755,13 @@ msgid ""
 "the client testimonials. Recommended image size for the featured images: 178 "
 "x 178px"
 msgstr ""
-"게시물의 추천 이미지, 제목 및 콘텐츠는 고객 평가를 표시하는 데 사용됩니다. 추"
-"천 이미지의 권장 이미지 크기 : 178 x 178px"
+"게시물의 추천 이미지, 제목 및 콘텐츠는 클라이언트 사용 후기표시에 사용됩니"
+"다. 추천 이미지에 권장되는 이미지 크기: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
 #, fuzzy
 msgid "Team Section"
-msgstr "섹션"
+msgstr "팀 섹션"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
 #, fuzzy
@@ -1769,12 +1775,12 @@ msgstr "팀"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
 #, fuzzy
 msgid "Team Title"
-msgstr "제목"
+msgstr "팀 타이틀"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
 #, fuzzy
 msgid "Select post for team member1"
-msgstr "팀원의 게시물 선택 1"
+msgstr "팀 멤버에 대한 게시물 선택1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
@@ -1784,28 +1790,28 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
 msgstr ""
-"게시물의 추천 이미지, 제목 및 콘텐츠는 팀원을 표시하는 데 사용됩니다. 추천 이"
-"미지의 권장 이미지 크기 : 178 x 178px"
+"게시물의 추천 이미지, 제목 및 콘텐츠는 팀 멤버를 표시하는 데 사용됩니다. 추"
+"천 이미지에 권장되는 이미지 크기: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
 #, fuzzy
 msgid "Select post for team member2"
-msgstr "팀원의 게시물 선택 2"
+msgstr "팀 멤버에 대한 게시물 선택2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
 #, fuzzy
 msgid "Select post for team member3"
-msgstr "팀원을위한 게시물 선택 3"
+msgstr "팀 멤버에 대한 게시물 선택3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
 #, fuzzy
 msgid "Click to disable home page widgets"
-msgstr "홈페이지 위젯을 사용하지 않으려면 클릭하십시오."
+msgstr "홈 페이지 위젯을 사용하지 않도록 설정하려면 클릭하십시오."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
 #, fuzzy
 msgid "Contact Section"
-msgstr "연락 섹션"
+msgstr "연락처 섹션"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
 #, fuzzy
@@ -1824,53 +1830,53 @@ msgstr "연락처 섹션 제목"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
 #, fuzzy
 msgid "Contact subtitle"
-msgstr "연락 자막"
+msgstr "연락처 자막"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
 #, fuzzy
 msgid "Contact section Subtitle"
-msgstr "연락처 섹션 자막"
+msgstr "접접촉부 자막"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
 msgid "Address"
 msgstr "주소"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "이메일"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
 #, fuzzy
 msgid "Phone no"
-msgstr "전화번호"
+msgstr "전화 번호"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
 #, fuzzy
 msgid "Contact form shortcode"
-msgstr "컨택 폼 숏코드"
+msgstr "연락처 양식 단축코드"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
 #, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
-msgstr "Contact Form 7 단축 코드를 여기에 넣을 수 있습니다."
+msgstr "여기에서 문의 양식 7 단축 코드를 입력할 수 있습니다."
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
 #, fuzzy
 msgid "Page Elements"
-msgstr "요소 페이지"
+msgstr "페이지 요소"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
 #, fuzzy
 msgid "Post Elements"
-msgstr "포스트 요소"
+msgstr "포스트 엘리먼트"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
 #, fuzzy
 msgid "Page Featured Image"
-msgstr "대표 이미지"
+msgstr "페이지 추천 이미지"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
 msgid "Page Title"
@@ -1918,7 +1924,7 @@ msgstr "바닥글 옵션"
 #: core/includes/customizer/settings/class-responsive-panel.php:94
 #, fuzzy
 msgid "Blog / Archive"
-msgstr "블로그 아케이브"
+msgstr "블로그 / 아카이브"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:95
 msgid "Blog Options"
@@ -1968,7 +1974,7 @@ msgstr "상자 배경색"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
 #, fuzzy
 msgid "Alternate Background Color"
-msgstr "대체 배경 색상"
+msgstr "대체 배경 색"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
 #, fuzzy
@@ -1982,32 +1988,32 @@ msgstr "본문 글자색"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
 #, fuzzy
 msgid "Heading 1 (H1) Color"
-msgstr "머리글 1 (H1) 글꼴 색상"
+msgstr "제목 1 (H1) 색상"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
 #, fuzzy
 msgid "Heading 2 (H2) Color"
-msgstr "머리글 2 (H2) 글꼴 색상"
+msgstr "제목 2 (H2) 색상"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
 #, fuzzy
 msgid "Heading 3 (H3) Color"
-msgstr "머리글 3 (H3) 글꼴 색상"
+msgstr "제목 3 (H3) 색상"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
 #, fuzzy
 msgid "Heading 4 (H4) Color"
-msgstr "머리글 4 (H4) 글꼴 색상"
+msgstr "헤딩 4(H4) 색상"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
 #, fuzzy
 msgid "Heading 5 (H5) Color"
-msgstr "머리글 5 (H5) 글꼴 색상"
+msgstr "제목 5 (H5) 색상"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
 #, fuzzy
 msgid "Heading 6 (H6) Color"
-msgstr "머리글 6 (H6) 글꼴 색상"
+msgstr "헤딩 6(H6) 색상"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
 msgid "Meta Text Color"
@@ -2063,7 +2069,7 @@ msgstr "라벨 색상"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
 #, fuzzy
 msgid "Hide Site Title"
-msgstr "사이트 제목"
+msgstr "사이트 제목 숨기기"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
 msgid "Hide Tagline"
@@ -2092,17 +2098,17 @@ msgstr "박스형"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
 #, fuzzy
 msgid "Content Boxed"
-msgstr "컨텐츠 박스"
+msgstr "콘텐츠 박스"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
 #, fuzzy
 msgid "Box Padding (px)"
-msgstr "패딩(xx)"
+msgstr "박스 패딩(px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
 #, fuzzy
 msgid "Box Radius (px)"
-msgstr "상자 반경 (px)"
+msgstr "상자 반지름(px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
@@ -2113,13 +2119,13 @@ msgstr "패딩(xx)"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
 #, fuzzy
 msgid "Radius (px)"
-msgstr "반경 (px)"
+msgstr "반지름(px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
 #, fuzzy
 msgid "Border Width (px)"
-msgstr "테두리 너비"
+msgstr "테두리 너비(px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
 msgid "Form Inputs"
@@ -2136,37 +2142,37 @@ msgstr "본문"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
 #, fuzzy
 msgid "Heading 1 (H1)"
-msgstr "제목 1 (h1)"
+msgstr "헤딩 1 (H1)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
 #, fuzzy
 msgid "Heading 2 (H2)"
-msgstr "제목 2 (h2)"
+msgstr "헤딩 2 (H2)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
 #, fuzzy
 msgid "Heading 3 (H3)"
-msgstr "제목 3 (h3)"
+msgstr "헤딩 3 (H3)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
 #, fuzzy
 msgid "Heading 4 (H4)"
-msgstr "제목 4 (h4)"
+msgstr "헤딩 4 (H4)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
 #, fuzzy
 msgid "Heading 5 (H5)"
-msgstr "제목 5 (h5)"
+msgstr "헤딩 5 (H5)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
 #, fuzzy
 msgid "Heading 6 (H6)"
-msgstr "제목 6 (h6)"
+msgstr "헤딩 6 (H6)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
 #, fuzzy
@@ -2176,14 +2182,14 @@ msgstr "입력 필드"
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
 #, fuzzy
 msgid "Exclude Categories from Blog page"
-msgstr "제외할 카테고리"
+msgstr "블로그 페이지에서 카테고리 제외"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
 #, fuzzy
 msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
-msgstr "블로그 페이지에 표시되지 않아야 할 게시물 카테고리를 선택하십시오"
+msgstr "블로그 페이지에 표시되지 않아야 하는 게시물 카테고리를 선택하십시오."
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
 msgid "General Typography"
@@ -2200,7 +2206,7 @@ msgstr "글꼴 굵기"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
 #, fuzzy
 msgid "Important: Not all fonts support every font-weight."
-msgstr "중요 : 모든 글꼴이 모든 글꼴 두께를 지원하는 것은 아닙니다."
+msgstr "중요: 모든 글꼴이 모든 글꼴 가중치를 지원하는 것은 아닙니다."
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
 msgid "Font Style"
@@ -2237,7 +2243,7 @@ msgstr "폰트 크기"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
 #, fuzzy
 msgid "You can add: px-em-%"
-msgstr "다음을 추가 할 수 있습니다. px-em- %"
+msgstr "추가 할 수 있습니다 : px-em-%"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
 msgid "Line Height"
@@ -2251,59 +2257,85 @@ msgstr "자간 (px)"
 msgid "Font Color"
 msgstr "폰트 색상"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "안녕! 응답 테마를 사용하여 주셔서 감사합니다."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"당신은 우리에게 호의를 베풀고 우리에게 5 성급 등급을 줄 수 있습니까? 귀하의 "
+"의견은 우리에게 동기를 유지하고 우리가 반응 커뮤니티를 성장하는 데 도움이됩니"
+"다."
+
+#: core/includes/functions-admin.php:61
+#, fuzzy
+msgid "Ok, you deserve it"
+msgstr "좋아, 당신은 그것을받을 자격이"
+
+#: core/includes/functions-admin.php:62
+#, fuzzy
+msgid "Nope, maybe later"
+msgstr "아니, 어쩌면 나중에"
+
+#: core/includes/functions-admin.php:63
+#, fuzzy
+msgid "I already did"
+msgstr "나는 이미 했다"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "홈"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 #, fuzzy
 msgid "Archive for %s"
-msgstr "<ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>에 대한 아카이브"
+msgstr "%s에 대한 아카이브"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "%s 검색 결과"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 #, fuzzy
 msgid "Posts tagged %s"
-msgstr ""
-"게시물 태그됨 <ph id=\"mtc_1\" equiv-text=\"base64:"
-"Jmx0O3NwYW4gY2xhc3M9ImhpZ2hsaWdodC10ZXJtIiZndDs=\"/>\"<ph id=\"mtc_2\" equiv-"
-"text=\"base64:JXM=\"/>\"<ph id=\"mtc_3\" equiv-text=\"base64:"
-"Jmx0Oy9zcGFuJmd0Ow==\"/>"
+msgstr "게시물 태그 %s"
 
 #. translators: %s: Author pages
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "%s의 전체 포스트 보기"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "404 에러"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "페이지 %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 #, fuzzy
 msgid "Yelp!"
-msgstr "Yelp"
+msgstr "옐프"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr "정사각형"
 
@@ -2311,7 +2343,7 @@ msgstr "정사각형"
 #: image.php:59 index.php:56 partials/page/content.php:15
 #, fuzzy
 msgid "Read more &#8250;"
-msgstr "자세히 보기"
+msgstr "더 읽기 &amp; #8250;"
 
 #: core/includes/functions-sidebar.php:28
 msgid "Main Sidebar"
@@ -2321,7 +2353,7 @@ msgstr "메인 사이드바"
 #, fuzzy
 msgid ""
 "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
-msgstr "영역 1-sidebar.php-기본, 블로그, 블로그 발췌 페이지 템플리트에 표시"
+msgstr "영역 1 - sidebar.php - 기본, 블로그, 블로그 발췌 페이지 템플릿에 표시"
 
 #: core/includes/functions-sidebar.php:40
 #, fuzzy
@@ -2331,7 +2363,7 @@ msgstr "홈 위젯 1"
 #: core/includes/functions-sidebar.php:41
 #, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr "영역 6-sidebar-home.php-홈페이지에 표시"
+msgstr "영역 6 - 사이드바-home.php - 홈 페이지에 표시"
 
 #: core/includes/functions-sidebar.php:52
 #, fuzzy
@@ -2341,7 +2373,7 @@ msgstr "홈 위젯 2"
 #: core/includes/functions-sidebar.php:53
 #, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr "영역 7-sidebar-home.php-홈 페이지에 표시"
+msgstr "영역 7 - 사이드바-home.php - 홈 페이지에 표시"
 
 #: core/includes/functions-sidebar.php:64
 #, fuzzy
@@ -2351,12 +2383,12 @@ msgstr "홈 위젯 3"
 #: core/includes/functions-sidebar.php:65
 #, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr "영역 8-sidebar-home.php-홈페이지에 표시"
+msgstr "영역 8 - 사이드바-home.php - 홈 페이지에 표시"
 
 #: core/includes/functions-sidebar.php:76
 #, fuzzy
 msgid "Gallery Sidebar"
-msgstr "갤러리 사이드 바"
+msgstr "갤러리 사이드바"
 
 #: core/includes/functions-sidebar.php:77
 #, fuzzy
@@ -2364,64 +2396,65 @@ msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
 msgstr ""
-"영역 9-sidebar-gallery.php-갤러리에서 이미지를 클릭 한 후 페이지에 표시"
+"영역 9 - 사이드바-gallery.php - 갤러리에서 이미지를 클릭한 후 페이지에 표시됩"
+"니다."
 
 #: core/includes/functions-sidebar.php:88
 #, fuzzy
 msgid "Colophon Widget"
-msgstr "콜로 폰 위젯"
+msgstr "콜로폰 위젯"
 
 #: core/includes/functions-sidebar.php:89
 #, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr "영역 10-사이드 바 -colophon.php, 100 % 너비 바닥 글 위젯"
+msgstr "면적 10 - 사이드바-콜로폰.php, 100% 너비 풋터 위젯"
 
 #: core/includes/functions-sidebar.php:101
 #, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr "영역 11-sidebar-top.php-헤더의 오른쪽에 표시"
+msgstr "영역 11 - 사이드바-top.php - 헤더 오른쪽에 표시됩니다."
 
 #: core/includes/functions-sidebar.php:112
 #, fuzzy
 msgid "Footer Widgets 1"
-msgstr "푸터 위젯"
+msgstr "바닥글 위젯 1"
 
 #: core/includes/functions-sidebar.php:113
 #, fuzzy
 msgid "Area 12 - sidebar-footer.php"
-msgstr "12 구역-사이드 바 footer.php"
+msgstr "면적 12 - 사이드바-푸터.php"
 
 #: core/includes/functions-sidebar.php:123
 #, fuzzy
 msgid "Footer Widgets 2"
-msgstr "푸터 위젯"
+msgstr "바닥글 위젯 2"
 
 #: core/includes/functions-sidebar.php:124
 #, fuzzy
 msgid "Area 13 - sidebar-footer.php"
-msgstr "13 구역-사이드 바 footer.php"
+msgstr "면적 13 - 사이드바-푸터.php"
 
 #: core/includes/functions-sidebar.php:134
 #, fuzzy
 msgid "Footer Widgets 3"
-msgstr "푸터 위젯"
+msgstr "바닥글 위젯 3"
 
 #: core/includes/functions-sidebar.php:135
 #, fuzzy
 msgid "Area 14 - sidebar-footer.php"
-msgstr "14 구역-사이드 바 footer.php"
+msgstr "면적 14 - 사이드바-푸터.php"
 
 #: core/includes/functions-sidebar.php:145
 #, fuzzy
 msgid "Footer Widgets 4"
-msgstr "푸터 위젯"
+msgstr "바닥글 위젯 4"
 
 #: core/includes/functions-sidebar.php:146
 #, fuzzy
 msgid "Area 15 - sidebar-footer.php"
-msgstr "15 구역-사이드 바 footer.php"
+msgstr "면적 15 - 사이드바-푸터.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "행동유도(Call to Action)"
 
@@ -2430,20 +2463,21 @@ msgid "Header Menu"
 msgstr "헤더 메뉴"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "푸터 메뉴"
 
 #: core/includes/functions.php:377
 #, fuzzy
 msgid "Team Section Options"
-msgstr "섹션 설정"
+msgstr "팀 섹션 옵션"
 
 #: core/includes/functions.php:391
 #, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
 msgstr ""
-"이 게시물을 첫 페이지 팀 섹션에 사용하려면 아래에 세부 정보를 입력하십시오."
+"이 게시물을 첫 페이지의 팀 섹션에 사용하려면 아래 세부 정보를 입력하십시오."
 
 #: core/includes/functions.php:394
 #, fuzzy
@@ -2461,7 +2495,7 @@ msgstr "트위터 링크"
 #: core/includes/functions.php:406
 #, fuzzy
 msgid "GooglePlus Link"
-msgstr "GooglePlus 링크"
+msgstr "구글플러스 링크"
 
 #: core/includes/functions.php:410
 msgid "LinkedIn Link"
@@ -2491,37 +2525,37 @@ msgstr ", "
 #: core/includes/functions.php:719
 #, fuzzy
 msgid "Upgrade To Pro"
-msgstr "업그레이드"
+msgstr "프로로 업그레이드"
 
 #: core/includes/post-custom-meta.php:137
 #, fuzzy
 msgid "Content/Sidebar"
-msgstr "콘텐츠 사이드바"
+msgstr "콘텐츠/사이드바"
 
 #: core/includes/post-custom-meta.php:138
 #, fuzzy
 msgid "Sidebar/Content"
-msgstr "사이드바 콘텐츠"
+msgstr "사이드바/콘텐츠"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Full Width Page (no sidebar)"
-msgstr "전체 너비 (사이트바 없음)"
+msgstr "전체 너비 페이지(사이드바 없음)"
 
 #: core/includes/post-custom-meta.php:140
 #, fuzzy
 msgid "Blog 2 Column"
-msgstr "2 열"
+msgstr "블로그 2 열"
 
 #: core/includes/post-custom-meta.php:141
 #, fuzzy
 msgid "Blog 3 Column"
-msgstr "3 열"
+msgstr "블로그 3 열"
 
 #: core/includes/post-custom-meta.php:142
 #, fuzzy
 msgid "Blog 4 Column"
-msgstr "4 열"
+msgstr "블로그 4 칼럼"
 
 #: footer.php:90
 msgid "Scroll to Top"
@@ -2538,14 +2572,14 @@ msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
-"<strong>반응 형 테마가</strong> 마음에 드시면 %s 등급을 남겨주세요. 시간이 많"
-"이 걸리고 많은 도움이됩니다. 미리 감사드립니다!"
+"당신이 <strong>응답 테마를</strong> 좋아하는 경우에 우리에게 %의 등급을 남겨"
+"주세요. 그것은 분 정도 걸리고 많은 도움이됩니다. 사전에 감사합니다!"
 
 #: functions.php:454
 msgid "Thanks :)"
 msgstr "감사합니다 :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2558,7 +2592,7 @@ msgstr "페이지:"
 #: header.php:35
 #, fuzzy
 msgid "&darr; Skip to Main Content"
-msgstr "↓ 주요 내용으로 건너 뛰기"
+msgstr "주요 콘텐츠로 건너뛰기"
 
 #: home.php:81
 msgid "Previous"
@@ -2571,7 +2605,7 @@ msgstr "다음"
 #: image.php:37
 #, fuzzy
 msgid "&#8249; Return to"
-msgstr "돌아가기"
+msgstr "&amp;#8249; 로 돌아가기"
 
 #: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
 #: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
@@ -2593,33 +2627,33 @@ msgstr "댓글 %개"
 #: image.php:79 post-data.php:25
 #, fuzzy
 msgid "Tagged with:"
-msgstr "태그 :"
+msgstr "태그가 지정되었습니다."
 
 #: image.php:87 post-data.php:29
 #, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
-msgstr "<span class=\"post-edit\">편집하다</span>"
+msgstr "<span class=\"post-edit\">편집</span>"
 
 #: loop-nav.php:28
 #, fuzzy
 msgid "&#8249; Older posts"
-msgstr "이전 글"
+msgstr "&#8249; 이전 게시물"
 
 #: loop-nav.php:29
 #, fuzzy
 msgid "Newer posts &#8250;"
-msgstr "최신 글"
+msgstr "최신 게시물 및 #8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "Your search for %s did not match any entries."
-msgstr "검색어 %s와 일치하는 항목이 없습니다."
+msgstr "%s에 대한 검색이 항목과 일치하지 않습니다."
 
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 — 멋진 모임이 있습니다!"
+msgstr "404 &amp; #8212; 멋진 여기 회의!"
 
 #: loop-no-posts.php:32
 #, fuzzy
@@ -2627,13 +2661,13 @@ msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
 msgstr ""
-"당황하지 마십시오. 우리는 이것을 함께 극복 할 것입니다. 여기서 옵션을 살펴 보"
-"겠습니다."
+"Don&amp;#39;t 패닉, 우리는 #39 함께 이것을 극복할 것입니다. let&amp;#39 여기"
+"에서 우리의 옵션을 살펴보십시오."
 
 #: loop-no-posts.php:43
 #, fuzzy
 msgid "&larr; Home"
-msgstr "← 홈"
+msgstr "&amp; 라르; 홈"
 
 #: partials/custom-home/featured-area.php:255
 msgid "Team"
@@ -2665,9 +2699,9 @@ msgstr "©"
 #: partials/footer/copy-right.php:29
 #, fuzzy
 msgid " | Powered by Responsive Theme"
-msgstr "| 반응 형 테마로 구동"
+msgstr "| 반응형 테마로 구동"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "메뉴"
 
@@ -2683,12 +2717,12 @@ msgstr "소개"
 #: partials/single/layout.php:73
 #, fuzzy
 msgid "Previous Post is "
-msgstr "이전 기사"
+msgstr "이전 게시물은"
 
 #: partials/single/layout.php:74
 #, fuzzy
 msgid "Next Post is"
-msgstr "다음 포스트는"
+msgstr "다음 게시물은"
 
 #: searchform.php:22
 msgid "Search for:"
@@ -2697,7 +2731,7 @@ msgstr "검색:"
 #: searchform.php:23
 #, fuzzy
 msgid "Search here &hellip;"
-msgstr "여기에서 검색하십시오…"
+msgstr "여기에서 검색 &amp; 헬립;"
 
 #: searchform.php:24
 msgid "Go"
@@ -2711,12 +2745,12 @@ msgstr "이미지 정보"
 #: sidebar-gallery.php:33
 #, fuzzy
 msgid "Full Size:"
-msgstr "풀사이즈"
+msgstr "전체 크기:"
 
 #: sidebar-gallery.php:39
 #, fuzzy
 msgid "Aperture: f&#47;"
-msgstr "조리개 : f /"
+msgstr "조리개: f&amp;#47;"
 
 #: sidebar-gallery.php:44
 msgid "Focal Length:"
@@ -2729,12 +2763,12 @@ msgstr "mm"
 #: sidebar-gallery.php:48
 #, fuzzy
 msgid "ISO:"
-msgstr "% 1 ISO"
+msgstr "Iso:"
 
 #: sidebar-gallery.php:52
 #, fuzzy
 msgid "Shutter:"
-msgstr "셔터"
+msgstr "셔터:"
 
 #: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
 msgid "sec"
@@ -2747,7 +2781,7 @@ msgstr "카메라: Length in millimeters"
 #: sidebar-home.php:34
 #, fuzzy
 msgid "Fermentum"
-msgstr "페 멘텀"
+msgstr "발효기"
 
 #: sidebar-home.php:40
 #, fuzzy
@@ -2756,14 +2790,14 @@ msgid ""
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"이것은 첫 번째 홈 위젯 상자입니다. 편집하려면 모양> 위젯으로 이동하여 6 번 영"
-"역의 상단에서 6 번째 위젯 (홈 위젯 1)을 선택하십시오. 제목은 위젯에서도 관리 "
-"할 수 있습니다."
+"이것은 당신의 첫 번째 홈 위젯 상자입니다. 편집하려면 모양으로 이동하십시오 > "
+"위젯과 홈 위젯 1라는 영역 6의 상단에서 6 위젯을 선택합니다. 제목은 위젯에서"
+"도 관리할 수 있습니다."
 
 #: sidebar-home.php:54
 #, fuzzy
 msgid "Elementum"
-msgstr "엘레 멘텀"
+msgstr "원소"
 
 #: sidebar-home.php:60
 #, fuzzy
@@ -2772,14 +2806,14 @@ msgid ""
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"두 번째 홈 위젯 상자입니다. 편집하려면 모양> 위젯으로 이동하여 7 번 영역의 "
-"홈 위젯 2에서 맨 위의 7 번째 위젯을 선택하십시오. 제목은 위젯에서도 관리 할 "
+"이것은 당신의 두 번째 홈 위젯 상자입니다. 편집하려면 모양으로 이동하십시오 > "
+"위젯과 지역 7의 상단에서 7 위젯을 선택 홈 위젯 2. 제목은 위젯에서도 관리할 "
 "수 있습니다."
 
 #: sidebar-home.php:74
 #, fuzzy
 msgid "Interdum"
-msgstr "막간"
+msgstr "인터덤 (것)과 같은"
 
 #: sidebar-home.php:78
 #, fuzzy
@@ -2788,30 +2822,57 @@ msgid ""
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"이것은 세 번째 홈 위젯 상자입니다. 편집하려면 모양> 위젯으로 이동하여 홈 위"
-"젯 3이라는 영역 8의 상단에서 8 번째 위젯을 선택하십시오. 제목은 위젯에서도 관"
-"리 할 수 있습니다."
+"이것은 당신의 세 번째 홈 위젯 상자입니다. 편집하려면 모양으로 이동하시기 바랍"
+"니다 > 위젯과 홈 위젯 3라는 영역 8의 상단에서 8 위젯을 선택합니다. 제목은 위"
+"젯에서도 관리할 수 있습니다."
 
 #. Theme URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
 #, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
-msgstr "반응 형은 완전 맞춤형, 빠르고 모바일 친화적 인 WordPress 테마입니다."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
+msgstr ""
+"응답은 완전히 사용자 정의, 검색 엔진 최적화 및 모바일 친화적 인 워드 프레스 "
+"테마입니다. 구텐베르크 블록 편집기와 호환, 그것은 당신의 블로그에 대 한 완벽 "
+"한 선택, 비즈니스 웹사이트, 또는 WooCommerce 상점. 거의 무제한 사용자 정의 옵"
+"션으로, 당신은 당신의 웹 사이트의 모든 기능을 사용자 정의 할 수 있습니다. 응"
+"답은 웹 사이트 속도를 개선하기 위해 정제 된 스크립트와 함께 제공됩니다. 그것"
+"은 또한 포함 하 여 다른 기능을 함께 제공-페이지 및 블로그에 대 한 9 개의 레이"
+"아웃 옵션, WooCommerce 디자인 옵션, 그리고 Elementor 페이지 빌더와 호환성. 그"
+"것은 모바일에서 잘 작동, 태블릿, 데스크톱, 모든 브라우저에서. 반응형은 45개 "
+"언어로도 제공되며 검색 엔진에 친화적입니다. 반응형 작업: https://cyberchimps."
+"com/responsive-ready-websites/ 참조하십시오. https://cyberchimps.com/"
+"responsive-features/ 기능인 기능에 대해 자세히 알아보세요."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "사이버 침팬지"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Gutenberg Fullwidth No title"
-msgstr "구텐베르크 전폭 제목 없음"
+msgstr "구텐베르크 전체 폭 제목 없음"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:48
@@ -2819,7 +2880,7 @@ msgstr "구텐베르크 전폭 제목 없음"
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s“%2$s”에 대한 의견"
+msgstr[0] "%1$s \"%2$s\"에 대한 코멘트"
 
 #: functions.php:126
 msgctxt "Name of the small font size in the block editor"

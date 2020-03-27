@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 07:02:29+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 15:09+0530\n"
+"PO-Revision-Date: 2020-03-27 16:27+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -30,6 +30,7 @@ msgid "Activating "
 msgstr "激活 "
 
 #: admin/admin-functions.php:22
+#, fuzzy
 msgid "Not connect. Verify Network."
 msgstr "未连接。验证网络。"
 
@@ -38,18 +39,22 @@ msgid "Requested page not found. [404]"
 msgstr "页面未找到 [404]"
 
 #: admin/admin-functions.php:24
+#, fuzzy
 msgid "Internal Server Error [500]"
 msgstr "内部服务器错误 [500]"
 
 #: admin/admin-functions.php:25
+#, fuzzy
 msgid "Requested JSON parse failed"
 msgstr "请求的 JSON 解析失败"
 
 #: admin/admin-functions.php:26
+#, fuzzy
 msgid "Time out error"
 msgstr "超时错误"
 
 #: admin/admin-functions.php:27
+#, fuzzy
 msgid "Ajax request aborted"
 msgstr "Ajax 请求已中止"
 
@@ -58,6 +63,7 @@ msgid "Uncaught Error"
 msgstr "未捕获的错误。\\\\n"
 
 #: admin/class-responsive-plugin-install-helper.php:93
+#, fuzzy
 msgid "Install and activate &raquo;"
 msgstr "安装并激活 @raquo;"
 
@@ -94,34 +100,42 @@ msgid "Mobile Friendly"
 msgstr "移动友好"
 
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
+#, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
 msgstr "滑块、产品组合、定价表、WooCommerce 小部件等"
 
 #: admin/templates/free-vs-pro.php:31
+#, fuzzy
 msgid "Blazing Fast Speed"
 msgstr "高速行驶"
 
 #: admin/templates/free-vs-pro.php:32
+#, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
 msgstr "针对速度进行了优化，在 2 秒内加载"
 
 #: admin/templates/free-vs-pro.php:39
+#, fuzzy
 msgid "Fully Customizable"
 msgstr "完全可定制"
 
 #: admin/templates/free-vs-pro.php:40
+#, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
 msgstr "对布局、字体和颜色使用自定义选项"
 
 #: admin/templates/free-vs-pro.php:42
+#, fuzzy
 msgid "Limited Options"
 msgstr "有限选项"
 
 #: admin/templates/free-vs-pro.php:47
+#, fuzzy
 msgid "Ready-to-use Website Templates"
 msgstr "即用型网站模板"
 
 #: admin/templates/free-vs-pro.php:48
+#, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
 msgstr "随时可以使用的元素器页面生成器和古腾堡网站模板"
 
@@ -130,22 +144,27 @@ msgid "30+"
 msgstr "30+"
 
 #: admin/templates/free-vs-pro.php:55
+#, fuzzy
 msgid "Exclusive Widgets"
 msgstr "独家小部件"
 
 #: admin/templates/free-vs-pro.php:63
+#, fuzzy
 msgid "Exclusive Content, Deals & Offers"
 msgstr "独家内容、优惠和优惠"
 
 #: admin/templates/free-vs-pro.php:64
+#, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
 msgstr "访问独家 WordPress 内容、优惠和优惠"
 
 #: admin/templates/free-vs-pro.php:71
+#, fuzzy
 msgid "Private Priority Email Support"
 msgstr "私人优先电子邮件支持"
 
 #: admin/templates/free-vs-pro.php:72
+#, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
 msgstr "需要帮助？只需提高支持票证，获得优先电子邮件支持"
 
@@ -160,6 +179,7 @@ msgstr "这篇文章是密码保护。输入密码查看任何评论。"
 
 #. translators: 1: title.
 #: comments.php:42
+#, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
 msgstr "关于\"%1$s\"的一条评论"
 
@@ -168,6 +188,7 @@ msgid "&#8249; Older comments"
 msgstr "&#8249; 较旧的评论"
 
 #: comments.php:60 comments.php:73
+#, fuzzy
 msgid "Newer comments &#8250;"
 msgstr "较新的评论和#8250;"
 
@@ -222,20 +243,24 @@ msgid "Get Started"
 msgstr "开始使用"
 
 #: core/includes/classes/class-responsive-admin-settings.php:196
+#, fuzzy
 msgid "Free Vs Pro "
 msgstr "免费 Vs 专业版"
 
 #: core/includes/classes/class-responsive-admin-settings.php:231
+#, fuzzy
 msgid "Import a website template(FREE)"
 msgstr "导入网站模板（免费）"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
+#, fuzzy
 msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
 msgstr "安装响应式加载项，获取可单击即可导入的即用网站模板。"
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
+#, fuzzy
 msgid "Learn More &raquo;"
 msgstr "了解更多 &raquo;"
 
@@ -244,43 +269,53 @@ msgid "Support"
 msgstr "支持"
 
 #: core/includes/classes/class-responsive-admin-settings.php:273
+#, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
 msgstr "有疑问？联系我们。我们很乐意为您提供帮助"
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
+#, fuzzy
 msgid "Request Support &raquo;"
 msgstr "请求支持 &raquo;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
+#, fuzzy
 msgid "Change site layout"
 msgstr "更改站点布局"
 
 #: core/includes/classes/class-responsive-admin-settings.php:308
+#, fuzzy
 msgid "Customize fonts/typography"
 msgstr "自定义字体/排版"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
+#, fuzzy
 msgid "Upload logo & site icon"
 msgstr "上传徽标和网站图标"
 
 #: core/includes/classes/class-responsive-admin-settings.php:318
+#, fuzzy
 msgid "Add/edit navigation menu"
 msgstr "添加/编辑导航菜单"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
+#, fuzzy
 msgid "Customize header options"
 msgstr "自定义标头选项"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
+#, fuzzy
 msgid "Customize footer options"
 msgstr "自定义页脚选项"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
+#, fuzzy
 msgid "Update blog layout"
 msgstr "更新博客布局"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
+#, fuzzy
 msgid "Update page layout"
 msgstr "更新页面布局"
 
@@ -293,12 +328,14 @@ msgid "Community"
 msgstr "社区"
 
 #: core/includes/classes/class-responsive-admin-settings.php:369
+#, fuzzy
 msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr "与响应能力的电源用户会面。打招呼，提出问题，提供反馈，互相帮助"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
+#, fuzzy
 msgid "Join Facebook Group &raquo;"
 msgstr "加入 Facebook 群组"
 
@@ -307,6 +344,7 @@ msgid "Feedback"
 msgstr "反馈"
 
 #: core/includes/classes/class-responsive-admin-settings.php:391
+#, fuzzy
 msgid ""
 "Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
@@ -316,22 +354,24 @@ msgstr ""
 "们保持积极性，并帮助我们发展响应式社区。"
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
+#, fuzzy
 msgid "Submit Review &raquo;"
 msgstr "提交评论 &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
+#, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr "酷快、移动友好、完全可定制的 WordPress 主题。"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "销售！"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "WooCommerce侧边栏"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
@@ -393,14 +433,17 @@ msgstr "布局"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:49
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:50
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
+#, fuzzy
 msgid "Main Content Width (%)"
 msgstr "主要内容宽度 （%）"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
+#, fuzzy
 msgid "Enable Cross-sells"
 msgstr "启用交叉销售"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
+#, fuzzy
 msgid "Cart Icon Visibility"
 msgstr "购物车图标可见性"
 
@@ -413,6 +456,7 @@ msgid "Disabled On All Devices"
 msgstr "在所有设备上禁用"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
+#, fuzzy
 msgid "Product Catalog Options"
 msgstr "产品目录选项"
 
@@ -442,6 +486,7 @@ msgid "Price Color"
 msgstr "价格颜色"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
+#, fuzzy
 msgid "Add To Cart Buttons"
 msgstr "添加到购物车按钮"
 
@@ -449,7 +494,7 @@ msgstr "添加到购物车按钮"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -508,6 +553,7 @@ msgid "List View"
 msgstr "列表视图"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
+#, fuzzy
 msgid "Content Aligmnment"
 msgstr "内容内容"
 
@@ -536,6 +582,7 @@ msgstr "居中"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:112
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:181
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:196
+#, fuzzy
 msgid "Left"
 msgstr "左"
 
@@ -558,10 +605,12 @@ msgstr "左"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:113
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:182
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:197
+#, fuzzy
 msgid "Right"
-msgstr "右侧"
+msgstr "右"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
+#, fuzzy
 msgid "Shop Elements"
 msgstr "车间元素"
 
@@ -570,8 +619,9 @@ msgid "Sale Notification"
 msgstr "销售通知"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
+#, fuzzy
 msgid "None"
-msgstr "没有"
+msgstr "无"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:110
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:64
@@ -623,16 +673,17 @@ msgid "Gallery Layout"
 msgstr "相册布局"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "垂直"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
+#, fuzzy
 msgid "Horizontal"
-msgstr "横"
+msgstr "水平"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
 msgid "Single Product Structure"
@@ -653,6 +704,7 @@ msgstr "链接值"
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+#: footer.php:90
 msgid "Top"
 msgstr "顶部"
 
@@ -743,6 +795,7 @@ msgid "View PRO Features"
 msgstr "查看PRO功能"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
+#, fuzzy
 msgid "Pro Ready Sites"
 msgstr "专业就绪网站"
 
@@ -751,6 +804,7 @@ msgid "Form Builder"
 msgstr "表单生成器"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
+#, fuzzy
 msgid "Interactive Sliders and Carousels"
 msgstr "交互式滑块和旋转木马"
 
@@ -759,10 +813,12 @@ msgid "Pricing Tables"
 msgstr "定价表"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
+#, fuzzy
 msgid "Portfolio and Post Layouts"
 msgstr "投资组合和后期布局"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
+#, fuzzy
 msgid "Private, Priority Support"
 msgstr "私人优先支持"
 
@@ -831,7 +887,8 @@ msgstr "内容"
 msgid "Site Branding"
 msgstr "网站品牌"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "主导航"
 
@@ -855,28 +912,31 @@ msgid "Add to Cart"
 msgstr "添加到购物车"
 
 #: core/includes/customizer/helper.php:275
+#, fuzzy
 msgid "Category"
-msgstr "分类"
+msgstr "类别"
 
 #: core/includes/customizer/helper.php:277
 msgid "Ratings"
 msgstr "评级"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
 msgstr "Read more &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "阅读更多 &raquo;"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
+#, fuzzy
 msgid "Entry Elements"
 msgstr "条目元素"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
+#, fuzzy
 msgid "Entry Featured Image"
 msgstr "条目特色图片"
 
@@ -954,6 +1014,7 @@ msgstr "评论"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:170
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
+#, fuzzy
 msgid "Meta Separator"
 msgstr "元分离器"
 
@@ -989,6 +1050,7 @@ msgid "Read More Text"
 msgstr "阅读更多文字"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
+#, fuzzy
 msgid "Read More Type"
 msgstr "阅读更多类型"
 
@@ -999,10 +1061,12 @@ msgstr "链接"
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-panel.php:85
 #: core/includes/customizer/settings/class-responsive-panel.php:86
+#, fuzzy
 msgid "Content Header"
 msgstr "内容标题"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
+#, fuzzy
 msgid "Enable Blog Page Title"
 msgstr "启用博客页面标题"
 
@@ -1011,10 +1075,12 @@ msgid "Blog Page Title"
 msgstr "博客页面标题"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
+#, fuzzy
 msgid "Entry Columns"
 msgstr "条目列"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
+#, fuzzy
 msgid "Enable Masonry Layout"
 msgstr "启用砌体布局"
 
@@ -1031,6 +1097,7 @@ msgid "Breadcrumb Color"
 msgstr "面包屑导航颜色"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
+#, fuzzy
 msgid "Disable breadcrumb list?"
 msgstr "禁用痕迹列表？"
 
@@ -1085,6 +1152,7 @@ msgstr "推荐插件"
 
 #. translators: Orbit Fox Companion
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+#, fuzzy
 msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
@@ -1130,69 +1198,73 @@ msgstr "列数"
 msgid "Footer Bar"
 msgstr "页脚栏"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "版权文本"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "隐藏由响应式主题供电"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "社交链接"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "RSS订阅"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "电子邮件地址"
 
@@ -1202,6 +1274,7 @@ msgid "Scripts"
 msgstr "脚本"
 
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
+#, fuzzy
 msgid "Embeds to footer.php"
 msgstr "嵌入到页脚.php"
 
@@ -1234,6 +1307,7 @@ msgid "Full Width Header"
 msgstr "全宽页眉"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
+#, fuzzy
 msgid "Inline logo & Site Title"
 msgstr "内联徽标 + 网站标题"
 
@@ -1262,6 +1336,7 @@ msgid "Enable on Complete Website"
 msgstr "在完整网站上启用"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
+#, fuzzy
 msgid "Site Content Padding (px)"
 msgstr "网站内容填充 （px）"
 
@@ -1299,6 +1374,7 @@ msgid "Enable Header Widgets"
 msgstr "激活header位置小部件"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
+#, fuzzy
 msgid "Widgets Position"
 msgstr "小工具位置"
 
@@ -1307,6 +1383,7 @@ msgid "Above Header"
 msgstr "页眉上方"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
+#, fuzzy
 msgid "In Header"
 msgstr "在标题中"
 
@@ -1315,6 +1392,7 @@ msgid "Below Header"
 msgstr "页眉下方"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
+#, fuzzy
 msgid "Widgets Alignment"
 msgstr "小部件对齐"
 
@@ -1327,6 +1405,7 @@ msgid "Space Around"
 msgstr "周围空间"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
+#, fuzzy
 msgid "Active Menu Background Color"
 msgstr "活动菜单背景颜色"
 
@@ -1335,6 +1414,7 @@ msgid "Menu Item Link Color"
 msgstr "菜单项链接颜色"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
+#, fuzzy
 msgid "Menu Item Link Hover Color"
 msgstr "菜单项链接悬停颜色"
 
@@ -1343,26 +1423,32 @@ msgid "Sub Menu Background Color"
 msgstr "子菜单背景颜色"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+#, fuzzy
 msgid "Sub Menu Item Link Color"
 msgstr "子菜单项链接颜色"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+#, fuzzy
 msgid "Sub Menu Item Link Hover Color"
 msgstr "子菜单项链接悬停颜色"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+#, fuzzy
 msgid "Menu Toggle Background Color"
 msgstr "菜单切换背景颜色"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+#, fuzzy
 msgid "Menu Toggle Color"
 msgstr "菜单切换颜色"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
+#, fuzzy
 msgid "Full Width Main Navigation"
 msgstr "全宽度主导航"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
+#, fuzzy
 msgid "Enable Mobile Menu"
 msgstr "启用移动菜单"
 
@@ -1384,10 +1470,12 @@ msgid "Sidebar"
 msgstr "侧边栏"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+#, fuzzy
 msgid "Sidebar Menu Alignment"
-msgstr "菜单切换背景颜色"
+msgstr "侧边栏菜单对齐"
 
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
+#, fuzzy
 msgid "Embeds to header.php"
 msgstr "嵌入到头.php"
 
@@ -1407,14 +1495,16 @@ msgid "Choose Category"
 msgstr "选择类别"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
-msgid "Cutom Home Page"
-msgstr "Cutom 主页"
+msgid "Custom Home Page"
+msgstr "自定义主页"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
+#, fuzzy
 msgid "Enable Custom Front Page"
 msgstr "启用自定义首页"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
+#, fuzzy
 msgid "Overrides the WordPress front page option"
 msgstr "覆盖 WordPress 首页选项"
 
@@ -1423,7 +1513,8 @@ msgid "Hero Area"
 msgstr "推荐区域"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
+#, fuzzy
 msgid "HAPPINESS"
 msgstr "幸福"
 
@@ -1432,7 +1523,8 @@ msgid "Headline"
 msgstr "标题"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
+#, fuzzy
 msgid "IS A WARM CUP"
 msgstr "是一个温暖的CUP"
 
@@ -1441,7 +1533,8 @@ msgid "Subheadline"
 msgstr "副标题"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
+#, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -1455,20 +1548,24 @@ msgid "Content Area"
 msgstr "内容区域"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
+#, fuzzy
 msgid "Disable Call to Action Button?"
 msgstr "禁用\"行动呼叫\"按钮？"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
+#, fuzzy
 msgid "Call to Action (URL)"
 msgstr "行动号召（URL）"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
+#, fuzzy
 msgid "Call to Action (Text)"
 msgstr "行动号召（文本）"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
+#, fuzzy
 msgid "Call to Action Button Style"
 msgstr "操作呼叫按钮样式"
 
@@ -1477,6 +1574,7 @@ msgid "Featured Content"
 msgstr "特色内容"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
+#, fuzzy
 msgid "Paste your shortcode, video or image source"
 msgstr "粘贴短代码、视频或图像源"
 
@@ -1490,6 +1588,7 @@ msgstr "开启关于版块"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
 #: partials/custom-home/featured-area.php:105
+#, fuzzy
 msgid "About Box Title"
 msgstr "关于框标题"
 
@@ -1502,6 +1601,7 @@ msgid "About Text"
 msgstr "关于文本"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
+#, fuzzy
 msgid "Enter url as http://www.example.com"
 msgstr "将 url 输入为http://www.example.com"
 
@@ -1518,12 +1618,14 @@ msgid "Feature Title"
 msgstr "特色标题"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
+#, fuzzy
 msgid "Select post for feature 1"
 msgstr "为功能 1 选择帖子"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:457
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the feature. Recommended image size for the featured images: 130 x 130px"
@@ -1532,10 +1634,12 @@ msgstr ""
 "130 x 130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
+#, fuzzy
 msgid "Select post for feature 2"
 msgstr "为功能 2 选择帖子"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
+#, fuzzy
 msgid "Select post for feature 3"
 msgstr "为功能 3 选择帖子"
 
@@ -1544,13 +1648,15 @@ msgid "Testimonial Section"
 msgstr "证明部分"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
+#, fuzzy
 msgid "Enable Testimonial Section"
 msgstr "启用推荐部分"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
 #: partials/custom-home/featured-area.php:217
+#, fuzzy
 msgid "Testimonial"
-msgstr "见证"
+msgstr "客户评价"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
 msgid "Testimonial Title"
@@ -1561,6 +1667,7 @@ msgid "Select Post"
 msgstr "选择文章"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the client testimonials. Recommended image size for the featured images: 178 "
@@ -1574,6 +1681,7 @@ msgid "Team Section"
 msgstr "团队部分"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
+#, fuzzy
 msgid "Enable Team Section"
 msgstr "启用团队部分"
 
@@ -1586,12 +1694,14 @@ msgid "Team Title"
 msgstr "团队名称"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
+#, fuzzy
 msgid "Select post for team member1"
 msgstr "为团队成员选择职位1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:622
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
@@ -1600,14 +1710,17 @@ msgstr ""
 "178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
+#, fuzzy
 msgid "Select post for team member2"
 msgstr "为团队成员选择职位2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
+#, fuzzy
 msgid "Select post for team member3"
 msgstr "为团队成员选择职位3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
+#, fuzzy
 msgid "Click to disable home page widgets"
 msgstr "单击以禁用主页小部件"
 
@@ -1616,6 +1729,7 @@ msgid "Contact Section"
 msgstr "联系部分"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
+#, fuzzy
 msgid "Enable Contact Section"
 msgstr "启用联系人部分"
 
@@ -1624,14 +1738,17 @@ msgid "Contact Us"
 msgstr "联系我们"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
+#, fuzzy
 msgid "Contact section Title"
 msgstr "联系人部分 标题"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
+#, fuzzy
 msgid "Contact subtitle"
 msgstr "联系人字幕"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
+#, fuzzy
 msgid "Contact section Subtitle"
 msgstr "联系人部分字幕"
 
@@ -1640,11 +1757,12 @@ msgid "Address"
 msgstr "地址"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "邮箱"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
+#, fuzzy
 msgid "Phone no"
 msgstr "电话号"
 
@@ -1653,6 +1771,7 @@ msgid "Contact form shortcode"
 msgstr "联系表单短代码"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
+#, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
 msgstr "您可以在此处放置联系表单 7 短代码。"
 
@@ -1765,6 +1884,7 @@ msgid "Alternate Background Color"
 msgstr "替代背景颜色"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
+#, fuzzy
 msgid "General Text"
 msgstr "一般文本"
 
@@ -1880,10 +2000,12 @@ msgid "Content Boxed"
 msgstr "内容盒装"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
+#, fuzzy
 msgid "Box Padding (px)"
 msgstr "框填充（px）"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+#, fuzzy
 msgid "Box Radius (px)"
 msgstr "框半径（px）"
 
@@ -1894,6 +2016,7 @@ msgstr "填充 (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
+#, fuzzy
 msgid "Radius (px)"
 msgstr "半径（px）"
 
@@ -1948,10 +2071,12 @@ msgid "Input Fields"
 msgstr "输入字段"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
+#, fuzzy
 msgid "Exclude Categories from Blog page"
 msgstr "从博客页面排除类别"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
+#, fuzzy
 msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
@@ -1962,8 +2087,9 @@ msgid "General Typography"
 msgstr "常规排版"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
+#, fuzzy
 msgid "Font Family"
-msgstr "字体"
+msgstr "字体系列"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:400
 msgid "Font Weight"
@@ -2021,24 +2147,51 @@ msgstr "字母间距（px）"
 msgid "Font Color"
 msgstr "字体颜色"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "你好！感谢您使用响应主题。"
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"你能帮个忙，给我们一个五星级的评级吗？您的反馈使我们保持积极性，并帮助我们发"
+"展响应式社区。"
+
+#: core/includes/functions-admin.php:61
+msgid "Ok, you deserve it"
+msgstr "好的，你应得的"
+
+#: core/includes/functions-admin.php:62
+msgid "Nope, maybe later"
+msgstr "不,以后再说"
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "我已经做了"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "首页"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 msgid "Archive for %s"
 msgstr "%s归档"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "搜索结果：%s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
+#, fuzzy
 msgid "Posts tagged %s"
 msgstr "帖子标记 %s"
 
@@ -2046,27 +2199,28 @@ msgstr "帖子标记 %s"
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "查看所有文章 %s"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "错误404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "页 %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
+#, fuzzy
 msgid "Yelp!"
 msgstr "Yelp！"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr "四方的"
 
@@ -2080,31 +2234,38 @@ msgid "Main Sidebar"
 msgstr "主侧边栏"
 
 #: core/includes/functions-sidebar.php:29
+#, fuzzy
 msgid ""
 "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
 msgstr "区域 1 - 侧边栏.php - 显示默认，博客，博客摘录页面模板"
 
 #: core/includes/functions-sidebar.php:40
+#, fuzzy
 msgid "Home Widget 1"
 msgstr "主页 小部件 1"
 
 #: core/includes/functions-sidebar.php:41
+#, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
 msgstr "区域 6 - 侧边栏-home.php - 显示在主页上"
 
 #: core/includes/functions-sidebar.php:52
+#, fuzzy
 msgid "Home Widget 2"
 msgstr "首页 小工具 2"
 
 #: core/includes/functions-sidebar.php:53
+#, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
 msgstr "区域 7 - 侧边栏-home.php - 显示在主页上"
 
 #: core/includes/functions-sidebar.php:64
+#, fuzzy
 msgid "Home Widget 3"
 msgstr "首页 小工具 3"
 
 #: core/includes/functions-sidebar.php:65
+#, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
 msgstr "区域 8 - 侧边栏-home.php - 显示在主页上"
 
@@ -2113,20 +2274,24 @@ msgid "Gallery Sidebar"
 msgstr "相册侧边栏"
 
 #: core/includes/functions-sidebar.php:77
+#, fuzzy
 msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
 msgstr "区域 9 - 侧边栏-库.php - 在库中单击图像后显示在页面上"
 
 #: core/includes/functions-sidebar.php:88
+#, fuzzy
 msgid "Colophon Widget"
 msgstr "科洛方小工具"
 
 #: core/includes/functions-sidebar.php:89
+#, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
 msgstr "区域 10 - 侧边栏-colophon.php，100% 宽度脚脚小部件"
 
 #: core/includes/functions-sidebar.php:101
+#, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
 msgstr "区域 11 - 侧边栏顶部.php - 显示在标题右侧"
 
@@ -2135,6 +2300,7 @@ msgid "Footer Widgets 1"
 msgstr "页脚小工具1"
 
 #: core/includes/functions-sidebar.php:113
+#, fuzzy
 msgid "Area 12 - sidebar-footer.php"
 msgstr "区域 12 - 侧边栏脚.php"
 
@@ -2151,18 +2317,21 @@ msgid "Footer Widgets 3"
 msgstr "页脚小工具3"
 
 #: core/includes/functions-sidebar.php:135
+#, fuzzy
 msgid "Area 14 - sidebar-footer.php"
 msgstr "区域 14 - 侧边栏脚.php"
 
 #: core/includes/functions-sidebar.php:145
+#, fuzzy
 msgid "Footer Widgets 4"
 msgstr "脚底小工具 4"
 
 #: core/includes/functions-sidebar.php:146
+#, fuzzy
 msgid "Area 15 - sidebar-footer.php"
 msgstr "区域 15 - 侧边栏脚.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "行为召唤"
 
@@ -2171,19 +2340,23 @@ msgid "Header Menu"
 msgstr "标题菜单"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "页脚菜单"
 
 #: core/includes/functions.php:377
+#, fuzzy
 msgid "Team Section Options"
 msgstr "团队部分选项"
 
 #: core/includes/functions.php:391
+#, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
 msgstr "要将此帖子用于首页的团队部分，请输入以下详细信息："
 
 #: core/includes/functions.php:394
+#, fuzzy
 msgid "Member designation"
 msgstr "会员名称"
 
@@ -2196,6 +2369,7 @@ msgid "Twitter Link"
 msgstr "Twitter链接"
 
 #: core/includes/functions.php:406
+#, fuzzy
 msgid "GooglePlus Link"
 msgstr "谷歌+链接"
 
@@ -2229,30 +2403,36 @@ msgid "Upgrade To Pro"
 msgstr "升级到专业版"
 
 #: core/includes/post-custom-meta.php:137
+#, fuzzy
 msgid "Content/Sidebar"
 msgstr "内容/侧边栏"
 
 #: core/includes/post-custom-meta.php:138
+#, fuzzy
 msgid "Sidebar/Content"
 msgstr "侧边栏/内容"
 
 #. Template Name of the plugin/theme
+#, fuzzy
 msgid "Full Width Page (no sidebar)"
 msgstr "全宽度页面（无侧边栏）"
 
 #: core/includes/post-custom-meta.php:140
+#, fuzzy
 msgid "Blog 2 Column"
 msgstr "博客 2 专栏"
 
 #: core/includes/post-custom-meta.php:141
+#, fuzzy
 msgid "Blog 3 Column"
 msgstr "博客 3 专栏"
 
 #: core/includes/post-custom-meta.php:142
+#, fuzzy
 msgid "Blog 4 Column"
 msgstr "博客 4 专栏"
 
-#: footer.php:88
+#: footer.php:90
 msgid "Scroll to Top"
 msgstr "滚动到顶部"
 
@@ -2262,6 +2442,7 @@ msgstr "永久链接到 %s"
 
 #. translators: %s Link to 5 star rating
 #: functions.php:453
+#, fuzzy
 msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
@@ -2273,7 +2454,7 @@ msgstr ""
 msgid "Thanks :)"
 msgstr "谢谢 :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2284,6 +2465,7 @@ msgid "Pages:"
 msgstr "页面："
 
 #: header.php:35
+#, fuzzy
 msgid "&darr; Skip to Main Content"
 msgstr "\\darr; 跳到主要内容"
 
@@ -2292,10 +2474,12 @@ msgid "Previous"
 msgstr "上一个"
 
 #: home.php:82
+#, fuzzy
 msgid "Next"
-msgstr "下一页"
+msgstr "下一个"
 
 #: image.php:37
+#, fuzzy
 msgid "&#8249; Return to"
 msgstr "*#8249;返回"
 
@@ -2307,8 +2491,9 @@ msgstr "没有评论"
 #: image.php:46 partials/entry/meta.php:90
 #: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
 #: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
+#, fuzzy
 msgid "1 Comment"
-msgstr "1 条评论"
+msgstr "1条评论"
 
 #: image.php:46 partials/entry/meta.php:90
 #: partials/entry/thumbnail-style/comments.php:16 partials/single/meta.php:84
@@ -2317,18 +2502,22 @@ msgid "% Comments"
 msgstr "% 评论"
 
 #: image.php:79 post-data.php:25
+#, fuzzy
 msgid "Tagged with:"
 msgstr "标记："
 
 #: image.php:87 post-data.php:29
+#, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
 msgstr "<span class=\"post-edit\">编辑</span>"
 
 #: loop-nav.php:28
+#, fuzzy
 msgid "&#8249; Older posts"
 msgstr "*#8249;旧职位"
 
 #: loop-nav.php:29
+#, fuzzy
 msgid "Newer posts &#8250;"
 msgstr "较新的员额+#8250;"
 
@@ -2338,10 +2527,12 @@ msgid "Your search for %s did not match any entries."
 msgstr "关键词 %s 没有搜索到相应内容。"
 
 #: loop-no-posts.php:26
+#, fuzzy
 msgid "404 &#8212; Fancy meeting you here!"
 msgstr "404 &#8212; 很高兴在这里遇见你！"
 
 #: loop-no-posts.php:32
+#, fuzzy
 msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
@@ -2370,22 +2561,20 @@ msgid "0 Comments"
 msgstr "0评论"
 
 #: partials/footer/copy-right.php:17
-msgid " | Powered by "
-msgstr "|提供者"
-
-#: partials/footer/copy-right.php:18
+#, fuzzy
 msgid " &copy; "
 msgstr "*复制;"
 
-#: partials/footer/copy-right.php:23
+#: partials/footer/copy-right.php:21
 msgid "&copy; "
 msgstr "&copy; "
 
-#: partials/footer/copy-right.php:32
-msgid "Responsive Theme"
-msgstr "响应主题"
+#: partials/footer/copy-right.php:29
+#, fuzzy
+msgid " | Powered by Responsive Theme"
+msgstr "|由响应式主题提供支持"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "菜单"
 
@@ -2399,10 +2588,12 @@ msgid "About"
 msgstr "关于"
 
 #: partials/single/layout.php:73
+#, fuzzy
 msgid "Previous Post is "
 msgstr "上一篇帖子是"
 
 #: partials/single/layout.php:74
+#, fuzzy
 msgid "Next Post is"
 msgstr "下一篇文章是"
 
@@ -2423,14 +2614,17 @@ msgid "Image Information"
 msgstr "图像信息"
 
 #: sidebar-gallery.php:33
+#, fuzzy
 msgid "Full Size:"
 msgstr "全尺寸："
 
 #: sidebar-gallery.php:39
+#, fuzzy
 msgid "Aperture: f&#47;"
 msgstr "孔径：f_#47;"
 
 #: sidebar-gallery.php:44
+#, fuzzy
 msgid "Focal Length:"
 msgstr "焦距："
 
@@ -2439,10 +2633,12 @@ msgid "mm"
 msgstr "毫米"
 
 #: sidebar-gallery.php:48
+#, fuzzy
 msgid "ISO:"
 msgstr "Iso："
 
 #: sidebar-gallery.php:52
+#, fuzzy
 msgid "Shutter:"
 msgstr "快门："
 
@@ -2455,10 +2651,12 @@ msgid "Camera:"
 msgstr "摄像机:  Camera:"
 
 #: sidebar-home.php:34
+#, fuzzy
 msgid "Fermentum"
 msgstr "发酵"
 
 #: sidebar-home.php:40
+#, fuzzy
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
@@ -2468,10 +2666,12 @@ msgstr ""
 "庭小部件 1 的顶部选择第 6 个小部件。标题也可以从小部件管理。"
 
 #: sidebar-home.php:54
+#, fuzzy
 msgid "Elementum"
 msgstr "元素"
 
 #: sidebar-home.php:60
+#, fuzzy
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
@@ -2481,10 +2681,12 @@ msgstr ""
 "庭小部件 2 的顶部选择第 7 个小部件。标题也可以从小部件管理。"
 
 #: sidebar-home.php:74
+#, fuzzy
 msgid "Interdum"
 msgstr "Interdum"
 
 #: sidebar-home.php:78
+#, fuzzy
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
@@ -2494,19 +2696,47 @@ msgstr ""
 "庭小部件 3 的顶部选择第 8 个小部件。标题也可以从小部件管理。"
 
 #. Theme URI of the plugin/theme
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+#, fuzzy
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
-msgstr "响应是一个完全可定制、快速和移动友好的 WordPress 主题。"
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
+msgstr ""
+"响应是一个完全可定制的搜索引擎优化和移动友好的WordPress主题。它与古腾堡块编辑"
+"器兼容，是博客、商业网站或 WooCommerce 商店的完美选择。使用几乎无限的自定义选"
+"项，您可以自定义网站的每个功能。响应式脚本附带了细微的脚本，以提高网站速度。"
+"它还附带其他功能，包括 - 9 个页面和博客的布局选项，WooCommerce 设计选项，以及"
+"与元素器页面生成器的兼容性。它在移动、平板电脑、桌面和所有浏览器中都工作良"
+"好。响应也提供 45 种语言版本，并且对搜索引擎友好。请参阅响应操作：https://"
+"cyberchimps.com/responsive-ready-websites/。详细了解其功能：https://"
+"cyberchimps.com/responsive-features/。"
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "网络奇普斯"
 
 #. Author URI of the plugin/theme
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+#, fuzzy
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
+#, fuzzy
 msgid "Gutenberg Fullwidth No title"
 msgstr "古腾堡全宽 无 标题"
 

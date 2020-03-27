@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 09:36:56+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 16:56+0530\n"
+"PO-Revision-Date: 2020-03-27 16:21+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
@@ -26,38 +26,47 @@ msgstr "17"
 
 #: admin/admin-functions.php:21
 #: admin/class-responsive-plugin-install-helper.php:157
+#, fuzzy
 msgid "Activating "
 msgstr "Aktivácia"
 
 #: admin/admin-functions.php:22
+#, fuzzy
 msgid "Not connect. Verify Network."
 msgstr "Nedá sa pripojiť. Overte sieť."
 
 #: admin/admin-functions.php:23
+#, fuzzy
 msgid "Requested page not found. [404]"
 msgstr "Požadovaná stránka sa nenašla. [404]"
 
 #: admin/admin-functions.php:24
+#, fuzzy
 msgid "Internal Server Error [500]"
 msgstr "Vnútorná chyba servera [500]"
 
 #: admin/admin-functions.php:25
+#, fuzzy
 msgid "Requested JSON parse failed"
 msgstr "Požadovaná analýza JSON zlyhala"
 
 #: admin/admin-functions.php:26
+#, fuzzy
 msgid "Time out error"
 msgstr "Chyba časového odhlásenia"
 
 #: admin/admin-functions.php:27
+#, fuzzy
 msgid "Ajax request aborted"
 msgstr "AJAX žiadosť prerušil"
 
 #: admin/admin-functions.php:28
+#, fuzzy
 msgid "Uncaught Error"
 msgstr "Nezachytený chyba"
 
 #: admin/class-responsive-plugin-install-helper.php:93
+#, fuzzy
 msgid "Install and activate &raquo;"
 msgstr "Inštalácia a aktivácia &raquo;"
 
@@ -71,6 +80,7 @@ msgid "Deactivate"
 msgstr "Deaktivovať"
 
 #: admin/class-responsive-plugin-install-helper.php:117
+#, fuzzy
 msgid "Jetpack Portfolio"
 msgstr "Portfólio jetpack"
 
@@ -90,63 +100,78 @@ msgid "Pro"
 msgstr "Pro"
 
 #: admin/templates/free-vs-pro.php:23
+#, fuzzy
 msgid "Mobile Friendly"
 msgstr "Mobilné priateľské"
 
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
+#, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
 msgstr "Jazdec, portfólio, cenové tabuľky, WooCommerce widgety atď"
 
 #: admin/templates/free-vs-pro.php:31
+#, fuzzy
 msgid "Blazing Fast Speed"
 msgstr "Blazing rýchla rýchlosť"
 
 #: admin/templates/free-vs-pro.php:32
+#, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
 msgstr "Optimalizované pre rýchlosť, zaťaženie za 2 sekundy"
 
 #: admin/templates/free-vs-pro.php:39
+#, fuzzy
 msgid "Fully Customizable"
 msgstr "Plne prispôsobiteľné"
 
 #: admin/templates/free-vs-pro.php:40
+#, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
 msgstr "Použitie prispôsobovač možnosti rozloženia, fonty & farby"
 
 #: admin/templates/free-vs-pro.php:42
+#, fuzzy
 msgid "Limited Options"
 msgstr "Obmedzené možnosti"
 
 #: admin/templates/free-vs-pro.php:47
+#, fuzzy
 msgid "Ready-to-use Website Templates"
 msgstr "Ready-to-použitie šablón webových stránok"
 
 #: admin/templates/free-vs-pro.php:48
+#, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
 msgstr ""
 "Ready-to-použitie Elementor Page Builder a Gutenberg šablóny webových stránok"
 
 #: admin/templates/free-vs-pro.php:51
+#, fuzzy
 msgid "30+"
 msgstr "30 +"
 
 #: admin/templates/free-vs-pro.php:55
+#, fuzzy
 msgid "Exclusive Widgets"
 msgstr "Exkluzívne widgety"
 
 #: admin/templates/free-vs-pro.php:63
+#, fuzzy
 msgid "Exclusive Content, Deals & Offers"
 msgstr "Exkluzívny obsah, ponuky & ponúk"
 
 #: admin/templates/free-vs-pro.php:64
+#, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
 msgstr "Získajte prístup k exkluzívnemu obsahu WordPress, ponuky & ponúk"
 
 #: admin/templates/free-vs-pro.php:71
+#, fuzzy
 msgid "Private Priority Email Support"
 msgstr "Súkromná priorita e-mailová podpora"
 
 #: admin/templates/free-vs-pro.php:72
+#, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
 msgstr ""
 "Potrebujete pomoc? Stačí zvýšiť lístok podpory získať prioritnú e-mailovú "
@@ -168,14 +193,17 @@ msgid "One Comment on &ldquo;%1$s&rdquo;"
 msgstr "Jeden komentár k &quot;%1$s&quot;"
 
 #: comments.php:58 comments.php:71
+#, fuzzy
 msgid "&#8249; Older comments"
 msgstr "& #8249; staršie komentáre"
 
 #: comments.php:60 comments.php:73
+#, fuzzy
 msgid "Newer comments &#8250;"
 msgstr "Novšie komentáre & #8250;"
 
 #: comments.php:85
+#, fuzzy
 msgid "Pings&#47;Trackbacks"
 msgstr "Pingy & #47; spätné odkazy"
 
@@ -214,6 +242,7 @@ msgid "Text color"
 msgstr "Farba textu"
 
 #: core/gutenberg/gutenberg-support.php:60
+#, fuzzy
 msgid "Container Background Color"
 msgstr "Farba pozadia kontajnera"
 
@@ -226,14 +255,17 @@ msgid "Get Started"
 msgstr "Začnite tu"
 
 #: core/includes/classes/class-responsive-admin-settings.php:196
+#, fuzzy
 msgid "Free Vs Pro "
 msgstr "Voľný vs Pro"
 
 #: core/includes/classes/class-responsive-admin-settings.php:231
+#, fuzzy
 msgid "Import a website template(FREE)"
 msgstr "Importovanie šablóny webovej lokality (zadarmo)"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
+#, fuzzy
 msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
@@ -242,6 +274,7 @@ msgstr ""
 "ktoré je možné importovať jedným kliknutím."
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
+#, fuzzy
 msgid "Learn More &raquo;"
 msgstr "Ďalšie informácie &raquo;"
 
@@ -250,47 +283,58 @@ msgid "Support"
 msgstr "Podpora"
 
 #: core/includes/classes/class-responsive-admin-settings.php:273
+#, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
 msgstr "Máte otázky? Buďte v kontakte s nami. Radi vám pomôžeme"
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
+#, fuzzy
 msgid "Request Support &raquo;"
 msgstr "Požiadať o podporu &raquo;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
+#, fuzzy
 msgid "Change site layout"
 msgstr "Zmeniť rozloženie lokality"
 
 #: core/includes/classes/class-responsive-admin-settings.php:308
+#, fuzzy
 msgid "Customize fonts/typography"
 msgstr "Prispôsobenie písiem/typografie"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
+#, fuzzy
 msgid "Upload logo & site icon"
 msgstr "Upload logo & ikonu stránky"
 
 #: core/includes/classes/class-responsive-admin-settings.php:318
+#, fuzzy
 msgid "Add/edit navigation menu"
 msgstr "Pridať/upraviť navigačné menu"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
+#, fuzzy
 msgid "Customize header options"
 msgstr "Prispôsobenie možností hlavičky"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
+#, fuzzy
 msgid "Customize footer options"
 msgstr "Prispôsobenie možností päty"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
+#, fuzzy
 msgid "Update blog layout"
 msgstr "Aktualizovať rozloženie blogu"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
+#, fuzzy
 msgid "Update page layout"
 msgstr "Aktualizovať rozloženie strany"
 
 #: core/includes/classes/class-responsive-admin-settings.php:346
+#, fuzzy
 msgid "Quick Start:"
 msgstr "Rýchly štart:"
 
@@ -299,6 +343,7 @@ msgid "Community"
 msgstr "Komunita"
 
 #: core/includes/classes/class-responsive-admin-settings.php:369
+#, fuzzy
 msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
@@ -307,6 +352,7 @@ msgstr ""
 "otázky, dať spätnú väzbu, a navzájom si pomáhať"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
+#, fuzzy
 msgid "Join Facebook Group &raquo;"
 msgstr "Pripojte sa k skupine Facebook &raquo;"
 
@@ -315,6 +361,7 @@ msgid "Feedback"
 msgstr "Spätná väzba"
 
 #: core/includes/classes/class-responsive-admin-settings.php:391
+#, fuzzy
 msgid ""
 "Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
@@ -325,23 +372,26 @@ msgstr ""
 "a pomáha nám rásť responzívnu komunitu."
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
+#, fuzzy
 msgid "Submit Review &raquo;"
 msgstr "Odoslať recenziu &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
+#, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr ""
 "Blazing rýchle, mobilné-priateľské, plne prispôsobiteľné WordPress tému."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "Zľava!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "WooCommerce sidebar"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
+#, fuzzy
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
@@ -360,6 +410,7 @@ msgid "Colors"
 msgstr "Farby"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
+#, fuzzy
 msgid "Cart Buttons"
 msgstr "Tlačidlá košíka"
 
@@ -378,16 +429,19 @@ msgstr "Text tlačítka"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:78
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:66
+#, fuzzy
 msgid "Button Hover"
 msgstr "Tlačidlo hover"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
+#, fuzzy
 msgid "Button Hover Text"
 msgstr "Tlačidlo na ukázanie textu"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
+#, fuzzy
 msgid "Checkout Button"
 msgstr "Tlačidlo pokladne"
 
@@ -405,26 +459,32 @@ msgstr "Rozloženia"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:49
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:50
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
+#, fuzzy
 msgid "Main Content Width (%)"
 msgstr "Hlavná šírka obsahu (%)"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
+#, fuzzy
 msgid "Enable Cross-sells"
 msgstr "Povoliť Cross-predáva"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
+#, fuzzy
 msgid "Cart Icon Visibility"
 msgstr "Viditeľnosť ikon košíka"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
+#, fuzzy
 msgid "Display On All Devices"
 msgstr "Zobraziť na všetkých zariadeniach"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
+#, fuzzy
 msgid "Disabled On All Devices"
 msgstr "Vypnuté na všetkých zariadeniach"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
+#, fuzzy
 msgid "Product Catalog Options"
 msgstr "Možnosti katalógu produktov"
 
@@ -437,23 +497,27 @@ msgid "Product Options"
 msgstr "Možnosti produktu"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
+#, fuzzy
 msgid "Single Product Options"
 msgstr "Možnosti jedného produktu"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
+#, fuzzy
 msgid "Cart Options"
 msgstr "Možnosti košíka"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
+#, fuzzy
 msgid "Rating Color"
 msgstr "Farba hodnotenia"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
 msgid "Price Color"
-msgstr "Cenová farba"
+msgstr "Cena Farba"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
+#, fuzzy
 msgid "Add To Cart Buttons"
 msgstr "Pridať do košíka tlačidlá"
 
@@ -461,7 +525,7 @@ msgstr "Pridať do košíka tlačidlá"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -504,10 +568,12 @@ msgid "No Sidebar"
 msgstr "Žiadny bočný panel"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
+#, fuzzy
 msgid "Shop Product"
 msgstr "Obchod produkt"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
+#, fuzzy
 msgid "Catalog View"
 msgstr "Zobrazenie katalógu"
 
@@ -520,6 +586,7 @@ msgid "List View"
 msgstr "Zobraziť zoznam"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
+#, fuzzy
 msgid "Content Aligmnment"
 msgstr "Obsah Aligmnment"
 
@@ -574,10 +641,12 @@ msgid "Right"
 msgstr "Vpravo"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
+#, fuzzy
 msgid "Shop Elements"
 msgstr "Prvky obchodu"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
+#, fuzzy
 msgid "Sale Notification"
 msgstr "Oznámenie o predaji"
 
@@ -599,14 +668,17 @@ msgid "Default"
 msgstr "Predvolený"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
+#, fuzzy
 msgid "Custom String"
 msgstr "Vlastný reťazec"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
+#, fuzzy
 msgid "Sale % Value"
 msgstr "Predajná hodnota%"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
+#, fuzzy
 msgid "Sale Bubble Style"
 msgstr "Predaj Bubble Style"
 
@@ -615,6 +687,7 @@ msgid "Circle"
 msgstr "Kruh"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
+#, fuzzy
 msgid "Circle Outline"
 msgstr "Kruh obrys"
 
@@ -623,10 +696,12 @@ msgid "Square"
 msgstr "Štvorec"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
+#, fuzzy
 msgid "Square Outline"
 msgstr "Štvorcový obrys"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
+#, fuzzy
 msgid "Product Elements"
 msgstr "Prvky produktu"
 
@@ -635,18 +710,19 @@ msgid "Gallery Layout"
 msgstr "Rozloženie galérie"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "Vertikálne"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "Horizontálne"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
+#, fuzzy
 msgid "Single Product Structure"
 msgstr "Štruktúra jednotlivých produktov"
 
@@ -655,16 +731,19 @@ msgid "Cart"
 msgstr "Košík"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+#, fuzzy
 msgid " / "
 msgstr "/"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
+#, fuzzy
 msgid "Link values together"
 msgstr "Prepojiť hodnoty spolu"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
+#: footer.php:90
 msgid "Top"
 msgstr "Hore"
 
@@ -677,6 +756,7 @@ msgstr "Dole"
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:122
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:127
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
+#, fuzzy
 msgid "px - em - rem"
 msgstr "px-EM-REM"
 
@@ -686,50 +766,60 @@ msgstr "Prebrať"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:65
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
+#, fuzzy
 msgid "Thin: 100"
 msgstr "Tenký: 100"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
+#, fuzzy
 msgid "Light: 200"
 msgstr "Svetlo: 200"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
+#, fuzzy
 msgid "Book: 300"
 msgstr "Kniha: 300"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
+#, fuzzy
 msgid "Normal: 400"
 msgstr "Normálna: 400"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
+#, fuzzy
 msgid "Medium: 500"
 msgstr "Médium: 500"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
+#, fuzzy
 msgid "Semibold: 600"
 msgstr "Polotučné: 600"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
+#, fuzzy
 msgid "Bold: 700"
 msgstr "Tučné: 700"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
+#, fuzzy
 msgid "Extra Bold: 800"
 msgstr "Extra tučné: 800"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
+#, fuzzy
 msgid "Black: 900"
 msgstr "Čiernobielo: 900"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
+#, fuzzy
 msgid "Arial, Helvetica, sans-serif"
 msgstr "Arial, Helvetica, sans-serif"
 
@@ -747,22 +837,27 @@ msgstr "Google Fonts"
 
 #: core/includes/customizer/controls/upsell/class-responsive-control-upsell.php:72
 #: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
+#, fuzzy
 msgid "PRO"
 msgstr "Pro"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
+#, fuzzy
 msgid "View PRO Features"
 msgstr "Zobraziť pre funkcie"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
+#, fuzzy
 msgid "Pro Ready Sites"
 msgstr "Pre ready stránky"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
+#, fuzzy
 msgid "Form Builder"
 msgstr "Zostavovač formulárov"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
+#, fuzzy
 msgid "Interactive Sliders and Carousels"
 msgstr "Interaktívne posuvníky a Koloely"
 
@@ -771,14 +866,17 @@ msgid "Pricing Tables"
 msgstr "Cenové tabuľky"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
+#, fuzzy
 msgid "Portfolio and Post Layouts"
 msgstr "Portfólio a post rozvrhnutie"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
+#, fuzzy
 msgid "Private, Priority Support"
 msgstr "Súkromná, Prioritná podpora"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
+#, fuzzy
 msgid "Get the PRO version!"
 msgstr "Získajte pre verziu!"
 
@@ -787,6 +885,7 @@ msgid "CSS Styles"
 msgstr "CSS štýly"
 
 #: core/includes/customizer/customizer.php:43
+#, fuzzy
 msgid "Custom CSS Styles"
 msgstr "Vlastné štýly CSS"
 
@@ -840,10 +939,13 @@ msgid "Content"
 msgstr "Obsah"
 
 #: core/includes/customizer/helper.php:173
+#, fuzzy
 msgid "Site Branding"
 msgstr "Site branding"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
+#, fuzzy
 msgid "Main Navigation"
 msgstr "Hlavná navigácia"
 
@@ -874,21 +976,23 @@ msgstr "Kategória"
 msgid "Ratings"
 msgstr "Hodnotenia"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
 msgstr "Pokračovať v čítaní &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "Čítať ďalej &raquo;"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:52
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
+#, fuzzy
 msgid "Entry Elements"
 msgstr "Vstupné prvky"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
+#, fuzzy
 msgid "Entry Featured Image"
 msgstr "Položka predstavoval obrázok"
 
@@ -932,15 +1036,18 @@ msgid "center"
 msgstr "na stred"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:106
+#, fuzzy
 msgid "Entry Title"
 msgstr "Názov položky"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
+#, fuzzy
 msgid "Entry Meta"
 msgstr "Vstup meta"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
+#, fuzzy
 msgid "Meta Elements"
 msgstr "Meta Elements"
 
@@ -966,15 +1073,18 @@ msgstr "Komentáre"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:170
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
+#, fuzzy
 msgid "Meta Separator"
 msgstr "Meta oddeľovač"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
+#, fuzzy
 msgid "Meta Alignment"
 msgstr "Meta zarovnanie"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
+#, fuzzy
 msgid "Entry Content"
 msgstr "Obsah položky"
 
@@ -1001,6 +1111,7 @@ msgid "Read More Text"
 msgstr "Text Čítať ďalej"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
+#, fuzzy
 msgid "Read More Type"
 msgstr "Čítajte viac typu"
 
@@ -1011,22 +1122,27 @@ msgstr "Odkaz"
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-panel.php:85
 #: core/includes/customizer/settings/class-responsive-panel.php:86
+#, fuzzy
 msgid "Content Header"
 msgstr "Hlavička obsahu"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
+#, fuzzy
 msgid "Enable Blog Page Title"
 msgstr "Povoliť názov stránky blogu"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
+#, fuzzy
 msgid "Blog Page Title"
 msgstr "Blog názov stránky"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
+#, fuzzy
 msgid "Entry Columns"
 msgstr "Stĺpce vstupu"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
+#, fuzzy
 msgid "Enable Masonry Layout"
 msgstr "Povoliť rozloženie muriva"
 
@@ -1039,22 +1155,27 @@ msgid "Description Color"
 msgstr "Popis Color"
 
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
+#, fuzzy
 msgid "Breadcrumb Color"
 msgstr "Farba breadcrumb"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
+#, fuzzy
 msgid "Disable breadcrumb list?"
 msgstr "Zakázať zoznam breadcrumb?"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
+#, fuzzy
 msgid "Breadcrumb Position"
 msgstr "Pozícia breadcrumb"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
+#, fuzzy
 msgid "Before Heading"
 msgstr "Pred nadpisom"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
+#, fuzzy
 msgid "After Heading"
 msgstr "Po mieri"
 
@@ -1084,11 +1205,13 @@ msgstr "Dokumentácia"
 
 #. translators: %1$s is Plugin Name
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+#, fuzzy
 msgid "To have access to a shop section please install and configure %1$s."
 msgstr ""
 "Ak chcete mať prístup k sekcii obchod, nainštalujte a nakonfigurujte %1$s."
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+#, fuzzy
 msgid "WooCommerce plugin"
 msgstr "WooCommerce plugin"
 
@@ -1098,6 +1221,7 @@ msgstr "Doporučené rozšírenia"
 
 #. translators: Orbit Fox Companion
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+#, fuzzy
 msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
@@ -1126,10 +1250,12 @@ msgstr "Farba odkazov"
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:58
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
+#, fuzzy
 msgid "Links Hover Color"
 msgstr "Odkazy hover farba"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
+#, fuzzy
 msgid "Full Width Footer"
 msgstr "Päta celej šírky"
 
@@ -1145,78 +1271,84 @@ msgstr "Počet stĺpcov"
 msgid "Footer Bar"
 msgstr "zápätie Bar"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "Text autorských práv"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Skryť Powered by responzívne tému"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "Linky na sociálne médiá"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "RSS Feed"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "Emailová adresa"
 
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:39
+#, fuzzy
 msgid "Scripts"
 msgstr "Skripty"
 
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
+#, fuzzy
 msgid "Embeds to footer.php"
 msgstr "Vloží do päty. php"
 
@@ -1233,6 +1365,7 @@ msgid "Site Title Color"
 msgstr "Farba názvu stránky"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
+#, fuzzy
 msgid "Site Title Hover Color"
 msgstr "Názov lokality hover farba"
 
@@ -1241,30 +1374,37 @@ msgid "Site Tagline Color"
 msgstr "Farba sloganu stránky"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
+#, fuzzy
 msgid "Header Widget"
 msgstr "Hlavička widget"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
+#, fuzzy
 msgid "Full Width Header"
 msgstr "Hlavička celej šírky"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
+#, fuzzy
 msgid "Inline logo & Site Title"
 msgstr "Inline logo & názov stránky"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
+#, fuzzy
 msgid "Header Elements"
 msgstr "Prvky hlavičky"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:81
+#, fuzzy
 msgid "Header Layout"
 msgstr "Rozloženie hlavičky"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
+#, fuzzy
 msgid "Header Alignment"
 msgstr "Zarovnanie hlavičky"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
+#, fuzzy
 msgid "Logo Padding (px)"
 msgstr "Logo čalúnenie (px)"
 
@@ -1273,34 +1413,42 @@ msgid "Transparent Header"
 msgstr "Transparentná hlavička"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
+#, fuzzy
 msgid "Enable on Complete Website"
 msgstr "Povoliť na kompletnej webovej stránke"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
+#, fuzzy
 msgid "Site Content Padding (px)"
 msgstr "Obsah lokality čalúnenie (px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
+#, fuzzy
 msgid "Disable on 404, Search & Archives?"
 msgstr "Zakázať na 404, Hľadať & archívy?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
+#, fuzzy
 msgid "Disable on Blog page?"
 msgstr "Zakázať na stránke blogu?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
+#, fuzzy
 msgid "Disable on Latest Posts Page?"
 msgstr "Zakázať na posledné príspevky stránku?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
+#, fuzzy
 msgid "Disable on Pages?"
 msgstr "Zakázať na stránkach?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
+#, fuzzy
 msgid "Disable on Posts?"
 msgstr "Zakázať na príspevky?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
+#, fuzzy
 msgid "Disable on WooCommerce Product Pages?"
 msgstr "Zakázať na stránkach WooCommerce produktu?"
 
@@ -1310,18 +1458,22 @@ msgid "Header Widgets"
 msgstr "Widgety hlavičky"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
+#, fuzzy
 msgid "Enable Header Widgets"
 msgstr "Povoliť hlavičky widgety"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
+#, fuzzy
 msgid "Widgets Position"
 msgstr "Widgety pozície"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
+#, fuzzy
 msgid "Above Header"
 msgstr "Nad hlavičkou"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
+#, fuzzy
 msgid "In Header"
 msgstr "V hlavičke"
 
@@ -1330,6 +1482,7 @@ msgid "Below Header"
 msgstr "Pod hlavičkou"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
+#, fuzzy
 msgid "Widgets Alignment"
 msgstr "Zarovnanie widgetov"
 
@@ -1338,50 +1491,62 @@ msgid "Spread"
 msgstr "Šíriť"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
+#, fuzzy
 msgid "Space Around"
 msgstr "Priestor okolo"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
+#, fuzzy
 msgid "Active Menu Background Color"
 msgstr "Aktívna farba pozadia ponuky"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
+#, fuzzy
 msgid "Menu Item Link Color"
 msgstr "Farba prepojenia položky ponuky"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
+#, fuzzy
 msgid "Menu Item Link Hover Color"
 msgstr "Farba kurzora na prepojenie položky ponuky"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
+#, fuzzy
 msgid "Sub Menu Background Color"
 msgstr "Sub menu Farba pozadia"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+#, fuzzy
 msgid "Sub Menu Item Link Color"
 msgstr "Sub menu položka farba odkazu"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+#, fuzzy
 msgid "Sub Menu Item Link Hover Color"
 msgstr "Sub menu položka odkaz farba kurzora"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+#, fuzzy
 msgid "Menu Toggle Background Color"
 msgstr "Menu prepnúť farbu pozadia"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+#, fuzzy
 msgid "Menu Toggle Color"
 msgstr "Ponuka-prepnúť farbu"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
+#, fuzzy
 msgid "Full Width Main Navigation"
 msgstr "Hlavná navigácia v celej šírke"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
+#, fuzzy
 msgid "Enable Mobile Menu"
 msgstr "Povoliť mobilnú ponuku"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
+#, fuzzy
 msgid "Breakpoint"
 msgstr "Bod prerušenia"
 
@@ -1399,10 +1564,12 @@ msgid "Sidebar"
 msgstr "Bočný panel"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+#, fuzzy
 msgid "Sidebar Menu Alignment"
 msgstr "Zarovnanie ponuky bočného panela"
 
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
+#, fuzzy
 msgid "Embeds to header.php"
 msgstr "Vloží do header. php"
 
@@ -1413,6 +1580,7 @@ msgstr "Názov stránky"
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
+#, fuzzy
 msgid "Site Tagline"
 msgstr "Site Tagline"
 
@@ -1426,19 +1594,23 @@ msgid "Custom Home Page"
 msgstr "Vlastná domovská stránka"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
+#, fuzzy
 msgid "Enable Custom Front Page"
 msgstr "Povoliť vlastnú prednú stranu"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
+#, fuzzy
 msgid "Overrides the WordPress front page option"
 msgstr "Prepíše WordPress predná strana možnosť"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
+#, fuzzy
 msgid "Hero Area"
 msgstr "Hrdina oblasť"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
+#, fuzzy
 msgid "HAPPINESS"
 msgstr "Šťastie"
 
@@ -1447,16 +1619,19 @@ msgid "Headline"
 msgstr "Názov"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
+#, fuzzy
 msgid "IS A WARM CUP"
 msgstr "JE TEPLÝ POHÁR"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
+#, fuzzy
 msgid "Subheadline"
 msgstr "Podtitulok"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
+#, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -1471,61 +1646,75 @@ msgid "Content Area"
 msgstr "Vlastné pre-content oblasť v príspevkoch"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
+#, fuzzy
 msgid "Disable Call to Action Button?"
 msgstr "Zakázať výzvu na akciu tlačidlo?"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
+#, fuzzy
 msgid "Call to Action (URL)"
 msgstr "Výzva na akciu (URL)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
+#, fuzzy
 msgid "Call to Action (Text)"
 msgstr "Výzva na akciu (text)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
+#, fuzzy
 msgid "Call to Action Button Style"
 msgstr "Výzva na štýl tlačidla akcie"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
+#, fuzzy
 msgid "Featured Content"
 msgstr "Uvádzaný obsah"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
+#, fuzzy
 msgid "Paste your shortcode, video or image source"
 msgstr "Vloženie shortcode, videa alebo zdroja obrazu"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
+#, fuzzy
 msgid "About Section"
 msgstr "O sekcii"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
+#, fuzzy
 msgid "Enable About Section"
 msgstr "Povoliť o sekcii"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
 #: partials/custom-home/featured-area.php:105
+#, fuzzy
 msgid "About Box Title"
 msgstr "Názov poľa"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
+#, fuzzy
 msgid "About Title"
 msgstr "O názve"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
+#, fuzzy
 msgid "About Text"
 msgstr "O texte"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
+#, fuzzy
 msgid "Enter url as http://www.example.com"
 msgstr "Zadajte adresu URL ako http://www.example.com"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
+#, fuzzy
 msgid "Feature Section"
 msgstr "Sekcia funkcií"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
+#, fuzzy
 msgid "Enable Feature Section"
 msgstr "Povoliť sekciu funkcie"
 
@@ -1534,12 +1723,14 @@ msgid "Feature Title"
 msgstr "Názov funkcie"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
+#, fuzzy
 msgid "Select post for feature 1"
 msgstr "Vyberte príspevok pre funkciu 1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:457
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the feature. Recommended image size for the featured images: 130 x 130px"
@@ -1548,18 +1739,21 @@ msgstr ""
 "príspevkov. Odporúčaná veľkosť obrázka pre najlepšie obrázky: 130 x 130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
+#, fuzzy
 msgid "Select post for feature 2"
 msgstr "Vyberte príspevok pre funkciu 2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
+#, fuzzy
 msgid "Select post for feature 3"
 msgstr "Vyberte príspevok pre funkciu 3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
 msgid "Testimonial Section"
-msgstr "Posudok sekcie"
+msgstr "Svedectvo"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
+#, fuzzy
 msgid "Enable Testimonial Section"
 msgstr "Povoliť posudok sekcie"
 
@@ -1569,14 +1763,17 @@ msgid "Testimonial"
 msgstr "Referencia"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:499
+#, fuzzy
 msgid "Testimonial Title"
 msgstr "Posudok titul"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:517
+#, fuzzy
 msgid "Select Post"
 msgstr "Vyberte príspevok"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:520
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the client testimonials. Recommended image size for the featured images: 178 "
@@ -1586,28 +1783,34 @@ msgstr ""
 "posudky. Odporúčaná veľkosť obrázka pre najlepšie obrázky: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
+#, fuzzy
 msgid "Team Section"
 msgstr "Sekcia tímu"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
+#, fuzzy
 msgid "Enable Team Section"
 msgstr "Povoliť sekciu tímu"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
+#, fuzzy
 msgid "team"
 msgstr "Tím"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
+#, fuzzy
 msgid "Team Title"
 msgstr "Názov tímu"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
+#, fuzzy
 msgid "Select post for team member1"
 msgstr "Vyberte príspevok pre Team member1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:622
+#, fuzzy
 msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
@@ -1616,14 +1819,17 @@ msgstr ""
 "tímu. Odporúčaná veľkosť obrázka pre najlepšie obrázky: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
+#, fuzzy
 msgid "Select post for team member2"
 msgstr "Vyberte príspevok pre Team member2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
+#, fuzzy
 msgid "Select post for team member3"
 msgstr "Vyberte príspevok pre Team member3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
+#, fuzzy
 msgid "Click to disable home page widgets"
 msgstr "Kliknutím zakážete domovskú stránku widgety"
 
@@ -1632,6 +1838,7 @@ msgid "Contact Section"
 msgstr "Kontaktná sekcia"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
+#, fuzzy
 msgid "Enable Contact Section"
 msgstr "Povoliť sekciu kontaktu"
 
@@ -1640,14 +1847,17 @@ msgid "Contact Us"
 msgstr "Kontaktujte nás"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
+#, fuzzy
 msgid "Contact section Title"
 msgstr "Názov sekcie kontaktu"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
+#, fuzzy
 msgid "Contact subtitle"
 msgstr "Kontakt titulkov"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
+#, fuzzy
 msgid "Contact section Subtitle"
 msgstr "Podnadpis sekcie kontaktu"
 
@@ -1656,33 +1866,39 @@ msgid "Address"
 msgstr "Adresa"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "E-mail"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
+#, fuzzy
 msgid "Phone no"
 msgstr "Telefón nie"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
+#, fuzzy
 msgid "Contact form shortcode"
 msgstr "Kontaktný formulár krátky"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
+#, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
 msgstr "Môžete dať kontaktný formulár 7 krátky tu."
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
+#, fuzzy
 msgid "Page Elements"
 msgstr "Prvky stránky"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:71
+#, fuzzy
 msgid "Post Elements"
 msgstr "Poštové prvky"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
+#, fuzzy
 msgid "Page Featured Image"
 msgstr "Stránka predstavoval obrázok"
 
@@ -1713,6 +1929,7 @@ msgid "Main Menu"
 msgstr "Hlavné menu"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:59
+#, fuzzy
 msgid "Header Menu Options"
 msgstr "Možnosti ponuky hlavičky"
 
@@ -1729,6 +1946,7 @@ msgid "Footer Options"
 msgstr "Nastavenie pätičky"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:94
+#, fuzzy
 msgid "Blog / Archive"
 msgstr "Blog/Archív"
 
@@ -1741,6 +1959,7 @@ msgid "Blog Post"
 msgstr "Blogový príspevok"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:104
+#, fuzzy
 msgid "Single Blog Post"
 msgstr "Jeden blog post"
 
@@ -1753,6 +1972,7 @@ msgid "Page Options"
 msgstr "Nastavenia stránky"
 
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:83
+#, fuzzy
 msgid "Post Featured Image"
 msgstr "Príspevok predstavoval obrázok"
 
@@ -1769,6 +1989,7 @@ msgid "Post Content"
 msgstr "Komentár príspevku"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:59
+#, fuzzy
 msgid "Backgrounds"
 msgstr "Pozadia"
 
@@ -1777,10 +1998,12 @@ msgid "Box Background Color"
 msgstr "Farba pozadia kocky"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
+#, fuzzy
 msgid "Alternate Background Color"
 msgstr "Alternatívna farba pozadia"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
+#, fuzzy
 msgid "General Text"
 msgstr "Všeobecný text"
 
@@ -1789,26 +2012,32 @@ msgid "Body Text Color"
 msgstr "Farba základného textu"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
+#, fuzzy
 msgid "Heading 1 (H1) Color"
 msgstr "Farba nadpisu 1 (H1)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
+#, fuzzy
 msgid "Heading 2 (H2) Color"
 msgstr "Farba okruhu 2 (H2)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
+#, fuzzy
 msgid "Heading 3 (H3) Color"
 msgstr "Farba okruhu 3 (H3)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
+#, fuzzy
 msgid "Heading 4 (H4) Color"
 msgstr "Farba okruhu 4 (H4)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
+#, fuzzy
 msgid "Heading 5 (H5) Color"
 msgstr "Farba okruhu 5 (H5)"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
+#, fuzzy
 msgid "Heading 6 (H6) Color"
 msgstr "Nadpis 6 (H6) farba"
 
@@ -1848,10 +2077,12 @@ msgid "Hover Text Color"
 msgstr "Farba textu pri nábehu myšou"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:143
+#, fuzzy
 msgid "Hover Border Color"
 msgstr "Farba orámovania kurzora"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:147
+#, fuzzy
 msgid "Inputs"
 msgstr "Vstupy"
 
@@ -1864,10 +2095,12 @@ msgid "Label Color"
 msgstr "Farba symbolu"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
+#, fuzzy
 msgid "Hide Site Title"
 msgstr "Skryť názov lokality"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
+#, fuzzy
 msgid "Hide Tagline"
 msgstr "Skryť Tagline"
 
@@ -1884,6 +2117,7 @@ msgid "Full Width"
 msgstr "Plná šírka"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
+#, fuzzy
 msgid "Container Width (px)"
 msgstr "Šírka kontajnera (px)"
 
@@ -1892,29 +2126,35 @@ msgid "Boxed"
 msgstr "V boxoch"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
+#, fuzzy
 msgid "Content Boxed"
 msgstr "Obsah v krabici"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
+#, fuzzy
 msgid "Box Padding (px)"
 msgstr "Box čalúnenie (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+#, fuzzy
 msgid "Box Radius (px)"
 msgstr "Rámček polomer (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
+#, fuzzy
 msgid "Padding (px)"
 msgstr "Padding (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
+#, fuzzy
 msgid "Radius (px)"
 msgstr "Polomer (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
+#, fuzzy
 msgid "Border Width (px)"
 msgstr "Šírka orámovania (px)"
 
@@ -1931,43 +2171,52 @@ msgstr "Telo"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:55
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
+#, fuzzy
 msgid "Heading 1 (H1)"
 msgstr "Okruh 1 (H1)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
+#, fuzzy
 msgid "Heading 2 (H2)"
 msgstr "Okruh 2 (H2)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
+#, fuzzy
 msgid "Heading 3 (H3)"
 msgstr "Okruh 3 (H3)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
+#, fuzzy
 msgid "Heading 4 (H4)"
 msgstr "Okruh 4 (H4)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
+#, fuzzy
 msgid "Heading 5 (H5)"
 msgstr "Okruh 5 (H5)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
+#, fuzzy
 msgid "Heading 6 (H6)"
 msgstr "Okruh 6 (H6)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
+#, fuzzy
 msgid "Input Fields"
 msgstr "Vstupné polia"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
+#, fuzzy
 msgid "Exclude Categories from Blog page"
 msgstr "Vylúčenie kategórií z stránky blogu"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
+#, fuzzy
 msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
@@ -1976,6 +2225,7 @@ msgstr ""
 "blogu"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
+#, fuzzy
 msgid "General Typography"
 msgstr "Všeobecná Typografia"
 
@@ -1988,6 +2238,7 @@ msgid "Font Weight"
 msgstr "Hrúbka písma"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
+#, fuzzy
 msgid "Important: Not all fonts support every font-weight."
 msgstr "Dôležité: nie všetky písma podporujú každý font-váha."
 
@@ -2024,6 +2275,7 @@ msgid "Font Size"
 msgstr "Veľkosť písma"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
+#, fuzzy
 msgid "You can add: px-em-%"
 msgstr "Môžete pridať: px-EM-%"
 
@@ -2032,6 +2284,7 @@ msgid "Line Height"
 msgstr "Výška riadku"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
+#, fuzzy
 msgid "Letter Spacing (px)"
 msgstr "Rozstup písmen (px)"
 
@@ -2039,24 +2292,53 @@ msgstr "Rozstup písmen (px)"
 msgid "Font Color"
 msgstr "Farba písma"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "ahoj! Vďaka za použitie responzívny tému."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"Môžete nám prosím urobiť láskavosť a dať nám 5-hviezdičkové hodnotenie? Vaša "
+"spätná väzba nás neustále motivuje a pomáha nám rásť responzívnu komunitu."
+
+#: core/includes/functions-admin.php:61
+msgid "Ok, you deserve it"
+msgstr "OK, zaslúžiš si to"
+
+#: core/includes/functions-admin.php:62
+#, fuzzy
+msgid "Nope, maybe later"
+msgstr "Nie, možno neskôr"
+
+#: core/includes/functions-admin.php:63
+#, fuzzy
+msgid "I already did"
+msgstr "Som už urobil"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "Domov"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 msgid "Archive for %s"
 msgstr "Archív pre %s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "Hľadaj výsledky pre: “%s”"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
+#, fuzzy
 msgid "Posts tagged %s"
 msgstr "Príspevky Tagged %s"
 
@@ -2064,32 +2346,35 @@ msgstr "Príspevky Tagged %s"
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "Zobraz všetky príspevky od %s"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "Chyba 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "Strana %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
+#, fuzzy
 msgid "Yelp!"
 msgstr "Yelp!"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
+#, fuzzy
 msgid "foursquare"
 msgstr "Štvorhranný"
 
 #: core/includes/functions-extras.php:107 gutenberg-fullwidth.php:42
 #: image.php:59 index.php:56 partials/page/content.php:15
+#, fuzzy
 msgid "Read more &#8250;"
 msgstr "Prečítajte si viac & #8250;"
 
@@ -2098,6 +2383,7 @@ msgid "Main Sidebar"
 msgstr "Hlavný panel"
 
 #: core/includes/functions-sidebar.php:29
+#, fuzzy
 msgid ""
 "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
 msgstr ""
@@ -2105,34 +2391,42 @@ msgstr ""
 "šablóny"
 
 #: core/includes/functions-sidebar.php:40
+#, fuzzy
 msgid "Home Widget 1"
 msgstr "Domovská stránka widget 1"
 
 #: core/includes/functions-sidebar.php:41
+#, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
 msgstr "Oblasť 6-sidebar-Home. php-zobrazí sa na domovskej stránke"
 
 #: core/includes/functions-sidebar.php:52
+#, fuzzy
 msgid "Home Widget 2"
 msgstr "Domovská stránka widget 2"
 
 #: core/includes/functions-sidebar.php:53
+#, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
 msgstr "Oblasť 7-Sidebar-Home. php-zobrazí sa na domovskej stránke"
 
 #: core/includes/functions-sidebar.php:64
+#, fuzzy
 msgid "Home Widget 3"
 msgstr "Domov widget 3"
 
 #: core/includes/functions-sidebar.php:65
+#, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
 msgstr "Oblasť 8-sidebar-Home. php-zobrazí sa na domovskej stránke"
 
 #: core/includes/functions-sidebar.php:76
+#, fuzzy
 msgid "Gallery Sidebar"
 msgstr "Galéria sidebar"
 
 #: core/includes/functions-sidebar.php:77
+#, fuzzy
 msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
@@ -2141,14 +2435,17 @@ msgstr ""
 "galérii"
 
 #: core/includes/functions-sidebar.php:88
+#, fuzzy
 msgid "Colophon Widget"
 msgstr "Colophon widget"
 
 #: core/includes/functions-sidebar.php:89
+#, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
 msgstr "Oblasť 10-sidebar-colophon. php, 100% šírka päty widgety"
 
 #: core/includes/functions-sidebar.php:101
+#, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
 msgstr "Oblasť 11-sidebar-top. php-zobrazí napravo od hlavičky"
 
@@ -2157,6 +2454,7 @@ msgid "Footer Widgets 1"
 msgstr "Widgety pätičky 1"
 
 #: core/includes/functions-sidebar.php:113
+#, fuzzy
 msgid "Area 12 - sidebar-footer.php"
 msgstr "Oblasť 12-sidebar-footer. php"
 
@@ -2165,6 +2463,7 @@ msgid "Footer Widgets 2"
 msgstr "Widgety pätičky 2"
 
 #: core/includes/functions-sidebar.php:124
+#, fuzzy
 msgid "Area 13 - sidebar-footer.php"
 msgstr "Oblasť 13-sidebar-footer. php"
 
@@ -2173,18 +2472,21 @@ msgid "Footer Widgets 3"
 msgstr "Widgety pätičky 3"
 
 #: core/includes/functions-sidebar.php:135
+#, fuzzy
 msgid "Area 14 - sidebar-footer.php"
 msgstr "Oblasť 14-sidebar-footer. php"
 
 #: core/includes/functions-sidebar.php:145
+#, fuzzy
 msgid "Footer Widgets 4"
 msgstr "Päta widgety 4"
 
 #: core/includes/functions-sidebar.php:146
+#, fuzzy
 msgid "Area 15 - sidebar-footer.php"
 msgstr "Oblasť 15-sidebar-footer. php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "Výzva k akcií"
 
@@ -2193,14 +2495,17 @@ msgid "Header Menu"
 msgstr "Menu hlavičky"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "Menu v päte"
 
 #: core/includes/functions.php:377
+#, fuzzy
 msgid "Team Section Options"
 msgstr "Možnosti sekcie tímu"
 
 #: core/includes/functions.php:391
+#, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
 msgstr ""
@@ -2208,6 +2513,7 @@ msgstr ""
 "nižšie Podrobnosti:"
 
 #: core/includes/functions.php:394
+#, fuzzy
 msgid "Member designation"
 msgstr "Vymenovanie člena"
 
@@ -2220,10 +2526,12 @@ msgid "Twitter Link"
 msgstr "Twitter link"
 
 #: core/includes/functions.php:406
+#, fuzzy
 msgid "GooglePlus Link"
 msgstr "GooglePlus odkaz"
 
 #: core/includes/functions.php:410
+#, fuzzy
 msgid "LinkedIn Link"
 msgstr "LinkedIn Link"
 
@@ -2240,6 +2548,7 @@ msgstr "Od"
 #. translators: %s: category list
 #: core/includes/functions.php:696 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
+#, fuzzy
 msgid "Posted in %s"
 msgstr "Publikované v %s"
 
@@ -2253,30 +2562,37 @@ msgid "Upgrade To Pro"
 msgstr "Inovujte na Pro"
 
 #: core/includes/post-custom-meta.php:137
+#, fuzzy
 msgid "Content/Sidebar"
 msgstr "Obsah/bočný panel"
 
 #: core/includes/post-custom-meta.php:138
+#, fuzzy
 msgid "Sidebar/Content"
 msgstr "Bočný panel/obsah"
 
 #. Template Name of the plugin/theme
+#, fuzzy
 msgid "Full Width Page (no sidebar)"
 msgstr "Stránka s plnou šírkou (bez bočného panela)"
 
 #: core/includes/post-custom-meta.php:140
+#, fuzzy
 msgid "Blog 2 Column"
 msgstr "Blog 2 stĺpce"
 
 #: core/includes/post-custom-meta.php:141
+#, fuzzy
 msgid "Blog 3 Column"
 msgstr "Blog 3 stĺpce"
 
 #: core/includes/post-custom-meta.php:142
+#, fuzzy
 msgid "Blog 4 Column"
 msgstr "Blog 4 stĺpce"
 
-#: footer.php:88
+#: footer.php:90
+#, fuzzy
 msgid "Scroll to Top"
 msgstr "Prejdite na začiatok"
 
@@ -2286,6 +2602,7 @@ msgstr "Trvalý odkaz na %s"
 
 #. translators: %s Link to 5 star rating
 #: functions.php:453
+#, fuzzy
 msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
@@ -2297,7 +2614,7 @@ msgstr ""
 msgid "Thanks :)"
 msgstr "Vďaka :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2308,6 +2625,7 @@ msgid "Pages:"
 msgstr "Stránky:"
 
 #: header.php:35
+#, fuzzy
 msgid "&darr; Skip to Main Content"
 msgstr "&darr; Preskočiť na hlavný obsah"
 
@@ -2320,6 +2638,7 @@ msgid "Next"
 msgstr "Ďalej"
 
 #: image.php:37
+#, fuzzy
 msgid "&#8249; Return to"
 msgstr "& #8249; návrat do"
 
@@ -2341,31 +2660,38 @@ msgid "% Comments"
 msgstr "% komentárov"
 
 #: image.php:79 post-data.php:25
+#, fuzzy
 msgid "Tagged with:"
 msgstr "Tagged s:"
 
 #: image.php:87 post-data.php:29
+#, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
 msgstr "<span class=\"post-edit\">Upraviť</span>"
 
 #: loop-nav.php:28
+#, fuzzy
 msgid "&#8249; Older posts"
 msgstr "& #8249; staršie príspevky"
 
 #: loop-nav.php:29
+#, fuzzy
 msgid "Newer posts &#8250;"
 msgstr "Novšie príspevky & #8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
+#, fuzzy
 msgid "Your search for %s did not match any entries."
 msgstr "Hľadanie %s sa nezhoduje s položkami."
 
 #: loop-no-posts.php:26
+#, fuzzy
 msgid "404 &#8212; Fancy meeting you here!"
 msgstr "404 & #8212; Fancy stretnutie vás tu!"
 
 #: loop-no-posts.php:32
+#, fuzzy
 msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
@@ -2374,6 +2700,7 @@ msgstr ""
 "preskúmať naše možnosti tu."
 
 #: loop-no-posts.php:43
+#, fuzzy
 msgid "&larr; Home"
 msgstr "&larr; Home"
 
@@ -2396,22 +2723,21 @@ msgid "0 Comments"
 msgstr "0 komentárov"
 
 #: partials/footer/copy-right.php:17
-msgid " | Powered by "
-msgstr "| správca"
-
-#: partials/footer/copy-right.php:18
+#, fuzzy
 msgid " &copy; "
 msgstr "&copy;"
 
-#: partials/footer/copy-right.php:23
+#: partials/footer/copy-right.php:21
+#, fuzzy
 msgid "&copy; "
 msgstr "&copy;"
 
-#: partials/footer/copy-right.php:32
-msgid "Responsive Theme"
-msgstr "Responzívny motív"
+#: partials/footer/copy-right.php:29
+#, fuzzy
+msgid " | Powered by Responsive Theme"
+msgstr "| Powered by responzívne tému"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "Menu"
 
@@ -2425,10 +2751,12 @@ msgid "About"
 msgstr "O"
 
 #: partials/single/layout.php:73
+#, fuzzy
 msgid "Previous Post is "
 msgstr "Predchádzajúci príspevok je"
 
 #: partials/single/layout.php:74
+#, fuzzy
 msgid "Next Post is"
 msgstr "Nasledujúci príspevok je"
 
@@ -2437,6 +2765,7 @@ msgid "Search for:"
 msgstr "Hľadať:"
 
 #: searchform.php:23
+#, fuzzy
 msgid "Search here &hellip;"
 msgstr "Hľadať tu &hellip;"
 
@@ -2445,30 +2774,37 @@ msgid "Go"
 msgstr "Potvrdiť"
 
 #: sidebar-gallery.php:26
+#, fuzzy
 msgid "Image Information"
 msgstr "Informácie o obrázku"
 
 #: sidebar-gallery.php:33
+#, fuzzy
 msgid "Full Size:"
 msgstr "Plná veľkosť:"
 
 #: sidebar-gallery.php:39
+#, fuzzy
 msgid "Aperture: f&#47;"
 msgstr "Otvor: f & #47;"
 
 #: sidebar-gallery.php:44
+#, fuzzy
 msgid "Focal Length:"
 msgstr "Ohnisková:"
 
 #: sidebar-gallery.php:44
+#, fuzzy
 msgid "mm"
 msgstr "Mm"
 
 #: sidebar-gallery.php:48
+#, fuzzy
 msgid "ISO:"
 msgstr "Iso:"
 
 #: sidebar-gallery.php:52
+#, fuzzy
 msgid "Shutter:"
 msgstr "Uzávierky:"
 
@@ -2477,14 +2813,17 @@ msgid "sec"
 msgstr "s"
 
 #: sidebar-gallery.php:69
+#, fuzzy
 msgid "Camera:"
 msgstr "Fotoaparát:"
 
 #: sidebar-home.php:34
+#, fuzzy
 msgid "Fermentum"
 msgstr "Fermentum"
 
 #: sidebar-home.php:40
+#, fuzzy
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
@@ -2495,10 +2834,12 @@ msgstr ""
 "Titul je tiež zvládnuteľné z widgety rovnako."
 
 #: sidebar-home.php:54
+#, fuzzy
 msgid "Elementum"
 msgstr "Elementum"
 
 #: sidebar-home.php:60
+#, fuzzy
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
@@ -2509,10 +2850,12 @@ msgstr ""
 "widget 2. Titul je tiež zvládnuteľné z widgety rovnako."
 
 #: sidebar-home.php:74
+#, fuzzy
 msgid "Interdum"
 msgstr "Interdum"
 
 #: sidebar-home.php:78
+#, fuzzy
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
@@ -2523,25 +2866,57 @@ msgstr ""
 "widget 3. Titul je tiež zvládnuteľné z widgety rovnako."
 
 #. Theme URI of the plugin/theme
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+#, fuzzy
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
-"Citlivý je full-prispôsobiteľné, rýchle a mobilné-priateľské WordPress tému."
+"Citlivý je plne prispôsobiteľné, vyhľadávače optimalizované & Mobile-"
+"priateľské WordPress tému. Kompatibilný s blokom Gutenberg editor, je "
+"ideálnou voľbou pre váš blog, obchodné webové stránky, alebo WooCommerce "
+"Store. S takmer neobmedzené možnosti prispôsobovač, môžete prispôsobiť "
+"všetky funkcie vašich webových stránok. Responzívne prichádza s minified "
+"skripty pre zlepšenie rýchlosti webových stránok. Je tiež dodávaný s ďalšími "
+"funkciami, vrátane-deväť možností rozloženia pre stránky a blog, WooCommerce "
+"možnosti návrhu, a kompatibilita s Elementor Page Builder. Funguje to skvele "
+"na mobil, tablet, Desktop, a vo všetkých prehliadačoch. Citlivý je tiež k "
+"dispozícii v 45 jazykoch a je vyhľadávač priateľský. Pozrite si responzívne "
+"kroky: https://cyberchimps.com/responsive-ready-websites/. Prečítajte si "
+"viac o jeho funkciách: https://cyberchimps.com/responsive-features/."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "CyberChimps"
 
 #. Author URI of the plugin/theme
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+#, fuzzy
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
+#, fuzzy
 msgid "Gutenberg Fullwidth No title"
 msgstr "Gutenberg Fullwidth bez titulu"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:48
+#, fuzzy
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"

@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 20:59+0530\n"
+"PO-Revision-Date: 2020-03-27 15:51+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -42,32 +42,32 @@ msgstr "A kért oldal nem található. [404]"
 #: admin/admin-functions.php:24
 #, fuzzy
 msgid "Internal Server Error [500]"
-msgstr "Belső kiszolgálóhiba"
+msgstr "Belső kiszolgálóhiba [500]"
 
 #: admin/admin-functions.php:25
 #, fuzzy
 msgid "Requested JSON parse failed"
-msgstr "A kért JSON elemzés sikertelen"
+msgstr "A kért JSON-elemzés nem sikerült"
 
 #: admin/admin-functions.php:26
 #, fuzzy
 msgid "Time out error"
-msgstr "Időtúllépési hiba"
+msgstr "Időmegtelő hiba"
 
 #: admin/admin-functions.php:27
 #, fuzzy
 msgid "Ajax request aborted"
-msgstr "A kérés teljesítése megszakadt"
+msgstr "Ajax kérés megszakadt"
 
 #: admin/admin-functions.php:28
 #, fuzzy
 msgid "Uncaught Error"
-msgstr "Nem észlelt hiba"
+msgstr "Nem fogott hiba"
 
 #: admin/class-responsive-plugin-install-helper.php:93
 #, fuzzy
 msgid "Install and activate &raquo;"
-msgstr "Telepítés és aktiválás »"
+msgstr "Telepítse és aktiválja a &raquo;"
 
 #: admin/class-responsive-plugin-install-helper.php:97
 #: admin/class-responsive-plugin-install-helper.php:117
@@ -100,22 +100,22 @@ msgstr "Pro"
 #: admin/templates/free-vs-pro.php:23
 #, fuzzy
 msgid "Mobile Friendly"
-msgstr "Mobilbarát"
+msgstr "Mobil barát"
 
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
 #, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
-msgstr "Csúszka, portfólió, árazási táblázatok, WooCommerce kütyü stb"
+msgstr "Csúszka, portfólió, árképzési táblázatok, WooCommerce kütyü stb."
 
 #: admin/templates/free-vs-pro.php:31
 #, fuzzy
 msgid "Blazing Fast Speed"
-msgstr "Lángoló gyors sebesség"
+msgstr "Villámgyors sebesség"
 
 #: admin/templates/free-vs-pro.php:32
 #, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
-msgstr "A sebességre optimalizált, 2 másodperc alatt terhelhető"
+msgstr "Sebességre optimalizálva, 2 másodperc alatt betöltődik"
 
 #: admin/templates/free-vs-pro.php:39
 #, fuzzy
@@ -126,13 +126,12 @@ msgstr "Teljesen testreszabható"
 #, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
 msgstr ""
-"A testreszabási lehetőségek használata az elrendezéshez, betűtípusokhoz és "
-"színekhez"
+"Az elrendezés, betűtípusok és színek testreszabói beállításainak használata"
 
 #: admin/templates/free-vs-pro.php:42
 #, fuzzy
 msgid "Limited Options"
-msgstr "Korlátozott lehetőségek"
+msgstr "Korlátozott beállítások"
 
 #: admin/templates/free-vs-pro.php:47
 #, fuzzy
@@ -142,17 +141,17 @@ msgstr "Használatra kész webhelysablonok"
 #: admin/templates/free-vs-pro.php:48
 #, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
-msgstr "Használatra kész Elementor oldalkészítő és Gutenberg webhelysablonok"
+msgstr "Használatra kész Elementor oldalépítő és Gutenberg webhelysablonok"
 
 #: admin/templates/free-vs-pro.php:51
 #, fuzzy
 msgid "30+"
-msgstr "30"
+msgstr "30+"
 
 #: admin/templates/free-vs-pro.php:55
 #, fuzzy
 msgid "Exclusive Widgets"
-msgstr "Exkluzív kütyü"
+msgstr "Exkluzív widgetek"
 
 #: admin/templates/free-vs-pro.php:63
 #, fuzzy
@@ -163,19 +162,20 @@ msgstr "Exkluzív tartalom, ajánlatok és ajánlatok"
 #, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
 msgstr ""
-"Hozzáférés az exkluzív WordPress tartalmakhoz, ajánlatokhoz és ajánlatokhoz"
+"Szerezzen hozzáférést exkluzív WordPress tartalmakhoz, ajánlatokhoz és "
+"ajánlatokhoz"
 
 #: admin/templates/free-vs-pro.php:71
 #, fuzzy
 msgid "Private Priority Email Support"
-msgstr "Privát elsőbbségi e-mail támogatás"
+msgstr "Privát prioritású e-mail támogatás"
 
 #: admin/templates/free-vs-pro.php:72
 #, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
 msgstr ""
-"Kell segítség? Csak emeljen fel egy támogatási jegyet az elsőbbségi e-mail "
-"támogatás eléréséhez"
+"Segítségre van szüksége? Csak emelje fel a támogatási jegyet, hogy "
+"elsőbbségi e-mail támogatást kapjon"
 
 #. Theme Name of the plugin/theme
 msgid "Responsive"
@@ -192,22 +192,22 @@ msgstr ""
 #: comments.php:42
 #, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
-msgstr "Egy megjegyzés a következőre: „%1$s”"
+msgstr "Egy megjegyzés a következőhöz: \"%1$s\""
 
 #: comments.php:58 comments.php:71
 #, fuzzy
 msgid "&#8249; Older comments"
-msgstr "Régebbi kommentek"
+msgstr "&#8249; Régebbi megjegyzések"
 
 #: comments.php:60 comments.php:73
 #, fuzzy
 msgid "Newer comments &#8250;"
-msgstr "Újabb hozzászólások"
+msgstr "Újabb megjegyzések &#8250;"
 
 #: comments.php:85
 #, fuzzy
 msgid "Pings&#47;Trackbacks"
-msgstr "Ping / Trackbacks"
+msgstr "Ping&#47;Visszalépés"
 
 #. translators: 1 : Count, 2 : Pings 3 : Post title
 #: comments.php:102
@@ -230,12 +230,12 @@ msgstr "Gomb szín"
 #: core/gutenberg/gutenberg-support.php:36
 #, fuzzy
 msgid "Button Hover Color"
-msgstr "Gomb lebeg szín"
+msgstr "Gomb Rámutatás színe"
 
 #: core/gutenberg/gutenberg-support.php:41
 #, fuzzy
 msgid "Button Hover Text Color"
-msgstr "Gomb hover szöveg színe:"
+msgstr "Gomb rámutatása szövegszíne"
 
 #: core/gutenberg/gutenberg-support.php:46
 msgid "Button Text Color"
@@ -260,7 +260,7 @@ msgstr "Kezdő lépések"
 #: core/includes/classes/class-responsive-admin-settings.php:196
 #, fuzzy
 msgid "Free Vs Pro "
-msgstr "Ingyen vs PRO"
+msgstr "Ingyenes Vs Pro"
 
 #: core/includes/classes/class-responsive-admin-settings.php:231
 #, fuzzy
@@ -273,13 +273,13 @@ msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
 msgstr ""
-"Telepítse az Responsive Add-on-t, hogy felhasználásra kész webhelysablonokat "
-"kapjon, amelyeket egyetlen kattintással importálhatnak."
+"Az Adaptív bővítmények telepítésével egyetlen kattintással elkészülhet a "
+"használatra kész webhelysablonokhoz."
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
 #, fuzzy
 msgid "Learn More &raquo;"
-msgstr "Tudj meg többet \""
+msgstr "Tudjon meg többet &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:269
 msgid "Support"
@@ -288,58 +288,58 @@ msgstr "Támogatás"
 #: core/includes/classes/class-responsive-admin-settings.php:273
 #, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
-msgstr "Van kérdése? Vegye fel a kapcsolatot velünk. Örömmel segítünk"
+msgstr "Kérdése van? Lépjen kapcsolatba velünk. Örömmel segítünk."
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
 #, fuzzy
 msgid "Request Support &raquo;"
-msgstr "Kérjen támogatást »"
+msgstr "Támogatási kérelem &amp;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
 #, fuzzy
 msgid "Change site layout"
-msgstr "A webhely elrendezésének módosítása"
+msgstr "Webhely elrendezésének módosítása"
 
 #: core/includes/classes/class-responsive-admin-settings.php:308
 #, fuzzy
 msgid "Customize fonts/typography"
-msgstr "Testreszabhatja a betűtípusokat / tipográfiát"
+msgstr "Betűtípusok/tipográfia testreszabása"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
 #, fuzzy
 msgid "Upload logo & site icon"
-msgstr "Tölts fel logót és webhely ikont"
+msgstr "Embléma feltöltése & webhely ikon"
 
 #: core/includes/classes/class-responsive-admin-settings.php:318
 #, fuzzy
 msgid "Add/edit navigation menu"
-msgstr "A navigációs menü hozzáadása / szerkesztése"
+msgstr "Navigációs menü hozzáadása/szerkesztése"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
 #, fuzzy
 msgid "Customize header options"
-msgstr "Testreszabhatja a fejléc beállításait"
+msgstr "Fejlécbeállítások testreszabása"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
 #, fuzzy
 msgid "Customize footer options"
-msgstr "Testreszabhatja a lábléc beállításait"
+msgstr "Élőláb beállításainak testreszabása"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
 #, fuzzy
 msgid "Update blog layout"
-msgstr "Frissítse a blog elrendezését"
+msgstr "Blog elrendezésének frissítése"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
 #, fuzzy
 msgid "Update page layout"
-msgstr "Frissítse az oldal elrendezését"
+msgstr "Lapelrendezés frissítése"
 
 #: core/includes/classes/class-responsive-admin-settings.php:346
 #, fuzzy
 msgid "Quick Start:"
-msgstr "Gyors kezdés"
+msgstr "Rövid útmutató:"
 
 #: core/includes/classes/class-responsive-admin-settings.php:365
 msgid "Community"
@@ -351,13 +351,13 @@ msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
-"Ismerje meg az érzékeny energiafelhasználókat. Köszönj, tegyen fel "
-"kérdéseket, adjon visszajelzést és segítsen egymásnak"
+"Ismerje meg az érzékeny power-felhasználókat. Köszönj, kérdezz, adj "
+"visszajelzést, és segítsünk egymásnak"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
 #, fuzzy
 msgid "Join Facebook Group &raquo;"
-msgstr "Csatlakozz a Facebook csoporthoz »"
+msgstr "Csatlakozz on Facebook Group &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:387
 msgid "Feedback"
@@ -370,36 +370,36 @@ msgid ""
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
-"Szia! Köszönjük, hogy az Responsive témát használja. Kérem, tegyen nekünk "
-"egy szívességet és adjon nekünk 5 csillagos minősítést? Az Ön visszajelzése "
-"motiválttá tesz minket, és segíti a reagáló közösség növekedését."
+"szia! Köszönjük, hogy az Érzékeny témát használja. Megtenné, hogy tesz "
+"nekünk egy 5 csillagos értékelést? Visszajelzése motivál minket, és segít a "
+"reszponzív közösség növekedésében."
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
 #, fuzzy
 msgid "Submit Review &raquo;"
-msgstr "Vélemény elküldése \""
+msgstr "Küldje értékelés &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
 #, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
-msgstr "Lángoló gyors, mobilbarát, teljesen testreszabható WordPress téma."
+msgstr "Lángoló gyors, mobil-barát, teljesen testreszabható WordPress téma."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "Akció!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "WooCommerce oldalsáv"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 #, fuzzy
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
-"Ezt az oldalsávot a Termék archívum, Kosár, Pénztár és Fiókom oldalain "
-"fogják használni."
+"Ezt az oldalsávot a Termékarchívum, a Kosár, a Pénztár és a Saját fiók "
+"oldalakon használjuk."
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
@@ -414,7 +414,7 @@ msgstr "Színek"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
 #, fuzzy
 msgid "Cart Buttons"
-msgstr "Gombok"
+msgstr "Kosár gombok"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
@@ -433,19 +433,19 @@ msgstr "Gomb szövege"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:66
 #, fuzzy
 msgid "Button Hover"
-msgstr "Gomb egér alatt"
+msgstr "Gomb rámutatás"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
 #, fuzzy
 msgid "Button Hover Text"
-msgstr "Gomb lebeg szöveg"
+msgstr "Gomb rámutatva szöveg"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
 #, fuzzy
 msgid "Checkout Button"
-msgstr "\"Pénztárhoz\" gomb szövege"
+msgstr "Pénztár gomb"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
@@ -463,12 +463,12 @@ msgstr "Elrendezések"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
 #, fuzzy
 msgid "Main Content Width (%)"
-msgstr "Tartalom szélessége (%)"
+msgstr "Fő tartalomszélesség (%)"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
 #, fuzzy
 msgid "Enable Cross-sells"
-msgstr "Engedélyezze a keresztértékesítést"
+msgstr "Keresztárusító engedélyezése"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
 #, fuzzy
@@ -487,12 +487,12 @@ msgstr "Minden eszközi elrejtése"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
 #, fuzzy
 msgid "Product Catalog Options"
-msgstr "Termékkatalógus opciók"
+msgstr "Termékkatalógus beállításai"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
 #, fuzzy
 msgid "Shop Options"
-msgstr "Vásárlási lehetőségek"
+msgstr "Üzlet beállításai"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
 msgid "Product Options"
@@ -501,18 +501,18 @@ msgstr "Termék opciók"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
 #, fuzzy
 msgid "Single Product Options"
-msgstr "Egyedi termékek opciói"
+msgstr "Egyetlen termék beállításai"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:58
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
 #, fuzzy
 msgid "Cart Options"
-msgstr "Lehetőségek"
+msgstr "Kosár beállításai"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
 #, fuzzy
 msgid "Rating Color"
-msgstr "Értékelés szín"
+msgstr "Minősítés színe"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
 msgid "Price Color"
@@ -521,13 +521,13 @@ msgstr "Egységár szín"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
 #, fuzzy
 msgid "Add To Cart Buttons"
-msgstr "Kosárba gomb hozzáadása"
+msgstr "Hozzáadás a kosárba gombokhoz"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -572,12 +572,12 @@ msgstr "Nincs oldalsáv"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
 #, fuzzy
 msgid "Shop Product"
-msgstr "Shop termék"
+msgstr "Termék vásárlása"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
 #, fuzzy
 msgid "Catalog View"
-msgstr "Katalógus"
+msgstr "Katalógus nézet"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
 msgid "Grid View"
@@ -590,7 +590,7 @@ msgstr "Lista nézet"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
 #, fuzzy
 msgid "Content Aligmnment"
-msgstr "Tartalomkezelés"
+msgstr "Tartalom Aligmnment"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
@@ -645,12 +645,12 @@ msgstr "Jobbra"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
 #, fuzzy
 msgid "Shop Elements"
-msgstr "Elemek"
+msgstr "Boltelemei"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
 #, fuzzy
 msgid "Sale Notification"
-msgstr "Értesítés"
+msgstr "Eladó értesítés"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
 msgid "None"
@@ -672,17 +672,17 @@ msgstr "Alapértelmezett"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
 #, fuzzy
 msgid "Custom String"
-msgstr "Egyéni karakterlánc szerkesztése"
+msgstr "Egyéni karakterlánc"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
 #, fuzzy
 msgid "Sale % Value"
-msgstr "Eladó% érték"
+msgstr "Eladás % érték"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
 #, fuzzy
 msgid "Sale Bubble Style"
-msgstr "Eladó buborék stílus"
+msgstr "Eladó buborék stílusa"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
 msgid "Circle"
@@ -691,7 +691,7 @@ msgstr "Kör"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
 #, fuzzy
 msgid "Circle Outline"
-msgstr "Kör vázlata"
+msgstr "Kör körvonala"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
 msgid "Square"
@@ -700,25 +700,25 @@ msgstr "Négyzet"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:125
 #, fuzzy
 msgid "Square Outline"
-msgstr "Négyzet alakú vázlat"
+msgstr "Négyzetes körvonal"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:63
 #, fuzzy
 msgid "Product Elements"
-msgstr "Termék elemek"
+msgstr "Termékelemek"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:67
 msgid "Gallery Layout"
 msgstr "Galéria elrendezés"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "Függőleges"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "Vízszintes"
@@ -726,20 +726,21 @@ msgstr "Vízszintes"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
 #, fuzzy
 msgid "Single Product Structure"
-msgstr "Egyetlen termék felépítése"
+msgstr "Egytermék-struktúra"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
 msgid "Cart"
 msgstr "Kosár"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+#, fuzzy
 msgid " / "
 msgstr "/"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
 #, fuzzy
 msgid "Link values together"
-msgstr "Összekapcsolja az értékeket"
+msgstr "Értékek összekapcsolása"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
@@ -768,7 +769,7 @@ msgstr "Örököl"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
 #, fuzzy
 msgid "Thin: 100"
-msgstr "Halvány (100)"
+msgstr "Vékony: 100"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
@@ -810,7 +811,7 @@ msgstr "Extra kövér: 800"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
 #, fuzzy
 msgid "Black: 900"
-msgstr "Fekete:"
+msgstr "Fekete: 900"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
 #, fuzzy
@@ -833,7 +834,7 @@ msgstr "Google betűtípusok"
 #: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
 #, fuzzy
 msgid "PRO"
-msgstr "PRO"
+msgstr "Pro"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
 msgid "View PRO Features"
@@ -842,7 +843,7 @@ msgstr "PRO szolgáltatások"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
 #, fuzzy
 msgid "Pro Ready Sites"
-msgstr "Pro kész oldalak"
+msgstr "Pro kész webhelyek"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
 msgid "Form Builder"
@@ -851,7 +852,7 @@ msgstr "Űrlap szerkesztő"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
 #, fuzzy
 msgid "Interactive Sliders and Carousels"
-msgstr "Interaktív csúszkák és körhintak"
+msgstr "Interaktív csúszkák és körhinták"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
 msgid "Pricing Tables"
@@ -860,12 +861,12 @@ msgstr "Ártábkázat"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
 #, fuzzy
 msgid "Portfolio and Post Layouts"
-msgstr "Portfólió és utóelrendezések"
+msgstr "Portfólió- és bejegyzéselrendezések"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
 #, fuzzy
 msgid "Private, Priority Support"
-msgstr "Privát, prioritási támogatás"
+msgstr "Privát, kiemelt támogatás"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
 #, fuzzy
@@ -875,12 +876,12 @@ msgstr "Szerezd meg a PRO verziót!"
 #: core/includes/customizer/customizer.php:29
 #, fuzzy
 msgid "CSS Styles"
-msgstr "CSS stílusok"
+msgstr "CSS-stílusok"
 
 #: core/includes/customizer/customizer.php:43
 #, fuzzy
 msgid "Custom CSS Styles"
-msgstr "Egyéni CSS stílusok"
+msgstr "Egyéni CSS-stílusok"
 
 #: core/includes/customizer/customizer.php:64
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
@@ -936,7 +937,8 @@ msgstr "Tartalom"
 msgid "Site Branding"
 msgstr "Webhely márkajelzése"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "Fő navigáció"
 
@@ -967,13 +969,13 @@ msgstr "Kategória"
 msgid "Ratings"
 msgstr "Értékelések"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 #, fuzzy
 msgid "Read more &raquo;"
-msgstr "Olvass tovább \""
+msgstr "Tovább &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "Tovább &raquo;"
 
@@ -986,7 +988,7 @@ msgstr "Belépési elemek"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
 #, fuzzy
 msgid "Entry Featured Image"
-msgstr "Belépés kiemelt képe"
+msgstr "Kiemelt kép"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
@@ -1030,18 +1032,18 @@ msgstr "közép"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:106
 #, fuzzy
 msgid "Entry Title"
-msgstr "Nevezési cím"
+msgstr "Bejegyzés címe"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
 #, fuzzy
 msgid "Entry Meta"
-msgstr "Belépési meta"
+msgstr "Belépés Meta"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
 #, fuzzy
 msgid "Meta Elements"
-msgstr "Elemek"
+msgstr "Meta elemek"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
@@ -1067,18 +1069,18 @@ msgstr "Hozzászólások"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
 #, fuzzy
 msgid "Meta Separator"
-msgstr "Meta elválasztó"
+msgstr "Meta szeparátor"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
 #, fuzzy
 msgid "Meta Alignment"
-msgstr "Igazítás"
+msgstr "Meta igazítása"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
 #, fuzzy
 msgid "Entry Content"
-msgstr "Nevezési tartalom"
+msgstr "Bejegyzés tartalma"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
 msgid "Content Type"
@@ -1105,7 +1107,7 @@ msgstr "További szöveg olvasása"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
 #, fuzzy
 msgid "Read More Type"
-msgstr "Tovább olvasom"
+msgstr "Tovább típus"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
 msgid "Link"
@@ -1116,12 +1118,12 @@ msgstr "Link"
 #: core/includes/customizer/settings/class-responsive-panel.php:86
 #, fuzzy
 msgid "Content Header"
-msgstr "tartalomfejléc"
+msgstr "Tartalom fejléce"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
 #, fuzzy
 msgid "Enable Blog Page Title"
-msgstr "Az oldal címének engedélyezése"
+msgstr "Bloglap címának engedélyezése"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
 msgid "Blog Page Title"
@@ -1130,12 +1132,12 @@ msgstr "Blog oldal címe"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
 #, fuzzy
 msgid "Entry Columns"
-msgstr "Nevezési oszlopok"
+msgstr "Bejegyzés oszlopok"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
 #, fuzzy
 msgid "Enable Masonry Layout"
-msgstr "Kőműves elrendezés engedélyezése"
+msgstr "Falazatelrendezés engedélyezése"
 
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:46
 msgid "Title Color"
@@ -1148,17 +1150,17 @@ msgstr "Leírás színe"
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
 #, fuzzy
 msgid "Breadcrumb Color"
-msgstr "Morzsamenü link színe"
+msgstr "Zsemlemorzsa színe"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
 #, fuzzy
 msgid "Disable breadcrumb list?"
-msgstr "Letiltja a zsemlemorzsát?"
+msgstr "Letiltja a zsemlemorzsalistát?"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
 #, fuzzy
 msgid "Breadcrumb Position"
-msgstr "Breadcrumb helyzet"
+msgstr "Zsemlemorzsa pozíciója"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
 #, fuzzy
@@ -1168,7 +1170,7 @@ msgstr "Címsor előtt"
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
 #, fuzzy
 msgid "After Heading"
-msgstr "A címsor után"
+msgstr "Címsor után"
 
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
@@ -1198,7 +1200,7 @@ msgstr "Dokumentáció"
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
 #, fuzzy
 msgid "To have access to a shop section please install and configure %1$s."
-msgstr "Az üzletszakasz eléréséhez telepítse és konfigurálja a%1$s fájlt."
+msgstr "Az üzletrész eléréséhez telepítse és konfigurálja a következőt: %1$s."
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
 msgid "WooCommerce plugin"
@@ -1215,8 +1217,8 @@ msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
 msgstr ""
-"Hozzáférés még erősebb funkciókhoz, amelyek segítségével egy gyors, gyorsan "
-"reagáló weboldalt készíthet, egy idő alatt."
+"Szerezzen még hatékonyabb funkciókat, amelyek segítenek egy gyönyörű, gyors "
+"és érzékeny weboldal felépítésében, nincs idő."
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
@@ -1241,7 +1243,7 @@ msgstr "Link szín"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:84
 #, fuzzy
 msgid "Links Hover Color"
-msgstr "Linkek szövegének rámutatáskori színe"
+msgstr "Hivatkozások rámutatásszíne"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
 #, fuzzy
@@ -1259,71 +1261,76 @@ msgstr "Oszlopok száma"
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:66
 #, fuzzy
 msgid "Footer Bar"
-msgstr "Lábléc"
+msgstr "Láblécsáv"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+#, fuzzy
+msgid "Copyright text"
+msgstr "Szerzői jogi szöveg"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Elrejtés powered by érzékeny téma"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "Közösségi linkek"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "RSS hírcsatorna"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "E-mail cím"
 
@@ -1335,7 +1342,7 @@ msgstr "Parancsfájlok"
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
 #, fuzzy
 msgid "Embeds to footer.php"
-msgstr "Beágyaz a footer.php fájlba"
+msgstr "Beágyazódik footer.php"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
@@ -1348,7 +1355,7 @@ msgstr "Szegély színe"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
 #, fuzzy
 msgid "Site Title Color"
-msgstr "Az oldal nevének színe"
+msgstr "Webhely címe színe"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
 msgid "Site Title Hover Color"
@@ -1361,7 +1368,7 @@ msgstr "Cimke sor Szín"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
 #, fuzzy
 msgid "Header Widget"
-msgstr "Fejléc-widget"
+msgstr "Fejléc widget"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
 #, fuzzy
@@ -1371,7 +1378,7 @@ msgstr "Teljes szélességű fejléc"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
 #, fuzzy
 msgid "Inline logo & Site Title"
-msgstr "Beépített logó és webhely címe"
+msgstr "Inline embléma & Webhely címe"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
 msgid "Header Elements"
@@ -1384,12 +1391,12 @@ msgstr "Fejléc kialakítás"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
 #, fuzzy
 msgid "Header Alignment"
-msgstr "A fejléc igazítása"
+msgstr "Élőfej-igazítás"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #, fuzzy
 msgid "Logo Padding (px)"
-msgstr "Logó betét (px)"
+msgstr "Embléma kitöltése (px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
 msgid "Transparent Header"
@@ -1402,32 +1409,32 @@ msgstr "Engedélyezés az egész weboldalon"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
 #, fuzzy
 msgid "Site Content Padding (px)"
-msgstr "A webhely tartalmának kitöltése (px)"
+msgstr "Webhelytartalom kitöltése (px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
 #, fuzzy
 msgid "Disable on 404, Search & Archives?"
-msgstr "Letiltja a 404-es keresést és archívumokat?"
+msgstr "Tiltsa le a 404, keresés a reggeli Archívum?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
 #, fuzzy
 msgid "Disable on Blog page?"
-msgstr "Letiltja a blogoldalt?"
+msgstr "Letiltja a Blog oldalon?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
 #, fuzzy
 msgid "Disable on Latest Posts Page?"
-msgstr "Letiltja a legújabb hozzászólások oldalon?"
+msgstr "Megbénít-ra legutolsó póznák oldal?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
 #, fuzzy
 msgid "Disable on Pages?"
-msgstr "Tiltsa le az oldalakon"
+msgstr "Megbénít-ra oldalak?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
 #, fuzzy
 msgid "Disable on Posts?"
-msgstr "Tiltsa le a hozzászólásokon"
+msgstr "Megbénít-ra póznák?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
 #, fuzzy
@@ -1442,12 +1449,12 @@ msgstr "Fejléc dobozok"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
 #, fuzzy
 msgid "Enable Header Widgets"
-msgstr "Engedélyezze a fejléc kütyüket"
+msgstr "Fejlécwidgetek engedélyezése"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
 #, fuzzy
 msgid "Widgets Position"
-msgstr "A kütyü pozíciója"
+msgstr "Widgets pozíció"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
 #, fuzzy
@@ -1457,7 +1464,7 @@ msgstr "Fejléc felett"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
 #, fuzzy
 msgid "In Header"
-msgstr "Mutassuk a fejrészben"
+msgstr "Fejléc"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
 msgid "Below Header"
@@ -1466,7 +1473,7 @@ msgstr "Elsődleges fejléc alatt"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
 #, fuzzy
 msgid "Widgets Alignment"
-msgstr "Modulok igazítása"
+msgstr "Widgetek igazítása"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
 msgid "Spread"
@@ -1475,22 +1482,22 @@ msgstr "Szórás mértéke"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:159
 #, fuzzy
 msgid "Space Around"
-msgstr "Hely körül"
+msgstr "Szóköz körül"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #, fuzzy
 msgid "Active Menu Background Color"
-msgstr "Aktív menü háttér színe"
+msgstr "Aktív menü háttérszíne"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
 #, fuzzy
 msgid "Menu Item Link Color"
-msgstr "Menüelem színe"
+msgstr "Menüelem hivatkozásának színe"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
 #, fuzzy
 msgid "Menu Item Link Hover Color"
-msgstr "Menü link színe rámutatáskor:"
+msgstr "Menüelem hivatkozása rámutatásszíne"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
 msgid "Sub Menu Background Color"
@@ -1499,22 +1506,22 @@ msgstr "Almenü háttérszíne"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
 #, fuzzy
 msgid "Sub Menu Item Link Color"
-msgstr "Almenü elem Link színe"
+msgstr "Almenüelem hivatkozásának színe"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
 #, fuzzy
 msgid "Sub Menu Item Link Hover Color"
-msgstr "Almenü elem Link Hover Color"
+msgstr "Almenüelem hivatkozása lebegő színre"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
 #, fuzzy
 msgid "Menu Toggle Background Color"
-msgstr "Nyitott kapcsoló háttérszín"
+msgstr "Menü háttérszínének váltása"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
 #, fuzzy
 msgid "Menu Toggle Color"
-msgstr "Menü váltása a színben"
+msgstr "Menü színváltása"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
 #, fuzzy
@@ -1524,7 +1531,7 @@ msgstr "Teljes szélességű fő navigáció"
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
 #, fuzzy
 msgid "Enable Mobile Menu"
-msgstr "A mobil menü engedélyezése"
+msgstr "Mobil menü engedélyezése"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
 msgid "Breakpoint"
@@ -1537,7 +1544,7 @@ msgstr "Legördülő"
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
 #, fuzzy
 msgid "FullScreen"
-msgstr "Teljes képernyő"
+msgstr "Fullscreen"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-panel.php:67
@@ -1547,12 +1554,12 @@ msgstr "Oldalsáv"
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
 #, fuzzy
 msgid "Sidebar Menu Alignment"
-msgstr "Oldalsáv menü igazítása"
+msgstr "Oldalsáv menüigazítása"
 
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
 #, fuzzy
 msgid "Embeds to header.php"
-msgstr "Beágyazás a header.php-be"
+msgstr "Beágyazódik header.php"
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
@@ -1563,7 +1570,7 @@ msgstr "Oldalcím"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
 #, fuzzy
 msgid "Site Tagline"
-msgstr "Honlap alcíme"
+msgstr "Cimke sor Szín"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:50
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:47
@@ -1577,12 +1584,12 @@ msgstr "Egyedi kezdőlap"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 #, fuzzy
 msgid "Enable Custom Front Page"
-msgstr "Az egyéni kezdőlap engedélyezése"
+msgstr "Egyéni előlap engedélyezése"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
 #, fuzzy
 msgid "Overrides the WordPress front page option"
-msgstr "Felülbírálja a WordPress kezdőlapjának lehetőségét"
+msgstr "Felülbírálja a WordPress címlapopcióját"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
 #, fuzzy
@@ -1590,7 +1597,7 @@ msgid "Hero Area"
 msgstr "Hős terület"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 msgid "HAPPINESS"
 msgstr "Boldogság"
 
@@ -1599,26 +1606,26 @@ msgid "Headline"
 msgstr "Cím"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 #, fuzzy
 msgid "IS A WARM CUP"
-msgstr "Meleg kupa"
+msgstr "IS Egy meleg csésze"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
 msgid "Subheadline"
 msgstr "Az alcímsor"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 #, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
 "can be an image or even YouTube video if you like."
 msgstr ""
-"A cím, felirat és ez a nagyon tartalom a Téma opcióból szerkeszthető. "
-"Cselekvés gomb és a rendeltetési hely linkje is. A jobb oldalon lévő kép "
-"lehet kép vagy akár YouTube-videó is, ha úgy tetszik."
+"A cím, felirat, és ez nagyon tartalom szerkeszthető theme option. Call to "
+"Action gombot és a céllinket is. Kép a jobb oldalon lehet egy kép, vagy akár "
+"YouTube videó, ha úgy tetszik."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
 msgid "Content Area"
@@ -1627,24 +1634,24 @@ msgstr "Tartalom terület"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
 #, fuzzy
 msgid "Disable Call to Action Button?"
-msgstr "Letiltja a cselekvésre ösztönzés gombot?"
+msgstr "Letiltja a cselekvésre felszólítás gombot?"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
 #, fuzzy
 msgid "Call to Action (URL)"
-msgstr "Felszólítás cselekvésre URL"
+msgstr "Cselekvésre való felhívás (URL)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
 #, fuzzy
 msgid "Call to Action (Text)"
-msgstr "Action szöveg hívása"
+msgstr "Cselekvésre való felhívás (szöveg)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
 #, fuzzy
 msgid "Call to Action Button Style"
-msgstr "Cselekvésre hívás gomb stílusa"
+msgstr "Cselekvésre szólítás gomb stílusa"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
 msgid "Featured Content"
@@ -1653,12 +1660,12 @@ msgstr "Kiemelt tartalom"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
 #, fuzzy
 msgid "Paste your shortcode, video or image source"
-msgstr "Illessze be a rövid kódot, a videót vagy a képforrást"
+msgstr "A rövidkód, a videó vagy a kép forrásának beillesztése"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
 #, fuzzy
 msgid "About Section"
-msgstr "Bemutatkozás szakasz"
+msgstr "Engedélyezi a Bemutatkozás szakaszt"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
 msgid "Enable About Section"
@@ -1668,27 +1675,27 @@ msgstr "Engedélyezi a Bemutatkozás szakaszt"
 #: partials/custom-home/featured-area.php:105
 #, fuzzy
 msgid "About Box Title"
-msgstr "A Box címe"
+msgstr "A doboz címe"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
 #, fuzzy
 msgid "About Title"
-msgstr "A címről"
+msgstr "Cím – például"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
 #, fuzzy
 msgid "About Text"
-msgstr "Bemutatkozó szöveg:"
+msgstr "Szöveg – be"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:353
 #, fuzzy
 msgid "Enter url as http://www.example.com"
-msgstr "Írja be az URL címet: http://www.example.com"
+msgstr "Adja meg az URL-t http://www.example.com"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
 #, fuzzy
 msgid "Feature Section"
-msgstr "Feature szakasz"
+msgstr "Kiemelt rész engedélyezése"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
 msgid "Enable Feature Section"
@@ -1701,7 +1708,7 @@ msgstr "Szolgáltatás címe"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
 #, fuzzy
 msgid "Select post for feature 1"
-msgstr "Válassza az 1. szolgáltatás bejegyzését"
+msgstr "Bejegyzés kiválasztása az 1."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
@@ -1711,19 +1718,18 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the feature. Recommended image size for the featured images: 130 x 130px"
 msgstr ""
-"A kiemelt képet, címet és a hozzászólások tartalmát használják a "
-"szolgáltatás megjelenítésére. A javasolt képméret a kiemelt képekhez: 130 x "
-"130 képpont"
+"A kiemelt kép, cím és tartalom a hozzászólások fogják használni, hogy "
+"megjelenítse a funkciót. Ajánlott képméret a kiemelt képek: 130 x 130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
 #, fuzzy
 msgid "Select post for feature 2"
-msgstr "Válassza ki a 2. szolgáltatás bejegyzését"
+msgstr "Bejegyzés kiválasztása a 2- es funkcióhoz"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
 #, fuzzy
 msgid "Select post for feature 3"
-msgstr "Válassza ki a 3. szolgáltatás bejegyzését"
+msgstr "Bejegyzés kiválasztása a 3-as funkcióhoz"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
 msgid "Testimonial Section"
@@ -1732,7 +1738,7 @@ msgstr "Küldetés szakasz"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
 #, fuzzy
 msgid "Enable Testimonial Section"
-msgstr "Engedélyezze a beszámoló szakaszát"
+msgstr "Ajánlási szakasz engedélyezése"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
 #: partials/custom-home/featured-area.php:217
@@ -1754,8 +1760,8 @@ msgid ""
 "the client testimonials. Recommended image size for the featured images: 178 "
 "x 178px"
 msgstr ""
-"A kiemelt képet, címet és a hozzászólások tartalmát használják az ügyfél "
-"ajánlásainak megjelenítésére. A javasolt képméret a kiemelt képekhez: 178 x "
+"A kiemelt kép, cím és tartalom a hozzászólások fogják használni, hogy "
+"megjelenítse az ügyfél ajánlások. Ajánlott képméret a kiemelt képek: 178 x "
 "178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
@@ -1773,12 +1779,12 @@ msgstr "csapat"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
 #, fuzzy
 msgid "Team Title"
-msgstr "Cím"
+msgstr "Csapat címe"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
 #, fuzzy
 msgid "Select post for team member1"
-msgstr "Válasszon hozzászólást a csapattag1 számára"
+msgstr "Bejegyzés kiválasztása a csapattagszámára1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
@@ -1788,34 +1794,33 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
 msgstr ""
-"A kiemelt képet, címet és a hozzászólások tartalmát a csapattag "
-"megjelenítésére használják. A javasolt képméret a kiemelt képekhez: 178 x "
-"178px"
+"A kiemelt kép, cím és a hozzászólások tartalmát használjuk a csapattag "
+"megjelenítéséhez. Ajánlott képméret a kiemelt képek: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
 #, fuzzy
 msgid "Select post for team member2"
-msgstr "Válasszon hozzászólást a team member2 számára"
+msgstr "Bejegyzés kiválasztása a csapattagszámára2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
 #, fuzzy
 msgid "Select post for team member3"
-msgstr "Válasszon hozzászólást a csapat tagja számára3"
+msgstr "Bejegyzés kiválasztása a csapattagszámára3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
 #, fuzzy
 msgid "Click to disable home page widgets"
-msgstr "Kattintson a kezdőlap-kütyü letiltásához"
+msgstr "Kattintson ide a kezdőlap widgetek letiltásához"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
 #, fuzzy
 msgid "Contact Section"
-msgstr "Kapcsolat szakasz"
+msgstr "Kapcsolattartó szakasz"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
 #, fuzzy
 msgid "Enable Contact Section"
-msgstr "A Kapcsolat szakasz engedélyezése"
+msgstr "Névjegyszakasz engedélyezése"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
 msgid "Contact Us"
@@ -1824,46 +1829,46 @@ msgstr "Kapcsolatfelvétel"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
 #, fuzzy
 msgid "Contact section Title"
-msgstr "Kapcsolatfelvétel szakasz címe"
+msgstr "Kapcsolatszakasz címe"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
 #, fuzzy
 msgid "Contact subtitle"
-msgstr "Kapcsolat felirat"
+msgstr "Kapcsolat alcíme"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
 #, fuzzy
 msgid "Contact section Subtitle"
-msgstr "Kapcsolatfelvétel szakasz alcíme"
+msgstr "Kapcsolat szakasz Felirat"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
 msgid "Address"
 msgstr "Cím"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "E-mail"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
 #, fuzzy
 msgid "Phone no"
-msgstr "Telefonszám"
+msgstr "Telefon nem"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
 #, fuzzy
 msgid "Contact form shortcode"
-msgstr "Kapcsolati űrlap Shortcode"
+msgstr "Kapcsolatfelvételi űrlap rövidkódja"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
 #, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
-msgstr "Ide helyezheti a 7. kapcsolattartási űrlapot."
+msgstr "Tudod tesz Kapcsolat Forma 7 shortcode itt."
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
 #, fuzzy
 msgid "Page Elements"
-msgstr "Oldal elemek"
+msgstr "Oldalelemek"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
@@ -1874,7 +1879,7 @@ msgstr "Hozzászólás elemek"
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
 #, fuzzy
 msgid "Page Featured Image"
-msgstr "Kiemelt kép"
+msgstr "Oldal kiemelt kép"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
 msgid "Page Title"
@@ -1905,7 +1910,7 @@ msgstr "Főmenü"
 #: core/includes/customizer/settings/class-responsive-panel.php:59
 #, fuzzy
 msgid "Header Menu Options"
-msgstr "Fejléc menübeállítások"
+msgstr "Fejlécmenü beállításai"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:68
 msgid "Sidebar Options"
@@ -1934,7 +1939,7 @@ msgstr "Blogbejegyzés"
 #: core/includes/customizer/settings/class-responsive-panel.php:104
 #, fuzzy
 msgid "Single Blog Post"
-msgstr "Egy blogbejegyzés"
+msgstr "Egyetlen blogbejegyzés"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:112
 msgid "Page"
@@ -1967,12 +1972,12 @@ msgstr "Háttér"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
 #, fuzzy
 msgid "Box Background Color"
-msgstr "Info Box háttérszíne"
+msgstr "Doboz háttérszíne"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
 #, fuzzy
 msgid "Alternate Background Color"
-msgstr "Háttér színének kiválasztása"
+msgstr "Alternatív háttérszín"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
 #, fuzzy
@@ -1986,37 +1991,37 @@ msgstr "Szövegtörzs színe"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
 #, fuzzy
 msgid "Heading 1 (H1) Color"
-msgstr "1. fejezet (H1) Szín"
+msgstr "1. fejezet (H1) színe"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
 #, fuzzy
 msgid "Heading 2 (H2) Color"
-msgstr "2. fejezet (H2) Szín"
+msgstr "2. fejezet (H2) színe"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:87
 #, fuzzy
 msgid "Heading 3 (H3) Color"
-msgstr "3. fejezet (H3) Szín"
+msgstr "3. címsor (H3) színe"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:91
 #, fuzzy
 msgid "Heading 4 (H4) Color"
-msgstr "4. fejezet (H4) Szín"
+msgstr "4."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:95
 #, fuzzy
 msgid "Heading 5 (H5) Color"
-msgstr "5. fejezet (H5) Szín"
+msgstr "5. fejezet (H5) színe"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
 #, fuzzy
 msgid "Heading 6 (H6) Color"
-msgstr "6. fejezet (H6) Szín"
+msgstr "6."
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
 #, fuzzy
 msgid "Meta Text Color"
-msgstr "Szövegszín"
+msgstr "Meta szöveg színe"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
 msgid "Links"
@@ -2068,12 +2073,12 @@ msgstr "Címke színe"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
 #, fuzzy
 msgid "Hide Site Title"
-msgstr "Oldalcím"
+msgstr "Webhely címének elrejtése"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
 #, fuzzy
 msgid "Hide Tagline"
-msgstr "Alcím elrejtése"
+msgstr "Tagline elrejtése"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
 msgid "Width"
@@ -2090,7 +2095,7 @@ msgstr "Teljes szélesség"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
 #, fuzzy
 msgid "Container Width (px)"
-msgstr "Tároló szélessége (px)"
+msgstr "Konténer szélessége (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
 msgid "Boxed"
@@ -2099,12 +2104,12 @@ msgstr "Boxed"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
 #, fuzzy
 msgid "Content Boxed"
-msgstr "Tartalom dobozban"
+msgstr "Tartalom dobozos"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
 #, fuzzy
 msgid "Box Padding (px)"
-msgstr "Dobozbetét (px)"
+msgstr "Dobozos kitöltés (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
 #, fuzzy
@@ -2115,13 +2120,13 @@ msgstr "Doboz sugara (px)"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
 #, fuzzy
 msgid "Padding (px)"
-msgstr "Padding (px)"
+msgstr "Kitöltés (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
 #, fuzzy
 msgid "Radius (px)"
-msgstr "Sugár (képpont)"
+msgstr "Sugár (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
@@ -2132,7 +2137,7 @@ msgstr "Szegély szélessége (px)"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
 #, fuzzy
 msgid "Form Inputs"
-msgstr "Űrlap bemenetek"
+msgstr "Űrlapbemenetek"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
@@ -2165,13 +2170,13 @@ msgstr "Címsor 4 (H4)"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
 #, fuzzy
 msgid "Heading 5 (H5)"
-msgstr "5. fejezet (H5)"
+msgstr "5."
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
 #, fuzzy
 msgid "Heading 6 (H6)"
-msgstr "6. fejezet (H6)"
+msgstr "6."
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
 #, fuzzy
@@ -2181,7 +2186,7 @@ msgstr "Beviteli mezők"
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
 #, fuzzy
 msgid "Exclude Categories from Blog page"
-msgstr "A kategóriák kizárása a blogoldalon"
+msgstr "Kategóriák kizárása a bloglapról"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
 #, fuzzy
@@ -2189,8 +2194,8 @@ msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
 msgstr ""
-"Kérjük, válassza ki a bejegyzés kategóriáit, amelyeket nem szabad "
-"megjeleníteni a blog oldalon"
+"Kérjük, válassza ki a post kategóriákat, amelyeket nem kell megjeleníteni a "
+"blog oldalon"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
 msgid "General Typography"
@@ -2252,64 +2257,87 @@ msgstr "Sormagasság"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:621
 #, fuzzy
 msgid "Letter Spacing (px)"
-msgstr "Betűtávolságok (px)"
+msgstr "Betűköz (px)"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:659
 msgid "Font Color"
 msgstr "Betűszín"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "szia! Köszönjük, hogy az Érzékeny témát használja."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"Megtenné, hogy tesz nekünk egy 5 csillagos értékelést? Visszajelzése motivál "
+"minket, és segít a reszponzív közösség növekedésében."
+
+#: core/includes/functions-admin.php:61
+msgid "Ok, you deserve it"
+msgstr "Rendben, megérdemli"
+
+#: core/includes/functions-admin.php:62
+msgid "Nope, maybe later"
+msgstr "Nem, talán később"
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "Már megtettem"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "Főoldal"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 #, fuzzy
 msgid "Archive for %s"
-msgstr "Archívum “<ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>”"
+msgstr "Archiválás a következőhöz: %s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "Keresési eredmények: %s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 #, fuzzy
 msgid "Posts tagged %s"
-msgstr ""
-"Bejegyzés címkézve <ph id=\"mtc_1\" equiv-text=\"base64:Jmx0O2VtJmd0Ow==\"/"
-"><ph id=\"mtc_2\" equiv-text=\"base64:JXM=\"/><ph id=\"mtc_3\" equiv-text="
-"\"base64:Jmx0Oy9lbSZndDs=\"/>"
+msgstr "Címkézett bejegyzések: %s"
 
 #. translators: %s: Author pages
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "Az összes %s általi bejegyzés megtekintése"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "Hiba 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "Oldal: %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 #, fuzzy
 msgid "Yelp!"
 msgstr "Yelp"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr "négyzet"
 
@@ -2317,7 +2345,7 @@ msgstr "négyzet"
 #: image.php:59 index.php:56 partials/page/content.php:15
 #, fuzzy
 msgid "Read more &#8250;"
-msgstr "Tovább olvasom"
+msgstr "Tovább &#8250;"
 
 #: core/includes/functions-sidebar.php:28
 msgid "Main Sidebar"
@@ -2328,42 +2356,43 @@ msgstr "Fő oldalsáv"
 msgid ""
 "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
 msgstr ""
-"1. terület - sidebar.php - Alapértelmezett, Blog, Blog kivonat oldalsablonok"
+"Terület 1 - sidebar.php - Kijelzők alapértelmezett, Blog, Blog Részlet oldal "
+"sablonok"
 
 #: core/includes/functions-sidebar.php:40
 #, fuzzy
 msgid "Home Widget 1"
-msgstr "Otthoni widget 1"
+msgstr "Főoldal Widget 1"
 
 #: core/includes/functions-sidebar.php:41
 #, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr "6. terület - sidebar-home.php - Megjeleníti a kezdőlapon"
+msgstr "Terület 6 - sidebar-home.php - Megjeleníti a honlapon"
 
 #: core/includes/functions-sidebar.php:52
 #, fuzzy
 msgid "Home Widget 2"
-msgstr "2. Otthoni Widget"
+msgstr "Főoldal Widget 2"
 
 #: core/includes/functions-sidebar.php:53
 #, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr "7. terület - sidebar-home.php - Megjeleníti a kezdőlapon"
+msgstr "7. terület - sidebar-home.php - Kijelzők a honlapon"
 
 #: core/includes/functions-sidebar.php:64
 #, fuzzy
 msgid "Home Widget 3"
-msgstr "Otthoni widget 3"
+msgstr "Főoldal Widget 3"
 
 #: core/includes/functions-sidebar.php:65
 #, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr "8. terület - sidebar-home.php - Megjeleníti a kezdőlapon"
+msgstr "8. terület - sidebar-home.php - Kijelzők a honlapon"
 
 #: core/includes/functions-sidebar.php:76
 #, fuzzy
 msgid "Gallery Sidebar"
-msgstr "Galéria oldalsávja"
+msgstr "Galéria oldalsáv"
 
 #: core/includes/functions-sidebar.php:77
 #, fuzzy
@@ -2371,8 +2400,8 @@ msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
 msgstr ""
-"9. terület - sidebar-gallery.php - Az oldalon jelenik meg, miután egy képre "
-"kattintottak a galériában"
+"9. terület - sidebar-gallery.php - Megjeleníti az oldalon, miután egy kép "
+"reked egy galériában"
 
 #: core/includes/functions-sidebar.php:88
 #, fuzzy
@@ -2382,54 +2411,54 @@ msgstr "Colophon Widget"
 #: core/includes/functions-sidebar.php:89
 #, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr "10. terület - sidebar-colophon.php, 100%szélességű lábléc kütyü"
+msgstr "Terület 10 - sidebar-colophon.php, 100%-os szélességfooter kütyü"
 
 #: core/includes/functions-sidebar.php:101
 #, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr "11. terület - sidebar-top.php - A fejléc jobb oldalán jelenik meg"
+msgstr "11-es terület - sidebar-top.php - A fejléc jobb oldalán látható"
 
 #: core/includes/functions-sidebar.php:112
 #, fuzzy
 msgid "Footer Widgets 1"
-msgstr "Footer widgets"
+msgstr "Lábléc widgetek 1"
 
 #: core/includes/functions-sidebar.php:113
 #, fuzzy
 msgid "Area 12 - sidebar-footer.php"
-msgstr "12. terület - sidebar-footer.php"
+msgstr "Terület 12 - sidebar-footer.php"
 
 #: core/includes/functions-sidebar.php:123
 #, fuzzy
 msgid "Footer Widgets 2"
-msgstr "Footer widgets"
+msgstr "Lábléc widgetek 2"
 
 #: core/includes/functions-sidebar.php:124
 #, fuzzy
 msgid "Area 13 - sidebar-footer.php"
-msgstr "13. terület - sidebar-footer.php"
+msgstr "Terület 13 - sidebar-footer.php"
 
 #: core/includes/functions-sidebar.php:134
 #, fuzzy
 msgid "Footer Widgets 3"
-msgstr "Footer widgets"
+msgstr "Lábléc widgetek 3"
 
 #: core/includes/functions-sidebar.php:135
 #, fuzzy
 msgid "Area 14 - sidebar-footer.php"
-msgstr "14. terület - sidebar-footer.php"
+msgstr "Terület 14 - sidebar-footer.php"
 
 #: core/includes/functions-sidebar.php:145
 #, fuzzy
 msgid "Footer Widgets 4"
-msgstr "Footer widgets"
+msgstr "Lábléc Widgets 4"
 
 #: core/includes/functions-sidebar.php:146
 #, fuzzy
 msgid "Area 15 - sidebar-footer.php"
-msgstr "15. terület - sidebar-footer.php"
+msgstr "Terület 15 - sidebar-footer.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "Felhívás cselekvésre"
 
@@ -2438,26 +2467,27 @@ msgid "Header Menu"
 msgstr "Fejléc menü"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "Lábléc menü"
 
 #: core/includes/functions.php:377
 #, fuzzy
 msgid "Team Section Options"
-msgstr "Csapat részlegek"
+msgstr "Csapatszakasz beállításai"
 
 #: core/includes/functions.php:391
 #, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
 msgstr ""
-"Ahhoz, hogy ezt az üzenetet az első oldal csapata részére használhassa, "
-"kérjük, írja be az alábbiakat:"
+"Ahhoz, hogy használni ezt a hozzászólást a címlapon a csapat részben, "
+"kérjük, adja meg az alábbi részleteket:"
 
 #: core/includes/functions.php:394
 #, fuzzy
 msgid "Member designation"
-msgstr "Csapattag feladata"
+msgstr "Tag kijelölése"
 
 #: core/includes/functions.php:398
 msgid "Facebook Link"
@@ -2470,7 +2500,7 @@ msgstr "Twitter hivatkozás"
 #: core/includes/functions.php:406
 #, fuzzy
 msgid "GooglePlus Link"
-msgstr "GooglePlus Link"
+msgstr "GooglePlus hivatkozás"
 
 #: core/includes/functions.php:410
 msgid "LinkedIn Link"
@@ -2500,37 +2530,37 @@ msgstr ", "
 #: core/includes/functions.php:719
 #, fuzzy
 msgid "Upgrade To Pro"
-msgstr "Feljavítás a Pro verzióra"
+msgstr "Frissítés pro"
 
 #: core/includes/post-custom-meta.php:137
 #, fuzzy
 msgid "Content/Sidebar"
-msgstr "Tartalom / oldalsáv"
+msgstr "Tartalom/oldalsáv"
 
 #: core/includes/post-custom-meta.php:138
 #, fuzzy
 msgid "Sidebar/Content"
-msgstr "Oldalsáv tartalom"
+msgstr "Oldalsáv/tartalom"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Full Width Page (no sidebar)"
-msgstr "Teljes szélességű oldal (nincs oldalsáv)"
+msgstr "Teljes szélességű oldal (oldalsáv nélkül)"
 
 #: core/includes/post-custom-meta.php:140
 #, fuzzy
 msgid "Blog 2 Column"
-msgstr "2 oszlop"
+msgstr "Blog 2 oszlop"
 
 #: core/includes/post-custom-meta.php:141
 #, fuzzy
 msgid "Blog 3 Column"
-msgstr "3 oszlop"
+msgstr "Blog 3 oszlop"
 
 #: core/includes/post-custom-meta.php:142
 #, fuzzy
 msgid "Blog 4 Column"
-msgstr "4 oszlop"
+msgstr "Blog 4 oszlop"
 
 #: footer.php:90
 msgid "Scroll to Top"
@@ -2547,14 +2577,14 @@ msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
-"Ha tetszik az <strong>Érzékeny téma,</strong> kérjük, hagyjon nekünk%s "
-"minősítést. Egy percig tart, és sokat segít. Előre is köszönöm!"
+"Ha <strong>tetszik a Responsive Téma,</strong> kérjük, hagyjon nekünk egy %s "
+"minősítést. Ez egy percig tart, és sokat segít. Előre is köszönöm!"
 
 #: functions.php:454
 msgid "Thanks :)"
 msgstr "Köszönjük :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2567,7 +2597,7 @@ msgstr "Oldalak:"
 #: header.php:35
 #, fuzzy
 msgid "&darr; Skip to Main Content"
-msgstr "↓ Ugrás a tartalomra"
+msgstr "&dőr; Ugrás a fő tartalomra"
 
 #: home.php:81
 msgid "Previous"
@@ -2580,7 +2610,7 @@ msgstr "Következő"
 #: image.php:37
 #, fuzzy
 msgid "&#8249; Return to"
-msgstr "Vissza ide"
+msgstr "&#8249; Visszatérés a"
 
 #: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
 #: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
@@ -2602,33 +2632,33 @@ msgstr "% hozzászólás"
 #: image.php:79 post-data.php:25
 #, fuzzy
 msgid "Tagged with:"
-msgstr "Címke:"
+msgstr "Tagged with:"
 
 #: image.php:87 post-data.php:29
 #, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
-msgstr "<span class=\"post-edit\">szerkesztése</span>"
+msgstr "<span class=\"post-edit\">Szerkesztése</span>"
 
 #: loop-nav.php:28
 #, fuzzy
 msgid "&#8249; Older posts"
-msgstr "Régebbi cikkek"
+msgstr "&#8249; Régebbi bejegyzések"
 
 #: loop-nav.php:29
 #, fuzzy
 msgid "Newer posts &#8250;"
-msgstr "Újabb bejegyzések"
+msgstr "Újabb hozzászólások &#8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "Your search for %s did not match any entries."
-msgstr "%s keresése nem felelt meg egyetlen bejegyzésnek sem."
+msgstr "A(z) %s keresése nem egyezik egyetlen bejegyzéssel sem."
 
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "404 &#8212; Fancy meeting you here!"
-msgstr "404 - Örülök, hogy itt találkozunk!"
+msgstr "404 &#8212; Fancy találkozunk itt!"
 
 #: loop-no-posts.php:32
 #, fuzzy
@@ -2636,12 +2666,13 @@ msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
 msgstr ""
-"Ne essen pánikba, ezt együtt fogjuk átélni. Fedezzük fel lehetőségeinket itt."
+"Ne #39 pánikba, #39 együtt átvészeljük. Let&#39;s fedezze fel "
+"lehetőségeinket itt."
 
 #: loop-no-posts.php:43
 #, fuzzy
 msgid "&larr; Home"
-msgstr "← Kezdőlap"
+msgstr "&lárva; Kezdőlap"
 
 #: partials/custom-home/featured-area.php:255
 msgid "Team"
@@ -2664,19 +2695,19 @@ msgstr "0 hozzászólás"
 #: partials/footer/copy-right.php:17
 #, fuzzy
 msgid " &copy; "
-msgstr "©"
+msgstr "&másol;"
 
 #: partials/footer/copy-right.php:21
 #, fuzzy
 msgid "&copy; "
-msgstr "©"
+msgstr "&másol;"
 
 #: partials/footer/copy-right.php:29
 #, fuzzy
 msgid " | Powered by Responsive Theme"
-msgstr "| Powered by Érzékeny téma"
+msgstr "| Powered by érzékeny téma"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "Menü"
 
@@ -2692,12 +2723,12 @@ msgstr "Rólunk"
 #: partials/single/layout.php:73
 #, fuzzy
 msgid "Previous Post is "
-msgstr "Előző bejegyzés"
+msgstr "Előző post van"
 
 #: partials/single/layout.php:74
 #, fuzzy
 msgid "Next Post is"
-msgstr "Következő bejegyzés"
+msgstr "Következő post van"
 
 #: searchform.php:22
 msgid "Search for:"
@@ -2706,7 +2737,7 @@ msgstr "Keresés:"
 #: searchform.php:23
 #, fuzzy
 msgid "Search here &hellip;"
-msgstr "Keresés itt &hellip;"
+msgstr "Keresés itt &amp; hellip;"
 
 #: searchform.php:24
 msgid "Go"
@@ -2719,12 +2750,12 @@ msgstr "Képfájl Információ"
 #: sidebar-gallery.php:33
 #, fuzzy
 msgid "Full Size:"
-msgstr "Teljes méret"
+msgstr "Teljes méret:"
 
 #: sidebar-gallery.php:39
 #, fuzzy
 msgid "Aperture: f&#47;"
-msgstr "F érték"
+msgstr "Rekesz: f&amp;#47;"
 
 #: sidebar-gallery.php:44
 msgid "Focal Length:"
@@ -2737,12 +2768,12 @@ msgstr "mm"
 #: sidebar-gallery.php:48
 #, fuzzy
 msgid "ISO:"
-msgstr "IBF"
+msgstr "Iso:"
 
 #: sidebar-gallery.php:52
 #, fuzzy
 msgid "Shutter:"
-msgstr "Redőny"
+msgstr "Redőny:"
 
 #: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
 msgid "sec"
@@ -2755,7 +2786,7 @@ msgstr "Kamera:"
 #: sidebar-home.php:34
 #, fuzzy
 msgid "Fermentum"
-msgstr "fermentum"
+msgstr "Fermentum"
 
 #: sidebar-home.php:40
 #, fuzzy
@@ -2764,14 +2795,13 @@ msgid ""
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Ez az első otthoni widget-doboz. A szerkesztéshez keresse meg a Megjelenés> "
-"Widgetek menüpontot, és válassza a 6. modul felől a 6. sz. Terület, az "
-"úgynevezett Otthoni widget elejét."
+"Ez az első otthoni widget doboz. A szerkesztéshez kérjük, menjen a "
+"Megjelenés \" Widgets és válassza ki a 6. Cím is kezelhető a kütyü is."
 
 #: sidebar-home.php:54
 #, fuzzy
 msgid "Elementum"
-msgstr "Elementum"
+msgstr "Elementum között"
 
 #: sidebar-home.php:60
 #, fuzzy
@@ -2780,15 +2810,13 @@ msgid ""
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Ez a második otthoni widget doboz. A szerkesztéshez keresse meg a "
-"Megjelenés> Widgetek menüpontot, és válassza a 7. widgetet a felső részből a "
-"7. terület, az úgynevezett Otthoni Widget 2. terület felső részéből. A cím a "
-"widgetekből is kezelhető."
+"Ez a második otthoni widget doboz. A szerkesztéshez kérjük, menjen a "
+"Megjelenés \" Widgets és válassza ki a 7. Cím is kezelhető a kütyü is."
 
 #: sidebar-home.php:74
 #, fuzzy
 msgid "Interdum"
-msgstr "Interdum"
+msgstr "Interdum között"
 
 #: sidebar-home.php:78
 #, fuzzy
@@ -2797,32 +2825,58 @@ msgid ""
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Ez a harmadik otthoni widget doboz. A szerkesztéshez keresse meg a "
-"Megjelenés> Widget elemet, és válassza a 8. widgetet a tetején a 8. widget "
-"nevű 8. területről, a cím pedig widgetekből is kezelhető."
+"Ez a harmadik otthoni widget doboz. A szerkesztéshez kérjük, menjen a "
+"Megjelenés \" Widgets és válassza ki a 8th widget a felső területen 8 nevű "
+"Home Widget 3. Cím is kezelhető a kütyü is."
 
 #. Theme URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
 #, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
-"Az Responsive egy teljesen testreszabható, gyors és mobilbarát WordPress "
-"téma."
+"Érzékeny egy teljesen testreszabható, kereső optimalizált & mobil-barát "
+"WordPress téma. Kompatibilis a Gutenberg blokk szerkesztő, ez egy tökéletes "
+"választás a blog, üzleti honlapján, vagy WooCommerce tárolni. A szinte "
+"korlátlan testreszabó lehetőségek, testreszabhatja minden funkcióját a "
+"honlapon. Érzékeny jön-val minified szkriptek javítása honlap sebességét. Ez "
+"is jön-val más funkciók, beleértve - kilenc elrendezési lehetőségek oldalak "
+"és blog, WooCommerce tervezési lehetőségek, és a kompatibilitás az Elementor "
+"oldal építője. Ez szerkezet nagy -ra egy mozgatható, tabletta, iskolapad, és "
+"keresztül minden legel. Reszponzív is elérhető 45 nyelven, és a keresőbarát. "
+"Lásd: Reagálműködés: https://cyberchimps.com/responsive-ready-websites/. "
+"További információ a funkciókról: https://cyberchimps.com/responsive-"
+"features/."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "CyberChimps között"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Gutenberg Fullwidth No title"
-msgstr "Gutenberg Teljes szélesség Nincs cím"
+msgstr "Gutenberg Fullwidth Nincs cím"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:48
@@ -2830,8 +2884,8 @@ msgstr "Gutenberg Teljes szélesség Nincs cím"
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s megjegyzés a “%2$s” -ról"
-msgstr[1] "%1$s Hozzászólások a (z) „%2$s” -hoz"
+msgstr[0] "%1$s Megjegyzés a következőhöz: \"%2$s\""
+msgstr[1] "%1$s Megjegyzések a következőhöz: \"%2$s\""
 
 #: functions.php:126
 msgctxt "Name of the small font size in the block editor"
