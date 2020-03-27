@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 21:06+0530\n"
+"PO-Revision-Date: 2020-03-27 16:00+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -32,7 +32,7 @@ msgstr "Attivazione in corso "
 #: admin/admin-functions.php:22
 #, fuzzy
 msgid "Not connect. Verify Network."
-msgstr "Non connesso. Verifica rete."
+msgstr "Non connettersi. Verificare la rete."
 
 #: admin/admin-functions.php:23
 msgid "Requested page not found. [404]"
@@ -45,27 +45,27 @@ msgstr "Errore interno del server (500)"
 #: admin/admin-functions.php:25
 #, fuzzy
 msgid "Requested JSON parse failed"
-msgstr "Analisi del JSON richiesto fallita."
+msgstr "Analisi JSON richiesta non riuscita"
 
 #: admin/admin-functions.php:26
 #, fuzzy
 msgid "Time out error"
-msgstr "Errore di timeout."
+msgstr "Errore di timeout"
 
 #: admin/admin-functions.php:27
 #, fuzzy
 msgid "Ajax request aborted"
-msgstr "Richiesta annullata."
+msgstr "Richiesta Ajax interrotta"
 
 #: admin/admin-functions.php:28
 #, fuzzy
 msgid "Uncaught Error"
-msgstr "Errore non identificato."
+msgstr "Errore non rilevato"
 
 #: admin/class-responsive-plugin-install-helper.php:93
 #, fuzzy
 msgid "Install and activate &raquo;"
-msgstr "Installa e attiva »"
+msgstr "Installare e attivare &raquo;"
 
 #: admin/class-responsive-plugin-install-helper.php:97
 #: admin/class-responsive-plugin-install-helper.php:117
@@ -98,33 +98,34 @@ msgstr "Pro"
 #: admin/templates/free-vs-pro.php:23
 #, fuzzy
 msgid "Mobile Friendly"
-msgstr "Ottimizzato per dispositivi mobili"
+msgstr "Mobile Friendly"
 
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
 #, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
-msgstr "Cursore, portafoglio, tabelle dei prezzi, widget di WooCommerce ecc"
+msgstr "Slider, portafoglio, tabelle dei prezzi, widget WooCommerce ecc"
 
 #: admin/templates/free-vs-pro.php:31
 #, fuzzy
 msgid "Blazing Fast Speed"
-msgstr "Velocità incredibile"
+msgstr "Velocità rapida ardente"
 
 #: admin/templates/free-vs-pro.php:32
 #, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
-msgstr "Ottimizzato per la velocità, carichi in meno di 2 secondi"
+msgstr "Ottimizzato per velocità, carichi in meno di 2 secondi"
 
 #: admin/templates/free-vs-pro.php:39
 #, fuzzy
 msgid "Fully Customizable"
-msgstr "COMPLETAMENTE PERSONALIZZABILE"
+msgstr "Completamente personalizzabile"
 
 #: admin/templates/free-vs-pro.php:40
 #, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
 msgstr ""
-"Utilizzo delle opzioni di personalizzazione per layout, caratteri e colori"
+"Utilizzo delle opzioni di personalizzazione per il layout, i caratteri e i "
+"colori"
 
 #: admin/templates/free-vs-pro.php:42
 #, fuzzy
@@ -134,13 +135,12 @@ msgstr "Opzioni limitate"
 #: admin/templates/free-vs-pro.php:47
 #, fuzzy
 msgid "Ready-to-use Website Templates"
-msgstr "MODELLI PRONTI PER L'UTILIZZO"
+msgstr "Modelli di siti Web pronti all'uso"
 
 #: admin/templates/free-vs-pro.php:48
 #, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
-msgstr ""
-"Generatore di pagine Elementor pronto all'uso e modelli di siti Web Gutenberg"
+msgstr "Pronto all'uso Elementor page builder e modelli di siti web Gutenberg"
 
 #: admin/templates/free-vs-pro.php:51
 msgid "30+"
@@ -154,23 +154,24 @@ msgstr "Widget esclusivi"
 #: admin/templates/free-vs-pro.php:63
 #, fuzzy
 msgid "Exclusive Content, Deals & Offers"
-msgstr "Contenuti, offerte e offerte esclusivi"
+msgstr "Contenuti esclusivi, offerte e offerte"
 
 #: admin/templates/free-vs-pro.php:64
 #, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
-msgstr "Accedi a contenuti, offerte e offerte esclusive di WordPress"
+msgstr ""
+"Ottieni l'accesso a contenuti esclusivi di WordPress, offerte e offerte"
 
 #: admin/templates/free-vs-pro.php:71
 #, fuzzy
 msgid "Private Priority Email Support"
-msgstr "Supporto email prioritario privato"
+msgstr "Supporto e-mail con priorità privata"
 
 #: admin/templates/free-vs-pro.php:72
 #, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
 msgstr ""
-"Ho bisogno di aiuto? Basta alzare un ticket di supporto per ottenere "
+"Hai bisogno di aiuto? Basta sollevare un ticket di supporto per ottenere il "
 "supporto e-mail prioritario"
 
 #. Theme Name of the plugin/theme
@@ -188,22 +189,22 @@ msgstr ""
 #: comments.php:42
 #, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
-msgstr "Un commento su \"%1$s\""
+msgstr "Un commento su \"%1 s\""
 
 #: comments.php:58 comments.php:71
 #, fuzzy
 msgid "&#8249; Older comments"
-msgstr "Commenti più vecchi"
+msgstr "&#8249; Commenti più vecchi"
 
 #: comments.php:60 comments.php:73
 #, fuzzy
 msgid "Newer comments &#8250;"
-msgstr "Nuovi commenti"
+msgstr "Commenti più recenti &#8250;"
 
 #: comments.php:85
 #, fuzzy
 msgid "Pings&#47;Trackbacks"
-msgstr "Il ping / Trackbacks"
+msgstr "Ping&#47;Trackback"
 
 #. translators: 1 : Count, 2 : Pings 3 : Post title
 #: comments.php:102
@@ -258,7 +259,7 @@ msgstr "Gratuito Vs Pro"
 #: core/includes/classes/class-responsive-admin-settings.php:231
 #, fuzzy
 msgid "Import a website template(FREE)"
-msgstr "Importa un modello di sito Web (GRATIS)"
+msgstr "Importare un modello di sito Web (GRATIS)"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
 #, fuzzy
@@ -266,13 +267,13 @@ msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
 msgstr ""
-"Installa i componenti aggiuntivi responsive per ottenere modelli di siti Web "
-"pronti all'uso che possono essere importati con un clic."
+"Installare Responsive Add-ons per ottenere modelli di sito Web pronti "
+"all'uso che possono essere importati con un clic."
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
 #, fuzzy
 msgid "Learn More &raquo;"
-msgstr "Per saperne di più \""
+msgstr "Scopri di più &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:269
 msgid "Support"
@@ -281,58 +282,58 @@ msgstr "Supporto"
 #: core/includes/classes/class-responsive-admin-settings.php:273
 #, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
-msgstr "Hai domande? Mettiti in contatto con noi. Saremo felici di aiutarti"
+msgstr "Hai domande? Mettiti in contatto con noi. Saremo lieti di aiutarti"
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
 #, fuzzy
 msgid "Request Support &raquo;"
-msgstr "Richiedi assistenza »"
+msgstr "Richiedi supporto &amp;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
 #, fuzzy
 msgid "Change site layout"
-msgstr "Cambia layout del sito"
+msgstr "Modificare il layout del sito"
 
 #: core/includes/classes/class-responsive-admin-settings.php:308
 #, fuzzy
 msgid "Customize fonts/typography"
-msgstr "Personalizza caratteri / tipografia"
+msgstr "Personalizzare i caratteri/tipografia"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
 #, fuzzy
 msgid "Upload logo & site icon"
-msgstr "Carica logo e icona del sito"
+msgstr "Icona del logo e del sito di caricamento"
 
 #: core/includes/classes/class-responsive-admin-settings.php:318
 #, fuzzy
 msgid "Add/edit navigation menu"
-msgstr "Aggiungi / modifica menu di navigazione"
+msgstr "Aggiungi/modifica menu di navigazione"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
 #, fuzzy
 msgid "Customize header options"
-msgstr "Personalizza le opzioni di intestazione"
+msgstr "Personalizzare le opzioni dell'intestazione"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
 #, fuzzy
 msgid "Customize footer options"
-msgstr "Personalizza le opzioni del piè di pagina"
+msgstr "Personalizzare le opzioni del piè di pagina"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
 #, fuzzy
 msgid "Update blog layout"
-msgstr "Aggiorna il layout del blog"
+msgstr "Aggiornare il layout del blog"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
 #, fuzzy
 msgid "Update page layout"
-msgstr "Aggiorna layout di pagina"
+msgstr "Aggiornare il layout di pagina"
 
 #: core/includes/classes/class-responsive-admin-settings.php:346
 #, fuzzy
 msgid "Quick Start:"
-msgstr "Avvio rapido"
+msgstr "Avvio rapido:"
 
 #: core/includes/classes/class-responsive-admin-settings.php:365
 msgid "Community"
@@ -344,13 +345,13 @@ msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
-"Incontra i Responsive Power-utenti. Saluta, fai domande, invia feedback e "
-"aiutatevi a vicenda"
+"Incontra gli utenti di Responsive Power-users. Saluta, fai domande, fornisci "
+"feedback e aiutati a vicenda"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
 #, fuzzy
 msgid "Join Facebook Group &raquo;"
-msgstr "Unisciti al gruppo Facebook »"
+msgstr "Unisciti a Facebook Group &amp;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:387
 msgid "Feedback"
@@ -363,36 +364,37 @@ msgid ""
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
-"Ciao! Grazie per aver utilizzato il tema Responsive. Potete per favore farci "
-"un favore e darci una valutazione a 5 stelle? Il tuo feedback ci mantiene "
+"Ciao! Grazie per aver usato il tema Responsive. Puoi per favore farci un "
+"favore e darci una valutazione di 5 stelle? Il tuo feedback ci mantiene "
 "motivati e ci aiuta a far crescere la community Responsive."
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
 #, fuzzy
 msgid "Submit Review &raquo;"
-msgstr "Invia recensione \""
+msgstr "Invia recensione &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
 #, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
-msgstr "Tema WordPress veloce, intuitivo e completamente personalizzabile."
+msgstr ""
+"Blazing Fast, mobile-friendly, tema WordPress completamente personalizzabile."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "Offerta!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "Sidebar di WooCommerce"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 #, fuzzy
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 "Questa barra laterale verrà utilizzata nelle pagine Archivio prodotti, "
-"Carrello, Cassa e Account personale."
+"Carrello, Checkout e Il mio account."
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
@@ -407,7 +409,7 @@ msgstr "Colori"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
 #, fuzzy
 msgid "Cart Buttons"
-msgstr "Pulsanti del carrello"
+msgstr "Pulsanti carrello"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
@@ -453,12 +455,12 @@ msgstr "Layout"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
 #, fuzzy
 msgid "Main Content Width (%)"
-msgstr "Larghezza Contenuto (%)"
+msgstr "Larghezza contenuto principale (%)"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
 #, fuzzy
 msgid "Enable Cross-sells"
-msgstr "Abilita vendite incrociate"
+msgstr "Abilita Cross-sellings"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
 #, fuzzy
@@ -478,7 +480,7 @@ msgstr "Disabilitato su tutti i dispositivi"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
 #, fuzzy
 msgid "Product Catalog Options"
-msgstr "Opzioni del catalogo prodotti"
+msgstr "Opzioni catalogo prodotti"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
 msgid "Shop Options"
@@ -508,13 +510,13 @@ msgstr "Colore Prezzo"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
 #, fuzzy
 msgid "Add To Cart Buttons"
-msgstr "Aggiungi al carrello pulsanti"
+msgstr "Pulsanti Aggiungi al carrello"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -559,7 +561,7 @@ msgstr "Nessuna Sidebar"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
 #, fuzzy
 msgid "Shop Product"
-msgstr "Acquista il prodotto"
+msgstr "Acquista prodotti"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
 msgid "Catalog View"
@@ -576,7 +578,7 @@ msgstr "Vista elenco"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
 #, fuzzy
 msgid "Content Aligmnment"
-msgstr "Content Aligmnment"
+msgstr "Contenuto Aligmnment"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
@@ -631,7 +633,7 @@ msgstr "Destra"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
 #, fuzzy
 msgid "Shop Elements"
-msgstr "Acquista elementi"
+msgstr "Elementi del negozio"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
 msgid "Sale Notification"
@@ -691,13 +693,13 @@ msgid "Gallery Layout"
 msgstr "Layout galleria"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "Verticale"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "Orizzontale"
@@ -711,6 +713,7 @@ msgid "Cart"
 msgstr "Carrello"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+#, fuzzy
 msgid " / "
 msgstr "/"
 
@@ -745,7 +748,7 @@ msgstr "Eredita"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
 #, fuzzy
 msgid "Thin: 100"
-msgstr "Sottile 100"
+msgstr "Sottile: 100"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
@@ -766,7 +769,7 @@ msgstr "Normale: 400"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
 #, fuzzy
 msgid "Medium: 500"
-msgstr "Medium 500"
+msgstr "Medio: 500"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
@@ -787,7 +790,7 @@ msgstr "Extra Grassetto: 800"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
 #, fuzzy
 msgid "Black: 900"
-msgstr "Nero (900)"
+msgstr "Nero: 900"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
 #, fuzzy
@@ -814,7 +817,7 @@ msgstr "PRO"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
 #, fuzzy
 msgid "View PRO Features"
-msgstr "Visualizza le funzioni Pro"
+msgstr "Visualizza le funzioni PRO"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
 #, fuzzy
@@ -828,7 +831,7 @@ msgstr "Generatore di Form"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
 #, fuzzy
 msgid "Interactive Sliders and Carousels"
-msgstr "Cursori e giostre interattivi"
+msgstr "Cursori interattivi e caroselli"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
 msgid "Pricing Tables"
@@ -837,17 +840,17 @@ msgstr "Tabelle dei Prezzi"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
 #, fuzzy
 msgid "Portfolio and Post Layouts"
-msgstr "Portfolio e Post Layouts"
+msgstr "Layout portfolio e post"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
 #, fuzzy
 msgid "Private, Priority Support"
-msgstr "Supporto prioritario privato"
+msgstr "Supporto privato e prioritario"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
 #, fuzzy
 msgid "Get the PRO version!"
-msgstr "Per eseguire l'aggiornamento alla versione Pro e ottenere"
+msgstr "Scarica la versione PRO!"
 
 #: core/includes/customizer/customizer.php:29
 #, fuzzy
@@ -910,9 +913,10 @@ msgstr "Contenuto"
 #: core/includes/customizer/helper.php:173
 #, fuzzy
 msgid "Site Branding"
-msgstr "Branding"
+msgstr "Branding del sito"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "Menù Principale"
 
@@ -943,12 +947,12 @@ msgstr "Categoria"
 msgid "Ratings"
 msgstr "Valutazioni"
 
-#: core/includes/customizer/helper.php:763
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
 msgstr "Continua a leggere &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "Leggi tutto &raquo;"
 
@@ -961,7 +965,7 @@ msgstr "Elementi di ingresso"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
 #, fuzzy
 msgid "Entry Featured Image"
-msgstr "Immagine in primo piano dell'entrata"
+msgstr "Ingresso immagine in primo piano"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
@@ -1009,13 +1013,13 @@ msgstr "Titolo voce"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:121
 #, fuzzy
 msgid "Entry Meta"
-msgstr "Meta di entrata"
+msgstr "Ingresso Meta"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
 #, fuzzy
 msgid "Meta Elements"
-msgstr "Meta Elements"
+msgstr "Elementi Meta"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
@@ -1046,12 +1050,12 @@ msgstr "Separatore Meta"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
 #, fuzzy
 msgid "Meta Alignment"
-msgstr "Meta Alignment"
+msgstr "Allineamento meta"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
 #, fuzzy
 msgid "Entry Content"
-msgstr "Contenuto dell'iscrizione"
+msgstr "Contenuto della voce"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
 msgid "Content Type"
@@ -1078,7 +1082,7 @@ msgstr "Scopri di Più"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
 #, fuzzy
 msgid "Read More Type"
-msgstr "continua a leggere"
+msgstr "Leggi altro tipo"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
 msgid "Link"
@@ -1102,7 +1106,7 @@ msgstr "Titolo della pagina del blog"
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
 #, fuzzy
 msgid "Entry Columns"
-msgstr "Colonne di entrata"
+msgstr "Colonne di immissione"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
 msgid "Enable Masonry Layout"
@@ -1123,7 +1127,7 @@ msgstr "Colore del testo Breadcrumb"
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
 #, fuzzy
 msgid "Disable breadcrumb list?"
-msgstr "Disabilita i breadcrumb"
+msgstr "Disabilitare l'elenco di navigazione?"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
 msgid "Breadcrumb Position"
@@ -1132,12 +1136,12 @@ msgstr "Posizione Breadcrumb"
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
 #, fuzzy
 msgid "Before Heading"
-msgstr "Prima di dirigersi"
+msgstr "Prima dell'intestazione"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:68
 #, fuzzy
 msgid "After Heading"
-msgstr "Dopo la voce"
+msgstr "Dopo l'intestazione"
 
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
@@ -1168,8 +1172,7 @@ msgstr "Documentazione"
 #, fuzzy
 msgid "To have access to a shop section please install and configure %1$s."
 msgstr ""
-"Per accedere alla sezione dei menu di cibo installa e configura <ph id="
-"\"mtc_1\" equiv-text=\"base64:JTEkcw==\"/>."
+"Per avere accesso a una sezione negozio, installare e configurare %1 s."
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
 #, fuzzy
@@ -1188,7 +1191,7 @@ msgid ""
 "beautiful fast and responsive website in no time at all."
 msgstr ""
 "Ottieni l'accesso a funzionalità ancora più potenti che ti aiuteranno a "
-"creare un bellissimo sito Web veloce e reattivo in pochissimo tempo."
+"costruire un bellissimo sito web veloce e reattivo in pochissimo tempo."
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
@@ -1230,69 +1233,73 @@ msgstr "Numero di colonne"
 msgid "Footer Bar"
 msgstr "Footer Bar"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "Testo del Copyright"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Nascondi alimentato dal tema reattivo"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "Link Social"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "Feed RSS"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "Indirizzo Email"
 
@@ -1354,7 +1361,7 @@ msgstr "Allineamento intestazione"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #, fuzzy
 msgid "Logo Padding (px)"
-msgstr "Padding top del logo (px)"
+msgstr "Spaziatura interna logo (px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
 msgid "Transparent Header"
@@ -1367,7 +1374,7 @@ msgstr "Abilita sul sito web completo"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
 #, fuzzy
 msgid "Site Content Padding (px)"
-msgstr "Contenuto Padding (px)"
+msgstr "Spaziatura interna del contenuto del sito (px)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
 msgid "Disable on 404, Search & Archives?"
@@ -1376,12 +1383,12 @@ msgstr "Disabilita su 404, Cerca e Archivi?"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
 #, fuzzy
 msgid "Disable on Blog page?"
-msgstr "Disabilitare sulla pagina Blog?"
+msgstr "Disabilitare sulla pagina del blog?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
 #, fuzzy
 msgid "Disable on Latest Posts Page?"
-msgstr "Disabilitare sulla pagina degli ultimi post?"
+msgstr "Disabilitare sulla pagina Ultimi post?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
 msgid "Disable on Pages?"
@@ -1408,7 +1415,7 @@ msgstr "Abilita widget intestazione"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
 #, fuzzy
 msgid "Widgets Position"
-msgstr "Posizione dei widget"
+msgstr "Posizione widget"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
 msgid "Above Header"
@@ -1417,7 +1424,7 @@ msgstr "Sopra Header"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
 #, fuzzy
 msgid "In Header"
-msgstr "nell'intestazione"
+msgstr "Header"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
 msgid "Below Header"
@@ -1426,7 +1433,7 @@ msgstr "Sotto l'intestazione"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
 #, fuzzy
 msgid "Widgets Alignment"
-msgstr "Allineamento dei widget"
+msgstr "Allineamento widget"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
 msgid "Spread"
@@ -1439,17 +1446,17 @@ msgstr "Spazio intorno"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #, fuzzy
 msgid "Active Menu Background Color"
-msgstr "Colore di sfondo del menu attivo"
+msgstr "Colore sfondo menu attivo"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
 #, fuzzy
 msgid "Menu Item Link Color"
-msgstr "Voce di menu Colore collegamento"
+msgstr "Colore collegamento voce di menu"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
 #, fuzzy
 msgid "Menu Item Link Hover Color"
-msgstr "Colore Link Hover Menu"
+msgstr "Colore collegamento voce di menu"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
 msgid "Sub Menu Background Color"
@@ -1458,22 +1465,22 @@ msgstr "Colore dello sfondo del sub menu"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
 #, fuzzy
 msgid "Sub Menu Item Link Color"
-msgstr "Voce di sottomenu Colore collegamento"
+msgstr "Colore collegamento voce di sottomenu"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
 #, fuzzy
 msgid "Sub Menu Item Link Hover Color"
-msgstr "Colore Link Hover Menu"
+msgstr "Colore collegamento voce di sottomenu"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
 #, fuzzy
 msgid "Menu Toggle Background Color"
-msgstr "Menu Attiva / disattiva il colore di sfondo"
+msgstr "Menu Attiva/Disattiva colore di sfondo"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
 #, fuzzy
 msgid "Menu Toggle Color"
-msgstr "Cambia colore"
+msgstr "Menu Attiva/Disattiva colore"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
 #, fuzzy
@@ -1534,19 +1541,19 @@ msgstr "Home Page personalizzata"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 #, fuzzy
 msgid "Enable Custom Front Page"
-msgstr "Abilita pagina iniziale personalizzata"
+msgstr "Abilita fronte spia pagina personalizzata"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
 #, fuzzy
 msgid "Overrides the WordPress front page option"
-msgstr "Sostituisce l'opzione della prima pagina di WordPress"
+msgstr "Sostituisce l'opzione WordPress in prima pagina"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
 msgid "Hero Area"
 msgstr "Hero Area"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 msgid "HAPPINESS"
 msgstr "LA FELICITÀ"
 
@@ -1555,27 +1562,27 @@ msgid "Headline"
 msgstr "Titolo"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 #, fuzzy
 msgid "IS A WARM CUP"
-msgstr "È UNA TAZZA CALDA"
+msgstr "È una CUP WARM"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
 msgid "Subheadline"
 msgstr "Subheadline"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 #, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
 "can be an image or even YouTube video if you like."
 msgstr ""
-"Il titolo, i sottotitoli e questo stesso contenuto sono modificabili "
-"dall'opzione Tema. Pulsante Call to Action e relativo link di destinazione. "
-"L'immagine alla tua destra può essere un'immagine o anche un video di "
-"YouTube, se lo desideri."
+"Il titolo, i sottotitoli e questo contenuto sono modificabili da Opzione "
+"tema. Pulsante Call to Action e il relativo collegamento di destinazione. "
+"Immagine alla vostra destra può essere un'immagine o anche video di YouTube, "
+"se volete."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
 msgid "Content Area"
@@ -1590,18 +1597,18 @@ msgstr "Disabilitare il pulsante di invito all'azione?"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
 #, fuzzy
 msgid "Call to Action (URL)"
-msgstr "URL Call to Action"
+msgstr "Invito all'azione (URL)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:202
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
 #, fuzzy
 msgid "Call to Action (Text)"
-msgstr "Invito al testo dell'azione"
+msgstr "Invito all'azione (testo)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
 #, fuzzy
 msgid "Call to Action Button Style"
-msgstr "Invito all'azione - Pulsante"
+msgstr "Invito allo stile del pulsante di azione"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
 msgid "Featured Content"
@@ -1610,7 +1617,7 @@ msgstr "Contenuti in primo piano"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
 #, fuzzy
 msgid "Paste your shortcode, video or image source"
-msgstr "Incolla il codice sorgente, il video o la fonte dell'immagine"
+msgstr "Incollare la sorgente di shortcode, video o immagine"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
 msgid "About Section"
@@ -1619,18 +1626,18 @@ msgstr "Sezione Chi Siamo"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
 #, fuzzy
 msgid "Enable About Section"
-msgstr "Attivare la sezione Chi siamo"
+msgstr "Abilita informazioni sulla sezione"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
 #: partials/custom-home/featured-area.php:105
 #, fuzzy
 msgid "About Box Title"
-msgstr "Informazioni sul titolo della scatola"
+msgstr "Informazioni sul titolo della casella"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
 #, fuzzy
 msgid "About Title"
-msgstr "Titolo Chi siamo"
+msgstr "Informazioni sul titolo"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
 msgid "About Text"
@@ -1644,12 +1651,12 @@ msgstr "Inserisci url come http://www.example.com"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
 #, fuzzy
 msgid "Feature Section"
-msgstr "Sezione caratteristica"
+msgstr "Sezione Feature"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
 #, fuzzy
 msgid "Enable Feature Section"
-msgstr "Abilita sezione funzioni"
+msgstr "Attiva sezione funzionalità"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
 msgid "Feature Title"
@@ -1658,7 +1665,7 @@ msgstr "Titolo caratteristica"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
 #, fuzzy
 msgid "Select post for feature 1"
-msgstr "Seleziona post per funzione 1"
+msgstr "Seleziona il post per la funzione 1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
@@ -1669,18 +1676,18 @@ msgid ""
 "the feature. Recommended image size for the featured images: 130 x 130px"
 msgstr ""
 "L'immagine in primo piano, il titolo e il contenuto dei post verranno "
-"utilizzati per visualizzare la funzione. Dimensione dell'immagine "
-"consigliata per le immagini in primo piano: 130 x 130px"
+"utilizzati per visualizzare la funzione. Dimensioni dell'immagine "
+"consigliate per le immagini in primo piano: 130 x 130px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
 #, fuzzy
 msgid "Select post for feature 2"
-msgstr "Seleziona post per funzione 2"
+msgstr "Seleziona il post per la funzione 2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
 #, fuzzy
 msgid "Select post for feature 3"
-msgstr "Seleziona post per funzione 3"
+msgstr "Seleziona il post per la funzione 3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
 msgid "Testimonial Section"
@@ -1710,9 +1717,9 @@ msgid ""
 "the client testimonials. Recommended image size for the featured images: 178 "
 "x 178px"
 msgstr ""
-"L'immagine, il titolo e il contenuto presenti nei post verranno utilizzati "
-"per visualizzare le testimonianze dei clienti. Dimensione immagine "
-"consigliata per le immagini in primo piano: 178 x 178px"
+"L'immagine in primo piano, il titolo e il contenuto dei post verranno "
+"utilizzati per visualizzare le testimonianze del cliente. Dimensioni "
+"dell'immagine consigliate per le immagini in primo piano: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
 msgid "Team Section"
@@ -1730,7 +1737,7 @@ msgstr "team"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
 #, fuzzy
 msgid "Team Title"
-msgstr "Titolo"
+msgstr "Titolo della squadra"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
 #, fuzzy
@@ -1745,9 +1752,9 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
 msgstr ""
-"L'immagine, il titolo e il contenuto presenti nei post verranno utilizzati "
-"per visualizzare il membro del team. Dimensione immagine consigliata per le "
-"immagini in primo piano: 178 x 178px"
+"L'immagine in primo piano, il titolo e il contenuto dei post verranno "
+"utilizzati per visualizzare il membro del team. Dimensioni dell'immagine "
+"consigliate per le immagini in primo piano: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
 #, fuzzy
@@ -1762,7 +1769,7 @@ msgstr "Seleziona post per membro del team3"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
 #, fuzzy
 msgid "Click to disable home page widgets"
-msgstr "Fare clic per disabilitare i widget della home page"
+msgstr "Fare clic per disattivare i widget della home page"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
 msgid "Contact Section"
@@ -1771,7 +1778,7 @@ msgstr "Sezione contatti"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
 #, fuzzy
 msgid "Enable Contact Section"
-msgstr "Abilita sezione contatti"
+msgstr "Abilita sezione contatto"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
 msgid "Contact Us"
@@ -1780,24 +1787,24 @@ msgstr "Contattaci"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
 #, fuzzy
 msgid "Contact section Title"
-msgstr "Sezione contatti Titolo"
+msgstr "Sezione di contatto Titolo"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
 #, fuzzy
 msgid "Contact subtitle"
-msgstr "Sottotitoli di contatto"
+msgstr "Sottotitolo contatto"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
 #, fuzzy
 msgid "Contact section Subtitle"
-msgstr "Sezione contatti Sottotitoli"
+msgstr "Sezione Contatto Sottotitolo"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
 msgid "Address"
 msgstr "Indirizzo"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "Email"
 
@@ -1812,7 +1819,7 @@ msgstr "Shortcode modulo contatti"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
 #, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
-msgstr "Puoi inserire lo shortcode del Modulo di contatto 7 qui."
+msgstr "Puoi inserire Contact Form 7 shortcode qui."
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
 #, fuzzy
@@ -1828,7 +1835,7 @@ msgstr "Elementi dell'Articolo"
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
 #, fuzzy
 msgid "Page Featured Image"
-msgstr "Immagine in evidenza"
+msgstr "Pagina Immagine in primo piano"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
 msgid "Page Title"
@@ -1859,7 +1866,7 @@ msgstr "Menu principale"
 #: core/includes/customizer/settings/class-responsive-panel.php:59
 #, fuzzy
 msgid "Header Menu Options"
-msgstr "Opzioni del menu dell'intestazione"
+msgstr "Opzioni del menu Intestazione"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:68
 msgid "Sidebar Options"
@@ -1888,7 +1895,7 @@ msgstr "Articoli"
 #: core/includes/customizer/settings/class-responsive-panel.php:104
 #, fuzzy
 msgid "Single Blog Post"
-msgstr "Post di blog singolo"
+msgstr "Singolo post di blog"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:112
 msgid "Page"
@@ -1929,7 +1936,7 @@ msgstr "Colore di Sfondo alternativo"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
 #, fuzzy
 msgid "General Text"
-msgstr "Testo in generale"
+msgstr "Testo generale"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:75
 msgid "Body Text Color"
@@ -2017,7 +2024,7 @@ msgstr "Nascondi il titolo del sito"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
 #, fuzzy
 msgid "Hide Tagline"
-msgstr "Nascondi lo slogan del sito"
+msgstr "Nascondi tagline"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
 msgid "Width"
@@ -2034,7 +2041,7 @@ msgstr "Larghezza piena"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
 #, fuzzy
 msgid "Container Width (px)"
-msgstr "Larghezza Contenitore"
+msgstr "Larghezza contenitore (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
 msgid "Boxed"
@@ -2043,12 +2050,12 @@ msgstr "Boxed"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
 #, fuzzy
 msgid "Content Boxed"
-msgstr "Contenuto inscatolato"
+msgstr "Contenuto in scatola"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
 #, fuzzy
 msgid "Box Padding (px)"
-msgstr "Padding (px)"
+msgstr "Spaziatura scatola (px)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
 #, fuzzy
@@ -2120,7 +2127,7 @@ msgstr "Campi di input"
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
 #, fuzzy
 msgid "Exclude Categories from Blog page"
-msgstr "Escludi categorie dalla pagina Blog"
+msgstr "Escludi categorie dalla pagina del blog"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
 #, fuzzy
@@ -2128,8 +2135,8 @@ msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
 msgstr ""
-"Scegli le categorie di post che non devono essere visualizzate nella pagina "
-"del blog"
+"Si prega di scegliere le categorie di post che non devono essere "
+"visualizzati sulla pagina del blog"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
 msgid "General Typography"
@@ -2182,7 +2189,7 @@ msgstr "Dimensione Carattere"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
 #, fuzzy
 msgid "You can add: px-em-%"
-msgstr "Puoi aggiungere: px-em-%"
+msgstr "È possibile aggiungere: px-em-%"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
 msgid "Line Height"
@@ -2196,55 +2203,82 @@ msgstr "Spaziatura lettere (px)"
 msgid "Font Color"
 msgstr "Colore del carattere"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "Ciao! Grazie per aver usato il tema Responsive."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"Puoi per favore farci un favore e darci una valutazione di 5 stelle? Il tuo "
+"feedback ci mantiene motivati e ci aiuta a far crescere la community "
+"Responsive."
+
+#: core/includes/functions-admin.php:61
+msgid "Ok, you deserve it"
+msgstr "Ok, lo meritate"
+
+#: core/includes/functions-admin.php:62
+msgid "Nope, maybe later"
+msgstr "No, forse più tardi"
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "L’ho già fatto"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "Home"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 #, fuzzy
 msgid "Archive for %s"
-msgstr "Archivio per%s"
+msgstr "Archivio per %s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "Risultati della ricerca per: %s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 #, fuzzy
 msgid "Posts tagged %s"
-msgstr "Post targati  <ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>"
+msgstr "Post con tag %s"
 
 #. translators: %s: Author pages
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "Visualizza tutti i post di %s"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "Errore 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "Pagina %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 #, fuzzy
 msgid "Yelp!"
 msgstr "Yelp"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 msgid "foursquare"
 msgstr "Foursquare"
 
@@ -2252,7 +2286,7 @@ msgstr "Foursquare"
 #: image.php:59 index.php:56 partials/page/content.php:15
 #, fuzzy
 msgid "Read more &#8250;"
-msgstr "Scopri di più"
+msgstr "Per saperne di più &#8250;"
 
 #: core/includes/functions-sidebar.php:28
 msgid "Main Sidebar"
@@ -2269,32 +2303,32 @@ msgstr ""
 #: core/includes/functions-sidebar.php:40
 #, fuzzy
 msgid "Home Widget 1"
-msgstr "Widget 1"
+msgstr "Home Widget 1"
 
 #: core/includes/functions-sidebar.php:41
 #, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr "Area 6 - sidebar-home.php - Visualizza sulla Home Page"
+msgstr "Area 6 - barra laterale-home.php - Visualizza nella home page"
 
 #: core/includes/functions-sidebar.php:52
 #, fuzzy
 msgid "Home Widget 2"
-msgstr "Widget 2"
+msgstr "Home Widget 2"
 
 #: core/includes/functions-sidebar.php:53
 #, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr "Area 7 - sidebar-home.php - Visualizza sulla Home Page"
+msgstr "Area 7 - sidebar-home.php - Visualizza nella home page"
 
 #: core/includes/functions-sidebar.php:64
 #, fuzzy
 msgid "Home Widget 3"
-msgstr "Widget 3"
+msgstr "Home Widget 3"
 
 #: core/includes/functions-sidebar.php:65
 #, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr "Area 8 - sidebar-home.php - Visualizza sulla Home Page"
+msgstr "Area 8 - barra laterale-home.php - Visualizza nella home page"
 
 #: core/includes/functions-sidebar.php:76
 #, fuzzy
@@ -2307,18 +2341,20 @@ msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
 msgstr ""
-"Area 9 - sidebar-gallery.php - Viene visualizzata sulla pagina dopo aver "
-"fatto clic su un'immagine in una galleria"
+"Area 9 - sidebar-gallery.php - Visualizza sulla pagina dopo che è stata "
+"cliccata un'immagine in una Galleria"
 
 #: core/includes/functions-sidebar.php:88
 #, fuzzy
 msgid "Colophon Widget"
-msgstr "Widget Colophon"
+msgstr "Colophon Widget"
 
 #: core/includes/functions-sidebar.php:89
 #, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr "Area 10 - sidebar-colophon.php, larghezza 100% widget piè di pagina"
+msgstr ""
+"Area 10 - widget piè di pagina con larghezza laterale-colophon.php, "
+"larghezza 100%"
 
 #: core/includes/functions-sidebar.php:101
 #, fuzzy
@@ -2328,44 +2364,44 @@ msgstr "Area 11 - sidebar-top.php - Visualizza a destra dell'intestazione"
 #: core/includes/functions-sidebar.php:112
 #, fuzzy
 msgid "Footer Widgets 1"
-msgstr "Footer widgets 1"
+msgstr "Widget piè di pagina 1"
 
 #: core/includes/functions-sidebar.php:113
 #, fuzzy
 msgid "Area 12 - sidebar-footer.php"
-msgstr "Area 12 - sidebar-footer.php"
+msgstr "Area 12 - barra laterale-footer.php"
 
 #: core/includes/functions-sidebar.php:123
 #, fuzzy
 msgid "Footer Widgets 2"
-msgstr "Footer widgets 2"
+msgstr "Widget piè di pagina 2"
 
 #: core/includes/functions-sidebar.php:124
 #, fuzzy
 msgid "Area 13 - sidebar-footer.php"
-msgstr "Area 13 - sidebar-footer.php"
+msgstr "Area 13 - barra laterale-footer.php"
 
 #: core/includes/functions-sidebar.php:134
 #, fuzzy
 msgid "Footer Widgets 3"
-msgstr "Footer widgets 3"
+msgstr "Widget piè di pagina 3"
 
 #: core/includes/functions-sidebar.php:135
 #, fuzzy
 msgid "Area 14 - sidebar-footer.php"
-msgstr "Area 14 - sidebar-footer.php"
+msgstr "Area 14 - barra laterale-footer.php"
 
 #: core/includes/functions-sidebar.php:145
 #, fuzzy
 msgid "Footer Widgets 4"
-msgstr "Footer widgets 4"
+msgstr "Widget piè di pagina 4"
 
 #: core/includes/functions-sidebar.php:146
 #, fuzzy
 msgid "Area 15 - sidebar-footer.php"
-msgstr "Area 15 - sidebar-footer.php"
+msgstr "Area 15 - barra laterale-footer.php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "Call to Action"
 
@@ -2374,26 +2410,27 @@ msgid "Header Menu"
 msgstr "Menu testata"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "Menu Footer"
 
 #: core/includes/functions.php:377
 #, fuzzy
 msgid "Team Section Options"
-msgstr "Opzioni della sezione squadra"
+msgstr "Opzioni della sezione Team"
 
 #: core/includes/functions.php:391
 #, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
 msgstr ""
-"Per utilizzare questo post per la sezione del team della prima pagina, "
-"inserisci i dettagli di seguito:"
+"Per utilizzare questo post per la sezione team della prima pagina, inserisci "
+"i dettagli seguenti:"
 
 #: core/includes/functions.php:394
 #, fuzzy
 msgid "Member designation"
-msgstr "Designazione membro del team"
+msgstr "Denominazione dei membri"
 
 #: core/includes/functions.php:398
 msgid "Facebook Link"
@@ -2406,7 +2443,7 @@ msgstr "Twitter"
 #: core/includes/functions.php:406
 #, fuzzy
 msgid "GooglePlus Link"
-msgstr "GooglePlus"
+msgstr "Collegamento GooglePlus"
 
 #: core/includes/functions.php:410
 msgid "LinkedIn Link"
@@ -2440,32 +2477,32 @@ msgstr "Aggiorna a Pro"
 #: core/includes/post-custom-meta.php:137
 #, fuzzy
 msgid "Content/Sidebar"
-msgstr "Contenuto della barra laterale"
+msgstr "Contenuto/Barra laterale"
 
 #: core/includes/post-custom-meta.php:138
 #, fuzzy
 msgid "Sidebar/Content"
-msgstr "Contenuto Barra Laterale"
+msgstr "Barra laterale/Contenuto"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Full Width Page (no sidebar)"
-msgstr "Pagina Intera senza Sidebar"
+msgstr "Pagina a larghezza intera (nessuna barra laterale)"
 
 #: core/includes/post-custom-meta.php:140
 #, fuzzy
 msgid "Blog 2 Column"
-msgstr "2 colonne"
+msgstr "Blog 2 Colonna"
 
 #: core/includes/post-custom-meta.php:141
 #, fuzzy
 msgid "Blog 3 Column"
-msgstr "3 colonne"
+msgstr "Blog 3 Colonna"
 
 #: core/includes/post-custom-meta.php:142
 #, fuzzy
 msgid "Blog 4 Column"
-msgstr "4 colonne"
+msgstr "Blog 4 Colonna"
 
 #: footer.php:90
 msgid "Scroll to Top"
@@ -2482,14 +2519,14 @@ msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
-"Se ti piace il <strong>tema reattivo,</strong> ti preghiamo di lasciare una "
-"valutazione%s. Ci vuole un minuto e aiuta molto. Grazie in anticipo!"
+"Se ti piace <strong>Responsive Theme</strong> si prega di lasciarci una "
+"valutazione %s. Ci vuole un minuto e aiuta molto. Grazie in anticipo!"
 
 #: functions.php:454
 msgid "Thanks :)"
 msgstr "Grazie :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2502,7 +2539,7 @@ msgstr "Pagine:"
 #: header.php:35
 #, fuzzy
 msgid "&darr; Skip to Main Content"
-msgstr "↓ Passa al contenuto principale"
+msgstr "&darr; Passa al contenuto principale"
 
 #: home.php:81
 msgid "Previous"
@@ -2515,7 +2552,7 @@ msgstr "Successivo"
 #: image.php:37
 #, fuzzy
 msgid "&#8249; Return to"
-msgstr "Torna a Required Plugin Installer"
+msgstr "&#8249; Torna a"
 
 #: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
 #: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
@@ -2541,28 +2578,28 @@ msgstr "Taggato con:"
 #: image.php:87 post-data.php:29
 #, fuzzy
 msgid "<span class=\"post-edit\">Edit</span>"
-msgstr "<span class=\"post-edit\">modificare</span>"
+msgstr "<span class=\"post-edit\">Modifica</span>"
 
 #: loop-nav.php:28
 #, fuzzy
 msgid "&#8249; Older posts"
-msgstr "Post più vecchi"
+msgstr "&#8249; Post più vecchi"
 
 #: loop-nav.php:29
 #, fuzzy
 msgid "Newer posts &#8250;"
-msgstr "Pubblicazioni più recenti"
+msgstr "Post più recenti &#8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "Your search for %s did not match any entries."
-msgstr "La tua ricerca non ha dato alcun risultato"
+msgstr "La ricerca di %s non corrisponde ad alcuna voce."
 
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "404 &#8212; Fancy meeting you here!"
-msgstr "Bello incontrarti qui."
+msgstr "404 &#8212; Fancy incontrarti qui!"
 
 #: loop-no-posts.php:32
 #, fuzzy
@@ -2570,13 +2607,13 @@ msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
 msgstr ""
-"Non fatevi prendere dal panico, lo faremo insieme. Esploriamo le nostre "
-"opzioni qui."
+"Non #39; t panico, #39;otterrete attraverso questo insieme. Let&#39;s "
+"esplorare le nostre opzioni qui."
 
 #: loop-no-posts.php:43
 #, fuzzy
 msgid "&larr; Home"
-msgstr "← Casa"
+msgstr "&larr; Home"
 
 #: partials/custom-home/featured-area.php:255
 msgid "Team"
@@ -2599,7 +2636,7 @@ msgstr "0 Commenti"
 #: partials/footer/copy-right.php:17
 #, fuzzy
 msgid " &copy; "
-msgstr "&amp;Copia"
+msgstr "&copy; "
 
 #: partials/footer/copy-right.php:21
 msgid "&copy; "
@@ -2608,9 +2645,9 @@ msgstr "&copy; "
 #: partials/footer/copy-right.php:29
 #, fuzzy
 msgid " | Powered by Responsive Theme"
-msgstr "| Realizzato da Responsive Theme"
+msgstr "| Alimentato da tema reattivo"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "Menu"
 
@@ -2626,12 +2663,12 @@ msgstr "Info"
 #: partials/single/layout.php:73
 #, fuzzy
 msgid "Previous Post is "
-msgstr "Post precedente"
+msgstr "Post precedente è"
 
 #: partials/single/layout.php:74
 #, fuzzy
 msgid "Next Post is"
-msgstr "Il prossimo post è"
+msgstr "Post successivo è"
 
 #: searchform.php:22
 msgid "Search for:"
@@ -2640,7 +2677,7 @@ msgstr "Cerca per:"
 #: searchform.php:23
 #, fuzzy
 msgid "Search here &hellip;"
-msgstr "Cerca prodotto&hellip;"
+msgstr "Cerca qui &hellip;"
 
 #: searchform.php:24
 msgid "Go"
@@ -2653,12 +2690,12 @@ msgstr "Informazioni Immagine"
 #: sidebar-gallery.php:33
 #, fuzzy
 msgid "Full Size:"
-msgstr "Dimensione piena"
+msgstr "Dimensioni complete:"
 
 #: sidebar-gallery.php:39
 #, fuzzy
 msgid "Aperture: f&#47;"
-msgstr "Apertura: f /"
+msgstr "Apertura: f&#47;"
 
 #: sidebar-gallery.php:44
 msgid "Focal Length:"
@@ -2675,7 +2712,7 @@ msgstr "ISO:"
 #: sidebar-gallery.php:52
 #, fuzzy
 msgid "Shutter:"
-msgstr "Otturatore"
+msgstr "Otturatore:"
 
 #: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
 msgid "sec"
@@ -2688,7 +2725,7 @@ msgstr "Fotocamera:"
 #: sidebar-home.php:34
 #, fuzzy
 msgid "Fermentum"
-msgstr "fermentum"
+msgstr "Fermentum"
 
 #: sidebar-home.php:40
 #, fuzzy
@@ -2697,9 +2734,9 @@ msgid ""
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Questa è la tua prima finestra del widget home. Per modificare, vai su "
-"Aspetto> Widget e scegli il sesto widget dalla parte superiore nell'area 6 "
-"chiamato Widget Home 1. Il titolo è gestibile anche dai widget."
+"Questa è la tua prima scatola widget casa. Per modificare si prega di andare "
+"a Aspetto > Widget e scegliere 6widget dall'alto nell'area 6 chiamato Home "
+"Widget 1. Titolo è anche gestibile da widget pure."
 
 #: sidebar-home.php:54
 #, fuzzy
@@ -2713,14 +2750,14 @@ msgid ""
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Questa è la seconda casella del widget home. Per modificare, vai su Aspetto> "
-"Widget e scegli il settimo widget dall'alto in area 7 chiamato Home Widget "
-"2. Il titolo è gestibile anche dai widget."
+"Questa è la tua seconda scatola widget casa. Per modificare si prega di "
+"andare a Aspetto > Widget e scegliere settimo widget dall'alto nell'area 7 "
+"chiamato Home Widget 2. Titolo è anche gestibile da widget pure."
 
 #: sidebar-home.php:74
 #, fuzzy
 msgid "Interdum"
-msgstr "interdum"
+msgstr "Interdum"
 
 #: sidebar-home.php:78
 #, fuzzy
@@ -2729,27 +2766,55 @@ msgid ""
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Questa è la terza casella del widget per la casa. Per modificare, vai su "
-"Aspetto> Widget e scegli l'ottavo widget dalla parte superiore nell'area 8 "
-"chiamato Home Widget 3. Il titolo è gestibile anche dai widget."
+"Questa è la tua terza scatola widget casa. Per modificare si prega di andare "
+"a Aspetto > Widget e scegliere ottavo widget dall'alto nella zona 8 chiamato "
+"Home Widget 3. Titolo è anche gestibile da widget pure."
 
 #. Theme URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/responsive"
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
 #, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
-"Responsive è un tema WordPress completamente personalizzabile, veloce e "
-"ottimizzato per dispositivi mobili."
+"Responsive è un motore di ricerca completamente personalizzabile, "
+"ottimizzato e mobile-friendly WordPress tema. Compatibile con l'editor di "
+"blocchi Gutenberg, è una scelta perfetta per il tuo blog, sito web aziendale "
+"o negozio WooCommerce. Con opzioni di personalizzazione quasi illimitate, "
+"puoi personalizzare tutte le funzionalità del tuo sito web. Responsive viene "
+"fornito con script minified per migliorare la velocità del sito web. Viene "
+"fornito anche con altre caratteristiche tra cui - nove opzioni di layout per "
+"le pagine e blog, opzioni di progettazione WooCommerce, e la compatibilità "
+"con il generatore di pagine Elementor. Funziona alla grande su un "
+"dispositivo mobile, tablet, desktop e su tutti i browser. Responsive è "
+"disponibile anche in 45 lingue ed è adatto ai motori di ricerca. Vedere "
+"Responsive in azione: https://cyberchimps.com/responsive-ready-websites/. "
+"Scopri di più sulle sue caratteristiche: https://cyberchimps.com/responsive-"
+"features/."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "CyberChimps"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
 #, fuzzy
@@ -2762,10 +2827,8 @@ msgstr "Gutenberg Fullwidth Nessun titolo"
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s Commento su \"%2$s\""
-msgstr[1] ""
-"<ph id=\"mtc_1\" equiv-text=\"base64:JTEkcw==\"/> commenti su &ldquo;<ph id="
-"\"mtc_2\" equiv-text=\"base64:JTIkcw==\"/>&rdquo;"
+msgstr[0] "%1:s Commento su \"%2s\""
+msgstr[1] "%1:s Commenti su \"%2s\""
 
 #: functions.php:126
 msgctxt "Name of the small font size in the block editor"

@@ -3802,6 +3802,12 @@ article.product .post-meta > span .avatar {
   width: 100%;
 }
 
+.page.front-page aside.home-widgets .home-widget-wrapper,
+.blog.front-page aside.home-widgets .home-widget-wrapper {
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
 .page.front-page aside.home-widgets .home-widget-wrapper .home-widget-1,
 .page.front-page aside.home-widgets .home-widget-wrapper .home-widget-2,
 .page.front-page aside.home-widgets .home-widget-wrapper .home-widget-3,

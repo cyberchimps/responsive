@@ -31,7 +31,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 	<div class="content-outer container">
 		<div class="row">
 			<?php responsive_in_wrapper(); // wrapper hook. ?>
-			<main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?>>
+			<main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?> role="main">
 
 				<?php responsive_entry_before(); ?>
 				<section id="post-0" class="error404 hentry">

@@ -25,7 +25,7 @@ get_header(); ?>
 	<div class="content-outer container">
 		<div class="row">
 			<?php responsive_in_wrapper(); // wrapper hook. ?>
-			<main id="primary" class="content-area col-940">
+			<main id="primary" class="content-area col-940" role="main">
 
 				<?php if ( have_posts() ) : ?>
 

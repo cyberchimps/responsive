@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2020
+# <!=Copyright (C) 2020 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.1.7\n"
+"Project-Id-Version: Responsive 4.2.2\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-03-13 11:14:55+00:00\n"
+"POT-Creation-Date: 2020-03-27 09:33:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-03-13 21:34+0530\n"
+"PO-Revision-Date: 2020-03-27 16:26+0530\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -33,7 +33,7 @@ msgstr "Активація"
 #: admin/admin-functions.php:22
 #, fuzzy
 msgid "Not connect. Verify Network."
-msgstr "Не підключатися. Підтвердити мережу."
+msgstr "Не підключається. Перевірте мережу."
 
 #: admin/admin-functions.php:23
 #, fuzzy
@@ -43,32 +43,32 @@ msgstr "Запитана сторінка не знайдена. [404]"
 #: admin/admin-functions.php:24
 #, fuzzy
 msgid "Internal Server Error [500]"
-msgstr "Внутрішня помилка сервера"
+msgstr "Внутрішня помилка сервера [500]"
 
 #: admin/admin-functions.php:25
 #, fuzzy
 msgid "Requested JSON parse failed"
-msgstr "Помилка розбору JSON"
+msgstr "Не вдалося виконати аналіз JSON"
 
 #: admin/admin-functions.php:26
 #, fuzzy
 msgid "Time out error"
-msgstr "Помилка тайм-ауту"
+msgstr "Помилка часу очікування"
 
 #: admin/admin-functions.php:27
 #, fuzzy
 msgid "Ajax request aborted"
-msgstr "Запит перервано"
+msgstr "AJAX запит перервано"
 
 #: admin/admin-functions.php:28
 #, fuzzy
 msgid "Uncaught Error"
-msgstr "Неприхована помилка"
+msgstr "Неспійманий помилка"
 
 #: admin/class-responsive-plugin-install-helper.php:93
 #, fuzzy
 msgid "Install and activate &raquo;"
-msgstr "Встановити та активувати »"
+msgstr "Інсталяція та активація &raquo;"
 
 #: admin/class-responsive-plugin-install-helper.php:97
 #: admin/class-responsive-plugin-install-helper.php:117
@@ -82,7 +82,7 @@ msgstr "Деактивувати"
 #: admin/class-responsive-plugin-install-helper.php:117
 #, fuzzy
 msgid "Jetpack Portfolio"
-msgstr "Jetpack Portfolio"
+msgstr "Jetpack портфоліо"
 
 #: admin/templates/free-vs-pro.php:15
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:389
@@ -102,38 +102,37 @@ msgstr "Про"
 #: admin/templates/free-vs-pro.php:23
 #, fuzzy
 msgid "Mobile Friendly"
-msgstr "<g id=\"Bold\">Сумісність із мобільними пристроями:</g>"
+msgstr "Мобільний дружній"
 
 #: admin/templates/free-vs-pro.php:24 admin/templates/free-vs-pro.php:56
 #, fuzzy
 msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
-msgstr "Повзунок, портфоліо, таблиці цін, віджети WooCommerce тощо"
+msgstr "Слайдер, портфоліо, таблиці ціноутворення, віджети WooCommerce тощо"
 
 #: admin/templates/free-vs-pro.php:31
 #, fuzzy
 msgid "Blazing Fast Speed"
-msgstr "Блискуча швидка швидкість"
+msgstr "Блискавично швидка швидкість"
 
 #: admin/templates/free-vs-pro.php:32
 #, fuzzy
 msgid "Optimized for speed, loads in under 2 seconds"
-msgstr "Оптимізовано для швидкості, завантажується за 2 секунди"
+msgstr "Оптимізовано для швидкості, навантажень у віці до 2 секунд"
 
 #: admin/templates/free-vs-pro.php:39
 #, fuzzy
 msgid "Fully Customizable"
-msgstr "Повністю налаштовується:"
+msgstr "Повністю настроюється"
 
 #: admin/templates/free-vs-pro.php:40
 #, fuzzy
 msgid "Using the customizer options for layout, fonts & colors"
-msgstr ""
-"Використання параметрів налаштування для компонування, шрифтів та кольорів"
+msgstr "Використання параметрів настроювача макета, шрифти & кольорів"
 
 #: admin/templates/free-vs-pro.php:42
 #, fuzzy
 msgid "Limited Options"
-msgstr "Обмежені можливості"
+msgstr "Обмежені параметри"
 
 #: admin/templates/free-vs-pro.php:47
 #, fuzzy
@@ -144,8 +143,8 @@ msgstr "Готові до використання шаблони веб-сай�
 #, fuzzy
 msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
 msgstr ""
-"Готовий до використання розробник сторінок Elementor та шаблони веб-сайтів "
-"Гутенберга"
+"Шаблони сайтів, які готові до використання, або Конструктор сторінок і веб-"
+"сайт Гутенберг"
 
 #: admin/templates/free-vs-pro.php:51
 msgid "30+"
@@ -159,25 +158,25 @@ msgstr "Ексклюзивні віджети"
 #: admin/templates/free-vs-pro.php:63
 #, fuzzy
 msgid "Exclusive Content, Deals & Offers"
-msgstr "Ексклюзивний контент, пропозиції та пропозиції"
+msgstr "Ексклюзивний контент, пропозиції & пропонує"
 
 #: admin/templates/free-vs-pro.php:64
 #, fuzzy
 msgid "Get access to exclusive WordPress content, deals & offers"
 msgstr ""
-"Отримайте доступ до ексклюзивного вмісту, пропозицій та пропозицій WordPress"
+"Отримайте доступ до ексклюзивного контенту WordPress, пропозиції & пропонує"
 
 #: admin/templates/free-vs-pro.php:71
 #, fuzzy
 msgid "Private Priority Email Support"
-msgstr "Підтримка приватного пріоритетного листа"
+msgstr "Підтримка приватного пріоритету електронної пошти"
 
 #: admin/templates/free-vs-pro.php:72
 #, fuzzy
 msgid "Need help? Just raise a support ticket to get priority email support"
 msgstr ""
-"Потрібна допомога? Просто підніміть службу підтримки, щоб отримати "
-"пріоритетну підтримку електронною поштою"
+"Потрібна допомога? Просто підніміть квиток підтримки, щоб отримати "
+"пріоритетну підтримку електронної пошти"
 
 #. Theme Name of the plugin/theme
 msgid "Responsive"
@@ -194,22 +193,22 @@ msgstr ""
 #: comments.php:42
 #, fuzzy
 msgid "One Comment on &ldquo;%1$s&rdquo;"
-msgstr "Один коментар до \"%1$s\""
+msgstr "Один коментар на \"%1$s\""
 
 #: comments.php:58 comments.php:71
 #, fuzzy
 msgid "&#8249; Older comments"
-msgstr "Старіші коментарі"
+msgstr "& #8249; старі коментарі"
 
 #: comments.php:60 comments.php:73
 #, fuzzy
 msgid "Newer comments &#8250;"
-msgstr "Нові коментарі"
+msgstr "Нові коментарі & #8250;"
 
 #: comments.php:85
 #, fuzzy
 msgid "Pings&#47;Trackbacks"
-msgstr "Пінгси / треки"
+msgstr "Пінг & #47; зворотні посилання"
 
 #. translators: 1 : Count, 2 : Pings 3 : Post title
 #: comments.php:102
@@ -248,7 +247,7 @@ msgstr "Колір тексту"
 #: core/gutenberg/gutenberg-support.php:60
 #, fuzzy
 msgid "Container Background Color"
-msgstr "Колір фону контейнера"
+msgstr "Колір тла контейнера"
 
 #: core/includes/classes/class-responsive-admin-settings.php:91
 msgid "Responsive Options"
@@ -261,12 +260,12 @@ msgstr "Почати"
 #: core/includes/classes/class-responsive-admin-settings.php:196
 #, fuzzy
 msgid "Free Vs Pro "
-msgstr "Безкоштовно Vs Pro"
+msgstr "Безкоштовно vs Pro"
 
 #: core/includes/classes/class-responsive-admin-settings.php:231
 #, fuzzy
 msgid "Import a website template(FREE)"
-msgstr "Імпорт шаблону веб-сайту (БЕЗКОШТОВНО)"
+msgstr "Імпорт шаблону веб-сайту (безкоштовно)"
 
 #: core/includes/classes/class-responsive-admin-settings.php:237
 #, fuzzy
@@ -274,13 +273,13 @@ msgid ""
 "Install Responsive Add-ons to get ready-to-use website templates that can be "
 "imported with one click."
 msgstr ""
-"Встановіть чуйні додатки, щоб отримати готові до використання шаблони веб-"
-"сайтів, які можна імпортувати одним клацанням миші."
+"Встановіть адаптивні додатки, щоб отримати готові шаблони веб-сайтів, які "
+"можна імпортувати одним клацанням миші."
 
 #: core/includes/classes/class-responsive-admin-settings.php:242
 #, fuzzy
 msgid "Learn More &raquo;"
-msgstr "Вивчайте більше \""
+msgstr "Дізнатися більше &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:269
 msgid "Support"
@@ -289,12 +288,12 @@ msgstr "Підтримка"
 #: core/includes/classes/class-responsive-admin-settings.php:273
 #, fuzzy
 msgid "Have questions? Get in touch with us. We'll be happy to help"
-msgstr "Маєте запитання? Зв'яжіться з нами. Ми будемо раді допомогти"
+msgstr "Є питання? Зв'яжіться з нами. Ми будемо раді допомогти"
 
 #: core/includes/classes/class-responsive-admin-settings.php:277
 #, fuzzy
 msgid "Request Support &raquo;"
-msgstr "Попросити підтримку »"
+msgstr "Запит підтримки &raquo;"
 
 #. translators: %1$s: Responsive Support link.
 #: core/includes/classes/class-responsive-admin-settings.php:303
@@ -305,32 +304,32 @@ msgstr "Змінити макет сайту"
 #: core/includes/classes/class-responsive-admin-settings.php:308
 #, fuzzy
 msgid "Customize fonts/typography"
-msgstr "Налаштувати шрифти / типографіку"
+msgstr "Налаштування шрифтів/типографіки"
 
 #: core/includes/classes/class-responsive-admin-settings.php:313
 #, fuzzy
 msgid "Upload logo & site icon"
-msgstr "Завантажити значок логотипу та сайту"
+msgstr "Завантажити логотип & значок сайту"
 
 #: core/includes/classes/class-responsive-admin-settings.php:318
 #, fuzzy
 msgid "Add/edit navigation menu"
-msgstr "Додати / редагувати навігаційне меню"
+msgstr "Додати/змінити меню навігації"
 
 #: core/includes/classes/class-responsive-admin-settings.php:323
 #, fuzzy
 msgid "Customize header options"
-msgstr "Налаштувати параметри заголовка"
+msgstr "Настроювання параметрів заголовків"
 
 #: core/includes/classes/class-responsive-admin-settings.php:328
 #, fuzzy
 msgid "Customize footer options"
-msgstr "Налаштувати параметри нижнього колонтитула"
+msgstr "Налаштування параметрів нижнього колонтитула"
 
 #: core/includes/classes/class-responsive-admin-settings.php:333
 #, fuzzy
 msgid "Update blog layout"
-msgstr "Оновіть макет блогу"
+msgstr "Оновити макет блогу"
 
 #: core/includes/classes/class-responsive-admin-settings.php:338
 #, fuzzy
@@ -340,7 +339,7 @@ msgstr "Оновити макет сторінки"
 #: core/includes/classes/class-responsive-admin-settings.php:346
 #, fuzzy
 msgid "Quick Start:"
-msgstr "Швидкий запуск"
+msgstr "Швидкий старт:"
 
 #: core/includes/classes/class-responsive-admin-settings.php:365
 msgid "Community"
@@ -352,13 +351,13 @@ msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
-"Знайомтеся з чуйними користувачами Power. Привітайтеся, задайте питання, "
-"дайте відгуки та допомагайте один одному"
+"Відповідають адаптивним користувачам живлення. Привітатися, задавати "
+"питання, давати зворотний зв'язок і допомагати один одному"
 
 #: core/includes/classes/class-responsive-admin-settings.php:373
 #, fuzzy
 msgid "Join Facebook Group &raquo;"
-msgstr "Приєднуйтесь до групи Facebook »"
+msgstr "Приєднуйтесь до групи Facebook &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:387
 msgid "Feedback"
@@ -371,38 +370,36 @@ msgid ""
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
-"Привіт! Дякуємо, що використовували чуйну тему. Чи можете ви, будь ласка, "
-"зробити нам послугу і дати нам 5-зірковий рейтинг? Ваші відгуки підтримують "
-"нас мотивованими та допомагають нам розвивати чуйну спільноту."
+"Привіт! Дякуємо за використання адаптивних тем. Чи можете ви, будь ласка, "
+"зробити нам користь і дати нам 5-зірковий рейтинг? Ваш відгук тримає нас "
+"мотивованим і допомагає нам зростати реагувати співтовариство."
 
 #: core/includes/classes/class-responsive-admin-settings.php:395
 #, fuzzy
 msgid "Submit Review &raquo;"
-msgstr "Додати відгук »"
+msgstr "Надіслати відгук &raquo;"
 
 #: core/includes/classes/class-responsive-admin-settings.php:421
 #, fuzzy
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
-msgstr ""
-"Шумна швидка, зручна для мобільних пристроїв, повністю настроювана тема "
-"WordPress."
+msgstr "Блискавично швидка, Мобільна, повністю настроюється WordPress тема."
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:266
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:265
 msgid "Sale!"
 msgstr "Знижка!"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:355
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:354
 msgid "WooCommerce Sidebar"
 msgstr "Сайдбар WooCommerce"
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:357
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:356
 #, fuzzy
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
-"Ця бічна панель буде використовуватися на сторінках архіву продуктів, "
-"кошика, замовлення та моїх акаунтів."
+"Ця бічна панель буде використовуватися на Архів продуктів, віз, Checkout і "
+"на сторінках мого облікового запису."
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:39
@@ -417,7 +414,7 @@ msgstr "Кольори"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
 #, fuzzy
 msgid "Cart Buttons"
-msgstr "Кнопки"
+msgstr "Кнопки кошика"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
@@ -436,19 +433,19 @@ msgstr "Текст кнопки"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:66
 #, fuzzy
 msgid "Button Hover"
-msgstr "Кнопка наведення"
+msgstr "Колір кнопки при наведенні"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:62
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:82
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:70
 #, fuzzy
 msgid "Button Hover Text"
-msgstr "Текст кнопки наведення курсору"
+msgstr "Колір тексту при наведенні на кнопку"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:66
 #, fuzzy
 msgid "Checkout Button"
-msgstr "Кнопка оформлення замовлення"
+msgstr "Кнопка \"оформити замовлення\""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:47
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:46
@@ -466,17 +463,17 @@ msgstr "Макети"
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:50
 #, fuzzy
 msgid "Main Content Width (%)"
-msgstr "Ширина вмісту"
+msgstr "Ширина основного вмісту (%)"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:57
 #, fuzzy
 msgid "Enable Cross-sells"
-msgstr "Увімкнути перехресні продажі"
+msgstr "Увімкнути крос-продажу"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:71
 #, fuzzy
 msgid "Cart Icon Visibility"
-msgstr "Видимість Іконок"
+msgstr "Видимість піктограми кошика"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:76
 #, fuzzy
@@ -486,22 +483,22 @@ msgstr "Відображати на всіх пристроях"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php:77
 #, fuzzy
 msgid "Disabled On All Devices"
-msgstr "Відключено на всіх пристроях"
+msgstr "Вимкнуто на всіх пристроях"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:40
 #, fuzzy
 msgid "Product Catalog Options"
-msgstr "Параметри каталогу продукту"
+msgstr "Параметри каталогу продуктів"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:41
 #, fuzzy
 msgid "Shop Options"
-msgstr "Параметри"
+msgstr "Параметри магазину"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:49
 #, fuzzy
 msgid "Product Options"
-msgstr "Опції товара"
+msgstr "Параметри продукту"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:50
 #, fuzzy
@@ -512,28 +509,28 @@ msgstr "Параметри одного продукту"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-panel.php:59
 #, fuzzy
 msgid "Cart Options"
-msgstr "Параметри"
+msgstr "Параметри кошика"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:46
 #, fuzzy
 msgid "Rating Color"
-msgstr "Колір оцінки"
+msgstr "Колір оцінювання"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
 #, fuzzy
 msgid "Price Color"
-msgstr "Колір ціни"
+msgstr "Ціна кольору"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
 #, fuzzy
 msgid "Add To Cart Buttons"
-msgstr "Додати в кошик Кнопки"
+msgstr "Додати в кошик кнопки"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:43
@@ -578,12 +575,12 @@ msgstr "Немає бічної панелі"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:63
 #, fuzzy
 msgid "Shop Product"
-msgstr "Магазин товару"
+msgstr "Магазин продукту"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:67
 #, fuzzy
 msgid "Catalog View"
-msgstr "Каталог"
+msgstr "Каталог подання"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:69
 msgid "Grid View"
@@ -596,7 +593,7 @@ msgstr "Відобразити списком"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:75
 #, fuzzy
 msgid "Content Aligmnment"
-msgstr "Вирівнювання вмісту"
+msgstr "Content Aligmnment"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:77
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:75
@@ -651,12 +648,12 @@ msgstr "Зправа"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:98
 #, fuzzy
 msgid "Shop Elements"
-msgstr "Елементи"
+msgstr "Елементи магазину"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:107
 #, fuzzy
 msgid "Sale Notification"
-msgstr "Повідомлення про продаж"
+msgstr "Сповіщення про продаж"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:109
 msgid "None"
@@ -678,17 +675,17 @@ msgstr "За замовчуванням"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:111
 #, fuzzy
 msgid "Custom String"
-msgstr "UKRustom Ktring"
+msgstr "Настроюваний рядок"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:116
 #, fuzzy
 msgid "Sale % Value"
-msgstr "Продаж% Вартість"
+msgstr "Продаж% значення"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:120
 #, fuzzy
 msgid "Sale Bubble Style"
-msgstr "Продаж міхура стиль"
+msgstr "Розпродаж бульбашкового стилю"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:122
 msgid "Circle"
@@ -714,16 +711,16 @@ msgstr "Елементи продукту"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:67
 #, fuzzy
 msgid "Gallery Layout"
-msgstr "Макет галереї"
+msgstr "Розкладка галереї"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:69
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:118
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr "Вертикально"
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:117
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr "Горизонтальний"
@@ -731,20 +728,21 @@ msgstr "Горизонтальний"
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:88
 #, fuzzy
 msgid "Single Product Structure"
-msgstr "Структура єдиного продукту"
+msgstr "Єдина структура продукту"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:150
 msgid "Cart"
 msgstr "Кошик"
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:155
+#, fuzzy
 msgid " / "
 msgstr "/"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:66
 #, fuzzy
 msgid "Link values together"
-msgstr "Пов’яжіть значення разом"
+msgstr "Зв'язати значення разом"
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
@@ -764,7 +762,7 @@ msgstr "Знизу"
 #: core/includes/customizer/controls/text/class-responsive-customizer-text-control.php:133
 #, fuzzy
 msgid "px - em - rem"
-msgstr "px - em - rem"
+msgstr "PX-ЕМ-Рем"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:62
 msgid "Inherit"
@@ -774,55 +772,55 @@ msgstr "Успадкувати"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:411
 #, fuzzy
 msgid "Thin: 100"
-msgstr "Тонкі (100)"
+msgstr "Тонкий: 100"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:66
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:412
 #, fuzzy
 msgid "Light: 200"
-msgstr "Світлий 200"
+msgstr "Світло: 200"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:413
 #, fuzzy
 msgid "Book: 300"
-msgstr "Книжний 300"
+msgstr "Книга: 300"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:68
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:414
 #, fuzzy
 msgid "Normal: 400"
-msgstr "Нормальний 400"
+msgstr "Нормальний: 400"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:69
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:415
 #, fuzzy
 msgid "Medium: 500"
-msgstr "Середній 500"
+msgstr "Середній: 500"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:70
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:416
 #, fuzzy
 msgid "Semibold: 600"
-msgstr "Семибольд (600)"
+msgstr "Semibold: 600"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:417
 #, fuzzy
 msgid "Bold: 700"
-msgstr "Жирний 700"
+msgstr "Сміливий: 700"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:418
 #, fuzzy
 msgid "Extra Bold: 800"
-msgstr "Дуже жирний 800"
+msgstr "Екстра сміливий: 800"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:419
 #, fuzzy
 msgid "Black: 900"
-msgstr "Чорний (900)"
+msgstr "Чорний: 900"
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:212
 msgid "Arial, Helvetica, sans-serif"
@@ -844,7 +842,7 @@ msgstr "Google Fonts"
 #: core/includes/customizer/controls/upsell/class-responsive-section-upsell.php:88
 #, fuzzy
 msgid "PRO"
-msgstr "ЗА"
+msgstr "Про"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:44
 #, fuzzy
@@ -854,7 +852,7 @@ msgstr "Переглянути функції PRO"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:60
 #, fuzzy
 msgid "Pro Ready Sites"
-msgstr "Про готові сайти"
+msgstr "Pro готових сайтів"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:61
 msgid "Form Builder"
@@ -863,17 +861,17 @@ msgstr "Для побудови форм"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:62
 #, fuzzy
 msgid "Interactive Sliders and Carousels"
-msgstr "Інтерактивні повзунки та каруселі"
+msgstr "Інтерактивні повзунки і каруселі"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:63
 #, fuzzy
 msgid "Pricing Tables"
-msgstr "STM Pricing Tables"
+msgstr "Цінові таблиці"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:64
 #, fuzzy
 msgid "Portfolio and Post Layouts"
-msgstr "Портфоліо та макети публікацій"
+msgstr "Портфоліо і макети Post"
 
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:65
 #, fuzzy
@@ -883,17 +881,17 @@ msgstr "Приватна, пріоритетна підтримка"
 #: core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php:68
 #, fuzzy
 msgid "Get the PRO version!"
-msgstr "Перейти до про версії"
+msgstr "Отримайте PRO версію!"
 
 #: core/includes/customizer/customizer.php:29
 #, fuzzy
 msgid "CSS Styles"
-msgstr "Стилі CSS"
+msgstr "CSS стилі"
 
 #: core/includes/customizer/customizer.php:43
 #, fuzzy
 msgid "Custom CSS Styles"
-msgstr "Спеціальні стилі CSS"
+msgstr "Користувацькі стилі CSS"
 
 #: core/includes/customizer/customizer.php:64
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:231
@@ -947,9 +945,10 @@ msgstr "Контент"
 #: core/includes/customizer/helper.php:173
 #, fuzzy
 msgid "Site Branding"
-msgstr "Брендинг сайту"
+msgstr "Брендінг сайтів"
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:174 functions.php:472
+#: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr "Основна навігація"
 
@@ -980,13 +979,12 @@ msgstr "Категорія"
 msgid "Ratings"
 msgstr "Рейтинги"
 
-#: core/includes/customizer/helper.php:763
-#, fuzzy
+#: core/includes/customizer/helper.php:766
 msgid "Read more &raquo;"
-msgstr "Детальніше »"
+msgstr "Читати далі &raquo;"
 
-#: core/includes/customizer/helper.php:803
-#: core/includes/customizer/helper.php:824 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:806
+#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr "Читати далі &raquo;"
 
@@ -994,12 +992,12 @@ msgstr "Читати далі &raquo;"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:72
 #, fuzzy
 msgid "Entry Elements"
-msgstr "Вхідні елементи"
+msgstr "Елементи входу"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:84
 #, fuzzy
 msgid "Entry Featured Image"
-msgstr "Подання пропонованого зображення"
+msgstr "Вхід вибрані зображення"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:88
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
@@ -1052,7 +1050,7 @@ msgstr "Вхід Meta"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:141
 #, fuzzy
 msgid "Meta Elements"
-msgstr "Елементи"
+msgstr "Meta елементи"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:148
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:148
@@ -1078,18 +1076,18 @@ msgstr "Коментарі"
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:170
 #, fuzzy
 msgid "Meta Separator"
-msgstr "Розставити мета-роздільник"
+msgstr "Мета-роздільник"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:179
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:179
 #, fuzzy
 msgid "Meta Alignment"
-msgstr "Вирівнювання"
+msgstr "Мета вирівнювання"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:190
 #, fuzzy
 msgid "Entry Content"
-msgstr "Вхід змісту"
+msgstr "Запис вмісту"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:194
 msgid "Content Type"
@@ -1116,7 +1114,7 @@ msgstr "Читати більше тексту"
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:219
 #, fuzzy
 msgid "Read More Type"
-msgstr "Детальніше Тип"
+msgstr "Читати далі текст"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:221
 msgid "Link"
@@ -1127,7 +1125,7 @@ msgstr "Посилання"
 #: core/includes/customizer/settings/class-responsive-panel.php:86
 #, fuzzy
 msgid "Content Header"
-msgstr "заголовок вмісту"
+msgstr "Заголовок вмісту"
 
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:59
 msgid "Enable Blog Page Title"
@@ -1136,12 +1134,12 @@ msgstr "Увімкнути Заголовок Блогу Сторінки"
 #: core/includes/customizer/settings/class-responsive-blog-content-header-customizer.php:78
 #, fuzzy
 msgid "Blog Page Title"
-msgstr "Заголовок сторінки"
+msgstr "Увімкнути Заголовок Блогу Сторінки"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:52
 #, fuzzy
 msgid "Entry Columns"
-msgstr "Стовпці входу"
+msgstr "Стовпці для входу"
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:56
 msgid "Enable Masonry Layout"
@@ -1158,17 +1156,17 @@ msgstr "Колір опису"
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:54
 #, fuzzy
 msgid "Breadcrumb Color"
-msgstr "Колір хліба"
+msgstr "Колір навігаційний ланцюжок"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:56
 #, fuzzy
 msgid "Disable breadcrumb list?"
-msgstr "Відключити хлібні крихти"
+msgstr "Вимкнути список навігаційний ланцюжок?"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:65
 #, fuzzy
 msgid "Breadcrumb Position"
-msgstr "Позиція хліба"
+msgstr "Розташування навігаційний ланцюжок"
 
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:67
 #, fuzzy
@@ -1208,12 +1206,14 @@ msgstr "Документація"
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
 #, fuzzy
 msgid "To have access to a shop section please install and configure %1$s."
-msgstr "Щоб мати доступ до розділу магазину, встановіть і налаштуйте%1$s."
+msgstr ""
+"Щоб мати доступ до розділу магазину, будь ласка, встановіть та налаштуйте "
+"%1$s."
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
 #, fuzzy
 msgid "WooCommerce plugin"
-msgstr "Плагін WooCommerce"
+msgstr "Втулок WooCommerce"
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
 msgid "Recommended Plugins"
@@ -1226,8 +1226,8 @@ msgid ""
 "Get access to even more powerful features that will help you build a "
 "beautiful fast and responsive website in no time at all."
 msgstr ""
-"Отримайте доступ до ще більш потужних функцій, які допоможуть вам створити "
-"прекрасний швидкий та чуйний веб-сайт у найкоротші терміни."
+"Отримайте доступ до ще більш потужних функцій, які допоможуть вам побудувати "
+"гарний швидкий і адаптивний сайт в найкоротші терміни."
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:46
@@ -1256,7 +1256,7 @@ msgstr "Колір посилань при наведенні"
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:47
 #, fuzzy
 msgid "Full Width Footer"
-msgstr "Повна ширина нижнього колонтитулу"
+msgstr "Нижній колонтитул повної ширини"
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:53
 msgid "Footer Widgets"
@@ -1270,69 +1270,73 @@ msgstr "Кількість стовпчиків"
 msgid "Footer Bar"
 msgstr "Панелі підвалу"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:87
+msgid "Copyright text"
+msgstr "Текст копірайту"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
+#, fuzzy
+msgid "Hide Powered By Responsive Theme"
+msgstr "Сховати живлення на адаптивній темі"
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
 msgid "Social Links"
 msgstr "Соціальні посилання"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:99
-#: core/includes/functions-extentions.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:144
+#: core/includes/functions-extensions.php:357
 msgid "Twitter"
 msgstr "Twitter"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
-#: core/includes/functions-extentions.php:338
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:165
+#: core/includes/functions-extensions.php:358
 msgid "Facebook"
 msgstr "Facebook"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
-#: core/includes/functions-extentions.php:339
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:186
+#: core/includes/functions-extensions.php:359
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:162
-#: core/includes/functions-extentions.php:340
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:207
+#: core/includes/functions-extensions.php:360
 msgid "YouTube"
 msgstr "YouTube"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
-#: core/includes/functions-extentions.php:343
-msgid "Google+"
-msgstr "Google+"
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:204
-#: core/includes/functions-extentions.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:228
+#: core/includes/functions-extensions.php:362
 msgid "RSS Feed"
 msgstr "RSS стрічка"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:225
-#: core/includes/functions-extentions.php:344
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:249
+#: core/includes/functions-extensions.php:363
 msgid "Instagram"
 msgstr "Instagram"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:246
-#: core/includes/functions-extentions.php:345
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:270
+#: core/includes/functions-extensions.php:364
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:267
-#: core/includes/functions-extentions.php:341
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:291
+#: core/includes/functions-extensions.php:361
 msgid "StumbleUpon"
 msgstr "StumbleUpon"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:288
-#: core/includes/functions-extentions.php:347
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:312
+#: core/includes/functions-extensions.php:366
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:309
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:333
 msgid "Yelp"
 msgstr "Yelp"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:330
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:354
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:349
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:373
 msgid "Email Address"
 msgstr "Email адреса"
 
@@ -1344,7 +1348,7 @@ msgstr "Скрипти"
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:57
 #, fuzzy
 msgid "Embeds to footer.php"
-msgstr "Вбудовується у footer.php"
+msgstr "Вбудовує в нижній колонтитул. php"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:49
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:76
@@ -1357,7 +1361,7 @@ msgstr "Колір рамки"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:52
 #, fuzzy
 msgid "Site Title Color"
-msgstr "Заголовок кольору"
+msgstr "Колір заголовка сайту"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:55
 msgid "Site Title Hover Color"
@@ -1366,7 +1370,7 @@ msgstr "Заголовок сайту Наведення колір"
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:58
 #, fuzzy
 msgid "Site Tagline Color"
-msgstr "Колір мітки сайту"
+msgstr "Колір підзаголовок сайту"
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
 msgid "Header Widget"
@@ -1375,12 +1379,12 @@ msgstr "Заголовок віджету"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:47
 #, fuzzy
 msgid "Full Width Header"
-msgstr "Повна ширина заголовка"
+msgstr "Заголовок повної ширини"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:51
 #, fuzzy
 msgid "Inline logo & Site Title"
-msgstr "Вбудований логотип та назва сайту"
+msgstr "Вбудований логотип & назва сайту"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:71
 msgid "Header Elements"
@@ -1393,12 +1397,12 @@ msgstr "Макет заголовку"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:89
 #, fuzzy
 msgid "Header Alignment"
-msgstr "Вирівнювання заголовка"
+msgstr "Вирівнювання заголовків"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #, fuzzy
 msgid "Logo Padding (px)"
-msgstr "Набивання логотипу (px)"
+msgstr "Заповнення логотипу (пікс.)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:104
 msgid "Transparent Header"
@@ -1407,32 +1411,32 @@ msgstr "Прозорий заголовок"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:108
 #, fuzzy
 msgid "Enable on Complete Website"
-msgstr "Увімкнути на повному веб-сайті"
+msgstr "Увімкнути на повній веб-сайті"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:112
 #, fuzzy
 msgid "Site Content Padding (px)"
-msgstr "Завантаження вмісту сайту (px)"
+msgstr "Заповнення вмісту сайту (PX)"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:115
 #, fuzzy
 msgid "Disable on 404, Search & Archives?"
-msgstr "Вимкнути 404, Пошук та архіви?"
+msgstr "Вимкнути 404, пошук архівів &?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:118
 #, fuzzy
 msgid "Disable on Blog page?"
-msgstr "Відключити на сторінці блогу?"
+msgstr "Вимкнути на сторінці блогу?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:121
 #, fuzzy
 msgid "Disable on Latest Posts Page?"
-msgstr "Відключити на сторінці останніх публікацій?"
+msgstr "Вимкнути останню сторінку повідомлень?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:124
 #, fuzzy
 msgid "Disable on Pages?"
-msgstr "Відключити на Сторінках?"
+msgstr "Вимкнути на сторінках?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:127
 msgid "Disable on Posts?"
@@ -1441,23 +1445,23 @@ msgstr "Вимкнути на записах?"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:130
 #, fuzzy
 msgid "Disable on WooCommerce Product Pages?"
-msgstr "Відключити на сторінках продуктів WooCommerce?"
+msgstr "Вимкнути на сторінках продукту WooCommerce?"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:136
 #: core/includes/functions-sidebar.php:100
 #, fuzzy
 msgid "Header Widgets"
-msgstr "Віджети заголовка"
+msgstr "Заголовки віджетів"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
 #, fuzzy
 msgid "Enable Header Widgets"
-msgstr "Увімкнути віджети заголовка"
+msgstr "Включити віджети заголовків"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:144
 #, fuzzy
 msgid "Widgets Position"
-msgstr "Положення віджетів"
+msgstr "Розташування віджетів"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:146
 #, fuzzy
@@ -1467,17 +1471,17 @@ msgstr "Над заголовком"
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:147
 #, fuzzy
 msgid "In Header"
-msgstr "В Хедер"
+msgstr "Заголовок"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
 #, fuzzy
 msgid "Below Header"
-msgstr "Нижче заголовка"
+msgstr "Нижче заголовок"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:153
 #, fuzzy
 msgid "Widgets Alignment"
-msgstr "Вирівнювання віджетів"
+msgstr "Віджети вирівнювання"
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:155
 msgid "Spread"
@@ -1490,17 +1494,17 @@ msgstr "Простір навколо"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #, fuzzy
 msgid "Active Menu Background Color"
-msgstr "Колір фону для активної вкладки"
+msgstr "Колір фону активного меню"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:63
 #, fuzzy
 msgid "Menu Item Link Color"
-msgstr "Колір посилання меню"
+msgstr "Колір посилання елемента меню"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:67
 #, fuzzy
 msgid "Menu Item Link Hover Color"
-msgstr "Колір посилання меню при наведенні"
+msgstr "Колір наведення посилання на елемент меню"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
 msgid "Sub Menu Background Color"
@@ -1509,32 +1513,32 @@ msgstr "Sub Menu Background Color"
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
 #, fuzzy
 msgid "Sub Menu Item Link Color"
-msgstr "Колір посилання в підменю"
+msgstr "Підпункт меню колір посилання"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
 #, fuzzy
 msgid "Sub Menu Item Link Hover Color"
-msgstr "Колір посилання меню при наведенні"
+msgstr "Колір підрядка посилання на пункт меню"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
 #, fuzzy
 msgid "Menu Toggle Background Color"
-msgstr "Меню Переключення кольору тла"
+msgstr "Переключити колір фону меню"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
 #, fuzzy
 msgid "Menu Toggle Color"
-msgstr "Меню Переключення кольору"
+msgstr "Переключити колір меню"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:51
 #, fuzzy
 msgid "Full Width Main Navigation"
-msgstr "Навігація на всю ширину"
+msgstr "Головна ширина для навігації"
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
 #, fuzzy
 msgid "Enable Mobile Menu"
-msgstr "Увімкнути мобільне меню"
+msgstr "Увімкнути меню \"мобільне\""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
 msgid "Breakpoint"
@@ -1561,7 +1565,7 @@ msgstr "Вирівнювання меню бічної панелі"
 #: core/includes/customizer/settings/class-responsive-header-scripts-customizer.php:54
 #, fuzzy
 msgid "Embeds to header.php"
-msgstr "Вбудовується в header.php"
+msgstr "Вбудовує в заголовок. php"
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
@@ -1581,25 +1585,25 @@ msgstr "Вибрати категорію"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:69
 #, fuzzy
 msgid "Custom Home Page"
-msgstr "Спеціальна домашня сторінка"
+msgstr "Настроювана Домашня сторінка"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:83
 #, fuzzy
 msgid "Enable Custom Front Page"
-msgstr "Увімкнути спеціальну передню сторінку"
+msgstr "Увімкнути настроювану передню сторінку"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:88
 #, fuzzy
 msgid "Overrides the WordPress front page option"
-msgstr "Переосмислює параметр титульної сторінки WordPress"
+msgstr "Замінює опцію WordPress передній сторінці"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:93
 #, fuzzy
 msgid "Hero Area"
-msgstr "Зона Героїв"
+msgstr "Площа героя"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:101
-#: core/includes/functions.php:58 functions.php:526
+#: core/includes/functions.php:58 functions.php:527
 #, fuzzy
 msgid "HAPPINESS"
 msgstr "Щастя"
@@ -1609,27 +1613,27 @@ msgid "Headline"
 msgstr "Заголовок"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:120
-#: core/includes/functions.php:59 functions.php:529
+#: core/includes/functions.php:59 functions.php:530
 #, fuzzy
 msgid "IS A WARM CUP"
-msgstr "ЧАС ТЕПЛОГО"
+msgstr "ЦЕ ТЕПЛИЙ КУБОК"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:127
 #, fuzzy
 msgid "Subheadline"
-msgstr "Підзаголовок"
+msgstr "Підзаголовку"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:138
-#: core/includes/functions.php:60 functions.php:532
+#: core/includes/functions.php:60 functions.php:533
 #, fuzzy
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
 "can be an image or even YouTube video if you like."
 msgstr ""
-"Ваше заголовок, підзаголовки та цей самий вміст можна редагувати з теми "
-"Тема. Кнопка «Заклик до дії» та її цільове посилання. Зображення праворуч "
-"може бути зображенням або навіть відео YouTube, якщо ви хочете."
+"Ваш заголовок, субтитри і цей самий вміст редаговані з теми варіант. Заклик "
+"до дії кнопка і призначення посилання, а також. Зображення на ваше право "
+"може бути зображення або навіть відео YouTube, якщо хочете."
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:146
 msgid "Content Area"
@@ -1638,7 +1642,7 @@ msgstr "Область вмісту"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:163
 #, fuzzy
 msgid "Disable Call to Action Button?"
-msgstr "Вимкнути кнопку заклику до дії?"
+msgstr "Вимкнути дзвінок до дії кнопка?"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:182
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:351
@@ -1650,12 +1654,12 @@ msgstr "Заклик до дії (URL)"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:331
 #, fuzzy
 msgid "Call to Action (Text)"
-msgstr "Заклик до дії тексту"
+msgstr "Заклик до дії (текст)"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:224
 #, fuzzy
 msgid "Call to Action Button Style"
-msgstr "Заклик до дії стиль кнопки"
+msgstr "Як зателефонувати до стилю кнопки дії"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:248
 msgid "Featured Content"
@@ -1664,28 +1668,28 @@ msgstr "Рекомендований вміст"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:252
 #, fuzzy
 msgid "Paste your shortcode, video or image source"
-msgstr "Вставте свій короткий код, відео чи джерело зображень"
+msgstr "Вставлення короткого коду, відео або джерела зображень"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:259
 #, fuzzy
 msgid "About Section"
-msgstr "Про розділ"
+msgstr "Про секцію"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:272
 #, fuzzy
 msgid "Enable About Section"
-msgstr "Увімкнути про розділ"
+msgstr "Увімкнути розділ"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:285
 #: partials/custom-home/featured-area.php:105
 #, fuzzy
 msgid "About Box Title"
-msgstr "Про назву поля"
+msgstr "Про назву коробки"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:292
 #, fuzzy
 msgid "About Title"
-msgstr "Про Наазва"
+msgstr "Про назву"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:311
 #, fuzzy
@@ -1700,12 +1704,12 @@ msgstr "Введіть URL як http://www.example.com"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:369
 #, fuzzy
 msgid "Feature Section"
-msgstr "Розділ функцій"
+msgstr "Розділ «функція»"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:375
 #, fuzzy
 msgid "Enable Feature Section"
-msgstr "Увімкнути розділ функцій"
+msgstr "Увімкнути розділ \"функція\""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:396
 msgid "Feature Title"
@@ -1714,7 +1718,7 @@ msgstr "Заголовок Властивості"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:414
 #, fuzzy
 msgid "Select post for feature 1"
-msgstr "Виберіть допис для функції 1"
+msgstr "Виберіть повідомлення для функції 1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:417
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:437
@@ -1724,29 +1728,29 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the feature. Recommended image size for the featured images: 130 x 130px"
 msgstr ""
-"Вибране зображення, назва та вміст із публікацій будуть використані для "
-"відображення функції. Рекомендований розмір зображення для зображених "
-"зображень: 130 x 130 пікселів"
+"Вибрані зображення, заголовок і зміст з посад буде використовуватися для "
+"відображення цієї функції. Рекомендований розмір зображення для зображень із "
+"ознаками: 130 x 130 PX"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:434
 #, fuzzy
 msgid "Select post for feature 2"
-msgstr "Виберіть допис для функції 2"
+msgstr "Виберіть пост для функції 2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:454
 #, fuzzy
 msgid "Select post for feature 3"
-msgstr "Виберіть допис для функції 3"
+msgstr "Виберіть пост для функції 3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:466
 #, fuzzy
 msgid "Testimonial Section"
-msgstr "Відгуковий розділ"
+msgstr "Розділ відгуку"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:479
 #, fuzzy
 msgid "Enable Testimonial Section"
-msgstr "Увімкнути розділ відгуків"
+msgstr "Увімкнути розділ відгуку"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:492
 #: partials/custom-home/featured-area.php:217
@@ -1768,19 +1772,19 @@ msgid ""
 "the client testimonials. Recommended image size for the featured images: 178 "
 "x 178px"
 msgstr ""
-"Вибране зображення, назва та вміст із публікацій будуть використані для "
-"відображення відгуків клієнтів. Рекомендований розмір зображення для "
-"зображених зображень: 178 x 178px"
+"Вибрані зображення, назва та зміст з посад буде використовуватися для "
+"відображення Відгуки клієнтів. Рекомендований розмір зображення для "
+"зображень із ознаками: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:528
 #, fuzzy
 msgid "Team Section"
-msgstr "Розділ нашої команди"
+msgstr "Секції команди"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:541
 #, fuzzy
 msgid "Enable Team Section"
-msgstr "Увімкнути розділ команди"
+msgstr "Команда \"Увімкнути розділ\""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:554
 msgid "team"
@@ -1789,12 +1793,12 @@ msgstr "Команда"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:561
 #, fuzzy
 msgid "Team Title"
-msgstr "Назва"
+msgstr "Назва команди"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:579
 #, fuzzy
 msgid "Select post for team member1"
-msgstr "Виберіть посаду для члена команди1"
+msgstr "Виберіть пост для команди member1"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:582
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:602
@@ -1804,34 +1808,34 @@ msgid ""
 "The featured image, title and content from the posts will be used to display "
 "the team member. Recommended image size for the featured images: 178 x 178px"
 msgstr ""
-"Вибране зображення, назва та вміст із публікацій будуть використані для "
-"відображення члена команди. Рекомендований розмір зображення для зображених "
-"зображень: 178 x 178px"
+"Вибрані зображення, заголовок і зміст з посад буде використовуватися для "
+"відображення члена команди. Рекомендований розмір зображення для зображень "
+"із ознаками: 178 x 178px"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:599
 #, fuzzy
 msgid "Select post for team member2"
-msgstr "Виберіть посаду для члена команди2"
+msgstr "Виберіть пост для команди member2"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:619
 #, fuzzy
 msgid "Select post for team member3"
-msgstr "Виберіть посаду для члена команди3"
+msgstr "Виберіть пост для команди member3"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:639
 #, fuzzy
 msgid "Click to disable home page widgets"
-msgstr "Клацніть, щоб відключити віджети домашньої сторінки"
+msgstr "Клацніть, щоб вимкнути віджети для домашньої сторінки"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:648
 #, fuzzy
 msgid "Contact Section"
-msgstr "Контактний відділ"
+msgstr "Розділ контактів"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:661
 #, fuzzy
 msgid "Enable Contact Section"
-msgstr "Увімкнути розділ контактів"
+msgstr "Увімкнути розділ «контакт»"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:674
 msgid "Contact Us"
@@ -1840,31 +1844,31 @@ msgstr "Зв'яжіться з нами"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:681
 #, fuzzy
 msgid "Contact section Title"
-msgstr "Назва розділу \"зв'яжіться з нами\""
+msgstr "Заголовок розділу «Контактна особа»"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:694
 #, fuzzy
 msgid "Contact subtitle"
-msgstr "Контактний підзаголовок"
+msgstr "Субтитри до контактів"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:701
 #, fuzzy
 msgid "Contact section Subtitle"
-msgstr "Підзаголовок розділу  \"зв'яжіться з нами\""
+msgstr "Субтитри до розділу контактної особи"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:720
 msgid "Address"
 msgstr "Адреса"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:739
-#: core/includes/functions-extentions.php:349
+#: core/includes/functions-extensions.php:368
 msgid "Email"
 msgstr "Email"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:758
 #, fuzzy
 msgid "Phone no"
-msgstr "Номер телефону"
+msgstr "Телефон No"
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:777
 msgid "Contact form shortcode"
@@ -1873,12 +1877,12 @@ msgstr "Шорткод форми контактів"
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:780
 #, fuzzy
 msgid "You can put Contact Form 7 shortcode here."
-msgstr "Тут ви можете розмістити шорт-код Контактної форми 7."
+msgstr "Ви можете поставити контактну форму 7 короткий код тут."
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:51
 #, fuzzy
 msgid "Page Elements"
-msgstr "Елементи"
+msgstr "Елементи сторінки"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:70
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:51
@@ -1889,7 +1893,7 @@ msgstr "Елементи Постів"
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:82
 #, fuzzy
 msgid "Page Featured Image"
-msgstr "Головна картинка"
+msgstr "Сторінка ознаками зображення"
 
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:105
 msgid "Page Title"
@@ -1937,7 +1941,7 @@ msgstr "Параметри нижнього колонтитула"
 #: core/includes/customizer/settings/class-responsive-panel.php:94
 #, fuzzy
 msgid "Blog / Archive"
-msgstr "Блог / Архів"
+msgstr "Блог/Архів"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:95
 msgid "Blog Options"
@@ -1950,7 +1954,7 @@ msgstr "Допис блоґу"
 #: core/includes/customizer/settings/class-responsive-panel.php:104
 #, fuzzy
 msgid "Single Blog Post"
-msgstr "Єдине повідомлення в блозі"
+msgstr "Єдиний запис у блозі"
 
 #: core/includes/customizer/settings/class-responsive-panel.php:112
 msgid "Page"
@@ -1984,12 +1988,12 @@ msgstr "Фони"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:63
 #, fuzzy
 msgid "Box Background Color"
-msgstr "Колір фону боксу із текстом"
+msgstr "Колір фону вікна"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:67
 #, fuzzy
 msgid "Alternate Background Color"
-msgstr "Використовувати змінний колір тла"
+msgstr "Альтернативний колір тла"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:71
 #, fuzzy
@@ -2003,7 +2007,7 @@ msgstr "Body колір тексту"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:79
 #, fuzzy
 msgid "Heading 1 (H1) Color"
-msgstr "Heading H1 color"
+msgstr "Заголовок 1 (H1) колір"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:83
 msgid "Heading 2 (H2) Color"
@@ -2024,12 +2028,12 @@ msgstr "Заголовок 4 (H4) Колір"
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:99
 #, fuzzy
 msgid "Heading 6 (H6) Color"
-msgstr "Heading H6 color"
+msgstr "Заголовок 6 (h6) колір"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:103
 #, fuzzy
 msgid "Meta Text Color"
-msgstr "Колір тексту"
+msgstr "Meta колір тексту"
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:107
 msgid "Links"
@@ -2081,12 +2085,12 @@ msgstr "Колір лейбла"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
 #, fuzzy
 msgid "Hide Site Title"
-msgstr "Приховати назву сайту"
+msgstr "Сховати назву сайту"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
 #, fuzzy
 msgid "Hide Tagline"
-msgstr "Приховати підзаголовок"
+msgstr "Сховати слоган"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:57
 msgid "Width"
@@ -2103,7 +2107,7 @@ msgstr "Повна ширина"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:65
 #, fuzzy
 msgid "Container Width (px)"
-msgstr "Ширина контейтеру(рх)"
+msgstr "Ширина контейнера (PX)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:71
 msgid "Boxed"
@@ -2112,35 +2116,35 @@ msgstr "У коробці"
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:72
 #, fuzzy
 msgid "Content Boxed"
-msgstr "Зміст у вікні"
+msgstr "Вміст коробкової"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:78
 #, fuzzy
 msgid "Box Padding (px)"
-msgstr "Накладка на коробці (px)"
+msgstr "Оббивка вікна (пікс.)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
 #, fuzzy
 msgid "Box Radius (px)"
-msgstr "Радіус поля (px)"
+msgstr "Радіус поля (PX)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:106
 #, fuzzy
 msgid "Padding (px)"
-msgstr "Прокладки (px)"
+msgstr "Оббивка (пікс.)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
 #, fuzzy
 msgid "Radius (px)"
-msgstr "Радіус (px)"
+msgstr "Радіус (пікс.)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:114
 #, fuzzy
 msgid "Border Width (px)"
-msgstr "Ширина рамки (пкс)"
+msgstr "Ширина межі (PX)"
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:102
 msgid "Form Inputs"
@@ -2163,13 +2167,13 @@ msgstr "Заголовок 1 (H1)"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
 #, fuzzy
 msgid "Heading 2 (H2)"
-msgstr "Заголовок 2 (H2)"
+msgstr "Заголовок 2 (H2) Колір"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
 #, fuzzy
 msgid "Heading 3 (H3)"
-msgstr "Заголовок 3 (H3)"
+msgstr "Заголовок 3 (H3) Колір"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
@@ -2180,13 +2184,13 @@ msgstr "Заголовок 4 (H4)"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
 #, fuzzy
 msgid "Heading 5 (H5)"
-msgstr "Заголовок 5 (H5)"
+msgstr "Заголовок 4 (H4) Колір"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
 #, fuzzy
 msgid "Heading 6 (H6)"
-msgstr "Заголовок 6 (H6)"
+msgstr "Заголовок 6 (h6)"
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
 #, fuzzy
@@ -2196,7 +2200,7 @@ msgstr "Поля введення"
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:65
 #, fuzzy
 msgid "Exclude Categories from Blog page"
-msgstr "Виключіть категорії зі сторінки блогу"
+msgstr "Виключити категорії з сторінки блогу"
 
 #: core/includes/customizer/settings/class-responsive-theme-options-customizer.php:66
 #, fuzzy
@@ -2204,12 +2208,13 @@ msgid ""
 "Please choose the post categories that should not be displayed on the blog "
 "page"
 msgstr ""
-"Виберіть категорії публікацій, які не повинні відображатися на сторінці блогу"
+"Будь ласка, виберіть категорії Post, які не повинні відображатися на "
+"сторінці блогу"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:285
 #, fuzzy
 msgid "General Typography"
-msgstr "Загальна типографія"
+msgstr "Загальна Типографіка"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:366
 msgid "Font Family"
@@ -2222,7 +2227,7 @@ msgstr "Ширина"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:401
 #, fuzzy
 msgid "Important: Not all fonts support every font-weight."
-msgstr "Важливо: Не всі шрифти підтримують кожну вагу шрифту."
+msgstr "Важливо: не всі шрифти підтримують кожен шрифт-вага."
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:444
 msgid "Font Style"
@@ -2259,7 +2264,7 @@ msgstr "Розмір шрифту"
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:532
 #, fuzzy
 msgid "You can add: px-em-%"
-msgstr "Ви можете додати: px-em-%"
+msgstr "Ви можете додати: PX-EM-%"
 
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:585
 msgid "Line Height"
@@ -2273,54 +2278,83 @@ msgstr "Міжбуквений інтервал (пкс)"
 msgid "Font Color"
 msgstr "Колір шрифту"
 
+#: core/includes/functions-admin.php:59
+#, fuzzy
+msgid "Hi! Thanks for using the Responsive theme."
+msgstr "Привіт! Дякуємо за використання адаптивних тем."
+
+#: core/includes/functions-admin.php:60
+#, fuzzy
+msgid ""
+"Can you please do us a favor and give us a 5-star rating? Your feedback "
+"keeps us motivated and helps us grow the Responsive community."
+msgstr ""
+"Чи можете ви, будь ласка, зробити нам користь і дати нам 5-зірковий рейтинг? "
+"Ваш відгук тримає нас мотивованим і допомагає нам зростати реагувати "
+"співтовариство."
+
+#: core/includes/functions-admin.php:61
+#, fuzzy
+msgid "Ok, you deserve it"
+msgstr "Гаразд, ви це заслужили"
+
+#: core/includes/functions-admin.php:62
+#, fuzzy
+msgid "Nope, maybe later"
+msgstr "Ні, може бути, пізніше"
+
+#: core/includes/functions-admin.php:63
+msgid "I already did"
+msgstr "Я вже"
+
 #. translators: %s: link
-#: core/includes/functions-extentions.php:58 loop-no-posts.php:42
+#: core/includes/functions-extensions.php:58 loop-no-posts.php:42
 msgid "Home"
 msgstr "Головна"
 
 #. translators: %s: Categories
-#: core/includes/functions-extentions.php:60
+#: core/includes/functions-extensions.php:60
 msgid "Archive for %s"
 msgstr "Архівовано до %s"
 
 #. translators: %s: Search result page
 #. translators: %s is for search query.
-#: core/includes/functions-extentions.php:62 loop-header.php:33
+#: core/includes/functions-extensions.php:62 loop-header.php:33
 msgid "Search results for: %s"
 msgstr "Результати пошуку для: %s"
 
 #. translators: %s: Post Pages
-#: core/includes/functions-extentions.php:64
+#: core/includes/functions-extensions.php:64
 #, fuzzy
 msgid "Posts tagged %s"
-msgstr "Теги запису <ph id=\"mtc_1\" equiv-text=\"base64:JXM=\"/>"
+msgstr "Повідомлення з тегами %s"
 
 #. translators: %s: Author pages
 #. translators: %s: view post by
 #. translators: view all posts by author
 #. translators: %s view posts by
-#: core/includes/functions-extentions.php:66 core/includes/functions.php:685
+#: core/includes/functions-extensions.php:66 core/includes/functions.php:685
 #: partials/entry/meta.php:54 partials/single/meta.php:49
 msgid "View all posts by %s"
 msgstr "Переглянути всі повідомлення від %s"
 
-#: core/includes/functions-extentions.php:67
+#: core/includes/functions-extensions.php:67
 msgid "Error 404"
 msgstr "Помилка 404"
 
 #. translators: %s: Page Number
 #. translators: %s: author
-#: core/includes/functions-extentions.php:206
+#: core/includes/functions-extensions.php:211
 #: core/includes/functions-extras.php:190
 msgid "Page %s"
 msgstr "Сторінка %s"
 
-#: core/includes/functions-extentions.php:346
+#: core/includes/functions-extensions.php:365
 #, fuzzy
 msgid "Yelp!"
 msgstr "Yelp"
 
-#: core/includes/functions-extentions.php:348
+#: core/includes/functions-extensions.php:367
 #, fuzzy
 msgid "foursquare"
 msgstr "Foursquare"
@@ -2329,7 +2363,7 @@ msgstr "Foursquare"
 #: image.php:59 index.php:56 partials/page/content.php:15
 #, fuzzy
 msgid "Read more &#8250;"
-msgstr "Докладніше"
+msgstr "Читати далі & #8250;"
 
 #: core/includes/functions-sidebar.php:28
 msgid "Main Sidebar"
@@ -2340,28 +2374,28 @@ msgstr "Головна бічна панель"
 msgid ""
 "Area 1 - sidebar.php - Displays on Default, Blog, Blog Excerpt page templates"
 msgstr ""
-"Зона 1 - sidebar.php - Відображає шаблони сторінок за замовчуванням, "
-"щоденник, блог"
+"Площа 1-бічна панель. php-дисплеї за замовчуванням, блог, блог витяг шаблони "
+"сторінок"
 
 #: core/includes/functions-sidebar.php:40
 #, fuzzy
 msgid "Home Widget 1"
-msgstr "Домашній віджет 1"
+msgstr "Головна віджет 1"
 
 #: core/includes/functions-sidebar.php:41
 #, fuzzy
 msgid "Area 6 - sidebar-home.php - Displays on the Home Page"
-msgstr "Зона 6 - sidebar-home.php - Відображається на домашній сторінці"
+msgstr "Площа 6-Sidebar-Home. php-дисплеї на головній сторінці"
 
 #: core/includes/functions-sidebar.php:52
 #, fuzzy
 msgid "Home Widget 2"
-msgstr "Домашній віджет 2"
+msgstr "Головна віджет 2"
 
 #: core/includes/functions-sidebar.php:53
 #, fuzzy
 msgid "Area 7 - sidebar-home.php - Displays on the Home Page"
-msgstr "Зона 7 - sidebar-home.php - Відображається на домашній сторінці"
+msgstr "Площа 7-Sidebar-Home. php-дисплеї на головній сторінці"
 
 #: core/includes/functions-sidebar.php:64
 #, fuzzy
@@ -2371,7 +2405,7 @@ msgstr "Домашній віджет 3"
 #: core/includes/functions-sidebar.php:65
 #, fuzzy
 msgid "Area 8 - sidebar-home.php - Displays on the Home Page"
-msgstr "Область 8 - sidebar-home.php - Відображається на домашній сторінці"
+msgstr "Площа 8-Sidebar-Home. php-дисплеї на головній сторінці"
 
 #: core/includes/functions-sidebar.php:76
 msgid "Gallery Sidebar"
@@ -2383,23 +2417,24 @@ msgid ""
 "Area 9 - sidebar-gallery.php - Displays on the page after an image has been "
 "clicked in a Gallery"
 msgstr ""
-"Область 9 - бічна панель-галерея.php - Відображається на сторінці після "
-"натискання зображення в галереї"
+"Площа 9-Sidebar-Gallery. php-виводить на сторінку після того, як зображення "
+"було натиснуто в галерею"
 
 #: core/includes/functions-sidebar.php:88
 #, fuzzy
 msgid "Colophon Widget"
-msgstr "Колофонський віджет"
+msgstr "Віджет колофіон"
 
 #: core/includes/functions-sidebar.php:89
 #, fuzzy
 msgid "Area 10 - sidebar-colophon.php, 100% width Footer widgets"
-msgstr "Область 10 - бічна панель-colophon.php, віджети Footer із 100% шириною"
+msgstr ""
+"Площа 10-Sidebar-colophon. php, 100% ширина нижнього колонтитула віджети"
 
 #: core/includes/functions-sidebar.php:101
 #, fuzzy
 msgid "Area 11 - sidebar-top.php - Displays on the right of the header"
-msgstr "Область 11 - sidebar-top.php - Відображається праворуч від заголовка"
+msgstr "Площа 11-Sidebar-Top. php-відображає праворуч від заголовка"
 
 #: core/includes/functions-sidebar.php:112
 msgid "Footer Widgets 1"
@@ -2408,39 +2443,39 @@ msgstr "Footer віджети 1"
 #: core/includes/functions-sidebar.php:113
 #, fuzzy
 msgid "Area 12 - sidebar-footer.php"
-msgstr "Область 12 - бічна панель-footer.php"
+msgstr "Площа 12-Sidebar-Footer. php"
 
 #: core/includes/functions-sidebar.php:123
 #, fuzzy
 msgid "Footer Widgets 2"
-msgstr "Віджети футера"
+msgstr "Віджети нижнього колонтитула 2"
 
 #: core/includes/functions-sidebar.php:124
 #, fuzzy
 msgid "Area 13 - sidebar-footer.php"
-msgstr "Область 13 - бічна панель-footer.php"
+msgstr "Площа 13-Sidebar-Footer. php"
 
 #: core/includes/functions-sidebar.php:134
 #, fuzzy
 msgid "Footer Widgets 3"
-msgstr "Віджети футера"
+msgstr "Віджети нижнього колонтитула 3"
 
 #: core/includes/functions-sidebar.php:135
 #, fuzzy
 msgid "Area 14 - sidebar-footer.php"
-msgstr "Область 14 - бічна панель-footer.php"
+msgstr "Площа 14-Sidebar-Footer. php"
 
 #: core/includes/functions-sidebar.php:145
 #, fuzzy
 msgid "Footer Widgets 4"
-msgstr "Віджети футера"
+msgstr "Віджети нижнього колонтитула 4"
 
 #: core/includes/functions-sidebar.php:146
 #, fuzzy
 msgid "Area 15 - sidebar-footer.php"
-msgstr "Область 15 - бічна панель-footer.php"
+msgstr "Площа 15-Sidebar-Footer. php"
 
-#: core/includes/functions.php:61 functions.php:535
+#: core/includes/functions.php:61 functions.php:536
 msgid "Call to Action"
 msgstr "Заклик до дії"
 
@@ -2449,26 +2484,27 @@ msgid "Header Menu"
 msgstr "Верхнє меню"
 
 #: core/includes/functions.php:217 partials/footer/footer-menu.php:10
+#: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr "Нижнє меню"
 
 #: core/includes/functions.php:377
 #, fuzzy
 msgid "Team Section Options"
-msgstr "Параметри командного розділу"
+msgstr "Параметри розділу \"команда\""
 
 #: core/includes/functions.php:391
 #, fuzzy
 msgid ""
 "To use this post for front page's team section, please enter below details:"
 msgstr ""
-"Щоб використовувати цю публікацію для розділу команди на головній сторінці, "
-"введіть нижче деталі:"
+"Щоб використовувати цю посаду для команди передньої сторінки розділ, будь "
+"ласка, введіть нижче подробиці:"
 
 #: core/includes/functions.php:394
 #, fuzzy
 msgid "Member designation"
-msgstr "Призначення члена"
+msgstr "Член позначення"
 
 #: core/includes/functions.php:398
 msgid "Facebook Link"
@@ -2481,12 +2517,12 @@ msgstr "Посилання на Twitter"
 #: core/includes/functions.php:406
 #, fuzzy
 msgid "GooglePlus Link"
-msgstr "Посилання GooglePlus"
+msgstr "Посилання на Google Plus"
 
 #: core/includes/functions.php:410
 #, fuzzy
 msgid "LinkedIn Link"
-msgstr "LinkedIn посилання"
+msgstr "LinkedIn Link"
 
 #: core/includes/functions.php:666
 msgid "Posted on"
@@ -2512,42 +2548,42 @@ msgstr ", "
 #: core/includes/functions.php:719
 #, fuzzy
 msgid "Upgrade To Pro"
-msgstr "Premiuma Yükselt"
+msgstr "Оновлення до Pro"
 
 #: core/includes/post-custom-meta.php:137
 #, fuzzy
 msgid "Content/Sidebar"
-msgstr "Зміст / Бічна панель"
+msgstr "Вміст/бічна панель"
 
 #: core/includes/post-custom-meta.php:138
 #, fuzzy
 msgid "Sidebar/Content"
-msgstr "Sidebar / Зміст"
+msgstr "Бічна панель/вміст"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Full Width Page (no sidebar)"
-msgstr "Повна ширина (без бічної панелі)"
+msgstr "Сторінка повної ширини (без бічної панелі)"
 
 #: core/includes/post-custom-meta.php:140
 #, fuzzy
 msgid "Blog 2 Column"
-msgstr "2 Колонки"
+msgstr "Блог 2 колонки"
 
 #: core/includes/post-custom-meta.php:141
 #, fuzzy
 msgid "Blog 3 Column"
-msgstr "3 колонки"
+msgstr "Блог 3 колонки"
 
 #: core/includes/post-custom-meta.php:142
 #, fuzzy
 msgid "Blog 4 Column"
-msgstr "4 Колонки"
+msgstr "Блог 4 колонки"
 
 #: footer.php:90
 #, fuzzy
 msgid "Scroll to Top"
-msgstr "Перейдіть угору"
+msgstr "Прокрутити вгору"
 
 #: functions.php:392
 msgid "Permalink to %s"
@@ -2560,14 +2596,14 @@ msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
-"Якщо вам подобається <strong>чуйна тема,</strong> будь ласка, залиште нам "
-"рейтинг%s. Це займає хвилину і багато допомагає. Спасибі заздалегідь!"
+"Якщо вам подобається <strong>Адаптивна тема</strong> , будь ласка, залиште "
+"нам рейтинг %s. Це займе хвилину і дуже допомагає. Заздалегідь Дякуємо вам!"
 
 #: functions.php:454
 msgid "Thanks :)"
 msgstr "Дякую :)"
 
-#: functions.php:538
+#: functions.php:539
 msgid "#"
 msgstr "#"
 
@@ -2580,7 +2616,7 @@ msgstr "Сторінки:"
 #: header.php:35
 #, fuzzy
 msgid "&darr; Skip to Main Content"
-msgstr "↓ Перейти до основного вмісту"
+msgstr "&darr; Перейти до основного вмісту"
 
 #: home.php:81
 msgid "Previous"
@@ -2593,7 +2629,7 @@ msgstr "Далі"
 #: image.php:37
 #, fuzzy
 msgid "&#8249; Return to"
-msgstr "< Повернутися до"
+msgstr "& #8249; повернутися до"
 
 #: image.php:46 partials/entry/meta.php:90 partials/single/meta.php:84
 #: post-meta-3-col.php:29 post-meta-page.php:36 post-meta.php:40
@@ -2624,18 +2660,18 @@ msgstr "<span class=\"post-edit\">Редагувати</span>"
 #: loop-nav.php:28
 #, fuzzy
 msgid "&#8249; Older posts"
-msgstr "Старіші дописи"
+msgstr "& #8249; старі повідомлення"
 
 #: loop-nav.php:29
 #, fuzzy
 msgid "Newer posts &#8250;"
-msgstr "Нові публікації"
+msgstr "Нові повідомлення & #8250;"
 
 #. translators: %s search term
 #: loop-no-posts.php:26
 #, fuzzy
 msgid "Your search for %s did not match any entries."
-msgstr "Ваш пошук%s не відповідає жодним записам."
+msgstr "Пошук %s не збігається з будь-якими записами."
 
 #: loop-no-posts.php:26
 msgid "404 &#8212; Fancy meeting you here!"
@@ -2647,12 +2683,13 @@ msgid ""
 "Don&#39;t panic, we&#39;ll get through this together. Let&#39;s explore our "
 "options here."
 msgstr ""
-"Не панікуйте, ми разом це переберемо. Давайте вивчимо наші варіанти тут."
+"Don & #39; t паніки, ми & #39; LL пройти через це разом. Нехай & #39; s "
+"вивчити наші варіанти тут."
 
 #: loop-no-posts.php:43
 #, fuzzy
 msgid "&larr; Home"
-msgstr "← Головна"
+msgstr "&larr; Додому"
 
 #: partials/custom-home/featured-area.php:255
 msgid "Team"
@@ -2675,19 +2712,19 @@ msgstr "0 Коментарів"
 #: partials/footer/copy-right.php:17
 #, fuzzy
 msgid " &copy; "
-msgstr "Копіювати"
+msgstr "&copy;"
 
 #: partials/footer/copy-right.php:21
 #, fuzzy
 msgid "&copy; "
-msgstr "Копіювати"
+msgstr "&copy;"
 
 #: partials/footer/copy-right.php:29
 #, fuzzy
 msgid " | Powered by Responsive Theme"
-msgstr "| Працює на чуйну тему"
+msgstr "| Працює на адаптивній темі"
 
-#: partials/header/main-navigation.php:16
+#: partials/header/main-navigation.php:17
 msgid "Menu"
 msgstr "Меню"
 
@@ -2703,12 +2740,12 @@ msgstr "Про"
 #: partials/single/layout.php:73
 #, fuzzy
 msgid "Previous Post is "
-msgstr "Попередній пост"
+msgstr "Попередній пост є"
 
 #: partials/single/layout.php:74
 #, fuzzy
 msgid "Next Post is"
-msgstr "Наступне повідомлення є"
+msgstr "Наступний пост є"
 
 #: searchform.php:22
 msgid "Search for:"
@@ -2717,7 +2754,7 @@ msgstr "Шукати:"
 #: searchform.php:23
 #, fuzzy
 msgid "Search here &hellip;"
-msgstr "шукати тут &hellip;"
+msgstr "Шукайте тут &hellip;"
 
 #: searchform.php:24
 msgid "Go"
@@ -2730,12 +2767,12 @@ msgstr "Інформація про зображення"
 #: sidebar-gallery.php:33
 #, fuzzy
 msgid "Full Size:"
-msgstr "Повний розмір"
+msgstr "Повний розмір:"
 
 #: sidebar-gallery.php:39
 #, fuzzy
 msgid "Aperture: f&#47;"
-msgstr "Діафрагма: f /"
+msgstr "Діафрагма: f & #47;"
 
 #: sidebar-gallery.php:44
 msgid "Focal Length:"
@@ -2748,12 +2785,12 @@ msgstr "мм"
 #: sidebar-gallery.php:48
 #, fuzzy
 msgid "ISO:"
-msgstr "ISO"
+msgstr "Iso:"
 
 #: sidebar-gallery.php:52
 #, fuzzy
 msgid "Shutter:"
-msgstr "Shutter"
+msgstr "Затвор:"
 
 #: sidebar-gallery.php:57 sidebar-gallery.php:59 sidebar-gallery.php:62
 msgid "sec"
@@ -2766,7 +2803,7 @@ msgstr "Фотоапарат: Length in millimeters"
 #: sidebar-home.php:34
 #, fuzzy
 msgid "Fermentum"
-msgstr "Fermentum"
+msgstr "Ферменкум"
 
 #: sidebar-home.php:40
 #, fuzzy
@@ -2775,14 +2812,14 @@ msgid ""
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Це ваша перша домашня скринька віджетів. Для редагування перейдіть у "
-"«Вигляд> Віджети» та виберіть 6-й віджет зверху в області 6, що називається "
-"Домашній віджет 1. Заголовок також можна керувати і з віджетів."
+"Це ваш перший ящик для домашніх віджетів. Щоб відредагувати будь ласка, "
+"перейдіть до оформлення > віджетів і виберіть шостий віджет зверху в районі "
+"6 під назвою домашній віджет 1. Назва також керованою від віджетів, а також."
 
 #: sidebar-home.php:54
 #, fuzzy
 msgid "Elementum"
-msgstr "Elementum"
+msgstr "Елементо"
 
 #: sidebar-home.php:60
 #, fuzzy
@@ -2791,9 +2828,9 @@ msgid ""
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Це ваша друга домашня скринька віджетів. Для редагування перейдіть у "
-"«Вигляд> віджети» та виберіть 7-й віджет зверху в області 7, що називається "
-"Домашній віджет 2. Заголовок також можна керувати і з віджетів."
+"Це ваш другий ящик для домашнього віджета. Щоб відредагувати будь ласка, "
+"перейдіть до оформлення > віджетів і виберіть 7 віджет зверху в районі 7 під "
+"назвою домашній віджет 2. Назва також керованою від віджетів, а також."
 
 #: sidebar-home.php:74
 #, fuzzy
@@ -2807,32 +2844,58 @@ msgid ""
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
 "Title is also manageable from widgets as well."
 msgstr ""
-"Це ваше третє вікно домашнього віджета. Для редагування перейдіть у «Вигляд> "
-"Віджети» та виберіть 8-й віджет зверху в області 8, що називається Домашній "
-"віджет 3. Заголовок також можна керувати і з віджетів."
+"Це ваш третій домашній віджет Box. Щоб відредагувати будь ласка, перейдіть "
+"до оформлення > віджетів і виберіть 8 віджет зверху в районі 8 під назвою "
+"домашній віджет 3. Назва також керованою від віджетів, а також."
 
 #. Theme URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/responsive"
-msgstr "https://cyberchimps.com/ response"
+msgid "https://cyberchimps.com/repsonsive/"
+msgstr "https://cyberchimps.com/repsonsive/"
 
 #. Description of the plugin/theme
 #, fuzzy
 msgid ""
-"Responsive is a full-customizable, fast and mobile-friendly WordPress theme."
+"Responsive is a fully customizable, search engine optimized & mobile-"
+"friendly WordPress theme. Compatible with the Gutenberg block editor, it is "
+"a perfect choice for your blog, business website, or WooCommerce store. With "
+"almost unlimited customizer options, you can customize every feature of your "
+"website. Responsive comes with minified scripts to improve website speed. It "
+"also comes with other features including - nine layout options for pages and "
+"blog, WooCommerce design options, and compatibility with the Elementor page "
+"builder. It works great on a mobile, tablet, desktop, and across all "
+"browsers. Responsive is also available in 45 languages and is search engine "
+"friendly. See Responsive in action: https://cyberchimps.com/responsive-ready-"
+"websites/. Learn more about its features: https://cyberchimps.com/responsive-"
+"features/."
 msgstr ""
-"Чуйний - це повністю настроювана, швидка та зручна для мобільних телефонів "
-"тема WordPress."
+"Адаптивна є повністю настроюється, пошукова система оптимізована & мобільні "
+"дружні WordPress Theme. Сумісний з редактором блоків Гутенберг, він є "
+"ідеальним вибором для вашого блогу, бізнес-сайту або магазину WooCommerce. З "
+"майже необмеженими варіантами настроювача, ви можете налаштувати кожну "
+"особливість вашого сайту. Адаптивна поставляється з зменшена скрипти для "
+"поліпшення швидкості веб-сайту. Він також постачається з іншими функціями, у "
+"тому числі-дев'ятьма варіантами макета для сторінок і блогу, параметрами "
+"дизайну WooCommerce та сумісністю з конструктором сторінок. Він чудово "
+"працює на мобільному, планшеті, робочому столі та у всіх браузерах. "
+"Адаптивна також доступна на 45 мовах і дружній пошуковій системі. У дії: "
+"https://cyberchimps.com/responsive-ready-websites/. Дізнайтеся більше про "
+"його особливості: https://cyberchimps.com/responsive-features/."
+
+#. Author of the plugin/theme
+#, fuzzy
+msgid "CyberChimps"
+msgstr "Кібершимпанзе"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "https://cyberchimps.com/"
-msgstr "https://cyberchimps.com/"
+msgid "https://cyberchimps.com"
+msgstr "https://cyberchimps.com"
 
 #. Template Name of the plugin/theme
 #, fuzzy
 msgid "Gutenberg Fullwidth No title"
-msgstr "Повна ширина Гутенберга Без заголовка"
+msgstr "Гутенберга Fullwidth без назви"
 
 #. translators: 1: comment count number, 2: title.
 #: comments.php:48
@@ -2840,7 +2903,7 @@ msgstr "Повна ширина Гутенберга Без заголовка"
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s Прокоментуйте \"%2$s\""
+msgstr[0] "%1$s прокоментувати \"%2$s\""
 msgstr[1] ""
 msgstr[2] ""
 
