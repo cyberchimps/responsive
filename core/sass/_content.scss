@@ -741,6 +741,8 @@
         width: 100%;
         .home-widget-wrapper{
             @extend .row;
+            width: -webkit-fill-available;
+            width: -moz-available;
 
             .home-widget-1,
             .home-widget-2,
