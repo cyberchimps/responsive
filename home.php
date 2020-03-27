@@ -43,7 +43,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 			responsive_in_wrapper(); // wrapper hook.
 			?>
 
-			<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+			<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
 				<div class="content-area-wrapper">
 					<?php get_template_part( 'loop-header', get_post_type() ); ?>
 
