@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/30/20) = Improvement - Version 4.2.4
+[*] = Fix - Theme Homepage link
+
 (03/27/20) = Improvement - Version 4.2.3
 [*] = Fix - Coupon code is not working on Checkout page
 [*] = Fix - Language translations - German

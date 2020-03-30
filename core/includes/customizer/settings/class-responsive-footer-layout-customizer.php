@@ -84,7 +84,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'res_copyright_textbox',
 				array(
-					'label'    => __( 'Copyright text', 'responsive-addons-pro' ),
+					'label'    => __( 'Copyright text', 'responsive' ),
 					'section'  => 'responsive_footer_layout',
 					'settings' => 'responsive_theme_options[copyright_textbox]',
 					'type'     => 'text',
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'res_poweredby_link',
 				array(
-					'label'    => __( 'Hide Powered By Responsive Theme', 'responsive-addons-pro' ),
+					'label'    => __( 'Hide Powered By Responsive Theme', 'responsive' ),
 					'section'  => 'responsive_footer_layout',
 					'settings' => 'responsive_theme_options[poweredby_link]',
 					'type'     => 'checkbox',
