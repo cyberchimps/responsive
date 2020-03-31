@@ -85,7 +85,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'blog_entry_featured_image_separator', $blog_entry_featured_image_label, 'responsive_blog_content', 30 );
 
 			// Featured Image Width.
-			$blog_featured_image_width_label = esc_html__( 'Image Max Width Size (px)', 'responsive' );
+			$blog_featured_image_width_label = esc_html__( 'Image Width Size (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'blog_featured_image_width', $blog_featured_image_width_label, 'responsive_blog_content', 35, '', null, 4800 );
 
 			// Style.
