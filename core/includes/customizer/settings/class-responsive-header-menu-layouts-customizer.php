@@ -57,7 +57,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Breakpoint.
 			$mobile_menu_breakpoint_label = __( 'Breakpoint', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_menu_breakpoint_label, 'responsive_header_menu_layout', 20, 992, 'responsive_disabled_mobile_menu' );
+			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_menu_breakpoint_label, 'responsive_header_menu_layout', 20, 992, 'responsive_disabled_mobile_menu', 4096, 1, 'postMessage' );
 
 			// Mobile Menu Style.
 			$mobile_menu_style_label   = __( 'Style', 'responsive' );
