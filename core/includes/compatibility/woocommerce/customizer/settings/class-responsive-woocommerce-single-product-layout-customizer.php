@@ -57,6 +57,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
 				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$sidebar_choices = array(
+					'right' => esc_html__( 'Left Sidebar', 'responsive' ),
+					'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
+					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 30, $sidebar_choices, 'no', null );
 
 			// Product Elements.

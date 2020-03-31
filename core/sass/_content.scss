@@ -212,6 +212,11 @@
 .archive,
 .blog {
     &.featured-image-alignment {
+        &-left {
+            .hentry .thumbnail {
+                text-align: left;
+            }
+        }
         &-right {
             .hentry .thumbnail {
                 text-align: right;
@@ -232,6 +237,11 @@
 .archive,
 .blog {
     &.title-alignment {
+        &-left {
+            .hentry .entry-title {
+                text-align: left;
+            }
+        }
         &-right {
             .hentry .entry-title {
                 text-align: right;
@@ -253,6 +263,11 @@
 .archive,
 .blog {
     &.content-alignment {
+        &-left {
+            .hentry .entry-content {
+                text-align: left;
+            }
+        }
         &-right {
             .hentry .entry-content {
                 text-align: right;
@@ -273,6 +288,15 @@
 .archive,
 .blog {
     &.meta-alignment {
+        &-left {
+            .hentry {
+                .post-data,
+                .post-edit-link,
+                .post-meta {
+                    text-align: left;
+                }
+            }
+        }
         &-right {
             .hentry {
                 .post-data,
@@ -460,6 +484,9 @@
 
                 &.next.page-numbers {
                     float: right;
+                }
+                &.prev.page-numbers {
+                    float: left;
                 }
 
                 &:first-child,

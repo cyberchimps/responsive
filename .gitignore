@@ -21,7 +21,17 @@ atlassian*
 /core/css/gutenberg-editor.css
 /core/css/gutenberg-editor.min.css
 /core/css/gutenberg-editor.css.map
+/core/css/style-rtl.css
+/core/css/style-rtl.min.css
+/core/css/woocommerce-rtl.css
+/core/css/woocommerce-rtl.min.css
+/core/css/gutenberg-editor-rtl.css
+/core/css/gutenberg-editor-rtl.min.css
 /core/css/icomoon/style.min.css
+/core/css/icomoon/style-rtl.css
+/core/css/icomoon/style-rtl.min.css
+/core/css/customizer-rtl.css
+/core/includes/css/about-rtl.css
 node_modules
 *.jar
 *.phar

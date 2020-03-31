@@ -429,7 +429,11 @@ add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
-	   wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+	$suffix = '';
+	if ( is_rtl() ) {
+		$suffix = '-rtl';
+	}
+	wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer' . $suffix . '.css', RESPONSIVE_THEME_VERSION, 'all' );
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );

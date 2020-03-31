@@ -102,6 +102,13 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$featured_image_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'blog_entry_featured_image_alignment', $featured_image_alignment_label, 'responsive_blog_content', 50, $featured_image_alignment_choices, 'left', null );
 
 			/**
@@ -117,6 +124,13 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$blog_entry_title_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'blog_entry_title_alignment', $blog_entry_title_alignment_label, 'responsive_blog_content', 70, $blog_entry_title_alignment_choices, 'left', null );
 
 			/**
@@ -187,6 +201,13 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$blog_entry_meta_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'blog_entry_meta_alignment', $blog_entry_meta_alignment_label, 'responsive_blog_content', 110, $blog_entry_meta_alignment_choices, 'left', null );
 
 			/**
@@ -210,6 +231,13 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$blog_entry_content_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'blog_entry_content_alignment', $blog_entry_content_alignment_label, 'responsive_blog_content', 140, $blog_entry_content_alignment_choices, 'left', null );
 
 			// Excerpt Length.

@@ -94,3 +94,8 @@ li#accordion-section-title_tagline {
 	top: 1em;
 	right: 0;
 }
+
+.notice.notice-info h3,
+.accordion-section-title {
+	padding-right: 36px;
+}
