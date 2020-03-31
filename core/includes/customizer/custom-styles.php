@@ -525,6 +525,34 @@ function responsive_customizer_styles() {
 	$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_header_menu_toggle_background_color', 'transparent' ) );
 	$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_header_menu_toggle_color', '#333333' ) );
 
+	// Sidebar Color.
+	$sidebar_headings_color   = esc_html( get_theme_mod( 'responsive_sidebar_headings_color', get_theme_mod( 'responsive_h4_text_color', '#333333' ) ) );
+	$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', get_theme_mod( 'responsive_box_background_color', '#ffffff' ) ) );
+	$sidebar_text_color       = esc_html( get_theme_mod( 'responsive_sidebar_text_color', get_theme_mod( 'responsive_body_text_color', '#333333' ) ) );
+	$sidebar_link_color       = esc_html( get_theme_mod( 'responsive_sidebar_link_color', get_theme_mod( 'responsive_link_color', '#0066CC' ) ) );
+	$sidebar_link_hover_color = esc_html( get_theme_mod( 'responsive_sidebar_link_hover_color', get_theme_mod( 'responsive_link_hover_color', '#10659C' ) ) );
+
+	$custom_css .= "
+    .widget-area .widget-title h4{
+        color: {$sidebar_headings_color};
+    }
+    
+	.responsive-site-style-boxed aside#secondary .widget-wrapper {
+		background-color:{$sidebar_background_color};
+	}
+	
+    .widget-area {
+        color: {$sidebar_text_color};
+    }
+    .widget-area .widget-wrapper a {
+        color: {$sidebar_link_color};
+    }
+    
+    .widget-area .widget-wrapper a:hover {
+        color: {$sidebar_link_hover_color};
+    }
+    ";
+
 	// Mobile Menu.
 	$mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );
 	// Mobile Menu Breakpoint.
