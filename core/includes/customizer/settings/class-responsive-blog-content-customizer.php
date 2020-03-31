@@ -84,6 +84,10 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 			$blog_entry_featured_image_label = esc_html__( 'Entry Featured Image', 'responsive' );
 			responsive_separator_control( $wp_customize, 'blog_entry_featured_image_separator', $blog_entry_featured_image_label, 'responsive_blog_content', 30 );
 
+			// Featured Image Width.
+			$blog_featured_image_width_label = esc_html__( 'Image Max Width Size (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'blog_featured_image_width', $blog_featured_image_width_label, 'responsive_blog_content', 35, '', null, 4800 );
+
 			// Style.
 			$featured_image_style_label   = esc_html__( 'Style', 'responsive' );
 			$featured_image_style_choices = array(

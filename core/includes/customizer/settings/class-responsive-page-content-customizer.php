@@ -82,6 +82,10 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_featured_image_label = esc_html__( 'Page Featured Image', 'responsive' );
 			responsive_separator_control( $wp_customize, 'page_featured_image_separator', $page_featured_image_label, 'responsive_page_content', 30 );
 
+			// Featured Image Width.
+			$page_featured_image_width_label = esc_html__( 'Image Max Width Size (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'page_featured_image_width', $page_featured_image_width_label, 'responsive_page_content', 35, '', null, 4800 );
+
 			// Style.
 			$featured_image_style_label   = esc_html__( 'Style', 'responsive' );
 			$featured_image_style_choices = array(
