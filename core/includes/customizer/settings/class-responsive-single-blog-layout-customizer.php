@@ -57,6 +57,13 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
 				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$sidebar_choices = array(
+					'right' => esc_html__( 'Left Sidebar', 'responsive' ),
+					'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
+					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'single_blog_sidebar_position', $sidebar_label, 'responsive_single_blog_layout', 20, $sidebar_choices, 'right', null );
 
 		}

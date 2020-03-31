@@ -1347,7 +1347,7 @@ function responsive_disabled_mobile_menu() {
  * @return [type] [description]
  */
 function responsive_custom_home_active() {
-	$responsive_options = Responsive\Core\responsive_get_options();
+	$responsive_options = responsive_get_options();
 
 	return ( $responsive_options['front_page'] ) ? true : false;
 }

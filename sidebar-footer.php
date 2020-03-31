@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-Responsive\responsive_widgets_before(); // above widgets container hook.
+responsive_widgets_before(); // above widgets container hook.
 $footer_widgets_columns = get_theme_mod( 'responsive_footer_widgets_columns' );
 
 if ( $footer_widgets_columns ) :
@@ -28,7 +28,7 @@ if ( $footer_widgets_columns ) :
 		<div class="content-outer container">
 			<div class="row">
 			<?php
-			Responsive\responsive_widgets(); // above widgets hook.
+			responsive_widgets(); // above widgets hook.
 
 			?>
 			<?php
@@ -40,7 +40,7 @@ if ( $footer_widgets_columns ) :
 				endif; // End of colophon-widget.
 			}
 
-			Responsive\responsive_widgets_end(); // after widgets hook.
+			responsive_widgets_end(); // after widgets hook.
 			?>
 			</div>
 		</div>
@@ -48,4 +48,4 @@ if ( $footer_widgets_columns ) :
 	<?php
 endif;
 
-Responsive\responsive_widgets_after(); // after widgets container hook. ?>
+responsive_widgets_after(); // after widgets container hook. ?>

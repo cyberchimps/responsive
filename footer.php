@@ -22,23 +22,22 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Globalize Theme options
  */
 global $responsive_options;
-$responsive_options = Responsive\Core\responsive_get_options();
+$responsive_options = responsive_get_options();
 global $responsive_blog_layout_columns;
 
 		// Elementor `footer` location.
 if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
 	?>
 			<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
-				<?php Responsive\responsive_footer_top(); ?>
-				<?php get_sidebar( 'footer' ); ?>
+		<?php responsive_footer_top(); ?>
+		<?php get_sidebar( 'footer' ); ?>
 
 				<div class="footer-bar grid col-940">
 					<div class="content-outer container">
 						<div class="row">
 
+						<?php get_sidebar( 'colophon' ); ?>
 						<?php
-						get_sidebar( 'colophon' );
-
 						if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 							$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
 							$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
@@ -52,7 +51,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 								}
 
 								if ( 'social_icons' === $section ) {
-                                    echo responsive_get_social_icons() ;// phpcs:ignore
+									echo responsive_get_social_icons() ;// phpcs:ignore
 								}
 
 								// Copy Rights.
@@ -64,7 +63,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 							if ( has_nav_menu( 'footer-menu' ) ) {
 								get_template_part( 'partials/footer/footer-menu' );
 							}
-                            echo responsive_get_social_icons() ;// phpcs:ignore
+							echo responsive_get_social_icons() ;// phpcs:ignore
 							get_template_part( 'partials/footer/copy-right' );
 						}
 						?>
@@ -73,15 +72,16 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 					</div>
 				</div>
 
-				<?php Responsive\responsive_footer_bottom(); ?>
+				<?php responsive_footer_bottom(); ?>
 			</footer><!-- end #footer -->
 		<?php
 }
-		Responsive\responsive_footer_after(); ?>
+		responsive_footer_after();
+?>
 	</div><!-- end of #container -->
 
 	<?php
-	Responsive\responsive_container_end(); // after container hook.
+	responsive_container_end(); // after container hook.
 
 	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {

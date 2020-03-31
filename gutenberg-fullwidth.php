@@ -19,16 +19,13 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-get_header();
-
-Responsive\responsive_wrapper_top(); // before wrapper content hook.
-?>
-
+get_header(); ?>
+<?php responsive_wrapper_top(); // before wrapper content hook. ?>
 <div id="wrapper" class="site-content clearfix">
 	<div class="content-outer container">
 		<div class="row">
-			<?php Responsive\responsive_in_wrapper(); // wrapper hook. ?>
-			<main id="primary" class="content-area col-940">
+			<?php responsive_in_wrapper(); // wrapper hook. ?>
+			<main id="primary" class="content-area col-940" role="main">
 
 				<?php if ( have_posts() ) : ?>
 
@@ -37,13 +34,13 @@ Responsive\responsive_wrapper_top(); // before wrapper content hook.
 						the_post();
 						?>
 
-						<?php Responsive\responsive_entry_before(); ?>
+						<?php responsive_entry_before(); ?>
 						<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<?php Responsive\responsive_entry_top(); ?>
+							<?php responsive_entry_top(); ?>
 							<div class="post-entry">
+								<?php responsive_page_featured_image(); ?>
+								<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 								<?php
-								responsive_page_featured_image();
-								the_content( __( 'Read more &#8250;', 'responsive' ) );
 								wp_link_pages(
 									array(
 										'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ),
@@ -53,16 +50,13 @@ Responsive\responsive_wrapper_top(); // before wrapper content hook.
 								?>
 							</div><!-- end of .post-entry -->
 
-							<div class="post-data">
-								<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-							</div><!-- end of .post-data -->
-							<?php
-							edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) );
-							Responsive\responsive_entry_bottom();
-							?>
+							<?php get_template_part( 'post-data', get_post_type() ); ?>
+
+							<?php responsive_entry_bottom(); ?>
 						</div><!-- end of #post-<?php the_ID(); ?> -->
+						<?php responsive_entry_after(); ?>
+
 						<?php
-						Responsive\responsive_entry_after();
 					endwhile;
 
 					get_template_part( 'loop-nav', get_post_type() );
@@ -77,9 +71,7 @@ Responsive\responsive_wrapper_top(); // before wrapper content hook.
 			</main><!-- end of #content-full -->
 		</div>
 	</div>
-	<?php Responsive\responsive_wrapper_bottom(); // after wrapper content hook. ?>
+	<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
-<?php
-Responsive\responsive_wrapper_end(); // after wrapper hook.
-get_footer();
-?>
+<?php responsive_wrapper_end(); // after wrapper hook. ?>
+<?php get_footer(); ?>

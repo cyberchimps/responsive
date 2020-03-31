@@ -1,0 +1,101 @@
+/**
+ * Customizer css
+ */
+li#accordion-section-responsive_docs_section,
+li#accordion-panel-responsive_site,
+li#accordion-panel-responsive_content_header,
+li#accordion-panel-woocommerce,
+li#accordion-section-title_tagline {
+    margin-top: 15px;
+}
+.responsive-upsell {
+  background: #fff;
+  padding: 21px;
+  border-radius: 3px;
+}
+
+.responsive-upsell .upsell-pro-label {
+  font-weight: bold;
+  background: #a7a7a7;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 2px 7px 2px 6px;
+  letter-spacing: .1px;
+  font-size: 12px;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.responsive-upsell-features li {
+  line-height: 24px;
+  margin-bottom: 23px;
+  font-size: 14px;
+}
+.responsive-upsell-features li:last-child {
+  margin-bottom: 20px;
+}
+.responsive-upsell-features.no-explained li {
+  margin-bottom: 0;
+}
+.responsive-upsell-features.no-explained li:last-child {
+  margin-bottom: 0;
+}
+
+.responsive-upsell .button {
+  margin-left: 21px;
+  width: 100%;
+  text-align: center;
+  letter-spacing: .2px;
+}
+
+.responsive-upsell hr {
+  margin-top: 22px;
+  margin-bottom: 16px;
+}
+
+.responsive-upsell-feature-list li:before {
+  line-height: 37px;
+}
+
+.responsive-upsell-feature-list li {
+  line-height: 22px;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.responsive-upsell-feature-list li:last-child {
+  margin-bottom: 0;
+}
+
+.frontpage-sections-upsell {
+  padding: 10px 14px 11px 10px;
+}
+
+.responsive-boxed-section {
+  margin: 12px;
+}
+
+#customize-controls #accordion-section-responsive_upsell_main_section.control-section .accordion-section-title:hover {
+  background-color: #0073aa;
+  color: #fff;
+}
+
+#customize-controls #accordion-section-responsive_upsell_main_section.control-section .accordion-section-title:hover:after {
+  color: #fff;
+}
+
+.customize-control {
+	position: relative;
+}
+
+.customize-control .res-control-tooltip{
+	position: absolute;
+	top: 1em;
+	left: 0;
+}
+
+.notice.notice-info h3,
+.accordion-section-title {
+	padding-left: 36px;
+}

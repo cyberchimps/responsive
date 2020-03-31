@@ -92,6 +92,14 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'left'   => esc_html__( 'Left', 'responsive' ),
 				'right'  => esc_html__( 'Right', 'responsive' ),
 			);
+
+			if ( is_rtl() ) {
+				$header_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'header_alignment', $header_alignment_label, 'responsive_header_layout', 30, $header_alignment_choices, 'center', 'responsive_active_vertical_header', 'postMessage' );
 
 			// Logo Padding.
@@ -158,6 +166,15 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'center'       => esc_html__( 'center', 'responsive' ),
 				'space-around' => esc_html__( 'Space Around', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$header_widget_alignment_choices = array(
+					'spread'       => esc_html__( 'Spread', 'responsive' ),
+					'left'         => esc_html__( 'Right', 'responsive' ),
+					'right'        => esc_html__( 'Left', 'responsive' ),
+					'center'       => esc_html__( 'center', 'responsive' ),
+					'space-around' => esc_html__( 'Space Around', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'header_widget_alignment', $header_widget_alignment_label, 'responsive_header_layout', 80, $header_widget_alignment_choices, 'spread', 'responsive_active_header_widget', 'postMessage' );
 
 		}

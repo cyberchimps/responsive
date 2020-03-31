@@ -9,12 +9,11 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-Responsive\responsive_entry_before();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 
-	<?php Responsive\responsive_entry_top(); ?>
+	<?php responsive_entry_top(); ?>
 
 	<div class="post-entry">
 
@@ -64,14 +63,11 @@ Responsive\responsive_entry_before();
 		?>
 	</div><!-- end of .post-entry -->
 
-	<div class="post-data">
-		<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-	</div><!-- end of .post-data -->
-	<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>
-	<?php Responsive\responsive_entry_bottom(); ?>
+	<?php get_template_part( 'post-data', get_post_type() ); ?>
+
+	<?php responsive_entry_bottom(); ?>
 </article><!-- end of #post-<?php the_ID(); ?> -->
 <?php
-Responsive\responsive_entry_after();
 the_post_navigation(
 	array(
 		'prev_text' => '<span class="screen-reader-text">' . esc_html__( 'Previous Post is ', 'responsive' ) . ' </span>&#8249; %title',

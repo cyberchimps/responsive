@@ -343,7 +343,6 @@ function responsive_add_image_size() {
 	add_image_size( 'responsive-600', 600, 9999 );
 	add_image_size( 'responsive-900', 900, 9999 );
 }
-
 add_action( 'after_setup_theme', 'responsive_add_image_size' );
 
 /**
@@ -352,7 +351,7 @@ add_action( 'after_setup_theme', 'responsive_add_image_size' );
  * @return void [description].
  */
 function responsive_get_social_icons() {
-	$responsive_options = Responsive\Core\responsive_get_options();
+	$responsive_options = responsive_get_options();
 
 	$icons = array(
 		'twitter'     => __( 'Twitter', 'responsive' ),

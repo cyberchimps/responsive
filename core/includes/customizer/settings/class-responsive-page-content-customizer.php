@@ -82,6 +82,10 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_featured_image_label = esc_html__( 'Page Featured Image', 'responsive' );
 			responsive_separator_control( $wp_customize, 'page_featured_image_separator', $page_featured_image_label, 'responsive_page_content', 30 );
 
+			// Featured Image Width.
+			$page_featured_image_width_label = esc_html__( 'Image Width Size (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'page_featured_image_width', $page_featured_image_width_label, 'responsive_page_content', 35, '', null, 4800 );
+
 			// Style.
 			$featured_image_style_label   = esc_html__( 'Style', 'responsive' );
 			$featured_image_style_choices = array(
@@ -97,6 +101,13 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$featured_image_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'page_featured_image_alignment', $featured_image_alignment_label, 'responsive_page_content', 50, $featured_image_alignment_choices, 'left', null );
 
 			/**
@@ -112,6 +123,13 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$page_title_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'page_title_alignment', $page_title_alignment_label, 'responsive_page_content', 70, $page_title_alignment_choices, 'left', null );
 
 			/**
@@ -127,6 +145,13 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$page_content_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'page_content_alignment', $page_content_alignment_label, 'responsive_page_content', 90, $page_content_alignment_choices, 'left', null );
 
 		}

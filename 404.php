@@ -21,39 +21,36 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @link           http://codex.wordpress.org/Creating_an_Error_404_Page
  * @since          available since Release 1.0
  */
-
-get_header();
-
-Responsive\responsive_wrapper_top(); // before wrapper content hook.
+?>
+<?php get_header(); ?>
+<?php responsive_wrapper_top(); // before wrapper content hook.
 // Elementor `404` location.
 if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
-	?>
+?>
 <div id="wrapper" class="site-content clearfix">
 	<div class="content-outer container">
 		<div class="row">
-			<?php Responsive\responsive_in_wrapper(); // wrapper hook. ?>
-			<main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?>>
+			<?php responsive_in_wrapper(); // wrapper hook. ?>
+			<main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?> role="main">
 
-				<?php Responsive\responsive_entry_before(); ?>
+				<?php responsive_entry_before(); ?>
 				<section id="post-0" class="error404 hentry">
-					<?php Responsive\responsive_entry_top(); ?>
+					<?php responsive_entry_top(); ?>
 
 					<div class="post-entry">
 							<?php get_template_part( 'loop-no-posts', get_post_type() ); ?>
 					</div><!-- end of .post-entry -->
 
-					<?php Responsive\responsive_entry_bottom(); ?>
+					<?php responsive_entry_bottom(); ?>
 				</section><!-- end of #post-0 -->
-				<?php Responsive\responsive_entry_after(); ?>
+				<?php responsive_entry_after(); ?>
 
 			</main><!-- end of #content-full -->
 			<?php get_sidebar(); ?>
 		</div>
-		<?php Responsive\responsive_wrapper_bottom(); // after wrapper content hook. ?>
+		<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 	</div> <!-- row -->
 </div> <!-- end of #wrapper -->
-	<?php
-}
-Responsive\responsive_wrapper_end(); // after wrapper hook.
-get_footer();
-?>
+<?php }
+responsive_wrapper_end(); // after wrapper hook. ?>
+<?php get_footer(); ?>

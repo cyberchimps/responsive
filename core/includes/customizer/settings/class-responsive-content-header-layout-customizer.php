@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[breadcrumb]',
 				array(
-					'sanitize_callback' => Responsive\Customizer\responsive_sanitize_checkbox(),
+					'sanitize_callback' => 'responsive_sanitize_checkbox',
 					'type'              => 'option',
 					'default'           => 0,
 				)
@@ -76,6 +76,14 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				'left'   => esc_html__( 'Left', 'responsive' ),
 				'right'  => esc_html__( 'Right', 'responsive' ),
 			);
+
+			if ( is_rtl() ) {
+				$content_header_alignment_choices = array(
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 30, $content_header_alignment_choices, 'center', null, 'postMessage' );
 
 		}

@@ -19,13 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <?php
-	$responsive_options = Responsive\Core\responsive_get_options();
+	$responsive_options = responsive_get_options();
 if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options['home-widgets'] ) {
-	Responsive\responsive_widgets_before(); // above widgets container hook. ?>
+	?>
+	<?php responsive_widgets_before(); // above widgets container hook. ?>
 	<aside id="secondary" class="widget-area custom-home-widget-section home-widgets" role="complementary">
 		<div class="home-widget-wrapper">
 			<div id="home_widget_1" class="home-widget-1 grid col-300">
-			<?php Responsive\responsive_widgets(); // above widgets hook. ?>
+			<?php responsive_widgets(); // above widgets hook. ?>
 
 			<?php if ( ! dynamic_sidebar( 'home-widget-1' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
 					<div class="widget-wrapper">
@@ -41,11 +42,11 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 					</div><!-- end of .widget-wrapper -->
 				<?php endif; // end of home-widget-1. ?>
 
-			<?php Responsive\responsive_widgets_end(); // responsive after widgets hook. ?>
+			<?php responsive_widgets_end(); // responsive after widgets hook. ?>
 			</div><!-- end of .col-300 -->
 
 			<div id="home_widget_2" class="home-widget-2 grid col-300">
-			<?php Responsive\responsive_widgets(); // responsive above widgets hook. ?>
+			<?php responsive_widgets(); // responsive above widgets hook. ?>
 
 			<?php if ( ! dynamic_sidebar( 'home-widget-2' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
 					<div class="widget-wrapper">
@@ -61,11 +62,11 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 					</div><!-- end of .widget-wrapper -->
 				<?php endif; // end of home-widget-2. ?>
 
-			<?php Responsive\responsive_widgets_end(); // after widgets hook. ?>
+			<?php responsive_widgets_end(); // after widgets hook. ?>
 			</div><!-- end of .col-300 -->
 
 			<div id="home_widget_3" class="home-widget-3 grid col-300 fit">
-			<?php Responsive\responsive_widgets(); // above widgets hook. ?>
+			<?php responsive_widgets(); // above widgets hook. ?>
 
 			<?php if ( ! dynamic_sidebar( 'home-widget-3' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
 					<div class="widget-wrapper">
@@ -79,10 +80,10 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 					</div><!-- end of .widget-wrapper -->
 				<?php endif; // end of home-widget-3. ?>
 
-			<?php Responsive\responsive_widgets_end(); // after widgets hook. ?>
+			<?php responsive_widgets_end(); // after widgets hook. ?>
 			</div><!-- end of .col-300 fit -->
 		</div>
 	</aside><!-- end of #secondary -->
-	<?php Responsive\responsive_widgets_after(); // after widgets container hook.
+	<?php responsive_widgets_after(); // after widgets container hook.
 }
 ?>

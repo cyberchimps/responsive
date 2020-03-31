@@ -17,9 +17,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-Responsive\responsive_widgets_before(); // above widgets container hook. ?>
+?>
+<?php responsive_widgets_before(); // above widgets container hook. ?>
 	<aside id="secondary" class="widget-area grid col-300 fit gallery-meta" role="complementary">
-		<?php Responsive\responsive_widgets(); // above widgets hook. ?>
+		<?php responsive_widgets(); // above widgets hook. ?>
 		<div class="widget-wrapper">
 
 			<div class="widget-title"><h4><?php esc_html_e( 'Image Information', 'responsive' ); ?></h4></div>
@@ -86,12 +87,12 @@ if ( ! is_active_sidebar( 'gallery-widget' ) ) {
 
 	<aside id="secondary" class="widget-area grid col-300 fit" role="complementary">
 
-		<?php Responsive\responsive_widgets(); // above widgets hook. ?>
+		<?php responsive_widgets(); // above widgets hook. ?>
 
 		<?php dynamic_sidebar( 'gallery-widget' ); ?>
 
-		<?php Responsive\responsive_widgets_end(); // after widgets hook. ?>
+		<?php responsive_widgets_end(); // after widgets hook. ?>
 	</aside><!-- end of #secondary -->
-	<?php Responsive\responsive_widgets_after(); // after widgets container hook. ?>
+	<?php responsive_widgets_after(); // after widgets container hook. ?>
 
 <?php endif; ?>

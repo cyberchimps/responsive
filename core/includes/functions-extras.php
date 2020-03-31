@@ -5,41 +5,9 @@
  * @package Responsive
  */
 
-namespace Responsive\Extra;
-
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
-
-
-/**
- * Set up theme defaults and register supported WordPress features.
- *
- * @return void
- */
-function setup() {
-	$n = function( $function ) {
-		return __NAMESPACE__ . "\\$function";
-	};
-
-	add_action( 'widgets_init', $n( 'responsive_remove_recent_comments_style' ) );
-	add_filter( 'wp_page_menu', $n( 'responsive_wp_page_menu' ) );
-
-	add_filter( 'gallery_style', $n( 'responsive_remove_gallery_css' ) );
-	add_filter( 'get_the_excerpt', $n( 'responsive_custom_excerpt_more' ) );
-	add_filter( 'excerpt_more', $n( 'responsive_auto_excerpt_more' ) );
-	add_filter( 'excerpt_length', $n( 'responsive_excerpt_length' ) );
-
-	add_filter( 'get_comments_number', $n( 'responsive_comment_count' ), 0 );
-
-	add_filter( 'wp_list_categories', $n( 'responsive_category_rel_removal' ) );
-	add_filter( 'the_category', $n( 'responsive_category_rel_removal' ) );
-
-	if ( ! function_exists( 'responsive_wp_title' ) && ! defined( 'AIOSEOP_VERSION' ) ) {
-		add_filter( 'wp_title', $n( 'responsive_wp_title' ), 10, 2 );
-	}
-
 }
 
 /**
@@ -78,6 +46,9 @@ function responsive_category_rel_removal( $output ) {
 	return $output;
 }
 
+add_filter( 'wp_list_categories', 'responsive_category_rel_removal' );
+add_filter( 'the_category', 'responsive_category_rel_removal' );
+
 /**
  * Filter 'get_comments_number'
  *
@@ -98,6 +69,8 @@ function responsive_comment_count( $count ) {
 		return $count;
 	}
 }
+
+add_filter( 'get_comments_number', 'responsive_comment_count', 0 );
 
 /**
  * Pings Callback wp_list_comments()
@@ -123,6 +96,8 @@ function responsive_excerpt_length( $length ) {
 	return 40;
 }
 
+add_filter( 'excerpt_length', 'responsive_excerpt_length' );
+
 /**
  * Returns a "Read more" link for excerpts
  */
@@ -142,6 +117,8 @@ function responsive_auto_excerpt_more( $more = 0 ) {
 	return '<span class="ellipsis">&hellip;</span>' . responsive_read_more();
 }
 
+add_filter( 'excerpt_more', 'responsive_auto_excerpt_more' );
+
 /**
  * Adds a pretty "Read more" link to custom post excerpts.
  *
@@ -154,6 +131,8 @@ function responsive_custom_excerpt_more( $output ) {
 	return $output;
 }
 
+add_filter( 'get_the_excerpt', 'responsive_custom_excerpt_more' );
+
 /**
  * This function removes inline styles set by WordPress gallery.
  *
@@ -162,6 +141,8 @@ function responsive_custom_excerpt_more( $output ) {
 function responsive_remove_gallery_css( $css ) {
 	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
 }
+
+add_filter( 'gallery_style', 'responsive_remove_gallery_css' );
 
 /**
  * This function removes default styles set by WordPress recent comments widget.
@@ -173,38 +154,48 @@ function responsive_remove_recent_comments_style() {
 	}
 }
 
-/**
- * Filter for better SEO wp_title().
- * Adopted from Twenty Twelve
- *
- * @param  [type] $title [description].
- * @param  [type] $sep   [description].
- * @return [type]        [description].
- * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
- */
-function responsive_wp_title( $title, $sep ) {
-	global $page, $paged;
+add_action( 'widgets_init', 'responsive_remove_recent_comments_style' );
 
-	if ( is_feed() ) {
-		return $title;
-	}
+
+if ( ! function_exists( 'responsive_wp_title' ) && ! defined( 'AIOSEOP_VERSION' ) ) :
+
+	/**
+	 * Filter for better SEO wp_title().
+	 * Adopted from Twenty Twelve
+	 *
+	 * @param  [type] $title [description].
+	 * @param  [type] $sep   [description].
+	 * @return [type]        [description].
+	 * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
+	 */
+	function responsive_wp_title( $title, $sep ) {
+		global $page, $paged;
+
+		if ( is_feed() ) {
+			return $title;
+		}
 
 		// Add the site name.
 		$title .= get_bloginfo( 'name' );
 
-	// Add the site description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title .= " $sep $site_description";
+		// Add the site description for the home/front page.
+		$site_description = get_bloginfo( 'description', 'display' );
+		if ( $site_description && ( is_home() || is_front_page() ) ) {
+			$title .= " $sep $site_description";
+		}
+
+		// Add a page number if necessary.
+		if ( $paged >= 2 || $page >= 2 ) {
+			/* translators: %s: author */
+			$title .= " $sep " . sprintf( __( 'Page %s', 'responsive' ), max( $paged, $page ) );
+		}
+
+		return $title;
 	}
 
-	// Add a page number if necessary.
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'responsive' ), max( $paged, $page ) );
-	}
+	add_filter( 'wp_title', 'responsive_wp_title', 10, 2 );
 
-	return $title;
-}
+endif;
 
 /**
  * This function removes .menu class from custom menus
@@ -259,3 +250,5 @@ function responsive_wp_page_menu( $page_markup ) {
 
 	return $new_markup;
 }
+
+add_filter( 'wp_page_menu', 'responsive_wp_page_menu' );

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div id='full-home'>
 <?php
-$responsive_options = Responsive\Core\responsive_get_options();
+$responsive_options = responsive_get_options();
 
 $display_slider = ( ! empty( $responsive_options['enable_slider'] ) ) ? $responsive_options['enable_slider'] : 0;
 

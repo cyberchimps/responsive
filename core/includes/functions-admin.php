@@ -5,28 +5,9 @@
  * @package        Responsive
  */
 
-namespace Responsive\Admin;
-
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-}
-
-
-/**
- * Set up theme defaults and register supported WordPress features.
- *
- * @return void
- */
-function setup() {
-	$n = function( $function ) {
-		return __NAMESPACE__ . "\\$function";
-	};
-
-	add_action( 'admin_notices', $n( 'responsive_ask_for_review_notice' ) );
-	add_action( 'admin_init', $n( 'responsive_theme_notice_dismissed' ) );
-	add_action( 'admin_init', $n( 'responsive_theme_notice_change_timeout' ) );
-	add_action( 'admin_head', $n( 'responsive_add_review_styling' ) );
 }
 
 /**
@@ -86,6 +67,8 @@ function responsive_ask_for_review_notice() {
 
 }
 
+add_action( 'admin_notices', 'responsive_ask_for_review_notice' );
+
 /**
  * Removed Ask For Review Admin Notice when dismissed.
  */
@@ -105,7 +88,9 @@ function responsive_theme_notice_change_timeout() {
 		wp_safe_redirect( remove_query_arg( array( 'responsive-theme-review-notice-change-timeout' ), wp_get_referer() ) );
 	}
 }
-
+add_action( 'admin_init', 'responsive_theme_notice_dismissed' );
+add_action( 'admin_init', 'responsive_theme_notice_change_timeout' );
+add_action( 'admin_head', 'responsive_add_review_styling' );
 /**
  * Add styling for responsive_ask_for_review_notice function.
  */

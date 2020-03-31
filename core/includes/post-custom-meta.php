@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Globalize Theme options
  */
 global $responsive_options;
-$responsive_options = Responsive\Core\responsive_get_options();
+$responsive_options = responsive_get_options();
 
 /**
  * Get content classes
@@ -81,7 +81,7 @@ function responsive_get_layout() {
 	$layout = '';
 	/* Get Theme options */
 	global $responsive_options;
-	$responsive_options = Responsive\Core\responsive_get_options();
+	$responsive_options = responsive_get_options();
 	/* Get valid layouts */
 	$valid_layouts = responsive_get_valid_layouts();
 

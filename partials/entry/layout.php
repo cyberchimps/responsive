@@ -21,12 +21,10 @@ if ( 'excerpt' === $responsive_blog_entry_content_type ) {
 	add_filter( 'the_content_more_link', 'responsive_modify_read_more_link' );
 	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
 }
-
-Responsive\responsive_entry_before();
 ?>
 <div class="entry-column">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
-		<?php Responsive\responsive_entry_top(); ?>
+		<?php responsive_entry_top(); ?>
 		<div class="post-entry">
 
 		<?php
@@ -60,14 +58,8 @@ Responsive\responsive_entry_before();
 		</div>
 		<!-- end of .post-entry -->
 
-		<div class="post-data">
-			<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-		</div><!-- end of .post-data -->
-		<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>
-		<?php Responsive\responsive_entry_bottom(); ?>
+		<?php get_template_part( 'post-data', get_post_type() ); ?>
+
+		<?php responsive_entry_bottom(); ?>
 	</article><!-- end of #post-<?php the_ID(); ?> -->
 </div>
-
-<?php
-Responsive\responsive_entry_after();
-?>

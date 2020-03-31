@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.3.0-beta.2' );
+define( 'RESPONSIVE_THEME_VERSION', '4.3.0-beta.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -50,18 +50,6 @@ if ( is_admin() ) {
 	 * Admin Menu Settings
 	 */
 	require_once $responsive_template_directory . '/core/includes/classes/class-responsive-admin-settings.php';
-}
-
-/**
- * Run setup functions.
- */
-Responsive\setup();
-Responsive\Admin\setup();
-Responsive\Customizer\setup();
-Responsive\Core\setup();
-Responsive\Extra\setup();
-if ( class_exists( 'WooCommerce' ) ) {
-	Responsive\WooCommerce\setup();
 }
 
 /**
@@ -163,7 +151,7 @@ function responsive_free_setup() {
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
-$responsive_options = Responsive\Core\responsive_get_options();
+$responsive_options = responsive_get_options();
 
 /**
  * Edit Customize Register
@@ -397,7 +385,7 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 	 */
 	function responsive_page_featured_image() {
 		// check if the page has a Post Thumbnail assigned to it.
-		$responsive_options = Responsive\Core\responsive_get_options();
+		$responsive_options = responsive_get_options();
 		if ( has_post_thumbnail() ) {
 			?>
 						<div class="featured-image">
@@ -421,7 +409,7 @@ if ( ! function_exists( 'responsive_exclude_post_cat' ) ) :
 	 * @param  object $query Query.
 	 */
 	function responsive_exclude_post_cat( $query ) {
-		$responsive_options = Responsive\Core\responsive_get_options();
+		$responsive_options = responsive_get_options();
 		$cat                = get_theme_mod( 'exclude_post_cat' );
 
 		if ( $cat && ! is_admin() && $query->is_main_query() ) {
@@ -441,7 +429,11 @@ add_action( 'pre_get_posts', 'responsive_exclude_post_cat', 10 );
  * Enqueue customizer styling
  */
 function responsive_controls_style() {
-	   wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer.css', RESPONSIVE_THEME_VERSION, 'all' );
+	$suffix = '';
+	if ( is_rtl() ) {
+		$suffix = '-rtl';
+	}
+	wp_enqueue_style( 'responsive-blocks', get_template_directory_uri() . '/core/css/customizer' . $suffix . '.css', RESPONSIVE_THEME_VERSION, 'all' );
 }
 
 add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
@@ -528,7 +520,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 		}
 
 		global $responsive_options;
-		$responsive_options = Responsive\Core\responsive_get_options();
+		$responsive_options = responsive_get_options();
 		$header_layout      = get_theme_mod( 'header_layout_options' );
 		$menu_position      = get_theme_mod( 'menu_position' );
 
