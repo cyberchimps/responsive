@@ -83,13 +83,11 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 	<?php
 	responsive_container_end(); // after container hook.
 
-	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-		if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
-			$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
-			?>
-			<div id="scroll" class="responsive-scroll" aria-label="<?php esc_attr_e( 'Scroll to Top', 'responsive' ); ?>" title="<?php esc_attr_e( 'Scroll to Top', 'responsive' ); ?>" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>"><span><?php esc_html_e( 'Top', 'responsive' ); ?></span></div>
-			<?php
-		}
+	if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
+		$scroll_top_devices = get_theme_mod( 'responsive_scroll_to_top_on_devices', 'both' );
+		?>
+		<div id="scroll" class="responsive-scroll" aria-label="<?php esc_attr_e( 'Scroll to Top', 'responsive' ); ?>" title="<?php esc_attr_e( 'Scroll to Top', 'responsive' ); ?>" data-on-devices="<?php echo esc_attr( $scroll_top_devices ); ?>"><span><?php esc_html_e( 'Top', 'responsive' ); ?></span></div>
+		<?php
 	}
 
 	wp_footer();

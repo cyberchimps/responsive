@@ -1309,6 +1309,88 @@ function responsive_customizer_styles() {
 	}
 	";
 
+	// Scroll To Top
+	$scroll_totop                    = get_theme_mod( 'responsive_scroll_to_top' );
+	$stt_devices                     = get_theme_mod( 'responsive_scroll_to_top_on_devices' );
+	$stt_position                    = get_theme_mod( 'responsive_scroll_to_top_icon_position' );
+	$stt_icon_size                   = get_theme_mod( 'responsive_scroll_to_top_icon_size' );
+	$stt_icon_radius                 = get_theme_mod( 'responsive_scroll_to_top_icon_radius' );
+	$stt_icon_color                  = get_theme_mod( 'responsive_scroll_to_top_icon_color' );
+	$stt_icon_hover_color            = get_theme_mod( 'responsive_scroll_to_top_icon_hover_color' );
+	$stt_icon_background_color       = get_theme_mod( 'responsive_scroll_to_top_icon_background_color' );
+	$stt_icon_background_hover_color = get_theme_mod( 'responsive_scroll_to_top_icon_background_hover_color' );
+
+	if ( 1 == $scroll_totop ) {
+		$custom_css .= '@media (min-width: 769px) {
+	    #scroll {
+	    content: "769"; } }
+
+	    #scroll {
+	        position: fixed;
+	        right: 2%;
+	        bottom: 10px;
+	        cursor: pointer;
+	        width: 50px;
+	        height: 50px;
+	        background-color: #a8a6a6;
+	        text-indent: -9999px;
+	        z-index: 99999999;
+	        -webkit-border-radius: 60px;
+	        -moz-border-radius: 60px;
+	        border-radius: 60px; }
+
+	    #scroll span {
+	        position: absolute;
+	        top: 50%;
+	        left: 50%;
+	        margin-left: -8px;
+	        margin-top: -12px;
+	        height: 0;
+	        width: 0;
+	        border: 8px solid transparent;
+	        border-bottom-color: #fff; }
+
+	    #scroll:hover {
+	        background-color: #d1cfcf; }
+	    ';
+	}
+	if ( ! empty( $stt_icon_size ) ) {
+		$custom_css .= "#scroll {
+			height: {$stt_icon_size}px;
+			width: {$stt_icon_size}px;
+		}";
+	}
+	if ( ! empty( $stt_position ) ) {
+		$custom_css .= "#scroll {
+			{$stt_position}: 2px;
+		}";
+	}
+	if ( isset( $stt_icon_radius ) ) {
+		$custom_css .= "#scroll {
+			border-radius: {$stt_icon_radius}%;
+		}";
+	}
+	if ( ! empty( $stt_icon_background_color ) ) {
+		$custom_css .= "#scroll {
+			background-color: {$stt_icon_background_color};
+		}";
+	}
+	if ( ! empty( $stt_icon_background_hover_color ) ) {
+		$custom_css .= "#scroll:hover {
+			background-color: {$stt_icon_background_hover_color};
+		}";
+	}
+	if ( ! empty( $stt_icon_color ) ) {
+		$custom_css .= "#scroll span {
+			border-bottom-color : {$stt_icon_color};
+		}";
+	}
+	if ( ! empty( $stt_icon_hover_color ) ) {
+		$custom_css .= "#scroll:hover span {
+			border-bottom-color : {$stt_icon_hover_color};
+		}";
+	}
+
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 
 	if ( class_exists( 'WooCommerce' ) ) {

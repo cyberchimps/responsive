@@ -459,6 +459,14 @@ function responsive_enqueue_comment_reply() {
 
 add_action( 'wp_enqueue_scripts', 'responsive_enqueue_comment_reply' );
 
+/*
+ * Function enqueues scroll-to-top JS file
+ */
+function responsive_enqueue_scrolltotop() {
+	wp_enqueue_script( 'responsive_theme_scroll-to-top', get_template_directory_uri() . '/core/includes/customizer/assets/js/scroll-to-top.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+}
+add_action( 'wp_enqueue_scripts', 'responsive_enqueue_scrolltotop' );
+
 /**
  * Front Page function starts here. The Front page overides WP's show_on_front option. So when show_on_front option changes it sets the themes front_page to 0 therefore displaying the new option
  *
