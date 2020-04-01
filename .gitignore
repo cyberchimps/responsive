@@ -50,4 +50,5 @@ core/js/jquery.min.js
 core/js/navigation.min.js
 core/css/woocommerce.min.css
 core/includes/customizer/assets/js/typography-customize-preview.min.js
+core/includes/customizer/assets/js/*.min.*
 jenkincodeception/vendor

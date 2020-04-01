@@ -93,6 +93,10 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$custom_hero_area_label = esc_html__( 'Hero Area', 'responsive' );
 			responsive_separator_control( $wp_customize, 'custom_hero_area_separtor', $custom_hero_area_label, 'static_front_page', 10, 'responsive_custom_home_active' );
 
+			// Disable Hero Area.
+			$disable_hero_area_label = __( 'Disable Hero Area', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_hero_area', $disable_hero_area_label, 'static_front_page', 10, 0, 'responsive_custom_home_active' );
+
 			$wp_customize->add_setting(
 				'responsive_theme_options[home_headline]',
 				array(
@@ -234,6 +238,30 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 						),
 					)
 				);
+
+			$wp_customize->add_setting(
+				'responsive_home_content_area_image',
+				array(
+					'sanitize_callback' => 'absint',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Cropped_Image_Control(
+					$wp_customize,
+					'responsive_home_content_area_image',
+					array(
+						'label'           => esc_html__( 'Featured Content Area image', 'responsive' ),
+						'section'         => 'static_front_page',
+						'flex-height'     => true,
+						'flex-width'      => true,
+						'height'          => 1000, // pixels.
+						'width'           => 1500, // pixels.
+						'priority'        => 20,
+						'active_callback' => 'responsive_custom_home_active',
+					)
+				)
+			);
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[featured_content]',

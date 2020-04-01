@@ -536,18 +536,18 @@ function responsive_customizer_styles() {
     .widget-area .widget-title h4{
         color: {$sidebar_headings_color};
     }
-    
+
 	.responsive-site-style-boxed aside#secondary .widget-wrapper {
 		background-color:{$sidebar_background_color};
 	}
-	
+
     .widget-area {
         color: {$sidebar_text_color};
     }
     .widget-area .widget-wrapper a {
         color: {$sidebar_link_color};
     }
-    
+
     .widget-area .widget-wrapper a:hover {
         color: {$sidebar_link_hover_color};
     }
@@ -953,7 +953,7 @@ function responsive_customizer_styles() {
 	@media (min-width:992px) {
 		.search:not(.woocommerce) .content-area,
 		.archive:not(.woocommerce) .content-area,
-		.blog:not(.woocommerce):not(.custom-home-page-active) .content-area {
+		.blog:not(.custom-home-page-active) .content-area {
 			width:{$blog_content_width}%;
 		}
 		.search:not(.woocommerce) aside.widget-area,

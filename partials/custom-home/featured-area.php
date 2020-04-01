@@ -28,7 +28,9 @@ if ( 1 == $display_slider ) {
 	<div class='slider'><?php echo do_shortcode( $slider_content ); ?></div>
 	<?php
 }
-?>
+
+if ( ! get_theme_mod( 'responsive_disable_hero_area', 0 ) ) {
+	?>
 <div id="featured" class="custom-home-featured-area grid col-940">
 
 	<div class="featured-area-wrapper">
@@ -82,16 +84,23 @@ if ( 1 == $display_slider ) {
 
 		<div id="featured-image" class="featured-image grid col-460 fit">
 
-			<?php $featured_content = ( ! empty( $responsive_options['featured_content'] ) ) ? $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.jpg" width="440" height="300" alt="featured image" />'; ?>
+			<?php
+			$featured_content_image = wp_get_attachment_image_src( get_theme_mod( 'responsive_home_content_area_image' ), 'full' );
+			$featured_content_image = $featured_content_image ? '<img class="aligncenter" src="' . $featured_content_image[0] . '" width="440" height="300" alt="featured image" />' : '';
 
-			<?php echo do_shortcode( wpautop( $featured_content ) ); ?>
+			$featured_content = ( ! empty( $responsive_options['featured_content'] ) || $featured_content_image ) ? $featured_content_image . $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.jpg" width="440" height="300" alt="featured image" />';
+
+			echo do_shortcode( wpautop( $featured_content ) );
+			?>
 
 		</div><!-- end of #featured-image -->
 	</div>
 </div><!-- end of #featured -->
 
-<?php if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'] ) { ?>
 	<?php
+}
+if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'] ) {
+
 	if ( 'default' == $responsive_options['button_style'] ) {
 		$button_class = 'blue button';
 	} elseif ( 'flat_style' == $responsive_options['button_style'] ) {
