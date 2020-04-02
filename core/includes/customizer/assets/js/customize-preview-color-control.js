@@ -361,4 +361,75 @@
         } );
     } );
 
+    //Sidebar -> Colors
+    //Headings Color
+    api( 'responsive_sidebar_headings_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.widget-area .widget-title h4').css('color', newval );
+        } );
+    } );
+
+    //Background Color
+    api( 'responsive_sidebar_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-site-style-boxed aside#secondary .widget-wrapper ').css('background-color', newval );
+        } );
+    } );
+
+    //Text Color
+    api( 'responsive_sidebar_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.widget-area').css('color', newval );
+        } );
+    } );
+
+    //Links Color
+    api( 'responsive_sidebar_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.widget-area .widget-wrapper a ').css('color', newval );
+        } );
+    } );
+
+    //Links Hover Color
+    $(".widget-area .widget-wrapper a").hover(
+        function() {
+            $(this).css("color", api('responsive_sidebar_link_hover_color').get());
+        },
+        function() {
+            $(this).css("color", api('responsive_sidebar_link_color').get());
+        });
+
+    //Scroll To Top
+    //Icon Color
+    api( 'responsive_scroll_to_top_icon_color', function( value ) {
+        value.bind( function( newval ) {
+
+            $('#scroll span').css('border-bottom-color', newval );        } );
+    } );
+
+    //Icon Hover Color
+    $("#scroll").hover(
+        function() {
+            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
+        },
+        function() {
+            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
+        });
+
+    //Icon Background Color
+    api( 'responsive_scroll_to_top_icon_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#scroll').css('background-color', newval );
+        } );
+    } );
+
+    //Icon Background Hover Color
+    $("#scroll").hover(
+        function() {
+            $(this).css("background-color", api('responsive_scroll_to_top_icon_background_hover_color').get());
+        },
+        function() {
+            $(this).css("background-color", api('responsive_scroll_to_top_icon_background_color').get());
+        });
+
 } )( jQuery );

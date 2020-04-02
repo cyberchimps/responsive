@@ -51,6 +51,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 					'default'           => 0,
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_checkbox_validate',
+					'transport'         => 'refresh',
 				)
 			);
 			$wp_customize->add_control(
@@ -90,7 +91,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				array(
 					'default'           => 'right',
 					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
+					'transport'         => 'postMessage',
 				)
 			);
 			$wp_customize->add_control(
@@ -109,7 +110,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_scroll_to_top_icon_size',
 				array(
-					'transport'         => 'refresh',
+					'transport'         => 'postMessage',
 					'default'           => 50,
 					'sanitize_callback' => 'responsive_sanitize_number',
 				)
@@ -138,7 +139,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				array(
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_number',
-					'transport'         => 'refresh',
+					'transport'         => 'postMessage',
 					'default'           => 50,
 				)
 			);
@@ -165,7 +166,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				array(
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
+					'transport'         => 'postMessage',
 				)
 			);
 			$wp_customize->add_control(
@@ -185,7 +186,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				array(
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
+					'transport'         => 'postMessage',
 				)
 			);
 			$wp_customize->add_control(
@@ -205,7 +206,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				array(
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
+					'transport'         => 'postMessage',
 				)
 			);
 			$wp_customize->add_control(
@@ -225,7 +226,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				array(
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
-					'transport'         => 'refresh',
+					'transport'         => 'postMessage',
 				)
 			);
 			$wp_customize->add_control(

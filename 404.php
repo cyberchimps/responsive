@@ -23,10 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 ?>
 <?php get_header(); ?>
-<?php responsive_wrapper_top(); // before wrapper content hook.
+<?php
+responsive_wrapper_top(); // before wrapper content hook.
 // Elementor `404` location.
 if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
-?>
+	?>
 <div id="wrapper" class="site-content clearfix">
 	<div class="content-outer container">
 		<div class="row">
@@ -51,6 +52,8 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 		<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 	</div> <!-- row -->
 </div> <!-- end of #wrapper -->
-<?php }
-responsive_wrapper_end(); // after wrapper hook. ?>
+	<?php
+}
+responsive_wrapper_end(); // after wrapper hook.
+?>
 <?php get_footer(); ?>
