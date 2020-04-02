@@ -52,6 +52,13 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 		public $all_font_weight = array();
 
 		/**
+		 * Responsive theme setting id(for font controls only)
+		 *
+		 * @var string $responsive_setting_id
+		 */
+		public $responsive_setting_id = '';
+
+		/**
 		 * Set the default font options.
 		 *
 		 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
@@ -108,13 +115,13 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 		 * @access protected
 		 */
 		protected function render_content() {
-			switch ( $this->label ) {
+			switch ( $this->responsive_setting_id ) {
 
-				case 'Font Family':
+				case 'responsive_font_family':
 					$this->render_font_family();
 					break;
 
-				case 'Font Weight':
+				case 'responsive_font_weight':
 					$this->render_font_weight();
 					break;
 			}
