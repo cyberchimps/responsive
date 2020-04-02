@@ -9,6 +9,7 @@
 .blog,
 .search,
 .archive {
+    &.page-template-gutenberg-fullwidth,
     &.sidebar-position-no:not(.woocommerce) {
         @media ( min-width: map-get( $screens, lg ) ) {
             .alignwide {

@@ -70,6 +70,77 @@ function responsive_free_get_option( $option, $default = false ) {
 }
 
 
+/**
+ * Set the $content_width global variable used by WordPress to set image dimennsions.
+ *
+ * @return void
+ */
+function responsive_setup_content_width() {
+	global $content_width;
+
+	/**
+	 * Content Width
+	 */
+	if ( ( 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) ) {
+		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+
+		if ( is_page() ) {
+			if ( 'no' !== get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) {
+				$blog_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', 66 ) );
+
+				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+			} else {
+				$content_width = $container_max_width;
+			}
+		} elseif ( is_single() ) {
+
+			if ( 'no' !== get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) {
+				$blog_content_width = esc_html( get_theme_mod( 'responsive_single_blog_content_width', 66 ) );
+
+				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+			} else {
+				$content_width = $container_max_width;
+			}
+		} else {
+			if ( 'no' !== get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) ) {
+				$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', 66 ) );
+
+				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+			} else {
+				$content_width = $container_max_width;
+			}
+		}
+
+		if ( class_exists( 'WooCommerce' ) ) {
+			if ( is_product() ) {
+				if ( 'no' !== get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) ) {
+					$blog_content_width = esc_html( get_theme_mod( 'responsive_single_product_content_width', 100 ) );
+
+					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+				} else {
+					$content_width = $container_max_width;
+				}
+			} elseif ( is_shop() ) {
+				if ( 'no' !== get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) ) {
+					$blog_content_width = esc_html( get_theme_mod( 'responsive_shop_content_width', 100 ) );
+
+					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+				} else {
+					$content_width = $container_max_width;
+				}
+			} elseif ( is_cart() ) {
+				$blog_content_width = esc_html( get_theme_mod( 'responsive_cart_content_width', 70 ) );
+
+				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+			} elseif ( is_checkout() ) {
+				$blog_content_width = esc_html( get_theme_mod( 'responsive_checkout_content_width', 70 ) );
+
+				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+			}
+		}
+	}
+}
+add_action( 'wp', 'responsive_setup_content_width' );
 
 /**
  * Responsive_free_setup

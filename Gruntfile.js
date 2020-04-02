@@ -122,6 +122,11 @@ module.exports = function(grunt) {
 						'core/css/style.css': 'core/sass/style.scss'
 					},
 
+					/* Sensei CSS file */
+					{
+						'core/css/sensei_content.css': 'core/sass/sensei_content.scss'
+					},
+
 					/* WooCommerce */
 					{
 						'core/css/woocommerce.css': 'core/sass/woocommerce.scss',
@@ -200,6 +205,8 @@ module.exports = function(grunt) {
 				files: {
 					'core/css/style.min.css': 'core/css/style.css',
 					'core/css/style-rtl.min.css': 'core/css/style-rtl.css',
+					'core/css/sensei_content.min.css': 'core/css/sensei_content.css',
+					'core/css/sensei_content-rtl.min.css': 'core/css/sensei_content-rtl.css',
 					'core/css/woocommerce.min.css':  'core/css/woocommerce.css',
 					'core/css/woocommerce-rtl.min.css':  'core/css/woocommerce-rtl.css',
 					'core/css/gutenberg-editor.min.css':  'core/css/gutenberg-editor.css',
@@ -304,6 +311,7 @@ module.exports = function(grunt) {
 					'!**/jenkincodeception/**',
 					'!core/css/woocommerce.css.map',
 					'!core/css/style.css.map',
+					'!core/css/sensei_content.css.map',
 					'!package-lock.json',
 					'!core/package-lock.json',
 					'!core/css/icomoon/selection.json',

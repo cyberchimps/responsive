@@ -15,6 +15,9 @@ atlassian*
 /core/css/style.css
 /core/css/style.min.css
 /core/css/style.css.map
+/core/css/sensei_content.css
+/core/css/sensei_content.min.css
+/core/css/sensei_content.css.map
 /core/css/woocommerce.css
 /core/css/woocommerce.min.css
 /core/css/woocommerce.css.map

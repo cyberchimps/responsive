@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'mixins';
+
+.hentry .course.hentry {
+    padding: 0;
+}
+
+.course input[type=submit] {
+    @include make-button();
+    font-size: 1em;
+}

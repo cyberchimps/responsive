@@ -245,7 +245,77 @@ function responsive_customizer_styles() {
 	}
 	";
 
-	$custom_css .= '
+	$sensei_button       = '';
+	$sensei_button_hover = '';
+	if ( class_exists( 'Sensei_Main' ) ) {
+		$sensei_button = '.course #commentform #submit,
+		.course .submit,
+		.course a.button,
+		.course a.button:visited,
+		.course a.comment-reply-link,
+		.course button.button,
+		.course input.button,
+		.course input[type=submit],
+		.course-container #commentform #submit,
+		.course-container .submit,
+		.course-container a.button,
+		.course-container a.button:visited,
+		.course-container a.comment-reply-link,
+		.course-container button.button,
+		.course-container input.button,
+		.course-container input[type=submit],
+		.lesson #commentform #submit,
+		.lesson .submit,
+		.lesson a.button,
+		.lesson a.button:visited,
+		.lesson a.comment-reply-link,
+		.lesson button.button,
+		.lesson input.button,
+		.lesson input[type=submit],
+		.quiz #commentform #submit,
+		.quiz .submit,
+		.quiz a.button,
+		.quiz a.button:visited,
+		.quiz a.comment-reply-link,
+		.quiz button.button,
+		.quiz input.button,
+		.quiz input[type=submit],';
+
+		$sensei_button_hover = '.course #commentform #submit:hover,
+		.course .submit:hover,
+		.course a.button:hover,
+		.course a.button:visited:hover,
+		.course a.comment-reply-link:hover,
+		.course button.button:hover,
+		.course input.button:hover,
+		.course input[type=submit]:hover,
+		.course-container #commentform #submit:hover,
+		.course-container .submit:hover,
+		.course-container a.button:hover,
+		.course-container a.button:visited:hover,
+		.course-container a.comment-reply-link:hover,
+		.course-container button.button:hover,
+		.course-container input.button:hover,
+		.course-container input[type=submit]:hover,
+		.lesson #commentform #submit:hover,
+		.lesson .submit:hover,
+		.lesson a.button:hover,
+		.lesson a.button:visited:hover,
+		.lesson a.comment-reply-link:hover,
+		.lesson button.button:hover,
+		.lesson input.button:hover,
+		.lesson input[type=submit]:hover,
+		.quiz #commentform #submit:hover,
+		.quiz .submit:hover,
+		.quiz a.button:hover,
+		.quiz a.button:visited:hover,
+		.quiz a.comment-reply-link:hover,
+		.quiz button.button:hover,
+		.quiz input.button:hover,
+		.quiz input[type=submit]:hover,';
+	}
+
+	$custom_css .= $sensei_button . '
 	.page.front-page .button,
 	.blog.front-page .button,
 	.read-more-button .hentry .read-more .more-link,
@@ -264,6 +334,7 @@ function responsive_customizer_styles() {
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
 	}
 	@media screen and ( max-width: 992px ) {
+		' . $sensei_button . '
 		.page.front-page .button,
 		.blog.front-page .button,
 		.read-more-button .hentry .read-more .more-link,
@@ -280,6 +351,7 @@ function responsive_customizer_styles() {
 	}
 
 	@media screen and ( max-width: 576px ) {
+		' . $sensei_button . '
 		.page.front-page .button,
 		.blog.front-page .button,
 		.read-more-button .hentry .read-more .more-link,
@@ -309,6 +381,7 @@ function responsive_customizer_styles() {
 		background-color:' . $button_hover_color . ' !important;
 	}
 
+	' . $sensei_button_hover . '
 	.wp-block-button__link:focus,
 	.wp-block-button__link:hover,
 	.read-more-button .hentry .read-more .more-link:hover,
@@ -1712,7 +1785,6 @@ function responsive_customizer_styles() {
 		}
 		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $woocommerce_custom_css ) ) );
 	}
-
 }
 add_action( 'wp_enqueue_scripts', 'responsive_customizer_styles', 99 );
 
