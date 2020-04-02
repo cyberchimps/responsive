@@ -36,21 +36,21 @@ if ( ! get_theme_mod( 'responsive_disable_hero_area', 0 ) ) {
 	<div class="featured-area-wrapper">
 		<div id="featured-content" class="featured-content grid col-460">
 
-			<h1 class="featured-title">
-				<?php
-				if ( isset( $responsive_options['home_headline'] ) ) {
-					echo esc_html( $responsive_options['home_headline'] );
-				}
+			<?php
+			if ( isset( $responsive_options['home_headline'] ) && ! empty( $responsive_options['home_headline'] ) ) {
 				?>
-			</h1>
+				<h1 class="featured-title">
+					<?php echo esc_html( $responsive_options['home_headline'] ); ?>
+				</h1>
+			<?php } ?>
 
-			<h2 class="featured-subtitle">
-				<?php
-				if ( isset( $responsive_options['home_subheadline'] ) ) {
-					echo esc_html( $responsive_options['home_subheadline'] );
-				}
+			<?php
+			if ( isset( $responsive_options['home_subheadline'] ) && ! empty( $responsive_options['home_subheadline'] ) ) {
 				?>
-			</h2>
+				<h2 class="featured-subtitle">
+					<?php echo esc_html( $responsive_options['home_subheadline'] ); ?>
+				</h2>
+			<?php } ?>
 
 			<?php
 			if ( isset( $responsive_options['home_content_area'] ) ) {
@@ -115,8 +115,12 @@ if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'
 			$responsive_about_text    = isset( $responsive_options['about_text'] ) ? $responsive_options['about_text'] : '';
 			$responsive_about_cta_url = isset( $responsive_options['about_cta_url'] ) ? $responsive_options['about_cta_url'] : '';
 		?>
-		<h2 class="section_title"><?php echo esc_html( $responsive_about_title ); ?></h2>
-		<p class="about_text"><?php echo esc_html( $responsive_about_text ); ?></p>
+			<?php if ( ! empty( $responsive_about_title ) ) { ?>
+				<h2 class="section_title"><?php echo esc_html( $responsive_about_title ); ?></h2>
+			<?php } ?>
+			<?php if ( ! empty( $responsive_about_text ) ) { ?>
+				<p class="about_text"><?php echo esc_html( $responsive_about_text ); ?></p>
+			<?php } ?>
 		</div>
 		<div class="about_cta about-cta grid col-300 fit">
 				<a href="<?php echo esc_url( $responsive_about_cta_url ); ?>" class="about-cta-button <?php echo esc_attr( $button_class ); ?>">
@@ -189,9 +193,11 @@ if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'
 		$responsive_feature3_post_id = '';
 	}
 	?>
+	<?php if ( ! empty( $responsive_feature_title ) ) { ?>
 	<h2 class="section_title">
 			<span><?php echo esc_html( $responsive_feature_title ); ?></span>
 	</h2>
+	<?php } ?>
 
 	<div class="feature_main_div feature-main-div">
 		<?php if ( ! '' == $responsive_feature1_post_id ) { ?>
@@ -237,9 +243,11 @@ if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'
 		$responsive_testimonial_desc_content = $responsive_testimonial_desc->post_content;
 	}
 	?>
-	<h2 class="section_title">
+	<?php if ( ! empty( $responsive_testimonial_title ) ) { ?>
+		<h2 class="section_title">
 			<span><?php echo esc_html( $responsive_testimonial_title ); ?></span>
-	</h2>
+		</h2>
+	<?php } ?>
 	<div class="testimonial-content">
 		<?php if ( '' != $responsive_testimonial_id ) { ?>
 		<div id="testimonial-img" class="testimonial-img grid col-300">
@@ -328,9 +336,11 @@ if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'
 		$responsive_team3_post_id = '';
 	}
 	?>
-	<h2 class="section_title">
+	<?php if ( ! empty( $responsive_team_title ) ) { ?>
+		<h2 class="section_title">
 			<span><?php echo esc_html( $responsive_team_title ); ?></span>
-	</h2>
+		</h2>
+	<?php } ?>
 
 	<div class="team_main_div team-main-div">
 		<?php if ( ! '' == $responsive_team1_post_id ) { ?>
