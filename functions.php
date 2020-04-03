@@ -147,6 +147,8 @@ add_action( 'wp', 'responsive_setup_content_width' );
  */
 function responsive_free_setup() {
 	add_theme_support( 'title-tag' );
+	add_theme_support( 'sensei' );
+
 	// Adding Gutenberg support.
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'wp-block-styles' );

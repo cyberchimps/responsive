@@ -26,6 +26,8 @@ atlassian*
 /core/css/gutenberg-editor.css.map
 /core/css/style-rtl.css
 /core/css/style-rtl.min.css
+/core/css/sensei_content-rtl.css
+/core/css/sensei_content-rtl.min.css
 /core/css/woocommerce-rtl.css
 /core/css/woocommerce-rtl.min.css
 /core/css/gutenberg-editor-rtl.css

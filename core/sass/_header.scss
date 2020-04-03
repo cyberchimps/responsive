@@ -504,7 +504,7 @@ body.mega-menu-header-menu button.menu-toggle {
     }
 }
 
-.res-transparent-header #masthead{
+.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead{
     position:absolute;
     left:0;
     right:0;

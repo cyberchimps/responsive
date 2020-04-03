@@ -290,6 +290,48 @@ add_action( 'woocommerce_after_shop_loop', 'responsive_close_container', 10 );
 add_action( 'woocommerce_archive_description', 'responsive_woocommerce_archive_description', 10 );
 add_action( 'woocommerce_before_single_product', 'responsive_close_container', 10 );
 
+
+/**
+ * Sensei
+ *
+ * Unhook/Hook the Sensei Wrappers
+ */
+
+if ( class_exists( 'Sensei_Main' ) ) {
+
+	global $woothemes_sensei;
+	remove_action( 'sensei_before_main_content', array( $woothemes_sensei->frontend, 'sensei_output_content_wrapper' ), 10 );
+	remove_action( 'sensei_after_main_content', array( $woothemes_sensei->frontend, 'sensei_output_content_wrapper_end' ), 10 );
+
+	add_action( 'sensei_before_main_content', 'responsive_theme_wrapper_start', 10 );
+	add_action( 'sensei_after_main_content', 'responsive_theme_wrapper_end', 10 );
+
+	/**
+	 * [responsive_theme_wrapper_start description]
+	 *
+	 * @return void [description].
+	 */
+	function responsive_theme_wrapper_start() {
+		?>
+		<div id="wrapper" class="site-content clearfix">
+			<div class="content-outer container">
+				<div class="row">
+					<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+						<?php
+	}
+
+	/**
+	 * [responsive_theme_wrapper_start description]
+	 *
+	 * @return void [description].
+	 */
+	function responsive_theme_wrapper_end() {
+		echo '</main><!-- end of #primary -->';
+		echo '</div></div></div>';
+	}
+}
+
+
 /**
  * [responsive_open_container description]
  *

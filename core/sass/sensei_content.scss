@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'mixins';
+@import 'layout';
 
 .hentry .course.hentry {
     padding: 0;
@@ -8,4 +9,34 @@
 .course input[type=submit] {
     @include make-button();
     font-size: 1em;
+}
+.course-meta.course-enrolment {
+    margin-top: $grid-gutter-width;
+}
+.course-container {
+    @extend .row;
+    margin: $grid-gutter-width 0;
+
+    li.course.hentry {
+        width: calc( ( 100% / 3 )  - 21px);
+        padding: $grid-gutter-width;
+
+        @media screen and ( min-width: map-get( $screens, lg ) ) {
+            margin: 0 $grid-gutter-width $grid-gutter-width 0;
+        }
+
+        &:nth-child(3n) {
+            margin-right: 0;
+            clear: right;
+
+
+            .course-content .entry {
+                display: block;
+
+                a {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
