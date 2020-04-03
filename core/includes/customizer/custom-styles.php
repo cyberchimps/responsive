@@ -536,9 +536,11 @@ function responsive_customizer_styles() {
 	}
 	';
 
+	$heading_color = get_theme_mod( 'responsive_all_heading_text_color', '#333333' );
+
 	for ( $i = 1; $i < 7; $i++ ) {
 		$custom_css .= 'h' . $i . ' {
-		    color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", '#333333' ) ) . ';
+		    color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", $heading_color ) ) . ';
 		}';
 	}
 

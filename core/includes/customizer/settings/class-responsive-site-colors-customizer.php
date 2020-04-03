@@ -75,6 +75,10 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$body_text_color_label = __( 'Body Text Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'body_text', $body_text_color_label, 'responsive_colors', 30, '#333333' );
 
+			// All Headings Color.
+			$all_heading_color_label = __( 'All Headings (H1 - H6)', 'responsive' );
+			responsive_color_control( $wp_customize, 'all_heading_text', $all_heading_color_label, 'responsive_colors', 35, '#333333' );
+
 			// Heading 1 (H1) Color.
 			$h1_text_color_label = __( 'Heading 1 (H1) Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'h1_text', $h1_text_color_label, 'responsive_colors', 40, '#333333' );
