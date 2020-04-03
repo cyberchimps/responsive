@@ -809,7 +809,7 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 		}
 
 		if ( class_exists( 'WooCommerce' ) ) {
-			if ( is_product() && get_theme_mod( 'responsive_disable_woo_products_transparent_header', 0 ) ) {
+			if ( (is_product() || is_cart() || is_shop() || is_checkout() || is_woocommerce() || is_account_page()) && get_theme_mod( 'responsive_disable_woo_products_transparent_header', 0 ) ) {
 				$enable_trans_header = false;
 			}
 		}
