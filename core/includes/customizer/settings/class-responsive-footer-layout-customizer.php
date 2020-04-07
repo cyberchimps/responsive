@@ -117,7 +117,8 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
 				'vertical'   => esc_html__( 'Vertical', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 130, $footer_layout_choices, 'horizontal', null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 110, $footer_layout_choices, 'horizontal', null, 'postMessage' );
+
 
 
 			// Bar Padding.

@@ -222,6 +222,59 @@
     } );
 
     //Main Menu Colors Section
+    //Background Color
+    api( 'responsive_header_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                $('.header-full-width.site-header-layout-vertical .main-navigation,.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,.responsive-site-full-width.site-header-layout-vertical .main-navigation,.site-header-layout-vertical .main-navigation div').css('background-color', newval);
+
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.site-header-layout-vertical .main-navigation').css('background-color', newval);
+                    }
+                }
+
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
+                isMobile(x) // Call listener function at run time
+                x.addListener(isMobile)
+            }
+            else {
+                $('.res-transparent-header .main-navigation.toggled').css('background-color', newval);
+            }
+        } );
+    } );
+
+    //Border Color
+    api( 'responsive_header_menu_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation').css('border-top', '1px solid '+newval);
+                        $('.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation) .main-navigation').css('border-bottom', '1px solid '+newval);
+                    }
+                }
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)");
+                isMobile(x); // Call listener function at run time
+                x.addListener(isMobile);
+
+                function isTablet(x) {
+                    if (x.matches) { // If media query matches
+                        $('.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div').css('border-top', '1px solid '+newval);
+                        $('.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div').css('border-bottom', '1px solid '+newval);
+                    }
+                }
+                var x = window.matchMedia("(min-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)");
+                isTablet(x); // Call listener function at run time
+                x.addListener(isTablet);
+
+                $('.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-site-branding-main-navigation .main-navigation').css('border-top', '1px solid '+newval);
+                $('.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-main-navigation-site-branding .main-navigation').css('border-bottom', '1px solid '+newval);
+
+            }
+        } );
+    } );
+
     //Active Menu Background Color
     api( 'responsive_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
