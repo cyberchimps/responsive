@@ -572,7 +572,7 @@ function responsive_display_menu() {
 	wp_nav_menu(
 		array(
 			'menu_id'        => 'header-menu',
-			'fallback_cb'    => Responsive\Core\responsive_fallback_menu(),
+			'fallback_cb'    => 'Responsive\Core\\responsive_fallback_menu',
 			'theme_location' => 'header-menu',
 		)
 	);
