@@ -15,7 +15,7 @@
 }
 .course-container {
     @extend .row;
-    margin: $grid-gutter-width 0;
+    margin: $grid-gutter-width 0 0 0;
 
     li.course.hentry {
         width: calc( ( 100% / 3 )  - 21px);
@@ -37,6 +37,96 @@
                     width: 100%;
                 }
             }
+        }
+    }
+
+    #sensei-user-courses & {
+        li.course.hentry {
+            width: calc( ( 100% / 2 )  - 30px);
+            padding: 0;
+
+            @media screen and ( min-width: map-get( $screens, lg ) ) {
+                margin: 0 $grid-gutter-width $grid-gutter-width 0;
+            }
+
+            &:nth-child(2n) {
+                margin-right: 0;
+                clear: right;
+
+
+                .course-content .entry {
+                    display: block;
+
+                    a {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .more-link {
+        font-weight: bold;
+    }
+
+    .course-category,
+    section.entry span.course-lesson-progress {
+        display: block;
+        margin-left: 5px;
+    }
+
+    .course-lesson-count {
+        padding: 5px 0 0 5px;
+        font-weight: bold;
+        border-bottom: dashed 1px #e8e9eb;
+    }
+}
+
+.course, .course-container, .course-container .course {
+    border: none;
+    padding: 0;
+}
+
+.sensei-ordering select {
+    padding-right: $grid-gutter-width * 1.5;
+    padding-left: $grid-gutter-width / 2;
+}
+
+.responsive-site-style-content-boxed .sensei-pagination,
+.responsive-site-style-content-boxed.single-course nav.post-entries.fix,
+.responsive-site-style-boxed .sensei-pagination,
+.responsive-site-style-boxed.single-course nav.post-entries.fix {
+    @extend .row;
+    margin-bottom: 0;
+    margin-top: 0;
+    background-color: #ffffff;
+    justify-content: space-between;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 28px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    > div {
+        max-width: 50%;
+    }
+
+    .page-numbers {
+        margin: 0;
+        width: 100%;
+
+        li {
+            margin: 0 $grid-gutter-width/2;
+
+            &:first-child {
+                float: left;
+                margin-left: 0;
+            }
+            &:last-child {
+                float: right;
+                margin-right: 0;
+            }
+
         }
     }
 }

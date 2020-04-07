@@ -248,6 +248,15 @@ function responsive_customizer_styles() {
 	$sensei_button       = '';
 	$sensei_button_hover = '';
 	if ( class_exists( 'Sensei_Main' ) ) {
+		$custom_css .= "
+		.responsive-site-style-content-boxed .sensei-pagination,
+		.responsive-site-style-content-boxed.single-course nav.post-entries.fix,
+		.responsive-site-style-boxed .sensei-pagination,
+		.responsive-site-style-boxed.single-course nav.post-entries.fix {
+			background-color:{$box_background_color};
+			border-radius:{$box_radius}px;
+		}";
+
 		$sensei_button = '.course #commentform #submit,
 		.course .submit,
 		.course a.button,

@@ -57,6 +57,9 @@ function setup() {
 
 		add_action( 'sensei_before_main_content', $n( 'responsive_theme_wrapper_start' ), 10 );
 		add_action( 'sensei_after_main_content', $n( 'responsive_theme_wrapper_end' ), 10 );
+		add_filter( 'responsive_post_read_more', $n( 'responsive_sensei_read_more_text' ), 30 );
+		add_filter( 'excerpt_length', $n( 'responsive_sensei_custom_excerpt_length' ), 30 );
+
 	}
 }
 
@@ -367,11 +370,48 @@ function responsive_woocommerce_archive_description() {
 		<?php
 }
 
+/**
+ * [responsive_woocommerce_after_single_product_summary description]
+ *
+ * @return void [description].
+ */
 function responsive_woocommerce_after_single_product_summary() {
 	?>
 	</div>
 	<div class="related-product-wrapper">
 		<?php
+}
+
+/**
+ * Read more text.
+ *
+ * @param string $text default read more text.
+ * @return string read more text
+ */
+function responsive_sensei_read_more_text( $text ) {
+
+	$read_more = get_theme_mod( 'responsive_sensei_read_more_text', __( 'Enroll Course &raquo;', 'responsive' ) );
+	if ( '' !== $read_more ) {
+		$text = $read_more;
+	}
+
+	return $text;
+}
+
+/**
+ * Returns excerpt length
+ *
+ * @param  integer $length Length of excerpt.
+ * @return integer         Length of excerpt.
+ */
+function responsive_sensei_custom_excerpt_length( $length ) {
+
+	$excerpt_length = get_theme_mod( 'responsive_sensei_excerpt_length', 40 );
+	if ( ! empty( $excerpt_length ) ) {
+		$length = $excerpt_length;
+	}
+
+	return $length;
 }
 
 /**
@@ -395,6 +435,9 @@ function responsive_theme_wrapper_start() {
  */
 function responsive_theme_wrapper_end() {
 	echo '</main><!-- end of #primary -->';
+	if ( is_single() ) {
+		get_sidebar();
+	}
 	echo '</div></div></div>';
 }
 
