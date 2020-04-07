@@ -302,12 +302,12 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'change-layout' => array(
 						'title'     => __( 'Change site layout', 'responsive' ),
 						'dashicon'  => 'dashicons-welcome-widgets-menus',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_layout_section' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_layout' ),
 					),
 					'typography'    => array(
 						'title'     => __( 'Customize fonts/typography', 'responsive' ),
 						'dashicon'  => 'dashicons-editor-textcolor',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive_typography_panel' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_typography' ),
 					),
 					'logo-favicon'  => array(
 						'title'     => __( 'Upload logo & site icon', 'responsive' ),
@@ -322,22 +322,22 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'header'        => array(
 						'title'     => __( 'Customize header options', 'responsive' ),
 						'dashicon'  => 'dashicons-editor-table',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive-header-options' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive_header' ),
 					),
 					'footer'        => array(
 						'title'     => __( 'Customize footer options', 'responsive' ),
 						'dashicon'  => 'dashicons-editor-table',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive-footer-options' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive_footer' ),
 					),
 					'blog-layout'   => array(
 						'title'     => __( 'Update blog layout', 'responsive' ),
 						'dashicon'  => 'dashicons-welcome-write-blog',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive-blog-options' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_blog_layout' ),
 					),
 					'page'          => array(
 						'title'     => __( 'Update page layout', 'responsive' ),
 						'dashicon'  => 'dashicons-welcome-widgets-menus',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_page_section' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_page_layout' ),
 					),
 				)
 			);
