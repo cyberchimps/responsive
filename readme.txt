@@ -51,7 +51,7 @@ Used to render fonts in typography settings
 * Responsive: /images/box3.jpg, CC0, https://stocksnap.io/photo/XQDKTDJD8K
 * Responsive: /core/images/featured-image.jpg, CC0, https://stocksnap.io/photo/C5Y10KIIHA
 * Responsive: /admin/images/responsive-thumbnail.jpg GPLv3, https://www.cyberchimps.com
-* Responsive: /images/responsive-starter-sites.jpg GPLv3, https://www.cyberchimps.com, The thumbnail images(all CC0) are sourced from https://stocksnap.io/, https://www.pexels.com/ and https://www.foodiesfeed.com/
+* Responsive: /images/responsive-starter-sites.jpg GPLv3, https://www.cyberchimps.com
 * Responsive: /core/images/cc-responsive-wp-theme-logo.png GPLv3, https://www.cyberchimps.com
 * Responsive: /core/includes/customizer/controls/color/transparency-grid.png GPLv3, https://www.cyberchimps.com
 * Responsive: /screenshot.png GPLv3, https://www.cyberchimps.com

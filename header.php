@@ -31,12 +31,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?> <?php responsive_schema_markup( 'body' ); ?> >
 	<?php wp_body_open(); ?>
+	<?php Responsive\responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#primary"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
 	<div class="site hfeed">
 		<?php
-		responsive_header_top();
+		Responsive\responsive_header_top();
 		// Elementor `header` location.
 		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) {
 			?>
@@ -65,5 +66,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php
 		}
-		responsive_header_bottom();
+		Responsive\responsive_header_bottom();
 		?>

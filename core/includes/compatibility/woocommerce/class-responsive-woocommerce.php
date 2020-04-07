@@ -112,7 +112,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * Show the product title in the product loop. By default this is an H2.
 		 */
 		public function responsive_woocommerce_shop_product_content() {
-			$shop_structure = responsive_woocommerce_shop_elements_positioning();
+			$shop_structure = Responsive\WooCommerce\responsive_woocommerce_shop_elements_positioning();
 			if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
 				echo '<div class="responsive-shop-summary-wrap">';
 
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 							/**
 							 * Product Title on shop page.
 							 */
-							responsive_woo_woocommerce_template_loop_product_title();
+							Responsive\WooCommerce\responsive_woo_woocommerce_template_loop_product_title();
 							break;
 						case 'price':
 							/**
@@ -141,13 +141,13 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 							/**
 							 * Product category on shop page.
 							 */
-							responsive_woo_shop_parent_category();
+							Responsive\WooCommerce\responsive_woo_shop_parent_category();
 							break;
 						case 'short_desc':
 							/*
 							 * Short description on shop page.
 							 */
-							responsive_woo_shop_product_short_description();
+							Responsive\WooCommerce\responsive_woo_shop_product_short_description();
 							break;
 						case 'add_cart':
 							/**
@@ -193,7 +193,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 */
 		public function single_product_content_structure( $product_type = '' ) {
 
-			$single_product_structure = responsive_woocommerce_product_elements_positioning();
+			$single_product_structure = Responsive\WooCommerce\responsive_woocommerce_product_elements_positioning();
 
 			if ( is_array( $single_product_structure ) && ! empty( $single_product_structure ) ) {
 

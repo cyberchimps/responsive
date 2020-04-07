@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$responsive_options = responsive_get_options();
+$responsive_options = Responsive\Core\responsive_get_options();
 // test for first install no database.
 $db = get_option( 'responsive_theme_options' );
 // test if all options are empty so we can display default text if they are.
@@ -18,7 +18,7 @@ $emtpy_cta = ( empty( $responsive_options['cta_text'] ) ) ? false : true;
 
 ?>
 <?php
-	$responsive_options = responsive_get_options();
+	$responsive_options = Responsive\Core\responsive_get_options();
 
 	$display_slider = ( ! empty( $responsive_options['enable_slider'] ) ) ? $responsive_options['enable_slider'] : 0;
 

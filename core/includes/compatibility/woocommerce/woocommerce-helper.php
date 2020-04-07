@@ -5,6 +5,21 @@
  * @package Responsive
  */
 
+namespace Responsive\WooCommerce;
+
+/**
+ * Set up theme defaults and register supported WordPress features.
+ *
+ * @return void
+ */
+function setup() {
+	$n = function( $function ) {
+		return __NAMESPACE__ . "\\$function";
+	};
+
+	add_filter( 'wp_nav_menu_items', $n( 'responsive_menu_cart_icon' ), 10, 2 );
+}
+
 if ( ! function_exists( 'responsive_woo_woocommerce_template_loop_product_title' ) ) {
 
 	/**
@@ -148,9 +163,9 @@ function responsive_menu_cart_icon( $menu, $args ) {
 			}
 			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 				$cart_title_markup = '<span class="res-woo-header-cart-title">' . __( 'Cart', 'responsive' ) . '</span>';
-				$cart_title = get_theme_mod( 'responsive_cart_title' );
-				$cart_icon  = get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
-				$cart_total = get_theme_mod( 'responsive_cart_count' );
+				$cart_title        = get_theme_mod( 'responsive_cart_title' );
+				$cart_icon         = get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
+				$cart_total        = get_theme_mod( 'responsive_cart_count' );
 				if ( '1' == $cart_title && '1' == $cart_total ) {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-header-cart-info-wrap"> ' . $cart_title_markup . '' . __( ' / ', 'responsive' ) . '' . $cart_total_markup . '</span><span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
 				} elseif ( isset( $cart_title ) && '1' == $cart_title ) {
@@ -167,4 +182,3 @@ function responsive_menu_cart_icon( $menu, $args ) {
 	}
 	return $menu;
 }
-add_filter( 'wp_nav_menu_items', 'responsive_menu_cart_icon', 10, 2 );

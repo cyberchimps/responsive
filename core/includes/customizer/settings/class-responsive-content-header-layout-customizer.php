@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[breadcrumb]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 					'default'           => 0,
 				)

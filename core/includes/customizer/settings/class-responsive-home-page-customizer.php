@@ -72,7 +72,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[front_page]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 					'transport'         => 'refresh',
 				)
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[cta_button]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 				)
 			);
@@ -217,7 +217,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				array(
 					'default'           => 'Gradient',
 					'type'              => 'option',
-					'sanitize_callback' => 'responsive_pro_button_style_validate',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_pro_button_style_validate',
 				)
 			);
 
@@ -290,7 +290,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[about]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 				)
 			);
@@ -388,7 +388,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[feature]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 				)
 			);
@@ -432,7 +432,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[feature1]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_posts',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_posts',
 					'type'              => 'option',
 				)
 			);
@@ -452,7 +452,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[feature2]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_posts',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_posts',
 					'type'              => 'option',
 				)
 			);
@@ -472,7 +472,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[feature3]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_posts',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_posts',
 					'type'              => 'option',
 				)
 			);
@@ -497,7 +497,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[testimonials]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 				)
 			);
@@ -535,7 +535,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[testimonial_val]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_posts',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_posts',
 					'type'              => 'option',
 				)
 			);
@@ -559,7 +559,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[team]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 				)
 			);
@@ -597,7 +597,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[teammember1]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_posts',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_posts',
 					'type'              => 'option',
 				)
 			);
@@ -617,7 +617,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[teammember2]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_posts',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_posts',
 					'type'              => 'option',
 				)
 			);
@@ -637,7 +637,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[teammember3]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_posts',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_posts',
 					'type'              => 'option',
 				)
 			);
@@ -657,7 +657,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[home-widgets]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 				)
 			);
@@ -679,7 +679,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_theme_options[contact]',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
+					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
 				)
 			);

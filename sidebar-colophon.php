@@ -23,15 +23,15 @@ if ( ! is_active_sidebar( 'colophon-widget' )
 ) {
 	return;
 }
-responsive_widgets_before(); // above widgets container hook.
+Responsive\responsive_widgets_before(); // above widgets container hook.
 ?>
 	<div id="colophon-widget" class="colophon-widgets grid col-940">
 		<?php
-		responsive_widgets(); // above widgets hook.
+		Responsive\responsive_widgets(); // above widgets hook.
 		if ( is_active_sidebar( 'colophon-widget' ) ) :
 			dynamic_sidebar( 'colophon-widget' );
 		endif; // end of colophon-widget.
-		responsive_widgets_end(); // after widgets hook.
+		Responsive\responsive_widgets_end(); // after widgets hook.
 		?>
 	</div><!-- end of #colophon-widget -->
-<?php responsive_widgets_after(); // after widgets container hook. ?>
+<?php Responsive\responsive_widgets_after(); // after widgets container hook. ?>

@@ -98,7 +98,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Box Padding (px).
 			$box_padding_label = __( 'Box Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 40, 30, 30, 'responsive_not_active_site_style_flat', $box_padding_label );
+			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' )    , Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );

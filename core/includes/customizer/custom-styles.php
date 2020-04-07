@@ -16,29 +16,30 @@ function responsive_customizer_styles() {
 	$custom_css = '';
 
 	// Box Padding.
-	$box_padding_right  = esc_html( get_theme_mod( 'responsive_box_right_padding', 30 ) );
-	$box_padding_left   = esc_html( get_theme_mod( 'responsive_box_left_padding', 30 ) );
-	$box_padding_top    = esc_html( get_theme_mod( 'responsive_box_top_padding', 30 ) );
-	$box_padding_bottom = esc_html( get_theme_mod( 'responsive_box_bottom_padding', 30 ) );
+	$box_padding_right  = esc_html( get_theme_mod( 'responsive_box_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_padding_left   = esc_html( get_theme_mod( 'responsive_box_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_padding_top    = esc_html( get_theme_mod( 'responsive_box_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_padding_bottom = esc_html( get_theme_mod( 'responsive_box_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 
-	$box_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_box_tablet_right_padding', 30 ) );
-	$box_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_box_tablet_left_padding', 30 ) );
-	$box_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_box_tablet_top_padding', 30 ) );
-	$box_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_padding', 30 ) );
+	$box_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_box_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_box_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_box_tablet_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 
-	$box_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_box_mobile_right_padding', 30 ) );
-	$box_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_box_mobile_left_padding', 30 ) );
-	$box_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_box_mobile_top_padding', 30 ) );
-	$box_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_padding', 30 ) );
+	$box_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_box_mobile_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_box_mobile_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_box_mobile_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	$box_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 
 	// Box Radius.
 	$box_radius = esc_html( get_theme_mod( 'responsive_box_radius', 0 ) );
 
 	// Site custom styles.
 
-	$container_max_width  = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
-	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
-	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', '#eaeaea' ) );
+	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+
+	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
+	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ) ) );
 
 	$custom_css .= "
 	.container,
@@ -151,19 +152,19 @@ function responsive_customizer_styles() {
 		}
 	}';
 
-	$body_text_color      = esc_html( get_theme_mod( 'responsive_body_text_color', '#333333' ) );
-	$meta_text_color      = esc_html( get_theme_mod( 'responsive_meta_text_color', '#999999' ) );
-	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
+	$body_text_color      = esc_html( get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'body_text' ) ) );
+	$meta_text_color      = esc_html( get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'meta_text' ) ) );
+	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
 
-	$link_color       = esc_html( get_theme_mod( 'responsive_link_color', '#0066CC' ) );
-	$link_hover_color = esc_html( get_theme_mod( 'responsive_link_hover_color', '#10659C' ) );
+	$link_color       = esc_html( get_theme_mod( 'responsive_link_color', Responsive\Core\get_responsive_customizer_defaults( 'link' ) ) );
+	$link_hover_color = esc_html( get_theme_mod( 'responsive_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'link_hover' ) ) );
 
-	$button_color              = esc_html( get_theme_mod( 'responsive_button_color', '#0066CC' ) );
-	$button_hover_color        = esc_html( get_theme_mod( 'responsive_button_hover_color', '#10659C' ) );
-	$button_text_color         = esc_html( get_theme_mod( 'responsive_button_text_color', '#FFFFFF' ) );
-	$button_hover_text_color   = esc_html( get_theme_mod( 'responsive_button_hover_text_color', '#FFFFFF' ) );
-	$button_border_color       = esc_html( get_theme_mod( 'responsive_button_border_color', '#10659C' ) );
-	$button_hover_border_color = esc_html( get_theme_mod( 'responsive_button_hover_border_color', '#0066CC' ) );
+	$button_color              = esc_html( get_theme_mod( 'responsive_button_color', Responsive\Core\get_responsive_customizer_defaults( 'button' ) ) );
+	$button_hover_color        = esc_html( get_theme_mod( 'responsive_button_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ) ) );
+	$button_text_color         = esc_html( get_theme_mod( 'responsive_button_text_color', Responsive\Core\get_responsive_customizer_defaults( 'button_text' ) ) );
+	$button_hover_text_color   = esc_html( get_theme_mod( 'responsive_button_hover_text_color', Responsive\Core\get_responsive_customizer_defaults( 'button_hover_text' ) ) );
+	$button_border_color       = esc_html( get_theme_mod( 'responsive_button_border_color', Responsive\Core\get_responsive_customizer_defaults( 'button_border' ) ) );
+	$button_hover_border_color = esc_html( get_theme_mod( 'responsive_button_hover_border_color', Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ) ) );
 
 	// Buttons Padding.
 	$buttons_padding_right  = esc_html( get_theme_mod( 'responsive_buttons_right_padding', 10 ) );
@@ -202,12 +203,11 @@ function responsive_customizer_styles() {
 
 	$inputs_radius           = esc_html( get_theme_mod( 'responsive_inputs_radius', 0 ) );
 	$inputs_border_width     = esc_html( get_theme_mod( 'responsive_inputs_border_width', 1 ) );
-	$inputs_border_color     = esc_html( get_theme_mod( 'responsive_inputs_border_color', '#cccccc' ) );
-	$inputs_text_color       = esc_html( get_theme_mod( 'responsive_inputs_text_color', '#333333' ) );
-	$inputs_background_color = esc_html( get_theme_mod( 'responsive_inputs_background_color', '#FFFFFF' ) );
+	$inputs_border_color     = esc_html( get_theme_mod( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
+	$inputs_text_color       = esc_html( get_theme_mod( 'responsive_inputs_text_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_text' ) ) );
+	$inputs_background_color = esc_html( get_theme_mod( 'responsive_inputs_background_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_background' ) ) );
 
-	$label_color = esc_html( get_theme_mod( 'responsive_label_color', '#333333' ) );
-
+	$label_color     = esc_html( get_theme_mod( 'responsive_label_color', Responsive\Core\get_responsive_customizer_defaults( 'label' ) ) );
 	$body_typography = get_theme_mod( 'body_typography' );
 
 	if ( $body_typography ) {
@@ -540,7 +540,7 @@ function responsive_customizer_styles() {
 
 	for ( $i = 1; $i < 7; $i++ ) {
 		$custom_css .= 'h' . $i . ' {
-		    color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", $heading_color ) ) . ';
+		    color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", Responsive\Core\get_responsive_customizer_defaults( "h{$i}_text" ) ) ) . ';
 		}';
 	}
 
@@ -577,28 +577,29 @@ function responsive_customizer_styles() {
 	$header_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_header_mobile_bottom_padding', 28 ) );
 
 	// Header colors.
-	$header_background_color       = esc_html( get_theme_mod( 'responsive_header_background_color', '#ffffff' ) );
-	$header_border_color           = esc_html( get_theme_mod( 'responsive_header_border_color', '#eaeaea' ) );
-	$header_site_title_color       = esc_html( get_theme_mod( 'responsive_header_site_title_color', '#333333' ) );
-	$header_site_title_hover_color = esc_html( get_theme_mod( 'responsive_header_site_title_hover_color', '#10659C' ) );
-	$header_text_color             = esc_html( get_theme_mod( 'responsive_header_text_color', '#999999' ) );
+	$header_background_color = esc_html( get_theme_mod( 'responsive_header_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_background' ) ) );
+
+	$header_border_color           = esc_html( get_theme_mod( 'responsive_header_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_border' ) ) );
+	$header_site_title_color       = esc_html( get_theme_mod( 'responsive_header_site_title_color', Responsive\Core\get_responsive_customizer_defaults( 'header_site_title' ) ) );
+	$header_site_title_hover_color = esc_html( get_theme_mod( 'responsive_header_site_title_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_site_title_hover' ) ) );
+	$header_text_color             = esc_html( get_theme_mod( 'responsive_header_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_text' ) ) );
 
 	// Menu Color.
-	$header_menu_background_color = esc_html( get_theme_mod( 'responsive_header_menu_background_color', '#FFFFFF' ) );
-	$header_menu_border_color     = esc_html( get_theme_mod( 'responsive_header_menu_border_color', '#eaeaea' ) );
-	$header_menu_link_color       = esc_html( get_theme_mod( 'responsive_header_menu_link_color', '#333333' ) );
-	$header_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_header_menu_link_hover_color', '#10659C' ) );
+	$header_menu_background_color = esc_html( get_theme_mod( 'responsive_header_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+	$header_menu_border_color     = esc_html( get_theme_mod( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
+	$header_menu_link_color       = esc_html( get_theme_mod( 'responsive_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
+	$header_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
 
-	$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_header_active_menu_background_color', '#ffffff' ) );
+	$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
 
 	// Sub Menu Color.
-	$header_sub_menu_background_color = esc_html( get_theme_mod( 'responsive_header_sub_menu_background_color', '#FFFFFF' ) );
-	$header_sub_menu_link_color       = esc_html( get_theme_mod( 'responsive_header_sub_menu_link_color', '#333333' ) );
-	$header_sub_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_header_sub_menu_link_hover_color', '#10659C' ) );
+	$header_sub_menu_background_color = esc_html( get_theme_mod( 'responsive_header_sub_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ) ) );
+	$header_sub_menu_link_color       = esc_html( get_theme_mod( 'responsive_header_sub_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ) ) );
+	$header_sub_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_header_sub_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ) ) );
 
 	// Toggle Button Color.
-	$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_header_menu_toggle_background_color', 'transparent' ) );
-	$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_header_menu_toggle_color', '#333333' ) );
+	$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
+	$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_header_menu_toggle_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ) ) );
 
 	// Sidebar Color.
 	$sidebar_headings_color   = esc_html( get_theme_mod( 'responsive_sidebar_headings_color', get_theme_mod( 'responsive_h4_text_color', '#333333' ) ) );
@@ -1003,9 +1004,9 @@ function responsive_customizer_styles() {
 	}
 
 	// Content_Header colors.
-	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', '#333333' ) );
-	$content_header_description_color = esc_html( get_theme_mod( 'responsive_content_header_description_color', '#333333' ) );
-	$breadcrumb_color                 = esc_html( get_theme_mod( 'responsive_breadcrumb_color', '#1e73be' ) );
+	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
+	$content_header_description_color = esc_html( get_theme_mod( 'responsive_content_header_description_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
+	$breadcrumb_color                 = esc_html( get_theme_mod( 'responsive_breadcrumb_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
 
 	$custom_css .= "
 	.site-content-header .page-header .page-title,
@@ -1262,11 +1263,11 @@ function responsive_customizer_styles() {
 	}
 
 	// Header Widgets Color.
-	$header_widget_text_color       = esc_html( get_theme_mod( 'responsive_header_widget_text_color', '#333333' ) );
-	$header_widget_background_color = esc_html( get_theme_mod( 'responsive_header_widget_background_color', '#FFFFFF' ) );
-	$header_widget_border_color     = esc_html( get_theme_mod( 'responsive_header_widget_border_color', '#eaeaea' ) );
-	$header_widget_link_color       = esc_html( get_theme_mod( 'responsive_header_widget_link_color', '#0066CC' ) );
-	$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_header_widget_link_hover_color', '#eaeaea' ) );
+	$header_widget_text_color       = esc_html( get_theme_mod( 'responsive_header_widget_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ) ) );
+	$header_widget_background_color = esc_html( get_theme_mod( 'responsive_header_widget_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_background' ) ) );
+	$header_widget_border_color     = esc_html( get_theme_mod( 'responsive_header_widget_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_border' ) ) );
+	$header_widget_link_color       = esc_html( get_theme_mod( 'responsive_header_widget_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ) ) );
+	$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
 
 	$custom_css .= "
 		.header-widgets {
@@ -1357,10 +1358,10 @@ function responsive_customizer_styles() {
 	}';
 
 	// Footer Colors.
-	$footer_text_color       = esc_html( get_theme_mod( 'responsive_footer_text_color', '#ffffff' ) );
-	$footer_background_color = esc_html( get_theme_mod( 'responsive_footer_background_color', '#333333' ) );
-	$footer_link_color       = esc_html( get_theme_mod( 'responsive_footer_links_color', '#eaeaea' ) );
-	$footer_link_hover_color = esc_html( get_theme_mod( 'responsive_footer_links_hover_color', '#ffffff' ) );
+	$footer_text_color       = esc_html( get_theme_mod( 'responsive_footer_text_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_text' ) ) );
+	$footer_background_color = esc_html( get_theme_mod( 'responsive_footer_background_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ) ) );
+	$footer_link_color       = esc_html( get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_links' ) ) );
+	$footer_link_hover_color = esc_html( get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_links_hover' ) ) );
 
 	$custom_css .= "
 	.site-footer {
@@ -1528,8 +1529,8 @@ function responsive_customizer_styles() {
 		// Shop Styles.
 		$shop_content_width                  = esc_html( get_theme_mod( 'responsive_shop_content_width', 100 ) );
 		$shop_product_rating_color           = esc_html( get_theme_mod( 'responsive_shop_product_rating_color', '#0066CC' ) );
-		$shop_product_price_color            = esc_html( get_theme_mod( 'responsive_shop_product_price_color', '#333333' ) );
-		$add_to_cart_button_color            = esc_html( get_theme_mod( 'responsive_add_to_cart_button_color', '#0066CC' ) );
+		$shop_product_price_color            = esc_html( get_theme_mod( 'responsive_shop_product_price_color', Responsive\Core\get_responsive_customizer_defaults( 'shop_product_price' ) ) );
+		$add_to_cart_button_color            = esc_html( get_theme_mod( 'responsive_add_to_cart_button_color', Responsive\Core\get_responsive_customizer_defaults( 'add_to_cart_button' ) ) );
 		$add_to_cart_button_text_color       = esc_html( get_theme_mod( 'responsive_add_to_cart_button_text_color', '#ffffff' ) );
 		$add_to_cart_button_hover_color      = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_color', '#10659C' ) );
 		$add_to_cart_button_hover_text_color = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' ) );

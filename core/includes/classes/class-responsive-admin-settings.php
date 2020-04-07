@@ -230,11 +230,11 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				<h2 class="handle">
 					<span><?php echo esc_html( apply_filters( 'responsive_sites_menu_page_title', __( 'Import a website template(FREE)', 'responsive' ) ) ); ?></span>
 				</h2>
-				<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-starter-sites.jpg' ); ?>">
+				<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-starter-sites.png' ); ?>">
 				<div class="inside">
 					<p>
 						<?php
-						esc_html_e( 'Install Responsive Add-ons to get ready-to-use website templates that can be imported with one click.', 'responsive' );
+						esc_html_e( 'Install Responsive Starter Templates for Gutenberg & Elementor to get ready-to-use website templates that can be imported with one click.', 'responsive' );
 						?>
                         <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 						<?php
