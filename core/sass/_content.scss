@@ -842,3 +842,7 @@ article.product {
 .give-wrap > div#content[role^="main"] {
     padding: 0 $base-line-height-px / 2;
 }
+
+embed, iframe, object {
+    max-width:100%;
+}

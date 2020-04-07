@@ -814,7 +814,7 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 		return apply_filters( 'responsive_post_link', $output, $output_filter );
 	}
 }
-add_filter( 'excerpt_more', 'responsive_post_link' );
+add_filter( 'excerpt_more', 'responsive_post_link', 20 );
 
 if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	/**
