@@ -53,6 +53,28 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			$responsive_hide_tagline_label = __( 'Hide Tagline', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'title_tagline', 11, 0, null );
 
+			// Add Custom Logo URL.
+			$wp_customize->add_setting(
+				'responsive_custom_logo_url',
+				array(
+					'sanitize_callback' => 'esc_url_raw',
+					'type'              => 'theme_mod',
+					'default'           => home_url( '/' ),
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'responsive_custom_logo_url',
+					array(
+						'label'    => __( 'Site Title/Logo URL', 'responsive' ),
+						'section'  => 'title_tagline',
+						'settings' => 'responsive_custom_logo_url',
+						'priority' => 12,
+					)
+				)
+			);
+
 			// Site Width.
 			$responsive_width_label  = __( 'Width', 'responsive' );
 			$responsive_width_choice = array(
@@ -76,7 +98,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Box Padding (px).
 			$box_padding_label = __( 'Box Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 40, 30, 30, 'responsive_not_active_site_style_flat', $box_padding_label );
+			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' )    , Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );

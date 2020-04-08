@@ -366,10 +366,7 @@ html {
   .blog.blog-entry-columns-3 .blog.front-page #main-blog.feature-main-div .entry-column, .blog.front-page .blog.blog-entry-columns-3 #main-blog.feature-main-div .entry-column,
   .blog.blog-entry-columns-3 .page.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .page.front-page aside.home-widgets .blog.blog-entry-columns-3 #main-blog.home-widget-wrapper .entry-column,
   .blog.blog-entry-columns-3 .blog.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .blog.front-page aside.home-widgets .blog.blog-entry-columns-3 #main-blog.home-widget-wrapper .entry-column, .page.front-page .custom-home-testimonial-section .testimonial-content .testimonial-img,
-  .blog.front-page .custom-home-testimonial-section .testimonial-content .testimonial-img, .page.front-page .section-team,
-  .page.front-page .section-feature,
-  .blog.front-page .section-team,
-  .blog.front-page .section-feature, .page.front-page aside.home-widgets .home-widget-wrapper .home-widget-1,
+  .blog.front-page .custom-home-testimonial-section .testimonial-content .testimonial-img, .page.front-page aside.home-widgets .home-widget-wrapper .home-widget-1,
   .page.front-page aside.home-widgets .home-widget-wrapper .home-widget-2,
   .page.front-page aside.home-widgets .home-widget-wrapper .home-widget-3,
   .blog.front-page aside.home-widgets .home-widget-wrapper .home-widget-1,
@@ -948,7 +945,7 @@ pre {
 
 pre {
   font-family: monospace;
-  overflow: hidden;
+  overflow: auto;
 }
 
 dl dt {
@@ -1176,6 +1173,11 @@ textarea {
   display: inline-block;
   padding: 2.5px 1em;
   width: 100%;
+}
+
+input[type=radio],
+input[type=checkbox] {
+  width: auto;
 }
 
 button,
@@ -1746,7 +1748,7 @@ body.mega-menu-header-menu button.menu-toggle {
   }
 }
 
-.res-transparent-header #masthead {
+.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead {
   position: absolute;
   left: 0;
   right: 0;
@@ -3953,6 +3955,12 @@ article.product .post-meta > span .avatar {
   }
 }
 
+@media (min-width: 768px) {
+  .feature-main-div {
+    flex-wrap: nowrap !important;
+  }
+}
+
 .responsive-site-style-content-boxed .custom-home-about-section,
 .responsive-site-style-boxed .custom-home-about-section, .responsive-site-style-content-boxed .custom-home-feature-section,
 .responsive-site-style-boxed .custom-home-feature-section, .responsive-site-style-content-boxed .custom-home-team-section,
@@ -3989,6 +3997,10 @@ article.product .post-meta > span .avatar {
 /* for give Wp plugin */
 .give-wrap > div#content[role^="main"] {
   padding: 0 14px;
+}
+
+embed, iframe, object {
+  max-width: 100%;
 }
 
 /**
@@ -6085,55 +6097,91 @@ a img.aligncenter {
 /*	Responsive gutenberg-front Styles — Block Editor
 /* ------------------------------------------- */
 @media (min-width: 992px) {
-  .page.sidebar-position-no:not(.woocommerce) .alignwide,
+  .page.page-template-gutenberg-fullwidth .alignwide, .page.sidebar-position-no:not(.woocommerce) .alignwide,
+  .single.page-template-gutenberg-fullwidth .alignwide,
   .single.sidebar-position-no:not(.woocommerce) .alignwide,
+  .blog.page-template-gutenberg-fullwidth .alignwide,
   .blog.sidebar-position-no:not(.woocommerce) .alignwide,
+  .search.page-template-gutenberg-fullwidth .alignwide,
   .search.sidebar-position-no:not(.woocommerce) .alignwide,
+  .archive.page-template-gutenberg-fullwidth .alignwide,
   .archive.sidebar-position-no:not(.woocommerce) .alignwide {
     margin-left: calc(25% - 25vw);
     margin-right: calc(25% - 25vw);
     max-width: 100vw;
   }
-  .page.sidebar-position-no:not(.woocommerce) .alignfull,
+  .page.page-template-gutenberg-fullwidth .alignfull, .page.sidebar-position-no:not(.woocommerce) .alignfull,
+  .single.page-template-gutenberg-fullwidth .alignfull,
   .single.sidebar-position-no:not(.woocommerce) .alignfull,
+  .blog.page-template-gutenberg-fullwidth .alignfull,
   .blog.sidebar-position-no:not(.woocommerce) .alignfull,
+  .search.page-template-gutenberg-fullwidth .alignfull,
   .search.sidebar-position-no:not(.woocommerce) .alignfull,
+  .archive.page-template-gutenberg-fullwidth .alignfull,
   .archive.sidebar-position-no:not(.woocommerce) .alignfull {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     max-width: 100vw;
     width: 100vw;
   }
-  .page.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .page.page-template-gutenberg-fullwidth .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .page.page-template-gutenberg-fullwidth .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .page.page-template-gutenberg-fullwidth .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .page.page-template-gutenberg-fullwidth .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator), .page.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .page.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .page.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .page.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .single.page-template-gutenberg-fullwidth .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .single.page-template-gutenberg-fullwidth .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .single.page-template-gutenberg-fullwidth .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .single.page-template-gutenberg-fullwidth .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .single.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .single.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .single.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .single.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .blog.page-template-gutenberg-fullwidth .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .blog.page-template-gutenberg-fullwidth .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .blog.page-template-gutenberg-fullwidth .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .blog.page-template-gutenberg-fullwidth .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .blog.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .blog.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .blog.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .blog.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .search.page-template-gutenberg-fullwidth .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .search.page-template-gutenberg-fullwidth .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .search.page-template-gutenberg-fullwidth .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .search.page-template-gutenberg-fullwidth .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .search.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .search.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .search.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .search.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .archive.page-template-gutenberg-fullwidth .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .archive.page-template-gutenberg-fullwidth .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .archive.page-template-gutenberg-fullwidth .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
+  .archive.page-template-gutenberg-fullwidth .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .archive.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .archive.sidebar-position-no:not(.woocommerce) .alignwide *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .archive.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignwide):not(.wp-block-cover__inner-container):not(.wp-block-separator),
   .archive.sidebar-position-no:not(.woocommerce) .alignfull *:not(.alignfull):not(.wp-block-cover__inner-container):not(.wp-block-separator) {
     max-width: 100%;
   }
-  .page.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignwide,
+  .page.page-template-gutenberg-fullwidth .wp-block-columns .alignwide,
+  .page.page-template-gutenberg-fullwidth .wp-block-columns .alignfull, .page.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignwide,
   .page.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignfull,
+  .single.page-template-gutenberg-fullwidth .wp-block-columns .alignwide,
+  .single.page-template-gutenberg-fullwidth .wp-block-columns .alignfull,
   .single.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignwide,
   .single.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignfull,
+  .blog.page-template-gutenberg-fullwidth .wp-block-columns .alignwide,
+  .blog.page-template-gutenberg-fullwidth .wp-block-columns .alignfull,
   .blog.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignwide,
   .blog.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignfull,
+  .search.page-template-gutenberg-fullwidth .wp-block-columns .alignwide,
+  .search.page-template-gutenberg-fullwidth .wp-block-columns .alignfull,
   .search.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignwide,
   .search.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignfull,
+  .archive.page-template-gutenberg-fullwidth .wp-block-columns .alignwide,
+  .archive.page-template-gutenberg-fullwidth .wp-block-columns .alignfull,
   .archive.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignwide,
   .archive.sidebar-position-no:not(.woocommerce) .wp-block-columns .alignfull {
     margin-left: auto;

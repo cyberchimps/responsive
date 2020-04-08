@@ -186,4 +186,20 @@
         } );
     } );
 
+    //Scroll To Top
+    //Icon Size
+    api( 'responsive_scroll_to_top_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('#scroll').css('height', newval+'px' );
+            $('#scroll').css('width', newval+'px' );
+        } );
+    } );
+
+    //Border Radius
+    api( 'responsive_scroll_to_top_icon_radius', function( value ) {
+        value.bind( function( newval ) {
+            $('#scroll').css('border-radius', newval+'%' );
+        } );
+    } );
+
 } )( jQuery );

@@ -20,15 +20,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 		if ( ! get_theme_mod( 'responsive_hide_title', 0 ) ) :
 			if ( is_front_page() && is_home() ) :
-
 				?>
-				<h1 class="site-title h3" <?php responsive_schema_markup( 'site-title' ); ?>><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title h3" <?php responsive_schema_markup( 'site-title' ); ?>><a href="<?php echo esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 
 			else :
 
 				?>
-				<p class="site-title h3"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<p class="site-title h3"><a href="<?php echo esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
 
 			endif;
@@ -47,5 +46,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 		</div>
 	</div>
-	<?php responsive_header_with_logo(); ?>
+	<?php Responsive\responsive_header_with_logo(); ?>
 </div>

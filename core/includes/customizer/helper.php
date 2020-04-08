@@ -814,7 +814,7 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 		return apply_filters( 'responsive_post_link', $output, $output_filter );
 	}
 }
-add_filter( 'excerpt_more', 'responsive_post_link' );
+add_filter( 'excerpt_more', 'responsive_post_link', 20 );
 
 if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	/**
@@ -1347,7 +1347,7 @@ function responsive_disabled_mobile_menu() {
  * @return [type] [description]
  */
 function responsive_custom_home_active() {
-	$responsive_options = responsive_get_options();
+	$responsive_options = Responsive\Core\responsive_get_options();
 
 	return ( $responsive_options['front_page'] ) ? true : false;
 }

@@ -13,13 +13,45 @@
  * @since          available since Release 1.0
  */
 
+namespace Responsive\Core;
+
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-?>
-<?php
+
+/**
+ * Set up theme defaults and register supported WordPress features.
+ *
+ * @return void
+ */
+function setup() {
+	$n = function( $function ) {
+		return __NAMESPACE__ . "\\$function";
+	};
+
+	add_action( 'customize_register', $n( 'responsive_load_customize_controls' ) );
+	add_action( 'after_setup_theme', $n( 'responsive_setup' ) );
+	add_action( 'template_redirect', $n( 'responsive_content_width' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_css' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_js' ) );
+	add_action( 'add_meta_boxes', $n( 'responsive_team_add_meta_box' ) );
+	add_action( 'save_post', $n( 'responsive_team_meta_box_save' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_comment_reply' ) );
+	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_scrolltotop' ) );
+	add_filter( 'pre_update_option_show_on_front', $n( 'responsive_front_page_override' ), 10, 2 );
+	add_filter( 'body_class', $n( 'responsive_add_class' ) );
+	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ) );
+
+	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
+		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
+	}
+
+}
+
 /*
  * Globalize Theme options
  */
@@ -30,7 +62,6 @@ function responsive_load_customize_controls() {
 
 	require_once trailingslashit( get_template_directory() ) . 'core/includes/customizer/class-responsive-customize-control-checkbox-multiple.php';
 }
-add_action( 'customize_register', 'responsive_load_customize_controls', 0 );
 
 /**
  * Retrieve Theme option settings
@@ -108,8 +139,6 @@ function responsive_get_option_defaults() {
 /**
  * Fire up the engines boys and girls let's start theme setup.
  */
-add_action( 'after_setup_theme', 'responsive_setup' );
-
 if ( ! function_exists( 'responsive_setup' ) ) :
 	/** Function to setup */
 	function responsive_setup() {
@@ -300,7 +329,6 @@ function responsive_content_width() {
 		$content_width = 918;
 	}
 }
-add_action( 'template_redirect', 'responsive_content_width' );
 
 /**
  * Set a fallback menu that will show a home link.
@@ -343,6 +371,11 @@ if ( ! function_exists( 'responsive_css' ) ) {
 			$suffix = '-rtl' . $suffix;
 		}
 
+		// If plugin - 'Sensei' is active.
+		if ( class_exists( 'Sensei_Main' ) ) {
+			wp_enqueue_style( 'responsive-sensei_content', get_template_directory_uri() . "/core/css/sensei_content{$suffix}.css", false, $responsive['Version'] );
+		}
+
 		wp_enqueue_style( 'responsive-style', get_template_directory_uri() . "/core/css/style{$suffix}.css", false, $responsive['Version'] );
 		wp_add_inline_style( 'responsive-style', responsive_gutenberg_colors( responsive_gutenberg_color_palette() ) );
 		wp_enqueue_style( 'icomoon-style', get_template_directory_uri() . "/core/css/icomoon/style{$suffix}.css", false, $responsive['Version'] );
@@ -353,8 +386,6 @@ if ( ! function_exists( 'responsive_css' ) ) {
 		}
 	}
 }
-add_action( 'wp_enqueue_scripts', 'responsive_css' );
-
 
 /**
  * A safe way of adding JavaScripts to a WordPress generated page.
@@ -370,9 +401,7 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 	}
 }
-add_action( 'wp_enqueue_scripts', 'responsive_js' );
 
-add_action( 'add_meta_boxes', 'responsive_team_add_meta_box' );
 /** Function for team section options */
 function responsive_team_add_meta_box() {
 	global $post;
@@ -416,7 +445,7 @@ function responsive_team_meta_box_cb() {
 
 	<?php
 }
-add_action( 'save_post', 'responsive_team_meta_box_save' );
+
 /**
  * Save team member meta data
  *
@@ -457,7 +486,12 @@ function responsive_enqueue_comment_reply() {
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'responsive_enqueue_comment_reply' );
+/*
+ * Function enqueues scroll-to-top JS file
+ */
+function responsive_enqueue_scrolltotop() {
+	wp_enqueue_script( 'responsive_theme_scroll-to-top', get_template_directory_uri() . '/core/includes/customizer/assets/js/scroll-to-top.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+}
 
 /**
  * Front Page function starts here. The Front page overides WP's show_on_front option. So when show_on_front option changes it sets the themes front_page to 0 therefore displaying the new option
@@ -477,8 +511,6 @@ function responsive_front_page_override( $new, $orig ) {
 	return $new;
 }
 
-add_filter( 'pre_update_option_show_on_front', 'responsive_front_page_override', 10, 2 );
-
 /**
  * Funtion to add CSS class to body
  *
@@ -494,8 +526,6 @@ function responsive_add_class( $classes ) {
 
 	return $classes;
 }
-
-add_filter( 'body_class', 'responsive_add_class' );
 
 /**
  * [responsive_add_custom_body_classes Funtion to add CSS class to body].
@@ -625,7 +655,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
 			// Entry Blog Columns.
 			$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
-			$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', 1 ) . $masonry;
+			$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
 			// Entry Blog sidebar Position.
 			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', 'right' );
 
@@ -648,8 +678,6 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	return $classes;
 }
-
-add_filter( 'body_class', 'responsive_add_custom_body_classes' );
 
 /**
  * This function prints post meta data.
@@ -703,12 +731,6 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 
 		<?php
 	}
-}
-
-require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
-	add_action( 'customize_controls_print_footer_scripts', 'responsive_add_pro_button' );
 }
 
 /**
@@ -796,11 +818,98 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 		}
 
 		if ( class_exists( 'WooCommerce' ) ) {
-			if ( is_product() && get_theme_mod( 'responsive_disable_woo_products_transparent_header', 0 ) ) {
+			if ( ( is_product() || is_cart() || is_shop() || is_checkout() || is_woocommerce() || is_account_page() ) && get_theme_mod( 'responsive_disable_woo_products_transparent_header', 0 ) ) {
 				$enable_trans_header = false;
 			}
 		}
 
 		return $enable_trans_header;
 	}
+}
+/**
+ * Function returns the default color for the color controls.
+ *
+ * @param string $color  Which color to return.
+ */
+function get_responsive_customizer_defaults( $option ) {
+
+	$theme_options = defaults();
+	$default_value = '';
+	if ( isset( $theme_options[ $option ] ) ) {
+		$default_value = $theme_options[ $option ];
+	}
+	return $default_value;
+}
+
+/**
+ * Set default theme option values
+ *
+ * @return default values of the theme.
+ */
+function defaults() {
+	// Defaults list of options.
+	$theme_options = apply_filters(
+		'responsive_theme_defaults',
+		array(
+			'entry_columns'                 => 1,
+			// Padding
+			'box_padding'                   => 30,
+			// Colors.
+			'add_to_cart_button'            => '#0066CC',
+			'shop_product_price'            => '#333333',
+			'content_header_heading'        => '#333333',
+			'content_header_description'    => '#999999',
+			'breadcrumb'                    => '#1e73be',
+			'footer_background'             => '#333333',
+			'footer_text'                   => '#ffffff',
+			'footer_links'                  => '#eaeaea',
+			'footer_links_hover'            => '#ffffff',
+			'header_background'             => '#ffffff',
+			'header_border'                 => '#eaeaea',
+			'header_site_title'             => '#333333',
+			'header_site_title_hover'       => '#10659C',
+			'header_text'                   => '#999999',
+			'header_widget_text'            => '#333333',
+			'header_widget_background'      => '#ffffff',
+			'header_widget_border'          => '#eaeaea',
+			'header_widget_link'            => '#0066CC',
+			'header_widget_link_hover'      => '#10659C',
+
+			'header_menu_background'        => '#ffffff',
+			'header_menu_border'            => '#eaeaea',
+			'header_active_menu_background' => '#ffffff',
+			'header_menu_link'              => '#333333',
+			'header_menu_link_hover'        => '#10659C',
+			'header_sub_menu_background'    => '#ffffff',
+			'header_sub_menu_link'          => '#333333',
+			'header_sub_menu_link_hover'    => '#10659C',
+			'header_menu_toggle_background' => 'transparent',
+			'header_menu_toggle'            => '#333333',
+
+			'box_background'                => '#ffffff',
+			'alt_background'                => '#eaeaea',
+			'body_text'                     => '#333333',
+			'h1_text'                       => '#333333',
+			'h2_text'                       => '#333333',
+			'h3_text'                       => '#333333',
+			'h4_text'                       => '#333333',
+			'h5_text'                       => '#333333',
+			'h6_text'                       => '#333333',
+			'meta_text'                     => '#999999',
+			'link'                          => '#0066CC',
+			'link_hover'                    => '#10659C',
+			'button'                        => '#0066CC',
+			'button_hover'                  => '#10659C',
+			'button_text'                   => '#ffffff',
+			'button_hover_text'             => '#ffffff',
+			'button_border'                 => '#10659C',
+			'button_hover_border'           => '#0066CC',
+			'inputs_background'             => '#ffffff',
+			'inputs_text'                   => '#333333',
+			'inputs_border'                 => '#cccccc',
+			'label'                         => '#333333',
+
+		)
+	);
+	return $theme_options;
 }

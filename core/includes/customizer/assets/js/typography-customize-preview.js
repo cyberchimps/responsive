@@ -237,6 +237,158 @@
 				$child.remove();
 			}
 		} );
+	} ), api( "headings_typography[font-family]", function( $swipe ) {
+	    $swipe.bind( function( pair ) {
+	        if ( pair ) {
+	            /** @type {string} */
+	            var fontName = pair.split(",")[0];
+	                fontName = fontName.replace(/'/g, '');
+	            var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-headings-font-family" );
+	            var fontSize = fontName.replace( " ", "%20" );
+	            fontSize = fontSize.replace( ",", "%2C" );
+	            /** @type {string} */
+	            fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+	            if ( fontName in responsive.googleFonts ) {
+	                if ($("#" + idfirst).length) {
+	                    $("#" + idfirst).attr("href", fontSize);
+	                } else {
+	                    $("head").append('<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">');
+	                }
+	            }
+	        }
+	        var $child = $( ".customizer-typography-headings-font-family" );
+	        if ( pair ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-font-family">h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family: ' + pair + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "headings_typography[font-weight]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-headings-font-weight" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-font-weight">h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-weight: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "headings_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-headings-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-line-height">h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{line-height: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "headings_tablet_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-headings-tablet-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-tablet-line-height">@media (max-width: 768px){h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "headings_mobile_typography[line-height]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-headings-mobile-line-height" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-mobile-line-height">@media (max-width: 480px){h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{line-height: ' + dataAndEvents + ";}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "headings_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-headings-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-letter-spacing">h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "headings_tablet_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-headings-tablet-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-tablet-letter-spacing">@media (max-width: 768px){h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "headings_mobile_typography[letter-spacing]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-headings-mobile-letter-spacing" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-mobile-letter-spacing">@media (max-width: 480px){h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
+	} ), api( "headings_typography[text-transform]", function( $swipe ) {
+	    $swipe.bind( function( dataAndEvents ) {
+	        var $child = $( ".customizer-typography-headings-text-transform" );
+	        if ( dataAndEvents ) {
+	            /** @type {string} */
+	            var img = '<style class="customizer-typography-headings-text-transform">h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{text-transform: ' + dataAndEvents + ";}</style>";
+	            if ( $child.length ) {
+	                $child.replaceWith( img );
+	            } else {
+	                $( "head" ).append( img );
+	            }
+	        } else {
+	            $child.remove();
+	        }
+	    } );
 	} ), api( "heading_h1_typography[font-family]", function( $swipe ) {
 		$swipe.bind( function( pair ) {
 			if ( pair ) {
@@ -3211,7 +3363,7 @@
 	        var $child = $( ".customizer-typography-button-font-family" );
 	        if ( pair ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-font-family">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-family: ' + pair + ";}</style>";
+	            var img = '<style class="customizer-typography-button-font-family">.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-family: ' + pair + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3226,7 +3378,7 @@
 	        var $child = $( ".customizer-typography-button-font-weight" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-font-weight">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-weight: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-font-weight">.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-weight: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3241,7 +3393,7 @@
 	        var $child = $( ".customizer-typography-button-font-style" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-font-style">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-style: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-font-style">.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-style: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3256,7 +3408,7 @@
 	        var $child = $( ".customizer-typography-button-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-font-size">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-font-size">.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3271,7 +3423,7 @@
 	        var $child = $( ".customizer-typography-button-tablet-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-tablet-font-size">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-button-tablet-font-size">@media (max-width: 768px){.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3286,7 +3438,7 @@
 	        var $child = $( ".customizer-typography-button-mobile-font-size" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-mobile-font-size">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-button-mobile-font-size">@media (max-width: 480px){.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{font-size: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3301,7 +3453,7 @@
 	        var $child = $( ".customizer-typography-button-color" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-color">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{color: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-color">.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{color: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3316,7 +3468,7 @@
 	        var $child = $( ".customizer-typography-button-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-line-height">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-line-height">.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3331,7 +3483,7 @@
 	        var $child = $( ".customizer-typography-button-tablet-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-tablet-line-height">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-button-tablet-line-height">@media (max-width: 768px){.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3346,7 +3498,7 @@
 	        var $child = $( ".customizer-typography-button-mobile-line-height" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-mobile-line-height">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}}</style>";
+	            var img = '<style class="customizer-typography-button-mobile-line-height">@media (max-width: 480px){.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{line-height: ' + dataAndEvents + ";}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3361,7 +3513,7 @@
 	        var $child = $( ".customizer-typography-button-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-letter-spacing">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}</style>";
+	            var img = '<style class="customizer-typography-button-letter-spacing">.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3376,7 +3528,7 @@
 	        var $child = $( ".customizer-typography-button-tablet-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-tablet-letter-spacing">@media (max-width: 768px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            var img = '<style class="customizer-typography-button-tablet-letter-spacing">@media (max-width: 768px){.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3391,7 +3543,7 @@
 	        var $child = $( ".customizer-typography-button-mobile-letter-spacing" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-mobile-letter-spacing">@media (max-width: 480px){.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}}</style>";
+	            var img = '<style class="customizer-typography-button-mobile-letter-spacing">@media (max-width: 480px){.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{letter-spacing: ' + dataAndEvents + "px;}}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {
@@ -3406,7 +3558,7 @@
 	        var $child = $( ".customizer-typography-button-text-transform" );
 	        if ( dataAndEvents ) {
 	            /** @type {string} */
-	            var img = '<style class="customizer-typography-button-text-transform">.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{text-transform: ' + dataAndEvents + ";}</style>";
+	            var img = '<style class="customizer-typography-button-text-transform">.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link{text-transform: ' + dataAndEvents + ";}</style>";
 	            if ( $child.length ) {
 	                $child.replaceWith( img );
 	            } else {

@@ -102,6 +102,13 @@
         } );
     } );
 
+    //All Heading text Color
+    api( 'responsive_all_heading_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6').css('color', newval );
+        } );
+    } );
+
     //H1 text Color
     api( 'responsive_h1_text_color', function( value ) {
         value.bind( function( newval ) {
@@ -215,6 +222,59 @@
     } );
 
     //Main Menu Colors Section
+    //Background Color
+    api( 'responsive_header_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                $('.header-full-width.site-header-layout-vertical .main-navigation,.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,.responsive-site-full-width.site-header-layout-vertical .main-navigation,.site-header-layout-vertical .main-navigation div').css('background-color', newval);
+
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.site-header-layout-vertical .main-navigation').css('background-color', newval);
+                    }
+                }
+
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
+                isMobile(x) // Call listener function at run time
+                x.addListener(isMobile)
+            }
+            else {
+                $('.res-transparent-header .main-navigation.toggled').css('background-color', newval);
+            }
+        } );
+    } );
+
+    //Border Color
+    api( 'responsive_header_menu_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation').css('border-top', '1px solid '+newval);
+                        $('.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation) .main-navigation').css('border-bottom', '1px solid '+newval);
+                    }
+                }
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)");
+                isMobile(x); // Call listener function at run time
+                x.addListener(isMobile);
+
+                function isTablet(x) {
+                    if (x.matches) { // If media query matches
+                        $('.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div').css('border-top', '1px solid '+newval);
+                        $('.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div').css('border-bottom', '1px solid '+newval);
+                    }
+                }
+                var x = window.matchMedia("(min-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)");
+                isTablet(x); // Call listener function at run time
+                x.addListener(isTablet);
+
+                $('.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-site-branding-main-navigation .main-navigation').css('border-top', '1px solid '+newval);
+                $('.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-main-navigation-site-branding .main-navigation').css('border-bottom', '1px solid '+newval);
+
+            }
+        } );
+    } );
+
     //Active Menu Background Color
     api( 'responsive_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -361,4 +421,221 @@
         } );
     } );
 
+    //Sidebar -> Colors
+    //Headings Color
+    api( 'responsive_sidebar_headings_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.widget-area .widget-title h4').css('color', newval );
+        } );
+    } );
+
+    //Background Color
+    api( 'responsive_sidebar_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-site-style-boxed aside#secondary .widget-wrapper ').css('background-color', newval );
+        } );
+    } );
+
+    //Text Color
+    api( 'responsive_sidebar_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.widget-area').css('color', newval );
+        } );
+    } );
+
+    //Links Color
+    api( 'responsive_sidebar_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.widget-area .widget-wrapper a ').css('color', newval );
+        } );
+    } );
+
+    //Links Hover Color
+    $(".widget-area .widget-wrapper a").hover(
+        function() {
+            $(this).css("color", api('responsive_sidebar_link_hover_color').get());
+        },
+        function() {
+            $(this).css("color", api('responsive_sidebar_link_color').get());
+        });
+
+    //Scroll To Top
+    //Icon Color
+    api( 'responsive_scroll_to_top_icon_color', function( value ) {
+        value.bind( function( newval ) {
+
+            $('#scroll span').css('border-bottom-color', newval );        } );
+    } );
+
+    //Icon Hover Color
+    $("#scroll").hover(
+        function() {
+            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
+        },
+        function() {
+            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
+        });
+
+    //Icon Background Color
+    api( 'responsive_scroll_to_top_icon_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#scroll').css('background-color', newval );
+        } );
+    } );
+
+    //Icon Background Hover Color
+    $("#scroll").hover(
+        function() {
+            $(this).css("background-color", api('responsive_scroll_to_top_icon_background_hover_color').get());
+        },
+        function() {
+            $(this).css("background-color", api('responsive_scroll_to_top_icon_background_color').get());
+        });
+
+    //Hover Colors
+
+    //Links Hover Color
+    $("a").hover(
+        function() {
+            $(this).css("color", api('responsive_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_link_color').get());
+        }
+    );
+    //Buttons Hover Color
+    $(".page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button ").hover(
+        function() {
+            $(this).css("background-color", api('responsive_button_hover_color').get());
+            $(this).css("color", api('responsive_button_hover_text_color').get());
+            $(this).css("border-color", api('responsive_button_hover_border_color').get());
+        },
+
+        function() {
+            $(this).css("background-color", api('responsive_button_color').get());
+            $(this).css("color", api('responsive_button_text_color').get());
+            $(this).css("border-color", api('responsive_button_border_color').get());
+        }
+    );
+
+    // //site title hover color
+    $(".site-title a").hover(
+        function() {
+            $(this).css("color", api('responsive_header_site_title_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_header_site_title_color').get());
+        }
+    );
+
+    //Header widget link hover color...
+    $(".header-widgets a").hover(
+        function() {
+            $(this).css("color", api('responsive_header_widget_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_header_widget_link_color').get());
+        }
+    );
+
+    //Menu Links Hover Color
+    $(".main-navigation .menu > li > a").hover(
+        function() {
+            $(this).css("color", api('responsive_header_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_header_menu_link_color').get());
+        }
+    );
+
+    //Sub Menu Links Hover Color
+    $(".main-navigation .children li a,.main-navigation .sub-menu li a").hover(
+        function() {
+            $(this).css("color", api('responsive_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_header_sub_menu_link_color').get());
+        }
+    );
+
+    //Footer Links Hover Color
+    $(".site-footer a").hover(
+        function() {
+            $(this).css("color", api('responsive_footer_links_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_footer_links_color').get());
+        }
+    );
+
+    //Add to cart Button Text Hover Color
+    $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
+        function() {
+            $(this).css("color", api('responsive_add_to_cart_button_hover_text_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_add_to_cart_button_text_color').get());
+        }
+    );
+
+    //Cart Button Text Hover Color
+    $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button").hover(
+        function() {
+            $(this).css("color", api('responsive_cart_buttons_hover_text_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_cart_buttons_text_color').get());
+        }
+    );
+
+    //Checkout Button Hover text Color
+    $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button").hover(
+        function() {
+            $(this).css("color", api('responsive_cart_checkout_button_hover_text_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_cart_checkout_button_text_color').get());
+        }
+    );
+
+    //Add to Cart Button Hover Color
+    $(".woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce button.button,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
+        function() {
+            $(this).css("background-color", api('responsive_add_to_cart_button_hover_color').get());
+        },
+
+        function() {
+            $(this).css("background-color", api('responsive_add_to_cart_button_color').get());
+        }
+    );
+
+    //Cart Button Hover Color
+    $(".page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button").hover(
+        function() {
+            $(this).css("background-color", api('responsive_cart_buttons_hover_color').get());
+        },
+
+        function() {
+            $(this).css("background-color", api('responsive_cart_buttons_color').get());
+        }
+    );
+    //Checkout Button Hover Color
+    $(".page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button").hover(
+        function() {
+            $(this).css("background-color", api('responsive_cart_checkout_button_hover_color').get());
+        },
+
+        function() {
+            $(this).css("background-color", api('responsive_cart_checkout_button_color').get());
+        }
+    );
 } )( jQuery );

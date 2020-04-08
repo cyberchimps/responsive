@@ -135,7 +135,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$disable_posts_transparent_header_label = __( 'Disable on Posts?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_posts_transparent_header', $disable_posts_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
-			$disable_woo_products_transparent_header_label = __( 'Disable on WooCommerce Product Pages?', 'responsive' );
+			$disable_woo_products_transparent_header_label = __( 'Disable on WooCommerce Pages?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_woo_products_transparent_header', $disable_woo_products_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			/**
@@ -165,8 +165,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'right'        => esc_html__( 'Right', 'responsive' ),
 				'center'       => esc_html__( 'center', 'responsive' ),
 				'space-around' => esc_html__( 'Space Around', 'responsive' ),
-			);
-			if ( is_rtl() ) {
+			);	if ( is_rtl() ) {
 				$header_widget_alignment_choices = array(
 					'spread'       => esc_html__( 'Spread', 'responsive' ),
 					'left'         => esc_html__( 'Right', 'responsive' ),

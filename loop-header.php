@@ -34,7 +34,7 @@ if ( is_home() && responsive_free_get_option( 'blog_post_title_toggle' ) ) {
 }
 
 $responsive_show_breadcrumbs = true;
-if ( is_front_page() || ( 1 === $responsive_options['breadcrumb'] ) ) {
+if ( is_front_page() || ( 1 == $responsive_options['breadcrumb'] ) ) {
 	$responsive_show_breadcrumbs = false;
 }
 

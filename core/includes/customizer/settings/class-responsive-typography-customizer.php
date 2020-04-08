@@ -64,11 +64,23 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						),
 					),
 
+					'headings'                   => array(
+						'label'    => esc_html__( 'All Headings', 'responsive' ),
+						'target'   => 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6',
+						'section'  => 'responsive_typography',
+						'priority' => 4,
+						'exclude'  => array( 'font-color', 'font-size', 'font-style' ),
+						'defaults' => array(
+							'line-height'    => '1.25',
+							'text-transform' => 'inherit',
+						),
+					),
+
 					'heading_h1'                 => array(
 						'label'    => esc_html__( 'Heading 1 (H1)', 'responsive' ),
 						'target'   => 'h1',
 						'section'  => 'responsive_typography',
-						'priority' => 4,
+						'priority' => 6,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '33px',
@@ -80,7 +92,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 2 (H2)', 'responsive' ),
 						'target'   => 'h2',
 						'section'  => 'responsive_typography',
-						'priority' => 6,
+						'priority' => 8,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '26px',
@@ -92,7 +104,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 3 (H3)', 'responsive' ),
 						'target'   => 'h3',
 						'section'  => 'responsive_typography',
-						'priority' => 8,
+						'priority' => 10,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '20px',
@@ -104,7 +116,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 4 (H4)', 'responsive' ),
 						'target'   => 'h4',
 						'section'  => 'responsive_typography',
-						'priority' => 10,
+						'priority' => 12,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '16px',
@@ -116,7 +128,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 5 (H5)', 'responsive' ),
 						'target'   => 'h5',
 						'section'  => 'responsive_typography',
-						'priority' => 12,
+						'priority' => 14,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '13px',
@@ -128,7 +140,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 6 (H6)', 'responsive' ),
 						'target'   => 'h6',
 						'section'  => 'responsive_typography',
-						'priority' => 14,
+						'priority' => 16,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '13px',
@@ -139,7 +151,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Meta', 'responsive' ),
 						'target'   => '.hentry .post-data,.post-meta *',
 						'section'  => 'responsive_typography',
-						'priority' => 16,
+						'priority' => 18,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '12px',
@@ -149,9 +161,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'button'                     => array(
 						'label'    => esc_html__( 'Body', 'responsive' ),
-						'target'   => '.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link',
+						'target'   => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link',
 						'section'  => 'responsive_typography',
-						'priority' => 18,
+						'priority' => 20,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '16px',
@@ -162,7 +174,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea',
 						'section'  => 'responsive_typography',
-						'priority' => 20,
+						'priority' => 22,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '16px',
@@ -365,6 +377,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'name'            => $element . '_typography[font-family]',
 									'label'           => esc_html__( 'Font Family', 'responsive' ),
 									'section'         => $section,
+									'responsive_setting_id' => 'responsive_font_family',
 									'settings'        => $element . '_typography[font-family]',
 									'priority'        => $priority,
 									'type'            => 'select',
@@ -400,6 +413,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'label'           => esc_html__( 'Font Weight', 'responsive' ),
 									'description'     => esc_html__( 'Important: Not all fonts support every font-weight.', 'responsive' ),
 									'section'         => $section,
+									'responsive_setting_id' => 'responsive_font_weight',
 									'settings'        => $element . '_typography[font-weight]',
 									'resp_inherit'    => __( 'Default', 'responsive' ),
 									'connect'         => $element . '_typography[font-family]',

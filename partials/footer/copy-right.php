@@ -7,7 +7,7 @@
  */
 
 global $responsive_options;
-$responsive_options = responsive_get_options();
+$responsive_options = Responsive\Core\responsive_get_options();
 $cyberchimps_link   = '';
 ?>
 

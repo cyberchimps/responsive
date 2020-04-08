@@ -1,0 +1,751 @@
+/**
+ * Container styles
+ * -----------------------------------------------------------------------------
+ */
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 0) {
+  .container {
+    max-width: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 2400px) {
+  .container {
+    max-width: 2320px;
+  }
+}
+
+@media (min-width: 4800px) {
+  .container {
+    max-width: 4640px;
+  }
+}
+
+/**
+ * Row styles
+ * -----------------------------------------------------------------------------
+ */
+.row, .course-container, .responsive-site-style-content-boxed .sensei-pagination,
+.responsive-site-style-content-boxed.single-course nav.post-entries.fix,
+.responsive-site-style-boxed .sensei-pagination,
+.responsive-site-style-boxed.single-course nav.post-entries.fix {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/**
+ * Column styles
+ * -----------------------------------------------------------------------------
+ */
+@media (min-width: 0) {
+  .col-xs-1 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 8.3333333333%;
+  }
+  .col-xs-2 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 16.6666666667%;
+  }
+  .col-xs-3 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 25%;
+  }
+  .col-xs-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 33.3333333333%;
+  }
+  .col-xs-5 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 41.6666666667%;
+  }
+  .col-xs-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+  }
+  .col-xs-7 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 58.3333333333%;
+  }
+  .col-xs-8 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 66.6666666667%;
+  }
+  .col-xs-9 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 75%;
+  }
+  .col-xs-10 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 83.3333333333%;
+  }
+  .col-xs-11 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 91.6666666667%;
+  }
+  .col-xs-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 576px) {
+  .col-sm-1 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 8.3333333333%;
+  }
+  .col-sm-2 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 16.6666666667%;
+  }
+  .col-sm-3 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 25%;
+  }
+  .col-sm-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 33.3333333333%;
+  }
+  .col-sm-5 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 41.6666666667%;
+  }
+  .col-sm-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+  }
+  .col-sm-7 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 58.3333333333%;
+  }
+  .col-sm-8 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 66.6666666667%;
+  }
+  .col-sm-9 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 75%;
+  }
+  .col-sm-10 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 83.3333333333%;
+  }
+  .col-sm-11 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 91.6666666667%;
+  }
+  .col-sm-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-1 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 8.3333333333%;
+  }
+  .col-md-2 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 16.6666666667%;
+  }
+  .col-md-3 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 25%;
+  }
+  .col-md-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 33.3333333333%;
+  }
+  .col-md-5 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 41.6666666667%;
+  }
+  .col-md-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+  }
+  .col-md-7 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 58.3333333333%;
+  }
+  .col-md-8 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 66.6666666667%;
+  }
+  .col-md-9 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 75%;
+  }
+  .col-md-10 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 83.3333333333%;
+  }
+  .col-md-11 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 91.6666666667%;
+  }
+  .col-md-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-lg-1 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 8.3333333333%;
+  }
+  .col-lg-2 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 16.6666666667%;
+  }
+  .col-lg-3 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 25%;
+  }
+  .col-lg-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 33.3333333333%;
+  }
+  .col-lg-5 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 41.6666666667%;
+  }
+  .col-lg-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+  }
+  .col-lg-7 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 58.3333333333%;
+  }
+  .col-lg-8 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 66.6666666667%;
+  }
+  .col-lg-9 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 75%;
+  }
+  .col-lg-10 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 83.3333333333%;
+  }
+  .col-lg-11 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 91.6666666667%;
+  }
+  .col-lg-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-1 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 8.3333333333%;
+  }
+  .col-xl-2 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 16.6666666667%;
+  }
+  .col-xl-3 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 25%;
+  }
+  .col-xl-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 33.3333333333%;
+  }
+  .col-xl-5 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 41.6666666667%;
+  }
+  .col-xl-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+  }
+  .col-xl-7 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 58.3333333333%;
+  }
+  .col-xl-8 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 66.6666666667%;
+  }
+  .col-xl-9 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 75%;
+  }
+  .col-xl-10 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 83.3333333333%;
+  }
+  .col-xl-11 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 91.6666666667%;
+  }
+  .col-xl-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 2400px) {
+  .col-xxl-1 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 8.3333333333%;
+  }
+  .col-xxl-2 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 16.6666666667%;
+  }
+  .col-xxl-3 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 25%;
+  }
+  .col-xxl-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 33.3333333333%;
+  }
+  .col-xxl-5 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 41.6666666667%;
+  }
+  .col-xxl-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+  }
+  .col-xxl-7 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 58.3333333333%;
+  }
+  .col-xxl-8 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 66.6666666667%;
+  }
+  .col-xxl-9 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 75%;
+  }
+  .col-xxl-10 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 83.3333333333%;
+  }
+  .col-xxl-11 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 91.6666666667%;
+  }
+  .col-xxl-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 4800px) {
+  .col-xxxl-1 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 8.3333333333%;
+  }
+  .col-xxxl-2 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 16.6666666667%;
+  }
+  .col-xxxl-3 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 25%;
+  }
+  .col-xxxl-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 33.3333333333%;
+  }
+  .col-xxxl-5 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 41.6666666667%;
+  }
+  .col-xxxl-6 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+  }
+  .col-xxxl-7 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 58.3333333333%;
+  }
+  .col-xxxl-8 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 66.6666666667%;
+  }
+  .col-xxxl-9 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 75%;
+  }
+  .col-xxxl-10 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 83.3333333333%;
+  }
+  .col-xxxl-11 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 91.6666666667%;
+  }
+  .col-xxxl-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+  }
+}
+
+/**
+ * Hide/show styles
+ * -----------------------------------------------------------------------------
+ */
+@media (min-width: 0) {
+  .hide-xs {
+    display: none;
+  }
+}
+
+@media (min-width: 0) {
+  .show-xs {
+    display: block;
+  }
+}
+
+@media (min-width: 576px) {
+  .hide-sm {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .show-sm {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .hide-md {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .show-md {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .hide-lg {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .show-lg {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hide-xl {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .show-xl {
+    display: block;
+  }
+}
+
+@media (min-width: 2400px) {
+  .hide-xxl {
+    display: none;
+  }
+}
+
+@media (min-width: 2400px) {
+  .show-xxl {
+    display: block;
+  }
+}
+
+@media (min-width: 4800px) {
+  .hide-xxxl {
+    display: none;
+  }
+}
+
+@media (min-width: 4800px) {
+  .show-xxxl {
+    display: block;
+  }
+}
+
+.hentry .course.hentry {
+  padding: 0;
+}
+
+.course input[type=submit] {
+  padding: .65em;
+  background-color: #0066cc;
+  color: #ffffff;
+  font-size: 1em;
+}
+
+.course input[type=submit]:focus, .course input[type=submit]:hover {
+  background-color: #10659c;
+  color: #ffffff;
+}
+
+.course-meta.course-enrolment {
+  margin-top: 30px;
+}
+
+.course-container {
+  margin: 30px 0 0 0;
+}
+
+.course-container li.course.hentry {
+  width: calc( ( 100% / 3 )  - 21px);
+  padding: 30px;
+}
+
+@media screen and (min-width: 992px) {
+  .course-container li.course.hentry {
+    margin: 0 0 30px 30px;
+  }
+}
+
+.course-container li.course.hentry:nth-child(3n) {
+  margin-left: 0;
+  clear: left;
+}
+
+.course-container li.course.hentry:nth-child(3n) .course-content .entry {
+  display: block;
+}
+
+.course-container li.course.hentry:nth-child(3n) .course-content .entry a {
+  width: 100%;
+}
+
+#sensei-user-courses .course-container li.course.hentry {
+  width: calc( ( 100% / 2 )  - 30px);
+  padding: 0;
+}
+
+@media screen and (min-width: 992px) {
+  #sensei-user-courses .course-container li.course.hentry {
+    margin: 0 0 30px 30px;
+  }
+}
+
+#sensei-user-courses .course-container li.course.hentry:nth-child(2n) {
+  margin-left: 0;
+  clear: left;
+}
+
+#sensei-user-courses .course-container li.course.hentry:nth-child(2n) .course-content .entry {
+  display: block;
+}
+
+#sensei-user-courses .course-container li.course.hentry:nth-child(2n) .course-content .entry a {
+  width: 100%;
+}
+
+.course-container .more-link {
+  font-weight: bold;
+}
+
+.course-container .course-category,
+.course-container section.entry span.course-lesson-progress {
+  display: block;
+  margin-right: 5px;
+}
+
+.course-container .course-lesson-count {
+  padding: 5px 5px 0 0;
+  font-weight: bold;
+  border-bottom: dashed 1px #e8e9eb;
+}
+
+.course, .course-container, .course-container .course {
+  border: none;
+  padding: 0;
+}
+
+.sensei-ordering select {
+  padding-left: 45px;
+  padding-right: 15px;
+}
+
+.responsive-site-style-content-boxed .sensei-pagination,
+.responsive-site-style-content-boxed.single-course nav.post-entries.fix,
+.responsive-site-style-boxed .sensei-pagination,
+.responsive-site-style-boxed.single-course nav.post-entries.fix {
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: #ffffff;
+  justify-content: space-between;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 28px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.responsive-site-style-content-boxed .sensei-pagination > div,
+.responsive-site-style-content-boxed.single-course nav.post-entries.fix > div,
+.responsive-site-style-boxed .sensei-pagination > div,
+.responsive-site-style-boxed.single-course nav.post-entries.fix > div {
+  max-width: 50%;
+}
+
+.responsive-site-style-content-boxed .sensei-pagination .page-numbers,
+.responsive-site-style-content-boxed.single-course nav.post-entries.fix .page-numbers,
+.responsive-site-style-boxed .sensei-pagination .page-numbers,
+.responsive-site-style-boxed.single-course nav.post-entries.fix .page-numbers {
+  margin: 0;
+  width: 100%;
+}
+
+.responsive-site-style-content-boxed .sensei-pagination .page-numbers li,
+.responsive-site-style-content-boxed.single-course nav.post-entries.fix .page-numbers li,
+.responsive-site-style-boxed .sensei-pagination .page-numbers li,
+.responsive-site-style-boxed.single-course nav.post-entries.fix .page-numbers li {
+  margin: 0 15px;
+}
+
+.responsive-site-style-content-boxed .sensei-pagination .page-numbers li:first-child,
+.responsive-site-style-content-boxed.single-course nav.post-entries.fix .page-numbers li:first-child,
+.responsive-site-style-boxed .sensei-pagination .page-numbers li:first-child,
+.responsive-site-style-boxed.single-course nav.post-entries.fix .page-numbers li:first-child {
+  float: right;
+  margin-right: 0;
+}
+
+.responsive-site-style-content-boxed .sensei-pagination .page-numbers li:last-child,
+.responsive-site-style-content-boxed.single-course nav.post-entries.fix .page-numbers li:last-child,
+.responsive-site-style-boxed .sensei-pagination .page-numbers li:last-child,
+.responsive-site-style-boxed.single-course nav.post-entries.fix .page-numbers li:last-child {
+  float: left;
+  margin-left: 0;
+}
