@@ -1037,7 +1037,7 @@ function responsive_customizer_styles() {
 	$custom_css .= "
 	@media (min-width:992px) {
 		.search:not(.woocommerce) .content-area,
-		.archive:not(.woocommerce) .content-area,
+		.archive:not(.woocommerce):not(.post-type-archive-course) .content-area,
 		.blog:not(.custom-home-page-active) .content-area {
 			width:{$blog_content_width}%;
 		}

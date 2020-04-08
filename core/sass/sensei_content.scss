@@ -130,3 +130,13 @@
         }
     }
 }
+
+.archive {
+    &.post-type-archive-course {
+        .content-area {
+            @media (min-width: map-get( $screens, lg ) ) {
+                width: 100%;
+            }
+        }
+    }
+}
