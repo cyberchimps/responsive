@@ -389,12 +389,13 @@ function responsive_woocommerce_after_single_product_summary() {
  * @return string read more text
  */
 function responsive_sensei_read_more_text( $text ) {
-
-	$read_more = get_theme_mod( 'responsive_sensei_read_more_text', __( 'Enroll Course &raquo;', 'responsive' ) );
-	if ( '' !== $read_more ) {
-		$text = $read_more;
+	global $post;
+	if ( 'course' === $post->post_type ) {
+		$read_more = get_theme_mod( 'responsive_sensei_read_more_text', __( 'Enroll Course &raquo;', 'responsive' ) );
+		if ( '' !== $read_more ) {
+			$text = $read_more;
+		}
 	}
-
 	return $text;
 }
 
@@ -405,12 +406,13 @@ function responsive_sensei_read_more_text( $text ) {
  * @return integer         Length of excerpt.
  */
 function responsive_sensei_custom_excerpt_length( $length ) {
-
-	$excerpt_length = get_theme_mod( 'responsive_sensei_excerpt_length', 40 );
-	if ( ! empty( $excerpt_length ) ) {
-		$length = $excerpt_length;
+	global $post;
+	if ( 'course' === $post->post_type ) {
+		$excerpt_length = get_theme_mod( 'responsive_sensei_excerpt_length', 40 );
+		if ( ! empty( $excerpt_length ) ) {
+			$length = $excerpt_length;
+		}
 	}
-
 	return $length;
 }
 
