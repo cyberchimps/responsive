@@ -10,60 +10,22 @@
     @include make-button();
     font-size: 1em;
 }
+
 .course-meta.course-enrolment {
     margin-top: $grid-gutter-width;
 }
+
+.course .course-title,
+.course-container .course .course-title,
+.course-container .course-title {
+    display: block;
+    clear: both;
+}
+
 .course-container {
     @extend .row;
     margin: $grid-gutter-width 0 0 0;
 
-    li.course.hentry {
-        width: calc( ( 100% / 3 )  - 21px);
-        padding: $grid-gutter-width;
-
-        @media screen and ( min-width: map-get( $screens, lg ) ) {
-            margin: 0 $grid-gutter-width $grid-gutter-width 0;
-        }
-
-        &:nth-child(3n) {
-            margin-right: 0;
-            clear: right;
-
-
-            .course-content .entry {
-                display: block;
-
-                a {
-                    width: 100%;
-                }
-            }
-        }
-    }
-
-    #sensei-user-courses & {
-        li.course.hentry {
-            width: calc( ( 100% / 2 )  - 30px);
-            padding: 0;
-
-            @media screen and ( min-width: map-get( $screens, lg ) ) {
-                margin: 0 $grid-gutter-width $grid-gutter-width 0;
-            }
-
-            &:nth-child(2n) {
-                margin-right: 0;
-                clear: right;
-
-
-                .course-content .entry {
-                    display: block;
-
-                    a {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
 
     .more-link {
         font-weight: bold;
@@ -79,6 +41,80 @@
         padding: 5px 0 0 5px;
         font-weight: bold;
         border-bottom: dashed 1px #e8e9eb;
+    }
+
+}
+
+.course-container li.course.hentry {
+    padding: $grid-gutter-width;
+
+    @media screen and ( min-width: map-get( $screens, md ) ) {
+        margin: 0 $grid-gutter-width $grid-gutter-width 0;
+        width: calc( ( 100% / 2 )  - 15px);
+
+        &:nth-child(2n) {
+            margin-right: 0;
+            clear: right;
+        }
+
+        .sensei-courses-columns-1 & {
+            margin: 0 $grid-gutter-width $grid-gutter-width 0;
+            width: 100%;
+            margin-right: 0;
+            clear: none;
+        }
+    }
+
+    @media screen and ( min-width: map-get( $screens, lg ) ) {
+
+        @for $i from 2 through 10 {
+            .sensei-courses-columns-#{$i} & {
+                margin: 0 $grid-gutter-width $grid-gutter-width 0;
+                width: calc( ( 100% / #{$i} )  - 19px - #{$i}px );
+
+                &:nth-child(2n) {
+                    margin-right: $grid-gutter-width;
+                    clear: none;
+                }
+
+                &:nth-child(#{$i}n) {
+                    margin-right: 0;
+                    clear: right;
+                }
+
+            }
+        }
+    }
+
+    #sensei-user-courses & {
+        width: calc( ( 100% / 2 )  - 30px);
+        padding: 0;
+
+        @media screen and ( min-width: map-get( $screens, lg ) ) {
+            margin: 0 $grid-gutter-width $grid-gutter-width 0;
+        }
+
+        &:nth-child(2n) {
+            margin-right: 0;
+            clear: right;
+
+
+            .course-content .entry {
+                display: block;
+
+                a {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .course-content .entry {
+        display: block;
+
+        a {
+            width: 100%;
+        }
     }
 }
 

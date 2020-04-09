@@ -636,6 +636,9 @@ function responsive_add_custom_body_classes( $classes ) {
 
 		}
 	} else {
+		if ( class_exists( 'Sensei_Main' ) ) {
+			$classes[] = 'sensei-courses-columns-' . get_theme_mod( 'responsive_sensei_courses_per_row', 3 );
+		}
 		if ( class_exists( 'WooCommerce' ) && ( is_woocommerce() ) ) {
 
 			// Do not Add Class.

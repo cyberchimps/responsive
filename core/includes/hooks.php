@@ -391,7 +391,7 @@ function responsive_woocommerce_after_single_product_summary() {
 function responsive_sensei_read_more_text( $text ) {
 	global $post;
 	if ( 'course' === $post->post_type ) {
-		$read_more = get_theme_mod( 'responsive_sensei_read_more_text', __( 'Enroll Course &raquo;', 'responsive' ) );
+		$read_more = get_theme_mod( 'responsive_sensei_read_more_text', __( 'Enroll &raquo;', 'responsive' ) );
 		if ( '' !== $read_more ) {
 			$text = $read_more;
 		}

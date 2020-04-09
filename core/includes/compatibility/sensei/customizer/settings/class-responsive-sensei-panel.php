@@ -37,9 +37,9 @@ if ( ! class_exists( 'Responsive_Sensei_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive-sensei-settings',
 				array(
-					'title'       => __( 'Sensei Settings', 'responsive' ),
+					'title'       => __( 'Sensei LMS', 'responsive' ),
 					'description' => __( 'Sensei Settings', 'responsive' ),
-					'priority'    => 209,
+					'priority'    => 185,
 				)
 			);
 		}
