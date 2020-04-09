@@ -124,6 +124,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 				'right'  => esc_html__( 'Right', 'responsive' ),
 				'center' => esc_html__( 'center', 'responsive' ),
 			);
+
 			if ( is_rtl() ) {
 				$blog_entry_title_alignment_choices = array(
 					'left'   => esc_html__( 'Right', 'responsive' ),
@@ -131,7 +132,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 					'center' => esc_html__( 'center', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'blog_entry_title_alignment', $blog_entry_title_alignment_label, 'responsive_blog_content', 70, $blog_entry_title_alignment_choices, 'left', null );
+			responsive_select_control( $wp_customize, 'blog_entry_title_alignment', $blog_entry_title_alignment_label, 'responsive_blog_content', 70, $blog_entry_title_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'blog_entry_title_alignment' ), null );
 
 			/**
 			* Entry meta.
@@ -208,7 +209,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 					'center' => esc_html__( 'center', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'blog_entry_meta_alignment', $blog_entry_meta_alignment_label, 'responsive_blog_content', 110, $blog_entry_meta_alignment_choices, 'left', null );
+			responsive_select_control( $wp_customize, 'blog_entry_meta_alignment', $blog_entry_meta_alignment_label, 'responsive_blog_content', 110, $blog_entry_meta_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'blog_entry_meta_alignment' ), null );
 
 			/**
 			* Content Elements.

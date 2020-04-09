@@ -648,9 +648,9 @@ function responsive_add_custom_body_classes( $classes ) {
 			// Entry Blog Featured Image Aligmnmnet.
 			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_blog_entry_featured_image_alignment', 'left' );
 			// Entry Blog Title Aligmnmnet.
-			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', 'left' );
+			$classes[] = 'title-alignment-' . get_theme_mod( 'responsive_blog_entry_title_alignment', get_responsive_customizer_defaults( 'blog_entry_title_alignment' ) );
 			// Entry Blog Meta Aligmnmnet.
-			$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_blog_entry_meta_alignment', 'left' );
+			$classes[] = 'meta-alignment-' . get_theme_mod( 'responsive_blog_entry_meta_alignment', get_responsive_customizer_defaults( 'blog_entry_meta_alignment' ) );
 			// Entry Blog Content Aligmnmnet.
 			$classes[] = 'content-alignment-' . get_theme_mod( 'responsive_blog_entry_content_alignment', 'left' );
 			// Entry Blog Columns.
@@ -852,6 +852,9 @@ function defaults() {
 		'responsive_theme_defaults',
 		array(
 			'entry_columns'                 => 1,
+			//alignment
+			'blog_entry_title_alignment'    => 'left',
+			'blog_entry_meta_alignment'     => 'left',
 			// Padding
 			'box_padding'                   => 30,
 			// Colors.
