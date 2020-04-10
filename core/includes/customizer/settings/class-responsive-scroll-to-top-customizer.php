@@ -164,6 +164,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_scroll_to_top_icon_color',
 				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon' ),
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
 					'transport'         => 'postMessage',
@@ -184,6 +185,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_scroll_to_top_icon_hover_color',
 				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_hover' ),
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
 					'transport'         => 'postMessage',
@@ -204,6 +206,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_scroll_to_top_icon_background_color',
 				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_background' ),
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
 					'transport'         => 'postMessage',
@@ -224,6 +227,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_scroll_to_top_icon_background_hover_color',
 				array(
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'scroll_to_top_icon_background_hover' ),
 					'type'              => 'theme_mod',
 					'sanitize_callback' => 'responsive_sanitize_color',
 					'transport'         => 'postMessage',
