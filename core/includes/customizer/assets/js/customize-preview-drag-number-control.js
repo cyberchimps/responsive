@@ -50,8 +50,8 @@
             function isDesktop(x) {
                 if (x.matches) { // If media query matches
                     // document.body.style.backgroundColor = "yellow";
-                    $('.search:not(.woocommerce) .content-area,.archive:not(.woocommerce) .content-area,.blog:not(.woocommerce):not(.custom-home-page-active) .content-area').css('width', newval+'%' );
-                    $('.search:not(.woocommerce) aside.widget-area,.archive:not(.woocommerce) aside.widget-area,.blog:not(.woocommerce):not(.custom-home-page-active) aside.widget-area').css('width', 'calc(100% -' + newval + '%)' );
+                    $('.search:not(.post-type-archive-product) .content-area,.archive:not(.post-type-archive-product):not(.post-type-archive-course) .content-area,.blog:not(.custom-home-page-active) .content-area').css('width', newval+'%' );
+                    $('.search:not(.post-type-archive-product) aside.widget-area,.archive:not(.post-type-archive-product) aside.widget-area,.blog:not(.custom-home-page-active) aside.widget-area').css('width',  ( 100 - newval ) + '%' );
                 }
             }
 
@@ -69,8 +69,8 @@
             function isDesktop(x) {
                 if (x.matches) { // If media query matches
                     // document.body.style.backgroundColor = "yellow";
-                    $('.single:not(.woocommerce) .content-area').css('width', newval+'%' );
-                    $('.single:not(.woocommerce) aside.widget-area').css('width', 'calc(100% -' + newval + '%)' );
+                    $('.single:not(.single-product) .content-area').css('width', newval+'%' );
+                    $('.single:not(.single-product) aside.widget-area').css('width',( 100 - newval ) + '%' );
                 }
             }
             var x = window.matchMedia("(min-width:992px)")
@@ -85,8 +85,8 @@
         value.bind( function( newval ) {
             function isDesktop(x) {
                 if (x.matches) { // If media query matches
-                    $('.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce):not(.woocommerce-cart):not(.woocommerce-checkout):not(.front-page) .content-area ').css('width', newval+'%' );
-                    $('.page:not(.woocommerce) aside.widget-area:not(.home-widgets)').css('width', 'calc(100% -' + newval + '%)' );
+                    $('.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.front-page) .content-area ').css('width', newval+'%' );
+                    $('.page aside.widget-area:not(.home-widgets)').css('width', ( 100 - newval ) + '%' );
                 }
             }
             var x = window.matchMedia("(min-width:992px)")
@@ -161,7 +161,7 @@
             function isDesktop(x) {
                 if (x.matches) { // If media query matches
                     $('.single-product.woocommerce .content-area,.single-product.woocommerce .content-area').css('width', newval+'%' );
-                    $('.single-product.woocommerce aside.widget-area,.single-product.woocommerce aside.widget-area').css('width', 'calc(100% -' + newval + '%)' );
+                    $('.single-product.woocommerce aside.widget-area,.single-product.woocommerce aside.widget-area').css('width', ( 100 - newval ) + '%' );
                 }
             }
             var x = window.matchMedia("(min-width:992px)")
@@ -177,7 +177,7 @@
             function isDesktop(x) {
                 if (x.matches) { // If media query matches
                     $('.search.woocommerce .content-area,.archive.woocommerce .content-area').css('width', newval+'%' );
-                    $('.search.woocommerce aside.widget-area,.archive.woocommerce aside.widget-area').css('width', 'calc(100% -' + newval + '%)' );
+                    $('.search.woocommerce aside.widget-area,.archive.woocommerce aside.widget-area').css('width', ( 100 - newval ) + '%' );
                 }
             }
             var x = window.matchMedia("(min-width:992px)")

@@ -1036,14 +1036,14 @@ function responsive_customizer_styles() {
 
 	$custom_css .= "
 	@media (min-width:992px) {
-		.search:not(.woocommerce) .content-area,
-		.archive:not(.woocommerce):not(.post-type-archive-course) .content-area,
+		.search:not(.post-type-archive-product) .content-area,
+		.archive:not(.post-type-archive-product):not(.post-type-archive-course) .content-area,
 		.blog:not(.custom-home-page-active) .content-area {
 			width:{$blog_content_width}%;
 		}
-		.search:not(.woocommerce) aside.widget-area,
-		.archive:not(.woocommerce) aside.widget-area,
-		.blog:not(.woocommerce):not(.custom-home-page-active) aside.widget-area {
+		.search:not(.post-type-archive-product) aside.widget-area,
+		.archive:not(.post-type-archive-product) aside.widget-area,
+		.blog:not(.custom-home-page-active) aside.widget-area {
 			width: calc(100% - {$blog_content_width}%);
 		}
 	}";
@@ -1146,10 +1146,10 @@ function responsive_customizer_styles() {
 
 	$custom_css .= "
 	@media (min-width:992px) {
-		.single:not(.woocommerce) .content-area {
+		.single:not(.single-product) .content-area {
 			width:{$single_blog_content_width}%;
 		}
-		.single:not(.woocommerce) aside.widget-area {
+		.single:not(.single-product) aside.widget-area {
 			width: calc(100% - {$single_blog_content_width}%);
 		}
 	}";
@@ -1215,10 +1215,10 @@ function responsive_customizer_styles() {
 
 	$custom_css .= "
 	@media (min-width:992px) {
-		.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce):not(.woocommerce-cart):not(.woocommerce-checkout):not(.front-page) .content-area {
+		.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.front-page) .content-area {
 			width:{$page_content_width}%;
 		}
-		.page:not(.woocommerce) aside.widget-area:not(.home-widgets) {
+		.page aside.widget-area:not(.home-widgets) {
 			width: calc(100% - {$page_content_width}%);
 		}
 	}";
@@ -1547,7 +1547,7 @@ function responsive_customizer_styles() {
 		$woocommerce_custom_css .= "
 		@media (min-width:992px) {
 			.search.woocommerce .content-area,
-			.archive.woocommerce .content-area {
+			.archive.woocommerce:not(.post-type-archive-course) .content-area {
 				width: {$shop_content_width}%;
 			}
 			.search.woocommerce aside.widget-area,
