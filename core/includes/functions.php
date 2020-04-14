@@ -854,12 +854,13 @@ function defaults() {
 	$theme_options = apply_filters(
 		'responsive_theme_defaults',
 		array(
-			'entry_columns'                       => 1,
-			// Alignment.
-			'blog_entry_title_alignment'          => 'left',
-			'blog_entry_meta_alignment'           => 'left',
-			// Padding.
-			'box_padding'                         => 30,
+			'entry_columns'                 => 1,
+			//alignment
+			'blog_entry_title_alignment'    => 'left',
+			'blog_entry_meta_alignment'     => 'left',
+			// Padding
+			'box_padding'                   => 30,
+			'logo_padding'                  => 28,
 			// Colors.
 			'scroll_to_top_icon'                  => '#0066CC',
 			'scroll_to_top_icon_hover'            => '#0066CC',

@@ -104,7 +104,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Logo Padding.
 			$logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, 28, 0, null, $logo_padding_label );
+			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ), 0, null, $logo_padding_label );
 
 			/**
 			 * Transparent Header Separator.

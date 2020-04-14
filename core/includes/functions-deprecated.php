@@ -903,3 +903,27 @@ if ( ! function_exists( 'responsive_woo_shop_parent_category' ) ) {
 function responsive_menu_cart_icon( $menu, $args ) {
 	return Responsive\WooCommerce\responsive_menu_cart_icon( $menu, $args );
 }
+
+
+//Child themes compatibility - Responsive blog and Responsive Business
+
+/**
+ * @deprecated use responsive_get_breadcrumb_lists instead
+ */
+function get_responsive_breadcrumb_lists() {
+    responsive_get_breadcrumb_lists();
+}
+
+/**
+ * @deprecated
+ */
+function responsive_in_header() {
+    do_action( 'responsive_in_header' );
+}
+
+/**
+ * @deprecated
+ */
+function responsive_header_end() {
+    do_action( 'responsive_header_end' );
+}

@@ -572,8 +572,8 @@ function responsive_customizer_styles() {
 	// Header Padding.
 	$header_padding_right  = esc_html( get_theme_mod( 'responsive_header_right_padding' ) );
 	$header_padding_left   = esc_html( get_theme_mod( 'responsive_header_left_padding' ) );
-	$header_padding_top    = esc_html( get_theme_mod( 'responsive_header_top_padding', 28 ) );
-	$header_padding_bottom = esc_html( get_theme_mod( 'responsive_header_bottom_padding', 28 ) );
+	$header_padding_top    = esc_html( get_theme_mod( 'responsive_header_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ) ) );
+	$header_padding_bottom = esc_html( get_theme_mod( 'responsive_header_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ) ) );
 
 	$header_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_header_tablet_right_padding' ) );
 	$header_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_header_tablet_left_padding' ) );
