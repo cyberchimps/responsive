@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/15/20) = Improvement - Version 4.3.0
+[*] = Added = Framework Improvement
+[*] = Added = Improved Customizer Performance: Color Control, Font Control, Checkboxes, etc.
+[*] = Added = RTL Support
+[*] = Added = Option to update Sidebar Color
+[*] = Added = Featured Image size controller option
+
 (03/30/20) = Improvement - Version 4.2.4
 [*] = Fix - Theme Homepage link
 [*] = Fix - Homepage featured section renders html
