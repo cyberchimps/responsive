@@ -863,6 +863,7 @@ function defaults() {
 			'box_padding'                   => 30,
 			'logo_padding'                  => 28,
 			// Colors.
+			'background_color'                    => 'eaeaea',
 			'scroll_to_top_icon'                  => '#0066CC',
 			'scroll_to_top_icon_hover'            => '#0066CC',
 			'scroll_to_top_icon_background'       => '#0066CC',
@@ -920,7 +921,6 @@ function defaults() {
 			'inputs_text'                         => '#333333',
 			'inputs_border'                       => '#cccccc',
 			'label'                               => '#333333',
-
 		)
 	);
 	return $theme_options;
