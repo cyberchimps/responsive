@@ -855,6 +855,7 @@ function defaults() {
 		'responsive_theme_defaults',
 		array(
 			'entry_columns'                 => 1,
+			'buttons_radius'                 => 0,
 			//alignment
 			'blog_entry_title_alignment'    => 'left',
 			'blog_entry_meta_alignment'     => 'left',

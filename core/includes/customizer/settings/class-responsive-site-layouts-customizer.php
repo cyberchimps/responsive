@@ -114,7 +114,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Buttons Radius.
 			$buttons_radius_label = __( 'Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_layout', 80, 0 );
+			responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) );
 
 			// Buttons Border Width.
 			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
