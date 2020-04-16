@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Price Color.
 			$shop_product_price_label = __( 'Price Color', 'responsive' );
-				responsive_color_control( $wp_customize, 'shop_product_price', $shop_product_price_label, 'responsive_woocommerce_shop_colors', 20, '#333333' );
+				responsive_color_control( $wp_customize, 'shop_product_price', $shop_product_price_label, 'responsive_woocommerce_shop_colors', 20, Responsive\Core\get_responsive_customizer_defaults( 'shop_product_price' ) );
 
 			// Buttons.
 			$shop_button_separator = esc_html__( 'Add To Cart Buttons', 'responsive' );
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 
 			// Button.
 			$add_to_cart_button_label = __( 'Button Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'add_to_cart_button', $add_to_cart_button_label, 'responsive_woocommerce_shop_colors', 40, '#0066CC' );
+			responsive_color_control( $wp_customize, 'add_to_cart_button', $add_to_cart_button_label, 'responsive_woocommerce_shop_colors', 40, Responsive\Core\get_responsive_customizer_defaults('add_to_cart_button') );
 
 			// Button Text.
 			$add_to_cart_button_text_label = __( 'Button Text', 'responsive' );

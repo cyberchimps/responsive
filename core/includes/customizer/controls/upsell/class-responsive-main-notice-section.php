@@ -137,7 +137,7 @@ class Responsive_Main_Notice_Section extends Responsive_Generic_Notice_Section {
 			<div class="notice notice-info" style="position: relative; margin-top:0; margin-bottom: 1px;">
 				<button type="button" class="notice-dismiss" style="z-index: 1;"></button>
 				<# if ( data.name ) { #>
-				<h3 style="padding-right: 36px">
+				<h3>
 					{{{data.name}}}
 				</h3>
 

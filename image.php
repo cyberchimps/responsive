@@ -29,16 +29,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 			the_post();
 			?>
 
-			<?php responsive_entry_before(); ?>
+			<?php Responsive\responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<?php responsive_entry_top(); ?>
+				<?php Responsive\responsive_entry_top(); ?>
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
 				<p><?php esc_html_e( '&#8249; Return to', 'responsive' ); ?> <a href="<?php echo esc_url( get_permalink( $post->post_parent ) ); ?>" rel="gallery" <?php responsive_schema_markup( 'url' ); ?>><?php echo esc_html( get_the_title( $post->post_parent ) ); ?></a>
 				</p>
 
 				<div class="post-meta">
-					<?php responsive_post_meta_data(); ?>
+					<?php Responsive\Core\responsive_post_meta_data(); ?>
 
 					<?php if ( comments_open() ) : ?>
 						<span class="comments-link">
@@ -86,13 +86,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>
 
-				<?php responsive_entry_bottom(); ?>
+				<?php Responsive\responsive_entry_bottom(); ?>
 			</div><!-- end of #post-<?php the_ID(); ?> -->
-			<?php responsive_entry_after(); ?>
+			<?php Responsive\responsive_entry_after(); ?>
 
-			<?php responsive_comments_before(); ?>
+			<?php Responsive\responsive_comments_before(); ?>
 			<?php comments_template( '', true ); ?>
-			<?php responsive_comments_after(); ?>
+			<?php Responsive\responsive_comments_after(); ?>
 
 			<?php
 		endwhile;

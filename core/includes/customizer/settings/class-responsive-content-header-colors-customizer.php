@@ -44,15 +44,17 @@ if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 
 			// Title Color.
 			$content_header_heading_color_label = __( 'Title Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'content_header_heading', $content_header_heading_color_label, 'responsive_content_header_colors', 10, '#333333' );
+
+			responsive_color_control( $wp_customize, 'content_header_heading', $content_header_heading_color_label, 'responsive_content_header_colors', 10, Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) );
 
 			// Header Description.
 			$content_header_description_color_label = __( 'Description Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'content_header_description', $content_header_description_color_label, 'responsive_content_header_colors', 20, '#999999' );
+			responsive_color_control( $wp_customize, 'content_header_description', $content_header_description_color_label, 'responsive_content_header_colors', 20, Responsive\Core\get_responsive_customizer_defaults( 'content_header_description' ) );
 
 			// Breadcrumb Color.
 			$breadcrumb_color_label = __( 'Breadcrumb Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'breadcrumb', $breadcrumb_color_label, 'responsive_content_header_colors', 30, '#1e73be', 'responsive_active_breadcrumb' );
+			responsive_color_control( $wp_customize, 'breadcrumb', $breadcrumb_color_label, 'responsive_content_header_colors', 30, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' ), 'responsive_active_breadcrumb' );
+
 
 		}
 

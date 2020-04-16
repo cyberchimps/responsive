@@ -122,6 +122,11 @@ module.exports = function(grunt) {
 						'core/css/style.css': 'core/sass/style.scss'
 					},
 
+					/* Sensei CSS file */
+					{
+						'core/css/sensei_content.css': 'core/sass/sensei_content.scss'
+					},
+
 					/* WooCommerce */
 					{
 						'core/css/woocommerce.css': 'core/sass/woocommerce.scss',
@@ -199,13 +204,67 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'core/css/style.min.css': 'core/css/style.css',
+					'core/css/style-rtl.min.css': 'core/css/style-rtl.css',
+					'core/css/sensei_content.min.css': 'core/css/sensei_content.css',
+					'core/css/sensei_content-rtl.min.css': 'core/css/sensei_content-rtl.css',
 					'core/css/woocommerce.min.css':  'core/css/woocommerce.css',
+					'core/css/woocommerce-rtl.min.css':  'core/css/woocommerce-rtl.css',
 					'core/css/gutenberg-editor.min.css':  'core/css/gutenberg-editor.css',
-					'core/css/icomoon/style.min.css': 'core/css/icomoon/style.css'
+					'core/css/gutenberg-editor-rtl.min.css':  'core/css/gutenberg-editor-rtl.css',
+					'core/css/icomoon/style.min.css': 'core/css/icomoon/style.css',
+					'core/css/icomoon/style-rtl.min.css': 'core/css/icomoon/style-rtl.css'
 				}
 			}
 		},
-
+		// Generate RTL .css files.
+		rtlcss: {
+			options: {
+				// rtlcss options
+				config: {
+					preserveComments: true,
+					greedy: true
+				},
+				// generate source maps
+				map: false
+			},
+			dist: {
+				files: [
+					{
+						expand: true,
+						cwd: 'core/css',
+						src: [
+							'*.css',
+							'!*-rtl.css',
+							'!*.min.css'
+						],
+						dest: 'core/css',
+						ext: '-rtl.css'
+					},
+					{
+						expand: true,
+						cwd: 'core/includes/css',
+						src: [
+							'*.css',
+							'!*-rtl.css',
+							'!*.min.css'
+						],
+						dest: 'core/includes/css',
+						ext: '-rtl.css'
+					},
+					{
+						expand: true,
+						cwd: 'core/css/icomoon',
+						src: [
+							'*.css',
+							'!*-rtl.css',
+							'!*.min.css'
+						],
+						dest: 'core/css/icomoon',
+						ext: '-rtl.css'
+					}
+				]
+			}
+		},
 		// Copy the theme into the build directory
 		copy: {
 			main: {
@@ -252,6 +311,7 @@ module.exports = function(grunt) {
 					'!**/jenkincodeception/**',
 					'!core/css/woocommerce.css.map',
 					'!core/css/style.css.map',
+					'!core/css/sensei_content.css.map',
 					'!package-lock.json',
 					'!core/package-lock.json',
 					'!core/css/icomoon/selection.json',
@@ -302,12 +362,13 @@ module.exports = function(grunt) {
 
 	// Default task(s).
 	grunt.registerTask( 'updatefonts', [ 'google-fonts' ] );
-	grunt.registerTask( 'addtextdomain', ['checktextdomain']);
+	grunt.registerTask( 'addtextdomain', ['checktextdomain'] );
+	grunt.registerTask( 'rtl', ['rtlcss'] );
 
 	// SASS compile
 	grunt.registerTask('scss', ['sass']);
-	grunt.registerTask( 'default', [ 'scss', 'uglify', 'cssmin' ] );
-	grunt.registerTask( 'build', [ 'i18n', 'scss', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'default', [ 'scss', 'rtl', 'uglify', 'cssmin' ] );
+	grunt.registerTask( 'build', [ 'i18n', 'scss', 'rtl', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'addtextdomain', 'makepot' ] );
 
 };

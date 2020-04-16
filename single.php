@@ -17,59 +17,27 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-get_header(); ?>
-<?php responsive_wrapper_top(); // before wrapper content hook.
+get_header();
+
+Responsive\responsive_wrapper_top(); // before wrapper content hook.
 // Elementor `single` location.
 if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
-?>
-<div id="wrapper" class="site-content clearfix">
+	Responsive\responsive_wrapper();
 
-	<div class="content-outer container">
-		<div class="row">
-			<?php responsive_in_wrapper(); // wrapper hook. ?>
+	while ( have_posts() ) :
+		the_post();
+		get_template_part( 'partials/single/layout', get_post_type() );
+		comments_template();
+	endwhile;
 
-			<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
-
-				<?php get_template_part( 'loop-header', get_post_type() ); ?>
-				<?php if ( have_posts() ) : ?>
-
-						<?php
-						while ( have_posts() ) :
-							the_post();
-							?>
-
-							<?php responsive_entry_before(); ?>
-							<?php
-							get_template_part( 'partials/single/layout', get_post_type() );
-							?>
-							<?php responsive_entry_after(); ?>
-
-							<?php responsive_comments_before(); ?>
-							<?php comments_template( '', true ); ?>
-							<?php responsive_comments_after(); ?>
-
-							<?php
-						endwhile;
-
-						get_template_part( 'loop-nav', get_post_type() );
-					?>
-					<?php
-					else :
-						// Elementor `404` location.
-						if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
-
-							get_template_part( 'loop-no-posts', get_post_type() );
-						}
-				endif;
-					?>
+	?>
 
 			</main><!-- end of #primary -->
 
-			<?php get_sidebar(); ?>
-		</div>
-	</div>
-<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
-</div> <!-- end of #wrapper -->
-<?php }
-responsive_wrapper_end(); // after wrapper hook. ?>
-<?php get_footer(); ?>
+	<?php
+	get_sidebar();
+	Responsive\responsive_wrapper_close();
+}
+	Responsive\responsive_wrapper_end(); // after wrapper hook.
+	get_footer();
+?>

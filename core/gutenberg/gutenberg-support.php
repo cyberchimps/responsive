@@ -120,7 +120,7 @@ function responsive_gutenberg_customizer_css() {
 	$buttons_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_buttons_mobile_top_padding', 10 ) );
 	$buttons_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_mobile_bottom_padding', 10 ) );
 
-	$buttons_radius       = esc_html( get_theme_mod( 'responsive_buttons_radius', 0 ) );
+	$buttons_radius       = esc_html( get_theme_mod( 'responsive_buttons_radius', Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) ) );
 	$buttons_border_width = esc_html( get_theme_mod( 'responsive_buttons_border_width', 0 ) );
 
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
@@ -277,7 +277,11 @@ function responsive_gutenberg_customizer_css() {
  *  Enqueue block styles  in editor
  */
 function responsive_block_styles() {
-	wp_enqueue_style( 'responsive-gutenberg-blocks', get_stylesheet_directory_uri() . '/core/css/gutenberg-editor.css', array(), '4.1' );
+	$suffix = '';
+	if ( is_rtl() ) {
+		$suffix = '-rtl' . $suffix;
+	}
+	wp_enqueue_style( 'responsive-gutenberg-blocks', get_stylesheet_directory_uri() . '/core/css/gutenberg-editor' . $suffix . '.css', array(), '4.1' );
 	wp_add_inline_style( 'responsive-gutenberg-blocks', responsive_gutenberg_customizer_css() );
 
 	// Add customizer colors to Gutenberg editor in backend.

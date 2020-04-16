@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function responsive_get_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
 	$yoast_options      = get_option( 'wpseo_titles' );
-	if ( 1 === $responsive_options['breadcrumb'] ) {
+	if ( 1 == $responsive_options['breadcrumb'] ) {
 		return;
 	} elseif ( function_exists( 'bcn_display' ) ) {
 		echo '<span class="breadcrumb" typeof="v:Breadcrumb">';
@@ -343,6 +343,7 @@ function responsive_add_image_size() {
 	add_image_size( 'responsive-600', 600, 9999 );
 	add_image_size( 'responsive-900', 900, 9999 );
 }
+
 add_action( 'after_setup_theme', 'responsive_add_image_size' );
 
 /**
@@ -351,7 +352,7 @@ add_action( 'after_setup_theme', 'responsive_add_image_size' );
  * @return void [description].
  */
 function responsive_get_social_icons() {
-	$responsive_options = responsive_get_options();
+	$responsive_options = Responsive\Core\responsive_get_options();
 
 	$icons = array(
 		'twitter'     => __( 'Twitter', 'responsive' ),

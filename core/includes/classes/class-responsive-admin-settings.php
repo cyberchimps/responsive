@@ -230,11 +230,11 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				<h2 class="handle">
 					<span><?php echo esc_html( apply_filters( 'responsive_sites_menu_page_title', __( 'Import a website template(FREE)', 'responsive' ) ) ); ?></span>
 				</h2>
-				<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-starter-sites.jpg' ); ?>">
+				<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-starter-sites.png' ); ?>">
 				<div class="inside">
 					<p>
 						<?php
-						esc_html_e( 'Install Responsive Add-ons to get ready-to-use website templates that can be imported with one click.', 'responsive' );
+						esc_html_e( 'Install Responsive Starter Templates for Gutenberg & Elementor to get ready-to-use website templates that can be imported with one click.', 'responsive' );
 						?>
                         <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 						<?php
@@ -302,12 +302,12 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'change-layout' => array(
 						'title'     => __( 'Change site layout', 'responsive' ),
 						'dashicon'  => 'dashicons-welcome-widgets-menus',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_layout_section' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_layout' ),
 					),
 					'typography'    => array(
 						'title'     => __( 'Customize fonts/typography', 'responsive' ),
 						'dashicon'  => 'dashicons-editor-textcolor',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive_typography_panel' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_typography' ),
 					),
 					'logo-favicon'  => array(
 						'title'     => __( 'Upload logo & site icon', 'responsive' ),
@@ -322,22 +322,22 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'header'        => array(
 						'title'     => __( 'Customize header options', 'responsive' ),
 						'dashicon'  => 'dashicons-editor-table',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive-header-options' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive_header' ),
 					),
 					'footer'        => array(
 						'title'     => __( 'Customize footer options', 'responsive' ),
 						'dashicon'  => 'dashicons-editor-table',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive-footer-options' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive_footer' ),
 					),
 					'blog-layout'   => array(
 						'title'     => __( 'Update blog layout', 'responsive' ),
 						'dashicon'  => 'dashicons-welcome-write-blog',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive-blog-options' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_blog_layout' ),
 					),
 					'page'          => array(
 						'title'     => __( 'Update page layout', 'responsive' ),
 						'dashicon'  => 'dashicons-welcome-widgets-menus',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_page_section' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_page_layout' ),
 					),
 				)
 			);
