@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 
 			// Main Content Width.
 			$shop_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'shop_content_width', $shop_content_width_label, 'responsive_woocommerce_shop_layout', 20, 100, null, 100 );
+			responsive_drag_number_control( $wp_customize, 'shop_content_width', $shop_content_width_label, 'responsive_woocommerce_shop_layout', 20, 100, null, 100, 1, 'postMessage' );
 
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
@@ -57,6 +57,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
 				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$sidebar_choices = array(
+					'right' => esc_html__( 'Left Sidebar', 'responsive' ),
+					'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
+					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_woocommerce_shop_layout', 30, $sidebar_choices, 'no', null );
 
 			// Shop Elements.
@@ -78,6 +85,13 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 				'left'   => esc_html__( 'Left', 'responsive' ),
 				'right'  => esc_html__( 'Right', 'responsive' ),
 			);
+			if ( is_rtl() ) {
+				$product_content_aligmnment_choices = array(
+					'right'  => esc_html__( 'Left', 'responsive' ),
+					'left'   => esc_html__( 'Right', 'responsive' ),
+					'center' => esc_html__( 'center', 'responsive' ),
+				);
+			}
 			responsive_select_control( $wp_customize, 'product_content_aligmnment', $product_content_aligmnment_label, 'responsive_woocommerce_shop_layout', 60, $product_content_aligmnment_choices, 'center', null );
 
 			// Shop Elements.

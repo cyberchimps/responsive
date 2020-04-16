@@ -44,7 +44,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 				// Main Content Width.
 				$shop_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
-				responsive_drag_number_control( $wp_customize, 'checkout_content_width', $shop_content_width_label, 'woocommerce_checkout', 1, 70, null, 100 );
+				responsive_drag_number_control( $wp_customize, 'checkout_content_width', $shop_content_width_label, 'woocommerce_checkout', 1, 70, null, 100, 1, 'postMessage' );
 			}
 		}
 

@@ -212,6 +212,11 @@
 .archive,
 .blog {
     &.featured-image-alignment {
+        &-left {
+            .hentry .thumbnail {
+                text-align: left;
+            }
+        }
         &-right {
             .hentry .thumbnail {
                 text-align: right;
@@ -232,6 +237,11 @@
 .archive,
 .blog {
     &.title-alignment {
+        &-left {
+            .hentry .entry-title {
+                text-align: left;
+            }
+        }
         &-right {
             .hentry .entry-title {
                 text-align: right;
@@ -253,6 +263,11 @@
 .archive,
 .blog {
     &.content-alignment {
+        &-left {
+            .hentry .entry-content {
+                text-align: left;
+            }
+        }
         &-right {
             .hentry .entry-content {
                 text-align: right;
@@ -273,6 +288,15 @@
 .archive,
 .blog {
     &.meta-alignment {
+        &-left {
+            .hentry {
+                .post-data,
+                .post-edit-link,
+                .post-meta {
+                    text-align: left;
+                }
+            }
+        }
         &-right {
             .hentry {
                 .post-data,
@@ -460,6 +484,9 @@
 
                 &.next.page-numbers {
                     float: right;
+                }
+                &.prev.page-numbers {
+                    float: left;
                 }
 
                 &:first-child,
@@ -725,7 +752,6 @@
     .section-team,
     .section-feature {
         @extend .col-xs-12;
-        @extend .col-md-4;
         @media (max-width: map-get( $screens, md ) ) {
             margin-top: $base-line-height-px;
         }
@@ -770,6 +796,11 @@
     }
 }
 
+.feature-main-div {
+    @media (min-width: map-get( $screens, md ) ) {
+        flex-wrap: nowrap !important;
+    }
+}
 
 .custom-home {
     &-about-section,
@@ -810,4 +841,8 @@ article.product {
 /* for give Wp plugin */
 .give-wrap > div#content[role^="main"] {
     padding: 0 $base-line-height-px / 2;
+}
+
+embed, iframe, object {
+    max-width:100%;
 }

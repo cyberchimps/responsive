@@ -727,9 +727,9 @@ if ( ! function_exists( 'responsive_get_schema_markup' ) ) {
 			case 'creativework': // Image.
 				$schema = 'itemscope itemtype="https://schema.org/CreativeWork"';
 				break;
-            case 'breadcrumb':
-                $schema = 'itemscope itemtype="https://schema.org/BreadcrumbList"';
-                break;
+			case 'breadcrumb':
+				$schema = 'itemscope itemtype="https://schema.org/BreadcrumbList"';
+				break;
 			default:
 				$schema = '';
 
@@ -814,7 +814,7 @@ if ( ! function_exists( 'responsive_post_link' ) ) {
 		return apply_filters( 'responsive_post_link', $output, $output_filter );
 	}
 }
-add_filter( 'excerpt_more', 'responsive_post_link' );
+add_filter( 'excerpt_more', 'responsive_post_link', 20 );
 
 if ( ! function_exists( 'responsive_modify_read_more_link' ) ) {
 	/**
@@ -879,7 +879,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_top_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -887,7 +887,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_left_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -896,7 +896,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_bottom_padding',
 		array(
-			'transport'         => 'refesh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -904,7 +904,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_right_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -912,7 +912,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_tablet_top_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -920,7 +920,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_tablet_right_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -928,7 +928,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_tablet_bottom_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -936,7 +936,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_tablet_left_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -945,7 +945,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_mobile_top_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -953,7 +953,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_mobile_right_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -961,7 +961,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_mobile_bottom_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -969,7 +969,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_mobile_left_padding',
 		array(
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -1027,6 +1027,7 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 			'default'           => $default,
 			'type'              => 'theme_mod',
 			'sanitize_callback' => 'responsive_sanitize_background',
+			'transport'         => 'postMessage',
 		)
 	);
 	$wp_customize->add_control(
@@ -1060,7 +1061,7 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
  * @param  integer $min          [description].
  * @return void                [description].
  */
-function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1 ) {
+function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh' ) {
 
 	/**
 	 * Main Container Width
@@ -1068,7 +1069,7 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
 	$wp_customize->add_setting(
 		'responsive_' . $element,
 		array(
-			'transport'         => 'refresh',
+			'transport'         => $transport,
 			'default'           => $default,
 			'sanitize_callback' => 'responsive_sanitize_number',
 		)
@@ -1218,6 +1219,7 @@ function responsive_number_control( $wp_customize, $element, $label, $section, $
 		array(
 			'default'           => $default,
 			'sanitize_callback' => 'responsive_sanitize_number',
+			'transport'         => 'postMessage',
 		)
 	);
 	$wp_customize->add_control(
@@ -1287,14 +1289,14 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
  *
  * @return void               [description].
  */
-function responsive_select_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call ) {
+function responsive_select_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
 		array(
 			'default'           => $default,
 			'sanitize_callback' => 'responsive_sanitize_select',
-			'transport'         => 'refresh',
+			'transport'         => $transport,
 		)
 	);
 	$wp_customize->add_control(
@@ -1345,7 +1347,7 @@ function responsive_disabled_mobile_menu() {
  * @return [type] [description]
  */
 function responsive_custom_home_active() {
-	$responsive_options = responsive_get_options();
+	$responsive_options = Responsive\Core\responsive_get_options();
 
 	return ( $responsive_options['front_page'] ) ? true : false;
 }
@@ -1362,13 +1364,14 @@ function responsive_custom_home_active() {
  * @param  [type] $active_call  [description].
  * @return void               [description].
  */
-function responsive_checkbox_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
+function responsive_checkbox_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $transport = 'refresh' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
 		array(
 			'default'           => $default,
 			'sanitize_callback' => 'responsive_checkbox_validate',
+			'transport'         => $transport,
 		)
 	);
 	$wp_customize->add_control(

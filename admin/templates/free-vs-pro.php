@@ -77,8 +77,10 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="go-pro-section">
-			<a class="responsive-go-pro-button" href="https://cyberchimps.com/responsive-go-pro/?utm_source=free-to-pro&utm_medium=responsive-theme&utm_campaign=responsive-pro&utm_content=responsive-options-free-vs-pro" target="_blank">Upgrade to Pro</a>
-		</div>
+		<?php if ( ! class_exists( 'Responsive_Addons_Pro' ) ) { ?>
+			<div class="go-pro-section">
+				<a class="responsive-go-pro-button" href="https://cyberchimps.com/responsive-go-pro/?utm_source=free-to-pro&utm_medium=responsive-theme&utm_campaign=responsive-pro&utm_content=responsive-options-free-vs-pro" target="_blank"><?php esc_html_e( 'Upgrade to Pro', 'responsive' ); ?></a>
+			</div>
+		<?php } ?>
 	</div>
 </div>

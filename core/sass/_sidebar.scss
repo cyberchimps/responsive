@@ -30,7 +30,7 @@
     .widget-area:not(.home-widgets) & {
         font-size: map-get( $font-sizes, small );
     }
-    
+
     .widget-area & {
 
         &.widget_search {
@@ -87,6 +87,11 @@
         &-left {
             .site-content > .container > .row {
                 flex-direction: row-reverse;
+            }
+        }
+        &-right {
+            .site-content > .container > .row {
+                flex-direction: row;
             }
         }
         &-no {
