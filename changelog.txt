@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/16/20) = Improvement - Version 4.3.1
+[*] = Fixed = Improved Custom Homepage
+
 (04/15/20) = Improvement - Version 4.3.0
 [*] = Added = Framework Improvement
 [*] = Added = Improved Customizer Performance: Color Control, Font Control, Checkboxes, etc.

@@ -27,16 +27,22 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 			<div id="home_widget_1" class="home-widget-1 grid col-300">
 			<?php Responsive\responsive_widgets(); // above widgets hook. ?>
 
-			<?php if ( ! dynamic_sidebar( 'home-widget-1' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
+			<?php if ( ! dynamic_sidebar( 'home-widget-1' ) ) : ?>
 					<div class="widget-wrapper">
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Fermentum', 'responsive' ); ?></h4></div>
 						<div class="textwidget">
-
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/images/box1.jpg'); ?>" >
-
+							<img src="<?php echo esc_url( get_template_directory_uri() . '/images/box1.jpg' ); ?>" >
 						</div>
-						<div class="textwidget"><?php esc_html_e( 'This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
+						<div class="textwidget">
+							<?php
+							if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) :
+								esc_html_e( 'This is your first home widget box. To edit please go to Appearance > Widgets and choose 6th widget from the top in area 6 called Home Widget 1. Title is also manageable from widgets as well.', 'responsive' );
+							else :
+								esc_html_e( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'responsive' );
+							endif;
+							?>
+						</div>
 
 					</div><!-- end of .widget-wrapper -->
 				<?php endif; // end of home-widget-1. ?>
@@ -47,7 +53,7 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 			<div id="home_widget_2" class="home-widget-2 grid col-300">
 			<?php Responsive\responsive_widgets(); // responsive above widgets hook. ?>
 
-			<?php if ( ! dynamic_sidebar( 'home-widget-2' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
+			<?php if ( ! dynamic_sidebar( 'home-widget-2' ) ) : ?>
 					<div class="widget-wrapper">
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Elementum', 'responsive' ); ?></h4></div>
@@ -56,7 +62,15 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 							<img src="<?php echo esc_url( get_template_directory_uri() . '/images/box2.jpg' ); ?>" >
 
 						</div>
-						<div class="textwidget"><?php esc_html_e( 'This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
+						<div class="textwidget">
+							<?php
+							if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) :
+								esc_html_e( 'This is your second home widget box. To edit please go to Appearance > Widgets and choose 7th widget from the top in area 7 called Home Widget 2. Title is also manageable from widgets as well.', 'responsive' );
+							else :
+								esc_html_e( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'responsive' );
+							endif;
+							?>
+						</div>
 
 					</div><!-- end of .widget-wrapper -->
 				<?php endif; // end of home-widget-2. ?>
@@ -67,14 +81,22 @@ if ( isset( $responsive_options['home-widgets'] ) && '1' != $responsive_options[
 			<div id="home_widget_3" class="home-widget-3 grid col-300 fit">
 			<?php Responsive\responsive_widgets(); // above widgets hook. ?>
 
-			<?php if ( ! dynamic_sidebar( 'home-widget-3' ) && is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) : ?>
+			<?php if ( ! dynamic_sidebar( 'home-widget-3' ) ) : ?>
 					<div class="widget-wrapper">
 
 						<div class="widget-title-home"><h4><?php esc_html_e( 'Interdum', 'responsive' ); ?></h4></div>
 						<div class="textwidget">
 							<img src="<?php echo esc_url( get_template_directory_uri() . '/images/box3.jpg' ); ?>">
 						</div>
-							<div class="textwidget"><?php esc_html_e( 'This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well.', 'responsive' ); ?></div>
+							<div class="textwidget">
+								<?php
+								if ( is_user_logged_in() && current_user_can( 'edit_theme_options' ) ) :
+									esc_html_e( 'This is your third home widget box. To edit please go to Appearance > Widgets and choose 8th widget from the top in area 8 called Home Widget 3. Title is also manageable from widgets as well.', 'responsive' );
+								else :
+									esc_html_e( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.', 'responsive' );
+								endif;
+								?>
+							</div>
 
 					</div><!-- end of .widget-wrapper -->
 				<?php endif; // end of home-widget-3. ?>
