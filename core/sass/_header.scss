@@ -421,6 +421,7 @@
             @extend .col-xs-12;
             width: auto;
             align-items: center;
+            margin: auto 0;
         }
     }
 
@@ -434,6 +435,9 @@
             flex-direction: row;
         }
 
+        @media screen and ( max-width: map-get( $screens, md ) ) {
+            width: 100%;
+        }
     }
 }
 
@@ -441,11 +445,19 @@
     .site-branding .site-branding-wrapper {
         width: 50%;
         float: left;
+
+        @media screen and ( max-width: map-get( $screens, md ) ) {
+            width: 100%;
+        }
     }
 
     &.site-header-alignment-right .site-branding {
         display: flex;
         flex-direction: row-reverse;
+
+        @media screen and ( max-width: map-get( $screens, md ) ) {
+            flex-wrap: wrap;
+        }
     }
 }
 
