@@ -55,16 +55,16 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 	 */
 	function responsive_breadcrumb_lists() {
 		/* === OPTIONS === */
-		$text['home'] = __( 'Home', 'responsive' ); // text for the 'Home' link.
+		$text['home'] = _x( 'Home', 'responsive' ); // text for the 'Home' link.
 		/* translators: %s: Categories */
-		$text['category'] = __( 'Archive for %s', 'responsive' ); // text for a category page.
+		$text['category'] = _x( 'Archive for %s', 'responsive' ); // text for a category page.
 		/* translators: %s: Search result page */
-		$text['search'] = __( 'Search results for: %s', 'responsive' ); // text for a search results page.
+		$text['search'] = _x( 'Search results for: %s', 'responsive' ); // text for a search results page.
 		/* translators: %s: Post Pages */
-		$text['tag'] = __( 'Posts tagged %s', 'responsive' ); // text for a tag page.
+		$text['tag'] = _x( 'Posts tagged %s', 'responsive' ); // text for a tag page.
 		/* translators: %s: Author pages */
-		$text['author'] = __( 'View all posts by %s', 'responsive' ); // text for an author page.
-		$text['404']    = __( 'Error 404', 'responsive' ); // text for the 404 page.
+		$text['author'] = _x( 'View all posts by %s', 'responsive' ); // text for an author page.
+		$text['404']    = _x( 'Error 404', 'responsive' ); // text for the 404 page.
 
 		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show.
 		$show['home']    = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show.
@@ -130,14 +130,14 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 					$archive_link = get_post_type_archive_link( $post_type->name );
 					$html_output .= sprintf( $link, $archive_link, $post_type->labels->singular_name );
 					if ( 1 == $show['current'] ) {
-							$html_output .= $delimiter . $before . get_the_title() . $after;
+						$html_output .= $delimiter . $before . get_the_title() . $after;
 					}
 				} else {
 					$cat  = get_the_category();
 					$cat  = $cat[0];
 					$cats = get_category_parents( $cat, true, $delimiter );
 					if ( 0 == $show['current'] ) {
-							$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
+						$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
 					}
 					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
@@ -148,8 +148,8 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 					}
 				}
 			} elseif ( ! is_single() && ! is_page() && ! is_404() && 'post' != get_post_type() ) {
-						$post_type    = get_post_type_object( get_post_type() );
-						$html_output .= $before . $post_type->labels->singular_name . $after;
+				$post_type    = get_post_type_object( get_post_type() );
+				$html_output .= $before . $post_type->labels->singular_name . $after;
 
 			} elseif ( is_attachment() ) {
 				$parent = get_post( $parent_id );
@@ -178,9 +178,9 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 			} elseif ( is_page() && $parent_id ) {
 				$breadcrumbs = array();
 				while ( $parent_id ) {
-						$page_child    = get_post( $parent_id );
-						$breadcrumbs[] = sprintf( $link, get_permalink( $page_child->ID ), get_the_title( $page_child->ID ) );
-						$parent_id     = $page_child->post_parent;
+					$page_child    = get_post( $parent_id );
+					$breadcrumbs[] = sprintf( $link, get_permalink( $page_child->ID ), get_the_title( $page_child->ID ) );
+					$parent_id     = $page_child->post_parent;
 				}
 				$breadcrumbs = array_reverse( $breadcrumbs );
 				for ( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
@@ -208,17 +208,16 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 			if ( get_query_var( 'paged' ) || get_query_var( 'page' ) ) {
 				$page_num = get_query_var( 'page' ) ? get_query_var( 'page' ) : get_query_var( 'paged' );
 				/* translators: %s: Page Number */
-				$html_output .= $delimiter . sprintf( __( 'Page %s', 'responsive' ), $page_num );
+				$html_output .= $delimiter . sprintf( _x( 'Page %s', 'responsive' ), $page_num );
 
 			}
 
 			$html_output .= '</div>';
 
 		}
-
 		libxml_use_internal_errors( true );
 		$doc = new DOMDocument();
-		$doc->loadHTML( $html_output );
+		$doc->loadHTML( '<?xml encoding="UTF-8">' . $html_output );
 		$finder    = new DomXPath( $doc );
 		$classname = 'breadcrumb';
 		$nodes     = $finder->query( "//span[contains(@class, '$classname')]" );
@@ -231,8 +230,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$position++;
 			}
 		}
-		echo $doc->saveHTML(); // phpcs:ignore
-
+        echo $doc->saveHTML(); // phpcs:ignore
 	} // end responsive_breadcrumb_lists.
 }
 
@@ -378,33 +376,33 @@ function responsive_get_social_icons() {
 	}
 	if ( $count > 0 ) {
 		?>
-	<div class="footer-layouts social-icon">
-		<ul class="social-icons">
-		<?php
-		foreach ( $icons as $key => $value ) {
-			if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
-				if ( 'email' === $key ) {
-					?>
-					<li>
-						<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
-							<i class="icon-envelope-o" aria-hidden="true"></i>
-						</a>
-					</li>
-					<?php
-				} else {
-					?>
-					<li>
-						<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
-							<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
-						</a>
-					</li>
-					<?php
+		<div class="footer-layouts social-icon">
+			<ul class="social-icons">
+				<?php
+				foreach ( $icons as $key => $value ) {
+					if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+						if ( 'email' === $key ) {
+							?>
+							<li>
+								<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+									<i class="icon-envelope-o" aria-hidden="true"></i>
+								</a>
+							</li>
+							<?php
+						} else {
+							?>
+							<li>
+								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target="_blank" <?php responsive_schema_markup( 'url' ); ?>>
+									<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
+								</a>
+							</li>
+							<?php
+						}
+					}
 				}
-			}
-		}
-		?>
-		</ul>
-	</div>
+				?>
+			</ul>
+		</div>
 		<?php
 	}
 }
