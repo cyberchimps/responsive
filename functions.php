@@ -45,7 +45,7 @@ require $responsive_template_directory . '/core/includes/compatibility/sensei/cl
 require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
-//Deprecated functions
+// Deprecated functions.
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
 
 if ( is_admin() ) {
@@ -236,6 +236,16 @@ function responsive_free_setup() {
 			),
 		)
 	);
+
+	/*
+	 * Adds starter content to highlight the theme on fresh sites.
+	 * This is done conditionally to avoid loading the starter content on every
+	 * page load, as it is a one-off operation only needed once in the customizer.
+	 */
+	if ( is_customize_preview() ) {
+		require __DIR__ . '/core/includes/starter-content.php';
+		add_theme_support( 'starter-content', responsive_get_starter_content() );
+	}
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
@@ -536,7 +546,7 @@ add_action( 'customize_controls_print_styles', 'responsive_controls_style' );
  * @global        string $typenow
  */
 function responsive_admin_rate_us( $footer_text ) {
-	$page        = isset( $_GET['page'] ) ? $_GET['page'] : '';
+	$page        = isset( $_GET['page'] ) ? $_GET['page'] : ''; //phpcs:ignore
 	$show_footer = array( 'responsive-options' );
 
 	if ( in_array( $page, $show_footer, true ) ) {
@@ -561,7 +571,7 @@ function responsive_display_menu() {
 	$position = get_theme_mod( 'menu_position', 'in_header' );
 	?>
 	<nav id="main-nav" class="main-nav" role="navigation" aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>">
-        <h2 class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></h2>
+		<h2 class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></h2>
 	<?php
 	if ( 'in_header' !== $position ) :
 		?>

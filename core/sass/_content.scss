@@ -145,7 +145,7 @@
 
             &:last-child {
                 &::after {
-                    content: '' !important;
+                    content: none !important;
                 }
             }
 
