@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/20/20) = Improvement - Version 4.3.2
+[*] = Added = starter content for new users
+[*] = Fixed = Breadcrumb shows random characters
+[*] = Fixed = Minor CSS issues
+
 (04/16/20) = Improvement - Version 4.3.1
 [*] = Fixed = Improved Custom Homepage
 
