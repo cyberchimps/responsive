@@ -190,7 +190,8 @@ function responsive_gutenberg_customizer_css() {
 		.edit-post-visual-editor.editor-styles-wrapper,
 		.wp-block-freeform,
 		.editor-writing-flow,
-		.editor-styles-wrapper{';
+		.editor-styles-wrapper,
+		.wp-block-quote__citation {';
 
 		foreach ( $body_typography as $key => $value ) {
 			$custom_css .= $key . ':' . $value . ';';
@@ -200,7 +201,9 @@ function responsive_gutenberg_customizer_css() {
 
 	$custom_css .= ".edit-post-visual-editor.editor-styles-wrapper .editor-block-list__layout a,
 	.wp-block-freeform.block-library-rich-text__tinymce a,
-	.editor-writing-flow a {
+	.editor-writing-flow a,
+	.editor-styles-wrapper .wp-block a,
+	.editor-styles-wrapper .wp-block a * {
 		color:{$link_color};
 		text-decoration: none;
 	}

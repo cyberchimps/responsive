@@ -811,13 +811,13 @@ function responsive_customizer_styles() {
 	@media ( min-width: {$mobile_menu_breakpoint}px ) {
 		.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
 		.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
-		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
+		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation > div {
 			border-top: 1px solid {$trans_header_menu_border_color};
 		}
 
 		.header-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
 		.responsive-site-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
-		.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
+		.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation > div {
 			border-bottom: 1px solid {$trans_header_menu_border_color};
 		}
 	}

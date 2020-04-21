@@ -272,11 +272,7 @@
         &.site-header-full-width-main-navigation .main-navigation {
             border-top: 1px solid map-get( $colors, light-gray );
         }
-        .main-navigation {
-            @media ( max-width: map-get( $screens, xxxl ) ) {
-                border-top: 1px solid map-get( $colors, light-gray );
-            }
-        }
+
         &.site-header-site-branding-main-navigation:not(.responsive-site-full-width):not(.header-full-width):not(.site-header-full-width-main-navigation) .main-navigation div {
             @media ( min-width: map-get( $screens, xxxl ) ) {
                 border-top: 1px solid map-get( $colors, light-gray );
@@ -295,12 +291,7 @@
             border-bottom: 1px solid map-get( $colors, light-gray );
             border-top: 0;
         }
-        .main-navigation {
-            @media ( max-width: map-get( $screens, xxxl ) ) {
-                border-bottom: 1px solid map-get( $colors, light-gray );
-                border-top: 0;
-            }
-        }
+
         &.site-header-main-navigation-site-branding:not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
             @media ( min-width: map-get( $screens, xxxl ) ) {
                 border-bottom: 1px solid map-get( $colors, light-gray );
@@ -498,10 +489,6 @@
 
 body.mega-menu-header-menu button.menu-toggle {
 	display: none;
-}
-
-.header-widgets-wrapper form#searchform {
-	display: flex;
 }
 
 .inline-logo-site-title .site-branding-wrapper {

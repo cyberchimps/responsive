@@ -205,6 +205,16 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'letter-spacing' => '0',
 						),
 					),
+					'header_widgets'             => array(
+						'label'    => esc_html__( 'Header Widgets', 'responsive' ),
+						'target'   => '.header-widgets',
+						'section'  => 'responsive_header_typography',
+						'priority' => 5,
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size' => '13px',
+						),
+					),
 					'header_menu'                => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
 						'target'   => '.main-navigation a',
