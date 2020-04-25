@@ -6,9 +6,9 @@ class Test_Responsive_Customizer_Color_Control extends WP_UnitTestCase {
 
 		parent::setUp();
 
-		wp_set_current_user( $this->factory->user->create( [ 'role' => 'administrator' ] ) );
+		wp_set_current_user( $this->factory->user->create( array( 'role' => 'administrator' ) ) );
 
-		require_once( ABSPATH . WPINC . '/class-wp-customize-manager.php' );
+		require_once ABSPATH . WPINC . '/class-wp-customize-manager.php';
 
 		global $wp_customize;
 
@@ -64,27 +64,21 @@ class Test_Responsive_Customizer_Color_Control extends WP_UnitTestCase {
 	/**
 	 * Test that to_json returns as expected
 	 */
-	function test_range_control_to_json() {
+	function test_color_control_to_json() {
 
 		$GLOBALS['wp_customize']->add_setting(
-			'logo_width_mobile',
-			[
-				'default'           => 100,
+			'logo_color',
+			array(
+				'default'           => '#000',
 				'transport'         => 'postMessage',
 				'sanitize_callback' => 'absint',
-			]
+			)
 		);
-
-		$range_class = new Responsive_Customizer_Color_Control( $GLOBALS['wp_customize'], 'logo_width_mobile', [ 'settings' => 'logo_width_mobile' ] );
+		$range_class = new Responsive_Customizer_Color_Control( $GLOBALS['wp_customize'], 'logo_color', array( 'settings' => 'logo_color' ) );
 
 		$range_class->to_json();
 
-		$this->assertEquals( '<li id="customize-control-logo_width_mobile" class="customize-control customize-control-responsive-range"><input
-id="_customize-input-logo_width_mobile"
- type="responsive-range"
-  value="100"
-   data-customize-setting-link="logo_width_mobile" ></li>', $range_class->json['content'] );
-
+		$this->assertEquals( '<li id="customize-control-logo_color" class="customize-control customize-control-alpha-color"> <input id="_customize-input-logo_color" type="alpha-color" value="#000" data-customize-setting-link="logo_color" /> </li>', trim( preg_replace( '/\s\s+/', ' ', str_replace( "\n", ' ', $range_class->json['content'] ) ) ) );
 	}
 
 	/**
@@ -92,11 +86,11 @@ id="_customize-input-logo_width_mobile"
 	 */
 	function test_range_control_content_template() {
 
-		$this->expectOutputRegex( '/<div class="control-wrap">
-				<input type="range" {{{ data.inputAttrs }}} value="{{ data.value }}" {{{ data.link }}} data-reset_value="{{ data.default }}" \/>
-				<input type="number" {{{ data.inputAttrs }}} class="responsive-range-input" value="{{ data.value }}" \/>
-				<span class="responsive-reset-slider"><span class="dashicons dashicons-image-rotate"><\/span><\/span>
-			<\/div>/' );
+		$this->expectOutputRegex(
+			'/<div>
+				<input class="alpha-color-control" type="text"  value="{{ data.value }}" data-show-opacity="{{ data.show_opacity }}" data-default-color="{{ data.default }}" {{{ data.link }}} \/>
+			<\/div>/'
+		);
 
 		$method = new ReflectionMethod( 'Responsive_Customizer_Color_Control', 'content_template' );
 		$method->setAccessible( true );
