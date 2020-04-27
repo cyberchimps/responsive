@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/27/20) = Improvement - Version 4.3.4
+[*] = Added = Gutenberg blocks Compatibility
+[*] = Fixed =  Pagination on archive page
+
 (04/25/20) = Improvement - Version 4.3.3
 [*] = Added = Improved Screenshot
 [*] = Fixed = License Information

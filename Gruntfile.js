@@ -279,6 +279,8 @@ module.exports = function(grunt) {
 					'!bin/**',
 					'!build/**',
 					'!.git/**',
+					'!.circleci/**',
+					'!**/output/**',
 					'!**/.git/**',
 					'!Gruntfile.js',
 					'!package.json',
