@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/25/20) = Improvement - Version 4.3.3
+[*] = Added = Improved Screenshot
+[*] = Fixed = License Information
+
 (04/20/20) = Improvement - Version 4.3.2
 [*] = Added = starter content for new users
 [*] = Fixed = Breadcrumb shows random characters

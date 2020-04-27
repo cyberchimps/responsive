@@ -29,17 +29,24 @@ GNU General Public License for more details.
 
 All derivative Themes must be much different from the original work, which includes the Theme design as well as all the codes from Responsive Theme.
 
-== Resources ==
-* Sortable.js - Default scripts and js libraries of WordPress
-* Alpha js files - https://github.com/BraadMartin/components
+== License ==
 
-IcoMoon Icons
+Yes I know, but we have to say a few words about that.
+
+The Theme itself is nothing but 100% GPL3. See license.txt for further details. There are however some parts of this Theme which are not GPL, however they are GPL-Compatible and that's still good.
+
+== Resources ==
+* Alpha Color Picker Customizer Control
+source: https://github.com/BraadMartin/components
+License: GPL License
+
+* IcoMoon Icons
 Copyright (c) 2020 IcoMoon.io
 License: GPL License, https://github.com/Keyamoon/IcoMoon-Free/blob/master/License.txt
 Source: https://github.com/Keyamoon/IcoMoon-Free/
 Used for post meta icons, and the link icon in the social icons, woocommerce mini cart icons.
 
-Select2 - jQuery based replacement for select boxes.
+* Select2 - jQuery based replacement for select boxes.
 Copyright (c) 2012-2017 Kevin Brown, Igor Vaynberg, and Select2 contributors
 License: The MIT License (MIT), https://github.com/select2/select2/blob/develop/LICENSE.md
 Source: https://github.com/select2/select2
@@ -54,12 +61,11 @@ Used to render fonts in typography settings
 * Responsive: /images/responsive-starter-sites.jpg GPLv3, https://www.cyberchimps.com
 * Responsive: /core/images/cc-responsive-wp-theme-logo.png GPLv3, https://www.cyberchimps.com
 * Responsive: /core/includes/customizer/controls/color/transparency-grid.png GPLv3, https://www.cyberchimps.com
-* Responsive: /screenshot.png GPLv3, https://www.cyberchimps.com
 
-== License ==
-
-Yes I know, but we have to say a few words about that.
-
-The Theme itself is nothing but 100% GPL3. See license.txt for further details. There are however some parts of this Theme which are not GPL, however they are GPL-Compatible and that's still good.
-
-See headers of JS files for further details.
+= Screenshot Licenses =
+Screenshot images are licensed under Creative Commons Zero (CC0) ( https://stocksnap.io/license )
+https://stocksnap.io/photo/female-model-KQECHSBAOC
+https://stocksnap.io/photo/woman-astronomy-J1MROX4QIN
+https://stocksnap.io/photo/people-woman-AOOC3CJARN
+https://stocksnap.io/photo/blue-denim-UMLWILXWPK
+https://stocksnap.io/photo/red-heels-OTIRIRP4UR
