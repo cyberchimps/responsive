@@ -213,7 +213,7 @@ function responsive_get_starter_content() {
 						'<!-- wp:spacer -->',
 						'<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>',
 						'<!-- /wp:spacer -->',
-						'<!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->',
+						'<!-- wp:paragraph {"align":"center","placeholder":"Write title","fontSize":"large"} -->',
 						'<p class="has-text-align-center has-large-font-size"></p>',
 						'<!-- /wp:paragraph --></div></div>',
 						'<!-- /wp:cover -->',
