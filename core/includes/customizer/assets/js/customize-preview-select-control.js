@@ -295,7 +295,6 @@
 
                     function isTablet(x) {
                         if (x.matches) { // If media query matches
-                            alert('here');
                             $('.page.responsive-site-style-content-boxed .hentry .thumbnail,.page.responsive-site-style-boxed .hentry .thumbnail').css( {'margin-left': '-' + box_tablet_padding_left + 'px', 'margin-right': '-' + box_tablet_padding_right + 'px'} );
                             $('.page.responsive-site-style-boxed .hentry .post-entry > .thumbnail:first-child,.page.responsive-site-style-content-boxed .hentry .post-entry > .thumbnail:first-child').css('margin-top', '-' + box_tablet_padding_top + 'px')
                         }
