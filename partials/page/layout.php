@@ -49,11 +49,10 @@ Responsive\responsive_entry_before();
 			?>
 		</div><!-- end of .post-entry -->
 
-		<div class="post-data">
-			<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-		</div><!-- end of .post-data -->
-		<?php edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) ); ?>
-		<?php Responsive\responsive_entry_bottom(); ?>
+		<?php
+			edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) );
+			Responsive\responsive_entry_bottom();
+		?>
 	</article><!-- end of #post-<?php the_ID(); ?> -->
 <?php
 Responsive\responsive_entry_after();

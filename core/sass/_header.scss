@@ -272,11 +272,7 @@
         &.site-header-full-width-main-navigation .main-navigation {
             border-top: 1px solid map-get( $colors, light-gray );
         }
-        .main-navigation {
-            @media ( max-width: map-get( $screens, xxxl ) ) {
-                border-top: 1px solid map-get( $colors, light-gray );
-            }
-        }
+
         &.site-header-site-branding-main-navigation:not(.responsive-site-full-width):not(.header-full-width):not(.site-header-full-width-main-navigation) .main-navigation div {
             @media ( min-width: map-get( $screens, xxxl ) ) {
                 border-top: 1px solid map-get( $colors, light-gray );
@@ -295,12 +291,7 @@
             border-bottom: 1px solid map-get( $colors, light-gray );
             border-top: 0;
         }
-        .main-navigation {
-            @media ( max-width: map-get( $screens, xxxl ) ) {
-                border-bottom: 1px solid map-get( $colors, light-gray );
-                border-top: 0;
-            }
-        }
+
         &.site-header-main-navigation-site-branding:not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
             @media ( min-width: map-get( $screens, xxxl ) ) {
                 border-bottom: 1px solid map-get( $colors, light-gray );
@@ -421,6 +412,7 @@
             @extend .col-xs-12;
             width: auto;
             align-items: center;
+            margin: auto 0;
         }
     }
 
@@ -434,6 +426,9 @@
             flex-direction: row;
         }
 
+        @media screen and ( max-width: map-get( $screens, md ) ) {
+            width: 100%;
+        }
     }
 }
 
@@ -441,11 +436,19 @@
     .site-branding .site-branding-wrapper {
         width: 50%;
         float: left;
+
+        @media screen and ( max-width: map-get( $screens, md ) ) {
+            width: 100%;
+        }
     }
 
     &.site-header-alignment-right .site-branding {
         display: flex;
         flex-direction: row-reverse;
+
+        @media screen and ( max-width: map-get( $screens, md ) ) {
+            flex-wrap: wrap;
+        }
     }
 }
 
@@ -486,10 +489,6 @@
 
 body.mega-menu-header-menu button.menu-toggle {
 	display: none;
-}
-
-.header-widgets-wrapper form#searchform {
-	display: flex;
 }
 
 .inline-logo-site-title .site-branding-wrapper {

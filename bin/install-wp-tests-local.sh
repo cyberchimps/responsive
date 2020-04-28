@@ -5,13 +5,6 @@ if [ $# -lt 3 ]; then
 	exit 1
 fi
 
-
-sudo apt-get update && sudo apt-get install subversion
-sudo -E docker-php-ext-install mysqli
-sudo sh -c "printf '\ndeb http://ftp.us.debian.org/debian sid main\n' >> /etc/apt/sources.list"
-sudo apt-get update && sudo apt-get install mysql-client-5.7
-
-
 DB_NAME=$1
 DB_USER=$2
 DB_PASS=$3
@@ -102,27 +95,6 @@ install_wp() {
 	download https://raw.github.com/markoheijnen/wp-mysqli/master/db.php $WP_CORE_DIR/wp-content/db.php
 }
 
-setup_wp() {
-	wp config create \
-		--dbname=wordpress \
-		--dbuser=$DB_USER \
-		--dbpass=$DB_PASS \
-		--dbhost=$DB_HOST \
-		--skip-check \
-		--path=$WP_CORE_DIR
-
-	wp db create --path=$WP_CORE_DIR
-	wp core install \
-		--url=http://responsive.test \
-		--title="WordPress Site" \
-		--admin_user=admin \
-		--admin_password=password \
-		--admin_email=developer@cyberchimps.com \
-		--skip-email \
-		--path=$WP_CORE_DIR
-}
-
-
 install_test_suite() {
 	# portable in-place argument for both GNU sed and Mac OSX sed
 	if [[ $(uname -s) == 'Darwin' ]]; then
@@ -136,9 +108,7 @@ install_test_suite() {
 		# set up testing suite
 		mkdir -p $WP_TESTS_DIR
 		svn co --quiet https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/includes/ $WP_TESTS_DIR/includes
-		set +e
 		svn co --quiet https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/data/ $WP_TESTS_DIR/data
-		set -e
 	fi
 
 	if [ ! -f wp-tests-config.php ]; then
@@ -177,26 +147,9 @@ install_db() {
 	fi
 
 	# create database
-	mysqladmin create $DB_NAME --user="$DB_USER" --password="$DB_PASS"$EXTRA
+	mysqladmin create $DB_NAME --user="$DB_USER" --password="$DB_PASS"
 }
 
 install_wp
-setup_wp
 install_test_suite
 install_db
-
-if [ "$CIRCLE_JOB" == 'theme-check' ]; then
-	php -d memory_limit=1024M "$(which wp)" package install anhskohbo/wp-cli-themecheck
-	wp plugin install theme-check --activate --path=$WP_CORE_DIR
-fi
-
-export INSTALL_PATH=$WP_CORE_DIR/wp-content/themes/responsive
-mkdir -p $INSTALL_PATH
-
-
-if [ "$CIRCLE_JOB" == 'unit-tests' ]; then
-	# Unit test job, copy entire directory including config files
-	rsync -av --delete ~/project/. $INSTALL_PATH/
-else
-	rsync -av --delete ~/project/. $INSTALL_PATH/
-fi
