@@ -54,6 +54,12 @@ if ( ! class_exists( 'Responsive_Header_Typography_Customizer' ) ) :
 			$site_tagline_separator_label = esc_html__( 'Site Tagline', 'responsive' );
 			responsive_separator_control( $wp_customize, 'header_site_tagline_separator', $site_tagline_separator_label, 'responsive_header_typography', 2 );
 
+			/**
+			 * Header Widgets.
+			 */
+			$header_widgets_separator_label = esc_html__( 'Header Widgets', 'responsive' );
+			responsive_separator_control( $wp_customize, 'header_widgets_separator', $header_widgets_separator_label, 'responsive_header_typography', 4 );
+
 		}
 
 

@@ -26,6 +26,19 @@ $cyberchimps_link   = '';
 
 	} else {
 		?>
-			<a href= "<?php echo esc_url( 'https://cyberchimps.com/' ); ?>"> <?php echo esc_html__( ' | Powered by Responsive Theme', 'responsive' ); ?></a>
-	<?php } ?>
+		<a href= "
+		<?php
+		echo apply_filters(
+			'responsive_theme_footer_link',
+			esc_url( 'https://cyberchimps.com/' )
+		);
+		?>
+			">
+			<?php
+			echo apply_filters(
+				'responsive_theme_footer_link_text',
+				esc_html__( ' | Powered by Responsive Theme', 'responsive' )
+			)
+			?>
+			</a>	<?php } ?>
 </div>

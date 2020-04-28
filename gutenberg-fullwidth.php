@@ -53,12 +53,9 @@ Responsive\responsive_wrapper_top(); // before wrapper content hook.
 								?>
 							</div><!-- end of .post-entry -->
 
-							<div class="post-data">
-								<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-							</div><!-- end of .post-data -->
 							<?php
-							edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) );
-							Responsive\responsive_entry_bottom();
+								edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) );
+								Responsive\responsive_entry_bottom();
 							?>
 						</div><!-- end of #post-<?php the_ID(); ?> -->
 						<?php

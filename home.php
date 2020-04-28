@@ -63,7 +63,13 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 								</nav>
 								<?php
 								else :
-									get_template_part( 'loop-nav', get_post_type() );
+									the_posts_pagination(
+										array(
+											'mid_size'  => 2,
+											'prev_text' => __( 'Previous', 'responsive' ),
+											'next_text' => __( 'Next', 'responsive' ),
+										)
+									);
 								endif;
 					endif;
 						else :

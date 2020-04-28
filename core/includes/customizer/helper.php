@@ -1196,7 +1196,7 @@ function responsive_not_active_site_style_flat() {
 function responsive_active_breadcrumb() {
 
 	$responsive_options = get_option( 'responsive_theme_options' );
-	return ( 0 === $responsive_options['breadcrumb'] ) ? true : false;
+	return ( $responsive_options['breadcrumb'] ) ? false : true;
 
 }
 /**

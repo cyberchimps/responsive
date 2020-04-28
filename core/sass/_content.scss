@@ -145,7 +145,7 @@
 
             &:last-child {
                 &::after {
-                    content: '' !important;
+                    content: none !important;
                 }
             }
 
@@ -479,6 +479,7 @@
         @media screen and (min-width: map-get( $screens, sm ) ) {
             display: inline-block;
 
+            .page-numbers,
             a {
                 margin: 0 $base-line-height-px / 2;
 
@@ -489,9 +490,11 @@
                     float: left;
                 }
 
-                &:first-child,
+                &:first-child {
+                    margin-left: 0;
+                }
                 &:last-child {
-                    margin: 0;
+                    margin-right: 0;
                 }
             }
         }
