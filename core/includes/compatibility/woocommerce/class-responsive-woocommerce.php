@@ -64,6 +64,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_custom_scripts' ) );
 
+			add_action( 'wp_enqueue_scripts', array( $this, 'responsive_disable_woocommerce_cart_fragments' ), 11 );
+
 			add_filter( 'body_class', array( $this, 'add_body_class' ) );
 
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
@@ -96,6 +98,17 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-layout-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-checkout-customizer.php';
+		}
+
+		/**
+		 *  Responsive_disable_woocommerce_cart_fragments Disable WooCommerce Ajax.
+		 *
+		 * @return void [description]
+		 */
+		public function responsive_disable_woocommerce_cart_fragments() {
+			if ( get_theme_mod( 'responsive_disable_cart_fragments' ) ) {
+				wp_dequeue_script( 'wc-cart-fragments' );
+			}
 		}
 
 		/**
