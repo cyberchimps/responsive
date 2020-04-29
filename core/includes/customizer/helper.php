@@ -1017,6 +1017,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
  * @param  integer $priority     [description].
  * @param  integer $default     [description].
  * @param  bool    $active_call     [description].
+ * @param  string  $desc     [description].
  * @return void               [description].
  */
 function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '' ) {
@@ -1199,6 +1200,328 @@ function responsive_active_breadcrumb() {
 	return ( $responsive_options['breadcrumb'] ) ? false : true;
 
 }
+
+/**
+ * Returns the default design style
+ *
+ * @return string
+ */
+function responsive_get_default_design_style() {
+
+	/**
+	 * Filters the default design style.
+	 *
+	 * @since 0.1.0
+	 *
+	 * @param array $default_design_style The slug of the default design style.
+	 */
+	return (string) apply_filters( 'responsive_default_design_style', 'traditional' );
+
+}
+
+/**
+ * Sanitize a radio field setting from the customizer.
+ *
+ * @param string $value   The radio field value being saved.
+ * @param string $setting The name of the setting being saved.
+ *
+ * @return string
+ */
+function sanitize_radio( $value, $setting ) {
+
+	$input = sanitize_title( $value );
+
+	$choices = $setting->manager->get_control( $setting->id . '_control' )->choices;
+
+	return array_key_exists( $input, $choices ) ? $input : $setting->default;
+
+}
+
+/**
+ * Returns the default color scheme
+ *
+ * @return string
+ */
+function responsive_get_default_color_scheme() {
+	/**
+	 * Filters the default color scheme.
+	 *
+	 * @param array $default_color_scheme The slug of the default color scheme.
+	 */
+	return (string) apply_filters( 'responsive_default_color_scheme', 'default' );
+
+}
+
+/**
+ * Returns the avaliable design styles.
+ *
+ * @return array
+ */
+function responsive_get_available_design_styles() {
+
+		$default_design_styles = array(
+			'playful'     => array(
+				'slug'          => 'playful',
+				'label'         => _x( 'Playful', 'design style name', 'responsive' ),
+				'color_schemes' => array(
+					'default' => array(
+						'label'             => _x( 'Default', 'color palette name', 'responsive' ),
+						'accent'            => '#0066CC',
+						'text'              => '#333333',
+						'background'        => '#ffffff',
+						'alt_background'    => '#eaeaea',
+						'header_background' => '#ffffff',
+						'header_text'       => '#999999',
+						'footer_background' => '#333333',
+					),
+					'one'     => array(
+						'label'             => _x( 'Frolic', 'color palette name', 'responsive' ),
+						'accent'            => '#3f46ae',
+						'text'              => '#ecb43d',
+						'alt_background'    => '#f7fbff',
+						'background'        => '#ffffff',
+						'header_background' => '#3f46ae',
+						'header_text'       => '#fafafa',
+						'footer_text'       => '#fafafa',
+						'footer_background' => '#3f46ae',
+					),
+					'two'     => array(
+						'label'             => _x( 'Coral', 'color palette name', 'responsive' ),
+						'accent'            => '#e06b6d',
+						'text'              => '#40896e',
+						'alt_background'    => '#fff7f7',
+						'background'        => '#ffffff',
+						'header_background' => '#eb616a',
+						'header_text'       => '#fafafa',
+						'footer_text'       => '#fafafa',
+						'footer_background' => '#eb616a',
+					),
+					'three'   => array(
+						'label'             => _x( 'Organic', 'color palette name', 'responsive' ),
+						'accent'            => '#3c896d',
+						'text'              => '#6b0369',
+						'alt_background'    => '#f2f9f7',
+						'background'        => '#ffffff',
+						'header_background' => '#3c896d',
+						'header_text'       => '#fafafa',
+						'footer_text'       => '#fafafa',
+						'footer_background' => '#3c896d',
+					),
+					'four'    => array(
+						'label'             => _x( 'Berry', 'color palette name', 'responsive' ),
+						'accent'            => '#117495',
+						'text'              => '#d691c1',
+						'alt_background'    => '#f7feff',
+						'background'        => '#ffffff',
+						'header_background' => '#117495',
+						'header_text'       => '#fafafa',
+						'footer_text'       => '#fafafa',
+						'footer_background' => '#117495',
+					),
+				),
+			),
+
+			'traditional' => array(
+				'slug'          => 'traditional',
+				'label'         => _x( 'Traditional', 'design style name', 'responsive' ),
+				'color_schemes' => array(
+					'one'   => array(
+						'label'          => _x( 'Apricot', 'color palette name', 'responsive' ),
+						'accent'         => '#c76919',
+						'text'           => '#122538',
+						'alt_background' => '#f8f8f8',
+						'background'     => '#ffffff',
+					),
+					'two'   => array(
+						'label'          => _x( 'Emerald', 'color palette name', 'responsive' ),
+						'accent'         => '#165153',
+						'text'           => '#212121',
+						'alt_background' => '#f3f1f0',
+						'background'     => '#ffffff',
+					),
+					'three' => array(
+						'label'          => _x( 'Brick', 'color palette name', 'responsive' ),
+						'accent'         => '#87200e',
+						'text'           => '#242611',
+						'alt_background' => '#f9f2ef',
+						'background'     => '#ffffff',
+					),
+					'four'  => array(
+						'label'          => _x( 'Bronze', 'color palette name', 'responsive' ),
+						'accent'         => '#a88548',
+						'text'           => '#05212d',
+						'alt_background' => '#f9f4ef',
+						'background'     => '#ffffff',
+					),
+				),
+			),
+
+			'modern'      => array(
+				'slug'          => 'modern',
+				'label'         => _x( 'Modern', 'design style name', 'responsive' ),
+				'color_schemes' => array(
+					'one'   => array(
+						'label'          => _x( 'Shade', 'color palette name', 'responsive' ),
+						'accent'         => '#000000',
+						'text'           => '#455a64',
+						'alt_background' => '#eceff1',
+						'background'     => '#ffffff',
+					),
+					'two'   => array(
+						'label'          => _x( 'Blush', 'color palette name', 'responsive' ),
+						'accent'         => '#c2185b',
+						'text'           => '#ec407a',
+						'alt_background' => '#fce4ec',
+						'background'     => '#ffffff',
+					),
+					'three' => array(
+						'label'          => _x( 'Indiresponsive', 'color palette name', 'responsive' ),
+						'accent'         => '#303f9f',
+						'text'           => '#5c6bc0',
+						'alt_background' => '#e8eaf6',
+						'background'     => '#ffffff',
+					),
+					'four'  => array(
+						'label'          => _x( 'Pacific', 'color palette name', 'responsive' ),
+						'accent'         => '#00796b',
+						'text'           => '#26a69a',
+						'alt_background' => '#e0f2f1',
+						'background'     => '#ffffff',
+					),
+				),
+			),
+
+			'trendy'      => array(
+				'slug'          => 'trendy',
+				'label'         => _x( 'Trendy', 'design style name', 'responsive' ),
+				'color_schemes' => array(
+					'one'   => array(
+						'label'             => _x( 'Plum', 'color palette name', 'responsive' ),
+						'accent'            => '#000000',
+						'text'              => '#4d0859',
+						'alt_background'    => '#ded9e2',
+						'background'        => '#ffffff',
+						'footer_background' => '#000000',
+						'header_background' => '#000000',
+						'header_text'       => '#ffffff',
+						'footer_text'       => '#ffffff',
+					),
+
+					'two'   => array(
+						'label'             => _x( 'Steel', 'color palette name', 'responsive' ),
+						'accent'            => '#000000',
+						'text'              => '#003c68',
+						'alt_background'    => '#c0c9d0',
+						'background'        => '#ffffff',
+						'footer_background' => '#000000',
+						'header_background' => '#000000',
+						'header_text'       => '#ffffff',
+						'footer_text'       => '#ffffff',
+					),
+					'three' => array(
+						'label'             => _x( 'Avocado', 'color palette name', 'responsive' ),
+						'accent'            => '#000000',
+						'text'              => '#02493b',
+						'alt_background'    => '#b4c6af',
+						'background'        => '#ffffff',
+						'footer_background' => '#000000',
+						'header_background' => '#000000',
+						'header_text'       => '#ffffff',
+						'footer_text'       => '#ffffff',
+					),
+					'four'  => array(
+						'label'             => _x( 'Champagne', 'color palette name', 'responsive' ),
+						'accent'            => '#000000',
+						'text'              => '#cc224f',
+						'alt_background'    => '#e5dede',
+						'background'        => '#ffffff',
+						'footer_background' => '#000000',
+						'header_background' => '#000000',
+						'header_text'       => '#ffffff',
+						'footer_text'       => '#ffffff',
+					),
+				),
+			),
+
+			'welcoming'   => array(
+				'slug'          => 'welcoming',
+				'label'         => _x( 'Welcoming', 'design style name', 'responsive' ),
+				'color_schemes' => array(
+					'one'   => array(
+						'label'             => _x( 'Forest', 'color palette name', 'responsive' ),
+						'accent'            => '#165144',
+						'text'              => '#01332e',
+						'alt_background'    => '#c9c9c9',
+						'background'        => '#eeeeee',
+						'header_background' => '#ffffff',
+					),
+					'two'   => array(
+						'label'             => _x( 'Spruce', 'color palette name', 'responsive' ),
+						'accent'            => '#233a6b',
+						'text'              => '#01133d',
+						'alt_background'    => '#c9c9c9',
+						'background'        => '#eeeeee',
+						'header_background' => '#ffffff',
+					),
+					'three' => array(
+						'label'             => _x( 'Mocha', 'color palette name', 'responsive' ),
+						'accent'            => '#5b3f20',
+						'text'              => '#3f2404',
+						'alt_background'    => '#c9c9c9',
+						'background'        => '#eeeeee',
+						'header_background' => '#ffffff',
+					),
+					'four'  => array(
+						'label'             => _x( 'Lavender', 'color palette name', 'responsive' ),
+						'accent'            => '#443a82',
+						'text'              => '#2b226b',
+						'alt_background'    => '#c9c9c9',
+						'background'        => '#eeeeee',
+						'header_background' => '#ffffff',
+					),
+				),
+			),
+		);
+
+		/**
+		 * Filters the supported design styles.
+		 *
+		 * @since 0.1.0
+		 *
+		 * @param array $design_styles Array containings the supported design styles,
+		 * where the index is the slug of design style and value an array of options that sets up the design styles.
+		 */
+		$supported_design_styles = (array) apply_filters( 'responsive_design_styles', $default_design_styles );
+
+		return $supported_design_styles;
+
+}
+
+
+/**
+ * Returns all available color schemes for all design styles
+ * in an array for use in the Customizer control.
+ *
+ * @return array
+ */
+function responsive_get_color_schemes_as_choices() {
+	$design_styles = responsive_get_available_design_styles();
+	$color_schemes = array();
+	array_walk(
+		$design_styles,
+		function( $style_data, $design_style ) use ( &$color_schemes ) {
+			array_walk(
+				$style_data['color_schemes'],
+				function( $data, $name ) use ( $design_style, &$color_schemes ) {
+					$color_schemes[ "${design_style}-${name}" ] = $data;
+				}
+			);
+		}
+	);
+
+	return $color_schemes;
+}
+
 /**
  * [responsive_number_control description]
  *

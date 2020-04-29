@@ -7,12 +7,78 @@
  */
 
 /**
+ * Returns all updated available color schemes for all design styles
+ *
+ * @return void Description.
+ */
+function responsive_get_color_palettes_schemes_as_customizer_choices() {
+
+	$responsive_color_scheme     = get_theme_mod( 'responsive_color_scheme' );
+	$responsive_color_scheme_new = get_theme_mod( 'responsive_color_scheme_new' );
+
+	if ( $responsive_color_scheme && $responsive_color_scheme !== $responsive_color_scheme_new ) {
+		set_theme_mod( 'responsive_color_scheme_new', $responsive_color_scheme );
+	} else {
+		return;
+	}
+
+	$customizer_color_schemes = explode( '-', get_theme_mod( 'responsive_color_scheme_new' ) );
+
+	$customizer_color_schemes_design  = $customizer_color_schemes[0];
+	$customizer_color_schemes_palette = $customizer_color_schemes[1];
+
+	$design_styles            = responsive_get_available_design_styles();
+	$responsive_color_schemes = $design_styles[ $customizer_color_schemes_design ]['color_schemes'][ $customizer_color_schemes_palette ];
+
+	set_theme_mod( 'background_color', ltrim( $responsive_color_schemes['alt_background'], '#' ) );
+	set_theme_mod( 'responsive_alt_background_color', $responsive_color_schemes['alt_background'] );
+	set_theme_mod( 'responsive_box_background_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_link_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_button_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_sidebar_headings_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_sidebar_background_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_body_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_meta_text_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_sidebar_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h1_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h2_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h3_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h4_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h5_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h6_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_sidebar_link_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_shop_product_rating_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_add_to_cart_button_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_add_to_cart_button_hover_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_cart_buttons_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_cart_buttons_hover_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_cart_buttons_hover_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_cart_checkout_button_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_cart_checkout_button_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_cart_checkout_button_hover_text_color', $responsive_color_schemes['background'] );
+
+	$header_background = isset( $responsive_color_schemes['header_background'] ) ? $responsive_color_schemes['header_background'] : '#ffffff';
+	$footer_background = isset( $responsive_color_schemes['footer_background'] ) ? $responsive_color_schemes['footer_background'] : '#333333';
+	$header_text       = isset( $responsive_color_schemes['header_text'] ) ? $responsive_color_schemes['header_text'] : '#333333';
+	$footer_text       = isset( $responsive_color_schemes['footer_text'] ) ? $responsive_color_schemes['footer_text'] : '#ffffff';
+
+	set_theme_mod( 'responsive_header_text_color', $header_text );
+	set_theme_mod( 'responsive_footer_text_color', $footer_text );
+	set_theme_mod( 'responsive_header_background_color', $header_background );
+	set_theme_mod( 'responsive_footer_background_color', $footer_background );
+	set_theme_mod( 'responsive_header_site_title_color', $header_text );
+	set_theme_mod( 'responsive_header_site_title_hover_color', $header_text );
+	set_theme_mod( 'responsive_header_menu_background_color', $header_background );
+	set_theme_mod( 'responsive_header_menu_link_color', $header_text );
+}
+
+/**
  * Outputs the custom styles for the theme.
  *
  * @return void
  */
 function responsive_customizer_styles() {
-
+	responsive_get_color_palettes_schemes_as_customizer_choices();
 	$custom_css = '';
 
 	// Box Padding.
@@ -231,6 +297,7 @@ function responsive_customizer_styles() {
 	body {
 		color:{$body_text_color};
 	}
+	.post-data *, .hentry .post-data a, .hentry .post-data,
 	.post-meta *, .hentry .post-meta a {
 	    color:{$meta_text_color};
 	}

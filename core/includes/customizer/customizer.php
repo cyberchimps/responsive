@@ -150,6 +150,7 @@ function responsive_customize_preview_js() {
 	wp_enqueue_script( 'responsive_theme_customizer_padding', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-padding-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_number', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-number-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_drag_number', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-drag-number-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive_theme_customizer_color_scheme', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-color-scheme-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_select', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-select-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_text', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-text-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 }
@@ -174,6 +175,7 @@ function responsive_register_options() {
 	$files = array(
 		'class-responsive-panel',
 		'class-responsive-site-layouts-customizer',
+		'class-responsive-site-color-palettes-scheme-customizer',
 		'class-responsive-site-colors-customizer',
 		'class-responsive-site-typography-customizer',
 		'class-responsive-header-layout-customizer',
@@ -224,6 +226,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/';
 
 	// Load customize control classes.
+	require_once $dir . 'palette/class-responsive-customizer-palette-control.php';
 	require_once $dir . 'color/class-responsive-customizer-color-control.php';
 	require_once $dir . 'range/class-responsive-customizer-range-control.php';
 	require_once $dir . 'slider/class-responsive-customizer-slider-control.php';
@@ -238,6 +241,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-docs.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-section-upsell.php';
 	// Register JS control types.
+	$wp_customize->register_control_type( 'Responsive_Customizer_Palette_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Color_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Range_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Slider_Control' );
