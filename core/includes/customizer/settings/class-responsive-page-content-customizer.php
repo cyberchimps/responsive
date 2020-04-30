@@ -141,15 +141,17 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			// Content Alignment.
 			$page_content_alignment_label   = esc_html__( 'Content Alignment', 'responsive' );
 			$page_content_alignment_choices = array(
-				'left'   => esc_html__( 'Left', 'responsive' ),
-				'right'  => esc_html__( 'Right', 'responsive' ),
-				'center' => esc_html__( 'center', 'responsive' ),
+				'justify' => esc_html__( 'Justify', 'responsive' ),
+				'left'    => esc_html__( 'Left', 'responsive' ),
+				'right'   => esc_html__( 'Right', 'responsive' ),
+				'center'  => esc_html__( 'Center', 'responsive' ),
 			);
 			if ( is_rtl() ) {
-				$page_content_alignment_choices = array(
-					'left'   => esc_html__( 'Right', 'responsive' ),
-					'right'  => esc_html__( 'Left', 'responsive' ),
-					'center' => esc_html__( 'center', 'responsive' ),
+				$single_blog_content_alignment_choices = array(
+					'justify' => esc_html__( 'Justify', 'responsive' ),
+					'left'    => esc_html__( 'Right', 'responsive' ),
+					'right'   => esc_html__( 'Left', 'responsive' ),
+					'center'  => esc_html__( 'Center', 'responsive' ),
 				);
 			}
 			responsive_select_control( $wp_customize, 'page_content_alignment', $page_content_alignment_label, 'responsive_page_content', 90, $page_content_alignment_choices, 'left', null );

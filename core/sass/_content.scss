@@ -278,6 +278,11 @@
                 text-align: center;
             }
         }
+        &-justify {
+            .hentry .entry-content {
+                text-align: justify;
+            }
+        }
     }
 }
 
