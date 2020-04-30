@@ -833,6 +833,9 @@ function responsive_customizer_styles() {
 		.site-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
 			top:{$header_tablet_padding_top}px;
 		}
+		.site-header-layout-horizontal.header-widget-position-with_logo .site-branding {
+			padding-right: 75px;
+		}
 	}
 	@media screen and ( max-width: 576px ) {
 		.site-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
@@ -840,6 +843,10 @@ function responsive_customizer_styles() {
 		}
 		.site-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
 			top:{$header_mobile_padding_top}px;
+		}
+
+		.site-header-layout-horizontal.header-widget-position-with_logo .site-branding {
+			padding-right: 15px;
 		}
 	}
 	.site-title a {
