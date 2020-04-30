@@ -69,6 +69,7 @@ function responsive_get_color_palettes_schemes_as_customizer_choices() {
 	set_theme_mod( 'responsive_header_site_title_color', $header_text );
 	set_theme_mod( 'responsive_header_site_title_hover_color', $header_text );
 	set_theme_mod( 'responsive_header_menu_background_color', $header_background );
+	set_theme_mod( 'responsive_header_mobile_menu_background_color', $header_background );
 	set_theme_mod( 'responsive_header_menu_link_color', $header_text );
 }
 
@@ -661,11 +662,11 @@ function responsive_customizer_styles() {
 	$header_text_color             = esc_html( get_theme_mod( 'responsive_header_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_text' ) ) );
 
 	// Menu Color.
-	$header_menu_background_color = esc_html( get_theme_mod( 'responsive_header_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
-	$header_menu_border_color     = esc_html( get_theme_mod( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
-	$header_menu_link_color       = esc_html( get_theme_mod( 'responsive_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
-	$header_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
-
+	$header_menu_background_color        = esc_html( get_theme_mod( 'responsive_header_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+	$header_mobile_menu_background_color = esc_html( get_theme_mod( 'responsive_header_mobile_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+	$header_menu_border_color            = esc_html( get_theme_mod( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
+	$header_menu_link_color              = esc_html( get_theme_mod( 'responsive_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
+	$header_menu_link_hover_color        = esc_html( get_theme_mod( 'responsive_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
 	$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
 
 	// Sub Menu Color.
@@ -863,9 +864,20 @@ function responsive_customizer_styles() {
 	.site-header-layout-vertical .main-navigation div {
 		background-color: {$trans_header_menu_background_color};
 	}
+
+	.header-full-width.site-header-layout-vertical .main-navigation.toggled,
+	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,
+	.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,
+	.site-header-layout-vertical .main-navigation.toggled div,
+	.main-navigation.toggled {
+		background-color: {$header_mobile_menu_background_color};
+	}
 	@media ( max-width: {$mobile_menu_breakpoint}px ) {
 		.site-header-layout-vertical .main-navigation {
 			background-color: {$trans_header_menu_background_color};
+		}
+		.site-header-layout-vertical .main-navigation.toggled {
+			background-color: {$header_mobile_menu_background_color};
 		}
 		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation {
 			border-top: 1px solid {$trans_header_menu_border_color};
@@ -1008,7 +1020,7 @@ function responsive_customizer_styles() {
 	if ( 'fullscreen' === $mobile_menu_style ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 			.main-navigation.toggled {
-				background-color: {$header_menu_background_color};
+				background-color: {$header_mobile_menu_background_color};
 				height: 100%;
 				left: 0;
 			    overflow-y: scroll;
@@ -1038,7 +1050,7 @@ function responsive_customizer_styles() {
 				transition-delay: 0s;
 			}
 			.mobile-menu-style-sidebar .main-navigation.toggled {
-			    background-color: {$header_menu_background_color};
+			    background-color: {$header_mobile_menu_background_color};
 				height: 100%;
 				left: 0;
 			    overflow-y: scroll;

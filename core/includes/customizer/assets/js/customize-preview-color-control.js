@@ -226,11 +226,31 @@
     api( 'responsive_header_menu_background_color', function( value ) {
         value.bind( function( newval ) {
             if( 0 == api('responsive_transparent_header').get()) {
-                $('.header-full-width.site-header-layout-vertical .main-navigation,.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,.responsive-site-full-width.site-header-layout-vertical .main-navigation,.site-header-layout-vertical .main-navigation div').css('background-color', newval);
+                $('.header-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation:not(.toggled),.responsive-site-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.site-header-layout-vertical .main-navigation:not(.toggled) div').css('background-color', newval);
 
                 function isMobile(x) {
                     if (x.matches) { // If media query matches
-                        $('.site-header-layout-vertical .main-navigation').css('background-color', newval);
+                        $('.site-header-layout-vertical .main-navigation:not(.toggled)').css('background-color', newval);
+                    }
+                }
+
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
+                isMobile(x) // Call listener function at run time
+                x.addListener(isMobile)
+            }
+        } );
+    } );
+
+    //Main Menu Colors Section
+    //Background Color
+    api( 'responsive_header_mobile_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                $('.header-full-width.site-header-layout-vertical .main-navigation.toggled,.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,.site-header-layout-vertical .main-navigation.toggled div, .main-navigation.toggled').css('background-color', newval);
+
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.site-header-layout-vertical .main-navigation.toggled').css('background-color', newval);
                     }
                 }
 
