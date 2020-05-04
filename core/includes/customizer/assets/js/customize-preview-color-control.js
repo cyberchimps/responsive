@@ -55,7 +55,9 @@
     //Update header widget background color...
     api( 'responsive_header_widget_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.header-widgets').css('background-color', newval );
+            if( 'with_logo' != api('responsive_header_widget_position').get() ) {
+                $('.header-widgets').css('background-color', newval );
+            }
         } );
     } );
 
