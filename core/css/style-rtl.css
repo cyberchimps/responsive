@@ -1342,6 +1342,7 @@ select {
   text-align: center;
   top: 24.5px;
   width: 49px;
+  z-index: 9999;
 }
 
 .main-navigation .menu-toggle-cancel {
@@ -2134,6 +2135,18 @@ article.product .post-meta > span .avatar {
 .blog.content-alignment-center .hentry .entry-content,
 .blog.content-alignment-center article.product .entry-content {
   text-align: center;
+}
+
+.page.content-alignment-justify .hentry .entry-content, .page.content-alignment-justify article.product .entry-content,
+.single.content-alignment-justify .hentry .entry-content,
+.single.content-alignment-justify article.product .entry-content,
+.search.content-alignment-justify .hentry .entry-content,
+.search.content-alignment-justify article.product .entry-content,
+.archive.content-alignment-justify .hentry .entry-content,
+.archive.content-alignment-justify article.product .entry-content,
+.blog.content-alignment-justify .hentry .entry-content,
+.blog.content-alignment-justify article.product .entry-content {
+  text-align: justify;
 }
 
 .single.meta-alignment-left .hentry .post-data, .single.meta-alignment-left article.product .post-data,

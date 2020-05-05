@@ -99,6 +99,7 @@
         text-align: center;
         top: $base-line-height-px * 0.875;
         width: $base-line-height-px * 1.75;
+        z-index: 9999;
 
         &-cancel {
             display: none;

@@ -55,7 +55,9 @@
     //Update header widget background color...
     api( 'responsive_header_widget_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.header-widgets').css('background-color', newval );
+            if( 'with_logo' != api('responsive_header_widget_position').get() ) {
+                $('.header-widgets').css('background-color', newval );
+            }
         } );
     } );
 
@@ -84,7 +86,12 @@
     //Box Background Color
     api( 'responsive_box_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry,.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed aside#secondary .widget-wrapper,.responsive-site-style-boxed .site-content article.product,.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,.woocommerce.responsive-site-style-content-boxed .products-wrapper,.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,.woocommerce-page.responsive-site-style-boxed ul.products li.product,.woocommerce.responsive-site-style-boxed ul.products li.product,.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,.woocommerce.single-product:not(.responsive-site-style-flat) div.product').css('background-color', newval );
+            $('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry,.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .site-content article.product,.woocommerce.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .related-product-wrapper,.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,.woocommerce.responsive-site-style-content-boxed .products-wrapper,.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,.woocommerce-page.responsive-site-style-boxed ul.products li.product,.woocommerce.responsive-site-style-boxed ul.products li.product,.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,.woocommerce.single-product:not(.responsive-site-style-flat) div.product').css('background-color', newval );
+
+            if( ! api('responsive_sidebar_background_color').get() ) {
+                $('.responsive-site-style-boxed aside#secondary .widget-wrapper').css('background-color', newval );
+            }
+
         } );
     } );
 
@@ -226,11 +233,31 @@
     api( 'responsive_header_menu_background_color', function( value ) {
         value.bind( function( newval ) {
             if( 0 == api('responsive_transparent_header').get()) {
-                $('.header-full-width.site-header-layout-vertical .main-navigation,.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,.responsive-site-full-width.site-header-layout-vertical .main-navigation,.site-header-layout-vertical .main-navigation div').css('background-color', newval);
+                $('.header-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation:not(.toggled),.responsive-site-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.site-header-layout-vertical .main-navigation:not(.toggled) div').css('background-color', newval);
 
                 function isMobile(x) {
                     if (x.matches) { // If media query matches
-                        $('.site-header-layout-vertical .main-navigation').css('background-color', newval);
+                        $('.site-header-layout-vertical .main-navigation:not(.toggled)').css('background-color', newval);
+                    }
+                }
+
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
+                isMobile(x) // Call listener function at run time
+                x.addListener(isMobile)
+            }
+        } );
+    } );
+
+    //Main Menu Colors Section
+    //Background Color
+    api( 'responsive_header_mobile_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                $('.header-full-width.site-header-layout-vertical .main-navigation.toggled,.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,.site-header-layout-vertical .main-navigation.toggled div, .main-navigation.toggled').css('background-color', newval);
+
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.site-header-layout-vertical .main-navigation.toggled').css('background-color', newval);
                     }
                 }
 

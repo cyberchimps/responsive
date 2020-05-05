@@ -7,12 +7,79 @@
  */
 
 /**
+ * Returns all updated available color schemes for all design styles
+ *
+ * @return void Description.
+ */
+function responsive_get_color_palettes_schemes_as_customizer_choices() {
+
+	$responsive_color_scheme     = get_theme_mod( 'responsive_color_scheme' );
+	$responsive_color_scheme_new = get_theme_mod( 'responsive_color_scheme_new' );
+
+	if ( $responsive_color_scheme && $responsive_color_scheme !== $responsive_color_scheme_new ) {
+		set_theme_mod( 'responsive_color_scheme_new', $responsive_color_scheme );
+	} else {
+		return;
+	}
+
+	$customizer_color_schemes = explode( '-', get_theme_mod( 'responsive_color_scheme_new' ) );
+
+	$customizer_color_schemes_design  = $customizer_color_schemes[0];
+	$customizer_color_schemes_palette = $customizer_color_schemes[1];
+
+	$design_styles            = responsive_get_available_design_styles();
+	$responsive_color_schemes = $design_styles[ $customizer_color_schemes_design ]['color_schemes'][ $customizer_color_schemes_palette ];
+
+	set_theme_mod( 'background_color', ltrim( $responsive_color_schemes['alt_background'], '#' ) );
+	set_theme_mod( 'responsive_alt_background_color', $responsive_color_schemes['alt_background'] );
+	set_theme_mod( 'responsive_box_background_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_link_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_button_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_sidebar_headings_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_sidebar_background_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_body_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_meta_text_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_sidebar_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h1_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h2_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h3_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h4_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h5_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_h6_text_color', $responsive_color_schemes['text'] );
+	set_theme_mod( 'responsive_sidebar_link_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_shop_product_rating_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_add_to_cart_button_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_add_to_cart_button_hover_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_cart_buttons_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_cart_buttons_hover_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_cart_buttons_hover_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_cart_checkout_button_color', $responsive_color_schemes['accent'] );
+	set_theme_mod( 'responsive_cart_checkout_button_text_color', $responsive_color_schemes['background'] );
+	set_theme_mod( 'responsive_cart_checkout_button_hover_text_color', $responsive_color_schemes['background'] );
+
+	$header_background = isset( $responsive_color_schemes['header_background'] ) ? $responsive_color_schemes['header_background'] : '#ffffff';
+	$footer_background = isset( $responsive_color_schemes['footer_background'] ) ? $responsive_color_schemes['footer_background'] : '#333333';
+	$header_text       = isset( $responsive_color_schemes['header_text'] ) ? $responsive_color_schemes['header_text'] : '#333333';
+	$footer_text       = isset( $responsive_color_schemes['footer_text'] ) ? $responsive_color_schemes['footer_text'] : '#ffffff';
+
+	set_theme_mod( 'responsive_header_text_color', $header_text );
+	set_theme_mod( 'responsive_footer_text_color', $footer_text );
+	set_theme_mod( 'responsive_header_background_color', $header_background );
+	set_theme_mod( 'responsive_footer_background_color', $footer_background );
+	set_theme_mod( 'responsive_header_site_title_color', $header_text );
+	set_theme_mod( 'responsive_header_site_title_hover_color', $header_text );
+	set_theme_mod( 'responsive_header_menu_background_color', $header_background );
+	set_theme_mod( 'responsive_header_mobile_menu_background_color', $header_background );
+	set_theme_mod( 'responsive_header_menu_link_color', $header_text );
+}
+
+/**
  * Outputs the custom styles for the theme.
  *
  * @return void
  */
 function responsive_customizer_styles() {
-
+	responsive_get_color_palettes_schemes_as_customizer_choices();
 	$custom_css = '';
 
 	// Box Padding.
@@ -231,6 +298,7 @@ function responsive_customizer_styles() {
 	body {
 		color:{$body_text_color};
 	}
+	.post-data *, .hentry .post-data a, .hentry .post-data,
 	.post-meta *, .hentry .post-meta a {
 	    color:{$meta_text_color};
 	}
@@ -333,9 +401,9 @@ function responsive_customizer_styles() {
 	button,
 	.button,
 	.wp-block-button__link,
-	div.wpforms-container-full .wpforms-form input[type=submit],
+	body div.wpforms-container-full .wpforms-form input[type=submit],
 	body div.wpforms-container-full .wpforms-form button[type=submit],
-	div.wpforms-container-full .wpforms-form .wpforms-page-button {
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button {
 		background-color:' . $button_color . ';
 		border: ' . $buttons_border_width . 'px solid ' . $button_border_color . ';
 		border-radius:' . $buttons_radius . 'px;
@@ -352,9 +420,9 @@ function responsive_customizer_styles() {
 		input[type=submit],
 		button,
 		.button,
-		div.wpforms-container-full .wpforms-form input[type=submit],
-		div.wpforms-container-full .wpforms-form button[type=submit],
-		div.wpforms-container-full .wpforms-form .wpforms-page-button {
+		body div.wpforms-container-full .wpforms-form input[type=submit],
+		body div.wpforms-container-full .wpforms-form button[type=submit],
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button {
 			padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
 		}
 	}
@@ -369,9 +437,9 @@ function responsive_customizer_styles() {
 		input[type=submit],
 		button,
 		.button,
-		div.wpforms-container-full .wpforms-form input[type=submit],
-		div.wpforms-container-full .wpforms-form button[type=submit],
-		div.wpforms-container-full .wpforms-form .wpforms-page-button {
+		body div.wpforms-container-full .wpforms-form input[type=submit],
+		body div.wpforms-container-full .wpforms-form button[type=submit],
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button {
 			padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 		}
 	}
@@ -403,15 +471,15 @@ function responsive_customizer_styles() {
 	button:focus,
 	.button:hover,
 	.button:focus,
-	div.wpforms-container-full .wpforms-form input[type=submit]:hover,
-	div.wpforms-container-full .wpforms-form input[type=submit]:focus,
-	div.wpforms-container-full .wpforms-form input[type=submit]:active,
-	div.wpforms-container-full .wpforms-form button[type=submit]:hover,
-	div.wpforms-container-full .wpforms-form button[type=submit]:focus,
-	div.wpforms-container-full .wpforms-form button[type=submit]:active,
-	div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,
-	div.wpforms-container-full .wpforms-form .wpforms-page-button:active,
-	div.wpforms-container-full .wpforms-form .wpforms-page-button:focus {
+	body div.wpforms-container-full .wpforms-form input[type=submit]:hover,
+	body div.wpforms-container-full .wpforms-form input[type=submit]:focus,
+	body div.wpforms-container-full .wpforms-form input[type=submit]:active,
+	body div.wpforms-container-full .wpforms-form button[type=submit]:hover,
+	body div.wpforms-container-full .wpforms-form button[type=submit]:focus,
+	body div.wpforms-container-full .wpforms-form button[type=submit]:active,
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button:active,
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button:focus {
 	    color:' . $button_hover_text_color . ';
 		border: ' . $buttons_border_width . 'px solid ' . $button_hover_border_color . ';
 		background-color:' . $button_hover_color . ';
@@ -433,22 +501,22 @@ function responsive_customizer_styles() {
 	input[type=time],
 	input[type=url],
 	input[type=week],
-	div.wpforms-container-full .wpforms-form input[type=date],
-	div.wpforms-container-full .wpforms-form input[type=datetime],
-	div.wpforms-container-full .wpforms-form input[type=datetime-local],
+	body div.wpforms-container-full .wpforms-form input[type=date],
+	body div.wpforms-container-full .wpforms-form input[type=datetime],
+	body div.wpforms-container-full .wpforms-form input[type=datetime-local],
 	body div.wpforms-container-full .wpforms-form input[type=email],
-	div.wpforms-container-full .wpforms-form input[type=month],
-	div.wpforms-container-full .wpforms-form input[type=number],
-	div.wpforms-container-full .wpforms-form input[type=password],
-	div.wpforms-container-full .wpforms-form input[type=range],
-	div.wpforms-container-full .wpforms-form input[type=search],
-	div.wpforms-container-full .wpforms-form input[type=tel],
-	div.wpforms-container-full .wpforms-form input[type=text],
-	div.wpforms-container-full .wpforms-form input[type=time],
-	div.wpforms-container-full .wpforms-form input[type=url],
-	div.wpforms-container-full .wpforms-form input[type=week],
-	div.wpforms-container-full .wpforms-form select,
-	div.wpforms-container-full .wpforms-form textarea {
+	body div.wpforms-container-full .wpforms-form input[type=month],
+	body div.wpforms-container-full .wpforms-form input[type=number],
+	body div.wpforms-container-full .wpforms-form input[type=password],
+	body div.wpforms-container-full .wpforms-form input[type=range],
+	body div.wpforms-container-full .wpforms-form input[type=search],
+	body div.wpforms-container-full .wpforms-form input[type=tel],
+	body div.wpforms-container-full .wpforms-form input[type=text],
+	body div.wpforms-container-full .wpforms-form input[type=time],
+	body div.wpforms-container-full .wpforms-form input[type=url],
+	body div.wpforms-container-full .wpforms-form input[type=week],
+	body div.wpforms-container-full .wpforms-form select,
+	body div.wpforms-container-full .wpforms-form textarea {
 		color: ' . $inputs_text_color . ';
 		background-color: ' . $inputs_background_color . ';
 		border: ' . $inputs_border_width . 'px solid ' . $inputs_border_color . ';
@@ -457,18 +525,18 @@ function responsive_customizer_styles() {
 		padding: ' . responsive_spacing_css( $inputs_padding_top, $inputs_padding_right, $inputs_padding_bottom, $inputs_padding_left ) . ';
 		height: auto;
 	}
-	div.wpforms-container-full .wpforms-form select,
+	body div.wpforms-container-full .wpforms-form select,
 	select {
 		background-image:
 			linear-gradient(45deg, transparent 50%, ' . $inputs_text_color . ' 50%),
 			linear-gradient(135deg, ' . $inputs_text_color . ' 50%, transparent 50%);
 	}
-	div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,
-	div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,
-	div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,
-	div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,
-	div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,
-	div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid {
+	body div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,
+	body div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,
+	body div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,
+	body div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,
+	body div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,
+	body div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid {
 		border-width: ' . $inputs_border_width . 'px;
 	}
 	@media screen and ( max-width: 992px ) {
@@ -488,22 +556,22 @@ function responsive_customizer_styles() {
 		input[type=time],
 		input[type=url],
 		input[type=week],
-		div.wpforms-container-full .wpforms-form input[type=date],
-		div.wpforms-container-full .wpforms-form input[type=datetime],
-		div.wpforms-container-full .wpforms-form input[type=datetime-local],
-		div.wpforms-container-full .wpforms-form input[type=email],
-		div.wpforms-container-full .wpforms-form input[type=month],
-		div.wpforms-container-full .wpforms-form input[type=number],
-		div.wpforms-container-full .wpforms-form input[type=password],
-		div.wpforms-container-full .wpforms-form input[type=range],
-		div.wpforms-container-full .wpforms-form input[type=search],
-		div.wpforms-container-full .wpforms-form input[type=tel],
-		div.wpforms-container-full .wpforms-form input[type=text],
-		div.wpforms-container-full .wpforms-form input[type=time],
-		div.wpforms-container-full .wpforms-form input[type=url],
-		div.wpforms-container-full .wpforms-form input[type=week],
-		div.wpforms-container-full .wpforms-form select,
-		div.wpforms-container-full .wpforms-form textarea {
+		body div.wpforms-container-full .wpforms-form input[type=date],
+		body div.wpforms-container-full .wpforms-form input[type=datetime],
+		body div.wpforms-container-full .wpforms-form input[type=datetime-local],
+		body div.wpforms-container-full .wpforms-form input[type=email],
+		body div.wpforms-container-full .wpforms-form input[type=month],
+		body div.wpforms-container-full .wpforms-form input[type=number],
+		body div.wpforms-container-full .wpforms-form input[type=password],
+		body div.wpforms-container-full .wpforms-form input[type=range],
+		body div.wpforms-container-full .wpforms-form input[type=search],
+		body div.wpforms-container-full .wpforms-form input[type=tel],
+		body div.wpforms-container-full .wpforms-form input[type=text],
+		body div.wpforms-container-full .wpforms-form input[type=time],
+		body div.wpforms-container-full .wpforms-form input[type=url],
+		body div.wpforms-container-full .wpforms-form input[type=week],
+		body div.wpforms-container-full .wpforms-form select,
+		body div.wpforms-container-full .wpforms-form textarea {
 			padding: ' . responsive_spacing_css( $inputs_tablet_padding_top, $inputs_tablet_padding_right, $inputs_tablet_padding_bottom, $inputs_tablet_padding_left ) . ';
 		}
 	}
@@ -524,22 +592,22 @@ function responsive_customizer_styles() {
 		input[type=time],
 		input[type=url],
 		input[type=week],
-		div.wpforms-container-full .wpforms-form input[type=date],
-		div.wpforms-container-full .wpforms-form input[type=datetime],
-		div.wpforms-container-full .wpforms-form input[type=datetime-local],
-		div.wpforms-container-full .wpforms-form input[type=email],
-		div.wpforms-container-full .wpforms-form input[type=month],
-		div.wpforms-container-full .wpforms-form input[type=number],
-		div.wpforms-container-full .wpforms-form input[type=password],
-		div.wpforms-container-full .wpforms-form input[type=range],
-		div.wpforms-container-full .wpforms-form input[type=search],
-		div.wpforms-container-full .wpforms-form input[type=tel],
-		div.wpforms-container-full .wpforms-form input[type=text],
-		div.wpforms-container-full .wpforms-form input[type=time],
-		div.wpforms-container-full .wpforms-form input[type=url],
-		div.wpforms-container-full .wpforms-form input[type=week],
-		div.wpforms-container-full .wpforms-form select,
-		div.wpforms-container-full .wpforms-form textarea {
+		body div.wpforms-container-full .wpforms-form input[type=date],
+		body div.wpforms-container-full .wpforms-form input[type=datetime],
+		body div.wpforms-container-full .wpforms-form input[type=datetime-local],
+		body div.wpforms-container-full .wpforms-form input[type=email],
+		body div.wpforms-container-full .wpforms-form input[type=month],
+		body div.wpforms-container-full .wpforms-form input[type=number],
+		body div.wpforms-container-full .wpforms-form input[type=password],
+		body div.wpforms-container-full .wpforms-form input[type=range],
+		body div.wpforms-container-full .wpforms-form input[type=search],
+		body div.wpforms-container-full .wpforms-form input[type=tel],
+		body div.wpforms-container-full .wpforms-form input[type=text],
+		body div.wpforms-container-full .wpforms-form input[type=time],
+		body div.wpforms-container-full .wpforms-form input[type=url],
+		body div.wpforms-container-full .wpforms-form input[type=week],
+		body div.wpforms-container-full .wpforms-form select,
+		body div.wpforms-container-full .wpforms-form textarea {
 			padding: ' . responsive_spacing_css( $inputs_mobile_padding_top, $inputs_mobile_padding_right, $inputs_mobile_padding_bottom, $inputs_mobile_padding_left ) . ';
 		}
 	}
@@ -594,11 +662,11 @@ function responsive_customizer_styles() {
 	$header_text_color             = esc_html( get_theme_mod( 'responsive_header_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_text' ) ) );
 
 	// Menu Color.
-	$header_menu_background_color = esc_html( get_theme_mod( 'responsive_header_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
-	$header_menu_border_color     = esc_html( get_theme_mod( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
-	$header_menu_link_color       = esc_html( get_theme_mod( 'responsive_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
-	$header_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
-
+	$header_menu_background_color        = esc_html( get_theme_mod( 'responsive_header_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+	$header_mobile_menu_background_color = esc_html( get_theme_mod( 'responsive_header_mobile_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+	$header_menu_border_color            = esc_html( get_theme_mod( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
+	$header_menu_link_color              = esc_html( get_theme_mod( 'responsive_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
+	$header_menu_link_hover_color        = esc_html( get_theme_mod( 'responsive_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
 	$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
 
 	// Sub Menu Color.
@@ -765,6 +833,9 @@ function responsive_customizer_styles() {
 		.site-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
 			top:{$header_tablet_padding_top}px;
 		}
+		.site-header-layout-horizontal.header-widget-position-with_logo .site-branding {
+			padding-right: 75px;
+		}
 	}
 	@media screen and ( max-width: 576px ) {
 		.site-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
@@ -772,6 +843,10 @@ function responsive_customizer_styles() {
 		}
 		.site-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
 			top:{$header_mobile_padding_top}px;
+		}
+
+		.site-header-layout-horizontal.header-widget-position-with_logo .site-branding {
+			padding-right: 15px;
 		}
 	}
 	.site-title a {
@@ -796,9 +871,20 @@ function responsive_customizer_styles() {
 	.site-header-layout-vertical .main-navigation div {
 		background-color: {$trans_header_menu_background_color};
 	}
+
+	.header-full-width.site-header-layout-vertical .main-navigation.toggled,
+	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,
+	.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,
+	.site-header-layout-vertical .main-navigation.toggled div,
+	.main-navigation.toggled {
+		background-color: {$header_mobile_menu_background_color};
+	}
 	@media ( max-width: {$mobile_menu_breakpoint}px ) {
 		.site-header-layout-vertical .main-navigation {
 			background-color: {$trans_header_menu_background_color};
+		}
+		.site-header-layout-vertical .main-navigation.toggled {
+			background-color: {$header_mobile_menu_background_color};
 		}
 		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation {
 			border-top: 1px solid {$trans_header_menu_border_color};
@@ -941,7 +1027,7 @@ function responsive_customizer_styles() {
 	if ( 'fullscreen' === $mobile_menu_style ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 			.main-navigation.toggled {
-				background-color: {$header_menu_background_color};
+				background-color: {$header_mobile_menu_background_color};
 				height: 100%;
 				left: 0;
 			    overflow-y: scroll;
@@ -971,7 +1057,7 @@ function responsive_customizer_styles() {
 				transition-delay: 0s;
 			}
 			.mobile-menu-style-sidebar .main-navigation.toggled {
-			    background-color: {$header_menu_background_color};
+			    background-color: {$header_mobile_menu_background_color};
 				height: 100%;
 				left: 0;
 			    overflow-y: scroll;

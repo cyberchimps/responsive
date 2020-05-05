@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Colors_Customizer' ) ) :
 
 			// Background Color.
 			$sidebar_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'sidebar_background', $sidebar_background_color_label, 'responsive_sidebar_colors', 20, get_theme_mod( 'responsive_box_background_color', '#ffffff' ) );
+			responsive_color_control( $wp_customize, 'sidebar_background', $sidebar_background_color_label, 'responsive_sidebar_colors', 20, get_theme_mod( 'responsive_box_background_color' ) );
 
 			// Text Color.
 			$sidebar_text_color_label = __( 'Text Color', 'responsive' );
