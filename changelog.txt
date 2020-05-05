@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/05/20) = Improvement - Version 4.3.5
+[*] = Added = Color Skins to select color scheme throughout the site
+[*] = Fixed =  Minor CSS issues
+
 (04/27/20) = Improvement - Version 4.3.4
 [*] = Added = Gutenberg blocks Compatibility
 [*] = Fixed =  Pagination on archive page
