@@ -39,9 +39,9 @@ $responsive_options = Responsive\Core\responsive_get_options();
  */
 if ( 'posts' == get_option( 'show_on_front' ) && 1 != $responsive_options['front_page'] ) { //phpcs:ignore
 	get_template_part( 'home' );
-} elseif ( 'page' === get_option( 'show_on_front' ) && 1 != $responsive_options['front_page'] ) {
+} elseif ( 'page' == get_option( 'show_on_front' ) && 1 != $responsive_options['front_page'] ) { //phpcs:ignore
 	$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
-	$template = ( 'default' === $template || '' === $template ) ? 'page.php' : $template;
+	$template = ( 'default' === $template || '' === $template || '' === locate_template( $template, true ) ) ? 'page.php' : $template;
 	locate_template( $template, true );
 } else {
 	get_header();

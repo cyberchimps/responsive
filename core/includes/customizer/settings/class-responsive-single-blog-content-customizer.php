@@ -219,15 +219,17 @@ if ( ! class_exists( 'Responsive_Single_Blog_Content_Customizer' ) ) :
 			// Content Alignment.
 			$single_blog_content_alignment_label   = esc_html__( 'Content Alignment', 'responsive' );
 			$single_blog_content_alignment_choices = array(
-				'left'   => esc_html__( 'Left', 'responsive' ),
-				'right'  => esc_html__( 'Right', 'responsive' ),
-				'center' => esc_html__( 'center', 'responsive' ),
+				'left'    => esc_html__( 'Left', 'responsive' ),
+				'right'   => esc_html__( 'Right', 'responsive' ),
+				'center'  => esc_html__( 'Center', 'responsive' ),
+				'justify' => esc_html__( 'Justify', 'responsive' ),
 			);
 			if ( is_rtl() ) {
 				$single_blog_content_alignment_choices = array(
-					'left'   => esc_html__( 'Right', 'responsive' ),
-					'right'  => esc_html__( 'Left', 'responsive' ),
-					'center' => esc_html__( 'center', 'responsive' ),
+					'justify' => esc_html__( 'Justify', 'responsive' ),
+					'left'    => esc_html__( 'Right', 'responsive' ),
+					'right'   => esc_html__( 'Left', 'responsive' ),
+					'center'  => esc_html__( 'Center', 'responsive' ),
 				);
 			}
 			responsive_select_control( $wp_customize, 'single_blog_content_alignment', $single_blog_content_alignment_label, 'responsive_single_blog_content', 130, $single_blog_content_alignment_choices, 'left', null );

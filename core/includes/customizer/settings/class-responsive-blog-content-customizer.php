@@ -228,15 +228,17 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 			// Content Alignment.
 			$blog_entry_content_alignment_label   = esc_html__( 'Content Alignment', 'responsive' );
 			$blog_entry_content_alignment_choices = array(
-				'left'   => esc_html__( 'Left', 'responsive' ),
-				'right'  => esc_html__( 'Right', 'responsive' ),
-				'center' => esc_html__( 'center', 'responsive' ),
+				'justify' => esc_html__( 'Justify', 'responsive' ),
+				'left'    => esc_html__( 'Left', 'responsive' ),
+				'right'   => esc_html__( 'Right', 'responsive' ),
+				'center'  => esc_html__( 'Center', 'responsive' ),
 			);
 			if ( is_rtl() ) {
-				$blog_entry_content_alignment_choices = array(
-					'left'   => esc_html__( 'Right', 'responsive' ),
-					'right'  => esc_html__( 'Left', 'responsive' ),
-					'center' => esc_html__( 'center', 'responsive' ),
+				$single_blog_content_alignment_choices = array(
+					'justify' => esc_html__( 'Justify', 'responsive' ),
+					'left'    => esc_html__( 'Right', 'responsive' ),
+					'right'   => esc_html__( 'Left', 'responsive' ),
+					'center'  => esc_html__( 'Center', 'responsive' ),
 				);
 			}
 			responsive_select_control( $wp_customize, 'blog_entry_content_alignment', $blog_entry_content_alignment_label, 'responsive_blog_content', 140, $blog_entry_content_alignment_choices, 'left', null );
