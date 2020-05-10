@@ -126,13 +126,13 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$disable_blog_page_transparent_header_label = __( 'Disable on Blog page?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_blog_page_transparent_header', $disable_blog_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
-			$disable_latest_posts_page_transparent_header_label = __( 'Disable on Latest Posts Page?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_latest_posts_page_transparent_header', $disable_latest_posts_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
+			$disable_homepage_transparent_header_label = __( 'Disable on Homepage?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_homepage_transparent_header', $disable_homepage_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_pages_transparent_header_label = __( 'Disable on Pages?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_pages_transparent_header', $disable_pages_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
-			$disable_posts_transparent_header_label = __( 'Disable on Posts?', 'responsive' );
+			$disable_posts_transparent_header_label = __( 'Disable on Single Posts?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_posts_transparent_header', $disable_posts_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			$disable_woo_products_transparent_header_label = __( 'Disable on WooCommerce Pages?', 'responsive' );
@@ -165,7 +165,8 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'right'        => esc_html__( 'Right', 'responsive' ),
 				'center'       => esc_html__( 'center', 'responsive' ),
 				'space-around' => esc_html__( 'Space Around', 'responsive' ),
-			);	if ( is_rtl() ) {
+			);
+			if ( is_rtl() ) {
 				$header_widget_alignment_choices = array(
 					'spread'       => esc_html__( 'Spread', 'responsive' ),
 					'left'         => esc_html__( 'Right', 'responsive' ),

@@ -16,6 +16,10 @@ input[type=checkbox] {
     width: auto;
 }
 
+input[type=image] {
+    width: fit-content;   
+}
+
 button,
 input[type=button],
 input[type=submit] {

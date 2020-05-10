@@ -795,7 +795,7 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 				$enable_trans_header = false;
 			}
 
-			if ( is_front_page() && get_theme_mod( 'responsive_disable_latest_posts_page_transparent_header', 0 ) ) {
+			if ( is_front_page() && get_theme_mod( 'responsive_disable_homepage_transparent_header', 0 ) ) {
 				$enable_trans_header = false;
 			}
 

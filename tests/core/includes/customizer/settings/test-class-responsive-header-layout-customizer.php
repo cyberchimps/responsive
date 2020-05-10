@@ -526,24 +526,24 @@ class Test_Class_Responsive_Header_Layout_Customizer extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test the disable_latest_posts_page_transparent_header settings are registered
+	 * Test the disable_homepage_transparent_header settings are registered
 	 */
-	function test_customizer_options_disable_latest_posts_page_transparent_header_setting() {
+	function test_customizer_options_disable_homepage_transparent_header_setting() {
 
 		( new Responsive_Header_Layout_Customizer() )->customizer_options( $GLOBALS['wp_customize'] );
 
-		$this->assertNotNull( $GLOBALS['wp_customize']->get_setting( 'responsive_disable_latest_posts_page_transparent_header' ) );
+		$this->assertNotNull( $GLOBALS['wp_customize']->get_setting( 'responsive_disable_homepage_transparent_header' ) );
 
 	}
 
 	/**
-	 * Test the disable_latest_posts_page_transparent_header controls are registered
+	 * Test the disable_homepage_transparent_header controls are registered
 	 */
-	function test_customizer_options_disable_latest_posts_page_transparent_header_control() {
+	function test_customizer_options_disable_homepage_transparent_header_control() {
 
 		( new Responsive_Header_Layout_Customizer() )->customizer_options( $GLOBALS['wp_customize'] );
 
-		$this->assertNotNull( $GLOBALS['wp_customize']->get_control( 'responsive_disable_latest_posts_page_transparent_header' ) );
+		$this->assertNotNull( $GLOBALS['wp_customize']->get_control( 'responsive_disable_homepage_transparent_header' ) );
 
 	}
 
