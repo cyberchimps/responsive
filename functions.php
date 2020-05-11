@@ -564,40 +564,6 @@ function responsive_admin_rate_us( $footer_text ) {
 
 add_filter( 'admin_footer_text', 'responsive_admin_rate_us' );
 
-/**
- * Include menu.
- */
-function responsive_display_menu() {
-	$position = get_theme_mod( 'menu_position', 'in_header' );
-	?>
-	<nav id="main-nav" class="main-nav" role="navigation" aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></h2>
-	<?php
-	if ( 'in_header' !== $position ) :
-		?>
-		<div class="container">
-			<div class="row">
-		<?php
-	endif;
-
-	wp_nav_menu(
-		array(
-			'menu_id'        => 'header-menu',
-			'fallback_cb'    => 'Responsive\Core\\responsive_fallback_menu',
-			'theme_location' => 'header-menu',
-		)
-	);
-
-	if ( 'in_header' !== $position ) :
-		?>
-			</div>
-		</div>
-		<?php
-	endif;
-	?>
-	</nav>
-	<?php
-}
 
 if ( ! get_option( 'responsive_version_410' ) ) {
 
