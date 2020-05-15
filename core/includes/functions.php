@@ -562,6 +562,10 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
 	// Header alignment class.
 	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
+	// Mobile Header Element layout class.
+	$classes[] = 'site-mobile-header-layout-' . get_theme_mod( 'responsive_mobile_header_layout', 'horizontal' );
+	// Mobile Header alignment class.
+	$classes[] = 'site-mobile-header-alignment-' . get_theme_mod( 'responsive_mobile_header_alignment', 'center' );
 
 	if ( get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
 		// Header Widget Aligmnmnet.

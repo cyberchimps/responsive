@@ -33,6 +33,27 @@
 	);
 
 	api(
+		'responsive_mobile_header_layout',
+		function( $swipe ) {
+			$swipe.bind(
+				function( newval ) {
+					switch (newval) {
+						case 'horizontal':
+							api.control( 'responsive_mobile_header_alignment' ).toggle( false );
+							break;
+						/**
+						 * The select was switched to »show«.
+						 */
+						case 'vertical':
+							api.control( 'responsive_mobile_header_alignment' ).toggle( true );
+							break;
+					}
+				}
+			);
+		}
+	);
+
+	api(
 		'responsive_width',
 		function( $swipe ) {
 			$swipe.bind(

@@ -102,6 +102,14 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			}
 			responsive_select_control( $wp_customize, 'header_alignment', $header_alignment_label, 'responsive_header_layout', 30, $header_alignment_choices, 'center', 'responsive_active_vertical_header', 'postMessage' );
 
+			// Mobile Header Layout.
+			$mobile_header_layout_label = esc_html__( 'Mobile Header Layout', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_header_layout', $mobile_header_layout_label, 'responsive_header_layout', 30, $header_layout_choices, get_theme_mod( 'responsive_header_layout', 'horizontal' ), null, 'postMessage' );
+
+			// Mobile Header Alignment.
+			$mobile_header_alignment_label = esc_html__( 'Mobile Header Alignment', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_header_alignment', $mobile_header_alignment_label, 'responsive_header_layout', 35, $header_alignment_choices, get_theme_mod( 'responsive_header_alignment', 'center' ), 'responsive_active_mobile_vertical_header', 'postMessage' );
+
 			// Logo Padding.
 			$logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ), 0, null, $logo_padding_label );
