@@ -67,7 +67,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 
 			// Custom Home Section.
 			$custom_home_page_section_label = esc_html__( 'Custom Home Page', 'responsive' );
-			responsive_separator_control( $wp_customize, 'custom_home_page_section_separtor', $custom_home_page_section_label, 'static_front_page', 10 );
+			responsive_separator_control( $wp_customize, 'responsive_custom_home_page_section_separator', $custom_home_page_section_label, 'static_front_page', 10 );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[front_page]',
