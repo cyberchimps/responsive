@@ -46,6 +46,10 @@ function setup() {
 	add_filter( 'body_class', $n( 'responsive_add_class' ) );
 	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ) );
 
+	if ( responsive_is_transparent_header() && get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) ) {
+		add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
+	}
+
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
 		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
 	}
@@ -821,6 +825,43 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 		return $enable_trans_header;
 	}
 }
+
+
+/**
+ * [responsive_transparent_custom_logo description]
+ *
+ * @param  [type] $html [description].
+ * @return [type]       [description]
+ */
+function responsive_transparent_custom_logo( $html ) {
+
+	$responsive_transparent_logo_option = get_theme_mod( 'responsive_transparent_header_logo_option', 0 );
+	$responsive_transparent_logo        = get_theme_mod( 'responsive_transparent_header_logo' );
+
+	if ( $responsive_transparent_logo_option && $responsive_transparent_logo && responsive_is_transparent_header() ) {
+
+		/* Replace transparent header logo and width */
+
+		$html = sprintf(
+			'<a href="%1$s" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url">%2$s</a>',
+			esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ),
+			wp_get_attachment_image(
+				$responsive_transparent_logo,
+				'full',
+				false,
+				array(
+					'alt'      => get_bloginfo( 'name' ),
+					'class'    => 'custom-logo',
+					'itemprop' => 'logo',
+					'size'     => '(max-width: 204px) 100vw, 204px',
+				)
+			)
+		);
+	}
+
+	return $html;
+}
+
 /**
  * Function returns the default color for the color controls.
  *
