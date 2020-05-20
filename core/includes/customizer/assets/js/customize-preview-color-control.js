@@ -44,6 +44,35 @@
         } );
     } );
 
+    // Transparent Header
+    //Update header border color...
+    api( 'responsive_transparent_header_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .site-header').css('border-bottom-color', newval );
+        } );
+    } );
+
+    //Update site title color...
+    api( 'responsive_transparent_header_site_title_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .site-title a').css('color', newval );
+        } );
+    } );
+
+    //Update site title hover color...
+    api( 'responsive_transparent_header_site_title_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .site-title a:hover').css('color', newval );
+        } );
+    } );
+
+    //Update site tagline color...
+    api( 'responsive_transparent_header_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .site-description').css('color', newval );
+        } );
+    } );
+
     //Header Widget section
     //Update header widget text background color...
     api( 'responsive_header_widget_text_color', function( value ) {
@@ -341,6 +370,122 @@
     api( 'responsive_header_menu_toggle_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu-toggle').css('color', newval );
+        } );
+    } );
+
+    //Transparent Header Main Menu Colors Section
+    //Background Color
+    api( 'responsive_transparent_header_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                $('.res-transparent-header.header-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.res-transparent-header.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation:not(.toggled),.res-transparent-header.responsive-site-full-width.site-header-layout-vertical .main-navigation:not(.toggled),.res-transparent-header.site-header-layout-vertical .main-navigation:not(.toggled) div').css('background-color', newval);
+
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.res-transparent-header .site-header-layout-vertical .main-navigation:not(.toggled)').css('background-color', newval);
+                    }
+                }
+
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
+                isMobile(x) // Call listener function at run time
+                x.addListener(isMobile)
+            }
+        } );
+    } );
+
+    //Main Menu Colors Section
+    //Background Color
+    api( 'responsive_transparent_header_mobile_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                $('.res-transparent-header.header-full-width.site-header-layout-vertical .main-navigation.toggled,.res-transparent-header.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation.toggled,.res-transparent-header.responsive-site-full-width.site-header-layout-vertical .main-navigation.toggled,.res-transparent-header.site-header-layout-vertical .main-navigation.toggled div,.res-transparent-header .main-navigation.toggled').css('background-color', newval);
+
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.res-transparent-header.site-header-layout-vertical .main-navigation.toggled').css('background-color', newval);
+                    }
+                }
+
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)")
+                isMobile(x) // Call listener function at run time
+                x.addListener(isMobile)
+            }
+            else {
+                $('.res-transparent-header .main-navigation.toggled').css('background-color', newval);
+            }
+        } );
+    } );
+
+    //Border Color
+    api( 'responsive_transparent_header_menu_border_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 0 == api('responsive_transparent_header').get()) {
+                function isMobile(x) {
+                    if (x.matches) { // If media query matches
+                        $('.res-transparent-header.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation').css('border-top', '1px solid '+newval);
+                        $('.res-transparent-header.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation) .main-navigation').css('border-bottom', '1px solid '+newval);
+                    }
+                }
+                var x = window.matchMedia("(max-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)");
+                isMobile(x); // Call listener function at run time
+                x.addListener(isMobile);
+
+                function isTablet(x) {
+                    if (x.matches) { // If media query matches
+                        $('.res-transparent-header.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.res-transparent-header.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.res-transparent-header.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div').css('border-top', '1px solid '+newval);
+                        $('.res-transparent-header.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.res-transparent-header.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,.res-transparent-header.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation div').css('border-bottom', '1px solid '+newval);
+                    }
+                }
+                var x = window.matchMedia("(min-width:" + api('responsive_mobile_menu_breakpoint').get() + "px)");
+                isTablet(x); // Call listener function at run time
+                x.addListener(isTablet);
+
+                $('.res-transparent-header.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-site-branding-main-navigation .main-navigation').css('border-top', '1px solid '+newval);
+                $('.res-transparent-header.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-main-navigation-site-branding .main-navigation').css('border-bottom', '1px solid '+newval);
+
+            }
+        } );
+    } );
+
+    //Active Menu Background Color
+    api( 'responsive_transparent_header_active_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .menu  .current_page_item > a,.res-transparent-header .main-navigation .menu  .current-menu-item > a,.res-transparent-header .main-navigation .menu  li > a:hover').css('background-color', newval );
+        } );
+    } );
+
+    //Menu Item Link Color
+    api( 'responsive_transparent_header_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .menu > li > a').css('color', newval );
+        } );
+    } );
+
+    //Sub Menu Background Color
+    api( 'responsive_transparent_header_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .children,.res-transparent-header .main-navigation .sub-menu').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Item Link Color
+    api( 'responsive_transparent_header_sub_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .children li a,.res-transparent-header .main-navigation .sub-menu li a').css('color', newval );
+        } );
+    } );
+
+    //Menu Toggle Background Color
+    api( 'responsive_transparent_header_menu_toggle_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .menu-toggle').css('background-color', newval );
+        } );
+    } );
+
+    //Menu Toggle Color
+    api( 'responsive_transparent_header_menu_toggle_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .menu-toggle').css('color', newval );
         } );
     } );
 

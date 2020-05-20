@@ -1146,6 +1146,16 @@ function responsive_active_vertical_header() {
 }
 
 /**
+ * [responsive_active_vertical_transparent_header description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_vertical_transparent_header() {
+
+	return ( 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) && responsive_is_transparent_header_enabled() ) ? true : false;
+}
+
+/**
  * [responsive_active_mobile_vertical_header description].
  *
  * @return [type] [description]
