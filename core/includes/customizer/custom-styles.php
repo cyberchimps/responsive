@@ -613,11 +613,11 @@ function responsive_customizer_styles() {
 	}
 	';
 
-	$heading_color = get_theme_mod( 'responsive_all_heading_text_color', '#333333' );
-
 	for ( $i = 1; $i < 7; $i++ ) {
+		$heading_color = get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( "h{$i}_text" ) );
+
 		$custom_css .= 'h' . $i . ' {
-		    color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", Responsive\Core\get_responsive_customizer_defaults( "h{$i}_text" ) ) ) . ';
+		    color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", $heading_color ) ) . ';
 		}';
 	}
 
