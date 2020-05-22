@@ -201,9 +201,23 @@ jobs:
   automation-test:
     docker:
       - image: circleci/php:7.3.8-apache-node-browsers
-    working_directory: ~/nightwatch-sample-for-circleci
     steps:
       - checkout
+      - run:
+          name: Update hosts
+          command: echo 127.0.0.1 responsive.test | sudo tee -a /etc/hosts
+      - run:
+          name: Update npm
+          command: sudo npm install -g npm@latest
+      - run:
+          name: Install rsync
+          command: sudo apt install rsync
+      - run:
+          name: Install gettext
+          command: sudo apt-get install gettext
+      - run:
+          name: Install Subversion
+          command: sudo apt-get install subversion
       - run:
           name: "Setup custom environment variables // its your workflow step"
           command: |
@@ -216,9 +230,6 @@ jobs:
           name: "Here is the LT_Username : "
           command: echo ${LT_USERNAME}
       - run:
-          name: Install PHP
-          command: sudo apt-get install php libapache2-mod-php php-mbstring
-      - run:
           name: Install Composer packages
           command: composer install
           working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
@@ -230,5 +241,5 @@ jobs:
           working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
       - run:
           name: Run Acceptance Test cases
-          command: php vendor/bin/codecept run acceptance
+          command: vendor/bin/codecept run acceptance
           working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
