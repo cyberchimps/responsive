@@ -8,15 +8,15 @@ actor: AcceptanceTester
 modules:
     enabled:
         - Humcommerce\PiwikMatomoTextSearch:
-            url: 'http://127.0.0.1:8082/responsive/'
+            url: 'http://responsive.test/'
             #url: 'https://qa.wpeka.com/'
-            #host: 'hellowpeka:mwkQv0Y7UbvhwCgc1NftL3E0z2TOgK6rxSNvAP5TQICjTI9rrT@hub.lambdatest.com' #provide your LambdaTest credentials
-            #port: 80
+            host: 'hellowpeka:mwkQv0Y7UbvhwCgc1NftL3E0z2TOgK6rxSNvAP5TQICjTI9rrT@hub.lambdatest.com' #provide your LambdaTest credentials
+            port: 80
             browser: chrome # 'chrome' or 'firefox'
             restart: true
             capabilities:
                 unexpectedAlertBehaviour: 'accept'
-                #build: 'Acceptance Test Demo'
+                build: 'Responsive Acceptance Test Demo'
                 #platform: 'macOS Catalina'
                 #version: 13.0
                 #chromeOptions:
