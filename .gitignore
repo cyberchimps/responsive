@@ -42,7 +42,7 @@ node_modules
 *.phar
 *.zip
 *.tar
-/vendor
+**/vendor
 chromedriver
 .idea
 node_modules/

@@ -11,6 +11,7 @@ workflows:
       - php73-phpcs # Will be deprecated on 30 Nov 2020
       - unit-tests
       - theme-check
+      - automation-test
       - deploy:
           requires:
             - php73-phpcs
@@ -197,3 +198,35 @@ jobs:
             zip -r /tmp/artifacts/responsive.zip ./responsive
       - store_artifacts:
           path: /tmp/artifacts
+  automation-test:
+    docker:
+      - image: circleci/node:7.10
+    working_directory: ~/nightwatch-sample-for-circleci
+    steps:
+      - checkout
+      - run:
+          name: "Setup custom environment variables // its your workflow step"
+          command: |
+            echo 'export LT_USERNAME="hellowpeka"' >> $BASH_ENV
+      - run:
+          name: "Setup custom environment variables"
+          command: |
+            echo 'export LT_ACCESS_KEY="mwkQv0Y7UbvhwCgc1NftL3E0z2TOgK6rxSNvAP5TQICjTI9rrT"' >> $BASH_ENV
+      - run: # Validating your above mentioned environment variables
+          name: "Here is the LT_Username : "
+          command: echo ${LT_USERNAME}
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+      - run:
+          name: Install Composer packages
+          command: composer install
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
+      - run:
+          name: Install Composer packages
+          command: vendor/bin/codecept build
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
+      # run tests!
+      - run: node_modules/.bin/nightwatch -e chrome // Executing test in bash.
