@@ -201,6 +201,7 @@ jobs:
   automation-test:
     docker:
       - image: circleci/node:7.10
+      - image: circleci/php:7.3.8-apache-node-browsers
     working_directory: ~/nightwatch-sample-for-circleci
     steps:
       - checkout
@@ -224,9 +225,13 @@ jobs:
           name: Install Composer packages
           command: composer install
           working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install Composer packages
           command: vendor/bin/codecept build
           working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
-      # run tests!
-      - run: node_modules/.bin/nightwatch -e chrome // Executing test in bash.
+      - run:
+          name: Run Acceptance Test cases
+          command: vendor/bin/codecept run acceptance
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
