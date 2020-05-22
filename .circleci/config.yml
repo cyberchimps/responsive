@@ -201,6 +201,7 @@ jobs:
   automation-test:
     docker:
       - image: circleci/php:7.3.8-apache-node-browsers
+      - image: circleci/mysql:5.7
     steps:
       - checkout
       - run:
@@ -213,11 +214,44 @@ jobs:
           name: Install rsync
           command: sudo apt install rsync
       - run:
+          name: Install Code Climate test reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+      - run:
+          name: Install WPCLI
+          command: |
+            curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+            chmod +x wp-cli.phar
+            sudo mv wp-cli.phar /usr/local/bin/wp
+      - run:
           name: Install gettext
           command: sudo apt-get install gettext
       - run:
           name: Install Subversion
           command: sudo apt-get install subversion
+      - run:
+          name: Setup WordPress site
+          command: bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
+      - run:
+          name: Install Composer packages
+          command: composer install
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install node packages
+          command: npm install
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Build the Responsive Theme
+          command: npm run build
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
       - run:
           name: "Setup custom environment variables // its your workflow step"
           command: |
@@ -232,14 +266,14 @@ jobs:
       - run:
           name: Install Composer packages
           command: composer install
-          working_directory: /tests
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Install Composer packages
           command: vendor/bin/codecept build
-          working_directory: /tests
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
       - run:
           name: Run Acceptance Test cases
           command: vendor/bin/codecept run acceptance
-          working_directory: /tests
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
