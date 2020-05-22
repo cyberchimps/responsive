@@ -200,7 +200,6 @@ jobs:
           path: /tmp/artifacts
   automation-test:
     docker:
-      - image: circleci/node:7.10
       - image: circleci/php:7.3.8-apache-node-browsers
     working_directory: ~/nightwatch-sample-for-circleci
     steps:
@@ -216,11 +215,9 @@ jobs:
       - run: # Validating your above mentioned environment variables
           name: "Here is the LT_Username : "
           command: echo ${LT_USERNAME}
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
+      - run:
+          name: Install PHP
+          command: sudo apt-get install php libapache2-mod-php php-mbstring
       - run:
           name: Install Composer packages
           command: composer install
@@ -233,5 +230,5 @@ jobs:
           working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
       - run:
           name: Run Acceptance Test cases
-          command: vendor/bin/codecept run acceptance
+          command: php vendor/bin/codecept run acceptance
           working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
