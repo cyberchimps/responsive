@@ -17,10 +17,10 @@ modules:
             capabilities:
                 unexpectedAlertBehaviour: 'accept'
                 build: 'Responsive Acceptance Test Demo'
-                platform: 'macOS Catalina'
-                version: 13.0
-                chromeOptions:
-                    args: ["--headless", "--disable-extensions","--window-size=1280,960","--disable-notifications"]
+                #platform: 'macOS Catalina'
+                #version: 13.0
+                #chromeOptions:
+                    #args: ["--headless", "--disable-extensions","--window-size=1280,960","--disable-notifications"]
                     
         - \Codeception\Module\Asserts
         - \Helper\Acceptance:
