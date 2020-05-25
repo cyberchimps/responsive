@@ -73,8 +73,8 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 						'section'         => 'responsive_header_transparent',
 						'flex-height'     => true,
 						'flex-width'      => true,
-						'height'          => 100, // pixels.
-						'width'           => 300, // pixels.
+						'height'          => 300, // pixels.
+						'width'           => 1200, // pixels.
 						'priority'        => 28,
 						'active_callback' => 'responsive_is_transparent_header_enabled',
 					)
