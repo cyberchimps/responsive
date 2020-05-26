@@ -46,6 +46,10 @@ function setup() {
 	add_filter( 'body_class', $n( 'responsive_add_class' ) );
 	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ) );
 
+	if ( responsive_is_transparent_header() && get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) ) {
+		add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
+	}
+
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
 		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
 	}
@@ -562,6 +566,10 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
 	// Header alignment class.
 	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
+	// Mobile Header Element layout class.
+	$classes[] = 'site-mobile-header-layout-' . get_theme_mod( 'responsive_mobile_header_layout', 'horizontal' );
+	// Mobile Header alignment class.
+	$classes[] = 'site-mobile-header-alignment-' . get_theme_mod( 'responsive_mobile_header_alignment', 'center' );
 
 	if ( get_theme_mod( 'responsive_enable_header_widget', 1 ) ) {
 		// Header Widget Aligmnmnet.
@@ -778,19 +786,7 @@ function responsive_add_pro_button() {
 	<?php
 }
 
-if ( ! function_exists( 'wp_body_open' ) ) {
-	/**
-	 * Fire the wp_body_open action.
-	 *
-	 * Added for backwards compatibility to support WordPress versions prior to 5.2.0.
-	 */
-	function wp_body_open() {
-		/**
-		 * Triggered after the opening <body> tag.
-		 */
-		do_action( 'wp_body_open' );
-	}
-}
+
 if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 	/**
 	 * Returns true if transparent header is enabled
@@ -807,11 +803,11 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 				$enable_trans_header = false;
 			}
 
-			if ( is_front_page() && get_theme_mod( 'responsive_disable_latest_posts_page_transparent_header', 0 ) ) {
+			if ( is_front_page() && get_theme_mod( 'responsive_disable_homepage_transparent_header', 0 ) ) {
 				$enable_trans_header = false;
 			}
 
-			if ( is_page() && get_theme_mod( 'responsive_disable_pages_transparent_header', 0 ) ) {
+			if ( ! is_front_page() && is_page() && get_theme_mod( 'responsive_disable_pages_transparent_header', 0 ) ) {
 				$enable_trans_header = false;
 			}
 
@@ -829,6 +825,43 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 		return $enable_trans_header;
 	}
 }
+
+
+/**
+ * [responsive_transparent_custom_logo description]
+ *
+ * @param  [type] $html [description].
+ * @return [type]       [description]
+ */
+function responsive_transparent_custom_logo( $html ) {
+
+	$responsive_transparent_logo_option = get_theme_mod( 'responsive_transparent_header_logo_option', 0 );
+	$responsive_transparent_logo        = get_theme_mod( 'responsive_transparent_header_logo' );
+
+	if ( $responsive_transparent_logo_option && $responsive_transparent_logo && responsive_is_transparent_header() ) {
+
+		/* Replace transparent header logo and width */
+
+		$html = sprintf(
+			'<a href="%1$s" class="custom-logo-link transparent-custom-logo" rel="home" itemprop="url">%2$s</a>',
+			esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ),
+			wp_get_attachment_image(
+				$responsive_transparent_logo,
+				'full',
+				false,
+				array(
+					'alt'      => get_bloginfo( 'name' ),
+					'class'    => 'custom-logo',
+					'itemprop' => 'logo',
+					'size'     => '(max-width: 204px) 100vw, 204px',
+				)
+			)
+		);
+	}
+
+	return $html;
+}
+
 /**
  * Function returns the default color for the color controls.
  *
@@ -864,10 +897,10 @@ function defaults() {
 			'logo_padding'                  => 28,
 			// Colors.
 			'background_color'                    => 'eaeaea',
-			'scroll_to_top_icon'                  => '#0066CC',
-			'scroll_to_top_icon_hover'            => '#0066CC',
-			'scroll_to_top_icon_background'       => '#0066CC',
-			'scroll_to_top_icon_background_hover' => '#0066CC',
+			'scroll_to_top_icon'                  => '#ffffff',
+			'scroll_to_top_icon_hover'            => '#ffffff',
+			'scroll_to_top_icon_background'       => '#a8a6a6',
+			'scroll_to_top_icon_background_hover' => '#d1cfcf',
 			'add_to_cart_button'                  => '#0066CC',
 			'shop_product_price'                  => '#333333',
 			'content_header_heading'              => '#333333',

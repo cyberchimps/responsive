@@ -14,6 +14,9 @@
  * @since Responsive 4.3.2
  * @return array a filtered array of args for the starter_content.
  */
+
+if ( ! function_exists( 'responsive_get_starter_content' ) ) {
+
 function responsive_get_starter_content() {
 
 	// Define and register starter content to showcase the theme on new sites.
@@ -263,4 +266,5 @@ function responsive_get_starter_content() {
 	 */
 	return apply_filters( 'responsive_starter_content', $starter_content );
 
+}
 }

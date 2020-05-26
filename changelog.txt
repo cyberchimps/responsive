@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/25/20) = Fix - Version 4.3.7
+[*] = Added - Option to set different colors for header and menu in transparent header
+[*] = Added - Option to hide and show copyright icon and year
+
+(05/12/20) = Fix - Version 4.3.6
+[*] = Fix - added wp_body_open action hook for backward compatibility
+
 (05/05/20) = Improvement - Version 4.3.5
 [*] = Added = Color Skins to select color scheme throughout the site
 [*] = Fixed =  Minor CSS issues

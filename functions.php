@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.3.5' );
+define( 'RESPONSIVE_THEME_VERSION', '4.3.7' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -564,40 +564,6 @@ function responsive_admin_rate_us( $footer_text ) {
 
 add_filter( 'admin_footer_text', 'responsive_admin_rate_us' );
 
-/**
- * Include menu.
- */
-function responsive_display_menu() {
-	$position = get_theme_mod( 'menu_position', 'in_header' );
-	?>
-	<nav id="main-nav" class="main-nav" role="navigation" aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></h2>
-	<?php
-	if ( 'in_header' !== $position ) :
-		?>
-		<div class="container">
-			<div class="row">
-		<?php
-	endif;
-
-	wp_nav_menu(
-		array(
-			'menu_id'        => 'header-menu',
-			'fallback_cb'    => 'Responsive\Core\\responsive_fallback_menu',
-			'theme_location' => 'header-menu',
-		)
-	);
-
-	if ( 'in_header' !== $position ) :
-		?>
-			</div>
-		</div>
-		<?php
-	endif;
-	?>
-	</nav>
-	<?php
-}
 
 if ( ! get_option( 'responsive_version_410' ) ) {
 
@@ -899,3 +865,17 @@ function responsive_header_widget_position() {
 
 }
 add_action( 'wp_head', 'responsive_header_widget_position' );
+
+if ( ! function_exists( 'wp_body_open' ) ) {
+	/**
+	 * Fire the wp_body_open action.
+	 *
+	 * Added for backwards compatibility to support WordPress versions prior to 5.2.0.
+	 */
+	function wp_body_open() {
+		/**
+		 * Triggered after the opening <body> tag.
+		 */
+		do_action( 'wp_body_open' );
+	}
+}

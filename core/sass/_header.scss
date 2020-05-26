@@ -34,8 +34,17 @@
     }
     .site-header-layout-horizontal & {
         min-width: 20%;
+    }
+
+    .site-mobile-header-layout-horizontal & {
         @media( max-width: map-get( $screens, sm ) ) {
             max-width: 250px;
+        }
+    }
+    .site-mobile-header-layout-vertical & {
+        @media( max-width: map-get( $screens, sm ) ) {
+            max-width: 100%;
+            width: 100%;
         }
     }
 
@@ -212,11 +221,6 @@
 .site-header-layout-horizontal {
     &.site-header-main-navigation-site-branding {
         .main-navigation {
-            .menu-toggle {
-                bottom: $base-line-height-px;
-                top: auto;
-            }
-
             .menu {
                 & > li {
                     @media( min-width: map-get( $screens, xxxl ) ) {
@@ -234,6 +238,15 @@
     }
 }
 
+.site-mobile-header-layout-horizontal {
+    .main-navigation {
+        .menu-toggle {
+            bottom: $base-line-height-px;
+            top: auto;
+        }
+    }
+}
+
 .site-header-layout-vertical {
     .site-header .row {
         @media( min-width: map-get( $screens, xxxl ) ) {
@@ -246,19 +259,6 @@
     }
 
     .main-navigation {
-        .menu-toggle {
-            bottom: auto;
-            position: relative;
-            right: auto;
-            text-align: left;
-            top: auto;
-            width: auto;
-
-            i {
-                padding: $grid-gutter-width / 2;
-            }
-        }
-
         .menu {
             & > li {
                 @media( min-width: map-get( $screens, xxxl ) ) {
@@ -306,63 +306,6 @@
         }
     }
 
-    &.site-header-alignment-center {
-        .site-branding {
-            text-align: center;
-        }
-
-        .main-navigation {
-            .menu-toggle {
-                text-align: center;
-                margin: auto;
-            }
-
-            .menu {
-                @media( min-width: map-get( $screens, xxxl ) ) {
-                    display: table;
-                    margin-left: auto;
-                    margin-right: auto;
-                    width: auto;
-                }
-
-                & > li {
-                    @media( min-width: map-get( $screens, xxxl ) ) {
-                        margin-left: 1px;
-                        margin-right: 1px;
-                    }
-                }
-            }
-        }
-    }
-
-    &.site-header-alignment-right {
-        .site-branding {
-            text-align: right;
-        }
-
-        .main-navigation {
-            .menu-toggle {
-                text-align: right;
-                float:right;
-            }
-
-            .menu {
-                @media( min-width: map-get( $screens, xxxl ) ) {
-                    display: table;
-                    margin-right: 0;
-                    margin-left: auto;
-                }
-
-                & > li {
-                    @media( min-width: map-get( $screens, xxxl ) ) {
-                        margin-left: 1px;
-                        margin-right: 1px;
-                    }
-                }
-            }
-        }
-    }
-
     &.site-header-full-width-main-navigation {
         .main-navigation {
             @media( min-width: map-get( $screens, xxxl ) ) {
@@ -371,6 +314,24 @@
         }
     }
 }
+
+.site-mobile-header-layout-vertical {
+    .main-navigation {
+        .menu-toggle {
+            bottom: auto;
+            position: relative;
+            right: auto;
+            text-align: left;
+            top: auto;
+            width: auto;
+
+            i {
+                padding: $grid-gutter-width / 2;
+            }
+        }
+    }
+}
+
 .sidebar-menu-overlay {
     display: none;
     position: fixed;
@@ -509,6 +470,5 @@ body.mega-menu-header-menu button.menu-toggle {
     left:0;
     right:0;
     background: none;
-    border:none;
-    z-index: 99999;
+    z-index: 99998;
 }

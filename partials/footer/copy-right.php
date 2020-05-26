@@ -13,13 +13,18 @@ $cyberchimps_link   = '';
 
 <div class="footer-layouts copyright">
 	<?php
+	if ( ! get_theme_mod( 'responsive_copyright_icon_and_year' ) ) {
+		?>
+		<span class="copyright_icon_and_year" >
+			<?php
+				esc_attr_e( ' &copy; ', 'responsive' );
+				echo esc_attr( gmdate( ' Y' ) );
+			?>
+		</span>
+		<?php
+	}
 	if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
-		esc_attr_e( ' &copy; ', 'responsive' );
-		echo esc_attr( gmdate( ' Y' ) );
 		echo esc_html( ' ' . $responsive_options['copyright_textbox'] );
-	} else {
-		esc_attr_e( '&copy; ', 'responsive' );
-		echo esc_attr( gmdate( 'Y' ) );
 	}
 	if ( ! empty( $responsive_options['poweredby_link'] ) ) {
 		$cyberchimps_link = $responsive_options['poweredby_link'];
