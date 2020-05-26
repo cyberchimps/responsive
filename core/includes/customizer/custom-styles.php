@@ -613,11 +613,11 @@ function responsive_customizer_styles() {
 	}
 	';
 
-	$heading_color = get_theme_mod( 'responsive_all_heading_text_color', '#333333' );
-
 	for ( $i = 1; $i < 7; $i++ ) {
+		$heading_color = get_theme_mod( 'responsive_all_heading_text_color', Responsive\Core\get_responsive_customizer_defaults( "h{$i}_text" ) );
+
 		$custom_css .= 'h' . $i . ' {
-		    color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", Responsive\Core\get_responsive_customizer_defaults( "h{$i}_text" ) ) ) . ';
+		    color: ' . esc_html( get_theme_mod( "responsive_h{$i}_text_color", $heading_color ) ) . ';
 		}';
 	}
 
@@ -653,31 +653,60 @@ function responsive_customizer_styles() {
 	$header_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_header_mobile_top_padding', 28 ) );
 	$header_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_header_mobile_bottom_padding', 28 ) );
 
-	// Header colors.
-	$header_background_color = esc_html( get_theme_mod( 'responsive_header_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_background' ) ) );
+	if ( Responsive\Core\responsive_is_transparent_header() ) {
 
-	$header_border_color           = esc_html( get_theme_mod( 'responsive_header_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_border' ) ) );
-	$header_site_title_color       = esc_html( get_theme_mod( 'responsive_header_site_title_color', Responsive\Core\get_responsive_customizer_defaults( 'header_site_title' ) ) );
-	$header_site_title_hover_color = esc_html( get_theme_mod( 'responsive_header_site_title_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_site_title_hover' ) ) );
-	$header_text_color             = esc_html( get_theme_mod( 'responsive_header_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_text' ) ) );
+		// Header colors.
+		$header_background_color       = '';
+		$header_border_color           = esc_html( get_theme_mod( 'responsive_transparent_header_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_border' ) ) );
+		$header_site_title_color       = esc_html( get_theme_mod( 'responsive_transparent_header_site_title_color', Responsive\Core\get_responsive_customizer_defaults( 'header_site_title' ) ) );
+		$header_site_title_hover_color = esc_html( get_theme_mod( 'responsive_transparent_header_site_title_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_site_title_hover' ) ) );
+		$header_text_color             = esc_html( get_theme_mod( 'responsive_transparent_header_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_text' ) ) );
 
-	// Menu Color.
-	$header_menu_background_color        = esc_html( get_theme_mod( 'responsive_header_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
-	$header_mobile_menu_background_color = esc_html( get_theme_mod( 'responsive_header_mobile_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
-	$header_menu_border_color            = esc_html( get_theme_mod( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
-	$header_menu_link_color              = esc_html( get_theme_mod( 'responsive_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
-	$header_menu_link_hover_color        = esc_html( get_theme_mod( 'responsive_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
-	$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
+		// Menu Color.
+		$header_menu_background_color        = esc_html( get_theme_mod( 'responsive_transparent_header_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+		$header_mobile_menu_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_mobile_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+		$header_menu_border_color            = esc_html( get_theme_mod( 'responsive_transparent_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
+		$header_menu_link_color              = esc_html( get_theme_mod( 'responsive_transparent_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
+		$header_menu_link_hover_color        = esc_html( get_theme_mod( 'responsive_transparent_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
+		$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
 
-	// Sub Menu Color.
-	$header_sub_menu_background_color = esc_html( get_theme_mod( 'responsive_header_sub_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ) ) );
-	$header_sub_menu_link_color       = esc_html( get_theme_mod( 'responsive_header_sub_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ) ) );
-	$header_sub_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_header_sub_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ) ) );
+		// Sub Menu Color.
+		$header_sub_menu_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_sub_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ) ) );
+		$header_sub_menu_link_color       = esc_html( get_theme_mod( 'responsive_transparent_header_sub_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ) ) );
+		$header_sub_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_transparent_header_sub_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ) ) );
 
-	// Toggle Button Color.
-	$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
-	$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_header_menu_toggle_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ) ) );
+		// Toggle Button Color.
+		$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
+		$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_transparent_header_menu_toggle_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ) ) );
 
+	} else {
+
+		// Header colors.
+		$header_background_color = esc_html( get_theme_mod( 'responsive_header_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_background' ) ) );
+
+		$header_border_color           = esc_html( get_theme_mod( 'responsive_header_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_border' ) ) );
+		$header_site_title_color       = esc_html( get_theme_mod( 'responsive_header_site_title_color', Responsive\Core\get_responsive_customizer_defaults( 'header_site_title' ) ) );
+		$header_site_title_hover_color = esc_html( get_theme_mod( 'responsive_header_site_title_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_site_title_hover' ) ) );
+		$header_text_color             = esc_html( get_theme_mod( 'responsive_header_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_text' ) ) );
+
+		// Menu Color.
+		$header_menu_background_color        = esc_html( get_theme_mod( 'responsive_header_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+		$header_mobile_menu_background_color = esc_html( get_theme_mod( 'responsive_header_mobile_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ) ) );
+		$header_menu_border_color            = esc_html( get_theme_mod( 'responsive_header_menu_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ) ) );
+		$header_menu_link_color              = esc_html( get_theme_mod( 'responsive_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
+		$header_menu_link_hover_color        = esc_html( get_theme_mod( 'responsive_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
+		$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
+
+		// Sub Menu Color.
+		$header_sub_menu_background_color = esc_html( get_theme_mod( 'responsive_header_sub_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ) ) );
+		$header_sub_menu_link_color       = esc_html( get_theme_mod( 'responsive_header_sub_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ) ) );
+		$header_sub_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_header_sub_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ) ) );
+
+		// Toggle Button Color.
+		$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
+		$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_header_menu_toggle_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ) ) );
+
+	}
 	// Sidebar Color.
 	$sidebar_headings_color   = esc_html( get_theme_mod( 'responsive_sidebar_headings_color', get_theme_mod( 'responsive_h4_text_color', '#333333' ) ) );
 	$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', get_theme_mod( 'responsive_box_background_color', '#ffffff' ) ) );
@@ -716,19 +745,6 @@ function responsive_customizer_styles() {
 		$mobile_menu_breakpoint = 0;
 	}
 
-	$trans_header_menu_background_color = $header_menu_background_color;
-	$trans_header_menu_border_color     = $header_menu_border_color;
-	if ( get_theme_mod( 'responsive_transparent_header', 0 ) ) {
-		$trans_header_menu_background_color = 'none';
-		$trans_header_menu_border_color     = 'none';
-
-		$custom_css .= "
-        .res-transparent-header .site-header .main-navigation.toggled{
-            border-bottom-color: 'none';
-            background-color: {$header_background_color};
-        }
-		";
-	}
 	$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
 		.main-navigation .menu-toggle {
 			display: none;
@@ -825,27 +841,115 @@ function responsive_customizer_styles() {
 		.site-header-layout-horizontal .site-header .row {
 	    	flex-wrap: nowrap;
 	    }
-	}
-  	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
-		.site-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
-			bottom:{$header_tablet_padding_bottom}px;
+		.site-header-layout-vertical.site-header-alignment-center .site-branding {
+		    text-align: center;
 		}
-		.site-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
-			top:{$header_tablet_padding_top}px;
+		.site-header-layout-vertical.site-header-alignment-center .main-navigation .menu-toggle {
+		    text-align: center;
+		    margin: auto;
+		}
+		.site-header-layout-vertical.site-header-alignment-right .site-branding {
+		    text-align: right;
+		}
+		.site-header-layout-vertical.site-header-alignment-right .main-navigation .menu-toggle {
+		    text-align: right;
+		    float: right;
 		}
 		.site-header-layout-horizontal.header-widget-position-with_logo .site-branding {
+		    padding-right: 75px;
+		}
+		.site-header-layout-vertical.site-header-alignment-center .site-branding {
+		    text-align: center;
+		}
+		.site-header-layout-vertical.site-header-alignment-center .main-navigation .menu-toggle {
+		    text-align: center;
+		    margin: auto;
+		}
+		.site-header-layout-vertical.site-header-alignment-center .main-navigation .menu > li {
+		    margin-left: 1px;
+		    margin-right: 1px;
+		}
+		.site-header-layout-vertical.site-header-alignment-right .site-branding {
+		    text-align: right;
+		}
+		.site-header-layout-vertical.site-header-alignment-right .main-navigation .menu-toggle {
+		    text-align: right;
+		    float: right;
+		}
+		.site-header-layout-vertical.site-header-alignment-right .main-navigation .menu > li {
+		    margin-left: 1px;
+		    margin-right: 1px;
+		}
+		.site-header-layout-vertical.site-header-site-branding-main-navigation.site-header-full-width-main-navigation .main-navigation {
+		    border-top: 1px solid #eaeaea;
+		}
+		.site-header-layout-vertical.site-header-site-branding-main-navigation.site-header-full-width-main-navigation .main-navigation div {
+		    border-bottom: 0;
+		}
+		.site-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation {
+		    border-bottom: 1px solid #eaeaea;
+		    border-top: 0;
+		}
+		.site-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation div {
+		    border-bottom: 0;
+		}
+
+	}
+  	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
+		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
+			bottom:{$header_tablet_padding_bottom}px;
+		}
+		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
+			top:{$header_tablet_padding_top}px;
+		}
+		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 75px;
+		}
+		.site-mobile-header-layout-vertical.site-mobile-header-alignment-center .site-branding {
+			text-align: center;
+		}
+		.site-mobile-header-layout-vertical.site-mobile-header-alignment-center .main-navigation .menu-toggle {
+			text-align: center;
+			margin: auto;
+		}
+		.site-mobile-header-layout-vertical.site-mobile-header-alignment-center .main-navigation .menu > li {
+			margin-left: 1px;
+			margin-right: 1px;
+		}
+		.site-mobile-header-layout-vertical.site-mobile-header-alignment-right .site-branding {
+			text-align: right;
+		}
+		.site-mobile-header-layout-vertical.site-mobile-header-alignment-right .main-navigation .menu-toggle {
+			text-align: right;
+			float: right;
+		}
+		.site-mobile-header-layout-vertical.site-mobile-header-alignment-right .main-navigation .menu > li {
+			margin-left: 1px;
+			margin-right: 1px;
+		}
+		.site-mobile-header-layout-vertical.site-header-site-branding-main-navigation.site-header-full-width-main-navigation .main-navigation {
+			border-top: 1px solid #eaeaea;
+		}
+		.site-mobile-header-layout-vertical.site-header-site-branding-main-navigation.site-header-full-width-main-navigation .main-navigation div {
+			border-bottom: 0;
+		}
+		.site-mobile-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation {
+			border-bottom: 1px solid #eaeaea;
+			border-top: 0;
+		}
+		.site-mobile-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation div {
+			border-bottom: 0;
 		}
 	}
 	@media screen and ( max-width: 576px ) {
-		.site-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
+		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
 			bottom:{$header_mobile_padding_bottom}px;
 		}
-		.site-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
+		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
 			top:{$header_mobile_padding_top}px;
 		}
 
-		.site-header-layout-horizontal.header-widget-position-with_logo .site-branding {
+		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 15px;
 		}
 	}
@@ -869,7 +973,7 @@ function responsive_customizer_styles() {
 	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,
 	.responsive-site-full-width.site-header-layout-vertical .main-navigation,
 	.site-header-layout-vertical .main-navigation div {
-		background-color: {$trans_header_menu_background_color};
+		background-color: {$header_menu_background_color};
 	}
 
 	.header-full-width.site-header-layout-vertical .main-navigation.toggled,
@@ -880,17 +984,17 @@ function responsive_customizer_styles() {
 		background-color: {$header_mobile_menu_background_color};
 	}
 	@media ( max-width: {$mobile_menu_breakpoint}px ) {
-		.site-header-layout-vertical .main-navigation {
-			background-color: {$trans_header_menu_background_color};
+		.site-mobile-header-layout-vertical .main-navigation {
+			background-color: {$header_menu_background_color};
 		}
-		.site-header-layout-vertical .main-navigation.toggled {
+		.site-mobile-header-layout-vertical .main-navigation.toggled {
 			background-color: {$header_mobile_menu_background_color};
 		}
-		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation {
-			border-top: 1px solid {$trans_header_menu_border_color};
+		.site-mobile-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation) .main-navigation {
+			border-top: 1px solid {$header_menu_border_color};
 		}
-		.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation) .main-navigation {
-			border-bottom: 1px solid {$trans_header_menu_border_color};
+		.site-mobile-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation) .main-navigation {
+			border-bottom: 1px solid {$header_menu_border_color};
 		}
 
 	}
@@ -898,20 +1002,20 @@ function responsive_customizer_styles() {
 		.header-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
 		.responsive-site-full-width.site-header-layout-vertical.site-header-site-branding-main-navigation .main-navigation,
 		.site-header-layout-vertical.site-header-site-branding-main-navigation:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation > div {
-			border-top: 1px solid {$trans_header_menu_border_color};
+			border-top: 1px solid {$header_menu_border_color};
 		}
 
 		.header-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
 		.responsive-site-full-width.site-header-layout-vertical.site-header-main-navigation-site-branding .main-navigation,
 		.site-header-layout-vertical.site-header-main-navigation-site-branding:not(.site-header-full-width-main-navigation):not(.responsive-site-full-width):not(.header-full-width) .main-navigation > div {
-			border-bottom: 1px solid {$trans_header_menu_border_color};
+			border-bottom: 1px solid {$header_menu_border_color};
 		}
 	}
 	.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-site-branding-main-navigation .main-navigation {
-		border-top: 1px solid {$trans_header_menu_border_color};
+		border-top: 1px solid {$header_menu_border_color};
 	}
 	.site-header-layout-vertical.site-header-full-width-main-navigation.site-header-main-navigation-site-branding .main-navigation {
-		border-bottom: 1px solid {$trans_header_menu_border_color};
+		border-bottom: 1px solid {$header_menu_border_color};
 	}
 	.main-navigation .menu > li > a {
 		color: {$header_menu_link_color};
@@ -955,17 +1059,17 @@ function responsive_customizer_styles() {
 		}
 	}';
 	$custom_css .= '.res-transparent-header .site-content {
-		padding: ' . responsive_spacing_css( $site_content_padding_top, $site_content_padding_right, $site_content_padding_bottom, $site_content_padding_left ) . ';
+		padding: ' . responsive_spacing_css( $site_content_padding_top, $site_content_padding_right, $site_content_padding_bottom, $site_content_padding_left ) . ' !important;
 
 	}
 	@media screen and ( max-width: 992px ) {
 		.res-transparent-header .site-content {
-			padding: ' . responsive_spacing_css( $site_content_tablet_padding_top, $site_content_tablet_padding_right, $site_content_tablet_padding_bottom, $site_content_tablet_padding_left ) . ';
+			padding: ' . responsive_spacing_css( $site_content_tablet_padding_top, $site_content_tablet_padding_right, $site_content_tablet_padding_bottom, $site_content_tablet_padding_left ) . ' !important;
 		}
 	}
 	@media screen and ( max-width: 576px ) {
 		.res-transparent-header .site-content {
-			padding: ' . responsive_spacing_css( $site_content_mobile_padding_top, $site_content_mobile_padding_right, $site_content_mobile_padding_bottom, $site_content_mobile_padding_left ) . ';
+			padding: ' . responsive_spacing_css( $site_content_mobile_padding_top, $site_content_mobile_padding_right, $site_content_mobile_padding_bottom, $site_content_mobile_padding_left ) . ' !important;
 		}
 	}';
 
@@ -1041,7 +1145,7 @@ function responsive_customizer_styles() {
 				margin-top: 70px;
 			    margin: 0 auto;
 			}
-			.site-header-layout-vertical .main-navigation.toggled .menu {
+			.site-mobile-header-layout-vertical .main-navigation.toggled .menu {
 				margin-top: 0px;
 			}
 		}";
@@ -1072,7 +1176,7 @@ function responsive_customizer_styles() {
 				top: 28px;
 				right: 15px;
 			}
-			.site-header-layout-vertical .main-navigation.toggled .menu,
+			.site-mobile-header-layout-vertical .main-navigation.toggled .menu,
 			.main-navigation.toggled .menu {
 				margin-top: 70px;
 			}

@@ -92,6 +92,10 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				)
 			);
 
+			// Hide Copyright Icon & Year.
+			$copyright_icon_and_year_label = __( 'Hide Copyright Icon & Year', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'copyright_icon_and_year', $copyright_icon_and_year_label, 'responsive_footer_layout', 115, 0, null, 'postMessage' );
+
 			$wp_customize->add_setting(
 				'responsive_theme_options[poweredby_link]',
 				array(
@@ -117,16 +121,16 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
 				'vertical'   => esc_html__( 'Vertical', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 110, $footer_layout_choices, 'horizontal', null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'footer_bar_layout', $footer_bar_layout_label, 'responsive_footer_layout', 130, $footer_layout_choices, 'horizontal', null, 'postMessage' );
 
 			// Bar Padding.
-			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 120, 20, 0, null );
+			responsive_padding_control( $wp_customize, 'footer_bar', 'responsive_footer_layout', 140, 20, 0, null );
 
 			/**
 			 * Social Links Separator.
 			 */
 			$social_links_separator_label = esc_html__( 'Social Links', 'responsive' );
-			responsive_separator_control( $wp_customize, 'social_links_separator', $social_links_separator_label, 'responsive_footer_layout', 140 );
+			responsive_separator_control( $wp_customize, 'social_links_separator', $social_links_separator_label, 'responsive_footer_layout', 150 );
 
 			// Add Twitter Setting.
 			$wp_customize->add_setting(

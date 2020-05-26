@@ -62,6 +62,22 @@
         }
     )
 
+    // Hide Copyright Icon & Year.
+    api(
+        "responsive_copyright_icon_and_year",
+        function( $swipe ) {
+            $swipe.bind(
+                    function( pair ) {
+                    if ( pair === true ) {
+                        jQuery('.copyright_icon_and_year').css('display','none');
+                    } else {
+                        jQuery('.copyright_icon_and_year').css('display','inline-block');
+                    }
+                }
+            );
+        }
+    )
+
     // Enable Header Widget
     api(
         "responsive_enable_header_widget",

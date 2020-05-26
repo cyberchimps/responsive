@@ -102,41 +102,17 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			}
 			responsive_select_control( $wp_customize, 'header_alignment', $header_alignment_label, 'responsive_header_layout', 30, $header_alignment_choices, 'center', 'responsive_active_vertical_header', 'postMessage' );
 
+			// Mobile Header Layout.
+			$mobile_header_layout_label = esc_html__( 'Mobile Header Layout', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_header_layout', $mobile_header_layout_label, 'responsive_header_layout', 30, $header_layout_choices, get_theme_mod( 'responsive_header_layout', 'horizontal' ), null, 'postMessage' );
+
+			// Mobile Header Alignment.
+			$mobile_header_alignment_label = esc_html__( 'Mobile Header Alignment', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_header_alignment', $mobile_header_alignment_label, 'responsive_header_layout', 35, $header_alignment_choices, get_theme_mod( 'responsive_header_alignment', 'center' ), 'responsive_active_mobile_vertical_header', 'postMessage' );
+
 			// Logo Padding.
 			$logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ), 0, null, $logo_padding_label );
-
-			/**
-			 * Transparent Header Separator.
-			 */
-			$transparent_header_separator_label = esc_html__( 'Transparent Header', 'responsive' );
-			responsive_separator_control( $wp_customize, 'transparent_header_separator', $transparent_header_separator_label, 'responsive_header_layout', 50 );
-
-			// Transperant Header.
-			$transparent_header_label = __( 'Enable on Complete Website', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'transparent_header', $transparent_header_label, 'responsive_header_layout', 50, 0, null );
-
-			// Site Content Padding.
-			$site_content_padding_label = esc_html__( 'Site Content Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'site_content', 'responsive_header_layout', 50, 28, 0, 'responsive_is_transparent_header_enabled', $site_content_padding_label );
-
-			$disable_archive_transparent_header_label = __( 'Disable on 404, Search & Archives?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_archive_transparent_header', $disable_archive_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
-
-			$disable_blog_page_transparent_header_label = __( 'Disable on Blog page?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_blog_page_transparent_header', $disable_blog_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
-
-			$disable_latest_posts_page_transparent_header_label = __( 'Disable on Latest Posts Page?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_latest_posts_page_transparent_header', $disable_latest_posts_page_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
-
-			$disable_pages_transparent_header_label = __( 'Disable on Pages?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_pages_transparent_header', $disable_pages_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
-
-			$disable_posts_transparent_header_label = __( 'Disable on Posts?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_posts_transparent_header', $disable_posts_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
-
-			$disable_woo_products_transparent_header_label = __( 'Disable on WooCommerce Pages?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_woo_products_transparent_header', $disable_woo_products_transparent_header_label, 'responsive_header_layout', 50, 0, 'responsive_is_transparent_header_enabled' );
 
 			/**
 			 * Header Widget Separator.
@@ -165,7 +141,8 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'right'        => esc_html__( 'Right', 'responsive' ),
 				'center'       => esc_html__( 'center', 'responsive' ),
 				'space-around' => esc_html__( 'Space Around', 'responsive' ),
-			);	if ( is_rtl() ) {
+			);
+			if ( is_rtl() ) {
 				$header_widget_alignment_choices = array(
 					'spread'       => esc_html__( 'Spread', 'responsive' ),
 					'left'         => esc_html__( 'Right', 'responsive' ),
