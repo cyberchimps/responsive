@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.3.7\n"
+"Project-Id-Version: Responsive 4.3.8\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-05-26 06:15:10+00:00\n"
+"POT-Creation-Date: 2020-05-28 05:56:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -698,10 +698,10 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:94
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:92
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:93
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:395
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:428
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:434
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:508
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:427
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:460
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:466
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:540
 #: core/includes/post-custom-meta.php:136
 msgid "Default"
 msgstr ""
@@ -794,47 +794,47 @@ msgid "Inherit"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:72
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:435
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:467
 msgid "Thin: 100"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:73
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:436
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:468
 msgid "Light: 200"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:74
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:437
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:469
 msgid "Book: 300"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:75
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:438
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:470
 msgid "Normal: 400"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:76
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:439
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:471
 msgid "Medium: 500"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:77
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:440
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:472
 msgid "Semibold: 600"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:78
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:441
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:473
 msgid "Bold: 700"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:79
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:442
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:474
 msgid "Extra Bold: 800"
 msgstr ""
 
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:80
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:443
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:475
 msgid "Black: 900"
 msgstr ""
 
@@ -934,7 +934,7 @@ msgstr ""
 #: core/includes/customizer/helper.php:120
 #: core/includes/customizer/helper.php:252
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:83
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:150
 msgid "Meta"
 msgstr ""
 
@@ -1157,12 +1157,12 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:44
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:219
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:231
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:241
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:252
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:263
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:274
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:218
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:230
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:240
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:251
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:262
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:273
 msgid "Typography"
 msgstr ""
 
@@ -1388,7 +1388,7 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:120
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:60
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:209
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:208
 #: core/includes/functions-sidebar.php:100
 msgid "Header Widgets"
 msgstr ""
@@ -1562,12 +1562,12 @@ msgid "Transparent Header Menu"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:48
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:185
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:184
 msgid "Site Title"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-typography-customizer.php:54
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:197
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:196
 msgid "Site Tagline"
 msgstr ""
 
@@ -2133,39 +2133,39 @@ msgid "Form Inputs"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:51
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:54
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:163
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:174
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:53
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:162
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:173
 msgid "Body"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:59
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:80
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:79
 msgid "Heading 1 (H1)"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:63
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:92
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:91
 msgid "Heading 2 (H2)"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:67
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:104
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:103
 msgid "Heading 3 (H3)"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:71
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:116
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:115
 msgid "Heading 4 (H4)"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:75
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:128
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:127
 msgid "Heading 5 (H5)"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:79
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:140
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:139
 msgid "Heading 6 (H6)"
 msgstr ""
 
@@ -2183,71 +2183,71 @@ msgid ""
 "page"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:68
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:67
 msgid "All Headings"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:307
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:339
 msgid "General Typography"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:388
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:420
 msgid "Font Family"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:423
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:455
 msgid "Font Weight"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:424
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:456
 msgid "Important: Not all fonts support every font-weight."
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:468
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:500
 msgid "Font Style"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:475
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:507
 msgid "Normal"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:476
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:508
 msgid "Italic"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:501
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:533
 msgid "Text Transform"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:509
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:541
 msgid "Capitalize"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:510
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:542
 msgid "Lowercase"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:511
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:543
 msgid "Uppercase"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:555
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:587
 msgid "Font Size"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:556
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:588
 msgid "You can add: px-em-%"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:609
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:641
 msgid "Line Height"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:645
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:677
 msgid "Letter Spacing (px)"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-typography-customizer.php:683
+#: core/includes/customizer/settings/class-responsive-typography-customizer.php:715
 msgid "Font Color"
 msgstr ""
 
