@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/28/20) = Fix - Version 4.3.8
+[*] = Added - Compatibility with child theme Mobile Friendly
+
 (05/25/20) = Fix - Version 4.3.7
 [*] = Added - Option to set different colors for header and menu in transparent header
 [*] = Added - Option to hide and show copyright icon and year

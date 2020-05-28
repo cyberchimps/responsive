@@ -17,7 +17,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 	 * @since 1.0.0
 	 */
 	class Responsive_Typography_Customizer {
-
 		/**
 		 * Setup class.
 		 *
@@ -45,14 +44,14 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 * @since 1.0.0
 		 */
 		public function elements() {
-
+			$selectorArray = self::getSelectorArray();
 			// Return settings.
 			return apply_filters(
 				'responsive_typography_settings',
 				array(
 					'body'                       => array(
 						'label'    => esc_html__( 'Body', 'responsive' ),
-						'target'   => 'body',
+						'target'   => $selectorArray['body'],
 						'section'  => 'responsive_typography',
 						'priority' => 2,
 						'exclude'  => array( 'font-color' ),
@@ -66,7 +65,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 					'headings'                   => array(
 						'label'    => esc_html__( 'All Headings', 'responsive' ),
-						'target'   => 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6',
+						'target'   => $selectorArray['headings'],
 						'section'  => 'responsive_typography',
 						'priority' => 4,
 						'exclude'  => array( 'font-color', 'font-size', 'font-style' ),
@@ -78,7 +77,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 					'heading_h1'                 => array(
 						'label'    => esc_html__( 'Heading 1 (H1)', 'responsive' ),
-						'target'   => 'h1',
+						'target'   => $selectorArray['heading_h1'],
 						'section'  => 'responsive_typography',
 						'priority' => 6,
 						'exclude'  => array( 'font-color' ),
@@ -90,7 +89,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'heading_h2'                 => array(
 						'label'    => esc_html__( 'Heading 2 (H2)', 'responsive' ),
-						'target'   => 'h2',
+						'target'   => $selectorArray['heading_h2'],
 						'section'  => 'responsive_typography',
 						'priority' => 8,
 						'exclude'  => array( 'font-color' ),
@@ -102,7 +101,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'heading_h3'                 => array(
 						'label'    => esc_html__( 'Heading 3 (H3)', 'responsive' ),
-						'target'   => 'h3',
+						'target'   => $selectorArray['heading_h3'],
 						'section'  => 'responsive_typography',
 						'priority' => 10,
 						'exclude'  => array( 'font-color' ),
@@ -114,7 +113,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'heading_h4'                 => array(
 						'label'    => esc_html__( 'Heading 4 (H4)', 'responsive' ),
-						'target'   => 'h4',
+						'target'   => $selectorArray['heading_h4'],
 						'section'  => 'responsive_typography',
 						'priority' => 12,
 						'exclude'  => array( 'font-color' ),
@@ -126,7 +125,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'heading_h5'                 => array(
 						'label'    => esc_html__( 'Heading 5 (H5)', 'responsive' ),
-						'target'   => 'h5',
+						'target'   => $selectorArray['heading_h5'],
 						'section'  => 'responsive_typography',
 						'priority' => 14,
 						'exclude'  => array( 'font-color' ),
@@ -138,7 +137,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'heading_h6'                 => array(
 						'label'    => esc_html__( 'Heading 6 (H6)', 'responsive' ),
-						'target'   => 'h6',
+						'target'   => $selectorArray['heading_h6'],
 						'section'  => 'responsive_typography',
 						'priority' => 16,
 						'exclude'  => array( 'font-color' ),
@@ -149,7 +148,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'meta'                       => array(
 						'label'    => esc_html__( 'Meta', 'responsive' ),
-						'target'   => '.hentry .post-data,.post-meta *',
+						'target'   => $selectorArray['meta'],
 						'section'  => 'responsive_typography',
 						'priority' => 18,
 						'exclude'  => array( 'font-color' ),
@@ -161,7 +160,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'button'                     => array(
 						'label'    => esc_html__( 'Body', 'responsive' ),
-						'target'   => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link',
+						'target'   => $selectorArray['button'],
 						'section'  => 'responsive_typography',
 						'priority' => 20,
 						'exclude'  => array( 'font-color' ),
@@ -172,7 +171,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'input'                      => array(
 						'label'    => esc_html__( 'Body', 'responsive' ),
-						'target'   => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea',
+						'target'   => $selectorArray['input'],
 						'section'  => 'responsive_typography',
 						'priority' => 22,
 						'exclude'  => array( 'font-color' ),
@@ -183,7 +182,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'header_site_title'          => array(
 						'label'    => esc_html__( 'Site Title', 'responsive' ),
-						'target'   => '.site-title a',
+						'target'   => $selectorArray['header_site_title'],
 						'section'  => 'responsive_header_typography',
 						'priority' => 1,
 						'exclude'  => array( 'font-color' ),
@@ -195,7 +194,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'header_site_tagline'        => array(
 						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
-						'target'   => '.site-description',
+						'target'   => $selectorArray['header_site_tagline'],
 						'section'  => 'responsive_header_typography',
 						'priority' => 3,
 						'exclude'  => array( 'font-color' ),
@@ -207,7 +206,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'header_widgets'             => array(
 						'label'    => esc_html__( 'Header Widgets', 'responsive' ),
-						'target'   => '.header-widgets',
+						'target'   => $selectorArray['header_widgets'],
 						'section'  => 'responsive_header_typography',
 						'priority' => 5,
 						'exclude'  => array( 'font-color' ),
@@ -217,7 +216,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'header_menu'                => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => '.main-navigation a',
+						'target'   => $selectorArray['header_menu'],
 						'panel'    => 'responsive_header_menu',
 						'exclude'  => array( 'font-color' ),
 						'priority' => 30,
@@ -229,7 +228,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'sidebar'                    => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
+						'target'   => $selectorArray['sidebar'],
 						'panel'    => 'responsive_sidebar',
 						'exclude'  => array( 'font-color' ),
 						'priority' => 30,
@@ -239,7 +238,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'content_header_heading'     => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => '.site-content-header .page-header .page-title,.site-content-header .page-title',
+						'target'   => $selectorArray['content_header_heading'],
 						'priority' => 1,
 						'section'  => 'responsive_content_header_typography',
 						'exclude'  => array( 'font-color' ),
@@ -250,7 +249,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'content_header_description' => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => '.site-content-header .page-header .page-description',
+						'target'   => $selectorArray['content_header_description'],
 						'priority' => 3,
 						'section'  => 'responsive_content_header_typography',
 						'exclude'  => array( 'font-color' ),
@@ -261,7 +260,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'breadcrumb'                 => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => '.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb',
+						'target'   => $selectorArray['breadcrumb'],
 						'priority' => 5,
 						'section'  => 'responsive_content_header_typography',
 						'exclude'  => array( 'font-color' ),
@@ -272,7 +271,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 					'footer'                     => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => '.site-footer',
+						'target'   => $selectorArray['footer'],
 						'panel'    => 'responsive_footer',
 						'exclude'  => array( 'font-color' ),
 						'priority' => 30,
@@ -283,6 +282,39 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					),
 				)
 			);
+		}
+
+		/**
+		 * Array of Typography settings selectors
+		 */
+		public function getSelectorArray() {
+			$selectorArray = apply_filters(
+				'responsive_typography_selectors',
+				array(
+					'body'                       => 'body',
+					'headings'                   => 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6',
+					'heading_h1'                 => 'h1',
+					'heading_h2'                 => 'h2',
+					'heading_h3'                 => 'h3',
+					'heading_h4'                 => 'h4',
+					'heading_h5'                 => 'h5',
+					'heading_h6'                 => 'h6',
+					'meta'                       => '.hentry .post-data,.post-meta *',
+					'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link',
+					'input'                      => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea',
+					'header_site_title'          => '.site-title',
+					'header_site_title2'         => '.site-title a',
+					'header_site_tagline'        => '.site-description',
+					'header_widgets'             => '.header-widgets',
+					'header_menu'                => '.main-navigation a',
+					'sidebar'                    => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
+					'content_header_heading'     => '.site-content-header .page-header .page-title,.site-content-header .page-title',
+					'content_header_description' => '.site-content-header .page-header .page-description',
+					'breadcrumb'                 => '.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb',
+					'footer'                     => '.site-footer',
+				)
+			);
+			return $selectorArray;
 		}
 
 		/**
@@ -699,6 +731,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 * @since 1.0.0
 		 */
 		public function customize_preview_init() {
+
 			wp_enqueue_script( 'responsive-typo-customize-preview', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/typography-customize-preview.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 			wp_localize_script(
 				'responsive-typo-customize-preview',
@@ -707,9 +740,11 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'googleFontsUrl'    => '//fonts.googleapis.com',
 					'googleFontsWeight' => '100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i',
 					'googleFonts'       => responsive_get_google_fonts(),
+					'selectorArray'     => self::getSelectorArray(),
 				)
 			);
 		}
+
 
 		/**
 		 * Loop through settings
@@ -948,3 +983,4 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 endif;
 
 return new Responsive_Typography_Customizer();
+
