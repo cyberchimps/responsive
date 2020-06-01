@@ -73,12 +73,12 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 		$before    = '<span class="breadcrumb-current">'; // tag before the current crumb.
 		$after     = '</span>'; // t    ag after the current crumb.
 		/* === END OF OPTIONS === */
-
+		$position    = 1;
 		$home_link   = home_url( '/' );
 		$before_link = '<span class="breadcrumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
 		$after_link  = '</span>';
 		$link_att    = '';
-		$link        = $before_link . '<a itemprop="item"' . $link_att . ' href="%1$s"><span itemprop="name">%2$s</span></a>' . $after_link;
+		$link        = $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att . ' href="%1$s"><span itemprop="name">%2$s</span></a>' . $after_link;
 
 		$post      = get_queried_object();
 		$parent_id = isset( $post->post_parent ) ? $post->post_parent : '';
@@ -99,9 +99,10 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 			} elseif ( is_category() ) {
 				$this_cat = get_category( get_query_var( 'cat' ), false );
 				if ( 0 != $this_cat->parent ) {
+					++$position;
 					$parent       = get_category( $this_cat->parent );
 					$cats         = get_category_parents( $this_cat->parent, true, $delimiter );
-					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
+					$cats         = str_replace( '<a', $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
 					$cats         = str_replace( $parent->name, '<span itemprop="name">' . $parent->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
@@ -113,12 +114,17 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= $before . sprintf( $text['search'], get_search_query() ) . $after;
 
 			} elseif ( is_day() ) {
-				$html_output .= sprintf( $link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . $delimiter;
-				$html_output .= sprintf( $link, get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ), get_the_time( 'F' ) ) . $delimiter;
+				++$position;
+				$html_output .= sprintf( $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att . ' href="%1$s"><span itemprop="name">%2$s</span></a>' . $after_link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . $delimiter;
+
+				++$position;
+				$html_output .= sprintf( $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att . ' href="%1$s"><span itemprop="name">%2$s</span></a>' . $after_link, get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ), get_the_time( 'F' ) ) . $delimiter;
 				$html_output .= $before . get_the_time( 'd' ) . $after;
 
 			} elseif ( is_month() ) {
-				$html_output .= sprintf( $link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . $delimiter;
+				++$position;
+
+				$html_output .= sprintf( $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att . ' href="%1$s"><span itemprop="name">%2$s</span></a>' . $after_link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . $delimiter;
 				$html_output .= $before . get_the_time( 'F' ) . $after;
 
 			} elseif ( is_year() ) {
@@ -133,13 +139,14 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 						$html_output .= $delimiter . $before . get_the_title() . $after;
 					}
 				} else {
+					++$position;
 					$cat  = get_the_category();
 					$cat  = $cat[0];
 					$cats = get_category_parents( $cat, true, $delimiter );
 					if ( 0 == $show['current'] ) {
 						$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
 					}
-					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
+					$cats         = str_replace( '<a', $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
 					$cats         = str_replace( $cat->name, '<span itemprop="name">' . $cat->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
@@ -160,8 +167,9 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				}
 
 				if ( $cat ) {
+					++$position;
 					$cats         = get_category_parents( $cat, true, $delimiter );
-					$cats         = str_replace( '<a', $before_link . '<a itemprop="item"' . $link_att, $cats );
+					$cats         = str_replace( '<a', $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
 					$cats         = str_replace( $cat->name, '<span itemprop="name">' . $cat->name . '</span>' . $after_link, $cats );
 					$html_output .= $cats;
@@ -215,22 +223,8 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 			$html_output .= '</div>';
 
 		}
-		libxml_use_internal_errors( true );
-		$doc = new DOMDocument();
-		$doc->loadHTML( '<?xml encoding="UTF-8">' . $html_output );
-		$finder    = new DomXPath( $doc );
-		$classname = 'breadcrumb';
-		$nodes     = $finder->query( "//span[contains(@class, '$classname')]" );
-		$position  = 1;
-		foreach ( $nodes as $node ) {
-			if ( $position != $nodes->length ) {
-				$fragment = $doc->createDocumentFragment();
-				$fragment->appendXML( '<meta itemprop="position" content="' . $position . '" />' );
-				$node->appendChild( $fragment );
-				$position++;
-			}
-		}
-        echo $doc->saveHTML(); // phpcs:ignore
+
+        echo $html_output; // phpcs:ignore
 	} // end responsive_breadcrumb_lists.
 }
 
