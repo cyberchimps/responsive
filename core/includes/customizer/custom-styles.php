@@ -624,8 +624,8 @@ function responsive_customizer_styles() {
 	// Site Content Padding.
 	$site_content_padding_right  = esc_html( get_theme_mod( 'responsive_site_content_right_padding' ) );
 	$site_content_padding_left   = esc_html( get_theme_mod( 'responsive_site_content_left_padding' ) );
-	$site_content_padding_top    = esc_html( get_theme_mod( 'responsive_site_content_top_padding', 28 ) );
-	$site_content_padding_bottom = esc_html( get_theme_mod( 'responsive_site_content_bottom_padding', 28 ) );
+	$site_content_padding_top    = esc_html( get_theme_mod( 'responsive_site_content_top_padding', 120 ) );
+	$site_content_padding_bottom = esc_html( get_theme_mod( 'responsive_site_content_bottom_padding', 120 ) );
 
 	$site_content_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_site_content_tablet_right_padding' ) );
 	$site_content_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_site_content_tablet_left_padding' ) );
@@ -1059,17 +1059,17 @@ function responsive_customizer_styles() {
 		}
 	}';
 	$custom_css .= '.res-transparent-header .site-content {
-		padding: ' . responsive_spacing_css( $site_content_padding_top, $site_content_padding_right, $site_content_padding_bottom, $site_content_padding_left ) . ' !important;
+		padding: ' . responsive_spacing_css( $site_content_padding_top, $site_content_padding_right, $site_content_padding_bottom, $site_content_padding_left ) . ';
 
 	}
 	@media screen and ( max-width: 992px ) {
 		.res-transparent-header .site-content {
-			padding: ' . responsive_spacing_css( $site_content_tablet_padding_top, $site_content_tablet_padding_right, $site_content_tablet_padding_bottom, $site_content_tablet_padding_left ) . ' !important;
+			padding: ' . responsive_spacing_css( $site_content_tablet_padding_top, $site_content_tablet_padding_right, $site_content_tablet_padding_bottom, $site_content_tablet_padding_left ) . ';
 		}
 	}
 	@media screen and ( max-width: 576px ) {
 		.res-transparent-header .site-content {
-			padding: ' . responsive_spacing_css( $site_content_mobile_padding_top, $site_content_mobile_padding_right, $site_content_mobile_padding_bottom, $site_content_mobile_padding_left ) . ' !important;
+			padding: ' . responsive_spacing_css( $site_content_mobile_padding_top, $site_content_mobile_padding_right, $site_content_mobile_padding_bottom, $site_content_mobile_padding_left ) . ';
 		}
 	}';
 
