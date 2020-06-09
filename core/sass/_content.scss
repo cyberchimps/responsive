@@ -68,7 +68,7 @@
         @extend .col-lg-12;
     }
 }
-.page-template-gutenberg-fullwidth:not(.front-page) {
+.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header) {
 
     .site-content {
         padding: 0;

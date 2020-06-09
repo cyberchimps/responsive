@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/09/20) = Fix - Version 4.3.9
+[*] = Added - Retina logo ready
+[*] = Added - WPML compatibility
+[*] = Fixed - Conflict with Plugin 'WP Mailto Links'
+
 (05/28/20) = Fix - Version 4.3.8
 [*] = Added - Compatibility with child theme Mobile Friendly
 

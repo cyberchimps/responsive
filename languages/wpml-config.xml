@@ -1,0 +1,65 @@
+<wpml-config>
+  <admin-texts>
+    <key name="responsive_theme_options">
+      <key name="featured_images"/>
+      <key name="breadcrumb"/>
+      <key name="cta_button"/>
+      <key name="minified_css"/>
+      <key name="front_page"/>
+      <key name="home_headline"/>
+      <key name="home_subheadline"/>
+      <key name="home_content_area"/>
+      <key name="cta_text"/>
+      <key name="cta_url"/>
+      <key name="featured_content"/>
+      <key name="testimonials"/>
+      <key name="testimonial_title"/>
+      <key name="google_site_verification"/>
+      <key name="bing_site_verification"/>
+      <key name="yahoo_site_verification"/>
+      <key name="site_statistics_tracker"/>
+      <key name="twitter_uid"/>
+      <key name="facebook_uid"/>
+      <key name="linkedin_uid"/>
+      <key name="youtube_uid"/>
+      <key name="stumble_uid"/>
+      <key name="rss_uid"/>
+      <key name="google_plus_uid"/>
+      <key name="instagram_uid"/>
+      <key name="pinterest_uid"/>
+      <key name="yelp_uid"/>
+      <key name="vimeo_uid"/>
+      <key name="foursquare_uid"/>
+      <key name="email_uid"/>
+      <key name="testimonial_val"/>
+      <key name="teammember1"/>
+      <key name="teammember2"/>
+      <key name="teammember3"/>
+      <key name="feature1"/>
+      <key name="feature2"/>
+      <key name="feature3"/>
+      <key name="responsive_inline_css"/>
+      <key name="responsive_inline_js_head"/>
+      <key name="responsive_inline_js_footer"/>
+      <key name="responsive_inline_css_js_footer"/>
+      <key name="static_page_layout_default"/>
+      <key name="single_post_layout_default"/>
+      <key name="blog_posts_index_layout_default"/>
+      <key name="site_layout_option"/>
+      <key name="button_style"/>
+      <key name="home-widgets"/>
+      <key name="site_footer_option"/>
+      <key name="res_hide_site_title"/>
+      <key name="res_hide_tagline"/>
+      <key name="stumbleupon_uid"/>
+    </key>
+    <key name="responsive_version_410"/>
+    <key name="responsive-theme-old-setup"/>
+    <key name="theme_mods_responsive">
+      <key name="0"/>
+      <key name="nav_menu_locations"/>
+      <key name="responsive_container_width"/>
+      <key name="custom_css_post_id"/>
+    </key>
+  </admin-texts>
+</wpml-config>

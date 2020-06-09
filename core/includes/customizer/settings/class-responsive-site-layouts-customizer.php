@@ -47,6 +47,9 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				)
 			);
 
+			$responsive_retina_logo_label = __( 'Enable Retina Logo ?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'title_tagline', 9, 0, null );
+
 			$responsive_hide_title_label = __( 'Hide Site Title', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'title_tagline', 10, 0, null );
 

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.3.8\n"
+"Project-Id-Version: Responsive 4.3.9\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-05-28 05:56:10+00:00\n"
+"POT-Creation-Date: 2020-06-09 09:00:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -906,7 +906,7 @@ msgstr ""
 
 #: core/includes/customizer/customizer.php:86
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:236
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:95
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
 msgid "Flat"
 msgstr ""
 
@@ -1002,7 +1002,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:91
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:91
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
 msgid "Style"
 msgstr ""
 
@@ -1260,47 +1260,47 @@ msgid "Social Links"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:148
-#: core/includes/functions-extensions.php:356
+#: core/includes/functions-extensions.php:350
 msgid "Twitter"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:169
-#: core/includes/functions-extensions.php:357
+#: core/includes/functions-extensions.php:351
 msgid "Facebook"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:190
-#: core/includes/functions-extensions.php:358
+#: core/includes/functions-extensions.php:352
 msgid "LinkedIn"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:211
-#: core/includes/functions-extensions.php:359
+#: core/includes/functions-extensions.php:353
 msgid "YouTube"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:232
-#: core/includes/functions-extensions.php:361
+#: core/includes/functions-extensions.php:355
 msgid "RSS Feed"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:253
-#: core/includes/functions-extensions.php:362
+#: core/includes/functions-extensions.php:356
 msgid "Instagram"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:274
-#: core/includes/functions-extensions.php:363
+#: core/includes/functions-extensions.php:357
 msgid "Pinterest"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:295
-#: core/includes/functions-extensions.php:360
+#: core/includes/functions-extensions.php:354
 msgid "StumbleUpon"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:316
-#: core/includes/functions-extensions.php:365
+#: core/includes/functions-extensions.php:359
 msgid "Vimeo"
 msgstr ""
 
@@ -1812,7 +1812,7 @@ msgid "Address"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:767
-#: core/includes/functions-extensions.php:367
+#: core/includes/functions-extensions.php:361
 msgid "Email"
 msgstr ""
 
@@ -2035,7 +2035,7 @@ msgid "Link Hover Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:128
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:108
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:111
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:87
 msgid "Buttons"
 msgstr ""
@@ -2070,65 +2070,69 @@ msgid "Label Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:50
-msgid "Hide Site Title"
+msgid "Enable Retina Logo ?"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:53
+msgid "Hide Site Title"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:56
 msgid "Hide Tagline"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:70
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:73
 msgid "Site Title/Logo URL"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:79
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
 msgid "Width"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:81
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:84
 msgid "Contained"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:82
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:85
 msgid "Full Width"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:87
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:90
 msgid "Container Width (px)"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:93
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:96
 msgid "Boxed"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:97
 msgid "Content Boxed"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:100
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:103
 msgid "Box Padding (px)"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:104
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:107
 msgid "Box Radius (px)"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:112
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:128
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:115
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:131
 msgid "Padding (px)"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:116
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:132
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:119
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:135
 msgid "Radius (px)"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:120
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:136
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:123
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:139
 msgid "Border Width (px)"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:124
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:127
 msgid "Form Inputs"
 msgstr ""
 
@@ -2273,11 +2277,11 @@ msgstr ""
 msgid "I already did"
 msgstr ""
 
-#: core/includes/functions-extensions.php:364
+#: core/includes/functions-extensions.php:358
 msgid "Yelp!"
 msgstr ""
 
-#: core/includes/functions-extensions.php:366
+#: core/includes/functions-extensions.php:360
 msgid "foursquare"
 msgstr ""
 
@@ -2391,43 +2395,43 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: core/includes/functions.php:413
+#: core/includes/functions.php:424
 msgid "Team Section Options"
 msgstr ""
 
-#: core/includes/functions.php:427
+#: core/includes/functions.php:438
 msgid "To use this post for front page's team section, please enter below details:"
 msgstr ""
 
-#: core/includes/functions.php:430
+#: core/includes/functions.php:441
 msgid "Member designation"
 msgstr ""
 
-#: core/includes/functions.php:434
+#: core/includes/functions.php:445
 msgid "Facebook Link"
 msgstr ""
 
-#: core/includes/functions.php:438
+#: core/includes/functions.php:449
 msgid "Twitter Link"
 msgstr ""
 
-#: core/includes/functions.php:442
+#: core/includes/functions.php:453
 msgid "GooglePlus Link"
 msgstr ""
 
-#: core/includes/functions.php:446
+#: core/includes/functions.php:457
 msgid "LinkedIn Link"
 msgstr ""
 
-#: core/includes/functions.php:708
+#: core/includes/functions.php:719
 msgid "Posted on"
 msgstr ""
 
-#: core/includes/functions.php:708
+#: core/includes/functions.php:719
 msgid "By"
 msgstr ""
 
-#: core/includes/functions.php:727 partials/entry/meta.php:54
+#: core/includes/functions.php:738 partials/entry/meta.php:54
 #: partials/single/meta.php:49
 #. translators: %s: view post by
 #. translators: view all posts by author
@@ -2435,7 +2439,7 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions.php:738 image.php:82 partials/entry/meta.php:104
+#: core/includes/functions.php:749 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -2443,12 +2447,12 @@ msgstr ""
 msgid "Posted in %s"
 msgstr ""
 
-#: core/includes/functions.php:738 partials/entry/meta.php:104
+#: core/includes/functions.php:749 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 msgid ", "
 msgstr ""
 
-#: core/includes/functions.php:755
+#: core/includes/functions.php:766
 msgid "Upgrade To Pro"
 msgstr ""
 
@@ -2728,14 +2732,20 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Want to create a beautiful, SEO-optimized website with zero design & coding "
-"skills? The Responsive theme can help. Responsive is fully customizable "
-"with almost unlimited color, layout, and typography options. It is "
-"optimized for SEO with support for Schema.org microdata, fast loading "
-"speed, and responsive layout design. Responsive works with all the popular "
-"WordPress plugins, including WooCommerce. It is also fully compatible with "
-"the Elementor page builder and comes with readymade, editable website "
-"templates - https://cyberchimps.com/wordpress-themes/."
+"Responsive is a Fully Customizable, Fast & Responsive WordPress Theme. It's "
+"suitable for any type of website like blog, WooCommerce, Portfolio, "
+"Consultancy, Education, LMS, Auctions. It is optimized for SEO with support "
+"for Schema.org microdata, fast loading speed, and responsive layout "
+"designs. Responsive works with all the popular WordPress plugins, including "
+"WooCommerce, Sensei, bbPress, BuddyPress etc.. Fully compatible with "
+"popular page builders like Elementor, Brizy, Beaver Builder, Visual "
+"Composer, SiteOrigin, Divi. etc. It comes with ready to use websites: Built "
+"on Gutenberg & Elementor, it's an ideal theme to quickly launch a fully "
+"functional website. Features: # Responsive #Starter Data # WooCommerce "
+"Ready # LMS Ready (Sensei, LearnDash) # RTL # Translations Ready & Included "
+"# WPML Compatible # Retina Logo # Layout Settings # Transparent Headers # "
+"White Label # Site/Blog Layouts #Unlimited Colors # Import Pre-Built "
+"Websites (Gutenberg & Elementor) - https://cyberchimps.com/wordpress-themes/"
 msgstr ""
 
 #. Author of the plugin/theme
@@ -2922,7 +2932,7 @@ msgctxt "Text for a 404 page Breadcrumb"
 msgid "Error 404"
 msgstr ""
 
-#: core/includes/functions-extensions.php:211
+#: core/includes/functions-extensions.php:219
 #. translators: %s: Page Number
 msgctxt "Text for a page Breadcrumb"
 msgid "Page %s"
