@@ -1803,19 +1803,19 @@ body.mega-menu-header-menu button.menu-toggle {
   text-align: right;
 }
 
-.page-template-gutenberg-fullwidth:not(.front-page) .site-content {
+.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header) .site-content {
   padding: 0;
 }
 
-.page-template-gutenberg-fullwidth:not(.front-page) .site-content .content-area {
+.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header) .site-content .content-area {
   padding: 0;
 }
 
-.page-template-gutenberg-fullwidth:not(.front-page).responsive-site-style-content-boxed .site-content, .page-template-gutenberg-fullwidth:not(.front-page).responsive-site-style-boxed .site-content {
+.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-content-boxed .site-content, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-boxed .site-content {
   background-color: #ffffff;
 }
 
-.page-template-gutenberg-fullwidth:not(.front-page).responsive-site-style-content-boxed .hentry, .page-template-gutenberg-fullwidth:not(.front-page).responsive-site-style-content-boxed article.product, .page-template-gutenberg-fullwidth:not(.front-page).responsive-site-style-boxed .hentry, .page-template-gutenberg-fullwidth:not(.front-page).responsive-site-style-boxed article.product {
+.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-content-boxed .hentry, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-content-boxed article.product, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-boxed .hentry, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-boxed article.product {
   background-color: transparent;
 }
 

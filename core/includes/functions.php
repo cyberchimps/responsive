@@ -270,6 +270,17 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				'admin-head-callback' => 'responsive_admin_header_style',
 			)
 		);
+
+		// Custom logo.
+		$responsive_logo_width  = 300;
+		$responsive_logo_height = 100;
+
+		// If the retina setting is active, double the recommended width and height.
+		if ( get_theme_mod( 'responsive_retina_logo', 0 ) ) {
+			$responsive_logo_width  = floor( $responsive_logo_width * 2 );
+			$responsive_logo_height = floor( $responsive_logo_height * 2 );
+		}
+
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -278,8 +289,8 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'              => 100,
-				'width'               => 300,
+				'height'              => $responsive_logo_height,
+				'width'               => $responsive_logo_width,
 				'flex-width'          => true,
 				'flex-height'         => true,
 				'admin-head-callback' => 'responsive_admin_header_style',
