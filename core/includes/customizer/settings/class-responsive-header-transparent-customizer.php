@@ -170,6 +170,33 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$menu_toggle_color_label = __( 'Menu Toggle Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_menu_toggle', $menu_toggle_color_label, 'responsive_header_transparent', 260, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ), 'responsive_is_transparent_header_enabled' );
 
+			/**
+			 * Header Widget Separator.
+			 */
+			$transparent_header_widget_separator_label = esc_html__( 'Header Widget', 'responsive' );
+			responsive_separator_control( $wp_customize, 'transparent_header_widget_color_separator', $transparent_header_widget_separator_label, 'responsive_header_transparent', 270, 'responsive_is_transparent_header_enabled' );
+
+			// Text Color.
+			$menu_text_color_label = __( 'Text Color', 'responsive' );
+
+			responsive_color_control( $wp_customize, 'transparent_header_widget_text', $menu_text_color_label, 'responsive_header_transparent', 280, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ), 'responsive_is_transparent_header_enabled' );
+
+			// Background Color.
+			$menu_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_background', $menu_background_color_label, 'responsive_header_transparent', 290, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_background' ), 'responsive_is_transparent_header_enabled' );
+
+			// Border Color.
+			$menu_border_color_label = __( 'Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_border', $menu_border_color_label, 'responsive_header_transparent', 300, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_border' ), 'responsive_is_transparent_header_enabled' );
+
+			// Link Color.
+			$menu_link_color_label = __( 'Links Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_link', $menu_link_color_label, 'responsive_header_transparent', 310, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ), 'responsive_is_transparent_header_enabled' );
+
+			// Link Hover Color.
+			$menu_link_hover_color_label = __( 'Links Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_widget_link_hover', $menu_link_hover_color_label, 'responsive_header_transparent', 320, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ), 'responsive_is_transparent_header_enabled' );
+
 		}
 	}
 

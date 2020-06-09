@@ -111,6 +111,44 @@
         } );
     } );
 
+    //Header Widget section
+    //Update header widget text background color...
+    api( 'responsive_transparent_header_widget_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .header-widgets, .res-transparent-header .header-widgets h1, .res-transparent-header .header-widgets h2, .res-transparent-header .header-widgets h3, .res-transparent-header .header-widgets h4, .res-transparent-header .header-widgets h5, .res-transparent-header .header-widgets h6, .res-transparent-header .header-widgets .widget-title h4').css('color', newval );
+        } );
+    } );
+
+    //Update header widget background color...
+    api( 'responsive_transparent_header_widget_background_color', function( value ) {
+        value.bind( function( newval ) {
+            if( 'with_logo' != api('responsive_header_widget_position').get() ) {
+                $('.res-transparent-header .header-widgets').css('background-color', newval );
+            }
+        } );
+    } );
+
+    //Update header widget border color...
+    api( 'responsive_transparent_header_widget_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .header-widgets').css('border-color', newval );
+        } );
+    } );
+
+    //Update header widget link color...
+    api( 'responsive_transparent_header_widget_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .header-widgets a').css('color', newval );
+        } );
+    } );
+
+    //Update header widget link hover color...
+    api( 'responsive_transparent_header_widget_link_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .header-widgets a:focus, .res-transparent-header .header-widgets a:hover').css('color', newval );
+        } );
+    } );
+
     //Site Colors
     //Box Background Color
     api( 'responsive_box_background_color', function( value ) {
