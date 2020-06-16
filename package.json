@@ -1,6 +1,6 @@
 {
   "name": "responsive",
-  "version": "4.3.9",
+  "version": "4.4.0",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-checktextdomain": "~0.1.0",

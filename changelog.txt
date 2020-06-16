@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/16/20) = Fix - Version 4.4.0
+[*] = Added - Header Widgets color for transparent header
+[*] = Added - Responsive page options to set transparent header, content width, sidebar position and layout style for each page separately
+
 (06/09/20) = Fix - Version 4.3.9
 [*] = Added - Retina logo ready
 [*] = Added - WPML compatibility

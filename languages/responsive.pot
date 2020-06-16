@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.3.9\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-06-09 09:00:18+00:00\n"
+"POT-Creation-Date: 2020-06-09 12:37:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -507,6 +507,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:60
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:54
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:54
+#: core/includes/page-custom-meta.php:50
 msgid "Sidebar Position"
 msgstr ""
 
@@ -520,6 +521,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:63
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:56
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:63
+#: core/includes/page-custom-meta.php:36 core/includes/page-custom-meta.php:44
 msgid "Right Sidebar"
 msgstr ""
 
@@ -533,6 +535,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:62
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:57
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:62
+#: core/includes/page-custom-meta.php:37 core/includes/page-custom-meta.php:43
 msgid "Left Sidebar"
 msgstr ""
 
@@ -546,6 +549,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:64
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:58
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:64
+#: core/includes/page-custom-meta.php:38 core/includes/page-custom-meta.php:45
 msgid "No Sidebar"
 msgstr ""
 
@@ -702,7 +706,8 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:460
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:466
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:540
-#: core/includes/post-custom-meta.php:136
+#: core/includes/page-custom-meta.php:35 core/includes/page-custom-meta.php:42
+#: core/includes/page-custom-meta.php:71 core/includes/post-custom-meta.php:136
 msgid "Default"
 msgstr ""
 
@@ -907,6 +912,7 @@ msgstr ""
 #: core/includes/customizer/customizer.php:86
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:236
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
+#: core/includes/page-custom-meta.php:74
 msgid "Flat"
 msgstr ""
 
@@ -1597,7 +1603,7 @@ msgid "Disable Hero Area"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:105
-#: core/includes/functions.php:93 functions.php:595
+#: core/includes/functions.php:94 functions.php:595
 msgid "HAPPINESS"
 msgstr ""
 
@@ -1606,7 +1612,7 @@ msgid "Headline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:124
-#: core/includes/functions.php:94 functions.php:598
+#: core/includes/functions.php:95 functions.php:598
 msgid "IS A WARM CUP"
 msgstr ""
 
@@ -1615,7 +1621,7 @@ msgid "Subheadline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:142
-#: core/includes/functions.php:95 functions.php:601
+#: core/includes/functions.php:96 functions.php:601
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -2102,10 +2108,12 @@ msgid "Container Width (px)"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:96
+#: core/includes/page-custom-meta.php:72
 msgid "Boxed"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:97
+#: core/includes/page-custom-meta.php:73
 msgid "Content Boxed"
 msgstr ""
 
@@ -2382,56 +2390,56 @@ msgstr ""
 msgid "Area 15 - sidebar-footer.php"
 msgstr ""
 
-#: core/includes/functions.php:96 functions.php:604
+#: core/includes/functions.php:97 functions.php:604
 msgid "Call to Action"
 msgstr ""
 
-#: core/includes/functions.php:249
+#: core/includes/functions.php:250
 msgid "Header Menu"
 msgstr ""
 
-#: core/includes/functions.php:250 partials/footer/footer-menu.php:10
+#: core/includes/functions.php:251 partials/footer/footer-menu.php:10
 #: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr ""
 
-#: core/includes/functions.php:424
+#: core/includes/functions.php:425
 msgid "Team Section Options"
 msgstr ""
 
-#: core/includes/functions.php:438
+#: core/includes/functions.php:439
 msgid "To use this post for front page's team section, please enter below details:"
 msgstr ""
 
-#: core/includes/functions.php:441
+#: core/includes/functions.php:442
 msgid "Member designation"
 msgstr ""
 
-#: core/includes/functions.php:445
+#: core/includes/functions.php:446
 msgid "Facebook Link"
 msgstr ""
 
-#: core/includes/functions.php:449
+#: core/includes/functions.php:450
 msgid "Twitter Link"
 msgstr ""
 
-#: core/includes/functions.php:453
+#: core/includes/functions.php:454
 msgid "GooglePlus Link"
 msgstr ""
 
-#: core/includes/functions.php:457
+#: core/includes/functions.php:458
 msgid "LinkedIn Link"
 msgstr ""
 
-#: core/includes/functions.php:719
+#: core/includes/functions.php:730
 msgid "Posted on"
 msgstr ""
 
-#: core/includes/functions.php:719
+#: core/includes/functions.php:730
 msgid "By"
 msgstr ""
 
-#: core/includes/functions.php:738 partials/entry/meta.php:54
+#: core/includes/functions.php:749 partials/entry/meta.php:54
 #: partials/single/meta.php:49
 #. translators: %s: view post by
 #. translators: view all posts by author
@@ -2439,7 +2447,7 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions.php:749 image.php:82 partials/entry/meta.php:104
+#: core/includes/functions.php:760 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -2447,17 +2455,21 @@ msgstr ""
 msgid "Posted in %s"
 msgstr ""
 
-#: core/includes/functions.php:749 partials/entry/meta.php:104
+#: core/includes/functions.php:760 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 msgid ", "
 msgstr ""
 
-#: core/includes/functions.php:766
+#: core/includes/functions.php:777
 msgid "Upgrade To Pro"
 msgstr ""
 
 #: core/includes/hooks.php:394
 msgid "Enroll &raquo;"
+msgstr ""
+
+#: core/includes/page-custom-meta.php:78
+msgid "Page Layout Style"
 msgstr ""
 
 #: core/includes/post-custom-meta.php:137
