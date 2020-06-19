@@ -9,9 +9,18 @@ workflows:
       # Support PHP Versions
       # http://php.net/supported-versions.php
       - php73-phpcs # Will be deprecated on 30 Nov 2020
-      - unit-tests
-      - theme-check
-      - automation-test
+      - unit-tests:
+          filters:
+            branches:
+              only: master
+      - theme-check:
+          filters:
+            branches:
+              only: master
+      - automation-test:
+          filters:
+            branches:
+              only: master
       - deploy:
           requires:
             - php73-phpcs
