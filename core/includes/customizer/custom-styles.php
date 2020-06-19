@@ -1236,9 +1236,8 @@ function responsive_customizer_styles() {
 	}";
 
 	// Entry Blog Styles.
-	$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', 66 ) );
-
-	$custom_css .= "
+	$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'blog_content_width' ) ) );
+	$custom_css        .= "
 	@media (min-width:992px) {
 		.search:not(.post-type-archive-product) .content-area,
 		.archive:not(.post-type-archive-product):not(.post-type-archive-course) .content-area,
@@ -1346,9 +1345,8 @@ function responsive_customizer_styles() {
 	}";
 
 	// Single Blog Styles.
-	$single_blog_content_width = esc_html( get_theme_mod( 'responsive_single_blog_content_width', 66 ) );
-
-	$custom_css .= "
+	$single_blog_content_width = esc_html( get_theme_mod( 'responsive_single_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_content_width' ) ) );
+	$custom_css               .= "
 	@media (min-width:992px) {
 		.single:not(.single-product) .content-area {
 			width:{$single_blog_content_width}%;

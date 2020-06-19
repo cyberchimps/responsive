@@ -84,7 +84,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 					'center' => esc_html__( 'center', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 30, $content_header_alignment_choices, 'center', null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), null, 'postMessage' );
 
 		}
 	}

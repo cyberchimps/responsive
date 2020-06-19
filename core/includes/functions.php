@@ -610,7 +610,7 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'mobile-menu-style-sidebar';
 	}
 	// Content Header Alignment class.
-	$classes[] = 'site-content-header-alignment-' . get_theme_mod( 'responsive_content_header_alignment', 'center' );
+	$classes[] = 'site-content-header-alignment-' . get_theme_mod( 'responsive_content_header_alignment', get_responsive_customizer_defaults( 'breadcrumb_alignment' ) );
 
 	// Custom Homepage Class class.
 	$responsive_options = responsive_get_options();
@@ -907,14 +907,19 @@ function defaults() {
 	$theme_options = apply_filters(
 		'responsive_theme_defaults',
 		array(
-			'entry_columns'                 => 1,
-			'buttons_radius'                 => 0,
-			//alignment
-			'blog_entry_title_alignment'    => 'left',
-			'blog_entry_meta_alignment'     => 'left',
+			'entry_columns'                       => 1,
+			'buttons_radius'                      => 0,
+			'blog_content_width'                  => 66,
+			'single_blog_content_width'           => 66,
+			'breadcrumb_alignment'                => 'center',
+			'read_more_text'                      => 'Read more &raquo;',
+
+			// alignment
+			'blog_entry_title_alignment'          => 'left',
+			'blog_entry_meta_alignment'           => 'left',
 			// Padding
-			'box_padding'                   => 30,
-			'logo_padding'                  => 28,
+			'box_padding'                         => 30,
+			'logo_padding'                        => 28,
 			// Colors.
 			'background_color'                    => 'eaeaea',
 			'scroll_to_top_icon'                  => '#ffffff',
