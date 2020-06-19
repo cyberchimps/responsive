@@ -8,7 +8,10 @@ workflows:
     jobs:
       # Support PHP Versions
       # http://php.net/supported-versions.php
-      - php73-phpcs # Will be deprecated on 30 Nov 2020
+      - php73-phpcs: # Will be deprecated on 30 Nov 2020
+          filters:
+            branches:
+              only: master
       - unit-tests:
           filters:
             branches:
