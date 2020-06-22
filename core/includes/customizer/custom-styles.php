@@ -722,11 +722,11 @@ function responsive_customizer_styles() {
 
 	}
 	// Sidebar Color.
-	$sidebar_headings_color   = esc_html( get_theme_mod( 'responsive_sidebar_headings_color', get_theme_mod( 'responsive_h4_text_color', '#333333' ) ) );
-	$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', get_theme_mod( 'responsive_box_background_color', '#ffffff' ) ) );
-	$sidebar_text_color       = esc_html( get_theme_mod( 'responsive_sidebar_text_color', get_theme_mod( 'responsive_body_text_color', '#333333' ) ) );
-	$sidebar_link_color       = esc_html( get_theme_mod( 'responsive_sidebar_link_color', get_theme_mod( 'responsive_link_color', '#0066CC' ) ) );
-	$sidebar_link_hover_color = esc_html( get_theme_mod( 'responsive_sidebar_link_hover_color', get_theme_mod( 'responsive_link_hover_color', '#10659C' ) ) );
+	$sidebar_headings_color   = esc_html( get_theme_mod( 'responsive_sidebar_headings_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_h4_text_color' ) ) );
+	$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_background_color' ) ) );
+	$sidebar_text_color       = esc_html( get_theme_mod( 'responsive_sidebar_text_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_body_text_color' ) ) );
+	$sidebar_link_color       = esc_html( get_theme_mod( 'responsive_sidebar_link_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_color' ) ) );
+	$sidebar_link_hover_color = esc_html( get_theme_mod( 'responsive_sidebar_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_hover_color' ) ) );
 
 	$custom_css .= "
     .widget-area .widget-title h4{
@@ -1237,6 +1237,7 @@ function responsive_customizer_styles() {
 
 	// Entry Blog Styles.
 	$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'blog_content_width' ) ) );
+
 	$custom_css        .= "
 	@media (min-width:992px) {
 		.search:not(.post-type-archive-product) .content-area,
@@ -1345,6 +1346,7 @@ function responsive_customizer_styles() {
 	}";
 
 	// Single Blog Styles.
+
 	$single_blog_content_width = esc_html( get_theme_mod( 'responsive_single_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'single_blog_content_width' ) ) );
 	$custom_css               .= "
 	@media (min-width:992px) {

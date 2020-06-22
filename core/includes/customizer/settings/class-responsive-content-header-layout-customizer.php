@@ -47,7 +47,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				array(
 					'sanitize_callback' => 'Responsive\Customizer\\responsive_sanitize_checkbox',
 					'type'              => 'option',
-					'default'           => 0,
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'res_breadcrumb' ),
 				)
 			);
 			$wp_customize->add_control(

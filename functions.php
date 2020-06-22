@@ -118,7 +118,7 @@ function responsive_setup_content_width() {
 			}
 		} else {
 			if ( 'no' !== get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) ) {
-				$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', 66 ) );
+				$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'blog_content_width' ) ) );
 
 				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
 			} else {

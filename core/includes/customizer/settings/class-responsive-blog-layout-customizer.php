@@ -70,7 +70,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'blog_sidebar_position', $sidebar_label, 'responsive_blog_layout', 40, $sidebar_choices, 'right', null );
+			responsive_select_control( $wp_customize, 'blog_sidebar_position', $sidebar_label, 'responsive_blog_layout', 40, $sidebar_choices, Responsive\Core\get_responsive_customizer_defaults( 'blog_sidebar_position' ), null );
 
 		}
 

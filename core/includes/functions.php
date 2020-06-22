@@ -16,7 +16,6 @@
 namespace Responsive\Core;
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-require get_template_directory() . '/core/includes/page-custom-meta.php';
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -47,7 +46,9 @@ function setup() {
 	add_filter( 'body_class', $n( 'responsive_add_class' ) );
 	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ) );
 
-	add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
+	if ( responsive_is_transparent_header() && get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) ) {
+		add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
+	}
 
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
 		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
@@ -561,17 +562,8 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	// Site Width class.
 	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
-
 	// Site Style class.
-	if ( is_page() ) {
-		$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
-		$site_style = $site_style ? $site_style : get_theme_mod( 'responsive_style', 'boxed' );
-
-		$classes[] = 'responsive-site-style-' . $site_style;
-
-	} else {
-		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
-	}
+	$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 
 	// Header width.
 	if ( get_theme_mod( 'responsive_header_full_width', 0 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
@@ -582,9 +574,9 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'res-transparent-header';
 	}
 	// Header Element layout class.
-	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', 'horizontal' );
+	$classes[] = 'site-header-layout-' . get_theme_mod( 'responsive_header_layout', get_responsive_customizer_defaults( 'responsive_header_layout' ) );
 	// Header alignment class.
-	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', 'center' );
+	$classes[] = 'site-header-alignment-' . get_theme_mod( 'responsive_header_alignment', get_responsive_customizer_defaults( 'responsive_header_alignment' ) );
 	// Mobile Header Element layout class.
 	$classes[] = 'site-mobile-header-layout-' . get_theme_mod( 'responsive_mobile_header_layout', 'horizontal' );
 	// Mobile Header alignment class.
@@ -626,10 +618,9 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = '';
 
 		} else {
-			$sidebar_position = get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true );
-			$sidebar_position = $sidebar_position ? $sidebar_position : get_theme_mod( 'responsive_page_sidebar_position', 'right' );
+
 			// Page sidebar Position.
-			$classes[] = 'sidebar-position-' . $sidebar_position;
+			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_page_sidebar_position', 'right' );
 			// Page Featured Image Aligmnmnet.
 			$classes[] = 'featured-image-alignment-' . get_theme_mod( 'responsive_page_featured_image_alignment', 'left' );
 			// Page Title Aligmnmnet.
@@ -688,7 +679,7 @@ function responsive_add_custom_body_classes( $classes ) {
 			$masonry   = ( 1 === get_theme_mod( 'responsive_blog_entry_display_masonry', 0 ) ) ? '-masonry' : '';
 			$classes[] = 'blog-entry-columns-' . get_theme_mod( 'responsive_blog_entry_columns', get_responsive_customizer_defaults( 'entry_columns' ) ) . $masonry;
 			// Entry Blog sidebar Position.
-			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', 'right' );
+			$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_blog_sidebar_position', get_responsive_customizer_defaults( 'blog_sidebar_position' ) );
 
 		}
 	}
@@ -812,7 +803,7 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 	 * Returns true if transparent header is enabled
 	 */
 	function responsive_is_transparent_header() {
-		$enable_trans_header = get_theme_mod( 'responsive_transparent_header', 0 ) || ( is_page() && get_post_meta( get_the_ID(), 'responsive_page_meta_transparent_header', true ) ) ? true : false;
+		$enable_trans_header = get_theme_mod( 'responsive_transparent_header', 0 );
 		if ( $enable_trans_header ) {
 
 			if ( ( is_archive() || is_search() || is_404() ) && get_theme_mod( 'responsive_disable_archive_transparent_header', 0 ) ) {
@@ -823,11 +814,11 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
 				$enable_trans_header = false;
 			}
 
-			if ( is_front_page() && ( 'disabled' === get_post_meta( get_the_ID(), 'responsive_page_meta_transparent_header', true ) || get_theme_mod( 'responsive_disable_homepage_transparent_header', 0 ) ) ) {
+			if ( is_front_page() && get_theme_mod( 'responsive_disable_homepage_transparent_header', 0 ) ) {
 				$enable_trans_header = false;
 			}
 
-			if ( ! is_front_page() && is_page() && ( 'disabled' === get_post_meta( get_the_ID(), 'responsive_page_meta_transparent_header', true ) || get_theme_mod( 'responsive_disable_pages_transparent_header', 0 ) ) ) {
+			if ( ! is_front_page() && is_page() && get_theme_mod( 'responsive_disable_pages_transparent_header', 0 ) ) {
 				$enable_trans_header = false;
 			}
 
@@ -979,6 +970,20 @@ function defaults() {
 			'inputs_text'                         => '#333333',
 			'inputs_border'                       => '#cccccc',
 			'label'                               => '#333333',
+
+			'responsive_style'                    => 'boxed',
+			'responsive_header_layout'			  => 'horizontal',
+			'responsive_header_alignment'		  => 'center',
+			'header_menu_full_width'			  => 1,
+			'blog_content_width'                  => 66,
+			'res_breadcrumb'					  => 1,
+			'blog_sidebar_position'				  => 'right',
+
+			'responsive_h4_text_color'			  => '#333333',
+			'responsive_box_background_color'	  => '#ffffff',
+			'responsive_body_text_color'		  => '#333333',
+			'responsive_link_color'				  => '#0066CC',
+			'responsive_link_hover_color'		  => '#10659C',
 		)
 	);
 	return $theme_options;
