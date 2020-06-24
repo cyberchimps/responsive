@@ -566,7 +566,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 
 	// Header width.
-	if ( get_theme_mod( 'responsive_header_full_width', 0 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
+	if ( get_theme_mod( 'responsive_header_full_width', 1 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
 		$classes[] = 'header-full-width';
 	}
 	// Transparent Header.
