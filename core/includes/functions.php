@@ -902,8 +902,11 @@ function defaults() {
 			'buttons_radius'                      => 0,
 			'blog_content_width'                  => 66,
 			'single_blog_content_width'           => 66,
+			'page_content_width'                  => 66,
 			'breadcrumb_alignment'                => 'center',
 			'read_more_text'                      => 'Read more &raquo;',
+			'blog_entry_elements_positioning'     => array( 'title', 'meta', 'featured_image', 'content' ),
+			'blog_single_elements_positioning'    => array( 'title', 'meta', 'featured_image', 'content' ),
 
 			// alignment
 			'blog_entry_title_alignment'          => 'left',
@@ -972,18 +975,18 @@ function defaults() {
 			'label'                               => '#333333',
 
 			'responsive_style'                    => 'boxed',
-			'responsive_header_layout'			  => 'horizontal',
-			'responsive_header_alignment'		  => 'center',
-			'header_menu_full_width'			  => 1,
+			'responsive_header_layout'            => 'horizontal',
+			'responsive_header_alignment'         => 'center',
+			'header_menu_full_width'              => 1,
 			'blog_content_width'                  => 66,
-			'res_breadcrumb'					  => 1,
-			'blog_sidebar_position'				  => 'right',
+			'res_breadcrumb'                      => 1,
+			'blog_sidebar_position'               => 'right',
 
-			'responsive_h4_text_color'			  => '#333333',
-			'responsive_box_background_color'	  => '#ffffff',
-			'responsive_body_text_color'		  => '#333333',
-			'responsive_link_color'				  => '#0066CC',
-			'responsive_link_hover_color'		  => '#10659C',
+			'responsive_h4_text_color'            => '#333333',
+			'responsive_box_background_color'     => '#ffffff',
+			'responsive_body_text_color'          => '#333333',
+			'responsive_link_color'               => '#0066CC',
+			'responsive_link_hover_color'         => '#10659C',
 		)
 	);
 	return $theme_options;

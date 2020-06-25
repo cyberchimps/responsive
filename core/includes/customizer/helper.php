@@ -59,7 +59,6 @@ if ( ! function_exists( 'responsive_blog_entry_elements_positioning' ) ) {
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_elements_positioning', $sections );
-
 		// Turn into array if string.
 		if ( $sections && ! is_array( $sections ) ) {
 			$sections = explode( ',', $sections );
