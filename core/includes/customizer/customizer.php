@@ -16,7 +16,6 @@ function setup() {
 	$n = function( $function ) {
 		return __NAMESPACE__ . "\\$function";
 	};
-
 	add_action( 'customize_register', $n( 'responsive_customize_register' ) );
 	add_action( 'customize_preview_init', $n( 'responsive_customize_preview_js' ) );
 	add_action( 'after_setup_theme', $n( 'responsive_register_options' ) );
@@ -144,7 +143,8 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function responsive_customize_preview_js() {
-	wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+
+    wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_color', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-color-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_checkbox', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-checkbox-control.js', array( 'customize-preview', 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_padding', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-padding-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );

@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Full Width Menu.
 			$header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_menu_full_width', $header_menu_full_width_label, 'responsive_header_menu_layout', 10, 0, 'responsive_active_vertical_header' );
+			responsive_checkbox_control( $wp_customize, 'header_menu_full_width', $header_menu_full_width_label, 'responsive_header_menu_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_full_width' ), 'responsive_active_vertical_header' );
 
 			// Disable Mobile Menu.
 			$disable_mobile_menu_label = __( 'Enable Mobile Menu', 'responsive' );

@@ -224,7 +224,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 						$fonts = responsive_add_custom_fonts();
 						if ( $fonts && is_array( $fonts ) ) {
 							?>
-						<optgroup label="<?php esc_html_e( 'Custom Fonts', 'responsive' ); ?>">
+						<optgroup label="<?php esc_attr_e( 'Custom Fonts', 'responsive' ); ?>">
 							<?php foreach ( $fonts as $font ) { ?>
 								<option value="<?php echo esc_html( $font[0] ); ?>"
 									<?php
@@ -241,7 +241,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 					// Get Standard font options.
 					if ( $std_fonts = responsive_standard_fonts() ) {//phpcs:ignore
 						?>
-					<optgroup label="<?php esc_html_e( 'Standard Fonts', 'responsive' ); ?>">
+					<optgroup label="<?php esc_attr_e( 'Standard Fonts', 'responsive' ); ?>">
 						<?php
 						// Loop through font options and add to select.
 						foreach ( $std_fonts as $key => $font ) {
@@ -255,7 +255,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 					// Google font options.
 					if ( $google_fonts = responsive_get_google_fonts() ) {//phpcs:ignore
 						?>
-					<optgroup label="<?php esc_html_e( 'Google Fonts', 'responsive' ); ?>">
+					<optgroup label="<?php esc_attr_e( 'Google Fonts', 'responsive' ); ?>">
 
 						<?php
 						// Loop through font options and add to select.

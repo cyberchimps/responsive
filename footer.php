@@ -24,6 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $responsive_options;
 $responsive_options = Responsive\Core\responsive_get_options();
 global $responsive_blog_layout_columns;
+do_action( 'cyberchimps_footer' );
 
 		// Elementor `footer` location.
 if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {

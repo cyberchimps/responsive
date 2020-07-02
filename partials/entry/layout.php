@@ -35,7 +35,6 @@ Responsive\responsive_entry_before();
 
 		// Get elements.
 		$elements = responsive_blog_entry_elements_positioning();
-
 		// Loop through elements.
 		foreach ( $elements as $element ) {
 

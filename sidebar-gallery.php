@@ -29,22 +29,22 @@ Responsive\responsive_widgets_before(); // above widgets container hook. ?>
 
 				if ( is_array( $responsive_data ) ) {
 					?>
-					<span class="full-size"><?php esc_html_e( 'Full Size:', 'responsive' ); ?> <a href="<?php echo esc_url( wp_get_attachment_url( $post->ID ) ); ?>"><?php echo esc_attr( $responsive_data['width'] ) . '&#215;' . esc_attr( $responsive_data['height'] ); ?></a>px</span>
+					<span class="full-size"><?php esc_html_e( 'Full Size:', 'responsive' ); ?> <a href="<?php echo esc_url( wp_get_attachment_url( $post->ID ) ); ?>"><?php echo esc_html( $responsive_data['width'] ) . '&#215;' . esc_html( $responsive_data['height'] ); ?></a>px</span>
 
 					<?php
 					if ( is_array( $responsive_data['image_meta'] ) ) {
 						?>
 						<?php if ( $responsive_data['image_meta']['aperture'] ) { ?>
-							<span class="aperture"><?php esc_html_e( 'Aperture: f&#47;', 'responsive' ); ?><?php echo esc_attr( $responsive_data['image_meta']['aperture'] ); ?></span>
+							<span class="aperture"><?php esc_html_e( 'Aperture: f&#47;', 'responsive' ); ?><?php echo esc_html( $responsive_data['image_meta']['aperture'] ); ?></span>
 						<?php } ?>
 
 						<?php if ( $responsive_data['image_meta']['focal_length'] ) { ?>
 							<span
-								class="focal-length"><?php esc_html_e( 'Focal Length:', 'responsive' ); ?> <?php echo esc_attr( $responsive_data['image_meta']['focal_length'] ); ?><?php esc_html_e( 'mm', 'responsive' ); ?></span>
+								class="focal-length"><?php esc_html_e( 'Focal Length:', 'responsive' ); ?> <?php echo esc_html( $responsive_data['image_meta']['focal_length'] ); ?><?php esc_html_e( 'mm', 'responsive' ); ?></span>
 						<?php } ?>
 
 						<?php if ( $responsive_data['image_meta']['iso'] ) { ?>
-							<span class="iso"><?php esc_html_e( 'ISO:', 'responsive' ); ?> <?php echo esc_attr( $responsive_data['image_meta']['iso'] ); ?></span>
+							<span class="iso"><?php esc_html_e( 'ISO:', 'responsive' ); ?> <?php echo esc_html( $responsive_data['image_meta']['iso'] ); ?></span>
 						<?php } ?>
 
 						<?php if ( $responsive_data['image_meta']['shutter_speed'] ) { ?>
@@ -52,20 +52,20 @@ Responsive\responsive_widgets_before(); // above widgets container hook. ?>
 								<?php
 								if ( ( 1 / $responsive_data['image_meta']['shutter_speed'] ) > 1 ) {
 									echo '1/';
-									if ( number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1 ) == number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0 ) ) {
-										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 0, '.', '' ) . ' ' . esc_html__( 'sec', 'responsive' );
+									if ( number_format( ( 1 / esc_html( $responsive_data['image_meta']['shutter_speed'] ) ), 1 ) == number_format( ( 1 / esc_html( $responsive_data['image_meta']['shutter_speed'] ) ), 0 ) ) {
+										echo number_format( ( 1 / esc_html( $responsive_data['image_meta']['shutter_speed'] ) ), 0, '.', '' ) . ' ' . esc_html__( 'sec', 'responsive' );
 									} else {
-										echo number_format( ( 1 / esc_attr( $responsive_data['image_meta']['shutter_speed'] ) ), 1, '.', '' ) . ' ' . esc_html__( 'sec', 'responsive' );
+										echo number_format( ( 1 / esc_html( $responsive_data['image_meta']['shutter_speed'] ) ), 1, '.', '' ) . ' ' . esc_html__( 'sec', 'responsive' );
 									}
 								} else {
-									echo esc_attr( $responsive_data['image_meta']['shutter_speed'] ) . ' ' . esc_html__( 'sec', 'responsive' );
+									echo esc_html( $responsive_data['image_meta']['shutter_speed'] ) . ' ' . esc_html__( 'sec', 'responsive' );
 								}
 								?>
 								</span>
 						<?php } ?>
 
 						<?php if ( $responsive_data['image_meta']['camera'] ) { ?>
-							<span class="camera"><?php esc_html_e( 'Camera:', 'responsive' ); ?> <?php echo esc_attr( $responsive_data['image_meta']['camera'] ); ?></span>
+							<span class="camera"><?php esc_html_e( 'Camera:', 'responsive' ); ?> <?php echo esc_html( $responsive_data['image_meta']['camera'] ); ?></span>
 							<?php
 						}
 					}

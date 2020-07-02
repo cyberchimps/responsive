@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.4.0' );
+define( 'RESPONSIVE_THEME_VERSION', '4.4.1' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -118,7 +118,7 @@ function responsive_setup_content_width() {
 			}
 		} else {
 			if ( 'no' !== get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) ) {
-				$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', 66 ) );
+				$blog_content_width = esc_html( get_theme_mod( 'responsive_blog_content_width', Responsive\Core\get_responsive_customizer_defaults( 'blog_content_width' ) ) );
 
 				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
 			} else {

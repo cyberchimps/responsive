@@ -119,18 +119,18 @@ if ( ! class_exists( 'Responsive_Customizer_Text_Control' ) ) :
 
 		<# if ( data.desktop ) { #>
 			<div class="desktop control-wrap active">
-				<input type="text" value="{{ data.desktop.value }}" placeholder="<?php esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.desktop.link }}} />
+				<input type="text" value="{{ data.desktop.value }}" placeholder="<?php esc_attr_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.desktop.link }}} />
 			</div>
 		<# } #>
 		<# if ( data.tablet ) { #>
 			<div class="tablet control-wrap">
-				<input type="text" value="{{ data.tablet.value }}" placeholder="<?php esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.tablet.link }}} />
+				<input type="text" value="{{ data.tablet.value }}" placeholder="<?php esc_attr_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.tablet.link }}} />
 			</div>
 			<# } #>
 
 		<# if ( data.mobile ) { #>
 			<div class="mobile control-wrap">
-				<input type="text" value="{{ data.mobile.value }}" placeholder="<?php esc_html_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.mobile.link }}} />
+				<input type="text" value="{{ data.mobile.value }}" placeholder="<?php esc_attr_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.mobile.link }}} />
 			</div>
 			<# } #>
 			<?php
