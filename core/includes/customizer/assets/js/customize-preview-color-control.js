@@ -11,10 +11,10 @@
     //Header section
     //Update header background color...
     api( 'responsive_header_background_color', function( value ) {
-        value.bind( function( newval ) {
-            $('.site-header').css('background-color', newval );
+            value.bind( function( newval ) {
+                $('.site-header').css('background-color', newval );
+            } );
         } );
-    } );
 
     //Update header border color...
     api( 'responsive_header_border_color', function( value ) {

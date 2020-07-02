@@ -57,7 +57,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Content_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_single_elements_positioning',
 				array(
-					'default'           => array( 'title', 'meta', 'featured_image', 'content' ),
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'blog_single_elements_positioning' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)

@@ -58,7 +58,7 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_entry_elements_positioning',
 				array(
-					'default'           => array( 'title', 'meta', 'featured_image', 'content' ),
+					'default'           => Responsive\Core\get_responsive_customizer_defaults( 'blog_entry_elements_positioning' ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
@@ -249,7 +249,8 @@ if ( ! class_exists( 'Responsive_Blog_Content_Customizer' ) ) :
 
 			// Read More Text.
 			$blog_entry_read_more_text_label = esc_html__( 'Read More Text', 'responsive' );
-			responsive_text_control( $wp_customize, 'blog_read_more_text', $blog_entry_read_more_text_label, 'responsive_blog_content', 160, 'Read more &raquo;', 'responsive_active_blog_entry_content_type_excerpt' );
+
+			responsive_text_control( $wp_customize, 'blog_read_more_text', $blog_entry_read_more_text_label, 'responsive_blog_content', 160, Responsive\Core\get_responsive_customizer_defaults( 'read_more_text' ), 'responsive_active_blog_entry_content_type_excerpt' );
 
 			// Read More Type.
 			$blog_entry_read_more_type_label   = esc_html__( 'Read More Type', 'responsive' );

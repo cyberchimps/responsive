@@ -19,6 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-	<label class="screen-reader-text" for="s"><?php esc_attr_e( 'Search for:', 'responsive' ); ?></label>
+	<label class="screen-reader-text" for="s"><?php esc_html_e( 'Search for:', 'responsive' ); ?></label>
 	<input type="search" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search here &hellip;', 'responsive' ); ?>" />
 </form>
