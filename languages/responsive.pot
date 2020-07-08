@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.3.9\n"
+"Project-Id-Version: Responsive 4.4.1\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-06-09 12:37:19+00:00\n"
+"POT-Creation-Date: 2020-07-08 05:35:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -327,8 +327,8 @@ msgstr ""
 
 #: core/includes/compatibility/sensei/customizer/settings/class-responsive-sensei-content-customizer.php:47
 #: core/includes/customizer/helper.php:38
-#: core/includes/customizer/helper.php:121
-#: core/includes/customizer/helper.php:226
+#: core/includes/customizer/helper.php:120
+#: core/includes/customizer/helper.php:225
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:223
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:43
@@ -388,7 +388,7 @@ msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
-#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:258
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:259
 msgid "Button"
 msgstr ""
 
@@ -507,7 +507,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:60
 #: core/includes/customizer/settings/class-responsive-page-layout-customizer.php:54
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:54
-#: core/includes/page-custom-meta.php:50
+#: core/includes/page-custom-meta.php:51
 msgid "Sidebar Position"
 msgstr ""
 
@@ -707,7 +707,8 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:466
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:540
 #: core/includes/page-custom-meta.php:35 core/includes/page-custom-meta.php:42
-#: core/includes/page-custom-meta.php:71 core/includes/post-custom-meta.php:136
+#: core/includes/page-custom-meta.php:73 core/includes/page-custom-meta.php:102
+#: core/includes/post-custom-meta.php:136
 msgid "Default"
 msgstr ""
 
@@ -778,7 +779,7 @@ msgstr ""
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:191
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:195
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:199
-#: footer.php:89
+#: footer.php:90
 msgid "Top"
 msgstr ""
 
@@ -896,96 +897,96 @@ msgstr ""
 msgid "Get the PRO version!"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:51
+#: core/includes/customizer/customizer.php:50
 msgid "CSS Styles"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:65
+#: core/includes/customizer/customizer.php:64
 msgid "Custom CSS Styles"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:85
+#: core/includes/customizer/customizer.php:84
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:235
 msgid "Gradient"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:86
+#: core/includes/customizer/customizer.php:85
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:236
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:98
-#: core/includes/page-custom-meta.php:74
+#: core/includes/page-custom-meta.php:76
 msgid "Flat"
 msgstr ""
 
-#: core/includes/customizer/customizer.php:119
+#: core/includes/customizer/customizer.php:118
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:63
 msgid "Choose Post"
 msgstr ""
 
 #: core/includes/customizer/helper.php:35
-#: core/includes/customizer/helper.php:118
-#: core/includes/customizer/helper.php:224
-#: core/includes/customizer/helper.php:247
-#: core/includes/customizer/helper.php:274
+#: core/includes/customizer/helper.php:117
+#: core/includes/customizer/helper.php:223
+#: core/includes/customizer/helper.php:246
+#: core/includes/customizer/helper.php:273
 #: core/includes/customizer/settings/class-responsive-content-header-typography-customizer.php:48
 msgid "Title"
 msgstr ""
 
 #: core/includes/customizer/helper.php:36
-#: core/includes/customizer/helper.php:119
-#: core/includes/customizer/helper.php:225
+#: core/includes/customizer/helper.php:118
+#: core/includes/customizer/helper.php:224
 msgid "Featured Image"
 msgstr ""
 
 #: core/includes/customizer/helper.php:37
-#: core/includes/customizer/helper.php:120
-#: core/includes/customizer/helper.php:252
+#: core/includes/customizer/helper.php:119
+#: core/includes/customizer/helper.php:251
 #: core/includes/customizer/settings/class-responsive-site-typography-customizer.php:83
 #: core/includes/customizer/settings/class-responsive-typography-customizer.php:150
 msgid "Meta"
 msgstr ""
 
-#: core/includes/customizer/helper.php:173
+#: core/includes/customizer/helper.php:172
 msgid "Site Branding"
 msgstr ""
 
-#: core/includes/customizer/helper.php:174
+#: core/includes/customizer/helper.php:173
 #: partials/header/main-navigation.php:15
 msgid "Main Navigation"
 msgstr ""
 
-#: core/includes/customizer/helper.php:248
+#: core/includes/customizer/helper.php:247
 msgid "Rating"
 msgstr ""
 
-#: core/includes/customizer/helper.php:249
-#: core/includes/customizer/helper.php:276
+#: core/includes/customizer/helper.php:248
+#: core/includes/customizer/helper.php:275
 msgid "Price"
+msgstr ""
+
+#: core/includes/customizer/helper.php:249
+#: core/includes/customizer/helper.php:277
+msgid "Short Description"
 msgstr ""
 
 #: core/includes/customizer/helper.php:250
 #: core/includes/customizer/helper.php:278
-msgid "Short Description"
-msgstr ""
-
-#: core/includes/customizer/helper.php:251
-#: core/includes/customizer/helper.php:279
 msgid "Add to Cart"
 msgstr ""
 
-#: core/includes/customizer/helper.php:275
+#: core/includes/customizer/helper.php:274
 msgid "Category"
 msgstr ""
 
-#: core/includes/customizer/helper.php:277
+#: core/includes/customizer/helper.php:276
 msgid "Ratings"
 msgstr ""
 
-#: core/includes/customizer/helper.php:766
+#: core/includes/customizer/helper.php:765
 msgid "Read more &raquo;"
 msgstr ""
 
-#: core/includes/customizer/helper.php:806
-#: core/includes/customizer/helper.php:827 partials/entry/content.php:17
+#: core/includes/customizer/helper.php:805
+#: core/includes/customizer/helper.php:826 partials/entry/content.php:17
 msgid "Read More &raquo;"
 msgstr ""
 
@@ -1102,11 +1103,11 @@ msgstr ""
 msgid "Read More Text"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:255
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:256
 msgid "Read More Type"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:257
+#: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:258
 msgid "Link"
 msgstr ""
 
@@ -1209,12 +1210,14 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:73
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:131
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:185
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:50
 msgid "Background Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:68
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:180
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:54
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:166
@@ -1223,12 +1226,14 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:55
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:81
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:193
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:58
 msgid "Links Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:59
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:85
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:197
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:62
 msgid "Links Hover Color"
 msgstr ""
@@ -1336,6 +1341,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:112
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:138
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:189
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:149
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:170
 msgid "Border Color"
@@ -1357,6 +1363,7 @@ msgid "Site Tagline Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:176
 msgid "Header Widget"
 msgstr ""
 
@@ -1512,6 +1519,7 @@ msgid "Embeds to header.php"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:39
+#: core/includes/page-custom-meta.php:109
 msgid "Transparent Header"
 msgstr ""
 
@@ -1603,7 +1611,7 @@ msgid "Disable Hero Area"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:105
-#: core/includes/functions.php:94 functions.php:595
+#: core/includes/functions.php:93 functions.php:595
 msgid "HAPPINESS"
 msgstr ""
 
@@ -1612,7 +1620,7 @@ msgid "Headline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:124
-#: core/includes/functions.php:95 functions.php:598
+#: core/includes/functions.php:94 functions.php:598
 msgid "IS A WARM CUP"
 msgstr ""
 
@@ -1621,7 +1629,7 @@ msgid "Subheadline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:142
-#: core/includes/functions.php:96 functions.php:601
+#: core/includes/functions.php:95 functions.php:601
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -2108,12 +2116,12 @@ msgid "Container Width (px)"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:96
-#: core/includes/page-custom-meta.php:72
+#: core/includes/page-custom-meta.php:74
 msgid "Boxed"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:97
-#: core/includes/page-custom-meta.php:73
+#: core/includes/page-custom-meta.php:75
 msgid "Content Boxed"
 msgstr ""
 
@@ -2390,56 +2398,56 @@ msgstr ""
 msgid "Area 15 - sidebar-footer.php"
 msgstr ""
 
-#: core/includes/functions.php:97 functions.php:604
+#: core/includes/functions.php:96 functions.php:604
 msgid "Call to Action"
 msgstr ""
 
-#: core/includes/functions.php:250
+#: core/includes/functions.php:249
 msgid "Header Menu"
 msgstr ""
 
-#: core/includes/functions.php:251 partials/footer/footer-menu.php:10
+#: core/includes/functions.php:250 partials/footer/footer-menu.php:10
 #: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr ""
 
-#: core/includes/functions.php:425
+#: core/includes/functions.php:424
 msgid "Team Section Options"
 msgstr ""
 
-#: core/includes/functions.php:439
+#: core/includes/functions.php:438
 msgid "To use this post for front page's team section, please enter below details:"
 msgstr ""
 
-#: core/includes/functions.php:442
+#: core/includes/functions.php:441
 msgid "Member designation"
 msgstr ""
 
-#: core/includes/functions.php:446
+#: core/includes/functions.php:445
 msgid "Facebook Link"
 msgstr ""
 
-#: core/includes/functions.php:450
+#: core/includes/functions.php:449
 msgid "Twitter Link"
 msgstr ""
 
-#: core/includes/functions.php:454
+#: core/includes/functions.php:453
 msgid "GooglePlus Link"
 msgstr ""
 
-#: core/includes/functions.php:458
+#: core/includes/functions.php:457
 msgid "LinkedIn Link"
 msgstr ""
 
-#: core/includes/functions.php:730
+#: core/includes/functions.php:719
 msgid "Posted on"
 msgstr ""
 
-#: core/includes/functions.php:730
+#: core/includes/functions.php:719
 msgid "By"
 msgstr ""
 
-#: core/includes/functions.php:749 partials/entry/meta.php:54
+#: core/includes/functions.php:738 partials/entry/meta.php:54
 #: partials/single/meta.php:49
 #. translators: %s: view post by
 #. translators: view all posts by author
@@ -2447,7 +2455,7 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions.php:760 image.php:82 partials/entry/meta.php:104
+#: core/includes/functions.php:749 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -2455,12 +2463,12 @@ msgstr ""
 msgid "Posted in %s"
 msgstr ""
 
-#: core/includes/functions.php:760 partials/entry/meta.php:104
+#: core/includes/functions.php:749 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 msgid ", "
 msgstr ""
 
-#: core/includes/functions.php:777
+#: core/includes/functions.php:766
 msgid "Upgrade To Pro"
 msgstr ""
 
@@ -2468,8 +2476,20 @@ msgstr ""
 msgid "Enroll &raquo;"
 msgstr ""
 
-#: core/includes/page-custom-meta.php:78
+#: core/includes/page-custom-meta.php:81
 msgid "Page Layout Style"
+msgstr ""
+
+#: core/includes/page-custom-meta.php:103
+msgid "Enable"
+msgstr ""
+
+#: core/includes/page-custom-meta.php:104
+msgid "Disable"
+msgstr ""
+
+#: core/includes/page-custom-meta.php:130
+msgid "Content Width in % Max 100 "
 msgstr ""
 
 #: core/includes/post-custom-meta.php:137
@@ -2505,7 +2525,7 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: footer.php:89
+#: footer.php:90
 msgid "Scroll to Top"
 msgstr ""
 
@@ -2528,13 +2548,13 @@ msgstr ""
 msgid "#"
 msgstr ""
 
-#: gutenberg-fullwidth.php:49 image.php:63 partials/entry/layout.php:55
+#: gutenberg-fullwidth.php:49 image.php:63 partials/entry/layout.php:54
 #: partials/page/layout.php:45 partials/single/content.php:38
 #: partials/single/layout.php:60
 msgid "Pages:"
 msgstr ""
 
-#: gutenberg-fullwidth.php:57 image.php:87 partials/entry/layout.php:69
+#: gutenberg-fullwidth.php:57 image.php:87 partials/entry/layout.php:68
 #: partials/page/layout.php:53 partials/single/layout.php:73
 msgid "<span class=\"post-edit\">Edit</span>"
 msgstr ""
@@ -2569,7 +2589,7 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: image.php:79 partials/entry/layout.php:65 partials/single/layout.php:69
+#: image.php:79 partials/entry/layout.php:64 partials/single/layout.php:69
 msgid "Tagged with:"
 msgstr ""
 
@@ -2780,132 +2800,132 @@ msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/includes/customizer/helper.php:1285
+#: core/includes/customizer/helper.php:1284
 msgctxt "design style name"
 msgid "Playful"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1346
+#: core/includes/customizer/helper.php:1345
 msgctxt "design style name"
 msgid "Traditional"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1381
+#: core/includes/customizer/helper.php:1380
 msgctxt "design style name"
 msgid "Modern"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1416
+#: core/includes/customizer/helper.php:1415
 msgctxt "design style name"
 msgid "Trendy"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1468
+#: core/includes/customizer/helper.php:1467
 msgctxt "design style name"
 msgid "Welcoming"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1288
+#: core/includes/customizer/helper.php:1287
 msgctxt "color palette name"
 msgid "Default"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1298
+#: core/includes/customizer/helper.php:1297
 msgctxt "color palette name"
 msgid "Frolic"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1309
+#: core/includes/customizer/helper.php:1308
 msgctxt "color palette name"
 msgid "Coral"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1320
+#: core/includes/customizer/helper.php:1319
 msgctxt "color palette name"
 msgid "Organic"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1331
+#: core/includes/customizer/helper.php:1330
 msgctxt "color palette name"
 msgid "Berry"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1349
+#: core/includes/customizer/helper.php:1348
 msgctxt "color palette name"
 msgid "Apricot"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1356
+#: core/includes/customizer/helper.php:1355
 msgctxt "color palette name"
 msgid "Emerald"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1363
+#: core/includes/customizer/helper.php:1362
 msgctxt "color palette name"
 msgid "Brick"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1370
+#: core/includes/customizer/helper.php:1369
 msgctxt "color palette name"
 msgid "Bronze"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1384
+#: core/includes/customizer/helper.php:1383
 msgctxt "color palette name"
 msgid "Shade"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1391
+#: core/includes/customizer/helper.php:1390
 msgctxt "color palette name"
 msgid "Blush"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1398
+#: core/includes/customizer/helper.php:1397
 msgctxt "color palette name"
 msgid "Indiresponsive"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1405
+#: core/includes/customizer/helper.php:1404
 msgctxt "color palette name"
 msgid "Pacific"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1419
+#: core/includes/customizer/helper.php:1418
 msgctxt "color palette name"
 msgid "Plum"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1431
+#: core/includes/customizer/helper.php:1430
 msgctxt "color palette name"
 msgid "Steel"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1442
+#: core/includes/customizer/helper.php:1441
 msgctxt "color palette name"
 msgid "Avocado"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1453
+#: core/includes/customizer/helper.php:1452
 msgctxt "color palette name"
 msgid "Champagne"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1471
+#: core/includes/customizer/helper.php:1470
 msgctxt "color palette name"
 msgid "Forest"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1479
+#: core/includes/customizer/helper.php:1478
 msgctxt "color palette name"
 msgid "Spruce"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1487
+#: core/includes/customizer/helper.php:1486
 msgctxt "color palette name"
 msgid "Mocha"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1495
+#: core/includes/customizer/helper.php:1494
 msgctxt "color palette name"
 msgid "Lavender"
 msgstr ""

@@ -111,7 +111,7 @@ function responsive_meta_box( $post ) {
 				<?php
 				foreach ( $responsive_style_choices as  $value => $responsive_style_choice ) :
 					$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_transparent_header', true );
-					if ( $site_style === $value ) {
+					if ( $site_style == $value ) {
 						?>
 							<option value="<?php echo esc_attr( $value ); ?>" selected="selected"><?php echo esc_html( $responsive_style_choice ); ?></option>
 
