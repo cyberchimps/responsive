@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/08/20) = Fix - Version 4.4.2
+[*] = Fixed = Responsive page options to set transparent header, content width, sidebar position and layout style for each page separately
+
 (06/30/20) = Fix - Version 4.4.1
 [*] = Added = Compatibility with child themes Compact one and Altitude Lite
 
