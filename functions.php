@@ -47,6 +47,7 @@ require $responsive_template_directory . '/core/includes/classes/class-responsiv
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 // Deprecated functions.
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
+require $responsive_template_directory . '/core/includes/widgets/class-responsive-icon-list-widget.php';
 
 if ( is_admin() ) {
 	/**

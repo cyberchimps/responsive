@@ -25,6 +25,7 @@ function setup() {
 
 	add_action( 'widgets_init', $n( 'responsive_remove_recent_comments_style' ) );
 	add_filter( 'wp_page_menu', $n( 'responsive_wp_page_menu' ) );
+	add_filter( 'wp_nav_menu_items', $n( 'responsive_search_icon' ), 10, 2 );
 
 	add_filter( 'gallery_style', $n( 'responsive_remove_gallery_css' ) );
 	add_filter( 'get_the_excerpt', $n( 'responsive_custom_excerpt_more' ) );
@@ -258,4 +259,23 @@ function responsive_wp_page_menu( $page_markup ) {
 	$new_markup = preg_replace( '/^<ul>/i', '<ul class="' . $divclass . '">', $new_markup );
 
 	return $new_markup;
+}
+
+/**
+ * Adds Search icon to menu
+ *
+ * @param string $menu default menu.
+ * @param array  $args check menu.
+ */
+function responsive_search_icon( $menu, $args ) {
+
+	$search_icon = get_theme_mod( 'responsive_search_icon' );
+	// Only used for the main menu.
+	if ( 'header-menu' === $args->theme_location ) {
+		if ( 1 === $search_icon ) {
+			get_search_form();
+			$menu .= '<li class="res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
+		}
+	}
+	return $menu;
 }

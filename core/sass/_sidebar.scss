@@ -69,6 +69,18 @@
     }
 }
 
+.responsive_icon_list_widget {
+    display: flex;
+    justify-content: space-between;
+
+    .responsive-icon-list-content {
+        padding-left: 10px;
+        .responsive-icon-list-description {
+            margin-top: 5px;
+        }
+    }
+}
+
 .responsive-site-style-boxed .widget-wrapper.colophon-widget{
     padding: 0;
 }
