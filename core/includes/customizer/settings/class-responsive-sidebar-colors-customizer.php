@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Colors_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_sidebar_colors',
 				array(
-					'title'    => esc_html__( 'Colors', 'responsive' ),
+					'title'    => esc_html__( 'Colors & Backgrounds', 'responsive' ),
 					'panel'    => 'responsive_sidebar',
 					'priority' => 20,
 				)
