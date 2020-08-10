@@ -128,7 +128,6 @@
             } else {
                 search_form.style.display = 'block';
             }
-            console.log("dfbg");
         }
     }
 
