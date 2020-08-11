@@ -41,7 +41,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Colors_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_header_menu_colors',
 				array(
-					'title'    => __( 'Colors', 'responsive' ),
+					'title'    => esc_html__( 'Colors & Backgrounds', 'responsive' ),
 					'panel'    => 'responsive_header_menu',
 					'priority' => 10,
 				)

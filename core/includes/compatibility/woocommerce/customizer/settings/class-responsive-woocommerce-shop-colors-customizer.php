@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_woocommerce_shop_colors',
 				array(
-					'title'    => esc_html__( 'Colors', 'responsive' ),
+					'title'    => esc_html__( 'Colors & Backgrounds', 'responsive' ),
 					'panel'    => 'responsive-woocommerce-shop',
 					'priority' => 20,
 				)

@@ -1508,6 +1508,15 @@ select {
   }
 }
 
+.site-header-layout-vertical .main-navigation .menu > li.res-search-link, .site-header-layout-vertical .main-navigation .menu > li.res-cart-link {
+  float: right;
+  cursor: pointer;
+}
+
+.site-header-layout-vertical .main-navigation #searchform {
+  right: 0;
+}
+
 .site-header-layout-vertical.site-header-site-branding-main-navigation.site-header-full-width-main-navigation .main-navigation {
   border-top: 1px solid #eaeaea;
 }
@@ -1719,6 +1728,16 @@ body.mega-menu-header-menu button.menu-toggle {
   right: 0;
   background: none;
   z-index: 99998;
+}
+
+.main-navigation #searchform {
+  box-shadow: 0 3px 2px 2px #eeeeee;
+  display: none;
+  width: 300px;
+  position: absolute;
+  top: 3em;
+  transition: all 0.3s ease;
+  z-index: 9999;
 }
 
 /**

@@ -51,6 +51,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_menu_full_width', $header_menu_full_width_label, 'responsive_header_menu_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_full_width' ), 'responsive_active_vertical_header' );
 
+			// Enable Search Icon in Menu.
+			$disable_search_icon_label = __( 'Enable Search Icon in Menu', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'search_icon', $disable_search_icon_label, 'responsive_header_menu_layout', 10, 0, null );
+
 			// Disable Mobile Menu.
 			$disable_mobile_menu_label = __( 'Enable Mobile Menu', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_mobile_menu', $disable_mobile_menu_label, 'responsive_header_menu_layout', 10, 1, null );

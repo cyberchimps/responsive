@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.4.2\n"
+"Project-Id-Version: Responsive 4.4.3\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-07-09 09:54:25+00:00\n"
+"POT-Creation-Date: 2020-08-11 09:02:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -379,7 +379,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:44
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:44
-msgid "Colors"
+msgid "Colors & Backgrounds"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:46
@@ -604,7 +604,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:99
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:140
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:149
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:74
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:78
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:100
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:107
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:122
@@ -642,7 +642,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:148
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:79
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:101
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:106
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:123
@@ -1006,7 +1006,7 @@ msgid "Image Width Size (px)"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-blog-content-customizer.php:92
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:90
 #: core/includes/customizer/settings/class-responsive-single-blog-content-customizer.php:91
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:94
@@ -1490,27 +1490,31 @@ msgid "Full Width Main Navigation"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:55
-msgid "Enable Mobile Menu"
+msgid "Enable Search Icon in Menu"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:59
+msgid "Enable Mobile Menu"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:63
 msgid "Breakpoint"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:65
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:69
 msgid "Dropdown"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:66
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:70
 msgid "FullScreen"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:71
 #: core/includes/customizer/settings/class-responsive-panel.php:67
 msgid "Sidebar"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:76
 msgid "Sidebar Menu Alignment"
 msgstr ""
 
@@ -2301,12 +2305,12 @@ msgstr ""
 msgid "foursquare"
 msgstr ""
 
-#: core/includes/functions-extras.php:132 gutenberg-fullwidth.php:46
+#: core/includes/functions-extras.php:133 gutenberg-fullwidth.php:46
 #: image.php:59 partials/page/content.php:15
 msgid "Read more &#8250;"
 msgstr ""
 
-#: core/includes/functions-extras.php:203
+#: core/includes/functions-extras.php:204
 msgid "Page %s"
 msgstr ""
 
