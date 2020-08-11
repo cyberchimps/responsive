@@ -117,4 +117,18 @@
 			}
 		}
 	}( container ) );
+
+    search_link = document.getElementById( 'res-search-link' );
+
+    if( search_link  ) {
+        search_link.onclick = function() {
+            search_form = container.getElementsByTagName( 'form' )[0];
+            if( search_form.style.display == 'block' ) {
+                search_form.style.display = 'none';
+            } else {
+                search_form.style.display = 'block';
+            }
+        }
+    }
+
 } )();

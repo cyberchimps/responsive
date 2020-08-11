@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_Footer_Colors_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_footer_colors',
 				array(
-					'title'    => esc_html__( 'Colors', 'responsive' ),
+					'title'    => esc_html__( 'Colors & Backgrounds', 'responsive' ),
 					'panel'    => 'responsive_footer',
 					'priority' => 15,
 				)

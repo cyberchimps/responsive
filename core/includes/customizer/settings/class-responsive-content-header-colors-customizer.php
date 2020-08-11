@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_content_header_colors',
 				array(
-					'title'    => esc_html__( 'Colors', 'responsive' ),
+					'title'    => esc_html__( 'Colors & Backgrounds', 'responsive' ),
 					'panel'    => 'responsive_content_header',
 					'priority' => 20,
 				)

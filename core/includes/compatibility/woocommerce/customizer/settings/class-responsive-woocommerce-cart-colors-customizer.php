@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Cart_Colors_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_woocommerce_cart_colors',
 				array(
-					'title'    => esc_html__( 'Colors', 'responsive' ),
+					'title'    => esc_html__( 'Colors & Backgrounds', 'responsive' ),
 					'panel'    => 'responsive-woocommerce-cart',
 					'priority' => 20,
 				)

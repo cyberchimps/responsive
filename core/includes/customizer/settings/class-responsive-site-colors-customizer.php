@@ -41,7 +41,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_colors',
 				array(
-					'title'    => __( 'Colors', 'responsive' ),
+					'title'    => esc_html__( 'Colors & Backgrounds', 'responsive' ),
 					'panel'    => 'responsive_site',
 					'priority' => 20,
 				)

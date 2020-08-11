@@ -45,7 +45,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Full Width Header.
 			$header_full_width_label = __( 'Full Width Header', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_full_width', $header_full_width_label, 'responsive_header_layout', 10, 1, 'responsive_active_site_layout_contained', 'postMessage' );
+			responsive_checkbox_control( $wp_customize, 'header_full_width', $header_full_width_label, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
 
 			// Full Width Header.
 			$inline_logo_site_title = __( 'Inline logo & Site Title', 'responsive' );
