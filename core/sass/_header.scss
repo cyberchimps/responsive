@@ -149,7 +149,7 @@
             &.page_item_has_children > a {
                 @media( min-width: map-get( $screens, xxxl ) ) {
                     &:after {
-                        content: '\f0d7';
+                        content: '\f107';
                         font-family: $icon-font;
                         margin-left: 5px;
                     }
@@ -195,7 +195,7 @@
             &.page_item_has_children > a {
                 @media( min-width: map-get( $screens, xxxl ) ) {
                     &:after {
-                        content: '\f0da';
+                        content: '\f105';
                         float: right;
                         font-family: $icon-font;
                         margin-left: 5px;

@@ -775,7 +775,7 @@ function responsive_customizer_styles() {
 			margin-left: 2px;
 		}
 		.main-navigation .menu > li.menu-item-has-children > a:after, .main-navigation .menu > li.page_item_has_children > a:after {
-			content: '\\f0d7';
+			content: '\\f107';
 			font-family: icomoon;
 			margin-left: 5px;
 			font-size: 0.96em;
@@ -806,7 +806,7 @@ function responsive_customizer_styles() {
 	  	.main-navigation .children > li.menu-item-has-children > a:after, .main-navigation .children > li.page_item_has_children > a:after,
 		.main-navigation .sub-menu > li.menu-item-has-children > a:after,
 		.main-navigation .sub-menu > li.page_item_has_children > a:after {
-		    content: '\\f0da';
+		    content: '\\f105';
 		    float: right;
 		    font-family: icomoon;
 		    margin-left: 5px;
