@@ -471,4 +471,54 @@ div.product div.images .flex-control-thumbs {
 
 span.res-header-cart-info-wrap, .res-addon-cart-wrap{
 	  padding: 0 2px;
-  }
+}
+
+.woocommerce.woocommerce-checkout, .woocommerce-page.woocommerce-checkout {
+	form #customer_details.col2-set {
+		width: 55%;
+		float: left;
+		margin-right: 4.347826087%;
+
+		.col-1, .col-2 {
+			float: none;
+			width: auto;
+		}
+	}
+
+	form #order_review, form #order_review_heading {
+		width: 40%;
+		float: right;
+		margin-right: 0;
+		clear: right;
+	}
+
+	form #order_review_heading {
+		border-width: 2px 2px 0 2px;
+	    border-style: solid;
+	    font-size: 1.2rem;
+	    margin: 0;
+	    padding: 1.5em 1.5em 1em;
+	    border-color: #ebebeb;
+	}
+
+	form #order_review {
+		padding: 0 2em;
+		border-width: 0 2px 2px;
+		border-style: solid;
+		border-color: #ebebeb;
+	}
+
+	#payment #place_order {
+		width: 100%;
+	}
+
+	#customer_details h3 {
+		padding: 20px 0 14px;
+		margin: 0 0 20px;
+		border-bottom: 1px solid #ebebeb;
+	}
+}
+
+.woocommerce-privacy-policy-text p {
+	margin-bottom: 1.6em;
+}
