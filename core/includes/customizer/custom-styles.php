@@ -984,9 +984,7 @@ function responsive_customizer_styles() {
 		border-bottom-color: {$header_border_color};
 		background-color: {$header_background_color};
 	}
-	.res-transparent-header .main-navigation.toggled {
-		background-color: {$header_menu_background_color};
-	}
+
 	.header-full-width.site-header-layout-vertical .main-navigation,
 	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,
 	.responsive-site-full-width.site-header-layout-vertical .main-navigation,
