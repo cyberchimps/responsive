@@ -1591,14 +1591,14 @@ function responsive_number_control( $wp_customize, $element, $label, $section, $
  * @param  [type] $active_call      [description].
  * @return void               [description].
  */
-function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null ) {
+function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'sanitize_text_field' ) {
 
 	// Add Twitter Setting.
 	$wp_customize->add_setting(
 		'responsive_' . $element,
 		array(
 			'default'           => $default,
-			'sanitize_callback' => 'sanitize_text_field',
+			'sanitize_callback' => $sanitize_function,
 		)
 	);
 	$wp_customize->add_control(
