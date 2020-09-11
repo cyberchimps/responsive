@@ -235,7 +235,7 @@
     //Link Color
     api( 'responsive_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('a').css('color', newval );
+            $('a, .woocommerce a.remove:hover').css('color', newval );
         } );
     } );
 

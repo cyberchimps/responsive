@@ -305,6 +305,10 @@ function responsive_customizer_styles() {
 	a {
 		color:{$link_color};
 	}
+	.entry-content .woocommerce a.remove:hover {
+		color:{$link_color} !important;
+		border-color:{$link_color};
+	}
 	a:hover {
 		color:{$link_hover_color};
 	}
