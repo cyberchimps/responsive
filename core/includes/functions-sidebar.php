@@ -151,16 +151,5 @@ function responsive_widgets_init() {
 			'after_widget'  => '</div></div>',
 		)
 	);
-	register_sidebar(
-		array(
-			'name'          => __( 'Menu Widgets', 'responsive' ),
-			'description'   => __( 'Area 16 - sidebar-menu.php - Displays on the last of the menu', 'responsive' ),
-			'id'            => 'menu-widgets',
-			'before_title'  => '<div class="widget-title"><h4>',
-			'after_title'   => '</h4></div>',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-		)
-	);
 }
 add_action( 'widgets_init', 'responsive_widgets_init' );

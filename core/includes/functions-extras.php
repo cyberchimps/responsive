@@ -287,8 +287,6 @@ function responsive_search_icon( $menu, $args ) {
 
 			$menu .= '<li class="res-button-menu"><a href="' . esc_url( $custom_button_link ) . '" class="res-custom-button">' . esc_html( $custom_button_text ) . '</a></li>';
 
-		} elseif ( 'widget' === $search_icon ) {
-			$menu .= '<li class="res-widget-menu">' . get_sidebar( 'menu' ) . '</li>';
 		} elseif ( 'icon-opencart' === $search_icon && ( class_exists( 'WooCommerce' ) ) ) {
 			if ( null !== WC()->cart ) {
 				$cart_contents_count = WC()->cart->get_cart_contents_count();

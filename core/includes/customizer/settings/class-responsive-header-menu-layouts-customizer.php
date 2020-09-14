@@ -82,7 +82,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'search'        => __( 'Search Icon', 'responsive' ),
 				'button'        => __( 'Button', 'responsive' ),
 				'text-html'     => __( 'Text / HTML', 'responsive' ),
-				'widget'        => __( 'Widget', 'responsive' ),
 				'icon-opencart' => __( 'Woocommerce', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', null );
