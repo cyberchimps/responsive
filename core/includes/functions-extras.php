@@ -279,7 +279,7 @@ function responsive_search_icon( $menu, $args ) {
 			$custom_html_content = get_theme_mod( 'responsive_text_html', 'Contact Us' );
 
 			if ( ! empty( $custom_html_content ) ) {
-				$menu .= '<li class="res-custom-text-menu"><div class="res-custom-html">' . esc_html( $custom_html_content ) . '</div></li>';
+				$menu .= '<li class="res-custom-text-menu"><div class="res-custom-html">' . do_shortcode( wpautop( $custom_html_content ) ) . '</div></li>';
 			}
 		} elseif ( 'button' === $search_icon ) {
 			$custom_button_text = get_theme_mod( 'responsive_menu_button_text' );
@@ -287,28 +287,6 @@ function responsive_search_icon( $menu, $args ) {
 
 			$menu .= '<li class="res-button-menu"><a href="' . esc_url( $custom_button_link ) . '" class="res-custom-button">' . esc_html( $custom_button_text ) . '</a></li>';
 
-		} elseif ( 'icon-opencart' === $search_icon && ( class_exists( 'WooCommerce' ) ) ) {
-			if ( null !== WC()->cart ) {
-				$cart_contents_count = WC()->cart->get_cart_contents_count();
-				$cart_total_markup   = '<span class="res-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
-			}
-			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-				$cart_title_markup = '<span class="res-woo-header-cart-title">' . __( 'Cart', 'responsive' ) . '</span>';
-				$cart_title        = get_theme_mod( 'responsive_cart_title' );
-				$cart_icon         = get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
-				$cart_total        = get_theme_mod( 'responsive_cart_count' );
-				if ( '1' == $cart_title && '1' == $cart_total ) {
-					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-header-cart-info-wrap"> ' . $cart_title_markup . '' . __( ' / ', 'responsive' ) . '' . $cart_total_markup . '</span><span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} elseif ( isset( $cart_title ) && '1' == $cart_title ) {
-					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap">' . $cart_title_markup . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} elseif ( isset( $cart_total ) && '1' == $cart_total ) {
-					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"> ' . $cart_total_markup . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} else {
-					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-cart-icon fa ' . esc_attr( $cart_icon ) . '"  data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				}
-			} else {
-				$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-cart-icon fa ' . esc_attr( $search_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-			}
 		}
 	}
 	return $menu;

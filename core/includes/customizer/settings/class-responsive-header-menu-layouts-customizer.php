@@ -82,7 +82,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'search'        => __( 'Search Icon', 'responsive' ),
 				'button'        => __( 'Button', 'responsive' ),
 				'text-html'     => __( 'Text / HTML', 'responsive' ),
-				'icon-opencart' => __( 'Woocommerce', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', null );
 
@@ -94,9 +93,9 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			responsive_text_control( $wp_customize, 'menu_button', $menu_button_url, 'responsive_header_menu_layout', 40, 'https://cyberchimps.com', null, 'esc_url_raw' );
 
-			$menu_html_text = __( 'Button Link (URL)', 'responsive' );
+			$menu_html_text = __( 'Custom Menu Text', 'responsive' );
 
-			responsive_text_control( $wp_customize, 'text_html', $menu_html_text, 'responsive_header_menu_layout', 40, 'Contact Us', null, 'wp_kses_post' );
+			responsive_text_control( $wp_customize, 'text_html', $menu_html_text, 'responsive_header_menu_layout', 40, 'Contact Us', null, 'wp_kses_post', 'textarea' );
 
 		}
 

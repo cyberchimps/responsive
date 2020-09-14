@@ -59,6 +59,29 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 				$disable_cart_fragments_label = esc_html__( 'Disable Cart Fragments', 'responsive' );
 				responsive_checkbox_control( $wp_customize, 'disable_cart_fragments', $disable_cart_fragments_label, 'responsive_woocommerce_cart_layout', 2, 0, null );
+
+				$wp_customize->add_setting(
+					'responsive_menu_cart_icon',
+					array(
+						'sanitize_callback' => 'responsive_sanitize_select',
+						'transport'         => 'refresh',
+						'default'           => 'disabled',
+					)
+				);
+				$wp_customize->add_control(
+					'responsive_menu_cart_icon',
+					array(
+						'label'       => __( 'Cart Icon Visibility', 'responsive' ),
+						'description' => __( 'Cart Icon Will be displayed only when Header Menu is set', 'responsive' ),
+						'section'     => 'responsive_woocommerce_cart_layout',
+						'settings'    => 'responsive_menu_cart_icon',
+						'type'        => 'select',
+						'choices'     => array(
+							'icon-opencart' => __( 'Display On All Devices', 'responsive' ),
+							'disabled'      => __( 'Disabled On All Devices', 'responsive' ),
+						),
+					)
+				);
 			}
 		}
 

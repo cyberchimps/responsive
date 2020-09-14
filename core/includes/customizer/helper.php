@@ -1591,7 +1591,7 @@ function responsive_number_control( $wp_customize, $element, $label, $section, $
  * @param  [type] $active_call      [description].
  * @return void               [description].
  */
-function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'sanitize_text_field' ) {
+function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'sanitize_text_field', $type = 'text' ) {
 
 	// Add Twitter Setting.
 	$wp_customize->add_setting(
@@ -1611,7 +1611,7 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
 				'priority'        => $priority,
 				'section'         => $section,
 				'settings'        => 'responsive_' . $element,
-				'type'            => 'text',
+				'type'            => $type,
 			)
 		)
 	);
