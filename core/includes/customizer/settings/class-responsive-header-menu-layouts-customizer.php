@@ -85,6 +85,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', null );
 
+			// Last item floating.
+			$last_item_floating_label = __( 'Spread Menu and Last Item', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'last_item_floating', $last_item_floating_label, 'responsive_header_menu_layout', 10, 0, null );
+
 			$menu_button_text = __( 'Button Text', 'responsive' );
 
 			responsive_text_control( $wp_customize, 'menu_button_text', $menu_button_text, 'responsive_header_menu_layout', 40, 'Call Now', null );
