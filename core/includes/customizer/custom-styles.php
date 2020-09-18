@@ -1784,7 +1784,7 @@ function responsive_customizer_styles() {
 		.woocommerce div.product .woocommerce-tabs ul.tabs li,
 		.woocommerce button.button.alt,
 		.woocommerce button.button,
-		.woocommerce a.button {
+		.woocommerce a.button, .woocommerce a.button.alt {
 			background-color: {$add_to_cart_button_color};
 			color: {$add_to_cart_button_text_color};
 		}
@@ -1800,7 +1800,7 @@ function responsive_customizer_styles() {
 		.woocommerce button.button:hover,
 		.woocommerce button.button:focus,
 		.woocommerce a.button:focus,
-		.woocommerce a.button:hover {
+		.woocommerce a.button:hover, .woocommerce a.button.alt:focus, .woocommerce a.button.alt:hover {
 			background-color: {$add_to_cart_button_hover_color};
 			color: {$add_to_cart_button_hover_text_color};
 		}
