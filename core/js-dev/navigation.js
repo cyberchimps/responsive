@@ -131,4 +131,25 @@
         }
     }
 
+	search_style = document.getElementById( 'full-screen-res-search-link' );
+
+    if( search_style  ) {
+		search_style_form = document.getElementById( 'full-screen-search-wrapper' );
+		search_style_form.style.display = 'none';
+        search_style.onclick = function() {
+			search_style_form.style.display = 'block';
+            search_style_form.style.position = 'fixed';
+			search_form = container.getElementsByTagName( 'form' )[0];
+            search_form.style.display = 'block';
+        }
+    }
+
+	search_close = document.getElementById( 'search-close' );
+	if( search_close  ) {
+        search_close.onclick = function() {
+            search_style_form = document.getElementById( 'full-screen-search-wrapper' );
+                search_style_form.style.display = 'none';
+        }
+    }
+
 } )();

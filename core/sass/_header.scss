@@ -539,3 +539,49 @@ body.mega-menu-header-menu button.menu-toggle {
 		padding: 0;
 	}
 }
+
+.full-screen .main-navigation .main-navigation-wrapper .full-screen-search-wrapper {
+    background: rgba(255,255,255,.95);
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: opacity .2s;
+    width: 100%;
+    height: 100%;
+
+	#search-close{
+		position: absolute;
+	    color: black;
+	    right: 1em;
+	    line-height: 1;
+	    cursor: pointer;
+	    z-index: 9;
+	    font-weight: 400;
+	    font-size: 2em;
+	    top: 1.5em;
+	    backface-visibility: hidden;
+		font-family: icomoon!important;
+	    font-style: normal;
+	    font-weight: 400;
+	    font-variant: normal;
+	    text-transform: none;
+	    line-height: 1;
+	    -webkit-font-smoothing: antialiased;
+		&:before {
+			content: "\f00d";
+		}
+	}
+
+	.full-screen-search-container {
+		position: absolute;
+		width: 100%;
+		left: 35%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+
+		#searchform {
+			width: 70%;
+			margin: 20px auto;
+		}
+	}
+}

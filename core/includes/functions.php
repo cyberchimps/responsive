@@ -572,6 +572,15 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 	}
 
+	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+
+		$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
+		$search_screen = get_theme_mod( 'search_style', 'search' );
+		if ( 'search' === $search_icon && 'full-screen' == $search_screen ) {
+			$classes[] = 'full-screen';
+		}
+	}
+
 	// Header width.
 	if ( get_theme_mod( 'responsive_header_full_width', 0 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
 		$classes[] = 'header-full-width';
