@@ -32,9 +32,6 @@
     @media( min-width: map-get( $screens, xxxl ) ) {
         width: auto;
     }
-    .site-header-layout-horizontal & {
-        min-width: 20%;
-    }
 
     .site-mobile-header-layout-horizontal & {
         @media( max-width: map-get( $screens, sm ) ) {
@@ -160,6 +157,7 @@
 
     .children,
     .sub-menu {
+		padding: 15px 0;
         @media( min-width: map-get( $screens, xxxl ) ) {
             background-color: map-get( $colors, white );
             box-shadow: 0 5px 10px map-get( $colors, light-gray );
@@ -172,8 +170,6 @@
         }
 
         & > li {
-            border-top: 1px solid rgba( 170, 170, 170, 0.2 );
-
             &.focus,
             &:hover {
                 @media( min-width: map-get( $screens, xxxl ) ) {
@@ -575,13 +571,27 @@ body.mega-menu-header-menu button.menu-toggle {
 	.full-screen-search-container {
 		position: absolute;
 		width: 100%;
-		left: 35%;
+		left: 64%;
 		top: 50%;
 		transform: translate(-50%,-50%);
 
 		#searchform {
 			width: 70%;
 			margin: 20px auto;
+		}
+	}
+}
+
+.site-header {
+	.custom-logo-link.sticky-custom-logo {
+		display: none;
+	}
+	&.sticky-header {
+		.custom-logo-link.sticky-custom-logo {
+			display: inline-block;
+		}
+		.custom-logo-link {
+			display: none;
 		}
 	}
 }

@@ -27,6 +27,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		<div class="full-screen-search-wrapper" id="full-screen-search-wrapper">
 			<span id="search-close" class="search-close"></span>
 			<div class="full-screen-search-container">
+				<div class="container">
 		<?php
 	}
 }
@@ -44,6 +45,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		?>
 			</div>
 		</div>
+	</div>
 		<?php
 	}
 }
