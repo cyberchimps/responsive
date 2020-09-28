@@ -34,7 +34,10 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 ?>
 <form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label class="screen-reader-text" for="s"><?php esc_html_e( 'Search for:', 'responsive' ); ?></label>
+	<div class="res-search-wrapper">
 	<input type="search" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search here &hellip;', 'responsive' ); ?>" />
+	<span class="res-search-icon icon-search"></span>
+</div>
 </form>
 <?php
 if ( class_exists( 'Responsive_Addons_Pro' ) ) {
