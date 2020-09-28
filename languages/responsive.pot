@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.4.3\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-09-23 04:08:20+00:00\n"
+"POT-Creation-Date: 2020-09-25 12:03:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1459,31 +1459,39 @@ msgid "Menu Item Link Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
+msgid "Active Menu Item Link Color"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:150
 msgid "Menu Item Link Hover Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:154
 msgid "Sub Menu Background Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:158
 msgid "Sub Menu Item Link Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+msgid "Active Sub Menu Item Link Color"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:91
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:162
 msgid "Sub Menu Item Link Hover Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:95
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:166
 msgid "Menu Toggle Background Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:91
+#: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:99
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:170
 msgid "Menu Toggle Color"
 msgstr ""
@@ -2699,11 +2707,11 @@ msgstr ""
 msgid "Next Post is"
 msgstr ""
 
-#: searchform.php:35
+#: searchform.php:36
 msgid "Search for:"
 msgstr ""
 
-#: searchform.php:36
+#: searchform.php:38
 msgid "Search here &hellip;"
 msgstr ""
 

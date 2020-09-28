@@ -643,3 +643,17 @@ body.mega-menu-header-menu button.menu-toggle {
 .search-form input {
 	outline: none;
 }
+
+#secondary {
+	.res-search-icon.icon-search {
+		float: right;
+		position: relative;
+		top: 10px;
+	}
+	.res-search-wrapper {
+		display: block;
+		input[type=search] {
+			width: auto;
+		}
+	}
+}
