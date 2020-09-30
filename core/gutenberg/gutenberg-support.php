@@ -80,8 +80,8 @@ function responsive_gutenberg_colors( $responsive_gutenberg_color_options ) {
 	foreach ( $responsive_gutenberg_color_options as $color ) {
 		if ( ! empty( $color['color'] ) ) {
 			$custom_color = get_theme_mod( $color['slug'], $color['color'] );
-			$css         .= '.has-' . $color['slug'] . '-color { color: ' . esc_attr( $custom_color ) . '; }';
-			$css         .= '.has-' . $color['slug'] . '-background-color { background-color: ' . esc_attr( $custom_color ) . '; }';
+			$css         .= ':root .has-' . $color['slug'] . '-color { color: ' . esc_attr( $custom_color ) . '; }';
+			$css         .= ':root .has-' . $color['slug'] . '-background-color { background-color: ' . esc_attr( $custom_color ) . '; }';
 		}
 	}
 	return wp_strip_all_tags( $css );
