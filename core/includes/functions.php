@@ -921,6 +921,8 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		$responsive_sticky_logo_option = get_theme_mod( 'responsive_sticky_header_logo_option', 0 );
 		$responsive_sticky_logo        = get_theme_mod( 'responsive_sticky_header_logo' );
 
+		$html = '';
+
 		if ( $responsive_sticky_logo_option && $responsive_sticky_logo && responsive_is_sticky_header_enabled() ) {
 
 			/* Replace transparent header logo and width */
