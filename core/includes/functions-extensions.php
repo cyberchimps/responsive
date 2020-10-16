@@ -140,16 +140,22 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 					}
 				} else {
 					++$position;
-					$cat  = get_the_category();
-					$cat  = $cat[0];
-					$cats = get_category_parents( $cat, true, $delimiter );
+					$cat   = get_the_category();
+					$count = $cat[0]->count;
+					$cats  = get_category_parents( $cat[0], true, $delimiter );
 					if ( 0 == $show['current'] ) {
 						$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
 					}
-					$cats         = str_replace( '<a', $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att, $cats );
-					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
-					$cats         = str_replace( $cat->name, '<span itemprop="name">' . $cat->name . '</span>' . $after_link, $cats );
+					$cats = str_replace( '<a', $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att, $cats );
+					$cats = str_replace( '</a>', '</a>' . $after_link, $cats );
+
+					$i = 0;
+					while ( $i < $count ) {
+						$cats = str_replace( $cat[ $i ]->name, '<span itemprop="name">' . $cat[ $i ]->name . '</span>' . $after_link, $cats );
+						$i++;
+					}
 					$html_output .= $cats;
+
 					if ( 1 == $show['current'] ) {
 						$html_output .= $before . get_the_title() . $after;
 					}
