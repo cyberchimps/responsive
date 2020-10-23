@@ -143,7 +143,7 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 	 * Check for required plugins and add main notice if needed.
 	 */
 	private function maybe_add_main_notice() {
-		if ( class_exists( 'Orbit_Fox', false ) ) {
+		if ( class_exists( 'Responsive_Add_Ons', false ) ) {
 			return;
 		}
 
