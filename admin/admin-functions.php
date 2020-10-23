@@ -9,7 +9,7 @@
  * Enqueue admin scipts.
  */
 function responsive_admin_scripts( $hook ) {
-	if ( 'appearance_page_responsive' !== $hook ) {
+	if ( 'post-new.php' === $hook || 'post.php' === $hook ) {
 		return;
 	}
 	wp_enqueue_script( 'responsive-admin-js', get_template_directory_uri() . '/admin/js/plugin-install.js', array( 'jquery' ), true, RESPONSIVE_THEME_VERSION );
