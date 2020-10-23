@@ -33,6 +33,11 @@
         width: auto;
     }
 
+	.site-header-layout-horizontal & {
+        min-width: 20%;
+    }
+
+
     .site-mobile-header-layout-horizontal & {
         @media( max-width: map-get( $screens, sm ) ) {
             max-width: 250px;
