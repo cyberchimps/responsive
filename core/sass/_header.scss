@@ -537,10 +537,15 @@ body.mega-menu-header-menu button.menu-toggle {
 		.res-search-icon.icon-search {
 			position: absolute;
 			top: 10px;
-			right: 10px;
+			right: 0px;
 			font-size: 16px;
 		}
 	}
+    .res-search-wrapper input[type=search]:focus, .res-search-wrapper input[type=search]:hover {
+        + .res-search-icon.icon-search {
+            display: none;
+        }
+    }
 }
 
 .res-custom-html {
@@ -612,6 +617,11 @@ body.mega-menu-header-menu button.menu-toggle {
 					background: none;
 				}
 			}
+            .res-search-wrapper input[type=search]:focus, .res-search-wrapper input[type=search]:hover {
+                + .res-search-icon.icon-search {
+                    display: none;
+                }
+            }
 
 			.res-search-icon.icon-search {
 				position: absolute;
@@ -651,14 +661,24 @@ body.mega-menu-header-menu button.menu-toggle {
 
 #secondary {
 	.res-search-icon.icon-search {
-		float: right;
-		position: relative;
+        position: absolute;
+        right: 0;
 		top: 10px;
 	}
 	.res-search-wrapper {
 		display: block;
+        position: relative;
 		input[type=search] {
-			width: auto;
+			width: 100%;
+
+
 		}
 	}
+
+    .res-search-wrapper input[type=search]:focus, .res-search-wrapper input[type=search]:hover {
+        + .res-search-icon.icon-search {
+            display: none;
+        }
+    }
+
 }
