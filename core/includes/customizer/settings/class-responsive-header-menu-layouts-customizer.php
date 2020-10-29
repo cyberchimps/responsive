@@ -51,10 +51,6 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_menu_full_width', $header_menu_full_width_label, 'responsive_header_menu_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_full_width' ), 'responsive_active_vertical_header' );
 
-			// Enable Search Icon in Menu.
-			$disable_search_icon_label = __( 'Enable Search Icon in Menu', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'search_icon', $disable_search_icon_label, 'responsive_header_menu_layout', 10, 0, null );
-
 			// Disable Mobile Menu.
 			$disable_mobile_menu_label = __( 'Enable Mobile Menu', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_mobile_menu', $disable_mobile_menu_label, 'responsive_header_menu_layout', 10, 1, null );
@@ -79,6 +75,31 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'right' => esc_html__( 'Right', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'sidebar_menu_alignment', $sidebar_menu_alignment_label, 'responsive_header_menu_layout', 40, $sidebar_menu_alignment_choices, 'left', 'responsive_active_sidebar_menu' );
+
+			$menu_last_item         = __( 'Last Item in Menu', 'responsive' );
+			$menu_last_item_choices = array(
+				'none'          => __( 'None', 'responsive' ),
+				'search'        => __( 'Search Icon', 'responsive' ),
+				'button'        => __( 'Button', 'responsive' ),
+				'text-html'     => __( 'Text / HTML', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', null );
+
+			// Last item floating.
+			$last_item_floating_label = __( 'Spread Menu and Last Item', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'last_item_floating', $last_item_floating_label, 'responsive_header_menu_layout', 10, 0, null );
+
+			$menu_button_text = __( 'Button Text', 'responsive' );
+
+			responsive_text_control( $wp_customize, 'menu_button_text', $menu_button_text, 'responsive_header_menu_layout', 40, 'Call Now', null );
+
+			$menu_button_url = __( 'Button Link (URL)', 'responsive' );
+
+			responsive_text_control( $wp_customize, 'menu_button', $menu_button_url, 'responsive_header_menu_layout', 40, 'https://cyberchimps.com', null, 'esc_url_raw' );
+
+			$menu_html_text = __( 'Custom Menu Text', 'responsive' );
+
+			responsive_text_control( $wp_customize, 'text_html', $menu_html_text, 'responsive_header_menu_layout', 40, 'Contact Us', null, 'wp_kses_post', 'textarea' );
 
 		}
 

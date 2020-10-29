@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(26/10/2020) = Fix - Version 4.4.4
+[*] = Added = Color Options for Active Menu and Submenu
+[*] = Deleted = Removed description on product pages
+[*] = Fixed = Accessibility issues for the menu
+
 (08/10/20) = Fix - Version 4.4.3
 [*] = Added = Search Icon in Main Menu
 [*] = Fixed = Removed excluded categories posts from single post navigator

@@ -197,6 +197,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			/* Add single product content */
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
+			add_filter( 'woocommerce_product_description_heading', '__return_false' );
+			add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
 		}
 
 		/**

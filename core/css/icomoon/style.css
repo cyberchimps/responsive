@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?wdwyuk');
-  src:  url('fonts/icomoon.eot?wdwyuk#iefix') format('embedded-opentype'),
-	url('fonts/icomoon.ttf?wdwyuk') format('truetype'),
-	url('fonts/icomoon.woff?wdwyuk') format('woff'),
-	url('fonts/icomoon.svg?wdwyuk#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?fcynq8');
+  src:  url('fonts/icomoon.eot?fcynq8#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?fcynq8') format('truetype'),
+    url('fonts/icomoon.woff?fcynq8') format('woff'),
+    url('fonts/icomoon.svg?fcynq8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -13,7 +13,7 @@
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
-  speak: none;
+  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -222,4 +222,199 @@
 }
 .icon-user-o:before {
   content: "\f2c0";
+}
+.icon-asterisk:before {
+  content: "\f069";
+}
+.icon-plus:before {
+  content: "\f067";
+}
+.icon-minus:before {
+  content: "\f068";
+}
+.icon-music:before {
+  content: "\f001";
+}
+.icon-heart:before {
+  content: "\f004";
+}
+.icon-user1:before {
+  content: "\f008";
+}
+.icon-film:before {
+  content: "\f009";
+}
+.icon-check:before {
+  content: "\f00c";
+}
+.icon-close1:before {
+  content: "\f00e";
+}
+.icon-remove1:before {
+  content: "\f00e";
+}
+.icon-times1:before {
+  content: "\f00e";
+}
+.icon-search-plus:before {
+  content: "\f00f";
+}
+.icon-trash-o:before {
+  content: "\f014";
+}
+.icon-home:before {
+  content: "\f015";
+}
+.icon-download:before {
+  content: "\f019";
+}
+.icon-lock:before {
+  content: "\f023";
+}
+.icon-headphones:before {
+  content: "\f025";
+}
+.icon-volume-up:before {
+  content: "\f028";
+}
+.icon-book:before {
+  content: "\f02d";
+}
+.icon-print:before {
+  content: "\f02f";
+}
+.icon-camera:before {
+  content: "\f030";
+}
+.icon-chevron-left1:before {
+  content: "\f056";
+}
+.icon-chevron-right1:before {
+  content: "\f055";
+}
+.icon-chevron-up1:before {
+  content: "\f07b";
+}
+.icon-chevron-down1:before {
+  content: "\f079";
+}
+.icon-thumbs-o-up:before {
+  content: "\f087";
+}
+.icon-thumbs-o-down:before {
+  content: "\f088";
+}
+.icon-phone:before {
+  content: "\f095";
+}
+.icon-phone-square:before {
+  content: "\f098";
+}
+.icon-unlock:before {
+  content: "\f09c";
+}
+.icon-truck:before {
+  content: "\f0d1";
+}
+.icon-comment-o:before {
+  content: "\f0e5";
+}
+.icon-user-md:before {
+  content: "\f0f0";
+}
+.icon-stethoscope:before {
+  content: "\f0f1";
+}
+.icon-ambulance:before {
+  content: "\f0f9";
+}
+.icon-angle-left1:before {
+  content: "\f108";
+}
+.icon-angle-right1:before {
+  content: "\f109";
+}
+.icon-angle-up1:before {
+  content: "\f10a";
+}
+.icon-angle-down1:before {
+  content: "\f10b";
+}
+.icon-mobile:before {
+  content: "\f10c";
+}
+.icon-mobile-phone:before {
+  content: "\f10c";
+}
+.icon-calendar-o:before {
+  content: "\f133";
+}
+.icon-youtube1:before {
+  content: "\f168";
+}
+.icon-apple:before {
+  content: "\f179";
+}
+.icon-female:before {
+  content: "\f182";
+}
+.icon-male:before {
+  content: "\f183";
+}
+.icon-sun-o:before {
+  content: "\f185";
+}
+.icon-wheelchair:before {
+  content: "\f193";
+}
+.icon-wordpress:before {
+  content: "\f19a";
+}
+.icon-automobile:before {
+  content: "\f1b9";
+}
+.icon-car:before {
+  content: "\f1b9";
+}
+.icon-motorcycle:before {
+  content: "\f21c";
+}
+.icon-whatsapp:before {
+  content: "\f232";
+}
+.icon-bed:before {
+  content: "\f236";
+}
+.icon-hotel:before {
+  content: "\f236";
+}
+.icon-battery-3:before {
+  content: "\f241";
+}
+.icon-battery-three-quarters:before {
+  content: "\f241";
+}
+.icon-battery-2:before {
+  content: "\f242";
+}
+.icon-battery-half:before {
+  content: "\f242";
+}
+.icon-volume-control-phone:before {
+  content: "\f2a0";
+}
+.icon-handshake-o:before {
+  content: "\f2b5";
+}
+.icon-shower:before {
+  content: "\f2cc";
+}
+.icon-bath:before {
+  content: "\f2cd";
+}
+.icon-bathtub:before {
+  content: "\f2cd";
+}
+.icon-s15:before {
+  content: "\f2cd";
 }

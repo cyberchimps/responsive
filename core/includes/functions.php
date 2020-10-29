@@ -572,6 +572,15 @@ function responsive_add_custom_body_classes( $classes ) {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
 	}
 
+	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+
+		$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
+		$search_screen = get_theme_mod( 'search_style', 'search' );
+		if ( 'search' === $search_icon && 'full-screen' == $search_screen ) {
+			$classes[] = 'full-screen';
+		}
+	}
+
 	// Header width.
 	if ( get_theme_mod( 'responsive_header_full_width', 0 ) && 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) {
 		$classes[] = 'header-full-width';
@@ -604,6 +613,9 @@ function responsive_add_custom_body_classes( $classes ) {
 	// Full idth menu class.
 	if ( get_theme_mod( 'responsive_header_menu_full_width', 0 ) ) {
 		$classes[] = 'site-header-full-width-main-navigation';
+	}
+	if ( get_theme_mod( 'responsive_last_item_floating', 0 ) ) {
+		$classes[] = 'last-item-spread-away';
 	}
 	if ( 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) {
 		$classes[] = 'mobile-menu-style-sidebar';
@@ -880,6 +892,59 @@ function responsive_transparent_custom_logo( $html ) {
 	}
 
 	return $html;
+}
+
+if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+
+	if ( ! function_exists( 'responsive_is_sticky_header_enabled' ) ) {
+		/**
+		 * Returns true if transparent header is enabled
+		 */
+		function responsive_is_sticky_header_enabled() {
+			$responsive_options = wp_parse_args( get_option( 'responsive_theme_options', array() ) );
+			if ( isset( $responsive_options['sticky-header'] ) && 1 === $responsive_options['sticky-header'] ) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
+	/**
+	 * [responsive_sticky_custom_logo description]
+	 *
+	 * @param  [type] $html [description].
+	 * @return [type]       [description]
+	 */
+	function responsive_sticky_custom_logo() {
+
+		$responsive_sticky_logo_option = get_theme_mod( 'responsive_sticky_header_logo_option', 0 );
+		$responsive_sticky_logo        = get_theme_mod( 'responsive_sticky_header_logo' );
+
+		$html = '';
+
+		if ( $responsive_sticky_logo_option && $responsive_sticky_logo && responsive_is_sticky_header_enabled() ) {
+
+			/* Replace transparent header logo and width */
+
+			$html = sprintf(
+				'<a href="%1$s" class="custom-logo-link sticky-custom-logo" rel="home" itemprop="url">%2$s</a>',
+				esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ),
+				wp_get_attachment_image(
+					$responsive_sticky_logo,
+					'full',
+					false,
+					array(
+						'alt'      => get_bloginfo( 'name' ),
+						'class'    => 'custom-logo',
+						'itemprop' => 'logo',
+						'size'     => '(max-width: 204px) 100vw, 204px',
+					)
+				)
+			);
+		}
+		return $html;
+	}
 }
 
 /**

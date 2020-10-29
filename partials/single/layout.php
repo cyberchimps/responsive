@@ -40,7 +40,8 @@ Responsive\responsive_entry_before();
 			}
 		}
 		?>
-		<?php if ( '' !== get_the_author_meta( 'description' ) ) : ?>
+
+		<?php if ( '' !== get_the_author_meta( 'description' ) && 0 === get_theme_mod( 'responsive_disable_author_meta', 0 ) ) : ?>
 
 			<div id="author-meta">
 				<?php
