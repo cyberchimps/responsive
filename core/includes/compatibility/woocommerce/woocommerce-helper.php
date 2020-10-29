@@ -1,22 +1,23 @@
 <?php
 /**
- * All helper functions for woocommerce helper
- *
- * @package Responsive
- */
+ * All helper functions for woocommerce helper
+ *
+ * @package Responsive
+ */
 
 namespace Responsive\WooCommerce;
 
 /**
- * Set up theme defaults and register supported WordPress features.
- *
- * @return void
- */
+ * Set up theme defaults and register supported WordPress features.
+ *
+ * @return void
+ */
 function setup() {
 	$n = function( $function ) {
 		return __NAMESPACE__ . "\\$function";
 	};
 
+	add_action( 'wp', $n( 'woocommerce_checkout' ) );
 	add_filter( 'wp_nav_menu_items', $n( 'responsive_menu_cart_icon' ), 10, 2 );
 }
 
@@ -100,8 +101,8 @@ if ( ! function_exists( 'responsive_woocommerce_product_elements_positioning' ) 
 	}
 }
 /**
- * Shop page - Short Description
- */
+ * Shop page - Short Description
+ */
 if ( ! function_exists( 'responsive_woo_shop_product_short_description' ) ) {
 	/**
 	 * Product short description
@@ -117,8 +118,8 @@ if ( ! function_exists( 'responsive_woo_shop_product_short_description' ) ) {
 	}
 }
 /**
- * Shop page - Category
- */
+ * Shop page - Category
+ */
 if ( ! function_exists( 'responsive_woo_shop_parent_category' ) ) {
 	/**
 	 * Product Category
@@ -143,6 +144,26 @@ if ( ! function_exists( 'responsive_woo_shop_parent_category' ) ) {
 			echo '</p>';
 		}
 	}
+}
+
+/**
+ * Checkout customization.
+ *
+ * @return void
+ */
+function woocommerce_checkout() {
+
+	if ( is_admin() ) {
+		return;
+	}
+
+		/**
+		 * Checkout Page
+		 */
+		add_action( 'woocommerce_checkout_billing', array( WC()->checkout(), 'checkout_form_shipping' ) );
+
+	// Checkout Page.
+	remove_action( 'woocommerce_checkout_shipping', array( WC()->checkout(), 'checkout_form_shipping' ) );
 }
 
 /**

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.4.3' );
+define( 'RESPONSIVE_THEME_VERSION', '4.4.4' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -879,3 +879,15 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 		do_action( 'wp_body_open' );
 	}
 }
+function responsive_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
+
+    // Add [aria-haspopup] and [aria-expanded] to menu items that have children
+    $item_has_children = in_array( 'menu-item-has-children', $item->classes );
+    if ( $item_has_children ) {
+        $atts['aria-haspopup'] = 'true';
+        $atts['aria-expanded'] = 'false';
+    }
+
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'responsive_nav_menu_link_attributes', 10, 4 );

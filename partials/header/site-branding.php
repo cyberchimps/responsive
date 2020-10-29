@@ -15,6 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="site-branding-wrapper">
 		<?php
 		the_custom_logo();
+		if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+
+			echo Responsive\Core\responsive_sticky_custom_logo();
+		}
 		?>
 		<div class="site-title-tagline">
 		<?php

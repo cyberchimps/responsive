@@ -67,6 +67,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Colors_Customizer' ) ) :
 			$menu_link_color_label = __( 'Menu Item Link Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_menu_link', $menu_link_color_label, 'responsive_header_menu_colors', 40, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) );
 
+			// Active Menu Link Color.
+			$menu_active_link_color_label = __( 'Active Menu Item Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_active_menu_link', $menu_active_link_color_label, 'responsive_header_menu_colors', 40, '' );
+
 			// Link Hover Color.
 			$menu_link_hover_color_label = __( 'Menu Item Link Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_menu_link_hover', $menu_link_hover_color_label, 'responsive_header_menu_colors', 50, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) );
@@ -78,6 +82,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Colors_Customizer' ) ) :
 			// Sub Menu Link Color.
 			$sub_menu_link_color_label = __( 'Sub Menu Item Link Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_sub_menu_link', $sub_menu_link_color_label, 'responsive_header_menu_colors', 70, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ) );
+
+			// Active Sub Menu Link Color.
+			$sub_menu_active_link_color_label = __( 'Active Sub Menu Item Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_sub_menu_active_link', $sub_menu_active_link_color_label, 'responsive_header_menu_colors', 70, '' );
 
 			// Sub Menu Link Hover Color.
 			$sub_menu_link_hover_color_label = __( 'Sub Menu Item Link Hover Color', 'responsive' );

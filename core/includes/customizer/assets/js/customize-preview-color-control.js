@@ -235,7 +235,7 @@
     //Link Color
     api( 'responsive_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('a').css('color', newval );
+            $('a, .woocommerce a.remove:hover').css('color', newval );
         } );
     } );
 
@@ -383,6 +383,13 @@
         } );
     } );
 
+	//Active Menu Link Color
+    api( 'responsive_header_active_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu .current_page_item > a,.main-navigation .menu .current-menu-item > a,.main-navigation .menu .current-menu-item.current_page_item a').css('color', newval );
+        } );
+    } );
+
     //Sub Menu Background Color
     api( 'responsive_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -394,6 +401,13 @@
     api( 'responsive_header_sub_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .children li a,.main-navigation .sub-menu li a').css('color', newval );
+        } );
+    } );
+
+	//Active Sub Menu Item Link Color
+    api( 'responsive_header_sub_menu_active_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a').css('color', newval );
         } );
     } );
 
