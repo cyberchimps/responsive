@@ -292,26 +292,28 @@ div.product {
 }
 
 .woocommerce-product-gallery {
-
-    .flex-viewport {
-        .product-gallery-layout-vertical & {
-            width: 75%;
-            float: right;
-        }
-    }
+	@media (min-width: 767px) {
+	    .flex-viewport {
+	        .product-gallery-layout-vertical & {
+	            width: 75%;
+	            float: right;
+	        }
+	    }
+	}
 }
 
 div.product div.images .flex-control-thumbs {
-    .product-gallery-layout-vertical.woocommerce & {
-        width: 23%;
-        margin-right: 2%;
+	@media (min-width: 767px) {
+	    .product-gallery-layout-vertical.woocommerce & {
+	        width: 23%;
+	        margin-right: 2%;
 
-        li {
-            margin-bottom: $base-line-height-px / 3;
-            width: 100%;
-        }
-
-    }
+	        li {
+	            margin-bottom: $base-line-height-px / 3;
+	            width: 100%;
+	        }
+    	}
+	}
     .product-gallery-layout-horizontal.woocommerce & {
         margin-top: 0.5em;
 
