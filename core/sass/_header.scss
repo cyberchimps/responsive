@@ -658,27 +658,3 @@ body.mega-menu-header-menu button.menu-toggle {
 .search-form input {
 	outline: none;
 }
-
-#secondary {
-	.res-search-icon.icon-search {
-        position: absolute;
-        right: 0;
-		top: 10px;
-	}
-	.res-search-wrapper {
-		display: block;
-        position: relative;
-		input[type=search] {
-			width: 100%;
-
-
-		}
-	}
-
-    .res-search-wrapper input[type=search]:focus, .res-search-wrapper input[type=search]:hover {
-        + .res-search-icon.icon-search {
-            display: none;
-        }
-    }
-
-}

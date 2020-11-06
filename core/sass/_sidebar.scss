@@ -98,3 +98,26 @@
         }
     }
 }
+
+
+#secondary {
+	.res-search-icon.icon-search {
+        display: none;
+	}
+	.res-search-wrapper {
+		display: block;
+        position: relative;
+		input[type=search] {
+			width: 100%;
+
+
+		}
+	}
+
+    .res-search-wrapper input[type=search]:focus, .res-search-wrapper input[type=search]:hover {
+        + .res-search-icon.icon-search {
+            display: none;
+        }
+    }
+
+}

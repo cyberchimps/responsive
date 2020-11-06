@@ -1759,6 +1759,21 @@ function responsive_customizer_styles() {
 		$add_to_cart_button_text_color       = esc_html( get_theme_mod( 'responsive_add_to_cart_button_text_color', '#ffffff' ) );
 		$add_to_cart_button_hover_color      = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_color', '#10659C' ) );
 		$add_to_cart_button_hover_text_color = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' ) );
+		$shop_sidebar_position               = esc_html( get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) );
+
+		if ( 'no' !== $shop_sidebar_position ) {
+			$woocommerce_custom_css .= "
+			@media (min-width:992px) {
+				.search.woocommerce .content-area,
+				.archive.woocommerce:not(.post-type-archive-course) .content-area {
+					max-width: 70%;
+				}
+				.search.woocommerce aside.widget-area,
+				.archive.woocommerce aside.widget-area {
+					min-width: 30%;
+				}
+			}";
+		}
 
 		$woocommerce_custom_css .= "
 		@media (min-width:992px) {
