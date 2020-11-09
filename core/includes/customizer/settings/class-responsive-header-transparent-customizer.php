@@ -30,7 +30,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 		 *
 		 * @since 0.2
 		 *
-		 * @param  object $wp_customize WordPress customization option.
+		 * @param  object $wp_customize WordPress customization option.
 		 */
 		public function customizer_options( $wp_customize ) {
 			$wp_customize->add_section(
@@ -146,6 +146,10 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$menu_link_color_label = __( 'Menu Item Link Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_menu_link', $menu_link_color_label, 'responsive_header_transparent', 200, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ), null );
 
+			// Active Menu Link Color.
+			$menu_active_link_color_label = __( 'Active Menu Item Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_active_menu_link', $menu_active_link_color_label, 'responsive_header_transparent', 40, '' );
+
 			// Link Hover Color.
 			$menu_link_hover_color_label = __( 'Menu Item Link Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_menu_link_hover', $menu_link_hover_color_label, 'responsive_header_transparent', 210, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ), null );
@@ -157,6 +161,10 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			// Sub Menu Link Color.
 			$sub_menu_link_color_label = __( 'Sub Menu Item Link Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_sub_menu_link', $sub_menu_link_color_label, 'responsive_header_transparent', 230, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ), null );
+
+			// Active Sub Menu Link Color.
+			$sub_menu_active_link_color_label = __( 'Active Sub Menu Item Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'transparent_header_sub_menu_active_link', $sub_menu_active_link_color_label, 'responsive_header_transparent', 70, '' );
 
 			// Sub Menu Link Hover Color.
 			$sub_menu_link_hover_color_label = __( 'Sub Menu Item Link Hover Color', 'responsive' );
