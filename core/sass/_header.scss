@@ -638,13 +638,14 @@ body.mega-menu-header-menu button.menu-toggle {
 		display: none;
 	}
 	&.sticky-header {
-		.custom-logo-link.sticky-custom-logo {
-			display: inline-block;
-		}
-		.custom-logo-link {
+		&.sticky-logo .custom-logo-link {
 			display: none;
 		}
-	}
+        .custom-logo-link.sticky-custom-logo {
+            display: inline-block;
+        }
+
+    }
 }
 
 .res-search-wrapper {
