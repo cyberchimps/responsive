@@ -137,7 +137,7 @@ function responsive_setup_content_width() {
 				}
 			} elseif ( is_shop() ) {
 				if ( 'no' !== get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) ) {
-					$blog_content_width = esc_html( get_theme_mod( 'responsive_shop_content_width', 100 ) );
+					$blog_content_width = esc_html( get_theme_mod( 'responsive_shop_content_width', Responsive\Core\get_responsive_customizer_defaults( 'shop_content_width' ) ) );
 
 					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
 				} else {

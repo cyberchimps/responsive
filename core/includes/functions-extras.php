@@ -128,9 +128,11 @@ function responsive_excerpt_length( $length ) {
  */
 function responsive_read_more() {
 	global $post;
-	if ( 'product' !== $post->post_type ) {
-		return '<div class="read-more"><a href="' . get_permalink() . '">' . __( 'Read more &#8250;', 'responsive' ) . '</a></div><!-- end of .read-more -->';
-	}
+    if(is_object($post)) {
+        if ('product' !== $post->post_type) {
+            return '<div class="read-more"><a href="' . get_permalink() . '">' . __('Read more &#8250;', 'responsive') . '</a></div><!-- end of .read-more -->';
+        }
+    }
 }
 
 /**
