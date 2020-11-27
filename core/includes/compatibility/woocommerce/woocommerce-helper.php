@@ -182,7 +182,8 @@ function responsive_menu_cart_icon( $menu, $args ) {
 		if ( 'icon-opencart' === $menu_cart ) {
 			if ( null !== WC()->cart ) {
 				$cart_contents_count = WC()->cart->get_cart_contents_count();
-				$cart_total_markup   = '<span class="res-header-cart-total">' . $cart_contents_count . '</span>';
+				$cart_total_markup   = '<span class="res-header-cart-total">' . WC()->cart->get_cart_total() . '</span>';
+
 			}
 			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 				$cart_title_markup = '<span class="res-woo-header-cart-title">' . __( 'Cart', 'responsive' ) . '</span>';
