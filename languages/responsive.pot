@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.4.3\n"
+"Project-Id-Version: Responsive 4.4.5\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-10-26 04:39:00+00:00\n"
+"POT-Creation-Date: 2020-11-30 07:30:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -767,11 +767,11 @@ msgstr ""
 msgid "Single Product Structure"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/woocommerce-helper.php:186
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:189
 msgid "Cart"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/woocommerce-helper.php:191
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:194
 msgid " / "
 msgstr ""
 
@@ -1213,14 +1213,14 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:73
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:131
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:185
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:193
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:50
 msgid "Background Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:68
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:180
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:188
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:54
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:141
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:166
@@ -1229,14 +1229,14 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:55
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:81
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:193
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:201
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:58
 msgid "Links Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:59
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:85
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:197
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:205
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:62
 msgid "Links Hover Color"
 msgstr ""
@@ -1344,7 +1344,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:59
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:112
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:138
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:189
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:197
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:149
 #: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:170
 msgid "Border Color"
@@ -1366,7 +1366,7 @@ msgid "Site Tagline Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:64
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:176
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:184
 msgid "Header Widget"
 msgstr ""
 
@@ -1459,40 +1459,42 @@ msgid "Menu Item Link Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:71
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:150
 msgid "Active Menu Item Link Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:75
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:150
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:154
 msgid "Menu Item Link Hover Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:79
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:154
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:158
 msgid "Sub Menu Background Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:83
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:158
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:162
 msgid "Sub Menu Item Link Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:87
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:166
 msgid "Active Sub Menu Item Link Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:91
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:162
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:170
 msgid "Sub Menu Item Link Hover Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:95
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:166
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:174
 msgid "Menu Toggle Background Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-colors-customizer.php:99
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:170
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:178
 msgid "Menu Toggle Color"
 msgstr ""
 
@@ -2336,12 +2338,12 @@ msgstr ""
 msgid "foursquare"
 msgstr ""
 
-#: core/includes/functions-extras.php:132 gutenberg-fullwidth.php:46
+#: core/includes/functions-extras.php:133 gutenberg-fullwidth.php:46
 #: image.php:59 partials/page/content.php:15
 msgid "Read more &#8250;"
 msgstr ""
 
-#: core/includes/functions-extras.php:203
+#: core/includes/functions-extras.php:205
 msgid "Page %s"
 msgstr ""
 
@@ -2507,7 +2509,7 @@ msgstr ""
 msgid "Upgrade To Pro"
 msgstr ""
 
-#: core/includes/hooks.php:394
+#: core/includes/hooks.php:392
 msgid "Enroll &raquo;"
 msgstr ""
 
@@ -2682,7 +2684,7 @@ msgstr ""
 msgid " &copy; "
 msgstr ""
 
-#: partials/footer/copy-right.php:45
+#: partials/footer/copy-right.php:46
 msgid " | Powered by Responsive Theme"
 msgstr ""
 
@@ -2799,20 +2801,24 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Responsive is a Fully Customizable, Fast & Responsive WordPress Theme. It's "
-"suitable for any type of website like blog, WooCommerce, Portfolio, "
-"Consultancy, Education, LMS, Auctions. It is optimized for SEO with support "
-"for Schema.org microdata, fast loading speed, and responsive layout "
-"designs. Responsive works with all the popular WordPress plugins, including "
-"WooCommerce, Sensei, bbPress, BuddyPress etc.. Fully compatible with "
-"popular page builders like Elementor, Brizy, Beaver Builder, Visual "
-"Composer, SiteOrigin, Divi. etc. It comes with ready to use websites: Built "
-"on Gutenberg & Elementor, it's an ideal theme to quickly launch a fully "
-"functional website. Features: # Responsive #Starter Data # WooCommerce "
-"Ready # LMS Ready (Sensei, LearnDash) # RTL # Translations Ready & Included "
-"# WPML Compatible # Retina Logo # Layout Settings # Transparent Headers # "
-"White Label # Site/Blog Layouts #Unlimited Colors # Import Pre-Built "
-"Websites (Gutenberg & Elementor) - https://cyberchimps.com/wordpress-themes/"
+"Responsive is a modern, lightweight, fully customizable, fast & Responsive "
+"WordPress theme, which includes 15+ ready-to-use templates for websites of "
+"all types (blog, WooCommerce, Portfolio, Podcast, Startups, Consultancy, "
+"Education, LMS, Auctions, and more). The theme is easy to customize and you "
+"can create blog or eCommerce websites using a user-friendly drag and drop "
+"interface. It is optimized for SEO with support for Schema.org microdata, "
+"fast loading speed, and responsive layout designs. Responsive works with "
+"all popular WordPress plugins, including WooCommerce, Sensei, bbPress, "
+"LearnDash, BuddyPress, etc. Fully compatible with popular page builders "
+"like Elementor, Brizy, Beaver Builder, Visual Composer, SiteOrigin, Divi, "
+"etc. It comes with ready to use websites: Built on Gutenberg & Elementor, "
+"it's an ideal theme to quickly launch a fully functional website. Features: "
+"# Responsive #Starter Data # WooCommerce Ready # Import Pre-Built Ready "
+"Websites (Gutenberg & Elementor) # LMS Ready (Sensei, LearnDash) # RTL # "
+"Translations Ready & Included # WPML Compatible # Retina Logo # Layout "
+"Settings # Transparent Headers # White Label # Site/Blog Layouts #Unlimited "
+"Colors Check out the list of all 15+ ready sites here "
+"https://cyberchimps.com/wordpress-themes/"
 msgstr ""
 
 #. Author of the plugin/theme

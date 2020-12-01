@@ -8,12 +8,21 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(26/10/2020) = Fix - Version 4.4.4
+(12/01/2020) = Fix - Version 4.4.5
+[*] = Fixed = WooCommerce mini cart in header not updating on adding a product
+[*] = Fixed = Active Sub Menu Link color not working
+[*] = Fixed = Fatal error while previewing another theme from Customizer
+[*] = Fixed = WooCommerce Sidebar goes below the content on WooCommerce pages
+[*] = Fixed = Table cell borders were not displayed
+[*] = Fixed = Checkout page responsiveness issue
+[*] = Fixed = Single Product page responsiveness issue with multiple gallery images
+
+(10/26/2020) = Fix - Version 4.4.4
 [*] = Added = Color Options for Active Menu and Submenu
 [*] = Deleted = Removed description on product pages
 [*] = Fixed = Accessibility issues for the menu
 
-(08/10/20) = Fix - Version 4.4.3
+(10/08/20) = Fix - Version 4.4.3
 [*] = Added = Search Icon in Main Menu
 [*] = Fixed = Removed excluded categories posts from single post navigator
 
