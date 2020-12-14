@@ -37,8 +37,8 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$wp_customize->add_panel(
 				'responsive_site',
 				array(
-					'title'       => __( 'Theme Options', 'responsive' ),
-					'description' => __( 'Header Options', 'responsive' ),
+					'title'       => __( 'Global Settings', 'responsive' ),
+					'description' => __( 'Global Settings', 'responsive' ),
 					'priority'    => 110,
 				)
 			);
@@ -53,38 +53,11 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			);
 
 			$wp_customize->add_panel(
-				'responsive_header_menu',
+				'responsive_page',
 				array(
-					'title'       => __( 'Main Menu', 'responsive' ),
-					'description' => __( 'Header Menu Options', 'responsive' ),
+					'title'       => __( 'Page', 'responsive' ),
+					'description' => __( 'Page Options', 'responsive' ),
 					'priority'    => 130,
-				)
-			);
-
-			$wp_customize->add_panel(
-				'responsive_sidebar',
-				array(
-					'title'       => __( 'Sidebar', 'responsive' ),
-					'description' => __( 'Sidebar Options', 'responsive' ),
-					'priority'    => 131,
-				)
-			);
-
-			$wp_customize->add_panel(
-				'responsive_footer',
-				array(
-					'title'       => __( 'Footer', 'responsive' ),
-					'description' => __( 'Footer Options', 'responsive' ),
-					'priority'    => 140,
-				)
-			);
-
-			$wp_customize->add_panel(
-				'responsive_content_header',
-				array(
-					'title'       => __( 'Content Header', 'responsive' ),
-					'description' => __( 'Content Header', 'responsive' ),
-					'priority'    => 150,
 				)
 			);
 
@@ -93,25 +66,25 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Blog / Archive', 'responsive' ),
 					'description' => __( 'Blog Options', 'responsive' ),
+					'priority'    => 140,
+				)
+			);
+
+			$wp_customize->add_panel(
+				'responsive_sidebar',
+				array(
+					'title'       => __( 'Sidebar', 'responsive' ),
+					'description' => __( 'Sidebar Options', 'responsive' ),
+					'priority'    => 150,
+				)
+			);
+
+			$wp_customize->add_panel(
+				'responsive_footer',
+				array(
+					'title'       => __( 'Footer', 'responsive' ),
+					'description' => __( 'Footer Options', 'responsive' ),
 					'priority'    => 160,
-				)
-			);
-
-			$wp_customize->add_panel(
-				'responsive_single_blog',
-				array(
-					'title'       => __( 'Blog Post', 'responsive' ),
-					'description' => __( 'Single Blog Post', 'responsive' ),
-					'priority'    => 170,
-				)
-			);
-
-			$wp_customize->add_panel(
-				'responsive_page',
-				array(
-					'title'       => __( 'Page', 'responsive' ),
-					'description' => __( 'Page Options', 'responsive' ),
-					'priority'    => 180,
 				)
 			);
 

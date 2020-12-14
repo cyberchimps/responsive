@@ -224,7 +224,7 @@ function responsive_save_layout_post_metadata() {
 		return;
 	}
 	$valid_layouts = responsive_get_valid_layouts();
-	$layout        = ( isset( $_POST['_responsive_layout'] ) && array_key_exists( wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_responsive_layout'] ) ) ), $valid_layouts ) ? wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_responsive_layout'] ) ) ) : 'default' );
+	$layout        = ( isset( $_POST['_responsive_layout'] ) && array_key_exists( (string) wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_responsive_layout'] ) ) ), $valid_layouts ) ? wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_responsive_layout'] ) ) ) : 'default' );
 
 	update_post_meta( $post->ID, '_responsive_layout', $layout );
 }

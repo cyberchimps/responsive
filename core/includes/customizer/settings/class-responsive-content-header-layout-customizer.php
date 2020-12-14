@@ -36,9 +36,9 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_content_header_layout',
 				array(
-					'title'    => esc_html__( 'Layout', 'responsive' ),
-					'panel'    => 'responsive_content_header',
-					'priority' => 10,
+					'title'    => esc_html__( 'Content Header', 'responsive' ),
+					'panel'    => 'responsive_header',
+					'priority' => 15,
 
 				)
 			);

@@ -1066,6 +1066,7 @@ table {
 
 table td,
 table th {
+  border: 1px solid #eaeaea;
   padding: 7px;
 }
 
@@ -1220,6 +1221,7 @@ input[type=search] {
 }
 
 div.wpforms-container-full .wpforms-form select,
+.entry-content div.wpforms-container-full .wpforms-form select,
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1795,6 +1797,10 @@ body.mega-menu-header-menu button.menu-toggle {
   font-size: 16px;
 }
 
+.main-navigation #searchform .res-search-wrapper .search-submit {
+  display: none;
+}
+
 .main-navigation #searchform .res-search-wrapper input[type=search]:focus + .res-search-icon.icon-search, .main-navigation #searchform .res-search-wrapper input[type=search]:hover + .res-search-icon.icon-search {
   display: none;
 }
@@ -1889,12 +1895,12 @@ body.mega-menu-header-menu button.menu-toggle {
   display: none;
 }
 
-.site-header.sticky-header .custom-logo-link.sticky-custom-logo {
-  display: inline-block;
+.site-header.sticky-header.sticky-logo .custom-logo-link {
+  display: none;
 }
 
-.site-header.sticky-header .custom-logo-link {
-  display: none;
+.site-header.sticky-header .custom-logo-link.sticky-custom-logo {
+  display: inline-block;
 }
 
 .res-search-wrapper {
@@ -1908,25 +1914,6 @@ body.mega-menu-header-menu button.menu-toggle {
 
 .search-form input {
   outline: none;
-}
-
-#secondary .res-search-icon.icon-search {
-  position: absolute;
-  right: 0;
-  top: 10px;
-}
-
-#secondary .res-search-wrapper {
-  display: block;
-  position: relative;
-}
-
-#secondary .res-search-wrapper input[type=search] {
-  width: 100%;
-}
-
-#secondary .res-search-wrapper input[type=search]:focus + .res-search-icon.icon-search, #secondary .res-search-wrapper input[type=search]:hover + .res-search-icon.icon-search {
-  display: none;
 }
 
 /**
@@ -4199,6 +4186,10 @@ embed, iframe, object {
   width: 100%;
 }
 
+.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, .read-more-button article.product .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], body div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .read-more-button .hentry .read-more .more-link, .read-more-button article.product .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, div.wpforms-container-full .wpforms-form input[type=submit], div.wpforms-container-full .wpforms-form button[type=submit], div.wpforms-container-full .wpforms-form .wpforms-page-button, .page.woocommerce-cart .woocommerce a.button.alt, .page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt, .woocommerce-cart .woocommerce a.button, .woocommerce button.button, .wp-block-button__link {
+  line-height: 1;
+}
+
 /**
  * Aside widget-area Area styles
  * -----------------------------------------------------------------------------
@@ -5866,6 +5857,46 @@ embed, iframe, object {
 .site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive:not(.woocommerce).sidebar-position-no .blog.front-page aside.home-widgets .site-content > .main-navigation-wrapper > .home-widget-wrapper main.content-area,
 .blog.front-page aside.home-widgets .site-header-full-width-main-navigation:not(.responsive-site-full-width) .archive:not(.woocommerce).sidebar-position-no .site-content > .main-navigation-wrapper > .home-widget-wrapper main.content-area {
   margin: 0 auto;
+}
+
+#secondary .res-search-icon.icon-search {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -50%);
+  font-size: 1.2rem;
+}
+
+#secondary .res-search-wrapper {
+  display: block;
+  position: relative;
+}
+
+#secondary .res-search-wrapper input[type="search"] {
+  width: 100%;
+}
+
+#secondary .res-search-wrapper .search-submit {
+  padding: 17px 20px;
+  border-radius: 2px;
+  border: none;
+  top: 0;
+  right: -10px;
+  position: absolute;
+  color: #ccc;
+  background: 0 0;
+  z-index: 2;
+  outline: none;
+}
+
+#secondary .res-search-wrapper input[type="search"]:focus + .res-search-icon.icon-search,
+#secondary .res-search-wrapper input[type="search"]:hover + .res-search-icon.icon-search {
+  display: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
 
 /**

@@ -63,7 +63,7 @@
 	margin-bottom: 0
 }
 
-.customize-control-title {
+.customize-control-title, #customize-control-res_front_page .customize-inside-control-row {
 	margin-top: 15px
 }
 

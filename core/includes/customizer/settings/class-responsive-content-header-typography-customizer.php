@@ -33,31 +33,22 @@ if ( ! class_exists( 'Responsive_Content_Header_Typography_Customizer' ) ) :
 		 * @param  object $wp_customize WordPress customization option.
 		 */
 		public function customizer_options( $wp_customize ) {
-			$wp_customize->add_section(
-				'responsive_content_header_typography',
-				array(
-					'title'    => esc_html__( 'Typography', 'responsive' ),
-					'panel'    => 'responsive_content_header',
-					'priority' => 30,
-				)
-			);
-
 			/**
 			 * Content Heading Title.
 			 */
 			$content_header_separator_label = esc_html__( 'Title', 'responsive' );
-			responsive_separator_control( $wp_customize, 'content_header_heading', $content_header_separator_label, 'responsive_content_header_typography', 0 );
+			responsive_separator_control( $wp_customize, 'content_header_heading', $content_header_separator_label, 'responsive_content_header_layout', 85 );
 			/**
 			 * Content Description.
 			 */
 			$description_separator_label = esc_html__( 'Description', 'responsive' );
-			responsive_separator_control( $wp_customize, 'description', $description_separator_label, 'responsive_content_header_typography', 2 );
+			responsive_separator_control( $wp_customize, 'description', $description_separator_label, 'responsive_content_header_layout', 95 );
 
 			/**
 			* Content Breadcrumb.
 			*/
 			$breadcrumb_separator_label = esc_html__( 'Breadcrumb', 'responsive' );
-			responsive_separator_control( $wp_customize, 'breadcrumb', $breadcrumb_separator_label, 'responsive_content_header_typography', 4 );
+			responsive_separator_control( $wp_customize, 'breadcrumb', $breadcrumb_separator_label, 'responsive_content_header_layout', 105 );
 
 		}
 

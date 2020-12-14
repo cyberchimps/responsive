@@ -45,11 +45,15 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 					'priority' => 20,
 				)
 			);
+			// Main Content Width.
+			$page_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'page_content_width', $page_content_width_label, 'responsive_page_content', 10, Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ), null, 100, 1, 'postMessage' );
+
 			/**
 			 * Entry Elements.
 			 */
 			$page_elements_label = esc_html__( 'Page Elements', 'responsive' );
-			responsive_separator_control( $wp_customize, 'page_elements_separator', $page_elements_label, 'responsive_page_content', 10 );
+			responsive_separator_control( $wp_customize, 'page_elements_separator', $page_elements_label, 'responsive_page_content', 12 );
 			/**
 			 * Page Elements Positioning
 			 */

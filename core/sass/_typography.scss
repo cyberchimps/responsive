@@ -99,11 +99,20 @@ h3 {
 
 h4 {
     @include make-heading-text( normal );
+	font-size: 1.3333333333333rem;
 }
 
 h5,
 h6 {
     @include make-heading-text( small );
+}
+
+h5, .entry-content h5 {
+	font-size: 1.2rem;
+}
+
+h6, .entry-content h6 {
+	font-size: 1rem;
 }
 
 ol,
@@ -129,7 +138,7 @@ table {
 
     td,
     th {
-        border: 1px solid map-get( $colors, light-gray );
+		border: 1px solid map-get( $colors, light-gray );
         padding: $base-line-height-px / 4;
     }
 

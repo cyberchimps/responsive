@@ -673,11 +673,13 @@ function responsive_customizer_styles() {
 		$header_menu_link_color              = esc_html( get_theme_mod( 'responsive_transparent_header_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link' ) ) );
 		$header_menu_link_hover_color        = esc_html( get_theme_mod( 'responsive_transparent_header_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_link_hover' ) ) );
 		$header_active_menu_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_active_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ) ) );
+		$menu_active_link_color              = esc_html( get_theme_mod( 'responsive_transparent_header_active_menu_link_color', '' ) );
 
 		// Sub Menu Color.
 		$header_sub_menu_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_sub_menu_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ) ) );
 		$header_sub_menu_link_color       = esc_html( get_theme_mod( 'responsive_transparent_header_sub_menu_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link' ) ) );
 		$header_sub_menu_link_hover_color = esc_html( get_theme_mod( 'responsive_transparent_header_sub_menu_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_link_hover' ) ) );
+		$sub_menu_active_link_color       = esc_html( get_theme_mod( 'responsive_transparent_header_sub_menu_active_link_color', '' ) );
 
 		// Toggle Button Color.
 		$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
@@ -1043,8 +1045,8 @@ function responsive_customizer_styles() {
 		color: {$header_menu_link_color};
 	}
 
-	.main-navigation .menu .current_page_item > a,
-	.main-navigation .menu .current-menu-item > a {
+	.main-navigation .menu > li.current_page_item > a,
+	.main-navigation .menu > li.current-menu-item > a {
 		color: {$menu_active_link_color};
 		background-color: {$header_active_menu_background_color};
 	}
@@ -1061,7 +1063,8 @@ function responsive_customizer_styles() {
 		color: {$header_sub_menu_link_color};
 	}
 	.main-navigation .menu .sub-menu .current_page_item > a,
-	.main-navigation .menu .sub-menu .current-menu-item > a {
+	.main-navigation .menu .sub-menu .current-menu-item > a,
+	.main-navigation .menu .children li.current_page_item a {
 		color: {$sub_menu_active_link_color};
 	}
 	.main-navigation .children li a:hover,
@@ -1752,13 +1755,28 @@ function responsive_customizer_styles() {
 		}';
 
 		// Shop Styles.
-		$shop_content_width                  = esc_html( get_theme_mod( 'responsive_shop_content_width', 100 ) );
+		$shop_content_width                  = esc_html( get_theme_mod( 'responsive_shop_content_width', Responsive\Core\get_responsive_customizer_defaults( 'shop_content_width' ) ) );
 		$shop_product_rating_color           = esc_html( get_theme_mod( 'responsive_shop_product_rating_color', '#0066CC' ) );
 		$shop_product_price_color            = esc_html( get_theme_mod( 'responsive_shop_product_price_color', Responsive\Core\get_responsive_customizer_defaults( 'shop_product_price' ) ) );
 		$add_to_cart_button_color            = esc_html( get_theme_mod( 'responsive_add_to_cart_button_color', Responsive\Core\get_responsive_customizer_defaults( 'add_to_cart_button' ) ) );
 		$add_to_cart_button_text_color       = esc_html( get_theme_mod( 'responsive_add_to_cart_button_text_color', '#ffffff' ) );
 		$add_to_cart_button_hover_color      = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_color', '#10659C' ) );
 		$add_to_cart_button_hover_text_color = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' ) );
+		$shop_sidebar_position               = esc_html( get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) );
+
+		if ( 'no' !== $shop_sidebar_position ) {
+			$woocommerce_custom_css .= "
+			@media (min-width:992px) {
+				.search.woocommerce .content-area,
+				.archive.woocommerce:not(.post-type-archive-course) .content-area {
+					max-width: 70%;
+				}
+				.search.woocommerce aside.widget-area,
+				.archive.woocommerce aside.widget-area {
+					min-width: 30%;
+				}
+			}";
+		}
 
 		$woocommerce_custom_css .= "
 		@media (min-width:992px) {

@@ -2,8 +2,8 @@
  * Aside widget-area Area styles
  * -----------------------------------------------------------------------------
  */
-@media( max-width: map-get( $screens, md ) ) {
-    .main-sidebar{
+@media (max-width: map-get( $screens, md )) {
+    .main-sidebar {
         margin-top: $base-line-height-px;
     }
 }
@@ -13,7 +13,7 @@
 }
 
 .widget-wrapper {
-    @include make-block-element( $grid-gutter-width );
+    @include make-block-element($grid-gutter-width);
     padding: $base-line-height-px 0;
     &:first-child {
         padding-top: 0;
@@ -28,16 +28,15 @@
 
     // Sidebar widget Area
     .widget-area:not(.home-widgets) & {
-        font-size: map-get( $font-sizes, small );
+        font-size: map-get($font-sizes, small);
     }
 
     .widget-area & {
-
         .widget-title {
             display: block;
             line-height: 1;
             letter-spacing: 1px;
-            margin: 0 0 ( $base-line-height-px * 2 / 3 );
+            margin: 0 0 ($base-line-height-px * 2 / 3);
             text-transform: uppercase;
         }
 
@@ -47,18 +46,17 @@
             padding: 0;
 
             li {
-                border-top: 1px dotted rgba( 170, 170, 170, 0.2 );
-                padding: ( $base-line-height-px / 4 ) 0;
+                border-top: 1px dotted rgba(170, 170, 170, 0.2);
+                padding: ($base-line-height-px / 4) 0;
 
                 &:last-child {
-                    border-top: 1px dotted rgba( 170, 170, 170, 0.2 );
+                    border-top: 1px dotted rgba(170, 170, 170, 0.2);
                 }
             }
         }
 
         .custom-html-widget {
             ul {
-
                 li {
                     border: none;
                     margin: 0;
@@ -69,7 +67,7 @@
     }
 }
 
-.responsive-site-style-boxed .widget-wrapper.colophon-widget{
+.responsive-site-style-boxed .widget-wrapper.colophon-widget {
     padding: 0;
 }
 
@@ -97,4 +95,46 @@
             }
         }
     }
+}
+
+#secondary {
+    .res-search-icon.icon-search {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translate(0, -50%);
+        font-size: 1.2rem;
+    }
+    .res-search-wrapper {
+        display: block;
+        position: relative;
+        input[type="search"] {
+            width: 100%;
+        }
+
+        .search-submit {
+            padding: 17px 20px;
+            border-radius: 2px;
+            border: none;
+            top: 0;
+            right: -10px;
+            position: absolute;
+            color: #ccc;
+            background: 0 0;
+            z-index: 2;
+            outline: none;
+        }
+    }
+
+    .res-search-wrapper input[type="search"]:focus,
+    .res-search-wrapper input[type="search"]:hover {
+        + .res-search-icon.icon-search {
+            display: none;
+        }
+    }
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
