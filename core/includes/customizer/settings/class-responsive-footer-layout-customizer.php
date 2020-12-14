@@ -84,7 +84,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'res_copyright_textbox',
 				array(
-					'label'    => __( 'Copyright text', 'responsive' ),
+					'label'    => __( 'Copyright HTML', 'responsive' ),
 					'section'  => 'responsive_footer_layout',
 					'settings' => 'responsive_theme_options[copyright_textbox]',
 					'type'     => 'textarea',

@@ -29,13 +29,13 @@ wp.customize.controlConstructor['responsive-range'] = wp.customize.Control.exten
 
 					range       = jQuery( this );
 					range_input = range.parent().children( '.responsive-range-input' );
-					value       = range.attr( 'value' );
+					value       = range.prop( 'value' );
 
 					range_input.val( value );
 
 					range.mousemove(
 						function() {
-							value = range.attr( 'value' );
+							value = range.prop( 'value' );
 							range_input.val( value );
 						}
 					);

@@ -1,6 +1,6 @@
 {
   "name": "responsive",
-  "version": "4.4.5",
+  "version": "4.5.0",
   "devDependencies": {
     "@wordpress/browserslist-config": "^2.6.0",
     "@wordpress/scripts": "^5.0.0",

@@ -83,13 +83,6 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 			$meta_typography_label = esc_html__( 'Meta', 'responsive' );
 			responsive_separator_control( $wp_customize, 'meta_typography_separator', $meta_typography_label, 'responsive_typography', 17 );
 
-			// Buttons Typography.
-			$buttons_typography_label = esc_html__( 'Buttons', 'responsive' );
-			responsive_separator_control( $wp_customize, 'buttons_typography_separator', $buttons_typography_label, 'responsive_typography', 19 );
-
-			// Input Fields Typography.
-			$inputs_typography_label = esc_html__( 'Input Fields', 'responsive' );
-			responsive_separator_control( $wp_customize, 'inputs_typography_separator', $inputs_typography_label, 'responsive_typography', 21 );
 		}
 
 

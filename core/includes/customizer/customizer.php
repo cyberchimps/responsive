@@ -144,7 +144,7 @@ function responsive_sanitize_multiple_checkboxes( $values ) {
  */
 function responsive_customize_preview_js() {
 
-    wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive_customizer', get_template_directory_uri() . '/core/js/customizer.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_color', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-color-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_checkbox', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-checkbox-control.js', array( 'customize-preview', 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_padding', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-padding-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
@@ -179,20 +179,14 @@ function responsive_register_options() {
 		'class-responsive-site-typography-customizer',
 		'class-responsive-header-layout-customizer',
 		'class-responsive-header-colors-customizer',
-		'class-responsive-header-typography-customizer',
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-scripts-customizer',
 		'class-responsive-header-menu-layouts-customizer',
-		'class-responsive-header-menu-colors-customizer',
 		'class-responsive-content-header-colors-customizer',
 		'class-responsive-content-header-layout-customizer',
 		'class-responsive-content-header-typography-customizer',
-		'class-responsive-blog-content-header-customizer',
 		'class-responsive-blog-layout-customizer',
-		'class-responsive-blog-content-customizer',
 		'class-responsive-single-blog-layout-customizer',
-		'class-responsive-single-blog-content-customizer',
-		'class-responsive-page-layout-customizer',
 		'class-responsive-page-content-customizer',
 		'class-responsive-footer-layout-customizer',
 		'class-responsive-footer-colors-customizer',
@@ -203,6 +197,10 @@ function responsive_register_options() {
 		'class-responsive-customizer-notices',
 		'class-responsive-sidebar-colors-customizer',
 		'class-responsive-scroll-to-top-customizer',
+		'class-responsive-buttons-customizer',
+		'class-responsive-form-fields-customizer',
+		'class-responsive-header-widgets-customizer',
+		'class-responsive-sidebar-layout-customizer',
 	);
 
 	foreach ( $files as $key ) {

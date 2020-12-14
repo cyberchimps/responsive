@@ -440,6 +440,18 @@ div.product div.images .flex-control-thumbs {
 	}
 }
 
+.woocommerce-cart {
+	table.shop_table thead th {
+		border-bottom: 0;
+	}
+	table.shop_table {
+	    border: 1px solid #ebebeb;
+	}
+	table.shop_table td {
+		border-top: 1px solid #ebebeb;
+	}
+}
+
 .woocommerce {
     .widget_shopping_cart,
     &.widget_shopping_cart {

@@ -540,6 +540,10 @@ body.mega-menu-header-menu button.menu-toggle {
 			right: 0px;
 			font-size: 16px;
 		}
+
+		.search-submit {
+			display: none;
+		}
 	}
     .res-search-wrapper input[type=search]:focus, .res-search-wrapper input[type=search]:hover {
         + .res-search-icon.icon-search {

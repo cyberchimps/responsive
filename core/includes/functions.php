@@ -132,7 +132,7 @@ function responsive_get_option_defaults() {
 		'home-widgets'                    => false,
 		'site_footer_option'              => 'footer-3-col',
 		'res_hide_site_title'             => false,
-		'res_hide_tagline'                => false,
+		'res_hide_tagline'                => true,
 	);
 
 	return apply_filters( 'responsive_option_defaults', $defaults );

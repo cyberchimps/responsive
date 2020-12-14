@@ -407,7 +407,13 @@
 	//Active Sub Menu Item Link Color
     api( 'responsive_header_sub_menu_active_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a').css('color', newval );
+            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a').css('color', newval );
+        } );
+    } );
+//Active Sub Menu Item Link Color
+    api( 'responsive_transparent_header_sub_menu_active_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a').css('color', newval );
         } );
     } );
 
@@ -512,7 +518,7 @@
             $('.res-transparent-header .main-navigation .menu > li > a').css('color', newval );
         } );
     } );
-
+    
     //Sub Menu Background Color
     api( 'responsive_transparent_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -540,6 +546,14 @@
             $('.res-transparent-header .main-navigation .menu-toggle').css('color', newval );
         } );
     } );
+
+    //Active Menu Background Color
+    api( 'responsive_transparent_header_active_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu > li.current_page_item > a,.main-navigation .menu > li.current-menu-item > a').css('color', newval );
+        } );
+    } );
+
 
     //Footer Color Section
     //Background Color
@@ -753,8 +767,18 @@
             $(this).css("color", api('responsive_header_site_title_color').get());
         }
     );
+    //site title hover color
+    $(".res-transparent-header .site-title a").hover(
+        function() {
+            $(this).css("color", api('responsive_transparent_header_site_title_hover_color').get());
+        },
 
-    //Header widget link hover color...
+        function() {
+            $(this).css("color", api('responsive_transparent_header_site_title_color').get());
+        }
+    );
+
+   //Header widget link hover color...
     $(".header-widgets a").hover(
         function() {
             $(this).css("color", api('responsive_header_widget_link_hover_color').get());
@@ -775,6 +799,25 @@
             $(this).css("color", api('responsive_header_menu_link_color').get());
         }
     );
+    //Menu item link hover color
+    $(".res-transparent-header .main-navigation .menu > li > a").hover(
+        function() {
+            $(this).css("color", api('responsive_transparent_header_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_transparent_header_menu_link_color').get());
+        }
+    );
+    $(".res-transparent-header .main-navigation .menu > li.current_page_item > a,.res-transparent-header .main-navigation .menu > li.current-menu-item > a").hover(
+        function() {
+            $(this).css("color", api('responsive_transparent_header_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_transparent_header_active_menu_link_color').get());
+        }
+    );
 
     //Sub Menu Links Hover Color
     $(".main-navigation .children li a,.main-navigation .sub-menu li a").hover(
@@ -787,6 +830,36 @@
         }
     );
 
+    //Active Sub Menu Links Hover Color
+    $(".main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a").hover(
+        function() {
+            $(this).css("color", api('responsive_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_header_sub_menu_active_link_color').get());
+        }
+    );
+//Active Sub Menu Links Hover Color
+    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a").hover(
+        function() {
+            $(this).css("color", api('responsive_transparent_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_transparent_header_sub_menu_link_color').get());
+        }
+    );
+//Active Sub Menu Links Hover Color
+    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a").hover(
+        function() {
+            $(this).css("color", api('responsive_transparent_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("color", api('responsive_transparent_header_sub_menu_active_link_color').get());
+        }
+    );
     //Footer Links Hover Color
     $(".site-footer a").hover(
         function() {

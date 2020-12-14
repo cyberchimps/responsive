@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.4.5' );
+define( 'RESPONSIVE_THEME_VERSION', '4.5.0' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -607,7 +607,7 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 				$responsive_options['cta_url'] = __( '#', 'responsive' );
 			}
 
-			( ! get_theme_mod( 'responsive_hide_tagline' ) && get_theme_mod( 'res_hide_tagline' ) ) ? set_theme_mod( 'responsive_hide_tagline', get_theme_mod( 'res_hide_tagline', 0 ) ) : '';
+			( ! get_theme_mod( 'responsive_hide_tagline' ) && get_theme_mod( 'res_hide_tagline' ) ) ? set_theme_mod( 'responsive_hide_tagline', get_theme_mod( 'res_hide_tagline', 1 ) ) : '';
 			( ! get_theme_mod( 'responsive_hide_title' ) && get_theme_mod( 'res_hide_site_title' ) ) ? set_theme_mod( 'responsive_hide_title', get_theme_mod( 'res_hide_site_title', 0 ) ) : '';
 
 			( ! get_theme_mod( 'responsive_button_color' ) && get_theme_mod( 'button-color' ) ) ? set_theme_mod( 'responsive_button_color', get_theme_mod( 'button-color', '#0066CC' ) ) : '';
