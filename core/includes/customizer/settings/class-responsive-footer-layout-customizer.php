@@ -76,7 +76,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				'responsive_theme_options[copyright_textbox]',
 				array(
 					'default'           => get_bloginfo( 'name' ),
-					'sanitize_callback' => 'wp_filter_nohtml_kses',
+					'sanitize_callback' => 'wp_kses_post',
 					'type'              => 'option',
 				)
 			);
@@ -84,10 +84,10 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'res_copyright_textbox',
 				array(
-					'label'    => __( 'Copyright text', 'responsive' ),
+					'label'    => __( 'Copyright HTML', 'responsive' ),
 					'section'  => 'responsive_footer_layout',
 					'settings' => 'responsive_theme_options[copyright_textbox]',
-					'type'     => 'text',
+					'type'     => 'textarea',
 					'priority' => 110,
 				)
 			);

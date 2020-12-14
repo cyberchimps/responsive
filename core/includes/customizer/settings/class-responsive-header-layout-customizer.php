@@ -36,7 +36,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_header_layout',
 				array(
-					'title'    => esc_html__( 'Layout', 'responsive' ),
+					'title'    => esc_html__( 'Primary Header', 'responsive' ),
 					'panel'    => 'responsive_header',
 					'priority' => 10,
 
@@ -115,44 +115,16 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ), 0, null, $logo_padding_label );
 
 			/**
-			 * Header Widget Separator.
+			 * Title Heading.
 			 */
-			$header_widget_separator_label = esc_html__( 'Header Widgets', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_widget_separator', $header_widget_separator_label, 'responsive_header_layout', 60 );
+			$site_title_separator_label = esc_html__( 'Site Title', 'responsive' );
+			responsive_separator_control( $wp_customize, 'header_site_title_separator', $site_title_separator_label, 'responsive_header_layout', 130 );
 
-			// Header Widget.
-			$header_widget_label = esc_html__( 'Enable Header Widgets', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'enable_header_widget', $header_widget_label, 'responsive_header_layout', 70, 1, null, 'postMessage' );
-
-			// Header Widget Position.
-			$header_widget_position_label   = esc_html__( 'Widgets Position', 'responsive' );
-			$header_widget_position_choices = array(
-				'top'       => esc_html__( 'Above Header', 'responsive' ),
-				'with_logo' => esc_html__( 'In Header', 'responsive' ),
-				'bottom'    => esc_html__( 'Below Header', 'responsive' ),
-			);
-			responsive_select_control( $wp_customize, 'header_widget_position', $header_widget_position_label, 'responsive_header_layout', 70, $header_widget_position_choices, 'top', 'responsive_active_header_widget', 'postMessage' );
-
-			// Header Alignment.
-			$header_widget_alignment_label   = esc_html__( 'Widgets Alignment', 'responsive' );
-			$header_widget_alignment_choices = array(
-				'spread'       => esc_html__( 'Spread', 'responsive' ),
-				'left'         => esc_html__( 'Left', 'responsive' ),
-				'right'        => esc_html__( 'Right', 'responsive' ),
-				'center'       => esc_html__( 'center', 'responsive' ),
-				'space-around' => esc_html__( 'Space Around', 'responsive' ),
-			);
-			if ( is_rtl() ) {
-				$header_widget_alignment_choices = array(
-					'spread'       => esc_html__( 'Spread', 'responsive' ),
-					'left'         => esc_html__( 'Right', 'responsive' ),
-					'right'        => esc_html__( 'Left', 'responsive' ),
-					'center'       => esc_html__( 'center', 'responsive' ),
-					'space-around' => esc_html__( 'Space Around', 'responsive' ),
-				);
-			}
-			responsive_select_control( $wp_customize, 'header_widget_alignment', $header_widget_alignment_label, 'responsive_header_layout', 80, $header_widget_alignment_choices, 'spread', 'responsive_active_header_widget', 'postMessage' );
-
+			/**
+			 * Tagline Heading.
+			 */
+			$site_tagline_separator_label = esc_html__( 'Site Tagline', 'responsive' );
+			responsive_separator_control( $wp_customize, 'header_site_tagline_separator', $site_tagline_separator_label, 'responsive_header_layout', 150 );
 		}
 	}
 

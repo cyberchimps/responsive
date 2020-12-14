@@ -351,9 +351,7 @@ function responsive_woocommerce_wrapper() {
  */
 function responsive_woocommerce_wrapper_end() {
 	echo '</main><!-- end of #primary -->';
-	if ( is_active_sidebar( 'main-sidebar' ) ) {
 		get_sidebar();
-	}
 	echo '</div></div></div>';
 }
 

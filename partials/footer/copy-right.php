@@ -24,11 +24,12 @@ $cyberchimps_link   = '';
 		<?php
 	}
 	if ( ! empty( $responsive_options['copyright_textbox'] ) ) {
-		echo esc_html( ' ' . $responsive_options['copyright_textbox'] );
+		echo do_shortcode( ' ' . $responsive_options['copyright_textbox'] );
+	} else {
+		echo esc_html( get_bloginfo( 'name' ) );
 	}
 	if ( ! empty( $responsive_options['poweredby_link'] ) ) {
 		$cyberchimps_link = $responsive_options['poweredby_link'];
-
 	} else {
 		?>
 		<a href= "

@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Header_Scripts_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Scripts', 'responsive' ),
 					'panel'    => 'responsive_header',
-					'priority' => 30,
+					'priority' => 35,
 				)
 			);
 			$wp_customize->add_setting(
