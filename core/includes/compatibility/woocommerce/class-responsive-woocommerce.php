@@ -348,7 +348,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
 			}
 
-			if ( is_woocommerce() && is_shop() ) {
+			if ( ( is_woocommerce() && is_shop() ) ||  is_cart() || is_checkout() ) {
 				// Product catalog Page sidebar Position.
 				$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
 				$classes[] = 'responsive-catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
