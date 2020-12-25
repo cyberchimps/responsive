@@ -77,36 +77,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		exec: {
-			update_po_wti: { // Update WebTranslateIt translation - grunt exec:update_po_wti
-				cmd: 'wti pull',
-				cwd: 'languages/',
-			}
-		},
-
-		po2mo: {
-			files: {
-					src: 'languages/*.po',
-				expand: true,
-			},
-		},
-
-		potomo: {
-			dist: {
-				options: {
-					poDel: false
-				},
-				files: [{
-					expand: true,
-					cwd: '<%= dirs.lang %>',
-					src: ['*.po'],
-					dest: '<%= dirs.lang %>',
-					ext: '.mo',
-					nonull: true
-				}]
-			}
-		},
-
 		sass: {
 			options: {
 				implementation: sass,
