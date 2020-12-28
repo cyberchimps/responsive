@@ -38,9 +38,7 @@ atlassian*
 /core/css/customizer-rtl.css
 /core/includes/css/about-rtl.css
 node_modules
-*.jar
 *.phar
-*.zip
 *.tar
 **/vendor
 chromedriver
@@ -57,3 +55,6 @@ core/css/woocommerce.min.css
 core/includes/customizer/assets/js/typography-customize-preview.min.js
 core/includes/customizer/assets/js/*.min.*
 jenkincodeception/vendor
+
+tests/tests/_output/
+.test/tests/_output/

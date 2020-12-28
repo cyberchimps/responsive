@@ -46,7 +46,8 @@ module.exports = function(grunt) {
 					'!composer.json',
 					'!composer.lock',
 					'!phpcs.xml.dist',
-					'!**/*~'
+					'!**/*~',
+					'!.test/**'
 				],
 				expand: true
 			}
@@ -293,7 +294,8 @@ module.exports = function(grunt) {
 					'!.travis.yml',
 					'!.phpcs.xml.dist',
 					'!phpcs.xml',
-					'!core/js/jquery.min.js'
+					'!core/js/jquery.min.js',
+					'!.test/**'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},

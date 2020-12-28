@@ -1,0 +1,15 @@
+{
+    "require-dev": {
+        "codeception/codeception": "*"
+
+
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Responsive\\": "extension/"
+        }
+
+    }
+
+}
