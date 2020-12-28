@@ -46,7 +46,8 @@ module.exports = function(grunt) {
 					'!composer.json',
 					'!composer.lock',
 					'!phpcs.xml.dist',
-					'!**/*~'
+					'!**/*~',
+					'!.test/**'
 				],
 				expand: true
 			}
@@ -74,36 +75,6 @@ module.exports = function(grunt) {
 						return pot;
 					}
 				}
-			}
-		},
-
-		exec: {
-			update_po_wti: { // Update WebTranslateIt translation - grunt exec:update_po_wti
-				cmd: 'wti pull',
-				cwd: 'languages/',
-			}
-		},
-
-		po2mo: {
-			files: {
-					src: 'languages/*.po',
-				expand: true,
-			},
-		},
-
-		potomo: {
-			dist: {
-				options: {
-					poDel: false
-				},
-				files: [{
-					expand: true,
-					cwd: '<%= dirs.lang %>',
-					src: ['*.po'],
-					dest: '<%= dirs.lang %>',
-					ext: '.mo',
-					nonull: true
-				}]
 			}
 		},
 
@@ -323,7 +294,8 @@ module.exports = function(grunt) {
 					'!.travis.yml',
 					'!.phpcs.xml.dist',
 					'!phpcs.xml',
-					'!core/js/jquery.min.js'
+					'!core/js/jquery.min.js',
+					'!.test/**'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},

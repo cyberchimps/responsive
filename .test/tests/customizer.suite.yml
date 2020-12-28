@@ -1,0 +1,32 @@
+actor: CustomizerTester
+modules:
+    enabled:
+        - Responsive\ResponsiveThemeTestCases:
+            url: 'http://127.0.0.1:8080/wordpress'
+            #url: 'https://qa.wpeka.com/'
+            #host: 'hellowpeka:mwkQv0Y7UbvhwCgc1NftL3E0z2TOgK6rxSNvAP5TQICjTI9rrT@hub.lambdatest.com' #provide your LambdaTest credentials
+            #port: 80
+            browser: chrome # 'chrome' or 'firefox'
+            restart: true
+            capabilities:
+                unexpectedAlertBehaviour: 'accept'
+                build: 'CustomizerTest'
+                #chromeOptions:
+                    #args: ["--disable-extensions","--window-size=1280,960","--disable-notifications"]
+
+        - \Codeception\Module\Asserts
+        - \Helper\Customizer:
+            mailHogUrl: 'http://localhost:8025'
+            webUrl: 'http://127.0.0.1:8082/responsive'
+            wpAdmin:
+                user: 'admin'
+                pass: '*UvFjRU%bpFV6e5r6GReZD1*'
+            wpDB:
+                host: 'localhost'
+                user: 'root'
+                pass: 'root'
+                db: 'humcommerce'
+                prefix: 'wpf4_'
+                port: '3306'
+
+
