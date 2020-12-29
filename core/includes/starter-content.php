@@ -183,7 +183,7 @@ function responsive_get_starter_content() {
 						'<!-- wp:column -->',
 						'<div class="wp-block-column">',
 						'<!-- wp:heading {"textColor":"button-hover-text-color"} -->',
-						'<h2 class="has-button-hover-text-color-color has-text-color">About the Respoonsive</h2>',
+						'<h2 class="has-button-hover-text-color-color has-text-color">About the Responsive</h2>',
 						'<!-- /wp:heading -->',
 						'<!-- wp:paragraph -->',
 						'<p>Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting industry</p>',
