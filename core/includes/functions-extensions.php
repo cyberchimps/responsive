@@ -354,6 +354,7 @@ add_action( 'after_setup_theme', 'responsive_add_image_size' );
  * @return void [description].
  */
 function responsive_get_social_icons() {
+
 	$responsive_options = Responsive\Core\responsive_get_options();
 
 	$icons = array(
@@ -383,6 +384,8 @@ function responsive_get_social_icons() {
 		<div class="footer-layouts social-icon">
 			<ul class="social-icons">
 				<?php
+				$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' );
+
 				foreach ( $icons as $key => $value ) {
 					if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
 						if ( 'email' === $key ) {
@@ -396,7 +399,7 @@ function responsive_get_social_icons() {
 						} else {
 							?>
 							<li>
-								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" <?php responsive_schema_markup( 'url' ); ?>>
+								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo $target_social_link ?> <?php responsive_schema_markup( 'url' ); ?>>
 									<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
 								</a>
 							</li>

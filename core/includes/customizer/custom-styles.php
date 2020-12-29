@@ -762,7 +762,7 @@ function responsive_customizer_styles() {
 	$mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );
 	// Mobile Menu Breakpoint.
 	$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
-	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 992 ) );
+	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 
 	if ( 0 === $disable_mobile_menu ) {
 		$mobile_menu_breakpoint = 0;
@@ -1763,16 +1763,29 @@ function responsive_customizer_styles() {
 		$add_to_cart_button_hover_color      = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_color', '#10659C' ) );
 		$add_to_cart_button_hover_text_color = esc_html( get_theme_mod( 'responsive_add_to_cart_button_hover_text_color', '#ffffff' ) );
 		$shop_sidebar_position               = esc_html( get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) );
+		$single_product_sidebar_position        = esc_html( get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) );
 
 		if ( 'no' !== $shop_sidebar_position ) {
 			$woocommerce_custom_css .= "
 			@media (min-width:992px) {
 				.search.woocommerce .content-area,
-				.archive.woocommerce:not(.post-type-archive-course) .content-area {
+				.archive.woocommerce:not(.post-type-archive-course) .content-area, .page.woocommerce-cart .content-area {
 					max-width: 70%;
 				}
 				.search.woocommerce aside.widget-area,
-				.archive.woocommerce aside.widget-area {
+				.archive.woocommerce aside.widget-area, .woocommerce-cart aside.widget-area, .woocommerce-checkout aside.widget-area {
+					min-width: 30%;
+				}
+			}";
+		}
+
+		if ( 'no' !== $single_product_sidebar_position ) {
+			$woocommerce_custom_css .= "
+			@media (min-width:992px) {
+				.single-product.woocommerce .content-area {
+					max-width: 70%;
+				}
+				.single-product.woocommerce aside.widget-area {
 					min-width: 30%;
 				}
 			}";
@@ -1785,7 +1798,7 @@ function responsive_customizer_styles() {
 				width: {$shop_content_width}%;
 			}
 			.search.woocommerce aside.widget-area,
-			.archive.woocommerce aside.widget-area {
+			.archive.woocommerce aside.widget-area, .page.woocommerce-cart.woocommerce-page aside.widget-area, .page.woocommerce-checkout.woocommerce-page aside.widget-area {
 				width: calc(100% - {$shop_content_width}%);
 			}
 		}
