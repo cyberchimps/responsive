@@ -8,7 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(12/14/2020) = Fix - Version 4.5.0
+(12/29/2020) = Fix - Version 4.5.1
+[*] = Fix = Search icon in sidebar is not aligned when padding is applied from customizer
+[*] = Fix = WooCommerce sidebar is not appearing on Cart and Checkout page
+[*] = Fix = Mobile Menu breakpoint is set to 767
+[*] = Feature = Open social links in new tab
+
+(12/14/2020) = Improvement - Version 4.5.0
 [*] = Feature = Restructured Customizer to improve usage
 [*] = Fixed = PHP warning while adding or updating a post
 [*] = Fixed = Removed h3 class from site title
