@@ -8,12 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-<<<<<<< HEAD
 (12/29/2020) = Fix - Version 4.5.2
 [*] = Fix = Improved theme previw on wordpress.org
 
-=======
->>>>>>> bf47600deebcbb42a9f36a58b5862a075e3a1205
 (12/29/2020) = Fix - Version 4.5.1
 [*] = Fix = Search icon in sidebar is not aligned when padding is applied from customizer
 [*] = Fix = WooCommerce sidebar is not appearing on Cart and Checkout page
