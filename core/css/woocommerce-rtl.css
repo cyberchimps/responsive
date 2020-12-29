@@ -479,7 +479,9 @@ ul.wc-block-grid__products {
 .search.woocommerce.sidebar-position-left .site-content > .container > .row,
 .search.woocommerce.sidebar-position-left .site-content > .container > .woocommerce-pagination,
 .archive.woocommerce.sidebar-position-left .site-content > .container > .row,
-.archive.woocommerce.sidebar-position-left .site-content > .container > .woocommerce-pagination {
+.archive.woocommerce.sidebar-position-left .site-content > .container > .woocommerce-pagination, .woocommerce-checkout.woocommerce.sidebar-position-left .site-content > .container > .row, .woocommerce-checkout.woocommerce.sidebar-position-left .site-content > .container > .woocommerce-pagination,
+.woocommerce-cart.woocommerce.sidebar-position-left .site-content > .container > .row,
+.woocommerce-cart.woocommerce.sidebar-position-left .site-content > .container > .woocommerce-pagination {
   flex-direction: row-reverse;
 }
 
@@ -487,12 +489,9 @@ ul.wc-block-grid__products {
 .search.woocommerce.sidebar-position-no .site-content > .container > .row main.content-area,
 .search.woocommerce.sidebar-position-no .site-content > .container > .woocommerce-pagination main.content-area,
 .archive.woocommerce.sidebar-position-no .site-content > .container > .row main.content-area,
-.archive.woocommerce.sidebar-position-no .site-content > .container > .woocommerce-pagination main.content-area {
-  margin: 0 auto;
-}
-
-.woocommerce-checkout main.content-area,
-.woocommerce-cart main.content-area {
+.archive.woocommerce.sidebar-position-no .site-content > .container > .woocommerce-pagination main.content-area, .woocommerce-checkout.woocommerce.sidebar-position-no .site-content > .container > .row main.content-area, .woocommerce-checkout.woocommerce.sidebar-position-no .site-content > .container > .woocommerce-pagination main.content-area,
+.woocommerce-cart.woocommerce.sidebar-position-no .site-content > .container > .row main.content-area,
+.woocommerce-cart.woocommerce.sidebar-position-no .site-content > .container > .woocommerce-pagination main.content-area {
   margin: 0 auto;
 }
 

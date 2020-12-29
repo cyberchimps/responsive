@@ -334,7 +334,8 @@ div.product div.images .flex-control-thumbs {
 // Sidebar-position
 .single-product,
 .search,
-.archive {
+.archive, .woocommerce-checkout,
+.woocommerce-cart {
     &.woocommerce.sidebar-position {
         &-left {
             .site-content > .container > .row {
@@ -354,9 +355,6 @@ div.product div.images .flex-control-thumbs {
 // Checkout & Cart Page
 .woocommerce-checkout,
 .woocommerce-cart {
-    main.content-area {
-        margin: 0 auto;
-    }
 	table.shop_table {
 		border: 0;
 

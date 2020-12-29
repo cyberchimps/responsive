@@ -130,7 +130,16 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			 * Social Links Separator.
 			 */
 			$social_links_separator_label = esc_html__( 'Social Links', 'responsive' );
-			responsive_separator_control( $wp_customize, 'social_links_separator', $social_links_separator_label, 'responsive_footer_layout', 150 );
+			responsive_separator_control( $wp_customize, 'social_links_separator', $social_links_separator_label, 'responsive_footer_layout', 145 );
+
+			// Social Link New Tab.
+			$social_link_new_label = esc_html__( 'Open Social Icons in a new tab', 'responsive' );
+			$social_link_choices   = array(
+				'_self'  => esc_html__( 'No', 'responsive' ),
+				'_blank' => esc_html__( 'Yes', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'social_link_new_tab', $social_link_new_label, 'responsive_footer_layout', 150, $social_link_choices, '_self', null );
+
 
 			// Add Twitter Setting.
 			$wp_customize->add_setting(

@@ -337,7 +337,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'page'          => array(
 						'title'     => __( 'Update page layout', 'responsive' ),
 						'dashicon'  => 'dashicons-welcome-widgets-menus',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_page_layout' ),
+						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_page_content' ),
 					),
 				)
 			);
