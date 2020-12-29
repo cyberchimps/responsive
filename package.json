@@ -1,6 +1,6 @@
 {
   "name": "responsive",
-  "version": "4.5.0",
+  "version": "4.5.1",
   "description": "-- Thank you for downloading Responsive Theme! --",
   "main": "Gruntfile.js",
   "sasslintConfig": ".sasslintrc.json",
@@ -24,7 +24,6 @@
     "grunt-rtlcss": "^2.0.2",
     "grunt-sass": "^3.0.2",
     "grunt-wp-i18n": "^1.0.3",
-    "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "load-grunt-tasks": "~5.1.0",
     "node-sass": "^5.0.0",
