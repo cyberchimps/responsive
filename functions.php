@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.5.1' );
+define( 'RESPONSIVE_THEME_VERSION', '4.5.2' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -236,16 +236,6 @@ function responsive_free_setup() {
 			),
 		)
 	);
-
-	/*
-	 * Adds starter content to highlight the theme on fresh sites.
-	 * This is done conditionally to avoid loading the starter content on every
-	 * page load, as it is a one-off operation only needed once in the customizer.
-	 */
-	if ( is_customize_preview() ) {
-		require __DIR__ . '/core/includes/starter-content.php';
-		add_theme_support( 'starter-content', responsive_get_starter_content() );
-	}
 }
 add_action( 'after_setup_theme', 'responsive_free_setup' );
 
