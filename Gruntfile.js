@@ -295,7 +295,8 @@ module.exports = function(grunt) {
 					'!.phpcs.xml.dist',
 					'!phpcs.xml',
 					'!core/js/jquery.min.js',
-					'!.test/**'
+					'!.test/**',
+					'!.sasslintrc.json'
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},

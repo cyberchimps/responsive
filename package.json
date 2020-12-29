@@ -1,6 +1,6 @@
 {
   "name": "responsive",
-  "version": "4.5.1",
+  "version": "4.5.2",
   "description": "-- Thank you for downloading Responsive Theme! --",
   "main": "Gruntfile.js",
   "sasslintConfig": ".sasslintrc.json",
