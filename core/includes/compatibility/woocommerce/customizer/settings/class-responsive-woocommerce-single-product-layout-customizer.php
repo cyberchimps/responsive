@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			responsive_drag_number_control( $wp_customize, 'single_product_content_width', $single_product_content_width_label, 'responsive_woocommerce_single_product_layout', 20, 100, null, 100, 1, 'postMessage' );
 
 			// Sidebar Position.
-			$sidebar_label   = esc_html__( 'Sidebar Position', 'responsive' );
+			$sidebar_label   = esc_html__( 'Single Product Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
 				'right' => esc_html__( 'Right Sidebar', 'responsive' ),
 				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_woocommerce_single_product_layout', 30, $sidebar_choices, 'no', null );
+			responsive_select_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 60, $sidebar_choices, 'no', null );
 
 			// Product Elements.
 			$single_product_elements_label = esc_html__( 'Product Elements', 'responsive' );

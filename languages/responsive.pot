@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.5.0\n"
+"Project-Id-Version: Responsive 4.5.1\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2020-12-14 05:02:07+00:00\n"
+"POT-Creation-Date: 2020-12-29 06:06:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -495,9 +495,7 @@ msgid "Layout"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:54
-#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
-#: core/includes/page-custom-meta.php:51
-msgid "Sidebar Position"
+msgid "Woocommerce Sidebar Position"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:56
@@ -728,6 +726,10 @@ msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:139
 msgid "Square Outline"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
+msgid "Single Product Sidebar Position"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:70
@@ -1278,60 +1280,72 @@ msgstr ""
 msgid "Social Links"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:148
-#: core/includes/functions-extensions.php:360
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:136
+msgid "Open Social Icons in a new tab"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:138
+msgid "No"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:139
+msgid "Yes"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:157
+#: core/includes/functions-extensions.php:361
 msgid "Twitter"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:169
-#: core/includes/functions-extensions.php:361
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:178
+#: core/includes/functions-extensions.php:362
 msgid "Facebook"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:190
-#: core/includes/functions-extensions.php:362
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:199
+#: core/includes/functions-extensions.php:363
 msgid "LinkedIn"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:211
-#: core/includes/functions-extensions.php:363
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:220
+#: core/includes/functions-extensions.php:364
 msgid "YouTube"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:232
-#: core/includes/functions-extensions.php:365
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:241
+#: core/includes/functions-extensions.php:366
 msgid "RSS Feed"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:253
-#: core/includes/functions-extensions.php:366
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:262
+#: core/includes/functions-extensions.php:367
 msgid "Instagram"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:274
-#: core/includes/functions-extensions.php:367
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:283
+#: core/includes/functions-extensions.php:368
 msgid "Pinterest"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:295
-#: core/includes/functions-extensions.php:364
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:304
+#: core/includes/functions-extensions.php:365
 msgid "StumbleUpon"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:316
-#: core/includes/functions-extensions.php:369
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:325
+#: core/includes/functions-extensions.php:370
 msgid "Vimeo"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:337
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:346
 msgid "Yelp"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:358
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:367
 msgid "Foursquare"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:377
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:386
 msgid "Email Address"
 msgstr ""
 
@@ -1908,7 +1922,7 @@ msgid "Address"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:767
-#: core/includes/functions-extensions.php:371
+#: core/includes/functions-extensions.php:372
 msgid "Email"
 msgstr ""
 
@@ -2351,11 +2365,11 @@ msgstr ""
 msgid "I already did"
 msgstr ""
 
-#: core/includes/functions-extensions.php:368
+#: core/includes/functions-extensions.php:369
 msgid "Yelp!"
 msgstr ""
 
-#: core/includes/functions-extensions.php:370
+#: core/includes/functions-extensions.php:371
 msgid "foursquare"
 msgstr ""
 
@@ -2532,6 +2546,10 @@ msgstr ""
 
 #: core/includes/hooks.php:392
 msgid "Enroll &raquo;"
+msgstr ""
+
+#: core/includes/page-custom-meta.php:51
+msgid "Sidebar Position"
 msgstr ""
 
 #: core/includes/page-custom-meta.php:81

@@ -15,6 +15,15 @@
         } );
     } );
 
+    api( 'responsive_width', function( value ) {
+      value.bind( function( newval ) {
+        if(newval !== "contained")
+          $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', 'none' );
+        else
+          $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', api( 'responsive_container_width' ).get()+'px' );
+      } );
+    } );
+
     //Footer Layout -> Footer Widgets
     //Number Of Columns
     api(
