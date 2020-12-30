@@ -101,6 +101,9 @@ function responsive_customizer_styles() {
 	// Box Radius.
 	$box_radius = esc_html( get_theme_mod( 'responsive_box_radius', 0 ) );
 
+	// Paragraph Margin Bottom.
+	$paragraph_margin_bottom = esc_html( get_theme_mod( 'responsive_paragraph_margin_bottom', '' ) );
+
 	// Site custom styles.
 
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
@@ -151,6 +154,9 @@ function responsive_customizer_styles() {
 	}
 	address, blockquote, pre, code, kbd, tt, var {
 		background-color:{$alt_background_color};
+	}
+	p, .entry-content p {
+		margin-bottom:{$paragraph_margin_bottom}em;
 	}
 	";
 
