@@ -698,6 +698,8 @@ function responsive_customizer_styles() {
 		$header_widget_link_color       = esc_html( get_theme_mod( 'responsive_transparent_header_widget_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ) ) );
 		$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_transparent_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
 
+		$header_bottom_border = esc_html( get_theme_mod( 'responsive_transparent_bottom_border', 1 ) );
+
 	} else {
 
 		// Header colors.
@@ -734,6 +736,8 @@ function responsive_customizer_styles() {
 		$header_widget_border_color     = esc_html( get_theme_mod( 'responsive_header_widget_border_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_border' ) ) );
 		$header_widget_link_color       = esc_html( get_theme_mod( 'responsive_header_widget_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ) ) );
 		$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
+
+		$header_bottom_border = esc_html( get_theme_mod( 'responsive_bottom_border', 1 ) );
 
 	}
 	// Sidebar Color.
@@ -1081,6 +1085,10 @@ function responsive_customizer_styles() {
 	.main-navigation .menu-toggle {
 		background-color: {$header_menu_toggle_background_color};
 		color: {$header_menu_toggle_color};
+	}
+	.site-header {
+		border-bottom-width: {$header_bottom_border}px;
+		border-bottom-style: solid;
 	}";
 
 	$custom_css .= '.site-branding-wrapper {
