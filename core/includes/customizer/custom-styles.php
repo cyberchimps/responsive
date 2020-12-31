@@ -1249,6 +1249,24 @@ function responsive_customizer_styles() {
 		}
 	}
 
+	$responsive_mobile_logo_option = get_theme_mod( 'responsive_mobile_logo_option', 0 );
+	$responsive_mobile_logo        = get_theme_mod( 'responsive_mobile_logo' );
+	if ( '' !== $responsive_mobile_logo && '1' == $responsive_mobile_logo_option ) {
+		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
+			.mobile-custom-logo {
+				display: none;
+			}
+			.custom-logo-link {
+				display: block;
+			}
+		}
+		";
+	} else {
+		$custom_css .= ".custom-logo-link {
+			display: block;
+		}";
+	}
+
 	// Content_Header colors.
 	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
 	$content_header_description_color = esc_html( get_theme_mod( 'responsive_content_header_description_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
