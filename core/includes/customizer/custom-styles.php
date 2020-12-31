@@ -1622,6 +1622,8 @@ function responsive_customizer_styles() {
 	$footer_background_color = esc_html( get_theme_mod( 'responsive_footer_background_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ) ) );
 	$footer_link_color       = esc_html( get_theme_mod( 'responsive_footer_links_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_links' ) ) );
 	$footer_link_hover_color = esc_html( get_theme_mod( 'responsive_footer_links_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'footer_links_hover' ) ) );
+	$footer_border_color     = esc_html( get_theme_mod( 'responsive_footer_border_color', '#aaaaaa' ) );
+	$footer_border_size      = esc_html( get_theme_mod( 'responsive_footer_border_size', 1 ) );
 
 	$custom_css .= "
 	.site-footer {
@@ -1642,6 +1644,11 @@ function responsive_customizer_styles() {
 	.site-footer a:focus,
 	.site-footer a:hover {
 		color:{$footer_link_hover_color};
+	}
+	.footer-bar {
+		border-color: {$footer_border_color};
+		border-top-width: {$footer_border_size}px;
+		border-top-style: solid;
 	}
 	";
 
