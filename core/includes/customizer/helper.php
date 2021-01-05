@@ -1061,7 +1061,7 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
  * @param  integer $min          [description].
  * @return void                [description].
  */
-function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh' ) {
+function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1 ) {
 
 	/**
 	 * Main Container Width
@@ -1088,7 +1088,7 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
 				'input_attrs'     => array(
 					'min'  => $min,
 					'max'  => $max,
-					'step' => 1,
+					'step' => $step,
 				),
 			)
 		)

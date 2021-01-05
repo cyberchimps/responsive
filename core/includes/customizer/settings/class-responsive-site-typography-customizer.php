@@ -53,7 +53,7 @@ if ( ! class_exists( 'Responsive_Site_Typography_Customizer' ) ) :
 
 			// Main Content Width.
 			$paragraph_margin_label = esc_html__( 'Paragraph Margin Bottom', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'paragraph_margin_bottom', $paragraph_margin_label, 'responsive_typography', 3, '', null, 5, 0.5, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'paragraph_margin_bottom', $paragraph_margin_label, 'responsive_typography', 3, '', null, 5, 1, 'postMessage', 0.1 );
 
 			// ALL heading Typography.
 			$all_heading_typography_label = esc_html__( 'All Headings (H1 - H6)', 'responsive' );
