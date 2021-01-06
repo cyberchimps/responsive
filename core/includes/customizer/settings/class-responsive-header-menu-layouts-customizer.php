@@ -105,6 +105,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			responsive_text_control( $wp_customize, 'text_html', $menu_html_text, 'responsive_header_menu_layout', 40, 'Contact Us', null, 'wp_kses_post', 'textarea' );
 
+			// Hide last item in Mobile Menu.
+			$hide_last_item_mobile_menu_label = __( 'Hide Last item in Mobile Menu', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'hide_last_item_mobile_menu', $hide_last_item_mobile_menu_label, 'responsive_header_menu_layout', 43, 0, null );
+
 			/**
 			 * Title Heading.
 			 */

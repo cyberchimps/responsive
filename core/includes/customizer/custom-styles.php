@@ -1260,6 +1260,16 @@ function responsive_customizer_styles() {
 			display: block;
 		}";
 	}
+	$responsive_hide_last_item_mobile_menu = get_theme_mod( 'responsive_hide_last_item_mobile_menu', 0 );
+	if ( '1' == $responsive_hide_last_item_mobile_menu ) {
+		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
+			.res-cart-link {
+				display: none;
+			}
+		}
+		";
+	}
+
 
 	// Content_Header colors.
 	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
