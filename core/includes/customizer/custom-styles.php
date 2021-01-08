@@ -768,6 +768,8 @@ function responsive_customizer_styles() {
 	$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
 	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 
+	$disable_menu = get_theme_mod( 'responsive_disable_menu', 0 );
+
 	if ( 0 === $disable_mobile_menu ) {
 		$mobile_menu_breakpoint = 0;
 	}
@@ -1084,6 +1086,13 @@ function responsive_customizer_styles() {
 		border-bottom-width: {$header_bottom_border}px;
 		border-bottom-style: solid;
 	}";
+
+
+		if ( ( 1 == $disable_menu ) && ( 0 == $disable_mobile_menu ) ) {
+			$custom_css .= ".site-branding {
+	    		width: -webkit-fill-available;
+				}";
+		}
 
 	$custom_css .= '.site-branding-wrapper {
 		padding: ' . responsive_spacing_css( $header_padding_top, $header_padding_right, $header_padding_bottom, $header_padding_left ) . ';
