@@ -1272,7 +1272,7 @@ function responsive_customizer_styles() {
 	$responsive_hide_last_item_mobile_menu = get_theme_mod( 'responsive_hide_last_item_mobile_menu', 0 );
 	if ( '1' == $responsive_hide_last_item_mobile_menu ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
-			.res-cart-link {
+			.res-cart-link, .res-last-item {
 				display: none;
 			}
 		}
