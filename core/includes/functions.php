@@ -631,7 +631,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	if ( is_page() ) {
 
-		if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() ) ) {
+		if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_product_category() ) ) {
 
 			// Do not Add Class.
 			$classes[] = '';

@@ -86,9 +86,11 @@ if ( ! get_theme_mod( 'responsive_disable_hero_area', 0 ) ) {
 
 			<?php
 			$featured_content_image = wp_get_attachment_image_src( get_theme_mod( 'responsive_home_content_area_image' ), 'full' );
-			$featured_content_image = $featured_content_image ? '<img class="aligncenter" src="' . $featured_content_image[0] . '" width="440" height="300" alt="featured image" />' : '';
 
-			$featured_content = ( ! empty( $responsive_options['featured_content'] ) || $featured_content_image ) ? $featured_content_image . $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.jpg" width="440" height="300" alt="featured image" />';
+			$image_alt = get_post_meta(get_theme_mod( 'responsive_home_content_area_image' ), '_wp_attachment_image_alt', true);
+			$featured_content_image = $featured_content_image ? '<img class="aligncenter" src="' . $featured_content_image[0] . '" width="440" height="300" alt="'. $image_alt .'" />' : '';
+
+			$featured_content = ( ! empty( $responsive_options['featured_content'] ) || $featured_content_image ) ? $featured_content_image . $responsive_options['featured_content'] : '<img class="aligncenter" src="' . get_template_directory_uri() . '/core/images/featured-image.jpg" width="440" height="300" alt="'. $image_alt .'" />';
 
 			echo do_shortcode( wpautop( $featured_content ) );
 			?>
