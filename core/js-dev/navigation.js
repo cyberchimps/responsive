@@ -152,4 +152,17 @@
         }
     }
 
+
+      menu_close = document.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+    	if( menu_close  ) {
+        menu_close.onclick = function() {
+          sub_menu = document.querySelectorAll( 'sub-menu' );
+          if( sub_menu.style.display == 'block' ) {
+              sub_menu.style.display = 'none';
+          } else {
+              sub_menu.style.display = 'block';
+          }
+    }
+    }
+
 } )();
