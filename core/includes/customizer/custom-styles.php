@@ -969,9 +969,6 @@ function responsive_customizer_styles() {
 		.site-mobile-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation div {
 			border-bottom: 0;
 		}
-		.menu .res-search-link {
-			display: none;
-		}
 		.main-navigation .children, .main-navigation .sub-menu{
 			display: none;
 		}
