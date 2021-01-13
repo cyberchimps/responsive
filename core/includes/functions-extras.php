@@ -297,7 +297,7 @@ function responsive_search_icon( $menu, $args ) {
 				$menu .= '<li class="res-last-item res-custom-text-menu"><div class="res-custom-html">' . do_shortcode( wpautop( $custom_html_content ) ) . '</div></li>';
 			}
 		} elseif ( 'button' === $search_icon ) {
-			$custom_button_text = get_theme_mod( 'responsive_menu_button_text' );
+			$custom_button_text = get_theme_mod( 'responsive_menu_button_text', 'Call Now' );
 			$custom_button_link = get_theme_mod( 'responsive_menu_button', 'https://cyberchimps.com' );
 
 			$menu .= '<li class="res-last-item res-button-menu"><a href="' . esc_url( $custom_button_link ) . '" class="res-custom-button">' . esc_html( $custom_button_text ) . '</a></li>';
