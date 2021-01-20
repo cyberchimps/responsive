@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			echo Responsive\Core\responsive_sticky_custom_logo();
 		}
+		echo Responsive\Core\responsive_mobile_custom_logo();
 		?>
 		<div class="site-title-tagline">
 		<?php

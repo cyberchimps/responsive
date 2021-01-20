@@ -663,3 +663,17 @@ body.mega-menu-header-menu button.menu-toggle {
 .search-form input {
 	outline: none;
 }
+
+.custom-logo-link {
+  display: none;
+}
+
+.mobile-custom-logo {
+  display: inline-block;
+}
+
+.main-navigation .menu {
+  li.focus>.children, li.focus>.sub-menu, .menu-item-has-children.focus ul.sub-menu {
+    display: block;
+  }
+}

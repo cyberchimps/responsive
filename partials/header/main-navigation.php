@@ -16,18 +16,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="main-navigation-wrapper">
 		<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><i class="icon-bars"></i><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
 
-		<?php
-		wp_nav_menu(
-			apply_filters(
-				'responsive_nav_menu_arg',
-				array(
-					'container'      => false,
-					'menu_id'        => 'header-menu',
-					'fallback_cb'    => 'Responsive\Core\\responsive_fallback_menu',
-					'theme_location' => 'header-menu',
-				)
-			)
-		);
+		<?php $disable_menu = get_theme_mod( 'responsive_disable_menu', 0 );
+
+			if ( 0 === $disable_menu ) {
+				wp_nav_menu(
+					apply_filters(
+						'responsive_nav_menu_arg',
+						array(
+							'container'      => false,
+							'menu_id'        => 'header-menu',
+							'fallback_cb'    => 'Responsive\Core\\responsive_fallback_menu',
+							'theme_location' => 'header-menu',
+						)
+					)
+				);
+			}
 		?>
 	</div>
 </nav>

@@ -67,7 +67,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'All Headings', 'responsive' ),
 						'target'   => $selectorArray['headings'],
 						'section'  => 'responsive_typography',
-						'priority' => 4,
+						'priority' => 5,
 						'exclude'  => array( 'font-color', 'font-size', 'font-style' ),
 						'defaults' => array(
 							'line-height'    => '1.25',
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 1 (H1)', 'responsive' ),
 						'target'   => $selectorArray['heading_h1'],
 						'section'  => 'responsive_typography',
-						'priority' => 6,
+						'priority' => 7,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '33px',
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 2 (H2)', 'responsive' ),
 						'target'   => $selectorArray['heading_h2'],
 						'section'  => 'responsive_typography',
-						'priority' => 8,
+						'priority' => 9,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '26px',
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 3 (H3)', 'responsive' ),
 						'target'   => $selectorArray['heading_h3'],
 						'section'  => 'responsive_typography',
-						'priority' => 10,
+						'priority' => 11,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '20px',
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 4 (H4)', 'responsive' ),
 						'target'   => $selectorArray['heading_h4'],
 						'section'  => 'responsive_typography',
-						'priority' => 12,
+						'priority' => 13,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '16px',
@@ -127,7 +127,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 5 (H5)', 'responsive' ),
 						'target'   => $selectorArray['heading_h5'],
 						'section'  => 'responsive_typography',
-						'priority' => 14,
+						'priority' => 15,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '13px',
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Heading 6 (H6)', 'responsive' ),
 						'target'   => $selectorArray['heading_h6'],
 						'section'  => 'responsive_typography',
-						'priority' => 16,
+						'priority' => 17,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '13px',
@@ -150,7 +150,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Meta', 'responsive' ),
 						'target'   => $selectorArray['meta'],
 						'section'  => 'responsive_typography',
-						'priority' => 18,
+						'priority' => 19,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '12px',
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => $selectorArray['button'],
 						'section'  => 'responsive_button',
-						'priority' => 20,
+						'priority' => 21,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '16px',
@@ -173,7 +173,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'    => esc_html__( 'Body', 'responsive' ),
 						'target'   => $selectorArray['input'],
 						'section'  => 'responsive_form_fields',
-						'priority' => 22,
+						'priority' => 23,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'   => '16px',
