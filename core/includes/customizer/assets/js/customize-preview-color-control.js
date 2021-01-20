@@ -518,7 +518,7 @@
             $('.res-transparent-header .main-navigation .menu > li > a').css('color', newval );
         } );
     } );
-    
+
     //Sub Menu Background Color
     api( 'responsive_transparent_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -574,6 +574,13 @@
     api( 'responsive_footer_links_color', function( value ) {
         value.bind( function( newval ) {
             $('.site-footer a').css('color', newval );
+        } );
+    } );
+
+    //Border Color
+    api( 'responsive_footer_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.footer-bar').css('border-color', newval );
         } );
     } );
 

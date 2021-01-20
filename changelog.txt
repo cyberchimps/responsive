@@ -8,8 +8,21 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(1/20/2021) = Added - Version 4.5.3
+[*] = Feature = Hide the Last Item in Menu on Mobile Device
+[*] = Feature = Different Logo for Mobile Devices
+[*] = Feature = Option to Disable Menu
+[*] = Feature = Bottom Border width for Primary Header
+[*] = Feature = Transparent header Bottom Border Size
+[*] = Feature = Breadcrumb Spacing
+[*] = Feature = Add Paragraph Margin Bottom Option
+[*] = Feature = Footer - Border Size, and Border Color
+[*] = Fix = WooCommerce sidebar position not working for the category page
+[*] = Fix = On Custom homepage, make the alt tag dynamic
+[*] = Fix = Submenu in mobile devices now open on arrow click
+
 (12/29/2020) = Fix - Version 4.5.2
-[*] = Fix = Improved theme previw on wordpress.org
+[*] = Fix = Improved theme preview on wordpress.org
 
 (12/29/2020) = Fix - Version 4.5.1
 [*] = Fix = Search icon in sidebar is not aligned when padding is applied from customizer

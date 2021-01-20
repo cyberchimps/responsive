@@ -50,11 +50,39 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			$responsive_retina_logo_label = __( 'Enable Retina Logo ?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'title_tagline', 9, 0, null );
 
+			// Different Logo For Mobile Device.
+			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'title_tagline', 10, 0, null );
+
+			$wp_customize->add_setting(
+				'responsive_mobile_logo',
+				array(
+					'sanitize_callback' => 'absint',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Cropped_Image_Control(
+					$wp_customize,
+					'responsive_mobile_logo',
+					array(
+						'label'           => esc_html__( 'Logo For Mobile Device', 'responsive' ),
+						'section'         => 'title_tagline',
+						'flex-height'     => true,
+						'flex-width'      => true,
+						'height'          => 100, // pixels.
+						'width'           => 300, // pixels.
+						'priority'        => 11,
+						'active_callback' => null,
+					)
+				)
+			);
+
 			$responsive_hide_title_label = __( 'Hide Site Title', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'title_tagline', 10, 0, null );
+			responsive_checkbox_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'title_tagline', 14, 0, null );
 
 			$responsive_hide_tagline_label = __( 'Hide Tagline', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'title_tagline', 11, 1, null );
+			responsive_checkbox_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'title_tagline', 15, 1, null );
 
 			// Add Custom Logo URL.
 			$wp_customize->add_setting(
@@ -73,7 +101,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 						'label'    => __( 'Site Title/Logo URL', 'responsive' ),
 						'section'  => 'title_tagline',
 						'settings' => 'responsive_custom_logo_url',
-						'priority' => 12,
+						'priority' => 16,
 					)
 				)
 			);
@@ -100,8 +128,8 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_select_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
 
 			// Box Padding (px).
-			$box_padding_label = __( 'Box Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
+			$box_padding_label = __( 'Inside Container (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'box', 'responsive_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );

@@ -631,7 +631,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	if ( is_page() ) {
 
-		if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() ) ) {
+		if ( class_exists( 'WooCommerce' ) && ( is_cart() || is_checkout() || is_product_category() ) ) {
 
 			// Do not Add Class.
 			$classes[] = '';
@@ -1065,4 +1065,40 @@ function defaults() {
 		)
 	);
 	return $theme_options;
+}
+
+/**
+ * [responsive_mobile_custom_logo description]
+ *
+ * @param  [type] $html [description].
+ * @return [type]       [description]
+ */
+function responsive_mobile_custom_logo() {
+
+	$responsive_mobile_logo_option = get_theme_mod( 'responsive_mobile_logo_option', 0 );
+	$responsive_mobile_logo        = get_theme_mod( 'responsive_mobile_logo' );
+
+	$html = '';
+
+	if ( '' !== $responsive_mobile_logo && '1' == $responsive_mobile_logo_option ) {
+
+		/* Replace transparent header logo and width */
+
+		$html = sprintf(
+			'<a href="%1$s" class="mobile-custom-logo" rel="home" itemprop="url">%2$s</a>',
+			esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) ),
+			wp_get_attachment_image(
+				$responsive_mobile_logo,
+				'full',
+				false,
+				array(
+					'alt'      => get_bloginfo( 'name' ),
+					'class'    => 'custom-logo',
+					'itemprop' => 'logo',
+					'size'     => '(max-width: 204px) 100vw, 204px',
+				)
+			)
+		);
+	}
+	return $html;
 }

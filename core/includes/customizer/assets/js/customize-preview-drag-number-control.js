@@ -211,4 +211,10 @@
         } );
     } );
 
+    api( 'responsive_paragraph_margin_bottom', function( value ) {
+        value.bind( function( newval ) {
+            $('p, .entry-content p').css('margin-bottom', newval+'em' );
+        } );
+    } );
+
 } )( jQuery );

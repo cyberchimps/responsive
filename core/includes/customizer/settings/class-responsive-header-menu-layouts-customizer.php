@@ -51,6 +51,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_menu_full_width', $header_menu_full_width_label, 'responsive_header_menu_layout', 10, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_full_width' ), 'responsive_active_vertical_header' );
 
+			// Disable Menu.
+			$disable_menu_label = __( 'Disable Menu', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'disable_menu', $disable_menu_label, 'responsive_header_menu_layout', 10, 0, null );
+
 			// Disable Mobile Menu.
 			$disable_mobile_menu_label = __( 'Enable Mobile Menu', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_mobile_menu', $disable_mobile_menu_label, 'responsive_header_menu_layout', 10, 1, null );
@@ -100,6 +104,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$menu_html_text = __( 'Custom Menu Text', 'responsive' );
 
 			responsive_text_control( $wp_customize, 'text_html', $menu_html_text, 'responsive_header_menu_layout', 40, 'Contact Us', null, 'wp_kses_post', 'textarea' );
+
+			// Hide last item in Mobile Menu.
+			$hide_last_item_mobile_menu_label = __( 'Hide Last item in Mobile Menu', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'hide_last_item_mobile_menu', $hide_last_item_mobile_menu_label, 'responsive_header_menu_layout', 43, 0, null );
 
 			/**
 			 * Title Heading.

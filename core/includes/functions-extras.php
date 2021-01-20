@@ -280,27 +280,27 @@ function responsive_search_icon( $menu, $args ) {
 				$search_screen         = get_theme_mod( 'search_style', 'search' );
 				if ( 'full-screen' == $search_screen ) {
 					get_search_form();
-					$menu .= '<li class="res-search-link" id="full-screen-res-search-link"><a class="full-screen res-search-icon" aria-label="Search icon link" href="#"><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
+					$menu .= '<li class="res-last-item res-search-link" id="full-screen-res-search-link"><a class="full-screen res-search-icon" aria-label="Search icon link" href="#"><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
 				} else {
 					get_search_form();
-					$menu .= '<li class="res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
+					$menu .= '<li class="res-last-item res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
 				}
 
 			} else {
 				get_search_form();
-				$menu .= '<li class="res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
+				$menu .= '<li class="res-last-item res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
 			}
 		} elseif ( 'text-html' === $search_icon ) {
 			$custom_html_content = get_theme_mod( 'responsive_text_html', 'Contact Us' );
 
 			if ( ! empty( $custom_html_content ) ) {
-				$menu .= '<li class="res-custom-text-menu"><div class="res-custom-html">' . do_shortcode( wpautop( $custom_html_content ) ) . '</div></li>';
+				$menu .= '<li class="res-last-item res-custom-text-menu"><div class="res-custom-html">' . do_shortcode( wpautop( $custom_html_content ) ) . '</div></li>';
 			}
 		} elseif ( 'button' === $search_icon ) {
-			$custom_button_text = get_theme_mod( 'responsive_menu_button_text' );
+			$custom_button_text = get_theme_mod( 'responsive_menu_button_text', 'Call Now' );
 			$custom_button_link = get_theme_mod( 'responsive_menu_button', 'https://cyberchimps.com' );
 
-			$menu .= '<li class="res-button-menu"><a href="' . esc_url( $custom_button_link ) . '" class="res-custom-button">' . esc_html( $custom_button_text ) . '</a></li>';
+			$menu .= '<li class="res-last-item res-button-menu"><a href="' . esc_url( $custom_button_link ) . '" class="res-custom-button">' . esc_html( $custom_button_text ) . '</a></li>';
 
 		}
 	}

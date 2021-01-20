@@ -1916,6 +1916,18 @@ body.mega-menu-header-menu button.menu-toggle {
   outline: none;
 }
 
+.custom-logo-link {
+  display: none;
+}
+
+.mobile-custom-logo {
+  display: inline-block;
+}
+
+.main-navigation .menu li.focus > .children, .main-navigation .menu li.focus > .sub-menu, .main-navigation .menu .menu-item-has-children.focus ul.sub-menu {
+  display: block;
+}
+
 /**
  * Content Header Area styles
  * -----------------------------------------------------------------------------
@@ -5946,7 +5958,6 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 .footer-widgets {
-  border-bottom: 1px solid rgba(170, 170, 170, 0.2);
   padding: 60px 0;
 }
 

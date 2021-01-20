@@ -114,6 +114,10 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'header', 'responsive_header_layout', 40, Responsive\Core\get_responsive_customizer_defaults( 'logo_padding' ), 0, null, $logo_padding_label );
 
+			// Bottom Border.
+			$bottom_border_label = __( 'Bottom Border Size', 'responsive' );
+			responsive_number_control( $wp_customize, 'bottom_border', $bottom_border_label, 'responsive_header_layout', 45, 1 );
+
 			/**
 			 * Title Heading.
 			 */
