@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.5.3' );
+define( 'RESPONSIVE_THEME_VERSION', '4.5.4' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -881,3 +881,20 @@ function responsive_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
     return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'responsive_nav_menu_link_attributes', 10, 4 );
+
+function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
+	if ( 'header-menu' === $args->theme_location ) {
+			if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
+				$args->after = '<span class="res-iconify">
+				<svg width="12" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke="black" stroke-linecap="round" stroke-width="5" /></svg>
+				</span>';
+			} else {
+				$args->after = '';
+			}
+		}
+
+	return $args;
+
+}
+
+add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_main_menu', 10, 3 );
