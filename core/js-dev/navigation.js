@@ -4,6 +4,7 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
+
 ( function() {
 	var container, button, menu, links, i, len;
 
@@ -86,44 +87,44 @@
 			self = self.parentElement;
 		}
 	}
+  var responsiveToggleClass = function ( el, className ) {
+    if ( el.classList.contains( className ) ) {
+      el.classList.remove( className );
+    } else {
+      el.classList.add( className );
+    }
+  };
 
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
 	( function( container ) {
 		var touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+			parentLink = container.querySelectorAll( '.menu-item-has-children > .res-iconify, .page_item_has_children > .res-iconify' );
 
-		if ( 'ontouchstart' in window ) {
 			touchStartFn = function( e ) {
-				var menuItem = this.parentNode, i;
-
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
-					e.preventDefault();
-					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
-						if ( menuItem === menuItem.parentNode.children[i] ) {
-							continue;
-						}
-						menuItem.parentNode.children[i].classList.remove( 'focus' );
-					}
-					menuItem.classList.add( 'focus' );
-				} else {
-					menuItem.classList.remove( 'focus' );
-				}
+				var parent_li = this.parentNode, i;
+        if ( parent_li.classList.contains( 'menu-item-has-children' ) ) {
+    			responsiveToggleClass( parent_li, 'res-submenu-expanded' );
+    			if ( parent_li.classList.contains( 'res-submenu-expanded' ) ) {
+            parent_li.querySelector( '.sub-menu' ).style.display = 'block';
+          } else {
+            parent_li.querySelector( '.sub-menu' ).style.display = 'none';
+    			}
+    		}
 			};
 
 			for ( i = 0; i < parentLink.length; ++i ) {
-				parentLink[i].addEventListener( 'touchstart', touchStartFn, false );
+				parentLink[i].addEventListener( 'click', touchStartFn, false );
 			}
-		}
 	}( container ) );
 
     search_link = document.getElementById( 'res-search-link' );
 
-    if( search_link  ) {
+    if ( search_link ) {
         search_link.onclick = function() {
             search_form = container.getElementsByTagName( 'form' )[0];
-            if( search_form.style.display == 'block' ) {
+            if ( search_form.style.display == 'block' ) {
                 search_form.style.display = 'none';
             } else {
                 search_form.style.display = 'block';
@@ -133,7 +134,7 @@
 
 	search_style = document.getElementById( 'full-screen-res-search-link' );
 
-    if( search_style  ) {
+    if ( search_style ) {
 		search_style_form = document.getElementById( 'full-screen-search-wrapper' );
 		search_style_form.style.display = 'none';
         search_style.onclick = function() {
@@ -150,19 +151,6 @@
             search_style_form = document.getElementById( 'full-screen-search-wrapper' );
                 search_style_form.style.display = 'none';
         }
-    }
-
-
-      menu_close = document.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
-    	if( menu_close  ) {
-        menu_close.onclick = function() {
-          sub_menu = document.querySelectorAll( 'sub-menu' );
-          if( sub_menu.style.display == 'block' ) {
-              sub_menu.style.display = 'none';
-          } else {
-              sub_menu.style.display = 'block';
-          }
-    }
     }
 
 } )();

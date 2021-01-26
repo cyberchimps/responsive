@@ -760,12 +760,6 @@ function responsive_customizer_styles() {
     .widget-area .widget-wrapper a:hover {
         color: {$sidebar_link_hover_color};
     }
-		.main-navigation .menu > li.menu-item-has-children > a:after, .main-navigation .menu > li.page_item_has_children > a:after {
-			content: '\\f107';
-			font-family: icomoon;
-			margin-left: 5px;
-			font-size: 0.96em;
-		}
     ";
 
 	// Mobile Menu.
@@ -817,15 +811,6 @@ function responsive_customizer_styles() {
 		.main-navigation .children > li:first-child,
 		.main-navigation .sub-menu > li:first-child {
 	    	border-top: none;
-	  	}
-	  	.main-navigation .children > li.menu-item-has-children > a:after, .main-navigation .children > li.page_item_has_children > a:after,
-		.main-navigation .sub-menu > li.menu-item-has-children > a:after,
-		.main-navigation .sub-menu > li.page_item_has_children > a:after {
-		    content: '\\f105';
-		    float: right;
-		    font-family: icomoon;
-		    margin-left: 5px;
-			font-size: 0.96em;
 	  	}
 	  	.main-navigation .children a,
 		.main-navigation .sub-menu a {
@@ -971,9 +956,6 @@ function responsive_customizer_styles() {
 		}
 		.main-navigation .children, .main-navigation .sub-menu{
 			display: none;
-		}
-		.main-navigation .menu > li.menu-item-has-children > a:after, .main-navigation .menu > li.page_item_has_children > a:after {
-			float: right;
 		}
 	}
 	@media screen and ( max-width: 576px ) {
@@ -1133,8 +1115,8 @@ function responsive_customizer_styles() {
 				margin-right: 2px;
 			}
 
-			.main-navigation .menu > li.menu-item-has-children > a:after,
-			.main-navigation .menu > li.page_item_has_children > a:after {
+			.main-navigation .res-iconify {
+				left: 0;
 				margin-right: 5px;
 			}
 
@@ -1152,15 +1134,6 @@ function responsive_customizer_styles() {
 			.main-navigation .sub-menu > li:hover > .children,
 			.main-navigation .sub-menu > li:hover > .sub-menu {
 				right: 100% !important;
-			}
-
-			.main-navigation .children > li.menu-item-has-children > a:after,
-			.main-navigation .children > li.page_item_has_children > a:after,
-			.main-navigation .sub-menu > li.menu-item-has-children > a:after,
-			.main-navigation .sub-menu > li.page_item_has_children > a:after {
-				content: '\\f0d9';
-				float: left;
-				margin-right: 5px;
 			}
 
 			.site-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu > li {

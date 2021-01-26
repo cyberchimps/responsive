@@ -8,7 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(1/20/2021) = Added - Version 4.5.3
+(01/25/2021) = Added - Version 4.5.4
+[*] = Fix = Mobile menu links are not clickable
+
+(01/20/2021) = Added - Version 4.5.3
 [*] = Feature = Hide the Last Item in Menu on Mobile Device
 [*] = Feature = Different Logo for Mobile Devices
 [*] = Feature = Option to Disable Menu
