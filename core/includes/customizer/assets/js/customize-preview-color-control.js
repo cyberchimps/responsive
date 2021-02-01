@@ -427,10 +427,16 @@
     //Menu Toggle Color
     api( 'responsive_header_menu_toggle_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu-toggle').css('color', newval );
+         $('.main-navigation .menu-toggle').css('color', newval );
         } );
     } );
 
+    api( 'responsive_mobile_menu_toggle_border_color', function( value ) {
+        value.bind( function( newval ) {
+         $('.main-navigation .menu-toggle').css({'border-color': newval});
+         $('.main-navigation.toggled .menu-toggle').css({'border-color': newval} );
+        } );
+    } );
     //Transparent Header Main Menu Colors Section
     //Background Color
     api( 'responsive_transparent_header_menu_background_color', function( value ) {

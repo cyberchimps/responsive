@@ -1682,6 +1682,14 @@ function responsive_active_blog_entry_columns_multi_column() {
 function responsive_disabled_mobile_menu() {
 	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
 }
+/**
+ * Toggle style if outline border color control add.
+ *
+ * @return void
+ */
+function responsive_toggle_border_color() {
+	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
+}
 
 /**
  * [responsive_custom_home_active description]

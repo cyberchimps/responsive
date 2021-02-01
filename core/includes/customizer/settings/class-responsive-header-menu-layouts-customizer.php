@@ -72,6 +72,19 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'mobile_menu_style', $mobile_menu_style_label, 'responsive_header_menu_layout', 30, $mobile_menu_style_choices, 'dropdown', 'responsive_disabled_mobile_menu' );
 
+			// Mobile Menu Toggle style
+			$mobile_menu_toggle_style         = __( 'Mobile Menu Toggle Style', 'responsive' );
+			$mobile_menu_toggle_style_choices = array(
+				'fill'    => esc_html__( 'Fill', 'responsive' ),
+				'outline' => esc_html__( 'Outline', 'responsive' ),
+				'minimal' => esc_html__( 'Minimal', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'mobile_menu_toggle_style', $mobile_menu_toggle_style, 'responsive_header_menu_layout', 30, $mobile_menu_toggle_style_choices, 'fill', 'responsive_disabled_mobile_menu');
+			
+			// Border Color
+			$menu_menu_toggle_border_color = __( 'Mobile Menu Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_menu_toggle_border', $menu_menu_toggle_border_color, 'responsive_header_menu_layout', 50, Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ), 'responsive_toggle_border_color' );
+			
 			// Sidebar Menu Alignment.
 			$sidebar_menu_alignment_label   = esc_html__( 'Sidebar Menu Alignment', 'responsive' );
 			$sidebar_menu_alignment_choices = array(
