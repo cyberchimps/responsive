@@ -3,7 +3,7 @@
  * -----------------------------------------------------------------------------
  */
 .site-header {
-    border-bottom: 1px solid map-get( $colors, light-gray );
+    border-bottom: 1px solid map-get($colors, light-gray);
 
     .container {
         position: relative;
@@ -12,16 +12,17 @@
     .row {
         align-items: center;
 
-        @media( min-width: map-get( $screens, xxxl ) ) {
+        @media( min-width: map-get($screens, xxxl) ) {
             justify-content: space-between;
         }
     }
 
     a {
-        @include make-link( map-get( $colors, dark-gray ), map-get( $colors, dark-blue ) );
+        @include make-link(map-get($colors, dark-gray), map-get($colors, dark-blue));
         text-decoration: none;
     }
 }
+
 .header-full-width .site-header .container {
     max-width: none;
 }
@@ -29,7 +30,7 @@
 .site-branding {
     @extend .col-xs-12;
 
-    @media( min-width: map-get( $screens, xxxl ) ) {
+    @media( min-width: map-get($screens, xxxl) ) {
         width: auto;
     }
 
@@ -39,28 +40,29 @@
 
 
     .site-mobile-header-layout-horizontal & {
-        @media( max-width: map-get( $screens, sm ) ) {
+        @media( max-width: map-get($screens, sm) ) {
             max-width: 250px;
         }
     }
+
     .site-mobile-header-layout-vertical & {
-        @media( max-width: map-get( $screens, sm ) ) {
-            max-width: 100%;
+        @media( max-width: map-get($screens, sm) ) {
             width: 100%;
+            max-width: 100%;
         }
     }
 
     &-wrapper {
-        padding-bottom: $base-line-height-px;
         padding-top: $base-line-height-px;
+        padding-bottom: $base-line-height-px;
     }
 }
 
 .site-title,
 .site-description {
-    line-height: $base-line-height-px;
-    margin-bottom: 0;
     margin-top: 0;
+    margin-bottom: 0;
+    line-height: $base-line-height-px;
 }
 
 .site-title {
@@ -76,7 +78,7 @@
     @extend .col-xs-12;
     @include clear-floats();
 
-    @media( min-width: map-get( $screens, xxxl ) ) {
+    @media( min-width: map-get($screens, xxxl) ) {
         width: auto;
     }
 
@@ -90,7 +92,7 @@
 
     a {
         display: block;
-        padding: ( $input-padding-y * 4 ) ( $base-line-height-px / 2 );
+        padding: ( $input-padding-y * 4 ) 18px;
         font-weight: 600;
     }
 
@@ -98,18 +100,18 @@
         @extend .show-xs;
         @extend .hide-xxxl;
 
-        background-color: transparent;
-        border: none;
-        color: map-get( $colors, dark-gray );
-        font-size: map-get( $font-sizes, medium );
-        line-height: $base-line-height-px * 1.75;
+        position: absolute;
+        top: $base-line-height-px * 0.875;
+        right: $grid-gutter-width / 2;
+        width: $base-line-height-px * 1.75;
         height: $base-line-height-px * 1.75;
         padding: 0;
-        position: absolute;
-        right: $grid-gutter-width / 2;
+        border: 0;
+        background-color: transparent;
+        color: map-get($colors, dark-gray);
+        font-size: map-get($font-sizes, medium);
+        line-height: $base-line-height-px * 1.75;
         text-align: center;
-        top: $base-line-height-px * 0.875;
-        width: $base-line-height-px * 1.75;
         z-index: 9999;
 
         &-cancel {
@@ -139,21 +141,21 @@
         }
 
         & > li {
-            border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
+            border-bottom: 1px solid rgba(170, 170, 170, 0.2);
 
-            @media( min-width: map-get( $screens, xxxl ) ) {
-                border-bottom: none;
-                float: left;
+            @media( min-width: map-get($screens, xxxl) ) {
                 margin-left: 2px;
+                float: left;
+                border-bottom: 0;
             }
 
             &.menu-item-has-children > a,
             &.page_item_has_children > a {
-                @media( min-width: map-get( $screens, xxxl ) ) {
+                @media( min-width: map-get($screens, xxxl) ) {
                     &:after {
-                        content: '\f107';
-                        font-family: $icon-font;
                         margin-left: 5px;
+                        font-family: $icon-font;
+                        content: '\f107';
                     }
                 }
             }
@@ -163,50 +165,50 @@
     .children,
     .sub-menu {
 		padding: 15px 0;
-        @media( min-width: map-get( $screens, xxxl ) ) {
-            background-color: map-get( $colors, white );
-            box-shadow: 0 5px 10px map-get( $colors, light-gray );
-            left: -9999em;
-            margin-left: 0;
-            top: 100%;
+        @media( min-width: map-get($screens, xxxl) ) {
             position: absolute;
+            top: 100%;
+            left: -9999em;
             width: 240px;
+            margin-left: 0;
+            background-color: map-get($colors, #ffffff);
+            box-shadow: 0 5px 10px map-get($colors, light-gray);
             z-index: 9999;
         }
 
         & > li {
             &.focus,
             &:hover {
-                @media( min-width: map-get( $screens, xxxl ) ) {
+                @media( min-width: map-get($screens, xxxl) ) {
                     & > .children,
                     & > .sub-menu {
-                        left: 100%;
                         top: 0;
+                        left: 100%;
                     }
                 }
             }
 
             &:first-child {
-                @media( min-width: map-get( $screens, xxxl ) ) {
-                    border-top: none;
+                @media( min-width: map-get($screens, xxxl) ) {
+                    border-top: 0;
                 }
             }
 
             &.menu-item-has-children > a,
             &.page_item_has_children > a {
-                @media( min-width: map-get( $screens, xxxl ) ) {
+                @media( min-width: map-get($screens, xxxl) ) {
                     &:after {
-                        content: '\f105';
+                        margin-left: 5px;
                         float: right;
                         font-family: $icon-font;
-                        margin-left: 5px;
+                        content: '\f105';
                     }
                 }
             }
         }
 
         a {
-            @media( min-width: map-get( $screens, xxxl ) ) {
+            @media( min-width: map-get($screens, xxxl) ) {
                 padding: ( $input-padding-y * 2 ) ( $grid-gutter-width / 2 );
             }
         }
@@ -224,24 +226,26 @@
         .main-navigation {
             .menu {
                 & > li {
-                    @media( min-width: map-get( $screens, xxxl ) ) {
-                        margin-left: 0;
+                    @media( min-width: map-get($screens, xxxl) ) {
                         margin-right: 2px;
+                        margin-left: 0;
                     }
                 }
             }
         }
     }
+
     &.site-header-site-branding-main-navigation {
         .main-navigation:not(.toggled) .menu {
             float: right;
         }
     }
+
     &.site-header-site-branding-main-navigation {
         &.last-item-spread-away {
             .main-navigation .menu {
-                float: left;
                 width: 100%;
+                float: left;
                 & > li.res-custom-text-menu,
                 & > li.res-button-menu,
                 & > li.res-cart-link,
@@ -256,18 +260,19 @@
 .site-mobile-header-layout-horizontal {
     .main-navigation {
         .menu-toggle {
-            bottom: $base-line-height-px;
             top: auto;
+            bottom: $base-line-height-px;
         }
     }
 }
 
 .site-header-layout-vertical {
     .site-header .row {
-        @media( min-width: map-get( $screens, xxxl ) ) {
+        @media( min-width: map-get($screens, xxxl) ) {
             flex-direction: column;
         }
     }
+
     .site-branding,
     .main-navigation {
         width: 100%;
@@ -276,9 +281,9 @@
     .main-navigation {
         .menu {
             & > li {
-                @media( min-width: map-get( $screens, xxxl ) ) {
-                    margin-left: 0;
+                @media( min-width: map-get($screens, xxxl) ) {
                     margin-right: 2px;
+                    margin-left: 0;
                 }
 
                 &.res-search-link,
@@ -296,12 +301,12 @@
 
     &.site-header-site-branding-main-navigation {
         &.site-header-full-width-main-navigation .main-navigation {
-            border-top: 1px solid map-get( $colors, light-gray );
+            border-top: 1px solid map-get($colors, light-gray);
         }
 
         &.site-header-site-branding-main-navigation:not(.responsive-site-full-width):not(.header-full-width):not(.site-header-full-width-main-navigation) .main-navigation div {
-            @media ( min-width: map-get( $screens, xxxl ) ) {
-                border-top: 1px solid map-get( $colors, light-gray );
+            @media ( min-width: map-get($screens, xxxl) ) {
+                border-top: 1px solid map-get($colors, light-gray);
             }
         }
 
@@ -312,8 +317,8 @@
 
         &.last-item-spread-away {
             .main-navigation .menu {
-                float: left;
                 width: 100%;
+                float: left;
                 & > li.res-custom-text-menu,
                 & > li.res-button-menu,
                 & > li.res-cart-link,
@@ -327,14 +332,14 @@
 
     &.site-header-main-navigation-site-branding {
         &.site-header-full-width-main-navigation .main-navigation {
-            border-bottom: 1px solid map-get( $colors, light-gray );
             border-top: 0;
+            border-bottom: 1px solid map-get($colors, light-gray);
         }
 
         &.site-header-main-navigation-site-branding:not(.responsive-site-full-width):not(.header-full-width) .main-navigation div {
-            @media ( min-width: map-get( $screens, xxxl ) ) {
-                border-bottom: 1px solid map-get( $colors, light-gray );
+            @media ( min-width: map-get($screens, xxxl) ) {
                 border-top: 0;
+                border-bottom: 1px solid map-get($colors, light-gray);
             }
         }
 
@@ -342,10 +347,11 @@
         &.site-header-full-width-main-navigation .main-navigation div {
             border-bottom: 0;
         }
+
         &.last-item-spread-away {
             .main-navigation .menu {
-                float: left;
                 width: 100%;
+                float: left;
                 & > li.res-custom-text-menu,
                 & > li.res-button-menu,
                 & > li.res-cart-link,
@@ -358,7 +364,7 @@
 
     &.site-header-full-width-main-navigation {
         .main-navigation {
-            @media( min-width: map-get( $screens, xxxl ) ) {
+            @media( min-width: map-get($screens, xxxl) ) {
                 @include make-full-width();
             }
         }
@@ -368,12 +374,12 @@
 .site-mobile-header-layout-vertical {
     .main-navigation {
         .menu-toggle {
-            bottom: auto;
             position: relative;
-            right: auto;
-            text-align: left;
             top: auto;
+            right: auto;
+            bottom: auto;
             width: auto;
+            text-align: left;
 
             i {
                 padding: $grid-gutter-width / 2;
@@ -387,17 +393,17 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
     width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.3);
     z-index: 9998;
 }
 
 // Header Widget Styles
 .header-widgets {
-    background-color: map-get( $colors, white );
-    font-size: map-get( $font-sizes, small );
-    border-bottom: 1px solid map-get( $colors, light-gray );
+    border-bottom: 1px solid map-get($colors, light-gray);
+    background-color: map-get($colors, #ffffff);
+    font-size: map-get($font-sizes, small);
 
     .header-widget-position-with_logo & {
         background-color: transparent;
@@ -409,12 +415,15 @@
         .header-widget-alignment-left & {
             justify-content: flex-start;
         }
+
         .header-widget-alignment-right & {
             justify-content: flex-end;
         }
+
         .header-widget-alignment-center & {
             justify-content: center;
         }
+
         .header-widget-alignment-space-around & {
             justify-content: space-around;
         }
@@ -422,23 +431,23 @@
 
         & > .widget {
             @extend .col-xs-12;
-            width: auto;
             align-items: center;
+            width: auto;
             margin: auto 0;
         }
     }
 
     .site-header-layout-vertical.header-widget-position-with_logo:not(.site-header-alignment-center) & {
-        border: none;
         width: 50%;
-        float: left;
         padding: $base-line-height-px 0;
+        float: left;
+        border: 0;
 
         .header-widgets-wrapper {
             flex-direction: row;
         }
 
-        @media screen and ( max-width: map-get( $screens, md ) ) {
+        @media screen and ( max-width: map-get($screens, md) ) {
             width: 100%;
         }
     }
@@ -449,7 +458,7 @@
         width: 50%;
         float: left;
 
-        @media screen and ( max-width: map-get( $screens, md ) ) {
+        @media screen and ( max-width: map-get($screens, md) ) {
             width: 100%;
         }
     }
@@ -458,7 +467,7 @@
         display: flex;
         flex-direction: row-reverse;
 
-        @media screen and ( max-width: map-get( $screens, md ) ) {
+        @media screen and ( max-width: map-get($screens, md) ) {
             flex-wrap: wrap;
         }
     }
@@ -470,14 +479,16 @@
 		flex-wrap: wrap;
 		width: -webkit-fill-available;
 	}
+
 	.site-branding-wrapper {
-		flex-wrap: wrap;
 	    flex: auto;
+		flex-wrap: wrap;
 	}
+
     .header-widgets {
-        border: none;
         min-width: 60%;
         margin: auto 0;
+        border: 0;
     }
 
     &.header-widget-alignment-left {
@@ -488,12 +499,13 @@
             }
         }
     }
+
 	.site-header .row {
 		flex-wrap: wrap;
 	}
 }
 
-@media screen and ( min-width: map-get( $screens, xxxl ) ) {
+@media screen and ( min-width: map-get($screens, xxxl) ) {
     .site-header-layout-horizontal .site-header .row {
     	flex-wrap: nowrap;
     }
@@ -504,10 +516,10 @@ body.mega-menu-header-menu button.menu-toggle {
 }
 
 .inline-logo-site-title .site-branding-wrapper {
-    @media screen and ( min-width: map-get( $screens, sm ) ) {
+    @media screen and ( min-width: map-get($screens, sm) ) {
     	display: inline-flex;
-    	vertical-align: middle;
     	align-items: center;
+    	vertical-align: middle;
 
             .site-title {
                 margin-left: $grid-gutter-width / 2;
@@ -516,20 +528,20 @@ body.mega-menu-header-menu button.menu-toggle {
 }
 
 .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead{
-    position:absolute;
-    left:0;
-    right:0;
+    position: absolute;
+    right: 0;
+    left: 0;
     background: none;
     z-index: 99998;
 }
 
 .main-navigation #searchform {
-    box-shadow: 0 3px 2px 2px #eeeeee;
     display: none;
-    width: 300px;
     position: absolute;
     top: 3em;
+    width: 300px;
     transition: all 0.3s ease;
+    box-shadow: 0 3px 2px 2px #eee;
     z-index: 9999;
 
 	.res-search-wrapper {
@@ -537,7 +549,7 @@ body.mega-menu-header-menu button.menu-toggle {
 		.res-search-icon.icon-search {
 			position: absolute;
 			top: 10px;
-			right: 0px;
+			right: 0;
 			font-size: 16px;
 		}
 
@@ -545,7 +557,8 @@ body.mega-menu-header-menu button.menu-toggle {
 			display: none;
 		}
 	}
-    .res-search-wrapper input[type=search]:focus, .res-search-wrapper input[type=search]:hover {
+
+    .res-search-wrapper input[type="search"]:focus, .res-search-wrapper input[type="search"]:hover {
         + .res-search-icon.icon-search {
             display: none;
         }
@@ -563,32 +576,33 @@ body.mega-menu-header-menu button.menu-toggle {
 .full-screen.site-header-layout-vertical .main-navigation .main-navigation-wrapper .full-screen-search-wrapper .full-screen-search-container {
 	left: 25%;
 }
+
 .full-screen .main-navigation .main-navigation-wrapper .full-screen-search-wrapper {
-    background: rgba(255,255,255,.95);
     top: 0;
     left: 0;
-    z-index: 999;
-    transition: opacity .2s;
     width: 100%;
     height: 100%;
+    transition: opacity .2s;
+    background: rgba(255,255,255,.95);
+    z-index: 999;
 
 	#search-close{
 		position: absolute;
-	    color: black;
+	    top: 1.5em;
 	    right: 1em;
+	    color: #000000;
+		font-family: icomoon !important;
+	    font-size: 2em;
+	    font-style: normal;
+	    font-variant: normal;
+	    font-weight: 400;
+	    font-weight: 400;
 	    line-height: 1;
+	    line-height: 1;
+	    text-transform: none;
 	    cursor: pointer;
 	    z-index: 9;
-	    font-weight: 400;
-	    font-size: 2em;
-	    top: 1.5em;
 	    backface-visibility: hidden;
-		font-family: icomoon!important;
-	    font-style: normal;
-	    font-weight: 400;
-	    font-variant: normal;
-	    text-transform: none;
-	    line-height: 1;
 	    -webkit-font-smoothing: antialiased;
 		&:before {
 			content: "\f00d";
@@ -597,9 +611,9 @@ body.mega-menu-header-menu button.menu-toggle {
 
 	.full-screen-search-container {
 		position: absolute;
-		width: 100%;
-		left: 73%;
 		top: 35%;
+		left: 73%;
+		width: 100%;
 		transform: translate(-50%,-50%);
 
 		#searchform {
@@ -608,20 +622,21 @@ body.mega-menu-header-menu button.menu-toggle {
 			box-shadow: none;
 
 			.res-search-wrapper {
-				color: #000;
-			    background: 0 0;
-			    border: none;
-			    border-bottom: 1px solid #ddd;
-			    font-weight: 900;
-			    padding: 6px 15px;
-			    height: auto;
 				display: block;
+			    height: auto;
+			    padding: 6px 15px;
+			    border: 0;
+			    border-bottom: 1px solid #ddd;
+			    background: 0 0;
+				color: #000;
+			    font-weight: 900;
 
-				input[type=search] {
+				input[type="search"] {
 					background: none;
 				}
 			}
-            .res-search-wrapper input[type=search]:focus, .res-search-wrapper input[type=search]:hover {
+
+            .res-search-wrapper input[type="search"]:focus, .res-search-wrapper input[type="search"]:hover {
                 + .res-search-icon.icon-search {
                     display: none;
                 }
@@ -641,10 +656,12 @@ body.mega-menu-header-menu button.menu-toggle {
 	.custom-logo-link.sticky-custom-logo {
 		display: none;
 	}
+
 	&.sticky-header {
 		&.sticky-logo .custom-logo-link {
 			display: none;
 		}
+
         .custom-logo-link.sticky-custom-logo {
             display: inline-block;
         }
@@ -654,9 +671,9 @@ body.mega-menu-header-menu button.menu-toggle {
 
 .res-search-wrapper {
 	display: inline-block;
-	border: 1px solid #cccccc;
-	input[type=search] {
-		border: none;
+	border: 1px solid #ccc;
+	input[type="search"] {
+		border: 0;
 	}
 }
 
@@ -676,4 +693,12 @@ body.mega-menu-header-menu button.menu-toggle {
   li.focus>.children, li.focus>.sub-menu, .menu-item-has-children.focus ul.sub-menu {
     display: block;
   }
+}
+
+.res-iconify {
+  top: 10px;
+  position: absolute;
+  display: inline-block;
+  right: 0px;
+  font-weight: bold;
 }
