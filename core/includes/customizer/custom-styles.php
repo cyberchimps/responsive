@@ -71,7 +71,7 @@ function responsive_get_color_palettes_schemes_as_customizer_choices() {
 	set_theme_mod( 'responsive_header_menu_background_color', $header_background );
 	set_theme_mod( 'responsive_header_mobile_menu_background_color', $header_background );
 	set_theme_mod( 'responsive_header_menu_link_color', $header_text );
-	
+
 }
 
 /**
@@ -686,7 +686,7 @@ function responsive_customizer_styles() {
 		$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
 		$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_transparent_header_menu_toggle_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ) ) );
 		$mobile_menu_toggle_border_color     = esc_html( get_theme_mod( 'responsive_transparent_mobile_menu_toggle_border_color', Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ) ) );
-		
+
 		// Header Widgets Color.
 		$header_widget_text_color       = esc_html( get_theme_mod( 'responsive_transparent_header_widget_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ) ) );
 		$header_widget_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_widget_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_background' ) ) );
@@ -725,7 +725,7 @@ function responsive_customizer_styles() {
 		$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
 		$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_header_menu_toggle_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ) ) );
 		$mobile_menu_toggle_border_color     = esc_html( get_theme_mod( 'responsive_mobile_menu_toggle_border_color', Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ) ) );
-		
+
 		// Header Widgets Color.
 		$header_widget_text_color       = esc_html( get_theme_mod( 'responsive_header_widget_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ) ) );
 		$header_widget_background_color = esc_html( get_theme_mod( 'responsive_header_widget_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_background' ) ) );
@@ -762,12 +762,6 @@ function responsive_customizer_styles() {
     .widget-area .widget-wrapper a:hover {
         color: {$sidebar_link_hover_color};
     }
-		.main-navigation .menu > li.menu-item-has-children > a:after, .main-navigation .menu > li.page_item_has_children > a:after {
-			content: '\\f107';
-			font-family: icomoon;
-			margin-left: 5px;
-			font-size: 0.96em;
-		}
     ";
 
 	// Mobile Menu.
@@ -965,9 +959,6 @@ function responsive_customizer_styles() {
 		.main-navigation .children, .main-navigation .sub-menu{
 			display: none;
 		}
-		.main-navigation .menu > li.menu-item-has-children > a:after, .main-navigation .menu > li.page_item_has_children > a:after {
-			float: right;
-		}
 	}
 	@media screen and ( max-width: 576px ) {
 		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
@@ -1136,7 +1127,7 @@ function responsive_customizer_styles() {
 			$custom_css .= ".site-branding {
 
 	    		width: -webkit-fill-available;
-				}';
+				}";
 	}
 
 	$custom_css .= '.site-branding-wrapper {
@@ -1299,7 +1290,7 @@ function responsive_customizer_styles() {
 					background-color: {$header_menu_toggle_background_color} ;
 					border:none;
 				}
-			
+
 			";
 
 	} elseif ( 'minimal' === $mobile_menu_toggle_style ) {
@@ -1323,7 +1314,7 @@ function responsive_customizer_styles() {
 					border-style: solid;
 					border-width: 1px;
 					border-color:{$mobile_menu_toggle_border_color };
-					
+
 				}
 				.main-navigation .menu-toggle{
 					background-color: {$header_background_color}  ;
