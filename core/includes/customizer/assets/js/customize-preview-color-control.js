@@ -554,6 +554,13 @@
         } );
     } );
 
+    //Active Menu Background Color
+    api( 'responsive_sub_menu_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .children, .main-navigation .sub-menu').css('border-color', newval );
+        } );
+    } );
+
 
     //Footer Color Section
     //Background Color

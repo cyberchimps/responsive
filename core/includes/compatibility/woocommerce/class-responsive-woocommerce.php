@@ -195,6 +195,14 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				$breadcrumb_flag            = get_theme_mod( 'breadcrumbs_options', 1 );
+				if ( ! $breadcrumb_flag ) {
+					remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+					add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
+				}
+			}
+
 			/* Add single product content */
 			add_action( 'woocommerce_single_product_summary', array( $this, 'single_product_content_structure' ), 10 );
 			add_filter( 'woocommerce_product_description_heading', '__return_false' );

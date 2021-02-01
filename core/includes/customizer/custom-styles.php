@@ -1082,6 +1082,54 @@ function responsive_customizer_styles() {
 	}";
 
 
+	$sub_menu_border_right  = esc_html( get_theme_mod( 'responsive_sub_menu_border_right_padding', 0 ) );
+	$sub_menu_border_left   = esc_html( get_theme_mod( 'responsive_sub_menu_border_left_padding', 0 ) );
+	$sub_menu_border_top    = esc_html( get_theme_mod( 'responsive_sub_menu_border_top_padding', 0 ) );
+	$sub_menu_border_bottom = esc_html( get_theme_mod( 'responsive_sub_menu_border_bottom_padding', 0 ) );
+
+	$sub_menu_border_tablet_right  = esc_html( get_theme_mod( 'responsive_sub_menu_border_tablet_right_padding', 0 ) );
+	$sub_menu_border_tablet_left   = esc_html( get_theme_mod( 'responsive_sub_menu_border_tablet_left_padding', 0 ) );
+	$sub_menu_border_tablet_top    = esc_html( get_theme_mod( 'responsive_sub_menu_border_tablet_top_padding', 0 ) );
+	$sub_menu_border_tablet_bottom = esc_html( get_theme_mod( 'responsive_sub_menu_border_tablet_bottom_padding', 0 ) );
+
+	$sub_menu_border_mobile_right  = esc_html( get_theme_mod( 'responsive_sub_menu_border_mobile_right_padding', 0 ) );
+	$sub_menu_border_mobile_left   = esc_html( get_theme_mod( 'responsive_sub_menu_border_mobile_left_padding', 0 ) );
+	$sub_menu_border_mobile_top    = esc_html( get_theme_mod( 'responsive_sub_menu_border_mobile_top_padding', 0 ) );
+	$sub_menu_border_mobile_bottom = esc_html( get_theme_mod( 'responsive_sub_menu_border_mobile_bottom_padding', 0 ) );
+
+	$sub_menu_border_color        = esc_html( get_theme_mod( 'responsive_sub_menu_border_color', '' ) );
+
+	$custom_css .= ".main-navigation .children, .main-navigation .sub-menu {
+		border-top-width: {$sub_menu_border_top}px;
+		border-bottom-width: {$sub_menu_border_bottom}px;
+		border-left-width: {$sub_menu_border_left}px;
+		border-right-width: {$sub_menu_border_right}px;
+		border-color: $sub_menu_border_color;
+		border-style: solid;
+
+	}
+	@media screen and ( max-width: 992px ) {
+		.main-navigation .children, .main-navigation .sub-menu {
+			border-top-width: {$sub_menu_border_tablet_top}px;
+			border-bottom-width: {$sub_menu_border_tablet_bottom}px;
+			border-left-width: {$sub_menu_border_tablet_left}px;
+			border-right-width: {$sub_menu_border_tablet_right}px;
+			border-color: $sub_menu_border_color;
+			border-style: solid;
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.main-navigation .children, .main-navigation .sub-menu {
+			border-top-width: {$sub_menu_border_mobile_top}px;
+			border-bottom-width: {$sub_menu_border_mobile_bottom}px;
+			border-left-width: {$sub_menu_border_mobile_left}px;
+			border-right-width: {$sub_menu_border_mobile_right}px;
+			border-color: $sub_menu_border_color;
+			border-style: solid;
+		}
+	}";
+
+
 		if ( ( 1 == $disable_menu ) && ( 0 == $disable_mobile_menu ) ) {
 			$custom_css .= ".site-branding {
 	    		width: -webkit-fill-available;
