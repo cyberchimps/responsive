@@ -164,14 +164,13 @@
 
     .children,
     .sub-menu {
-		padding: 15px 0;
         @media( min-width: map-get($screens, xxxl) ) {
             position: absolute;
             top: 100%;
             left: -9999em;
             width: 240px;
             margin-left: 0;
-            background-color: map-get($colors, #ffffff);
+            background-color: map-get($colors, #fff);
             box-shadow: 0 5px 10px map-get($colors, light-gray);
             z-index: 9999;
         }
@@ -402,7 +401,7 @@
 // Header Widget Styles
 .header-widgets {
     border-bottom: 1px solid map-get($colors, light-gray);
-    background-color: map-get($colors, #ffffff);
+    background-color: map-get($colors, #fff);
     font-size: map-get($font-sizes, small);
 
     .header-widget-position-with_logo & {
@@ -590,7 +589,7 @@ body.mega-menu-header-menu button.menu-toggle {
 		position: absolute;
 	    top: 1.5em;
 	    right: 1em;
-	    color: #000000;
+	    color: #000;
 		font-family: icomoon !important;
 	    font-size: 2em;
 	    font-style: normal;
@@ -696,9 +695,9 @@ body.mega-menu-header-menu button.menu-toggle {
 }
 
 .res-iconify {
-  top: 10px;
-  position: absolute;
   display: inline-block;
-  right: 0px;
+  position: absolute;
+  top: 8px;
+  right: 2px;
   font-weight: bold;
 }

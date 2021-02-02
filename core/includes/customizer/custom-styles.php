@@ -816,7 +816,7 @@ function responsive_customizer_styles() {
 	  	}
 	  	.main-navigation .children a,
 		.main-navigation .sub-menu a {
-	    	padding: 5px 15px;
+	    	padding: 15px 15px;
 	  	}
 	  	.site-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu > li {
 		    margin-left: 0;
@@ -1037,15 +1037,23 @@ function responsive_customizer_styles() {
 	.main-navigation .menu > li > a {
 		color: {$header_menu_link_color};
 	}
-
+	.main-navigation .res-iconify svg{
+		stroke: {$header_menu_link_color};
+	}
 	.main-navigation .menu > li.current_page_item > a,
 	.main-navigation .menu > li.current-menu-item > a {
 		color: {$menu_active_link_color};
 		background-color: {$header_active_menu_background_color};
 	}
+	.main-navigation .menu > li.current-menu-item > .res-iconify svg {
+		stroke: {$menu_active_link_color};
+	}
 	.main-navigation .menu li > a:hover {
 		color: {$header_menu_link_hover_color};
 		background-color: {$header_active_menu_background_color};
+	}
+	.main-navigation .menu li:hover .res-iconify svg:hover {
+		stroke: {$header_menu_link_hover_color};
 	}
 	.main-navigation .children,
 	.main-navigation .sub-menu {
@@ -1055,15 +1063,24 @@ function responsive_customizer_styles() {
 	.main-navigation .sub-menu li a {
 		color: {$header_sub_menu_link_color};
 	}
+	.main-navigation .sub-menu li .res-iconify svg {
+		stroke: {$header_sub_menu_link_color};
+	}
 	.main-navigation .menu .sub-menu .current_page_item > a,
 	.main-navigation .menu .sub-menu .current-menu-item > a,
 	.main-navigation .menu .children li.current_page_item a {
 		color: {$sub_menu_active_link_color};
 	}
+	.main-navigation .menu .children li.current_page_item .res-iconify svg {
+		stroke: {$sub_menu_active_link_color};
+	}
 	.main-navigation .children li a:hover,
 	.main-navigation .sub-menu li a:hover, .main-navigation .menu .sub-menu .current_page_item > a:hover,
 	.main-navigation .menu .sub-menu .current-menu-item > a:hover {
 		color: {$header_sub_menu_link_hover_color};
+	}
+	.main-navigation .menu .sub-menu li:hover > .res-iconify svg {
+		stroke: {$header_sub_menu_link_hover_color};
 	}
 	.main-navigation .menu-toggle {
 		background-color: {$header_menu_toggle_background_color};
@@ -1091,6 +1108,9 @@ function responsive_customizer_styles() {
 	$sub_menu_border_mobile_bottom = esc_html( get_theme_mod( 'responsive_sub_menu_border_mobile_bottom_padding', 0 ) );
 
 	$sub_menu_border_color        = esc_html( get_theme_mod( 'responsive_sub_menu_border_color', '' ) );
+
+	$sub_menu_divider       = esc_html( get_theme_mod( 'responsive_sub_menu_divider', 0 ) );
+	$sub_menu_divider_color = esc_html( get_theme_mod( 'responsive_sub_menu_divider_color', '#eaeaea' ) );
 
 	$custom_css .= ".main-navigation .children, .main-navigation .sub-menu {
 		border-top-width: {$sub_menu_border_top}px;
@@ -1121,6 +1141,19 @@ function responsive_customizer_styles() {
 			border-style: solid;
 		}
 	}";
+
+	if ( 1 == $sub_menu_divider ) {
+		$custom_css .= "
+	.main-navigation .children li, .main-navigation .sub-menu li {
+		border-bottom-width: 1px;
+		border-style: solid;
+		border-color: $sub_menu_divider_color;
+	}
+	.main-navigation .children li:last-child, .main-navigation .sub-menu li:last-child {
+		border-style: none;
+	}
+	";
+}
 
 
 		if ( ( 1 == $disable_menu ) && ( 0 == $disable_mobile_menu ) ) {
@@ -1354,6 +1387,34 @@ function responsive_customizer_styles() {
 		}
 		";
 	}
+
+	$responsive_mobile_logo_option = get_theme_mod( 'responsive_mobile_logo_option', 0 );
+	$responsive_mobile_logo        = get_theme_mod( 'responsive_mobile_logo' );
+	if ( '' !== $responsive_mobile_logo && '1' == $responsive_mobile_logo_option ) {
+		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
+			.mobile-custom-logo {
+				display: none;
+			}
+			.custom-logo-link {
+				display: block;
+			}
+		}
+		";
+	} else {
+		$custom_css .= ".custom-logo-link {
+			display: block;
+		}";
+	}
+	$responsive_hide_last_item_mobile_menu = get_theme_mod( 'responsive_hide_last_item_mobile_menu', 0 );
+	if ( '1' == $responsive_hide_last_item_mobile_menu ) {
+		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
+			.res-cart-link, .res-last-item {
+				display: none;
+			}
+		}
+		";
+	}
+
 
 	// Content_Header colors.
 	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );

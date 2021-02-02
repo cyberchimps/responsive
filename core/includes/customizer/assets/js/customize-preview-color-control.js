@@ -466,6 +466,12 @@
          $('.main-navigation.toggled .menu-toggle').css({'border-color': newval} );
         } );
     } );
+    //Sub Menu divider
+    api( 'responsive_sub_menu_divider_color', function( value ) {
+        value.bind( function( newval ) {
+         $('.main-navigation .children li, .main-navigation .sub-menu li').css('border-color', newval );
+        } );
+    } );
     //Transparent Header Main Menu Colors Section
     //Background Color
     api( 'responsive_transparent_header_menu_background_color', function( value ) {
