@@ -239,6 +239,13 @@
         } );
     } );
 
+    //Date Box Background Color
+    api( 'responsive_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-date-box').css('background-color', newval );
+        } );
+    } );
+
     //Link Hover Color
     api( 'responsive_link_hover_color', function( value ) {
         value.bind( function( newval ) {

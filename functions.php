@@ -416,6 +416,12 @@ function responsive_edit_customize_register( $wp_customize ) {
 
 		)
 	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_date_box_toggle',
+		array(
+			'selector' => '.responsive-date-box',
+		)
+	);
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );

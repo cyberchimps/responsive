@@ -23,11 +23,34 @@ if ( 'excerpt' === $responsive_blog_entry_content_type ) {
 }
 
 Responsive\responsive_entry_before();
+
+if( class_exists( 'Responsive_Addons_Pro' ) ) {
+	$date_box_toggle_value = responsive_date_box_toggle_value();
+} else {
+	$date_box_toggle_value = 0;
+}
+
 ?>
 <div class="entry-column">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 		<?php Responsive\responsive_entry_top(); ?>
+		
 		<div class="post-entry">
+
+		<?php
+			if( $date_box_toggle_value ) {
+				$day = esc_html( get_the_date( 'j' ) );
+				$month = esc_html( get_the_date( 'M' ) );
+				$year = esc_html( get_the_date( 'Y' ) );
+				echo '<div class="responsive-date-box">';
+					echo '<a href="'.get_permalink().'" class="date-box-links">';
+						echo '<div class="date-box-month">'.$month.'</div>';
+						echo '<div class="date-box-day">'.$day.'</div>';
+						echo '<div class="date-box-year">'.$year.'</div>';
+					echo '</a>';				
+				echo '</div>';
+			}
+		?>
 
 		<?php
 		// Get posts format.
