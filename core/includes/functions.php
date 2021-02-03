@@ -1026,7 +1026,7 @@ function defaults() {
 			'header_menu_toggle_background'       => 'transparent',
 			'header_menu_toggle'                  => '#333333',
 			'mobile_menu_toggle_border_color'     => '#333333',
-
+			'menu_button_radius'                  => 0,
 			'box_background'                      => '#ffffff',
 			'alt_background'                      => '#eaeaea',
 			'body_text'                           => '#333333',

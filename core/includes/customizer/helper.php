@@ -1683,12 +1683,20 @@ function responsive_disabled_mobile_menu() {
 	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
 }
 /**
- * Toggle style if outline border color control add.
+ * Toggle style if outline border color control.
  *
  * @return void
  */
 function responsive_toggle_border_color() {
 	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
+}
+/**
+ * Toggle style if outline & fill border radius control.
+ *
+ * @return void
+ */
+function responsive_toggle_border_radius() {
+	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' )) ? true : false;
 }
 
 /**
