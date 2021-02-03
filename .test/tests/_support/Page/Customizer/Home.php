@@ -70,6 +70,23 @@ class Home
     public $search                                             = '#s';
 
 
+    public $parent1menu = 'parent1';
+    public $parent1sub1menu = 'parent1sub1';
+    public $parent1sub1sub1menu = 'parent1sub1sub1';
+    public $parent1sub1sub2menu = 'parent1sub1sub2';
+    public $parent1sub2menu = 'parent1sub2';
+    public $parent1sub2sub1menu = 'parent1sub2sub1';
+    public $parent1sub2sub2menu = 'parent1sub2sub2';
+
+    public $parent2menu = 'parent2';
+    public $parent2sub1menu = 'parent2sub1';
+    public $parent2sub1sub1menu = 'parent2sub1sub1';
+    public $parent2sub1sub2menu = 'parent2sub1sub2';
+    public $parent2sub2menu = 'parent2sub2';
+    public $parent2sub2sub1menu = 'parent2sub2sub1';
+    public $parent2sub2sub2menu = 'parent2sub2sub2';
+
+
     
     
     
