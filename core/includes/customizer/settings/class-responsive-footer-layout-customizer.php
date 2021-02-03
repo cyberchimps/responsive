@@ -96,25 +96,6 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$copyright_icon_and_year_label = __( 'Hide Copyright Icon & Year', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'copyright_icon_and_year', $copyright_icon_and_year_label, 'responsive_footer_layout', 115, 0, null, 'postMessage' );
 
-			$wp_customize->add_setting(
-				'responsive_theme_options[poweredby_link]',
-				array(
-					'default'           => false,
-					'sanitize_callback' => 'responsive_sanitize_checkbox',
-					'type'              => 'option',
-				)
-			);
-			$wp_customize->add_control(
-				'res_poweredby_link',
-				array(
-					'label'    => __( 'Hide Powered By Responsive Theme', 'responsive' ),
-					'section'  => 'responsive_footer_layout',
-					'settings' => 'responsive_theme_options[poweredby_link]',
-					'type'     => 'checkbox',
-					'priority' => 120,
-				)
-			);
-
 			// Footer Bar Layout.
 			$footer_bar_layout_label = esc_html__( 'Layout', 'responsive' );
 			$footer_layout_choices   = array(
