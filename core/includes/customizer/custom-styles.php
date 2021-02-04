@@ -408,7 +408,7 @@ function responsive_customizer_styles() {
 	.wp-block-button__link,
 	body div.wpforms-container-full .wpforms-form input[type=submit],
 	body div.wpforms-container-full .wpforms-form button[type=submit],
-	body div.wpforms-container-full .wpforms-form .wpforms-page-button {
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button {
 		background-color:' . $button_color . ';
 		border: ' . $buttons_border_width . 'px solid ' . $button_border_color . ';
 		border-radius:' . $buttons_radius . 'px;
@@ -427,7 +427,7 @@ function responsive_customizer_styles() {
 		.button,
 		body div.wpforms-container-full .wpforms-form input[type=submit],
 		body div.wpforms-container-full .wpforms-form button[type=submit],
-		body div.wpforms-container-full .wpforms-form .wpforms-page-button {
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button {
 			padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
 		}
 	}
@@ -444,7 +444,7 @@ function responsive_customizer_styles() {
 		.button,
 		body div.wpforms-container-full .wpforms-form input[type=submit],
 		body div.wpforms-container-full .wpforms-form button[type=submit],
-		body div.wpforms-container-full .wpforms-form .wpforms-page-button {
+		body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button {
 			padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 		}
 	}
@@ -458,7 +458,7 @@ function responsive_customizer_styles() {
 	.wp-block-button__link.has-text-color:focus,
 	.wp-block-button__link.has-text-color:hover,
 	.wp-block-button__link.has-background:hover,
-	.wp-block-button__link.has-background:focus {
+	.wp-block-button__link.has-background:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover {
 		color:' . $button_hover_text_color . ' !important;
 		background-color:' . $button_hover_color . ' !important;
 	}
@@ -484,7 +484,7 @@ function responsive_customizer_styles() {
 	body div.wpforms-container-full .wpforms-form button[type=submit]:active,
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:hover,
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:active,
-	body div.wpforms-container-full .wpforms-form .wpforms-page-button:focus {
+	body div.wpforms-container-full .wpforms-form .wpforms-page-button:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover {
 	    color:' . $button_hover_text_color . ';
 		border: ' . $buttons_border_width . 'px solid ' . $button_hover_border_color . ';
 		background-color:' . $button_hover_color . ';
