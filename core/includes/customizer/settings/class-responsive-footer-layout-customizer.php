@@ -89,6 +89,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 					'settings' => 'responsive_theme_options[copyright_textbox]',
 					'type'     => 'textarea',
 					'priority' => 110,
+					'description' => __( 'If this is empty, site title will be visible as copyright text', 'responsive' ),
 				)
 			);
 
