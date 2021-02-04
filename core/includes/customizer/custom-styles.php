@@ -1311,6 +1311,29 @@ function responsive_customizer_styles() {
 			}";
 		}
 	}
+
+	// Hamburger Menu Width Style
+	$hamburger_menu_width_style = get_theme_mod( 'responsive_hamburger_menu_label_text', '' );
+	if( '' !== $hamburger_menu_width_style ) {
+		$custom_css .= ".main-navigation .menu-toggle {
+			width: auto;
+			padding-left: 10px;
+			padding-right: 10px;
+		}";
+	} else {
+		$custom_css .= ".main-navigation .menu-toggle {
+			width: 49px; 
+		}";
+	}
+
+	// Hamburger Menu Label Font Size
+	$hamburger_menu_label_font_value = get_theme_mod( 'responsive_hamburger_menu_label_font_size', 20 );
+	if( $hamburger_menu_label_font_value ) {
+		$custom_css .= ".hamburger-menu-label {
+			font-size: {$hamburger_menu_label_font_value}px;
+		}";
+	}
+
 	// Menu Toggle Styles
 	$mobile_menu_border_radius  = esc_html( get_theme_mod( 'responsive_menu_button_radius', Responsive\Core\get_responsive_customizer_defaults( 'menu_button_radius' ) ) );
 	$mobile_menu_toggle_style = get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' );

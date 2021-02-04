@@ -180,6 +180,25 @@ if ( ! function_exists( 'responsive_header_elements' ) ) {
 	}
 }
 
+if( ! function_exists( 'responsive_hamburger_menu_label' ) ) {
+	/** 
+	* Returns hamburger menu label value
+	*/
+	function responsive_hamburger_menu_label() {
+		$hamburger_menu_label_set_value = get_theme_mod( 'responsive_hamburger_menu_label_text', '' );
+		return $hamburger_menu_label_set_value;
+	}
+} 
+
+if( ! function_exists ( 'responsive_hamburger_font_size_value' ) ) {
+	/** 
+	* Return hamburger menu label font size 
+	*/
+	function responsive_hamburger_font_size_value() {
+		$hamburger_menu_label_font_size = get_theme_mod( 'responsive_hamburger_menu_label_font_size', 20 );
+		return $hamburger_menu_label_font_size;
+	}
+}
 
 	/**
 	* Returns blog single meta
@@ -1591,7 +1610,7 @@ function responsive_number_control( $wp_customize, $element, $label, $section, $
  * @param  [type] $active_call      [description].
  * @return void               [description].
  */
-function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'sanitize_text_field', $type = 'text' ) {
+function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'sanitize_text_field', $type = 'text', $transport = 'refresh' ) {
 
 	// Add Twitter Setting.
 	$wp_customize->add_setting(
@@ -1599,6 +1618,7 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
 		array(
 			'default'           => $default,
 			'sanitize_callback' => $sanitize_function,
+			'transport' 				=> $transport,	
 		)
 	);
 	$wp_customize->add_control(

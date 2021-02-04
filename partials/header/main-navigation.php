@@ -14,7 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 <nav id="site-navigation" class="main-navigation" role="navigation"  <?php responsive_schema_markup( 'site-title' ); ?> aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>" >
 	<h2 class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></h2>
 	<div class="main-navigation-wrapper">
-		<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><i class="icon-bars"></i><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
+		<?php 
+		if( function_exists( 'responsive_hamburger_menu_label' ) ) {
+			$hamburger_menu_label = responsive_hamburger_menu_label();
+		} else {
+			$hamburger_menu_label	= '';
+		} 
+		?>
+		<button class="menu-toggle" aria-controls="header-menu" aria-expanded="false"><i class="icon-bars"></i><span class="hamburger-menu-label"><?php esc_html_e( $hamburger_menu_label ); ?></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span></button>
 
 		<?php $disable_menu = get_theme_mod( 'responsive_disable_menu', 0 );
 

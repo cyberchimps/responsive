@@ -5,6 +5,17 @@
 ( function( $ ) {
     var api = wp.customize;
 
+    //Header -> Main Navigation
+    //Menu button width
+    api( 'responsive_hamburger_menu_label_text', function ( value ) {
+        value.bind( function( newval ) {
+            $( '.main-navigation .menu-toggle' ).css( 'width', '49px' );
+            if( '' !== newval ) {
+                $( '.main-navigation .menu-toggle' ).css( 'width', 'auto' );
+            }
+        } );
+    } );
+
     //Blog -> Content
     //Meta Separator
     api( 'responsive_blog_entry_meta_separator_text', function( value ) {
