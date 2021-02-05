@@ -261,7 +261,7 @@
                 $('.date-box-year').css("color", "black");
             }
             else {
-                $('.date-box-day').css("color", "white");   
+                $('.date-box-day').css("color", "white");
                 $('.date-box-month').css("color", "white");
                 $('.date-box-year').css("color", "white");
             }
@@ -412,10 +412,22 @@
         } );
     } );
 
+    api( 'responsive_header_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .res-iconify svg').css('stroke', newval );
+        } );
+    } );
+
 	//Active Menu Link Color
     api( 'responsive_header_active_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu .current_page_item > a,.main-navigation .menu .current-menu-item > a,.main-navigation .menu .current-menu-item.current_page_item a').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_header_active_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu > li.current-menu-item > .res-iconify svg').css('stroke', newval );
         } );
     } );
 
@@ -430,6 +442,12 @@
     api( 'responsive_header_sub_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .children li a,.main-navigation .sub-menu li a').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_header_sub_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .sub-menu li .res-iconify svg').css('stroke', newval );
         } );
     } );
 
@@ -560,6 +578,12 @@
         } );
     } );
 
+    api( 'responsive_transparent_header_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .res-iconify svg').css('stroke', newval );
+        } );
+    } );
+
     //Sub Menu Background Color
     api( 'responsive_transparent_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -571,6 +595,12 @@
     api( 'responsive_transparent_header_sub_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.res-transparent-header .main-navigation .children li a,.res-transparent-header .main-navigation .sub-menu li a').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_sub_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .sub-menu li .res-iconify svg').css('stroke', newval );
         } );
     } );
 
@@ -854,6 +884,15 @@
             $(this).css("color", api('responsive_header_menu_link_color').get());
         }
     );
+    $(".main-navigation .menu li .res-iconify svg, .main-navigation .menu > li > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_header_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_header_menu_link_color').get());
+        }
+    );
     //Menu item link hover color
     $(".res-transparent-header .main-navigation .menu > li > a").hover(
         function() {
@@ -862,6 +901,15 @@
 
         function() {
             $(this).css("color", api('responsive_transparent_header_menu_link_color').get());
+        }
+    );
+    $(".res-transparent-header .main-navigation .menu li .res-iconify svg,.res-transparent-header .main-navigation .menu > li > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_transparent_header_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_transparent_header_menu_link_color').get());
         }
     );
     $(".res-transparent-header .main-navigation .menu > li.current_page_item > a,.res-transparent-header .main-navigation .menu > li.current-menu-item > a").hover(
@@ -884,9 +932,18 @@
             $(this).css("color", api('responsive_header_sub_menu_link_color').get());
         }
     );
+    $(".main-navigation .menu .sub-menu li > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_header_sub_menu_link_color').get());
+        }
+    );
 
     //Active Sub Menu Links Hover Color
-    $(".main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a").hover(
+    $(".main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a,").hover(
         function() {
             $(this).css("color", api('responsive_header_sub_menu_link_hover_color').get());
         },
@@ -895,14 +952,32 @@
             $(this).css("color", api('responsive_header_sub_menu_active_link_color').get());
         }
     );
+    $(".main-navigation .menu .sub-menu .current_page_item > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_header_sub_menu_active_link_color').get());
+        }
+    );
 //Active Sub Menu Links Hover Color
-    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a").hover(
+    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a,.res-transparent-header .main-navigation .menu .sub-menu li:hover > .res-iconify svg").hover(
         function() {
             $(this).css("color", api('responsive_transparent_header_sub_menu_link_hover_color').get());
         },
 
         function() {
             $(this).css("color", api('responsive_transparent_header_sub_menu_link_color').get());
+        }
+    );
+    $(".res-transparent-header .main-navigation .menu .sub-menu li > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_transparent_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_transparent_header_sub_menu_link_color').get());
         }
     );
 //Active Sub Menu Links Hover Color
