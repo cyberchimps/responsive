@@ -366,6 +366,40 @@
         }
     );
 
+    // Body -> Background
+    // Background Image - Position
+    api( 'responsive_site_background_img_position', function( value ) {     
+        value.bind( function ( newval ) {  
+            let posi = newval.replace( '-', ' ' );
+            console.log( posi );  
+            $( 'body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width' ).css( 'background-position', posi );
+        } );
+    } );
+
+    // Body -> Background
+    // Background Image - Attachment
+    api( 'responsive_site_background_image_attachment', function( value ) {
+        value.bind( function ( newval ) {
+            $( 'body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width' ).css( 'background-attachment', newval );
+        } );
+    } );
+
+    // Body -> Background
+    // Background Image - Repeat
+    api( 'responsive_site_background_image_repeat', function( value ) {
+        value.bind( function ( newval ) {
+            $( 'body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width' ).css( 'background-repeat', newval );
+        } );
+    } );
+
+    // Body -> Background
+    // Background Image - Size
+    api( 'responsive_site_background_image_size', function( value ) {
+        value.bind( function ( newval ) {
+            $( 'body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width' ).css( 'background-size', newval );
+        } );
+    } );
+
     //Scroll To Top
     //Icon Position
     api( 'responsive_scroll_to_top_icon_position', function( value ) {

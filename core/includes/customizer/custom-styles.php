@@ -626,6 +626,36 @@ function responsive_customizer_styles() {
 		}';
 	}
 
+	// Site Background Image.
+	$site_background_img_new_posi  = esc_html( get_theme_mod( 'responsive_site_background_img_position', 'left-top' ) );
+	$site_background_img_new_posi  = str_replace( '-', ' ', $site_background_img_new_posi );
+	$site_background_image_attach  = esc_html( get_theme_mod( 'responsive_site_background_image_attachment', 'fixed' ) );
+	$site_background_image_repeats = esc_html( get_theme_mod( 'responsive_site_background_image_repeat', 'no-repeat' ) );
+	$site_background_image_sizes   = esc_html( get_theme_mod( 'responsive_site_background_image_size', 'auto' ) );
+	if ( $site_background_img_new_posi ) {
+		$custom_css .= "body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width {
+			background-position: {$site_background_img_new_posi};
+		}";
+	}
+
+	if ( $site_background_image_attach ) {
+		$custom_css .= "body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width {
+			background-attachment: {$site_background_image_attach};
+		}";
+	}
+
+	if ( $site_background_image_repeats ) {
+		$custom_css .= "body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width {
+			background-repeat: {$site_background_image_repeats};
+		}";
+	}
+
+	if ( $site_background_image_sizes ) {
+		$custom_css .= "body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width {
+			background-size: {$site_background_image_sizes};
+		}";
+	}
+
 	// Site Content Padding.
 	$site_content_padding_right  = esc_html( get_theme_mod( 'responsive_site_content_right_padding' ) );
 	$site_content_padding_left   = esc_html( get_theme_mod( 'responsive_site_content_left_padding' ) );

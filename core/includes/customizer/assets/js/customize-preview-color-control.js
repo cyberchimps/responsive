@@ -943,7 +943,7 @@
     );
 
     //Active Sub Menu Links Hover Color
-    $(".main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a,").hover(
+    $(".main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a").hover(
         function() {
             $(this).css("color", api('responsive_header_sub_menu_link_hover_color').get());
         },
