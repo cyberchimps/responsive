@@ -912,12 +912,6 @@ function responsive_customizer_styles() {
 
 	}
   	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
-		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
-			bottom:{$header_tablet_padding_bottom}px;
-		}
-		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
-			top:{$header_tablet_padding_top}px;
-		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 75px;
 		}
@@ -961,13 +955,6 @@ function responsive_customizer_styles() {
 		}
 	}
 	@media screen and ( max-width: 576px ) {
-		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
-			bottom:{$header_mobile_padding_bottom}px;
-		}
-		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
-			top:{$header_mobile_padding_top}px;
-		}
-
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 15px;
 		}
@@ -1387,33 +1374,6 @@ function responsive_customizer_styles() {
 					background-color: {$header_background_color};
 				}
 				";
-	}
-
-	$responsive_mobile_logo_option = get_theme_mod( 'responsive_mobile_logo_option', 0 );
-	$responsive_mobile_logo        = get_theme_mod( 'responsive_mobile_logo' );
-	if ( '' !== $responsive_mobile_logo && '1' == $responsive_mobile_logo_option ) {
-		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
-			.mobile-custom-logo {
-				display: none;
-			}
-			.custom-logo-link {
-				display: block;
-			}
-		}
-		";
-	} else {
-		$custom_css .= '.custom-logo-link {
-			display: block;
-		}';
-	}
-	$responsive_hide_last_item_mobile_menu = get_theme_mod( 'responsive_hide_last_item_mobile_menu', 0 );
-	if ( '1' == $responsive_hide_last_item_mobile_menu ) {
-		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
-			.res-cart-link, .res-last-item {
-				display: none;
-			}
-		}
-		";
 	}
 
 	$responsive_mobile_logo_option = get_theme_mod( 'responsive_mobile_logo_option', 0 );
