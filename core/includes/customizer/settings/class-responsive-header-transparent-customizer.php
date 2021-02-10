@@ -71,8 +71,8 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 					array(
 						'label'           => esc_html__( 'Logo For Transparent Header', 'responsive' ),
 						'section'         => 'responsive_header_transparent',
-						'flex-height'     => true,
-						'flex-width'      => true,
+						'flex_height'     => true,
+						'flex_width'      => true,
 						'height'          => 100, // pixels.
 						'width'           => 300, // pixels.
 						'priority'        => 28,
