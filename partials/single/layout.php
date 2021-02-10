@@ -65,12 +65,7 @@ Responsive\responsive_entry_before();
 		?>
 	</div><!-- end of .post-entry -->
 
-	<?php if ( has_tag() ) { ?>
-		<div class="post-data">
-			<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-		</div><!-- end of .post-data -->
-		<?php
-	}
+	<?php
 	edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) );
 
 	Responsive\responsive_entry_bottom();

@@ -193,7 +193,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_blog_entry_meta',
 				array(
-					'default'           => apply_filters( 'responsive_blog_meta_default', array( 'author', 'date', 'categories', 'comments' ) ),
+					'default'           => apply_filters( 'responsive_blog_meta_default', array( 'author', 'date', 'categories', 'comments', 'tag' ) ),
 					'sanitize_callback' => 'responsive_sanitize_multi_choices',
 					'transport'         => 'refresh',
 				)
@@ -215,6 +215,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 								'date'       => esc_html__( 'Date', 'responsive' ),
 								'categories' => esc_html__( 'Categories', 'responsive' ),
 								'comments'   => esc_html__( 'Comments', 'responsive' ),
+								'tag'        => esc_html__( 'Tag', 'responsive' ),
 							)
 						),
 					)
