@@ -63,11 +63,11 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$mobile_menu_breakpoint_label = __( 'Breakpoint', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_menu_breakpoint_label, 'responsive_header_menu_layout', 20, 767, 'responsive_disabled_mobile_menu', 4096, 1, 'postMessage' );
 
-			// Hamburger Menu Label
+			// Hamburger Menu Label.
 			$hamburger_menu_label = __( 'Menu Label', 'responsive' );
 			responsive_text_control( $wp_customize, 'hamburger_menu_label_text', $hamburger_menu_label, 'responsive_header_menu_layout', 30, '', 'responsive_disabled_mobile_menu', 'sanitize_text_field', 'text', 'postMessage' );
 
-			// Hamburger Menu Label Font Size
+			// Hamburger Menu Label Font Size.
 			$hamburger_menu_label_font_size = __( 'Menu Label Font Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'hamburger_menu_label_font_size', $hamburger_menu_label_font_size, 'responsive_header_menu_layout', 30, 20, 'responsive_disabled_mobile_menu', 100, 1, 'postMessage' );
 

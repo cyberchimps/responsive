@@ -425,12 +425,12 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_hamburger_menu_label_text',
 		array(
-			'selector' 						=> '.hamburger-menu-label',
+			'selector'            => '.hamburger-menu-label',
 			'container_inclusive' => false,
-      'render_callback' 		=> function() {
-				echo responsive_hamburger_menu_label();
+			'render_callback'     => function() {
+				printf( esc_html( responsive_hamburger_menu_label() ) );
 			},
-			'fallback_refresh' 		=> true
+			'fallback_refresh'    => true,
 		)
 	);
 }

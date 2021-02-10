@@ -1327,9 +1327,9 @@ function responsive_customizer_styles() {
 		}
 	}
 
-	// Hamburger Menu Width Style
+	// Hamburger Menu Width Style.
 	$hamburger_menu_width_style = get_theme_mod( 'responsive_hamburger_menu_label_text', '' );
-	if( '' !== $hamburger_menu_width_style ) {
+	if ( '' !== $hamburger_menu_width_style ) {
 		$custom_css .= ".main-navigation .menu-toggle {
 			width: auto;
 			padding-left: 10px;
@@ -1341,9 +1341,9 @@ function responsive_customizer_styles() {
 		}";
 	}
 
-	// Hamburger Menu Label Font Size
+	// Hamburger Menu Label Font Size.
 	$hamburger_menu_label_font_value = get_theme_mod( 'responsive_hamburger_menu_label_font_size', 20 );
-	if( $hamburger_menu_label_font_value ) {
+	if ( $hamburger_menu_label_font_value ) {
 		$custom_css .= ".hamburger-menu-label {
 			font-size: {$hamburger_menu_label_font_value}px;
 		}";
