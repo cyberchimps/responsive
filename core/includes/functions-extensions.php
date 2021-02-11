@@ -98,13 +98,16 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				}
 			} elseif ( is_category() ) {
 				$this_cat = get_category( get_query_var( 'cat' ), false );
-				if ( 0 != $this_cat->parent ) {
+				if ( 0 !== $this_cat->parent ) {
 					++$position;
-					$parent       = get_category( $this_cat->parent );
+					$parent_all   = explode( '/', get_category_parents( $this_cat->parent ) );
+					$parent_count = count( $parent_all );
 					$cats         = get_category_parents( $this_cat->parent, true, $delimiter );
 					$cats         = str_replace( '<a', $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
-					$cats         = str_replace( $parent->name, '<span itemprop="name">' . $parent->name . '</span>' . $after_link, $cats );
+					for ( $i = 0; $i < $parent_count - 1; $i++ ) {
+						$cats = str_replace( $parent_all[ $i ], '<span itemprop="name">' . $parent_all[ $i ] . '</span>' . $after_link, $cats );
+					}
 					$html_output .= $cats;
 
 				}
