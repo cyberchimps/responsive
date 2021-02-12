@@ -115,7 +115,7 @@ function responsive_customizer_styles() {
 	$custom_css .= "
 	.container,
 	[class*='__inner-container'],
-	.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper {
+	.site-header-full-width-main-navigation.site-mobile-header-layout-vertical:not(.responsive-site-full-width) .main-navigation-wrapper {
 		max-width: {$container_max_width}px;
 	}
 	.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
@@ -753,7 +753,7 @@ function responsive_customizer_styles() {
 		// Toggle Button Color.
 		$header_menu_toggle_background_color = esc_html( get_theme_mod( 'responsive_header_menu_toggle_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle_background' ) ) );
 		$header_menu_toggle_color            = esc_html( get_theme_mod( 'responsive_header_menu_toggle_color', Responsive\Core\get_responsive_customizer_defaults( 'header_menu_toggle' ) ) );
-		
+
 		// Header Widgets Color.
 		$header_widget_text_color       = esc_html( get_theme_mod( 'responsive_header_widget_text_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_text' ) ) );
 		$header_widget_background_color = esc_html( get_theme_mod( 'responsive_header_widget_background_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_background' ) ) );
@@ -940,6 +940,12 @@ function responsive_customizer_styles() {
 
 	}
   	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
+		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
+			bottom:{$header_tablet_padding_bottom}px;
+		}
+		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
+			top:{$header_tablet_padding_top}px;
+		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 75px;
 		}
@@ -983,6 +989,12 @@ function responsive_customizer_styles() {
 		}
 	}
 	@media screen and ( max-width: 576px ) {
+		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
+			bottom:{$header_mobile_padding_bottom}px;
+		}
+		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
+			top:{$header_mobile_padding_top}px;
+		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 15px;
 		}
