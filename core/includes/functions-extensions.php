@@ -106,7 +106,8 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 					$cats         = str_replace( '<a', $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att, $cats );
 					$cats         = str_replace( '</a>', '</a>' . $after_link, $cats );
 					for ( $i = 0; $i < $parent_count - 1; $i++ ) {
-						$cats = str_replace( $parent_all[ $i ], '<span itemprop="name">' . $parent_all[ $i ] . '</span>' . $after_link, $cats );
+						$to_be_replaced = $parent_all[ $i ] . '</a>';
+						$cats           = str_replace( $to_be_replaced, '<span itemprop="name">' . $parent_all[ $i ] . '</span></a>' . $after_link, $cats );
 					}
 					$html_output .= $cats;
 
@@ -147,7 +148,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 					$count   = $cat[0]->count;
 					$cats    = get_category_parents( $cat[0], true, $delimiter );
 					$term_id = $cat[0]->term_id;
-					while ( $term_id ) {
+					while ( true === $term_id ) {
 						// Get the parent term.
 						$term    = get_term( $term_id );
 						$name    = $term->name;
