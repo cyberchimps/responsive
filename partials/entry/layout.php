@@ -24,33 +24,12 @@ if ( 'excerpt' === $responsive_blog_entry_content_type ) {
 
 Responsive\responsive_entry_before();
 
-if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-	$date_box_toggle_value = responsive_date_box_toggle_value();
-} else {
-	$date_box_toggle_value = 0;
-}
-
 ?>
 <div class="entry-column">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 		<?php Responsive\responsive_entry_top(); ?>
 
 		<div class="post-entry">
-
-		<?php
-		if ( $date_box_toggle_value ) {
-			$datebox_day   = esc_html( get_the_date( 'j' ) );
-			$datebox_month = esc_html( get_the_date( 'M' ) );
-			$datebox_year  = esc_html( get_the_date( 'Y' ) );
-			echo '<div class="responsive-date-box">';
-				echo '<a href="' . get_permalink() . '" class="date-box-links">';
-					echo '<div class="date-box-month">' . $datebox_month . '</div>';
-					echo '<div class="date-box-day">' . $datebox_day . '</div>';
-					echo '<div class="date-box-year">' . $datebox_year . '</div>';
-				echo '</a>';
-			echo '</div>';
-		}
-		?>
 
 		<?php
 		// Get posts format.

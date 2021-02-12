@@ -915,3 +915,34 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 }
 
 add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_main_menu', 10, 3 );
+
+if ( ! function_exists( 'responsive_display_date_box' ) ) {
+	/**
+	 * Display date box on blog/archive page.
+	 */
+	function responsive_display_date_box( $date_box_toggle, $toggle ) {
+		if ( $date_box_toggle ) {
+			$datebox_day   = get_the_date( 'j' );
+			$datebox_month = get_the_date( 'M' );
+			$datebox_year  = get_the_date( 'Y' );
+			if ( $toggle ) {
+				$date_box_display_value = 'absolute';
+				$date_box_special_class = 'with-thumbnail';
+			} else {
+				$date_box_display_value = '';
+				$date_box_special_class = 'without-thumbnail';
+			}
+			echo '<div class="datebox-container">';
+				echo '<div class="responsive-date-box ' . esc_html( $date_box_special_class ) . '" style="position: ' . esc_html( $date_box_display_value ) . '">';
+					echo '<a href="' . esc_url( get_permalink() ) . '" class="date-box-links">';
+						echo '<div class="date-box-month">' . esc_html( $datebox_month ) . '</div>';
+						echo '<div class="date-box-day">' . esc_html( $datebox_day ) . '</div>';
+						echo '<div class="date-box-year">' . esc_html( $datebox_year ) . '</div>';
+					echo '</a>';
+				echo '</div>';
+			echo '</div>';
+		} else {
+			return;
+		}
+	}
+}
