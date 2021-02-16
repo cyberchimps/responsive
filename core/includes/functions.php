@@ -720,7 +720,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'scroll-to-top-aligmnment-' . get_theme_mod( 'responsive_scroll_to_top_icon_aligmnment', 'right' );
 
 	// Blog/Archive layout classes.
-	if ( class_exists( 'Responsive_Addons_Pro' ) && ( ! is_front_page() && is_home() ) ) {
+	if ( class_exists( 'Responsive_Addons_Pro' ) && ! is_front_page() || is_home() ) {
 		if ( get_theme_mod( 'responsive_blog_entry_columns' ) ) {
 			$blog_entry_columns_count = esc_html( get_theme_mod( 'responsive_blog_entry_columns' ) );
 		} else {
