@@ -370,8 +370,7 @@
     // Background Image - Position
     api( 'responsive_site_background_img_position', function( value ) {     
         value.bind( function ( newval ) {  
-            let posi = newval.replace( '-', ' ' );
-            console.log( posi );  
+            let posi = newval.replace( '-', ' ' );  
             $( 'body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width' ).css( 'background-position', posi );
         } );
     } );
