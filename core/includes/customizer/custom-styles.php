@@ -630,8 +630,8 @@ function responsive_customizer_styles() {
 	$site_background_img_new_posi  = esc_html( get_theme_mod( 'responsive_site_background_img_position', 'left-top' ) );
 	$site_background_img_new_posi  = str_replace( '-', ' ', $site_background_img_new_posi );
 	$site_background_image_attach  = esc_html( get_theme_mod( 'responsive_site_background_image_attachment', 'fixed' ) );
-	$site_background_image_repeats = esc_html( get_theme_mod( 'responsive_site_background_image_repeat', 'no-repeat' ) );
-	$site_background_image_sizes   = esc_html( get_theme_mod( 'responsive_site_background_image_size', 'auto' ) );
+	$site_background_image_repeats = esc_html( get_theme_mod( 'responsive_site_background_image_repeat', 'repeat' ) );
+	$site_background_image_sizes   = esc_html( get_theme_mod( 'responsive_site_background_image_size', 'cover' ) );
 	if ( $site_background_img_new_posi ) {
 		$custom_css .= "body.custom-background.responsive-site-contained, body.custom-background.responsive-site-full-width {
 			background-position: {$site_background_img_new_posi};

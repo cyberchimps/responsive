@@ -90,7 +90,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 				'repeat-x'  => esc_html__( 'Repeat Horizontally', 'responsive' ),
 				'repeat-y'  => esc_html__( 'Repeat Vertically', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'site_background_image_repeat', $site_background_image_repeat, 'responsive_colors', 20, $site_background_image_repeat_choices, 'no-repeat', null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'site_background_image_repeat', $site_background_image_repeat, 'responsive_colors', 20, $site_background_image_repeat_choices, 'repeat', null, 'postMessage' );
 
 			// Background Image Size.
 			$site_background_image_size         = esc_html__( 'Size', 'responsive' );
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 				'cover'   => esc_html__( 'Cover', 'responsive' ),
 				'contain' => esc_html__( 'Contain', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'site_background_image_size', $site_background_image_size, 'responsive_colors', 20, $site_background_image_size_choices, 'auto', null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'site_background_image_size', $site_background_image_size, 'responsive_colors', 20, $site_background_image_size_choices, 'cover', null, 'postMessage' );
 
 			// Box Background Color.
 			$box_background_color_label = __( 'Box Background Color', 'responsive' );
