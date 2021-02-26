@@ -8,6 +8,18 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/26/2021) = Added - Version 4.5.5
+[+] = Feature = Main Menu - Added Submenu container border option
+[+] = Feature = Main Menu - Added Submenu divider option
+[+] = Feature = Toggle Button Style added for Primary Header
+[+] = Feature = Toggle Button Label added for Primary Header
+[+] = Feature = Introduced background image options
+[+] = Feature = Option to hide/show 'tags' on blog page and single post page
+[+] = Feature = Add Paragraph Margin Bottom Option
+[!] = Fix = Main Menu - If last item in menu is button, global button settings should apply to it
+[!] = Fix = Main Menu - Toggle button displayed at wrong location in customizer
+[!] = Fix = Breadcrumbs issue with sub categories
+
 (01/25/2021) = Added - Version 4.5.4
 [*] = Fix = Mobile menu links are not clickable
 

@@ -568,6 +568,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							array(
 								'transport'         => $transport,
 								'sanitize_callback' => 'sanitize_text_field',
+								'default'           => $default,
 							)
 						);
 
@@ -576,6 +577,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							array(
 								'transport'         => $transport,
 								'sanitize_callback' => 'sanitize_text_field',
+								'default'           => $default,
 							)
 						);
 
@@ -801,7 +803,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					$mobile_val = isset( $mobile_get_mod[ $attribute ] ) ? $mobile_get_mod[ $attribute ] : '';
 
 					// If there is a value lets do something.
-					if ( $val && $default != $val ) {
+					if ( ( $val && $default !== $val ) || $default ) {
 
 						// Sanitize.
 						$val = str_replace( '"', '', $val );

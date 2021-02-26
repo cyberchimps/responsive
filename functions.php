@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.5.4' );
+define( 'RESPONSIVE_THEME_VERSION', '4.5.5' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -414,6 +414,23 @@ function responsive_edit_customize_register( $wp_customize ) {
 		array(
 			'selector' => '#site-branding',
 
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_date_box_toggle',
+		array(
+			'selector' => '.responsive-date-box',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_hamburger_menu_label_text',
+		array(
+			'selector'            => '.hamburger-menu-label',
+			'container_inclusive' => false,
+			'render_callback'     => function() {
+				printf( esc_html( responsive_hamburger_menu_label() ) );
+			},
+			'fallback_refresh'    => true,
 		)
 	);
 }
@@ -871,14 +888,14 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 }
 function responsive_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 
-    // Add [aria-haspopup] and [aria-expanded] to menu items that have children
-    $item_has_children = in_array( 'menu-item-has-children', $item->classes );
-    if ( $item_has_children ) {
-        $atts['aria-haspopup'] = 'true';
-        $atts['aria-expanded'] = 'false';
-    }
+	// Add [aria-haspopup] and [aria-expanded] to menu items that have children
+	$item_has_children = in_array( 'menu-item-has-children', $item->classes );
+	if ( $item_has_children ) {
+		$atts['aria-haspopup'] = 'true';
+		$atts['aria-expanded'] = 'false';
+	}
 
-    return $atts;
+	return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'responsive_nav_menu_link_attributes', 10, 4 );
 
@@ -886,7 +903,7 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 	if ( 'header-menu' === $args->theme_location ) {
 			if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
 				$args->after = '<span class="res-iconify">
-				<svg width="12" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke="black" stroke-linecap="round" stroke-width="5" /></svg>
+				<svg width="10" height="6" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
 				</span>';
 			} else {
 				$args->after = '';
@@ -898,3 +915,34 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 }
 
 add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_main_menu', 10, 3 );
+
+if ( ! function_exists( 'responsive_display_date_box' ) ) {
+	/**
+	 * Display date box on blog/archive page.
+	 */
+	function responsive_display_date_box( $date_box_toggle, $toggle ) {
+		if ( $date_box_toggle ) {
+			$datebox_day   = get_the_date( 'j' );
+			$datebox_month = get_the_date( 'M' );
+			$datebox_year  = get_the_date( 'Y' );
+			if ( $toggle ) {
+				$date_box_display_value = 'absolute';
+				$date_box_special_class = 'with-thumbnail';
+			} else {
+				$date_box_display_value = '';
+				$date_box_special_class = 'without-thumbnail';
+			}
+			echo '<div class="datebox-container">';
+				echo '<div class="responsive-date-box ' . esc_html( $date_box_special_class ) . '" style="position: ' . esc_html( $date_box_display_value ) . '">';
+					echo '<a href="' . esc_url( get_permalink() ) . '" class="date-box-links">';
+						echo '<div class="date-box-month">' . esc_html( $datebox_month ) . '</div>';
+						echo '<div class="date-box-day">' . esc_html( $datebox_day ) . '</div>';
+						echo '<div class="date-box-year">' . esc_html( $datebox_year ) . '</div>';
+					echo '</a>';
+				echo '</div>';
+			echo '</div>';
+		} else {
+			return;
+		}
+	}
+}

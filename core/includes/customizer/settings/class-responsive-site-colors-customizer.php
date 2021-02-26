@@ -59,6 +59,48 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$site_background_label = esc_html__( 'Backgrounds', 'responsive' );
 			responsive_separator_control( $wp_customize, 'responsive_site_background_separator', $site_background_label, 'responsive_colors', 10 );
 
+			// Background Image Position.
+			$site_background_img_position     = esc_html__( 'Image Position', 'responsive' );
+			$site_background_img_posi_choices = array(
+				'left-top'      => esc_html__( 'Left Top', 'responsive' ),
+				'left-center'   => esc_html__( 'Left Center', 'responsive' ),
+				'left-bottom'   => esc_html__( 'Left Bottom', 'responsive' ),
+				'right-top'     => esc_html__( 'Right Top', 'responsive' ),
+				'right-center'  => esc_html__( 'Right Center', 'responsive' ),
+				'right-bottom'  => esc_html__( 'Right Bottom', 'responsive' ),
+				'center-top'    => esc_html__( 'Center Top', 'responsive' ),
+				'center-center' => esc_html__( 'Center Center', 'responsive' ),
+				'center-bottom' => esc_html__( 'Center Bottom', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'site_background_img_position', $site_background_img_position, 'responsive_colors', 20, $site_background_img_posi_choices, 'left-top', null, 'postMessage' );
+
+			// Background Image Attachment.
+			$site_background_image_attachment         = esc_html__( 'Attachment', 'responsive' );
+			$site_background_image_attachment_choices = array(
+				'fixed'  => esc_html__( 'Fixed', 'responsive' ),
+				'scroll' => esc_html__( 'Scroll', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'site_background_image_attachment', $site_background_image_attachment, 'responsive_colors', 20, $site_background_image_attachment_choices, 'fixed', null, 'postMessage' );
+
+			// Background Image Repeat.
+			$site_background_image_repeat         = esc_html__( 'Repeat', 'responsive' );
+			$site_background_image_repeat_choices = array(
+				'no-repeat' => esc_html__( 'No Repeat', 'responsive' ),
+				'repeat'    => esc_html__( 'Repeat All', 'responsive' ),
+				'repeat-x'  => esc_html__( 'Repeat Horizontally', 'responsive' ),
+				'repeat-y'  => esc_html__( 'Repeat Vertically', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'site_background_image_repeat', $site_background_image_repeat, 'responsive_colors', 20, $site_background_image_repeat_choices, 'repeat', null, 'postMessage' );
+
+			// Background Image Size.
+			$site_background_image_size         = esc_html__( 'Size', 'responsive' );
+			$site_background_image_size_choices = array(
+				'auto'    => esc_html__( 'Auto', 'responsive' ),
+				'cover'   => esc_html__( 'Cover', 'responsive' ),
+				'contain' => esc_html__( 'Contain', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'site_background_image_size', $site_background_image_size, 'responsive_colors', 20, $site_background_image_size_choices, 'cover', null, 'postMessage' );
+
 			// Box Background Color.
 			$box_background_color_label = __( 'Box Background Color', 'responsive' );
 

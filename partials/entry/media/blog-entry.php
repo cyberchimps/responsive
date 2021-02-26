@@ -12,6 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Return if there isn't a thumbnail defined.
 if ( ! has_post_thumbnail() ) {
+	if ( class_exists( 'Responsive_Addons_Pro' ) && function_exists( 'responsive_date_box_toggle_value' ) ) {
+		$date_box_toggle_value = responsive_date_box_toggle_value();
+	} else {
+		$date_box_toggle_value = 0;
+	}
+	// Display date box.
+	if ( function_exists( 'responsive_display_date_box' ) ) {
+		responsive_display_date_box( $date_box_toggle_value, has_post_thumbnail() );
+	}
 	return;
 }
 
@@ -42,6 +51,18 @@ if ( responsive_get_schema_markup( 'image' ) ) {
 $caption = get_the_post_thumbnail_caption(); ?>
 
 <div class="thumbnail">
+
+	<?php
+	if ( class_exists( 'Responsive_Addons_Pro' ) && function_exists( 'responsive_date_box_toggle_value' ) ) {
+		$date_box_toggle_value = responsive_date_box_toggle_value();
+	} else {
+		$date_box_toggle_value = 0;
+	}
+	// Display date box.
+	if ( function_exists( 'responsive_display_date_box' ) ) {
+		responsive_display_date_box( $date_box_toggle_value, has_post_thumbnail() );
+	}
+	?>
 
 	<a href="<?php the_permalink(); ?>" class="thumbnail-link" <?php responsive_schema_markup( 'url' ); ?>>
 

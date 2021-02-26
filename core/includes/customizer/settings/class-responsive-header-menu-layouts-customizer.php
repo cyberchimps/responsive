@@ -63,6 +63,14 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$mobile_menu_breakpoint_label = __( 'Breakpoint', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_menu_breakpoint_label, 'responsive_header_menu_layout', 20, 767, 'responsive_disabled_mobile_menu', 4096, 1, 'postMessage' );
 
+			// Hamburger Menu Label.
+			$hamburger_menu_label = __( 'Menu Label', 'responsive' );
+			responsive_text_control( $wp_customize, 'hamburger_menu_label_text', $hamburger_menu_label, 'responsive_header_menu_layout', 30, '', 'responsive_disabled_mobile_menu', 'sanitize_text_field', 'text', 'postMessage' );
+
+			// Hamburger Menu Label Font Size.
+			$hamburger_menu_label_font_size = __( 'Menu Label Font Size', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'hamburger_menu_label_font_size', $hamburger_menu_label_font_size, 'responsive_header_menu_layout', 30, 20, 'responsive_disabled_mobile_menu', 100, 1, 'postMessage' );
+
 			// Mobile Menu Style.
 			$mobile_menu_style_label   = __( 'Mobile Menu Style', 'responsive' );
 			$mobile_menu_style_choices = array(
@@ -71,6 +79,23 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'sidebar'    => esc_html__( 'Sidebar', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'mobile_menu_style', $mobile_menu_style_label, 'responsive_header_menu_layout', 30, $mobile_menu_style_choices, 'dropdown', 'responsive_disabled_mobile_menu' );
+
+			// Mobile Menu Toggle style
+			$mobile_menu_toggle_style         = __( 'Mobile Menu Toggle Style', 'responsive' );
+			$mobile_menu_toggle_style_choices = array(
+				'fill'    => esc_html__( 'Fill', 'responsive' ),
+				'outline' => esc_html__( 'Outline', 'responsive' ),
+				'minimal' => esc_html__( 'Minimal', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'mobile_menu_toggle_style', $mobile_menu_toggle_style, 'responsive_header_menu_layout', 30, $mobile_menu_toggle_style_choices, 'fill', 'responsive_disabled_mobile_menu');
+			
+			// Mobile Menu Border Color
+			$menu_menu_toggle_border_color = __( 'Mobile Menu Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_menu_toggle_border', $menu_menu_toggle_border_color, 'responsive_header_menu_layout', 50, Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ), 'responsive_toggle_border_color' );
+			
+			// Mobile Menu Toggle Buttons Radius.
+			$button_radius_label = __( 'Mobile Menu Button Radius (px)', 'responsive' );
+			responsive_number_control( $wp_customize, 'menu_button_radius', $button_radius_label, 'responsive_header_menu_layout', 30, Responsive\Core\get_responsive_customizer_defaults( 'menu_button_radius' ), 'responsive_toggle_border_radius' );
 
 			// Sidebar Menu Alignment.
 			$sidebar_menu_alignment_label   = esc_html__( 'Sidebar Menu Alignment', 'responsive' );
@@ -109,15 +134,32 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$hide_last_item_mobile_menu_label = __( 'Hide Last item in Mobile Menu', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'hide_last_item_mobile_menu', $hide_last_item_mobile_menu_label, 'responsive_header_menu_layout', 43, 0, null );
 
+			$sub_menu_separator_label = esc_html__( 'Sub Menu', 'responsive' );
+			responsive_separator_control( $wp_customize, 'sub_menu_separator', $sub_menu_separator_label, 'responsive_header_menu_layout', 44 );
+
+			$sub_menu_border = esc_html__( 'Container Border', 'responsive' );
+			responsive_padding_control( $wp_customize, 'sub_menu_border', 'responsive_header_menu_layout', 45, 0, 0, null, $sub_menu_border );
+
+			// Border Color.
+			$sub_menu_border_color_label = __( 'Container Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'sub_menu_border', $sub_menu_border_color_label, 'responsive_header_menu_layout', 46, '' );
+
+			// Enable Sub Menu Divider
+			$sub_menu_divider_label = __( 'Item Divider', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_label, 'responsive_header_menu_layout', 47, 0, null );
+
+			// Border Color.
+			$sub_menu_divider_color_label = __( 'Divider Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_color_label, 'responsive_header_menu_layout', 48, '#eaeaea', null );
+
 			/**
 			 * Title Heading.
 			 */
 			$header_menu_color_separator_label = esc_html__( 'Main Menu Color', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_menu_color_separator', $header_menu_color_separator_label, 'responsive_header_menu_layout', 45 );
+			responsive_separator_control( $wp_customize, 'header_menu_color_separator', $header_menu_color_separator_label, 'responsive_header_menu_layout', 49 );
 
 			// Background Color.
 			$menu_background_color_label = __( 'Background Color', 'responsive' );
-
 			responsive_color_control( $wp_customize, 'header_menu_background', $menu_background_color_label, 'responsive_header_menu_layout', 50, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_background' ), 'responsive_active_vertical_header' );
 
 			$mobile_menu_background_color_label = __( 'Mobile Menu Background Color', 'responsive' );
