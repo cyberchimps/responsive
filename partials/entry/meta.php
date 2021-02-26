@@ -107,6 +107,23 @@ do_action( 'responsive_before_blog_entry_meta' );
 			</span>
 			<?php
 		}
+		if ( 'tag' === $section ) {
+			?>
+			<?php if ( has_tag() ) { ?>
+				<span class="entry-tag">
+						<span class="post-data">
+							<?php
+							/* translators: %s: tag list */
+							printf( esc_html__( 'Tagged with %s', 'responsive' ), wp_kses_post( get_the_tag_list( __( ', ', 'responsive' ) ) ) );
+							?>
+						</span><!-- end of .post-data -->
+						<?php
+				}
+				?>
+				</span>
+			</span>
+			<?php
+		}
 	}
 	?>
 </div><!-- end of .post-meta -->

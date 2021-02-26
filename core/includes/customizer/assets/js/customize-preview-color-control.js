@@ -239,6 +239,35 @@
         } );
     } );
 
+    //Date Box Background Color
+    api( 'responsive_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-date-box').css('background-color', newval );
+        } );
+    } );
+
+    //Date box Font Color
+    api( 'responsive_link_color', function( value ) {
+        value.bind( function( newval ) {
+            let backgroundColor = newval;
+            hexcolor = backgroundColor.replace("#", "");
+            let r = parseInt(hexcolor.substr(0,2),16);
+            let g = parseInt(hexcolor.substr(2,2),16);
+            let b = parseInt(hexcolor.substr(4,2),16);
+            let o = Math.round(((parseInt(r) * 299) + (parseInt(g) * 587) + (parseInt(b) * 114)) /1000);
+            if( o > 125 ) {
+                $('.date-box-day').css("color", "black");
+                $('.date-box-month').css("color", "black");
+                $('.date-box-year').css("color", "black");
+            }
+            else {
+                $('.date-box-day').css("color", "white");
+                $('.date-box-month').css("color", "white");
+                $('.date-box-year').css("color", "white");
+            }
+        } );
+    } );
+
     //Link Hover Color
     api( 'responsive_link_hover_color', function( value ) {
         value.bind( function( newval ) {
@@ -383,10 +412,22 @@
         } );
     } );
 
+    api( 'responsive_header_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .res-iconify svg').css('stroke', newval );
+        } );
+    } );
+
 	//Active Menu Link Color
     api( 'responsive_header_active_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu .current_page_item > a,.main-navigation .menu .current-menu-item > a,.main-navigation .menu .current-menu-item.current_page_item a').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_header_active_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu > li.current-menu-item > .res-iconify svg').css('stroke', newval );
         } );
     } );
 
@@ -401,6 +442,12 @@
     api( 'responsive_header_sub_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .children li a,.main-navigation .sub-menu li a').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_header_sub_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .sub-menu li .res-iconify svg').css('stroke', newval );
         } );
     } );
 
@@ -427,10 +474,22 @@
     //Menu Toggle Color
     api( 'responsive_header_menu_toggle_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu-toggle').css('color', newval );
+         $('.main-navigation .menu-toggle').css('color', newval );
         } );
     } );
 
+    api( 'responsive_mobile_menu_toggle_border_color', function( value ) {
+        value.bind( function( newval ) {
+         $('.main-navigation .menu-toggle').css({'border-color': newval});
+         $('.main-navigation.toggled .menu-toggle').css({'border-color': newval} );
+        } );
+    } );
+    //Sub Menu divider
+    api( 'responsive_sub_menu_divider_color', function( value ) {
+        value.bind( function( newval ) {
+         $('.main-navigation .children li, .main-navigation .sub-menu li').css('border-color', newval );
+        } );
+    } );
     //Transparent Header Main Menu Colors Section
     //Background Color
     api( 'responsive_transparent_header_menu_background_color', function( value ) {
@@ -519,6 +578,12 @@
         } );
     } );
 
+    api( 'responsive_transparent_header_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .res-iconify svg').css('stroke', newval );
+        } );
+    } );
+
     //Sub Menu Background Color
     api( 'responsive_transparent_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
@@ -530,6 +595,12 @@
     api( 'responsive_transparent_header_sub_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.res-transparent-header .main-navigation .children li a,.res-transparent-header .main-navigation .sub-menu li a').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_transparent_header_sub_menu_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .sub-menu li .res-iconify svg').css('stroke', newval );
         } );
     } );
 
@@ -551,6 +622,13 @@
     api( 'responsive_transparent_header_active_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu > li.current_page_item > a,.main-navigation .menu > li.current-menu-item > a').css('color', newval );
+        } );
+    } );
+
+    //Active Menu Background Color
+    api( 'responsive_sub_menu_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .children, .main-navigation .sub-menu').css('border-color', newval );
         } );
     } );
 
@@ -806,6 +884,15 @@
             $(this).css("color", api('responsive_header_menu_link_color').get());
         }
     );
+    $(".main-navigation .menu li .res-iconify svg, .main-navigation .menu > li > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_header_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_header_menu_link_color').get());
+        }
+    );
     //Menu item link hover color
     $(".res-transparent-header .main-navigation .menu > li > a").hover(
         function() {
@@ -814,6 +901,15 @@
 
         function() {
             $(this).css("color", api('responsive_transparent_header_menu_link_color').get());
+        }
+    );
+    $(".res-transparent-header .main-navigation .menu li .res-iconify svg,.res-transparent-header .main-navigation .menu > li > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_transparent_header_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_transparent_header_menu_link_color').get());
         }
     );
     $(".res-transparent-header .main-navigation .menu > li.current_page_item > a,.res-transparent-header .main-navigation .menu > li.current-menu-item > a").hover(
@@ -836,6 +932,15 @@
             $(this).css("color", api('responsive_header_sub_menu_link_color').get());
         }
     );
+    $(".main-navigation .menu .sub-menu li > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_header_sub_menu_link_color').get());
+        }
+    );
 
     //Active Sub Menu Links Hover Color
     $(".main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a").hover(
@@ -847,14 +952,32 @@
             $(this).css("color", api('responsive_header_sub_menu_active_link_color').get());
         }
     );
+    $(".main-navigation .menu .sub-menu .current_page_item > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_header_sub_menu_active_link_color').get());
+        }
+    );
 //Active Sub Menu Links Hover Color
-    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a").hover(
+    $(".res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a,.res-transparent-header .main-navigation .menu .children li.current_page_item a,.res-transparent-header .main-navigation .menu .sub-menu li:hover > .res-iconify svg").hover(
         function() {
             $(this).css("color", api('responsive_transparent_header_sub_menu_link_hover_color').get());
         },
 
         function() {
             $(this).css("color", api('responsive_transparent_header_sub_menu_link_color').get());
+        }
+    );
+    $(".res-transparent-header .main-navigation .menu .sub-menu li > .res-iconify svg").hover(
+        function() {
+            $(this).css("stroke", api('responsive_transparent_header_sub_menu_link_hover_color').get());
+        },
+
+        function() {
+            $(this).css("stroke", api('responsive_transparent_header_sub_menu_link_color').get());
         }
     );
 //Active Sub Menu Links Hover Color

@@ -694,4 +694,94 @@
         } );
     } );
 
+    function responsive_dynamic_border(control, selector) {
+        var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
+        if( 0 == api( 'responsive_disable_mobile_menu').get()) {
+            mobile_menu_breakpoint = 0;
+        }
+
+        jQuery( 'style#responsive-'+control+'-border' ).remove();
+        var desktopBorder = 'border-top-width:'+ api('responsive_'+control+'_top_padding').get()+'px; '+'border-bottom-width:'+ api('responsive_'+control+'_bottom_padding').get()+'px; '+'border-left-width:'+ api('responsive_'+control+'_left_padding').get()+'px; '+'border-right-width:'+ api('responsive_'+control+'_right_padding').get()+'px;';
+        var tabletBorder = 'border-top-width:'+ api('responsive_'+control+'_tablet_top_padding').get()+'px; '+'border-bottom-width:'+ api('responsive_'+control+'_tablet_bottom_padding').get()+'px; '+'border-left-width:'+ api('responsive_'+control+'_tablet_left_padding').get()+'px; '+'border-right-width:'+ api('responsive_'+control+'_tablet_right_padding').get()+'px;';
+        var mobileBorder = 'border-top-width:'+ api('responsive_'+control+'_mobile_top_padding').get()+'px; '+'border-bottom-width:'+ api('responsive_'+control+'_mobile_bottom_padding').get()+'px; '+'border-left-width:'+ api('responsive_'+control+'_mobile_left_padding').get()+'px; '+'border-right-width:'+ api('responsive_'+control+'_mobile_right_padding').get()+'px;';
+        jQuery( 'head' ).append(
+            '<style id="responsive-'+control+'-border">'
+            + selector + '	{ ' + desktopBorder +' }'
+            + '@media (max-width: ' + mobile_menu_breakpoint +'px) {' + selector + '	{ ' + tabletBorder + ' } }'
+            + '@media (max-width: 544px) {' + selector + '	{ ' + mobileBorder + ' } }'
+            + '</style>'
+        );
+
+    }
+
+    // Sub Menu Border
+    api( 'responsive_sub_menu_border_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+    api( 'responsive_sub_menu_border_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+    api( 'responsive_sub_menu_border_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+    api( 'responsive_sub_menu_border_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
+    api( 'responsive_sub_menu_border_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
+    api( 'responsive_sub_menu_border_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
+    api( 'responsive_sub_menu_border_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
+    api( 'responsive_sub_menu_border_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
+    api( 'responsive_sub_menu_border_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
+    api( 'responsive_sub_menu_border_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
+    api( 'responsive_sub_menu_border_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
+    api( 'responsive_sub_menu_border_mobile_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
+        } );
+    } );
+
 } )( jQuery );

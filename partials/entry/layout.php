@@ -23,10 +23,12 @@ if ( 'excerpt' === $responsive_blog_entry_content_type ) {
 }
 
 Responsive\responsive_entry_before();
+
 ?>
 <div class="entry-column">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php responsive_schema_markup( 'creativework' ); ?>>
 		<?php Responsive\responsive_entry_top(); ?>
+
 		<div class="post-entry">
 
 		<?php
@@ -59,12 +61,7 @@ Responsive\responsive_entry_before();
 		</div>
 		<!-- end of .post-entry -->
 
-		<?php if ( has_tag() ) { ?>
-			<div class="post-data">
-				<?php the_tags( __( 'Tagged with:', 'responsive' ) . ' ', ', ', '<br />' ); ?>
-			</div><!-- end of .post-data -->
-			<?php
-		}
+		<?php
 		edit_post_link( __( '<span class="post-edit">Edit</span>', 'responsive' ) );
 
 		Responsive\responsive_entry_bottom();

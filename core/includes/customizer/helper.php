@@ -83,7 +83,7 @@ if ( ! function_exists( 'responsive_blog_entry_meta' ) ) {
 	function responsive_blog_entry_meta() {
 
 		// Default sections.
-		$sections = array( 'author', 'date', 'categories', 'comments', 'Tags' );
+		$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
 
 		// Get sections from Customizer.
 		$sections = get_theme_mod( 'responsive_blog_entry_meta', $sections );
@@ -180,6 +180,25 @@ if ( ! function_exists( 'responsive_header_elements' ) ) {
 	}
 }
 
+if ( ! function_exists( 'responsive_hamburger_menu_label' ) ) {
+	/**
+	 * Returns hamburger menu label value
+	 */
+	function responsive_hamburger_menu_label() {
+		$hamburger_menu_label_set_value = get_theme_mod( 'responsive_hamburger_menu_label_text', '' );
+		return $hamburger_menu_label_set_value;
+	}
+}
+
+if ( ! function_exists( 'responsive_hamburger_font_size_value' ) ) {
+	/**
+	 * Return hamburger menu label font size
+	 */
+	function responsive_hamburger_font_size_value() {
+		$hamburger_menu_label_font_size = get_theme_mod( 'responsive_hamburger_menu_label_font_size', 20 );
+		return $hamburger_menu_label_font_size;
+	}
+}
 
 	/**
 	* Returns blog single meta
@@ -191,7 +210,7 @@ if ( ! function_exists( 'responsive_blog_single_meta' ) ) {
 	function responsive_blog_single_meta() {
 
 		/** Default sections */
-		$sections = array( 'author', 'date', 'categories', 'comments' );
+		$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
 
 		/** Get sections from Customizer */
 		$sections = get_theme_mod( 'responsive_blog_single_meta', $sections );
@@ -1591,7 +1610,7 @@ function responsive_number_control( $wp_customize, $element, $label, $section, $
  * @param  [type] $active_call      [description].
  * @return void               [description].
  */
-function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'sanitize_text_field', $type = 'text' ) {
+function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'sanitize_text_field', $type = 'text', $transport = 'refresh' ) {
 
 	// Add Twitter Setting.
 	$wp_customize->add_setting(
@@ -1599,6 +1618,7 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
 		array(
 			'default'           => $default,
 			'sanitize_callback' => $sanitize_function,
+			'transport'         => $transport,
 		)
 	);
 	$wp_customize->add_control(
@@ -1681,6 +1701,22 @@ function responsive_active_blog_entry_columns_multi_column() {
  */
 function responsive_disabled_mobile_menu() {
 	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
+}
+/**
+ * Toggle style if outline border color control.
+ *
+ * @return void
+ */
+function responsive_toggle_border_color() {
+	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
+}
+/**
+ * Toggle style if outline & fill border radius control.
+ *
+ * @return void
+ */
+function responsive_toggle_border_radius() {
+	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' )) ? true : false;
 }
 
 /**

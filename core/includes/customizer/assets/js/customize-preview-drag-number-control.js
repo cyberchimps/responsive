@@ -133,6 +133,13 @@
         // ...
     });
 
+    //Hamburger Menu Font Size Preview
+    api( 'responsive_hamburger_menu_label_font_size', function( value ) {
+        value.bind( function( newval ) {
+            $( '.hamburger-menu-label' ).css( 'font-size', newval+'px' );
+        } );
+    } );
+
     //Woocommerce Cart Layout
     //Main Content Width
     api( 'responsive_cart_content_width', function( value ) {

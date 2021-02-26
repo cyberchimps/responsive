@@ -28,7 +28,7 @@ $cyberchimps_link   = '';
 	} else {
 		echo esc_html( get_bloginfo( 'name' ) );
 	}
-	if ( ! empty( $responsive_options['poweredby_link'] ) ) {
+	if ( class_exists( 'Responsive_Addons_Pro' ) && ! empty( $responsive_options['poweredby_link'] ) ) {
 		$cyberchimps_link = $responsive_options['poweredby_link'];
 	} else {
 		?>
