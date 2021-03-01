@@ -1,0 +1,62 @@
+.responsive-about-me-widget-container {
+    display: flex;
+    flex-flow: column nowrap;
+    border: {
+        radius: 2px !important;
+        top: 4px solid #10659C;
+    }
+    padding: 20px 15px !important;
+
+    .widget-title {
+        display: flex !important;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+
+        h4 {
+            display: inline-block !important;
+            padding: 4px 10px;
+            margin-bottom: 0 !important;
+            flex-grow: 1;
+        }
+
+        .responsive-about-me__fancy-bg {
+            display: inline-block;
+            overflow: hidden;
+            flex-grow: 100;
+            height: 12px;
+            background: {
+                image: url('../images/line.svg');
+                repeat: repeat-x;
+            }
+            margin-top: 7px;
+        }
+    }
+}
+.responsive-about-me__img,
+.responsive-about-me__bio {
+    padding: 5px 10px;
+}
+
+.responsive-about-me__img img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: {
+        top: unset !important;   
+        bottom: 10px !important;
+        left: unset !important;
+        right: unset !important;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        transition: all 180ms;
+    }
+}
+
+.responsive-about-me__bio {
+    font-size: 15px;
+    line-height: 26px;
+    color: inherit;
+}
