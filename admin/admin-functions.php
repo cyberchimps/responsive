@@ -30,3 +30,30 @@ function responsive_admin_scripts( $hook ) {
 	);
 }
 add_action( 'admin_enqueue_scripts', 'responsive_admin_scripts' );
+
+/**
+ * Include Welcome page right starter sites content
+ *
+ * @since 4.0.3
+ */
+function responsive_welcome_banner_notice() {
+	?>
+
+	<div class="postbox responsive-sites-active">
+		<div class="responsive-notice-image">
+			<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-thumbnail.jpg' ); ?>">
+		</div>
+		<div class="responsive-notice-content">
+			<h2 class="handle">
+				<span><?php echo esc_html( apply_filters( 'responsive_sites_menu_page_title', __( 'Thank You for installing Responsive', 'responsive' ) ) ); ?></span>
+			</h2>
+				<p>
+					You can get a fully functional ready site with Responsive. Browse 90+ <a href="https://cyberchimps.com/wordpress-themes/" target="_blank" rel="noopener">ready site templates</a> Install the Ready Site Importer plugin to get started.
+					<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
+				</p>
+			</div>
+		</div>
+	<?php
+}
+
+add_action( 'admin_notices', 'responsive_welcome_banner_notice' );

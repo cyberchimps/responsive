@@ -229,3 +229,28 @@ a.responsivera-starter-sites-detail-link {
 	padding: 3px 6px;
 	border-radius: 3px;
 }
+
+.postbox.responsive-sites-active {
+	display: flex;
+	justify-content: left;
+	align-items: start;
+	padding: 0 20px;
+	margin: 5px 20px 15px 0px;
+}
+
+.postbox.responsive-sites-active .responsive-starter-sites-img {
+	margin-left: 5px;
+}
+
+.responsive-notice-content {
+	margin-left: 15px;
+	margin-top: 1em;
+}
+
+.responsive-notice-content p, .responsive-notice-content h2 {
+	margin: 0.5em 0;
+}
+
+.responsive-notice-image {
+	margin-top: 2em;
+}
