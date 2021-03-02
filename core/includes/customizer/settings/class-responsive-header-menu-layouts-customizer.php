@@ -88,11 +88,11 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 				'minimal' => esc_html__( 'Minimal', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'mobile_menu_toggle_style', $mobile_menu_toggle_style, 'responsive_header_menu_layout', 30, $mobile_menu_toggle_style_choices, 'fill', 'responsive_disabled_mobile_menu');
-			
+
 			// Mobile Menu Border Color
 			$menu_menu_toggle_border_color = __( 'Mobile Menu Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'mobile_menu_toggle_border', $menu_menu_toggle_border_color, 'responsive_header_menu_layout', 50, Responsive\Core\get_responsive_customizer_defaults( 'mobile_menu_toggle_border_color' ), 'responsive_toggle_border_color' );
-			
+
 			// Mobile Menu Toggle Buttons Radius.
 			$button_radius_label = __( 'Mobile Menu Button Radius (px)', 'responsive' );
 			responsive_number_control( $wp_customize, 'menu_button_radius', $button_radius_label, 'responsive_header_menu_layout', 30, Responsive\Core\get_responsive_customizer_defaults( 'menu_button_radius' ), 'responsive_toggle_border_radius' );

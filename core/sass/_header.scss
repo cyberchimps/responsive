@@ -690,7 +690,7 @@ body.mega-menu-header-menu button.menu-toggle {
 }
 
 .main-navigation .menu {
-  li.focus>.children, li.focus>.sub-menu, .menu-item-has-children.focus ul.sub-menu {
+    li.focus>.children, li.focus>.sub-menu, .menu-item-has-children.focus>ul.sub-menu {
     display: block;
   }
 }
