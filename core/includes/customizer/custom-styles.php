@@ -937,6 +937,9 @@ function responsive_customizer_styles() {
 		.site-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation div {
 		    border-bottom: 0;
 		}
+		.main-navigation .menu .sub-menu .res-iconify svg {
+		  transform: translate(0,-50%) rotate(270deg);
+		}
 
 	}
   	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
