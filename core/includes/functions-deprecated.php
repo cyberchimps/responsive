@@ -50,15 +50,6 @@ function responsive_content_width() {
 }
 
 /**
- * Set a fallback menu that will show a home link.
- *
- * @deprecated use Responsive\Core\responsive_fallback_menu() instead
- */
-function responsive_fallback_menu() {
-	Responsive\Core\responsive_fallback_menu();
-}
-
-/**
  * A safe way of adding stylesheets to a WordPress generated page.
  */
 if ( ! function_exists( 'responsive_css' ) ) {

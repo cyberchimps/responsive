@@ -937,6 +937,10 @@ function responsive_customizer_styles() {
 		.site-header-layout-vertical.site-header-main-navigation-site-branding.site-header-full-width-main-navigation .main-navigation div {
 		    border-bottom: 0;
 		}
+		.children .res-iconify.no-menu {
+		  transform: rotate( -145deg );
+		  right: 0.5rem;
+		}
 		.main-navigation .menu .sub-menu .res-iconify svg {
 		  transform: translate(0,-50%) rotate(270deg);
 		}

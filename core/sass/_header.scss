@@ -133,7 +133,8 @@
 
         li {
             &.focus,
-            &:hover {
+            &:hover,
+            &:focus {
                 & > .children,
                 & > .sub-menu {
                     left: 0;
@@ -702,4 +703,38 @@ body.mega-menu-header-menu button.menu-toggle {
   right: 2px;
   font-weight: bold;
   padding-right: 10px;
+}
+
+.res-iconify.no-menu{
+    display: block;
+    height: 0.4rem;
+    position: absolute;
+    pointer-events: none;
+    transform: rotate( -45deg );
+    width: 1.5rem;
+    right: -0.2rem;
+    top: calc(50% - 0.5rem);
+
+    &:after, &:before {
+      content: "";
+      left: 0;
+      display: block;
+      background-color: currentColor;
+      position: absolute;
+      bottom: calc(50% - 0.1rem);
+    }
+    &:after {
+      height: 0.1rem;
+      width: 0.55rem;
+    }
+    &:before {
+      height: 0.6rem;
+      width: 0.1rem;
+    }
+}
+
+.main-navigation .menu {
+  li.focus>.children, .page_item_has_children.focus>ul.children, li:focus>.children, .page_item_has_children:focus>ul.children {
+    display: block;
+  }
 }

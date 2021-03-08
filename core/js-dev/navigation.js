@@ -98,8 +98,7 @@
 	 */
 	( function( container ) {
 		var touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > .res-iconify, .page_item_has_children > .res-iconify' );
-
+			parentLink = container.querySelectorAll( '.menu-item-has-children > .res-iconify, .page_item_has_children > .res-iconify.no-menu' );
 			touchStartFn = function( e ) {
 				var parent_li = this.parentNode, i;
         if ( parent_li.classList.contains( 'menu-item-has-children' ) ) {
@@ -109,7 +108,14 @@
           } else {
             parent_li.querySelector( '.sub-menu' ).style.display = 'none';
     			}
-    		}
+    		} else if ( parent_li.classList.contains( 'page_item_has_children' ) ) {
+            responsiveToggleClass( parent_li, 'res-submenu-expanded' );
+      			if ( parent_li.classList.contains( 'res-submenu-expanded' ) ) {
+              parent_li.querySelector( '.children' ).style.display = 'block';
+            } else {
+              parent_li.querySelector( '.children' ).style.display = 'none';
+      			}
+        }
 			};
 
 			for ( i = 0; i < parentLink.length; ++i ) {

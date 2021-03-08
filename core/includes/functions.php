@@ -345,28 +345,6 @@ function responsive_content_width() {
 }
 
 /**
- * Set a fallback menu that will show a home link.
- */
-function responsive_fallback_menu() {
-	$args    = array(
-		'depth'       => 0,
-		'sort_column' => 'menu_order, post_title',
-		'menu_class'  => 'menu',
-		'include'     => '',
-		'exclude'     => '',
-		'echo'        => false,
-		'show_home'   => true,
-		'link_before' => '',
-		'link_after'  => '',
-	);
-	$pages   = wp_page_menu( $args );
-	$prepend = '<div id="header-menu" class="menu">';
-	$append  = '</div>';
-	$output  = $prepend . $pages . $append;
-	echo wp_kses_post( $output );
-}
-
-/**
  * A safe way of adding stylesheets to a WordPress generated page.
  */
 if ( ! function_exists( 'responsive_css' ) ) {

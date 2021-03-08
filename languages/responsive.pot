@@ -325,6 +325,15 @@ msgstr ""
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr ""
 
+#: core/includes/classes/class-responsive-walker-page.php:71
+#. translators: %d: ID of a post.
+msgid "#%d (no title)"
+msgstr ""
+
+#: core/includes/classes/class-responsive-walker-page.php:98
+msgid "Show sub menu"
+msgstr ""
+
 #: core/includes/compatibility/sensei/customizer/settings/class-responsive-sensei-content-customizer.php:47
 #: core/includes/customizer/helper.php:38
 #: core/includes/customizer/helper.php:120
@@ -2662,31 +2671,31 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: core/includes/functions.php:422
+#: core/includes/functions.php:400
 msgid "Team Section Options"
 msgstr ""
 
-#: core/includes/functions.php:436
+#: core/includes/functions.php:414
 msgid "To use this post for front page's team section, please enter below details:"
 msgstr ""
 
-#: core/includes/functions.php:439
+#: core/includes/functions.php:417
 msgid "Member designation"
 msgstr ""
 
-#: core/includes/functions.php:443
+#: core/includes/functions.php:421
 msgid "Facebook Link"
 msgstr ""
 
-#: core/includes/functions.php:447
+#: core/includes/functions.php:425
 msgid "Twitter Link"
 msgstr ""
 
-#: core/includes/functions.php:451
+#: core/includes/functions.php:429
 msgid "GooglePlus Link"
 msgstr ""
 
-#: core/includes/functions.php:455
+#: core/includes/functions.php:433
 msgid "LinkedIn Link"
 msgstr ""
 
@@ -3235,42 +3244,42 @@ msgctxt "Text for a page Breadcrumb"
 msgid "Page %s"
 msgstr ""
 
-#: functions.php:214
+#: functions.php:216
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr ""
 
-#: functions.php:215
+#: functions.php:217
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr ""
 
-#: functions.php:220
+#: functions.php:222
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr ""
 
-#: functions.php:221
+#: functions.php:223
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr ""
 
-#: functions.php:226
+#: functions.php:228
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr ""
 
-#: functions.php:227
+#: functions.php:229
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr ""
 
-#: functions.php:232
+#: functions.php:234
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr ""
 
-#: functions.php:233
+#: functions.php:235
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr ""

@@ -47,6 +47,8 @@ require $responsive_template_directory . '/core/includes/classes/class-responsiv
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 // Deprecated functions.
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
+// Custom page walker.
+require $responsive_template_directory . '/core/includes/classes/class-responsive-walker-page.php';
 
 if ( is_admin() ) {
 	/**
@@ -920,6 +922,10 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 			} else {
 				$args->after = '';
 			}
+		} elseif ( in_array( 'page_item_has_children', $item->classes, true ) ) {
+			$args->after = '<span class="res-iconify no-menu">
+			<svg width="10" height="6" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+			</span>';
 		}
 
 	return $args;
@@ -956,5 +962,31 @@ if ( ! function_exists( 'responsive_display_date_box' ) ) {
 		} else {
 			return;
 		}
+	}
+}
+
+if ( ! function_exists( 'responsive_fallback_menu' ) ) {
+	/**
+	 * Set a fallback menu that will show a home link.
+	 */
+	function responsive_fallback_menu() {
+		$args    = array(
+			'depth'       => 0,
+			'sort_column' => 'menu_order, post_title',
+			'menu_class'  => 'menu',
+			'include'     => '',
+			'exclude'     => '',
+			'echo'        => false,
+			'show_home'   => true,
+			'link_before' => '',
+			'link_after'  => '',
+			'show_sub_menu_icons' => true,
+			'walker'      => new Responsive_Walker_Page(),
+		);
+		$pages   = wp_page_menu( $args );
+		$prepend = '<div id="header-menu" class="menu">';
+		$append  = '</div>';
+		$output  = $prepend . $pages . $append;
+		echo wp_kses_post( $output );
 	}
 }
