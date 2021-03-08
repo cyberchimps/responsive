@@ -744,6 +744,85 @@
         } );
     } );
 
+    //Single Product Floating Bar -> Colors
+    //Floating bar background color
+    api( 'responsive_floatingb_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar' ).css( 'background-color', newval );
+        } );
+    } );
+
+    //Floating bar title color
+    api( 'responsive_floatingb_title_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.floatingb-title' ).css( 'color', newval );
+        } );
+    } );
+
+    //Floating bar price color
+    api( 'responsive_floatingb_price_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.floatingb-price' ).css( 'color', newval );
+        } );
+    } );
+
+    //Floating bar quantity input background color
+    api( 'responsive_floatingb_qty_input_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .input-text' ).css( 'background-color', newval );
+        } );
+    } );
+
+    //Floating bar quantity input font color
+    api( 'responsive_floatingb_qty_input_font_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .input-text' ).css( 'color', newval );
+        } );
+    } );
+
+    //Floating bar quantity input border color
+    api( 'responsive_floatingb_qty_input_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .input-text' ).css( 'border-color', newval );
+        } );
+    } );
+
+    //Floating bar add to cart background color
+    api( 'responsive_floatingb_addtocart_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).css( 'background-color', newval );
+        } );
+    } );
+
+    //Floating bar add to cart background hover color
+    api( 'responsive_floatingb_addtocart_bghover_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
+                $(this).css( 'background-color', newval );
+            }, function() {
+                $(this).css( 'background-color', '#f2f2f2' );
+            } );
+        } );
+    } );
+
+    //Floating bar add to cart font color
+    api( 'responsive_floatingb_addtocart_font_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).css( 'color', newval );
+        } );
+    } );
+
+    //Floating bar add to cart font hover color
+    api( 'responsive_floatingb_addtocart_fonthover_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
+                $(this).css( 'color', newval );
+            }, function() {
+                $(this).css( 'color', '#000000' );
+            } );
+        } );
+    } );
+
     //Sidebar -> Colors
     //Headings Color
     api( 'responsive_sidebar_headings_color', function( value ) {

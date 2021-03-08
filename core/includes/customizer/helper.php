@@ -1651,7 +1651,7 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
  *
  * @return void               [description].
  */
-function responsive_select_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh' ) {
+function responsive_select_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh', $description = '' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -1665,6 +1665,7 @@ function responsive_select_control( $wp_customize, $element, $label, $section, $
 		'responsive_' . $element,
 		array(
 			'label'           => $label,
+			'description'     => $description,
 			'section'         => $section,
 			'settings'        => 'responsive_' . $element,
 			'type'            => 'select',

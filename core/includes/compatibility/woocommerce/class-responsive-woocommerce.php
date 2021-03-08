@@ -71,6 +71,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
 
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
+
+			add_action( 'woocommerce_before_main_content', array( $this, 'single_product_page_floating_bar' ) );
 		}
 		/**
 		 * Remove Woo-Commerce Default actions
@@ -339,6 +341,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( 'vertical' === get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' ) ) {
 				wp_enqueue_script( 'responsive-woo-thumbnails', get_stylesheet_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-thumbnails.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
+			if ( is_woocommerce() && is_singular( 'product' ) ) {
+				wp_enqueue_script( 'responsive-woo-floating-bar', get_stylesheet_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-floating-bar.js', array( 'customize-preview', 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+			}
 		}
 
 		/**
@@ -384,6 +389,71 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				)
 			);
 		}
+
+		/**
+		 * Single Product Page Floating Bar.
+		 */
+		public function single_product_page_floating_bar() {
+			if ( is_woocommerce() && is_singular( 'product' ) ) {
+				$product                  = wc_get_product( get_the_ID() );
+				$floating_bar_toggle_cond = get_theme_mod( 'responsive_single_product_floating_bar', 'hide' );
+				$floating_bar_show_cond   = ( is_user_logged_in() );
+
+				if ( $floating_bar_toggle_cond && 'display' === $floating_bar_toggle_cond ) {
+					?>
+				<div id="floating-bar" class="responsive-floating-bar">
+					<div class="floatingb-container">
+						<div class="floatingb-left">
+							<h2 class="floatingb-title"><span class="floatingb-selected"><?php esc_html_e( 'Selected : ', 'responsive' ); ?></span><?php echo wp_trim_words( $product->get_title(), '4' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
+						</div>
+						<div class="floatingb-right">
+							<div class="floatingb-productprice">
+								<p class="floatingb-price"><?php echo $product->get_price_html(); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+							</div>
+							<?php
+							if ( 'outofstock' === $product->get_stock_status() ) {
+								?>
+									<p class="floatingb-outofstock"><?php esc_html_e( 'Out Of Stock', 'responsive' ); ?></p>
+								<?php
+							} else {
+								if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
+									echo self::floating_bar_add_to_cart( $product ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								} else {
+									?>
+										<button type="submit" class="floatingb-select-btn floating-bar-addbtn"><?php esc_html_e( 'Select options', 'responsive' ); ?></button>
+									<?php
+								}
+							}
+							?>
+						</div>
+					</div>
+				</div>
+					<?php
+				}
+			}
+		}
+
+		/**
+		 * Floating bar add to cart button.
+		 */
+		public static function floating_bar_add_to_cart( $product ) {
+
+			$html  = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="floating-bar-cart" method="post" enctype="multipart/form-data">';
+			$html .= woocommerce_quantity_input(
+				array(
+					'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
+					'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+					'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : $product->get_min_purchase_quantity(),
+				),
+				$product,
+				false
+			);
+			$html .= '<button type="submit" name="add-to-cart" value="' . get_the_ID() . '" class="floating-bar-addbtn">' . esc_html( $product->add_to_cart_text() ) . '</button>';
+			$html .= '</form>';
+
+			return $html;
+		}
+
 	}
 
 endif;

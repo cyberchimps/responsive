@@ -550,3 +550,81 @@ span.res-header-cart-info-wrap, .res-addon-cart-wrap{
 .woocommerce-privacy-policy-text p {
 	margin-bottom: 1.6em;
 }
+
+.responsive-floating-bar {
+    display: block;
+    padding: 5px 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.floatingb-title {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.floatingb-selected {
+    font-weight: 600;
+}
+
+.floatingb-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.floatingb-title {
+    color: white;
+}
+
+.floatingb-right {
+    display: flex;
+    align-items: center;
+}
+
+.floating-bar-cart {
+    display: flex;
+}
+
+.floatingb-price {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.responsive-floating-bar .input-text.qty.text {
+    margin-right: 10px;
+}
+
+.responsive-floating-bar .quantity {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .responsive-floating-bar {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .responsive-floating-bar {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+    }
+
+    .floatingb-container {
+        flex-direction: column;
+    }
+
+    .floatingb-title {
+        display: none;
+    }
+}

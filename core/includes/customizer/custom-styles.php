@@ -2154,6 +2154,134 @@ function responsive_customizer_styles() {
 			}
 		}";
 
+		// Single product floating bar styles.
+		$floatingb_bg_color                  = esc_html( get_theme_mod( 'responsive_floatingb_background_color', 'rgba(51,51,51,0.9)' ) );
+		$floatingb_title_color               = esc_html( get_theme_mod( 'responsive_floatingb_title_color', '#ffffff' ) );
+		$floatingb_price_color               = esc_html( get_theme_mod( 'responsive_floatingb_price_color', '#ffffff' ) );
+		$floatingb_qty_input_bg_color        = esc_html( get_theme_mod( 'responsive_floatingb_qty_input_background_color', '#ffffff' ) );
+		$floatingb_qty_input_font_color      = esc_html( get_theme_mod( 'responsive_floatingb_qty_input_font_color', '#000000' ) );
+		$floatingb_qty_input_border_color    = esc_html( get_theme_mod( 'responsive_floatingb_qty_input_border_color', '#333333' ) );
+		$floatingb_addtocart_bg_color        = esc_html( get_theme_mod( 'responsive_floatingb_addtocart_background_color', '#0066cc' ) );
+		$floatingb_addtocart_bghover_color   = esc_html( get_theme_mod( 'responsive_floatingb_addtocart_bghover_color', '#10659c' ) );
+		$floatingb_addtocart_font_color      = esc_html( get_theme_mod( 'responsive_floatingb_addtocart_font_color', '#ffffff' ) );
+		$floatingb_addtocart_fonthover_color = esc_html( get_theme_mod( 'responsive_floatingb_addtocart_fonthover_color', '#f1f1f1' ) );
+		$floatingb_width                     = esc_html( get_theme_mod( 'responsive_width', 'contained' ) );
+		$floatingb_container_width           = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+
+		if ( is_admin_bar_showing() ) {
+			$woocommerce_custom_css .= "
+			@media (min-width: 769px) {
+				.responsive-floating-bar {
+					top: 32px;
+				}
+			}
+			";
+		}
+
+		if ( 'contained' === $floatingb_width && $floatingb_container_width ) {
+			$woocommerce_custom_css .= "
+				.floatingb-container {
+					width: {$floatingb_container_width}px;
+					margin-left: auto;
+					margin-right: auto;
+					padding-right: 15px;
+					padding-left: 15px;
+				}
+
+				@media (max-width: 768px) {
+					.floatingb-container {
+						width: 100%;
+					}
+				}
+			";
+		} else {
+			$woocommerce_custom_css .= '
+				.floatingb-container {
+					width: 100%;
+				}
+			';
+		}
+
+		if ( $floatingb_bg_color ) {
+			$woocommerce_custom_css .= "
+				.responsive-floating-bar {
+					background-color: {$floatingb_bg_color};
+				}
+			";
+		}
+
+		if ( $floatingb_title_color ) {
+			$woocommerce_custom_css .= "
+				.floatingb-title {
+					color: {$floatingb_title_color};
+				}
+			";
+		}
+
+		if ( $floatingb_price_color ) {
+			$woocommerce_custom_css .= "
+				.floatingb-price {
+					color: {$floatingb_price_color};
+				}
+			";
+		}
+
+		if ( $floatingb_qty_input_bg_color ) {
+			$woocommerce_custom_css .= "
+				.responsive-floating-bar .input-text {
+					background-color: {$floatingb_qty_input_bg_color};
+				}
+			";
+		}
+
+		if ( $floatingb_qty_input_font_color ) {
+			$woocommerce_custom_css .= "
+				.responsive-floating-bar .input-text {
+					color: {$floatingb_qty_input_font_color};
+				}
+			";
+		}
+
+		if ( $floatingb_qty_input_border_color ) {
+			$woocommerce_custom_css .= "
+				.responsive-floating-bar .input-text {
+					border-color: {$floatingb_qty_input_border_color};
+				}
+			";
+		}
+
+		if ( $floatingb_addtocart_bg_color ) {
+			$woocommerce_custom_css .= "
+				.responsive-floating-bar .floating-bar-addbtn {
+					background-color: {$floatingb_addtocart_bg_color};
+				}
+			";
+		}
+
+		if ( $floatingb_addtocart_bghover_color ) {
+			$woocommerce_custom_css .= "
+				.responsive-floating-bar .floating-bar-addbtn:hover {
+					background-color: {$floatingb_addtocart_bghover_color};
+				}
+			";
+		}
+
+		if ( $floatingb_addtocart_font_color ) {
+			$woocommerce_custom_css .= "
+				.responsive-floating-bar .floating-bar-addbtn {
+					color: {$floatingb_addtocart_font_color};
+				}
+			";
+		}
+
+		if ( $floatingb_addtocart_fonthover_color ) {
+			$woocommerce_custom_css .= "
+				.responsive-floating-bar .floating-bar-addbtn:hover {
+					color: {$floatingb_addtocart_fonthover_color};
+				}
+			";
+		}
+
 		// cart Styles.
 		$cart_content_width            = esc_html( get_theme_mod( 'responsive_cart_content_width', 70 ) );
 		$cart_buttons_color            = esc_html( get_theme_mod( 'responsive_cart_buttons_color', '#10659C' ) );
