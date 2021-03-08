@@ -2040,8 +2040,11 @@ function responsive_customizer_styles() {
 				}
 			}';
 		}
-
-		$woocommerce_custom_css .= "
+		$enable_off_canvas_filter = get_theme_mod( 'responsive_enable_off_canvas_filter', 0 );
+		$enable_off_canvas_filter = $enable_off_canvas_filter ? 'inline-block' : 'none';
+		$close_button_color       = get_theme_mod( 'responsive_off_canvas_close_button_color', '#CCCCCC' );
+		$close_button_hover_color = get_theme_mod( 'responsive_off_canvas_close_button_hover_color', '#777777' );
+		$woocommerce_custom_css  .= "
 		@media (min-width:992px) {
 			.search.woocommerce .content-area,
 			.archive.woocommerce:not(.post-type-archive-course) .content-area {
@@ -2136,6 +2139,15 @@ function responsive_customizer_styles() {
 		}
 		.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
 			background-color: {$add_to_cart_button_hover_color};
+		}
+		.off_canvas_filter_btn {
+			display:{$enable_off_canvas_filter};
+		}
+		button.responsive-off-canvas-close svg{
+			fill: {$close_button_color };
+		}
+		button.responsive-off-canvas-close:hover svg{
+			fill: {$close_button_hover_color };
 		}
 		";
 

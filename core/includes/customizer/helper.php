@@ -1765,3 +1765,29 @@ function responsive_checkbox_control( $wp_customize, $element, $label, $section,
 		)
 	);
 }
+/**
+ * Check if off canvas is active
+ *
+ * @return void
+ */
+function enable_off_canvas_filter_check() {
+	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) ? true : false;
+}
+/**
+ * Check if off canvas close button is active
+ *
+ * @return void
+ */
+function enable_enable_off_canvas_close_btn() {
+	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_close_btn', 0 ) ) ? true : false;
+}
+
+if ( ! function_exists( 'responsive_hamburger_off_canvas_btn_label_text_label' ) ) {
+	/**
+	 * Returns hamburger menu label value
+	 */
+	function responsive_hamburger_off_canvas_btn_label_text_label() {
+		$hamburger_off_canvas_btn_label_text_label = get_theme_mod( 'responsive_hamburger_off_canvas_btn_label_text', 'Filter' );
+		return $hamburger_off_canvas_btn_label_text_label;
+	}
+}

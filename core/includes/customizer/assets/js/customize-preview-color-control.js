@@ -1144,4 +1144,21 @@
             $(this).css("background-color", api('responsive_cart_checkout_button_color').get());
         }
     );
+    // Woocommerce off canvas filter.
+    api( 'responsive_off_canvas_close_button_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-off-canvas-close svg').css('fill', newval );
+        } );
+    } );
+
+    $(".responsive-off-canvas-close svg").hover(
+        function() {
+            $(this).css("fill", api('responsive_off_canvas_close_button_hover_color').get());
+        },
+
+        function() {
+            $(this).css("fill", api('responsive_off_canvas_close_button_color').get());
+        }
+    );
+
 } )( jQuery );

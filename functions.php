@@ -433,6 +433,18 @@ function responsive_edit_customize_register( $wp_customize ) {
 			'fallback_refresh'    => true,
 		)
 	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_hamburger_off_canvas_btn_label_text',
+		array(
+			'selector'            => '.off-canvas-filter-text',
+			'container_inclusive' => false,
+			'render_callback'     => function() {
+				printf( esc_html( responsive_hamburger_off_canvas_btn_label_text_label() ) );
+			},
+			'fallback_refresh'    => true,
+		),
+	);
+
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );

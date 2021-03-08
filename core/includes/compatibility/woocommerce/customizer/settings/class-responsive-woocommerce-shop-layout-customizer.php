@@ -140,6 +140,25 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'product_sale_style', $product_sale_style_label, 'responsive_woocommerce_shop_layout', 100, $product_sale_style_choices, 'circle', null );
 
+			// Off Canvas Layout.
+			$off_canvas_filter_label = esc_html__( 'Off Canvas Filter', 'responsive' );
+			responsive_separator_control( $wp_customize, 'off_canvas_filter_separator', $off_canvas_filter_label, 'responsive_woocommerce_shop_layout', 110 );
+
+			$enable_off_canvas_filter = __( 'Enable Off Canvas Filter', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'enable_off_canvas_filter', $enable_off_canvas_filter, 'responsive_woocommerce_shop_layout', 115, 0, null, 'refresh' );		
+
+			$hamburger_off_canvas_btn_label = __( 'Off Canvas Filter Button Text', 'responsive' );
+			responsive_text_control( $wp_customize, 'hamburger_off_canvas_btn_label_text', $hamburger_off_canvas_btn_label, 'responsive_woocommerce_shop_layout', 120, 'Filter', 'enable_off_canvas_filter_check', 'sanitize_text_field', 'text', 'postMessage' );
+
+			$enable_off_canvas_close_btn = __( 'Enable Off Canvas Close Button', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'enable_off_canvas_close_btn', $enable_off_canvas_close_btn, 'responsive_woocommerce_shop_layout', 125, 0, null, 'refresh' );
+
+			$close_button_color = __( 'Close Button Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'off_canvas_close_button', $close_button_color, 'responsive_woocommerce_shop_layout', 130, '#CCCCCC', 'enable_enable_off_canvas_close_btn' );
+
+			$close_button_hover_color = __( 'Close Button Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'off_canvas_close_button_hover', $close_button_hover_color, 'responsive_woocommerce_shop_layout', 135, '#777777', 'enable_enable_off_canvas_close_btn' );
+
 		}
 	}
 

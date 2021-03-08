@@ -72,6 +72,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
 
+			if ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) {
+				add_action( 'widgets_init', array( $this, 'register_off_canvas_sidebar' ), 11 );
+				add_action( 'wp_footer', array( $this, 'get_off_canvas_sidebar' ) );
+				add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_filter_button' ) );
+			}
 			add_action( 'woocommerce_before_main_content', array( $this, 'single_product_page_floating_bar' ) );
 		}
 		/**
@@ -341,6 +346,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( 'vertical' === get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' ) ) {
 				wp_enqueue_script( 'responsive-woo-thumbnails', get_stylesheet_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-thumbnails.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
+
+			wp_enqueue_script( 'responsive-woo-off-canvas', get_stylesheet_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-off-canvas.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			if ( is_woocommerce() && is_singular( 'product' ) ) {
 				wp_enqueue_script( 'responsive-woo-floating-bar', get_stylesheet_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-floating-bar.js', array( 'customize-preview', 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
@@ -388,6 +395,73 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 					'after_widget'  => '</div>',
 				)
 			);
+		}
+		// Off Canvas filter.
+		/**
+		 * Get Off Canvas Sidebar.
+		 *
+		 * @since 1.5.0
+		 */
+		public static function get_off_canvas_sidebar() {
+
+			// Return if is not in shop page.
+			if ( ! is_woocommerce() && ! is_shop() ) {
+				return;
+			}
+			?>
+				<div id="responsive-off-canvas-sidebar-wrap">
+					<div class="responsive-off-canvas-sidebar widget-area">
+						<div id="secondary" class="<?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+							<?php dynamic_sidebar( 'responsive_off_canvas_sidebar' ); ?>
+						</div>
+						<?php
+						if ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_close_btn', 0 ) ) {
+							?>
+							<button type="button" class="responsive-off-canvas-close" aria-label="<?php echo esc_attr__( 'Close off canvas panel', 'responsive' ); ?>">
+								<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" role="img" aria-hidden="true" focusable="false">
+									<path d="M505.943,6.058c-8.077-8.077-21.172-8.077-29.249,0L6.058,476.693c-8.077,8.077-8.077,21.172,0,29.249
+										C10.096,509.982,15.39,512,20.683,512c5.293,0,10.586-2.019,14.625-6.059L505.943,35.306
+										C514.019,27.23,514.019,14.135,505.943,6.058z"/>
+									<path d="M505.942,476.694L35.306,6.059c-8.076-8.077-21.172-8.077-29.248,0c-8.077,8.076-8.077,21.171,0,29.248l470.636,470.636
+										c4.038,4.039,9.332,6.058,14.625,6.058c5.293,0,10.587-2.019,14.624-6.057C514.018,497.866,514.018,484.771,505.942,476.694z"/>
+								</svg>
+							</button>
+							<?php
+						}
+						?>
+					</div>
+					<div class="responsive-off-canvas-overlay"></div>
+				</div>
+			<?php
+
+		}
+		/**
+		 * Register off canvas filter sidebar.
+		 *
+		 * @since 1.5.0
+		 */
+		public static function register_off_canvas_sidebar() {
+
+			register_sidebar(
+				array(
+					'name'          => __( 'Off-Canvas Filters', 'responsive' ),
+					'id'            => 'responsive_off_canvas_sidebar',
+					'description'   => __( 'Widgets in this area are used in the Off Canvas Filter. To enable the Off Canvas filter, go to the Product Catalog Option > Layout in customizer and check Enable Off Canvas Filter checkbox under Off Canvas Filter section.', 'responsive' ),
+					'before_title'  => '<div class="widget-title"><h4>',
+					'after_title'   => '</h4></div>',
+					'before_widget' => '<div id="%1$s" class="widget-wrapper %2$s">',
+					'after_widget'  => '</div>',
+				)
+			);
+
+		}
+		public function off_canvas_filter_button() {
+			$text = responsive_hamburger_off_canvas_btn_label_text_label();
+
+			if ( ! is_woocommerce() ) {
+				return;
+			}
+			echo '<a href="#" class="off_canvas_filter_btn"><i class="icon-bars" aria-hidden="true"></i><span class="off-canvas-filter-text">' . esc_html( $text ) . '</span></a>';
 		}
 
 		/**
