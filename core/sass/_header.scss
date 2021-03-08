@@ -699,10 +699,11 @@ body.mega-menu-header-menu button.menu-toggle {
 .res-iconify {
   display: inline-block;
   position: absolute;
-  top: 8px;
-  right: 2px;
+  top: -0.7px;
+  right: -8px;
   font-weight: bold;
-  padding-right: 10px;
+  padding-right: 13px;
+  line-height: 3;
 }
 
 .res-iconify.no-menu{

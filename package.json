@@ -54,11 +54,5 @@
     "format": "prettier --write \"**/*.{js,json,css,scss}\"",
     "lint": "sass-lint -v",
     "lint:fix": "sass-lint-auto-fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint:fix && npm run lint",
-      "pre-push": "npm run lint:fix && npm run lint"
-    }
   }
 }

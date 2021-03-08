@@ -994,6 +994,9 @@ function responsive_customizer_styles() {
 		.main-navigation .children, .main-navigation .sub-menu{
 			display: none;
 		}
+		.res-iconify {
+			top: 0.3px;
+		}
 	}
 	@media screen and ( max-width: 576px ) {
 		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
@@ -1075,7 +1078,7 @@ function responsive_customizer_styles() {
 		stroke: {$header_menu_link_color};
 	}
 	.main-navigation .menu > li.current_page_item > a,
-	.main-navigation .menu > li.current-menu-item > a {
+	.main-navigation .menu > li.current-menu-item > a, .main-navigation .menu > li.current-menu-item > .res-iconify {
 		color: {$menu_active_link_color};
 		background-color: {$header_active_menu_background_color};
 	}
