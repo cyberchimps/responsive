@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.5.6\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2021-03-02 05:53:54+00:00\n"
+"POT-Creation-Date: 2021-03-03 09:52:39+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 
 #: admin/admin-functions.php:21
-#: admin/class-responsive-plugin-install-helper.php:157
+#: admin/class-responsive-plugin-install-helper.php:197
 msgid "Activating "
 msgstr ""
 
@@ -55,20 +55,24 @@ msgstr ""
 msgid "Uncaught Error"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:93
+#: admin/admin-functions.php:49
+msgid "Thank You for installing Responsive"
+msgstr ""
+
+#: admin/class-responsive-plugin-install-helper.php:90
 msgid "Install and activate &raquo;"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:97
-#: admin/class-responsive-plugin-install-helper.php:117
+#: admin/class-responsive-plugin-install-helper.php:94
+#: admin/class-responsive-plugin-install-helper.php:114
 msgid "Activate"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:112
+#: admin/class-responsive-plugin-install-helper.php:109
 msgid "Deactivate"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:117
+#: admin/class-responsive-plugin-install-helper.php:114
 msgid "Jetpack Portfolio"
 msgstr ""
 
@@ -221,107 +225,107 @@ msgstr ""
 msgid "Responsive Options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:194
+#: core/includes/classes/class-responsive-admin-settings.php:192
 msgid "Get Started"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:196
+#: core/includes/classes/class-responsive-admin-settings.php:194
 msgid "Free Vs Pro "
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:231
+#: core/includes/classes/class-responsive-admin-settings.php:229
 msgid "Import a website template(FREE)"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:237
+#: core/includes/classes/class-responsive-admin-settings.php:235
 msgid ""
 "Install Responsive Starter Templates for Gutenberg & Elementor to get "
 "ready-to-use website templates that can be imported with one click."
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:242
+#: core/includes/classes/class-responsive-admin-settings.php:240
 msgid "Learn More &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:269
+#: core/includes/classes/class-responsive-admin-settings.php:267
 msgid "Support"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:273
+#: core/includes/classes/class-responsive-admin-settings.php:271
 msgid "Have questions? Get in touch with us. We'll be happy to help"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:277
+#: core/includes/classes/class-responsive-admin-settings.php:275
 msgid "Request Support &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:303
+#: core/includes/classes/class-responsive-admin-settings.php:301
 #. translators: %1$s: Responsive Support link.
 msgid "Change site layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:308
+#: core/includes/classes/class-responsive-admin-settings.php:306
 msgid "Customize fonts/typography"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:313
+#: core/includes/classes/class-responsive-admin-settings.php:311
 msgid "Upload logo & site icon"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:318
+#: core/includes/classes/class-responsive-admin-settings.php:316
 msgid "Add/edit navigation menu"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:323
+#: core/includes/classes/class-responsive-admin-settings.php:321
 msgid "Customize header options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:328
+#: core/includes/classes/class-responsive-admin-settings.php:326
 msgid "Customize footer options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:333
+#: core/includes/classes/class-responsive-admin-settings.php:331
 msgid "Update blog layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:338
+#: core/includes/classes/class-responsive-admin-settings.php:336
 msgid "Update page layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:346
+#: core/includes/classes/class-responsive-admin-settings.php:344
 msgid "Quick Start:"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:365
+#: core/includes/classes/class-responsive-admin-settings.php:363
 msgid "Community"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:369
+#: core/includes/classes/class-responsive-admin-settings.php:367
 msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:373
+#: core/includes/classes/class-responsive-admin-settings.php:371
 msgid "Join Facebook Group &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:387
+#: core/includes/classes/class-responsive-admin-settings.php:385
 msgid "Feedback"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:391
+#: core/includes/classes/class-responsive-admin-settings.php:389
 msgid ""
 "Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:395
+#: core/includes/classes/class-responsive-admin-settings.php:393
 msgid "Submit Review &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:421
+#: core/includes/classes/class-responsive-admin-settings.php:419
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr ""
 
@@ -849,15 +853,11 @@ msgstr ""
 msgid "Arial, Helvetica, sans-serif"
 msgstr ""
 
-#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:227
-msgid "Custom Fonts"
-msgstr ""
-
-#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:244
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:230
 msgid "Standard Fonts"
 msgstr ""
 
-#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:258
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:244
 msgid "Google Fonts"
 msgstr ""
 
@@ -1795,7 +1795,7 @@ msgid "Disable Hero Area"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:105
-#: core/includes/functions.php:91 functions.php:602
+#: core/includes/functions.php:92 functions.php:602
 msgid "HAPPINESS"
 msgstr ""
 
@@ -1804,7 +1804,7 @@ msgid "Headline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:124
-#: core/includes/functions.php:92 functions.php:605
+#: core/includes/functions.php:93 functions.php:605
 msgid "IS A WARM CUP"
 msgstr ""
 
@@ -1813,7 +1813,7 @@ msgid "Subheadline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:142
-#: core/includes/functions.php:93 functions.php:608
+#: core/includes/functions.php:94 functions.php:608
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -2658,15 +2658,15 @@ msgstr ""
 msgid "Area 15 - sidebar-footer.php"
 msgstr ""
 
-#: core/includes/functions.php:94 functions.php:611
+#: core/includes/functions.php:95 functions.php:611
 msgid "Call to Action"
 msgstr ""
 
-#: core/includes/functions.php:247
+#: core/includes/functions.php:248
 msgid "Header Menu"
 msgstr ""
 
-#: core/includes/functions.php:248 partials/footer/footer-menu.php:10
+#: core/includes/functions.php:249 partials/footer/footer-menu.php:10
 #: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr ""
@@ -2699,15 +2699,15 @@ msgstr ""
 msgid "LinkedIn Link"
 msgstr ""
 
-#: core/includes/functions.php:759
+#: core/includes/functions.php:760
 msgid "Posted on"
 msgstr ""
 
-#: core/includes/functions.php:759
+#: core/includes/functions.php:760
 msgid "By"
 msgstr ""
 
-#: core/includes/functions.php:778 partials/entry/meta.php:54
+#: core/includes/functions.php:779 partials/entry/meta.php:54
 #: partials/single/meta.php:49
 #. translators: %s: view post by
 #. translators: view all posts by author
@@ -2715,7 +2715,7 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions.php:789 image.php:82 partials/entry/meta.php:104
+#: core/includes/functions.php:790 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -2723,13 +2723,13 @@ msgstr ""
 msgid "Posted in %s"
 msgstr ""
 
-#: core/includes/functions.php:789 partials/entry/meta.php:104
+#: core/includes/functions.php:790 partials/entry/meta.php:104
 #: partials/entry/meta.php:117 partials/single/meta.php:96
 #: partials/single/meta.php:109
 msgid ", "
 msgstr ""
 
-#: core/includes/functions.php:806
+#: core/includes/functions.php:807
 msgid "Upgrade To Pro"
 msgstr ""
 
@@ -2788,6 +2788,26 @@ msgstr ""
 
 #: core/includes/starter-content.php:243
 msgid "Primary"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:27
+msgid "About Me Widget"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:30
+msgid "About Me"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:93
+msgid "Title :"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:97
+msgid "Image :"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:104
+msgid "Bio :"
 msgstr ""
 
 #: footer.php:90

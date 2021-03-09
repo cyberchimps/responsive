@@ -8,7 +8,7 @@ input,
 select,
 textarea {
     @include make-normal-text();
-    background-color: map-get( $colors, white );
+    background-color: map-get($colors, #fff);
     word-wrap: break-word;
     -ms-word-wrap: break-word;
 }
@@ -34,8 +34,8 @@ ul {
 address,
 blockquote,
 pre {
-    background-color: map-get( $colors, light-gray );
     padding: $base-line-height-px;
+    background-color: map-get($colors, light-gray);
     font-style: italic;
 }
 
@@ -55,8 +55,8 @@ dl {
 }
 
 figure {
-    height: auto;
     max-width: 100%;
+    height: auto;
 
     img {
         display: block;
@@ -64,47 +64,47 @@ figure {
     }
 
     figcaption {
-        font-size: map-get( $font-sizes, small );
-        font-style: italic;
         padding: $base-line-height-px / 4;
+        font-size: map-get($font-sizes, small);
+        font-style: italic;
         text-align: center;
     }
 }
 
 hr {
-    border: none;
-    border-bottom: 4px solid map-get( $colors, light-gray );
+    border: 0;
+    border-bottom: 4px solid map-get($colors, light-gray);
 }
 
 h1 {
-    @include make-heading-text( extra-large );
-    @media ( max-width: map-get( $screens, md ) ) {
+    @include make-heading-text(extra-large);
+    @media ( max-width: map-get($screens, md) ) {
         font-size: 30px;
     }
 }
 
 h2 {
-    @include make-heading-text( large );
-    @media ( max-width: map-get( $screens, md ) ) {
+    @include make-heading-text(large);
+    @media ( max-width: map-get($screens, md) ) {
         font-size: 25px;
     }
 }
 
 h3 {
-    @include make-heading-text( medium );
-    @media ( max-width: map-get( $screens, md ) ) {
+    @include make-heading-text(medium);
+    @media ( max-width: map-get($screens, md) ) {
         font-size: 20px;
     }
 }
 
 h4 {
-    @include make-heading-text( normal );
+    @include make-heading-text(normal);
 	font-size: 1.3333333333333rem;
 }
 
 h5,
 h6 {
-    @include make-heading-text( small );
+    @include make-heading-text(small);
 }
 
 h5, .entry-content h5 {
@@ -117,13 +117,13 @@ h6, .entry-content h6 {
 
 ol,
 ul {
-    list-style: decimal;
     margin-left: $base-line-height-px;
+    list-style: decimal;
 
     ol,
     ul {
-        margin-bottom: 0;
         margin-top: 0;
+        margin-bottom: 0;
     }
 }
 
@@ -132,14 +132,14 @@ ul {
 }
 
 table {
-    border-collapse: collapse;
-    border: 1px solid map-get( $colors, light-gray );
     width: 100%;
+    border: 1px solid map-get($colors, light-gray);
+    border-collapse: collapse;
 
     td,
     th {
-		border: 1px solid map-get( $colors, light-gray );
         padding: $base-line-height-px / 4;
+		border: 1px solid map-get($colors, light-gray);
     }
 
     th {
@@ -152,18 +152,18 @@ table {
  * -----------------------------------------------------------------------------
  */
 a {
-    @include make-link( map-get( $colors, dark-blue ),  map-get( $colors, gray ) );
+    @include make-link(map-get($colors, dark-blue),  map-get($colors, gray));
     text-decoration: none;
 }
 
 abbr[title],
 acronym[title] {
-    text-decoration-style: dotted;
 	cursor: help;
+    text-decoration-style: dotted;
 }
 
 big {
-    font-size: map-get( $font-sizes, medium );
+    font-size: map-get($font-sizes, medium);
 }
 
 cite {
@@ -179,9 +179,9 @@ code,
 kbd,
 tt,
 var {
-    background-color: map-get( $colors, light-gray );
-    font-family: $code-font;
     padding: $base-line-height-px / 8;
+    background-color: map-get($colors, light-gray);
+    font-family: $code-font;
 }
 
 del,
@@ -195,8 +195,8 @@ em {
 }
 
 img {
-    height: auto;
     max-width: 100%;
+    height: auto;
 }
 
 ins,
@@ -217,7 +217,7 @@ q {
 }
 
 small {
-    font-size: map-get( $font-sizes, small );
+    font-size: map-get($font-sizes, small);
 }
 
 strong {
@@ -226,8 +226,8 @@ strong {
 
 sub,
 sup {
-    font-size: map-get( $font-sizes, small );
     position: relative;
+    font-size: map-get($font-sizes, small);
 }
 
 sub {

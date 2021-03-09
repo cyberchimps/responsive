@@ -6,9 +6,9 @@
     .hentry {
         &.lesson,
         &.course {
-            padding: 0;
             margin-top: $grid-gutter-width / 2;
             margin-bottom: 0;
+            padding: 0;
 
             .lesson-meta {
                 margin-top: $grid-gutter-width / 2;
@@ -23,12 +23,13 @@
 }
 
 .course .course-lessons .lesson p.lesson-meta span {
-    @media screen and ( max-width: map-get( $screens, md ) ) {
+    @media screen and ( max-width: map-get($screens, md) ) {
         display: block;
         padding-left: 0;
     }
 }
-.course input[type=submit] {
+
+.course input[type="submit"] {
     @include make-button();
     font-size: 1em;
 }
@@ -61,8 +62,8 @@
 
     .course-lesson-count {
         padding: 5px 0 0 5px;
-        font-weight: bold;
         border-bottom: dashed 1px #e8e9eb;
+        font-weight: bold;
     }
 
 }
@@ -70,9 +71,9 @@
 .course-container li.course.hentry {
     padding: $grid-gutter-width;
 
-    @media screen and ( min-width: map-get( $screens, md ) ) {
+    @media screen and ( min-width: map-get($screens, md) ) {
+        width: calc(( 100% / 2 )  - 15px);
         margin: 0 $grid-gutter-width $grid-gutter-width 0;
-        width: calc( ( 100% / 2 )  - 15px);
 
         &:nth-child(2n) {
             margin-right: 0;
@@ -80,19 +81,19 @@
         }
 
         .sensei-courses-columns-1 & {
-            margin: 0 $grid-gutter-width $grid-gutter-width 0;
             width: 100%;
+            margin: 0 $grid-gutter-width $grid-gutter-width 0;
             margin-right: 0;
             clear: none;
         }
     }
 
-    @media screen and ( min-width: map-get( $screens, lg ) ) {
+    @media screen and ( min-width: map-get($screens, lg) ) {
 
         @for $i from 2 through 10 {
             .sensei-courses-columns-#{$i} & {
+                width: calc(( 100% / #{$i} )  - 19px - #{$i}px);
                 margin: 0 $grid-gutter-width $grid-gutter-width 0;
-                width: calc( ( 100% / #{$i} )  - 19px - #{$i}px );
 
                 &:nth-child(2n) {
                     margin-right: $grid-gutter-width;
@@ -109,10 +110,10 @@
     }
 
     #sensei-user-courses & {
-        width: calc( ( 100% / 2 )  - 30px);
+        width: calc(( 100% / 2 )  - 30px);
         padding: 0;
 
-        @media screen and ( min-width: map-get( $screens, lg ) ) {
+        @media screen and ( min-width: map-get($screens, lg) ) {
             margin: 0 $grid-gutter-width $grid-gutter-width 0;
         }
 
@@ -141,8 +142,8 @@
 }
 
 .course, .course-container, .course-container .course {
-    border: none;
     padding: 0;
+    border: 0;
 }
 
 .sensei-ordering select {
@@ -155,34 +156,35 @@
 .responsive-site-style-boxed .sensei-pagination,
 .responsive-site-style-boxed.single-course nav.post-entries.fix {
     @extend .row;
-    margin-bottom: 0;
-    margin-top: 0;
-    background-color: #ffffff;
-    justify-content: space-between;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 28px;
     flex-wrap: nowrap;
     justify-content: space-between;
+    justify-content: space-between;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding: 28px;
+    background-color: #fff;
 
     > div {
         max-width: 50%;
     }
 
     .page-numbers {
-        margin: 0;
         width: 100%;
+        margin: 0;
 
         li {
             margin: 0 $grid-gutter-width/2;
 
             &:first-child {
-                float: left;
                 margin-left: 0;
+                float: left;
             }
+
             &:last-child {
-                float: right;
                 margin-right: 0;
+                float: right;
             }
 
         }
@@ -192,7 +194,7 @@
 .archive {
     &.post-type-archive-course {
         .content-area {
-            @media (min-width: map-get( $screens, lg ) ) {
+            @media (min-width: map-get($screens, lg) ) {
                 width: 100%;
             }
         }

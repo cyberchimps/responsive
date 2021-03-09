@@ -7,6 +7,7 @@
         margin-top: $base-line-height-px;
     }
 }
+
 .widget-area {
     @extend .col-xs-12;
     @extend .col-lg-4;
@@ -18,6 +19,7 @@
     &:first-child {
         padding-top: 0;
     }
+
     &:last-child {
         padding-bottom: 0;
     }
@@ -34,20 +36,20 @@
     .widget-area & {
         .widget-title {
             display: block;
-            line-height: 1;
-            letter-spacing: 1px;
             margin: 0 0 ($base-line-height-px * 2 / 3);
+            letter-spacing: 1px;
+            line-height: 1;
             text-transform: uppercase;
         }
 
         ul {
-            list-style: none;
             margin: 0;
             padding: 0;
+            list-style: none;
 
             li {
-                border-top: 1px dotted rgba(170, 170, 170, 0.2);
                 padding: ($base-line-height-px / 4) 0;
+                border-top: 1px dotted rgba(170, 170, 170, 0.2);
 
                 &:last-child {
                     border-top: 1px dotted rgba(170, 170, 170, 0.2);
@@ -58,9 +60,9 @@
         .custom-html-widget {
             ul {
                 li {
-                    border: none;
                     margin: 0;
                     padding: 0;
+                    border: 0;
                 }
             }
         }
@@ -82,11 +84,13 @@
                 flex-direction: row-reverse;
             }
         }
+
         &-right {
             .site-content > .container > .row {
                 flex-direction: row;
             }
         }
+
         &-no {
             .site-content > .container > .row {
                 main.content-area {
@@ -105,6 +109,7 @@
         transform: translate(0, -50%);
         font-size: 1.2rem;
     }
+
     .res-search-wrapper {
         display: block;
         position: relative;
@@ -114,15 +119,15 @@
 
         .search-submit {
             display: contents;
-            border-radius: 2px;
-            border: none;
+            position: absolute;
             top: 0;
             right: -10px;
-            position: absolute;
-            color: #ccc;
-            background: 0 0;
-            z-index: 2;
+            border: 0;
+            border-radius: 2px;
             outline: none;
+            background: 0 0;
+            color: #ccc;
+            z-index: 2;
         }
     }
 

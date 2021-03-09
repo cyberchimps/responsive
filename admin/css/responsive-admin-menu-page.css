@@ -254,3 +254,7 @@ a.responsivera-starter-sites-detail-link {
 .responsive-notice-image {
 	margin-top: 2em;
 }
+
+.deactivate-ready-site {
+	display: none;
+}

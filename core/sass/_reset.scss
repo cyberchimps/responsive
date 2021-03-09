@@ -19,8 +19,8 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	font: inherit;
+	font-size: 100%;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -28,20 +28,25 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -54,6 +59,7 @@ table {
 html {
     box-sizing: border-box;
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -65,14 +71,14 @@ html {
 html {
     /* Adjust font size */
     font-size: 100%;
-    -webkit-text-size-adjust: 100%;
+    font-smoothing: antialiased;
     /* Font varient */
+    text-rendering: optimizeLegibility;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    /* Smoothing */
+    -webkit-text-size-adjust: 100%;
     font-variant-ligatures: none;
     -webkit-font-variant-ligatures: none;
-    /* Smoothing */
-    text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }

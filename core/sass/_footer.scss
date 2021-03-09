@@ -4,17 +4,17 @@
  */
 
 .site-footer {
-    background-color: map-get( $colors, dark-gray );
-    color: map-get( $colors, white );
-    font-size: map-get( $font-sizes, small );
+    background-color: map-get($colors, dark-gray);
+    color: map-get($colors, white);
+    font-size: map-get($font-sizes, small);
     @for $i from 1 through 6 {
         h#{$i} {
-            color: map-get( $colors, white );
+            color: map-get($colors, white);
         }
     }
 
     a {
-        @include make-link( map-get( $colors, light-gray ), map-get( $colors, white ) );
+        @include make-link(map-get($colors, light-gray), map-get($colors, white));
     }
 
 }
@@ -35,25 +35,28 @@
         .footer-widgets-columns-1 & {
             @extend .col-lg-12;
         }
+
         .footer-widgets-columns-2 & {
             @extend .col-lg-6;
         }
+
         .footer-widgets-columns-3 & {
             @extend .col-lg-4;
         }
+
         .footer-widgets-columns-4 & {
             @extend .col-lg-3;
         }
     }
 
     .widget-wrapper ul {
-        list-style: none;
         margin: 0;
         padding: 0;
+        list-style: none;
 
         li {
-            border-top: 1px dotted rgba(170, 170, 170, 0.2);
             padding: $base-line-height-px/4 0;
+            border-top: 1px dotted rgba(170, 170, 170, 0.2);
         }
     }
 }
@@ -73,7 +76,7 @@
     }
 
     [class*="icon-"] {
-        font-size: map-get( $font-sizes, large );
+        font-size: map-get($font-sizes, large);
     }
 }
 
@@ -86,11 +89,12 @@
     padding-bottom: $grid-gutter-width / 2;
 
     .footer-bar-layout-horizontal & {
-        @media (min-width: map-get( $screens, md ) ) {
+        @media (min-width: map-get($screens, md) ) {
             width: auto;
             margin: auto 0;
         }
     }
+
     .footer-bar-layout-vertical & {
         text-align: center;
     }
@@ -104,14 +108,14 @@
     }
 
     ul {
-        list-style: none;
         margin: 0;
+        list-style: none;
 
         & > li {
             display: inline;
-            border-bottom: 1px solid rgba( 170, 170, 170, 0.2 );
-            border-bottom: none;
             margin-right: $grid-gutter-width / 2;
+            border-bottom: 1px solid rgba(170, 170, 170, 0.2);
+            border-bottom: 0;
         }
     }
 }
