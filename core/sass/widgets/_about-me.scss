@@ -2,10 +2,11 @@
     display: flex;
     flex-flow: column nowrap;
     padding: 20px 15px !important;
-        top: 4px solid #10659c;
-        radius: 2px !important;
-    }
+
     border: {
+      top: 4px solid #10659c;
+      radius: 2px !important;
+    }
 
     .widget-title {
         display: flex !important;
