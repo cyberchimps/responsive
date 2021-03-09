@@ -75,7 +75,9 @@ class Responsive_About_Me extends WP_Widget {
 	 * @since 4.5.4
 	 */
 	public function form( $instance ) {
-		$title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : esc_attr( 'About Me' );
+		$title = isset( $instance['title'] ) ? $instance['title'] : 'About Me';
+		$image = isset( $instance['author_image'] ) ? $instance['author_image'] : '';
+		$bio   = isset( $instance['author_bio'] ) ? $instance['author_bio'] : '';
 
 		$title_field_id   = $this->get_field_id( 'title' );
 		$title_field_name = $this->get_field_name( 'title' );
@@ -96,13 +98,13 @@ class Responsive_About_Me extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $author_image_field_id ); ?>"><?php esc_html_e( 'Image :', 'responsive' ); ?></label>
 
-			<img class="<?php echo esc_attr( $this->id ); ?>_img" src="<?php echo ( ! empty( $instance['author_image'] ) ) ? esc_url( $instance['author_image'] ) : ''; ?>" style="margin:0;padding:0;max-width:100%;display:block"/>
-			<input type="text" class="widefat <?php echo esc_attr( $this->id ); ?>_url" name="<?php echo esc_attr( $author_image_field_name ); ?>" value="<?php echo esc_url( $instance['author_image'] ); ?>" style="margin-top:5px;" />
+			<img class="<?php echo esc_attr( $this->id ); ?>_img" src="<?php echo esc_attr( $image ); ?>" style="margin:0;padding:0;max-width:100%;display:block"/>
+			<input type="text" class="widefat <?php echo esc_attr( $this->id ); ?>_url" name="<?php echo esc_attr( $author_image_field_name ); ?>" value="<?php echo esc_url( $image ); ?>" style="margin-top:5px;" />
 			<input type="button" id="<?php echo esc_attr( $this->id ); ?>" class="button button-primary responsive_js_custom_upload_media" value="Choose Image" style="margin-top:5px;" />
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $author_bio_field_id ); ?>"><?php esc_html_e( 'Bio :', 'responsive' ); ?></label>
-			<textarea name="<?php echo esc_attr( $author_bio_field_name ); ?>" id="<?php echo esc_attr( $author_bio_field_id ); ?>" cols="46" rows="10"><?php echo esc_attr( $instance['author_bio'] ); ?></textarea>
+			<textarea name="<?php echo esc_attr( $author_bio_field_name ); ?>" id="<?php echo esc_attr( $author_bio_field_id ); ?>" cols="46" rows="10"><?php echo esc_html( $bio ); ?></textarea>
 		</p>
 
 		<?php
