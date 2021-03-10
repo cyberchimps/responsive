@@ -444,7 +444,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 				printf( esc_html( responsive_hamburger_off_canvas_btn_label_text_label() ) );
 			},
 			'fallback_refresh'    => true,
-		),
+		)
 	);
 
 }
