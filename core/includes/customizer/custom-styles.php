@@ -1028,7 +1028,7 @@ function responsive_customizer_styles() {
 	.header-full-width.site-header-layout-vertical .main-navigation,
 	.site-header-layout-vertical.site-header-full-width-main-navigation .main-navigation,
 	.responsive-site-full-width.site-header-layout-vertical .main-navigation,
-	.site-header-layout-vertical .main-navigation div {
+	.site-header-layout-vertical .main-navigation div, .site-header-layout-vertical.site-header-site-branding-main-navigation.last-item-spread-away .main-navigation .menu {
 		background-color: {$header_menu_background_color};
 	}
 
