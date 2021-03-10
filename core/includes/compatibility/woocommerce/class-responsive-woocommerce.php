@@ -475,7 +475,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 				if ( $floating_bar_toggle_cond && 'display' === $floating_bar_toggle_cond ) {
 					?>
-				<div id="floating-bar" class="responsive-floating-bar">
+				<div id="floating-bar" class="responsive-floating-bar" style="display: none;">
 					<div class="floatingb-container">
 						<div class="floatingb-left">
 							<h2 class="floatingb-title"><span class="floatingb-selected"><?php esc_html_e( 'Selected : ', 'responsive' ); ?></span><?php echo wp_trim_words( $product->get_title(), '4' ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>

@@ -107,7 +107,7 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 
 			// Setting to enable/disable floating bar.
 			$single_product_floating_bar_label          = esc_html__( 'Display Floating Bar', 'responsive' );
-			$single_product_floating_bar_desc           = esc_html__( 'The floating bar is to display the add to cart button when you scroll to increase conversions.' );
+			$single_product_floating_bar_desc           = esc_html__( 'The floating bar is to display the add to cart button when you scroll to increase conversions.', 'responsive' );
 			$single_product_floating_bar_toggle_choices = array(
 				'display' => esc_html__( 'Display', 'responsive' ),
 				'hide'    => esc_html__( 'Hide', 'responsive' ),

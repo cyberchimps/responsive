@@ -791,16 +791,23 @@
     api( 'responsive_floatingb_addtocart_background_color', function( value ) {
         value.bind( function( newval ) {
             $( '.responsive-floating-bar .floating-bar-addbtn' ).css( 'background-color', newval );
+            var originalFloatingbBgHoverColor = api( 'responsive_floatingb_addtocart_bghover_color' ).get();
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
+                $(this).css( 'background-color', originalFloatingbBgHoverColor );
+            }, function() {
+                $(this).css( 'background-color', newval );
+            } );
         } );
     } );
 
     //Floating bar add to cart background hover color
     api( 'responsive_floatingb_addtocart_bghover_color', function( value ) {
         value.bind( function( newval ) {
+            var originalFloatingbBgColor = api( 'responsive_floatingb_addtocart_background_color' ).get();
             $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
                 $(this).css( 'background-color', newval );
             }, function() {
-                $(this).css( 'background-color', '#f2f2f2' );
+                $(this).css( 'background-color', originalFloatingbBgColor );
             } );
         } );
     } );
@@ -809,16 +816,23 @@
     api( 'responsive_floatingb_addtocart_font_color', function( value ) {
         value.bind( function( newval ) {
             $( '.responsive-floating-bar .floating-bar-addbtn' ).css( 'color', newval );
+            var originalFloatingbFontHoverColor = api( 'responsive_floatingb_addtocart_fonthover_color' ).get();
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
+                $(this).css( 'color', originalFloatingbFontHoverColor );
+            }, function() {
+                $(this).css( 'color', newval );
+            } );
         } );
     } );
 
     //Floating bar add to cart font hover color
     api( 'responsive_floatingb_addtocart_fonthover_color', function( value ) {
         value.bind( function( newval ) {
+            var originalFloatingbFontColor = api( 'responsive_floatingb_addtocart_font_color' ).get();
             $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
                 $(this).css( 'color', newval );
             }, function() {
-                $(this).css( 'color', '#000000' );
+                $(this).css( 'color', originalFloatingbFontColor );
             } );
         } );
     } );
