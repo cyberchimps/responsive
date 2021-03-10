@@ -944,7 +944,6 @@ function responsive_customizer_styles() {
 		.main-navigation .menu .sub-menu .res-iconify svg {
 		  transform: translate(0,-50%) rotate(270deg);
 		}
-
 	}
   	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
 		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
@@ -996,6 +995,9 @@ function responsive_customizer_styles() {
 		}
 		.res-iconify {
 			top: 0.3px;
+		}
+		.main-navigation .res-iconify.no-menu {
+			top: 16.3px;
 		}
 	}
 	@media screen and ( max-width: 576px ) {
