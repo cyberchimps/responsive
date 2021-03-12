@@ -9,7 +9,6 @@ Changelog Legend:
 [!] = Bugs
 
 (03/12/2021) = Added - Version 4.6.0
-[+] = Feature = Main Menu - Added option for Menu Label on Small Devices.
 [+] = Feature = Added option for floating add to cart bar on single product pages.
 [+] = Feature = Added option to open copyright link in new tab.
 [+] = Feature = Added a new widget : About Me
