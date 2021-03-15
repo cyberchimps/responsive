@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.5.5\n"
+"Project-Id-Version: Responsive 4.6.0\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2021-02-26 10:21:23+00:00\n"
+"POT-Creation-Date: 2021-03-15 09:59:46+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 
 #: admin/admin-functions.php:21
-#: admin/class-responsive-plugin-install-helper.php:157
+#: admin/class-responsive-plugin-install-helper.php:196
 msgid "Activating "
 msgstr ""
 
@@ -55,20 +55,24 @@ msgstr ""
 msgid "Uncaught Error"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:93
+#: admin/admin-functions.php:49
+msgid "Thank You for installing Responsive"
+msgstr ""
+
+#: admin/class-responsive-plugin-install-helper.php:90
 msgid "Install and activate &raquo;"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:97
-#: admin/class-responsive-plugin-install-helper.php:117
+#: admin/class-responsive-plugin-install-helper.php:94
+#: admin/class-responsive-plugin-install-helper.php:114
 msgid "Activate"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:112
+#: admin/class-responsive-plugin-install-helper.php:109
 msgid "Deactivate"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:117
+#: admin/class-responsive-plugin-install-helper.php:114
 msgid "Jetpack Portfolio"
 msgstr ""
 
@@ -221,108 +225,117 @@ msgstr ""
 msgid "Responsive Options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:194
+#: core/includes/classes/class-responsive-admin-settings.php:192
 msgid "Get Started"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:196
+#: core/includes/classes/class-responsive-admin-settings.php:194
 msgid "Free Vs Pro "
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:231
+#: core/includes/classes/class-responsive-admin-settings.php:229
 msgid "Import a website template(FREE)"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:237
+#: core/includes/classes/class-responsive-admin-settings.php:235
 msgid ""
 "Install Responsive Starter Templates for Gutenberg & Elementor to get "
 "ready-to-use website templates that can be imported with one click."
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:242
+#: core/includes/classes/class-responsive-admin-settings.php:240
 msgid "Learn More &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:269
+#: core/includes/classes/class-responsive-admin-settings.php:267
 msgid "Support"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:273
+#: core/includes/classes/class-responsive-admin-settings.php:271
 msgid "Have questions? Get in touch with us. We'll be happy to help"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:277
+#: core/includes/classes/class-responsive-admin-settings.php:275
 msgid "Request Support &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:303
+#: core/includes/classes/class-responsive-admin-settings.php:301
 #. translators: %1$s: Responsive Support link.
 msgid "Change site layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:308
+#: core/includes/classes/class-responsive-admin-settings.php:306
 msgid "Customize fonts/typography"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:313
+#: core/includes/classes/class-responsive-admin-settings.php:311
 msgid "Upload logo & site icon"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:318
+#: core/includes/classes/class-responsive-admin-settings.php:316
 msgid "Add/edit navigation menu"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:323
+#: core/includes/classes/class-responsive-admin-settings.php:321
 msgid "Customize header options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:328
+#: core/includes/classes/class-responsive-admin-settings.php:326
 msgid "Customize footer options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:333
+#: core/includes/classes/class-responsive-admin-settings.php:331
 msgid "Update blog layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:338
+#: core/includes/classes/class-responsive-admin-settings.php:336
 msgid "Update page layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:346
+#: core/includes/classes/class-responsive-admin-settings.php:344
 msgid "Quick Start:"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:365
+#: core/includes/classes/class-responsive-admin-settings.php:363
 msgid "Community"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:369
+#: core/includes/classes/class-responsive-admin-settings.php:367
 msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:373
+#: core/includes/classes/class-responsive-admin-settings.php:371
 msgid "Join Facebook Group &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:387
+#: core/includes/classes/class-responsive-admin-settings.php:385
 msgid "Feedback"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:391
+#: core/includes/classes/class-responsive-admin-settings.php:389
 msgid ""
 "Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:395
+#: core/includes/classes/class-responsive-admin-settings.php:393
 msgid "Submit Review &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:421
+#: core/includes/classes/class-responsive-admin-settings.php:419
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
+msgstr ""
+
+#: core/includes/classes/class-responsive-walker-page.php:71
+#. translators: %d: ID of a post.
+msgid "#%d (no title)"
+msgstr ""
+
+#: core/includes/classes/class-responsive-walker-page.php:98
+msgid "Show sub menu"
 msgstr ""
 
 #: core/includes/compatibility/sensei/customizer/settings/class-responsive-sensei-content-customizer.php:47
@@ -355,18 +368,45 @@ msgstr ""
 msgid "Sensei Settings"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:288
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:295
 msgid "Sale!"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:377
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:391
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:379
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:393
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:422
+msgid "Close off canvas panel"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:449
+msgid "Off-Canvas Filters"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:451
+msgid ""
+"Widgets in this area are used in the Off Canvas Filter. To enable the Off "
+"Canvas filter, go to the Product Catalog Option > Layout in customizer and "
+"check Enable Off Canvas Filter checkbox under Off Canvas Filter section."
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:483
+msgid "Selected : "
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:492
+msgid "Out Of Stock"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:499
+msgid "Select options"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:39
@@ -478,6 +518,7 @@ msgid "Rating Color"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:50
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:129
 msgid "Price Color"
 msgstr ""
 
@@ -487,7 +528,7 @@ msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:101
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:109
 #: core/includes/customizer/settings/class-responsive-sidebar-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:44
 #: core/includes/post-custom-meta.php:163
@@ -728,6 +769,30 @@ msgstr ""
 msgid "Square Outline"
 msgstr ""
 
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:144
+msgid "Off Canvas Filter"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:147
+msgid "Enable Off Canvas Filter"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:150
+msgid "Off Canvas Filter Button Text"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:153
+msgid "Enable Off Canvas Close Button"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:156
+msgid "Close Button Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:159
+msgid "Close Button Hover Color"
+msgstr ""
+
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
 msgid "Single Product Sidebar Position"
 msgstr ""
@@ -741,19 +806,85 @@ msgid "Gallery Layout"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:76
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:104
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:112
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:77
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:103
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:111
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:95
 msgid "Single Product Structure"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:105
+msgid "Floating Bar"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:109
+msgid "Display Floating Bar"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:110
+msgid ""
+"The floating bar is to display the add to cart button when you scroll to "
+"increase conversions."
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:112
+msgid "Display"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:113
+msgid "Hide"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:121
+#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
+#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:44
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:162
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:134
+#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:196
+#: core/includes/customizer/settings/class-responsive-header-widgets-customizer.php:97
+#: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:50
+msgid "Background Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:125
+#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:41
+msgid "Title Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:133
+msgid "Quantity Input: Background"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:137
+msgid "Quantity Input Font: Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:141
+msgid "Quantity Input Border: Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:145
+msgid "Add To Cart: Background"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:149
+msgid "Add To Cart Hover: Background"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:153
+msgid "Add To Cart Font: Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:157
+msgid "Add To Cart Font Hover: Color"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:189
@@ -840,15 +971,11 @@ msgstr ""
 msgid "Arial, Helvetica, sans-serif"
 msgstr ""
 
-#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:227
-msgid "Custom Fonts"
-msgstr ""
-
-#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:244
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:230
 msgid "Standard Fonts"
 msgstr ""
 
-#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:258
+#: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:244
 msgid "Google Fonts"
 msgstr ""
 
@@ -1156,10 +1283,6 @@ msgstr ""
 msgid "Content Header Colors"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:41
-msgid "Title Color"
-msgstr ""
-
 #: core/includes/customizer/settings/class-responsive-content-header-colors-customizer.php:45
 msgid "Description Color"
 msgstr ""
@@ -1222,16 +1345,6 @@ msgstr ""
 msgid ""
 "Get 30+ fully working ready-to-use website templates that you can import. "
 "Simply edit the content and launch your website."
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:46
-#: core/includes/customizer/settings/class-responsive-header-colors-customizer.php:44
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:162
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:134
-#: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:196
-#: core/includes/customizer/settings/class-responsive-header-widgets-customizer.php:97
-#: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:50
-msgid "Background Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:51
@@ -1297,80 +1410,86 @@ msgstr ""
 msgid "Hide Copyright Icon & Year"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:113
-msgid "Border Size"
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:101
+msgid "Open Powered By link in new tab"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:122
-msgid "Social Links"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:126
-msgid "Open Social Icons in a new tab"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:128
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:103
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:136
 msgid "No"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:129
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:104
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:137
 msgid "Yes"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:147
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:121
+msgid "Border Size"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:130
+msgid "Social Links"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:134
+msgid "Open Social Icons in a new tab"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:155
 #: core/includes/functions-extensions.php:365
 msgid "Twitter"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:168
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:176
 #: core/includes/functions-extensions.php:366
 msgid "Facebook"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:189
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:197
 #: core/includes/functions-extensions.php:367
 msgid "LinkedIn"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:210
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:218
 #: core/includes/functions-extensions.php:368
 msgid "YouTube"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:231
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:239
 #: core/includes/functions-extensions.php:370
 msgid "RSS Feed"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:252
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:260
 #: core/includes/functions-extensions.php:371
 msgid "Instagram"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:273
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:281
 #: core/includes/functions-extensions.php:372
 msgid "Pinterest"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:294
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:302
 #: core/includes/functions-extensions.php:369
 msgid "StumbleUpon"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:315
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:323
 #: core/includes/functions-extensions.php:374
 msgid "Vimeo"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:336
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:344
 msgid "Yelp"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:357
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:365
 msgid "Foursquare"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:376
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:384
 msgid "Email Address"
 msgstr ""
 
@@ -1786,7 +1905,7 @@ msgid "Disable Hero Area"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:105
-#: core/includes/functions.php:91 functions.php:602
+#: core/includes/functions.php:92 functions.php:616
 msgid "HAPPINESS"
 msgstr ""
 
@@ -1795,7 +1914,7 @@ msgid "Headline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:124
-#: core/includes/functions.php:92 functions.php:605
+#: core/includes/functions.php:93 functions.php:619
 msgid "IS A WARM CUP"
 msgstr ""
 
@@ -1804,7 +1923,7 @@ msgid "Subheadline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:142
-#: core/includes/functions.php:93 functions.php:608
+#: core/includes/functions.php:94 functions.php:622
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -2649,56 +2768,56 @@ msgstr ""
 msgid "Area 15 - sidebar-footer.php"
 msgstr ""
 
-#: core/includes/functions.php:94 functions.php:611
+#: core/includes/functions.php:95 functions.php:625
 msgid "Call to Action"
 msgstr ""
 
-#: core/includes/functions.php:247
+#: core/includes/functions.php:248
 msgid "Header Menu"
 msgstr ""
 
-#: core/includes/functions.php:248 partials/footer/footer-menu.php:10
+#: core/includes/functions.php:249 partials/footer/footer-menu.php:10
 #: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr ""
 
-#: core/includes/functions.php:422
+#: core/includes/functions.php:401
 msgid "Team Section Options"
 msgstr ""
 
-#: core/includes/functions.php:436
+#: core/includes/functions.php:415
 msgid "To use this post for front page's team section, please enter below details:"
 msgstr ""
 
-#: core/includes/functions.php:439
+#: core/includes/functions.php:418
 msgid "Member designation"
 msgstr ""
 
-#: core/includes/functions.php:443
+#: core/includes/functions.php:422
 msgid "Facebook Link"
 msgstr ""
 
-#: core/includes/functions.php:447
+#: core/includes/functions.php:426
 msgid "Twitter Link"
 msgstr ""
 
-#: core/includes/functions.php:451
+#: core/includes/functions.php:430
 msgid "GooglePlus Link"
 msgstr ""
 
-#: core/includes/functions.php:455
+#: core/includes/functions.php:434
 msgid "LinkedIn Link"
 msgstr ""
 
-#: core/includes/functions.php:759
+#: core/includes/functions.php:738
 msgid "Posted on"
 msgstr ""
 
-#: core/includes/functions.php:759
+#: core/includes/functions.php:738
 msgid "By"
 msgstr ""
 
-#: core/includes/functions.php:778 partials/entry/meta.php:54
+#: core/includes/functions.php:757 partials/entry/meta.php:54
 #: partials/single/meta.php:49
 #. translators: %s: view post by
 #. translators: view all posts by author
@@ -2706,7 +2825,7 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions.php:789 image.php:82 partials/entry/meta.php:104
+#: core/includes/functions.php:768 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -2714,13 +2833,13 @@ msgstr ""
 msgid "Posted in %s"
 msgstr ""
 
-#: core/includes/functions.php:789 partials/entry/meta.php:104
+#: core/includes/functions.php:768 partials/entry/meta.php:104
 #: partials/entry/meta.php:117 partials/single/meta.php:96
 #: partials/single/meta.php:109
 msgid ", "
 msgstr ""
 
-#: core/includes/functions.php:806
+#: core/includes/functions.php:785
 msgid "Upgrade To Pro"
 msgstr ""
 
@@ -2781,26 +2900,46 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
+#: core/includes/widgets/class-responsive-about-me.php:27
+msgid "About Me Widget"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:30
+msgid "About Me"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:95
+msgid "Title :"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:99
+msgid "Image :"
+msgstr ""
+
+#: core/includes/widgets/class-responsive-about-me.php:106
+msgid "Bio :"
+msgstr ""
+
 #: footer.php:90
 msgid "Scroll to Top"
 msgstr ""
 
-#: functions.php:497
+#: functions.php:511
 msgid "Permalink to %s"
 msgstr ""
 
-#: functions.php:562
+#: functions.php:576
 #. translators: %s Link to 5 star rating
 msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
 
-#: functions.php:563
+#: functions.php:577
 msgid "Thanks :)"
 msgstr ""
 
-#: functions.php:614
+#: functions.php:628
 msgid "#"
 msgstr ""
 
@@ -2908,8 +3047,12 @@ msgstr ""
 msgid " &copy; "
 msgstr ""
 
-#: partials/footer/copy-right.php:46
-msgid " | Powered by Responsive Theme"
+#: partials/footer/copy-right.php:41
+msgid " | Powered by"
+msgstr ""
+
+#: partials/footer/copy-right.php:58
+msgid " Responsive Theme"
 msgstr ""
 
 #: partials/header/main-navigation.php:24
@@ -3235,42 +3378,42 @@ msgctxt "Text for a page Breadcrumb"
 msgid "Page %s"
 msgstr ""
 
-#: functions.php:214
+#: functions.php:216
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr ""
 
-#: functions.php:215
+#: functions.php:217
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr ""
 
-#: functions.php:220
+#: functions.php:222
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr ""
 
-#: functions.php:221
+#: functions.php:223
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr ""
 
-#: functions.php:226
+#: functions.php:228
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr ""
 
-#: functions.php:227
+#: functions.php:229
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr ""
 
-#: functions.php:232
+#: functions.php:234
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr ""
 
-#: functions.php:233
+#: functions.php:235
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr ""

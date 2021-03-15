@@ -1651,7 +1651,7 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
  *
  * @return void               [description].
  */
-function responsive_select_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh' ) {
+function responsive_select_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh', $description = '' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -1665,6 +1665,7 @@ function responsive_select_control( $wp_customize, $element, $label, $section, $
 		'responsive_' . $element,
 		array(
 			'label'           => $label,
+			'description'     => $description,
 			'section'         => $section,
 			'settings'        => 'responsive_' . $element,
 			'type'            => 'select',
@@ -1763,4 +1764,30 @@ function responsive_checkbox_control( $wp_customize, $element, $label, $section,
 			'active_callback' => $active_call,
 		)
 	);
+}
+/**
+ * Check if off canvas is active
+ *
+ * @return void
+ */
+function enable_off_canvas_filter_check() {
+	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) ? true : false;
+}
+/**
+ * Check if off canvas close button is active
+ *
+ * @return void
+ */
+function enable_enable_off_canvas_close_btn() {
+	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_close_btn', 0 ) ) ? true : false;
+}
+
+if ( ! function_exists( 'responsive_hamburger_off_canvas_btn_label_text_label' ) ) {
+	/**
+	 * Returns hamburger menu label value
+	 */
+	function responsive_hamburger_off_canvas_btn_label_text_label() {
+		$hamburger_off_canvas_btn_label_text_label = get_theme_mod( 'responsive_hamburger_off_canvas_btn_label_text', 'Filter' );
+		return $hamburger_off_canvas_btn_label_text_label;
+	}
 }

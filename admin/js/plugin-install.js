@@ -52,7 +52,7 @@ jQuery( document ).ready(
 							// Reload the page.
 							if ( typeof(redirect) !== 'undefined' && redirect !== '' ) {
 								window.location.replace( redirect );
-								location.reload();
+								window.location.href( redirect );
 							} else {
 								location.reload();
 							}

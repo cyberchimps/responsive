@@ -43,6 +43,7 @@ function setup() {
 	add_action( 'save_post', $n( 'responsive_team_meta_box_save' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_comment_reply' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_scrolltotop' ) );
+	add_action( 'widgets_init', $n( 'responsive_register_widgets' ) );
 	add_filter( 'pre_update_option_show_on_front', $n( 'responsive_front_page_override' ), 10, 2 );
 	add_filter( 'body_class', $n( 'responsive_add_class' ) );
 	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ) );
@@ -341,28 +342,6 @@ function responsive_content_width() {
 	if ( $full_width ) {
 		$content_width = 918;
 	}
-}
-
-/**
- * Set a fallback menu that will show a home link.
- */
-function responsive_fallback_menu() {
-	$args    = array(
-		'depth'       => 0,
-		'sort_column' => 'menu_order, post_title',
-		'menu_class'  => 'menu',
-		'include'     => '',
-		'exclude'     => '',
-		'echo'        => false,
-		'show_home'   => true,
-		'link_before' => '',
-		'link_after'  => '',
-	);
-	$pages   = wp_page_menu( $args );
-	$prepend = '<div id="header-menu" class="menu">';
-	$append  = '</div>';
-	$output  = $prepend . $pages . $append;
-	echo wp_kses_post( $output );
 }
 
 /**
@@ -1121,4 +1100,23 @@ function responsive_mobile_custom_logo() {
 		);
 	}
 	return $html;
+}
+
+/**
+ * Register Widgets for the theme.
+ *
+ */
+function responsive_register_widgets() {
+	/**
+	 * Add widget classname as key and class file name as value.
+	 */
+	$responsive_widgets = array(
+		'Responsive_About_Me' => 'class-responsive-about-me.php',
+	);
+
+	foreach ( $responsive_widgets as $classname => $filename ) {
+		require_once get_theme_file_path( 'core/includes/widgets/' . $filename );
+
+		register_widget( $classname );
+	}
 }

@@ -11,22 +11,22 @@ textarea {
     width: 100%;
 }
 
-input[type=radio],
-input[type=checkbox] {
+input[type="radio"],
+input[type="checkbox"] {
     width: auto;
 }
 
-input[type=image] {
-    width: fit-content;   
+input[type="image"] {
+    width: fit-content;
 }
 
 button,
-input[type=button],
-input[type=submit] {
-    background-color: map-get( $colors, blue );
-    color: map-get( $colors, white );
+input[type="button"],
+input[type="submit"] {
+    background-color: map-get($colors, blue);
+    color: map-get($colors, white);
     cursor: pointer;
-    font-size: map-get( $font-sizes, small );
+    font-size: map-get($font-sizes, small);
     font-weight: bold;
     letter-spacing: 1px;
     line-height: $base-line-height-px;
@@ -35,10 +35,11 @@ input[type=submit] {
 
     &:focus,
     &:hover {
-        background-color: map-get( $colors, dark-blue );
+        background-color: map-get($colors, dark-blue);
     }
 }
-input[type=search] {
+
+input[type="search"] {
     -webkit-appearance: initial;
     -moz-appearace: inherit;
 }

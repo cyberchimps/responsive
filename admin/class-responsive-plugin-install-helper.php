@@ -59,10 +59,7 @@ class Responsive_Plugin_Install_Helper {
 	 */
 	public function get_button_html( $slug, $settings = array() ) {
 		$button   = '';
-		$redirect = '';
-		if ( ! empty( $settings ) && array_key_exists( 'redirect', $settings ) ) {
-			$redirect = $settings['redirect'];
-		}
+		$redirect = admin_url( 'admin.php?page=responsive-add-ons' );
 		$state = $this->check_plugin_state( $slug );
 		if ( empty( $slug ) ) {
 			return '';
@@ -119,6 +116,48 @@ class Responsive_Plugin_Install_Helper {
 		} // End switch.
 		$button .= '</div>';
 		return $button;
+	}
+
+	/**
+	 * Check plugin state.
+	 *
+	 * @param string $slug plugin slug.
+	 *
+	 * @return bool
+	 */
+	public function get_deactivate_content( $slug ) {
+		$state = $this->check_plugin_state( $slug );
+		if ( empty( $slug ) ) {
+			return '';
+		}
+
+		$deactivate = '';
+
+		if ( 'deactivate' === $state ) {
+			$deactivate .= '<div class="deactivate-ready-site">';
+		}
+		return $deactivate;
+	}
+
+	/**
+	 * Check plugin state.
+	 *
+	 * @param string $slug plugin slug.
+	 *
+	 * @return bool
+	 */
+	public function get_deactivate_end_content( $slug ) {
+		$state = $this->check_plugin_state( $slug );
+		if ( empty( $slug ) ) {
+			return '';
+		}
+
+		$deactivate_end = '';
+
+		if ( 'deactivate' === $state ) {
+			$deactivate_end .= '</div>';
+		}
+		return $deactivate_end;
 	}
 
 	/**
