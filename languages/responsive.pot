@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.5.6\n"
+"Project-Id-Version: Responsive 4.6.0\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2021-03-09 06:54:42+00:00\n"
+"POT-Creation-Date: 2021-03-15 04:40:58+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -372,40 +372,40 @@ msgstr ""
 msgid "Sale!"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:389
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:391
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:391
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:393
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:420
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:422
 msgid "Close off canvas panel"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:447
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:449
 msgid "Off-Canvas Filters"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:449
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:451
 msgid ""
 "Widgets in this area are used in the Off Canvas Filter. To enable the Off "
 "Canvas filter, go to the Product Catalog Option > Layout in customizer and "
 "check Enable Off Canvas Filter checkbox under Off Canvas Filter section."
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:481
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:483
 msgid "Selected : "
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:490
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:492
 msgid "Out Of Stock"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:497
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:499
 msgid "Select options"
 msgstr ""
 
@@ -2908,15 +2908,15 @@ msgstr ""
 msgid "About Me"
 msgstr ""
 
-#: core/includes/widgets/class-responsive-about-me.php:93
+#: core/includes/widgets/class-responsive-about-me.php:95
 msgid "Title :"
 msgstr ""
 
-#: core/includes/widgets/class-responsive-about-me.php:97
+#: core/includes/widgets/class-responsive-about-me.php:99
 msgid "Image :"
 msgstr ""
 
-#: core/includes/widgets/class-responsive-about-me.php:104
+#: core/includes/widgets/class-responsive-about-me.php:106
 msgid "Bio :"
 msgstr ""
 

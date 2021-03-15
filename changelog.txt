@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(03/12/2021) = Added - Version 4.6.0
+(03/15/2021) = Added - Version 4.6.0
 [+] = Feature = Added option for floating add to cart bar on single product pages.
 [+] = Feature = Added option to open copyright link in new tab.
 [+] = Feature = Added a new widget : About Me
