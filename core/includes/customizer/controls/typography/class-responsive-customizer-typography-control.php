@@ -101,9 +101,9 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 				'responsive-typography-weight',
 				'responsive',
 				array(
-					'googleFonts' => responsive_get_google_fonts(),
-					'weigthMap'   => $this->all_font_weight,
-					'std_fonts'   => responsive_standard_fonts(),
+					'googleFonts'  => responsive_get_google_fonts(),
+					'weigthMap'    => $this->all_font_weight,
+					'std_fonts'    => responsive_standard_fonts(),
 
 				)
 			);
@@ -220,22 +220,8 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 				><?php esc_html_e( 'Arial, Helvetica, sans-serif', 'responsive' ); ?></option>
 					<?php
 					// Add custom fonts from child themes.
-					if ( function_exists( 'responsive_add_custom_fonts' ) ) {
-						$fonts = responsive_add_custom_fonts();
-						if ( $fonts && is_array( $fonts ) ) {
-							?>
-						<optgroup label="<?php esc_attr_e( 'Custom Fonts', 'responsive' ); ?>">
-							<?php foreach ( $fonts as $font ) { ?>
-								<option value="<?php echo esc_html( $font[0] ); ?>"
-									<?php
-									if ( $font[0] === $this_val ) {
-										echo 'selected="selected"';}
-									?>
-								><?php echo esc_html( $font[0] ); ?></option>
-							<?php } ?>
-						</optgroup>
-							<?php
-						}
+					if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
+						do_action( 'responsive_customizer_font_list', '' );
 					}
 
 					// Get Standard font options.

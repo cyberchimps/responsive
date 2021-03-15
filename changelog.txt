@@ -8,6 +8,17 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/15/2021) = Added - Version 4.6.0
+[+] = Feature = Added option for floating add to cart bar on single product pages.
+[+] = Feature = Added option to open copyright link in new tab.
+[+] = Feature = Added a new widget : About Me
+[!] = Fix = Footer - Default link should not apply to Powered by text
+[!] = Fix = Main Menu - Accessibility issue for submenu in smaller devices
+[!] = Fix = Fixed dropdown icon not appearing when no menu is set
+
+(03/02/2021) = Fix - Version 4.5.6
+[!] = Fix = Mobile sub-menu links are not clickable
+
 (02/26/2021) = Added - Version 4.5.5
 [+] = Feature = Main Menu - Added Submenu container border option
 [+] = Feature = Main Menu - Added Submenu divider option

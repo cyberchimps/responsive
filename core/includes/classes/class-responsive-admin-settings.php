@@ -92,10 +92,8 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			self::$page_title      = apply_filters( 'responsive_page_title', __( 'Responsive', 'responsive' ) );
 			self::$plugin_slug     = self::get_theme_page_slug();
 
-			if ( isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], self::$plugin_slug ) !== false ) {
 
-				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
-			}
+			add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 

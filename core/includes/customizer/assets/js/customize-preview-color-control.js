@@ -744,6 +744,99 @@
         } );
     } );
 
+    //Single Product Floating Bar -> Colors
+    //Floating bar background color
+    api( 'responsive_floatingb_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar' ).css( 'background-color', newval );
+        } );
+    } );
+
+    //Floating bar title color
+    api( 'responsive_floatingb_title_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.floatingb-title' ).css( 'color', newval );
+        } );
+    } );
+
+    //Floating bar price color
+    api( 'responsive_floatingb_price_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.floatingb-price' ).css( 'color', newval );
+        } );
+    } );
+
+    //Floating bar quantity input background color
+    api( 'responsive_floatingb_qty_input_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .input-text' ).css( 'background-color', newval );
+        } );
+    } );
+
+    //Floating bar quantity input font color
+    api( 'responsive_floatingb_qty_input_font_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .input-text' ).css( 'color', newval );
+        } );
+    } );
+
+    //Floating bar quantity input border color
+    api( 'responsive_floatingb_qty_input_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .input-text' ).css( 'border-color', newval );
+        } );
+    } );
+
+    //Floating bar add to cart background color
+    api( 'responsive_floatingb_addtocart_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).css( 'background-color', newval );
+            var originalFloatingbBgHoverColor = api( 'responsive_floatingb_addtocart_bghover_color' ).get();
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
+                $(this).css( 'background-color', originalFloatingbBgHoverColor );
+            }, function() {
+                $(this).css( 'background-color', newval );
+            } );
+        } );
+    } );
+
+    //Floating bar add to cart background hover color
+    api( 'responsive_floatingb_addtocart_bghover_color', function( value ) {
+        value.bind( function( newval ) {
+            var originalFloatingbBgColor = api( 'responsive_floatingb_addtocart_background_color' ).get();
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
+                $(this).css( 'background-color', newval );
+            }, function() {
+                $(this).css( 'background-color', originalFloatingbBgColor );
+            } );
+        } );
+    } );
+
+    //Floating bar add to cart font color
+    api( 'responsive_floatingb_addtocart_font_color', function( value ) {
+        value.bind( function( newval ) {
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).css( 'color', newval );
+            var originalFloatingbFontHoverColor = api( 'responsive_floatingb_addtocart_fonthover_color' ).get();
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
+                $(this).css( 'color', originalFloatingbFontHoverColor );
+            }, function() {
+                $(this).css( 'color', newval );
+            } );
+        } );
+    } );
+
+    //Floating bar add to cart font hover color
+    api( 'responsive_floatingb_addtocart_fonthover_color', function( value ) {
+        value.bind( function( newval ) {
+            var originalFloatingbFontColor = api( 'responsive_floatingb_addtocart_font_color' ).get();
+            $( '.responsive-floating-bar .floating-bar-addbtn' ).hover( function() {
+                $(this).css( 'color', newval );
+            }, function() {
+                $(this).css( 'color', originalFloatingbFontColor );
+            } );
+        } );
+    } );
+
     //Sidebar -> Colors
     //Headings Color
     api( 'responsive_sidebar_headings_color', function( value ) {
@@ -1065,4 +1158,21 @@
             $(this).css("background-color", api('responsive_cart_checkout_button_color').get());
         }
     );
+    // Woocommerce off canvas filter.
+    api( 'responsive_off_canvas_close_button_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-off-canvas-close svg').css('fill', newval );
+        } );
+    } );
+
+    $(".responsive-off-canvas-close svg").hover(
+        function() {
+            $(this).css("fill", api('responsive_off_canvas_close_button_hover_color').get());
+        },
+
+        function() {
+            $(this).css("fill", api('responsive_off_canvas_close_button_color').get());
+        }
+    );
+
 } )( jQuery );

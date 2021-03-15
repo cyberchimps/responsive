@@ -133,7 +133,8 @@
 
         li {
             &.focus,
-            &:hover {
+            &:hover,
+            &:focus {
                 & > .children,
                 & > .sub-menu {
                     left: 0;
@@ -690,7 +691,7 @@ body.mega-menu-header-menu button.menu-toggle {
 }
 
 .main-navigation .menu {
-  li.focus>.children, li.focus>.sub-menu, .menu-item-has-children.focus ul.sub-menu {
+    li.focus>.children, li.focus>.sub-menu, .menu-item-has-children.focus>ul.sub-menu {
     display: block;
   }
 }
@@ -698,8 +699,43 @@ body.mega-menu-header-menu button.menu-toggle {
 .res-iconify {
   display: inline-block;
   position: absolute;
-  top: 8px;
-  right: 2px;
+  top: -0.7px;
+  right: -8px;
   font-weight: bold;
-  padding-right: 10px;
+  padding-right: 13px;
+  line-height: 3;
+}
+
+.res-iconify.no-menu{
+    display: block;
+    height: 0.4rem;
+    position: absolute;
+    pointer-events: none;
+    transform: rotate( -45deg );
+    width: 1.5rem;
+    right: -0.7rem;
+    top: calc(50% - 0.5rem);
+
+    &:after, &:before {
+      content: "";
+      left: 0;
+      display: block;
+      background-color: currentColor;
+      position: absolute;
+      bottom: calc(50% - 0.1rem);
+    }
+    &:after {
+      height: 0.1rem;
+      width: 0.55rem;
+    }
+    &:before {
+      height: 0.6rem;
+      width: 0.1rem;
+    }
+}
+
+.main-navigation .menu {
+  li.focus>.children, .page_item_has_children.focus>ul.children, li:focus>.children, .page_item_has_children:focus>ul.children {
+    display: block;
+  }
 }

@@ -13,6 +13,11 @@
                     jQuery( 'body' ).removeClass( 'responsive-site-contained');
                     jQuery( 'body' ).removeClass( 'responsive-site-full-width');
                     jQuery( 'body' ).addClass( 'responsive-site-'+ newval );
+                    if ( newval === 'contained' && $(window).width() > 768 ) {
+                        jQuery( '.floatingb-container' ).css( 'width', '1140px' );
+                    } else {
+                        jQuery( '.floatingb-container' ).css( 'width', '100%' );
+                    }
                 }
             );
         }

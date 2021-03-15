@@ -12,6 +12,12 @@
     api( 'responsive_container_width', function( value ) {
         value.bind( function( newval ) {
             $('.container,[class*=\'__inner-container\'],.site-header-full-width-main-navigation:not(.responsive-site-full-width) .main-navigation-wrapper').css('max-width', newval+'px' );
+            if ( $(window).width() > 769 ) {
+                $( '.floatingb-container' ).css( 'width', newval+'px' );
+            } else {
+                $( '.floatingb-container' ).css( 'width', '100%' );    
+            }
+            
         } );
     } );
 

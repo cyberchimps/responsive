@@ -28,10 +28,20 @@ $cyberchimps_link   = '';
 	} else {
 		echo esc_html( get_bloginfo( 'name' ) );
 	}
+	$copyright_new_tab = get_theme_mod( 'responsive_copyright_new_tab', '_self' );
+
 	if ( class_exists( 'Responsive_Addons_Pro' ) && ! empty( $responsive_options['poweredby_link'] ) ) {
 		$cyberchimps_link = $responsive_options['poweredby_link'];
 	} else {
 		?>
+		<span>
+			<?php
+			echo apply_filters(
+				'responsive_theme_footer_link_text',
+				esc_html__( ' | Powered by', 'responsive' )
+			)
+			?>
+		</span>
 		<a href= "
 		<?php
 		echo apply_filters(
@@ -39,11 +49,13 @@ $cyberchimps_link   = '';
 			esc_url( 'https://cyberchimps.com/' )
 		);
 		?>
-			">
+			"
+			target=<?php echo $copyright_new_tab ?>
+			>
 			<?php
 			echo apply_filters(
 				'responsive_theme_footer_link_text',
-				esc_html__( ' | Powered by Responsive Theme', 'responsive' )
+				esc_html__( ' Responsive Theme', 'responsive' )
 			)
 			?>
 			</a>	<?php } ?>
