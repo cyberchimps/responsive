@@ -31,6 +31,22 @@ function responsive_admin_scripts( $hook ) {
 }
 add_action( 'admin_enqueue_scripts', 'responsive_admin_scripts' );
 
+function responsive_enqueue_notices_handler() {
+	wp_register_script( 'responsive-plugin-notices-handler', trailingslashit( get_template_directory_uri() ) . '/admin/js/notices.js', array( 'jquery' ), true, RESPONSIVE_THEME_VERSION );
+	wp_localize_script(
+		'responsive-plugin-notices-handler',
+		'dismissNotices',
+		array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		)
+	);
+
+	wp_enqueue_script( 'responsive-plugin-notices-handler' );
+}
+
+add_action( 'admin_enqueue_scripts', 'responsive_enqueue_notices_handler' );
+
+
 /**
  * Include Welcome page right starter sites content
  *
@@ -40,7 +56,7 @@ function responsive_welcome_banner_notice() {
 	?>
 
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_content( 'responsive-add-ons' ); //phpcs:ignore ?>
-	<div class="postbox responsive-sites-active">
+	<div class="postbox responsive-sites-active" id="responsive-sites-active">
 		<div class="responsive-notice-image">
 			<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-thumbnail.jpg' ); ?>">
 		</div>
@@ -53,8 +69,9 @@ function responsive_welcome_banner_notice() {
 					<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 				</p>
 			</div>
+			<button type="button" class="notice-dismiss"></button>
 		</div>
-	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_end_content( 'responsive-add-ons' ); //phpcs:ignore 
+	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_end_content( 'responsive-add-ons' ); //phpcs:ignore
 }
 
 add_action( 'admin_notices', 'responsive_welcome_banner_notice' );
