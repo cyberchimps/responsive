@@ -37,6 +37,7 @@ function responsive_enqueue_notices_handler() {
 		'responsive-plugin-notices-handler',
 		'dismissNotices',
 		array(
+			'_notice_nonce' => wp_create_nonce( 'responsive-plugin-notices-handler' ),
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		)
 	);
@@ -53,6 +54,7 @@ add_action( 'admin_enqueue_scripts', 'responsive_enqueue_notices_handler', 99 );
  * @since 4.0.3
  */
 function responsive_welcome_banner_notice() {
+	if ( 1 != get_option( "responsive-readysite-promotion" ) ) {
 	?>
 
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_content( 'responsive-add-ons' ); //phpcs:ignore ?>
@@ -73,5 +75,18 @@ function responsive_welcome_banner_notice() {
 		</div>
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_end_content( 'responsive-add-ons' ); //phpcs:ignore
 }
+}
 
 add_action( 'admin_notices', 'responsive_welcome_banner_notice', 10 );
+
+add_action( 'wp_ajax_responsive_delete_transient_action', 'responsive_delete_transient_action' );
+
+function responsive_delete_transient_action() {
+	$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+
+	if ( false === wp_verify_nonce( $nonce, 'responsive-plugin-notices-handler' ) ) {
+		return;
+	}
+	update_option( "responsive-readysite-promotion", 1 );
+
+}
