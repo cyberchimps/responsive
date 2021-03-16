@@ -44,7 +44,7 @@ function responsive_enqueue_notices_handler() {
 	wp_enqueue_script( 'responsive-plugin-notices-handler' );
 }
 
-add_action( 'admin_enqueue_scripts', 'responsive_enqueue_notices_handler' );
+add_action( 'admin_enqueue_scripts', 'responsive_enqueue_notices_handler', 99 );
 
 
 /**
@@ -74,4 +74,4 @@ function responsive_welcome_banner_notice() {
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_end_content( 'responsive-add-ons' ); //phpcs:ignore
 }
 
-add_action( 'admin_notices', 'responsive_welcome_banner_notice' );
+add_action( 'admin_notices', 'responsive_welcome_banner_notice', 10 );
