@@ -8,8 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/16/2021) = Added - Version 4.6.1
+[!] = Fix = Added dismissible notice on the dashboard
+
 (03/15/2021) = Added - Version 4.6.0
 [+] = Feature = Added option for floating add to cart bar on single product pages.
+[+] = Feature = Off canvas filter feature on product pages.
 [+] = Feature = Added option to open copyright link in new tab.
 [+] = Feature = Added a new widget : About Me
 [!] = Fix = Footer - Default link should not apply to Powered by text

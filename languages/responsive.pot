@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.6.0\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2021-03-15 04:40:58+00:00\n"
+"POT-Creation-Date: 2021-03-16 14:59:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Uncaught Error"
 msgstr ""
 
-#: admin/admin-functions.php:49
+#: admin/admin-functions.php:65
 msgid "Thank You for installing Responsive"
 msgstr ""
 
