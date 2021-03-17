@@ -104,7 +104,7 @@ class Responsive_About_Me extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $author_bio_field_id ); ?>"><?php esc_html_e( 'Bio :', 'responsive' ); ?></label>
-			<textarea name="<?php echo esc_attr( $author_bio_field_name ); ?>" id="<?php echo esc_attr( $author_bio_field_id ); ?>" cols="46" rows="10"><?php echo esc_html( $bio ); ?></textarea>
+			<textarea class="widefat" name="<?php echo esc_attr( $author_bio_field_name ); ?>" id="<?php echo esc_attr( $author_bio_field_id ); ?>" cols="46" rows="10"><?php echo esc_html( $bio ); ?></textarea>
 		</p>
 
 		<?php
