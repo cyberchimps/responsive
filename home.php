@@ -80,6 +80,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 					endif;
 						?>
 				</div>
+			</div>
 			</main><!-- end of #primary -->
 
 	<?php

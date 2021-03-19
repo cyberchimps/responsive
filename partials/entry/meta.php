@@ -117,12 +117,9 @@ do_action( 'responsive_before_blog_entry_meta' );
 							printf( esc_html__( 'Tagged with %s', 'responsive' ), wp_kses_post( get_the_tag_list( __( ', ', 'responsive' ) ) ) );
 							?>
 						</span><!-- end of .post-data -->
+					</span>
 						<?php
 				}
-				?>
-				</span>
-			</span>
-			<?php
 		}
 	}
 	?>
