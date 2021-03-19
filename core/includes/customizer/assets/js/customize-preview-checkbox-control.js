@@ -104,4 +104,20 @@
         }
     )
 
+    // Stack on Mobile.
+    api(
+        "responsive_stacked_mobile_menu",
+        function( $swipe ) {
+            $swipe.bind(
+                    function( direction ) {
+                    if ( direction === true ) {
+                        jQuery('.main-navigation.toggled .menu').css('flex-direction','column');
+                    } else {
+                        jQuery('.main-navigation.toggled .menu').css('flex-direction','row');
+                    }
+                }
+            );
+        }
+    )
+
 } )( jQuery );

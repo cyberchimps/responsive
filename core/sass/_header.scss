@@ -216,7 +216,9 @@
 
     &.toggled {
         .menu {
-            display: block;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
     }
 } // .main-navigation
@@ -709,7 +711,6 @@ body.mega-menu-header-menu button.menu-toggle {
     display: block;
     height: 0.4rem;
     position: absolute;
-    pointer-events: none;
     transform: rotate( -45deg );
     width: 1.5rem;
     right: -0.7rem;

@@ -1350,6 +1350,13 @@ function responsive_customizer_styles() {
 			}";
 		}
 	}
+	// Stack on mobile menu.
+	$stacked_mobile_menu = get_theme_mod( 'responsive_stacked_mobile_menu', 1 );
+	$stacked_mobile_menu = ( 1 === $stacked_mobile_menu ) ? 'column' : 'row';
+	$custom_css         .= "@media (max-width:{$mobile_menu_breakpoint}px) {
+		.main-navigation.toggled .menu{
+			flex-direction: {$stacked_mobile_menu} ;
+	}";
 
 	// Hamburger Menu Width Style.
 	$hamburger_menu_width_style = get_theme_mod( 'responsive_hamburger_menu_label_text', '' );
