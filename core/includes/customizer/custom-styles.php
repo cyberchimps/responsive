@@ -1879,6 +1879,31 @@ function responsive_customizer_styles() {
 	}
 	";
 
+	// Hide Copyright on selected Devices
+
+	$copyright_desktop_visibility = get_theme_mod( 'responsive_copyright', 0 );
+	$copyright_desktop_visibility = ( 1 === $copyright_desktop_visibility ) ? 'none' : 'block';
+
+	$copyright_tablet_visibility = get_theme_mod( 'responsive_copyright_tablet', 0 );
+	$copyright_tablet_visibility = ( 1 === $copyright_tablet_visibility ) ? 'none' : 'block';
+
+	$copyright_mobile_visibility = get_theme_mod( 'responsive_copyright_mobile', 0 );
+	$copyright_mobile_visibility = ( 1 === $copyright_mobile_visibility ) ? 'none' : 'block';
+
+	$custom_css .= ".footer-layouts.copyright {
+	    display: {$copyright_desktop_visibility};
+	}
+	@media screen and ( max-width: 992px ) {
+		.footer-layouts.copyright {
+				display: {$copyright_tablet_visibility};
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.footer-layouts.copyright {
+				display: {$copyright_mobile_visibility};
+		}
+	}";
+
 	// Scroll To Top
 	$scroll_totop                    = get_theme_mod( 'responsive_scroll_to_top' );
 	$stt_devices                     = get_theme_mod( 'responsive_scroll_to_top_on_devices' );
