@@ -60,6 +60,18 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// Widgets Padding.
 			responsive_padding_control( $wp_customize, 'footer_widgets', 'responsive_footer_layout', 30, 20, 0, null );
 
+			// Hide on Desktop.
+			$footer_widget_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'footer_widget_desktop_visibility', $footer_widget_desktop_visibility, 'responsive_footer_layout', 40, 0, null );
+
+			// Hide on Tablet.
+			$footer_widget_tablet_visibility = __( 'Hide on Tablet', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'footer_widget_tablet_visibility', $footer_widget_tablet_visibility, 'responsive_footer_layout', 40, 0, null );
+
+			// Hide on Mobile.
+			$footer_widget_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'footer_widget_mobile_visibility', $footer_widget_mobile_visibility, 'responsive_footer_layout', 40, 0, null );
+
 			/**
 			 * Footer Bar Separator.
 			 */
