@@ -60,6 +60,22 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// Widgets Padding.
 			responsive_padding_control( $wp_customize, 'footer_widgets', 'responsive_footer_layout', 30, 20, 0, null );
 
+			// Footer Widget Alignment.
+			$footer_widgets_columns = get_theme_mod( 'responsive_footer_widgets_columns' );
+			for ( $i = 1; $i <= $footer_widgets_columns; $i++ ) {
+				$_section                = 'sidebar-widgets-footer-widget-' . $i;
+				$alignment_desktop_label = __( 'Alignment Desktop', 'responsive' );
+				$alignment_tablet_label  = __( 'Alignment Tablet', 'responsive' );
+				$alignment_mobile_label  = __( 'Alignment Mobile', 'responsive' );
+				$alignment_choices = array(
+					'left'   => esc_html__( 'Left', 'responsive' ),
+					'center' => esc_html__( 'Center', 'responsive' ),
+					'right'  => esc_html__( 'Right', 'responsive' )
+				);
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_desktop_' . $i, $alignment_desktop_label, $_section, 30, $alignment_choices, 'left', is_active_sidebar( 'footer-widget-' . $i ), 'postMessage' );
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_tablet_' . $i, $alignment_tablet_label, $_section, 30, $alignment_choices, 'center', is_active_sidebar( 'footer-widget-' . $i ), 'postMessage' );
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_mobile_' . $i, $alignment_mobile_label, $_section, 30, $alignment_choices, 'center', is_active_sidebar( 'footer-widget-' . $i ), 'postMessage' );
+			}
 			// Hide on Desktop.
 			$footer_widget_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'footer_widget_desktop_visibility', $footer_widget_desktop_visibility, 'responsive_footer_layout', 40, 0, null );

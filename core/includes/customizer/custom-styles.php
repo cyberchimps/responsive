@@ -1356,6 +1356,7 @@ function responsive_customizer_styles() {
 	$custom_css         .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 		.main-navigation.toggled .menu{
 			flex-direction: {$stacked_mobile_menu} ;
+		}
 	}";
 
 	// Hamburger Menu Width Style.
@@ -1781,6 +1782,28 @@ function responsive_customizer_styles() {
 			color: {$header_widget_link_hover_color};
 		}
 	";
+
+	// Footer Widget Alignment.
+	$footer_widgets_columns = get_theme_mod( 'responsive_footer_widgets_columns' );
+	for ( $i = 1; $i <= $footer_widgets_columns; $i++ ) {
+		$alignment_desktop = esc_html( get_theme_mod( 'responsive_footer_widget_alignment_desktop_' . $i, 'left' ) );
+		$alignment_tablet  = esc_html( get_theme_mod( 'responsive_footer_widget_alignment_tablet_' . $i, 'center' ) );
+		$alignment_mobile  = esc_html( get_theme_mod( 'responsive_footer_widget_alignment_mobile_' . $i, 'center' ) );
+		$custom_css       .= ".footer-widget-{$i} .widget-wrapper {
+			text-align: {$alignment_desktop};
+		}
+		@media screen and ( max-width: 992px ) {
+			.footer-widget-{$i} .widget-wrapper {
+				text-align: {$alignment_tablet};
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.footer-widget-{$i} .widget-wrapper {
+				text-align: {$alignment_mobile};
+			}
+		}
+		";
+	}
 
 	// footer_widgets Padding.
 	$footer_widgets_padding_right  = esc_html( get_theme_mod( 'responsive_footer_widgets_right_padding', 0 ) );

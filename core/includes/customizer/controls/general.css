@@ -302,3 +302,114 @@ body.rtl .customize-control .responsive-switchers li {
 		display: none
 	}
 }
+#customize-control-responsive_footer_widget_alignment_desktop_1{
+	display:block;
+}
+#customize-control-responsive_footer_widget_alignment_tablet_1{
+	display:none;
+}
+#customize-control-responsive_footer_widget_alignment_mobile_1{
+	display:none;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_desktop_1{
+	display:none;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_tablet_1{
+	display:block;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_mobile_1{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_desktop_1{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_tablet_1{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_mobile_1{
+	display:block;
+}
+
+#customize-control-responsive_footer_widget_alignment_desktop_2{
+	display:block;
+}
+#customize-control-responsive_footer_widget_alignment_tablet_2{
+	display:none;
+}
+#customize-control-responsive_footer_widget_alignment_mobile_2{
+	display:none;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_desktop_2{
+	display:none;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_tablet_2{
+	display:block;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_mobile_2{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_desktop_2{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_tablet_2{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_mobile_2{
+	display:block;
+}
+
+#customize-control-responsive_footer_widget_alignment_desktop_3{
+	display:block;
+}
+#customize-control-responsive_footer_widget_alignment_tablet_3{
+	display:none;
+}
+#customize-control-responsive_footer_widget_alignment_mobile_3{
+	display:none;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_desktop_3{
+	display:none;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_tablet_3{
+	display:block;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_mobile_3{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_desktop_3{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_tablet_3{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_mobile_3{
+	display:block;
+}
+
+#customize-control-responsive_footer_widget_alignment_desktop_4{
+	display:block;
+}
+#customize-control-responsive_footer_widget_alignment_tablet_4{
+	display:none;
+}
+#customize-control-responsive_footer_widget_alignment_mobile_4{
+	display:none;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_desktop_4{
+	display:none;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_tablet_4{
+	display:block;
+}
+.preview-tablet #customize-control-responsive_footer_widget_alignment_mobile_4{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_desktop_4{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_tablet_4{
+	display:none;
+}
+.preview-mobile #customize-control-responsive_footer_widget_alignment_mobile_4{
+	display:block;
+}
