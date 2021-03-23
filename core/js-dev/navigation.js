@@ -97,7 +97,7 @@
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
 	( function( container ) {
-		var mql = window.matchMedia('(max-width: 992px)');
+		var breakpoint = window.matchMedia('(max-width: 992px)');
 		var touchStartFn, i,
 			parentLink = container.querySelectorAll( '.menu-item-has-children > .res-iconify, .page_item_has_children > .res-iconify.no-menu' );
 		touchStartFn = function( e ) {
@@ -106,12 +106,12 @@
 				responsiveToggleClass( parent_li, 'res-submenu-expanded' );
 				if ( parent_li.classList.contains( 'res-submenu-expanded' ) ) {
 					parent_li.querySelector( '.sub-menu' ).style.display = 'block';
-					if(mql.matches){
+					if(breakpoint.matches){
 						parent_li.style.width = '100%';
 					}
 				} else {
 					parent_li.querySelector( '.sub-menu' ).style.display = 'none';
-					if(mql.matches){
+					if(breakpoint.matches){
 						parent_li.style.width = 'auto';
 					}
 				}
@@ -119,12 +119,12 @@
 				responsiveToggleClass( parent_li, 'res-submenu-expanded' );
 				if ( parent_li.classList.contains( 'res-submenu-expanded' ) ) {
 					parent_li.querySelector( '.children' ).style.display = 'block';
-					if(mql.matches){
+					if(breakpoint.matches){
 						parent_li.style.width = '100%';
 					}
 				} else {
 					parent_li.querySelector( '.children' ).style.display = 'none';
-					if(mql.matches){
+					if(breakpoint.matches){
 						parent_li.style.width = 'auto';
 					}
 				}
