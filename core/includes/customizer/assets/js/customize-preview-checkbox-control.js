@@ -105,19 +105,24 @@
     )
 
     // Stack on Mobile.
-    api(
-        "responsive_stacked_mobile_menu",
-        function( $swipe ) {
-            $swipe.bind(
-                    function( direction ) {
-                    if ( direction === true ) {
-                        jQuery('.main-navigation.toggled .menu').css('flex-direction','column');
-                    } else {
-                        jQuery('.main-navigation.toggled .menu').css('flex-direction','row');
-                    }
-                }
-            );
-        }
-    )
-
+    api( 'responsive_stacked_mobile_menu', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_responsive_stacked_mobile_menu' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_stacked_mobile_menu">@media (max-width: 992px){ .main-navigation.toggled .menu {flex-direction:column}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				var style = '<style class="customizer-responsive_stacked_mobile_menu">@media (max-width: 992px){ .main-navigation.toggled .menu {flex-direction:row}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			}
+		});
+	});
 } )( jQuery );
