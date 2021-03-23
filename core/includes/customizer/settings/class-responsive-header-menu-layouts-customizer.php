@@ -67,6 +67,16 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$mobile_menu_breakpoint_label = __( 'Breakpoint', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_menu_breakpoint_label, 'responsive_header_menu_layout', 20, 767, 'responsive_disabled_mobile_menu', 4096, 1, 'postMessage' );
 
+			// Menu Item Hover Style.
+			$menu_item_hover_style_label   = __( 'Menu Item Hover Style', 'responsive' );
+			$menu_item_hover_style_choices = array(
+				'none'      => esc_html__( 'None', 'responsive' ),
+				'zoom'      => esc_html__( 'Zoom In', 'responsive' ),
+				'underline' => esc_html__( 'Underline', 'responsive' ),
+				'overline'  => esc_html__( 'Overline', 'responsive' ),
+			);
+			responsive_select_control( $wp_customize, 'menu_item_hover_style', $menu_item_hover_style_label, 'responsive_header_menu_layout', 29, $menu_item_hover_style_choices, 'none', 'responsive_disabled_main_menu' );
+
 			// Hamburger Menu Label.
 			$hamburger_menu_label = __( 'Menu Label', 'responsive' );
 			responsive_text_control( $wp_customize, 'hamburger_menu_label_text', $hamburger_menu_label, 'responsive_header_menu_layout', 30, '', 'responsive_disabled_mobile_menu', 'sanitize_text_field', 'text', 'postMessage' );
@@ -147,6 +157,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Border Color.
 			$sub_menu_border_color_label = __( 'Container Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'sub_menu_border', $sub_menu_border_color_label, 'responsive_header_menu_layout', 46, '' );
+
+			// Sub-menu Container Top Offset.
+			$sub_menu_container_top_offset_label = esc_html__( 'Container Top Offset', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'sub_menu_container_top_offset', $sub_menu_container_top_offset_label, 'responsive_header_menu_layout', 47, 0, null, 200, 0, 'postMessage' );
 
 			// Enable Sub Menu Divider
 			$sub_menu_divider_label = __( 'Item Divider', 'responsive' );

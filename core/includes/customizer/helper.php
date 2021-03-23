@@ -1696,6 +1696,15 @@ function responsive_active_blog_entry_columns_multi_column() {
 }
 
 /**
+ * [responsive_disable_menu description]
+ *
+ * @return [type] [description]
+ */
+function responsive_disabled_main_menu() {
+	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
+}
+
+/**
  * [responsive_disabled_mobile_menu description]
  *
  * @return [type] [description]
