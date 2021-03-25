@@ -70,11 +70,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				$alignment_choices = array(
 					'left'   => esc_html__( 'Left', 'responsive' ),
 					'center' => esc_html__( 'Center', 'responsive' ),
-					'right'  => esc_html__( 'Right', 'responsive' )
+					'right'  => esc_html__( 'Right', 'responsive' ),
 				);
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_desktop_' . $i, $alignment_desktop_label, $_section, 30, $alignment_choices, 'left', is_active_sidebar( 'footer-widget-' . $i ), 'postMessage' );
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_tablet_' . $i, $alignment_tablet_label, $_section, 30, $alignment_choices, 'center', is_active_sidebar( 'footer-widget-' . $i ), 'postMessage' );
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_mobile_' . $i, $alignment_mobile_label, $_section, 30, $alignment_choices, 'center', is_active_sidebar( 'footer-widget-' . $i ), 'postMessage' );
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_desktop_' . $i, $alignment_desktop_label, $_section, 30, $alignment_choices, 'left', null, 'postMessage' );
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_tablet_' . $i, $alignment_tablet_label, $_section, 30, $alignment_choices, 'center', null, 'postMessage' );
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_mobile_' . $i, $alignment_mobile_label, $_section, 30, $alignment_choices, 'center', null, 'postMessage' );
 			}
 			// Hide on Desktop.
 			$footer_widget_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
