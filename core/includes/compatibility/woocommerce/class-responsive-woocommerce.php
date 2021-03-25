@@ -72,11 +72,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
 
-			// Off Canvas Filter.
-			add_action( 'widgets_init', array( $this, 'register_off_canvas_sidebar' ), 11 );
-			add_action( 'wp_footer', array( $this, 'get_off_canvas_sidebar' ) );
-			add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_filter_button' ) );
-
+			if ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) {
+				add_action( 'widgets_init', array( $this, 'register_off_canvas_sidebar' ), 11 );
+				add_action( 'wp_footer', array( $this, 'get_off_canvas_sidebar' ) );
+				add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_filter_button' ) );
+			}
 			add_action( 'woocommerce_before_main_content', array( $this, 'single_product_page_floating_bar' ) );
 		}
 		/**
@@ -128,61 +128,78 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			}
 		}
 
+
+		/**
+		 * Check if Elementor Editor is open.
+		 *
+		 * @return boolean True IF Elementor Editor is loaded, False If Elementor Editor is not loaded.
+		 */
+		public function is_elementor_editor() {
+			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) || isset( $_REQUEST['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				return true;
+			}
+
+			return false;
+		}
+
 		/**
 		 * Show the product title in the product loop. By default this is an H2.
 		 */
 		public function responsive_woocommerce_shop_product_content() {
-			$shop_structure = Responsive\WooCommerce\responsive_woocommerce_shop_elements_positioning();
-			if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
-				echo '<div class="responsive-shop-summary-wrap">';
+			if ( ! $this->is_elementor_editor() ) {
+				$shop_structure = Responsive\WooCommerce\responsive_woocommerce_shop_elements_positioning();
+				if ( is_array( $shop_structure ) && ! empty( $shop_structure ) ) {
+					echo '<div class="responsive-shop-summary-wrap">';
 
-				foreach ( $shop_structure as $value ) {
+					foreach ( $shop_structure as $value ) {
 
-					switch ( $value ) {
-						case 'title':
-							/**
-							 * Product Title on shop page.
-							 */
-							Responsive\WooCommerce\responsive_woo_woocommerce_template_loop_product_title();
-							break;
-						case 'price':
-							/**
-							 * Product Price on shop page.
-							 */
-							woocommerce_template_loop_price();
-							break;
-						case 'ratings':
-							/**
-							 * Rating on shop page.
-							 */
-							woocommerce_template_loop_rating();
-							break;
-						case 'category':
-							/**
-							 * Product category on shop page.
-							 */
-							Responsive\WooCommerce\responsive_woo_shop_parent_category();
-							break;
-						case 'short_desc':
-							/*
-							 * Short description on shop page.
-							 */
-							Responsive\WooCommerce\responsive_woo_shop_product_short_description();
-							break;
-						case 'add_cart':
-							/**
-							 * Add to cart button on shop page.
-							 */
-							woocommerce_template_loop_add_to_cart();
-							break;
-						default:
-							break;
+						switch ( $value ) {
+							case 'title':
+								/**
+								 * Product Title on shop page.
+								 */
+								Responsive\WooCommerce\responsive_woo_woocommerce_template_loop_product_title();
+								break;
+							case 'price':
+								/**
+								 * Product Price on shop page.
+								 */
+								woocommerce_template_loop_price();
+								break;
+							case 'ratings':
+								/**
+								 * Rating on shop page.
+								 */
+								woocommerce_template_loop_rating();
+								break;
+							case 'category':
+								/**
+								 * Product category on shop page.
+								 */
+								Responsive\WooCommerce\responsive_woo_shop_parent_category();
+								break;
+							case 'short_desc':
+								/*
+								 * Short description on shop page.
+								 */
+								Responsive\WooCommerce\responsive_woo_shop_product_short_description();
+								break;
+							case 'add_cart':
+								/**
+								 * Add to cart button on shop page.
+								 */
+								woocommerce_template_loop_add_to_cart();
+								break;
+							default:
+								break;
+						}
 					}
+					do_action( 'responsive_woo_shop_summary_wrap_bottom' );
+					echo '</div>';
 				}
-				do_action( 'responsive_woo_shop_summary_wrap_bottom' );
-				echo '</div>';
 			}
 		}
+
 		/**
 		 * Single product structure customization.
 		 *
@@ -457,11 +474,6 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			);
 
 		}
-		/**
-		 * Off Canvas Filter Button
-		 *
-		 * @return void
-		 */
 		public function off_canvas_filter_button() {
 			$text = responsive_hamburger_off_canvas_btn_label_text_label();
 

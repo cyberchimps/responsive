@@ -1405,26 +1405,26 @@ function responsive_customizer_styles() {
 			$custom_css .= ".menu-item-hover-style-underline .menu.nav-menu > li::after {
 				display: block;
 				content: '';
-				border-bottom: solid 3px {$transparent_menu_item_underline_overline};  
-				transform: scaleX(0);  
+				border-bottom: solid 3px {$transparent_menu_item_underline_overline};
+				transform: scaleX(0);
 				transition: transform 250ms ease-in-out;
 			}
 			.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after {
 				border-bottom: solid 3px {$transparent_active_menu_item_underline_overline};
-			}	
+			}
 			.menu-item-hover-style-underline .menu.nav-menu > li:hover::after { transform: scaleX(1); }
 			.menu-item-hover-style-underline .menu.nav-menu > li::after{  transform-origin: 0% 50%; }";
 		} elseif ( 'overline' === $menu_item_hover_style_selected ) {
 			$custom_css .= ".menu-item-hover-style-overline .menu.nav-menu > li::before {
 				display: block;
 				content: '';
-				border-bottom: solid 3px {$transparent_menu_item_underline_overline};  
-				transform: scaleX(0);  
+				border-bottom: solid 3px {$transparent_menu_item_underline_overline};
+				transform: scaleX(0);
 				transition: transform 250ms ease-in-out;
 			}
 			.menu-item-hover-style-overline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before {
 				border-bottom: solid 3px {$transparent_active_menu_item_underline_overline};
-			}	
+			}
 			.menu-item-hover-style-overline .menu.nav-menu > li:hover::before { transform: scaleX(1); }
 			.menu-item-hover-style-overline .menu.nav-menu > li::before{  transform-origin: 0% 50%; }";
 		}
@@ -1433,26 +1433,26 @@ function responsive_customizer_styles() {
 			$custom_css .= ".menu-item-hover-style-underline .menu.nav-menu > li::after {
 				display: block;
 				content: '';
-				border-bottom: solid 3px {$menu_item_underline_overline};  
-				transform: scaleX(0);  
+				border-bottom: solid 3px {$menu_item_underline_overline};
+				transform: scaleX(0);
 				transition: transform 250ms ease-in-out;
 			}
 			.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after {
 				border-bottom: solid 3px {$active_menu_item_underline_overline};
-			}	
+			}
 			.menu-item-hover-style-underline .menu.nav-menu > li:hover::after { transform: scaleX(1); }
 			.menu-item-hover-style-underline .menu.nav-menu > li::after{  transform-origin: 0% 50%; }";
 		} elseif ( 'overline' === $menu_item_hover_style_selected ) {
 			$custom_css .= ".menu-item-hover-style-overline .menu.nav-menu > li::before {
 				display: block;
 				content: '';
-				border-bottom: solid 3px {$menu_item_underline_overline};  
-				transform: scaleX(0);  
+				border-bottom: solid 3px {$menu_item_underline_overline};
+				transform: scaleX(0);
 				transition: transform 250ms ease-in-out;
 			}
 			.menu-item-hover-style-overline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before {
 				border-bottom: solid 3px {$active_menu_item_underline_overline};
-			}	
+			}
 			.menu-item-hover-style-overline .menu.nav-menu > li:hover::before { transform: scaleX(1); }
 			.menu-item-hover-style-overline .menu.nav-menu > li::before{  transform-origin: 0% 50%; }";
 		}
@@ -1587,11 +1587,11 @@ function responsive_customizer_styles() {
 				top: 0;
 				left: 0;
 				width: 100%;
-				transform: translateY(-100%);				
+				transform: translateY(-100%);
 				height: {$sub_menu_container_top_offset_value}px;
 			}
 		}";
-	} 
+	}
 
 	// Content_Header colors.
 	$content_header_heading_color     = esc_html( get_theme_mod( 'responsive_content_header_heading_color', Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ) ) );
@@ -2174,7 +2174,7 @@ function responsive_customizer_styles() {
 		.woocommerce-page.responsive-site-style-boxed ul.products li.product,
 		.woocommerce.responsive-site-style-boxed ul.products li.product,
 		.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
-		.woocommerce.single-product:not(.responsive-site-style-flat) div.product {
+		.woocommerce.single-product:not(.responsive-site-style-flat) div.product, .elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap {
 			background-color: ' . $box_background_color . ';
 			border-radius: ' . $box_radius . 'px;
 			padding: ' . responsive_spacing_css( $box_padding_top, $box_padding_right, $box_padding_bottom, $box_padding_left ) . ';
@@ -2188,7 +2188,7 @@ function responsive_customizer_styles() {
 			.woocommerce-page.responsive-site-style-boxed ul.products li.product,
 			.woocommerce.responsive-site-style-boxed ul.products li.product,
 			.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
-			.woocommerce.single-product:not(.responsive-site-style-flat) div.product {
+			.woocommerce.single-product:not(.responsive-site-style-flat) div.product, .elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap {
 				padding: ' . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ';
 			}
 		}
@@ -2201,7 +2201,7 @@ function responsive_customizer_styles() {
 			.woocommerce-page.responsive-site-style-boxed ul.products li.product,
 			.woocommerce.responsive-site-style-boxed ul.products li.product,
 			.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
-			.woocommerce.single-product:not(.responsive-site-style-flat) div.product {
+			.woocommerce.single-product:not(.responsive-site-style-flat) div.product, .elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap {
 				padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 			}
 			.woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product{
