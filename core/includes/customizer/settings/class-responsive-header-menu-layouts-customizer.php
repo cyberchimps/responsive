@@ -188,8 +188,12 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'header_menu_border', $menu_border_color_label, 'responsive_header_menu_layout', 70, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ), 'responsive_active_vertical_header' );
 
 			// Active Menu Color.
-			$menu_border_color_label = __( 'Active Menu Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_active_menu_background', $menu_border_color_label, 'responsive_header_menu_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ), null );
+			$active_menu_background_color_label = __( 'Active Menu Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_active_menu_background', $active_menu_background_color_label, 'responsive_header_menu_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ), null );
+
+			// Hover Menu Background Color.
+			$hover_menu_background_color_label = __( 'Hover Menu Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_hover_menu_background', $hover_menu_background_color_label, 'responsive_header_menu_layout', 82, Responsive\Core\get_responsive_customizer_defaults( 'header_active_menu_background' ), null );
 
 			// Link Color.
 			$menu_link_color_label = __( 'Menu Item Link Color', 'responsive' );
@@ -206,6 +210,14 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			// Sub Menu Background Color.
 			$responsive_header_sub_menu_background_color_label = __( 'Sub Menu Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_sub_menu_background', $responsive_header_sub_menu_background_color_label, 'responsive_header_menu_layout', 120, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ) );
+
+			// Active Menu Color.
+			$active_sub_menu_background_color_label = __( 'Active Sub Menu Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_active_sub_menu_background', $active_sub_menu_background_color_label, 'responsive_header_menu_layout', 121, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ), null );
+
+			// Hover Menu Background Color.
+			$hover_sub_menu_background_color_label = __( 'Hover Sub Menu Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_hover_sub_menu_background', $hover_sub_menu_background_color_label, 'responsive_header_menu_layout', 122, Responsive\Core\get_responsive_customizer_defaults( 'header_sub_menu_background' ), null );
 
 			// Sub Menu Link Color.
 			$sub_menu_link_color_label = __( 'Sub Menu Item Link Color', 'responsive' );

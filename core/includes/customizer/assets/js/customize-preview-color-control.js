@@ -401,7 +401,14 @@
     //Active Menu Background Color
     api( 'responsive_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu  .current_page_item > a,.main-navigation .menu  .current-menu-item > a,.main-navigation .menu  li > a:hover').css('background-color', newval );
+            $('.main-navigation .menu  .current_page_item > a,.main-navigation .menu  .current-menu-item > a').css('background-color', newval );
+        } );
+    } );
+
+    //Active Menu Background Color
+    api( 'responsive_header_hover_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu li > a:hover').css('background-color', newval );
         } );
     } );
 
@@ -429,7 +436,7 @@
 
 	//Active Menu Link Color
     api( 'responsive_header_active_menu_link_color', function( value ) {
-        value.bind( function( newval ) {        
+        value.bind( function( newval ) {
             $('.main-navigation .menu .current_page_item > a,.main-navigation .menu .current-menu-item > a,.main-navigation .menu .current-menu-item.current_page_item a').css('color', newval );
             if ( api('responsive_header_menu_link_hover_color').get() === '' ) {
                 jQuery( 'style#responsive-header-active-menu-link-color-change' ).remove();
@@ -438,7 +445,7 @@
                     + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+newval+' }'
                     + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+newval+' }'
                     + '</style>'
-                );   
+                );
             }
         } );
     } );
@@ -453,6 +460,20 @@
     api( 'responsive_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .children,.main-navigation .sub-menu').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Active Background Color
+    api( 'responsive_header_active_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Hover Background Color
+    api( 'responsive_header_hover_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .children li a:hover,.main-navigation .sub-menu li a:hover, .main-navigation .menu .sub-menu .current_page_item > a:hover,.main-navigation .menu .sub-menu .current-menu-item > a:hover').css('background-color', newval );
         } );
     } );
 
@@ -585,7 +606,14 @@
     //Active Menu Background Color
     api( 'responsive_transparent_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .menu  .current_page_item > a,.res-transparent-header .main-navigation .menu  .current-menu-item > a,.res-transparent-header .main-navigation .menu  li > a:hover').css('background-color', newval );
+            $('.res-transparent-header .main-navigation .menu .current_page_item > a,.res-transparent-header .main-navigation .menu .current-menu-item > a').css('background-color', newval );
+        } );
+    } );
+
+    //Active Menu Background Color
+    api( 'responsive_transparent_header_hover_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .menu .current_page_item > a:hover,.res-transparent-header .main-navigation .menu .current-menu-item > a:hover,.res-transparent-header .main-navigation .menu li > a:hover,.res-transparent-header .main-navigation .menu .page_item a:hover').css('background-color', newval );
         } );
     } );
 
@@ -600,7 +628,7 @@
                     + '.menu-item-hover-style-underline .menu.nav-menu > li::after { border-bottom: 3px solid '+newval+' }'
                     + '.menu-item-hover-style-overline .menu.nav-menu > li::before { border-bottom: 3px solid '+newval+' }'
                     + '</style>'
-                ); 
+                );
             }
         } );
     } );
@@ -615,6 +643,20 @@
     api( 'responsive_transparent_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
             $('.res-transparent-header .main-navigation .children,.res-transparent-header .main-navigation .sub-menu').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Active Background Color
+    api( 'responsive_transparent_header_active_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .children li.current_page_item a,.res-transparent-header .main-navigation .sub-menu .current-menu-item > a, .res-transparent-header .main-navigation .sub-menu .current_page_item > a').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Hover Background Color
+    api( 'responsive_transparent_header_hover_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .children li a:hover,.res-transparent-header .main-navigation .sub-menu li a:hover,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a:hover,.res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a:hover').css('background-color', newval );
         } );
     } );
 
@@ -656,7 +698,7 @@
                     + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+newval+' }'
                     + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+newval+' }'
                     + '</style>'
-                );           
+                );
             }
         } );
     } );
@@ -1030,7 +1072,7 @@
                         + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_header_active_menu_link_color').get()+' }'
                         + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_header_active_menu_link_color').get()+' }'
                         + '</style>'
-                    );  
+                    );
                 } else {
                     jQuery( 'style#responsive-header-active-menu-link-color-change' ).remove();
                     jQuery( 'head' ).append(
@@ -1038,7 +1080,7 @@
                         + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
                         + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
                         + '</style>'
-                    );  
+                    );
                 }
             }
         },
