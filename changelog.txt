@@ -8,11 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(04/6/2021) = Added - Version 4.6.2
-[+] = Feature = Added option for stack menu for mobile menu.
-[+] = Feature = Added option of hover style for menu items.
-[+] = Feature = Added option for Menu Hover Background color and Sub-Menu Hover Background color.
-[+] = Feature = Added Submenu container top offset.
+(04/06/2021) = Added - Version 4.6.2
+[+] = Feature = Added stack option for mobile menu.
+[+] = Feature = Added hover style option for menu items.
+[+] = Feature = Added Menu Hover Background color option and Sub-Menu Hover Background color option
+[+] = Feature = Added Submenu container top offset
 [+] = Feature = Added option to hide footer copyright on particular device.
 [+] = Feature = Added option to hide footer widget on particular device.
 [+] = Feature = Added option to align footer widgets.
