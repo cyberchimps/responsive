@@ -8,6 +8,19 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/6/2021) = Added - Version 4.6.2
+[+] = Feature = Added option for stack menu for mobile menu.
+[+] = Feature = Added option of hover style for menu items.
+[+] = Feature = Added option for Menu Hover Background color and Sub-Menu Hover Background color.
+[+] = Feature = Added Submenu container top offset.
+[+] = Feature = Added option to hide footer copyright on particular device.
+[+] = Feature = Added option to hide footer widget on particular device.
+[+] = Feature = Added option to align footer widgets.
+[+] = Feature = Added option to hide breadcrumb on a particular page.
+[!] = Fix = Main Menu Dropdown icon.
+[!] = Fix = Blog page sidebar goes below the content in IE.
+[!] = Fix = Added space between tags in meta items.
+
 (03/16/2021) = Added - Version 4.6.1
 [!] = Fix = Added dismissible notice on the dashboard
 
