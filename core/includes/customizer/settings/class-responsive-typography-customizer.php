@@ -776,6 +776,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				$tablet_get_mod = get_theme_mod( $element . '_tablet_typography' );
 				$mobile_get_mod = get_theme_mod( $element . '_mobile_typography' );
 
+				// Check if font color is excluded.
+				$color = ( in_array( 'font-color', $array['exclude'], true ) ) ? null : 'color';
 				// Attributes to loop through.
 				if ( ! empty( $array['attributes'] ) ) {
 					$attributes = $array['attributes'];
@@ -788,7 +790,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'font-size',
 						'line-height',
 						'letter-spacing',
-						'color',
+						$color,
 
 					);
 				}

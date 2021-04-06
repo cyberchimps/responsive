@@ -67,7 +67,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 		$text['404']    = _x( 'Error 404', 'Text for a 404 page Breadcrumb', 'responsive' ); // text for the 404 page.
 
 		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show.
-		$show['home']    = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show.
+		$show['home']    = 1; // 1 - show breadcrumbs on the homepage, 0 - don't show.
 
 		$delimiter = ' <span class="chevron">&#8250;</span> '; // delimiter between crumbs.
 		$before    = '<span class="breadcrumb-current">'; // tag before the current crumb.
@@ -86,7 +86,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 		$html_output = '';
 
 		if ( is_front_page() ) {
-			if ( 1 == $show['home'] ) {
+			if ( 1 === $show['home'] ) {
 				$html_output .= '<div class="breadcrumb-list"><a itemprop="item" href="' . $home_link . '"><span itemprop="name">' . $text['home'] . '</span></a></div>';
 			}
 		} else {

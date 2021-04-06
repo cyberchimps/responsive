@@ -80,6 +80,10 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 					endif;
 						?>
 				</div>
+				<?php
+				if ( is_home() || is_archive() ) {?>
+			</div>
+		<?php }?>
 			</main><!-- end of #primary -->
 
 	<?php

@@ -33,7 +33,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 		<div class="row">
 			<?php Responsive\responsive_in_wrapper(); // wrapper hook. ?>
 			<main id="primary" class="content-area grid col-940" <?php responsive_schema_markup( 'main' ); ?> role="main">
-
+				<?php get_template_part( 'loop-header', get_post_type() ); ?>
 				<?php Responsive\responsive_entry_before(); ?>
 				<section id="post-0" class="error404 hentry">
 					<?php Responsive\responsive_entry_top(); ?>

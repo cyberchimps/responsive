@@ -717,6 +717,20 @@ function responsive_add_custom_body_classes( $classes ) {
 		}
 	}
 
+	// Menu Item Hover Style Classes.
+	if ( get_theme_mod( 'responsive_menu_item_hover_style', 'none' ) ) {
+		$menu_item_hover_style_chosen_option = get_theme_mod( 'responsive_menu_item_hover_style', 'none' );
+		if ( 'none' === $menu_item_hover_style_chosen_option ) {
+			$classes[] = 'menu-item-hover-style-none';
+		} elseif ( 'zoom' === $menu_item_hover_style_chosen_option ) {
+			$classes[] = 'menu-item-hover-style-zoom';
+		} elseif ( 'underline' === $menu_item_hover_style_chosen_option ) {
+			$classes[] = 'menu-item-hover-style-underline';
+		} elseif ( 'overline' === $menu_item_hover_style_chosen_option ) {
+			$classes[] = 'menu-item-hover-style-overline';
+		}
+	}
+
 	return $classes;
 }
 

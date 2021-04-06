@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.6.0' );
+define( 'RESPONSIVE_THEME_VERSION', '4.6.2' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -915,21 +915,19 @@ add_filter( 'nav_menu_link_attributes', 'responsive_nav_menu_link_attributes', 1
 
 function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 	if ( 'header-menu' === $args->theme_location ) {
-			if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-				$args->after = '<span class="res-iconify">
+		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
+			$args->after      = '<span class="res-iconify res-iconify-outer">
 				<svg width="10" height="6" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
 				</span>';
-			} else {
-				$args->after = '';
-			}
-		} elseif ( in_array( 'page_item_has_children', $item->classes, true ) ) {
-			$args->after = '<span class="res-iconify no-menu">
-			<svg width="10" height="6" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-			</span>';
+			$args->link_after = '<span class="res-iconify res-iconify-inner">
+				<svg width="10" height="6" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+				</span>';
+		} else {
+			$args->after      = '';
+			$args->link_after = '';
 		}
-
+	}
 	return $args;
-
 }
 
 add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_main_menu', 10, 3 );

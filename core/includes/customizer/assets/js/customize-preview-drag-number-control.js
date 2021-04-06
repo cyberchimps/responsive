@@ -230,4 +230,21 @@
         } );
     } );
 
+    // Header -> Main Navigation
+    // Main Menu Item Offset
+    api( 'responsive_sub_menu_container_top_offset', function( value ) {
+        value.bind( function( newval ) {
+            var mobileMenuBreakpointValue = api( 'responsive_mobile_menu_breakpoint' ).get();
+            if ( $(window).width() > mobileMenuBreakpointValue ) {
+                jQuery( 'style#responsive-sub-menu-container-top-offset' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-sub-menu-container-top-offset">'
+                    + '.main-navigation .menu.nav-menu > .menu-item-has-children:hover > ul::before, .main-navigation .menu.nav-menu > .page_item_has_children:hover > ul::before {position: absolute, content: "", top: 0, left: 0, width: 100%, transform: translateY(-100%), height: '+newval+'}'
+                    + '.main-navigation .menu.nav-menu > li:hover > ul, .main-navigation .menu.nav-menu > li.focus > ul {margin-top: '+newval+'px}'
+                    + '</style>'
+                );
+            }
+        } );
+    } );
+
 } )( jQuery );
