@@ -101,7 +101,8 @@ if ( ! class_exists( 'Responsive_Walker_Page' ) ) {
 			// Add icons to menu items with children.
 			if ( isset( $args['show_sub_menu_icons'] ) && true === $args['show_sub_menu_icons'] ) {
 				if ( isset( $args['pages_with_children'][ $page->ID ] ) ) {
-					$args['list_item_after'] = '<span class="res-iconify no-menu"></span>';
+					$args['list_item_after'] = '<span class="res-iconify no-menu res-iconify-outer"></span>';
+					$args['link_after'] = '<span class="res-iconify no-menu res-iconify-inner"></span>';
 				}
 			}
 

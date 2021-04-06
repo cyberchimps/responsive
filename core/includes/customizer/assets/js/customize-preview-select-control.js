@@ -414,6 +414,188 @@
 
         } );
     } );
+    // Footer Widget Alignment.
+    api( 'responsive_footer_widget_alignment_desktop_1', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_desktop_1' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_desktop_1">.footer-widget-1 .widget-wrapper {text-align:' + to + '}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_desktop_2', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_desktop_2' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_desktop_2">.footer-widget-2 .widget-wrapper {text-align:' + to + '}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_desktop_3', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_desktop_3' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_desktop_3">.footer-widget-3 .widget-wrapper {text-align:' + to + '}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_desktop_4', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_desktop_4' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_desktop_4">.footer-widget-4 .widget-wrapper {text-align:' + to + '}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
 
+    api( 'responsive_footer_widget_alignment_tablet_1', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_tablet_1' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_tablet_1">@media (max-width: 992px){ .footer-widget-1 .widget-wrapper {text-align:' + to + '}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_tablet_2', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_tablet_2' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_tablet_2">@media (max-width: 992px){ .footer-widget-2 .widget-wrapper {text-align:' + to + '}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_tablet_3', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_tablet_3' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_tablet_3">@media (max-width: 992px){ .footer-widget-3 .widget-wrapper {text-align:' + to + '}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_tablet_4', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_tablet_4' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_tablet_4">@media (max-width: 992px){ .footer-widget-4 .widget-wrapper {text-align:' + to + '}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_widget_alignment_mobile_1', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_mobile_1' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_mobile_1">@media (max-width: 576px){ .footer-widget-1 .widget-wrapper {text-align:' + to + '}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_mobile_2', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_mobile_2' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_mobile_2">@media (max-width: 576px){ .footer-widget-2 .widget-wrapper {text-align:' + to + '}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_mobile_3', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_mobile_3' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_mobile_3">@media (max-width: 576px){ .footer-widget-3 .widget-wrapper {text-align:' + to + '}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_widget_alignment_mobile_4', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_widget_alignment_mobile_4' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_footer_widget_alignment_mobile_4">@media (max-width: 576px){ .footer-widget-4 .widget-wrapper {text-align:' + to + '}}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
 
 } )( jQuery );

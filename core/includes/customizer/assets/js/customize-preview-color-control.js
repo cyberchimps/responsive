@@ -401,7 +401,14 @@
     //Active Menu Background Color
     api( 'responsive_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu  .current_page_item > a,.main-navigation .menu  .current-menu-item > a,.main-navigation .menu  li > a:hover').css('background-color', newval );
+            $('.main-navigation .menu  .current_page_item > a,.main-navigation .menu  .current-menu-item > a').css('background-color', newval );
+        } );
+    } );
+
+    //Active Menu Background Color
+    api( 'responsive_header_hover_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu li > a:hover').css('background-color', newval );
         } );
     } );
 
@@ -409,6 +416,15 @@
     api( 'responsive_header_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu > li > a').css('color', newval );
+            if ( api('responsive_header_menu_link_hover_color').get() === '' && api('responsive_header_active_menu_link_color').get() === '' ) {
+                jQuery( 'style#responsive-header-menu-link-color-change' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-header-menu-link-color-change">'
+                    + '.menu-item-hover-style-underline .menu.nav-menu > li::after { border-bottom: 3px solid '+newval+' }'
+                    + '.menu-item-hover-style-overline .menu.nav-menu > li::before { border-bottom: 3px solid '+newval+' }'
+                    + '</style>'
+                );
+            }
         } );
     } );
 
@@ -422,12 +438,21 @@
     api( 'responsive_header_active_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu .current_page_item > a,.main-navigation .menu .current-menu-item > a,.main-navigation .menu .current-menu-item.current_page_item a').css('color', newval );
+            if ( api('responsive_header_menu_link_hover_color').get() === '' ) {
+                jQuery( 'style#responsive-header-active-menu-link-color-change' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-header-active-menu-link-color-change">'
+                    + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+newval+' }'
+                    + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+newval+' }'
+                    + '</style>'
+                );
+            }
         } );
     } );
 
     api( 'responsive_header_active_menu_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('.main-navigation .menu > li.current-menu-item > .res-iconify svg').css('stroke', newval );
+            $('.main-navigation .menu > li.current-menu-item > a > .res-iconify svg').css('stroke', newval );
         } );
     } );
 
@@ -435,6 +460,20 @@
     api( 'responsive_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .children,.main-navigation .sub-menu').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Active Background Color
+    api( 'responsive_header_active_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .menu .sub-menu .current_page_item > a,.main-navigation .menu .sub-menu .current-menu-item > a,.main-navigation .menu .children li.current_page_item a').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Hover Background Color
+    api( 'responsive_header_hover_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.main-navigation .children li a:hover,.main-navigation .sub-menu li a:hover, .main-navigation .menu .sub-menu .current_page_item > a:hover,.main-navigation .menu .sub-menu .current-menu-item > a:hover').css('background-color', newval );
         } );
     } );
 
@@ -567,7 +606,14 @@
     //Active Menu Background Color
     api( 'responsive_transparent_header_active_menu_background_color', function( value ) {
         value.bind( function( newval ) {
-            $('.res-transparent-header .main-navigation .menu  .current_page_item > a,.res-transparent-header .main-navigation .menu  .current-menu-item > a,.res-transparent-header .main-navigation .menu  li > a:hover').css('background-color', newval );
+            $('.res-transparent-header .main-navigation .menu .current_page_item > a,.res-transparent-header .main-navigation .menu .current-menu-item > a').css('background-color', newval );
+        } );
+    } );
+
+    //Active Menu Background Color
+    api( 'responsive_transparent_header_hover_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .menu .current_page_item > a:hover,.res-transparent-header .main-navigation .menu .current-menu-item > a:hover,.res-transparent-header .main-navigation .menu li > a:hover,.res-transparent-header .main-navigation .menu .page_item a:hover').css('background-color', newval );
         } );
     } );
 
@@ -575,6 +621,15 @@
     api( 'responsive_transparent_header_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.res-transparent-header .main-navigation .menu > li > a').css('color', newval );
+            if ( api('responsive_transparent_header_menu_link_hover_color').get() === '' && api('responsive_transparent_header_active_menu_link_color').get() === '' ) {
+                jQuery( 'style#responsive-transparent-header-menu-link-color-change' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-transparent-header-menu-link-color-change">'
+                    + '.menu-item-hover-style-underline .menu.nav-menu > li::after { border-bottom: 3px solid '+newval+' }'
+                    + '.menu-item-hover-style-overline .menu.nav-menu > li::before { border-bottom: 3px solid '+newval+' }'
+                    + '</style>'
+                );
+            }
         } );
     } );
 
@@ -588,6 +643,20 @@
     api( 'responsive_transparent_header_sub_menu_background_color', function( value ) {
         value.bind( function( newval ) {
             $('.res-transparent-header .main-navigation .children,.res-transparent-header .main-navigation .sub-menu').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Active Background Color
+    api( 'responsive_transparent_header_active_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .children li.current_page_item a,.res-transparent-header .main-navigation .sub-menu .current-menu-item > a, .res-transparent-header .main-navigation .sub-menu .current_page_item > a').css('background-color', newval );
+        } );
+    } );
+
+    //Sub Menu Hover Background Color
+    api( 'responsive_transparent_header_hover_sub_menu_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.res-transparent-header .main-navigation .children li a:hover,.res-transparent-header .main-navigation .sub-menu li a:hover,.res-transparent-header .main-navigation .menu .sub-menu .current-menu-item > a:hover,.res-transparent-header .main-navigation .menu .sub-menu .current_page_item > a:hover').css('background-color', newval );
         } );
     } );
 
@@ -622,6 +691,15 @@
     api( 'responsive_transparent_header_active_menu_link_color', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu > li.current_page_item > a,.main-navigation .menu > li.current-menu-item > a').css('color', newval );
+            if ( api('responsive_transparent_header_menu_link_hover_color').get() === '' ) {
+                jQuery( 'style#responsive-transparent-header-active-menu-link-color-change' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-transparent-header-active-menu-link-color-change">'
+                    + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+newval+' }'
+                    + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+newval+' }'
+                    + '</style>'
+                );
+            }
         } );
     } );
 
@@ -971,13 +1049,47 @@
     $(".main-navigation .menu > li > a").hover(
         function() {
             $(this).css("color", api('responsive_header_menu_link_hover_color').get());
+            if (api('responsive_header_menu_link_hover_color').get() !== '' ) {
+                jQuery( 'style#responsive-header-menu-link-hover-color-change' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-header-menu-link-hover-color-change">'
+                    + '.menu-item-hover-style-underline .menu.nav-menu > li::after, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api("responsive_header_menu_link_hover_color").get()+' }'
+                    + '.menu-item-hover-style-overline .menu.nav-menu > li::before, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api("responsive_header_menu_link_hover_color").get()+' }'
+                    + '</style>'
+                );
+            } else {
+                jQuery( 'style#responsive-header-menu-link-color-change' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-header-menu-link-color-change">'
+                    + '.menu-item-hover-style-underline .menu.nav-menu > li::after, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
+                    + '.menu-item-hover-style-overline .menu.nav-menu > li::before, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
+                    + '</style>'
+                );
+                if (api('responsive_header_active_menu_link_color').get() !== '') {
+                    jQuery( 'style#responsive-header-active-menu-link-color-change' ).remove();
+                    jQuery( 'head' ).append(
+                        '<style id="responsive-header-active-menu-link-color-change">'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_header_active_menu_link_color').get()+' }'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_header_active_menu_link_color').get()+' }'
+                        + '</style>'
+                    );
+                } else {
+                    jQuery( 'style#responsive-header-active-menu-link-color-change' ).remove();
+                    jQuery( 'head' ).append(
+                        '<style id="responsive-header-active-menu-link-color-change">'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_header_menu_link_color').get()+' }'
+                        + '</style>'
+                    );
+                }
+            }
         },
 
         function() {
             $(this).css("color", api('responsive_header_menu_link_color').get());
         }
     );
-    $(".main-navigation .menu li .res-iconify svg, .main-navigation .menu > li > .res-iconify svg").hover(
+    $(".main-navigation .menu li .res-iconify svg, .main-navigation .menu > li > a:not(.sub-menu) > .res-iconify svg").hover(
         function() {
             $(this).css("stroke", api('responsive_header_menu_link_hover_color').get());
         },
@@ -990,6 +1102,40 @@
     $(".res-transparent-header .main-navigation .menu > li > a").hover(
         function() {
             $(this).css("color", api('responsive_transparent_header_menu_link_hover_color').get());
+            if (api('responsive_transparent_header_menu_link_hover_color').get() !== '' ) {
+                jQuery( 'style#responsive-transparent-header-menu-link-hover-color-change' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-transparent-header-menu-link-hover-color-change">'
+                    + '.menu-item-hover-style-underline .menu.nav-menu > li::after, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api("responsive_transparent_header_menu_link_hover_color").get()+' }'
+                    + '.menu-item-hover-style-overline .menu.nav-menu > li::before, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api("responsive_transparent_header_menu_link_hover_color").get()+' }'
+                    + '</style>'
+                );
+            } else {
+                jQuery( 'style#responsive-transparent-header-menu-link-color-change' ).remove();
+                jQuery( 'head' ).append(
+                    '<style id="responsive-transparent-header-menu-link-color-change">'
+                    + '.menu-item-hover-style-underline .menu.nav-menu > li::after, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_transparent_header_menu_link_color').get()+' }'
+                    + '.menu-item-hover-style-overline .menu.nav-menu > li::before, .menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_transparent_header_menu_link_color').get()+' }'
+                    + '</style>'
+                );
+                if (api('responsive_transparent_header_active_menu_link_color').get() !== '') {
+                    jQuery( 'style#responsive-transparent-header-active-menu-link-color-change' ).remove();
+                    jQuery( 'head' ).append(
+                        '<style id="responsive-transparent-header-active-menu-link-color-change">'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_transparent_header_active_menu_link_color').get()+' }'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_transparent_header_active_menu_link_color').get()+' }'
+                        + '</style>'
+                    );
+                } else {
+                    jQuery( 'style#responsive-transparent-header-active-menu-link-color-change' ).remove();
+                    jQuery( 'head' ).append(
+                        '<style id="responsive-transparent-header-active-menu-link-color-change">'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::after, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::after { border-bottom: 3px solid '+api('responsive_transparent_header_menu_link_color').get()+' }'
+                        + '.menu-item-hover-style-underline .main-navigation .menu > li.current-menu-item::before, .menu-item-hover-style-underline .main-navigation .menu > li.current_page_item::before { border-bottom: 3px solid '+api('responsive_transparent_header_menu_link_color').get()+' }'
+                        + '</style>'
+                    );
+                }
+            }
         },
 
         function() {
@@ -1025,7 +1171,7 @@
             $(this).css("color", api('responsive_header_sub_menu_link_color').get());
         }
     );
-    $(".main-navigation .menu .sub-menu li > .res-iconify svg").hover(
+    $(".main-navigation .menu .sub-menu li > .res-iconify svg, .main-navigation .menu .sub-menu li > a > .res-iconify svg").hover(
         function() {
             $(this).css("stroke", api('responsive_header_sub_menu_link_hover_color').get());
         },

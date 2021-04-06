@@ -40,11 +40,11 @@ class Responsive_About_Me extends WP_Widget {
 	public function widget( $args, $instance ) {
 		extract( $args ); //phpcs:ignore WordPress.PHP.DontExtract.extract_extract
 		echo $before_widget; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		$title = apply_filters( 'widget_title', $instance['title'] );
-		$image = $instance['author_image'];
-		$bio   = $instance['author_bio'];
+		$title = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance['title'] : '' );
+		$image = isset( $instance['author_image'] ) ? $instance['author_image'] : '';
+		$bio   = isset( $instance['author_bio'] ) ? $instance['author_bio'] : '';
 
-		if ( $title ) { ?>
+		if ( ! empty( $title ) ) { ?>
 		<div class="widget-title">
 			<h4><?php echo esc_html( $title ); ?></h4>
 			<span class="responsive-about-me__fancy-bg"></span>
@@ -52,7 +52,7 @@ class Responsive_About_Me extends WP_Widget {
 			<?php
 		}
 
-		if ( $image ) {
+		if ( ! empty( $image ) ) {
 			?>
 			<div class="responsive-about-me__img">
 				<figure class="featured-thumbnail thumbnail large">
@@ -61,7 +61,7 @@ class Responsive_About_Me extends WP_Widget {
 			</div>
 		<?php } ?>
 
-		<?php if ( $bio ) { ?>
+		<?php if ( ! empty( $bio ) ) { ?>
 			<div class="responsive-about-me__bio"><?php echo esc_html( $instance['author_bio'] ); ?></div>
 			<?php
 		}
@@ -104,7 +104,7 @@ class Responsive_About_Me extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $author_bio_field_id ); ?>"><?php esc_html_e( 'Bio :', 'responsive' ); ?></label>
-			<textarea name="<?php echo esc_attr( $author_bio_field_name ); ?>" id="<?php echo esc_attr( $author_bio_field_id ); ?>" cols="46" rows="10"><?php echo esc_html( $bio ); ?></textarea>
+			<textarea class="widefat" name="<?php echo esc_attr( $author_bio_field_name ); ?>" id="<?php echo esc_attr( $author_bio_field_id ); ?>" cols="46" rows="10"><?php echo esc_html( $bio ); ?></textarea>
 		</p>
 
 		<?php
