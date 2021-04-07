@@ -68,8 +68,6 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_filter( 'body_class', array( $this, 'add_body_class' ) );
 
-			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
-
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
 
 			if ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) {
@@ -89,6 +87,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
 			remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 			remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'responsive_woocommerce_shop_product_content' ) );
 		}
 		/**
 		 * Register Customizer sections and panel for woocommerce
