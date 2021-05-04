@@ -25,9 +25,23 @@ global $responsive_options;
 $responsive_options = Responsive\Core\responsive_get_options();
 global $responsive_blog_layout_columns;
 do_action( 'cyberchimps_footer' );
-
+$responsive_show_footer = true;
+if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+	if ( ( 1 === get_theme_mod( 'responsive_distraction_free_woocommerce', 0 ) ) && (
+		( is_shop() && 1 === get_theme_mod( 'responsive_disable_shop_header_footer', 0 ) )
+		|| ( is_product() && 1 === get_theme_mod( 'responsive_disable_single_product_header_footer', 0 ) )
+		|| ( is_cart() && 1 === get_theme_mod( 'responsive_disable_cart_header_footer', 0 ) )
+		|| ( is_checkout() && 1 === get_theme_mod( 'responsive_disable_checkout_header_footer', 0 ) )
+		|| ( is_account_page() && 1 === get_theme_mod( 'responsive_disable_account_header_footer', 0 ) )
+		|| ( is_product_category() && 1 === get_theme_mod( 'responsive_disable_product_category_header_footer', 0 ) )
+		|| ( is_product_tag() && 1 === get_theme_mod( 'responsive_disable_product_tag_header_footer', 0 ) )
+		)
+	) {
+		$responsive_show_footer = false;
+	}
+}
 		// Elementor `footer` location.
-if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
+if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) && $responsive_show_footer ) {
 	?>
 			<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
 				<?php Responsive\responsive_footer_top(); ?>
@@ -78,7 +92,8 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 			</footer><!-- end #footer -->
 		<?php
 }
-		Responsive\responsive_footer_after(); ?>
+			Responsive\responsive_footer_after();
+?>
 	</div><!-- end of #container -->
 
 	<?php

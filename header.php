@@ -38,8 +38,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="site hfeed">
 		<?php
 		Responsive\responsive_header_top();
+		$responsive_show_header = true;
+		if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+			if ( ( 1 === get_theme_mod( 'responsive_distraction_free_woocommerce', 0 ) ) && (
+				( is_shop() && 1 === get_theme_mod( 'responsive_disable_shop_header_footer', 0 ) )
+				|| ( is_product() && 1 === get_theme_mod( 'responsive_disable_single_product_header_footer', 0 ) )
+				|| ( is_cart() && 1 === get_theme_mod( 'responsive_disable_cart_header_footer', 0 ) )
+				|| ( is_checkout() && 1 === get_theme_mod( 'responsive_disable_checkout_header_footer', 0 ) )
+				|| ( is_account_page() && 1 === get_theme_mod( 'responsive_disable_account_header_footer', 0 ) )
+				|| ( is_product_category() && 1 === get_theme_mod( 'responsive_disable_product_category_header_footer', 0 ) )
+				|| ( is_product_tag() && 1 === get_theme_mod( 'responsive_disable_product_tag_header_footer', 0 ) )
+				)
+			) {
+				$responsive_show_header = false;
+			}
+		}
+
 		// Elementor `header` location.
-		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) {
+		if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) && $responsive_show_header ) {
 			?>
 
 			<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
