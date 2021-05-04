@@ -75,7 +75,13 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				add_action( 'wp_footer', array( $this, 'get_off_canvas_sidebar' ) );
 				add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_filter_button' ) );
 			}
-			add_action( 'woocommerce_before_main_content', array( $this, 'single_product_page_floating_bar' ) );
+
+			if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
+				add_action( 'woocommerce_before_single_product', array( $this, 'single_product_page_floating_bar' ) );
+			} else {
+				add_action( 'woocommerce_before_main_content', array( $this, 'single_product_page_floating_bar' ) );
+			}
+
 		}
 		/**
 		 * Remove Woo-Commerce Default actions
