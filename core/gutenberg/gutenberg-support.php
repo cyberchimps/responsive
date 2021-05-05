@@ -242,6 +242,19 @@ function responsive_gutenberg_customizer_css() {
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
     }
 
+	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper > .not-inherited-from-theme {
+		color: ' . $button_text_color . ';
+	}
+
+	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper.wp-block-button__link {
+		background-color: ' . $button_color . ' !important;
+		border-color: ' . $button_border_color . ' !important;
+	}
+
+	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper.wp-block-button__link > .inherited-from-theme {
+		color: ' . $button_text_color . ' !important;
+	}
+
 	.wp-block-button__link.has-text-color.has-background:focus,
 	.wp-block-button__link.has-text-color.has-background:hover,
 	.wp-block-button__link.has-text-color:focus,
@@ -251,6 +264,20 @@ function responsive_gutenberg_customizer_css() {
 		color:' . $button_hover_text_color . ' !important;
 		background-color:' . $button_hover_color . ' !important;
 	}
+
+	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper:hover > .not-inherited-from-theme {
+		color: ' . $button_hover_text_color . ';
+	}
+
+	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper.wp-block-button__link:hover {
+		background-color: ' . $button_hover_color . ' !important;
+		border-color: ' . $button_hover_border_color . ' !important;
+	}
+
+	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper.wp-block-button__link:hover > .inherited-from-theme {
+		color: ' . $button_hover_text_color . ' !important;
+	}
+
 	.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:focus,
 	.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button:focus,
 	.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link:hover,
