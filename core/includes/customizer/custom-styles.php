@@ -319,7 +319,7 @@ function responsive_customizer_styles() {
 	";
 
 	$custom_css .= "
-		.responsive-block-editor-addons-button__wrapper > .not-inherited-from-theme, responsive-block-editor-addons-button__wrapper > .inherited-from-theme {
+		.responsive-block-editor-addons-button__wrapper > .not-inherited-from-theme, .responsive-block-editor-addons-button__wrapper > .inherited-from-theme {
 			color: {$button_text_color};
 		}
 		.responsive-block-editor-addons-button__wrapper:hover > .not-inherited-from-theme, .responsive-block-editor-addons-button__wrapper:hover > .inherited-from-theme {
