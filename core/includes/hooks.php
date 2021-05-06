@@ -513,3 +513,21 @@ function responsive_custom_logo_link() {
 	// Return.
 	return $html;
 }
+
+/**
+ * Responsive child theme custom header
+ *
+ * @see header.php
+ */
+function responsive_custom_header() {
+	do_action( 'responsive_custom_header' );
+}
+
+/**
+ * Responsive child theme custom footer
+ *
+ * @see footer.php
+ */
+function responsive_custom_footer() {
+	do_action( 'responsive_custom_footer' );
+}

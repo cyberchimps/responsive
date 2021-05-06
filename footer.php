@@ -42,7 +42,13 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 }
 		// Elementor `footer` location.
 if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) && $responsive_show_footer ) {
-	?>
+
+	// Replaces default footer with custom footer.
+	Responsive\responsive_custom_footer();
+
+	if ( ! has_action( 'responsive_custom_footer' ) ) {
+
+		?>
 			<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
 				<?php Responsive\responsive_footer_top(); ?>
 				<?php get_sidebar( 'footer' ); ?>
@@ -91,6 +97,7 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 				<?php Responsive\responsive_footer_bottom(); ?>
 			</footer><!-- end #footer -->
 		<?php
+	}
 }
 			Responsive\responsive_footer_after();
 ?>

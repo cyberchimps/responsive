@@ -56,31 +56,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		// Elementor `header` location.
 		if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) && $responsive_show_header ) {
-			?>
 
-			<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
-				<div class="container">
-					<div class="row">
-						<?php
-						// Get elements.
-						$responsive_header_elements = get_theme_mod(
-							'responsive_header_elements',
-							array(
-								'site-branding',
-								'main-navigation',
-							)
-						);
+			// Replaces default header with custom header.
+			Responsive\responsive_custom_header();
 
-						// Loop through elements.
-						foreach ( $responsive_header_elements as $element ) {
-							get_template_part( 'partials/header/' . $element );
-						}
-						?>
-					</div>
-				</div>
-			</header>
+			if ( ! has_action( 'responsive_custom_header' ) ) {
 
-			<?php
+				?>
+
+					<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
+						<div class="container">
+							<div class="row">
+								<?php
+								// Get elements.
+								$responsive_header_elements = get_theme_mod(
+									'responsive_header_elements',
+									array(
+										'site-branding',
+										'main-navigation',
+									)
+								);
+
+								// Loop through elements.
+								foreach ( $responsive_header_elements as $element ) {
+									get_template_part( 'partials/header/' . $element );
+								}
+								?>
+							</div>
+						</div>
+					</header>
+
+				<?php
+			}
 		}
 		Responsive\responsive_header_bottom();
 		?>
