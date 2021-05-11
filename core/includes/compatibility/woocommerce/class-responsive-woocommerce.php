@@ -76,11 +76,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_filter_button' ) );
 			}
 
-			if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
-				add_action( 'woocommerce_before_single_product', array( $this, 'single_product_page_floating_bar' ) );
-			} else {
-				add_action( 'woocommerce_before_main_content', array( $this, 'single_product_page_floating_bar' ) );
-			}
+			add_action( 'responsive_header_bottom', array( $this, 'single_product_page_floating_bar' ) );
 
 		}
 		/**
