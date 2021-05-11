@@ -77,9 +77,16 @@
 
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
+
+				var previousSubMenu = self.previousElementSibling;
+
 				if ( -1 == self.className.indexOf( 'focus' ) ) {
 					self.className += ' focus';
 				}
+				// On blur remove focus of previous focused element.
+				if( previousSubMenu ){
+					previousSubMenu.classList.remove('focus');
+				}	
 			}
 
 			self = self.parentElement;
