@@ -196,4 +196,10 @@
     }
     }
 
+	let siteBrandingToggle = document.querySelector( '.site-branding' );
+	if (!siteBrandingToggle) {
+		let element = document.querySelector( 'body' );
+		element.classList.add("site-branding-off");
+	}
+
 } )();
