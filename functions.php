@@ -101,7 +101,7 @@ function responsive_setup_content_width() {
 	if ( ( 'contained' === get_theme_mod( 'responsive_width', 'contained' ) ) ) {
 		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
 
-		if ( is_page() ) {
+		if ( is_page() && ( class_exists( 'WooCommerce' ) && ( ! is_cart() || ! is_checkout() ) ) ) {
 			if ( 'no' !== get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) {
 				$blog_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', 66 ) );
 
@@ -146,13 +146,21 @@ function responsive_setup_content_width() {
 					$content_width = $container_max_width;
 				}
 			} elseif ( is_cart() ) {
-				$blog_content_width = esc_html( get_theme_mod( 'responsive_cart_content_width', 70 ) );
+				if ( 'no' !== get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) ) {
+					$blog_content_width = esc_html( get_theme_mod( 'responsive_cart_content_width', 70 ) );
 
-				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+				} else {
+					$content_width = $container_max_width;
+				}
 			} elseif ( is_checkout() ) {
-				$blog_content_width = esc_html( get_theme_mod( 'responsive_checkout_content_width', 70 ) );
+				if ( 'no' !== get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) ) {
+					$blog_content_width = esc_html( get_theme_mod( 'responsive_checkout_content_width', 70 ) );
 
-				$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+					$content_width = ( $blog_content_width / 100 ) * $container_max_width;
+				} else {
+					$content_width = $container_max_width;
+				}
 			}
 		}
 	}
