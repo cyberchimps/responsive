@@ -27,15 +27,6 @@ if ( ! class_exists( 'Responsive_Customizer_Text_Control' ) ) :
 		public $type = 'responsive-text';
 
 		/**
-		 * Enqueue control related scripts/styles.
-		 *
-		 * @access public
-		 */
-		public function enqueue() {
-			wp_enqueue_script( 'responsive-text-js', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/text.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
-		}
-
-		/**
 		 * Renders the control wrapper and calls $this->render_content() for the internals.
 		 *
 		 * @see WP_Customize_Control::render()
@@ -76,64 +67,10 @@ if ( ! class_exists( 'Responsive_Customizer_Text_Control' ) ) :
 		}
 
 		/**
-		 * An Underscore (JS) template for this control's content (but not its container).
+		 * Render the control's content.
 		 *
-		 * Class variables for this control class are available in the `data` JS object;
-		 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
-		 *
-		 * @see WP_Customize_Control::print_template()
-		 *
-		 * @access protected
+		 * @see WP_Customize_Control::render_content()
 		 */
-		protected function content_template() {
-			?>
-
-		<# if ( data.label ) { #>
-			<span class="customize-control-title">
-				<span>{{{ data.label }}}</span>
-
-				<ul class="responsive-switchers">
-					<li class="desktop">
-						<button type="button" class="preview-desktop active" data-device="desktop">
-							<i class="dashicons dashicons-desktop"></i>
-						</button>
-					</li>
-					<li class="tablet">
-						<button type="button" class="preview-tablet" data-device="tablet">
-							<i class="dashicons dashicons-tablet"></i>
-						</button>
-					</li>
-					<li class="mobile">
-						<button type="button" class="preview-mobile" data-device="mobile">
-							<i class="dashicons dashicons-smartphone"></i>
-						</button>
-					</li>
-				</ul>
-
-			</span>
-		<# } #>
-
-		<# if ( data.description ) { #>
-			<span class="description customize-control-description">{{{ data.description }}}</span>
-		<# } #>
-
-		<# if ( data.desktop ) { #>
-			<div class="desktop control-wrap active">
-				<input type="text" value="{{ data.desktop.value }}" placeholder="<?php esc_attr_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.desktop.link }}} />
-			</div>
-		<# } #>
-		<# if ( data.tablet ) { #>
-			<div class="tablet control-wrap">
-				<input type="text" value="{{ data.tablet.value }}" placeholder="<?php esc_attr_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.tablet.link }}} />
-			</div>
-			<# } #>
-
-		<# if ( data.mobile ) { #>
-			<div class="mobile control-wrap">
-				<input type="text" value="{{ data.mobile.value }}" placeholder="<?php esc_attr_e( 'px - em - rem', 'responsive' ); ?>" {{{ data.mobile.link }}} />
-			</div>
-			<# } #>
-			<?php
-		}
+		protected function render_content() {}
 	}
 endif;

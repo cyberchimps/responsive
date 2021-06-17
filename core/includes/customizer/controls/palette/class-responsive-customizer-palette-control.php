@@ -30,7 +30,7 @@ if ( ! class_exists( 'Responsive_Customizer_Palette_Control' ) ) :
 		 *
 		 * @var string
 		 */
-		public $type = 'responsive_palette_control';
+		public $type = 'responsive-palette';
 
 		/**
 		 * Constructor.
@@ -59,13 +59,6 @@ if ( ! class_exists( 'Responsive_Customizer_Palette_Control' ) ) :
 		}
 
 		/**
-		 * The control is rendered in JS not PHP.
-		 *
-		 * @return void
-		 */
-		public function render_content() {}
-
-		/**
 		 * Convert the control settings to JSON.
 		 *
 		 * @return void
@@ -81,52 +74,10 @@ if ( ! class_exists( 'Responsive_Customizer_Palette_Control' ) ) :
 		}
 
 		/**
-		 * Renders the JS template for the control
+		 * The control is rendered in JS not PHP.
 		 *
 		 * @return void
 		 */
-		protected function content_template() {
-			?>
-				<#
-					if ( ! data.choices ) {
-						return;
-					}
-				#>
-
-				<# if ( data.label ) { #>
-					<span class="customize-control-title">{{ data.label }}</span>
-				<# } #>
-
-				<# if ( data.description ) { #>
-					<span class="customize-control-description">{{ data.description }}</span>
-				<# } #>
-
-				<div role="group" class="palette__wrapper <# if ( data.palette_type === 'color-scheme' ) { #>color_scheme<# } #>">
-					<#
-						for ( choice in data.choices ) {
-							var c = data.choices[choice];
-					#>
-						<label for="{{ data.id }}-{{ choice }}" class="palette__choice">
-							<span class="screen-reader-text">{{ c.label }} design style</span>
-							<input 	type="radio" value="{{ choice }}"
-									name="_customize-{{ data.id }}" id="{{ data.id }}-{{ choice }}"
-									class="layout"
-									{{{ data.link }}}
-									<# if ( data.value === choice ) { #>
-										checked="checked"
-									<# } #>
-							/>
-							<# if ( c.preview_image ) { #>
-								<img src="{{ c.preview_image }}" />
-							<# } else { #>
-								<span class="color-scheme" style="background: linear-gradient(to right, {{ c.accent }}, {{ c.accent }} 33.33%, {{ c.text }} 33.33%, {{ c.text }} 66.66%, {{ c.alt_background }} 66.66%, {{ c.alt_background }} 100%);"></span>
-								<span class="color-scheme__check"></span>
-								<span class="label">{{ c.label }}</span>
-							<# } #>
-						</label>
-					<# } #>
-				</div>
-			<?php
-		}
+		public function render_content() {}
 	}
 endif;

@@ -54,13 +54,15 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'res_blog_post_title_toggle',
-				array(
-					'label'    => __( 'Enable Blog Page Title', 'responsive' ),
-					'section'  => 'responsive_blog_layout',
-					'settings' => 'responsive_theme_options[blog_post_title_toggle]',
-					'type'     => 'checkbox',
-					'priority' => 10,
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'res_blog_post_title_toggle',
+					array(
+						'label'    => __( 'Enable Blog Page Title', 'responsive' ),
+						'section'  => 'responsive_blog_layout',
+						'settings' => 'responsive_theme_options[blog_post_title_toggle]',
+						'priority' => 10,
+					)
 				)
 			);
 

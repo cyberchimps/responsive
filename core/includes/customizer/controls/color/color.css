@@ -30,3 +30,434 @@ body.wp-customizer .alpha-color-picker-container .transparency { height: 24px; w
 @media only screen and (max-width: 640px) {
 	body.wp-customizer .wp-picker-input-wrap input[type="text"].wp-color-picker.alpha-color-control { height: 33px; }
 }
+label {
+    cursor: default;
+}
+.wp-picker-holder{
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+.components-color-picker__saturation{
+    width: 100%;
+    padding-bottom: 55%;
+    position: relative;
+}
+.components-color-picker * {
+    box-sizing: border-box;
+}
+.components-color-picker__saturation-black {
+	border-radius: 4px 4px 0 0;
+}
+.components-color-picker__saturation-color {
+	border-radius: 3px;
+    overflow: visible;
+}
+.components-color-picker__saturation-white {
+	border-radius: 3px;
+}
+
+element.style {
+    top: 14%;
+    left: 37%;
+}
+.components-button {
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+    margin: 0 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    transition: background-color 140ms linear;
+    cursor: pointer;
+}
+.components-button.components-color-picker__saturation-pointer {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 1px #fff, inset 0 0 0 1px #000, 0 0 0 2px #000;
+}
+.components-visually-hidden {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+.components-color-picker__body {
+    padding: 16px 16px 12px;
+}
+.components-color-picker__body .components-color-picker__controls {
+    display: flex;
+}
+.components-color-picker__body .components-color-picker__swatch {
+    margin-right: 8px;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(
+45deg
+, #ddd 25%, transparent 25%), linear-gradient(
+-45deg
+, #ddd 25%, transparent 25%), linear-gradient(
+45deg
+, transparent 75%, #ddd 75%), linear-gradient(
+-45deg
+, transparent 75%, #ddd 75%);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
+.components-button.components-circular-option-picker__option:hover {
+    transform: scale(1.2);
+}
+.components-color-picker__body .components-color-picker__swatch .components-color-picker__active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #000;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 10%);
+    z-index: 2;
+    border-radius: 3px;
+}
+.components-color-picker__body .components-color-picker__toggles {
+    flex: 1;
+}
+.is-alpha-enabled .components-color-picker__hue {
+    margin-bottom: 8px;
+}
+.components-color-picker__hue,
+.components-color-picker__alpha {
+    height: 12px;
+    position: relative;
+}
+.components-color-picker__hue-gradient {
+    background: linear-gradient(to right, #f00 0%, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00 100%);
+}
+
+.components-color-picker__hue-gradient, .components-color-picker__alpha-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.components-color-picker__saturation-white {
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+}
+.components-color-picker__saturation-black {
+    background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+}
+.components-color-picker__saturation-color, .components-color-picker__saturation-white, .components-color-picker__saturation-black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.components-color-picker__hue-bar,
+.components-color-picker__alpha-bar {
+    position: relative;
+    margin: 0 3px;
+    height: 100%;
+    padding: 0 2px;
+}
+.components-color-picker__hue-pointer, .components-color-picker__saturation-pointer {
+    transition: box-shadow 0.1s linear;
+}
+.components-color-picker__hue-pointer, .components-color-picker__alpha-pointer {
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 37%);
+    background: #fff;
+    transform: translate(-7px, -1px);
+}
+.components-color-picker__saturation-pointer, .components-color-picker__hue-pointer, .components-color-picker__alpha-pointer {
+    padding: 0;
+    position: absolute;
+    cursor: move;
+    box-shadow: none;
+    border: none;
+}
+.components-color-picker__alpha {
+    background-image: linear-gradient(
+45deg
+, #ddd 25%, transparent 25%), linear-gradient(
+-45deg
+, #ddd 25%, transparent 25%), linear-gradient(
+45deg
+, transparent 75%, #ddd 75%), linear-gradient(
+-45deg
+, transparent 75%, #ddd 75%);
+    background-size: 10px 10px;
+    background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
+.picker__alpha-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.components-color-picker__inputs-wrapper {
+    min-width: unset;
+}
+
+.components-color-picker__inputs-wrapper {
+    margin: 0 -4px;
+    padding-top: 16px;
+    display: flex;
+    align-items: flex-end;
+}
+.components-color-picker__inputs-fields {
+    display: flex;
+    direction: ltr;
+    flex-grow: 1;
+    margin-right: 4px;
+}
+
+.components-color-picker__inputs-wrapper .components-color-picker__inputs-fields .components-text-control__input[type="number"] {
+    padding: 6px 3px;
+    margin: 0;
+    font-size: 12px;
+}
+.css-wdf2ti-Wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 13px;
+}
+.components-color-picker__inputs-field {
+    width: 100%;
+}
+.components-color-picker__inputs-toggle-wrapper .components-button {
+    position: relative;
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+    margin: 0 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    transition: background-color 140ms linear;
+}
+.components-button.components-color-picker__inputs-toggle.has-icon span {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    bottom: auto;
+    left: auto;
+    width: 120px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.components-button.has-icon {
+    padding: 6px;
+    min-width: 36px;
+    justify-content: center;
+}
+.components-color-picker__inputs-toggle-wrapper .components-color-picker__inputs-toggle {
+    bottom: 6px;
+    height: 32px;
+}
+.components-button{
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+    margin: 0 0;
+    padding: 0;
+    border: 1px solid #7e8993;
+    transition: background-color 140ms linear;
+}
+.components-color-picker__inputs-toggle-wrapper .components-button {
+    display: inline-flex;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    background: none;
+    transition: box-shadow 0.1s linear;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border-radius: 2px;
+    color: #1e1e1e;
+}
+.components-circular-option-picker {
+    position: relative;
+    margin-top: 0;
+    width: auto;
+}
+.responsive-alpha-color-picker .components-circular-option-picker__option {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+.responsive-alpha-color-picker {
+    width: auto;
+    padding: 16px 0px 0px 14px;
+}
+.responsive-alpha-color-picker {
+    padding: 8px 0px 0px 13px;
+    margin-bottom: -8px;
+}
+.responsive-alpha-color-picker.components-circular-option-picker {
+    display: inline-block;
+    width: 100%;
+    margin-right: -10px;
+}
+.components-circular-option-picker__swatches{
+    display: flex;
+}
+@media (max-width: 1845px){
+ .responsive-alpha-color-picker.components-circular-option-picker {
+    width: auto;
+    padding: 16px 0px 0px 12px;
+}
+}
+.responsive-clear-btn-inside-picker.components-button {
+    margin: 15px 10px;
+    padding: 0 8px;
+    width: 48%;
+}
+.responsive-clear-btn-inside-picker.components-button.common {
+    align-items: center;
+    flex: 1 1 auto;
+    justify-content: center;
+    font-size:16px;
+    margin: 0 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    transition: background-color 140ms linear;
+    box-shadow: inset 0 0 0 1px var(--wp-admin-theme-color);
+    color: var(--wp-admin-theme-color);
+    color: #0071a1;
+    border-color: #0071a1;
+    border-radius: 3px;
+}
+.components-button.is-small {
+    line-height: 22px;
+    padding: 8px;
+    font-size: 11px;
+    color: var(--wp-admin-theme-color);
+    color: #0071a1;
+    border-color: #0071a1;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.components-button.is-secondary {
+    box-shadow: inset 0 0 0 1px #0071a1;;
+    box-shadow: inset 0 0 0 1px var(--wp-admin-theme-color);
+    outline: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 16px;
+    color: var(--wp-admin-theme-color);
+    color: #0071a1;
+    border-color: #0071a1;
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+}
+.components-button.is-small:hover,
+.components-button.is-secondary:hover{
+    background-color: #f0f0f1;
+    color: #0a4b78;
+    border-color: #0a4b78;
+}
+.responsive-alpha-color-picker {
+	padding: 8px 0px 0px 13px;
+	margin-bottom: -8px;
+}
+.responsive-alpha-color-picker .components-circular-option-picker__option-wrapper {
+    margin-right: 5px;
+}
+.responsive-alpha-color-picker .components-circular-option-picker__option-wrapper {
+	height: 25px;
+	width: 25px;
+}
+.responsive-alpha-color-picker .components-circular-option-picker__option.is-pressed + svg {
+    position: absolute;
+	left: 2.5px;
+	top: 0px;
+	width: 20px;
+}
+.components-button.components-circular-option-picker__option > span {
+    display: none;
+}
+@media (max-width: 1845px) {
+    /** Responsive Devices - Compatibility CSS */
+    .responsive-alpha-color-picker .components-circular-option-picker__option-wrapper {
+        height: 25px;
+        width: 25px;
+    }
+    .responsive-alpha-color-picker .components-circular-option-picker__option-wrapper .components-circular-option-picker__option {
+        padding: 6px 10px;
+    }
+    .responsive-alpha-color-picker .components-circular-option-picker__option.is-pressed + svg {
+        position: absolute;
+        width: 18px;
+        left: 4px;
+        top: 1px;
+    }
+    .responsive-alpha-color-picker .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+        width: 24px;
+        height: 24px;
+    }
+    .responsive-alpha-color-picker.components-circular-option-picker {
+        width: auto;
+        padding: 16px 0px 0px 12px;
+    }
+
+	/** Modal Popup */
+	.components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+		width: 21px;
+		height: 21px;
+	}
+	.responsive-alpha-color-picker .components-circular-option-picker__option-wrapper {
+        position: relative;
+		height: 22px;
+		width: 22px;
+	}
+	.responsive-alpha-color-picker .components-circular-option-picker__option.is-pressed + svg {
+        position: absolute;
+		left: 2.5px;
+		top: -1px;
+		width: 18px;
+	}
+}
+@supports (-moz-appearance:none) {
+	@media (max-width: 1845px) {
+		.responsive-alpha-color-picker .components-circular-option-picker__option-wrapper {
+			margin-right: 5px;
+		}
+		.responsive-alpha-color-picker .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+			width: 21px;
+			height: 21px;
+		}
+		.responsive-alpha-color-picker.components-circular-option-picker__option-wrapper {
+			height: 20px;
+			width: 20px;
+		}
+		.responsive-alpha-color-picker.components-circular-option-picker__option.is-pressed + svg {
+			left: 3px;
+			top: -2px;
+			width: 15px;
+		}
+	}
+}

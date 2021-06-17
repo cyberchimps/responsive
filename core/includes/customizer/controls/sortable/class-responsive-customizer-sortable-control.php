@@ -35,7 +35,6 @@ if ( ! class_exists( 'Responsive_Customizer_Sortable_Control' ) ) :
 		 * @access public
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/sortable.min.js', array( 'jquery', 'customize-base', 'jquery-ui-core', 'jquery-ui-sortable' ), RESPONSIVE_THEME_VERSION, true );
 			wp_enqueue_style( 'responsive-sortable', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/sortable.min.css', RESPONSIVE_THEME_VERSION, true );
 		}
 
@@ -65,47 +64,6 @@ if ( ! class_exists( 'Responsive_Customizer_Sortable_Control' ) ) :
 
 		}
 
-		/**
-		 * An Underscore (JS) template for this control's content (but not its container).
-		 *
-		 * Class variables for this control class are available in the `data` JS object;
-		 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
-		 *
-		 * @see WP_Customize_Control::print_template()
-		 *
-		 * @access protected
-		 */
-		protected function content_template() {
-			?>
-		<label class='responsive-sortable'>
-			<span class="customize-control-title">
-				{{{ data.label }}}
-			</span>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-
-			<ul class="sortable">
-				<# _.each( data.value, function( choiceID ) { #>
-					<li {{{ data.inputAttrs }}} class='responsive-sortable-item' data-value='{{ choiceID }}'>
-						<i class='dashicons dashicons-menu'></i>
-						<i class="dashicons dashicons-visibility visibility"></i>
-						{{{ data.choices[ choiceID ] }}}
-					</li>
-				<# }); #>
-				<# _.each( data.choices, function( choiceLabel, choiceID ) { #>
-					<# if ( -1 === data.value.indexOf( choiceID ) ) { #>
-						<li {{{ data.inputAttrs }}} class='responsive-sortable-item invisible' data-value='{{ choiceID }}'>
-							<i class='dashicons dashicons-menu'></i>
-							<i class="dashicons dashicons-visibility visibility"></i>
-							{{{ data.choices[ choiceID ] }}}
-						</li>
-					<# } #>
-				<# }); #>
-			</ul>
-		</label>
-			<?php
-		}
 
 		/**
 		 * Render the control's content.

@@ -1662,16 +1662,18 @@ function responsive_select_control( $wp_customize, $element, $label, $section, $
 		)
 	);
 	$wp_customize->add_control(
-		'responsive_' . $element,
-		array(
-			'label'           => $label,
-			'description'     => $description,
-			'section'         => $section,
-			'settings'        => 'responsive_' . $element,
-			'type'            => 'select',
-			'priority'        => $priority,
-			'active_callback' => $active_call,
-			'choices'         => apply_filters( 'responsive_' . $element . '_choices', $choices ),
+		new Responsive_Customizer_Select_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'description'     => $description,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'choices'         => apply_filters( 'responsive_' . $element . '_choices', $choices ),
+			)
 		)
 	);
 }
@@ -1763,14 +1765,16 @@ function responsive_checkbox_control( $wp_customize, $element, $label, $section,
 		)
 	);
 	$wp_customize->add_control(
-		'responsive_' . $element,
-		array(
-			'label'           => $label,
-			'section'         => $section,
-			'settings'        => 'responsive_' . $element,
-			'type'            => 'checkbox',
-			'priority'        => $priority,
-			'active_callback' => $active_call,
+		new Responsive_Customizer_Checkbox_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+			)
 		)
 	);
 }

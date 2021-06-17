@@ -55,13 +55,15 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'responsive_scroll_to_top',
-				array(
-					'label'    => __( 'Enable Scroll To Top', 'responsive' ),
-					'section'  => 'responsive_scrolltotop_section',
-					'settings' => 'responsive_scroll_to_top',
-					'type'     => 'checkbox',
-					'priority' => 1,
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'responsive_scroll_to_top',
+					array(
+						'label'    => __( 'Enable Scroll To Top', 'responsive' ),
+						'section'  => 'responsive_scrolltotop_section',
+						'settings' => 'responsive_scroll_to_top',
+						'priority' => 1,
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -73,17 +75,19 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'responsive_scroll_to_top_on_devices',
-				array(
-					'label'    => __( 'Display On', 'responsive' ),
-					'section'  => 'responsive_scrolltotop_section',
-					'settings' => 'responsive_scroll_to_top_on_devices',
-					'type'     => 'select',
-					'choices'  => array(
-						'desktop' => __( 'Desktop', 'responsive' ),
-						'mobile'  => __( 'Mobile', 'responsive' ),
-						'both'    => __( 'Desktop + Mobile', 'responsive' ),
-					),
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'responsive_scroll_to_top_on_devices',
+					array(
+						'label'    => __( 'Display On', 'responsive' ),
+						'section'  => 'responsive_scrolltotop_section',
+						'settings' => 'responsive_scroll_to_top_on_devices',
+						'choices'  => array(
+							'desktop' => __( 'Desktop', 'responsive' ),
+							'mobile'  => __( 'Mobile', 'responsive' ),
+							'both'    => __( 'Desktop + Mobile', 'responsive' ),
+						),
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -95,16 +99,18 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'responsive_scroll_to_top_icon_position',
-				array(
-					'label'    => __( 'Position', 'responsive' ),
-					'section'  => 'responsive_scrolltotop_section',
-					'settings' => 'responsive_scroll_to_top_icon_position',
-					'type'     => 'select',
-					'choices'  => array(
-						'right' => __( 'Right', 'responsive' ),
-						'left'  => __( 'Left', 'responsive' ),
-					),
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'responsive_scroll_to_top_icon_position',
+					array(
+						'label'    => __( 'Position', 'responsive' ),
+						'section'  => 'responsive_scrolltotop_section',
+						'settings' => 'responsive_scroll_to_top_icon_position',
+						'choices'  => array(
+							'right' => __( 'Right', 'responsive' ),
+							'left'  => __( 'Left', 'responsive' ),
+						),
+					)
 				)
 			);
 			$wp_customize->add_setting(
