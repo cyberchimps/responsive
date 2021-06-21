@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.6.2\n"
+"Project-Id-Version: Responsive 4.6.3\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
 "POT-Creation-Date: 2021-04-06 06:46:17+00:00\n"
 "MIME-Version: 1.0\n"

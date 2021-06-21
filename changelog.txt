@@ -8,6 +8,21 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(06/22/2021) = Added - Version 4.6.3
+[+] = Feature = Improve Customizer Speed with react based controls.
+[+] = Feature = Add hook for custom header and footer in child theme.
+[*] = Changed = responsive_wp_title() to responsive_title() instead.
+[x] = Deleted = removed wp_filesystem() dependent code from typography.
+[!] = Fix = Shop Page Sidebar, Product Page Sidebar not working unless Blog Page Sidebar & Single Post Sidebar are not enabled.
+[!] = Fix = Elementor Page for Product Archive shows multiple Product Title & Add to Cart Button.
+[!] = Fix = Console error related to the floating bar when a product page is designed using Elementor template.
+[!] = Fix = Last item in menu should be actually last item even if menu cart icon is enabled.
+[!] = Fix = When user tabs through dropdown menus, previous unfocused dropdowns should be hidden & only focused dropdown should be expanded.
+[!] = Fix = Issues with 'Spread Menu and Last Item' option with different header settings after enabling last element in menu.
+[!] = Fix = Dropdown icon css broken on wp forms.
+[!] = Fix = Unable to update 'About Me widget image'.
+[!] = Fix = bbPress All Forums Page, Box background color should not be applied to forum rows. It should be applied only to boxed page outside forums list table.
+
 (04/06/2021) = Added - Version 4.6.2
 [+] = Feature = Added stack option for mobile menu.
 [+] = Feature = Added hover style option for menu items.
