@@ -90,3 +90,19 @@ function responsive_delete_transient_action() {
 	update_option( "responsive-readysite-promotion", 1 );
 
 }
+function responsive_upgrade_pro_react() {
+	?>
+
+	<div class="notice notice-error">
+		<p>Please update to the latest version of <strong>Responsive Pro ( V2.4.2 or higher )</strong> to be compatible with the latest <strong>Responsive</strong> theme. To upgrade to latest version of <strong>Responsive Pro Plugin</strong> follow <a href="https://docs.cyberchimps.com/responsive/faq#upgrade-responsive-pro-plugin-from-wordpress-dashboard">Documentation</a>.</p>
+	</div>
+	<?php
+}
+$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
+$plugin_info            = get_plugin_data( $plugin_path );
+$responsive_pro_version = $plugin_info['Version'];
+$compare                = version_compare( $responsive_pro_version, '2.4.2' );
+if ( class_exists( 'responsive_addons_pro' ) && -1 === $compare ) {
+	add_action( 'admin_notices', 'responsive_upgrade_pro_react', 20 );
+}
+
