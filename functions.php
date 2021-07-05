@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'RESPONSIVE_THEME_VERSION', '4.6.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
+define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
 
 /**
  *

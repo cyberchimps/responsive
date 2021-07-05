@@ -77,19 +77,53 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 					'transport'         => 'refresh',
 				)
 			);
-			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
-					$wp_customize,
-					'res_front_page',
-					array(
-						'label'       => __( 'Enable Custom Front Page', 'responsive' ),
-						'section'     => 'static_front_page',
-						'settings'    => 'responsive_theme_options[front_page]',
-						'priority'    => 10,
-						'description' => __( 'Overrides the WordPress front page option', 'responsive' ),
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
+				$plugin_info            = get_plugin_data( $plugin_path );
+				$responsive_pro_version = $plugin_info['Version'];
+				$compare                = version_compare( $responsive_pro_version, RESPONSIVE_PRO_OLDER_VERSION_CHECK );
+				if ( -1 === $compare ) {
+					$wp_customize->add_control(
+						'res_front_page',
+						array(
+							'label'       => __( 'Enable Custom Front Page', 'responsive' ),
+							'section'     => 'static_front_page',
+							'settings'    => 'responsive_theme_options[front_page]',
+							'type'        => 'checkbox',
+							'priority'    => 10,
+							'description' => __( 'Overrides the WordPress front page option', 'responsive' ),
+						)
+					);
+				} else {
+					$wp_customize->add_control(
+						new Responsive_Customizer_Checkbox_Control(
+							$wp_customize,
+							'res_front_page',
+							array(
+								'label'       => __( 'Enable Custom Front Page', 'responsive' ),
+								'section'     => 'static_front_page',
+								'settings'    => 'responsive_theme_options[front_page]',
+								'priority'    => 10,
+								'description' => __( 'Overrides the WordPress front page option', 'responsive' ),
+							)
+						)
+					);
+				}
+			} else {
+				$wp_customize->add_control(
+					new Responsive_Customizer_Checkbox_Control(
+						$wp_customize,
+						'res_front_page',
+						array(
+							'label'       => __( 'Enable Custom Front Page', 'responsive' ),
+							'section'     => 'static_front_page',
+							'settings'    => 'responsive_theme_options[front_page]',
+							'priority'    => 10,
+							'description' => __( 'Overrides the WordPress front page option', 'responsive' ),
+						)
 					)
-				)
-			);
+				);
+			}
 
 			// Hero Area.
 			$custom_hero_area_label = esc_html__( 'Hero Area', 'responsive' );
