@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(07/08/2021) = Added - Version 4.6.3
+(07/13/2021) = Added - Version 4.6.3
 [+] = Feature = Improve Customizer Speed with react based controls.
 [+] = Feature = Add hook for custom header and footer in child theme.
 [*] = Changed = responsive_wp_title() to responsive_title() instead.
