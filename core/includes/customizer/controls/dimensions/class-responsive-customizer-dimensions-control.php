@@ -33,7 +33,6 @@ if ( ! class_exists( 'Responsive_Customizer_Dimensions_Control' ) ) :
 		 * @access public
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/dimensions.min.js', array( 'jquery', 'customize-base' ), false, true );
 			wp_localize_script( 'responsive-dimensions', 'responsiveL10n', $this->l10n() );
 			wp_enqueue_style( 'responsive-dimensions', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/dimensions.min.css', null );
 		}
@@ -88,98 +87,6 @@ if ( ! class_exists( 'Responsive_Customizer_Dimensions_Control' ) ) :
 		}
 
 		/**
-		 * An Underscore (JS) template for this control's content (but not its container).
-		 *
-		 * Class variables for this control class are available in the `data` JS object;
-		 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
-		 *
-		 * @see WP_Customize_Control::print_template()
-		 *
-		 * @access protected
-		 */
-		protected function content_template() {
-			?>
-		<# if ( data.label ) { #>
-			<span class="customize-control-title">
-				<span>{{{ data.label }}}</span>
-
-				<ul class="responsive-switchers">
-					<li class="desktop">
-						<button type="button" class="preview-desktop active" data-device="desktop">
-							<i class="dashicons dashicons-desktop"></i>
-						</button>
-					</li>
-					<li class="tablet">
-						<button type="button" class="preview-tablet" data-device="tablet">
-							<i class="dashicons dashicons-tablet"></i>
-						</button>
-					</li>
-					<li class="mobile">
-						<button type="button" class="preview-mobile" data-device="mobile">
-							<i class="dashicons dashicons-smartphone"></i>
-						</button>
-					</li>
-				</ul>
-
-			</span>
-		<# } #>
-
-		<# if ( data.description ) { #>
-			<span class="description customize-control-description">{{{ data.description }}}</span>
-		<# } #>
-
-		<ul class="desktop control-wrap active">
-			<# _.each( data.desktop, function( args, key ) { #>
-				<li class="dimension-wrap {{ key }}">
-					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }} linked" {{{ args.link }}} value="{{{ args.value }}}" data-element="{{ data.id }}" />
-					<span class="dimension-label">{{ data.l10n[ key ] }}</span>
-				</li>
-				<# } ); #>
-
-			<li class="dimension-wrap">
-				<div class="link-dimensions unlinked">
-					<span class="dashicons dashicons-admin-links responsive-linked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
-					<span class="dashicons dashicons-editor-unlink responsive-unlinked" data-element="{{ data.id }}" title="{{ data.title }}"></span>
-				</div>
-			</li>
-		</ul>
-
-		<ul class="tablet control-wrap">
-			<# _.each( data.tablet, function( args, key ) { #>
-				<li class="dimension-wrap {{ key }}">
-					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }} linked" {{{ args.link }}} value="{{{ args.value }}}" data-element="{{ data.id }}_tablet" />
-					<span class="dimension-label">{{ data.l10n[ key ] }}</span>
-				</li>
-				<# } ); #>
-
-			<li class="dimension-wrap">
-				<div class="link-dimensions unlinked">
-					<span class="dashicons dashicons-admin-links responsive-linked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
-					<span class="dashicons dashicons-editor-unlink responsive-unlinked" data-element="{{ data.id }}_tablet" title="{{ data.title }}"></span>
-				</div>
-			</li>
-		</ul>
-
-		<ul class="mobile control-wrap">
-			<# _.each( data.mobile, function( args, key ) { #>
-				<li class="dimension-wrap {{ key }}">
-					<input {{{ data.inputAttrs }}} type="number" class="dimension-{{ key }} linked" {{{ args.link }}} value="{{{ args.value }}}" data-element="{{ data.id }}_mobile" />
-					<span class="dimension-label">{{ data.l10n[ key ] }}</span>
-				</li>
-				<# } ); #>
-
-			<li class="dimension-wrap">
-				<div class="link-dimensions unlinked">
-					<span class="dashicons dashicons-admin-links responsive-linked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
-					<span class="dashicons dashicons-editor-unlink responsive-unlinked" data-element="{{ data.id }}_mobile" title="{{ data.title }}"></span>
-				</div>
-			</li>
-		</ul>
-
-			<?php
-		}
-
-		/**
 		 * Returns an array of translation strings.
 		 *
 		 * @access protected
@@ -206,5 +113,11 @@ if ( ! class_exists( 'Responsive_Customizer_Dimensions_Control' ) ) :
 			}
 			return $translation_strings[ $id ];
 		}
+		/**
+		 * Render the control's content.
+		 *
+		 * @see WP_Customize_Control::render_content()
+		 */
+		protected function render_content() {}
 	}
 endif;

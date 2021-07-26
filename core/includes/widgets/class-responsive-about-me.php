@@ -6,7 +6,7 @@
  */
 function responsive_about_me_scripts() {
 	wp_enqueue_media();
-	wp_enqueue_script( 'admin_enqueue_scripts', get_theme_file_uri( 'core/js-dev/responsive-about-me-widget.js' ), array( 'jquery' ), '1.9.5.0', true );
+	wp_enqueue_script( 'admin_enqueue_scripts', get_theme_file_uri( 'core/js-dev/responsive-about-me-widget.js' ), array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 }
 add_action( 'admin_enqueue_scripts', 'responsive_about_me_scripts' );
 
@@ -98,9 +98,15 @@ class Responsive_About_Me extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $author_image_field_id ); ?>"><?php esc_html_e( 'Image :', 'responsive' ); ?></label>
 
-			<img class="<?php echo esc_attr( $this->id ); ?>_img" src="<?php echo esc_attr( $image ); ?>" style="margin:0;padding:0;max-width:100%;display:block"/>
-			<input type="text" class="widefat <?php echo esc_attr( $this->id ); ?>_url" name="<?php echo esc_attr( $author_image_field_name ); ?>" value="<?php echo esc_url( $image ); ?>" style="margin-top:5px;" />
-			<input type="button" id="<?php echo esc_attr( $this->id ); ?>" class="button button-primary responsive_js_custom_upload_media" value="Choose Image" style="margin-top:5px;" />
+			<?php if ( ! empty( $image ) ) : ?>
+				<img class="<?php echo esc_attr( $this->id ); ?>_img" src="<?php echo esc_attr( $image ); ?>" style="margin:0;padding:0;max-width:100%;display:block"/>
+				<a href="#" id="<?php echo esc_attr( $this->id ); ?>" class="responsive-image-remove">Remove Image</a>
+				<input type="hidden" name="<?php echo esc_attr( $author_image_field_name ); ?>" value="<?php echo esc_url( $image ); ?>" />
+			<?php else : ?>
+				<img class="<?php echo esc_attr( $this->id ); ?>_img" src="" style="margin:0;padding:0;max-width:100%;display:none"/>
+				<a role="button" id="<?php echo esc_attr( $this->id ); ?>" class="button button-primary responsive-custom-upload-media-btn" style="margin-top:7px;margin-left: 5px;"><?php esc_html_e( 'Choose Image', 'responsive' ); ?></a>
+				<input type="hidden" name="<?php echo esc_attr( $author_image_field_name ); ?>" value="" />
+			<?php endif; ?>
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $author_bio_field_id ); ?>"><?php esc_html_e( 'Bio :', 'responsive' ); ?></label>

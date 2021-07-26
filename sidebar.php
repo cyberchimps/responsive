@@ -18,14 +18,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) || ( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) || ( is_single() && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) || ( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', Responsive\Core\get_responsive_customizer_defaults( 'blog_sidebar_position' ) ) ) ) {
-	return;
-}
 
 Responsive\responsive_widgets_before(); // above widgets container hook.
 
 if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_checkout() ) ) ) {
 
+	if ( ( ( ( is_page() && ! is_checkout() ) && ( is_page() && ! is_cart() ) ) && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) ||
+		( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) ||
+		( ( is_single() && ( ! is_woocommerce() && ! is_product() ) ) && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) ||
+		( ( is_woocommerce() && is_product() ) && 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'right' ) ) ||
+		( ( is_home() || is_search() || is_archive() && ( ! is_woocommerce() && ! is_shop() ) ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) ) ||
+		( ( is_woocommerce() && is_shop() ) && 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'right' ) )
+	) {
+		return;
+	}
 	$responsive_options = Responsive\Core\responsive_get_options();
 	if ( ( 'no' === get_theme_mod( 'responsive_shop_sidebar_position', 'no' ) && ! is_product() ) || ( 'no' === get_theme_mod( 'responsive_single_product_sidebar_position', 'no' ) && is_product() ) ) {
 		return;
@@ -37,6 +43,14 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 		<?php
 
 } else {
+
+	if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) ||
+		( is_page() && 'no' === get_post_meta( get_the_ID(), 'responsive_page_meta_sidebar_position', true ) ) ||
+		( is_single() && 'no' === get_theme_mod( 'responsive_single_blog_sidebar_position', 'right' ) ) ||
+		( ( is_home() || is_search() || is_archive() ) && 'no' === get_theme_mod( 'responsive_blog_sidebar_position', 'right' ) )
+	) {
+		return;
+	}
 
 	?>
 	<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>

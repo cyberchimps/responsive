@@ -287,14 +287,14 @@ function responsive_remove_recent_comments_style() {
  * Filter for better SEO wp_title().
  * Adopted from Twenty Twelve
  *
- * @deprecated use Responsive\Extra\responsive_wp_title() instead
+ * @deprecated use Responsive\Extra\responsive_title() instead
  * @param  [type] $title [description].
  * @param  [type] $sep   [description].
  * @return [type]        [description].
  * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
  */
-function responsive_wp_title( $title, $sep ) {
-	return Responsive\Extra\responsive_wp_title( $title, $sep );
+function responsive_title( $title, $sep ) {
+	return Responsive\Extra\responsive_title( $title, $sep );
 }
 
 /**

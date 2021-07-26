@@ -94,6 +94,7 @@
         display: block;
         padding: ( $input-padding-y * 4 ) 18px;
         font-weight: 600;
+        padding-right: 30px;
     }
 
     .menu-toggle {
@@ -257,6 +258,16 @@
             }
         }
     }
+
+    &.site-header-main-navigation {
+        &.last-item-spread-away {
+            &.site-branding-off {
+                .res-last-item {
+                    float: right;
+                }
+            }
+        }
+    }
 }
 
 .site-mobile-header-layout-horizontal {
@@ -368,6 +379,19 @@
         .main-navigation {
             @media( min-width: map-get($screens, xxxl) ) {
                 @include make-full-width();
+            }
+        }
+    }
+
+    &.site-header-main-navigation {
+        &.site-header-alignment-left,
+        &.site-header-alignment-center {
+            &.last-item-spread-away {
+                &.site-branding-off {
+                    .res-last-item {
+                        float: right;
+                    }
+                }
             }
         }
     }

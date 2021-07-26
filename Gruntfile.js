@@ -296,13 +296,28 @@ module.exports = function(grunt) {
 					'!phpcs.xml',
 					'!core/js/jquery.min.js',
 					'!.test/**',
-					'!.sasslintrc.json'
+					'!.sasslintrc.json',
+					'!core/includes/customizer/extend-controls/package.json',
+					'!core/includes/customizer/extend-controls/package-lock.json',
+					'!core/includes/customizer/extend-controls/src/**',
+					'!core/includes/customizer/extend-controls/node_modules/**',
+					'!core/includes/customizer/extend-controls/build/index.asset.php',
+					'!core/includes/customizer/extend-controls/build/index.js.map',
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
             ],
 		},
     },
+	shell: {
+		multiple: {
+			command: [
+				'cd core/includes/customizer/extend-controls ',
+				'npm install',
+				'npm run build'
+			].join('&&')
+		}
+	},
 	});
 
 	// Update google Fonts
@@ -343,7 +358,7 @@ module.exports = function(grunt) {
 	// SASS compile
 	grunt.registerTask('scss', ['sass']);
 	grunt.registerTask( 'default', [ 'scss', 'rtl', 'uglify', 'cssmin' ] );
-	grunt.registerTask( 'build', [ 'i18n', 'scss', 'rtl', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
+	grunt.registerTask( 'build', [ 'shell:multiple','i18n', 'scss', 'rtl', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'addtextdomain', 'makepot' ] );
 
 };

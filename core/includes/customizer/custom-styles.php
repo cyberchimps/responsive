@@ -318,6 +318,15 @@ function responsive_customizer_styles() {
 	}
 	";
 
+	$custom_css .= "
+		.responsive-block-editor-addons-button__wrapper > .not-inherited-from-theme, .responsive-block-editor-addons-button__wrapper > .inherited-from-theme {
+			color: {$button_text_color};
+		}
+		.responsive-block-editor-addons-button__wrapper:hover > .not-inherited-from-theme, .responsive-block-editor-addons-button__wrapper:hover > .inherited-from-theme {
+			color: {$button_hover_text_color};
+		}
+	";
+
 	$sensei_button       = '';
 	$sensei_button_hover = '';
 	if ( class_exists( 'Sensei_Main' ) ) {
@@ -530,11 +539,23 @@ function responsive_customizer_styles() {
 		padding: ' . responsive_spacing_css( $inputs_padding_top, $inputs_padding_right, $inputs_padding_bottom, $inputs_padding_left ) . ';
 		height: auto;
 	}
+	.entry-content div.wpforms-container-full .wpforms-form select,
 	body div.wpforms-container-full .wpforms-form select,
 	select {
 		background-image:
 			linear-gradient(45deg, transparent 50%, ' . $inputs_text_color . ' 50%),
 			linear-gradient(135deg, ' . $inputs_text_color . ' 50%, transparent 50%);
+		background-position:
+			calc(100% - 20px) calc(50% + 2px),
+			calc(100% - 15px) calc(50% + 2px),
+			calc(100% - .5em) .5em;
+		background-size:
+			5px 5px,
+			5px 5px,
+			1.5em 1.5em;
+		background-repeat: no-repeat;
+		-webkit-appearance: none;
+		-moz-appearance: none;
 	}
 	body div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,
 	body div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,

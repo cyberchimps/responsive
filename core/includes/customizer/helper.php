@@ -1049,21 +1049,59 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 			'transport'         => 'postMessage',
 		)
 	);
-	$wp_customize->add_control(
-		new Responsive_Customizer_Color_Control(
-			$wp_customize,
-			'responsive_' . $element . '_color',
-			array(
-				'label'           => $label,
-				'section'         => $section,
-				'settings'        => 'responsive_' . $element . '_color',
-				'priority'        => $priority,
-				'active_callback' => $active_call,
-				'description'     => $desc,
+	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+		$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
+		$plugin_info            = get_plugin_data( $plugin_path );
+		$responsive_pro_version = $plugin_info['Version'];
+		$compare                = version_compare( $responsive_pro_version, RESPONSIVE_PRO_OLDER_VERSION_CHECK );
+		if ( -1 === $compare ) {
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_' . $element . '_color',
+					array(
+						'label'           => $label,
+						'section'         => $section,
+						'settings'        => 'responsive_' . $element . '_color',
+						'type'            => 'color',
+						'priority'        => $priority,
+						'active_callback' => $active_call,
+						'description'     => $desc,
+					)
+				)
+			);
+		} elseif ( 0 === $compare || 1 === $compare ) {
+			$wp_customize->add_control(
+				new Responsive_Customizer_Color_Control(
+					$wp_customize,
+					'responsive_' . $element . '_color',
+					array(
+						'label'           => $label,
+						'section'         => $section,
+						'settings'        => 'responsive_' . $element . '_color',
+						'priority'        => $priority,
+						'active_callback' => $active_call,
+						'description'     => $desc,
+					)
+				)
+			);
+		}
+	} else {
+		$wp_customize->add_control(
+			new Responsive_Customizer_Color_Control(
+				$wp_customize,
+				'responsive_' . $element . '_color',
+				array(
+					'label'           => $label,
+					'section'         => $section,
+					'settings'        => 'responsive_' . $element . '_color',
+					'priority'        => $priority,
+					'active_callback' => $active_call,
+					'description'     => $desc,
+				)
 			)
-		)
-	);
-
+		);
+	}
 }
 
 /**
@@ -1662,16 +1700,18 @@ function responsive_select_control( $wp_customize, $element, $label, $section, $
 		)
 	);
 	$wp_customize->add_control(
-		'responsive_' . $element,
-		array(
-			'label'           => $label,
-			'description'     => $description,
-			'section'         => $section,
-			'settings'        => 'responsive_' . $element,
-			'type'            => 'select',
-			'priority'        => $priority,
-			'active_callback' => $active_call,
-			'choices'         => apply_filters( 'responsive_' . $element . '_choices', $choices ),
+		new Responsive_Customizer_Select_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'description'     => $description,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'choices'         => apply_filters( 'responsive_' . $element . '_choices', $choices ),
+			)
 		)
 	);
 }
@@ -1752,7 +1792,7 @@ function responsive_custom_home_active() {
  * @param  [type] $active_call  [description].
  * @return void               [description].
  */
-function responsive_checkbox_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $transport = 'refresh' ) {
+function responsive_checkbox_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $transport = 'refresh', $desc = '' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -1762,17 +1802,82 @@ function responsive_checkbox_control( $wp_customize, $element, $label, $section,
 			'transport'         => $transport,
 		)
 	);
-	$wp_customize->add_control(
-		'responsive_' . $element,
-		array(
-			'label'           => $label,
-			'section'         => $section,
-			'settings'        => 'responsive_' . $element,
-			'type'            => 'checkbox',
-			'priority'        => $priority,
-			'active_callback' => $active_call,
-		)
-	);
+	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+		$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
+		$plugin_info            = get_plugin_data( $plugin_path );
+		$responsive_pro_version = $plugin_info['Version'];
+		$compare                = version_compare( $responsive_pro_version, RESPONSIVE_PRO_OLDER_VERSION_CHECK );
+		if ( -1 === $compare ) {
+			$wp_customize->add_control(
+				'responsive_' . $element,
+				array(
+					'label'           => $label,
+					'section'         => $section,
+					'settings'        => 'responsive_' . $element,
+					'type'            => 'checkbox',
+					'priority'        => $priority,
+					'active_callback' => $active_call,
+					'description'     => $desc,
+				)
+			);
+		} else {
+			$wp_customize->add_control(
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'responsive_' . $element,
+					array(
+						'label'           => $label,
+						'section'         => $section,
+						'settings'        => 'responsive_' . $element,
+						'priority'        => $priority,
+						'active_callback' => $active_call,
+						'description'     => $desc,
+					)
+				)
+			);
+		}
+	} else {
+		$wp_customize->add_control(
+			new Responsive_Customizer_Checkbox_Control(
+				$wp_customize,
+				'responsive_' . $element,
+				array(
+					'label'           => $label,
+					'section'         => $section,
+					'settings'        => 'responsive_' . $element,
+					'priority'        => $priority,
+					'active_callback' => $active_call,
+					'description'     => $desc,
+				)
+			)
+		);
+	}
+}
+/**
+ * Check if off canvas is active
+ *
+ * @return void
+ */
+function enable_off_canvas_filter_check() {
+	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) ? true : false;
+}
+/**
+ * Check if off canvas close button is active
+ *
+ * @return void
+ */
+function enable_enable_off_canvas_close_btn() {
+	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_close_btn', 0 ) ) ? true : false;
+}
+
+if ( ! function_exists( 'responsive_hamburger_off_canvas_btn_label_text_label' ) ) {
+	/**
+	 * Returns hamburger menu label value
+	 */
+	function responsive_hamburger_off_canvas_btn_label_text_label() {
+		$hamburger_off_canvas_btn_label_text_label = get_theme_mod( 'responsive_hamburger_off_canvas_btn_label_text', 'Filter' );
+		return $hamburger_off_canvas_btn_label_text_label;
+	}
 }
 /**
  * Check if off canvas is active

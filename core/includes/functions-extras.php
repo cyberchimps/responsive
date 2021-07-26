@@ -24,7 +24,7 @@ function setup() {
 
 	add_action( 'widgets_init', $n( 'responsive_remove_recent_comments_style' ) );
 	add_filter( 'wp_page_menu', $n( 'responsive_wp_page_menu' ) );
-	add_filter( 'wp_nav_menu_items', $n( 'responsive_search_icon' ), 10, 2 );
+	add_filter( 'wp_nav_menu_items', $n( 'responsive_search_icon' ), 99, 2 );
 
 	add_filter( 'gallery_style', $n( 'responsive_remove_gallery_css' ) );
 	add_filter( 'get_the_excerpt', $n( 'responsive_custom_excerpt_more' ) );
@@ -36,8 +36,8 @@ function setup() {
 	add_filter( 'wp_list_categories', $n( 'responsive_category_rel_removal' ) );
 	add_filter( 'the_category', $n( 'responsive_category_rel_removal' ) );
 
-	if ( ! function_exists( 'responsive_wp_title' ) && ! defined( 'AIOSEOP_VERSION' ) ) {
-		add_filter( 'wp_title', $n( 'responsive_wp_title' ), 10, 2 );
+	if ( ! function_exists( 'responsive_title' ) && ! defined( 'AIOSEOP_VERSION' ) ) {
+		add_filter( 'wp_title', $n( 'responsive_title' ), 10, 2 );
 	}
 
 }
@@ -176,7 +176,7 @@ function responsive_remove_recent_comments_style() {
 }
 
 /**
- * Filter for better SEO wp_title().
+ * Filter for better SEO title.
  * Adopted from Twenty Twelve
  *
  * @param  [type] $title [description].
@@ -184,7 +184,7 @@ function responsive_remove_recent_comments_style() {
  * @return [type]        [description].
  * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/wp_title
  */
-function responsive_wp_title( $title, $sep ) {
+function responsive_title( $title, $sep ) {
 	global $page, $paged;
 
 	if ( is_feed() ) {

@@ -51,13 +51,15 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'res_breadcrumb',
-				array(
-					'label'    => __( 'Disable breadcrumb list?', 'responsive' ),
-					'section'  => 'responsive_content_header_layout',
-					'settings' => 'responsive_theme_options[breadcrumb]',
-					'type'     => 'checkbox',
-					'priority' => 10,
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'res_breadcrumb',
+					array(
+						'label'    => __( 'Disable breadcrumb list?', 'responsive' ),
+						'section'  => 'responsive_content_header_layout',
+						'settings' => 'responsive_theme_options[breadcrumb]',
+						'priority' => 10,
+					)
 				)
 			);
 
