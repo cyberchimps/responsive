@@ -422,7 +422,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'responsive_setting_id' => 'responsive_font_family',
 									'settings'        => $element . '_typography[font-family]',
 									'priority'        => $priority,
-									'type'            => 'select',
+									'type'            => 'responsive-typography',
 									'active_callback' => $active_callback,
 									'resp_inherit'    => __( 'Default', 'responsive' ),
 									'connect'         => $element . '_typography[font-weight]',
@@ -460,7 +460,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'resp_inherit'    => __( 'Default', 'responsive' ),
 									'connect'         => $element . '_typography[font-family]',
 									'priority'        => $priority,
-									'type'            => 'select',
+									'type'            => 'responsive-typography',
 									'active_callback' => $active_callback,
 									'choices'         => array(
 										''    => esc_html__( 'Default', 'responsive' ),
@@ -495,21 +495,22 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						);
 
 						$wp_customize->add_control(
-							$element . '_typography[font-style]',
-							array(
-								'label'           => esc_html__( 'Font Style', 'responsive' ),
-								'section'         => $section,
-								'settings'        => $element . '_typography[font-style]',
-								'priority'        => $priority,
-								'type'            => 'select',
-								'active_callback' => $active_callback,
-								'choices'         => array(
-									'normal' => esc_html__( 'Normal', 'responsive' ),
-									'italic' => esc_html__( 'Italic', 'responsive' ),
-								),
+							new Responsive_Customizer_Select_Control(
+								$wp_customize,
+								$element . '_typography[font-style]',
+								array(
+									'label'           => esc_html__( 'Font Style', 'responsive' ),
+									'section'         => $section,
+									'settings'        => $element . '_typography[font-style]',
+									'priority'        => $priority,
+									'active_callback' => $active_callback,
+									'choices'         => array(
+										'normal' => esc_html__( 'Normal', 'responsive' ),
+										'italic' => esc_html__( 'Italic', 'responsive' ),
+									),
+								)
 							)
 						);
-
 					}
 
 					/**
@@ -528,23 +529,24 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						);
 
 						$wp_customize->add_control(
-							$element . '_typography[text-transform]',
-							array(
-								'label'           => esc_html__( 'Text Transform', 'responsive' ),
-								'section'         => $section,
-								'settings'        => $element . '_typography[text-transform]',
-								'priority'        => $priority,
-								'type'            => 'select',
-								'active_callback' => $active_callback,
-								'choices'         => array(
-									''           => esc_html__( 'Default', 'responsive' ),
-									'capitalize' => esc_html__( 'Capitalize', 'responsive' ),
-									'lowercase'  => esc_html__( 'Lowercase', 'responsive' ),
-									'uppercase'  => esc_html__( 'Uppercase', 'responsive' ),
-								),
+							new Responsive_Customizer_Select_Control(
+								$wp_customize,
+								$element . '_typography[text-transform]',
+								array(
+									'label'           => esc_html__( 'Text Transform', 'responsive' ),
+									'section'         => $section,
+									'settings'        => $element . '_typography[text-transform]',
+									'priority'        => $priority,
+									'active_callback' => $active_callback,
+									'choices'         => array(
+										''           => esc_html__( 'Default', 'responsive' ),
+										'capitalize' => esc_html__( 'Capitalize', 'responsive' ),
+										'lowercase'  => esc_html__( 'Lowercase', 'responsive' ),
+										'uppercase'  => esc_html__( 'Uppercase', 'responsive' ),
+									),
+								)
 							)
 						);
-
 					}
 
 					/**

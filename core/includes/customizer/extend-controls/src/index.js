@@ -1,0 +1,22 @@
+import { responsiveCore } from './core/control';
+import { responsiveSortable } from './sortable/control';
+import { responsiveSlider } from './slider/control';
+import { responsiveText } from './text/control';
+import { responsiveHeading } from './heading/control';
+import { responsiveSelect } from './select/control';
+import { responsiveCheckbox } from './checkbox/control';
+import { responsivePalette } from './palette/control';
+import { responsiveTypography } from './typography/control';
+import { responsiveDimensions } from './dimensions/control';
+import { responsiveColor } from './color/control';
+
+wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
+wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
+wp.customize.controlConstructor['responsive-text'] = responsiveText; 
+wp.customize.controlConstructor['responsive-heading'] = responsiveHeading;
+wp.customize.controlConstructor['responsive-select'] = responsiveSelect;
+wp.customize.controlConstructor['responsive-checkbox'] = responsiveCheckbox;
+wp.customize.controlConstructor['responsive-palette'] = responsivePalette;
+wp.customize.controlConstructor['responsive-typography'] = responsiveTypography;
+wp.customize.controlConstructor['responsive-dimensions'] = responsiveDimensions;
+wp.customize.controlConstructor['alpha-color'] = responsiveColor;

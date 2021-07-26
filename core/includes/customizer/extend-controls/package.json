@@ -1,0 +1,25 @@
+{
+  "name": "responsive-react-customizer-controls",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "dependencies": {
+    "@fonticonpicker/react-fonticonpicker": "^1.2.0",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-html-parser": "^2.0.2",
+    "react-select": "^3.1.0",
+    "react-sortablejs": "^6.0.0",
+    "sortablejs": "^1.12.0",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^12.5.0"
+  },
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  }
+}

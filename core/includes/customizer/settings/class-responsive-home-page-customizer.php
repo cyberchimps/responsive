@@ -77,17 +77,53 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 					'transport'         => 'refresh',
 				)
 			);
-			$wp_customize->add_control(
-				'res_front_page',
-				array(
-					'label'       => __( 'Enable Custom Front Page', 'responsive' ),
-					'section'     => 'static_front_page',
-					'settings'    => 'responsive_theme_options[front_page]',
-					'type'        => 'checkbox',
-					'priority'    => 10,
-					'description' => __( 'Overrides the WordPress front page option', 'responsive' ),
-				)
-			);
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
+				$plugin_info            = get_plugin_data( $plugin_path );
+				$responsive_pro_version = $plugin_info['Version'];
+				$compare                = version_compare( $responsive_pro_version, RESPONSIVE_PRO_OLDER_VERSION_CHECK );
+				if ( -1 === $compare ) {
+					$wp_customize->add_control(
+						'res_front_page',
+						array(
+							'label'       => __( 'Enable Custom Front Page', 'responsive' ),
+							'section'     => 'static_front_page',
+							'settings'    => 'responsive_theme_options[front_page]',
+							'type'        => 'checkbox',
+							'priority'    => 10,
+							'description' => __( 'Overrides the WordPress front page option', 'responsive' ),
+						)
+					);
+				} else {
+					$wp_customize->add_control(
+						new Responsive_Customizer_Checkbox_Control(
+							$wp_customize,
+							'res_front_page',
+							array(
+								'label'       => __( 'Enable Custom Front Page', 'responsive' ),
+								'section'     => 'static_front_page',
+								'settings'    => 'responsive_theme_options[front_page]',
+								'priority'    => 10,
+								'description' => __( 'Overrides the WordPress front page option', 'responsive' ),
+							)
+						)
+					);
+				}
+			} else {
+				$wp_customize->add_control(
+					new Responsive_Customizer_Checkbox_Control(
+						$wp_customize,
+						'res_front_page',
+						array(
+							'label'       => __( 'Enable Custom Front Page', 'responsive' ),
+							'section'     => 'static_front_page',
+							'settings'    => 'responsive_theme_options[front_page]',
+							'priority'    => 10,
+							'description' => __( 'Overrides the WordPress front page option', 'responsive' ),
+						)
+					)
+				);
+			}
 
 			// Hero Area.
 			$custom_hero_area_label = esc_html__( 'Hero Area', 'responsive' );
@@ -162,13 +198,15 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'res_cta_button',
-				array(
-					'label'           => __( 'Disable Call to Action Button?', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[cta_button]',
-					'type'            => 'checkbox',
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'res_cta_button',
+					array(
+						'label'           => __( 'Disable Call to Action Button?', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[cta_button]',
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -223,19 +261,21 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 
 			// Call to action button style.
 				$wp_customize->add_control(
-					'static_page_layout_default',
-					array(
-						'label'           => __( 'Call to Action Button Style', 'responsive' ),
-						'section'         => 'static_front_page',
-						'settings'        => 'responsive_theme_options[button_style]',
-						'type'            => 'select',
-						'priority'        => 15,
-						'active_callback' => 'responsive_custom_home_active',
-						'choices'         => array(
-							'default'    => __( 'Gradient', 'responsive' ),
-							'flat_style' => __( 'Flat', 'responsive' ),
+					new Responsive_Customizer_Select_Control(
+						$wp_customize,
+						'static_page_layout_default',
+						array(
+							'label'           => __( 'Call to Action Button Style', 'responsive' ),
+							'section'         => 'static_front_page',
+							'settings'        => 'responsive_theme_options[button_style]',
+							'priority'        => 15,
+							'active_callback' => 'responsive_custom_home_active',
+							'choices'         => array(
+								'default'    => __( 'Gradient', 'responsive' ),
+								'flat_style' => __( 'Flat', 'responsive' ),
 
-						),
+							),
+						)
 					)
 				);
 
@@ -295,14 +335,16 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'about',
-				array(
-					'label'           => __( 'Enable About Section', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[about]',
-					'type'            => 'checkbox',
-					'priority'        => 22,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'about',
+					array(
+						'label'           => __( 'Enable About Section', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[about]',
+						'priority'        => 22,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -398,14 +440,16 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'custom_feature_section_separtor', $custom_feature_section_label, 'static_front_page', 22, 'responsive_custom_home_active' );
 
 			$wp_customize->add_control(
-				'feature_front_page',
-				array(
-					'label'           => __( 'Enable Feature Section', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[feature]',
-					'type'            => 'checkbox',
-					'priority'        => 23,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'feature_front_page',
+					array(
+						'label'           => __( 'Enable Feature Section', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[feature]',
+						'priority'        => 23,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 
@@ -437,16 +481,18 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'feature1',
-				array(
-					'label'           => __( 'Select post for feature 1', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[feature1]',
-					'description'     => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
-					'type'            => 'select',
-					'choices'         => $options_posts,
-					'priority'        => 23,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'feature1',
+					array(
+						'label'           => __( 'Select post for feature 1', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[feature1]',
+						'description'     => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
+						'choices'         => $options_posts,
+						'priority'        => 23,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -457,16 +503,18 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'feature2',
-				array(
-					'label'           => __( 'Select post for feature 2', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[feature2]',
-					'description'     => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
-					'type'            => 'select',
-					'choices'         => $options_posts,
-					'priority'        => 23,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'feature2',
+					array(
+						'label'           => __( 'Select post for feature 2', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[feature2]',
+						'description'     => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
+						'choices'         => $options_posts,
+						'priority'        => 23,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -477,19 +525,20 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'feature3',
-				array(
-					'label'           => __( 'Select post for feature 3', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[feature3]',
-					'description'     => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
-					'type'            => 'select',
-					'choices'         => $options_posts,
-					'priority'        => 23,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'feature3',
+					array(
+						'label'           => __( 'Select post for feature 3', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[feature3]',
+						'description'     => __( 'The featured image, title and content from the posts will be used to display the feature. Recommended image size for the featured images: 130 x 130px', 'responsive' ),
+						'choices'         => $options_posts,
+						'priority'        => 23,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
-
 			// Testimonial Section.
 			$custom_testimonial_section_label = esc_html__( 'Testimonial Section', 'responsive' );
 			responsive_separator_control( $wp_customize, 'custom_testimonial_section_separtor', $custom_testimonial_section_label, 'static_front_page', 24, 'responsive_custom_home_active' );
@@ -502,14 +551,16 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'testimonial_front_page',
-				array(
-					'label'           => __( 'Enable Testimonial Section', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[testimonials]',
-					'type'            => 'checkbox',
-					'priority'        => 25,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'testimonial_front_page',
+					array(
+						'label'           => __( 'Enable Testimonial Section', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[testimonials]',
+						'priority'        => 25,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -540,16 +591,18 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'testimonial_val',
-				array(
-					'label'           => __( 'Select Post', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[testimonial_val]',
-					'description'     => __( 'The featured image, title and content from the posts will be used to display the client testimonials. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
-					'type'            => 'select',
-					'choices'         => $options_posts,
-					'priority'        => 35,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'testimonial_val',
+					array(
+						'label'           => __( 'Select Post', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[testimonial_val]',
+						'description'     => __( 'The featured image, title and content from the posts will be used to display the client testimonials. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+						'choices'         => $options_posts,
+						'priority'        => 35,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			// Team Section.
@@ -564,14 +617,16 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'team_front_page',
-				array(
-					'label'           => __( 'Enable Team Section', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[team]',
-					'type'            => 'checkbox',
-					'priority'        => 36,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'team_front_page',
+					array(
+						'label'           => __( 'Enable Team Section', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[team]',
+						'priority'        => 36,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -602,16 +657,18 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'teammember1',
-				array(
-					'label'           => __( 'Select post for team member1', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[teammember1]',
-					'description'     => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
-					'type'            => 'select',
-					'choices'         => $options_posts,
-					'priority'        => 38,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'teammember1',
+					array(
+						'label'           => __( 'Select post for team member1', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[teammember1]',
+						'description'     => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+						'choices'         => $options_posts,
+						'priority'        => 38,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -622,16 +679,18 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'teammember2',
-				array(
-					'label'           => __( 'Select post for team member2', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[teammember2]',
-					'description'     => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
-					'type'            => 'select',
-					'choices'         => $options_posts,
-					'priority'        => 39,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'teammember2',
+					array(
+						'label'           => __( 'Select post for team member2', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[teammember2]',
+						'description'     => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+						'choices'         => $options_posts,
+						'priority'        => 39,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -642,16 +701,18 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'teammember3',
-				array(
-					'label'           => __( 'Select post for team member3', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[teammember3]',
-					'description'     => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
-					'type'            => 'select',
-					'choices'         => $options_posts,
-					'priority'        => 40,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'teammember3',
+					array(
+						'label'           => __( 'Select post for team member3', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[teammember3]',
+						'description'     => __( 'The featured image, title and content from the posts will be used to display the team member. Recommended image size for the featured images: 178 x 178px', 'responsive' ),
+						'choices'         => $options_posts,
+						'priority'        => 40,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(
@@ -662,14 +723,16 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'home-widgets',
-				array(
-					'label'           => __( 'Click to disable home page widgets', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[home-widgets]',
-					'type'            => 'checkbox',
-					'priority'        => 41,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'home-widgets',
+					array(
+						'label'           => __( 'Click to disable home page widgets', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[home-widgets]',
+						'priority'        => 41,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			// Contact Section.
@@ -684,14 +747,16 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				'contact_front_page',
-				array(
-					'label'           => __( 'Enable Contact Section', 'responsive' ),
-					'section'         => 'static_front_page',
-					'settings'        => 'responsive_theme_options[contact]',
-					'type'            => 'checkbox',
-					'priority'        => 42,
-					'active_callback' => 'responsive_custom_home_active',
+				new Responsive_Customizer_Checkbox_Control(
+					$wp_customize,
+					'contact_front_page',
+					array(
+						'label'           => __( 'Enable Contact Section', 'responsive' ),
+						'section'         => 'static_front_page',
+						'settings'        => 'responsive_theme_options[contact]',
+						'priority'        => 42,
+						'active_callback' => 'responsive_custom_home_active',
+					)
 				)
 			);
 			$wp_customize->add_setting(

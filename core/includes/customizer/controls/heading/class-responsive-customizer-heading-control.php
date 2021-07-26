@@ -42,11 +42,6 @@ if ( ! class_exists( 'Responsive_Customizer_Heading_Control' ) ) :
 		 *
 		 * @access protected
 		 */
-		protected function content_template() {
-			?>
-		<h4 class="responsive-customizer-heading">{{{ data.label }}}</h4>
-		<div class="description">{{{ data.description }}}</div>
-			<?php
-		}
+		protected function render_control() {}
 	}
 endif;

@@ -51,10 +51,8 @@ if ( ! class_exists( 'Responsive_Customizer_Color_Control' ) ) :
 		 */
 		public function enqueue() {
 			wp_enqueue_script( 'wp-color-picker' );
-			wp_enqueue_script( 'responsive-color', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/color.min.js', array( 'jquery', 'customize-base', 'wp-color-picker' ), RESPONSIVE_THEME_VERSION, true );
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_style( 'responsive-color', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/color.min.css', array( 'wp-color-picker' ), '1.0.0' );
-			wp_localize_script( 'responsive-color', 'responsiveLocalize', array( 'colorPalettes' => responsive_default_color_palettes() ) );
 		}
 
 		/**
@@ -65,11 +63,12 @@ if ( ! class_exists( 'Responsive_Customizer_Color_Control' ) ) :
 		public function to_json() {
 			parent::to_json();
 
-			$this->json['default']      = $this->setting->default;
-			$this->json['show_opacity'] = true;
-			$this->json['value']        = $this->value();
-			$this->json['link']         = $this->get_link();
-			$this->json['id']           = $this->id;
+			$this->json['default']       = $this->setting->default;
+			$this->json['show_opacity']  = true;
+			$this->json['value']         = $this->value();
+			$this->json['link']          = $this->get_link();
+			$this->json['id']            = $this->id;
+			$this->json['colorPalettes'] = responsive_default_color_palettes();
 
 		}
 
@@ -83,20 +82,6 @@ if ( ! class_exists( 'Responsive_Customizer_Color_Control' ) ) :
 		 *
 		 * @access protected
 		 */
-		protected function content_template() { ?>
-
-		<label>
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-			<div>
-				<input class="alpha-color-control" type="text"  value="{{ data.value }}" data-show-opacity="{{ data.show_opacity }}" data-default-color="{{ data.default }}" {{{ data.link }}} />
-			</div>
-		</label>
-			<?php
-		}
+		protected function render_content() {}
 	}
 endif;

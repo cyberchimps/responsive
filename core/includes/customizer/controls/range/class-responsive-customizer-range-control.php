@@ -32,7 +32,6 @@ if ( ! class_exists( 'Responsive_Customizer_Range_Control' ) ) :
 		 * @access public
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'responsive-range', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/js/range.min.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 			wp_enqueue_style( 'responsive-range', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/min/css/range.min.css', RESPONSIVE_THEME_VERSION, true );
 		}
 
@@ -62,31 +61,10 @@ if ( ! class_exists( 'Responsive_Customizer_Range_Control' ) ) :
 		}
 
 		/**
-		 * An Underscore (JS) template for this control's content (but not its container).
+		 * Render the control's content.
 		 *
-		 * Class variables for this control class are available in the `data` JS object;
-		 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
-		 *
-		 * @see WP_Customize_Control::print_template()
-		 *
-		 * @access protected
+		 * @see WP_Customize_Control::render_content()
 		 */
-		protected function content_template() {
-			?>
-		<label>
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-			<div class="control-wrap">
-				<input type="range" {{{ data.inputAttrs }}} value="{{ data.value }}" {{{ data.link }}} data-reset_value="{{ data.default }}" />
-				<input type="number" {{{ data.inputAttrs }}} class="responsive-range-input" value="{{ data.value }}" />
-				<span class="responsive-reset-slider"><span class="dashicons dashicons-image-rotate"></span></span>
-			</div>
-		</label>
-			<?php
-		}
+		protected function render_content() {}
 	}
 endif;

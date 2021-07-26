@@ -77,14 +77,27 @@
 
 			// On li elements toggle the class .focus.
 			if ( 'li' === self.tagName.toLowerCase() ) {
+
+				var previousSubMenu   = self.previousElementSibling;
+				var reverseTabSubMenu = self.nextElementSibling;
+
 				if ( -1 == self.className.indexOf( 'focus' ) ) {
 					self.className += ' focus';
 				}
+				// On Tab blur remove focus of previous focused element.
+				if( previousSubMenu ){
+					previousSubMenu.classList.remove('focus');
+				}
+				// On reverse Tab blur remove focus of previous focused element.
+				if( reverseTabSubMenu ){
+					reverseTabSubMenu.classList.remove('focus');
+				}	
 			}
 
 			self = self.parentElement;
 		}
 	}
+	
   var responsiveToggleClass = function ( el, className ) {
     if ( el.classList.contains( className ) ) {
       el.classList.remove( className );
@@ -182,5 +195,11 @@
           }
     }
     }
+
+	let siteBrandingToggle = document.querySelector( '.site-branding' );
+	if (!siteBrandingToggle) {
+		let element = document.querySelector( 'body' );
+		element.classList.add("site-branding-off");
+	}
 
 } )();

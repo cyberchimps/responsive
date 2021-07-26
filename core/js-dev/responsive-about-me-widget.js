@@ -1,20 +1,65 @@
 jQuery(document).ready(function ($) {
-    function media_upload(button_selector) {
-      var _custom_media = true,
-          _orig_send_attachment = wp.media.editor.send.attachment;
-      $('body').on('click', button_selector, function () {
-        var button_id = $(this).attr('id');
-        wp.media.editor.send.attachment = function (props, attachment) {
-          if (_custom_media) {
-            $('.' + button_id + '_img').attr('src', attachment.url);
-            $('.' + button_id + '_url').val(attachment.url);
-          } else {
-            return _orig_send_attachment.apply($('#' + button_id), [props, attachment]);
-          }
-        }
-        wp.media.editor.open($('#' + button_id));
-        return false;
-      });
-    }
-    media_upload('.responsive_js_custom_upload_media');
+  $("body").on("click", ".responsive-custom-upload-media-btn", function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr("id"),
+      btn = $(this),
+      img_element = $(`.${id}_img`),
+      custom_uploader = wp
+      .media({
+        title: "Insert Image",
+        library: {
+          type: "image"
+        },
+        button: {
+          text: "Use this image"
+        },
+        multiple: false
+      })
+      .on("select", function () {
+        var attachment = custom_uploader
+          .state()
+          .get("selection")
+          .first()
+          .toJSON();
+
+        img_element
+          .attr("src", attachment.url)
+          .css("display", "block");
+
+        btn.text("Remove Image")
+          .removeAttr("role")
+          .attr({
+            href: "#",
+            class: "responsive-image-remove"
+          })
+          .css("margin", "0");
+
+        btn.next().val(attachment.url).trigger("change");
+      })
+      .open();
   });
+
+  $("body").on("click", ".responsive-image-remove", function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr("id"),
+      btn = $(this),
+      img_element = $(`.${id}_img`);
+
+    img_element.attr("src", "").css("display", "none");
+
+    btn.text("Choose Image")
+      .removeAttr("href")
+      .attr({
+        role: "button",
+        class: "button button-primary responsive-custom-upload-media-btn"
+      })
+      .css({
+        marginTop: "7px",
+        marginLeft: "5px"
+      });
+      
+    btn.next().val("").change().trigger("change");
+  });
+});
