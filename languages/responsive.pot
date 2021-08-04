@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.6.3\n"
+"Project-Id-Version: Responsive 4.6.4\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2021-07-26 10:35:09+00:00\n"
+"POT-Creation-Date: 2021-08-04 05:51:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -528,7 +528,7 @@ msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:39
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:149
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:171
 #: core/includes/customizer/settings/class-responsive-sidebar-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:44
 #: core/includes/post-custom-meta.php:163
@@ -607,7 +607,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:284
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:291
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:109
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:105
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:91
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:151
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:158
@@ -631,7 +631,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:290
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:110
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:117
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:71
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:104
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:92
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:99
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:117
@@ -670,7 +670,7 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:289
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:111
 #: core/includes/customizer/settings/class-responsive-content-header-layout-customizer.php:116
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:73
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:106
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:93
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:98
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:118
@@ -810,13 +810,13 @@ msgid "Gallery Layout"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:76
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:152
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:174
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:84
 msgid "Vertical"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:77
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:151
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:173
 #: core/includes/customizer/settings/class-responsive-header-layout-customizer.php:83
 msgid "Horizontal"
 msgstr ""
@@ -1412,138 +1412,145 @@ msgstr ""
 msgid "Number of Columns"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:67
-msgid "Alignment Desktop"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:68
-msgid "Alignment Tablet"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:69
-msgid "Alignment Mobile"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:80
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:64
 msgid "Hide on Desktop"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:84
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:68
 msgid "Hide on Tablet"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:88
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:72
 msgid "Hide on Mobile"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:94
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:80
+msgid "Footer Widgets Alignment"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:90
+#. translators: %s Column number
+msgid "Area %s Desktop"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:95
+#. translators: %s Column number
+msgid "Area %s Tablet"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:100
+#. translators: %s Column number
+msgid "Area %s Mobile"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:116
 msgid "Footer Bar"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:115
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:137
 msgid "Copyright HTML"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:120
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:142
 msgid "If this is empty, site title will be visible as copyright text"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:125
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:147
 msgid "Hide Copyright Icon & Year"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:129
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:151
 msgid "Open Powered By link in new tab"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:131
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:176
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:153
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:198
 msgid "No"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:132
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:177
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:154
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:199
 msgid "Yes"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:137
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:159
 msgid "Hide Copyright on Desktop"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:141
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:163
 msgid "Hide Copyright on Tablet"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:145
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:167
 msgid "Hide Copyright on Mobile"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:161
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:183
 msgid "Border Size"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:170
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:192
 msgid "Social Links"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:174
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:196
 msgid "Open Social Icons in a new tab"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:195
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:217
 #: core/includes/functions-extensions.php:365
 msgid "Twitter"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:216
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:238
 #: core/includes/functions-extensions.php:366
 msgid "Facebook"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:237
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:259
 #: core/includes/functions-extensions.php:367
 msgid "LinkedIn"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:258
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:280
 #: core/includes/functions-extensions.php:368
 msgid "YouTube"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:279
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:301
 #: core/includes/functions-extensions.php:370
 msgid "RSS Feed"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:300
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:322
 #: core/includes/functions-extensions.php:371
 msgid "Instagram"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:321
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:343
 #: core/includes/functions-extensions.php:372
 msgid "Pinterest"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:342
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:364
 #: core/includes/functions-extensions.php:369
 msgid "StumbleUpon"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:363
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:385
 #: core/includes/functions-extensions.php:374
 msgid "Vimeo"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:384
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:406
 msgid "Yelp"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:405
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:427
 msgid "Foursquare"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:424
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:446
 msgid "Email Address"
 msgstr ""
 

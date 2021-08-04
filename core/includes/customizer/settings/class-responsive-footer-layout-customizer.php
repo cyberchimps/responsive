@@ -60,33 +60,55 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// Widgets Padding.
 			responsive_padding_control( $wp_customize, 'footer_widgets', 'responsive_footer_layout', 30, 20, 0, null );
 
+			// Hide on Desktop.
+			$footer_widget_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'footer_widget_desktop_visibility', $footer_widget_desktop_visibility, 'responsive_footer_layout', 30, 0, null );
+
+			// Hide on Tablet.
+			$footer_widget_tablet_visibility = __( 'Hide on Tablet', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'footer_widget_tablet_visibility', $footer_widget_tablet_visibility, 'responsive_footer_layout', 30, 0, null );
+
+			// Hide on Mobile.
+			$footer_widget_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'footer_widget_mobile_visibility', $footer_widget_mobile_visibility, 'responsive_footer_layout', 30, 0, null );
+
+			/**
+			 * Footer Widgets Alignment Separator
+			 */
+			$footer_widgets_columns_check = get_theme_mod( 'responsive_footer_widgets_columns' );
+			if ( $footer_widgets_columns_check && '0' !== $footer_widgets_columns_check ) {
+				$footer_widgets_alignment_separator_label = esc_html__( 'Footer Widgets Alignment', 'responsive' );
+				responsive_separator_control( $wp_customize, 'footer_widgets_alignment_separator', $footer_widgets_alignment_separator_label, 'responsive_footer_layout', 40 );
+			}
+
 			// Footer Widget Alignment.
 			$footer_widgets_columns = get_theme_mod( 'responsive_footer_widgets_columns' );
 			for ( $i = 1; $i <= $footer_widgets_columns; $i++ ) {
-				$_section                = 'sidebar-widgets-footer-widget-' . $i;
-				$alignment_desktop_label = __( 'Alignment Desktop', 'responsive' );
-				$alignment_tablet_label  = __( 'Alignment Tablet', 'responsive' );
-				$alignment_mobile_label  = __( 'Alignment Mobile', 'responsive' );
+				$_section                = 'responsive_footer_layout';
+				$alignment_desktop_label = sprintf(
+					/* translators: %s Column number */
+					__( 'Area %s Desktop', 'responsive' ),
+					$i
+				);
+				$alignment_tablet_label = sprintf(
+					/* translators: %s Column number */
+					__( 'Area %s Tablet', 'responsive' ),
+					$i
+				);
+				$alignment_mobile_label = sprintf(
+					/* translators: %s Column number */
+					__( 'Area %s Mobile', 'responsive' ),
+					$i
+				);
 				$alignment_choices = array(
 					'left'   => esc_html__( 'Left', 'responsive' ),
 					'center' => esc_html__( 'Center', 'responsive' ),
 					'right'  => esc_html__( 'Right', 'responsive' ),
 				);
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_desktop_' . $i, $alignment_desktop_label, $_section, 30, $alignment_choices, 'left', null, 'postMessage' );
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_tablet_' . $i, $alignment_tablet_label, $_section, 30, $alignment_choices, 'center', null, 'postMessage' );
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_mobile_' . $i, $alignment_mobile_label, $_section, 30, $alignment_choices, 'center', null, 'postMessage' );
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_desktop_' . $i, $alignment_desktop_label, $_section, 40, $alignment_choices, 'left', null, 'postMessage' );
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_tablet_' . $i, $alignment_tablet_label, $_section, 40, $alignment_choices, 'center', null, 'postMessage' );
+				responsive_select_control( $wp_customize, 'footer_widget_alignment_mobile_' . $i, $alignment_mobile_label, $_section, 40, $alignment_choices, 'center', null, 'postMessage' );
 			}
-			// Hide on Desktop.
-			$footer_widget_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_widget_desktop_visibility', $footer_widget_desktop_visibility, 'responsive_footer_layout', 40, 0, null );
-
-			// Hide on Tablet.
-			$footer_widget_tablet_visibility = __( 'Hide on Tablet', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_widget_tablet_visibility', $footer_widget_tablet_visibility, 'responsive_footer_layout', 40, 0, null );
-
-			// Hide on Mobile.
-			$footer_widget_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_widget_mobile_visibility', $footer_widget_mobile_visibility, 'responsive_footer_layout', 40, 0, null );
 
 			/**
 			 * Footer Bar Separator.

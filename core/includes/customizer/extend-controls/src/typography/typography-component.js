@@ -15,7 +15,7 @@ const TypographyComponent = props => {
         link,
         standard_fonts,
         google_fonts,
-        custom_fonts
+        custom_fonts,
 	} = props.control.params;
 
     let htmlLabel = null;
@@ -43,12 +43,16 @@ const TypographyComponent = props => {
         let defaultValue = __( 'Arial, Helvetica, sans-serif', 'responsive' );
         let stdFonts = standard_fonts;
         let googleFonts = google_fonts;
+        let customFonts = custom_fonts;
         let optgrpOfStandardFonts = null;
+        let optgrpOfCustomFonts = null;
         let optgrpOfGoogleFonts = null;
         let optgrpOfStandardFontsLabel = __( 'Standard Fonts', 'responsive' );
         let optgrpOfGoogleFontsLabel = __( 'Google Fonts', 'responsive' );
+        let optgrpOfCustomFontsLabel = __( 'Custom Fonts', 'responsive-addons-pro' );
         let standardFontsOptionsHtml = null;
         let googleFontsOptionsHtml = null;
+        let customFontsOptionsHtml = null;
 
         if (description) {
             familyDescriptionHtml = <span class="description customize-control-description">{description}</span>
@@ -68,6 +72,17 @@ const TypographyComponent = props => {
             });
         }
 
+        if (customFonts) {
+            customFontsOptionsHtml = Object.keys(customFonts).map(font => {
+                 let html = <option key ={font} value={font} > {font} </option>;
+                 return html;
+            });
+
+            optgrpOfCustomFonts = <optgroup label={optgrpOfCustomFontsLabel}>
+             {customFontsOptionsHtml}
+            </optgroup>;
+        }
+
         optgrpOfStandardFonts = <optgroup label={optgrpOfStandardFontsLabel}>
             {standardFontsOptionsHtml}
         </optgroup>;
@@ -76,9 +91,11 @@ const TypographyComponent = props => {
             {googleFontsOptionsHtml}
         </optgroup>;
 
+
         let selectHtml = <select className='responsive-typography-select responsive-font-family-select' data-customize-setting-link={linkNew} data-connected-control={connect} data-inherit={resp_inherit} data-value={value} data-name={name}>
             <option value="">{defaultValue}</option>
             {optgrpOfStandardFonts}
+            {optgrpOfCustomFonts }
             {optgrpOfGoogleFonts}
         </select>;
         return <>
