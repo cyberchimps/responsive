@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/04/2021) = Fix - Version 4.6.4
+[!] = Fix = Console error for footer widget areas with WordPress 5.8.
+[!] = Fix = Custom fonts are not visible in the customizer typography.
+
 (07/13/2021) = Added - Version 4.6.3
 [+] = Feature = Improve Customizer Speed with react based controls.
 [+] = Feature = Add hook for custom header and footer in child theme.
