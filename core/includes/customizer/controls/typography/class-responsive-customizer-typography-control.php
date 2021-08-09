@@ -109,6 +109,9 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 				)
 			);
 		}
+		public function get_custom_fonts() {
+					return class_exists( 'Responsive_Addons_Pro' ) ? Responsive_Pro_Custom_Fonts_Taxonomy::get_fonts() : null;
+		}
 
 		/**
 		 * Refresh the parameters passed to the JavaScript via JSON.
@@ -130,6 +133,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 			$this->json['id']              = $this->responsive_setting_id;
 			$this->json['standard_fonts']  = responsive_standard_fonts();
 			$this->json['google_fonts']    = responsive_get_google_fonts();
+			$this->json['custom_fonts']    = $this->get_custom_fonts();
 		}
 
 		/**
