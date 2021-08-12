@@ -159,6 +159,24 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			$close_button_hover_color = __( 'Close Button Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'off_canvas_close_button_hover', $close_button_hover_color, 'responsive_woocommerce_shop_layout', 135, '#777777', 'enable_enable_off_canvas_close_btn' );
 
+			$filter_button_color = __( 'Filter Button Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button', $filter_button_color, 'responsive_woocommerce_shop_layout', 140, 'transparent', 'enable_off_canvas_filter_check' );
+
+			$filter_text_color = __( 'Filter Button Text Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_text', $filter_text_color, 'responsive_woocommerce_shop_layout', 140, '#808080', 'enable_off_canvas_filter_check' );
+
+			$filter_button_border_color = __( 'Filter Button Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_border', $filter_button_border_color, 'responsive_woocommerce_shop_layout', 140, '#808080', 'enable_off_canvas_filter_check' );
+
+			$filter_button_color_hover = __( 'Filter Button Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_hover', $filter_button_color_hover, 'responsive_woocommerce_shop_layout', 140, 'transparent', 'enable_off_canvas_filter_check' );
+
+			$filter_text_color_hover = __( 'Filter Button Text Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_text_hover', $filter_text_color_hover, 'responsive_woocommerce_shop_layout', 140, '#10659c', 'enable_off_canvas_filter_check' );
+
+			$filter_button_border_color_hover = __( 'Filter Button Border Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'off_canvas_filter_button_border_hover', $filter_button_border_color_hover, 'responsive_woocommerce_shop_layout', 140, '#10659c', 'enable_off_canvas_filter_check' );
+
 		}
 	}
 
