@@ -1320,5 +1320,79 @@
             $(this).css("fill", api('responsive_off_canvas_close_button_color').get());
         }
     );
+    
+    api( 'responsive_off_canvas_filter_button_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.off_canvas_filter_btn').css('background-color', newval );
+        } );
+    } );
 
+    api( 'responsive_off_canvas_filter_button_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.off_canvas_filter_btn').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_off_canvas_filter_button_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.off_canvas_filter_btn').css('border-color', newval );
+        } );
+    } );
+    api( 'responsive_off_canvas_filter_button_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_off_canvas_filter_button_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_off_canvas_filter_button_hover_color">.off_canvas_filter_btn:hover {background-color:' + to + ';}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_off_canvas_filter_button_text_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_off_canvas_filter_button_text_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_off_canvas_filter_button_text_hover_color">.off_canvas_filter_btn:hover {color:' + to + ';} element.style{color: unset}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_off_canvas_filter_button_border_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_off_canvas_filter_button_border_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_off_canvas_filter_button_border_hover_color">.off_canvas_filter_btn:hover {border-color:' + to + ';}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_sorting_option_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.woocommerce-ordering .orderby').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_sorting_option_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.woocommerce-ordering .orderby').css('background-color', newval );
+        } );
+    } );
 } )( jQuery );

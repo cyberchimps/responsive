@@ -1348,6 +1348,7 @@ select {
   display: block;
   padding: 10px 18px;
   font-weight: 600;
+  padding-right: 30px;
 }
 
 .main-navigation .menu-toggle {
@@ -4151,6 +4152,7 @@ article.product .post-meta > span .avatar {
 .blog.front-page aside.home-widgets .home-widget-wrapper {
   width: -webkit-fill-available;
   width: -moz-available;
+  max-width: -moz-available;
 }
 
 .page.front-page aside.home-widgets .home-widget-wrapper .home-widget-1,
