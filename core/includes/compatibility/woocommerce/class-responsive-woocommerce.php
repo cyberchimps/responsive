@@ -70,11 +70,9 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'cart_page_upselles' ) );
 
-			if ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) {
-				add_action( 'widgets_init', array( $this, 'register_off_canvas_sidebar' ), 11 );
-				add_action( 'wp_footer', array( $this, 'get_off_canvas_sidebar' ) );
-				add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_filter_button' ) );
-			}
+			add_action( 'widgets_init', array( $this, 'register_off_canvas_sidebar' ), 11 );
+			add_action( 'wp_footer', array( $this, 'get_off_canvas_sidebar' ) );
+			add_action( 'woocommerce_before_shop_loop', array( $this, 'off_canvas_filter_button' ) );
 
 			add_action( 'responsive_header_bottom', array( $this, 'single_product_page_floating_bar' ) );
 

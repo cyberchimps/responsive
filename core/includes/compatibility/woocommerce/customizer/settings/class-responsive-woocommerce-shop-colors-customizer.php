@@ -70,6 +70,16 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Colors_Customizer' ) ) :
 			$add_to_cart_button_hover_text_label = __( 'Button Hover Text', 'responsive' );
 			responsive_color_control( $wp_customize, 'add_to_cart_button_hover_text', $add_to_cart_button_hover_text_label, 'responsive_woocommerce_shop_colors', 70, '#ffffff' );
 
+			// Product Sorting.
+			$shop_product_sorting_separator = esc_html__( 'Product Sorting', 'responsive' );
+			responsive_separator_control( $wp_customize, 'shop_product_sorting_separator', $shop_product_sorting_separator, 'responsive_woocommerce_shop_colors', 75 );
+
+			$sorting_option_text_label = __( 'Sorting Options text Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'sorting_option_text', $sorting_option_text_label, 'responsive_woocommerce_shop_colors', 75, '#333333' );
+
+			$sorting_option_background_label = __( 'Sorting Options background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'sorting_option_background', $sorting_option_background_label, 'responsive_woocommerce_shop_colors', 75, '#ffffff' );
+
 		}
 	}
 

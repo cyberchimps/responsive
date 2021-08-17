@@ -64,6 +64,12 @@
 	for ( i = 0, len = links.length; i < len; i++ ) {
 		links[i].addEventListener( 'focus', toggleFocus, true );
 		links[i].addEventListener( 'blur', toggleFocus, true );
+
+		// Removes focus & .focus class on an element when link opened in new tab.
+		if ( links[i].target === '_blank'){
+			links[i].addEventListener( 'click', newTabFocusOut );
+		}
+		
 	}
 
 	/**
@@ -97,6 +103,22 @@
 			self = self.parentElement;
 		}
 	}
+	/**
+	 * Removes focus & .focus class on an element when link opened in new tab.
+	 */
+	function newTabFocusOut() {
+		this.blur();
+		var allFocus = document.querySelectorAll( '.focus.menu-item' );
+		for ( var i = 0, j = allFocus.length; i < j; i++ ){
+
+			if( allFocus[i].classList.contains( 'focus' ) ){
+
+				allFocus[i].blur();
+				allFocus[i].classList.remove( 'focus' );
+			}
+		}
+		
+	}
 	
   var responsiveToggleClass = function ( el, className ) {
     if ( el.classList.contains( className ) ) {
@@ -110,7 +132,8 @@
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
 	( function( container ) {
-		var breakpoint = window.matchMedia('(max-width: 992px)');
+		var mobile_menu_breakpoint = responsive_breakpoint.mobileBreakpoint,
+		breakpoint = window.matchMedia('(max-width: ' + mobile_menu_breakpoint + 'px)');
 		var touchStartFn, i,
 			parentLink = container.querySelectorAll( '.menu-item-has-children > .res-iconify, .page_item_has_children > .res-iconify.no-menu' );
 		touchStartFn = function( e ) {

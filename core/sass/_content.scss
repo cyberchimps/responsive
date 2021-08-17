@@ -802,7 +802,8 @@
             @extend .row;
             width: -webkit-fill-available;
             width: -moz-available;
-
+			max-width: -moz-available;
+			
             .home-widget-1,
             .home-widget-2,
             .home-widget-3 {

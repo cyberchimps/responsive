@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.6.4\n"
+"Project-Id-Version: Responsive 4.6.5\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2021-08-04 05:51:31+00:00\n"
+"POT-Creation-Date: 2021-08-17 06:51:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -368,44 +368,44 @@ msgstr ""
 msgid "Sensei Settings"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:313
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:311
 msgid "Sale!"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:409
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:407
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:411
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:409
 msgid ""
 "This sidebar will be used on Product archive, Cart, Checkout and My Account "
 "pages."
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:440
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:438
 msgid "Close off canvas panel"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:467
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:465
 msgid "Off-Canvas Filters"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:469
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:467
 msgid ""
 "Widgets in this area are used in the Off Canvas Filter. To enable the Off "
 "Canvas filter, go to the Product Catalog Option > Layout in customizer and "
 "check Enable Off Canvas Filter checkbox under Off Canvas Filter section."
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:501
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:499
 msgid "Selected : "
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:510
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:508
 msgid "Out Of Stock"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:517
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:515
 msgid "Select options"
 msgstr ""
 
@@ -524,6 +524,18 @@ msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:54
 msgid "Add To Cart Buttons"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:74
+msgid "Product Sorting"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:77
+msgid "Sorting Options text Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-colors-customizer.php:80
+msgid "Sorting Options background Color"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:39
@@ -795,6 +807,30 @@ msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:159
 msgid "Close Button Hover Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:162
+msgid "Filter Button Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:165
+msgid "Filter Button Text Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:168
+msgid "Filter Button Border Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:171
+msgid "Filter Button Hover Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:174
+msgid "Filter Button Text Hover Color"
+msgstr ""
+
+#: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:177
+msgid "Filter Button Border Hover Color"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:54
@@ -2885,43 +2921,43 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: core/includes/functions.php:401
+#: core/includes/functions.php:404
 msgid "Team Section Options"
 msgstr ""
 
-#: core/includes/functions.php:415
+#: core/includes/functions.php:418
 msgid "To use this post for front page's team section, please enter below details:"
 msgstr ""
 
-#: core/includes/functions.php:418
+#: core/includes/functions.php:421
 msgid "Member designation"
 msgstr ""
 
-#: core/includes/functions.php:422
+#: core/includes/functions.php:425
 msgid "Facebook Link"
 msgstr ""
 
-#: core/includes/functions.php:426
+#: core/includes/functions.php:429
 msgid "Twitter Link"
 msgstr ""
 
-#: core/includes/functions.php:430
+#: core/includes/functions.php:433
 msgid "GooglePlus Link"
 msgstr ""
 
-#: core/includes/functions.php:434
+#: core/includes/functions.php:437
 msgid "LinkedIn Link"
 msgstr ""
 
-#: core/includes/functions.php:752
+#: core/includes/functions.php:755
 msgid "Posted on"
 msgstr ""
 
-#: core/includes/functions.php:752
+#: core/includes/functions.php:755
 msgid "By"
 msgstr ""
 
-#: core/includes/functions.php:771 partials/entry/meta.php:54
+#: core/includes/functions.php:774 partials/entry/meta.php:54
 #: partials/single/meta.php:49
 #. translators: %s: view post by
 #. translators: view all posts by author
@@ -2929,7 +2965,7 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions.php:782 image.php:82 partials/entry/meta.php:104
+#: core/includes/functions.php:785 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -2937,13 +2973,13 @@ msgstr ""
 msgid "Posted in %s"
 msgstr ""
 
-#: core/includes/functions.php:782 partials/entry/meta.php:104
+#: core/includes/functions.php:785 partials/entry/meta.php:104
 #: partials/entry/meta.php:117 partials/single/meta.php:96
 #: partials/single/meta.php:109
 msgid ", "
 msgstr ""
 
-#: core/includes/functions.php:799
+#: core/includes/functions.php:802
 msgid "Upgrade To Pro"
 msgstr ""
 
