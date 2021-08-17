@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/17/2021) = Fix - Version 4.6.5
+[+] = Feature = Added option for WooCommerce filter button color and button text color.
+[+] = Feature = Added option for WooCommerce default sorting text and input background color.
+[!] = Fix = Submenu Stuck on Page When Top Link or Link From Sub Menu Opens.
+[!] = Fix = "-moz-available" value applied to "width" property of the home widget parent wrapper is not working as expected.
+
 (08/04/2021) = Fix - Version 4.6.4
 [!] = Fix = Console error for footer widget areas with WordPress 5.8.
 [!] = Fix = Custom fonts are not visible in the customizer typography.
