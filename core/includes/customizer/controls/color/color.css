@@ -116,9 +116,13 @@ element.style {
 , transparent 75%, #ddd 75%);
     background-size: 10px 10px;
     background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+    border-radius: 0;
 }
 .components-button.components-circular-option-picker__option:hover {
     transform: scale(1.2);
+}
+.components-button.components-circular-option-picker__option::after{
+    content:none;
 }
 .components-color-picker__body .components-color-picker__swatch .components-color-picker__active {
     position: absolute;
