@@ -86,7 +86,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			responsive_padding_control( $wp_customize, 'site_content', 'responsive_header_transparent', 30, 120, 0, null, $site_content_padding_label );
 
 			$bottom_border_label = __( 'Bottom Border Size', 'responsive' );
-			responsive_number_control( $wp_customize, 'transparent_bottom_border', $bottom_border_label, 'responsive_header_transparent', 35, 1 );
+			responsive_drag_number_control( $wp_customize, 'transparent_bottom_border', $bottom_border_label, 'responsive_header_transparent', 35, 0, null, 300, 0, 'postMessage', 1 );
 
 			$disable_archive_transparent_header_label = __( 'Disable on 404, Search & Archives?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_archive_transparent_header', $disable_archive_transparent_header_label, 'responsive_header_transparent', 40, 0, null );

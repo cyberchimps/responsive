@@ -747,7 +747,7 @@ function responsive_customizer_styles() {
 		$header_widget_link_color       = esc_html( get_theme_mod( 'responsive_transparent_header_widget_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ) ) );
 		$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_transparent_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
 
-		$header_bottom_border = esc_html( get_theme_mod( 'responsive_transparent_bottom_border', 1 ) );
+		$header_bottom_border = esc_html( get_theme_mod( 'responsive_transparent_bottom_border', 0 ) );
 
 	} else {
 
@@ -788,7 +788,7 @@ function responsive_customizer_styles() {
 		$header_widget_link_color       = esc_html( get_theme_mod( 'responsive_header_widget_link_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link' ) ) );
 		$header_widget_link_hover_color = esc_html( get_theme_mod( 'responsive_header_widget_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ) ) );
 
-		$header_bottom_border = esc_html( get_theme_mod( 'responsive_bottom_border', 1 ) );
+		$header_bottom_border = esc_html( get_theme_mod( 'responsive_bottom_border', 0 ) );
 
 	}
 	// Sidebar Color.
@@ -818,6 +818,30 @@ function responsive_customizer_styles() {
         color: {$sidebar_link_hover_color};
     }
     ";
+
+	// Header Height.
+	$header_height_size = get_theme_mod( 'responsive_header_height', 76 );
+	if ( null !== $header_height_size ) {
+		$header_height_half = $header_height_size / 2;
+		$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+		$custom_css .= "@media screen and (min-width: {$mobile_menu_breakpoint}px) {
+			.site-header-layout-horizontal .site-branding, 
+			.site-header-layout-horizontal .main-navigation,
+			.site-header-site-branding.site-header-layout-vertical .site-branding,
+			.site-header-main-navigation.site-header-layout-vertical .main-navigation {
+				margin-top: {$header_height_half}px;
+				margin-bottom: {$header_height_half}px;
+			}
+			.site-header-site-branding-main-navigation.site-header-layout-vertical .site-branding,
+			.site-header-main-navigation-site-branding.site-header-layout-vertical .main-navigation {
+				margin-top: {$header_height_half}px;
+			}
+			.site-header-site-branding-main-navigation.site-header-layout-vertical .main-navigation,
+			.site-header-main-navigation-site-branding.site-header-layout-vertical .site-branding {
+				margin-bottom: {$header_height_half}px;
+			}
+		}";
+	}
 
 	// Mobile Menu.
 	$mobile_menu_style = get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' );

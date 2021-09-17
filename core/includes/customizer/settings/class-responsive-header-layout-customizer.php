@@ -85,6 +85,10 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'header_layout', $header_layout_label, 'responsive_header_layout', 20, $header_layout_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_layout' ), null, 'postMessage' );
 
+			// Header Height.
+			$header_height_label = __( 'Header Height', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_height', $header_height_label, 'responsive_header_layout', 20, 10, null, 300, 0, 'postMessage', 1 );
+
 			// Header Alignment.
 			$header_alignment_label   = esc_html__( 'Header Alignment', 'responsive' );
 			$header_alignment_choices = array(
@@ -116,19 +120,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Bottom Border.
 			$bottom_border_label = __( 'Bottom Border Size', 'responsive' );
-			responsive_number_control( $wp_customize, 'bottom_border', $bottom_border_label, 'responsive_header_layout', 45, 1 );
-
-			/**
-			 * Title Heading.
-			 */
-			$site_title_separator_label = esc_html__( 'Site Title', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_site_title_separator', $site_title_separator_label, 'responsive_header_layout', 130 );
-
-			/**
-			 * Tagline Heading.
-			 */
-			$site_tagline_separator_label = esc_html__( 'Site Tagline', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_site_tagline_separator', $site_tagline_separator_label, 'responsive_header_layout', 150 );
+			responsive_drag_number_control( $wp_customize, 'bottom_border', $bottom_border_label, 'responsive_header_layout', 45, 0, null, 300, 0, 'postMessage', 1 );
 		}
 	}
 

@@ -178,6 +178,7 @@ function responsive_register_options() {
 		'class-responsive-site-colors-customizer',
 		'class-responsive-site-typography-customizer',
 		'class-responsive-header-layout-customizer',
+		'class-responsive-header-title-tagline-customizer',
 		'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-scripts-customizer',

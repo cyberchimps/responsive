@@ -183,8 +183,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'header_site_title'          => array(
 						'label'    => esc_html__( 'Site Title', 'responsive' ),
 						'target'   => $selectorArray['header_site_title'],
-						'section'  => 'responsive_header_layout',
-						'priority' => 140,
+						'section'  => 'responsive_header_title',
+						'priority' => 15,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '20px',
@@ -195,8 +195,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'header_site_tagline'        => array(
 						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
 						'target'   => $selectorArray['header_site_tagline'],
-						'section'  => 'responsive_header_layout',
-						'priority' => 150,
+						'section'  => 'responsive_header_tagline',
+						'priority' => 15,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '13px',
