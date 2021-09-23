@@ -1871,6 +1871,43 @@ function responsive_checkbox_control( $wp_customize, $element, $label, $section,
 		);
 	}
 }
+
+/**
+ * [responsive_redirect_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $value        [description].
+ * @param  [type] $active_call  [description].
+ * @return void                 [description].
+ */
+function responsive_redirect_control( $wp_customize, $element, $label, $section, $priority, $value, $active_call = null ) {
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'transport' => 'refresh',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Redirect_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'link_value'      => $value,
+			)
+		)
+	);
+}
+
 /**
  * Check if off canvas is active
  *

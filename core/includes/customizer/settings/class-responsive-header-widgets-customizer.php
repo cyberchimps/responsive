@@ -53,6 +53,11 @@ if ( ! class_exists( 'Responsive_Header_Widgets_Customizer' ) ) :
 			$header_widget_label = esc_html__( 'Enable Header Widgets', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'enable_header_widget', $header_widget_label, 'responsive_header_widget', 70, 1, null, 'postMessage' );
 
+			// Redirect to header widgets button.
+			$redirect_to_header_widgets_label = esc_html__( 'Add Header Widgets', 'responsive' );
+			$redirect_to_header_widgets_url   = admin_url( 'customize.php' ) . '?autofocus[section]=sidebar-widgets-header-widgets';
+			responsive_redirect_control( $wp_customize, 'redirect_to_header_widgets', $redirect_to_header_widgets_label, 'responsive_header_widget', 70, $redirect_to_header_widgets_url, 'responsive_active_header_widget' );
+
 			// Header Widget Position.
 			$header_widget_position_label   = esc_html__( 'Widgets Position', 'responsive' );
 			$header_widget_position_choices = array(
