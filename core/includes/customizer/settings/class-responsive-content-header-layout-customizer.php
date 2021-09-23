@@ -118,11 +118,11 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 					'center' => esc_html__( 'center', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_content_header_layout', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'postMessage' );
 
 			// Padding (px).
 			$content_header_spacing_label = __( 'Spacing (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'content_header', 'responsive_content_header_layout', 35, 30, 30, null, $content_header_spacing_label );
+			responsive_padding_control( $wp_customize, 'content_header', 'responsive_content_header_layout', 35, 30, 30, 'responsive_active_breadcrumb', $content_header_spacing_label );
 
 		}
 	}

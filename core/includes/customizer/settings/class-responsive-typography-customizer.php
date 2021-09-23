@@ -219,7 +219,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => $selectorArray['header_menu'],
 						'section'  => 'responsive_header_menu_layout',
 						'exclude'  => array( 'font-color' ),
-						'priority' => 185,
+						'priority' => 49,
 						'defaults' => array(
 							'font-size'   => '16px',
 							'font-weight' => '600',

@@ -1766,7 +1766,7 @@ function responsive_toggle_border_color() {
  * @return void
  */
 function responsive_toggle_border_radius() {
-	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' )) ? true : false;
+	return ( ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
 }
 
 /**
@@ -1778,6 +1778,24 @@ function responsive_custom_home_active() {
 	$responsive_options = Responsive\Core\responsive_get_options();
 
 	return ( $responsive_options['front_page'] ) ? true : false;
+}
+
+/**
+ * [responsive_menu_last_item_cta description]
+ *
+ * @return [type] [description]
+ */
+function responsive_menu_last_item_cta() {
+	return ( 'button' === get_theme_mod( 'responsive_menu_last_item', 'none' ) ) ? true : false;
+}
+
+/**
+ * [responsive_menu_last_item_text description]
+ *
+ * @return [type] [description]
+ */
+function responsive_menu_last_item_text() {
+	return ( 'text-html' === get_theme_mod( 'responsive_menu_last_item', 'none' ) ) ? true : false;
 }
 
 /**
