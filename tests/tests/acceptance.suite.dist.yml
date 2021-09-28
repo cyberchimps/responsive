@@ -1,0 +1,34 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+modules:
+    enabled:
+        - Responsive\ResponsiveThemeTestCases:
+            url: 'https://woo.humcommerce.com'
+            browser: chrome # 'chrome' or 'firefox'
+            restart: true
+            capabilities:
+                unexpectedAlertBehaviour: 'accept'
+                chromeOptions:
+                    args: ["--disable-extensions","--window-size=1280,960","--disable-notifications"]
+
+        - \Codeception\Module\Asserts
+        - \Helper\Acceptance:
+            mailHogUrl: 'http://localhost:8025'
+            webUrl: 'https://woo.humcommerce.com'
+            wpAdmin:
+                user: 'admin'
+                pass: '*UvFjRU%bpFV6e5r6GReZD1*'
+            wpDB:
+                host: 'localhost'
+                user: 'root'
+                pass: 'root'
+                db: 'humcommerce'
+                prefix: 'wpf4_'
+                port: '3306'
+
+
