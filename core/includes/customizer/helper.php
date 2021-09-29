@@ -1278,6 +1278,32 @@ function responsive_active_breadcrumb() {
 }
 
 /**
+ * [responsive_top_bar_menu_active description].
+ *
+ * @return [type] [description]
+ */
+function responsive_top_bar_menu_active() {
+	return ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu', 0 ) ) ? true : false;
+}
+
+/**
+ * [responsive_top_bar_menu_width_selected desscription].
+ *
+ * @return [type] [description]
+ */
+function responsive_top_bar_menu_width_selected() {
+	if ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu', 0 ) ) {
+		if ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu_full_width', 0 ) ) {
+			return false;
+		} else {
+			return true;
+		}
+	} else {
+		return false;
+	}
+}
+
+/**
  * Returns the default design style
  *
  * @return string

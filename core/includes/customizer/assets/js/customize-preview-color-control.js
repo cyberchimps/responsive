@@ -1395,4 +1395,129 @@
             $('.woocommerce-ordering .orderby').css('background-color', newval );
         } );
     } );
+
+	// Top Bar Menu Background Color.
+	api( 'responsive_top_bar_menu_background_color', function( value ) {
+		value.bind( function( newval ) {
+			$( 'body .top-bar-menu-container' ).css( 'background-color', newval );
+		})
+	});
+
+	// Top Bar Menu Item Background Color.
+	api( 'responsive_top_bar_menu_item_background_color', function( value ) {
+		value.bind( function( newval ) {
+			$( '.top-bar-navigation .topbar-menu > .menu-item' ).css( 'background-color', newval );
+		})
+	});
+
+	// Top Bar Menu Item Background Hover Color.
+	$( '.top-bar-navigation .topbar-menu > .menu-item > a' ).hover(
+		function() {
+			$(this).css( 'background-color', api( 'responsive_top_bar_menu_item_background_hover_color' ).get() );
+		},
+
+		function() {
+			$(this).css( 'background-color', api( 'responsive_top_bar_menu_item_background_color' ).get() );
+		},
+	);
+
+	// Top Bar Menu Active Item Background Color.
+	api( 'responsive_top_bar_menu_active_item_bg_color', function( value ) {
+		value.bind( function( newval ) {
+			$( '.top-bar-navigation .topbar-menu > .menu-item.current-menu-item > a' ).css( 'background-color', newval );
+		})
+	});
+
+	// Top Bar Menu Active Item Background Hover Color.
+	$( '.top-bar-navigation .topbar-menu .menu-item.current-menu-item > a' ).hover(
+		function() {
+			$(this).css( 'background-color', api( 'responsive_top_bar_menu_active_item_bg_hover_color' ).get() );
+		},
+
+		function() {
+			$(this).css( 'background-color', api( 'responsive_top_bar_menu_active_item_bg_color' ).get() );
+		}
+	);
+
+	// Top Bar Menu Item Link Color.
+	api( 'responsive_top_bar_menu_item_link_color', function( value ) {
+		value.bind( function( newval ) {
+			$( '.top-bar-navigation .topbar-menu > .menu-item > a' ).css( 'color', newval );
+			$( '.top-bar-navigation .topbar-menu > .menu-item > a .res-iconify svg' ).css( 'stroke', newval );
+		})
+	});
+
+	// Top Bar Menu Item Link Hover Color.
+	$( '.top-bar-navigation .topbar-menu > .menu-item > a' ).hover(
+		function() {
+			$(this).css( 'color', api( 'responsive_top_bar_menu_item_link_hover_color' ).get() );
+			$( '.top-bar-navigation .topbar-menu > .menu-item > a .res-iconify svg' ).css( 'stroke', api( 'responsive_top_bar_menu_item_link_hover_color' ).get() );
+		},
+
+		function() {
+			$(this).css( 'color', api( 'responsive_top_bar_menu_item_link_color' ).get() );
+			$( '.top-bar-navigation .topbar-menu > .menu-item > a .res-iconify svg' ).css( 'stroke', api( 'responsive_top_bar_menu_item_link_color' ).get() );
+		}
+	);
+
+	// Top Bar Menu Active Item Link Color.
+	api( 'responsive_top_bar_menu_active_item_link_color', function( value ) {
+		value.bind( function( newval ) {
+			$( '.top-bar-navigation .topbar-menu > .menu-item.current-menu-item > a' ).css( 'color', newval );
+			$( '.top-bar-navigation .topbar-menu > .menu-item.current-menu-item > a .res-iconify svg' ).css( 'stroke', newval );
+		})
+	});
+
+	// Top Bar Menu Active Item Link Hover Color.
+	$( '.top-bar-navigation .topbar-menu .menu-item.current-menu-item > a' ).hover(
+		function() {
+			$(this).css( 'color', api( 'responsive_top_bar_menu_active_item_link_hover_color' ).get() );
+			$( '.top-bar-navigation .topbar-menu > .menu-item.current-menu-item > a .res-iconify svg' ).css( 'stroke', api( 'responsive_top_bar_menu_active_item_link_hover_color' ).get() );
+		},
+
+		function() {
+			$(this).css( 'color', api( 'responsive_top_bar_menu_active_item_link_color' ).get() );
+			$( '.top-bar-navigation .topbar-menu > .menu-item.current-menu-item > a .res-iconify svg' ).css( 'stroke', api( 'responsive_top_bar_menu_active_item_link_color' ).get() );
+		},		
+	);
+
+	// Top Bar Sub Menu Item Background Color.
+	api( 'responsive_top_bar_sub_menu_item_background_color', function( value ) {
+		value.bind( function( newval ) {
+			$( '.top-bar-navigation .topbar-menu .menu-item-has-children .sub-menu .menu-item a' ).css( 'background-color', newval );
+		})
+	});
+
+	// Top Bar Sub Menu Item Background Hover Color.
+	$( '.top-bar-navigation .topbar-menu .menu-item-has-children .sub-menu .menu-item a' ).hover(
+		function() {
+			$(this).css( 'background-color', api( 'responsive_top_bar_sub_menu_item_background_hover_color' ).get() );
+		},
+
+		function() {
+			$(this).css( 'background-color', api( 'responsive_top_bar_sub_menu_item_background_color' ).get() );
+		},	
+	);
+
+	// Top Bar Sub Menu Item Link Color.
+	api( 'responsive_top_bar_sub_menu_item_link_color', function( value ) {
+		value.bind( function( newval ) {
+			$( '.top-bar-navigation .topbar-menu .menu-item-has-children .sub-menu .menu-item a' ).css( 'color', newval );
+			$( '.top-bar-navigation .topbar-menu .menu-item-has-children .sub-menu .menu-item a .res-iconify svg' ).css( 'stroke', newval );
+		})
+	});
+
+	// Top Bar Sub Menu Item Link Hover Color.
+	$( '.top-bar-navigation .topbar-menu .menu-item-has-children .sub-menu .menu-item a' ).hover(
+		function() {
+			$(this).css( 'color', api( 'responsive_top_bar_sub_menu_item_link_hover_color' ).get() );
+			$( '.top-bar-navigation .topbar-menu .menu-item-has-children .sub-menu .menu-item a .res-iconify svg' ).css( 'stroke', api( 'responsive_top_bar_sub_menu_item_link_hover_color' ).get() );
+		},
+
+		function() {
+			$(this).css( 'color', api( 'responsive_top_bar_sub_menu_item_link_color' ).get() );
+			$( '.top-bar-navigation .topbar-menu .menu-item-has-children .sub-menu .menu-item a .res-iconify svg' ).css( 'stroke', api( 'responsive_top_bar_sub_menu_item_link_color' ).get() );
+		},	
+	);
+
 } )( jQuery );

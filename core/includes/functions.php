@@ -245,8 +245,9 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		 */
 		register_nav_menus(
 			array(
-				'header-menu' => __( 'Header Menu', 'responsive' ),
-				'footer-menu' => __( 'Footer Menu', 'responsive' ),
+				'header-menu'  => __( 'Header Menu', 'responsive' ),
+				'footer-menu'  => __( 'Footer Menu', 'responsive' ),
+				'top-bar-menu' => __( 'Top Bar Menu', 'responsive' ),
 			)
 		);
 
