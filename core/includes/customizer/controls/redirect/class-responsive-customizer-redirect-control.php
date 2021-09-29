@@ -4,7 +4,7 @@
  *
  * @package     Responsive WordPress theme
  * @subpackage  Controls
- * @since       4.6
+ * @since       4.6.6
  */
 
 // Exit if accessed directly.
@@ -27,12 +27,18 @@ if ( ! class_exists( 'Responsive_Customizer_Redirect_Control' ) ) :
 		public $type = 'responsive-redirect';
 
 		/**
-		 * The link value.
+		 * Linked customizer section.
 		 *
-		 * @access public
 		 * @var string
 		 */
-		public $link_value = '';
+		public $linked = '';
+
+		/**
+		 * Linked customizer section type.
+		 *
+		 * @var string
+		 */
+		public $link_type = '';
 
 		/**
 		 * Enqueue control related scripts/styles.
@@ -50,8 +56,9 @@ if ( ! class_exists( 'Responsive_Customizer_Redirect_Control' ) ) :
 		 */
 		public function to_json() {
 			parent::to_json();
-			$this->json['type']       = $this->type;
-			$this->json['link_value'] = $this->link_value;
+			$this->json['type']      = $this->type;
+			$this->json['linked']    = $this->linked;
+			$this->json['link_type'] = $this->link_type;
 		}
 
 		/**

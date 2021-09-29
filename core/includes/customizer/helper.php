@@ -1910,7 +1910,7 @@ function responsive_checkbox_control( $wp_customize, $element, $label, $section,
  * @param  [type] $active_call  [description].
  * @return void                 [description].
  */
-function responsive_redirect_control( $wp_customize, $element, $label, $section, $priority, $value, $active_call = null ) {
+function responsive_redirect_control( $wp_customize, $element, $label, $section, $priority, $linktype, $linkval, $active_call = null ) {
 	$wp_customize->add_setting(
 		'responsive_' . $element,
 		array(
@@ -1928,7 +1928,8 @@ function responsive_redirect_control( $wp_customize, $element, $label, $section,
 				'settings'        => 'responsive_' . $element,
 				'priority'        => $priority,
 				'active_callback' => $active_call,
-				'link_value'      => $value,
+				'link_type'       => $linktype,
+				'linked'          => $linkval,
 			)
 		)
 	);
