@@ -1202,6 +1202,15 @@ function responsive_active_vertical_header() {
 }
 
 /**
+ * [responsive_active_vertical_header_and_main_menu description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_vertical_header_and_main_menu() {
+	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+}
+
+/**
  * [responsive_active_vertical_transparent_header description].
  *
  * @return [type] [description]
@@ -1776,7 +1785,7 @@ function responsive_disabled_main_menu() {
  * @return [type] [description]
  */
 function responsive_disabled_mobile_menu() {
-	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
+	return ( ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) && ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ) ? true : false;
 }
 /**
  * Toggle style if outline border color control.
@@ -1784,7 +1793,7 @@ function responsive_disabled_mobile_menu() {
  * @return void
  */
 function responsive_toggle_border_color() {
-	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
+	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
 }
 /**
  * Toggle style if outline & fill border radius control.
@@ -1792,7 +1801,7 @@ function responsive_toggle_border_color() {
  * @return void
  */
 function responsive_toggle_border_radius() {
-	return ( ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
+	return ( ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
 }
 
 /**
@@ -1804,6 +1813,15 @@ function responsive_custom_home_active() {
 	$responsive_options = Responsive\Core\responsive_get_options();
 
 	return ( $responsive_options['front_page'] ) ? true : false;
+}
+
+/**
+ * [responsive_last_item_in_menu_active]
+ * 
+ * @return [type] [description]
+ */
+function responsive_last_item_in_menu_active() {
+	return ( 'none' !== get_theme_mod( 'responsive_menu_last_item' ) && 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
 }
 
 /**

@@ -215,12 +215,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						),
 					),
 					'header_menu'                => array(
-						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['header_menu'],
-						'section'  => 'responsive_header_menu_layout',
-						'exclude'  => array( 'font-color' ),
-						'priority' => 49,
-						'defaults' => array(
+						'label'           => esc_html__( 'Typography', 'responsive' ),
+						'target'          => $selectorArray['header_menu'],
+						'section'         => 'responsive_header_menu_layout',
+						'exclude'         => array( 'font-color' ),
+						'priority'        => 110,
+						'active_callback' => 'responsive_disabled_main_menu',
+						'defaults'        => array(
 							'font-size'   => '16px',
 							'font-weight' => '600',
 							'line-height' => '1.75',
