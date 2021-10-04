@@ -1647,7 +1647,7 @@ function responsive_customizer_styles() {
 	}
 
 	// Top Bar Menu Styles.
-	$top_bar_menu_enable = get_theme_mod( 'responsive_enable_top_bar_menu', 0 );
+	$top_bar_menu_enable = get_theme_mod( 'responsive_enable_top_bar_menu', 1 );
 
 	if ( $top_bar_menu_enable ) {
 		$top_bar_menu_full_width      = get_theme_mod( 'responsive_enable_top_bar_menu_full_width', 0 );

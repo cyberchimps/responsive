@@ -1292,7 +1292,7 @@ function responsive_active_breadcrumb() {
  * @return [type] [description]
  */
 function responsive_top_bar_menu_active() {
-	return ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu', 0 ) ) ? true : false;
+	return ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu', 1 ) ) ? true : false;
 }
 
 /**
@@ -1301,7 +1301,7 @@ function responsive_top_bar_menu_active() {
  * @return [type] [description]
  */
 function responsive_top_bar_menu_width_selected() {
-	if ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu', 0 ) ) {
+	if ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu', 1 ) ) {
 		if ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu_full_width', 0 ) ) {
 			return false;
 		} else {

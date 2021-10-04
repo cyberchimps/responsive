@@ -52,7 +52,7 @@ if ( ! class_exists( 'Responsive_Top_Bar_Menu_Customizer' ) ) :
 
 			// Enable Top Bar Menu.
 			$enable_top_bar_menu_label = __( 'Enable Top Bar Menu', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'enable_top_bar_menu', $enable_top_bar_menu_label, 'responsive_top_bar_menu', 10, 0, null );
+			responsive_checkbox_control( $wp_customize, 'enable_top_bar_menu', $enable_top_bar_menu_label, 'responsive_top_bar_menu', 10, 1, null );
 
 			// Top Bar Menu Full Width.
 			$top_bar_menu_full_width_label = __( 'Top Bar Menu Full Width', 'responsive' );
