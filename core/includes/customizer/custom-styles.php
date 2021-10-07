@@ -826,17 +826,17 @@ function responsive_customizer_styles() {
 		$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		$custom_css .= "@media screen and (min-width: {$mobile_menu_breakpoint}px) {
 			.site-header-layout-horizontal .site-branding, 
-			.site-header-layout-horizontal .main-navigation,
+			.site-header-layout-horizontal .main-navigation:not(.top-bar-navigation),
 			.site-header-site-branding.site-header-layout-vertical .site-branding,
-			.site-header-main-navigation.site-header-layout-vertical .main-navigation {
+			.site-header-main-navigation.site-header-layout-vertical .main-navigation:not(.top-bar-navigation) {
 				margin-top: {$header_height_half}px;
 				margin-bottom: {$header_height_half}px;
 			}
 			.site-header-site-branding-main-navigation.site-header-layout-vertical .site-branding,
-			.site-header-main-navigation-site-branding.site-header-layout-vertical .main-navigation {
+			.site-header-main-navigation-site-branding.site-header-layout-vertical .main-navigation:not(.top-bar-navigation) {
 				margin-top: {$header_height_half}px;
 			}
-			.site-header-site-branding-main-navigation.site-header-layout-vertical .main-navigation,
+			.site-header-site-branding-main-navigation.site-header-layout-vertical .main-navigation:not(.top-bar-navigation),
 			.site-header-main-navigation-site-branding.site-header-layout-vertical .site-branding {
 				margin-bottom: {$header_height_half}px;
 			}
