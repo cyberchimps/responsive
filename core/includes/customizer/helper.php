@@ -1313,6 +1313,20 @@ function responsive_top_bar_menu_width_selected() {
 }
 
 /**
+ * [responsive_enable_header_bottom_border_check description].
+ */
+function responsive_enable_header_bottom_border_check() {
+	return ( 1 === get_theme_mod( 'responsive_enable_header_bottom_border', 1 ) ) ? true : false;
+}
+
+/**
+ * [responsive_enable_transparent_header_bottom_border_check description].
+ */
+function responsive_enable_transparent_header_bottom_border_check() {
+	return ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 ) ) ? true : false;
+}
+
+/**
  * Returns the default design style
  *
  * @return string
