@@ -260,12 +260,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						),
 					),
 					'breadcrumb'                 => array(
-						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['breadcrumb'],
-						'priority' => 110,
-						'section'  => 'responsive_content_header_layout',
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
+						'label'           => esc_html__( 'Typography', 'responsive' ),
+						'target'          => $selectorArray['breadcrumb'],
+						'priority'        => 110,
+						'section'         => 'responsive_content_header_layout',
+						'exclude'         => array( 'font-color' ),
+						'active_callback' => 'responsive_active_breadcrumb',
+						'defaults'        => array(
 							'font-size'   => '13px',
 							'line-height' => '1.75',
 						),
