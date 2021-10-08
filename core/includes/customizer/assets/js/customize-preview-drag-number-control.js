@@ -253,14 +253,26 @@
 		value.bind( function( newval ) {
 			var headerHeightHalf = newval / 2;
 			var mobileMenuBreakpointValue = api( 'responsive_mobile_menu_breakpoint' ).get();
-			if ( window.matchMedia(`(min-width: ${mobileMenuBreakpointValue}px)`).matches ) {
-				$('.site-header-layout-horizontal .site-branding, .site-header-layout-horizontal .main-navigation:not(.top-bar-navigation), .site-header-site-branding.site-header-layout-vertical .site-branding, .site-header-main-navigation.site-header-layout-vertical .main-navigation:not(.top-bar-navigation)').css({'margin-top':headerHeightHalf+'px',
-					'margin-bottom':headerHeightHalf+'px'							
-				});
-				$('.site-header-site-branding-main-navigation.site-header-layout-vertical .site-branding, .site-header-main-navigation-site-branding.site-header-layout-vertical .main-navigation:not(.top-bar-navigation)').css('margin-top', headerHeightHalf+'px');
-				$('.site-header-site-branding-main-navigation.site-header-layout-vertical .main-navigation:not(.top-bar-navigation), .site-header-main-navigation-site-branding.site-header-layout-vertical .site-branding').css('margin-bottom', headerHeightHalf+'px');
+			$('body:not(.res-transparent-header) .site-header').css({'padding-top':headerHeightHalf+'px', 'padding-bottom':headerHeightHalf+'px'});
+
+			if ( window.matchMedia(`(max-width: ${mobileMenuBreakpointValue}px)`).matches ) {
+				$('body.site-header-layout-vertical.site-mobile-header-layout-horizontal:not(.res-transparent-header) .site-header .main-navigation').css('border-top', 0);
 			}
 		} );
+	} );
+
+	// Header
+	// Transparent Header Height
+	api( 'responsive_transparent_header_height', function( value ) {
+		value.bind( function( newval ) {
+			var transparentHeaderHeightHalf = newval / 2;
+			var mobileMenuBreakpointValue = api( 'responsive_mobile_menu_breakpoint' ).get();
+			$('body.res-transparent-header .site-header').css({'padding-top':transparentHeaderHeightHalf+'px', 'padding-bottom':transparentHeaderHeightHalf+'px'});
+
+			if ( window.matchMedia(`(max-width: ${mobileMenuBreakpointValue}px)`).matches ) {
+				$('body.site-header-layout-vertical.site-mobile-header-layout-horizontal.res-transparent-header .site-header .main-navigation').css('border-top', 0);
+			}
+		} )
 	} );
 
 	// Header

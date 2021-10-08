@@ -62,9 +62,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			if ( ! has_action( 'responsive_custom_header' ) ) {
 
-				if ( 1 === get_theme_mod( 'responsive_enable_top_bar_menu', 1 ) ) {
-					get_template_part( 'partials/top-bar/top-bar-menu' );
-				}
 				?>
 
 					<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >

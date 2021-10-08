@@ -202,7 +202,6 @@ function responsive_register_options() {
 		'class-responsive-form-fields-customizer',
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
-		'class-responsive-top-bar-menu-customizer',
 	);
 
 	foreach ( $files as $key ) {

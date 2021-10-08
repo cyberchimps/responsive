@@ -85,6 +85,10 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				)
 			);
 
+			// Transparent Header Height.
+			$transparent_header_height_label = __( 'Transparent Header Height', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'transparent_header_height', $transparent_header_height_label, 'responsive_header_transparent', 29, 0, null, 300, 0, 'postMessage', 1 );
+
 			// Site Content Padding.
 			$site_content_padding_label = esc_html__( 'Site Content Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'site_content', 'responsive_header_transparent', 30, 120, 0, null, $site_content_padding_label );

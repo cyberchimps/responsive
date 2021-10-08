@@ -26,7 +26,6 @@
 #customize-control-osp_side_panel_overlay,
 #customize-control-responsive_header_title_colors_separator,
 #customize-control-responsive_header_tagline_colors_separator,
-#customize-control-responsive_top_bar_menu_settings,
 #customize-control-responsive_main_menu_separator {
 	margin-top: 0
 }
@@ -416,12 +415,4 @@ body.rtl .customize-control .responsive-switchers li {
 }
 .preview-mobile #customize-control-responsive_footer_widget_alignment_mobile_4{
 	display:block;
-}
-
-.preview-mobile #customize-control-responsive_top_bar_menu_items_padding_padding .responsive-switchers > .mobile, 
-.preview-mobile #customize-control-responsive_top_bar_menu_items_padding_padding .responsive-switchers > .tablet,
-.preview-tablet #customize-control-responsive_top_bar_menu_items_padding_padding .responsive-switchers > .mobile, 
-.preview-tablet #customize-control-responsive_top_bar_menu_items_padding_padding .responsive-switchers > .tablet
-{
-	display: none;
 }

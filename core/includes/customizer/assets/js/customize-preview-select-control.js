@@ -598,17 +598,4 @@
 		});
 	});
 
-	// Top Bar Menu Alignments.
-	api( 'responsive_top_bar_menu_alignment', function( value ) {
-		value.bind( function( newval ) {
-			if ( newval === 'left' ) {
-				$( 'body .top-bar-menu-container .top-bar-navigation' ).css( 'justify-content', 'left' );
-			} else if ( newval === 'right' ) {
-				$( 'body .top-bar-menu-container .top-bar-navigation' ).css( 'justify-content', 'right' );
-			} else if ( newval === 'center' ) {
-				$( 'body .top-bar-menu-container .top-bar-navigation' ).css( 'justify-content', 'center' );
-			}
-		})
-	});
-
 } )( jQuery );

@@ -87,11 +87,11 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
 				'vertical'   => esc_html__( 'Vertical', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_layout', $header_layout_label, 'responsive_header_layout', 20, $header_layout_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_layout' ), null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'header_layout', $header_layout_label, 'responsive_header_layout', 20, $header_layout_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_layout' ), null );
 
 			// Header Height.
 			$header_height_label = __( 'Header Height', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'header_height', $header_height_label, 'responsive_header_layout', 20, 10, null, 300, 0, 'postMessage', 1 );
+			responsive_drag_number_control( $wp_customize, 'header_height', $header_height_label, 'responsive_header_layout', 20, 0, null, 300, 0, 'postMessage', 1 );
 
 			// Header Alignment.
 			$header_alignment_label   = esc_html__( 'Header Alignment', 'responsive' );
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Mobile Header Layout.
 			$mobile_header_layout_label = esc_html__( 'Mobile Header Layout', 'responsive' );
-			responsive_select_control( $wp_customize, 'mobile_header_layout', $mobile_header_layout_label, 'responsive_header_layout', 30, $header_layout_choices, get_theme_mod( 'responsive_header_layout', 'horizontal' ), null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'mobile_header_layout', $mobile_header_layout_label, 'responsive_header_layout', 30, $header_layout_choices, get_theme_mod( 'responsive_header_layout', 'horizontal' ), null );
 
 			// Mobile Header Alignment.
 			$mobile_header_alignment_label = esc_html__( 'Mobile Header Alignment', 'responsive' );
