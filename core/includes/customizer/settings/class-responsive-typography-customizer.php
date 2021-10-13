@@ -183,8 +183,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'header_site_title'          => array(
 						'label'    => esc_html__( 'Site Title', 'responsive' ),
 						'target'   => $selectorArray['header_site_title'],
-						'section'  => 'responsive_header_layout',
-						'priority' => 140,
+						'section'  => 'responsive_header_title',
+						'priority' => 15,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '20px',
@@ -195,8 +195,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'header_site_tagline'        => array(
 						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
 						'target'   => $selectorArray['header_site_tagline'],
-						'section'  => 'responsive_header_layout',
-						'priority' => 150,
+						'section'  => 'responsive_header_tagline',
+						'priority' => 15,
 						'exclude'  => array( 'font-color' ),
 						'defaults' => array(
 							'font-size'      => '13px',
@@ -215,12 +215,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						),
 					),
 					'header_menu'                => array(
-						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['header_menu'],
-						'section'  => 'responsive_header_menu_layout',
-						'exclude'  => array( 'font-color' ),
-						'priority' => 185,
-						'defaults' => array(
+						'label'           => esc_html__( 'Typography', 'responsive' ),
+						'target'          => $selectorArray['header_menu'],
+						'section'         => 'responsive_header_menu_layout',
+						'exclude'         => array( 'font-color' ),
+						'priority'        => 110,
+						'active_callback' => 'responsive_disabled_main_menu',
+						'defaults'        => array(
 							'font-size'   => '16px',
 							'font-weight' => '600',
 							'line-height' => '1.75',
@@ -259,12 +260,13 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						),
 					),
 					'breadcrumb'                 => array(
-						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['breadcrumb'],
-						'priority' => 110,
-						'section'  => 'responsive_content_header_layout',
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
+						'label'           => esc_html__( 'Typography', 'responsive' ),
+						'target'          => $selectorArray['breadcrumb'],
+						'priority'        => 110,
+						'section'         => 'responsive_content_header_layout',
+						'exclude'         => array( 'font-color' ),
+						'active_callback' => 'responsive_active_breadcrumb',
+						'defaults'        => array(
 							'font-size'   => '13px',
 							'line-height' => '1.75',
 						),

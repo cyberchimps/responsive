@@ -23,7 +23,10 @@
 #customize-control-osh_no_shadow,
 #customize-control-osh_sticky_choose .customize-control-title,
 #customize-control-osp_side_panel_displace,
-#customize-control-osp_side_panel_overlay {
+#customize-control-osp_side_panel_overlay,
+#customize-control-responsive_header_title_colors_separator,
+#customize-control-responsive_header_tagline_colors_separator,
+#customize-control-responsive_main_menu_separator {
 	margin-top: 0
 }
 

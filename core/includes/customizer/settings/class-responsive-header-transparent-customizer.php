@@ -57,6 +57,10 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$transparent_header_logo_option_label = __( 'Different Logo For Transparent Header ', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'transparent_header_logo_option', $transparent_header_logo_option_label, 'responsive_header_transparent', 25, 0, null );
 
+			// Enable Header Bottom Border.
+			$enable_transparent_header_bottom_border_label = __( 'Enable Transparent Header Bottom Border', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'enable_transparent_header_bottom_border', $enable_transparent_header_bottom_border_label, 'responsive_header_transparent', 26, 1, null );
+
 			$wp_customize->add_setting(
 				'responsive_transparent_header_logo',
 				array(
@@ -81,12 +85,16 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				)
 			);
 
+			// Transparent Header Height.
+			$transparent_header_height_label = __( 'Transparent Header Height', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'transparent_header_height', $transparent_header_height_label, 'responsive_header_transparent', 29, 0, null, 300, 0, 'postMessage', 1 );
+
 			// Site Content Padding.
 			$site_content_padding_label = esc_html__( 'Site Content Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'site_content', 'responsive_header_transparent', 30, 120, 0, null, $site_content_padding_label );
 
 			$bottom_border_label = __( 'Bottom Border Size', 'responsive' );
-			responsive_number_control( $wp_customize, 'transparent_bottom_border', $bottom_border_label, 'responsive_header_transparent', 35, 1 );
+			responsive_drag_number_control( $wp_customize, 'transparent_bottom_border', $bottom_border_label, 'responsive_header_transparent', 35, 0, 'responsive_enable_transparent_header_bottom_border_check', 300, 0, 'postMessage', 1 );
 
 			$disable_archive_transparent_header_label = __( 'Disable on 404, Search & Archives?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'disable_archive_transparent_header', $disable_archive_transparent_header_label, 'responsive_header_transparent', 40, 0, null );

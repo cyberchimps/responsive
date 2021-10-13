@@ -148,6 +148,20 @@ function responsive_sanitize_select( $input, $setting ) {
 }
 
 /**
+ * Redirect sanitization callback
+ *
+ * @param  array $val Customizer setting link.
+ * @return array Return array.
+ * @since  4.7.0
+ */
+function responsive_redirect_sanitize_link( $val ) {
+	$val['linked']    = sanitize_text_field( $val['linked'] );
+	$val['link_type'] = esc_html( $val['link_type'] );
+
+	return $val;
+}
+
+/**
  * Check if check_product_price_custom_string function is present.
  */
 if ( ! function_exists( 'responsive_check_product_price_custom_string' ) ) {
