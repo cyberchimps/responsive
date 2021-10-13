@@ -1,7 +1,7 @@
 === Responsive ===
 Contributors: cyberchimps
 Requires at least: 5.0
-Tested up to: 5.4.1
+Tested up to: 5.8
 Requires PHP: 5.6
 Stable tag: 4.7.0
 License: GPLv3 or later
