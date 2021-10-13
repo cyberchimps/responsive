@@ -152,7 +152,7 @@ function responsive_sanitize_select( $input, $setting ) {
  *
  * @param  array $val Customizer setting link.
  * @return array Return array.
- * @since  4.6.6
+ * @since  4.7.0
  */
 function responsive_redirect_sanitize_link( $val ) {
 	$val['linked']    = sanitize_text_field( $val['linked'] );

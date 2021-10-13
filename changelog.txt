@@ -8,6 +8,23 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/13/2021) = Added - Version 4.7.0
+[+] = Feature = Added option to adjust the height of the Primary Header.
+[+] = Feature = Added option to adjust the height of the Transparent Header.
+[+] = Feature = Added option to enable/disable header bottom border.
+[+] = Feature = Added option to enable/disable transparent header bottom border.
+[+] = Added = Added new section for Site Title under Header panel in the customizer.
+[+] = Added = Added new section for Site Tagline under Header panel in the customizer.
+[+] = Feature = Added new button in the Header Widgets section which redirects to Header Widgets editor section of the customizer.
+[*] = Changed = Changed the control from input control to slider control for header bottom border setting.
+[*] = Changed = Changed the control from input control to slider control for transparent header bottom border setting.
+[*] = Changed = The breadcrumbs related settings under Content Header section of the customizer are hidden when the breadcrumbs are disabled.
+[*] = Changed = Changed the layout of the Main Menu section in the customizer under Header Panel.
+[*] = Changed = Replaced the screenshot.png file of the theme with screenshot.jpg file.
+[^] = Moved = Moved header site title settings from Primary Header to new Site Title section under Header panel.
+[^] = Moved = Moved header site tagline settings from Primary Header to new Site Tagline section under Header panel.
+[!] = Fixed = Fixed theme checker issue related to sanitization callback of the add_setting() method.
+
 (08/17/2021) = Fix - Version 4.6.5
 [+] = Feature = Added option for WooCommerce filter button color and button text color.
 [+] = Feature = Added option for WooCommerce default sorting text and input background color.
