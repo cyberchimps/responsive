@@ -1202,6 +1202,15 @@ function responsive_active_vertical_header() {
 }
 
 /**
+ * [responsive_active_vertical_header_and_main_menu description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_vertical_header_and_main_menu() {
+	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+}
+
+/**
  * [responsive_active_vertical_transparent_header description].
  *
  * @return [type] [description]
@@ -1275,6 +1284,20 @@ function responsive_active_breadcrumb() {
 	$responsive_options = get_option( 'responsive_theme_options' );
 	return ( $responsive_options['breadcrumb'] ) ? false : true;
 
+}
+
+/**
+ * [responsive_enable_header_bottom_border_check description].
+ */
+function responsive_enable_header_bottom_border_check() {
+	return ( 1 === get_theme_mod( 'responsive_enable_header_bottom_border', 1 ) ) ? true : false;
+}
+
+/**
+ * [responsive_enable_transparent_header_bottom_border_check description].
+ */
+function responsive_enable_transparent_header_bottom_border_check() {
+	return ( 1 === get_theme_mod( 'responsive_enable_transparent_header_bottom_border', 1 ) ) ? true : false;
 }
 
 /**
@@ -1750,23 +1773,25 @@ function responsive_disabled_main_menu() {
  * @return [type] [description]
  */
 function responsive_disabled_mobile_menu() {
-	return ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ? true : false;
+	return ( ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) && ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ) ? true : false;
 }
+
 /**
  * Toggle style if outline border color control.
  *
  * @return void
  */
 function responsive_toggle_border_color() {
-	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
+	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
 }
+
 /**
  * Toggle style if outline & fill border radius control.
  *
  * @return void
  */
 function responsive_toggle_border_radius() {
-	return ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' )) ? true : false;
+	return ( ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
 }
 
 /**
@@ -1778,6 +1803,33 @@ function responsive_custom_home_active() {
 	$responsive_options = Responsive\Core\responsive_get_options();
 
 	return ( $responsive_options['front_page'] ) ? true : false;
+}
+
+/**
+ * [responsive_last_item_in_menu_active]
+ * 
+ * @return [type] [description]
+ */
+function responsive_last_item_in_menu_active() {
+	return ( 'none' !== get_theme_mod( 'responsive_menu_last_item' ) && 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
+}
+
+/**
+ * [responsive_menu_last_item_cta description]
+ *
+ * @return [type] [description]
+ */
+function responsive_menu_last_item_cta() {
+	return ( 'button' === get_theme_mod( 'responsive_menu_last_item', 'none' ) ) ? true : false;
+}
+
+/**
+ * [responsive_menu_last_item_text description]
+ *
+ * @return [type] [description]
+ */
+function responsive_menu_last_item_text() {
+	return ( 'text-html' === get_theme_mod( 'responsive_menu_last_item', 'none' ) ) ? true : false;
 }
 
 /**
@@ -1853,6 +1905,45 @@ function responsive_checkbox_control( $wp_customize, $element, $label, $section,
 		);
 	}
 }
+
+/**
+ * [responsive_redirect_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $value        [description].
+ * @param  [type] $active_call  [description].
+ * @return void                 [description].
+ */
+function responsive_redirect_control( $wp_customize, $element, $label, $section, $priority, $linktype, $linkval, $active_call = null ) {
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'responsive_redirect_sanitize_link',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Redirect_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'link_type'       => $linktype,
+				'linked'          => $linkval,
+			)
+		)
+	);
+}
+
 /**
  * Check if off canvas is active
  *

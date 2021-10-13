@@ -47,9 +47,13 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$header_full_width_label = __( 'Full Width Header', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_full_width', $header_full_width_label, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
 
-			// Full Width Header.
+			// Inline logo & site title.
 			$inline_logo_site_title = __( 'Inline logo & Site Title', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'inline_logo_site_title', $inline_logo_site_title, 'responsive_header_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
+
+			// Enable Header Bottom Border.
+			$enable_header_bottom_border_label = __( 'Enable Header Bottom Border', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'enable_header_bottom_border', $enable_header_bottom_border_label, 'responsive_header_layout', 10, 1, null );
 
 			/**
 			 * Header Elements Positioning
@@ -83,7 +87,11 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'horizontal' => esc_html__( 'Horizontal', 'responsive' ),
 				'vertical'   => esc_html__( 'Vertical', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_layout', $header_layout_label, 'responsive_header_layout', 20, $header_layout_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_layout' ), null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'header_layout', $header_layout_label, 'responsive_header_layout', 20, $header_layout_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_layout' ), null );
+
+			// Header Height.
+			$header_height_label = __( 'Header Height', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_height', $header_height_label, 'responsive_header_layout', 20, 0, null, 300, 0, 'postMessage', 1 );
 
 			// Header Alignment.
 			$header_alignment_label   = esc_html__( 'Header Alignment', 'responsive' );
@@ -104,7 +112,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Mobile Header Layout.
 			$mobile_header_layout_label = esc_html__( 'Mobile Header Layout', 'responsive' );
-			responsive_select_control( $wp_customize, 'mobile_header_layout', $mobile_header_layout_label, 'responsive_header_layout', 30, $header_layout_choices, get_theme_mod( 'responsive_header_layout', 'horizontal' ), null, 'postMessage' );
+			responsive_select_control( $wp_customize, 'mobile_header_layout', $mobile_header_layout_label, 'responsive_header_layout', 30, $header_layout_choices, get_theme_mod( 'responsive_header_layout', 'horizontal' ), null );
 
 			// Mobile Header Alignment.
 			$mobile_header_alignment_label = esc_html__( 'Mobile Header Alignment', 'responsive' );
@@ -116,19 +124,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Bottom Border.
 			$bottom_border_label = __( 'Bottom Border Size', 'responsive' );
-			responsive_number_control( $wp_customize, 'bottom_border', $bottom_border_label, 'responsive_header_layout', 45, 1 );
-
-			/**
-			 * Title Heading.
-			 */
-			$site_title_separator_label = esc_html__( 'Site Title', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_site_title_separator', $site_title_separator_label, 'responsive_header_layout', 130 );
-
-			/**
-			 * Tagline Heading.
-			 */
-			$site_tagline_separator_label = esc_html__( 'Site Tagline', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_site_tagline_separator', $site_tagline_separator_label, 'responsive_header_layout', 150 );
+			responsive_drag_number_control( $wp_customize, 'bottom_border', $bottom_border_label, 'responsive_header_layout', 45, 0, 'responsive_enable_header_bottom_border_check', 300, 0, 'postMessage', 1 );
 		}
 	}
 

@@ -58,19 +58,8 @@
         } );
     } );
 
-    api( 'responsive_transparent_bottom_border', function( value ) {
-        value.bind( function( newval ) {
-            $('.res-transparent-header .site-header').css('border-bottom-width', newval+'px' );
-        } );
-    } );
-
-    api( 'responsive_bottom_border', function( value ) {
-        value.bind( function( newval ) {
-            $('.site-header').css('border-bottom-width', newval+'px' );
-        } );
-    } );
-     //Buttons radius
-     api( 'responsive_menu_button_radius', function( value ) {
+    //Buttons radius
+    api( 'responsive_menu_button_radius', function( value ) {
         value.bind( function( newval ) {
             $('.main-navigation .menu-toggle').css('border-radius', newval+'px' );
             $('.main-navigation.toggled .menu-toggle').css('border-radius', newval+'px' );
