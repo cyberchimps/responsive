@@ -92,7 +92,7 @@ function responsive_get_layout() {
 		$layout_meta       = ( array_key_exists( $layout_meta_value, $valid_layouts ) ? $layout_meta_value : 'default' );
 	}
 	/* Static pages */
-	if ( is_page() ) {
+	if ( is_page() && ( ( class_exists( 'WooCommerce' ) && ! is_shop() ) || ( ! class_exists( 'WooCommerce' ) && is_page() ) ) ) {
 		$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
 		/* If custom page template is defined, use it first */
 		if ( 'default' != $page_template ) {
