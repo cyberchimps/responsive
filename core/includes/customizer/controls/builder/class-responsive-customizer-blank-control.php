@@ -11,7 +11,7 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
 
 
 /**
- * Class Kadence_Control_Blank
+ * Class responsive_Control_Blank
  *
  * @access public
  */
@@ -21,7 +21,7 @@ class Responsive_Customizer_Blank_Control extends WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'kadence_blank_control';
+	public $type = 'responsive_blank_control';
 
 	/**
 	 * Render the control in the customizer

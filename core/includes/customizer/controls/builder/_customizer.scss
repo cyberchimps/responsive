@@ -1,21 +1,21 @@
-.customize-control:not(.customize-control-kadence_blank_control):not(.customize-control-kadence_tab_control) + .customize-control {
+.customize-control:not(.customize-control-responsive_blank_control):not(.customize-control-responsive_tab_control) + .customize-control {
     border-top: 1px solid #ddd;
     padding-top: 10px;
 }
-.kadence-builder-hide .customize-control-kadence_blank_control .kadence-builder-show-button.kadence-builder-tab-toggle {
+.responsive-builder-hide .customize-control-responsive_blank_control .responsive-builder-show-button.responsive-builder-tab-toggle {
     visibility: visible;
     opacity: 1;
 }
-.kadence-builder-is-active .preview-desktop #customize-preview, .kadence-builder-is-active .preview-tablet #customize-preview {
+.responsive-builder-is-active .preview-desktop #customize-preview, .responsive-builder-is-active .preview-tablet #customize-preview {
 	height: auto;
 }
 
 // Top Tabs
-.customize-control-kadence_blank_control {
+.customize-control-responsive_blank_control {
 	.customize-control-description {
 		position:relative;
 	}
-	.kadence-builder-tab-toggle {
+	.responsive-builder-tab-toggle {
 		position: absolute;
 	    right: 10px;
 	    top: 5px;
@@ -28,7 +28,7 @@
 			line-height: 20px;
 		}
 	}
-	.kadence-builder-show-button.kadence-builder-tab-toggle {
+	.responsive-builder-show-button.responsive-builder-tab-toggle {
 	    visibility: hidden;
 	    margin-bottom: 20px;
 	    opacity: 0;
@@ -36,14 +36,14 @@
 	    top: auto;
 	}
 }
-#customize-theme-controls #sub-accordion-section-kadence_customizer_header_builder .customize-control {
+#customize-theme-controls #sub-accordion-section-responsive_customizer_header_builder .customize-control {
     margin: 0;
     padding: 0;
     .description {
     	padding: 0 20px;
     }
 }
-.kadence-compontent-tabs {
+.responsive-compontent-tabs {
 	display: flex;
 	width:auto;
     margin-top: -15px;
@@ -52,7 +52,7 @@
     padding: 0;
 	margin-bottom: 0;
 	border-bottom: 1px solid #ccc;
-	.kadence-compontent-tabs-button {
+	.responsive-compontent-tabs-button {
 		flex: 1 1 0;;
 		display: flex;
 		-webkit-box-align: center;

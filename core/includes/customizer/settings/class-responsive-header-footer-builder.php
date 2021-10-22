@@ -44,18 +44,18 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			);
 
 			ob_start(); ?>
-			<div class="kadence-build-tabs nav-tab-wrapper wp-clearfix">
-				<a href="#" class="nav-tab preview-desktop kadence-build-tabs-button" data-device="desktop">
+			<div class="responsive-build-tabs nav-tab-wrapper wp-clearfix">
+				<a href="#" class="nav-tab preview-desktop responsive-build-tabs-button" data-device="desktop">
 					<span class="dashicons dashicons-desktop"></span>
-					<span><?php esc_html_e( 'Desktop', 'kadence' ); ?></span>
+					<span><?php esc_html_e( 'Desktop', 'responsive' ); ?></span>
 				</a>
-				<a href="#" class="nav-tab preview-tablet preview-mobile kadence-build-tabs-button" data-device="tablet">
+				<a href="#" class="nav-tab preview-tablet preview-mobile responsive-build-tabs-button" data-device="tablet">
 					<span class="dashicons dashicons-smartphone"></span>
-					<span><?php esc_html_e( 'Tablet / Mobile', 'kadence' ); ?></span>
+					<span><?php esc_html_e( 'Tablet / Mobile', 'responsive' ); ?></span>
 				</a>
 			</div>
-			<span class="button button-secondary kadence-builder-hide-button kadence-builder-tab-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'kadence' ); ?></span>
-			<span class="button button-secondary kadence-builder-show-button kadence-builder-tab-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Header Builder', 'kadence' ); ?></span>
+			<span class="button button-secondary responsive-builder-hide-button responsive-builder-tab-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'responsive' ); ?></span>
+			<span class="button button-secondary responsive-builder-show-button responsive-builder-tab-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Header Builder', 'responsive' ); ?></span>
 			<?php
 			$builder_tabs = ob_get_clean();
 
