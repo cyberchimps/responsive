@@ -1,0 +1,101 @@
+.customize-control:not(.customize-control-kadence_blank_control):not(.customize-control-kadence_tab_control) + .customize-control {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+.kadence-builder-hide .customize-control-kadence_blank_control .kadence-builder-show-button.kadence-builder-tab-toggle {
+    visibility: visible;
+    opacity: 1;
+}
+.kadence-builder-is-active .preview-desktop #customize-preview, .kadence-builder-is-active .preview-tablet #customize-preview {
+	height: auto;
+}
+
+// Top Tabs
+.customize-control-kadence_blank_control {
+	.customize-control-description {
+		position:relative;
+	}
+	.kadence-builder-tab-toggle {
+		position: absolute;
+	    right: 10px;
+	    top: 5px;
+	    z-index: 1000;
+		display: flex;
+		align-items: center;
+		span.dashicons {
+			font-size: 12px;
+			vertical-align: middle;
+			line-height: 20px;
+		}
+	}
+	.kadence-builder-show-button.kadence-builder-tab-toggle {
+	    visibility: hidden;
+	    margin-bottom: 20px;
+	    opacity: 0;
+	    bottom: 100%;
+	    top: auto;
+	}
+}
+#customize-theme-controls #sub-accordion-section-kadence_customizer_header_builder .customize-control {
+    margin: 0;
+    padding: 0;
+    .description {
+    	padding: 0 20px;
+    }
+}
+.kadence-compontent-tabs {
+	display: flex;
+	width:auto;
+    margin-top: -15px;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 0;
+	margin-bottom: 0;
+	border-bottom: 1px solid #ccc;
+	.kadence-compontent-tabs-button {
+		flex: 1 1 0;;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		font-size: 11px;
+		font-weight: 600;
+		font-style: normal;
+		text-transform: uppercase;
+		height: 40px;
+		margin: 0;
+		margin-bottom: -1px;
+		box-sizing: content-box;
+		padding: 0 10px;
+		cursor: pointer;
+		border: 0;
+		background: transparent;
+		border-bottom: 4px solid transparent;
+		border-radius: 0;
+		border-top-left-radius: 2px;
+		border-top-right-radius: 2px;
+		&:not(:first-child) {
+			margin-left: 0px;
+		}
+		&:hover {
+			box-shadow: none !important;
+		}
+		&:not(.nav-tab-active):hover {
+			background: #e5e5e5 !important;
+			color: #444 !important;
+			border-bottom-color: #f9f9f9;
+		}
+		&.nav-tab-active {
+			border-bottom-color: #007cba;
+			background: #f9f9f9;
+			color:#000;
+			&:focus {
+				outline: 0;
+				box-shadow: none;
+			}
+		}
+	}
+}

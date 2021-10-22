@@ -202,6 +202,7 @@ function responsive_register_options() {
 		'class-responsive-form-fields-customizer',
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
+		'class-responsive-header-footer-builder',
 	);
 
 	foreach ( $files as $key ) {
@@ -237,6 +238,9 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'select/class-responsive-customizer-responsive-select-control.php';
 	require_once $dir . 'checkbox/class-responsive-customizer-responsive-checkbox-control.php';
 	require_once $dir . 'redirect/class-responsive-customizer-redirect-control.php';
+	require_once $dir . 'builder/class-responsive-customizer-builder-control.php';
+	require_once $dir . 'builder/class-responsive-customizer-blank-control.php';
+	require_once $dir . 'tabs/class-responsive-customizer-tab-control.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-main-notice-section.php';
@@ -256,6 +260,8 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Select_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Checkbox_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Redirect_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Tab_Control' );
 
 }
 
@@ -281,7 +287,11 @@ function responsive_custom_customize_enqueue() {
 			'wp-element',
 			'wp-media-utils',
 			'wp-block-editor',
+			'jquery',
+			'customize-controls',
+			'wp-edit-post',
 		);
+
 		if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 			wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
 		} else {
