@@ -35,13 +35,15 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 		public function customizer_options( $wp_customize ) {
 
 			$wp_customize->add_section(
-				'responsive_header_builder',
+				'responsive_customizer_header_builder',
 				array(
 					'title'    => esc_html__( 'Header Builder', 'responsive' ),
 					'panel'    => 'responsive_header',
 					'priority' => 100,
 				)
 			);
+
+			$builder_tabs = '';
 
 			ob_start(); ?>
 			<div class="responsive-build-tabs nav-tab-wrapper wp-clearfix">
@@ -64,7 +66,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					$wp_customize,
 					'header_builder',
 					array(
-						'section'     => 'responsive_header_builder',
+						'section'     => 'responsive_customizer_header_builder',
 						'settings'    => false,
 						'description' => $builder_tabs,
 					)
@@ -107,7 +109,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					'header_desktop_items',
 					array(
 						// 'type' => 'responsive-builder',
-						'section'     => 'responsive_header_builder',
+						'section'     => 'responsive_customizer_header_builder',
 						'default'     => $header_desktop_items,
 						'settings'    => 'responsive_header_scheme',
 						'context'     => array(
