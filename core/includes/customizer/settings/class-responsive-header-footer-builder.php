@@ -96,11 +96,11 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				),
 			);
 			$wp_customize->add_setting(
-				'responsive_header_scheme',
+				'header_desktop_items',
 				array(
 					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
-					'default'           => 'enabled',
+					'default'           => $header_desktop_items,
 				)
 			);
 			$wp_customize->add_control(
@@ -108,10 +108,8 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					$wp_customize,
 					'header_desktop_items',
 					array(
-						// 'type' => 'responsive-builder',
 						'section'     => 'responsive_customizer_header_builder',
-						'default'     => $header_desktop_items,
-						'settings'    => 'responsive_header_scheme',
+						'settings'    => 'header_desktop_items',
 						'context'     => array(
 							array(
 								'setting' => '__device',
@@ -177,6 +175,110 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 									'bottom_center'       => esc_html__( 'Bottom - Center', 'responsive' ),
 									'bottom_right_center' => is_rtl() ? esc_html__( 'Bottom - Left Center', 'responsive' ) : esc_html__( 'Bottom - Right Center', 'responsive' ),
 									'bottom_right'        => is_rtl() ? esc_html__( 'Bottom - Left', 'responsive' ) : esc_html__( 'Bottom - Right', 'responsive' ),
+								),
+							),
+						),
+					)
+				)
+			);
+			$header_desktop_items_default = array(
+				'popup'  => array(
+					'popup_content' => array( 'mobile-navigation' ),
+				),
+				'top'    => array(
+					'top_left'   => array(),
+					'top_center' => array(),
+					'top_right'  => array(),
+				),
+				'main'   => array(
+					'main_left'   => array( 'mobile-logo' ),
+					'main_center' => array(),
+					'main_right'  => array( 'popup-toggle' ),
+				),
+				'bottom' => array(
+					'bottom_left'   => array(),
+					'bottom_center' => array(),
+					'bottom_right'  => array(),
+				),
+			);
+			$wp_customize->add_setting(
+				'header_mobile_items',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+					'default'           => $header_desktop_items_default,
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Builder_Control(
+					$wp_customize,
+					'header_mobile_items',
+					array(
+						'section'     => 'responsive_customizer_header_builder',
+						'settings'    => 'header_mobile_items',
+						'context'     => array(
+							array(
+								'setting'  => '__device',
+								'operator' => 'in',
+								'value'    => array( 'tablet', 'mobile' ),
+							),
+						),
+						'partial'     => array(
+							'selector'            => '#mobile-header',
+							'container_inclusive' => true,
+							'render_callback'     => 'Kadence\mobile_header',
+						),
+						'choices'     => array(
+							'mobile-logo'       => array(
+								'name'    => esc_html__( 'Logo', 'kadence' ),
+								'section' => 'title_tagline',
+							),
+							'mobile-navigation' => array(
+								'name'    => esc_html__( 'Mobile Navigation', 'kadence' ),
+								'section' => 'responsive_header_layout',
+							),
+							'search'            => array(
+								'name'    => esc_html__( 'Search Toggle', 'kadence' ),
+								'section' => 'responsive_header_layout',
+							),
+							'mobile-button'     => array(
+								'name'    => esc_html__( 'Button', 'kadence' ),
+								'section' => 'responsive_header_layout',
+							),
+							'mobile-social'     => array(
+								'name'    => esc_html__( 'Social', 'kadence' ),
+								'section' => 'responsive_header_layout',
+							),
+							'mobile-html'       => array(
+								'name'    => esc_html__( 'HTML', 'kadence' ),
+								'section' => 'responsive_header_layout',
+							),
+							'popup-toggle'      => array(
+								'name'    => esc_html__( 'Trigger', 'kadence' ),
+								'section' => 'responsive_header_layout',
+							),
+						),
+						'input_attrs' => array(
+							'group' => 'header_mobile_items',
+							'rows'  => array( 'popup', 'top', 'main', 'bottom' ),
+							'zones' => array(
+								'popup'  => array(
+									'popup_content' => esc_html__( 'Popup Content', 'kadence' ),
+								),
+								'top'    => array(
+									'top_left'   => is_rtl() ? esc_html__( 'Top - Right', 'kadence' ) : esc_html__( 'Top - Left', 'kadence' ),
+									'top_center' => esc_html__( 'Top - Center', 'kadence' ),
+									'top_right'  => is_rtl() ? esc_html__( 'Top - Left', 'kadence' ) : esc_html__( 'Top - Right', 'kadence' ),
+								),
+								'main'   => array(
+									'main_left'   => is_rtl() ? esc_html__( 'Main - Right', 'kadence' ) : esc_html__( 'Main - Left', 'kadence' ),
+									'main_center' => esc_html__( 'Main - Center', 'kadence' ),
+									'main_right'  => is_rtl() ? esc_html__( 'Main - Left', 'kadence' ) : esc_html__( 'Main - Right', 'kadence' ),
+								),
+								'bottom' => array(
+									'bottom_left'   => is_rtl() ? esc_html__( 'Bottom - Right', 'kadence' ) : esc_html__( 'Bottom - Left', 'kadence' ),
+									'bottom_center' => esc_html__( 'Bottom - Center', 'kadence' ),
+									'bottom_right'  => is_rtl() ? esc_html__( 'Bottom - Left', 'kadence' ) : esc_html__( 'Bottom - Right', 'kadence' ),
 								),
 							),
 						),
