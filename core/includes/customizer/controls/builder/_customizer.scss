@@ -99,3 +99,12 @@
 		}
 	}
 }
+.preview-tablet #customize-theme-controls #sub-accordion-section-responsive_customizer_header_builder #customize-control-header_desktop_items{
+	display: none ;
+}
+.preview-mobile #customize-theme-controls #sub-accordion-section-responsive_customizer_header_builder #customize-control-header_desktop_items{
+	display: none ;
+}
+.preview-desktop #customize-theme-controls #sub-accordion-section-responsive_customizer_header_builder #customize-control-header_mobile_items{
+	display: none;
+}
