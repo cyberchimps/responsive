@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(10/28/2021) = Fix - Version 4.7.1
+(10/29/2021) = Fix - Version 4.7.1
 [*] = Changed = Changed the layout of the settings in the Main Menu section of the Header panel.
 [!] = Fixed = 'Mobile Menu Settings' in the Main Menu section of the Header panel are hidden on the desktop view.
 [!] = Fixed = Incorrect callback assigned for 'Main & Mobile Menu Colors' separator in the Main Menu section of the Header panel.
