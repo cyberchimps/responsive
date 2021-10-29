@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/29/2021) = Fix - Version 4.7.1
+[*] = Changed = Changed the layout of the settings in the Main Menu section of the Header panel.
+[!] = Fixed = 'Mobile Menu Settings' in the Main Menu section of the Header panel are hidden on the desktop view.
+[!] = Fixed = Incorrect callback assigned for 'Main & Mobile Menu Colors' separator in the Main Menu section of the Header panel.
+[!] = Fixed = PHP notices are displayed on the front-end when the WooCommerce 'Shop' page is set as homepage.
+
 (10/13/2021) = Added - Version 4.7.0
 [+] = Feature = Added option to adjust the height of the Primary Header.
 [+] = Feature = Added option to adjust the height of the Transparent Header.

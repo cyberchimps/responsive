@@ -1237,7 +1237,7 @@ function responsive_active_mobile_vertical_header() {
  */
 function responsive_active_sidebar_menu() {
 
-	return ( 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) ? true : false;
+	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) ? true : false;
 }
 
 /**
@@ -1775,7 +1775,6 @@ function responsive_disabled_main_menu() {
 function responsive_disabled_mobile_menu() {
 	return ( ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) && ( 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) ) ) ? true : false;
 }
-
 /**
  * Toggle style if outline border color control.
  *
@@ -1784,7 +1783,6 @@ function responsive_disabled_mobile_menu() {
 function responsive_toggle_border_color() {
 	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
 }
-
 /**
  * Toggle style if outline & fill border radius control.
  *
@@ -1807,11 +1805,20 @@ function responsive_custom_home_active() {
 
 /**
  * [responsive_last_item_in_menu_active]
- * 
+ *
  * @return [type] [description]
  */
 function responsive_last_item_in_menu_active() {
 	return ( 'none' !== get_theme_mod( 'responsive_menu_last_item' ) && 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
+}
+
+/**
+ * [responsive_last_item_in_menu_and_mobile_menu_enabled description]
+ *
+ * @return [type] [description]
+ */
+function responsive_last_item_in_menu_and_mobile_menu_enabled() {
+	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'none' !== get_theme_mod( 'responsive_menu_last_item' ) ) ? true : false;
 }
 
 /**
