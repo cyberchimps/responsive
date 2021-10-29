@@ -34,6 +34,10 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 		 */
 		public function customizer_options( $wp_customize ) {
 
+			/**
+			 * Header Builder options
+			 */
+
 			$wp_customize->add_section(
 				'responsive_customizer_header_builder',
 				array(
@@ -283,6 +287,149 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							),
 						),
 					)
+				)
+			);
+
+			/**
+			 * Footer Builder options
+			 */
+
+			$wp_customize->add_section(
+				'responsive_customizer_footer_builder',
+				array(
+					'title'    => esc_html__( 'Footer Builder', 'responsive' ),
+					'panel'    => 'responsive_footer',
+					'priority' => 100,
+				)
+			);
+
+			ob_start();
+			?>
+			<span class="button button-secondary responsive-builder-hide-button responsive-builder-tab-toggle"><span class="dashicons dashicons-no"></span><?php esc_html_e( 'Hide', 'responsive' ); ?></span>
+			<span class="button button-secondary responsive-builder-show-button responsive-builder-tab-toggle"><span class="dashicons dashicons-edit"></span><?php esc_html_e( 'Footer Builder', 'responsive' ); ?></span>
+			<?php
+			$builder_tabs = ob_get_clean();
+			$wp_customize->add_control(
+				new Responsive_Customizer_blank_control(
+					$wp_customize,
+					'footer_builder',
+					array(
+						'section'     => 'responsive_customizer_footer_builder',
+						'settings'    => false,
+						'description' => $builder_tabs,
+					),
+				)
+			);
+
+			$footer_items = array(
+				'top'    => array(
+					'top_1' => array(),
+					'top_2' => array(),
+					'top_3' => array(),
+					'top_4' => array(),
+					'top_5' => array(),
+				),
+				'middle' => array(
+					'middle_1' => array(),
+					'middle_2' => array(),
+					'middle_3' => array(),
+					'middle_4' => array(),
+					'middle_5' => array(),
+				),
+				'bottom' => array(
+					'bottom_1' => array( 'footer-html' ),
+					'bottom_2' => array(),
+					'bottom_3' => array(),
+					'bottom_4' => array(),
+					'bottom_5' => array(),
+				),
+			);
+			$wp_customize->add_setting(
+				'footer_items',
+				array(
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+					'default'           => $footer_items,
+				)
+			);
+			$wp_customize->add_control(
+				new Responsive_Customizer_Builder_Control(
+					$wp_customize,
+					'footer_items',
+					array(
+						'section'     => 'responsive_customizer_footer_builder',
+						'settings'    => 'footer_items',
+						'partial'     => array(
+							'selector'            => '#colophon',
+							'container_inclusive' => true,
+							'render_callback'     => 'footer_markup',
+						),
+						'choices'     => array(
+							'footer-navigation' => array(
+								'name'    => esc_html__( 'Footer Navigation', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+							'footer-social'     => array(
+								'name'    => esc_html__( 'Social', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+							'footer-html'       => array(
+								'name'    => esc_html__( 'Copyright', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+							'footer-widget1'    => array(
+								'name'    => esc_html__( 'Widget 1', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+							'footer-widget2'    => array(
+								'name'    => esc_html__( 'Widget 2', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+							'footer-widget3'    => array(
+								'name'    => esc_html__( 'Widget 3', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+							'footer-widget4'    => array(
+								'name'    => esc_html__( 'Widget 4', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+							'footer-widget5'    => array(
+								'name'    => esc_html__( 'Widget 5', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+							'footer-widget6'    => array(
+								'name'    => esc_html__( 'Widget 6', 'responsive' ),
+								'section' => 'responsive_footer_layout',
+							),
+						),
+						'input_attrs' => array(
+							'group' => 'footer_items',
+							'rows'  => array( 'top', 'middle', 'bottom' ),
+							'zones' => array(
+								'top'    => array(
+									'top_1' => esc_html__( 'Top - 1', 'responsive' ),
+									'top_2' => esc_html__( 'Top - 2', 'responsive' ),
+									'top_3' => esc_html__( 'Top - 3', 'responsive' ),
+									'top_4' => esc_html__( 'Top - 4', 'responsive' ),
+									'top_5' => esc_html__( 'Top - 5', 'responsive' ),
+								),
+								'middle' => array(
+									'middle_1' => esc_html__( 'Middle - 1', 'responsive' ),
+									'middle_2' => esc_html__( 'Middle - 2', 'responsive' ),
+									'middle_3' => esc_html__( 'Middle - 3', 'responsive' ),
+									'middle_4' => esc_html__( 'Middle - 4', 'responsive' ),
+									'middle_5' => esc_html__( 'Middle - 5', 'responsive' ),
+								),
+								'bottom' => array(
+									'bottom_1' => esc_html__( 'Bottom - 1', 'responsive' ),
+									'bottom_2' => esc_html__( 'Bottom - 2', 'responsive' ),
+									'bottom_3' => esc_html__( 'Bottom - 3', 'responsive' ),
+									'bottom_4' => esc_html__( 'Bottom - 4', 'responsive' ),
+									'bottom_5' => esc_html__( 'Bottom - 5', 'responsive' ),
+								),
+							),
+						),
+					),
 				)
 			);
 		}
