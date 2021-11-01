@@ -62,31 +62,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			if ( ! has_action( 'responsive_custom_header' ) ) {
 
-				?>
+				/**
+				 * Responsive before header hook.
+				 */
+				do_action( 'responsive_before_header' );
 
-					<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
-						<div class="container">
-							<div class="row">
-								<?php
-								// Get elements.
-								$responsive_header_elements = get_theme_mod(
-									'responsive_header_elements',
-									array(
-										'site-branding',
-										'main-navigation',
-									)
-								);
+				/**
+				 * Responsive header hook.
+				 */
+				do_action( 'responsive_header' );
 
-								// Loop through elements.
-								foreach ( $responsive_header_elements as $element ) {
-									get_template_part( 'partials/header/' . $element );
-								}
-								?>
-							</div>
-						</div>
-					</header>
+				/**
+				 * Responsive after header hook.
+				 */
+				do_action( 'responsive_after_header' );
 
-				<?php
 			}
 		}
 		Responsive\responsive_header_bottom();

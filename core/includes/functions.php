@@ -18,6 +18,9 @@ namespace Responsive\Core;
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 require get_template_directory() . '/core/includes/page-custom-meta.php';
 
+// Load the template hooks.
+require get_template_directory() . '/core/includes/template-hooks.php';
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
