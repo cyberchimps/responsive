@@ -8,10 +8,10 @@
 namespace Responsive\Core;
 
 $row           = get_query_var( 'mobile_row' );
-$tablet_layout = ( responsive()->sub_option( 'header_' . $row . '_layout', 'tablet' ) ? responsive()->sub_option( 'header_' . $row . '_layout', 'tablet' ) : 'default' );
-$mobile_layout = ( responsive()->sub_option( 'header_' . $row . '_layout', 'mobile' ) ? responsive()->sub_option( 'header_' . $row . '_layout', 'mobile' ) : 'default' );
+$tablet_layout = ( get_theme_mod( 'header_' . $row . '_layout', 'tablet' ) ? get_theme_mod( 'header_' . $row . '_layout', 'tablet' ) : 'default' );
+$mobile_layout = ( get_theme_mod( 'header_' . $row . '_layout', 'mobile' ) ? get_theme_mod( 'header_' . $row . '_layout', 'mobile' ) : 'default' );
 ?>
-<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap site-header-focus-item site-header-row-layout-<?php echo esc_attr( responsive()->sub_option( 'header_' . $row . '_layout', 'desktop' ) ); ?> site-header-row-tablet-layout-<?php echo esc_attr( $tablet_layout ); ?> site-header-row-mobile-layout-<?php echo esc_attr( $mobile_layout ); ?> <?php /* echo esc_attr( $row === responsive()->option( 'mobile_header_sticky' ) ? ' responsive-sticky-header' : '' ); */ ?>"
+<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap site-header-focus-item site-header-row-layout-<?php echo esc_attr( get_theme_mod( 'header_' . $row . '_layout', 'desktop' ) ); ?> site-header-row-tablet-layout-<?php echo esc_attr( $tablet_layout ); ?> site-header-row-mobile-layout-<?php echo esc_attr( $mobile_layout ); ?> <?php /* echo esc_attr( $row === responsive()->option( 'mobile_header_sticky' ) ? ' responsive-sticky-header' : '' ); */ ?>"
 <?php
 /*
 	If ( $row === 'main' && 'main' === responsive()->option( 'mobile_header_sticky' ) ) {
@@ -26,8 +26,8 @@ $mobile_layout = ( responsive()->sub_option( 'header_' . $row . '_layout', 'mobi
 >
 	<div class="site-header-row-container-inner">
 		<div class="site-container">
-			<div class="site-<?php echo esc_attr( $row ); ?>-header-inner-wrap site-header-row <?php echo ( responsive()->has_mobile_side_columns( $row ) ? 'site-header-row-has-sides' : 'site-header-row-only-center-column' ); ?> <?php echo ( responsive()->has_mobile_center_column( $row ) ? 'site-header-row-center-column' : 'site-header-row-no-center' ); ?>">
-				<?php if ( responsive()->has_mobile_side_columns( $row ) ) { ?>
+			<div class="site-<?php echo esc_attr( $row ); ?>-header-inner-wrap site-header-row <?php echo ( has_mobile_side_columns( $row ) ? 'site-header-row-has-sides' : 'site-header-row-only-center-column' ); ?> <?php echo ( has_mobile_center_column( $row ) ? 'site-header-row-center-column' : 'site-header-row-no-center' ); ?>">
+				<?php if ( has_mobile_side_columns( $row ) ) { ?>
 					<div class="site-header-<?php echo esc_attr( $row ); ?>-section-left site-header-section site-header-section-left">
 						<?php
 						/**
@@ -37,7 +37,7 @@ $mobile_layout = ( responsive()->sub_option( 'header_' . $row . '_layout', 'mobi
 						 */
 						do_action( 'responsive_render_mobile_header_column', $row, 'left' );
 
-						if ( responsive()->has_mobile_center_column( $row ) ) {
+						if ( has_mobile_center_column( $row ) ) {
 							/**
 							 * Responsive Render Header Column
 							 *
@@ -48,7 +48,7 @@ $mobile_layout = ( responsive()->sub_option( 'header_' . $row . '_layout', 'mobi
 						?>
 					</div>
 				<?php } ?>
-				<?php if ( responsive()->has_mobile_center_column( $row ) ) { ?>
+				<?php if ( has_mobile_center_column( $row ) ) { ?>
 					<div class="site-header-<?php echo esc_attr( $row ); ?>-section-center site-header-section site-header-section-center">
 						<?php
 						/**
@@ -60,10 +60,10 @@ $mobile_layout = ( responsive()->sub_option( 'header_' . $row . '_layout', 'mobi
 						?>
 					</div>
 				<?php } ?>
-				<?php if ( responsive()->has_mobile_side_columns( $row ) ) { ?>
+				<?php if ( has_mobile_side_columns( $row ) ) { ?>
 					<div class="site-header-<?php echo esc_attr( $row ); ?>-section-right site-header-section site-header-section-right">
 						<?php
-						if ( responsive()->has_mobile_center_column( $row ) ) {
+						if ( has_mobile_center_column( $row ) ) {
 							/**
 							 * Responsive Render Header Column
 							 *

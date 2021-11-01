@@ -8,7 +8,7 @@
 namespace Responsive\Core;
 
 ?>
-<div class="site-header-item site-header-focus-item site-header-item-main-navigation header-navigation-layout-stretch-<?php echo ( responsive()->option( 'primary_navigation_stretch' ) ? 'true' : 'false' ); ?> header-navigation-layout-fill-stretch-<?php echo ( responsive()->option( 'primary_navigation_fill_stretch' ) ? 'true' : 'false' ); ?>" data-section="responsive_customizer_primary_navigation">
+<div class="site-header-item site-header-focus-item site-header-item-main-navigation header-navigation-layout-stretch-<?php echo ( get_theme_mod( 'primary_navigation_stretch' ) ? 'true' : 'false' ); ?> header-navigation-layout-fill-stretch-<?php echo ( get_theme_mod( 'primary_navigation_fill_stretch' ) ? 'true' : 'false' ); ?>" data-section="responsive_customizer_primary_navigation">
 	<?php
 	/**
 	 * Responsive Primary Navigation
