@@ -10,6 +10,15 @@ const MOBILE_NAV_MENU_SLUG  = 'mobile';
 function header_markup() {
 	get_template_part( 'template-parts/header/base' );
 }
+/**
+ * Header Row Class.
+ *
+ * @param string $row the header row.
+ */
+function header_row_class( $row ) {
+	$classes = 'site-' . esc_attr( $row ) . '-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-' . esc_attr( get_theme_mod( 'header_' . $row . '_layout', 'desktop' ) ) . esc_attr( get_theme_mod( 'header_sticky', 0 ) === $row ? ' responsive-sticky-header' : '' );
+	return apply_filters( 'responsive-header-row-class-string', $classes );
+}
 
 /**
  * Get other templates assing attributes and including the file.

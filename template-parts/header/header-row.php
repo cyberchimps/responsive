@@ -23,10 +23,10 @@ If ( 'main' === $row && 'main' === responsive()->option( 'header_sticky' ) ) {
 ?>
 >
 	<div class="site-header-row-container-inner">
-		<?php responsive()->customizer_quick_link(); ?>
+		<?php customizer_quick_link(); ?>
 		<div class="site-container">
-			<div class="site-<?php echo esc_attr( $row ); ?>-header-inner-wrap site-header-row <?php echo ( responsive()->has_side_columns( $row ) ? 'site-header-row-has-sides' : 'site-header-row-only-center-column' ); ?> <?php echo ( responsive()->has_center_column( $row ) ? 'site-header-row-center-column' : 'site-header-row-no-center' ); ?>">
-				<?php if ( responsive()->has_side_columns( $row ) ) { ?>
+			<div class="site-<?php echo esc_attr( $row ); ?>-header-inner-wrap site-header-row <?php echo ( has_side_columns( $row ) ? 'site-header-row-has-sides' : 'site-header-row-only-center-column' ); ?> <?php echo ( has_center_column( $row ) ? 'site-header-row-center-column' : 'site-header-row-no-center' ); ?>">
+				<?php if ( has_side_columns( $row ) ) { ?>
 					<div class="site-header-<?php echo esc_attr( $row ); ?>-section-left site-header-section site-header-section-left">
 						<?php
 						/**
@@ -36,7 +36,7 @@ If ( 'main' === $row && 'main' === responsive()->option( 'header_sticky' ) ) {
 						 */
 						do_action( 'responsive_render_header_column', $row, 'left' );
 
-						if ( responsive()->has_center_column( $row ) ) {
+						if ( has_center_column( $row ) ) {
 							?>
 							<div class="site-header-<?php echo esc_attr( $row ); ?>-section-left-center site-header-section site-header-section-left-center">
 								<?php
@@ -53,7 +53,7 @@ If ( 'main' === $row && 'main' === responsive()->option( 'header_sticky' ) ) {
 						?>
 					</div>
 				<?php } ?>
-				<?php if ( responsive()->has_center_column( $row ) ) { ?>
+				<?php if ( has_center_column( $row ) ) { ?>
 					<div class="site-header-<?php echo esc_attr( $row ); ?>-section-center site-header-section site-header-section-center">
 						<?php
 						/**
@@ -65,10 +65,10 @@ If ( 'main' === $row && 'main' === responsive()->option( 'header_sticky' ) ) {
 						?>
 					</div>
 				<?php } ?>
-				<?php if ( responsive()->has_side_columns( $row ) ) { ?>
+				<?php if ( has_side_columns( $row ) ) { ?>
 					<div class="site-header-<?php echo esc_attr( $row ); ?>-section-right site-header-section site-header-section-right">
 						<?php
-						if ( responsive()->has_center_column( $row ) ) {
+						if ( has_center_column( $row ) ) {
 							?>
 							<div class="site-header-<?php echo esc_attr( $row ); ?>-section-right-center site-header-section site-header-section-right-center">
 								<?php
