@@ -249,7 +249,7 @@ const BuilderComponent = props => {
 
 BuilderComponent.propTypes = {
 	control: PropTypes.object.isRequired,
-	customizer: PropTypes.object.isRequired
+	// customizer: PropTypes.object.isRequired
 };
 
 export default BuilderComponent;

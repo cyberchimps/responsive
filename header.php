@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?> <?php responsive_schema_markup( 'body' ); ?> >
 	<?php wp_body_open(); ?>
-	<?php Responsive\responsive_header(); // before header hook. ?>
+	<?php //Responsive\responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#primary"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				/**
 				 * Responsive header hook.
 				 */
-				do_action( 'responsive_header' );
+				Responsive\responsive_header();
 
 				/**
 				 * Responsive after header hook.

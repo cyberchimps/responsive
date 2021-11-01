@@ -244,9 +244,21 @@ function render_custom_logo( $option_string = '', $custom_class = 'extra-custom-
  * Desktop Site Branding
  */
 function site_branding() {
-	$layout   = get_theme_mod( 'logo_layout' );
-	$includes = array();
-	$layouts  = array();
+	$default_layout = array(
+		'include' => array(
+			'mobile'  => '',
+			'tablet'  => '',
+			'desktop' => 'logo_title',
+		),
+		'layout'  => array(
+			'mobile'  => '',
+			'tablet'  => '',
+			'desktop' => 'standard',
+		),
+	);
+	$layout         = get_theme_mod( 'logo_layout', $default_layout );
+	$includes       = array();
+	$layouts        = array();
 	if ( is_array( $layout ) && isset( $layout['include'] ) ) {
 		if ( isset( $layout['layout'] ) ) {
 			if ( isset( $layout['layout']['desktop'] ) && ! empty( $layout['layout']['desktop'] ) ) {
@@ -489,7 +501,8 @@ function mobile_site_branding() {
 					$layouts[ $device ] = $layout['layout'][ $device ];
 				}
 			}
-			/* if ( 'desktop' === $device && ! empty( $includes ) ) {
+			/*
+			 if ( 'desktop' === $device && ! empty( $includes ) ) {
 				continue;
 			} */
 			if ( isset( $layout['include'][ $device ] ) && ! empty( $layout['include'][ $device ] ) ) {
@@ -1072,7 +1085,8 @@ function header_social() {
 					} elseif ( ! empty( $item['url'] ) ) {
 						echo '<img src="' . esc_attr( $item['url'] ) . '" alt="' . esc_attr( $item['label'] ) . '" class="social-icon-image" style="max-width:' . esc_attr( $item['width'] ) . 'px"/>';
 					}
-				} /* else {
+				} /*
+				else {
 					responsive()->print_icon( $item['icon'], '', false );.
 				} */
 				if ( $show_label ) {
@@ -1252,14 +1266,14 @@ function has_side_columns( $row = 'main' ) {
 	if ( isset( $sides[ $row ] ) ) {
 		return $sides[ $row ];
 	}
-	$sides    = false;
+	$side     = false;
 	$elements = get_theme_mod( 'header_desktop_items' );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
 		if ( ( isset( $elements[ $row ][ $row . '_left' ] ) && is_array( $elements[ $row ][ $row . '_left' ] ) && ! empty( $elements[ $row ][ $row . '_left' ] ) ) || ( isset( $elements[ $row ][ $row . '_left_center' ] ) && is_array( $elements[ $row ][ $row . '_left_center' ] ) && ! empty( $elements[ $row ][ $row . '_left_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right_center' ] ) && is_array( $elements[ $row ][ $row . '_right_center' ] ) && ! empty( $elements[ $row ][ $row . '_right_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right' ] ) && is_array( $elements[ $row ][ $row . '_right' ] ) && ! empty( $elements[ $row ][ $row . '_right' ] ) ) ) {
-			$sides = true;
+			$side = true;
 		}
 	}
-	$sides[ $row ] = $sides;
+	$sides[ $row ] = $side;
 	return $sides;
 }
 
@@ -1272,12 +1286,12 @@ function has_center_column( $row = 'main' ) {
 	if ( isset( $center[ $row ] ) ) {
 		return $center[ $row ];
 	}
-	$center   = false;
+	$centre   = false;
 	$elements = get_theme_mod( 'header_desktop_items' );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_center' ] ) && is_array( $elements[ $row ][ $row . '_center' ] ) && ! empty( $elements[ $row ][ $row . '_center' ] ) ) {
-		$center = true;
+		$centre = true;
 	}
-	$center[ $row ] = $center;
+	$center[ $row ] = $centre;
 	return $center;
 }
 
@@ -1290,14 +1304,14 @@ function has_mobile_side_columns( $row = 'main' ) {
 	if ( isset( $mobile_sides[ $row ] ) ) {
 		return $mobile_sides[ $row ];
 	}
-	$mobile_sides = false;
-	$elements     = get_theme_mod( 'header_mobile_items' );
+	$mobile_side = false;
+	$elements    = get_theme_mod( 'header_mobile_items' );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
 		if ( ( isset( $elements[ $row ][ $row . '_left' ] ) && is_array( $elements[ $row ][ $row . '_left' ] ) && ! empty( $elements[ $row ][ $row . '_left' ] ) ) || ( isset( $elements[ $row ][ $row . '_left_center' ] ) && is_array( $elements[ $row ][ $row . '_left_center' ] ) && ! empty( $elements[ $row ][ $row . '_left_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right_center' ] ) && is_array( $elements[ $row ][ $row . '_right_center' ] ) && ! empty( $elements[ $row ][ $row . '_right_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right' ] ) && is_array( $elements[ $row ][ $row . '_right' ] ) && ! empty( $elements[ $row ][ $row . '_right' ] ) ) ) {
-			$mobile_sides = true;
+			$mobile_side = true;
 		}
 	}
-	$mobile_sides[ $row ] = $mobile_sides;
+	$mobile_sides[ $row ] = $mobile_side;
 	return $mobile_sides;
 }
 
@@ -1310,11 +1324,11 @@ function has_mobile_center_column( $row = 'main' ) {
 	if ( isset( $mobile_center[ $row ] ) ) {
 		return $mobile_center[ $row ];
 	}
-	$mobile_center = false;
+	$mobile_centre = false;
 	$elements      = get_theme_mod( 'header_mobile_items' );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_center' ] ) && is_array( $elements[ $row ][ $row . '_center' ] ) && ! empty( $elements[ $row ][ $row . '_center' ] ) ) {
-		$mobile_center = true;
+		$mobile_centre = true;
 	}
-	$mobile_center[ $row ] = $mobile_center;
+	$mobile_center[ $row ] = $mobile_centre;
 	return $mobile_center;
 }
