@@ -25,7 +25,6 @@ const RowComponent = props => {
 		centerClass = 'popup-vertical-group';
 	}
 	if ('footer_items' === controlParamsGroup) {
-		console.log(customizer.control('responsive_footer_widgets_columns'))
 		var columns = customizer.control('responsive_footer_widgets_columns').setting.get();
 		// var layout = customizer.control('footer_' + props.row + '_layout').setting.get();
 		// var direction = customizer.control('footer_' + props.row + '_direction').setting.get();
