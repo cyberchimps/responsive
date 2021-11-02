@@ -3,6 +3,10 @@
 static $layout              = null;
 const PRIMARY_NAV_MENU_SLUG = 'primary';
 const MOBILE_NAV_MENU_SLUG  = 'mobile';
+static $sides               = array();
+static $center              = array();
+static $mobile_sides        = array();
+static $mobile_center       = array();
 
 /**
  * Main Call for Responsive Header
@@ -240,9 +244,21 @@ function render_custom_logo( $option_string = '', $custom_class = 'extra-custom-
  * Desktop Site Branding
  */
 function site_branding() {
-	$layout   = get_theme_mod( 'logo_layout' );
-	$includes = array();
-	$layouts  = array();
+	$default_layout = array(
+		'include' => array(
+			'mobile'  => '',
+			'tablet'  => '',
+			'desktop' => 'logo_title',
+		),
+		'layout'  => array(
+			'mobile'  => '',
+			'tablet'  => '',
+			'desktop' => 'standard',
+		),
+	);
+	$layout         = get_theme_mod( 'logo_layout', $default_layout );
+	$includes       = array();
+	$layouts        = array();
 	if ( is_array( $layout ) && isset( $layout['include'] ) ) {
 		if ( isset( $layout['layout'] ) ) {
 			if ( isset( $layout['layout']['desktop'] ) && ! empty( $layout['layout']['desktop'] ) ) {
@@ -347,6 +363,15 @@ function display_primary_nav_menu( array $args = array() ) {
 	$args['theme_location'] = PRIMARY_NAV_MENU_SLUG;
 	wp_nav_menu( $args );
 }
+/**
+ * Displays the primary navigation menu.
+ *
+ * @param array $args Optional. Array of arguments. See wp nav menu documentation for a list of supported arguments.
+ */
+function change_page_menu_classes( $menu, $args ) {
+	$menu = str_replace( 'page_item', 'menu-item', $menu );
+	return $menu;
+}
 
 /**
  * Displays the fallback page navigation menu.
@@ -375,9 +400,9 @@ function display_fallback_menu( array $args = array() ) {
 		'menu_class' => 'menu',
 		'container'  => 'ul',
 	);
-	add_filter( 'wp_page_menu', array( $this, 'change_page_menu_classes' ), 10, 2 );
+	add_filter( 'wp_page_menu', 'change_page_menu_classes', 10, 2 );
 	wp_page_menu( $fallback_args );
-	remove_filter( 'wp_page_menu', array( $this, 'change_page_menu_classes' ), 10, 2 );
+	remove_filter( 'wp_page_menu', 'change_page_menu_classes', 10, 2 );
 }
 
 /**
@@ -476,7 +501,8 @@ function mobile_site_branding() {
 					$layouts[ $device ] = $layout['layout'][ $device ];
 				}
 			}
-			/* if ( 'desktop' === $device && ! empty( $includes ) ) {
+			/*
+			 if ( 'desktop' === $device && ! empty( $includes ) ) {
 				continue;
 			} */
 			if ( isset( $layout['include'][ $device ] ) && ! empty( $layout['include'][ $device ] ) ) {
@@ -1059,8 +1085,9 @@ function header_social() {
 					} elseif ( ! empty( $item['url'] ) ) {
 						echo '<img src="' . esc_attr( $item['url'] ) . '" alt="' . esc_attr( $item['label'] ) . '" class="social-icon-image" style="max-width:' . esc_attr( $item['width'] ) . 'px"/>';
 					}
-				} /* else {
-					kadence()->print_icon( $item['icon'], '', false );.
+				} /*
+				else {
+					responsive()->print_icon( $item['icon'], '', false );.
 				} */
 				if ( $show_label ) {
 					echo '<span class="social-label">' . esc_html( $item['label'] ) . '</span>';
@@ -1228,4 +1255,80 @@ function search_modal() {
 		</div>
 	</div>
 	<?php
+}
+
+/**
+ * Adds a check to see if the side columns should run.
+ *
+ * @param string $row the name of the row.
+ */
+function has_side_columns( $row = 'main' ) {
+	if ( isset( $sides[ $row ] ) ) {
+		return $sides[ $row ];
+	}
+	$side     = false;
+	$elements = get_theme_mod( 'header_desktop_items' );
+	if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
+		if ( ( isset( $elements[ $row ][ $row . '_left' ] ) && is_array( $elements[ $row ][ $row . '_left' ] ) && ! empty( $elements[ $row ][ $row . '_left' ] ) ) || ( isset( $elements[ $row ][ $row . '_left_center' ] ) && is_array( $elements[ $row ][ $row . '_left_center' ] ) && ! empty( $elements[ $row ][ $row . '_left_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right_center' ] ) && is_array( $elements[ $row ][ $row . '_right_center' ] ) && ! empty( $elements[ $row ][ $row . '_right_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right' ] ) && is_array( $elements[ $row ][ $row . '_right' ] ) && ! empty( $elements[ $row ][ $row . '_right' ] ) ) ) {
+			$side = true;
+		}
+	}
+	$sides[ $row ] = $side;
+	return $sides;
+}
+
+/**
+ * Adds a check to see if the center column should run.
+ *
+ * @param string $row the name of the row.
+ */
+function has_center_column( $row = 'main' ) {
+	if ( isset( $center[ $row ] ) ) {
+		return $center[ $row ];
+	}
+	$centre   = false;
+	$elements = get_theme_mod( 'header_desktop_items' );
+	if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_center' ] ) && is_array( $elements[ $row ][ $row . '_center' ] ) && ! empty( $elements[ $row ][ $row . '_center' ] ) ) {
+		$centre = true;
+	}
+	$center[ $row ] = $centre;
+	return $center;
+}
+
+/**
+ * Adds a check to see if the side columns should run.
+ *
+ * @param string $row the name of the row.
+ */
+function has_mobile_side_columns( $row = 'main' ) {
+	if ( isset( $mobile_sides[ $row ] ) ) {
+		return $mobile_sides[ $row ];
+	}
+	$mobile_side = false;
+	$elements    = get_theme_mod( 'header_mobile_items' );
+	if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
+		if ( ( isset( $elements[ $row ][ $row . '_left' ] ) && is_array( $elements[ $row ][ $row . '_left' ] ) && ! empty( $elements[ $row ][ $row . '_left' ] ) ) || ( isset( $elements[ $row ][ $row . '_left_center' ] ) && is_array( $elements[ $row ][ $row . '_left_center' ] ) && ! empty( $elements[ $row ][ $row . '_left_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right_center' ] ) && is_array( $elements[ $row ][ $row . '_right_center' ] ) && ! empty( $elements[ $row ][ $row . '_right_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right' ] ) && is_array( $elements[ $row ][ $row . '_right' ] ) && ! empty( $elements[ $row ][ $row . '_right' ] ) ) ) {
+			$mobile_side = true;
+		}
+	}
+	$mobile_sides[ $row ] = $mobile_side;
+	return $mobile_sides;
+}
+
+/**
+ * Adds a check to see if the center column should run.
+ *
+ * @param string $row the name of the row.
+ */
+function has_mobile_center_column( $row = 'main' ) {
+	if ( isset( $mobile_center[ $row ] ) ) {
+		return $mobile_center[ $row ];
+	}
+	$mobile_centre = false;
+	$elements      = get_theme_mod( 'header_mobile_items' );
+	if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_center' ] ) && is_array( $elements[ $row ][ $row . '_center' ] ) && ! empty( $elements[ $row ][ $row . '_center' ] ) ) {
+		$mobile_centre = true;
+	}
+	$mobile_center[ $row ] = $mobile_centre;
+	return $mobile_center;
 }

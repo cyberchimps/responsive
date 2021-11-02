@@ -102,7 +102,6 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->add_setting(
 				'header_desktop_items',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 					'default'           => $header_desktop_items,
 				)
@@ -347,7 +346,6 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->add_setting(
 				'footer_items',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'         => 'refresh',
 					'default'           => $footer_items,
 				)
