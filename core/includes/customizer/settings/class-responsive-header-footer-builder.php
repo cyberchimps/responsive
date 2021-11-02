@@ -207,9 +207,8 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->add_setting(
 				'header_mobile_items',
 				array(
-					'sanitize_callback' => 'responsive_sanitize_select',
-					'transport'         => 'refresh',
-					'default'           => $header_desktop_items_default,
+					'transport' => 'refresh',
+					'default'   => $header_desktop_items_default,
 				)
 			);
 			$wp_customize->add_control(
