@@ -5,14 +5,3 @@
 .customize-control .customize-inside-control-row.checkbox-with-react > label {
     vertical-align: initial;
 }
-
-.preview-desktop #customize-control-responsive_disable_mobile_menu,
-.preview-desktop #customize-control-responsive_stacked_mobile_menu,
-.preview-desktop #customize-control-responsive_hamburger_menu_label_text,
-.preview-desktop #customize-control-responsive_hamburger_menu_label_font_size,
-.preview-desktop #customize-control-responsive_mobile_menu_toggle_style,
-.preview-desktop #customize-control-responsive_mobile_menu_style,
-.preview-desktop #customize-control-responsive_menu_button_radius,
-.preview-desktop #customize-control-responsive_mobile_menu_breakpoint {
-	display: none;
-}
