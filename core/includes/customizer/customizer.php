@@ -203,6 +203,7 @@ function responsive_register_options() {
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
 		'class-responsive-header-footer-builder',
+		'class-responsive-builder-rows',
 	);
 
 	foreach ( $files as $key ) {
