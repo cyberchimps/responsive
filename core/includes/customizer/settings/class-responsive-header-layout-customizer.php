@@ -128,10 +128,78 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// HTML content.
 			$header_html_content = __( 'HTML content', 'responsive' );
-			responsive_text_control( $wp_customize, 'header_html_content', $header_html_content, 'responsive_header_layout', 50, '<p>Enter HTML here!</p>', null, 'sanitize_text_field', 'textarea' );
-			// Inline logo & site title.
+			responsive_text_control( $wp_customize, 'header_html_content', $header_html_content, 'responsive_header_layout', 80, '<p>Enter HTML here!</p>', null, 'sanitize_text_field', 'textarea' );
+
 			$wpautop = __( 'Automatically Add Paragraphs', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_html_wpautop', $wpautop, 'responsive_header_layout', 50, 1 );
+			responsive_checkbox_control( $wp_customize, 'header_html_wpautop', $wpautop, 'responsive_header_layout', 80, 1 );
+
+			$header_builder_settings_separator_label = esc_html__( 'Header Builder Settings', 'responsive' );
+			responsive_separator_control( $wp_customize, 'header_builder_settings_separator', $header_builder_settings_separator_label, 'responsive_header_layout', 75 );
+
+			$header_desktop_tablet_mobile_layout_choices = array(
+				'default' => __( 'Standard', 'responsive' ),
+				'fullwidth' => __( 'Full Width', 'responsive' ),
+				'contained' => __( 'Contained', 'responsive' ),
+			);
+
+			$stretch_primary_navigation_label = __( 'Stretch Primary Menu?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'stretch_primary_navigation', $stretch_primary_navigation_label, 'responsive_header_layout', 95, 0, null );
+
+			$stretch_secondary_navigation_label = __( 'Stretch Secondary Menu?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'stretch_secondary_navigation', $stretch_secondary_navigation_label, 'responsive_header_layout', 100, 0, null );
+
+			$stretch_mobile_navigation_label = __( 'Stretch Mobile Menu?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'stretch_mobile_navigation', $stretch_mobile_navigation_label, 'responsive_header_layout', 105, 0, null );
+
+			$primary_navigation_fill_stretch_label = __( 'Fill and Center Primary Menu Items?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'primary_navigation_fill_stretch', $primary_navigation_fill_stretch_label, 'responsive_header_layout', 110, 0, null );
+
+			$secondary_navigation_fill_stretch_label = __( 'Fill and Center Secondary Menu Items?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'secondary_navigation_fill_stretch', $secondary_navigation_fill_stretch_label, 'responsive_header_layout', 115, 0, null );
+
+			$logo_layout_include_choices = array(
+				'logo' => __( 'Logo', 'responsive' ),
+				'logo_title' => __( 'Logo & Title', 'responsive' ),
+				'logo_title_tagline' => __( 'Logo, Title & Tagline', 'responsive' ),
+			);
+			$desktop_logo_layout_include_label = __( 'Desktop Logo Layout', 'responsive' );
+			responsive_select_control( $wp_customize, 'desktop_logo_layout_include', $desktop_logo_layout_include_label, 'responsive_header_layout', 120, $logo_layout_include_choices, 'logo_title', null );
+			$tablet_logo_layout_include_label = __( 'Tablet Logo Layout', 'responsive' );
+			responsive_select_control( $wp_customize, 'tablet_logo_layout_include', $tablet_logo_layout_include_label, 'responsive_header_layout', 125, $logo_layout_include_choices, 'logo', null );
+			$mobile_logo_layout_include_label = __( 'Mobile Logo Layout', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_logo_layout_include', $mobile_logo_layout_include_label, 'responsive_header_layout', 130, $logo_layout_include_choices, 'logo', null );
+
+			$logo_layout_structure_choices = array(
+				'standard' => __( 'Standard', 'responsive' ),
+				'title_tag_logo' => __( 'Title - Tagline - Logo', 'responsive' ),
+				'top_logo_title_tag' => __( 'Top Logo - Title - Tagline', 'responsive' ),
+				'top_title_tag_logo' => __( 'Top Title - Tagline - Logo', 'responsive' ),
+				'top_title_logo_tag' => __( 'Top Title - Logo - Tagline', 'responsive' ),
+			);
+			$desktop_logo_layout_structure_label = __( 'Desktop Logo Layout Structure', 'responsive' );
+			responsive_select_control( $wp_customize, 'desktop_logo_layout_structure', $desktop_logo_layout_structure_label, 'responsive_header_layout', 135, $logo_layout_structure_choices, 'standard', null );
+			$tablet_logo_layout_structure_label = __( 'Tablet Logo Layout Structure', 'responsive' );
+			responsive_select_control( $wp_customize, 'tablet_logo_layout_structure', $tablet_logo_layout_structure_label, 'responsive_header_layout', 140, $logo_layout_structure_choices, 'standard', null );
+			$mobile_logo_layout_structure_label = __( 'Mobile Logo Layout Structure', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_logo_layout_structure', $mobile_logo_layout_structure_label, 'responsive_header_layout', 145, $logo_layout_structure_choices, 'standard', null );
+
+			$header_primary_navigation_style_choices = array(
+				'standard' => __( 'Standard', 'responsive' ),
+				'fullheight' => __( 'Full height', 'responsive' ),
+				'underline' => __( 'Underline', 'responsive' ),
+				'underline-fullheight' => __( 'Underline - Full height', 'responsive' ),
+			);
+			$header_primary_navigation_style_label = __( 'Primary Navigation Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'primary_navigation_style', $header_primary_navigation_style_label, 'responsive_header_layout', 150, $header_primary_navigation_style_choices, 'standard', null );
+
+			$dropdown_navigation_reveal_choices = array(
+				'none' => __( 'None', 'responsive' ),
+				'fade' => __( 'Fade', 'responsive' ),
+				'fade-up' => __( 'Fade Up', 'responsive' ),
+				'fade-down' => __( 'Fade Down', 'responsive' ),
+			);
+			$dropdown_navigation_reveal_label = __( 'Dropdown Reveal', 'responsive' );
+			responsive_select_control( $wp_customize, 'dropdown_navigation_reveal', $dropdown_navigation_reveal_label, 'responsive_header_layout', 155, $dropdown_navigation_reveal_choices, 'none', null );
 
 		}
 	}
