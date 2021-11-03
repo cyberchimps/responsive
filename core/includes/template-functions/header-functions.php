@@ -13,6 +13,22 @@ static $mobile_center         = array();
 
 add_action( 'after_setup_theme', 'action_register_nav_menus' );
 
+
+add_action( 'after_setup_theme', 'action_register_nav_menus' );
+
+/**
+ * Registers the navigation menus.
+ */
+function action_register_nav_menus() {
+	register_nav_menus(
+		array(
+			PRIMARY_NAV_MENU_SLUG   => esc_html__( 'Primary', 'responsive' ),
+			SECONDARY_NAV_MENU_SLUG => esc_html__( 'Secondary', 'responsive' ),
+			MOBILE_NAV_MENU_SLUG    => esc_html__( 'Mobile', 'responsive' ),
+			FOOTER_NAV_MENU_SLUG    => esc_html__( 'Footer', 'responsive' ),
+		)
+	);
+}
 /**
  * Registers the navigation menus.
  */
@@ -262,19 +278,18 @@ function render_custom_logo( $option_string = '', $custom_class = 'extra-custom-
  * Desktop Site Branding
  */
 function site_branding() {
-	$default_layout = array(
+	$layout = array(
 		'include' => array(
-			'mobile'  => '',
-			'tablet'  => '',
-			'desktop' => 'logo_title',
+			'mobile'  => get_theme_mod( 'responsive_mobile_logo_layout_include', 'logo' ),
+			'tablet'  => get_theme_mod( 'responsive_tablet_logo_layout_include', 'logo' ),
+			'desktop' => get_theme_mod( 'responsive_desktop_logo_layout_include', 'logo_title' ),
 		),
 		'layout'  => array(
-			'mobile'  => '',
-			'tablet'  => '',
-			'desktop' => 'standard',
+			'mobile'  => get_theme_mod( 'responsive_mobile_logo_layout_structure', 'standard' ),
+			'tablet'  => get_theme_mod( 'responsive_tablet_logo_layout_structure', 'standard' ),
+			'desktop' => get_theme_mod( 'responsive_desktop_logo_layout_structure', 'standard' ),
 		),
 	);
-	$layout         = get_theme_mod( 'logo_layout', $default_layout );
 	$includes       = array();
 	$layouts        = array();
 	if ( is_array( $layout ) && isset( $layout['include'] ) ) {
@@ -427,7 +442,7 @@ function display_fallback_menu( array $args = array() ) {
  */
 function primary_navigation() {
 	?>
-	<nav id="site-navigation" class="main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'primary_navigation_style' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'responsive' ); ?>">
+	<nav id="site-navigation" class="main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'responsive_primary_navigation_style', 'standard' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'responsive_dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'responsive' ); ?>">
 		<?php customizer_quick_link(); ?>
 		<div class="primary-menu-container header-menu-container">
 			<?php
@@ -558,7 +573,18 @@ function custom_logo( $blog_id = 0 ) {
  * Mobile Site Branding
  */
 function mobile_site_branding() {
-	$layout   = get_theme_mod( 'logo_layout' );
+	$layout = array(
+		'include' => array(
+			'mobile'  => get_theme_mod( 'responsive_mobile_logo_layout_include', 'logo' ),
+			'tablet'  => get_theme_mod( 'responsive_tablet_logo_layout_include', 'logo' ),
+			'desktop' => get_theme_mod( 'responsive_desktop_logo_layout_include', 'logo_title' ),
+		),
+		'layout'  => array(
+			'mobile'  => get_theme_mod( 'responsive_mobile_logo_layout_structure', 'standard' ),
+			'tablet'  => get_theme_mod( 'responsive_tablet_logo_layout_structure', 'standard' ),
+			'desktop' => get_theme_mod( 'responsive_desktop_logo_layout_structure', 'standard' ),
+		),
+	);
 	$includes = array();
 	$layouts  = array();
 	if ( is_array( $layout ) && isset( $layout['include'] ) ) {
@@ -568,10 +594,9 @@ function mobile_site_branding() {
 					$layouts[ $device ] = $layout['layout'][ $device ];
 				}
 			}
-			/*
-			 if ( 'desktop' === $device && ! empty( $includes ) ) {
-				continue;
-			} */
+			// if ( 'desktop' === $device && ! empty( $includes ) ) {
+			// 	continue;
+			// }
 			if ( isset( $layout['include'][ $device ] ) && ! empty( $layout['include'][ $device ] ) ) {
 				if ( strpos( $layout['include'][ $device ], 'logo' ) !== false ) {
 					if ( ! in_array( 'logo', $includes, true ) ) {
