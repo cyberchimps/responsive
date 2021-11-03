@@ -125,6 +125,14 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			// Bottom Border.
 			$bottom_border_label = __( 'Bottom Border Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'bottom_border', $bottom_border_label, 'responsive_header_layout', 45, 0, 'responsive_enable_header_bottom_border_check', 300, 0, 'postMessage', 1 );
+
+			// HTML content.
+			$header_html_content = __( 'HTML content', 'responsive' );
+			responsive_text_control( $wp_customize, 'header_html_content', $header_html_content, 'responsive_header_layout', 50, '<p>Enter HTML here!</p>', null, 'sanitize_text_field', 'textarea' );
+			// Inline logo & site title.
+			$wpautop = __( 'Automatically Add Paragraphs', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_html_wpautop', $wpautop, 'responsive_header_layout', 50, 1 );
+
 		}
 	}
 

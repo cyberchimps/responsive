@@ -1,13 +1,31 @@
 <?php
 
-static $layout              = null;
-const PRIMARY_NAV_MENU_SLUG = 'primary';
-const MOBILE_NAV_MENU_SLUG  = 'mobile';
-static $sides               = array();
-static $center              = array();
-static $mobile_sides        = array();
-static $mobile_center       = array();
+static $layout                = null;
+const PRIMARY_NAV_MENU_SLUG   = 'primary';
+const MOBILE_NAV_MENU_SLUG    = 'mobile';
+const SECONDARY_NAV_MENU_SLUG = 'secondary';
+const FOOTER_NAV_MENU_SLUG    = 'footer';
+static $sides                 = array();
+static $center                = array();
+static $mobile_sides          = array();
+static $mobile_center         = array();
 
+
+add_action( 'after_setup_theme', 'action_register_nav_menus' );
+
+/**
+ * Registers the navigation menus.
+ */
+function action_register_nav_menus() {
+	register_nav_menus(
+		array(
+			PRIMARY_NAV_MENU_SLUG   => esc_html__( 'Primary', 'responsive' ),
+			SECONDARY_NAV_MENU_SLUG => esc_html__( 'Secondary', 'responsive' ),
+			MOBILE_NAV_MENU_SLUG    => esc_html__( 'Mobile', 'responsive' ),
+			FOOTER_NAV_MENU_SLUG    => esc_html__( 'Footer', 'responsive' ),
+		)
+	);
+}
 /**
  * Main Call for Responsive Header
  */
@@ -348,19 +366,18 @@ function is_primary_nav_menu_active() : bool {
  * @param array $args Optional. Array of arguments. See wp nav menu documentation for a list of supported arguments.
  */
 function display_primary_nav_menu( array $args = array() ) {
-	if ( ! isset( $args['container'] ) ) {
-		$args['container'] = 'ul';
-	}
-	if ( ! isset( $args['sub_arrows'] ) ) {
-		$args['sub_arrows'] = true;
-	}
-	if ( ! isset( $args['mega_support'] ) ) {
-		$args['mega_support'] = true;
-	}
-	if ( ! isset( $args['addon_support'] ) ) {
-		$args['addon_support'] = true;
-	}
-	$args['theme_location'] = PRIMARY_NAV_MENU_SLUG;
+	$args = apply_filters(
+		'responsive_primary_nav_menu_arg',
+		array(
+			'container'      => false,
+			'menu_id'        => 'header-menu',
+			'fallback_cb'    => 'responsive_fallback_menu',
+			'sub_arrows'     => true,
+			'mega_support'   => true,
+			'addon_support'  => true,
+			'theme_location' => PRIMARY_NAV_MENU_SLUG,
+		)
+	);
 	wp_nav_menu( $args );
 }
 /**
@@ -423,6 +440,56 @@ function primary_navigation() {
 		</div>
 	</nav><!-- #site-navigation -->
 	<?php
+}
+
+/**
+ * Displays the Secondary navigation menu.
+ *
+ * @param array $args Optional. Array of arguments. See wp nav menu documentation for a list of supported arguments.
+ */
+function display_secondary_nav_menu( array $args = array() ) {
+	$args = apply_filters(
+		'responsive_secondary_nav_menu_arg',
+		array(
+			'container'      => false,
+			'menu_id'        => 'header-menu',
+			'fallback_cb'    => 'responsive_fallback_menu',
+			'sub_arrows'     => true,
+			'mega_support'   => true,
+			'addon_support'  => true,
+			'theme_location' => SECONDARY_NAV_MENU_SLUG,
+		)
+	);
+	wp_nav_menu( $args );
+}
+
+/**
+ * Check if secondary navigation is active.
+ *
+ * @return boolean
+ */
+function is_secondary_nav_menu_active() : bool {
+	return (bool) has_nav_menu( SECONDARY_NAV_MENU_SLUG );
+}
+
+/**
+ * Desktop Navigation
+ */
+function secondary_navigation() {
+	?>
+		<nav id="secondary-navigation" class="secondary-navigation main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'secondary_navigation_style' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Navigation', 'responsive' ); ?>">
+		<?php customizer_quick_link(); ?>
+			<div class="secondary-menu-container header-menu-container">
+			<?php
+			if ( is_secondary_nav_menu_active() ) {
+				display_secondary_nav_menu( array( 'menu_id' => 'secondary-menu' ) );
+			} else {
+				display_fallback_menu();
+			}
+			?>
+			</div>
+		</nav><!-- #secondary-navigation -->
+		<?php
 }
 
 /**
@@ -628,7 +695,7 @@ function is_amp() : bool {
  * Mobile Navigation Popup Toggle
  */
 function navigation_popup_toggle() {
-	add_action( 'wp_footer', 'Responsive\navigation_popup' );
+	add_action( 'wp_footer', 'navigation_popup' );
 	?>
 	<div class="mobile-toggle-open-container">
 		<?php customizer_quick_link(); ?>
@@ -669,7 +736,7 @@ function navigation_popup_toggle() {
 	</div>
 	<?php
 }
-add_action( 'responsive_navigation_popup_toggle', 'Responsive\navigation_popup_toggle' );
+add_action( 'responsive_navigation_popup_toggle', 'navigation_popup_toggle' );
 
 /**
  * Mobile Navigation Popup Toggle
@@ -768,10 +835,10 @@ function mobile_navigation() {
  * Desktop HTML
  */
 function header_html() {
-	$content = get_theme_mod( 'header_html_content' );
+	$content = get_theme_mod( 'responsive_header_html_content' );
 	if ( $content || is_customize_preview() ) {
 		$link_style = get_theme_mod( 'header_html_link_style' );
-		$wpautop    = get_theme_mod( 'header_html_wpautop' );
+		$wpautop    = get_theme_mod( 'responsive_header_html_wpautop' );
 		echo '<div class="header-html inner-link-style-' . esc_attr( $link_style ) . '">';
 		customizer_quick_link();
 		echo '<div class="header-html-inner">';
@@ -1006,30 +1073,30 @@ function mobile_cart() {
 		$label      = get_theme_mod( 'header_mobile_cart_label' );
 		$show_total = get_theme_mod( 'header_mobile_cart_show_total' );
 		$icon       = get_theme_mod( 'header_mobile_cart_icon', 'shopping-bag' );
-		echo '<div class="header-mobile-cart-wrap kadence-header-cart">';
+		echo '<div class="header-mobile-cart-wrap responsive-header-cart">';
 		customizer_quick_link();
 		echo '<div class="header-cart-inner-wrap header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'true' : 'false' ) . ' cart-show-label-' . ( ! empty( $label ) ? 'true' : 'false' ) . ' cart-style-' . esc_attr( get_theme_mod( 'header_mobile_cart_style' ) ) . '">';
 		if ( 'link' === get_theme_mod( 'header_mobile_cart_style' ) ) {
-			echo '<a href="' . esc_url( wc_get_cart_url() ) . '"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'kadence' ) . '"' ) . ' class="header-cart-button">';
+			echo '<a href="' . esc_url( wc_get_cart_url() ) . '"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="header-cart-button">';
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
-			// kadence()->print_icon( $icon, '', false );.
+			// responsive()->print_icon( $icon, '', false );.
 			if ( $show_total ) {
 				echo '<span class="header-cart-total">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
 			echo '</a>';
 		} elseif ( 'slide' === get_theme_mod( 'header_mobile_cart_style' ) ) {
-			add_action( 'wp_footer', 'Kadence\cart_popup', 5 );
-			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'kadence' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
+			add_action( 'wp_footer', 'responsive\cart_popup', 5 );
+			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
-			// kadence()->print_icon( $icon, '', false );.
+			// responsive()->print_icon( $icon, '', false );.
 			if ( $show_total ) {
 				echo '<span class="header-cart-total">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
@@ -1070,7 +1137,7 @@ function header_social() {
 						$link = 'mailto:' . $link;
 					}
 				}
-				echo '<a href="' . esc_attr( $link ) . '"' . esc_attr( $show_label ? '' : ' aria-label="' . $item['label'] . '"' ) . ' ' . ( 'phone' === $item['id'] || 'email' === $item['id'] || apply_filters( 'kadence_social_link_target', false, $item ) ? '' : 'target="_blank" rel="noopener noreferrer"  ' ) . 'class="social-button header-social-item social-link-' . esc_attr( $item['id'] ) . esc_attr( 'image' === $item['source'] ? ' has-custom-image' : '' ) . '">';
+				echo '<a href="' . esc_attr( $link ) . '"' . esc_attr( $show_label ? '' : ' aria-label="' . $item['label'] . '"' ) . ' ' . ( 'phone' === $item['id'] || 'email' === $item['id'] || apply_filters( 'responsive_social_link_target', false, $item ) ? '' : 'target="_blank" rel="noopener noreferrer"  ' ) . 'class="social-button header-social-item social-link-' . esc_attr( $item['id'] ) . esc_attr( 'image' === $item['source'] ? ' has-custom-image' : '' ) . '">';
 				if ( 'image' === $item['source'] ) {
 					if ( $item['imageid'] && wp_get_attachment_image( $item['imageid'], 'full', true ) ) {
 						echo wp_get_attachment_image(
@@ -1130,7 +1197,7 @@ function mobile_social() {
 						$link = 'mailto:' . $link;
 					}
 				}
-				echo '<a href="' . esc_attr( $link ) . '"' . esc_attr( $show_label ? '' : ' aria-label="' . $item['label'] . '"' ) . ' ' . ( 'phone' === $item['id'] || 'email' === $item['id'] || apply_filters( 'kadence_social_link_target', false, $item ) ? '' : 'target="_blank" rel="noopener noreferrer"  ' ) . 'class="social-button header-social-item social-link-' . esc_attr( $item['id'] ) . esc_attr( 'image' === $item['source'] ? ' has-custom-image' : '' ) . '">';
+				echo '<a href="' . esc_attr( $link ) . '"' . esc_attr( $show_label ? '' : ' aria-label="' . $item['label'] . '"' ) . ' ' . ( 'phone' === $item['id'] || 'email' === $item['id'] || apply_filters( 'responsive_social_link_target', false, $item ) ? '' : 'target="_blank" rel="noopener noreferrer"  ' ) . 'class="social-button header-social-item social-link-' . esc_attr( $item['id'] ) . esc_attr( 'image' === $item['source'] ? ' has-custom-image' : '' ) . '">';
 				if ( 'image' === $item['source'] ) {
 					if ( $item['imageid'] && wp_get_attachment_image( $item['imageid'], 'full', true ) ) {
 						echo wp_get_attachment_image(
@@ -1163,7 +1230,7 @@ function mobile_social() {
  * Header Search Popup Toggle
  */
 function header_search() {
-	add_action( 'wp_footer', 'Kadence\search_modal', 20 );
+	add_action( 'wp_footer', 'responsive\search_modal', 20 );
 	?>
 	<div class="search-toggle-open-container">
 		<?php customizer_quick_link(); ?>
@@ -1180,7 +1247,7 @@ function header_search() {
 			<?php
 		}
 		?>
-		<button class="search-toggle-open drawer-toggle search-toggle-style-<?php echo esc_attr( get_theme_mod( 'header_search_style' ) ); ?>" aria-label="<?php esc_attr_e( 'View Search Form', 'kadence' ); ?>" data-toggle-target="#search-drawer" data-toggle-body-class="showing-popup-drawer-from-full" aria-expanded="false" data-set-focus="#search-drawer .search-field"
+		<button class="search-toggle-open drawer-toggle search-toggle-style-<?php echo esc_attr( get_theme_mod( 'header_search_style' ) ); ?>" aria-label="<?php esc_attr_e( 'View Search Form', 'responsive' ); ?>" data-toggle-target="#search-drawer" data-toggle-body-class="showing-popup-drawer-from-full" aria-expanded="false" data-set-focus="#search-drawer .search-field"
 			<?php
 			if ( is_amp() ) {
 				?>
@@ -1230,7 +1297,7 @@ function search_modal() {
 		<div class="drawer-overlay" data-drawer-target-string="#search-drawer"></div>
 		<div class="drawer-inner">
 			<div class="drawer-header">
-				<button class="search-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close search', 'kadence' ); ?>"  data-toggle-target="#search-drawer" data-toggle-body-class="showing-popup-drawer-from-full" aria-expanded="false" data-set-focus=".search-toggle-open"
+				<button class="search-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close search', 'responsive' ); ?>"  data-toggle-target="#search-drawer" data-toggle-body-class="showing-popup-drawer-from-full" aria-expanded="false" data-set-focus=".search-toggle-open"
 				<?php
 				if ( is_amp() ) {
 					?>
@@ -1332,3 +1399,4 @@ function has_mobile_center_column( $row = 'main' ) {
 	$mobile_center[ $row ] = $mobile_centre;
 	return $mobile_center;
 }
+
