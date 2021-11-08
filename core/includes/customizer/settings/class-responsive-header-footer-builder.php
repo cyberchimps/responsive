@@ -143,15 +143,15 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							),
 							'button'       => array(
 								'name'    => esc_html__( 'Button', 'responsive' ),
-								'section' => 'responsive_customizer_header_button',
+								'section' => 'responsive_header_layout',
 							),
 							'social'       => array(
 								'name'    => esc_html__( 'Social', 'responsive' ),
-								'section' => 'responsive_customizer_header_social',
+								'section' => 'responsive_header_layout',
 							),
 							'html'         => array(
 								'name'    => esc_html__( 'HTML', 'responsive' ),
-								'section' => 'responsive_customizer_header_html',
+								'section' => 'responsive_header_layout',
 							),
 						),
 						'input_attrs' => array(
@@ -184,7 +184,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					)
 				)
 			);
-			$header_desktop_items_default = array(
+			$header_mobile_items_default = array(
 				'popup'  => array(
 					'popup_content' => array( 'mobile-navigation' ),
 				),
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				'header_mobile_items',
 				array(
 					'transport' => 'refresh',
-					'default'   => $header_desktop_items_default,
+					'default'   => $header_mobile_items_default,
 				)
 			);
 			$wp_customize->add_control(
