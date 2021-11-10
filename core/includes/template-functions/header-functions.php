@@ -366,24 +366,29 @@ function is_primary_nav_menu_active() : bool {
  * @param array $args Optional. Array of arguments. See wp nav menu documentation for a list of supported arguments.
  */
 function display_primary_nav_menu( array $args = array() ) {
-	$args = apply_filters(
-		'responsive_primary_nav_menu_arg',
-		array(
-			'container'      => false,
-			'menu_id'        => 'header-menu',
-			'fallback_cb'    => 'responsive_fallback_menu',
-			'sub_arrows'     => true,
-			'mega_support'   => true,
-			'addon_support'  => true,
-			'theme_location' => PRIMARY_NAV_MENU_SLUG,
-		)
-	);
+	if ( ! isset( $args['container'] ) ) {
+		$args['container'] = 'ul';
+	}
+	if ( ! isset( $args['sub_arrows'] ) ) {
+		$args['sub_arrows'] = true;
+	}
+	if ( ! isset( $args['mega_support'] ) ) {
+		$args['mega_support'] = true;
+	}
+	if ( ! isset( $args['addon_support'] ) ) {
+		$args['addon_support'] = true;
+	}
+	$args['theme_location'] = PRIMARY_NAV_MENU_SLUG;
+
 	wp_nav_menu( $args );
 }
+
 /**
- * Displays the primary navigation menu.
+ * Changes the page menu classes.
  *
- * @param array $args Optional. Array of arguments. See wp nav menu documentation for a list of supported arguments.
+ * @param string $menu
+ * @param array $args
+ * @return void
  */
 function change_page_menu_classes( $menu, $args ) {
 	$menu = str_replace( 'page_item', 'menu-item', $menu );
@@ -506,18 +511,20 @@ function primary_navigation() {
  * @param array $args Optional. Array of arguments. See wp nav menu documentation for a list of supported arguments.
  */
 function display_secondary_nav_menu( array $args = array() ) {
-	$args = apply_filters(
-		'responsive_secondary_nav_menu_arg',
-		array(
-			'container'      => false,
-			'menu_id'        => 'header-menu',
-			'fallback_cb'    => 'responsive_fallback_menu',
-			'sub_arrows'     => true,
-			'mega_support'   => true,
-			'addon_support'  => true,
-			'theme_location' => SECONDARY_NAV_MENU_SLUG,
-		)
-	);
+	if ( ! isset( $args['container'] ) ) {
+		$args['container'] = 'ul';
+	}
+	if ( ! isset( $args['sub_arrows'] ) ) {
+		$args['sub_arrows'] = true;
+	}
+	if ( ! isset( $args['mega_support'] ) ) {
+		$args['mega_support'] = true;
+	}
+	if ( ! isset( $args['addon_support'] ) ) {
+		$args['addon_support'] = true;
+	}
+	$args['theme_location'] = SECONDARY_NAV_MENU_SLUG;
+
 	wp_nav_menu( $args );
 }
 
@@ -755,7 +762,7 @@ function mobile_site_branding() {
  * @return bool Whether the AMP plugin is active and the current request is for an AMP endpoint.
  */
 function is_amp() : bool {
-	return function_exists( 'is_amp_endpoint' ) && \is_amp_endpoint();
+	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 }
 
 
@@ -780,11 +787,11 @@ function navigation_popup_toggle() {
 			<?php
 		}
 		?>
-		<button id="mobile-toggle" class="menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style', 'default' ) ); ?>" aria-label="<?php esc_attr_e( 'Open menu', 'responsive' ); ?>" data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( 'sidepanel' === get_theme_mod( 'header_popup_layout', 'sidepanel', 'sidepanel' ) ? get_theme_mod( 'header_popup_side' ) : 'full' ); ?>" aria-expanded="false" data-set-focus=".menu-toggle-close"
+		<button id="mobile-toggle" class="menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'responsive_mobile_trigger_style', 'default' ) ); ?>" aria-label="<?php esc_attr_e( 'Open menu', 'responsive' ); ?>" data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( 'sidepanel' === get_theme_mod( 'responsive_header_popup_layout', 'sidepanel' ) ? get_theme_mod( 'responsive_header_popup_side' ) : 'full' ); ?>" aria-expanded="false" data-set-focus=".menu-toggle-close"
 			<?php
 			if ( is_amp() ) {
 				?>
-				[class]=" siteNavigationMenu.expanded ? 'menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style', 'default' ) ); ?> active' : 'menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style', 'default' ) ); ?>' "
+				[class]=" siteNavigationMenu.expanded ? 'menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'responsive_mobile_trigger_style', 'default' ) ); ?> active' : 'menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'responsive_mobile_trigger_style', 'default' ) ); ?>' "
 				on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } )"
 				[aria-expanded]="siteNavigationMenu.expanded ? 'true' : 'false'"
 				<?php
@@ -792,36 +799,37 @@ function navigation_popup_toggle() {
 			?>
 		>
 			<?php
-			$label = get_theme_mod( 'mobile_trigger_label' );
+			$label = responsive_hamburger_menu_label(); //get_theme_mod( 'mobile_trigger_label' );.
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
 				<span class="menu-toggle-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
-			if ( function_exists( 'responsive_hamburger_menu_label' ) ) {
-				$hamburger_menu_label = responsive_hamburger_menu_label();
-			} else {
-				$hamburger_menu_label = '';
-			}
 			?>
-			<i class="icon-bars menu-toggle-icon"></i><span class="hamburger-menu-label"><?php printf( esc_html( $hamburger_menu_label ) ); ?></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span>
-			<!-- <span class="menu-toggle-icon"><?php // popup_toggle();. ?></span> -->
+			<span class="menu-toggle-icon"><?php popup_toggle(); ?></span>
 		</button>
 	</div>
 	<?php
 }
 add_action( 'responsive_navigation_popup_toggle', 'navigation_popup_toggle' );
+/**
+ * Mobile Navigation Popup Toggle
+ */
+function popup_toggle() {
+	$icon = get_theme_mod( 'responsive_mobile_trigger_icon', 'menu' );
+	echo get_icon( $icon, '', false );
+}
 
 /**
  * Mobile Navigation Popup Toggle
  */
 function navigation_popup() {
 	?>
-	<div id="mobile-drawer" class="popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-animation-<?php echo esc_attr( get_theme_mod( 'header_popup_animation' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?>" data-drawer-target-string="#mobile-drawer"
+	<div id="mobile-drawer" class="popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-animation-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_animation' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_side' ) ); ?>" data-drawer-target-string="#mobile-drawer"
 		<?php
 		if ( is_amp() ) {
 			?>
-			[class]=" siteNavigationMenu.expanded ? 'popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?> show-drawer active' : 'popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?>' "
+			[class]=" siteNavigationMenu.expanded ? 'popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_side' ) ); ?> show-drawer active' : 'popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_side' ) ); ?>' "
 			<?php
 		}
 		?>
@@ -829,12 +837,12 @@ function navigation_popup() {
 		<div class="drawer-overlay" data-drawer-target-string="#mobile-drawer"></div>
 		<div class="drawer-inner">
 			<?php
-			if ( 'fullwidth' === get_theme_mod( 'header_popup_layout', 'sidepanel' ) && 'slice' === get_theme_mod( 'header_popup_animation' ) ) {
+			if ( 'fullwidth' === get_theme_mod( 'responsive_header_popup_layout', 'sidepanel' ) && 'slice' === get_theme_mod( 'responsive_header_popup_animation' ) ) {
 				echo '<div class="pop-slice-background"><div class="pop-portion-bg"></div><div class="pop-portion-bg"></div><div class="pop-portion-bg"></div></div>';
 			}
 			?>
 			<div class="drawer-header">
-				<button class="menu-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close menu', 'responsive' ); ?>"  data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( 'sidepanel' === get_theme_mod( 'header_popup_layout', 'sidepanel' ) ? get_theme_mod( 'header_popup_side' ) : 'full' ); ?>" aria-expanded="false" data-set-focus=".menu-toggle-open"
+				<button class="menu-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close menu', 'responsive' ); ?>"  data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( 'sidepanel' === get_theme_mod( 'responsive_header_popup_layout', 'sidepanel' ) ? get_theme_mod( 'responsive_header_popup_side' ) : 'full' ); ?>" aria-expanded="false" data-set-focus=".menu-toggle-open"
 				<?php
 				if ( is_amp() ) {
 					?>
@@ -848,7 +856,7 @@ function navigation_popup() {
 					<span class="toggle-close-bar"></span>
 				</button>
 			</div>
-			<div class="drawer-content mobile-drawer-content content-align-<?php echo esc_attr( get_theme_mod( 'header_popup_content_align' ) ); ?> content-valign-<?php echo esc_attr( get_theme_mod( 'header_popup_vertical_align' ) ); ?>">
+			<div class="drawer-content mobile-drawer-content content-align-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_content_align' ) ); ?> content-valign-<?php echo esc_attr( get_theme_mod( 'responsive_header_popup_vertical_align' ) ); ?>">
 				<?php do_action( 'responsive_before_mobile_navigation_popup' ); ?>
 				<?php render_header( 'popup', 'content', 'mobile' ); ?>
 				<?php do_action( 'responsive_after_mobile_navigation_popup' ); ?>
@@ -873,7 +881,6 @@ function is_mobile_nav_menu_active() : bool {
 	 */
 function display_mobile_nav_menu( array $args = array() ) {
 
-	$show_toggles = ( get_theme_mod( 'mobile_navigation_collapse', true ) ? true : false );
 	if ( ! isset( $args['container'] ) ) {
 		$args['container'] = 'ul';
 	}
@@ -883,7 +890,9 @@ function display_mobile_nav_menu( array $args = array() ) {
 	if ( ! isset( $args['mega_support'] ) && apply_filters( 'responsive_mobile_allow_mega_support', true ) ) {
 		$args['mega_support'] = true;
 	}
-	$args['show_toggles']   = $show_toggles;
+	if ( ! isset( $args['show_toggles'] ) ) {
+		$args['show_toggles'] = is_menu_collapsible();
+	}
 	$args['theme_location'] = MOBILE_NAV_MENU_SLUG;
 
 	wp_nav_menu( $args );
@@ -894,7 +903,7 @@ function display_mobile_nav_menu( array $args = array() ) {
  */
 function mobile_navigation() {
 	?>
-	<nav id="mobile-site-navigation" class="mobile-navigation drawer-navigation drawer-navigation-parent-toggle-<?php echo esc_attr( get_theme_mod( 'mobile_navigation_parent_toggle' ) ? 'true' : 'false' ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Primary Mobile Navigation', 'responsive' ); ?>">
+	<nav id="mobile-site-navigation" class="mobile-navigation drawer-navigation drawer-navigation-parent-toggle-<?php echo esc_attr( get_theme_mod( 'responsive_mobile_navigation_parent_toggle' ) ? 'true' : 'false' ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Primary Mobile Navigation', 'responsive' ); ?>">
 		<?php customizer_quick_link(); ?>
 		<div class="mobile-menu-container drawer-menu-container">
 			<?php
@@ -902,15 +911,15 @@ function mobile_navigation() {
 				display_mobile_nav_menu(
 					array(
 						'menu_id'    => 'mobile-menu',
-						'menu_class' => ( get_theme_mod( 'mobile_navigation_collapse', true ) ? 'menu has-collapse-sub-nav' : 'menu' ),
+						'menu_class' => ( get_theme_mod( 'responsive_mobile_navigation_collapse', true ) ? 'menu has-collapse-sub-nav' : 'menu' ),
 					)
 				);
 			} elseif ( is_primary_nav_menu_active() ) {
 				display_primary_nav_menu(
 					array(
 						'menu_id'      => 'mobile-menu',
-						'menu_class'   => ( get_theme_mod( 'mobile_navigation_collapse', true ) ? 'menu has-collapse-sub-nav' : 'menu' ),
-						'show_toggles' => ( get_theme_mod( 'mobile_navigation_collapse', true ) ? true : false ),
+						'menu_class'   => ( is_menu_collapsible() ? 'menu has-collapse-sub-nav' : 'menu' ),
+						'show_toggles' => is_menu_collapsible(),
 						'sub_arrows'   => false,
 						'mega_support' => apply_filters(
 							'responsive_mobile_allow_mega_support',

@@ -308,6 +308,76 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$mobile_button_visibility         = __( 'Mobile Header Button Visibility', 'responsive' );
 			responsive_select_control( $wp_customize, 'mobile_button_visibility', $mobile_button_visibility, 'responsive_header_layout', 245, $header_button_visibility_choices, 'everyone', null );
 
+			// Mobile Menu Trigger Style.
+			$mobile_trigger_style_choices = array(
+				'default'  => __( 'Default', 'responsive' ),
+				'bordered' => __( 'Outline', 'responsive' ),
+			);
+			$mobile_trigger_style         = __( 'Trigger Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_trigger_style', $mobile_trigger_style, 'responsive_header_layout', 250, $mobile_trigger_style_choices, 'everyone', null );
+
+			// Mobile Menu Trigger Icon.
+			$mobile_trigger_icon_choices = array(
+				'menu'  => __( 'Icon 1', 'responsive' ),
+				'menu2' => __( 'Icon 2', 'responsive' ),
+				'menu3' => __( 'Icon 3', 'responsive' ),
+			);
+			$mobile_trigger_icon         = __( 'Trigger Icon', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_trigger_icon', $mobile_trigger_icon, 'responsive_header_layout', 255, $mobile_trigger_icon_choices, 'menu', null );
+
+			// Mobile Menu Layout.
+			$header_popup_layout_choices = array(
+				'sidepanel' => __( 'Sidepanel', 'responsive' ),
+				'fullwidth' => __( 'Fullwidth', 'responsive' ),
+			);
+			$header_popup_layout         = __( 'Menu Drawer Layout', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_popup_layout', $header_popup_layout, 'responsive_header_layout', 260, $header_popup_layout_choices, 'sidepanel', null );
+
+			// Sidepanel Popup Side.
+			$header_popup_side_choices = array(
+				'right' => __( 'Right', 'responsive' ),
+				'left'  => __( 'Left', 'responsive' ),
+			);
+			$header_popup_side         = __( 'Sidepanel Popup Side', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_popup_side', $header_popup_side, 'responsive_header_layout', 265, $header_popup_side_choices, 'right', 'is_sidepanel_active' );
+
+			// Fullwidth Menu Layout Animation.
+			$header_popup_animation_choices = array(
+				'fade'  => __( 'Fade', 'responsive' ),
+				'scale' => __( 'Scale', 'responsive' ),
+				'slice' => __( 'Slice', 'responsive' ),
+			);
+			$header_popup_animation         = __( 'Fullwidth Menu Animation', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_popup_animation', $header_popup_animation, 'responsive_header_layout', 270, $header_popup_animation_choices, 'fade', 'is_fullwidth_active' );
+
+			// Menu Content Alignment.
+			$header_popup_content_align_choices = array(
+				'left'   => __( 'Left', 'responsive' ),
+				'center' => __( 'Center', 'responsive' ),
+				'right'  => __( 'Right', 'responsive' ),
+
+			);
+			$header_popup_content_align = __( 'Menu Content Alignment', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_popup_content_align', $header_popup_content_align, 'responsive_header_layout', 275, $header_popup_content_align_choices, 'left', null );
+
+			// Menu Content Vertical Alignment.
+			$header_popup_vertical_align_choices = array(
+				'top'    => __( 'Top', 'responsive' ),
+				'middle' => __( 'Middle', 'responsive' ),
+				'bottom' => __( 'Bottom', 'responsive' ),
+
+			);
+			$header_popup_vertical_align = __( 'Menu Content Vertical Alignment', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_popup_vertical_align', $header_popup_vertical_align, 'responsive_header_layout', 280, $header_popup_vertical_align_choices, 'top', null );
+
+			// Collapse Submenu Items.
+			$mobile_navigation_collapse = __( 'Collapse Submenu Items?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'mobile_navigation_collapse', $mobile_navigation_collapse, 'responsive_header_layout', 285, 1, null );
+
+			// Entire parent menu item expands sub menu.
+			$mobile_navigation_parent_toggle = __( 'Parent menu item expands sub menu', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'mobile_navigation_parent_toggle', $mobile_navigation_parent_toggle, 'responsive_header_layout', 290, 0, 'is_menu_collapsible' );
+
 		}
 	}
 
