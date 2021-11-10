@@ -137,7 +137,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'header_builder_settings_separator', $header_builder_settings_separator_label, 'responsive_header_layout', 75 );
 
 			$header_desktop_tablet_mobile_layout_choices = array(
-				'default' => __( 'Standard', 'responsive' ),
+				'default'   => __( 'Standard', 'responsive' ),
 				'fullwidth' => __( 'Full Width', 'responsive' ),
 				'contained' => __( 'Contained', 'responsive' ),
 			);
@@ -157,9 +157,9 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$secondary_navigation_fill_stretch_label = __( 'Fill and Center Secondary Menu Items?', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'secondary_navigation_fill_stretch', $secondary_navigation_fill_stretch_label, 'responsive_header_layout', 115, 0, null );
 
-			$logo_layout_include_choices = array(
-				'logo' => __( 'Logo', 'responsive' ),
-				'logo_title' => __( 'Logo & Title', 'responsive' ),
+			$logo_layout_include_choices       = array(
+				'logo'               => __( 'Logo', 'responsive' ),
+				'logo_title'         => __( 'Logo & Title', 'responsive' ),
 				'logo_title_tagline' => __( 'Logo, Title & Tagline', 'responsive' ),
 			);
 			$desktop_logo_layout_include_label = __( 'Desktop Logo Layout', 'responsive' );
@@ -169,9 +169,9 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$mobile_logo_layout_include_label = __( 'Mobile Logo Layout', 'responsive' );
 			responsive_select_control( $wp_customize, 'mobile_logo_layout_include', $mobile_logo_layout_include_label, 'responsive_header_layout', 130, $logo_layout_include_choices, 'logo', null );
 
-			$logo_layout_structure_choices = array(
-				'standard' => __( 'Standard', 'responsive' ),
-				'title_tag_logo' => __( 'Title - Tagline - Logo', 'responsive' ),
+			$logo_layout_structure_choices       = array(
+				'standard'           => __( 'Standard', 'responsive' ),
+				'title_tag_logo'     => __( 'Title - Tagline - Logo', 'responsive' ),
 				'top_logo_title_tag' => __( 'Top Logo - Title - Tagline', 'responsive' ),
 				'top_title_tag_logo' => __( 'Top Title - Tagline - Logo', 'responsive' ),
 				'top_title_logo_tag' => __( 'Top Title - Logo - Tagline', 'responsive' ),
@@ -184,22 +184,72 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			responsive_select_control( $wp_customize, 'mobile_logo_layout_structure', $mobile_logo_layout_structure_label, 'responsive_header_layout', 145, $logo_layout_structure_choices, 'standard', null );
 
 			$header_primary_navigation_style_choices = array(
-				'standard' => __( 'Standard', 'responsive' ),
-				'fullheight' => __( 'Full height', 'responsive' ),
-				'underline' => __( 'Underline', 'responsive' ),
+				'standard'             => __( 'Standard', 'responsive' ),
+				'fullheight'           => __( 'Full height', 'responsive' ),
+				'underline'            => __( 'Underline', 'responsive' ),
 				'underline-fullheight' => __( 'Underline - Full height', 'responsive' ),
 			);
-			$header_primary_navigation_style_label = __( 'Primary Navigation Style', 'responsive' );
+			$header_primary_navigation_style_label   = __( 'Primary Navigation Style', 'responsive' );
 			responsive_select_control( $wp_customize, 'primary_navigation_style', $header_primary_navigation_style_label, 'responsive_header_layout', 150, $header_primary_navigation_style_choices, 'standard', null );
 
 			$dropdown_navigation_reveal_choices = array(
-				'none' => __( 'None', 'responsive' ),
-				'fade' => __( 'Fade', 'responsive' ),
-				'fade-up' => __( 'Fade Up', 'responsive' ),
+				'none'      => __( 'None', 'responsive' ),
+				'fade'      => __( 'Fade', 'responsive' ),
+				'fade-up'   => __( 'Fade Up', 'responsive' ),
 				'fade-down' => __( 'Fade Down', 'responsive' ),
 			);
-			$dropdown_navigation_reveal_label = __( 'Dropdown Reveal', 'responsive' );
+			$dropdown_navigation_reveal_label   = __( 'Dropdown Reveal', 'responsive' );
 			responsive_select_control( $wp_customize, 'dropdown_navigation_reveal', $dropdown_navigation_reveal_label, 'responsive_header_layout', 155, $dropdown_navigation_reveal_choices, 'none', null );
+
+			// Button Label.
+			$header_button_label = __( 'Button Label', 'responsive' );
+			responsive_text_control( $wp_customize, 'header_button_label', $header_button_label, 'responsive_header_layout', 160, 'Button', null, 'sanitize_text_field', 'text' );
+
+			// Header Button Link.
+			$header_button_link = __( 'Button URL', 'responsive' );
+			responsive_text_control( $wp_customize, 'header_button_link', $header_button_link, 'responsive_header_layout', 165, '', null, 'sanitize_text_field', 'text' );
+
+			// Header Button Target.
+			$header_button_target = __( 'Open in New Tab', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_button_target', $header_button_target, 'responsive_header_layout', 170, 0, null );
+
+			// Header Button nofollow.
+			$header_button_nofollow = __( 'Set link to nofollow', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_button_nofollow', $header_button_nofollow, 'responsive_header_layout', 175, 0, null );
+
+			// Header Button sponsored.
+			$header_button_sponsored = __( 'Set link attribute Sponsored', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_button_sponsored', $header_button_sponsored, 'responsive_header_layout', 180, 0, null );
+
+			// Header Button download.
+			$header_button_download = __( 'Set link to download', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_button_download', $header_button_download, 'responsive_header_layout', 185, 0, null );
+
+			// Header Button size.
+			$header_button_size_choices = array(
+				'small'  => __( 'Small', 'responsive' ),
+				'medium' => __( 'Medium', 'responsive' ),
+				'large'  => __( 'large', 'responsive' ),
+			);
+			$header_button_size         = __( 'Header Button Size', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_button_size', $header_button_size, 'responsive_header_layout', 190, $header_button_size_choices, 'medium', null );
+
+			// Header Button Style.
+			$header_button_style_choices = array(
+				'filled'  => __( 'Filled', 'responsive' ),
+				'outline' => __( 'Outline', 'responsive' ),
+			);
+			$header_button_style         = __( 'Header Button Style.', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_button_style', $header_button_style, 'responsive_header_layout', 190, $header_button_style_choices, 'medium', null );
+
+			// Header Button visibility.
+			$header_button_visibility_choices = array(
+				'everyone'  => __( 'Everyone', 'responsive' ),
+				'loggedin'  => __( 'Logged In Only', 'responsive' ),
+				'loggedout' => __( 'Logged Out Only', 'responsive' ),
+			);
+			$header_button_visibility         = __( 'Header Button Visibility', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_button_visibility', $header_button_visibility, 'responsive_header_layout', 195, $header_button_visibility_choices, 'everyone', null );
 
 		}
 	}

@@ -744,7 +744,7 @@ function navigation_popup_toggle() {
 	</div>
 	<?php
 }
-add_action( 'responsive_navigation_popup_toggle', 'navigation_popup_toggle' );
+//add_action( 'responsive_navigation_popup_toggle', 'navigation_popup_toggle' );
 
 /**
  * Mobile Navigation Popup Toggle
@@ -893,37 +893,38 @@ function mobile_html() {
  * Desktop Button
  */
 function header_button() {
-	$label = get_theme_mod( 'header_button_label' );
-	if ( 'loggedin' === get_theme_mod( 'header_button_visibility' ) && ! is_user_logged_in() ) {
+	$label = get_theme_mod( 'responsive_header_button_label', 'Button' );
+	if ( 'loggedin' === get_theme_mod( 'responsive_header_button_visibility' ) && ! is_user_logged_in() ) {
 		return;
 	}
-	if ( 'loggedout' === get_theme_mod( 'header_button_visibility' ) && is_user_logged_in() ) {
+	if ( 'loggedout' === get_theme_mod( 'responsive_header_button_visibility' ) && is_user_logged_in() ) {
 		return;
 	}
 	if ( $label || is_customize_preview() ) {
 		$wrap_classes   = array();
 		$wrap_classes[] = 'header-button-wrap';
-		if ( 'loggedin' === get_theme_mod( 'header_button_visibility' ) ) {
+		if ( 'loggedin' === get_theme_mod( 'responsive_header_button_visibility' ) ) {
 			$wrap_classes[] = 'vs-logged-out-false';
 		}
-		if ( 'loggedout' === get_theme_mod( 'header_button_visibility' ) ) {
+		if ( 'loggedout' === get_theme_mod( 'responsive_header_button_visibility' ) ) {
 			$wrap_classes[] = 'vs-logged-in-false';
 		}
 		echo '<div class="' . esc_attr( implode( ' ', $wrap_classes ) ) . '">';
 		customizer_quick_link();
 		echo '<div class="header-button-inner-wrap">';
 		$rel = array();
-		if ( get_theme_mod( 'header_button_target' ) ) {
+		if ( get_theme_mod( 'responsive_header_button_target' ) ) {
 			$rel[] = 'noopener';
 			$rel[] = 'noreferrer';
 		}
-		if ( get_theme_mod( 'header_button_nofollow' ) ) {
+		if ( get_theme_mod( 'responsive_header_button_nofollow' ) ) {
 			$rel[] = 'nofollow';
 		}
-		if ( get_theme_mod( 'header_button_sponsored' ) ) {
+		if ( get_theme_mod( 'responsive_header_button_sponsored' ) ) {
 			$rel[] = 'sponsored';
 		}
-		echo '<a href="' . esc_attr( get_theme_mod( 'header_button_link' ) ) . '" target="' . esc_attr( get_theme_mod( 'header_button_target' ) ? '_blank' : '_self' ) . '"' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ( ! empty( get_theme_mod( 'header_button_download' ) ) ? ' download' : '' ) . ' class="button header-button button-size-' . esc_attr( get_theme_mod( 'header_button_size' ) ) . ' button-style-' . esc_attr( get_theme_mod( 'header_button_style' ) ) . '">';
+		$href = get_theme_mod( 'responsive_header_button_link' );
+		echo '<a href=" http://' . esc_attr( $href ) . '" target="' . esc_attr( get_theme_mod( 'responsive_header_button_target' ) ? '_blank' : '_self' ) . '"' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ( ! empty( get_theme_mod( 'responsive_header_button_download' ) ) ? ' download' : '' ) . ' class="button header-button button-size-' . esc_attr( get_theme_mod( 'responsive_header_button_size' ) ) . ' button-style-' . esc_attr( get_theme_mod( 'responsive_header_button_style' ) ) . '">';
 		echo esc_html( $label );
 		echo '</a>';
 		echo '</div>';
