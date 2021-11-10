@@ -11,6 +11,8 @@ static $mobile_sides          = array();
 static $mobile_center         = array();
 
 add_action( 'after_setup_theme', 'action_register_nav_menus' );
+add_filter( 'nav_menu_item_title', 'filter_primary_nav_menu_dropdown_symbol', 10, 4 );
+add_filter( 'walker_nav_menu_start_el', 'filter_mobile_nav_menu_dropdown_symbol', 10, 4 );
 
 /**
  * Registers the navigation menus.
@@ -261,7 +263,7 @@ function render_custom_logo( $option_string = '', $custom_class = 'extra-custom-
  * Desktop Site Branding
  */
 function site_branding() {
-	$layout = array(
+	$layout   = array(
 		'include' => array(
 			'mobile'  => get_theme_mod( 'responsive_mobile_logo_layout_include', 'logo' ),
 			'tablet'  => get_theme_mod( 'responsive_tablet_logo_layout_include', 'logo' ),
@@ -273,8 +275,8 @@ function site_branding() {
 			'desktop' => get_theme_mod( 'responsive_desktop_logo_layout_structure', 'standard' ),
 		),
 	);
-	$includes       = array();
-	$layouts        = array();
+	$includes = array();
+	$layouts  = array();
 	if ( is_array( $layout ) && isset( $layout['include'] ) ) {
 		if ( isset( $layout['layout'] ) ) {
 			if ( isset( $layout['layout']['desktop'] ) && ! empty( $layout['layout']['desktop'] ) ) {
@@ -419,6 +421,64 @@ function display_fallback_menu( array $args = array() ) {
 	wp_page_menu( $fallback_args );
 	remove_filter( 'wp_page_menu', 'change_page_menu_classes', 10, 2 );
 }
+	/**
+	 * Adds a dropdown symbol to nav menu items with children.
+	 *
+	 * @param string   $title The menu item's title.
+	 * @param object   $item  The current menu item usually a post object.
+	 * @param stdClass $args  An object of wp_nav_menu arguments.
+	 * @param int      $depth Depth of menu item. Used for padding.
+	 */
+function filter_primary_nav_menu_dropdown_symbol( $title, $item, $args, $depth ) {
+	// // Only for our primary and secondary menu location.
+	// if ( empty( $args->theme_location ) || ( static::PRIMARY_NAV_MENU_SLUG !== $args->theme_location && static::SECONDARY_NAV_MENU_SLUG !== $args->theme_location ) ) {
+	// return $title;
+	// }
+	// // This can still get called because menu location isn't always correct.
+	// if ( ! empty( $args->menu_id ) && 'mobile-menu' === $args->menu_id ) {
+	// return $title;
+	// }
+	if ( ! isset( $args->sub_arrows ) || empty( $args->sub_arrows ) ) {
+		return $title;
+	}
+
+	// Add the dropdown for items that have children.
+	if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+		$title = '<span class="nav-drop-title-wrap">' . $title . '<span class="dropdown-nav-toggle" aria-label="' . esc_attr__( 'Expand child menu', 'responsive' ) . '">' . get_icon( 'arrow-down' ) . '</span></span>';
+	}
+
+	return $title;
+}
+
+	/**
+	 * Adds a dropdown symbol to nav menu items with children.
+	 *
+	 * @param string $item_output The menu item's starting HTML output.
+	 * @param object $item        Menu item data object.
+	 * @param int    $depth       Depth of menu item. Used for padding.
+	 * @param object $args        An object of wp_nav_menu.
+	 * @return string Modified nav menu HTML.
+	 */
+function filter_mobile_nav_menu_dropdown_symbol( $item_output, $item, $depth, $args ) {
+	// Only for our Mobile menu location.
+	if ( ! isset( $args->show_toggles ) || empty( $args->show_toggles ) ) {
+		return $item_output;
+	}
+
+	// Add the dropdown for items that have children.
+	if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes ) ) {
+		if ( is_amp() ) {
+			return $item_output;
+		}
+
+		$menu_id              = ( isset( $args->menu_id ) && ! empty( $args->menu_id ) ? '#' . $args->menu_id : '.menu' );
+		$toggle_target_string = $menu_id . ' .menu-item-' . $item->ID . ' > .sub-menu';
+		$output               = '<div class="drawer-nav-drop-wrap">' . $item_output . '<button class="drawer-sub-toggle" data-toggle-duration="10" data-toggle-target="' . esc_attr( $toggle_target_string ) . '" aria-expanded="false"><span class="screen-reader-text">' . esc_html__( 'Expand child menu', 'responsive' ) . '</span>' . get_icon( 'arrow-down', '', false, false ) . '</button></div>';
+
+		return $output;
+	}
+	return $item_output;
+}
 
 /**
  * Desktop Navigation
@@ -556,7 +616,7 @@ function custom_logo( $blog_id = 0 ) {
  * Mobile Site Branding
  */
 function mobile_site_branding() {
-	$layout = array(
+	$layout   = array(
 		'include' => array(
 			'mobile'  => get_theme_mod( 'responsive_mobile_logo_layout_include', 'logo' ),
 			'tablet'  => get_theme_mod( 'responsive_tablet_logo_layout_include', 'logo' ),
@@ -578,7 +638,7 @@ function mobile_site_branding() {
 				}
 			}
 			// if ( 'desktop' === $device && ! empty( $includes ) ) {
-			// 	continue;
+			// continue;
 			// }
 			if ( isset( $layout['include'][ $device ] ) && ! empty( $layout['include'][ $device ] ) ) {
 				if ( strpos( $layout['include'][ $device ], 'logo' ) !== false ) {
@@ -720,11 +780,11 @@ function navigation_popup_toggle() {
 			<?php
 		}
 		?>
-		<button id="mobile-toggle" class="menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style' ) ); ?>" aria-label="<?php esc_attr_e( 'Open menu', 'responsive' ); ?>" data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( 'sidepanel' === get_theme_mod( 'header_popup_layout' ) ? get_theme_mod( 'header_popup_side' ) : 'full' ); ?>" aria-expanded="false" data-set-focus=".menu-toggle-close"
+		<button id="mobile-toggle" class="menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style', 'default' ) ); ?>" aria-label="<?php esc_attr_e( 'Open menu', 'responsive' ); ?>" data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( 'sidepanel' === get_theme_mod( 'header_popup_layout', 'sidepanel', 'sidepanel' ) ? get_theme_mod( 'header_popup_side' ) : 'full' ); ?>" aria-expanded="false" data-set-focus=".menu-toggle-close"
 			<?php
 			if ( is_amp() ) {
 				?>
-				[class]=" siteNavigationMenu.expanded ? 'menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style' ) ); ?> active' : 'menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style' ) ); ?>' "
+				[class]=" siteNavigationMenu.expanded ? 'menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style', 'default' ) ); ?> active' : 'menu-toggle-open drawer-toggle menu-toggle-style-<?php echo esc_attr( get_theme_mod( 'mobile_trigger_style', 'default' ) ); ?>' "
 				on="tap:AMP.setState( { siteNavigationMenu: { expanded: ! siteNavigationMenu.expanded } } )"
 				[aria-expanded]="siteNavigationMenu.expanded ? 'true' : 'false'"
 				<?php
@@ -738,24 +798,30 @@ function navigation_popup_toggle() {
 				<span class="menu-toggle-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
+			if ( function_exists( 'responsive_hamburger_menu_label' ) ) {
+				$hamburger_menu_label = responsive_hamburger_menu_label();
+			} else {
+				$hamburger_menu_label = '';
+			}
 			?>
-			<span class="menu-toggle-icon"><?php // popup_toggle();. ?></span>
+			<i class="icon-bars menu-toggle-icon"></i><span class="hamburger-menu-label"><?php printf( esc_html( $hamburger_menu_label ) ); ?></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'responsive' ); ?></span>
+			<!-- <span class="menu-toggle-icon"><?php // popup_toggle();. ?></span> -->
 		</button>
 	</div>
 	<?php
 }
-//add_action( 'responsive_navigation_popup_toggle', 'navigation_popup_toggle' );
+add_action( 'responsive_navigation_popup_toggle', 'navigation_popup_toggle' );
 
 /**
  * Mobile Navigation Popup Toggle
  */
 function navigation_popup() {
 	?>
-	<div id="mobile-drawer" class="popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout' ) ); ?> popup-drawer-animation-<?php echo esc_attr( get_theme_mod( 'header_popup_animation' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?>" data-drawer-target-string="#mobile-drawer"
+	<div id="mobile-drawer" class="popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-animation-<?php echo esc_attr( get_theme_mod( 'header_popup_animation' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?>" data-drawer-target-string="#mobile-drawer"
 		<?php
 		if ( is_amp() ) {
 			?>
-			[class]=" siteNavigationMenu.expanded ? 'popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?> show-drawer active' : 'popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?>' "
+			[class]=" siteNavigationMenu.expanded ? 'popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?> show-drawer active' : 'popup-drawer popup-drawer-layout-<?php echo esc_attr( get_theme_mod( 'header_popup_layout', 'sidepanel' ) ); ?> popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_popup_side' ) ); ?>' "
 			<?php
 		}
 		?>
@@ -763,12 +829,12 @@ function navigation_popup() {
 		<div class="drawer-overlay" data-drawer-target-string="#mobile-drawer"></div>
 		<div class="drawer-inner">
 			<?php
-			if ( 'fullwidth' === get_theme_mod( 'header_popup_layout' ) && 'slice' === get_theme_mod( 'header_popup_animation' ) ) {
+			if ( 'fullwidth' === get_theme_mod( 'header_popup_layout', 'sidepanel' ) && 'slice' === get_theme_mod( 'header_popup_animation' ) ) {
 				echo '<div class="pop-slice-background"><div class="pop-portion-bg"></div><div class="pop-portion-bg"></div><div class="pop-portion-bg"></div></div>';
 			}
 			?>
 			<div class="drawer-header">
-				<button class="menu-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close menu', 'responsive' ); ?>"  data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( 'sidepanel' === get_theme_mod( 'header_popup_layout' ) ? get_theme_mod( 'header_popup_side' ) : 'full' ); ?>" aria-expanded="false" data-set-focus=".menu-toggle-open"
+				<button class="menu-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close menu', 'responsive' ); ?>"  data-toggle-target="#mobile-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( 'sidepanel' === get_theme_mod( 'header_popup_layout', 'sidepanel' ) ? get_theme_mod( 'header_popup_side' ) : 'full' ); ?>" aria-expanded="false" data-set-focus=".menu-toggle-open"
 				<?php
 				if ( is_amp() ) {
 					?>
@@ -800,6 +866,28 @@ function navigation_popup() {
 function is_mobile_nav_menu_active() : bool {
 	return (bool) has_nav_menu( MOBILE_NAV_MENU_SLUG );
 }
+	/**
+	 * Displays the primary navigation menu.
+	 *
+	 * @param array $args Optional. Array of arguments. See wp nav menu documentation for a list of supported arguments.
+	 */
+function display_mobile_nav_menu( array $args = array() ) {
+
+	$show_toggles = ( get_theme_mod( 'mobile_navigation_collapse', true ) ? true : false );
+	if ( ! isset( $args['container'] ) ) {
+		$args['container'] = 'ul';
+	}
+	if ( ! isset( $args['addon_support'] ) ) {
+		$args['addon_support'] = true;
+	}
+	if ( ! isset( $args['mega_support'] ) && apply_filters( 'responsive_mobile_allow_mega_support', true ) ) {
+		$args['mega_support'] = true;
+	}
+	$args['show_toggles']   = $show_toggles;
+	$args['theme_location'] = MOBILE_NAV_MENU_SLUG;
+
+	wp_nav_menu( $args );
+}
 
 /**
  * Mobile Navigation
@@ -814,15 +902,15 @@ function mobile_navigation() {
 				display_mobile_nav_menu(
 					array(
 						'menu_id'    => 'mobile-menu',
-						'menu_class' => ( get_theme_mod( 'mobile_navigation_collapse' ) ? 'menu has-collapse-sub-nav' : 'menu' ),
+						'menu_class' => ( get_theme_mod( 'mobile_navigation_collapse', true ) ? 'menu has-collapse-sub-nav' : 'menu' ),
 					)
 				);
 			} elseif ( is_primary_nav_menu_active() ) {
 				display_primary_nav_menu(
 					array(
 						'menu_id'      => 'mobile-menu',
-						'menu_class'   => ( get_theme_mod( 'mobile_navigation_collapse' ) ? 'menu has-collapse-sub-nav' : 'menu' ),
-						'show_toggles' => ( get_theme_mod( 'mobile_navigation_collapse' ) ? true : false ),
+						'menu_class'   => ( get_theme_mod( 'mobile_navigation_collapse', true ) ? 'menu has-collapse-sub-nav' : 'menu' ),
+						'show_toggles' => ( get_theme_mod( 'mobile_navigation_collapse', true ) ? true : false ),
 						'sub_arrows'   => false,
 						'mega_support' => apply_filters(
 							'responsive_mobile_allow_mega_support',
@@ -874,8 +962,8 @@ function header_html() {
 function mobile_html() {
 	$content = get_theme_mod( 'mobile_html_content' );
 	if ( $content || is_customize_preview() ) {
-		$link_style = get_theme_mod( 'mobile_html_link_style' );
-		$wpautop    = get_theme_mod( 'mobile_html_wpautop' );
+		$link_style = get_theme_mod( 'responsive_mobile_html_link_style' );
+		$wpautop    = get_theme_mod( 'responsive_mobile_html_wpautop' );
 		echo '<div class="mobile-html inner-link-style-' . esc_attr( $link_style ) . '">';
 		customizer_quick_link();
 		echo '<div class="mobile-html-inner">';
@@ -923,8 +1011,8 @@ function header_button() {
 		if ( get_theme_mod( 'responsive_header_button_sponsored' ) ) {
 			$rel[] = 'sponsored';
 		}
-		$href = get_theme_mod( 'responsive_header_button_link' );
-		echo '<a href=" http://' . esc_attr( $href ) . '" target="' . esc_attr( get_theme_mod( 'responsive_header_button_target' ) ? '_blank' : '_self' ) . '"' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ( ! empty( get_theme_mod( 'responsive_header_button_download' ) ) ? ' download' : '' ) . ' class="button header-button button-size-' . esc_attr( get_theme_mod( 'responsive_header_button_size' ) ) . ' button-style-' . esc_attr( get_theme_mod( 'responsive_header_button_style' ) ) . '">';
+		$href = get_theme_mod( 'responsive_header_button_link' ) !== '' ? 'http://' . get_theme_mod( 'responsive_header_button_link' ) : '';
+		echo '<a href="' . esc_attr( $href ) . '" target="' . esc_attr( get_theme_mod( 'responsive_header_button_target' ) ? '_blank' : '_self' ) . '"' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ( ! empty( get_theme_mod( 'responsive_header_button_download' ) ) ? ' download' : '' ) . ' class="button header-button button-size-' . esc_attr( get_theme_mod( 'responsive_header_button_size' ) ) . ' button-style-' . esc_attr( get_theme_mod( 'responsive_header_button_style' ) ) . '">';
 		echo esc_html( $label );
 		echo '</a>';
 		echo '</div>';
@@ -936,42 +1024,43 @@ function header_button() {
  * Mobile Button
  */
 function mobile_button() {
-	$label = get_theme_mod( 'mobile_button_label' );
-	if ( 'loggedin' === get_theme_mod( 'mobile_button_visibility' ) && ! is_user_logged_in() ) {
+	$label = get_theme_mod( 'responsive_mobile_button_label' );
+	if ( 'loggedin' === get_theme_mod( 'responsive_mobile_button_visibility' ) && ! is_user_logged_in() ) {
 		return;
 	}
-	if ( 'loggedout' === get_theme_mod( 'mobile_button_visibility' ) && is_user_logged_in() ) {
+	if ( 'loggedout' === get_theme_mod( 'responsive_mobile_button_visibility' ) && is_user_logged_in() ) {
 		return;
 	}
 	if ( $label || is_customize_preview() ) {
 		$wrap_classes   = array();
 		$wrap_classes[] = 'mobile-header-button-wrap';
-		if ( 'loggedin' === get_theme_mod( 'mobile_button_visibility' ) ) {
+		if ( 'loggedin' === get_theme_mod( 'responsive_mobile_button_visibility' ) ) {
 			$wrap_classes[] = 'vs-logged-out-false';
 		}
-		if ( 'loggedout' === get_theme_mod( 'mobile_button_visibility' ) ) {
+		if ( 'loggedout' === get_theme_mod( 'responsive_mobile_button_visibility' ) ) {
 			$wrap_classes[] = 'vs-logged-in-false';
 		}
 		echo '<div class="' . esc_attr( implode( ' ', $wrap_classes ) ) . '">';
 		customizer_quick_link();
 		$rel = array();
-		if ( get_theme_mod( 'mobile_button_target' ) ) {
+		if ( get_theme_mod( 'responsive_mobile_button_target' ) ) {
 			$rel[] = 'noopener';
 			$rel[] = 'noreferrer';
 		}
-		if ( get_theme_mod( 'mobile_button_nofollow' ) ) {
+		if ( get_theme_mod( 'responsive_mobile_button_nofollow' ) ) {
 			$rel[] = 'nofollow';
 		}
-		if ( get_theme_mod( 'mobile_button_sponsored' ) ) {
+		if ( get_theme_mod( 'responsive_mobile_button_sponsored' ) ) {
 			$rel[] = 'sponsored';
 		}
 		$classes   = array();
 		$classes[] = 'button';
 		$classes[] = 'mobile-header-button';
-		$classes[] = 'button-size-' . esc_attr( get_theme_mod( 'mobile_button_size' ) );
-		$classes[] = 'button-style-' . esc_attr( get_theme_mod( 'mobile_button_style' ) );
+		$classes[] = 'button-size-' . esc_attr( get_theme_mod( 'responsive_mobile_button_size' ) );
+		$classes[] = 'button-style-' . esc_attr( get_theme_mod( 'responsive_mobile_button_style' ) );
+		$href      = get_theme_mod( 'responsive_mobile_button_link' ) !== '' ? 'http://' . get_theme_mod( 'responsive_mobile_button_link' ) : '';
 		echo '<div class="mobile-header-button-inner-wrap">';
-		echo '<a href="' . esc_attr( get_theme_mod( 'mobile_button_link' ) ) . '" target="' . esc_attr( get_theme_mod( 'mobile_button_target' ) ? '_blank' : '_self' ) . '"' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ' class="' . esc_attr( implode( ' ', $classes ) ) . '">';
+		echo '<a href="' . esc_attr( $href ) . '" target="' . esc_attr( get_theme_mod( 'responsive_mobile_button_target' ) ? '_blank' : '_self' ) . '"' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ' class="' . esc_attr( implode( ' ', $classes ) ) . '">';
 		echo esc_html( $label );
 		echo '</a>';
 		echo '</div>';
@@ -999,7 +1088,7 @@ function header_cart() {
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
-			// print_icon( $icon, '', false );.
+			echo get_icon( $icon, '', false );
 			if ( $show_total ) {
 				echo '<span class="header-cart-total header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ) . '">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
@@ -1012,7 +1101,7 @@ function header_cart() {
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
-			// print_icon( $icon, '', false );.
+			echo get_icon( $icon, '', false );
 			if ( $show_total ) {
 				echo '<span class="header-cart-total header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ) . '">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
@@ -1026,7 +1115,7 @@ function header_cart() {
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
-			// print_icon( $icon, '', false );.
+			echo get_icon( $icon, '', false );
 			if ( $show_total ) {
 				echo '<span class="header-cart-total header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ) . '">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
@@ -1057,7 +1146,7 @@ function cart_popup() {
 			<div class="drawer-header">
 				<h2 class="side-cart-header"><?php esc_html_e( 'Review Cart', 'responsive' ); ?></h2>
 				<button class="cart-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close Cart', 'responsive' ); ?>"  data-toggle-target="#cart-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ); ?>" aria-expanded="false" data-set-focus=".header-cart-button">
-					<?php // responsive()->print_icon( 'close', '', false );. ?>
+					<?php echo get_icon( 'close', '', false ); ?>
 				</button>
 			</div>
 			<div class="drawer-content woocommerce widget_shopping_cart">
@@ -1092,7 +1181,7 @@ function mobile_cart() {
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
-			// responsive()->print_icon( $icon, '', false );.
+			echo get_icon( $icon, '', false );
 			if ( $show_total ) {
 				echo '<span class="header-cart-total">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
@@ -1105,7 +1194,7 @@ function mobile_cart() {
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
-			// responsive()->print_icon( $icon, '', false );.
+			echo get_icon( $icon, '', false );
 			if ( $show_total ) {
 				echo '<span class="header-cart-total">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
@@ -1161,10 +1250,10 @@ function header_social() {
 					} elseif ( ! empty( $item['url'] ) ) {
 						echo '<img src="' . esc_attr( $item['url'] ) . '" alt="' . esc_attr( $item['label'] ) . '" class="social-icon-image" style="max-width:' . esc_attr( $item['width'] ) . 'px"/>';
 					}
-				} /*
+				}
 				else {
-					responsive()->print_icon( $item['icon'], '', false );.
-				} */
+					echo get_icon( $item['icon'], '', false );
+				}
 				if ( $show_label ) {
 					echo '<span class="social-label">' . esc_html( $item['label'] ) . '</span>';
 				}
@@ -1286,7 +1375,7 @@ function header_search() {
  */
 function search_toggle() {
 	$icon = get_theme_mod( 'header_search_icon' );
-	// print_icon( $icon, '', false );.
+	echo get_icon( $icon, '', false );
 }
 
 /**
@@ -1316,7 +1405,7 @@ function search_modal() {
 				}
 				?>
 			>
-					<?php // print_icon( 'close', '', false );. ?>
+					<?php echo get_icon( 'close', '', false ); ?>
 				</button>
 			</div>
 			<div class="drawer-content">

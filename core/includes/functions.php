@@ -396,7 +396,20 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
-
+		wp_localize_script(
+			'navigation-scripts',
+			'responsiveConfig',
+			array(
+				'screenReader' => array(
+					'expand'   => __( 'Expand child menu', 'responsive' ),
+					'collapse' => __( 'Collapse child menu', 'responsive' ),
+				),
+				'breakPoints'  => array(
+					'desktop' => esc_attr( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) ),
+					'tablet'  => 768,
+				),
+			)
+		);
 	}
 }
 

@@ -126,15 +126,22 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$bottom_border_label = __( 'Bottom Border Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'bottom_border', $bottom_border_label, 'responsive_header_layout', 45, 0, 'responsive_enable_header_bottom_border_check', 300, 0, 'postMessage', 1 );
 
+			$header_builder_settings_separator_label = esc_html__( 'Header Builder Settings', 'responsive' );
+			responsive_separator_control( $wp_customize, 'header_builder_settings_separator', $header_builder_settings_separator_label, 'responsive_header_layout', 75 );
+
 			// HTML content.
 			$header_html_content = __( 'HTML content', 'responsive' );
 			responsive_text_control( $wp_customize, 'header_html_content', $header_html_content, 'responsive_header_layout', 80, '<p>Enter HTML here!</p>', null, 'sanitize_text_field', 'textarea' );
 
 			$wpautop = __( 'Automatically Add Paragraphs', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_html_wpautop', $wpautop, 'responsive_header_layout', 80, 1 );
+			responsive_checkbox_control( $wp_customize, 'header_html_wpautop', $wpautop, 'responsive_header_layout', 85, 1 );
 
-			$header_builder_settings_separator_label = esc_html__( 'Header Builder Settings', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_builder_settings_separator', $header_builder_settings_separator_label, 'responsive_header_layout', 75 );
+			// Mobile HTML content.
+			$mobile_html_content = __( 'Mobile HTML content', 'responsive' );
+			responsive_text_control( $wp_customize, 'mobile_html_content', $mobile_html_content, 'responsive_header_layout', 85, '<p>Enter HTML here!</p>', null, 'sanitize_text_field', 'textarea' );
+
+			$mobile_wpautop = __( 'Automatically Add Paragraphs (Mobile)', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'mobile_html_wpautop', $mobile_wpautop, 'responsive_header_layout', 85, 1 );
 
 			$header_desktop_tablet_mobile_layout_choices = array(
 				'default'   => __( 'Standard', 'responsive' ),
@@ -240,7 +247,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'outline' => __( 'Outline', 'responsive' ),
 			);
 			$header_button_style         = __( 'Header Button Style.', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_button_style', $header_button_style, 'responsive_header_layout', 190, $header_button_style_choices, 'medium', null );
+			responsive_select_control( $wp_customize, 'header_button_style', $header_button_style, 'responsive_header_layout', 195, $header_button_style_choices, 'medium', null );
 
 			// Header Button visibility.
 			$header_button_visibility_choices = array(
@@ -249,7 +256,57 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				'loggedout' => __( 'Logged Out Only', 'responsive' ),
 			);
 			$header_button_visibility         = __( 'Header Button Visibility', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_button_visibility', $header_button_visibility, 'responsive_header_layout', 195, $header_button_visibility_choices, 'everyone', null );
+			responsive_select_control( $wp_customize, 'header_button_visibility', $header_button_visibility, 'responsive_header_layout', 200, $header_button_visibility_choices, 'everyone', null );
+
+			// Mobile Button Label.
+			$mobile_button_label = __( 'Mobile Button Label', 'responsive' );
+			responsive_text_control( $wp_customize, 'mobile_button_label', $mobile_button_label, 'responsive_header_layout', 205, 'Button', null, 'sanitize_text_field', 'text' );
+
+			// Mobile Header Button Link.
+			$mobile_button_link = __( 'Mobile Button URL', 'responsive' );
+			responsive_text_control( $wp_customize, 'mobile_button_link', $mobile_button_link, 'responsive_header_layout', 210, '', null, 'sanitize_text_field', 'text' );
+
+			// Mobile Header Button Target.
+			$mobile_button_target = __( 'Mobile Open in New Tab', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'mobile_button_target', $mobile_button_target, 'responsive_header_layout', 215, 0, null );
+
+			// Mobile Header Button nofollow.
+			$mobile_button_nofollow = __( 'Mobile Set link to nofollow', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'mobile_button_nofollow', $mobile_button_nofollow, 'responsive_header_layout', 220, 0, null );
+
+			// Mobile Header Button sponsored.
+			$mobile_button_sponsored = __( 'Mobile Set link attribute Sponsored', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'mobile_button_sponsored', $header_button_sponsored, 'responsive_header_layout', 225, 0, null );
+
+			// Mobile Header Button download.
+			$mobile_button_download = __( 'Mobile Set link to download', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'mobile_button_download', $mobile_button_download, 'responsive_header_layout', 230, 0, null );
+
+			// Mobile Header Button size.
+			$mobile_button_size_choices = array(
+				'small'  => __( 'Small', 'responsive' ),
+				'medium' => __( 'Medium', 'responsive' ),
+				'large'  => __( 'large', 'responsive' ),
+			);
+			$mobile_button_size         = __( 'Mobile Header Button Size', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_button_size', $mobile_button_size, 'responsive_header_layout', 235, $header_button_size_choices, 'medium', null );
+
+			// Mobile Header Button Style.
+			$header_button_style_choices = array(
+				'filled'  => __( 'Filled', 'responsive' ),
+				'outline' => __( 'Outline', 'responsive' ),
+			);
+			$mobile_button_style         = __( 'Mobile Header Button Style.', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_button_style', $mobile_button_style, 'responsive_header_layout', 240, $header_button_style_choices, 'medium', null );
+
+			// Mobile Header Button visibility.
+			$mobile_button_visibility_choices = array(
+				'everyone'  => __( 'Everyone', 'responsive' ),
+				'loggedin'  => __( 'Logged In Only', 'responsive' ),
+				'loggedout' => __( 'Logged Out Only', 'responsive' ),
+			);
+			$mobile_button_visibility         = __( 'Mobile Header Button Visibility', 'responsive' );
+			responsive_select_control( $wp_customize, 'mobile_button_visibility', $mobile_button_visibility, 'responsive_header_layout', 245, $header_button_visibility_choices, 'everyone', null );
 
 		}
 	}
