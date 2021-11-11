@@ -515,6 +515,8 @@
 	background:transparent;
 	align-items: center;
 	box-shadow: none;
+	color: #333;
+	border-width: 2px;
 	.menu-toggle-label {
 		padding-right: 5px;
 	}
@@ -528,6 +530,7 @@
 		border-color: currentColor;
 		background: transparent;
 		box-shadow: none;
+		color: #333;
 	}
 	&.menu-toggle-style-default {
 		border:0;
@@ -1240,4 +1243,27 @@ a.social-button.has-custom-image {
 }
 #mobile-header .mobile-navigation ul li.menu-item-has-children .drawer-nav-drop-wrap, #mobile-header .mobile-navigation ul li:not(.menu-item-has-children) a {
 	border: 0;
+}
+.button.button-size-small {
+	font-size: 80%;
+	padding: 0.3em .7em;
+}
+.button.button-size-large {
+	font-size: 110%;
+	padding: 0.6em 1.2em;
+}
+.button.button-style-outline, .wp-block-button.is-style-outline .wp-block-button__link {
+	border: 2px solid #0066cc;
+	background: transparent;
+	&:hover, &:focus, &:active {
+		background: transparent;
+		border: 2px solid #10659c;
+		box-shadow: 0px 0px 0px -7px rgba(0,0,0,0.0);
+	}
+}
+.wp-block-button.is-style-outline .wp-block-button__link:not(.has-text-color), .button.button-style-outline:not(.has-text-color) {
+	color: #0066cc;
+	&:hover, &:focus, &:active {
+		color: #10659c;
+	}
 }
