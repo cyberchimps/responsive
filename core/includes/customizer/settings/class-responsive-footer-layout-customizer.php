@@ -132,7 +132,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			);
 
 			$wp_customize->add_control(
-				'res_copyright_textbox',
+				'res_footer_copyright_textbox',
 				array(
 					'label'    => __( 'Copyright HTML', 'responsive' ),
 					'section'  => 'responsive_footer_layout',
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			 * Social Links Separator.
 			 */
 			$social_links_separator_label = esc_html__( 'Social Links', 'responsive' );
-			responsive_separator_control( $wp_customize, 'social_links_separator', $social_links_separator_label, 'responsive_footer_layout', 150 );
+			responsive_separator_control( $wp_customize, 'footer_social_links_separator', $social_links_separator_label, 'responsive_footer_layout', 150 );
 
 			// Social Link New Tab.
 			$social_link_new_label = esc_html__( 'Open Social Icons in a new tab', 'responsive' );
@@ -198,12 +198,12 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				'_self'  => esc_html__( 'No', 'responsive' ),
 				'_blank' => esc_html__( 'Yes', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'social_link_new_tab', $social_link_new_label, 'responsive_footer_layout', 155, $social_link_choices, '_self', null );
+			responsive_select_control( $wp_customize, 'footer_social_link_new_tab', $social_link_new_label, 'responsive_footer_layout', 155, $social_link_choices, '_self', null );
 
 
 			// Add Twitter Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[twitter_uid]',
+				'responsive_theme_options[twitter_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -212,11 +212,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_twitter',
+					'res_footer_twitter',
 					array(
 						'label'    => __( 'Twitter', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[twitter_uid]',
+						'settings' => 'responsive_theme_options[twitter_footer_uid]',
 						'priority' => 156,
 					)
 				)
@@ -224,7 +224,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add Facebook Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[facebook_uid]',
+				'responsive_theme_options[facebook_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -233,11 +233,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_facebook',
+					'res_footer_facebook',
 					array(
 						'label'    => __( 'Facebook', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[facebook_uid]',
+						'settings' => 'responsive_theme_options[facebook_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -245,7 +245,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add LinkedIn Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[linkedin_uid]',
+				'responsive_theme_options[linkedin_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -254,11 +254,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_linkedin',
+					'res_footer_linkedin',
 					array(
 						'label'    => __( 'LinkedIn', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[linkedin_uid]',
+						'settings' => 'responsive_theme_options[linkedin_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -266,7 +266,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add Youtube Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[youtube_uid]',
+				'responsive_theme_options[youtube_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -275,11 +275,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_youtube',
+					'res_footer_youtube',
 					array(
 						'label'    => __( 'YouTube', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[youtube_uid]',
+						'settings' => 'responsive_theme_options[youtube_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add RSS Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[rss_uid]',
+				'responsive_theme_options[rss_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -296,11 +296,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_rss',
+					'res_footer_rss',
 					array(
 						'label'    => __( 'RSS Feed', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[rss_uid]',
+						'settings' => 'responsive_theme_options[rss_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -308,7 +308,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add Instagram Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[instagram_uid]',
+				'responsive_theme_options[instagram_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -317,11 +317,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_instagram',
+					'res_footer_instagram',
 					array(
 						'label'    => __( 'Instagram', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[instagram_uid]',
+						'settings' => 'responsive_theme_options[instagram_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -329,7 +329,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add Pinterest Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[pinterest_uid]',
+				'responsive_theme_options[pinterest_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -338,11 +338,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_pinterest',
+					'res_footer_pinterest',
 					array(
 						'label'    => __( 'Pinterest', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[pinterest_uid]',
+						'settings' => 'responsive_theme_options[pinterest_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -350,7 +350,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add StumbleUpon Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[stumbleupon_uid]',
+				'responsive_theme_options[stumbleupon_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -359,11 +359,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_stumble',
+					'res_footer_stumble',
 					array(
 						'label'    => __( 'StumbleUpon', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[stumbleupon_uid]',
+						'settings' => 'responsive_theme_options[stumbleupon_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -371,7 +371,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add Vimeo Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[vimeo_uid]',
+				'responsive_theme_options[vimeo_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -380,11 +380,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_vimeo',
+					'res_footer_vimeo',
 					array(
 						'label'    => __( 'Vimeo', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[vimeo_uid]',
+						'settings' => 'responsive_theme_options[vimeo_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add SoundCloud Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[yelp_uid]',
+				'responsive_theme_options[yelp_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -401,11 +401,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_yelp',
+					'res_footer_yelp',
 					array(
 						'label'    => __( 'Yelp', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[yelp_uid]',
+						'settings' => 'responsive_theme_options[yelp_footer_uid]',
 						'priority' => 157,
 					)
 				)
@@ -413,7 +413,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Add Foursquare Setting.
 			$wp_customize->add_setting(
-				'responsive_theme_options[foursquare_uid]',
+				'responsive_theme_options[foursquare_footer_uid]',
 				array(
 					'sanitize_callback' => 'esc_url_raw',
 					'type'              => 'option',
@@ -422,17 +422,17 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'res_foursquare',
+					'res_footer_foursquare',
 					array(
 						'label'    => __( 'Foursquare', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[foursquare_uid]',
+						'settings' => 'responsive_theme_options[foursquare_footer_uid]',
 						'priority' => 157,
 					)
 				)
 			);
 			$wp_customize->add_setting(
-				'responsive_theme_options[email_uid]',
+				'responsive_theme_options[email_footer_uid]',
 				array(
 					'sanitize_callback' => 'sanitize_email',
 					'type'              => 'option',
@@ -441,11 +441,11 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				new WP_Customize_Control(
 					$wp_customize,
-					'email_uid',
+					'email_footer_uid',
 					array(
 						'label'    => __( 'Email Address', 'responsive' ),
 						'section'  => 'responsive_footer_layout',
-						'settings' => 'responsive_theme_options[email_uid]',
+						'settings' => 'responsive_theme_options[email_footer_uid]',
 						'priority' => 157,
 					)
 				)

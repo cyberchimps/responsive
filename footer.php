@@ -73,7 +73,7 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 								}
 
 								if ( 'social_icons' === $section ) {
-                                    echo responsive_get_social_icons() ;// phpcs:ignore
+                                    echo responsive_get_social_icons('footer') ;// phpcs:ignore
 								}
 
 								// Copy Rights.
@@ -85,7 +85,7 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 							if ( has_nav_menu( 'footer-menu' ) ) {
 								get_template_part( 'partials/footer/footer-menu' );
 							}
-                            echo responsive_get_social_icons() ;// phpcs:ignore
+                            echo responsive_get_social_icons('footer') ;// phpcs:ignore
 							get_template_part( 'partials/footer/copy-right' );
 						}
 						?>

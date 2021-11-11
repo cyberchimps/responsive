@@ -969,7 +969,7 @@ function header_html() {
  * Mobile HTML
  */
 function mobile_html() {
-	$content = get_theme_mod( 'mobile_html_content' );
+	$content = get_theme_mod( 'responsive_mobile_html_content' );
 	if ( $content || is_customize_preview() ) {
 		$link_style = get_theme_mod( 'responsive_mobile_html_link_style' );
 		$wpautop    = get_theme_mod( 'responsive_mobile_html_wpautop' );
@@ -1337,7 +1337,7 @@ function mobile_social() {
  * Header Search Popup Toggle
  */
 function header_search() {
-	add_action( 'wp_footer', 'responsive\search_modal', 20 );
+	add_action( 'wp_footer', 'search_modal', 20 );
 	?>
 	<div class="search-toggle-open-container">
 		<?php customizer_quick_link(); ?>

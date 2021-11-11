@@ -77,7 +77,7 @@ add_action( 'responsive_secondary_navigation', 'secondary_navigation' );
 add_action( 'responsive_header_html', 'header_html' );
 add_action( 'responsive_header_button', 'header_button' );
 add_action( 'responsive_header_cart', 'header_cart' );
-add_action( 'responsive_header_social', 'header_social' );
+add_action( 'responsive_header_social', 'responsive_get_social_icons' );
 add_action( 'responsive_header_search', 'header_search' );
 /**
  * Mobile Header Elements.
@@ -97,4 +97,4 @@ add_action( 'responsive_mobile_navigation', 'mobile_navigation' );
 add_action( 'responsive_mobile_html', 'mobile_html' );
 add_action( 'responsive_mobile_button', 'mobile_button' );
 add_action( 'responsive_mobile_cart', 'mobile_cart' );
-add_action( 'responsive_mobile_social', 'mobile_social' );
+add_action( 'responsive_mobile_social', 'responsive_get_social_icons' );
