@@ -488,7 +488,6 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 		 */
 		islastFocusableElement: function( container, element, focusSelector ) {
 			var focusableElements = container.querySelectorAll( focusSelector );
-			//console.log( focusableElements );
 			if ( 0 < focusableElements.length ) {
 				return element === focusableElements[ focusableElements.length - 1 ];
 			}
