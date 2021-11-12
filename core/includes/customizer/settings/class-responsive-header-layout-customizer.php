@@ -906,6 +906,38 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 				)
 			);
 
+			// Header search Style.
+			$header_search_style_choices = array(
+				'default'  => __( 'Default', 'responsive' ),
+				'bordered' => __( 'Outline', 'responsive' ),
+			);
+			$header_search_style         = __( 'Search Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_search_style', $header_search_style, 'responsive_header_layout', 435, $header_search_style_choices, 'default', null );
+
+			// Header Search Label.
+			$header_search_label = __( 'Header Search Label', 'responsive' );
+			responsive_text_control( $wp_customize, 'header_search_label', $header_search_label, 'responsive_header_layout', 440, '', null, 'sanitize_text_field', 'text' );
+
+			$header_search_label_visiblity_desktop = __( 'Header Search Label Visibility', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_html_header_search_label_visiblity_desktop', $header_search_label_visiblity_desktop, 'responsive_header_layout', 445, 1 );
+
+			$header_search_label_visiblity_tablet = __( 'Header Search Label Visibility', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_html_header_search_label_visiblity_tablet', $header_search_label_visiblity_tablet, 'responsive_header_layout', 450, 0 );
+
+			$header_search_label_visiblity_mobile = __( 'Header Search Label Visibility', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_html_header_search_label_visiblity_mobile', $header_search_label_visiblity_mobile, 'responsive_header_layout', 455, 0 );
+
+			// Header search Icon.
+			$header_search_icon_choices = array(
+				'search'  => __( 'Icon 1', 'responsive' ),
+				'search2' => __( 'Icon 2', 'responsive' ),
+			);
+			$header_search_icon         = __( 'Search Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_search_icon', $header_search_icon, 'responsive_header_layout', 460, $header_search_icon_choices, 'search', null );
+
+			$header_search_woo = __( 'Enable WooCommerce Search', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_html_header_search_woo', $header_search_woo, 'responsive_header_layout', 465, 0 );
+
 		}
 	}
 
