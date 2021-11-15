@@ -490,7 +490,7 @@ function filter_mobile_nav_menu_dropdown_symbol( $item_output, $item, $depth, $a
  */
 function primary_navigation() {
 	?>
-	<nav id="site-navigation" class="main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'responsive_primary_navigation_style', 'standard' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'responsive_dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'responsive' ); ?>">
+	<nav id="site-navigation" class="main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'responsive_primary_navigation_style', 'standard' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'responsive_primary_dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'responsive' ); ?>">
 		<?php customizer_quick_link(); ?>
 		<div class="primary-menu-container header-menu-container">
 			<?php
@@ -542,7 +542,7 @@ function is_secondary_nav_menu_active() : bool {
  */
 function secondary_navigation() {
 	?>
-		<nav id="secondary-navigation" class="secondary-navigation main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'secondary_navigation_style' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Navigation', 'responsive' ); ?>">
+		<nav id="secondary-navigation" class="secondary-navigation main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'responsive_secondary_navigation_style' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'responsive_secondary_dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Navigation', 'responsive' ); ?>">
 		<?php customizer_quick_link(); ?>
 			<div class="secondary-menu-container header-menu-container">
 			<?php
@@ -1082,15 +1082,15 @@ function mobile_button() {
  */
 function header_cart() {
 	if ( class_exists( 'woocommerce' ) ) {
-		$label      = get_theme_mod( 'header_cart_label' );
-		$show_total = get_theme_mod( 'header_cart_show_total' );
+		$label      = get_theme_mod( 'header_cart_label', '' );
+		$show_total = get_theme_mod( 'header_cart_show_total', false );
 		$icon       = get_theme_mod( 'header_cart_icon', 'shopping-bag' );
-		$dropdown   = 'header-navigation nav--toggle-sub header-navigation-dropdown-animation-' . esc_attr( get_theme_mod( 'dropdown_navigation_reveal' ) );
-		echo '<div class="header-cart-wrap responsive-header-cart' . ( 'dropdown' === get_theme_mod( 'header_cart_style' ) ? ' ' . esc_attr( $dropdown ) : '' ) . '">';
+		$dropdown   = 'header-navigation nav--toggle-sub header-navigation-dropdown-animation-' . esc_attr( get_theme_mod( 'responsive_primary_dropdown_navigation_reveal' ) );
+		echo '<div class="header-cart-wrap responsive-header-cart' . ( 'dropdown' === get_theme_mod( 'header_cart_style', 'dropdown' ) ? ' ' . esc_attr( $dropdown ) : '' ) . '">';
 		customizer_quick_link();
 		echo '<span class="header-cart-empty-check header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ) . '"></span>';
-		echo '<div class="header-cart-inner-wrap cart-show-label-' . ( ! empty( $label ) ? 'true' : 'false' ) . ' cart-style-' . esc_attr( get_theme_mod( 'header_cart_style' ) ) . ( 'dropdown' === get_theme_mod( 'header_cart_style' ) ? ' header-menu-container' : '' ) . '">';
-		if ( 'link' === get_theme_mod( 'header_cart_style' ) ) {
+		echo '<div class="header-cart-inner-wrap cart-show-label-' . ( ! empty( $label ) ? 'true' : 'false' ) . ' cart-style-' . esc_attr( get_theme_mod( 'header_cart_style', 'dropdown' ) ) . ( 'dropdown' === get_theme_mod( 'header_cart_style', 'dropdown' ) ? ' header-menu-container' : '' ) . '">';
+		if ( 'link' === get_theme_mod( 'header_cart_style', 'dropdown' ) ) {
 			echo '<a href="' . esc_url( wc_get_cart_url() ) . '"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="header-cart-button">';
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
@@ -1102,8 +1102,8 @@ function header_cart() {
 				echo '<span class="header-cart-total header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ) . '">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
 			echo '</a>';
-		} elseif ( 'slide' === get_theme_mod( 'header_cart_style' ) ) {
-			add_action( 'wp_footer', 'Responsive\cart_popup', 5 );
+		} elseif ( 'slide' === get_theme_mod( 'header_cart_style', 'dropdown' ) ) {
+			add_action( 'wp_footer', 'cart_popup', 5 );
 			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
@@ -1115,7 +1115,7 @@ function header_cart() {
 				echo '<span class="header-cart-total header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ) . '">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
 			echo '</button>';
-		} elseif ( 'dropdown' === get_the_mod( 'header_cart_style' ) ) {
+		} elseif ( 'dropdown' === get_the_mod( 'header_cart_style', 'dropdown' ) ) {
 			echo '<ul id="cart-menu" class="menu woocommerce widget_shopping_cart">';
 			echo '<li class="menu-item menu-item-has-children menu-item-responsive-cart responsive-menu-has-icon menu-item--has-toggle">';
 			echo '<a href="' . esc_url( wc_get_cart_url() ) . '"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="header-cart-button">';
@@ -1149,12 +1149,12 @@ function header_cart() {
  */
 function cart_popup() {
 	?>
-	<div id="cart-drawer" class="popup-drawer popup-drawer-layout-sidepanel popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_cart_popup_side' ) ); ?> popup-mobile-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ); ?>" data-drawer-target-string="#cart-drawer">
+	<div id="cart-drawer" class="popup-drawer popup-drawer-layout-sidepanel popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_cart_popup_side', 'left' ) ); ?> popup-mobile-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_mobile_cart_popup_side', 'left' ) ); ?>" data-drawer-target-string="#cart-drawer">
 		<div class="drawer-overlay" data-drawer-target-string="#cart-drawer"></div>
 		<div class="drawer-inner">
 			<div class="drawer-header">
 				<h2 class="side-cart-header"><?php esc_html_e( 'Review Cart', 'responsive' ); ?></h2>
-				<button class="cart-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close Cart', 'responsive' ); ?>"  data-toggle-target="#cart-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ); ?>" aria-expanded="false" data-set-focus=".header-cart-button">
+				<button class="cart-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close Cart', 'responsive' ); ?>"  data-toggle-target="#cart-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( get_theme_mod( 'header_mobile_cart_popup_side', 'left' ) ); ?>" aria-expanded="false" data-set-focus=".header-cart-button">
 					<?php echo get_icon( 'close', '', false ); ?>
 				</button>
 			</div>
@@ -1177,13 +1177,13 @@ function cart_popup() {
  */
 function mobile_cart() {
 	if ( class_exists( 'woocommerce' ) ) {
-		$label      = get_theme_mod( 'header_mobile_cart_label' );
-		$show_total = get_theme_mod( 'header_mobile_cart_show_total' );
+		$label      = get_theme_mod( 'header_mobile_cart_label', '' );
+		$show_total = get_theme_mod( 'header_mobile_cart_show_total', false );
 		$icon       = get_theme_mod( 'header_mobile_cart_icon', 'shopping-bag' );
 		echo '<div class="header-mobile-cart-wrap responsive-header-cart">';
 		customizer_quick_link();
-		echo '<div class="header-cart-inner-wrap header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'true' : 'false' ) . ' cart-show-label-' . ( ! empty( $label ) ? 'true' : 'false' ) . ' cart-style-' . esc_attr( get_theme_mod( 'header_mobile_cart_style' ) ) . '">';
-		if ( 'link' === get_theme_mod( 'header_mobile_cart_style' ) ) {
+		echo '<div class="header-cart-inner-wrap header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'true' : 'false' ) . ' cart-show-label-' . ( ! empty( $label ) ? 'true' : 'false' ) . ' cart-style-' . esc_attr( get_theme_mod( 'header_mobile_cart_style', 'dropdown' ) ) . '">';
+		if ( 'link' === get_theme_mod( 'header_mobile_cart_style', 'dropdown' ) ) {
 			echo '<a href="' . esc_url( wc_get_cart_url() ) . '"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="header-cart-button">';
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
@@ -1195,7 +1195,7 @@ function mobile_cart() {
 				echo '<span class="header-cart-total">' . wp_kses_post( WC()->cart->get_cart_contents_count() ) . '</span>';
 			}
 			echo '</a>';
-		} elseif ( 'slide' === get_theme_mod( 'header_mobile_cart_style' ) ) {
+		} elseif ( 'slide' === get_theme_mod( 'header_mobile_cart_style', 'dropdown' ) ) {
 			add_action( 'wp_footer', 'responsive\cart_popup', 5 );
 			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
 			if ( ! empty( $label ) || is_customize_preview() ) {

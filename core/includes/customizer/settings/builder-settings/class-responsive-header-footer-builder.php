@@ -127,31 +127,31 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 						'choices'     => array(
 							'logo'         => array(
 								'name'    => esc_html__( 'Logo', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_logo',
 							),
 							'navigation'   => array(
 								'name'    => esc_html__( 'Primary Navigation', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_primary_navigation',
 							),
 							'navigation-2' => array(
 								'name'    => esc_html__( 'Secondary Navigation', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_secondary_navigation',
 							),
 							'search'       => array(
 								'name'    => esc_html__( 'Search', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_header_search',
 							),
 							'button'       => array(
 								'name'    => esc_html__( 'Button', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_header_button',
 							),
 							'social'       => array(
 								'name'    => esc_html__( 'Social', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_header_social',
 							),
 							'html'         => array(
 								'name'    => esc_html__( 'HTML', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_header_html',
 							),
 						),
 						'input_attrs' => array(
@@ -233,31 +233,31 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 						'choices'     => array(
 							'mobile-logo'       => array(
 								'name'    => esc_html__( 'Logo', 'responsive' ),
-								'section' => 'title_tagline',
+								'section' => 'responsive_customizer_logo',
 							),
 							'mobile-navigation' => array(
 								'name'    => esc_html__( 'Mobile Navigation', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_mobile_navigation',
 							),
 							'search'            => array(
 								'name'    => esc_html__( 'Search Toggle', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_header_search',
 							),
 							'mobile-button'     => array(
 								'name'    => esc_html__( 'Button', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_mobile_button',
 							),
 							'mobile-social'     => array(
 								'name'    => esc_html__( 'Social', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_mobile_social',
 							),
 							'mobile-html'       => array(
 								'name'    => esc_html__( 'HTML', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_mobile_html',
 							),
 							'popup-toggle'      => array(
 								'name'    => esc_html__( 'Trigger', 'responsive' ),
-								'section' => 'responsive_header_layout',
+								'section' => 'responsive_customizer_mobile_trigger',
 							),
 						),
 						'input_attrs' => array(

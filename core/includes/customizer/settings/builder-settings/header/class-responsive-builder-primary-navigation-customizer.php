@@ -1,0 +1,80 @@
+<?php
+/**
+ * Header Customizer Options
+ *
+ * @package Responsive WordPress theme
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if ( ! class_exists( 'Responsive_Primary_Navigation_Customizer' ) ) :
+	/**
+	 * Header Footer Builder Customizer Options */
+	class Responsive_Primary_Navigation_Customizer {
+
+		/**
+		 * Setup class.
+		 *
+		 * @since 1.0
+		 */
+		public function __construct() {
+
+			add_action( 'customize_register', array( $this, 'customizer_options' ) );
+
+		}
+
+		/**
+		 * Customizer options
+		 *
+		 * @since 0.2
+		 *
+		 * @param  object $wp_customize WordPress customization option.
+		 */
+		public function customizer_options( $wp_customize ) {
+
+			/**
+			 * Header Builder options
+			 */
+
+			$wp_customize->add_section(
+				'responsive_customizer_primary_navigation',
+				array(
+					'title'    => esc_html__( 'Primary Navigation', 'responsive' ),
+					'panel'    => 'responsive_header',
+					'priority' => 120,
+				)
+			);
+
+			$stretch_primary_navigation_label = __( 'Stretch Primary Menu?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'stretch_primary_navigation', $stretch_primary_navigation_label, 'responsive_customizer_primary_navigation', 10, 0, null );
+
+			$primary_navigation_fill_stretch_label = __( 'Fill and Center Primary Menu Items?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'primary_navigation_fill_stretch', $primary_navigation_fill_stretch_label, 'responsive_customizer_primary_navigation', 15, 0, null );
+
+			$header_primary_navigation_style_choices = array(
+				'standard'             => __( 'Standard', 'responsive' ),
+				'fullheight'           => __( 'Full height', 'responsive' ),
+				'underline'            => __( 'Underline', 'responsive' ),
+				'underline-fullheight' => __( 'Underline - Full height', 'responsive' ),
+			);
+			$header_primary_navigation_style_label   = __( 'Primary Navigation Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'primary_navigation_style', $header_primary_navigation_style_label, 'responsive_customizer_primary_navigation', 20, $header_primary_navigation_style_choices, 'standard', null );
+
+			$dropdown_navigation_reveal_choices = array(
+				'none'      => __( 'None', 'responsive' ),
+				'fade'      => __( 'Fade', 'responsive' ),
+				'fade-up'   => __( 'Fade Up', 'responsive' ),
+				'fade-down' => __( 'Fade Down', 'responsive' ),
+			);
+			$dropdown_navigation_reveal_label   = __( 'Dropdown Reveal', 'responsive' );
+			responsive_select_control( $wp_customize, 'primary_dropdown_navigation_reveal', $dropdown_navigation_reveal_label, 'responsive_customizer_primary_navigation', 25, $dropdown_navigation_reveal_choices, 'none', null );
+
+		}
+
+	}
+
+endif;
+
+return new Responsive_Primary_Navigation_Customizer();
