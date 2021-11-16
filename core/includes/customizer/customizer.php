@@ -205,7 +205,6 @@ function responsive_register_options() {
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
 		$builder_settings . 'class-responsive-header-footer-builder',
-		$header_settings . 'class-responsive-builder-rows',
 		$header_settings . 'class-responsive-builder-primary-navigation-customizer',
 		$header_settings . 'class-responsive-builder-secondary-navigation-customizer',
 		$header_settings . 'class-responsive-builder-logo-customizer',
@@ -221,6 +220,8 @@ function responsive_register_options() {
 		$header_settings . 'class-responsive-builder-top-row',
 		$header_settings . 'class-responsive-builder-main-row',
 		$header_settings . 'class-responsive-builder-bottom-row',
+		$header_settings . 'class-responsive-builder-header-cart-customizer',
+		$header_settings . 'class-responsive-builder-mobile-cart-customizer',
 	);
 
 	foreach ( $files as $key ) {

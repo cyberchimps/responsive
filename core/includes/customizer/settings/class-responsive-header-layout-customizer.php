@@ -126,9 +126,6 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			$bottom_border_label = __( 'Bottom Border Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'bottom_border', $bottom_border_label, 'responsive_header_layout', 45, 0, 'responsive_enable_header_bottom_border_check', 300, 0, 'postMessage', 1 );
 
-			$header_builder_settings_separator_label = esc_html__( 'Header Builder Settings', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_builder_settings_separator', $header_builder_settings_separator_label, 'responsive_header_layout', 75 );
-
 		}
 	}
 

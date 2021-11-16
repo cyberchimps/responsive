@@ -76,6 +76,44 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					)
 				)
 			);
+			$header_desktop_items_choices = array(
+				'logo'         => array(
+					'name'    => esc_html__( 'Logo', 'responsive' ),
+					'section' => 'responsive_customizer_logo',
+				),
+				'navigation'   => array(
+					'name'    => esc_html__( 'Primary Navigation', 'responsive' ),
+					'section' => 'responsive_customizer_primary_navigation',
+				),
+				'navigation-2' => array(
+					'name'    => esc_html__( 'Secondary Navigation', 'responsive' ),
+					'section' => 'responsive_customizer_secondary_navigation',
+				),
+				'search'       => array(
+					'name'    => esc_html__( 'Search', 'responsive' ),
+					'section' => 'responsive_customizer_header_search',
+				),
+				'button'       => array(
+					'name'    => esc_html__( 'Button', 'responsive' ),
+					'section' => 'responsive_customizer_header_button',
+				),
+				'social'       => array(
+					'name'    => esc_html__( 'Social', 'responsive' ),
+					'section' => 'responsive_customizer_header_social',
+				),
+				'html'         => array(
+					'name'    => esc_html__( 'HTML', 'responsive' ),
+					'section' => 'responsive_customizer_header_html',
+				),
+
+			);
+
+			if ( class_exists( 'woocommerce' ) ) {
+				$header_desktop_items_choices['cart'] = array(
+					'name'    => esc_html__( 'Cart', 'responsive' ),
+					'section' => 'responsive_customizer_header_cart',
+				);
+			}
 			$header_desktop_items = array(
 				'top'    => array(
 					'top_left'         => array(),
@@ -124,36 +162,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							'container_inclusive' => true,
 							'render_callback'     => 'header_markup',
 						),
-						'choices'     => array(
-							'logo'         => array(
-								'name'    => esc_html__( 'Logo', 'responsive' ),
-								'section' => 'responsive_customizer_logo',
-							),
-							'navigation'   => array(
-								'name'    => esc_html__( 'Primary Navigation', 'responsive' ),
-								'section' => 'responsive_customizer_primary_navigation',
-							),
-							'navigation-2' => array(
-								'name'    => esc_html__( 'Secondary Navigation', 'responsive' ),
-								'section' => 'responsive_customizer_secondary_navigation',
-							),
-							'search'       => array(
-								'name'    => esc_html__( 'Search', 'responsive' ),
-								'section' => 'responsive_customizer_header_search',
-							),
-							'button'       => array(
-								'name'    => esc_html__( 'Button', 'responsive' ),
-								'section' => 'responsive_customizer_header_button',
-							),
-							'social'       => array(
-								'name'    => esc_html__( 'Social', 'responsive' ),
-								'section' => 'responsive_customizer_header_social',
-							),
-							'html'         => array(
-								'name'    => esc_html__( 'HTML', 'responsive' ),
-								'section' => 'responsive_customizer_header_html',
-							),
-						),
+						'choices'     => $header_desktop_items_choices,
 						'input_attrs' => array(
 							'group' => 'header_desktop_items',
 							'rows'  => array( 'top', 'main', 'bottom' ),
@@ -184,6 +193,47 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					)
 				)
 			);
+
+			// Header Mobile  Options.
+			$header_mobile_items_choices = array(
+				'mobile-logo'       => array(
+					'name'    => esc_html__( 'Logo', 'responsive' ),
+					'section' => 'responsive_customizer_logo',
+				),
+				'mobile-navigation' => array(
+					'name'    => esc_html__( 'Mobile Navigation', 'responsive' ),
+					'section' => 'responsive_customizer_mobile_navigation',
+				),
+				'search'            => array(
+					'name'    => esc_html__( 'Search Toggle', 'responsive' ),
+					'section' => 'responsive_customizer_header_search',
+				),
+				'mobile-button'     => array(
+					'name'    => esc_html__( 'Button', 'responsive' ),
+					'section' => 'responsive_customizer_mobile_button',
+				),
+				'mobile-social'     => array(
+					'name'    => esc_html__( 'Social', 'responsive' ),
+					'section' => 'responsive_customizer_mobile_social',
+				),
+				'mobile-html'       => array(
+					'name'    => esc_html__( 'HTML', 'responsive' ),
+					'section' => 'responsive_customizer_mobile_html',
+				),
+				'popup-toggle'      => array(
+					'name'    => esc_html__( 'Trigger', 'responsive' ),
+					'section' => 'responsive_customizer_mobile_trigger',
+				),
+
+			);
+
+			if ( class_exists( 'woocommerce' ) ) {
+				$header_mobile_items_choices['mobile-cart'] = array(
+					'name'    => esc_html__( 'Mobile Cart', 'responsive' ),
+					'section' => 'responsive_customizer_mobile_cart',
+				);
+			}
+			
 			$header_mobile_items_default = array(
 				'popup'  => array(
 					'popup_content' => array( 'mobile-navigation' ),
@@ -230,36 +280,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							'container_inclusive' => true,
 							'render_callback'     => 'mobile_header',
 						),
-						'choices'     => array(
-							'mobile-logo'       => array(
-								'name'    => esc_html__( 'Logo', 'responsive' ),
-								'section' => 'responsive_customizer_logo',
-							),
-							'mobile-navigation' => array(
-								'name'    => esc_html__( 'Mobile Navigation', 'responsive' ),
-								'section' => 'responsive_customizer_mobile_navigation',
-							),
-							'search'            => array(
-								'name'    => esc_html__( 'Search Toggle', 'responsive' ),
-								'section' => 'responsive_customizer_header_search',
-							),
-							'mobile-button'     => array(
-								'name'    => esc_html__( 'Button', 'responsive' ),
-								'section' => 'responsive_customizer_mobile_button',
-							),
-							'mobile-social'     => array(
-								'name'    => esc_html__( 'Social', 'responsive' ),
-								'section' => 'responsive_customizer_mobile_social',
-							),
-							'mobile-html'       => array(
-								'name'    => esc_html__( 'HTML', 'responsive' ),
-								'section' => 'responsive_customizer_mobile_html',
-							),
-							'popup-toggle'      => array(
-								'name'    => esc_html__( 'Trigger', 'responsive' ),
-								'section' => 'responsive_customizer_mobile_trigger',
-							),
-						),
+						'choices'     => $header_mobile_items_choices,
 						'input_attrs' => array(
 							'group' => 'header_mobile_items',
 							'rows'  => array( 'popup', 'top', 'main', 'bottom' ),
