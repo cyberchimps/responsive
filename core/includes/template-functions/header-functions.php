@@ -969,7 +969,7 @@ function header_html() {
  * Mobile HTML
  */
 function mobile_html() {
-	$content = get_theme_mod( 'mobile_html_content' );
+	$content = get_theme_mod( 'responsive_mobile_html_content' );
 	if ( $content || is_customize_preview() ) {
 		$link_style = get_theme_mod( 'responsive_mobile_html_link_style' );
 		$wpautop    = get_theme_mod( 'responsive_mobile_html_wpautop' );
@@ -1337,7 +1337,7 @@ function mobile_social() {
  * Header Search Popup Toggle
  */
 function header_search() {
-	add_action( 'wp_footer', 'responsive\search_modal', 20 );
+	add_action( 'wp_footer', 'search_modal', 20 );
 	?>
 	<div class="search-toggle-open-container">
 		<?php customizer_quick_link(); ?>
@@ -1354,11 +1354,11 @@ function header_search() {
 			<?php
 		}
 		?>
-		<button class="search-toggle-open drawer-toggle search-toggle-style-<?php echo esc_attr( get_theme_mod( 'header_search_style' ) ); ?>" aria-label="<?php esc_attr_e( 'View Search Form', 'responsive' ); ?>" data-toggle-target="#search-drawer" data-toggle-body-class="showing-popup-drawer-from-full" aria-expanded="false" data-set-focus="#search-drawer .search-field"
+		<button class="search-toggle-open drawer-toggle search-toggle-style-<?php echo esc_attr( get_theme_mod( 'responsive_header_search_style', 'default' ) ); ?>" aria-label="<?php esc_attr_e( 'View Search Form', 'responsive' ); ?>" data-toggle-target="#search-drawer" data-toggle-body-class="showing-popup-drawer-from-full" aria-expanded="false" data-set-focus="#search-drawer .search-field"
 			<?php
 			if ( is_amp() ) {
 				?>
-				[class]=" siteSearchModal.expanded ? 'search-toggle-open drawer-toggle search-toggle-style-<?php echo esc_attr( get_theme_mod( 'header_search_style' ) ); ?> active' : 'search-toggle-open drawer-toggle search-toggle-style-<?php echo esc_attr( get_theme_mod( 'header_search_style' ) ); ?>' "
+				[class]=" siteSearchModal.expanded ? 'search-toggle-open drawer-toggle search-toggle-style-<?php echo esc_attr( get_theme_mod( 'responsive_header_search_style', 'default' ) ); ?> active' : 'search-toggle-open drawer-toggle search-toggle-style-<?php echo esc_attr( get_theme_mod( 'responsive_header_search_style', 'default' ) ); ?>' "
 				on="tap:AMP.setState( { siteSearchModal: { expanded: ! siteSearchModal.expanded } } )"
 				[aria-expanded]="siteSearchModal.expanded ? 'true' : 'false'"
 				<?php
@@ -1366,10 +1366,10 @@ function header_search() {
 			?>
 		>
 			<?php
-			$label = get_theme_mod( 'header_search_label' );
+			$label = get_theme_mod( 'responsive_header_search_label' );
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
-				<span class="search-toggle-label vs-lg-<?php echo ( get_theme_mod( 'header_search_label_visiblity', 'desktop' ) ? 'true' : 'false' ); ?> vs-md-<?php echo ( get_theme_mod( 'header_search_label_visiblity', 'tablet' ) ? 'true' : 'false' ); ?> vs-sm-<?php echo ( get_theme_mod( 'header_search_label_visiblity', 'mobile' ) ? 'true' : 'false' ); ?>"><?php echo esc_html( $label ); ?></span>
+				<span class="search-toggle-label vs-lg-<?php echo ( get_theme_mod( 'responsive_header_search_label_visiblity_desktop', true ) ? 'true' : 'false' ); ?> vs-md-<?php echo ( get_theme_mod( 'responsive_header_search_label_visiblity_tablet', false ) ? 'true' : 'false' ); ?> vs-sm-<?php echo ( get_theme_mod( 'responsive_header_search_label_visiblity_mobile', false ) ? 'true' : 'false' ); ?>"><?php echo esc_html( $label ); ?></span>
 				<?php
 			}
 			?>
@@ -1383,7 +1383,7 @@ function header_search() {
  * Search Popup Toggle Icon
  */
 function search_toggle() {
-	$icon = get_theme_mod( 'header_search_icon' );
+	$icon = get_theme_mod( 'responsive_header_search_icon', 'search' );
 	echo get_icon( $icon, '', false );
 }
 
@@ -1419,7 +1419,7 @@ function search_modal() {
 			</div>
 			<div class="drawer-content">
 				<?php
-				if ( class_exists( 'woocommerce' ) && get_theme_mod( 'header_search_woo' ) ) {
+				if ( class_exists( 'woocommerce' ) && get_theme_mod( 'responsive_header_search_woo', 0 ) ) {
 					get_product_search_form();
 				} else {
 					get_search_form();
