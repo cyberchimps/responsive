@@ -162,6 +162,7 @@ function responsive_register_options() {
 	$dir              = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
 	$builder_settings = 'builder-settings/';
 	$header_settings  = $builder_settings . 'header/';
+	$footer_settings  = $builder_settings . 'footer/';
 	require get_template_directory() . '/admin/class-responsive-plugin-install-helper.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-abstract-main.php';
@@ -222,6 +223,7 @@ function responsive_register_options() {
 		$header_settings . 'class-responsive-builder-bottom-row',
 		$header_settings . 'class-responsive-builder-header-cart-customizer',
 		$header_settings . 'class-responsive-builder-mobile-cart-customizer',
+		$footer_settings . 'class-responsive-builder-footer-html-customizer',
 	);
 
 	foreach ( $files as $key ) {

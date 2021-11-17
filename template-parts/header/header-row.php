@@ -12,11 +12,11 @@ $row = get_query_var( 'row' );
 <div class="<?php echo esc_attr( header_row_class( $row ) ); ?>" data-section="responsive_customizer_header_<?php echo esc_attr( $row ); ?>"
 <?php
 /*
-If ( 'main' === $row && 'main' === responsive()->option( 'header_sticky' ) ) {
-	echo ' data-reveal-scroll-up="' . ( responsive()->option( 'header_reveal_scroll_up' ) ? 'true' : 'false' ) . '"';
-	echo ' data-shrink="' . ( responsive()->option( 'header_sticky_shrink' ) ? 'true' : 'false' ) . '"';
-	if ( responsive()->option( 'header_sticky_shrink' ) ) {
-		echo ' data-shrink-height="' . esc_attr( responsive()->sub_option( 'header_sticky_main_shrink', 'size' ) ) . '"';
+If ( 'main' === $row && 'main' === get_theme_mod( 'header_sticky' ) ) {
+	echo ' data-reveal-scroll-up="' . ( get_theme_mod( 'header_reveal_scroll_up' ) ? 'true' : 'false' ) . '"';
+	echo ' data-shrink="' . ( get_theme_mod( 'header_sticky_shrink' ) ? 'true' : 'false' ) . '"';
+	if ( get_theme_mod( 'header_sticky_shrink' ) ) {
+		echo ' data-shrink-height="' . esc_attr( get_theme_mod( 'header_sticky_main_shrink', 'size' ) ) . '"';
 	}
 }
 */

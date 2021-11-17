@@ -151,5 +151,27 @@ function responsive_widgets_init() {
 			'after_widget'  => '</div></div>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Widgets 5', 'responsive' ),
+			'description'   => __( 'Area 16 - sidebar-footer.php', 'responsive' ),
+			'id'            => 'footer-widget-5',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
+			'after_widget'  => '</div></div>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer Widgets 6', 'responsive' ),
+			'description'   => __( 'Area 17 - sidebar-footer.php', 'responsive' ),
+			'id'            => 'footer-widget-6',
+			'before_title'  => '<div class="widget-title"><h4>',
+			'after_title'   => '</h4></div>',
+			'before_widget' => '<div id="%1$s" class="grid col %2$s"><div class="widget-wrapper">',
+			'after_widget'  => '</div></div>',
+		)
+	);
 }
 add_action( 'widgets_init', 'responsive_widgets_init' );

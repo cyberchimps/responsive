@@ -8,6 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 require get_template_directory() . '/core/includes/template-functions/header-functions.php';
+require get_template_directory() . '/core/includes/template-functions/footer-functions.php';
 
 /**
  * Responsive Header.
@@ -98,3 +99,50 @@ add_action( 'responsive_mobile_html', 'mobile_html' );
 add_action( 'responsive_mobile_button', 'mobile_button' );
 add_action( 'responsive_mobile_cart', 'mobile_cart' );
 add_action( 'responsive_mobile_social', 'responsive_get_social_icons' );
+
+/**
+ * Main Call for responsive footer
+ *
+ * @see footer_markup();
+ */
+add_action( 'responsive_footer', 'footer_markup' );
+
+/**
+ * Footer Top Row
+ *
+ * @see top_footer();
+ */
+add_action( 'responsive_top_footer', 'top_footer' );
+
+/**
+ * Footer Middle Row
+ *
+ * @see middle_footer()
+ */
+add_action( 'responsive_middle_footer', 'middle_footer' );
+
+/**
+ * Footer Bottom Row
+ *
+ * @see bottom_footer()
+ */
+add_action( 'responsive_bottom_footer', 'bottom_footer' );
+
+/**
+ * Footer Column
+ *
+ * @see footer_column()
+ */
+add_action( 'responsive_render_footer_column', 'footer_column', 10, 2 );
+
+
+/**
+ * Footer Elements
+ *
+ * @see footer_html();
+ * @see footer_navigation()
+ * @see footer_social()
+ */
+add_action( 'responsive_footer_html', 'footer_html' );
+add_action( 'responsive_footer_navigation', 'footer_navigation' );
+add_action( 'responsive_footer_social', 'responsive_get_social_icons' );

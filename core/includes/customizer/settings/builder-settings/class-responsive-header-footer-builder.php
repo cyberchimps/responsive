@@ -393,7 +393,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							),
 							'footer-html'       => array(
 								'name'    => esc_html__( 'Copyright', 'responsive' ),
-								'section' => 'responsive_footer_layout',
+								'section' => 'responsive_customizer_footer_html',
 							),
 							'footer-widget1'    => array(
 								'name'    => esc_html__( 'Widget 1', 'responsive' ),
