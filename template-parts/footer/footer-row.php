@@ -5,7 +5,6 @@
  * @package responsive
  */
 
-
 $row              = get_query_var( 'row' );
 $tablet_contain   = get_theme_mod( 'footer_' . $row . '_contain', 'default' );
 $mobile_contain   = get_theme_mod( 'footer_' . $row . '_contain', 'default' );
@@ -26,7 +25,7 @@ $i                = 0;
 		<div class="site-container">
 			<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap site-footer-row site-footer-row-columns-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_columns' ) ); ?> site-footer-row-column-layout-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_layout', 'desktop' ) ); ?> site-footer-row-tablet-column-layout-<?php echo esc_attr( $tablet_layout ); ?> site-footer-row-mobile-column-layout-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_layout', 'mobile' ) ); ?> ft-ro-dir-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_direction', 'desktop' ) ); ?> ft-ro-collapse-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_collapse' ) ); ?> ft-ro-t-dir-<?php echo esc_attr( $tablet_direction ); ?> ft-ro-m-dir-<?php echo esc_attr( $mobile_direction ); ?> ft-ro-lstyle-<?php echo esc_attr( $link_style ); ?>">
 				<?php
-				error_log('footer row ' . $columns);
+
 				while ( $i++ < $columns ) {
 					?>
 					<div class="site-footer-<?php echo esc_attr( $row ); ?>-section-<?php echo esc_attr( $i ); ?> site-footer-section footer-section-inner-items-<?php echo esc_attr( footer_column_item_count( $row, $i ) ); ?>">

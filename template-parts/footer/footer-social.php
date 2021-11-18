@@ -5,8 +5,6 @@
  * @package responsive
  */
 
-namespace responsive;
-
 $align        = get_theme_mod( 'footer_social_align', 'default' );
 $tablet_align = get_theme_mod( 'footer_social_align', 'default' );
 $mobile_align = get_theme_mod( 'footer_social_align', 'default' );

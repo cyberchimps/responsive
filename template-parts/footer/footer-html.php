@@ -7,13 +7,13 @@
 
 namespace responsive;
 
-$align        = get_theme_mod( 'footer_html_align', 'default' );
-$tablet_align = get_theme_mod( 'footer_html_align', 'default' );
-$mobile_align = get_theme_mod( 'footer_html_align', 'default' );
+$align        = get_theme_mod( 'responsive_footer_html_align_desktop', 'default' );
+$tablet_align = get_theme_mod( 'responsive_footer_html_align_tablet', 'default' );
+$mobile_align = get_theme_mod( 'responsive_footer_html_align_mobile', 'default' );
 
-$valign        = get_theme_mod( 'footer_html_vertical_align', 'default' );
-$tablet_valign = get_theme_mod( 'footer_html_vertical_align', 'default' );
-$mobile_valign = get_theme_mod( 'footer_html_vertical_align', 'default' );
+$valign        = get_theme_mod( 'Responsive_footer_html_vertical_align_desktop', 'default' );
+$tablet_valign = get_theme_mod( 'Responsive_footer_html_vertical_align_tablet', 'default' );
+$mobile_valign = get_theme_mod( 'Responsive_footer_html_vertical_align_mobile', 'default' );
 
 ?>
 

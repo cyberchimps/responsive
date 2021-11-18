@@ -224,6 +224,8 @@ function responsive_register_options() {
 		$header_settings . 'class-responsive-builder-header-cart-customizer',
 		$header_settings . 'class-responsive-builder-mobile-cart-customizer',
 		$footer_settings . 'class-responsive-builder-footer-html-customizer',
+		$footer_settings . 'class-responsive-builder-footer-navigation-customizer',
+		$footer_settings . 'class-responsive-builder-footer-social-customizer',
 	);
 
 	foreach ( $files as $key ) {

@@ -56,8 +56,58 @@ if ( ! class_exists( 'Responsive_Footer_HTML_Customizer' ) ) :
 				'normal' => __( 'Underlined', 'responsive' ),
 				'plain'  => __( 'No Underline', 'responsive' ),
 			);
-			$footer_html_link_style         = __( 'Footer HTML Link Style.', 'responsive' );
+			$footer_html_link_style         = __( 'HTML Link Style', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_html_link_style', $footer_html_link_style, 'responsive_customizer_footer_html', 15, $footer_html_link_style_choices, 'normal', null );
+
+			// Content Align.
+			$footer_html_align_desktop_choices = array(
+				'left'   => __( 'Left', 'responsive' ),
+				'center' => __( 'Center', 'responsive' ),
+				'right'  => __( 'Right', 'responsive' ),
+			);
+			$footer_html_align_desktop         = __( 'Content Align Desktop', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_html_align_desktop', $footer_html_align_desktop, 'responsive_customizer_footer_html', 20, $footer_html_align_desktop_choices, 'left', null );
+
+			$footer_html_align_tablet_choices = array(
+				'left'   => __( 'Left', 'responsive' ),
+				'center' => __( 'Center', 'responsive' ),
+				'right'  => __( 'Right', 'responsive' ),
+			);
+			$footer_html_align_tablet         = __( 'Content Align Tablet', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_html_align_tablet', $footer_html_align_tablet, 'responsive_customizer_footer_html', 25, $footer_html_align_tablet_choices, 'left', null );
+
+			$footer_html_align_mobile_choices = array(
+				'left'   => __( 'Left', 'responsive' ),
+				'center' => __( 'Center', 'responsive' ),
+				'right'  => __( 'Right', 'responsive' ),
+			);
+			$footer_html_align_mobile         = __( 'Content Align Mobile', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_html_align_mobile', $footer_html_align_mobile, 'responsive_customizer_footer_html', 25, $footer_html_align_mobile_choices, 'left', null );
+
+			// Content Vertical Align.
+			$footer_html_vertical_align_desktop_choices = array(
+				'top'    => __( 'Top', 'responsive' ),
+				'middle' => __( 'Middle', 'responsive' ),
+				'bottom' => __( 'Bottom', 'responsive' ),
+			);
+			$footer_html_vertical_align_desktop         = __( 'Content Vertical Align Desktop', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_html_vertical_align_desktop', $footer_html_vertical_align_desktop, 'responsive_customizer_footer_html', 30, $footer_html_vertical_align_desktop_choices, 'middle', null );
+
+			$footer_html_vertical_align_tablet_choices = array(
+				'top'    => __( 'Top', 'responsive' ),
+				'middle' => __( 'Middle', 'responsive' ),
+				'bottom' => __( 'Bottom', 'responsive' ),
+			);
+			$footer_html_vertical_align_tablet         = __( 'Content Vertical Align Tablet', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_html_vertical_align_tablet', $footer_html_vertical_align_tablet, 'responsive_customizer_footer_html', 35, $footer_html_vertical_align_tablet_choices, 'middle', null );
+
+			$footer_html_vertical_align_mobile_choices = array(
+				'top'    => __( 'Top', 'responsive' ),
+				'middle' => __( 'Middle', 'responsive' ),
+				'bottom' => __( 'Bottom', 'responsive' ),
+			);
+			$footer_html_vertical_align_mobile         = __( 'Content Vertical Align Mobile', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_html_vertical_align_mobile', $footer_html_vertical_align_mobile, 'responsive_customizer_footer_html', 45, $footer_html_vertical_align_mobile_choices, 'middle', null );
 
 		}
 
