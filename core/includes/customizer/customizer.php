@@ -159,7 +159,9 @@ function responsive_customize_preview_js() {
  */
 function responsive_register_options() {
 	// Var.
-	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
+	$dir              = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
+	$builder_settings = 'builder-settings/';
+	$header_settings  = $builder_settings . 'header/';
 	require get_template_directory() . '/admin/class-responsive-plugin-install-helper.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-abstract-main.php';
@@ -202,8 +204,24 @@ function responsive_register_options() {
 		'class-responsive-form-fields-customizer',
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
-		'class-responsive-header-footer-builder',
-		'class-responsive-builder-rows',
+		$builder_settings . 'class-responsive-header-footer-builder',
+		$header_settings . 'class-responsive-builder-primary-navigation-customizer',
+		$header_settings . 'class-responsive-builder-secondary-navigation-customizer',
+		$header_settings . 'class-responsive-builder-logo-customizer',
+		$header_settings . 'class-responsive-builder-social-customizer',
+		$header_settings . 'class-responsive-builder-mobile-social-customizer',
+		$header_settings . 'class-responsive-builder-header-button-customizer',
+		$header_settings . 'class-responsive-builder-mobile-header-button-customizer',
+		$header_settings . 'class-responsive-builder-header-trigger-customizer',
+		$header_settings . 'class-responsive-builder-mobile-navigation-customizer',
+		$header_settings . 'class-responsive-builder-header-search-customizer',
+		$header_settings . 'class-responsive-builder-header-html-customizer',
+		$header_settings . 'class-responsive-builder-mobile-html-customizer',
+		$header_settings . 'class-responsive-builder-top-row',
+		$header_settings . 'class-responsive-builder-main-row',
+		$header_settings . 'class-responsive-builder-bottom-row',
+		$header_settings . 'class-responsive-builder-header-cart-customizer',
+		$header_settings . 'class-responsive-builder-mobile-cart-customizer',
 	);
 
 	foreach ( $files as $key ) {
