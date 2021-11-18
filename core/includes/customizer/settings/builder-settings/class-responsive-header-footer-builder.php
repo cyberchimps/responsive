@@ -233,7 +233,6 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					'section' => 'responsive_customizer_mobile_cart',
 				);
 			}
-
 			$header_mobile_items_default = array(
 				'popup'  => array(
 					'popup_content' => array( 'mobile-navigation' ),
