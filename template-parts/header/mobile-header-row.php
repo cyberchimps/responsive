@@ -11,14 +11,14 @@ $row           = get_query_var( 'mobile_row' );
 $tablet_layout = ( get_theme_mod( 'header_' . $row . '_layout', 'tablet' ) ? get_theme_mod( 'header_' . $row . '_layout', 'tablet' ) : 'default' );
 $mobile_layout = ( get_theme_mod( 'header_' . $row . '_layout', 'mobile' ) ? get_theme_mod( 'header_' . $row . '_layout', 'mobile' ) : 'default' );
 ?>
-<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap site-header-focus-item site-header-row-layout-<?php echo esc_attr( get_theme_mod( 'header_' . $row . '_layout', 'desktop' ) ); ?> site-header-row-tablet-layout-<?php echo esc_attr( $tablet_layout ); ?> site-header-row-mobile-layout-<?php echo esc_attr( $mobile_layout ); ?> <?php /* echo esc_attr( $row === responsive()->option( 'mobile_header_sticky' ) ? ' responsive-sticky-header' : '' ); */ ?>"
+<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap site-header-focus-item site-header-row-layout-<?php echo esc_attr( get_theme_mod( 'header_' . $row . '_layout', 'desktop' ) ); ?> site-header-row-tablet-layout-<?php echo esc_attr( $tablet_layout ); ?> site-header-row-mobile-layout-<?php echo esc_attr( $mobile_layout ); ?> <?php /* echo esc_attr( $row === get_theme_mod( 'mobile_header_sticky' ) ? ' responsive-sticky-header' : '' ); */ ?>"
 <?php
 /*
-	If ( $row === 'main' && 'main' === responsive()->option( 'mobile_header_sticky' ) ) {
-		echo ' data-shrink="' . ( responsive()->option( 'mobile_header_sticky_shrink' ) ? 'true' : 'false' ) . '"';
-		echo ' data-reveal-scroll-up="' . ( responsive()->option( 'mobile_header_reveal_scroll_up' ) ? 'true' : 'false' ) . '"';
-		if ( responsive()->option( 'mobile_header_sticky_shrink' ) ) {
-			echo ' data-shrink-height="' . esc_attr( responsive()->sub_option( 'mobile_header_sticky_main_shrink', 'size' ) ) . '"';
+	If ( $row === 'main' && 'main' === get_theme_mod( 'mobile_header_sticky' ) ) {
+		echo ' data-shrink="' . ( get_theme_mod( 'mobile_header_sticky_shrink' ) ? 'true' : 'false' ) . '"';
+		echo ' data-reveal-scroll-up="' . ( get_theme_mod( 'mobile_header_reveal_scroll_up' ) ? 'true' : 'false' ) . '"';
+		if ( get_theme_mod( 'mobile_header_sticky_shrink' ) ) {
+			echo ' data-shrink-height="' . esc_attr( get_theme_mod( 'mobile_header_sticky_main_shrink', 'size' ) ) . '"';
 		}
 	}
 */
