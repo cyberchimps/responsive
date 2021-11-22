@@ -226,6 +226,15 @@ function responsive_register_options() {
 		$footer_settings . 'class-responsive-builder-footer-html-customizer',
 		$footer_settings . 'class-responsive-builder-footer-navigation-customizer',
 		$footer_settings . 'class-responsive-builder-footer-social-customizer',
+		$footer_settings . 'class-responsive-builder-footer-bottom-row',
+		$footer_settings . 'class-responsive-builder-footer-middle-row',
+		$footer_settings . 'class-responsive-builder-footer-top-row',
+		$footer_settings . 'class-responsive-builder-footer-widget1-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget2-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget3-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget4-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget5-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget6-customizer',
 	);
 
 	foreach ( $files as $key ) {

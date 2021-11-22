@@ -378,9 +378,23 @@ function display_primary_nav_menu( array $args = array() ) {
 	if ( ! isset( $args['addon_support'] ) ) {
 		$args['addon_support'] = true;
 	}
-	$args['theme_location'] = PRIMARY_NAV_MENU_SLUG;
+	if ( ! isset( $args['theme_location'] ) ) {
+		$args['theme_location'] = PRIMARY_NAV_MENU_SLUG;
+	}
 
-	wp_nav_menu( $args );
+	$args['fallback_cb'] = 'responsive_fallback_menu';
+
+	wp_nav_menu(
+		array(
+			'container'      => $args['container'],
+			'sub_arrows'     => $args['sub_arrows'],
+			'mega_support'   => $args['mega_support'],
+			'addon_support'  => $args['addon_support'],
+			'theme_location' => $args['theme_location'],
+			'fallback_cb'    => $args['fallback_cb'],
+		)
+	);
+
 }
 
 /**
@@ -435,14 +449,14 @@ function display_fallback_menu( array $args = array() ) {
 	 * @param int      $depth Depth of menu item. Used for padding.
 	 */
 function filter_primary_nav_menu_dropdown_symbol( $title, $item, $args, $depth ) {
-	// // Only for our primary and secondary menu location.
-	// if ( empty( $args->theme_location ) || ( static::PRIMARY_NAV_MENU_SLUG !== $args->theme_location && static::SECONDARY_NAV_MENU_SLUG !== $args->theme_location ) ) {
-	// return $title;
-	// }
-	// // This can still get called because menu location isn't always correct.
-	// if ( ! empty( $args->menu_id ) && 'mobile-menu' === $args->menu_id ) {
-	// return $title;
-	// }
+	// Only for our primary and secondary menu location.
+	if ( empty( $args->theme_location ) || ( PRIMARY_NAV_MENU_SLUG !== $args->theme_location && SECONDARY_NAV_MENU_SLUG !== $args->theme_location ) ) {
+		return $title;
+	}
+	// This can still get called because menu location isn't always correct.
+	if ( ! empty( $args->menu_id ) && 'mobile-menu' === $args->menu_id ) {
+		return $title;
+	}
 	if ( ! isset( $args->sub_arrows ) || empty( $args->sub_arrows ) ) {
 		return $title;
 	}
@@ -523,9 +537,21 @@ function display_secondary_nav_menu( array $args = array() ) {
 	if ( ! isset( $args['addon_support'] ) ) {
 		$args['addon_support'] = true;
 	}
-	$args['theme_location'] = SECONDARY_NAV_MENU_SLUG;
+	if ( ! isset( $args['theme_location'] ) ) {
+		$args['theme_location'] = SECONDARY_NAV_MENU_SLUG;
+	}
+	$args['fallback_cb'] = 'responsive_fallback_menu';
 
-	wp_nav_menu( $args );
+	wp_nav_menu(
+		array(
+			'container'      => $args['container'],
+			'sub_arrows'     => $args['sub_arrows'],
+			'mega_support'   => $args['mega_support'],
+			'addon_support'  => $args['addon_support'],
+			'theme_location' => $args['theme_location'],
+			'fallback_cb'    => $args['fallback_cb'],
+		)
+	);
 }
 
 /**
@@ -893,9 +919,22 @@ function display_mobile_nav_menu( array $args = array() ) {
 	if ( ! isset( $args['show_toggles'] ) ) {
 		$args['show_toggles'] = is_menu_collapsible();
 	}
-	$args['theme_location'] = MOBILE_NAV_MENU_SLUG;
+	if ( ! isset( $args['theme_location'] ) ) {
+		$args['theme_location'] = MOBILE_NAV_MENU_SLUG;
+	}
+	$args['fallback_cb'] = 'responsive_fallback_menu';
 
-	wp_nav_menu( $args );
+	wp_nav_menu(
+		array(
+			'container'      => $args['container'],
+			'show_toggles'   => $args['show_toggles'],
+			'mega_support'   => $args['mega_support'],
+			'addon_support'  => $args['addon_support'],
+			'theme_location' => $args['theme_location'],
+			'fallback_cb'    => $args['fallback_cb'],
+		)
+	);
+
 }
 
 /**

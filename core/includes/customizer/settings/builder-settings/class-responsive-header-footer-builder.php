@@ -396,27 +396,27 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							),
 							'footer-widget1'    => array(
 								'name'    => esc_html__( 'Widget 1', 'responsive' ),
-								'section' => 'responsive_footer_layout',
+								'section' => 'sidebar-widgets-footer-widget-1',
 							),
 							'footer-widget2'    => array(
 								'name'    => esc_html__( 'Widget 2', 'responsive' ),
-								'section' => 'responsive_footer_layout',
+								'section' => 'sidebar-widgets-footer-widget-2',
 							),
 							'footer-widget3'    => array(
 								'name'    => esc_html__( 'Widget 3', 'responsive' ),
-								'section' => 'responsive_footer_layout',
+								'section' => 'sidebar-widgets-footer-widget-3',
 							),
 							'footer-widget4'    => array(
 								'name'    => esc_html__( 'Widget 4', 'responsive' ),
-								'section' => 'responsive_footer_layout',
+								'section' => 'sidebar-widgets-footer-widget-4',
 							),
 							'footer-widget5'    => array(
 								'name'    => esc_html__( 'Widget 5', 'responsive' ),
-								'section' => 'responsive_footer_layout',
+								'section' => 'sidebar-widgets-footer-widget-5',
 							),
 							'footer-widget6'    => array(
 								'name'    => esc_html__( 'Widget 6', 'responsive' ),
-								'section' => 'responsive_footer_layout',
+								'section' => 'sidebar-widgets-footer-widget-6',
 							),
 						),
 						'input_attrs' => array(

@@ -144,6 +144,11 @@
 .site-footer-row-layout-fullwidth > .site-footer-row-container-inner > .site-container {
     max-width:none;
 }
+.site-footer-row-layout-standard{
+	max-width: 1140px;
+	margin-left: auto;
+	margin-right: auto;
+}
 .site-footer-row-tablet-layout-contained {
 	padding: 0 1.5rem;
 }
