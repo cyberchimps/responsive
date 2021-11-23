@@ -85,7 +85,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				'filled'  => __( 'Filled', 'responsive' ),
 				'outline' => __( 'Outline', 'responsive' ),
 			);
-			$header_button_style         = __( 'Header Button Style.', 'responsive' );
+			$header_button_style         = __( 'Header Button Style', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_button_style', $header_button_style, 'responsive_customizer_header_button', 45, $header_button_style_choices, 'medium', null );
 
 			// Header Button visibility.

@@ -5,17 +5,22 @@
  * @package responsive
  */
 
-$row              = get_query_var( 'row' );
-$tablet_contain   = get_theme_mod( 'footer_' . $row . '_contain', 'default' );
-$mobile_contain   = get_theme_mod( 'footer_' . $row . '_contain', 'default' );
-$tablet_layout    = get_theme_mod( 'footer_' . $row . '_layout', 'default' );
-$link_style       = get_theme_mod( 'footer_' . $row . '_link_style' );
-$columns          = absint( get_theme_mod( 'footer_' . $row . '_columns', 3 ) );
-$tablet_direction = get_theme_mod( 'footer_' . $row . '_direction', 'default' );
-$mobile_direction = get_theme_mod( 'footer_' . $row . '_direction', 'default' );
-$i                = 0;
+$row               = get_query_var( 'row' );
+$desktop_contain   = get_theme_mod( 'responsive_footer_' . $row . '_contain', 'standard' );
+$tablet_contain    = get_theme_mod( 'responsive_footer_tablet' . $row . '_contain', 'default' );
+$mobile_contain    = get_theme_mod( 'responsive_footer_mobile' . $row . '_contain', 'default' );
+$desktop_layout    = get_theme_mod( 'responsive_footer_' . $row . '_layout', 'equal' );
+$tablet_layout     = get_theme_mod( 'responsive_footer_' . $row . '_layout', 'equal' );
+$mobile_layout     = get_theme_mod( 'responsive_footer_' . $row . '_layout', 'row' );
+$link_style        = get_theme_mod( 'responsive_footer_' . $row . '_link_style', 'plain' );
+$columns           = absint( get_theme_mod( 'responsive_footer_' . $row . '_columns', 1 ) );
+$desktop_direction = get_theme_mod( 'responsive_footer_' . $row . '_direction_desktop', 'row' );
+$tablet_direction  = get_theme_mod( 'responsive_footer_' . $row . '_direction_tablet', '' );
+$mobile_direction  = get_theme_mod( 'responsive_footer_' . $row . '_direction_mobile', 'column' );
+$footer_collapse   = get_theme_mod( 'responsive_footer_' . $row . '_collapse', 'normal' );
+$i                 = 0;
 ?>
-<div class="site-<?php echo esc_attr( $row ); ?>-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_contain', 'desktop' ) ); ?> site-footer-row-tablet-layout-<?php echo esc_attr( $tablet_contain ); ?> site-footer-row-mobile-layout-<?php echo esc_attr( $mobile_contain ); ?>" data-section="responsive_customizer_footer_<?php echo esc_attr( $row ); ?>">
+<div class="site-<?php echo esc_attr( $row ); ?>-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-<?php echo esc_attr( $desktop_contain ); ?> site-footer-row-tablet-layout-<?php echo esc_attr( $tablet_contain ); ?> site-footer-row-mobile-layout-<?php echo esc_attr( $mobile_contain ); ?>" data-section="responsive_customizer_footer_<?php echo esc_attr( $row ); ?>">
 	<div class="site-footer-row-container-inner">
 		<?php if ( is_customize_preview() ) { ?>
 			<div class="customize-partial-edit-shortcut responsive-custom-partial-edit-shortcut">
@@ -23,7 +28,7 @@ $i                = 0;
 			</div>
 		<?php } ?>
 		<div class="site-container">
-			<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap site-footer-row site-footer-row-columns-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_columns' ) ); ?> site-footer-row-column-layout-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_layout', 'desktop' ) ); ?> site-footer-row-tablet-column-layout-<?php echo esc_attr( $tablet_layout ); ?> site-footer-row-mobile-column-layout-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_layout', 'mobile' ) ); ?> ft-ro-dir-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_direction', 'desktop' ) ); ?> ft-ro-collapse-<?php echo esc_attr( get_theme_mod( 'footer_' . $row . '_collapse' ) ); ?> ft-ro-t-dir-<?php echo esc_attr( $tablet_direction ); ?> ft-ro-m-dir-<?php echo esc_attr( $mobile_direction ); ?> ft-ro-lstyle-<?php echo esc_attr( $link_style ); ?>">
+			<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap site-footer-row site-footer-row-columns-<?php echo esc_attr( get_theme_mod( 'responsive_footer_' . $row . '_columns' ) ); ?> site-footer-row-column-layout-<?php echo esc_attr( $desktop_layout ); ?> site-footer-row-tablet-column-layout-<?php echo esc_attr( $tablet_layout ); ?> site-footer-row-mobile-column-layout-<?php echo esc_attr( $mobile_layout ); ?> ft-ro-dir-<?php echo esc_attr( $desktop_direction ); ?> ft-ro-collapse-<?php echo esc_attr( $footer_collapse ); ?> ft-ro-t-dir-<?php echo esc_attr( $tablet_direction ); ?> ft-ro-m-dir-<?php echo esc_attr( $mobile_direction ); ?> ft-ro-lstyle-<?php echo esc_attr( $link_style ); ?>">
 				<?php
 
 				while ( $i++ < $columns ) {

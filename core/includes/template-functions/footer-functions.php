@@ -150,7 +150,18 @@ function display_footer_nav_menu( array $args = array() ) {
 		$args['addon_support'] = true;
 	}
 	$args['theme_location'] = FOOTER_NAV_MENU_SLUG;
-	wp_nav_menu( $args );
+
+	$args['fallback_cb'] = 'responsive_fallback_menu';
+
+	wp_nav_menu(
+		array(
+			'container'      => $args['container'],
+			'depth'          => $args['depth'],
+			'addon_support'  => $args['addon_support'],
+			'theme_location' => $args['theme_location'],
+			'fallback_cb'    => $args['fallback_cb'],
+		)
+	);
 }
 
 

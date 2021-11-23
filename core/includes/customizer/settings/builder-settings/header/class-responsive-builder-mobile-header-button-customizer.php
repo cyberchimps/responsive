@@ -65,7 +65,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 
 			// Mobile Header Button sponsored.
 			$mobile_button_sponsored = __( 'Mobile Set link attribute Sponsored', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'mobile_button_sponsored', $header_button_sponsored, 'responsive_customizer_mobile_button', 25, 0, null );
+			responsive_checkbox_control( $wp_customize, 'mobile_button_sponsored', $mobile_button_sponsored, 'responsive_customizer_mobile_button', 25, 0, null );
 
 			// Mobile Header Button download.
 			$mobile_button_download = __( 'Mobile Set link to download', 'responsive' );
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 				'large'  => __( 'large', 'responsive' ),
 			);
 			$mobile_button_size         = __( 'Mobile Header Button Size', 'responsive' );
-			responsive_select_control( $wp_customize, 'mobile_button_size', $mobile_button_size, 'responsive_customizer_mobile_button', 35, $header_button_size_choices, 'medium', null );
+			responsive_select_control( $wp_customize, 'mobile_button_size', $mobile_button_size, 'responsive_customizer_mobile_button', 35, $mobile_button_size_choices, 'medium', null );
 
 			// Mobile Header Button Style.
 			$mobile_button_style_choices = array(
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 				'loggedout' => __( 'Logged Out Only', 'responsive' ),
 			);
 			$mobile_button_visibility         = __( 'Mobile Header Button Visibility', 'responsive' );
-			responsive_select_control( $wp_customize, 'mobile_button_visibility', $mobile_button_visibility, 'responsive_customizer_mobile_button', 45, $header_button_visibility_choices, 'everyone', null );
+			responsive_select_control( $wp_customize, 'mobile_button_visibility', $mobile_button_visibility, 'responsive_customizer_mobile_button', 45, $mobile_button_visibility_choices, 'everyone', null );
 
 		}
 

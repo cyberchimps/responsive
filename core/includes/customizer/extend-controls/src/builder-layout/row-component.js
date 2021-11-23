@@ -25,10 +25,10 @@ const RowComponent = props => {
 		centerClass = 'popup-vertical-group';
 	}
 	if ('footer_items' === controlParamsGroup) {
-		var columns = customizer.control('responsive_footer_widgets_columns').setting.get();
 		// var layout = customizer.control('footer_' + props.row + '_layout').setting.get();
-		// var direction = customizer.control('footer_' + props.row + '_direction').setting.get();
-		centerClass = 'footer-column-row footer-row-columns-' + columns; //+ ' footer-row-layout-' + layout.desktop + ' footer-row-direction-' + direction.desktop;
+		var columns = customizer.control('responsive_footer_' + props.row + '_columns').setting.get();
+		var direction = customizer.control('responsive_footer_' + props.row + '_direction_desktop').setting.get();
+		centerClass = 'footer-column-row footer-row-columns-' + columns + ' footer-row-layout-equal' + ' footer-row-direction-' + direction;  //' footer-row-layout-' + layout.desktop.
 	}
 	const mode = (controlParamsGroup.indexOf('header') !== -1 ? 'header' : 'footer');
 	let besideItems = [];
