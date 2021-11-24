@@ -33,7 +33,9 @@ if ( ! class_exists( 'Responsive_Mobile_Cart_Customizer' ) ) :
 		 * @param  object $wp_customize WordPress customization option.
 		 */
 		public function customizer_options( $wp_customize ) {
-
+			if ( ! class_exists( 'WooCommerce' ) ) {
+				return;
+			}
 			/**
 			 * Header Builder options
 			 */
@@ -69,14 +71,14 @@ if ( ! class_exists( 'Responsive_Mobile_Cart_Customizer' ) ) :
 				'dropdown' => __( 'Dropdown', 'responsive' ),
 			);
 			$header_mobile_cart_style         = __( 'Cart Style', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_mobile_cart_style', $header_mobile_cart_style, 'responsive_customizer_mobile_cart', 25, $header_mobile_cart_style_choices, 'link' , null );
+			responsive_select_control( $wp_customize, 'header_mobile_cart_style', $header_mobile_cart_style, 'responsive_customizer_mobile_cart', 25, $header_mobile_cart_style_choices, 'link', null );
 
 			$header_mobile_cart_popup_side_choices = array(
 				'left'  => __( 'Left', 'responsive' ),
 				'right' => __( 'Right', 'responsive' ),
 			);
 			$header_mobile_cart_popup_side         = __( 'Cart Popup Side', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_mobile_cart_popup_side', $header_mobile_cart_style, 'responsive_customizer_mobile_cart', 30, $header_mobile_cart_popup_side_choices, 'left', null );
+			responsive_select_control( $wp_customize, 'header_mobile_cart_popup_side', $header_mobile_cart_popup_side, 'responsive_customizer_mobile_cart', 30, $header_mobile_cart_popup_side_choices, 'left', null );
 
 		}
 

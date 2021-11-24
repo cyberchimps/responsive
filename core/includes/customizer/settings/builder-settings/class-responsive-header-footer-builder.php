@@ -140,8 +140,18 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->add_setting(
 				'header_desktop_items',
 				array(
-					'transport' => 'refresh',
-					'default'   => $header_desktop_items,
+					'transport'         => 'postMessage',
+					'default'           => $header_desktop_items,
+					'sanitize_callback' => 'responsive_sanitize_builder',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'header_desktop_items',
+				array(
+					'selector'            => '#masthead',
+					'container_inclusive' => true,
+					'render_callback'     => 'header_markup',
+					'fallback_refresh'    => true,
 				)
 			);
 			$wp_customize->add_control(
@@ -151,16 +161,12 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					array(
 						'section'     => 'responsive_customizer_header_builder',
 						'settings'    => 'header_desktop_items',
+						'default'     => $header_desktop_items,
 						'context'     => array(
 							array(
 								'setting' => '__device',
 								'value'   => 'desktop',
 							),
-						),
-						'partial'     => array(
-							'selector'            => '#masthead',
-							'container_inclusive' => true,
-							'render_callback'     => 'header_markup',
 						),
 						'choices'     => $header_desktop_items_choices,
 						'input_attrs' => array(
@@ -256,8 +262,18 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->add_setting(
 				'header_mobile_items',
 				array(
-					'transport' => 'refresh',
-					'default'   => $header_mobile_items_default,
+					'transport'         => 'postMessage',
+					'default'           => $header_mobile_items_default,
+					'sanitize_callback' => 'responsive_sanitize_builder',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'header_mobile_items',
+				array(
+					'selector'            => '#mobile-header',
+					'container_inclusive' => true,
+					'render_callback'     => 'mobile_header',
+					'fallback_refresh'    => true,
 				)
 			);
 			$wp_customize->add_control(
@@ -267,6 +283,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					array(
 						'section'     => 'responsive_customizer_header_builder',
 						'settings'    => 'header_mobile_items',
+						'default'     => $header_mobile_items_default,
 						'context'     => array(
 							array(
 								'setting'  => '__device',
@@ -365,8 +382,18 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->add_setting(
 				'footer_items',
 				array(
-					'transport' => 'refresh',
-					'default'   => $footer_items,
+					'transport'         => 'postMessage',
+					'default'           => $footer_items,
+					'sanitize_callback' => 'responsive_sanitize_builder',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'footer_items',
+				array(
+					'selector'            => '#colophon',
+					'container_inclusive' => true,
+					'render_callback'     => 'footer_markup',
+					'fallback_refresh'    => true,
 				)
 			);
 			$wp_customize->add_control(
@@ -376,6 +403,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					array(
 						'section'     => 'responsive_customizer_footer_builder',
 						'settings'    => 'footer_items',
+						'default'     => $footer_items,
 						'partial'     => array(
 							'selector'            => '#colophon',
 							'container_inclusive' => true,

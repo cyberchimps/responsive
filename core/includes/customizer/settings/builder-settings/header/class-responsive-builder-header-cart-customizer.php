@@ -33,7 +33,9 @@ if ( ! class_exists( 'Responsive_Header_Cart_Customizer' ) ) :
 		 * @param  object $wp_customize WordPress customization option.
 		 */
 		public function customizer_options( $wp_customize ) {
-
+			if ( ! class_exists( 'WooCommerce' ) ) {
+				return;
+			}
 			/**
 			 * Header Builder options
 			 */

@@ -1059,7 +1059,7 @@ function header_button() {
 		if ( get_theme_mod( 'responsive_header_button_sponsored' ) ) {
 			$rel[] = 'sponsored';
 		}
-		$href = get_theme_mod( 'responsive_header_button_link' ) !== '' ? 'http://' . get_theme_mod( 'responsive_header_button_link' ) : '';
+		$href = get_theme_mod( 'responsive_header_button_link' ) !== '' ? get_theme_mod( 'responsive_header_button_link' ) : '';
 		echo '<a href="' . esc_attr( $href ) . '" target="' . esc_attr( get_theme_mod( 'responsive_header_button_target' ) ? '_blank' : '_self' ) . '"' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ( ! empty( get_theme_mod( 'responsive_header_button_download' ) ) ? ' download' : '' ) . ' class="button header-button button-size-' . esc_attr( get_theme_mod( 'responsive_header_button_size' ) ) . ' button-style-' . esc_attr( get_theme_mod( 'responsive_header_button_style' ) ) . '">';
 		echo esc_html( $label );
 		echo '</a>';
