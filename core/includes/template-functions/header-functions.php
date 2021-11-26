@@ -70,7 +70,7 @@ function get_other_template( $slug, $name = null, $args = array() ) {
 function display_header_row( $row = 'main' ) {
 	$display = false;
 	foreach ( array( 'left', 'center', 'right' ) as $column ) {
-		$elements = get_theme_mod( 'header_desktop_items' );
+		$elements = get_theme_mod( 'header_desktop_items', Responsive\Core\get_responsive_customizer_defaults( 'header_desktop_items' ) );
 		if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
 			$display = true;
 			break;
@@ -115,7 +115,7 @@ function bottom_header() {
  * @param string $header the name of the header.
  */
 function render_header( $row = 'main', $column = 'left', $header = 'desktop' ) {
-	$elements = get_theme_mod( 'header_' . $header . '_items' );
+	$elements = get_theme_mod( 'header_' . $header . '_items', Responsive\Core\get_responsive_customizer_defaults( 'header_' . $header . '_items' ) );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
 		foreach ( $elements[ $row ][ $row . '_' . $column ] as $key => $item ) {
 			$template = apply_filters( 'responsive_header_elements_template_path', 'template-parts/header/' . $item, $item, $row, $column );
@@ -149,7 +149,7 @@ function mobile_header() {
 function display_mobile_header_row( $row = 'main' ) {
 	$display = false;
 	foreach ( array( 'left', 'center', 'right' ) as $column ) {
-		$elements = get_theme_mod( 'header_mobile_items' );
+		$elements = get_theme_mod( 'header_mobile_items', Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_items' ) );
 		if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
 			$display = true;
 			break;

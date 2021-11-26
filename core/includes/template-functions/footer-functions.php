@@ -22,10 +22,10 @@ function footer_markup() {
  * @param string $row the name of the row.
  * @return bool
  */
-function display_footer_row( $row = 'middle' ) {
+function display_footer_row( $row = 'bottom' ) {
 	$display = false;
 	foreach ( array( '1', '2', '3', '4', '5' ) as $column ) {
-		$elements = get_theme_mod( 'footer_items' );
+		$elements = get_theme_mod( 'footer_items', Responsive\Core\get_responsive_customizer_defaults( 'footer_items' ) );
 		if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
 			$display = true;
 			break;
@@ -40,8 +40,8 @@ function display_footer_row( $row = 'middle' ) {
  * @param string $row the name of the row.
  * @param string $column the name of the column.
  */
-function render_footer( $row = 'middle', $column = '1' ) {
-	$elements = get_theme_mod( 'footer_items' );
+function render_footer( $row = 'bottom', $column = '1' ) {
+	$elements = get_theme_mod( 'footer_items', Responsive\Core\get_responsive_customizer_defaults( 'footer_items' ) );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
 		foreach ( $elements[ $row ][ $row . '_' . $column ] as $key => $item ) {
 			$template = apply_filters( 'responsive_footer_elements_template_path', 'template-parts/footer/' . $item, $item, $row, $column );
@@ -56,9 +56,9 @@ function render_footer( $row = 'middle', $column = '1' ) {
  * @param string $row the name of the row.
  * @param string $column the name of the column.
  */
-function footer_column_item_count( $row = 'middle', $column = '1' ) {
+function footer_column_item_count( $row = 'bottom', $column = '1' ) {
 	$count    = 0;
-	$elements = get_theme_mod( 'footer_items' );
+	$elements = get_theme_mod( 'footer_items', Responsive\Core\get_responsive_customizer_defaults( 'footer_items' ) );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) && isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) && ! empty( $elements[ $row ][ $row . '_' . $column ] ) ) {
 		$count = count( $elements[ $row ][ $row . '_' . $column ] );
 	}
