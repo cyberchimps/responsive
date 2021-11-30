@@ -114,34 +114,22 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					'section' => 'responsive_customizer_header_cart',
 				);
 			}
-			$header_desktop_items = array(
-				'top'    => array(
-					'top_left'         => array(),
-					'top_left_center'  => array(),
-					'top_center'       => array(),
-					'top_right_center' => array(),
-					'top_right'        => array(),
-				),
-				'main'   => array(
-					'main_left'         => array( 'logo' ),
-					'main_left_center'  => array(),
-					'main_center'       => array(),
-					'main_right_center' => array(),
-					'main_right'        => array( 'navigation' ),
-				),
-				'bottom' => array(
-					'bottom_left'         => array(),
-					'bottom_left_center'  => array(),
-					'bottom_center'       => array(),
-					'bottom_right_center' => array(),
-					'bottom_right'        => array(),
-				),
-			);
+			$header_desktop_items = Responsive\Core\get_responsive_customizer_defaults( 'header_desktop_items' );
 			$wp_customize->add_setting(
 				'header_desktop_items',
 				array(
-					'transport' => 'refresh',
-					'default'   => $header_desktop_items,
+					'transport'         => 'postMessage',
+					'default'           => $header_desktop_items,
+					'sanitize_callback' => 'responsive_sanitize_builder',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'header_desktop_items',
+				array(
+					'selector'            => '#masthead',
+					'container_inclusive' => true,
+					'render_callback'     => 'header_markup',
+					'fallback_refresh'    => true,
 				)
 			);
 			$wp_customize->add_control(
@@ -151,16 +139,12 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					array(
 						'section'     => 'responsive_customizer_header_builder',
 						'settings'    => 'header_desktop_items',
+						'default'     => $header_desktop_items,
 						'context'     => array(
 							array(
 								'setting' => '__device',
 								'value'   => 'desktop',
 							),
-						),
-						'partial'     => array(
-							'selector'            => '#masthead',
-							'container_inclusive' => true,
-							'render_callback'     => 'header_markup',
 						),
 						'choices'     => $header_desktop_items_choices,
 						'input_attrs' => array(
@@ -233,31 +217,22 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					'section' => 'responsive_customizer_mobile_cart',
 				);
 			}
-			$header_mobile_items_default = array(
-				'popup'  => array(
-					'popup_content' => array( 'mobile-navigation' ),
-				),
-				'top'    => array(
-					'top_left'   => array(),
-					'top_center' => array(),
-					'top_right'  => array(),
-				),
-				'main'   => array(
-					'main_left'   => array( 'mobile-logo' ),
-					'main_center' => array(),
-					'main_right'  => array( 'popup-toggle' ),
-				),
-				'bottom' => array(
-					'bottom_left'   => array(),
-					'bottom_center' => array(),
-					'bottom_right'  => array(),
-				),
-			);
+			$header_mobile_items_default = Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_items' );
 			$wp_customize->add_setting(
 				'header_mobile_items',
 				array(
-					'transport' => 'refresh',
-					'default'   => $header_mobile_items_default,
+					'transport'         => 'postMessage',
+					'default'           => $header_mobile_items_default,
+					'sanitize_callback' => 'responsive_sanitize_builder',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'header_mobile_items',
+				array(
+					'selector'            => '#mobile-header',
+					'container_inclusive' => true,
+					'render_callback'     => 'mobile_header',
+					'fallback_refresh'    => true,
 				)
 			);
 			$wp_customize->add_control(
@@ -267,6 +242,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					array(
 						'section'     => 'responsive_customizer_header_builder',
 						'settings'    => 'header_mobile_items',
+						'default'     => $header_mobile_items_default,
 						'context'     => array(
 							array(
 								'setting'  => '__device',
@@ -339,34 +315,22 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				)
 			);
 
-			$footer_items = array(
-				'top'    => array(
-					'top_1' => array(),
-					'top_2' => array(),
-					'top_3' => array(),
-					'top_4' => array(),
-					'top_5' => array(),
-				),
-				'middle' => array(
-					'middle_1' => array(),
-					'middle_2' => array(),
-					'middle_3' => array(),
-					'middle_4' => array(),
-					'middle_5' => array(),
-				),
-				'bottom' => array(
-					'bottom_1' => array( 'footer-html' ),
-					'bottom_2' => array(),
-					'bottom_3' => array(),
-					'bottom_4' => array(),
-					'bottom_5' => array(),
-				),
-			);
+			$footer_items = Responsive\Core\get_responsive_customizer_defaults( 'footer_items' );
 			$wp_customize->add_setting(
 				'footer_items',
 				array(
-					'transport' => 'refresh',
-					'default'   => $footer_items,
+					'transport'         => 'postMessage',
+					'default'           => $footer_items,
+					'sanitize_callback' => 'responsive_sanitize_builder',
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'footer_items',
+				array(
+					'selector'            => '#colophon',
+					'container_inclusive' => true,
+					'render_callback'     => 'footer_markup',
+					'fallback_refresh'    => true,
 				)
 			);
 			$wp_customize->add_control(
@@ -376,6 +340,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					array(
 						'section'     => 'responsive_customizer_footer_builder',
 						'settings'    => 'footer_items',
+						'default'     => $footer_items,
 						'partial'     => array(
 							'selector'            => '#colophon',
 							'container_inclusive' => true,
