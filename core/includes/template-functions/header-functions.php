@@ -381,6 +381,13 @@ function display_primary_nav_menu( array $args = array() ) {
 	if ( ! isset( $args['theme_location'] ) ) {
 		$args['theme_location'] = PRIMARY_NAV_MENU_SLUG;
 	}
+	if ( ! isset( $args['menu_class'] ) ) {
+		$args['menu_class'] = 'menu';
+	}
+
+	if ( ! isset( $args['menu_id'] ) ) {
+		$args['menu_id'] = 'primary-menu';
+	}
 
 	$args['fallback_cb'] = 'responsive_fallback_menu';
 
@@ -392,6 +399,8 @@ function display_primary_nav_menu( array $args = array() ) {
 			'addon_support'  => $args['addon_support'],
 			'theme_location' => $args['theme_location'],
 			'fallback_cb'    => $args['fallback_cb'],
+			'menu_class'     => $args['menu_class'],
+			'menu_id'        => $args['menu_id'],
 		)
 	);
 
@@ -540,6 +549,13 @@ function display_secondary_nav_menu( array $args = array() ) {
 	if ( ! isset( $args['theme_location'] ) ) {
 		$args['theme_location'] = SECONDARY_NAV_MENU_SLUG;
 	}
+	if ( ! isset( $args['menu_class'] ) ) {
+		$args['menu_class'] = 'menu';
+	}
+
+	if ( ! isset( $args['menu_id'] ) ) {
+		$args['menu_id'] = 'secondary-menu';
+	}
 	$args['fallback_cb'] = 'responsive_fallback_menu';
 
 	wp_nav_menu(
@@ -550,6 +566,8 @@ function display_secondary_nav_menu( array $args = array() ) {
 			'addon_support'  => $args['addon_support'],
 			'theme_location' => $args['theme_location'],
 			'fallback_cb'    => $args['fallback_cb'],
+			'menu_class'     => $args['menu_class'],
+			'menu_id'        => $args['menu_id'],
 		)
 	);
 }
@@ -922,6 +940,12 @@ function display_mobile_nav_menu( array $args = array() ) {
 	if ( ! isset( $args['theme_location'] ) ) {
 		$args['theme_location'] = MOBILE_NAV_MENU_SLUG;
 	}
+	if ( ! isset( $args['menu_class'] ) ) {
+		$args['menu_class'] = 'menu';
+	}
+	if ( ! isset( $args['menu_id'] ) ) {
+		$args['menu_id'] = 'mobile-menu';
+	}
 	$args['fallback_cb'] = 'responsive_fallback_menu';
 
 	wp_nav_menu(
@@ -932,6 +956,8 @@ function display_mobile_nav_menu( array $args = array() ) {
 			'addon_support'  => $args['addon_support'],
 			'theme_location' => $args['theme_location'],
 			'fallback_cb'    => $args['fallback_cb'],
+			'menu_class'     => $args['menu_class'],
+			'menu_id'        => $args['menu_id'],
 		)
 	);
 

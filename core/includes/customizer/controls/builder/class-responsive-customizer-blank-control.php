@@ -34,7 +34,7 @@ class Responsive_Customizer_Blank_Control extends WP_Customize_Control {
 		endif;
 		if ( ! empty( $this->description ) ) :
 			?>
-			<span class="customize-control-description"><?php echo $this->description; // phpcs:ignore ?></span>
+			<span class="customize-control-description hf-builder"><?php echo $this->description; // phpcs:ignore ?></span>
 			<?php
 		endif;
 		?>

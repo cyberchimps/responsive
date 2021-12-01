@@ -348,7 +348,7 @@ function responsive_tooltip_script() {
 	$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
-	                	var desc = ctrl.container.find(".customize-control-description");
+	                	var desc = ctrl.container.find(".customize-control-description:not(.hf-builder)");
 	                	if( desc.length) {
 	                    	var title 		= ctrl.container.find(".customize-control-title");
 	                    	var li_wrapper 	= desc.closest("li");
