@@ -9,6 +9,33 @@
 	 */
 	wp.customize.bind( 'ready', function() {
 		
+		wp.customize.state.create( 'responsiveTab' );
+		wp.customize.state( 'responsiveTab' ).set( 'general' );
+		
+
+		// Set handler when custom responsive toggle is clicked.
+		$( '#customize-theme-controls' ).on( 'click', '.responsive-build-tabs-button:not(.responsive-nav-tabs-button)', function( e ) {
+			e.preventDefault();
+
+			wp.customize.previewedDevice.set( $( this ).attr( 'data-device' ) );
+		});
+		// Set handler when custom responsive toggle is clicked.
+		$( '#customize-theme-controls' ).on( 'click', '.responsive-compontent-tabs-button:not(.responsive-nav-tabs-button)', function( e ) {
+			e.preventDefault();
+
+			wp.customize.state( 'responsiveTab' ).set( $( this ).attr( 'data-tab' ) );
+		});
+		var setCustomTabElementsDisplay = function() {
+			var tabState = wp.customize.state( 'responsiveTab' ).get(),
+			$tabs = $( '.responsive-compontent-tabs-button:not(.responsive-nav-tabs-button)' );
+			$tabs.removeClass( 'nav-tab-active' ).filter( '.responsive-' + tabState + '-tab' ).addClass( 'nav-tab-active' );
+		}
+		// Refresh all responsive elements when previewedDevice is changed.
+		wp.customize.state( 'responsiveTab' ).bind( setCustomTabElementsDisplay );
+
+		$( '#customize-theme-controls' ).on( 'click', 'customize-section-back', function( e ) {
+			wp.customize.state( 'responsiveTab' ).set( 'general' );
+		});
 
 		// Set all custom responsive toggles and fieldsets.
 		var setCustomResponsiveElementsDisplay = function() {

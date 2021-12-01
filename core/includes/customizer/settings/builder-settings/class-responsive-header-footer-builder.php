@@ -250,11 +250,6 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 								'value'    => array( 'tablet', 'mobile' ),
 							),
 						),
-						'partial'     => array(
-							'selector'            => '#mobile-header',
-							'container_inclusive' => true,
-							'render_callback'     => 'mobile_header',
-						),
 						'choices'     => $header_mobile_items_choices,
 						'input_attrs' => array(
 							'group' => 'header_mobile_items',
@@ -341,11 +336,6 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 						'section'     => 'responsive_customizer_footer_builder',
 						'settings'    => 'footer_items',
 						'default'     => $footer_items,
-						'partial'     => array(
-							'selector'            => '#colophon',
-							'container_inclusive' => true,
-							'render_callback'     => 'footer_markup',
-						),
 						'choices'     => array(
 							'footer-navigation' => array(
 								'name'    => esc_html__( 'Footer Navigation', 'responsive' ),
