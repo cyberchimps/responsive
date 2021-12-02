@@ -641,8 +641,8 @@ body[class*='amp-mode-'] .mobile-navigation ul ul {
 		right:0;
 		top: 0;
 		overflow: auto;
-		background: #090c10;
-		color:#fff;
+		background: #fff;
+		color:#333;
 		bottom: 0;
 		opacity: 0;
 		position: fixed;
@@ -650,6 +650,9 @@ body[class*='amp-mode-'] .mobile-navigation ul ul {
 		display: flex;
 		flex-direction: column;
 		transition: transform 0.3s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+		a{
+			color: #333;
+		}
 	}
 	.drawer-header {
 		padding: 0 1.5em;

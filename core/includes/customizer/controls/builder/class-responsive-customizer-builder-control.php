@@ -61,4 +61,13 @@ class Responsive_Customizer_Builder_Control extends WP_Customize_Control {
 		$this->json['input_attrs'] = $this->input_attrs;
 		$this->json['choices']     = $this->choices;
 	}
+
+	/**
+	 * Content template.
+	 *
+	 * @see WP_Customize_Control::print_template()
+	 *
+	 * @access protected
+	 */
+	protected function render_content() {}
 }
