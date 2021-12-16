@@ -221,7 +221,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->add_setting(
 				'header_mobile_items',
 				array(
-					'transport'         => 'postMessage',
+					'transport'         => 'refresh',
 					'default'           => $header_mobile_items_default,
 					'sanitize_callback' => 'responsive_sanitize_builder',
 				)

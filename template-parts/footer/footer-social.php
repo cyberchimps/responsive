@@ -24,7 +24,7 @@ if ( ! wp_style_is( 'responsive-header', 'enqueued' ) ) {
 		 *
 		 * Hooked responsive\footer_social
 		 */
-		do_action( 'responsive_footer_social', 'footer' );
+		do_action( 'responsive_footer_social', '_footer' );
 		?>
 	</div>
 </div><!-- data-section="footer_social" -->

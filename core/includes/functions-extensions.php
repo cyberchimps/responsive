@@ -379,24 +379,24 @@ function responsive_get_social_icons( $area ) {
 	$count = 0;
 
 	foreach ( $icons as $key => $value ) {
-		if ( ! empty( $responsive_options[ $key . '_' . $area . '_uid' ] ) ) {
+		if ( ! empty( $responsive_options[ $key . $area . '_uid' ] ) ) {
 			$count++;
 		}
 	}
 	if ( $count > 0 ) {
 		?>
-		<div class="<?php echo $area ?>-layouts social-icon">
+		<div class="<?php echo esc_attr( $area ); ?>-layouts social-icon">
 			<ul class="social-icons">
 				<?php
 				$taget_mod          = 'responsive_' . $area . '_social_link_new_tab';
 				$target_social_link = get_theme_mod( $taget_mod, '_self' );
 
 				foreach ( $icons as $key => $value ) {
-					if ( ! empty( $responsive_options[ $key . '_' . $area . '_uid' ] ) ) {
+					if ( ! empty( $responsive_options[ $key . $area . '_uid' ] ) ) {
 						if ( 'email' === $key ) {
 							?>
 							<li>
-								<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . '_' . $area . '_uid' ] ); ?>" <?php responsive_schema_markup( 'url' ); ?>>
+								<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . $area . '_uid' ] ); ?>" <?php responsive_schema_markup( 'url' ); ?>>
 									<i class="icon-envelope-o" aria-hidden="true"></i>
 								</a>
 							</li>
@@ -404,7 +404,7 @@ function responsive_get_social_icons( $area ) {
 						} else {
 							?>
 							<li>
-								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_' . $area . '_uid' ] ); ?>" target=<?php echo $target_social_link ?> <?php responsive_schema_markup( 'url' ); ?>>
+								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . $area . '_uid' ] ); ?>" target=<?php echo $target_social_link ?> <?php responsive_schema_markup( 'url' ); ?>>
 									<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
 								</a>
 							</li>

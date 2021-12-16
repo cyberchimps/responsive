@@ -304,7 +304,7 @@
 	}
 }
 .responsive-builder-areas button.components-button.responsive-row-actions {
-    background: $color-primary;
+    background: #333;
     color: #c8dbe4;
     text-transform: uppercase;
     font-size: 10px;
@@ -316,8 +316,7 @@
 	border:0;
 	opacity: 0;
 	height: 26px;
-    padding-top: 0;
-	padding-bottom: 0;
+    padding: 0 5px;
 	z-index: 10;
 }
 .responsive-builder-areas:hover button.components-button.responsive-row-actions {
@@ -334,7 +333,7 @@
     margin-left: 8px;
 }
 .responsive-builder-areas button.components-button.responsive-row-actions:hover, .responsive-builder-areas button.components-button.responsive-row-actions:focus {
-    background: $color-primary !important;
+    background: #333 !important;
 	color: white !important;
 	box-shadow: none !important;
 }
@@ -554,7 +553,7 @@
 	width: 300px;
 }
 .responsive-popover-builder-list {
-	padding: 0 10px;
+	padding: 10px;
 	.responsive-radio-container-control button.components-button.is-tertiary {
 		font-size: 10px;
 		margin: 0;

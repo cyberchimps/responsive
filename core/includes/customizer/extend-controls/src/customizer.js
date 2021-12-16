@@ -88,7 +88,7 @@
 			var section =  wp.customize.section( 'responsive_customizer_header_builder' );
 			if ( section ) {
 				var $section = section.contentContainer,
-				section_layout =  wp.customize.section( 'responsive_header_layout' );
+				section_layout =  wp.customize.section( 'responsive_customizer_header_main' );
 				// If Header panel is expanded, add class to the body tag (for CSS styling).
 				panel.expanded.bind(function( isExpanded ) {
 					_.each(section.controls(), function( control ) {
@@ -140,7 +140,7 @@
 			var section =  wp.customize.section( 'responsive_customizer_footer_builder' );
 			if ( section ) {
 				var $section = section.contentContainer,
-				section_layout =  wp.customize.section( 'responsive_footer_layout' );
+				section_layout =  wp.customize.section( 'responsive_customizer_footer_middle' );
 				// If Header panel is expanded, add class to the body tag (for CSS styling).
 				panel.expanded.bind(function( isExpanded ) {
 					_.each(section.controls(), function( control ) {

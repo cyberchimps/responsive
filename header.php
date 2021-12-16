@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?> <?php responsive_schema_markup( 'body' ); ?> >
 	<?php wp_body_open(); ?>
-	<?php //Responsive\responsive_header(); // before header hook. ?>
+	<?php // Responsive\responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#primary"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
@@ -61,22 +61,48 @@ if ( ! defined( 'ABSPATH' ) ) {
 			Responsive\responsive_custom_header();
 
 			if ( ! has_action( 'responsive_custom_header' ) ) {
+				if ( get_option( 'is-header-footer-builder' ) ) {
+					/**
+					 * Responsive before header hook.
+					 */
+					do_action( 'responsive_before_header' );
 
-				/**
-				 * Responsive before header hook.
-				 */
-				do_action( 'responsive_before_header' );
+					/**
+					 * Responsive header hook.
+					 */
+					Responsive\responsive_header();
 
-				/**
-				 * Responsive header hook.
-				 */
-				Responsive\responsive_header();
+					/**
+					 * Responsive after header hook.
+					 */
+					do_action( 'responsive_after_header' );
+				} else {
+					?>
 
-				/**
-				 * Responsive after header hook.
-				 */
-				do_action( 'responsive_after_header' );
+					<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
+						<div class="container">
+							<div class="row">
+								<?php
+								// Get elements.
+								$responsive_header_elements = get_theme_mod(
+									'responsive_header_elements',
+									array(
+										'site-branding',
+										'main-navigation',
+									)
+								);
 
+								// Loop through elements.
+								foreach ( $responsive_header_elements as $element ) {
+									get_template_part( 'partials/header/' . $element );
+								}
+								?>
+							</div>
+						</div>
+					</header>
+
+					<?php
+				}
 			}
 		}
 		Responsive\responsive_header_bottom();
