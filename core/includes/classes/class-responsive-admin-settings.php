@@ -92,7 +92,6 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			self::$page_title      = apply_filters( 'responsive_page_title', __( 'Responsive', 'responsive' ) );
 			self::$plugin_slug     = self::get_theme_page_slug();
 
-
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
@@ -107,6 +106,9 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			add_action( 'responsive_welcome_page_right_sidebar_content', __CLASS__ . '::responsive_welcome_page_support_section', 11 );
 
 			add_action( 'responsive_welcome_page_content', __CLASS__ . '::responsive_welcome_page_content' );
+
+			add_action( 'responsive_welcome_page_content', __CLASS__ . '::migrate_to_builder_box' );
+			add_action( 'wp_ajax_responsive-migrate-to-builder', __CLASS__ . '::migrate_to_builder' );
 		}
 
 		/**
@@ -127,7 +129,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 		public static function styles_scripts() {
 
 			wp_enqueue_style( 'responsive-admin-settings', RESPONSIVE_THEME_URI . 'admin/css/responsive-admin-menu-page.css', array(), RESPONSIVE_THEME_VERSION );
-
+			
 		}
 
 		/**
@@ -453,6 +455,88 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 				<?php
 			}
 		}
+		/**
+		 * Migrate to New Header Builder
+		 *
+		 * @since 3.0.0
+		 * @return void
+		 */
+		public static function migrate_to_builder_box() {
+
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$status                 = get_option( 'is-header-footer-builder' );
+			$status                 = $status ? $status : false;
+			$responsive_theme_title = self::$page_title;
+
+			$label = ( false !== $status ) ? __( 'Use Old Header/Footer', 'responsive' ) : __( 'Use New Header/Footer Builder', 'responsive' );
+
+			?>
+		<div class="postbox">
+			<h2 class="handle ast-normal-cursor ast-addon-heading ast-flex">
+				<span>
+					<?php
+						printf(
+							/* translators: %1$s: Theme name. */
+							esc_html__( '%1$s Header/Footer Builder', 'responsive' ),
+							esc_html( $responsive_theme_title )
+						);
+					?>
+				</span>
+			</h2>
+			<div class="inside">
+				<div>
+					<p>
+						<?php
+							printf(
+								/* translators: %1$s: Theme name. */
+								esc_html__( '%1$s Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort.', 'responsive' ),
+								esc_html( $responsive_theme_title )
+							);
+						?>
+					</p>
+					<p>
+						<?php
+							printf(
+								/* translators: %1$s: Theme name. */
+								esc_html__( 'Activating this feature will add advanced options to %1$s customizer where you can create awesome new designs.', 'responsive' ),
+								esc_html( $responsive_theme_title )
+							);
+						?>
+					</p>
+					<p><?php esc_html_e( 'Note: The header/footer builder will replace the existing header/footer settings in the customizer. This might make your header/footer look a bit different. You can configure header/footer builder settings from customizer to give it a nice look. You can always come back here and switch to your old header/footer.', 'responsive' ); ?></p>
+					<div class="ast-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
+						<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customizer', 'responsive' ); ?></a>
+						<div class="ast-actions" style="display: inline-flex;">
+							<button href="#" class="button button-primary responsive-builder-migrate" style="margin-right:10px;" data-value="<?php echo ( $status ) ? 0 : 1; ?>"><?php echo esc_html( $label ); ?></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<?php
+		}
+		/**
+		 * Migrate to New Header Builder
+		 */
+		public static function migrate_to_builder() {
+
+			check_ajax_referer( 'responsive-builder-module-nonce', 'nonce' );
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( __( 'You don\'t have the access', 'responsive' ) );
+			}
+
+			$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
+			$migrate = ( $migrate ) ? true : false;
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			// $migration_flag = responsive_get_option( 'v3-option-migration', false );
+			update_option( 'is-header-footer-builder', $migrate );
+			// if ( $migrate && false === $migration_flag ) {
+			// 	responsive_header_builder_migration();
+			// }
+			wp_send_json_success();
+		}
+
 	}
 
 	new Responsive_Admin_Settings();

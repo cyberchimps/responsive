@@ -5,7 +5,6 @@
  * @package responsive
  */
 
-namespace Responsive\Core;
 
 ?>
 <header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?>>

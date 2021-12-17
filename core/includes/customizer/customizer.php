@@ -174,26 +174,17 @@ function responsive_register_options() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php';
 
 	// Customizer files array.
-	$files = array(
+	$files                   = array(
 		'class-responsive-panel',
 		'class-responsive-site-layouts-customizer',
 		'class-responsive-site-color-palettes-scheme-customizer',
 		'class-responsive-site-colors-customizer',
 		'class-responsive-site-typography-customizer',
-		'class-responsive-header-layout-customizer',
-		'class-responsive-header-title-tagline-customizer',
-		'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-scripts-customizer',
-		'class-responsive-header-menu-layouts-customizer',
-		'class-responsive-content-header-colors-customizer',
-		'class-responsive-content-header-layout-customizer',
-		'class-responsive-content-header-typography-customizer',
 		'class-responsive-blog-layout-customizer',
 		'class-responsive-single-blog-layout-customizer',
 		'class-responsive-page-content-customizer',
-		'class-responsive-footer-layout-customizer',
-		'class-responsive-footer-colors-customizer',
 		'class-responsive-footer-scripts-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
@@ -203,8 +194,23 @@ function responsive_register_options() {
 		'class-responsive-scroll-to-top-customizer',
 		'class-responsive-buttons-customizer',
 		'class-responsive-form-fields-customizer',
-		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
+	);
+
+	$old_header_footer_files = array(
+		'class-responsive-header-layout-customizer',
+		'class-responsive-header-title-tagline-customizer',
+		'class-responsive-header-colors-customizer',
+		'class-responsive-header-menu-layouts-customizer',
+		'class-responsive-content-header-colors-customizer',
+		'class-responsive-content-header-layout-customizer',
+		'class-responsive-content-header-typography-customizer',
+		'class-responsive-header-widgets-customizer',
+		'class-responsive-footer-layout-customizer',
+		'class-responsive-footer-colors-customizer',
+	);
+
+	$builder_files           = array(
 		$builder_settings . 'class-responsive-header-footer-builder',
 		$header_settings . 'class-responsive-builder-primary-navigation-customizer',
 		$header_settings . 'class-responsive-builder-secondary-navigation-customizer',
@@ -236,6 +242,12 @@ function responsive_register_options() {
 		$footer_settings . 'class-responsive-builder-footer-widget5-customizer',
 		$footer_settings . 'class-responsive-builder-footer-widget6-customizer',
 	);
+
+	if ( get_option( 'is-header-footer-builder' ) ) {
+		$files = array_merge( $files, $builder_files );
+	} else {
+		$files = array_merge( $files, $old_header_footer_files );
+	}
 
 	foreach ( $files as $key ) {
 

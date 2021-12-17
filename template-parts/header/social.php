@@ -15,6 +15,6 @@ namespace Responsive\Core;
 	 *
 	 * Hooked Responsive\header_social
 	 */
-	do_action( 'responsive_header_social', 'header' );
+	do_action( 'responsive_header_social', '_header' );
 	?>
 </div><!-- data-section="header_social" -->

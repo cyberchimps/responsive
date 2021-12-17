@@ -1273,3 +1273,21 @@ a.social-button.has-custom-image {
 		color: #10659c;
 	}
 }
+/*--------------------------------------------------------------
+# Visiblity
+--------------------------------------------------------------*/
+@media screen and (max-width: $phone-minus-query) {
+	.vs-sm-false {
+		display:none !important;
+	}
+}
+@media screen and (min-width: $before-tablet-plus-query) and (max-width: $tablet-minus-query) {
+	.vs-md-false {
+		display:none !important;
+	}
+}
+@media screen and (min-width: $laptop-plus-query) {
+	.vs-lg-false {
+		display:none !important;
+	}
+}
