@@ -240,18 +240,19 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		add_theme_support( 'wc-product-gallery-zoom' );
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-slider' );
-
-		/**
-		 * This feature enables custom-menus support for a theme.
-		 *
-		 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
-		 */
-		register_nav_menus(
-			array(
-				'header-menu' => __( 'Header Menu', 'responsive' ),
-				'footer-menu' => __( 'Footer Menu', 'responsive' ),
-			)
+		if ( ! get_option( 'is-header-footer-builder' ) ) {
+			/**
+			 * This feature enables custom-menus support for a theme.
+			 *
+			 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
+			 */
+			register_nav_menus(
+				array(
+					'header-menu' => __( 'Header Menu', 'responsive' ),
+					'footer-menu' => __( 'Footer Menu', 'responsive' ),
+				)
 		);
+		}
 
 		add_theme_support( 'custom-background' );
 

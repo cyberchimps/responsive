@@ -2217,6 +2217,29 @@ function responsive_customizer_styles() {
 		}";
 	}
 
+	// Header Footer Builder custom css
+
+	// Header Primary Navigation Item Spacing.
+	$primary_navigation_item_spacing              = esc_html( get_theme_mod( 'responsive_primary_navigation_item_spacing', 18 ) );
+	$primary_navigation_item_spacing_top_bottom   = esc_html( get_theme_mod( 'responsive_primary_navigation_item_top_bottom_spacing', 10 ) );
+	$custom_css .=".header-navigation ul#primary-menu li.menu-item > a {
+		padding: {$primary_navigation_item_spacing_top_bottom}px {$primary_navigation_item_spacing}px; 
+	}";
+
+	// Header Secondary Navigation Item Spacing.
+	$secondary_navigation_item_spacing              = esc_html( get_theme_mod( 'responsive_secondary_navigation_item_spacing', 18 ) );
+	$secondary_navigation_item_spacing_top_bottom   = esc_html( get_theme_mod( 'responsive_secondary_navigation_item_top_bottom_spacing', 10 ) );
+	$custom_css .=".header-navigation ul#secondary-menu li.menu-item > a {
+		padding: {$secondary_navigation_item_spacing_top_bottom}px {$secondary_navigation_item_spacing}px; 
+	}";
+
+	// Footer Navigation Item Spacing.
+	$footer_navigation_item_spacing              = esc_html( get_theme_mod( 'responsive_footer_navigation_item_spacing', 18 ) );
+	$footer_navigation_item_spacing_top_bottom   = esc_html( get_theme_mod( 'responsive_footer_navigation_item_top_bottom_spacing', 10 ) );
+	$custom_css .=".footer-navigation ul li a{
+		padding: {$footer_navigation_item_spacing_top_bottom}px {$footer_navigation_item_spacing}px; 
+	}";
+
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 
 	if ( class_exists( 'WooCommerce' ) ) {
