@@ -62,6 +62,19 @@ if ( ! class_exists( 'Responsive_Primary_Navigation_Customizer' ) ) :
 			$header_primary_navigation_style_label   = __( 'Primary Navigation Style', 'responsive' );
 			responsive_select_control( $wp_customize, 'primary_navigation_style', $header_primary_navigation_style_label, 'responsive_customizer_primary_navigation', 20, $header_primary_navigation_style_choices, 'standard', null );
 
+			// Primary nav item spacing.
+			$primary_nav_items_spacing_label = esc_html__( 'Item Spacing (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'primary_navigation_item_spacing', $primary_nav_items_spacing_label, 'responsive_customizer_primary_navigation', 25, 18, null, 100 );
+
+			$primary_nav_items_spacing_top_bottom_label = esc_html__( 'Item Top Bottom Padding(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'primary_navigation_item_top_bottom_spacing', $primary_nav_items_spacing_top_bottom_label, 'responsive_customizer_primary_navigation', 30, 10, null, 100 );
+
+			/**
+			 * Dropdown Options.
+			 */
+			$dropdown_options_label = esc_html__( 'Dropdown Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'dropdown_options_separator', $dropdown_options_label, 'responsive_customizer_primary_navigation', 35 );
+
 			$dropdown_navigation_reveal_choices = array(
 				'none'      => __( 'None', 'responsive' ),
 				'fade'      => __( 'Fade', 'responsive' ),
@@ -69,7 +82,7 @@ if ( ! class_exists( 'Responsive_Primary_Navigation_Customizer' ) ) :
 				'fade-down' => __( 'Fade Down', 'responsive' ),
 			);
 			$dropdown_navigation_reveal_label   = __( 'Dropdown Reveal', 'responsive' );
-			responsive_select_control( $wp_customize, 'primary_dropdown_navigation_reveal', $dropdown_navigation_reveal_label, 'responsive_customizer_primary_navigation', 25, $dropdown_navigation_reveal_choices, 'none', null );
+			responsive_select_control( $wp_customize, 'primary_dropdown_navigation_reveal', $dropdown_navigation_reveal_label, 'responsive_customizer_primary_navigation', 40, $dropdown_navigation_reveal_choices, 'none', null );
 
 		}
 

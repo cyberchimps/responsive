@@ -15,6 +15,6 @@ namespace Responsive;
 	 *
 	 * Hooked Responsive\mobile_social
 	 */
-	do_action( 'responsive_mobile_social', 'mobile' );
+	do_action( 'responsive_mobile_social', '_mobile' );
 	?>
 </div><!-- data-section="mobile_social" -->

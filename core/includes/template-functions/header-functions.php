@@ -10,7 +10,9 @@ static $center                = array();
 static $mobile_sides          = array();
 static $mobile_center         = array();
 
-add_action( 'after_setup_theme', 'action_register_nav_menus' );
+if ( get_option( 'is-header-footer-builder' ) ) {
+	add_action( 'after_setup_theme', 'action_register_nav_menus' );
+}
 add_filter( 'nav_menu_item_title', 'filter_primary_nav_menu_dropdown_symbol', 10, 4 );
 add_filter( 'walker_nav_menu_start_el', 'filter_mobile_nav_menu_dropdown_symbol', 10, 4 );
 
@@ -1098,7 +1100,7 @@ function header_button() {
  * Mobile Button
  */
 function mobile_button() {
-	$label = get_theme_mod( 'responsive_mobile_button_label' );
+	$label = get_theme_mod( 'responsive_mobile_button_label', 'Button' );
 	if ( 'loggedin' === get_theme_mod( 'responsive_mobile_button_visibility' ) && ! is_user_logged_in() ) {
 		return;
 	}
