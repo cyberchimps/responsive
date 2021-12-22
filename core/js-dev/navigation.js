@@ -254,7 +254,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 !function(){"use strict";function o(){var o=window,t=document;if(!("scrollBehavior"in t.documentElement.style&&!0!==o.__forceSmoothScrollPolyfill__)){var l,e=o.HTMLElement||o.Element,r=468,i={scroll:o.scroll||o.scrollTo,scrollBy:o.scrollBy,elementScroll:e.prototype.scroll||n,scrollIntoView:e.prototype.scrollIntoView},s=o.performance&&o.performance.now?o.performance.now.bind(o.performance):Date.now,c=(l=o.navigator.userAgent,new RegExp(["MSIE ","Trident/","Edge/"].join("|")).test(l)?1:0);o.scroll=o.scrollTo=function(){void 0!==arguments[0]&&(!0!==f(arguments[0])?h.call(o,t.body,void 0!==arguments[0].left?~~arguments[0].left:o.scrollX||o.pageXOffset,void 0!==arguments[0].top?~~arguments[0].top:o.scrollY||o.pageYOffset):i.scroll.call(o,void 0!==arguments[0].left?arguments[0].left:"object"!=typeof arguments[0]?arguments[0]:o.scrollX||o.pageXOffset,void 0!==arguments[0].top?arguments[0].top:void 0!==arguments[1]?arguments[1]:o.scrollY||o.pageYOffset))},o.scrollBy=function(){void 0!==arguments[0]&&(f(arguments[0])?i.scrollBy.call(o,void 0!==arguments[0].left?arguments[0].left:"object"!=typeof arguments[0]?arguments[0]:0,void 0!==arguments[0].top?arguments[0].top:void 0!==arguments[1]?arguments[1]:0):h.call(o,t.body,~~arguments[0].left+(o.scrollX||o.pageXOffset),~~arguments[0].top+(o.scrollY||o.pageYOffset)))},e.prototype.scroll=e.prototype.scrollTo=function(){if(void 0!==arguments[0])if(!0!==f(arguments[0])){var o=arguments[0].left,t=arguments[0].top;h.call(this,this,void 0===o?this.scrollLeft:~~o,void 0===t?this.scrollTop:~~t)}else{if("number"==typeof arguments[0]&&void 0===arguments[1])throw new SyntaxError("Value could not be converted");i.elementScroll.call(this,void 0!==arguments[0].left?~~arguments[0].left:"object"!=typeof arguments[0]?~~arguments[0]:this.scrollLeft,void 0!==arguments[0].top?~~arguments[0].top:void 0!==arguments[1]?~~arguments[1]:this.scrollTop)}},e.prototype.scrollBy=function(){void 0!==arguments[0]&&(!0!==f(arguments[0])?this.scroll({left:~~arguments[0].left+this.scrollLeft,top:~~arguments[0].top+this.scrollTop,behavior:arguments[0].behavior}):i.elementScroll.call(this,void 0!==arguments[0].left?~~arguments[0].left+this.scrollLeft:~~arguments[0]+this.scrollLeft,void 0!==arguments[0].top?~~arguments[0].top+this.scrollTop:~~arguments[1]+this.scrollTop))},e.prototype.scrollIntoView=function(){if(!0!==f(arguments[0])){var l=function(o){for(;o!==t.body&&!1===(e=p(l=o,"Y")&&a(l,"Y"),r=p(l,"X")&&a(l,"X"),e||r);)o=o.parentNode||o.host;var l,e,r;return o}(this),e=l.getBoundingClientRect(),r=this.getBoundingClientRect();l!==t.body?(h.call(this,l,l.scrollLeft+r.left-e.left,l.scrollTop+r.top-e.top),"fixed"!==o.getComputedStyle(l).position&&o.scrollBy({left:e.left,top:e.top,behavior:"smooth"})):o.scrollBy({left:r.left,top:r.top,behavior:"smooth"})}else i.scrollIntoView.call(this,void 0===arguments[0]||arguments[0])}}function n(o,t){this.scrollLeft=o,this.scrollTop=t}function f(o){if(null===o||"object"!=typeof o||void 0===o.behavior||"auto"===o.behavior||"instant"===o.behavior)return!0;if("object"==typeof o&&"smooth"===o.behavior)return!1;throw new TypeError("behavior member of ScrollOptions "+o.behavior+" is not a valid value for enumeration ScrollBehavior.")}function p(o,t){return"Y"===t?o.clientHeight+c<o.scrollHeight:"X"===t?o.clientWidth+c<o.scrollWidth:void 0}function a(t,l){var e=o.getComputedStyle(t,null)["overflow"+l];return"auto"===e||"scroll"===e}function d(t){var l,e,i,c,n=(s()-t.startTime)/r;c=n=n>1?1:n,l=.5*(1-Math.cos(Math.PI*c)),e=t.startX+(t.x-t.startX)*l,i=t.startY+(t.y-t.startY)*l,t.method.call(t.scrollable,e,i),e===t.x&&i===t.y||o.requestAnimationFrame(d.bind(o,t))}function h(l,e,r){var c,f,p,a,h=s();l===t.body?(c=o,f=o.scrollX||o.pageXOffset,p=o.scrollY||o.pageYOffset,a=i.scroll):(c=l,f=l.scrollLeft,p=l.scrollTop,a=n),d({scrollable:c,method:a,startTime:h,startX:f,startY:p,x:e,y:r})}}"object"==typeof exports&&"undefined"!=typeof module?module.exports={polyfill:o}:o()}();
 (function() {
 	'use strict';
-	window.responsive = {
+	window.responsiveNav = {
 
 		/**
 		 * Function to init different style of focused element on keyboard users and mouse users.
@@ -342,7 +342,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			}
 
 			for ( let i = 0; i < navTOGGLE.length; i++ ) {
-				window.responsive.initEachNavToggleSubmenu( navTOGGLE[ i ] );
+				window.responsiveNav.initEachNavToggleSubmenu( navTOGGLE[ i ] );
 			}
 		},
 		initEachNavToggleSubmenu: function( nav ) {
@@ -363,9 +363,9 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 					dropdown.addEventListener( 'click', function( e ) {
 						e.preventDefault();
 						if ( e.target.parentNode.parentNode.parentNode.parentNode.classList.contains( 'menu-item' ) ) {
-							window.responsive.toggleSubMenu( e.target.parentNode.parentNode.parentNode.parentNode );
+							window.responsiveNav.toggleSubMenu( e.target.parentNode.parentNode.parentNode.parentNode );
 						} else {
-							window.responsive.toggleSubMenu( e.target.parentNode.parentNode.parentNode );
+							window.responsiveNav.toggleSubMenu( e.target.parentNode.parentNode.parentNode );
 						}
 					} );
 					// Add tabindex.
@@ -375,20 +375,20 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 					// Toggle the submenu when we press enter on the dropdown button.
 					dropdown.addEventListener( 'keypress', function( e ) {
 						if ( e.key === 'Enter' ) {
-							window.responsive.toggleSubMenu( e.target.parentNode.parentNode.parentNode );
+							window.responsiveNav.toggleSubMenu( e.target.parentNode.parentNode.parentNode );
 						}
 					} );
 		
 					// Clean up the toggle if a mouse takes over from keyboard.
 					parentMenuItem.addEventListener( 'mouseleave', function( e ) {
-						window.responsive.toggleSubMenu( e.target, false );
+						window.responsiveNav.toggleSubMenu( e.target, false );
 					} );
 		
 					// When we focus on a menu link, make sure all siblings are closed.
 					parentMenuItem.querySelector( 'a' ).addEventListener( 'focus', function( e ) {
 						var parentMenuItemsToggled = e.target.parentNode.parentNode.querySelectorAll( 'li.menu-item--toggled-on' );
 						for ( let j = 0; j < parentMenuItemsToggled.length; j++ ) {
-							window.responsive.toggleSubMenu( parentMenuItemsToggled[ j ], false );
+							window.responsiveNav.toggleSubMenu( parentMenuItemsToggled[ j ], false );
 						}
 					} );
 		
@@ -401,12 +401,12 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 						if ( 9 === e.keyCode ) {
 							if ( e.shiftKey ) {
 								// Means we're tabbing out of the beginning of the submenu.
-								if ( window.responsive.isfirstFocusableElement (SUBMENUS[ i ], document.activeElement, focusSelector ) ) {
-									window.responsive.toggleSubMenu( SUBMENUS[ i ].parentNode, false );
+								if ( window.responsiveNav.isfirstFocusableElement (SUBMENUS[ i ], document.activeElement, focusSelector ) ) {
+									window.responsiveNav.toggleSubMenu( SUBMENUS[ i ].parentNode, false );
 								}
 								// Means we're tabbing out of the end of the submenu.
-							} else if ( window.responsive.islastFocusableElement( SUBMENUS[ i ], document.activeElement, focusSelector ) ) {
-								window.responsive.toggleSubMenu( SUBMENUS[ i ].parentNode, false );
+							} else if ( window.responsiveNav.islastFocusableElement( SUBMENUS[ i ], document.activeElement, focusSelector ) ) {
+								window.responsiveNav.toggleSubMenu( SUBMENUS[ i ].parentNode, false );
 							}
 						}
 					} );
@@ -447,13 +447,13 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 				// Make sure all children are closed.
 				var subMenuItemsToggled = parentMenuItem.querySelectorAll( '.menu-item--toggled-on' );
 				for ( let i = 0; i < subMenuItemsToggled.length; i++ ) {
-					window.responsive.toggleSubMenu( subMenuItemsToggled[ i ], false );
+					window.responsiveNav.toggleSubMenu( subMenuItemsToggled[ i ], false );
 				}
 			} else {
 				// Make sure siblings are closed.
 				var parentMenuItemsToggled = parentMenuItem.parentNode.querySelectorAll( 'li.menu-item--toggled-on' );
 				for ( let i = 0; i < parentMenuItemsToggled.length; i++ ) {
-					window.responsive.toggleSubMenu( parentMenuItemsToggled[ i ], false );
+					window.responsiveNav.toggleSubMenu( parentMenuItemsToggled[ i ], false );
 				}
 
 				// Toggle "on" the submenu.
@@ -502,7 +502,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			var target = document.querySelector( toggle.dataset.toggleTarget );
 			var _doc   = document;
 			var duration = ( toggle.dataset.toggleDuration ? toggle.dataset.toggleDuration : 250 );
-			window.responsive.toggleAttribute( toggle, 'aria-expanded', 'true', 'false' );
+			window.responsiveNav.toggleAttribute( toggle, 'aria-expanded', 'true', 'false' );
 			if ( target.classList.contains('show-drawer') ) {
 				if ( toggle.dataset.toggleBodyClass ) {
 					_doc.body.classList.remove( toggle.dataset.toggleBodyClass );
@@ -517,7 +517,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 						if ( focusElement ) {
 							focusElement.focus();
 							if ( focusElement.hasAttribute( 'aria-expanded') ) {
-								window.responsive.toggleAttribute( focusElement, 'aria-expanded', 'true', 'false' );
+								window.responsiveNav.toggleAttribute( focusElement, 'aria-expanded', 'true', 'false' );
 							}
 						}
 					}
@@ -536,7 +536,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 
 						if ( focusElement ) {
 							if ( focusElement.hasAttribute( 'aria-expanded') ) {
-								window.responsive.toggleAttribute( focusElement, 'aria-expanded', 'true', 'false' );
+								window.responsiveNav.toggleAttribute( focusElement, 'aria-expanded', 'true', 'false' );
 							}
 							var searchTerm = focusElement.value;
 							focusElement.value = '';
@@ -592,7 +592,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			for ( let i = 0; i < drawerTOGGLE.length; i++ ) {
 				drawerTOGGLE[ i ].addEventListener('click', function( event ) {
 					event.preventDefault();
-					window.responsive.toggleDrawer( drawerTOGGLE[ i ] );
+					window.responsiveNav.toggleDrawer( drawerTOGGLE[ i ] );
 				} );
 			}
 			// Close Drawer if esc is pressed.
@@ -601,7 +601,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 				if ( event.keyCode === 27 ) {
 					event.preventDefault();
 					document.querySelectorAll( '.show-drawer.active' ).forEach(function ( element ) {
-						window.responsive.toggleDrawer( document.querySelector('*[data-toggle-target="' + element.dataset.drawerTargetString + '"]' ) );
+						window.responsiveNav.toggleDrawer( document.querySelector('*[data-toggle-target="' + element.dataset.drawerTargetString + '"]' ) );
 					} );
 				}
 			  });
@@ -610,7 +610,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 				var target = event.target;
 				var modal = document.querySelector( '.show-drawer.active .drawer-overlay' );
 				if ( target === modal ) {
-					window.responsive.toggleDrawer(document.querySelector('*[data-toggle-target="' + modal.dataset.drawerTargetString + '"]'));
+					window.responsiveNav.toggleDrawer(document.querySelector('*[data-toggle-target="' + modal.dataset.drawerTargetString + '"]'));
 				}
 			} );
 		},
@@ -624,10 +624,10 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			modalMenus.forEach( function( modalMenu ) {
 				var activeMenuItem = modalMenu.querySelector( '.current-menu-item' );
 				if ( activeMenuItem ) {
-					window.responsive.findParents( activeMenuItem, 'li' ).forEach( function( element ) {
+					window.responsiveNav.findParents( activeMenuItem, 'li' ).forEach( function( element ) {
 						var subMenuToggle = element.querySelector( '.drawer-sub-toggle' );
 						if ( subMenuToggle ) {
-							window.responsive.toggleDrawer( subMenuToggle, true );
+							window.responsiveNav.toggleDrawer( subMenuToggle, true );
 						}
 					} );
 				}
@@ -641,7 +641,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			for ( let i = 0; i < drawerSubTOGGLE.length; i++ ) {
 				drawerSubTOGGLE[ i ].addEventListener('click', function (event) {
 					event.preventDefault();
-					window.responsive.toggleDrawer( drawerSubTOGGLE[ i ] );
+					window.responsiveNav.toggleDrawer( drawerSubTOGGLE[ i ] );
 				} );
 			}
 		},
@@ -662,7 +662,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			}
 			for ( let i = 0; i < menuLink.length; i++ ) {
 				menuLink[ i ].addEventListener('click', function (event) {
-					window.responsive.toggleDrawer( mobileModal.querySelector( '.menu-toggle-close' ), false );
+					window.responsiveNav.toggleDrawer( mobileModal.querySelector( '.menu-toggle-close' ), false );
 				} );
 			}
 		},
@@ -718,36 +718,36 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 					activeSize = 'desktop';
 					if ( desktopSticky ) {
 						desktopSticky.style.position = 'static';
-						activeOffsetTop = window.responsive.getOffset( desktopSticky ).top;
+						activeOffsetTop = window.responsiveNav.getOffset( desktopSticky ).top;
 						desktopSticky.style.position = null;
 					}
 				} else {
 					if ( mobileSticky ) {
 						mobileSticky.style.position = 'static';
-						activeOffsetTop = window.responsive.getOffset( mobileSticky ).top;
+						activeOffsetTop = window.responsiveNav.getOffset( mobileSticky ).top;
 						mobileSticky.style.position = null;
 					}
 				}
 				var updateSticky = function( e ) {
 					var activeHeader;
-					var offsetTop = window.responsive.getOffset( wrapper ).top;
+					var offsetTop = window.responsiveNav.getOffset( wrapper ).top;
 					if ( document.body.classList.toString().includes( 'boom_bar-static-top' ) ) {
 						var boomBar = document.querySelector( '.boom_bar' );
-						offsetTop = window.responsive.getOffset( wrapper ).top - boomBar.offsetHeight;
+						offsetTop = window.responsiveNav.getOffset( wrapper ).top - boomBar.offsetHeight;
 					}
 					if ( proElements.length ) {
 						var proElementOffset = 0;
 						for ( let i = 0; i < proElements.length; i++ ) {
 							proElementOffset = proElementOffset + proElements[ i ].offsetHeight;
 						}
-						offsetTop = window.responsive.getOffset( wrapper ).top - proElementOffset;
+						offsetTop = window.responsiveNav.getOffset( wrapper ).top - proElementOffset;
 					}
 					if ( proSticky.length ) {
 						var proOffset = 0;
 						for ( let i = 0; i < proSticky.length; i++ ) {
 							proOffset = proOffset + proSticky[ i ].offsetHeight;
 						}
-						offsetTop = window.responsive.getOffset( wrapper ).top + proOffset;
+						offsetTop = window.responsiveNav.getOffset( wrapper ).top + proOffset;
 					}
 					if ( responsiveConfig.breakPoints.desktop <= window.innerWidth ) {
 						activeHeader = desktopSticky;
@@ -759,20 +759,20 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 					}
 					if ( responsiveConfig.breakPoints.desktop <= window.innerWidth ) {
 						if ( activeSize === 'mobile' ) {
-							activeOffsetTop = window.responsive.getOffset( activeHeader ).top;
+							activeOffsetTop = window.responsiveNav.getOffset( activeHeader ).top;
 							activeSize = 'desktop';
 						} else if ( e && e === 'updateActive' ) {
 							activeHeader.style.top = 'auto';
-							activeOffsetTop = window.responsive.getOffset( activeHeader ).top;
+							activeOffsetTop = window.responsiveNav.getOffset( activeHeader ).top;
 							activeSize = 'desktop';
 						}
 					} else {
 						if ( activeSize === 'desktop' ) {
-							activeOffsetTop = window.responsive.getOffset( activeHeader ).top;
+							activeOffsetTop = window.responsiveNav.getOffset( activeHeader ).top;
 							activeSize = 'mobile';
 						} else if ( e && e === 'updateActive' ) {
 							activeHeader.style.top = 'auto';
-							activeOffsetTop = window.responsive.getOffset( activeHeader ).top;
+							activeOffsetTop = window.responsiveNav.getOffset( activeHeader ).top;
 							activeSize = 'mobile';
 						}
 					}
@@ -965,7 +965,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 		},
 		scrollToElement: function( element, history ) {
 			history = (typeof history !== 'undefined') ? history : true;
-			var offsetSticky = window.responsive.getTopOffset();
+			var offsetSticky = window.responsiveNav.getTopOffset();
 			var originalTop = Math.floor( element.getBoundingClientRect().top ) - offsetSticky;
 			window.scrollBy( { top: originalTop, left: 0, behavior: 'smooth' } );
 			var checkIfDone = setInterval( function() {
@@ -1011,7 +1011,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 				return;
 			}
 			e.preventDefault();
-			window.responsive.scrollToElement( targetAnchor );
+			window.responsiveNav.scrollToElement( targetAnchor );
 		},
 		/**
 		 * Initiate the sticky sidebar last width.
@@ -1020,7 +1020,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			if ( ! document.body.classList.contains( 'has-sticky-sidebar-widget' ) ) {
 				return;
 			}
-			var offsetSticky = window.responsive.getTopOffset(),
+			var offsetSticky = window.responsiveNav.getTopOffset(),
 			widget         = document.querySelector( '#secondary .sidebar-inner-wrap .widget:last-child' );
 			if ( widget ) { 
 				widget.style.top = Math.floor( offsetSticky + 20 ) + 'px';
@@ -1034,7 +1034,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			if ( ! document.body.classList.contains( 'has-sticky-sidebar' ) ) {
 				return;
 			}
-			var offsetSticky = window.responsive.getTopOffset(),
+			var offsetSticky = window.responsiveNav.getTopOffset(),
 			sidebar          = document.querySelector( '#secondary .sidebar-inner-wrap' );
 			if ( sidebar ) { 
 				sidebar.style.top = Math.floor( offsetSticky + 20 ) + 'px';
@@ -1058,7 +1058,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 				element = document.getElementById( id );
 				if ( element ) {
 					window.setTimeout( function() {
-						window.responsive.scrollToElement( element, false );
+						window.responsiveNav.scrollToElement( element, false );
 					}, 100 );
 				}
 			}
@@ -1068,7 +1068,7 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 			}
 			foundLinks.forEach( function( element ) {
 				element.addEventListener( 'click', function( e ) {
-					window.responsive.anchorScrollToCheck( e );
+					window.responsiveNav.anchorScrollToCheck( e );
 				} );
 			} );
 		},
@@ -1105,25 +1105,25 @@ if ( window.NodeList && ! NodeList.prototype.forEach ) {
 		},
 		// Initiate the menus when the DOM loads.
 		init: function() {
-			window.responsive.initNavToggleSubmenus();
-			window.responsive.initToggleDrawer();
-			window.responsive.initMobileToggleAnchor();
-			window.responsive.initMobileToggleSub();
-			window.responsive.initOutlineToggle();
-			window.responsive.initStickyHeader();
-			window.responsive.initStickySidebar();
-			window.responsive.initStickySidebarWidget();
-			window.responsive.initTransHeaderPadding();
-			window.responsive.initAnchorScrollTo();
-			window.responsive.initScrollToTop();
+			window.responsiveNav.initNavToggleSubmenus();
+			window.responsiveNav.initToggleDrawer();
+			window.responsiveNav.initMobileToggleAnchor();
+			window.responsiveNav.initMobileToggleSub();
+			window.responsiveNav.initOutlineToggle();
+			window.responsiveNav.initStickyHeader();
+			window.responsiveNav.initStickySidebar();
+			window.responsiveNav.initStickySidebarWidget();
+			window.responsiveNav.initTransHeaderPadding();
+			window.responsiveNav.initAnchorScrollTo();
+			window.responsiveNav.initScrollToTop();
 		}
 	}
 	if ( 'loading' === document.readyState ) {
 		// The DOM has not yet been loaded.
-		document.addEventListener( 'DOMContentLoaded', window.responsive.init );
+		document.addEventListener( 'DOMContentLoaded', window.responsiveNav.init );
 	} else {
 		// The DOM has already been loaded.
-		window.responsive.init();
+		window.responsiveNav.init();
 	}
 })();
 
