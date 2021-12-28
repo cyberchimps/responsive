@@ -1033,7 +1033,7 @@
             $(this).css("color", api('responsive_transparent_header_site_title_color').get());
         }
     );
-
+    if( !responsive.is_header_footer_builder ){
    //Header widget link hover color...
     $(".header-widgets a").hover(
         function() {
@@ -1239,7 +1239,7 @@
             $(this).css("color", api('responsive_footer_links_color').get());
         }
     );
-
+    }
     //Add to cart Button Text Hover Color
     $(".woocommerce span.onsale,.wc-block-grid__product-onsale,.woocommerce #respond input#submit,.wp-block-button__link.add_to_cart_button,.woocommerce div.product .woocommerce-tabs ul.tabs li a,.woocommerce div.product .woocommerce-tabs ul.tabs li,.woocommerce button.button.alt,.woocommerce button.button,.woocommerce a.button").hover(
         function() {
@@ -1396,4 +1396,200 @@
         } );
     } );
 
+    api( 'responsive_primary_dropdown_navigation_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a').css('color', newval + ' !important' );
+        } );
+
+    } );
+    api( 'responsive_primary_dropdown_navigation_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_dropdown_navigation_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_primary_dropdown_navigation_hover_color">.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a:hover {color:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_primary_dropdown_navigation_active_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_dropdown_navigation_active_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_primary_dropdown_navigation_active_color">.header-navigation.main-navigation .header-menu-container ul ul > li.menu-item.current-menu-item > a,.header-navigation.main-navigation .header-menu-container ul ul > li.menu-item.current_page_item > a {color:  ${to} !important ;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_secondary_dropdown_navigation_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a').css('color', newval + ' !important' );
+        } );
+    } );
+    api( 'responsive_secondary_dropdown_navigation_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_dropdown_navigation_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_secondary_dropdown_navigation_hover_color">.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a:hover {color:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_secondary_dropdown_navigation_active_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_dropdown_navigation_active_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_secondary_dropdown_navigation_active_color">.header-navigation.secondary-navigation .header-menu-container ul ul > li.menu-item.current-menu-item > a,.header-navigation.secondary-navigation .header-menu-container ul ul > li.menu-item.current_page_item > a {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_primary_dropdown_background_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_dropdown_background_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_primary_dropdown_background_color">.header-navigation.main-navigation .header-menu-container ul ul.sub-menu, .header-navigation.secondary-navigation .header-menu-container ul ul.submenu {background:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_primary_dropdown_background_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_dropdown_background_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_primary_dropdown_background_hover_color">.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a:hover {background:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_primary_dropdown_background_active_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_dropdown_background_active_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_primary_dropdown_background_active_color">.header-navigation.main-navigation .header-menu-container ul ul li.menu-item.current-menu-item > a {background:  ${to} !important ;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_secondary_dropdown_navigation_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_dropdown_background_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_secondary_dropdown_background_color">.header-navigation.secondary-navigation .header-menu-container ul ul.sub-menu, .header-navigation.secondary-navigation .header-menu-container ul ul.submenu {background:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_secondary_dropdown_navigation_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_dropdown_background_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_secondary_dropdown_background_hover_color">.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a:hover {background:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_secondary_dropdown_background_active_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_dropdown_background_active_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_secondary_dropdown_background_active_color">.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item.current-menu-item > a {background: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_primary_dropdown_navigation_divider_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_dropdown_navigation_divider_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_primary_dropdown_navigation_divider_color">.header-navigation.main-navigation .header-menu-container ul ul li.menu-item,
+                .header-menu-container ul.menu > li.responsive-menu-mega-enabled > ul > li.menu-item > a {border-bottom-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_secondary_dropdown_navigation_divider_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_dropdown_navigation_divider_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_secondary_dropdown_navigation_divider_color">.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item,
+                .header-menu-container ul.menu > li.responsive-menu-mega-enabled > ul > li.menu-item > a{border-bottom-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
 } )( jQuery );
