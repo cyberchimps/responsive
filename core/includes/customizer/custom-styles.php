@@ -2222,14 +2222,14 @@ function responsive_customizer_styles() {
 	// Header Primary Navigation Item Spacing.
 	$primary_navigation_item_spacing              = esc_html( get_theme_mod( 'responsive_primary_navigation_item_spacing', 18 ) );
 	$primary_navigation_item_spacing_top_bottom   = esc_html( get_theme_mod( 'responsive_primary_navigation_item_top_bottom_spacing', 10 ) );
-	$custom_css .=".header-navigation ul#primary-menu li.menu-item > a {
+	$custom_css .=".header-navigation.main-navigation ul li.menu-item > a {
 		padding: {$primary_navigation_item_spacing_top_bottom}px {$primary_navigation_item_spacing}px; 
 	}";
 
 	// Header Secondary Navigation Item Spacing.
 	$secondary_navigation_item_spacing              = esc_html( get_theme_mod( 'responsive_secondary_navigation_item_spacing', 18 ) );
 	$secondary_navigation_item_spacing_top_bottom   = esc_html( get_theme_mod( 'responsive_secondary_navigation_item_top_bottom_spacing', 10 ) );
-	$custom_css .=".header-navigation ul#secondary-menu li.menu-item > a {
+	$custom_css .=".header-navigation.secondary-navigation ul li.menu-item > a {
 		padding: {$secondary_navigation_item_spacing_top_bottom}px {$secondary_navigation_item_spacing}px; 
 	}";
 
@@ -2238,6 +2238,100 @@ function responsive_customizer_styles() {
 	$footer_navigation_item_spacing_top_bottom   = esc_html( get_theme_mod( 'responsive_footer_navigation_item_top_bottom_spacing', 10 ) );
 	$custom_css .=".footer-navigation ul li a{
 		padding: {$footer_navigation_item_spacing_top_bottom}px {$footer_navigation_item_spacing}px; 
+	}";
+
+	// Dropdown Width and vertical spacing.
+	$primary_nav_dropdown_width              = esc_html( get_theme_mod( 'responsive_primary_nav_dropdown_width', 200 ) );
+	$secondary_nav_dropdown_width            = esc_html( get_theme_mod( 'responsive_secondary_nav_dropdown_width', 200 ) );
+	$primary_nav_dropdown_vertical_spacing   = esc_html( get_theme_mod( 'responsive_primary_nav_dropdown_vertical_spacing', 8 ) );
+	$secondary_nav_dropdown_vertical_spacing = esc_html( get_theme_mod( 'responsive_secondary_nav_dropdown_vertical_spacing', 8 ) );
+	$custom_css                             .= ".header-navigation.main-navigation .header-menu-container ul ul.sub-menu,
+		.header-navigation.main-navigation .header-menu-container ul ul.submenu{
+			width: {$primary_nav_dropdown_width}px;
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul.sub-menu,
+		.header-navigation.secondary-navigation .header-menu-container ul ul.submenu{
+			width: {$secondary_nav_dropdown_width}px;
+	}
+	.header-navigation.main-navigation .header-menu-container ul ul,
+	.header-navigation.main-navigation ul.sub-menu li.menu-item > a,
+	.header-navigation.main-navigation ul.submenu li.menu-item > a{
+		padding-top: {$primary_nav_dropdown_vertical_spacing}px;
+		padding-bottom: {$primary_nav_dropdown_vertical_spacing}px;
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul,
+	.header-navigation.secondary-navigation ul.sub-menu li.menu-item > a,
+	.header-navigation.secondary-navigation ul.submenu li.menu-item > a{
+		padding-top: {$secondary_nav_dropdown_vertical_spacing}px;
+		padding-bottom: {$secondary_nav_dropdown_vertical_spacing}px;
+	}";
+	
+	// Dropdown colors.
+	$primary_dropdown_navigation_color          = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_color', '#333' ) );
+	$primary_dropdown_navigation_hover_color    = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_hover_color', '#333' ) );
+	$primary_dropdown_navigation_active_color   = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_active_color', '#333' ) );
+	$secondary_dropdown_navigation_color        = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_color', '#333' ) );
+	$secondary_dropdown_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_hover_color', '#333' ) );
+	$secondary_dropdown_navigation_active_color = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_active_color', '#333' ) );
+	$primary_dropdown_background_color          = esc_html( get_theme_mod( 'responsive_primary_dropdown_background_color', '#fff' ) );
+	$primary_dropdown_background_hover_color    = esc_html( get_theme_mod( 'responsive_primary_dropdown_background_hover_color', '#fff' ) );
+	$primary_dropdown_background_active_color   = esc_html( get_theme_mod( 'responsive_primary_dropdown_background_active_color', '#fff' ) );
+	$secondary_dropdown_background_color        = esc_html( get_theme_mod( 'responsive_secondary_dropdown_background_color', '#fff' ) );
+	$secondary_dropdown_background_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_dropdown_background_hover_color', '#fff' ) );
+	$secondary_dropdown_background_active_color = esc_html( get_theme_mod( 'responsive_secondary_dropdown_background_active_color', '#fff' ) );
+	$custom_css                                .= ".header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a{
+
+		color: {$primary_dropdown_navigation_color};
+	}
+	.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a:hover{
+		color: {$primary_dropdown_navigation_hover_color};
+	}
+	.header-navigation.main-navigation .header-menu-container ul ul > li.menu-item.current-menu-item > a,
+	.header-navigation.main-navigation .header-menu-container ul ul > li.menu-item.current_page_item > a{
+		color: {$primary_dropdown_navigation_active_color};
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a{
+		color: {$secondary_dropdown_navigation_color};
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a:hover{
+		color: {$secondary_dropdown_navigation_hover_color};
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul > li.menu-item.current-menu-item > a,
+	.header-navigation.secondary-navigation .header-menu-container ul ul > li.menu-item.current_page_item > a{
+		color: {$secondary_dropdown_navigation_active_color};
+	}
+	.header-navigation.main-navigation .header-menu-container ul ul.sub-menu, .header-navigation.secondary-navigation .header-menu-container ul ul.submenu{
+		background: {$primary_dropdown_background_color};
+	}
+	.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a:hover{
+		background: {$primary_dropdown_background_hover_color};
+	}
+	.header-navigation.main-navigation .header-menu-container ul ul li.menu-item.current-menu-item > a{
+		background: {$primary_dropdown_background_active_color};
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul.sub-menu, .header-navigation.secondary-navigation .header-menu-container ul ul.submenu{
+		background: {$secondary_dropdown_background_color};
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a:hover{
+		background: {$secondary_dropdown_background_hover_color};
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item.current-menu-item > a{
+		background: {$secondary_dropdown_background_active_cofff};
+	}";
+
+	$primary_dropdown_navigation_divider_type    = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_divider_type', 'solid' ) );
+	$primary_dropdown_navigation_divider_size    = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_divider_size', 1 ) );
+	$primary_dropdown_navigation_divider_color   = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_divider_color', 'rgba(170, 170, 170, 0.2)' ) );
+	$secondary_dropdown_navigation_divider_type  = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_divider_type', 'solid' ) );
+	$secondary_dropdown_navigation_divider_size  = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_divider_size', 1 ) );
+	$secondary_dropdown_navigation_divider_color = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_divider_color', 'rgba(170, 170, 170, 0.2)' ) );
+	$custom_css                                 .= ".header-navigation.main-navigation .header-menu-container ul ul li.menu-item,
+		.header-menu-container ul.menu > li.responsive-menu-mega-enabled > ul > li.menu-item > a{
+			border-bottom: {$primary_dropdown_navigation_divider_size}px {$primary_dropdown_navigation_divider_type} {$primary_dropdown_navigation_divider_color} ;
+	}
+	.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item,
+		.header-menu-container ul.menu > li.responsive-menu-mega-enabled > ul > li.menu-item > a{
+			border-bottom: {$secondary_dropdown_navigation_divider_size}px {$secondary_dropdown_navigation_divider_type} {$secondary_dropdown_navigation_divider_color} ;
 	}";
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
