@@ -70,7 +70,7 @@ if ( ! class_exists( 'Responsive_Header_Cart_Customizer' ) ) :
 				'slide'    => __( 'Slide', 'responsive' ),
 				'dropdown' => __( 'Dropdown', 'responsive' ),
 			);
-			$header_cart_style         = __( 'Cart Style', 'responsive' );
+			$header_cart_style         = __( 'Cart Click Action', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_cart_style', $header_cart_style, 'responsive_customizer_header_cart', 25, $header_cart_style_choices, 'link', null );
 
 			$header_cart_popup_side_choices = array(
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Responsive_Header_Cart_Customizer' ) ) :
 				'right' => __( 'Right', 'responsive' ),
 			);
 			$header_cart_popup_side         = __( 'Cart Popup Side', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_cart_popup_side', $header_cart_style, 'responsive_customizer_header_cart', 30, $header_cart_popup_side_choices, 'left', null );
+			responsive_select_control( $wp_customize, 'header_cart_popup_side', $header_cart_popup_side, 'responsive_customizer_header_cart', 30, $header_cart_popup_side_choices, 'left', null );
 
 		}
 

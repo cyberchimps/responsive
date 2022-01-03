@@ -69,6 +69,24 @@ if ( ! class_exists( 'Responsive_Primary_Navigation_Customizer' ) ) :
 			$primary_nav_items_spacing_top_bottom_label = esc_html__( 'Item Verticle Spacing(px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'primary_navigation_item_top_bottom_spacing', $primary_nav_items_spacing_top_bottom_label, 'responsive_customizer_primary_navigation', 30, 10, null, 100 );
 
+			$primary_navigation_color_label = __( 'Item Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'primary_navigation', $primary_navigation_color_label, 'responsive_customizer_primary_navigation', 30, '#333', null );
+
+			$primary_navigation_hover_color_label = __( 'Item Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'primary_navigation_hover', $primary_navigation_hover_color_label, 'responsive_customizer_primary_navigation', 30, '#333', null );
+
+			$primary_navigation_active_color_label = __( 'Active Item Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'primary_navigation_active', $primary_navigation_active_color_label, 'responsive_customizer_primary_navigation', 30, '#333', null );
+
+			$primary_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'primary_background', $primary_background_color_label, 'responsive_customizer_primary_navigation', 30, '#fff', null );
+
+			$primary_background_hover_color_label = __( 'Background Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'primary_background_hover', $primary_background_hover_color_label, 'responsive_customizer_primary_navigation', 30, '#fff', null );
+
+			$primary_background_active_color_label = __( 'Active Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'primary_background_active', $primary_background_active_color_label, 'responsive_customizer_primary_navigation', 30, '#fff', null );
+
 			/**
 			 * Dropdown Options.
 			 */
@@ -91,16 +109,16 @@ if ( ! class_exists( 'Responsive_Primary_Navigation_Customizer' ) ) :
 			responsive_drag_number_control( $wp_customize, 'primary_nav_dropdown_vertical_spacing', $primary_nav_dropdown_vertical_spacing_label, 'responsive_customizer_primary_navigation', 50, 8, null, 200 );
 
 			$dropdown_navigation_divider_type_choices = array(
-				'none'    => __( 'None', 'responsive' ),
-				'solid'   => __( 'Solid', 'responsive' ),
-				'dashed'  => __( 'Dashed', 'responsive' ),
-				'dotted'  => __( 'Dotted', 'responsive' ),
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
 			);
 
-			$dropdown_navigation_divider_type_label = __( 'Dropdown Item Divider Type', 'responsive' );
+			$dropdown_navigation_divider_type_label = __( 'Dropdown Item Divider Style', 'responsive' );
 			responsive_select_control( $wp_customize, 'primary_dropdown_navigation_divider_type', $dropdown_navigation_divider_type_label, 'responsive_customizer_primary_navigation', 50, $dropdown_navigation_divider_type_choices, 'solid', null );
 
-			$dropdown_navigation_divider_size_label = esc_html__( 'Dropdown Divider Size', 'responsive' );
+			$dropdown_navigation_divider_size_label = esc_html__( 'Dropdown Divider Width', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'primary_dropdown_navigation_divider_size', $dropdown_navigation_divider_size_label, 'responsive_customizer_primary_navigation', 50, 1, null, 20 );
 
 			// Dropdown Color.
@@ -122,8 +140,14 @@ if ( ! class_exists( 'Responsive_Primary_Navigation_Customizer' ) ) :
 			$primary_dropdown_background_active_color_label = __( 'Dropdown Active background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'primary_dropdown_background_active', $primary_dropdown_background_active_color_label, 'responsive_customizer_primary_navigation', 80, '#fff', null );
 
-			$dropdown_navigation_divider_size_label = __( 'Dropdown Active background Color', 'responsive' );
+			$dropdown_navigation_divider_size_label = __( 'Dropdown Divider Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'primary_dropdown_navigation_divider', $dropdown_navigation_divider_size_label, 'responsive_customizer_primary_navigation', 95, 'rgba(170, 170, 170, 0.2)', null );
+
+			/**
+			 * Dropdown Typography Options.
+			 */
+			$primary_dropdown_options_label = esc_html__( 'Dropdown Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'primary_dropdown_typography_options_separator', $primary_dropdown_options_label, 'responsive_customizer_primary_navigation', 95 );
 
 		}
 

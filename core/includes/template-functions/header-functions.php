@@ -1433,7 +1433,7 @@ function header_search() {
 			?>
 		>
 			<?php
-			$label = get_theme_mod( 'responsive_header_search_label' );
+			$label = get_theme_mod( 'responsive_header_search_label', 'Search' );
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
 				<span class="search-toggle-label vs-lg-<?php echo ( get_theme_mod( 'responsive_header_search_label_visiblity_desktop', true ) ? 'true' : 'false' ); ?> vs-md-<?php echo ( get_theme_mod( 'responsive_header_search_label_visiblity_tablet', false ) ? 'true' : 'false' ); ?> vs-sm-<?php echo ( get_theme_mod( 'responsive_header_search_label_visiblity_mobile', false ) ? 'true' : 'false' ); ?>"><?php echo esc_html( $label ); ?></span>

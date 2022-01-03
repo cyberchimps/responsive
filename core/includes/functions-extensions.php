@@ -388,7 +388,7 @@ function responsive_get_social_icons( $area ) {
 		<div class="<?php echo esc_attr( $area ); ?>-layouts social-icon">
 			<ul class="social-icons">
 				<?php
-				$taget_mod          = 'responsive_' . $area . '_social_link_new_tab';
+				$taget_mod          = 'responsive' . $area . '_social_link_new_tab';
 				$target_social_link = get_theme_mod( $taget_mod, '_self' );
 
 				foreach ( $icons as $key => $value ) {

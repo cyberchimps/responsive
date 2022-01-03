@@ -70,7 +70,7 @@ if ( ! class_exists( 'Responsive_Mobile_Cart_Customizer' ) ) :
 				'slide'    => __( 'Slide', 'responsive' ),
 				'dropdown' => __( 'Dropdown', 'responsive' ),
 			);
-			$header_mobile_cart_style         = __( 'Cart Style', 'responsive' );
+			$header_mobile_cart_style         = __( 'Cart Click Action', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_mobile_cart_style', $header_mobile_cart_style, 'responsive_customizer_mobile_cart', 25, $header_mobile_cart_style_choices, 'link', null );
 
 			$header_mobile_cart_popup_side_choices = array(

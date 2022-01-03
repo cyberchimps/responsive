@@ -2265,7 +2265,47 @@ function responsive_customizer_styles() {
 		padding-top: {$secondary_nav_dropdown_vertical_spacing}px;
 		padding-bottom: {$secondary_nav_dropdown_vertical_spacing}px;
 	}";
-	
+
+	// Herader navigation colors.
+	$primary_navigation_color          = esc_html( get_theme_mod( 'responsive_primary_navigation_color', '#333' ) );
+	$primary_navigation_hover_color    = esc_html( get_theme_mod( 'responsive_primary_navigation_hover_color', '#333' ) );
+	$primary_navigation_active_color   = esc_html( get_theme_mod( 'responsive_primary_navigation_active_color', '#333' ) );
+	$secondary_navigation_color        = esc_html( get_theme_mod( 'responsive_secondary_navigation_color', '#333' ) );
+	$secondary_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_navigation_hover_color', '#333' ) );
+	$secondary_navigation_active_color = esc_html( get_theme_mod( 'responsive_secondary_navigation_active_color', '#333' ) );
+	$primary_background_color          = esc_html( get_theme_mod( 'responsive_primary_background_color', '#fff' ) );
+	$primary_background_hover_color    = esc_html( get_theme_mod( 'responsive_primary_background_hover_color', '#fff' ) );
+	$primary_background_active_color   = esc_html( get_theme_mod( 'responsive_primary_background_active_color', '#fff' ) );
+	$secondary_background_color        = esc_html( get_theme_mod( 'responsive_secondary_background_color', '#fff' ) );
+	$secondary_background_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_background_hover_color', '#fff' ) );
+	$secondary_background_active_color = esc_html( get_theme_mod( 'responsive_secondary_background_active_color', '#fff' ) );
+	$custom_css                       .= ".main-navigation .primary-menu-container > ul > li.menu-item > a{
+		color: {$primary_navigation_color};
+		background: {$primary_background_color };
+	}
+	.main-navigation .primary-menu-container > ul > li.menu-item > a:hover{
+		color: {$primary_navigation_hover_color};
+		background: {$primary_background_hover_color };
+	}
+	.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-item > a,
+	.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-ancestor > a{
+		color: {$primary_navigation_active_color };
+		background: {$primary_background_active_color};
+	}
+	.secondary-navigation .secondary-menu-container > ul > li.menu-item > a{
+		color: {$secondary_navigation_color};
+		background: {$secondary_background_color };
+	}
+	.secondary-navigation .secondary-menu-container > ul > li.menu-item > a:hover{
+		color: {$secondary_navigation_hover_color};
+		background: {$secondary_background_hover_color};
+	}
+	.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-item > a,
+	.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-ancestor > a{
+		color: {$secondary_navigation_active_color };
+		background: {$secondary_background_active_color};
+	}";
+
 	// Dropdown colors.
 	$primary_dropdown_navigation_color          = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_color', '#333' ) );
 	$primary_dropdown_navigation_hover_color    = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_hover_color', '#333' ) );
@@ -2316,7 +2356,7 @@ function responsive_customizer_styles() {
 		background: {$secondary_dropdown_background_hover_color};
 	}
 	.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item.current-menu-item > a{
-		background: {$secondary_dropdown_background_active_cofff};
+		background: {$secondary_dropdown_background_active_color};
 	}";
 
 	$primary_dropdown_navigation_divider_type    = esc_html( get_theme_mod( 'responsive_primary_dropdown_navigation_divider_type', 'solid' ) );
