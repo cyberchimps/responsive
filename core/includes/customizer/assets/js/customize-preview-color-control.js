@@ -1515,7 +1515,7 @@
 		});
 	});
 
-    api( 'responsive_secondary_dropdown_navigation_color', function( value ) {
+    api( 'responsive_secondary_dropdown_background_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_secondary_dropdown_background_color' );
 			if ( to ) {
@@ -1530,7 +1530,7 @@
 			}
 		});
 	});
-    api( 'responsive_secondary_dropdown_navigation_hover_color', function( value ) {
+    api( 'responsive_secondary_dropdown_background_hover_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_secondary_dropdown_background_hover_color' );
 			if ( to ) {
@@ -1582,6 +1582,194 @@
 			if ( to ) {
 				var style = `<style class="customizer-responsive_secondary_dropdown_navigation_divider_color">.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item,
                 .header-menu-container ul.menu > li.responsive-menu-mega-enabled > ul > li.menu-item > a{border-bottom-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_primary_navigation_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_navigation_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_primary_navigation_color">.main-navigation .primary-menu-container > ul > li.menu-item > a {color:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_primary_navigation_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_navigation_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_primary_navigation_hover_color">.main-navigation .primary-menu-container > ul > li.menu-item > a:hover {color:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_primary_navigation_active_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_navigation_active_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_primary_navigation_active_color">.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-item > a,
+                .main-navigation .primary-menu-container > ul > li.menu-item.current-menu-ancestor > a {color:  ${to} !important ;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_secondary_navigation_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_navigation_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_secondary_navigation_color">.secondary-navigation .secondary-menu-container > ul > li.menu-item > a {color:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_secondary_navigation_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_navigation_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_secondary_navigation_hover_color">.secondary-navigation .secondary-menu-container > ul > li.menu-item > a:hover {color:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_secondary_navigation_active_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_navigation_active_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_secondary_navigation_active_color">.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-item > a,
+                .secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-ancestor > a {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_primary_background_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_background_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_primary_background_color">.main-navigation .primary-menu-container > ul > li.menu-item > a {background:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_primary_background_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_background_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_primary_background_hover_color">.main-navigation .primary-menu-container > ul > li.menu-item > a:hover {background:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_primary_background_active_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_primary_background_active_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_primary_background_active_color">.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-item > a,
+                .main-navigation .primary-menu-container > ul > li.menu-item.current-menu-ancestor > a {background:  ${to} !important ;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_secondary_background_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_background_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_secondary_background_color">.secondary-navigation .secondary-menu-container > ul > li.menu-item > a {background:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_secondary_background_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_background_hover_color' );
+			if ( to ) {
+				var style = '<style class="customizer-responsive_secondary_background_hover_color">.secondary-navigation .secondary-menu-container > ul > li.menu-item > a:hover {background:' + to + ' !important;}</style>';
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_secondary_background_active_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_secondary_background_active_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_secondary_background_active_color">.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-item > a,
+                .secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-ancestor > a {background: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
