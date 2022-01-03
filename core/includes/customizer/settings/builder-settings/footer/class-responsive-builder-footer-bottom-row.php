@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Bottom_row' ) ) :
 			responsive_drag_number_control( $wp_customize, 'footer_bottom_columns', $footer_bottom_columns, 'responsive_customizer_footer_bottom', 10, 1, null, 5, 1, 'refresh' );
 
 			// Bottom Row Desktop contain.
-			$bottom_row_desktop_contain         = esc_html__( 'Bottom Row Desktop Contain', 'responsive' );
+			$bottom_row_desktop_contain         = esc_html__( 'Desktop Container Width', 'responsive' );
 			$bottom_row_desktop_contain_choices = array(
 				'standard'  => esc_html__( 'Standard', 'responsive' ),
 				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Bottom_row' ) ) :
 			responsive_select_control( $wp_customize, 'footer_bottom_contain', $bottom_row_desktop_contain, 'responsive_customizer_footer_bottom', 15, $bottom_row_desktop_contain_choices, 'standard', null );
 
 			// Bottom Row Tablet contain.
-			$bottom_row_tablet_contain         = esc_html__( 'Bottom Row Tablet Contain', 'responsive' );
+			$bottom_row_tablet_contain         = esc_html__( 'Tablet Container Width', 'responsive' );
 			$bottom_row_tablet_contain_choices = array(
 				'standard'  => esc_html__( 'Standard', 'responsive' ),
 				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Bottom_row' ) ) :
 			responsive_select_control( $wp_customize, 'footer_tablet_bottom_contain', $bottom_row_tablet_contain, 'responsive_customizer_footer_bottom', 20, $bottom_row_tablet_contain_choices, 'standard', null );
 
 			// Bottom Row Mobile contain.
-			$bottom_row_mobile_contain         = esc_html__( 'Bottom Row Mobile Contain', 'responsive' );
+			$bottom_row_mobile_contain         = esc_html__( 'Mobile Container Width', 'responsive' );
 			$bottom_row_mobile_contain_choices = array(
 				'standard'  => esc_html__( 'Standard', 'responsive' ),
 				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),

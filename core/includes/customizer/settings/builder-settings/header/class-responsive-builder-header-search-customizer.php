@@ -41,7 +41,7 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_customizer_header_search',
 				array(
-					'title'    => esc_html__( 'Primary Navigation', 'responsive' ),
+					'title'    => esc_html__( 'Search', 'responsive' ),
 					'panel'    => 'responsive_header',
 					'priority' => 200,
 				)
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 
 			// Header Search Label.
 			$header_search_label = __( 'Header Search Label', 'responsive' );
-			responsive_text_control( $wp_customize, 'header_search_label', $header_search_label, 'responsive_customizer_header_search', 20, '', null, 'sanitize_text_field', 'text' );
+			responsive_text_control( $wp_customize, 'header_search_label', $header_search_label, 'responsive_customizer_header_search', 20, 'Search', null, 'sanitize_text_field', 'text' );
 
 			$header_search_label_visiblity_desktop = __( 'Header Search Label Visibility Desktop', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_search_label_visiblity_desktop', $header_search_label_visiblity_desktop, 'responsive_customizer_header_search', 25, 1 );
@@ -75,12 +75,13 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 				'search'  => __( 'Icon 1', 'responsive' ),
 				'search2' => __( 'Icon 2', 'responsive' ),
 			);
-			$header_search_icon         = __( 'Search Style', 'responsive' );
+			$header_search_icon         = __( 'Search Icon', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_search_icon', $header_search_icon, 'responsive_customizer_header_search', 40, $header_search_icon_choices, 'search', null );
 
-			$header_search_woo = __( 'Enable WooCommerce Search', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_html_header_search_woo', $header_search_woo, 'responsive_customizer_header_search', 45, 0 );
-
+			if ( class_exists( 'woocommerce' ) ) {
+				$header_search_woo = __( 'Products Search only?', 'responsive' );
+				responsive_checkbox_control( $wp_customize, 'header_html_header_search_woo', $header_search_woo, 'responsive_customizer_header_search', 45, 0 );
+			}
 		}
 
 	}

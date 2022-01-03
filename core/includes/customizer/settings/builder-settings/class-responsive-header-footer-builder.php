@@ -189,7 +189,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 					'section' => 'responsive_customizer_mobile_navigation',
 				),
 				'search'            => array(
-					'name'    => esc_html__( 'Search Toggle', 'responsive' ),
+					'name'    => esc_html__( 'Search', 'responsive' ),
 					'section' => 'responsive_customizer_header_search',
 				),
 				'mobile-button'     => array(
