@@ -1134,7 +1134,7 @@ function mobile_button() {
 		$classes[] = 'mobile-header-button';
 		$classes[] = 'button-size-' . esc_attr( get_theme_mod( 'responsive_mobile_button_size' ) );
 		$classes[] = 'button-style-' . esc_attr( get_theme_mod( 'responsive_mobile_button_style' ) );
-		$href      = get_theme_mod( 'responsive_mobile_button_link' ) !== '' ? 'http://' . get_theme_mod( 'responsive_mobile_button_link' ) : '';
+		$href      = get_theme_mod( 'responsive_mobile_button_link' ) !== '' ? get_theme_mod( 'responsive_mobile_button_link' ) : '';
 		echo '<div class="mobile-header-button-inner-wrap">';
 		echo '<a href="' . esc_attr( $href ) . '" target="' . esc_attr( get_theme_mod( 'responsive_mobile_button_target' ) ? '_blank' : '_self' ) . '"' . ( ! empty( $rel ) ? ' rel="' . esc_attr( implode( ' ', $rel ) ) . '"' : '' ) . ' class="' . esc_attr( implode( ' ', $classes ) ) . '">';
 		echo esc_html( $label );
