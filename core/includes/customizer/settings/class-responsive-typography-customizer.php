@@ -282,9 +282,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line-height' => '1.75',
 						),
 					),
-					'primary_dropdown_navigation' => array(
+					'primary_navigation'            => array(
 						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['primary_dropdown_nav_typo'],
+						'target'   => $selectorArray['primary_nav_typo'],
 						'section'  => 'responsive_customizer_primary_navigation',
 						'exclude'  => array( 'font-color' ),
 						'priority' => 100,
@@ -294,13 +294,37 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line-height' => '1.75',
 						),
 					),
+					'primary_dropdown_navigation'   => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => $selectorArray['primary_dropdown_nav_typo'],
+						'section'  => 'responsive_customizer_primary_navigation',
+						'exclude'  => array( 'font-color' ),
+						'priority' => 110,
+						'defaults' => array(
+							'font-size'   => '16px',
+							'font-weight' => '600',
+							'line-height' => '1.75',
+						),
+					),
+					'secondary_navigation' => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => $selectorArray['secondary_nav_typo'],
+						'section'  => 'responsive_customizer_secondary_navigation',
+						'exclude'  => array( 'font-color' ),
+						'priority' => 100,
+						'defaults' => array(
+							'font - size'   => '16px',
+							'font - weight' => '600',
+							'line - height' => '1.75',
+						),
+					),
 					'secondary_dropdown_navigation' => array(
-						'label'      => esc_html__( 'Typography', 'responsive' ),
-						'target'     => $selectorArray['secondary_dropdown_nav_typo'],
-						'section'    => 'responsive_customizer_secondary_navigation',
-						'exclude'    => array( 'font-color' ),
-						'priority'   => 100,
-						'defaults'   => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => $selectorArray['secondary_dropdown_nav_typo'],
+						'section'  => 'responsive_customizer_secondary_navigation',
+						'exclude'  => array( 'font-color' ),
+						'priority' => 110,
+						'defaults' => array(
 							'font - size'   => '16px',
 							'font - weight' => '600',
 							'line - height' => '1.75',
@@ -339,7 +363,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'content_header_description'  => '.site-content-header .page-header .page-description',
 					'breadcrumb'                  => '.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb',
 					'footer'                      => '.site-footer',
+					'primary_nav_typo'            => '.main-navigation .primary-menu-container > ul li.menu-item > a',
 					'primary_dropdown_nav_typo'   => '.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a',
+					'secondary_nav_typo'          => '.secondary-navigation .secondary-menu-container > ul li.menu-item > a',
 					'secondary_dropdown_nav_typo' => '.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a',
 				)
 			);

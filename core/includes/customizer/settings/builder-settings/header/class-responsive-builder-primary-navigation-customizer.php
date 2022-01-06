@@ -143,11 +143,14 @@ if ( ! class_exists( 'Responsive_Primary_Navigation_Customizer' ) ) :
 			$dropdown_navigation_divider_size_label = __( 'Dropdown Divider Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'primary_dropdown_navigation_divider', $dropdown_navigation_divider_size_label, 'responsive_customizer_primary_navigation', 95, 'rgba(170, 170, 170, 0.2)', null );
 
+			$primary_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'primary_typography_options_separator', $primary_typography_options_label, 'responsive_customizer_primary_navigation', 95 );
+
 			/**
 			 * Dropdown Typography Options.
 			 */
 			$primary_dropdown_options_label = esc_html__( 'Dropdown Typography Options', 'responsive' );
-			responsive_separator_control( $wp_customize, 'primary_dropdown_typography_options_separator', $primary_dropdown_options_label, 'responsive_customizer_primary_navigation', 95 );
+			responsive_separator_control( $wp_customize, 'primary_dropdown_typography_options_separator', $primary_dropdown_options_label, 'responsive_customizer_primary_navigation', 105 );
 
 		}
 
