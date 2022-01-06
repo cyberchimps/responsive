@@ -6,7 +6,6 @@
     var api = wp.customize;
 
     function responsive_dynamic_padding(control, selector) {
-        console.log(responsiveBuilder.is_header_footer_builder)
         if( responsiveBuilder.is_header_footer_builder ){
             mobile_menu_breakpoint = 786;
         }else{
