@@ -2223,9 +2223,9 @@ function responsive_customizer_styles() {
 	// Header Footer Builder custom css
 
 	// Header Top Row
-	$top_row_min_height              	= esc_html( get_theme_mod( 'responsive_top_row_min_height', 0 ) );
-	$top_row_min_height_tablet   		= esc_html( get_theme_mod( 'responsive_top_row_min_height_tablet', 0 ) );
-	$top_row_min_height_mobile          = esc_html( get_theme_mod( 'responsive_top_row_min_height_mobile', 0 ) );
+	$top_row_min_height              	= esc_html( get_theme_mod( 'responsive_top_row_min_height', 80 ) );
+	$top_row_min_height_tablet   		= esc_html( get_theme_mod( 'responsive_top_row_min_height_tablet', 80 ) );
+	$top_row_min_height_mobile          = esc_html( get_theme_mod( 'responsive_top_row_min_height_mobile', 80 ) );
 	$custom_css .="#masthead .site-top-header-inner-wrap {
 		min-height: {$top_row_min_height}px; 
 	}
