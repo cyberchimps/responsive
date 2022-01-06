@@ -78,10 +78,19 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			$header_search_icon         = __( 'Search Icon', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_search_icon', $header_search_icon, 'responsive_customizer_header_search', 40, $header_search_icon_choices, 'search', null );
 
+			//Header Search Color.
+			$header_search_color_label = __( 'Search Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_search', $header_search_color_label, 'responsive_customizer_header_search', 50, '#fff', null );
+
+			$header_search_hover_color_label = __( 'Search Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_search_hover', $header_search_hover_color_label, 'responsive_customizer_header_search', 50, '#fff', null );
+
 			if ( class_exists( 'woocommerce' ) ) {
 				$header_search_woo = __( 'Products Search only?', 'responsive' );
 				responsive_checkbox_control( $wp_customize, 'header_html_header_search_woo', $header_search_woo, 'responsive_customizer_header_search', 45, 0 );
 			}
+
+			
 		}
 
 	}
