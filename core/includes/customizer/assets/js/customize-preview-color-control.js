@@ -1592,7 +1592,46 @@
 			}
 		});
 	});
-
+    api( 'responsive_header_search_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.search-toggle-open-container .search-toggle-open').css('color', newval );
+        } );
+    } );
+    api( 'responsive_header_search_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.search-toggle-open-container .search-toggle-open:hover').css('color', newval );
+        } );
+    } );
+    api( 'responsive_header_social_icon_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons a').css('color', newval );
+        } );
+    } );
+    api( 'responsive_header_social_icon_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons a:hover').css('color', newval );
+        } );
+    } );
+    api( 'responsive_header_social_icon_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons a').css('background-color', newval );
+        } );
+    } );
+    api( 'responsive_header_social_icon_background_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons a:hover').css('background-color', newval );
+        } );
+    } );
+    api( 'responsive_header_social_icon_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons a').css('border-color', newval );
+        } );
+    } );
+    api( 'responsive_header_social_icon_border_hover_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons a:hover').css('border-color', newval );
+        } );
+    } );
     api( 'responsive_primary_navigation_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_primary_navigation_color' );

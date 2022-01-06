@@ -291,4 +291,16 @@
         } );
     } );
 
+    api( 'responsive_header_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons').css('font-size', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_top_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#masthead .site-top-header-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
 } )( jQuery );
