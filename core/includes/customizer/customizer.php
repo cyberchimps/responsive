@@ -153,6 +153,7 @@ function responsive_customize_preview_js() {
 	wp_enqueue_script( 'responsive_theme_customizer_select', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-select-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_text', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-text-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_localize_script( 'responsive_theme_customizer_color', 'responsive', array( 'is_header_footer_builder' => get_option( 'is-header-footer-builder' ) ) );
+	wp_localize_script( 'responsive_theme_customizer_padding', 'responsiveBuilder', array( 'is_header_footer_builder' => get_option( 'is-header-footer-builder' ) ) );
 
 }
 
@@ -222,7 +223,7 @@ function responsive_register_options() {
 		$header_settings . 'class-responsive-builder-header-button-customizer',
 		$header_settings . 'class-responsive-builder-mobile-header-button-customizer',
 		$header_settings . 'class-responsive-builder-header-trigger-customizer',
-		$header_settings . 'class-responsive-builder-mobile-navigation-customizer',
+		$header_settings . 'class-responsive-builder-header-popup-customizer',
 		$header_settings . 'class-responsive-builder-header-search-customizer',
 		$header_settings . 'class-responsive-builder-header-html-customizer',
 		$header_settings . 'class-responsive-builder-mobile-html-customizer',

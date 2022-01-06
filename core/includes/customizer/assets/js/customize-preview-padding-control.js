@@ -6,11 +6,15 @@
     var api = wp.customize;
 
     function responsive_dynamic_padding(control, selector) {
-        var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
-        if( 0 == api( 'responsive_disable_mobile_menu').get()) {
-            mobile_menu_breakpoint = 0;
+        if( responsiveBuilder.is_header_footer_builder ){
+            mobile_menu_breakpoint = 786;
+        }else{
+            var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
+            if( 0 == api( 'responsive_disable_mobile_menu').get()) {
+                mobile_menu_breakpoint = 0;
+            }    
         }
-
+        
         jQuery( 'style#responsive-'+control+'-padding' ).remove();
         var desktopPadding = 'padding-top:'+ api('responsive_'+control+'_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_'+control+'_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_'+control+'_left_padding').get()+'px; '+'padding-right:'+ api('responsive_'+control+'_right_padding').get()+'px;';
         var tabletPadding = 'padding-top:'+ api('responsive_'+control+'_tablet_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_'+control+'_tablet_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_'+control+'_tablet_left_padding').get()+'px; '+'padding-right:'+ api('responsive_'+control+'_tablet_right_padding').get()+'px;';
@@ -783,5 +787,75 @@
             responsive_dynamic_border('sub_menu_border', '.main-navigation .children, .main-navigation .sub-menu');
         } );
     } );
+
+    api( 'responsive_header_popup_close_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+    api( 'responsive_header_popup_close_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+    api( 'responsive_header_popup_close_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+    api( 'responsive_header_popup_close_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
+    api( 'responsive_header_popup_close_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
+    api( 'responsive_header_popup_close_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
+    api( 'responsive_header_popup_close_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
+    api( 'responsive_header_popup_close_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
+    api( 'responsive_header_popup_close_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
+    api( 'responsive_header_popup_close_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
+    api( 'responsive_header_popup_close_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
+    api( 'responsive_header_popup_close_mobile_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_popup_close', '#mobile-drawer .drawer-header .drawer-toggle');
+        } );
+    } );
+
 
 } )( jQuery );
