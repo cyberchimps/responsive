@@ -113,6 +113,24 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 			$mobile_button_border_radius_label = esc_html__( 'Button Border Radius', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_button_border_radius', $mobile_button_border_radius_label, 'responsive_customizer_mobile_button', 65, 0, null, 120, 1, 'postMessage' );
 
+			$mobile_button_color_label = __( 'Button Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_button', $mobile_button_color_label, 'responsive_customizer_mobile_button', 70, '#fff', null );
+
+			$mobile_button_color_hover_label = __( 'Button Focus Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_button_hover', $mobile_button_color_hover_label, 'responsive_customizer_mobile_button', 75, '#fff', null );
+
+			$mobile_button_background_color_label = __( 'Button Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_button_background', $mobile_button_background_color_label, 'responsive_customizer_mobile_button', 80, '#0066cc', null );
+
+			$mobile_button_background_color_hover_label = __( 'Button Background Focus Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_button_background_hover', $mobile_button_background_color_hover_label, 'responsive_customizer_mobile_button', 85, '#0066cc', null );
+
+			$mobile_button_border_color_label = __( 'Button Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_button_border', $mobile_button_border_color_label, 'responsive_customizer_mobile_button', 90, '#0066cc', null );
+
+			$mobile_button_border_color_hover_label = __( 'Button Border Focus Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_button_border_hover', $mobile_button_border_color_hover_label, 'responsive_customizer_mobile_button', 95, '#0066cc', null );
+
 		}
 
 	}
