@@ -129,7 +129,7 @@ if ( ! class_exists( 'Responsive_Builder_Header_Popup_Customizer' ) ) :
 
 			// Padding (px).
 			$header_popup_close_padding_label = __( 'Spacing (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'header_popup_close', 'responsive_customizer_header_popup', 85, 7, 2, 'responsive_customizer_header_popup', $header_popup_close_padding_label );
+			responsive_padding_control( $wp_customize, 'header_popup_close', 'responsive_customizer_header_popup', 85, 7, 2, null, $header_popup_close_padding_label );
 		}
 
 	}
