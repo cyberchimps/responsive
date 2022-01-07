@@ -97,6 +97,22 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 			$header_button_visibility         = __( 'Header Button Visibility', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_button_visibility', $header_button_visibility, 'responsive_customizer_header_button', 50, $header_button_visibility_choices, 'everyone', null );
 
+			$header_button_border_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+
+			$header_button_border_style_label = __( 'Button Border Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_button_border_style', $header_button_border_style_label, 'responsive_customizer_header_button', 55, $header_button_border_style_choices, 'solid', null );
+
+			$header_button_border_size_label = esc_html__( 'Button Border Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_button_border_size', $header_button_border_size_label, 'responsive_customizer_header_button', 60, 1, null, 20, 1, 'postMessage' );
+
+			$header_button_border_radius_label = esc_html__( 'Button Border Radius', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_button_border_radius', $header_button_border_radius_label, 'responsive_customizer_header_button', 65, 0, null, 120, 1, 'postMessage' );
+
 		}
 
 	}

@@ -310,4 +310,28 @@
         } );
     } );
 
+    api( 'responsive_header_button_border_size', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-button').css('border-width', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_header_button_border_radius', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-button').css('border-radius', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_mobile_button_border_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-header-button-wrap .mobile-header-button-inner-wrap .mobile-header-button').css('border-width', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_mobile_button_border_radius', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-header-button-wrap .mobile-header-button-inner-wrap .mobile-header-button').css('border-radius', newval+'px' );
+        } );
+    } );
+
 } )( jQuery );
