@@ -113,6 +113,24 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 			$header_button_border_radius_label = esc_html__( 'Button Border Radius', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_button_border_radius', $header_button_border_radius_label, 'responsive_customizer_header_button', 65, 0, null, 120, 1, 'postMessage' );
 
+			$header_button_color_label = __( 'Button Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_button', $header_button_color_label, 'responsive_customizer_header_button', 70, '#fff', null );
+
+			$header_button_color_hover_label = __( 'Button Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_button_hover', $header_button_color_hover_label, 'responsive_customizer_header_button', 75, '#fff', null );
+
+			$header_button_background_color_label = __( 'Button Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_button_background', $header_button_background_color_label, 'responsive_customizer_header_button', 80, '#0066cc', null );
+
+			$header_button_background_color_hover_label = __( 'Button Background Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_button_background_hover', $header_button_background_color_hover_label, 'responsive_customizer_header_button', 85, '#0066cc', null );
+
+			$header_button_border_color_label = __( 'Button Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_button_border', $header_button_border_color_label, 'responsive_customizer_header_button', 90, '#0066cc', null );
+
+			$header_button_border_color_hover_label = __( 'Button Border Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_button_border_hover', $header_button_border_color_hover_label, 'responsive_customizer_header_button', 95, '#0066cc', null );
+
 		}
 
 	}
