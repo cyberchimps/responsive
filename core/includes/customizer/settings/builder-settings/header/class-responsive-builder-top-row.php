@@ -78,10 +78,10 @@ if ( ! class_exists( 'Responsive_Builder_Top_row' ) ) :
 			responsive_drag_number_control( $wp_customize, 'top_row_min_height', $top_row_min_height_label, 'responsive_customizer_header_top', 30, 80, null, 400 );
 
 			$top_row_min_height_tablet_label = esc_html__( 'Min Height Tablet(px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'top_row_min_height_tablet', $top_row_min_height_tablet_label, 'responsive_customizer_header_top', 35, 80, null, 400 );
+			responsive_drag_number_control( $wp_customize, 'top_row_min_height_tablet', $top_row_min_height_tablet_label, 'responsive_customizer_header_top', 35, 0, null, 400 );
 
 			$top_row_min_height_mobile_label = esc_html__( 'Min Height Mobile(px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'top_row_min_height_mobile', $top_row_min_height_mobile_label, 'responsive_customizer_header_top', 40, 80, null, 400 );
+			responsive_drag_number_control( $wp_customize, 'top_row_min_height_mobile', $top_row_min_height_mobile_label, 'responsive_customizer_header_top', 40, 0, null, 400 );
 
 		}
 
