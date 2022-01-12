@@ -82,6 +82,18 @@ if ( ! class_exists( 'Responsive_Builder_Top_row' ) ) :
 			$top_row_min_height_mobile_label = esc_html__( 'Min Height Mobile(px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'top_row_min_height_mobile', $top_row_min_height_mobile_label, 'responsive_customizer_header_top', 40, 0, null, 400 );
 
+			$top_row_background_label = __( 'Background Desktop', 'responsive' );
+			responsive_color_control( $wp_customize, 'top_row_background_desktop', $top_row_background_label, 'responsive_customizer_header_top', 45, '', null );
+
+			$top_row_background_tablet_label = __( 'Background Tablet', 'responsive' );
+			responsive_color_control( $wp_customize, 'top_row_background_tablet', $top_row_background_tablet_label, 'responsive_customizer_header_top', 50, '', null );
+
+			$top_row_background_mobile_label = __( 'Background Mobile', 'responsive' );
+			responsive_color_control( $wp_customize, 'top_row_background_mobile', $top_row_background_mobile_label, 'responsive_customizer_header_top', 55, '', null );
+
+			//Padding (px).
+			$top_row_padding_label = __( 'Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'top_row', 'responsive_customizer_header_top', 60, null, null, null, $top_row_padding_label );
 		}
 
 	}
