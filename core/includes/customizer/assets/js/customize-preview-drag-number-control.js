@@ -310,6 +310,18 @@
         } );
     } );
 
+    api( 'responsive_main_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#masthead .site-main-header-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_bottom_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#masthead .site-bottom-header-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
     api( 'responsive_header_button_border_size', function( value ) {
         value.bind( function( newval ) {
             $('#main-header .header-button').css('border-width', newval+'px' );

@@ -74,6 +74,24 @@ if ( ! class_exists( 'Responsive_Builder_Main_row' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'header_mobile_main_layout', $main_row_mobile_layout, 'responsive_customizer_header_main', 25, $main_row_mobile_layout_choices, 'standard', null );
 
+			$main_row_min_height_label = esc_html__( 'Min Height (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_min_height', $main_row_min_height_label, 'responsive_customizer_header_main', 30, 80, null, 400 );
+
+			$main_row_min_height_tablet_label = esc_html__( 'Min Height Tablet(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_min_height_tablet', $main_row_min_height_tablet_label, 'responsive_customizer_header_main', 35, 0, null, 400 );
+
+			$main_row_min_height_mobile_label = esc_html__( 'Min Height Mobile(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_min_height_mobile', $main_row_min_height_mobile_label, 'responsive_customizer_header_main', 40, 0, null, 400 );
+
+			$main_row_background_label = __( 'Background Desktop', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_background_desktop', $main_row_background_label, 'responsive_customizer_header_main', 45, '', null );
+
+			$main_row_background_tablet_label = __( 'Background Tablet', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_background_tablet', $main_row_background_tablet_label, 'responsive_customizer_header_main', 50, '', null );
+
+			$main_row_background_mobile_label = __( 'Background Mobile', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_background_mobile', $main_row_background_mobile_label, 'responsive_customizer_header_main', 55, '', null );
+
 		}
 
 	}
