@@ -2377,7 +2377,6 @@ function responsive_customizer_styles() {
 		.header-navigation.secondary-navigation .header-menu-container ul ul.submenu{
 			width: {$secondary_nav_dropdown_width}px;
 	}
-	.header-navigation.main-navigation .header-menu-container ul ul,
 	.header-navigation.main-navigation ul.sub-menu li.menu-item > a,
 	.header-navigation.main-navigation ul.submenu li.menu-item > a{
 		padding-top: {$primary_nav_dropdown_vertical_spacing}px;
@@ -2606,7 +2605,7 @@ function responsive_customizer_styles() {
 
 	$header_button_border_size   = esc_html( get_theme_mod( 'responsive_header_button_border_size', 1 ) );
 	$header_button_border_style  = esc_html( get_theme_mod( 'responsive_header_button_border_style', 'solid' ) );
-	$header_button_border_radius = esc_html( get_theme_mod( 'responsive_header_button_border_radius', 0 ) );
+	$header_button_border_radius = 'none' === $header_button_border_style ? 'none' : esc_html( get_theme_mod( 'responsive_header_button_border_radius', 0 ) );
 
 	$mobile_button_border_size   = esc_html( get_theme_mod( 'responsive_mobile_button_border_size', 1 ) );
 	$mobile_button_border_style  = esc_html( get_theme_mod( 'responsive_mobile_button_border_style', 'solid' ) );
@@ -2621,17 +2620,17 @@ function responsive_customizer_styles() {
 	$mobile_button_color       = esc_html( get_theme_mod( 'responsive_mobile_button_color', $header_button_color_default ) );
 	$mobile_button_hover_color = esc_html( get_theme_mod( 'responsive_mobile_button_hover_color', $header_button_color_default ) );
 
-	$header_button_background_color       = esc_html( get_theme_mod( 'responsive_header_button_background_color', $header_button_color_default ) );
-	$header_button_background_hover_color = esc_html( get_theme_mod( 'responsive_header_button_background_hover_color', $header_button_color_default ) );
+	$header_button_background_color       = esc_html( get_theme_mod( 'responsive_header_button_background_color', $header_button_background_color_default ) );
+	$header_button_background_hover_color = esc_html( get_theme_mod( 'responsive_header_button_background_hover_color', $header_button_background_color_default ) );
 
 	$mobile_button_background_color       = esc_html( get_theme_mod( 'responsive_mobile_button_background_color', $header_button_background_color_default ) );
 	$mobile_button_background_hover_color = esc_html( get_theme_mod( 'responsive_mobile_button_background_hover_color', $header_button_background_color_default ) );
 
-	$header_button_border_color       = esc_html( get_theme_mod( 'responsive_header_button_border_color', $header_button_color_default ) );
-	$header_button_border_hover_color = esc_html( get_theme_mod( 'responsive_header_button_border_hover_color', $header_button_color_default ) );
+	$header_button_border_color       = esc_html( get_theme_mod( 'responsive_header_button_border_color', '#0066cc' ) );
+	$header_button_border_hover_color = esc_html( get_theme_mod( 'responsive_header_button_border_hover_color', '#0066cc' ) );
 
-	$mobile_button_border_color       = esc_html( get_theme_mod( 'responsive_mobile_button_border_color', $header_button_background_color_default ) );
-	$mobile_button_border_hover_color = esc_html( get_theme_mod( 'responsive_mobile_button_border_hover_color', $header_button_background_color_default ) );
+	$mobile_button_border_color       = esc_html( get_theme_mod( 'responsive_mobile_button_border_color', '#0066cc' ) );
+	$mobile_button_border_hover_color = esc_html( get_theme_mod( 'responsive_mobile_button_border_hover_color', '#0066cc' ) );
 
 	$custom_css .= "#main-header .header-button{
 		border: {$header_button_border_size}px {$header_button_border_style} {$header_button_border_color};

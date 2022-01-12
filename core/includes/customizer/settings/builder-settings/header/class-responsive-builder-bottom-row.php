@@ -50,9 +50,8 @@ if ( ! class_exists( 'Responsive_Builder_Bottom_row' ) ) :
 			// Bottom Row Desktop Layout.
 			$bottom_row_desktop_layout         = esc_html__( 'Bottom Row Desktop Layout', 'responsive' );
 			$bottom_row_desktop_layout_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
+				'standard'  => esc_html__( 'Contained', 'responsive' ),
 				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
-				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'header_bottom_layout', $bottom_row_desktop_layout, 'responsive_customizer_header_bottom', 15, $bottom_row_desktop_layout_choices, 'standard', null );
 
