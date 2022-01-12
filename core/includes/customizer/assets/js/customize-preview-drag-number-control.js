@@ -318,6 +318,7 @@
 
     api( 'responsive_header_button_border_radius', function( value ) {
         value.bind( function( newval ) {
+            newval =  api( 'responsive_header_button_border_style' ).get() === 'none' ? 'none' : newval;
             $('#main-header .header-button').css('border-radius', newval+'px' );
         } );
     } );

@@ -5,13 +5,12 @@
  * @package responsive
  */
 
-namespace Responsive\Core;
 
 $row           = get_query_var( 'mobile_row' );
-$tablet_layout = ( get_theme_mod( 'header_' . $row . '_layout', 'tablet' ) ? get_theme_mod( 'header_' . $row . '_layout', 'tablet' ) : 'default' );
-$mobile_layout = ( get_theme_mod( 'header_' . $row . '_layout', 'mobile' ) ? get_theme_mod( 'header_' . $row . '_layout', 'mobile' ) : 'default' );
+$tablet_layout = ( get_theme_mod( 'responsive_header_tablet_' . $row . '_layout' ) ? get_theme_mod( 'responsive_header_tablet_' . $row . '_layout' ) : 'default' );
+$mobile_layout = ( get_theme_mod( 'responsive_header_mobile_' . $row . '_layout' ) ? get_theme_mod( 'responsive_header_mobile_' . $row . '_layout' ) : 'default' );
 ?>
-<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap site-header-focus-item site-header-row-layout-<?php echo esc_attr( get_theme_mod( 'header_' . $row . '_layout', 'desktop' ) ); ?> site-header-row-tablet-layout-<?php echo esc_attr( $tablet_layout ); ?> site-header-row-mobile-layout-<?php echo esc_attr( $mobile_layout ); ?> <?php /* echo esc_attr( $row === get_theme_mod( 'mobile_header_sticky' ) ? ' responsive-sticky-header' : '' ); */ ?>"
+<div class="site-<?php echo esc_attr( $row ); ?>-header-wrap site-header-focus-item site-header-row-layout-<?php echo esc_attr( get_theme_mod( 'responsive_header_desktop_' . $row . '_layout', 'standard' ) ); ?> site-header-row-tablet-layout-<?php echo esc_attr( $tablet_layout ); ?> site-header-row-mobile-layout-<?php echo esc_attr( $mobile_layout ); ?> <?php /* echo esc_attr( $row === get_theme_mod( 'mobile_header_sticky' ) ? ' responsive-sticky-header' : '' ); */ ?>"
 <?php
 /*
 	If ( $row === 'main' && 'main' === get_theme_mod( 'mobile_header_sticky' ) ) {

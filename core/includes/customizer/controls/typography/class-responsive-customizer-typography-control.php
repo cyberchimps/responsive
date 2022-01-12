@@ -108,6 +108,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 
 				)
 			);
+			wp_localize_script( 'responsive-conditional-display-controls', 'responsiveDisplay', array( 'is_header_footer_builder' => get_option( 'is-header-footer-builder' ) ) );
 		}
 		public function get_custom_fonts() {
 					return class_exists( 'Responsive_Addons_Pro' ) ? Responsive_Pro_Custom_Fonts_Taxonomy::get_fonts() : null;

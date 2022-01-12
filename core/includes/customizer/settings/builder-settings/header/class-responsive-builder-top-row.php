@@ -50,9 +50,8 @@ if ( ! class_exists( 'Responsive_Builder_Top_row' ) ) :
 			// Top Row Desktop Layout.
 			$top_row_desktop_layout         = esc_html__( 'Top Row Desktop Layout', 'responsive' );
 			$top_row_desktop_layout_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
+				'standard'  => esc_html__( 'Contained', 'responsive' ),
 				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
-				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'header_top_layout', $top_row_desktop_layout, 'responsive_customizer_header_top', 15, $top_row_desktop_layout_choices, 'standard', null );
 
