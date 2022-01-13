@@ -90,7 +90,9 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 				responsive_checkbox_control( $wp_customize, 'header_html_header_search_woo', $header_search_woo, 'responsive_customizer_header_search', 45, 0 );
 			}
 
-			
+			//Padding (px).
+			$search_padding_label = __( 'Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_searchd', 55, null, null, null, $search_padding_label );
 		}
 
 	}

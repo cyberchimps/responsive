@@ -57,7 +57,7 @@ if ( ! class_exists( 'Responsive_Logo_Customizer' ) ) :
 			$tablet_logo_layout_include_label = __( 'Tablet Logo Layout', 'responsive' );
 			responsive_select_control( $wp_customize, 'tablet_logo_layout_include', $tablet_logo_layout_include_label, 'responsive_customizer_logo', 15, $logo_layout_include_choices, 'logo', null );
 			$mobile_logo_layout_include_label = __( 'Mobile Logo Layout', 'responsive' );
-			responsive_select_control( $wp_customize, 'mobile_logo_layout_include', $mobile_logo_layout_include_label, 'responsive_customizer_logo', 120, $logo_layout_include_choices, 'logo', null );
+			responsive_select_control( $wp_customize, 'mobile_logo_layout_include', $mobile_logo_layout_include_label, 'responsive_customizer_logo', 20, $logo_layout_include_choices, 'logo', null );
 
 			$logo_layout_structure_choices       = array(
 				'standard'           => __( 'Standard', 'responsive' ),
@@ -73,6 +73,9 @@ if ( ! class_exists( 'Responsive_Logo_Customizer' ) ) :
 			$mobile_logo_layout_structure_label = __( 'Mobile Logo Layout Structure', 'responsive' );
 			responsive_select_control( $wp_customize, 'mobile_logo_layout_structure', $mobile_logo_layout_structure_label, 'responsive_customizer_logo', 40, $logo_layout_structure_choices, 'standard', null );
 
+			//Padding (px).
+			$logo_padding_label = __( 'Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'logo', 'responsive_customizer_logo', 45, null, null, null, $logo_padding_label );
 		}
 
 	}
