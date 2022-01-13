@@ -2251,7 +2251,7 @@ function responsive_customizer_styles() {
 			background: {$top_row_background_mobile_color};
 		}
 	}";
-	
+
 	// Top Row Padding.
 	$top_row_padding_right  = esc_html( get_theme_mod( 'responsive_top_row_right_padding', null ) );
 	$top_row_padding_left   = esc_html( get_theme_mod( 'responsive_top_row_left_padding', null ) );

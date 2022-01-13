@@ -131,6 +131,9 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 			$mobile_button_border_color_hover_label = __( 'Button Border Focus Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'mobile_button_border_hover', $mobile_button_border_color_hover_label, 'responsive_customizer_mobile_button', 95, '#0066cc', null );
 
+			$mobile_button_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'mobile_button_typography_options_separator', $mobile_button_typography_options_label, 'responsive_customizer_mobile_button', 100 );
+
 		}
 
 	}

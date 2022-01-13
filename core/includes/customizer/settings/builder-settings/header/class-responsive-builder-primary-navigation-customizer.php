@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Primary_Navigation_Customizer' ) ) :
 			responsive_checkbox_control( $wp_customize, 'stretch_primary_navigation', $stretch_primary_navigation_label, 'responsive_customizer_primary_navigation', 10, 0, null );
 
 			$primary_navigation_fill_stretch_label = __( 'Fill and Center Primary Menu Items?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'primary_navigation_fill_stretch', $primary_navigation_fill_stretch_label, 'responsive_customizer_primary_navigation', 15, 0, null );
+			responsive_checkbox_control( $wp_customize, 'primary_navigation_fill_stretch', $primary_navigation_fill_stretch_label, 'responsive_customizer_primary_navigation', 15, 0, 'is_stretch_primary_navigation' );
 
 			$header_primary_navigation_style_choices = array(
 				'standard'             => __( 'Standard', 'responsive' ),

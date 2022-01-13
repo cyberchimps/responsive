@@ -131,6 +131,9 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 			$header_button_border_color_hover_label = __( 'Button Border Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_button_border_hover', $header_button_border_color_hover_label, 'responsive_customizer_header_button', 95, '#0066cc', null );
 
+			$header_button_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'header_button_typography_options_separator', $header_button_typography_options_label, 'responsive_customizer_header_button', 100 );
+
 		}
 
 	}
