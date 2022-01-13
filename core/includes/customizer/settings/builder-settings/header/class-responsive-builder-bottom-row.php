@@ -91,6 +91,9 @@ if ( ! class_exists( 'Responsive_Builder_Bottom_row' ) ) :
 			$bottom_row_background_mobile_label = __( 'Background Mobile', 'responsive' );
 			responsive_color_control( $wp_customize, 'bottom_row_background_mobile', $bottom_row_background_mobile_label, 'responsive_customizer_header_bottom', 55, '', null );
 
+			//Padding (px).
+			$bottom_row_padding_label = __( 'Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'bottom_row', 'responsive_customizer_header_bottom', 60, null, null, null, $bottom_row_padding_label );
 		}
 
 	}
