@@ -391,6 +391,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'primary_dropdown_nav_typo'   => '.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a',
 					'secondary_nav_typo'          => '.secondary-navigation .secondary-menu-container > ul li.menu-item > a',
 					'secondary_dropdown_nav_typo' => '.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a',
+					'header_button_typography'    => '#main-header .header-button',
 					'mobile_button_typography'    => '.mobile-header-button-wrap .mobile-header-button-inner-wrap .mobile-header-button,.mobile-header-button-wrap .mobile-header-button',
 				)
 			);
