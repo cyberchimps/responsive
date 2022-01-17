@@ -2003,6 +2003,22 @@ function is_menu_collapsible() {
 }
 
 /**
+ * Check if stretch primary navigation is active
+ *
+ * @return bool
+ */
+function is_stretch_primary_navigation() {
+	return get_theme_mod( 'responsive_stretch_primary_navigation', true ) ? true : false;
+}
+/**
+ * Check if stretch secondary navigation is active
+ *
+ * @return bool
+ */
+function is_stretch_secondary_navigation() {
+	return get_theme_mod( 'responsive_stretch_secondary_navigation', true ) ? true : false;
+}
+/**
  * Get an SVG Icon
  *
  * @param string $icon the icon name.

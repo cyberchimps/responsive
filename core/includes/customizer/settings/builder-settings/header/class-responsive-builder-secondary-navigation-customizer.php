@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Secondary_Navigation_Customizer' ) ) :
 			responsive_checkbox_control( $wp_customize, 'stretch_secondary_navigation', $stretch_secondary_navigation_label, 'responsive_customizer_secondary_navigation', 10, 0, null );
 
 			$secondary_navigation_fill_stretch_label = __( 'Fill and Center Secondary Menu Items?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'secondary_navigation_fill_stretch', $secondary_navigation_fill_stretch_label, 'responsive_customizer_secondary_navigation', 15, 0, null );
+			responsive_checkbox_control( $wp_customize, 'secondary_navigation_fill_stretch', $secondary_navigation_fill_stretch_label, 'responsive_customizer_secondary_navigation', 15, 0, 'is_stretch_secondary_navigation' );
 
 			$header_secondary_navigation_style_choices = array(
 				'standard'             => __( 'Standard', 'responsive' ),

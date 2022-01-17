@@ -330,6 +330,30 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line - height' => '1.75',
 						),
 					),
+					'header_button_typography' => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => $selectorArray['header_button_typography'],
+						'section'  => 'responsive_customizer_header_button',
+						'exclude'  => array( 'font-color' ),
+						'priority' => 105,
+						'defaults' => array(
+							'font - size'   => '16px',
+							'font - weight' => '600',
+							'line - height' => '1.75',
+						),
+					),
+					'mobile_button_typography' => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => $selectorArray['mobile_button_typography'],
+						'section'  => 'responsive_customizer_mobile_button',
+						'exclude'  => array( 'font-color' ),
+						'priority' => 105,
+						'defaults' => array(
+							'font - size'   => '16px',
+							'font - weight' => '600',
+							'line - height' => '1.75',
+						),
+					),
 
 				)
 			);
@@ -367,6 +391,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'primary_dropdown_nav_typo'   => '.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a',
 					'secondary_nav_typo'          => '.secondary-navigation .secondary-menu-container > ul li.menu-item > a',
 					'secondary_dropdown_nav_typo' => '.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a',
+					'mobile_button_typography'    => '.mobile-header-button-wrap .mobile-header-button-inner-wrap .mobile-header-button,.mobile-header-button-wrap .mobile-header-button',
 				)
 			);
 			return $selectorArray;
