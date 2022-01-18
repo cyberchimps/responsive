@@ -2149,6 +2149,40 @@
 		});
 	});
 
+    api( 'responsive_top_row_background_tablet_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 992;
+			var $child = $( '.customizer-responsive_top_row_background_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_top_row_background_tablet_color">@media screen and (max-width: ${breakpoint}px){.site-top-header-wrap .site-header-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_top_row_background_mobile_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 576;
+			var $child = $( '.customizer-responsive_top_row_background_mobile_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_top_row_background_mobile_color">@media screen and (max-width: ${breakpoint}px){.site-top-header-wrap .site-header-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
     api( 'responsive_main_row_background_desktop_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_main_row_background_desktop_color' );
@@ -2165,11 +2199,230 @@
 		});
 	});
 
+    api( 'responsive_main_row_background_tablet_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 992;
+			var $child = $( '.customizer-responsive_main_row_background_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_main_row_background_tablet_color">@media screen and (max-width: ${breakpoint}px){.site-main-header-wrap .site-header-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_main_row_background_mobile_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 576;
+			var $child = $( '.customizer-responsive_main_row_background_mobile_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_main_row_background_mobile_color">@media screen and (max-width: ${breakpoint}px){.site-main-header-wrap .site-header-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
     api( 'responsive_bottom_row_background_desktop_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_bottom_row_background_desktop_color' );
 			if ( to ) {
 				var style = `<style class="customizer-responsive_bottom_row_background_desktop_color">.site-bottom-header-wrap .site-header-row-container-inner {background: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_bottom_row_background_tablet_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 992;
+			var $child = $( '.customizer-responsive_bottom_row_background_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_bottom_row_background_tablet_color">@media screen and (max-width: ${breakpoint}px){.site-bottom-header-wrap .site-header-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_bottom_row_background_mobile_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 576;
+			var $child = $( '.customizer-responsive_bottom_row_background_mobile_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_bottom_row_background_mobile_color">@media screen and (max-width: ${breakpoint}px){.site-bottom-header-wrap .site-header-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    // Footer row background 
+    api( 'responsive_footer_top_row_background_desktop_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_top_row_background_desktop_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_top_row_background_desktop_color">.site-top-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_top_row_background_tablet_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 992;
+			var $child = $( '.customizer-responsive_footer_top_row_background_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_top_row_background_tablet_color">@media screen and (max-width: ${breakpoint}px){.site-top-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_top_row_background_mobile_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 576;
+			var $child = $( '.customizer-responsive_footer_top_row_background_mobile_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_top_row_background_mobile_color">@media screen and (max-width: ${breakpoint}px){.site-top-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_middle_row_background_desktop_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_middle_row_background_desktop_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_middle_row_background_desktop_color">.site-middle-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_middle_row_background_tablet_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 992;
+			var $child = $( '.customizer-responsive_footer_middle_row_background_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_middle_row_background_tablet_color">@media screen and (max-width: ${breakpoint}px){.site-middle-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_middle_row_background_mobile_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 576;
+			var $child = $( '.customizer-responsive_footer_middle_row_background_mobile_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_middle_row_background_mobile_color">@media screen and (max-width: ${breakpoint}px){.site-middle-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_bottom_row_background_desktop_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_bottom_row_background_desktop_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_bottom_row_background_desktop_color">.site-bottom-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_bottom_row_background_tablet_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 992;
+			var $child = $( '.customizer-responsive_footer_bottom_row_background_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_bottom_row_background_tablet_color">@media screen and (max-width: ${breakpoint}px){.site-bottom-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_footer_bottom_row_background_mobile_color', function( value ) {
+		value.bind( function( to ) {
+            var breakpoint = 576;
+			var $child = $( '.customizer-responsive_footer_bottom_row_background_mobile_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_bottom_row_background_mobile_color">@media screen and (max-width: ${breakpoint}px){.site-bottom-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {

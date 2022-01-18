@@ -114,6 +114,24 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Middle_row' ) ) :
 			$footer_middle_collapse         = __( 'Row Collapse', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_middle_collapse', $footer_middle_collapse, 'responsive_customizer_footer_middle', 45, $footer_middle_collapse_choices, 'column', null );
 
+			$footer_middle_row_min_height_label = esc_html__( 'Min Height (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_min_height', $footer_middle_row_min_height_label, 'responsive_customizer_footer_middle', 70, 0, null, 400 );
+
+			$footer_middle_row_min_height_tablet_label = esc_html__( 'Min Height Tablet(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_min_height_tablet', $footer_middle_row_min_height_tablet_label, 'responsive_customizer_footer_middle', 70, 0, null, 400 );
+
+			$footer_middle_row_min_height_mobile_label = esc_html__( 'Min Height Mobile(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_min_height_mobile', $footer_middle_row_min_height_mobile_label, 'responsive_customizer_footer_middle', 70, 0, null, 400 );
+
+			$footer_middle_row_background_label = __( 'Background Desktop', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_background_desktop', $footer_middle_row_background_label, 'responsive_customizer_footer_middle', 90, '', null );
+
+			$footer_middle_row_background_tablet_label = __( 'Background Tablet', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_background_tablet', $footer_middle_row_background_tablet_label, 'responsive_customizer_footer_middle', 90, '', null );
+
+			$footer_middle_row_background_mobile_label = __( 'Background Mobile', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_background_mobile', $footer_middle_row_background_mobile_label, 'responsive_customizer_footer_middle', 90, '', null );
+
 		}
 
 	}

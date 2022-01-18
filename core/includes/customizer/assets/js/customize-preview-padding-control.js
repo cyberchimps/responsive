@@ -860,70 +860,70 @@
     //Top Row Padding
     api( 'responsive_top_row_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
     api( 'responsive_top_row_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
     api( 'responsive_top_row_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
     api( 'responsive_top_row_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 
     api( 'responsive_top_row_tablet_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 
     api( 'responsive_top_row_tablet_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 
     api( 'responsive_top_row_tablet_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 
     api( 'responsive_top_row_tablet_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 
     api( 'responsive_top_row_mobile_right_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 
     api( 'responsive_top_row_mobile_left_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 
     api( 'responsive_top_row_mobile_top_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 
     api( 'responsive_top_row_mobile_bottom_padding', function( value ) {
         value.bind( function( newval ) {
-            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner>.site-container');
+            responsive_dynamic_padding('top_row', '.site-top-header-wrap .site-header-row-container-inner');
         } );
     } );
 

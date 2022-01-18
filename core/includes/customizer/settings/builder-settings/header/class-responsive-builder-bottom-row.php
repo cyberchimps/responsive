@@ -41,7 +41,7 @@ if ( ! class_exists( 'Responsive_Builder_Bottom_row' ) ) :
 			$wp_customize->add_section(
 				'responsive_customizer_header_bottom',
 				array(
-					'title'    => esc_html__( 'Bottom Rows', 'responsive' ),
+					'title'    => esc_html__( 'Bottom Row', 'responsive' ),
 					'panel'    => 'responsive_header',
 					'priority' => 110,
 				)

@@ -347,4 +347,24 @@
         } );
     } );
 
+    // Footer row
+    api( 'responsive_footer_top_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-top-footer-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_main_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-middle-footer-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_bottom_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-bottom-footer-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
+
 } )( jQuery );

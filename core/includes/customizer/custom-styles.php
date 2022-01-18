@@ -2251,8 +2251,8 @@ function responsive_customizer_styles() {
 			background: {$top_row_background_mobile_color};
 		}
 	}";
-
-	// Top Row Padding.
+	
+	// Header Top Row Padding.
 	$top_row_padding_right  = esc_html( get_theme_mod( 'responsive_top_row_right_padding', null ) );
 	$top_row_padding_left   = esc_html( get_theme_mod( 'responsive_top_row_left_padding', null ) );
 	$top_row_padding_top    = esc_html( get_theme_mod( 'responsive_top_row_top_padding', null ) );
@@ -2268,17 +2268,17 @@ function responsive_customizer_styles() {
 	$top_row_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_top_row_mobile_top_padding', null ) );
 	$top_row_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_top_row_mobile_bottom_padding', null ) );
 
-	$custom_css .= '.site-top-header-wrap .site-header-row-container-inner>.site-container {
+	$custom_css .= '.site-top-header-wrap .site-header-row-container-inner {
 		padding: ' . responsive_spacing_css( $top_row_padding_top, $top_row_padding_right, $top_row_padding_bottom, $top_row_padding_left ) . ';
 
 	}
 	@media screen and ( max-width: 992px ) {
-		.site-top-header-wrap .site-header-row-container-inner>.site-container {
+		.site-top-header-wrap .site-header-row-container-inner {
 			padding: ' . responsive_spacing_css( $top_row_tablet_padding_top, $top_row_tablet_padding_right, $top_row_tablet_padding_bottom, $top_row_tablet_padding_left ) . ';
 		}
 	}
 	@media screen and ( max-width: 576px ) {
-		.site-top-header-wrap .site-header-row-container-inner>.site-container {
+		.site-top-header-wrap .site-header-row-container-inner {
 			padding: ' . responsive_spacing_css( $top_row_mobile_padding_top, $top_row_mobile_padding_right, $top_row_mobile_padding_bottom, $top_row_mobile_padding_left ) . ';
 		}
 	}';
@@ -2303,7 +2303,7 @@ function responsive_customizer_styles() {
 		.site-main-header-wrap .site-header-row-container-inner {
 			background: {$main_row_background_tablet_color};
 		}
-	}
+	}	
 	@media screen and ( max-width: 576px ) {
 		#masthead .site-main-header-inner-wrap {
 			min-height: {$main_row_min_height_mobile}px; 
@@ -2452,9 +2452,8 @@ function responsive_customizer_styles() {
 	$search_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_search_mobile_top_padding', null ) );
 	$search_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_search_mobile_bottom_padding', null ) );
 
-	$custom_css .= '.search-toggle-open-container .search-toggle-open {
+	$custom_css .= ".search-toggle-open-container .search-toggle-open {
 		padding: ' . responsive_spacing_css( $search_padding_top, $search_padding_right, $search_padding_bottom, $search_padding_left ) . ';
-
 	}
 	@media screen and ( max-width: 992px ) {
 		.search-toggle-open-container .search-toggle-open {
@@ -2465,7 +2464,7 @@ function responsive_customizer_styles() {
 		.search-toggle-open-container .search-toggle-open {
 			padding: ' . responsive_spacing_css( $search_mobile_padding_top, $search_mobile_padding_right, $search_mobile_padding_bottom, $search_mobile_padding_left ) . ';
 		}
-	}';
+	}";
 
 	// Header Primary Navigation Item Spacing.
 	$primary_navigation_item_spacing            = esc_html( get_theme_mod( 'responsive_primary_navigation_item_spacing', 18 ) );
@@ -2780,6 +2779,96 @@ function responsive_customizer_styles() {
 		color: {$mobile_button_hover_color};
 		background: {$mobile_button_background_hover_color};
 		border-color: $mobile_button_border_hover_color
+	}";
+
+	// Footer Top Row.
+	$footer_top_row_min_height        = esc_html( get_theme_mod( 'responsive_footer_top_row_min_height', 80 ) );
+	$footer_top_row_min_height_tablet = esc_html( get_theme_mod( 'responsive_footer_top_row_min_height_tablet', 0 ) );
+	$footer_top_row_min_height_mobile = esc_html( get_theme_mod( 'responsive_footer_top_row_min_height_mobile', 0 ) );
+	$footer_top_row_background_desktop_color          = esc_html( get_theme_mod( 'responsive_footer_top_row_background_desktop_color', '' ) );
+	$footer_top_row_background_tablet_color          = esc_html( get_theme_mod( 'responsive_footer_top_row_background_tablet_color', '' ) );
+	$footer_top_row_background_mobile_color          = esc_html( get_theme_mod( 'responsive_footer_top_row_background_mobile_color', '' ) );
+	$custom_css               .= "#colophon .site-top-footer-inner-wrap {
+		min-height: {$footer_top_row_min_height}px; 
+	}
+	.site-top-footer-wrap .site-footer-row-container-inner {
+		background: {$footer_top_row_background_desktop_color};
+	}
+	@media screen and ( max-width: 992px ) {
+		#colophon .site-top-footer-inner-wrap {
+			min-height: {$footer_top_row_min_height_tablet}px; 
+		}
+		.site-top-footer-wrap .site-footer-row-container-inner {
+			background: {$footer_top_row_background_tablet_color};
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		#colophon .site-top-footer-inner-wrap {
+			min-height: {$footer_top_row_min_height_mobile}px; 
+		}
+		.site-top-footer-wrap .site-footer-row-container-inner {
+			background: {$footer_top_row_background_mobile_color};
+		}
+	}";
+
+	// Footer Main Row.
+	$footer_middle_row_min_height        = esc_html( get_theme_mod( 'responsive_footer_middle_row_min_height', 80 ) );
+	$footer_middle_row_min_height_tablet = esc_html( get_theme_mod( 'responsive_footer_middle_row_min_height_tablet', 0 ) );
+	$footer_middle_row_min_height_mobile = esc_html( get_theme_mod( 'responsive_footer_middle_row_min_height_mobile', 0 ) );
+	$footer_middle_row_background_desktop_color          = esc_html( get_theme_mod( 'responsive_footer_middle_row_background_desktop_color', '' ) );
+	$footer_middle_row_background_tablet_color          = esc_html( get_theme_mod( 'responsive_footer_middle_row_background_tablet_color', '' ) );
+	$footer_middle_row_background_mobile_color          = esc_html( get_theme_mod( 'responsive_footer_middle_row_background_mobile_color', '' ) );
+	$custom_css               .= "#colophon .site-middle-footer-inner-wrap {
+		min-height: {$footer_middle_row_min_height}px; 
+	}
+	.site-middle-footer-wrap .site-footer-row-container-inner {
+		background: {$footer_middle_row_background_desktop_color};
+	}
+	@media screen and ( max-width: 992px ) {
+		#colophon .site-middle-footer-inner-wrap {
+			min-height: {$footer_middle_row_min_height_tablet}px; 
+		}
+		.site-middle-footer-wrap .site-footer-row-container-inner {
+			background: {$footer_middle_row_background_tablet_color};
+		}
+	}	
+	@media screen and ( max-width: 576px ) {
+		#colophon .site-middle-footer-inner-wrap {
+			min-height: {$footer_middle_row_min_height_mobile}px; 
+		}
+		.site-middle-footer-wrap .site-footer-row-container-inner {
+			background: {$footer_middle_row_background_mobile_color};
+		}
+	}";
+
+	// Footer Bottom Row.
+	$footer_bottom_row_min_height        = esc_html( get_theme_mod( 'responsive_footer_bottom_row_min_height', 80 ) );
+	$footer_bottom_row_min_height_tablet = esc_html( get_theme_mod( 'responsive_footer_bottom_row_min_height_tablet', 0 ) );
+	$footer_bottom_row_min_height_mobile = esc_html( get_theme_mod( 'responsive_footer_bottom_row_min_height_mobile', 0 ) );
+	$footer_bottom_row_background_desktop_color          = esc_html( get_theme_mod( 'responsive_footer_bottom_row_background_desktop_color', '' ) );
+	$footer_bottom_row_background_tablet_color          = esc_html( get_theme_mod( 'responsive_footer_bottom_row_background_tablet_color', '' ) );
+	$footer_bottom_row_background_mobile_color          = esc_html( get_theme_mod( 'responsive_footer_bottom_row_background_mobile_color', '' ) );
+	$custom_css               .= "#colophon .site-bottom-footer-inner-wrap {
+		min-height: {$footer_bottom_row_min_height}px; 
+	}
+	.site-bottom-footer-wrap .site-footer-row-container-inner {
+		background: {$footer_bottom_row_background_desktop_color};
+	}
+	@media screen and ( max-width: 992px ) {
+		#colophon .site-bottom-footer-inner-wrap {
+			min-height: {$footer_bottom_row_min_height_tablet}px; 
+		}
+		.site-bottom-footer-wrap .site-footer-row-container-inner {
+			background: {$footer_bottom_row_background_tablet_color};
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		#colophon .site-bottom-footer-inner-wrap {
+			min-height: {$footer_bottom_row_min_height_mobile}px; 
+		}
+		.site-bottom-footer-wrap .site-footer-row-container-inner {
+			background: {$footer_bottom_row_background_mobile_color};
+		}
 	}";
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
