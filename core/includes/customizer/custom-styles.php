@@ -2788,8 +2788,17 @@ function responsive_customizer_styles() {
 	$footer_top_row_background_desktop_color          = esc_html( get_theme_mod( 'responsive_footer_top_row_background_desktop_color', '' ) );
 	$footer_top_row_background_tablet_color          = esc_html( get_theme_mod( 'responsive_footer_top_row_background_tablet_color', '' ) );
 	$footer_top_row_background_mobile_color          = esc_html( get_theme_mod( 'responsive_footer_top_row_background_mobile_color', '' ) );
+	$footer_top_row_top_spacing        = esc_html( get_theme_mod( 'responsive_footer_top_row_top_spacing', 30 ) );
+	$footer_top_row_top_spacing_tablet = esc_html( get_theme_mod( 'responsive_footer_top_row_top_spacing_tablet', 0 ) );
+	$footer_top_row_top_spacing_mobile = esc_html( get_theme_mod( 'responsive_footer_top_row_top_spacing_mobile', 0 ) );
+	$footer_top_row_bottom_spacing        = esc_html( get_theme_mod( 'responsive_footer_top_row_bottom_spacing', 30 ) );
+	$footer_top_row_bottom_spacing_tablet = esc_html( get_theme_mod( 'responsive_footer_top_row_bottom_spacing_tablet', 0 ) );
+	$footer_top_row_bottom_spacing_mobile = esc_html( get_theme_mod( 'responsive_footer_top_row_bottom_spacing_mobile', 0 ) );
+	
 	$custom_css               .= "#colophon .site-top-footer-inner-wrap {
 		min-height: {$footer_top_row_min_height}px; 
+		padding-top: {$footer_top_row_top_spacing}px;
+		padding-bottom: {$footer_top_row_bottom_spacing}px;
 	}
 	.site-top-footer-wrap .site-footer-row-container-inner {
 		background: {$footer_top_row_background_desktop_color};
@@ -2797,6 +2806,8 @@ function responsive_customizer_styles() {
 	@media screen and ( max-width: 992px ) {
 		#colophon .site-top-footer-inner-wrap {
 			min-height: {$footer_top_row_min_height_tablet}px; 
+			padding-top: {$footer_top_row_top_spacing_tablet}px;
+			padding-bottom: {$footer_top_row_bottom_spacing_tablet}px;
 		}
 		.site-top-footer-wrap .site-footer-row-container-inner {
 			background: {$footer_top_row_background_tablet_color};
@@ -2805,21 +2816,32 @@ function responsive_customizer_styles() {
 	@media screen and ( max-width: 576px ) {
 		#colophon .site-top-footer-inner-wrap {
 			min-height: {$footer_top_row_min_height_mobile}px; 
+			padding-top: {$footer_top_row_top_spacing_mobile}px;
+			padding-bottom: {$footer_top_row_bottom_spacing_mobile}px;
 		}
 		.site-top-footer-wrap .site-footer-row-container-inner {
 			background: {$footer_top_row_background_mobile_color};
 		}
 	}";
 
-	// Footer Main Row.
+	// Footer Middle Row.
 	$footer_middle_row_min_height        = esc_html( get_theme_mod( 'responsive_footer_middle_row_min_height', 80 ) );
 	$footer_middle_row_min_height_tablet = esc_html( get_theme_mod( 'responsive_footer_middle_row_min_height_tablet', 0 ) );
 	$footer_middle_row_min_height_mobile = esc_html( get_theme_mod( 'responsive_footer_middle_row_min_height_mobile', 0 ) );
 	$footer_middle_row_background_desktop_color          = esc_html( get_theme_mod( 'responsive_footer_middle_row_background_desktop_color', '' ) );
 	$footer_middle_row_background_tablet_color          = esc_html( get_theme_mod( 'responsive_footer_middle_row_background_tablet_color', '' ) );
 	$footer_middle_row_background_mobile_color          = esc_html( get_theme_mod( 'responsive_footer_middle_row_background_mobile_color', '' ) );
+	$footer_middle_row_top_spacing        = esc_html( get_theme_mod( 'responsive_footer_middle_row_top_spacing', 30 ) );
+	$footer_middle_row_top_spacing_tablet = esc_html( get_theme_mod( 'responsive_footer_middle_row_top_spacing_tablet', 0 ) );
+	$footer_middle_row_top_spacing_mobile = esc_html( get_theme_mod( 'responsive_footer_middle_row_top_spacing_mobile', 0 ) );
+	$footer_middle_row_bottom_spacing        = esc_html( get_theme_mod( 'responsive_footer_middle_row_bottom_spacing', 30 ) );
+	$footer_middle_row_bottom_spacing_tablet = esc_html( get_theme_mod( 'responsive_footer_middle_row_bottom_spacing_tablet', 0 ) );
+	$footer_middle_row_bottom_spacing_mobile = esc_html( get_theme_mod( 'responsive_footer_middle_row_bottom_spacing_mobile', 0 ) );
+	
 	$custom_css               .= "#colophon .site-middle-footer-inner-wrap {
 		min-height: {$footer_middle_row_min_height}px; 
+		padding-top: {$footer_middle_row_top_spacing}px;
+		padding-bottom: {$footer_middle_row_bottom_spacing}px;
 	}
 	.site-middle-footer-wrap .site-footer-row-container-inner {
 		background: {$footer_middle_row_background_desktop_color};
@@ -2827,6 +2849,8 @@ function responsive_customizer_styles() {
 	@media screen and ( max-width: 992px ) {
 		#colophon .site-middle-footer-inner-wrap {
 			min-height: {$footer_middle_row_min_height_tablet}px; 
+			padding-top: {$footer_middle_row_top_spacing}px;
+			padding-bottom: {$footer_middle_row_bottom_spacing}px;
 		}
 		.site-middle-footer-wrap .site-footer-row-container-inner {
 			background: {$footer_middle_row_background_tablet_color};
@@ -2835,6 +2859,8 @@ function responsive_customizer_styles() {
 	@media screen and ( max-width: 576px ) {
 		#colophon .site-middle-footer-inner-wrap {
 			min-height: {$footer_middle_row_min_height_mobile}px; 
+			padding-top: {$footer_middle_row_top_spacing}px;
+			padding-bottom: {$footer_middle_row_bottom_spacing}px;
 		}
 		.site-middle-footer-wrap .site-footer-row-container-inner {
 			background: {$footer_middle_row_background_mobile_color};
@@ -2848,8 +2874,17 @@ function responsive_customizer_styles() {
 	$footer_bottom_row_background_desktop_color          = esc_html( get_theme_mod( 'responsive_footer_bottom_row_background_desktop_color', '' ) );
 	$footer_bottom_row_background_tablet_color          = esc_html( get_theme_mod( 'responsive_footer_bottom_row_background_tablet_color', '' ) );
 	$footer_bottom_row_background_mobile_color          = esc_html( get_theme_mod( 'responsive_footer_bottom_row_background_mobile_color', '' ) );
+	$footer_bottom_row_top_spacing        = esc_html( get_theme_mod( 'responsive_footer_bottom_row_top_spacing', 30 ) );
+	$footer_bottom_row_top_spacing_tablet = esc_html( get_theme_mod( 'responsive_footer_bottom_row_top_spacing_tablet', 0 ) );
+	$footer_bottom_row_top_spacing_mobile = esc_html( get_theme_mod( 'responsive_footer_bottom_row_top_spacing_mobile', 0 ) );
+	$footer_bottom_row_bottom_spacing        = esc_html( get_theme_mod( 'responsive_footer_bottom_row_bottom_spacing', 30 ) );
+	$footer_bottom_row_bottom_spacing_tablet = esc_html( get_theme_mod( 'responsive_footer_bottom_row_bottom_spacing_tablet', 0 ) );
+	$footer_bottom_row_bottom_spacing_mobile = esc_html( get_theme_mod( 'responsive_footer_bottom_row_bottom_spacing_mobile', 0 ) );
+	
 	$custom_css               .= "#colophon .site-bottom-footer-inner-wrap {
 		min-height: {$footer_bottom_row_min_height}px; 
+		padding-top: {$footer_bottom_row_top_spacing}px;
+		padding-bottom: {$footer_bottom_row_bottom_spacing}px;
 	}
 	.site-bottom-footer-wrap .site-footer-row-container-inner {
 		background: {$footer_bottom_row_background_desktop_color};
@@ -2857,6 +2892,8 @@ function responsive_customizer_styles() {
 	@media screen and ( max-width: 992px ) {
 		#colophon .site-bottom-footer-inner-wrap {
 			min-height: {$footer_bottom_row_min_height_tablet}px; 
+			padding-top: {$footer_bottom_row_top_spacing}px;
+			padding-bottom: {$footer_bottom_row_bottom_spacing}px;
 		}
 		.site-bottom-footer-wrap .site-footer-row-container-inner {
 			background: {$footer_bottom_row_background_tablet_color};
@@ -2865,6 +2902,8 @@ function responsive_customizer_styles() {
 	@media screen and ( max-width: 576px ) {
 		#colophon .site-bottom-footer-inner-wrap {
 			min-height: {$footer_bottom_row_min_height_mobile}px; 
+			padding-top: {$footer_bottom_row_top_spacing}px;
+			padding-bottom: {$footer_bottom_row_bottom_spacing}px;
 		}
 		.site-bottom-footer-wrap .site-footer-row-container-inner {
 			background: {$footer_bottom_row_background_mobile_color};

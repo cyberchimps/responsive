@@ -92,7 +92,7 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 
 			//Padding (px).
 			$search_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_searchd', 55, null, null, null, $search_padding_label );
+			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 55, null, null, null, $search_padding_label );
 		}
 
 	}

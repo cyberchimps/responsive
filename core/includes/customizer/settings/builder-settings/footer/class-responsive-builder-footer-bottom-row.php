@@ -114,6 +114,24 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Bottom_row' ) ) :
 			$footer_bottom_collapse         = __( 'Row Collapse', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_bottom_collapse', $footer_bottom_collapse, 'responsive_customizer_footer_bottom', 45, $footer_bottom_collapse_choices, 'column', null );
 
+			$footer_bottom_row_top_spacing_label = esc_html__( 'Top Spacing (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_row_top_spacing', $footer_bottom_row_top_spacing_label, 'responsive_customizer_footer_bottom', 60, 30, null, 200 );
+
+			$footer_bottom_row_top_spacing_tablet_label = esc_html__( 'Top Spacing Tablet(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_row_top_spacing_tablet', $footer_bottom_row_top_spacing_tablet_label, 'responsive_customizer_footer_bottom', 60, 0, null, 200 );
+
+			$footer_bottom_row_top_spacing_mobile_label = esc_html__( 'Top Spacing Mobile(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_row_top_spacing_mobile', $footer_bottom_row_top_spacing_mobile_label, 'responsive_customizer_footer_bottom', 60, 0, null, 200 );
+
+			$footer_bottom_row_bottom_spacing_label = esc_html__( 'Bottom Spacing (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_row_bottom_spacing', $footer_bottom_row_bottom_spacing_label, 'responsive_customizer_footer_bottom', 65, 30, null, 200 );
+
+			$footer_bottom_row_bottom_spacing_tablet_label = esc_html__( 'Bottom Spacing Tablet(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_row_bottom_spacing_tablet', $footer_bottom_row_bottom_spacing_tablet_label, 'responsive_customizer_footer_bottom', 65, 0, null, 200 );
+
+			$footer_bottom_row_bottom_spacing_mobile_label = esc_html__( 'Bottom Spacing Mobile(px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_row_bottom_spacing_mobile', $footer_bottom_row_bottom_spacing_mobile_label, 'responsive_customizer_footer_bottom', 65, 0, null, 200 );
+
 			$footer_bottom_row_min_height_label = esc_html__( 'Min Height (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'footer_bottom_row_min_height', $footer_bottom_row_min_height_label, 'responsive_customizer_footer_bottom', 70, 0, null, 400 );
 
