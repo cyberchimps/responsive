@@ -347,4 +347,59 @@
         } );
     } );
 
+    // Footer row
+    api( 'responsive_footer_top_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-top-footer-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_main_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-middle-footer-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_bottom_row_min_height', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-bottom-footer-inner-wrap').css('min-height', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_top_row_top_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-top-footer-inner-wrap').css('padding-top', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_top_row_bottom_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-top-footer-inner-wrap').css('padding-bottom', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_middle_row_top_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-middle-footer-inner-wrap').css('padding-top', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_middle_row_bottom_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-middle-footer-inner-wrap').css('padding-bottom', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_bottom_row_top_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-bottom-footer-inner-wrap').css('padding-top', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_bottom_row_bottom_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-bottom-footer-inner-wrap').css('padding-bottom', newval+'px' );
+        } );
+    } );
+
 } )( jQuery );
