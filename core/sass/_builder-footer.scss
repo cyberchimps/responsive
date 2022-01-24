@@ -505,7 +505,7 @@
 		display: block;
 		width: 100%;
 		text-decoration: none;
-		color: var(--global-palette4);
+		color: #333;
 		transition: all .2s ease-in-out;
 		&:hover,
 		&:focus {
@@ -538,12 +538,12 @@
 	text-decoration: none;
 }
 .site-footer-wrap .footer-social-wrap .social-button{
-    color: var(--global-palette4);
-    background: var(--global-palette7);
+    color: #333;
+    background: #fff;
 	&:hover {
 		text-decoration: none;
-		color: var(--global-palette-btn);
-		background: var(--global-palette-btn-bg);
+		color: #333;
+		background: inherit;
 	}
 }
 .ft-ro-lstyle-normal a:not(.button) {
