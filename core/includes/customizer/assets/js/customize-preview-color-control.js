@@ -1599,10 +1599,20 @@
         } );
     } );
     api( 'responsive_header_search_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            $('.search-toggle-open-container .search-toggle-open:hover').css('color', newval );
-        } );
-    } );
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_search_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_search_hover_color">.search-toggle-open-container .search-toggle-open:hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
     api( 'responsive_header_social_icon_color', function( value ) {
         value.bind( function( newval ) {
             $('#main-header .social-icons a').css('color', newval );

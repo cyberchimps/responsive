@@ -471,7 +471,7 @@
 	display: block;
 	width: 100%;
 	text-decoration: none;
-	color: var(--global-palette4);
+	color: #333;
 	transition: all .2s ease-in-out;
 }
 .header-navigation li.menu-item > a:hover,
@@ -1040,13 +1040,13 @@ a.social-button {
 	justify-content: center;
 	align-items: center;
 	margin: 0.3em calc(0.3em / 2) 0;
-	color: var(--global-palette4);
-    background: var(--global-palette7);
+	color: #333;
+    background: #fff;
 	border-radius: 3px;
 	transition: all .2s ease-in-out;
 	&:hover {
-		color: var(--global-palette-btn);
-		background: var(--global-palette-btn-bg);
+		color: #333;
+		background: inherit;
 	}
 	.social-label {
 		padding-left: 6px;
@@ -1062,7 +1062,7 @@ a.social-button.has-custom-image {
 }
 .social-style-outline .social-button {
 	background:transparent !important;
-	border: 2px solid var(--global-palette7);
+	border: 2px solid #fff;
 	&:hover {
 		color: var(--global-palette-highlight);
 		border-color: currentColor;
@@ -1077,12 +1077,10 @@ a.social-button.has-custom-image {
 	box-shadow: none;
 	.search-toggle-label {
 		padding-right: 5px;
-		color:#333;
 		text-transform: none;
 	}
 	.search-toggle-icon {
 		display: flex;
-		color: #333;
 		svg.responsive-svg-icon {
 			top: -0.05em;
 			position: relative;

@@ -6,13 +6,11 @@
     var api = wp.customize;
 
     function responsive_dynamic_padding(control, selector) {
-        if( responsiveBuilder.is_header_footer_builder ){
-            mobile_menu_breakpoint = 786;
-        }else{
-            var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
-            if( 0 == api( 'responsive_disable_mobile_menu').get()) {
-                mobile_menu_breakpoint = 0;
-            }    
+
+        var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
+
+        if( !responsiveBuilder.is_header_footer_builder && 0 == api( 'responsive_disable_mobile_menu').get() ){
+            mobile_menu_breakpoint = 0;
         }
         
         jQuery( 'style#responsive-'+control+'-padding' ).remove();
@@ -31,7 +29,7 @@
 
     function responsive_dynamic_box_padding( ) {
         var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
-        if( 0 == api( 'responsive_disable_mobile_menu').get()) {
+        if( !responsiveBuilder.is_header_footer_builder && 0 == api( 'responsive_disable_mobile_menu').get()) {
             mobile_menu_breakpoint = 0;
         }
 

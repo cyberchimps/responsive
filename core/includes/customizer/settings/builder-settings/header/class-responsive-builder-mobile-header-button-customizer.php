@@ -75,7 +75,7 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 			$mobile_button_size_choices = array(
 				'small'  => __( 'Small', 'responsive' ),
 				'medium' => __( 'Medium', 'responsive' ),
-				'large'  => __( 'large', 'responsive' ),
+				'large'  => __( 'Large', 'responsive' ),
 			);
 			$mobile_button_size         = __( 'Mobile Header Button Size', 'responsive' );
 			responsive_select_control( $wp_customize, 'mobile_button_size', $mobile_button_size, 'responsive_customizer_mobile_button', 35, $mobile_button_size_choices, 'medium', null );
