@@ -54,6 +54,9 @@ if ( ! class_exists( 'Responsive_Header_HTML_Customizer' ) ) :
 			$wpautop = __( 'Automatically Add Paragraphs', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_html_wpautop', $wpautop, 'responsive_customizer_header_html', 15, 1 );
 
+			$header_html_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'header_html_typography_options_separator', $header_html_typography_options_label, 'responsive_customizer_header_html', 100 );
+
 		}
 
 	}

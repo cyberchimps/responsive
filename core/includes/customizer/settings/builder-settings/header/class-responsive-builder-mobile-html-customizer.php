@@ -54,6 +54,9 @@ if ( ! class_exists( 'Responsive_Mobile_HTML_Customizer' ) ) :
 			$mobile_wpautop = __( 'Automatically Add Paragraphs (Mobile)', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'mobile_html_wpautop', $mobile_wpautop, 'responsive_customizer_mobile_html', 15, 1 );
 
+			$mobile_header_html_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'mobile_header_html_typography_options_separator', $mobile_header_html_typography_options_label, 'responsive_customizer_mobile_html', 100 );
+
 		}
 
 	}

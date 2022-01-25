@@ -104,6 +104,9 @@ if ( ! class_exists( 'Responsive_Footer_Navigation_Customizer' ) ) :
 			$footer_nav_items_spacing_top_bottom_label = esc_html__( 'Item Top Bottom Padding(px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'footer_navigation_item_top_bottom_spacing', $footer_nav_items_spacing_top_bottom_label, 'responsive_customizer_footer_navigation', 55, 10, null, 100 );
 
+			$footer_navigation_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'footer_navigation_typography_options_separator', $footer_navigation_typography_options_label, 'responsive_customizer_footer_navigation', 100 );
+
 		}
 
 	}

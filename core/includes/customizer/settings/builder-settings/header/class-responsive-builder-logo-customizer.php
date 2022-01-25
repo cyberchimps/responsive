@@ -76,6 +76,10 @@ if ( ! class_exists( 'Responsive_Logo_Customizer' ) ) :
 			//Padding (px).
 			$logo_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'logo', 'responsive_customizer_logo', 45, null, null, null, $logo_padding_label );
+
+			$site_title_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'site_title_typography_options_separator', $site_title_typography_options_label, 'responsive_customizer_logo', 100 );
+
 		}
 
 	}
