@@ -2703,6 +2703,20 @@ function responsive_customizer_styles() {
 		color: {$header_search_hover_color};
 	}";
 
+	// Search border
+	$header_search_border_size        = esc_html( get_theme_mod( 'responsive_header_search_border_size', 1 ) );
+	$header_search_border_style       = esc_html( get_theme_mod( 'responsive_header_search_border_style', 'solid' ) );
+	$header_search_border_radius      = esc_html( get_theme_mod( 'responsive_header_search_border_radius', 0 ) );
+
+	$custom_css .= ".search-toggle-open-container .search-toggle-open.search-toggle-style-bordered{
+		border: {$header_search_border_size}px {$header_search_border_style} {$header_search_color};
+		border-radius: {$header_search_border_radius}px;
+	}
+	.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered:hover{
+		border-color: {$header_search_hover_color};
+	}";
+
+
 	$header_icon_size = esc_html( get_theme_mod( 'responsive_header_icon_size', 18 ) );
 	$custom_css      .= "#main-header .social-icons {
 		font-size: {$header_icon_size}px;

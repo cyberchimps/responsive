@@ -402,4 +402,15 @@
         } );
     } );
 
+    api( 'responsive_header_search_border_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered').css('border-width', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_header_search_border_radius', function( value ) {
+        value.bind( function( newval ) {
+            $('.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered').css('border-radius', newval+'px' );
+        } );
+    } );
 } )( jQuery );
