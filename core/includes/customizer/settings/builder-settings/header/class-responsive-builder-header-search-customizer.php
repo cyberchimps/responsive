@@ -102,13 +102,13 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			);
 
 			$header_search_border_style_label = __( 'Border Style', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_search_border_style', $header_search_border_style_label, 'responsive_customizer_header_search', 55, $header_search_border_style_choices, 'solid', null );
+			responsive_select_control( $wp_customize, 'header_search_border_style', $header_search_border_style_label, 'responsive_customizer_header_search', 55, $header_search_border_style_choices, 'solid', 'is_header_search_style_bordered' );
 
 			$header_search_border_size_label = esc_html__( 'Border Width', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'header_search_border_size', $header_search_border_size_label, 'responsive_customizer_header_search', 60, 1, null, 20, 1, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'header_search_border_size', $header_search_border_size_label, 'responsive_customizer_header_search', 60, 1, 'is_header_search_style_bordered', 20, 1, 'postMessage' );
 
 			$header_search_border_radius_label = esc_html__( 'Border Radius', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'header_search_border_radius', $header_search_border_radius_label, 'responsive_customizer_header_search', 65, 0, null, 120, 1, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'header_search_border_radius', $header_search_border_radius_label, 'responsive_customizer_header_search', 65, 0, 'is_header_search_style_bordered', 120, 1, 'postMessage' );
 		}
 
 	}
