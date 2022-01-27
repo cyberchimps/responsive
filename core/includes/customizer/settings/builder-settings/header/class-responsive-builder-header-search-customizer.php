@@ -80,19 +80,35 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 
 			// Header Search Color.
 			$header_search_color_label = __( 'Search Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_search', $header_search_color_label, 'responsive_customizer_header_search', 50, '#fff', null );
+			responsive_color_control( $wp_customize, 'header_search', $header_search_color_label, 'responsive_customizer_header_search', 50, '#333', null );
 
 			$header_search_hover_color_label = __( 'Search Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_search_hover', $header_search_hover_color_label, 'responsive_customizer_header_search', 50, '#fff', null );
+			responsive_color_control( $wp_customize, 'header_search_hover', $header_search_hover_color_label, 'responsive_customizer_header_search', 50, '#333', null );
 
 			if ( class_exists( 'woocommerce' ) ) {
 				$header_search_woo = __( 'Products Search only?', 'responsive' );
 				responsive_checkbox_control( $wp_customize, 'header_search_woo', $header_search_woo, 'responsive_customizer_header_search', 45, 0 );
 			}
 
-			//Padding (px).
+			// Padding (px).
 			$search_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 55, null, null, null, $search_padding_label );
+			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 50, null, null, null, $search_padding_label );
+
+			$header_search_border_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+
+			$header_search_border_style_label = __( 'Border Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_search_border_style', $header_search_border_style_label, 'responsive_customizer_header_search', 55, $header_search_border_style_choices, 'solid', 'is_header_search_style_bordered' );
+
+			$header_search_border_size_label = esc_html__( 'Border Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_border_size', $header_search_border_size_label, 'responsive_customizer_header_search', 60, 1, 'is_header_search_style_bordered', 20, 1, 'postMessage' );
+
+			$header_search_border_radius_label = esc_html__( 'Border Radius', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_border_radius', $header_search_border_radius_label, 'responsive_customizer_header_search', 65, 0, 'is_header_search_style_bordered', 120, 1, 'postMessage' );
 		}
 
 	}

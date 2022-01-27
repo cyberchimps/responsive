@@ -1596,13 +1596,15 @@
     api( 'responsive_header_search_color', function( value ) {
         value.bind( function( newval ) {
             $('.search-toggle-open-container .search-toggle-open').css('color', newval );
+            $('.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered').css('border-color', newval );
         } );
     } );
     api( 'responsive_header_search_hover_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_header_search_hover_color' );
 			if ( to ) {
-				var style = `<style class="customizer-responsive_header_search_hover_color">.search-toggle-open-container .search-toggle-open:hover {color: ${to} !important;}</style>`;
+				var style = `<style class="customizer-responsive_header_search_hover_color">.search-toggle-open-container .search-toggle-open:hover {color: ${to} !important;}
+                .search-toggle-open-container .search-toggle-open.search-toggle-style-bordered:hover {border-color: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
