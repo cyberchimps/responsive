@@ -2716,6 +2716,23 @@ function responsive_customizer_styles() {
 		border-color: {$header_search_hover_color};
 	}";
 
+	$header_search_icon_size_desktop = esc_html( get_theme_mod( 'responsive_header_search_icon_size_desktop', 18 ) );
+	$header_search_icon_size_tablet  = esc_html( get_theme_mod( 'responsive_header_search_icon_size_tablet' ) );
+	$header_search_icon_size_mobile  = esc_html( get_theme_mod( 'responsive_header_search_icon_size_mobile' ) );
+
+	$custom_css .= ".search-toggle-open-container .search-toggle-open .search-toggle-icon{
+		font-size: {$header_search_icon_size_desktop}px;
+	}
+	@media screen and ( max-width: 768px ) {
+		.search-toggle-open-container .search-toggle-open .search-toggle-icon{
+			font-size: {$header_search_icon_size_tablet}px;
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.search-toggle-open-container .search-toggle-open .search-toggle-icon{
+			font-size: {$header_search_icon_size_mobile}px;
+		}
+	}";
 
 	$header_icon_size = esc_html( get_theme_mod( 'responsive_header_icon_size', 18 ) );
 	$custom_css      .= "#main-header .social-icons {
@@ -2921,6 +2938,19 @@ function responsive_customizer_styles() {
 		}
 		.site-bottom-footer-wrap .site-footer-row-container-inner {
 			background: {$footer_bottom_row_background_mobile_color};
+		}
+	}";
+
+
+	// Breakpoint for Mobile Menu.
+	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+
+	$custom_css .="@media screen and (min-width: {$mobile_menu_breakpoint}px) {
+		#main-header {
+			display: block;
+		}
+		#mobile-header {
+			display: none;
 		}
 	}";
 

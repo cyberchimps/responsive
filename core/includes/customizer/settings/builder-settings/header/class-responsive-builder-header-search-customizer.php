@@ -109,6 +109,16 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 
 			$header_search_border_radius_label = esc_html__( 'Border Radius', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_search_border_radius', $header_search_border_radius_label, 'responsive_customizer_header_search', 65, 0, 'is_header_search_style_bordered', 120, 1, 'postMessage' );
+
+			$header_search_icon_size_desktop_label = esc_html__( 'Icon Size Desktop', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_desktop', $header_search_icon_size_desktop_label, 'responsive_customizer_header_search', 70, 18, null, 200, 1, 'postMessage' );
+
+			$header_search_icon_size_tablet_label = esc_html__( 'Icon Size Tablet', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_tablet', $header_search_icon_size_tablet_label, 'responsive_customizer_header_search', 75, '', null, 200, 1, 'postMessage' );
+
+			$header_search_icon_size_mobile_label = esc_html__( 'Icon Size Mobile', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_mobile', $header_search_icon_size_mobile_label, 'responsive_customizer_header_search', 80, '', null, 200, 1, 'postMessage' );
+
 		}
 
 	}

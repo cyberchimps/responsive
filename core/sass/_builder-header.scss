@@ -1294,3 +1294,18 @@ a.social-button.has-custom-image {
 		display:none !important;
 	}
 }
+/*--------------------------------------------------------------
+# Icons
+--------------------------------------------------------------*/
+.responsive-svg-iconset {
+	display: inline-flex;
+	align-self: center;
+}
+.responsive-svg-iconset svg {
+	height:1em;
+	width:1em;
+}
+.responsive-svg-iconset.svg-baseline svg {
+	top: .125em;
+	position: relative;
+}
