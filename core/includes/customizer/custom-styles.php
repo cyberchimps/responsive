@@ -2941,6 +2941,11 @@ function responsive_customizer_styles() {
 		}
 	}";
 
+	$mobile_trigger_icon_size = esc_html( get_theme_mod( 'responsive_mobile_trigger_icon_size', 20 ) );
+
+	$custom_css .=".mobile-toggle-open-container .menu-toggle-open .menu-toggle-icon{
+		font-size: {$mobile_trigger_icon_size}px;
+	}";
 
 	// Breakpoint for Mobile Menu.
 	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );

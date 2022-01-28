@@ -64,7 +64,12 @@ if ( ! class_exists( 'Responsive_Header_Trigger_Customizer' ) ) :
 			$mobile_trigger_icon         = __( 'Trigger Icon', 'responsive' );
 			responsive_select_control( $wp_customize, 'mobile_trigger_icon', $mobile_trigger_icon, 'responsive_customizer_mobile_trigger', 15, $mobile_trigger_icon_choices, 'menu', null );
 
+			// Hamburger Menu Label.
+			$trigger_label = __( 'Trigger Label', 'responsive' );
+			responsive_text_control( $wp_customize, 'mobile_trigger_label', $trigger_label, 'responsive_customizer_mobile_trigger', 20, '', null, 'sanitize_text_field', 'text', 'postMessage' );
 
+			$mobile_trigger_icon_size_label = esc_html__( 'Icon Size', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_trigger_icon_size', $mobile_trigger_icon_size_label, 'responsive_customizer_mobile_trigger', 25, 20, null, 100, 1, 'postMessage' );
 
 		}
 

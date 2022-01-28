@@ -449,4 +449,9 @@
 			}
 		});
 	});
+    api( 'responsive_mobile_trigger_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-toggle-open-container .menu-toggle-open .menu-toggle-icon').css('font-size', newval+'px' );
+        } );
+    } );
 } )( jQuery );
