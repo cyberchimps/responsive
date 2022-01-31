@@ -2947,8 +2947,21 @@ function responsive_customizer_styles() {
 		font-size: {$mobile_trigger_icon_size}px;
 	}";
 
-	// Breakpoint for Mobile Menu.
 	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+
+	$header_cart_icon_size = esc_html( get_theme_mod( 'responsive_header_cart_icon_size', 20 ) );
+	$mobile_cart_icon_size = esc_html( get_theme_mod( 'responsive_mobile_cart_icon_size', 20 ) );
+
+	$custom_css .=".header-cart-wrap .header-cart-button .responsive-svg-iconset{
+		font-size: {$header_cart_icon_size}px;
+	}
+	@media screen and (max-width: {$mobile_menu_breakpoint}px){
+	.header-mobile-cart-wrap .header-cart-button .responsive-svg-iconset{
+		font-size: {$mobile_cart_icon_size}px;
+	}}";
+	
+
+	// Breakpoint for Mobile Menu.
 
 	$custom_css .="@media screen and (min-width: {$mobile_menu_breakpoint}px) {
 		#main-header {

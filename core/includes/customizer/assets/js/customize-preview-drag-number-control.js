@@ -454,4 +454,15 @@
             $('.mobile-toggle-open-container .menu-toggle-open .menu-toggle-icon').css('font-size', newval+'px' );
         } );
     } );
+
+    api( 'responsive_header_cart_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.header-cart-wrap .header-cart-button .responsive-svg-iconset').css('font-size', newval+'px' );
+        } );
+    } );
+    api( 'responsive_mobile_cart_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.header-mobile-cart-wrap .header-cart-button .responsive-svg-iconset').css('font-size', newval+'px' );
+        } );
+    } );
 } )( jQuery );
