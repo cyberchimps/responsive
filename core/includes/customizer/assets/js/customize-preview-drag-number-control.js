@@ -413,4 +413,56 @@
             $('.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered').css('border-radius', newval+'px' );
         } );
     } );
+
+    api( 'responsive_header_search_icon_size_desktop', function( value ) {
+        value.bind( function( newval ) {
+            $('.search-toggle-open-container .search-toggle-open .search-toggle-icon').css('font-size', newval+'px' );
+        } );
+    } );
+    api( 'responsive_header_search_icon_size_tablet', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_search_icon_size_tablet' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_search_icon_size_tablet">@media screen and ( max-width: 768px ) {.search-toggle-open-container .search-toggle-open .search-toggle-icon {font-size: ${to}px !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_header_search_icon_size_mobile', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_search_icon_size_mobile' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_search_icon_size_mobile">@media screen and ( max-width: 576px ) {.search-toggle-open-container .search-toggle-open .search-toggle-icon {font-size: ${to}px !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_mobile_trigger_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-toggle-open-container .menu-toggle-open .menu-toggle-icon').css('font-size', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_header_cart_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.header-cart-wrap .header-cart-button .responsive-svg-iconset').css('font-size', newval+'px' );
+        } );
+    } );
+    api( 'responsive_mobile_cart_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.header-mobile-cart-wrap .header-cart-button .responsive-svg-iconset').css('font-size', newval+'px' );
+        } );
+    } );
 } )( jQuery );

@@ -845,7 +845,7 @@ function navigation_popup_toggle() {
 			?>
 		>
 			<?php
-			$label = responsive_hamburger_menu_label(); //get_theme_mod( 'mobile_trigger_label' );.
+			$label = get_theme_mod( 'responsive_mobile_trigger_label', '' );
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
 				<span class="menu-toggle-label"><?php echo esc_html( $label ); ?></span>

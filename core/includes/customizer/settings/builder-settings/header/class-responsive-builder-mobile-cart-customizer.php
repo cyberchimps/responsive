@@ -50,7 +50,7 @@ if ( ! class_exists( 'Responsive_Mobile_Cart_Customizer' ) ) :
 			);
 
 			// Header Cart.
-			$header_mobile_cart_label = __( 'HTML content', 'responsive' );
+			$header_mobile_cart_label = __( 'Cart Label', 'responsive' );
 			responsive_text_control( $wp_customize, 'header_mobile_cart_label', $header_mobile_cart_label, 'responsive_customizer_mobile_cart', 10, '', null, 'sanitize_text_field', 'text' );
 
 			$header_mobile_cart_show_total = __( 'Show Cart Total', 'responsive' );
@@ -79,6 +79,9 @@ if ( ! class_exists( 'Responsive_Mobile_Cart_Customizer' ) ) :
 			);
 			$header_mobile_cart_popup_side         = __( 'Cart Popup Side', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_mobile_cart_popup_side', $header_mobile_cart_popup_side, 'responsive_customizer_mobile_cart', 30, $header_mobile_cart_popup_side_choices, 'left', null );
+
+			$mobile_cart_icon_size_label = esc_html__( 'Icon Size', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_cart_icon_size', $mobile_cart_icon_size_label, 'responsive_customizer_mobile_cart', 35, 20, null, 200, 1, 'postMessage' );
 
 		}
 

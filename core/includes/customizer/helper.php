@@ -189,6 +189,15 @@ if ( ! function_exists( 'responsive_hamburger_menu_label' ) ) {
 		return $hamburger_menu_label_set_value;
 	}
 }
+if ( ! function_exists( 'responsive_mobile_trigger_label' ) ) {
+	/**
+	 * Returns hamburger menu label value
+	 */
+	function responsive_mobile_trigger_label() {
+		$hamburger_menu_label_set_value = get_theme_mod( 'responsive_mobile_trigger_label', '' );
+		return $hamburger_menu_label_set_value;
+	}
+}
 
 if ( ! function_exists( 'responsive_hamburger_font_size_value' ) ) {
 	/**

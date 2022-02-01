@@ -445,6 +445,17 @@ function responsive_edit_customize_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_trigger_label',
+		array(
+			'selector'            => '.menu-toggle-label',
+			'container_inclusive' => false,
+			'render_callback'     => function() {
+				printf( esc_html( responsive_mobile_trigger_label() ) );
+			},
+			'fallback_refresh'    => true,
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
 		'responsive_hamburger_off_canvas_btn_label_text',
 		array(
 			'selector'            => '.off-canvas-filter-text',

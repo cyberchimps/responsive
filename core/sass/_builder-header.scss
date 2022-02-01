@@ -523,6 +523,7 @@
 	border-width: 2px;
 	.menu-toggle-label {
 		padding-right: 5px;
+		text-transform: none;
 	}
 	.menu-toggle-icon {
 		display: flex;
@@ -1293,4 +1294,19 @@ a.social-button.has-custom-image {
 	.vs-lg-false {
 		display:none !important;
 	}
+}
+/*--------------------------------------------------------------
+# Icons
+--------------------------------------------------------------*/
+.responsive-svg-iconset {
+	display: inline-flex;
+	align-self: center;
+}
+.responsive-svg-iconset svg {
+	height:1em;
+	width:1em;
+}
+.responsive-svg-iconset.svg-baseline svg {
+	top: .125em;
+	position: relative;
 }
