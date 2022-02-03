@@ -2696,10 +2696,10 @@ function responsive_customizer_styles() {
 	// Search colors.
 	$header_search_color       = esc_html( get_theme_mod( 'responsive_header_search_color', '#333' ) );
 	$header_search_hover_color = esc_html( get_theme_mod( 'responsive_header_search_hover_color', '#333' ) );
-	$custom_css               .= ".search-toggle-open-container .search-toggle-open {
+	$custom_css               .= ".search-toggle-open-container .search-toggle-open * {
 		color: {$header_search_color};
 	}
-	.search-toggle-open-container .search-toggle-open:hover {
+	.search-toggle-open-container .search-toggle-open:hover * {
 		color: {$header_search_hover_color};
 	}";
 
@@ -2707,13 +2707,15 @@ function responsive_customizer_styles() {
 	$header_search_border_size        = esc_html( get_theme_mod( 'responsive_header_search_border_size', 1 ) );
 	$header_search_border_style       = esc_html( get_theme_mod( 'responsive_header_search_border_style', 'solid' ) );
 	$header_search_border_radius      = esc_html( get_theme_mod( 'responsive_header_search_border_radius', 0 ) );
+	$header_search_border_color       = esc_html( get_theme_mod( 'responsive_header_search_border_color', '#0066cc' ) );
+	$header_search_border_hover_color = esc_html( get_theme_mod( 'responsive_header_search_border_hover_color', '#0066cc' ) );
 
 	$custom_css .= ".search-toggle-open-container .search-toggle-open.search-toggle-style-bordered{
-		border: {$header_search_border_size}px {$header_search_border_style} {$header_search_color};
+		border: {$header_search_border_size}px {$header_search_border_style} {$header_search_border_color};
 		border-radius: {$header_search_border_radius}px;
 	}
 	.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered:hover{
-		border-color: {$header_search_hover_color};
+		border-color: {$header_search_border_hover_color};
 	}";
 
 	$header_search_icon_size_desktop = esc_html( get_theme_mod( 'responsive_header_search_icon_size_desktop', 18 ) );

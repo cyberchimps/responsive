@@ -1595,16 +1595,14 @@
 
     api( 'responsive_header_search_color', function( value ) {
         value.bind( function( newval ) {
-            $('.search-toggle-open-container .search-toggle-open').css('color', newval );
-            $('.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered').css('border-color', newval );
+            $('.search-toggle-open-container .search-toggle-open *').css('color', newval );
         } );
     } );
     api( 'responsive_header_search_hover_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_header_search_hover_color' );
 			if ( to ) {
-				var style = `<style class="customizer-responsive_header_search_hover_color">.search-toggle-open-container .search-toggle-open:hover {color: ${to} !important;}
-                .search-toggle-open-container .search-toggle-open.search-toggle-style-bordered:hover {border-color: ${to} !important;}</style>`;
+				var style = `<style class="customizer-responsive_header_search_hover_color">.search-toggle-open-container .search-toggle-open:hover *{color: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
@@ -2435,6 +2433,38 @@
 			var $child = $( '.customizer-responsive_footer_bottom_row_background_mobile_color' );
 			if ( to ) {
 				var style = `<style class="customizer-responsive_footer_bottom_row_background_mobile_color">@media screen and (max-width: ${breakpoint}px){.site-bottom-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_header_search_border_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_search_border_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_search_border_color">.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered {border-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_header_search_border_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_search_border_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_search_border_hover_color">.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered:hover {border-color: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
