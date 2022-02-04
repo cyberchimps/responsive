@@ -2702,7 +2702,7 @@ function responsive_customizer_styles() {
 	.search-toggle-open-container .search-toggle-open:hover * {
 		color: {$header_search_hover_color};
 	}";
-
+	
 	// Search border
 	$header_search_border_size        = esc_html( get_theme_mod( 'responsive_header_search_border_size', 1 ) );
 	$header_search_border_style       = esc_html( get_theme_mod( 'responsive_header_search_border_style', 'solid' ) );
@@ -2737,9 +2737,21 @@ function responsive_customizer_styles() {
 	}";
 
 	$header_icon_size = esc_html( get_theme_mod( 'responsive_header_icon_size', 18 ) );
+	$header_social_icon_size_tablet = esc_html( get_theme_mod( 'responsive_header_icon_size_tablet', 18 ) );
 	$custom_css      .= "#main-header .social-icons {
 		font-size: {$header_icon_size}px;
+	}
+	@media screen and ( max-width: 768px ) {
+		#mobile-header .social-icons {
+			font-size: {$header_social_icon_size_tablet}px;
+		}
 	}";
+
+
+	// Social Icon Border 
+	$header_social_border_size        = esc_html( get_theme_mod( 'responsive_header_social_border_size', 1 ) );
+	$header_social_border_style       = esc_html( get_theme_mod( 'responsive_header_social_border_style', 'solid' ) );
+	$header_social_border_radius      = esc_html( get_theme_mod( 'responsive_header_social_border_radius', 0 ) );
 
 	// Social Icon colors.
 	$header_social_icon_color                  = esc_html( get_theme_mod( 'responsive_header_social_icon_color', '#333' ) );
@@ -2748,15 +2760,42 @@ function responsive_customizer_styles() {
 	$header_social_icon_background_hover_color = esc_html( get_theme_mod( 'responsive_header_social_icon_background_hover_color', '#333' ) );
 	$header_social_icon_border_color           = esc_html( get_theme_mod( 'responsive_header_social_icon_border_color', '#333' ) );
 	$header_social_icon_border_hover_color     = esc_html( get_theme_mod( 'responsive_header_social_icon_border_hover_color', '#333' ) );
+
+	// Tablet/Mobile Social Icon Border 
+	$header_social_border_size_tablet        = esc_html( get_theme_mod( 'responsive_header_social_border_size_tablet', 1 ) );
+	$header_social_border_style_tablet       = esc_html( get_theme_mod( 'responsive_header_social_border_style_tablet', 'solid' ) );
+	$header_social_border_radius_tablet      = esc_html( get_theme_mod( 'responsive_header_social_border_radius_tablet', 0 ) );
+
+	// Tablet/Mobile Social Icon colors.
+	$header_social_icon_tablet_color                  = esc_html( get_theme_mod( 'responsive_header_social_icon_tablet_color', '#333' ) );
+	$header_social_icon_hover_tablet_color            = esc_html( get_theme_mod( 'responsive_header_social_icon_hover_tablet_color', '#333' ) );
+	$header_social_icon_background_tablet_color       = esc_html( get_theme_mod( 'responsive_header_social_icon_background_tablet_color', '#333' ) );
+	$header_social_icon_background_hover_tablet_color = esc_html( get_theme_mod( 'responsive_header_social_icon_background_hover_tablet_color', '#333' ) );
+	$header_social_icon_border_tablet_color           = esc_html( get_theme_mod( 'responsive_header_social_icon_border_tablet_color', '#333' ) );
+	$header_social_icon_border_hover_tablet_color     = esc_html( get_theme_mod( 'responsive_header_social_icon_border_hover_tablet_color', '#333' ) );
 	$custom_css                               .= "#main-header .social-icons a {
 		color: {$header_social_icon_color};
 		background-color: {$header_social_icon_background_color};
-		border-color: {$header_social_icon_border_color};
+		border: {$header_social_border_size}px {$header_social_border_style} {$header_social_icon_border_color};
+		border-radius: {$header_social_border_radius}px;
 	}
 	#main-header .social-icons a:hover {
 		color: {$header_social_icon_hover_color};
 		background-color: {$header_social_icon_background_hover_color};
 		border-color: {$header_social_icon_border_hover_color};
+	}
+	@media screen and ( max-width: 768px ) {
+		#mobile-header .social-icons a {
+			color: {$header_social_icon_tablet_color};
+			background-color: {$header_social_icon_background_tablet_color};
+			border: {$header_social_border_size_tablet}px {$header_social_border_style_tablet} {$header_social_icon_border_tablet_color};
+			border-radius: {$header_social_border_radius_tablet}px;
+		}
+		#mobile-header .social-icons a:hover {
+			color: {$header_social_icon_hover_tablet_color};
+			background-color: {$header_social_icon_background_hover_tablet_color};
+			border-color: {$header_social_icon_border_hover_tablet_color};
+		}
 	}";
 
 	$header_button_border_size   = esc_html( get_theme_mod( 'responsive_header_button_border_size', 1 ) );
