@@ -7,6 +7,7 @@
   "devDependencies": {
     "grunt": "^1.4.1",
     "grunt-checktextdomain": "~1.0.1",
+    "grunt-cli": "^1.4.3",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-compress": "^2.0.0",
     "grunt-contrib-concat": "^2.0.0",
