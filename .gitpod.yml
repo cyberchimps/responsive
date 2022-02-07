@@ -20,6 +20,4 @@ tasks:
   # start MailHog (SMTP testing tool) 
   - command: mailhog -api-bind-addr 127.0.0.1:8025 -ui-bind-addr 127.0.0.1:8025 -smtp-bind-addr 127.0.0.1:1025
 
-  - name: "Install node dependecies" 
-    init: cd /workspace/responsive/public_html/wp-content/themes/responsive && npm install
-    command: grunt
+  - command: cd /workspace/responsive/public_html/wp-content/themes/responsive && npm install && grunt
