@@ -2737,9 +2737,13 @@ function responsive_customizer_styles() {
 	}";
 
 	$header_icon_size = esc_html( get_theme_mod( 'responsive_header_icon_size', 18 ) );
+	$footer_icon_size = esc_html( get_theme_mod( 'responsive_footer_icon_size', 18 ) );
 	$header_social_icon_size_tablet = esc_html( get_theme_mod( 'responsive_header_icon_size_tablet', 18 ) );
 	$custom_css      .= "#main-header .social-icons {
 		font-size: {$header_icon_size}px;
+	}
+	.site-footer-row-container-inner .social-icons {
+		font-size: {$footer_icon_size}px;
 	}
 	@media screen and ( max-width: 768px ) {
 		#mobile-header .social-icons {
@@ -2760,6 +2764,19 @@ function responsive_customizer_styles() {
 	$header_social_icon_background_hover_color = esc_html( get_theme_mod( 'responsive_header_social_icon_background_hover_color', '#333' ) );
 	$header_social_icon_border_color           = esc_html( get_theme_mod( 'responsive_header_social_icon_border_color', '#333' ) );
 	$header_social_icon_border_hover_color     = esc_html( get_theme_mod( 'responsive_header_social_icon_border_hover_color', '#333' ) );
+
+	// Footer Social Icon Border 
+	$footer_social_border_size        = esc_html( get_theme_mod( 'responsive_footer_social_border_size', 1 ) );
+	$footer_social_border_style       = esc_html( get_theme_mod( 'responsive_footer_social_border_style', 'solid' ) );
+	$footer_social_border_radius      = esc_html( get_theme_mod( 'responsive_footer_social_border_radius', 0 ) );
+
+	// Footer Social Icon colors.
+	$footer_social_icon_color                  = esc_html( get_theme_mod( 'responsive_footer_social_icon_color', '#fff' ) );
+	$footer_social_icon_hover_color            = esc_html( get_theme_mod( 'responsive_footer_social_icon_hover_color', '#fff' ) );
+	$footer_social_icon_background_color       = esc_html( get_theme_mod( 'responsive_footer_social_icon_background_color', '' ) );
+	$footer_social_icon_background_hover_color = esc_html( get_theme_mod( 'responsive_footer_social_icon_background_hover_color', '' ) );
+	$footer_social_icon_border_color           = esc_html( get_theme_mod( 'responsive_footer_social_icon_border_color', '#fff' ) );
+	$footer_social_icon_border_hover_color     = esc_html( get_theme_mod( 'responsive_footer_social_icon_border_hover_color', '#fff' ) );
 
 	// Tablet/Mobile Social Icon Border 
 	$header_social_border_size_tablet        = esc_html( get_theme_mod( 'responsive_header_social_border_size_tablet', 1 ) );
@@ -2783,6 +2800,17 @@ function responsive_customizer_styles() {
 		color: {$header_social_icon_hover_color};
 		background-color: {$header_social_icon_background_hover_color};
 		border-color: {$header_social_icon_border_hover_color};
+	}
+	.site-footer-row-container-inner .social-icons a {
+		color: {$footer_social_icon_color};
+		background-color: {$footer_social_icon_background_color};
+		border: {$footer_social_border_size}px {$footer_social_border_style} {$footer_social_icon_border_color};
+		border-radius: {$footer_social_border_radius}px;
+	}
+	.site-footer-row-container-inner .social-icons a:hover {
+		color: {$footer_social_icon_hover_color};
+		background-color: {$footer_social_icon_background_hover_color};
+		border-color: {$footer_social_icon_border_hover_color};
 	}
 	@media screen and ( max-width: 768px ) {
 		#mobile-header .social-icons a {

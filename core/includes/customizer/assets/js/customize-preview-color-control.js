@@ -2517,7 +2517,7 @@
 			}
 		});
 	});
-    
+
     api( 'responsive_header_social_icon_tablet_color', function( value ) {
 		value.bind( function( to ) {
 			var breakpoint = 768;
@@ -2615,5 +2615,77 @@
 			}
 		});
 	});
-
+    
+    api( 'responsive_footer_social_icon_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_social_icon_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_social_icon_color">.site-footer-row-container-inner .social-icons a {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    
+    api( 'responsive_footer_social_icon_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_social_icon_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_social_icon_hover_color">.site-footer-row-container-inner .social-icons a:hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_social_icon_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons a').css('background-color', newval );
+        } );
+    } );
+    api( 'responsive_footer_social_icon_background_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_social_icon_background_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_social_icon_background_hover_color">.site-footer-row-container-inner .social-icons a:hover {background-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_social_icon_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons a').css('border-color', newval );
+        } );
+    } );
+    api( 'responsive_footer_social_icon_border_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_social_icon_border_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_social_icon_border_hover_color">.site-footer-row-container-inner .social-icons a:hover {border-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    
 } )( jQuery );

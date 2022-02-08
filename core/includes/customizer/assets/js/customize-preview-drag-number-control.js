@@ -522,5 +522,21 @@
 			}
 		});
 	});
-    
+    api( 'responsive_footer_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons').css('font-size', newval+'px' );
+        } );
+    } );
+    api( 'responsive_footer_social_border_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons a').css('border-width', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_social_border_radius', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons a').css('border-radius', newval+'px' );
+        } );
+    } );
+      
 } )( jQuery );
