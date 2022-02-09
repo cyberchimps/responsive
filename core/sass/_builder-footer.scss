@@ -152,6 +152,25 @@
 .site-footer-row-tablet-layout-contained {
 	padding: 0 1.5rem;
 }
+.site-footer-row-link-style-normal a:not(.button) {
+	text-decoration: underline;
+}
+.site-footer-row-link-style-plain a:not(.button){
+	text-decoration: none;
+}
+.inner-link-style-normal a:not(.button), .widget-area.inner-link-style-normal a:not(.button) {
+	text-decoration: underline;
+}
+.inner-link-style-plain a:not(.button), .widget-area.inner-link-style-plain a:not(.button) {
+	text-decoration: none;
+}
+.site-footer-html-link-style-normal .footer-html a:not(.button) {
+	text-decoration: underline;
+}
+.site-footer-html-link-style-plain .footer-html a:not(.button) {
+	text-decoration: none;
+}
+
 @media screen and (min-width: $before-tablet-plus-query) and (max-width: $tablet-minus-query) {
 	.site-footer-row-tablet-layout-fullwidth, .site-footer-row-tablet-layout-standard {
 		padding: 0;

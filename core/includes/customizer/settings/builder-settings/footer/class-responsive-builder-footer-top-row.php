@@ -141,6 +141,19 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Top_row' ) ) :
 			$footer_top_row_min_height_mobile_label = esc_html__( 'Min Height Mobile(px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'footer_top_row_min_height_mobile', $footer_top_row_min_height_mobile_label, 'responsive_customizer_footer_top', 70, 0, null, 400 );
 
+			$footer_top_link_style_choices = array(
+				'normal' => __( 'Underline', 'responsive' ),
+				'noline' => __( 'No Underline', 'responsive' ),
+			);
+			$footer_top_link_style         = __( 'Link Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_top_link_style', $footer_top_link_style, 'responsive_customizer_footer_top', 80, $footer_top_link_style_choices, 'normal', null );
+
+			$footer_top_row_link_label = __( 'Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_top_row_link', $footer_top_row_link_label, 'responsive_customizer_footer_top', 80, '', null );
+			
+			$footer_top_row_link_hover_label = __( 'Link Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_top_row_link_hover', $footer_top_row_link_hover_label, 'responsive_customizer_footer_top', 80, '', null );
+
 			$footer_top_row_background_label = __( 'Background Desktop', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_top_row_background_desktop', $footer_top_row_background_label, 'responsive_customizer_footer_top', 90, '', null );
 
