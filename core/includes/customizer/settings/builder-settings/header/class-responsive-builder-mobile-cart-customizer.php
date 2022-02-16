@@ -83,6 +83,31 @@ if ( ! class_exists( 'Responsive_Mobile_Cart_Customizer' ) ) :
 			$mobile_cart_icon_size_label = esc_html__( 'Icon Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_cart_icon_size', $mobile_cart_icon_size_label, 'responsive_customizer_mobile_cart', 35, 20, null, 200, 1, 'postMessage' );
 
+
+			$mobile_cart_color_label = __( 'Cart Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_cart', $mobile_cart_color_label, 'responsive_customizer_mobile_cart', 40, '#333', null );
+
+			$mobile_cart_hover_color_label = __( 'Cart Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_cart_hover', $mobile_cart_hover_color_label, 'responsive_customizer_mobile_cart', 40, '#333', null );
+
+			$mobile_cart_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_cart_background', $mobile_cart_background_color_label, 'responsive_customizer_mobile_cart', 40, '', null );
+
+			$mobile_cart_background_hover_color_label = __( 'Background Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_cart_background_hover', $mobile_cart_background_hover_color_label, 'responsive_customizer_mobile_cart', 40, '', null );
+
+			$mobile_cart_total_color_label = __( 'Cart Total Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_cart_total', $mobile_cart_total_color_label, 'responsive_customizer_mobile_cart', 50, '#333', null );
+
+			$mobile_cart_total_hover_color_label = __( 'Cart Total Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_cart_total_hover', $mobile_cart_total_hover_color_label, 'responsive_customizer_mobile_cart', 50, '#333', null );
+
+			$mobile_cart_total_background_color_label = __( 'Cart Total Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_cart_total_background', $mobile_cart_total_background_color_label, 'responsive_customizer_mobile_cart', 50, '#e9e9e9', null );
+
+			$mobile_cart_total_background_hover_color_label = __( 'Cart Total Background Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'mobile_cart_total_background_hover', $mobile_cart_total_background_hover_color_label, 'responsive_customizer_mobile_cart', 50, '#e9e9e9', null );
+
 		}
 
 	}
