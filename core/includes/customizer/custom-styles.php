@@ -2452,7 +2452,7 @@ function responsive_customizer_styles() {
 	$search_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_search_mobile_top_padding', null ) );
 	$search_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_search_mobile_bottom_padding', null ) );
 
-	$custom_css .= ".search-toggle-open-container .search-toggle-open {
+	$custom_css .= '.search-toggle-open-container .search-toggle-open {
 		padding: ' . responsive_spacing_css( $search_padding_top, $search_padding_right, $search_padding_bottom, $search_padding_left ) . ';
 	}
 	@media screen and ( max-width: 992px ) {
@@ -2464,6 +2464,25 @@ function responsive_customizer_styles() {
 		.search-toggle-open-container .search-toggle-open {
 			padding: ' . responsive_spacing_css( $search_mobile_padding_top, $search_mobile_padding_right, $search_mobile_padding_bottom, $search_mobile_padding_left ) . ';
 		}
+	}';
+
+	// Header HTML 
+	$header_html_link_color          = esc_html( get_theme_mod( 'responsive_header_html_link_color', '' ) );
+	$header_html_link_hover_color          = esc_html( get_theme_mod( 'responsive_header_html_link_hover_color', '' ) );
+	$mobile_header_html_link_color          = esc_html( get_theme_mod( 'responsive_mobile_header_html_link_color', '' ) );
+	$mobile_header_html_link_hover_color          = esc_html( get_theme_mod( 'responsive_mobile_header_html_link_hover_color', '' ) );
+	
+	$custom_css .= "#main-header .header-html a {
+		color: {$header_html_link_color};
+	}
+	#main-header .header-html a:hover {
+		color: {$header_html_link_hover_color};
+	}
+	.mobile-html a {
+		color: {$mobile_header_html_link_color};
+	}
+	.mobile-html a:hover {
+		color: {$mobile_header_html_link_hover_color};
 	}";
 
 	// Header Primary Navigation Item Spacing.
@@ -2696,11 +2715,72 @@ function responsive_customizer_styles() {
 	// Search colors.
 	$header_search_color       = esc_html( get_theme_mod( 'responsive_header_search_color', '#333' ) );
 	$header_search_hover_color = esc_html( get_theme_mod( 'responsive_header_search_hover_color', '#333' ) );
+	$header_search_background_color       = esc_html( get_theme_mod( 'responsive_header_search_background_color', '#333' ) );
+	$header_search_background_hover_color = esc_html( get_theme_mod( 'responsive_header_search_background_hover_color', '#333' ) );
+	
 	$custom_css               .= ".search-toggle-open-container .search-toggle-open * {
 		color: {$header_search_color};
 	}
 	.search-toggle-open-container .search-toggle-open:hover * {
 		color: {$header_search_hover_color};
+	}
+	.search-toggle-open-container .search-toggle-open {
+		background-color: {$header_search_background_color};
+	}
+	.search-toggle-open-container .search-toggle-open:hover {
+		background-color: {$header_search_background_hover_color};
+	}
+	";
+
+	// Cart colors.
+	$header_cart_color       = esc_html( get_theme_mod( 'responsive_header_cart_color', '#333' ) );
+	$header_cart_hover_color = esc_html( get_theme_mod( 'responsive_header_cart_hover_color', '#333' ) );
+	$header_cart_background_color       = esc_html( get_theme_mod( 'responsive_header_cart_background_color', '' ) );
+	$header_cart_background_hover_color = esc_html( get_theme_mod( 'responsive_header_cart_background_hover_color', '' ) );
+	$header_cart_total_color       = esc_html( get_theme_mod( 'responsive_header_cart_total_color', '#333' ) );
+	$header_cart_total_hover_color = esc_html( get_theme_mod( 'responsive_header_cart_total_hover_color', '#333' ) );
+	$header_cart_total_background_color       = esc_html( get_theme_mod( 'responsive_header_cart_total_background_color', '#e9e9e9' ) );
+	$header_cart_total_background_hover_color = esc_html( get_theme_mod( 'responsive_header_cart_total_background_hover_color', '#e9e9e9' ) );
+	$mobile_cart_color       = esc_html( get_theme_mod( 'responsive_mobile_cart_color', '#333' ) );
+	$mobile_cart_hover_color = esc_html( get_theme_mod( 'responsive_mobile_cart_hover_color', '#333' ) );
+	$mobile_cart_background_color       = esc_html( get_theme_mod( 'responsive_mobile_cart_background_color', '' ) );
+	$mobile_cart_background_hover_color = esc_html( get_theme_mod( 'responsive_mobile_cart_background_hover_color', '' ) );
+	$mobile_cart_total_color       = esc_html( get_theme_mod( 'responsive_mobile_cart_total_color', '#333' ) );
+	$mobile_cart_total_hover_color = esc_html( get_theme_mod( 'responsive_mobile_cart_total_hover_color', '#333' ) );
+	$mobile_cart_total_background_color       = esc_html( get_theme_mod( 'responsive_mobile_cart_total_background_color', '#e9e9e9' ) );
+	$mobile_cart_total_background_hover_color = esc_html( get_theme_mod( 'responsive_mobile_cart_total_background_hover_color', '#e9e9e9' ) );
+	
+	$custom_css               .= ".site-header-item .header-cart-wrap .header-cart-inner-wrap .header-cart-button {
+		color: {$header_cart_color};
+		background-color: {$header_cart_background_color};
+	}
+	.site-header-item .header-cart-wrap .header-cart-inner-wrap .header-cart-button:hover {
+		color: {$header_cart_hover_color};
+		background-color: {$header_cart_background_hover_color};
+	}
+	.header-cart-wrap .header-cart-button .header-cart-total {
+		color: {$header_cart_total_color};
+		background-color: {$header_cart_total_background_color};
+	}
+	.header-cart-wrap .header-cart-button:hover .header-cart-total {
+		color: {$header_cart_total_hover_color};
+		background-color: {$header_cart_total_background_hover_color};
+	}
+	.header-mobile-cart-wrap .header-cart-inner-wrap .header-cart-button {
+		color: {$mobile_cart_color};
+		background-color: {$mobile_cart_background_color};
+	}
+	.header-mobile-cart-wrap .header-cart-inner-wrap .header-cart-button:hover {
+		color: {$mobile_cart_hover_color};
+		background-color: {$mobile_cart_background_hover_color};
+	}
+	.header-mobile-cart-wrap .header-cart-button .header-cart-total {
+		color: {$mobile_cart_total_color};
+		background-color: {$mobile_cart_total_background_color};
+	}
+	.header-mobile-cart-wrap .header-cart-button .header-cart-total:hover {
+		color: {$mobile_cart_total_hover_color};
+		background-color: {$mobile_cart_total_background_hover_color};
 	}";
 	
 	// Search border
