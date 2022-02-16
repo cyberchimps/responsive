@@ -305,9 +305,6 @@ if ( ! class_exists( 'Responsive_Social_Header_Customizer' ) ) :
 				)
 			);
 			
-			$header_social_icon_visibility_label = __( 'Show Icon Label?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_social_icon_visiblity', $header_social_icon_visibility_label, 'responsive_customizer_header_social', 75, 1 );
-
 			$header_icon_size_label = esc_html__( 'Icon Size (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_icon_size', $header_icon_size_label, 'responsive_customizer_header_social', 90, 18, null, 100 );
 
@@ -318,18 +315,32 @@ if ( ! class_exists( 'Responsive_Social_Header_Customizer' ) ) :
 			$header_social_icon_hover_color_label = __( 'Icon Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_social_icon_hover', $header_social_icon_hover_color_label, 'responsive_customizer_header_social', 100, '#fff', null );
 
-			$header_social_icon_background_color_label = __( 'Icon Background Color', 'responsive' );
+			$header_social_icon_background_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_social_icon_background', $header_social_icon_background_color_label, 'responsive_customizer_header_social', 105, '#fff', null );
 
-			$header_social_icon_background_hover_color_label = __( 'Icon Background Hover Color', 'responsive' );
+			$header_social_icon_background_hover_color_label = __( 'Background Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_social_icon_background_hover', $header_social_icon_background_hover_color_label, 'responsive_customizer_header_social', 110, '#fff', null );
 
-			$header_social_icon_border_color_label = __( 'Icon Border Color', 'responsive' );
+			$header_social_icon_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_social_icon_border', $header_social_icon_border_color_label, 'responsive_customizer_header_social', 115, '#fff', null );
 
-			$header_social_icon_border_hover_color_label = __( 'Icon Border Hover Color', 'responsive' );
+			$header_social_icon_border_hover_color_label = __( 'Border Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_social_icon_border_hover', $header_social_icon_border_hover_color_label, 'responsive_customizer_header_social', 120, '#fff', null );
 
+			$header_social_border_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$header_social_border_style_label = __( 'Border Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_social_border_style', $header_social_border_style_label, 'responsive_customizer_header_social', 125, $header_social_border_style_choices, 'solid', null );
+
+			$header_social_border_size_label = esc_html__( 'Border Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_social_border_size', $header_social_border_size_label, 'responsive_customizer_header_social', 125, 1, null, 20, 1, 'postMessage' );
+
+			$header_social_border_radius_label = esc_html__( 'Border Radius', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_social_border_radius', $header_social_border_radius_label, 'responsive_customizer_header_social', 125, 0, null, 120, 1, 'postMessage' );
 
 		}
 

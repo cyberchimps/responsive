@@ -57,6 +57,28 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			$header_search_style         = __( 'Search Style', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_search_style', $header_search_style, 'responsive_customizer_header_search', 15, $header_search_style_choices, 'default', null );
 
+			$header_search_border_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+
+			$header_search_border_style_label = __( 'Border Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_search_border_style', $header_search_border_style_label, 'responsive_customizer_header_search', 15, $header_search_border_style_choices, 'solid', 'is_header_search_style_bordered' );
+
+			$header_search_border_size_label = esc_html__( 'Border Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_border_size', $header_search_border_size_label, 'responsive_customizer_header_search', 15, 1, 'is_header_search_style_bordered', 20, 1, 'postMessage' );
+
+			$header_search_border_radius_label = esc_html__( 'Border Radius', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_border_radius', $header_search_border_radius_label, 'responsive_customizer_header_search', 15, 0, 'is_header_search_style_bordered', 120, 1, 'postMessage' );
+
+			$header_search_border_color_label = __( 'Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_search_border', $header_search_border_color_label, 'responsive_customizer_header_search', 15, '#0066cc', null );
+
+			$header_search_border_color_hover_label = __( 'Border Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_search_border_hover', $header_search_border_color_hover_label, 'responsive_customizer_header_search', 15, '#0066cc', null );
+
 			// Header Search Label.
 			$header_search_label = __( 'Header Search Label', 'responsive' );
 			responsive_text_control( $wp_customize, 'header_search_label', $header_search_label, 'responsive_customizer_header_search', 20, 'Search', null, 'sanitize_text_field', 'text' );
@@ -94,18 +116,14 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			$search_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 50, null, null, null, $search_padding_label );
 
-			$header_search_border_style_choices = array(
-				'none'   => __( 'None', 'responsive' ),
-				'solid'  => __( 'Solid', 'responsive' ),
-				'dashed' => __( 'Dashed', 'responsive' ),
-				'dotted' => __( 'Dotted', 'responsive' ),
-			);
+			$header_search_icon_size_desktop_label = esc_html__( 'Icon Size Desktop', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_desktop', $header_search_icon_size_desktop_label, 'responsive_customizer_header_search', 70, 18, null, 200, 1, 'postMessage' );
 
-			$header_search_border_style_label = __( 'Border Style', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_search_border_style', $header_search_border_style_label, 'responsive_customizer_header_search', 55, $header_search_border_style_choices, 'solid', 'is_header_search_style_bordered' );
+			$header_search_icon_size_tablet_label = esc_html__( 'Icon Size Tablet', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_tablet', $header_search_icon_size_tablet_label, 'responsive_customizer_header_search', 75, '', null, 200, 1, 'postMessage' );
 
-			$header_search_border_size_label = esc_html__( 'Border Width', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'header_search_border_size', $header_search_border_size_label, 'responsive_customizer_header_search', 60, 1, 'is_header_search_style_bordered', 20, 1, 'postMessage' );
+			$header_search_icon_size_mobile_label = esc_html__( 'Icon Size Mobile', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_mobile', $header_search_icon_size_mobile_label, 'responsive_customizer_header_search', 80, '', null, 200, 1, 'postMessage' );
 
 			$header_search_border_radius_label = esc_html__( 'Border Radius', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_search_border_radius', $header_search_border_radius_label, 'responsive_customizer_header_search', 65, 0, 'is_header_search_style_bordered', 120, 1, 'postMessage' );

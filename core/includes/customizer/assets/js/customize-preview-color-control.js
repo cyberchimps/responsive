@@ -1595,16 +1595,14 @@
 
     api( 'responsive_header_search_color', function( value ) {
         value.bind( function( newval ) {
-            $('.search-toggle-open-container .search-toggle-open').css('color', newval );
-            $('.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered').css('border-color', newval );
+            $('.search-toggle-open-container .search-toggle-open *').css('color', newval );
         } );
     } );
     api( 'responsive_header_search_hover_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_header_search_hover_color' );
 			if ( to ) {
-				var style = `<style class="customizer-responsive_header_search_hover_color">.search-toggle-open-container .search-toggle-open:hover {color: ${to} !important;}
-                .search-toggle-open-container .search-toggle-open.search-toggle-style-bordered:hover {border-color: ${to} !important;}</style>`;
+				var style = `<style class="customizer-responsive_header_search_hover_color">.search-toggle-open-container .search-toggle-open:hover *{color: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
@@ -1615,36 +1613,78 @@
 			}
 		});
 	});
+    
     api( 'responsive_header_social_icon_color', function( value ) {
-        value.bind( function( newval ) {
-            $('#main-header .social-icons a').css('color', newval );
-        } );
-    } );
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_social_icon_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_color">#main-header .social-icons a {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    
     api( 'responsive_header_social_icon_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            $('#main-header .social-icons a:hover').css('color', newval );
-        } );
-    } );
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_social_icon_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_hover_color">#main-header .social-icons a:hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
     api( 'responsive_header_social_icon_background_color', function( value ) {
         value.bind( function( newval ) {
             $('#main-header .social-icons a').css('background-color', newval );
         } );
     } );
     api( 'responsive_header_social_icon_background_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            $('#main-header .social-icons a:hover').css('background-color', newval );
-        } );
-    } );
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_social_icon_background_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_background_hover_color">#main-header .social-icons a:hover {background-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
     api( 'responsive_header_social_icon_border_color', function( value ) {
         value.bind( function( newval ) {
             $('#main-header .social-icons a').css('border-color', newval );
         } );
     } );
     api( 'responsive_header_social_icon_border_hover_color', function( value ) {
-        value.bind( function( newval ) {
-            $('#main-header .social-icons a:hover').css('border-color', newval );
-        } );
-    } );
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_social_icon_border_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_border_hover_color">#main-header .social-icons a:hover {border-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
     api( 'responsive_primary_navigation_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_primary_navigation_color' );
@@ -2435,6 +2475,293 @@
 			var $child = $( '.customizer-responsive_footer_bottom_row_background_mobile_color' );
 			if ( to ) {
 				var style = `<style class="customizer-responsive_footer_bottom_row_background_mobile_color">@media screen and (max-width: ${breakpoint}px){.site-bottom-footer-wrap .site-footer-row-container-inner {background: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_header_search_border_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_search_border_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_search_border_color">.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered {border-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_header_search_border_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_search_border_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_search_border_hover_color">.search-toggle-open-container .search-toggle-open.search-toggle-style-bordered:hover {border-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_header_social_icon_tablet_color', function( value ) {
+		value.bind( function( to ) {
+			var breakpoint = 768;
+            var $child = $( '.customizer-responsive_header_social_icon_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_tablet_color">@media screen and (max-width: ${breakpoint}px){#mobile-header .social-icons a {color: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    
+    api( 'responsive_header_social_icon_hover_tablet_color', function( value ) {
+		value.bind( function( to ) {
+			var breakpoint = 768;
+            var $child = $( '.customizer-responsive_header_social_icon_hover_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_hover_tablet_color">@media screen and (max-width: ${breakpoint}px){#mobile-header .social-icons a:hover {color: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_header_social_icon_background_tablet_color', function( value ) {
+		value.bind( function( to ) {
+			var breakpoint = 768;
+            var $child = $( '.customizer-responsive_header_social_icon_background_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_background_tablet_color">@media screen and (max-width: ${breakpoint}px){#mobile-header .social-icons a {background-color: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_header_social_icon_background_hover_tablet_color', function( value ) {
+		value.bind( function( to ) {
+			var breakpoint = 768;
+            var $child = $( '.customizer-responsive_header_social_icon_background_hover_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_background_hover_tablet_color">@media screen and (max-width: ${breakpoint}px){#mobile-header .social-icons a:hover {background-color: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_header_social_icon_border_tablet_color', function( value ) {
+		value.bind( function( to ) {
+			var breakpoint = 768;
+            var $child = $( '.customizer-responsive_header_social_icon_border_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_border_tablet_color">@media screen and (max-width: ${breakpoint}px){#mobile-header .social-icons a {border-color: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_header_social_icon_border_hover_tablet_color', function( value ) {
+		value.bind( function( to ) {
+			var breakpoint = 768;
+            var $child = $( '.customizer-responsive_header_social_icon_border_hover_tablet_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_icon_border_hover_tablet_color">@media screen and (max-width: ${breakpoint}px){#mobile-header .social-icons a:hover {border-color: ${to} !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    
+    api( 'responsive_footer_social_icon_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_social_icon_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_social_icon_color">.site-footer-row-container-inner .social-icons a {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    
+    api( 'responsive_footer_social_icon_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_social_icon_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_social_icon_hover_color">.site-footer-row-container-inner .social-icons a:hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_social_icon_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons a').css('background-color', newval );
+        } );
+    } );
+    api( 'responsive_footer_social_icon_background_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_social_icon_background_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_social_icon_background_hover_color">.site-footer-row-container-inner .social-icons a:hover {background-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_social_icon_border_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons a').css('border-color', newval );
+        } );
+    } );
+    api( 'responsive_footer_social_icon_border_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_social_icon_border_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_social_icon_border_hover_color">.site-footer-row-container-inner .social-icons a:hover {border-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_top_row_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer .site-top-footer-wrap .site-footer-row-container-inner a:not(.button)').css('color', newval );
+        } );
+    } );
+    api( 'responsive_footer_top_row_link_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_top_row_link_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_top_row_link_hover_color">.site-footer .site-top-footer-wrap .site-footer-row-container-inner a:not(.button):hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_middle_row_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer .site-middle-footer-wrap .site-footer-row-container-inner a:not(.button)').css('color', newval );
+        } );
+    } );
+    api( 'responsive_footer_middle_row_link_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_middle_row_link_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_middle_row_link_hover_color">.site-footer .site-middle-footer-wrap .site-footer-row-container-inner a:not(.button):hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_bottom_row_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer .site-bottom-footer-wrap .site-footer-row-container-inner a:not(.button)').css('color', newval );
+        } );
+    } );
+    api( 'responsive_footer_bottom_row_link_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_bottom_row_link_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_bottom_row_link_hover_color">.site-footer .site-bottom-footer-wrap .site-footer-row-container-inner a:not(.button):hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_html_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .footer-html').css('color', newval );
+        } );
+    } );
+    api( 'responsive_footer_html_link_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .site-footer-row-container .site-footer-row .footer-html a').css('color', newval );
+        } );
+    } );
+    api( 'responsive_footer_html_link_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_footer_html_link_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_footer_html_link_hover_color">#colophon .site-footer-row-container .site-footer-row .footer-html a:hover {color: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {

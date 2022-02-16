@@ -18,9 +18,12 @@ $desktop_direction = get_theme_mod( 'responsive_footer_' . $row . '_direction_de
 $tablet_direction  = get_theme_mod( 'responsive_footer_' . $row . '_direction_tablet', '' );
 $mobile_direction  = get_theme_mod( 'responsive_footer_' . $row . '_direction_mobile', 'column' );
 $footer_collapse   = get_theme_mod( 'responsive_footer_' . $row . '_collapse', 'normal' );
+$footer_link_style   = get_theme_mod( 'responsive_footer_' . $row . '_link_style', 'plain' );
+$footer_html_link_style   = get_theme_mod( 'responsive_footer_html_link_style', 'normal' );
+
 $i                 = 0;
 ?>
-<div class="site-<?php echo esc_attr( $row ); ?>-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-<?php echo esc_attr( $desktop_contain ); ?> site-footer-row-tablet-layout-<?php echo esc_attr( $tablet_contain ); ?> site-footer-row-mobile-layout-<?php echo esc_attr( $mobile_contain ); ?>" data-section="responsive_customizer_footer_<?php echo esc_attr( $row ); ?>">
+<div class="site-<?php echo esc_attr( $row ); ?>-footer-wrap site-footer-row-container site-footer-focus-item site-<?php echo esc_attr( $row ); ?>-footer-link-style-<?php echo esc_attr( $footer_link_style ); ?> site-footer-html-link-style-<?php echo esc_attr( $footer_html_link_style ); ?> site-footer-row-layout-<?php echo esc_attr( $desktop_contain ); ?> site-footer-row-tablet-layout-<?php echo esc_attr( $tablet_contain ); ?> site-footer-row-mobile-layout-<?php echo esc_attr( $mobile_contain ); ?>" data-section="responsive_customizer_footer_<?php echo esc_attr( $row ); ?>">
 	<div class="site-footer-row-container-inner">
 		<?php if ( is_customize_preview() ) { ?>
 			<div class="customize-partial-edit-shortcut responsive-custom-partial-edit-shortcut">

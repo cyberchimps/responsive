@@ -59,6 +59,16 @@ if ( ! class_exists( 'Responsive_Footer_HTML_Customizer' ) ) :
 			$footer_html_link_style         = __( 'HTML Link Style', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_html_link_style', $footer_html_link_style, 'responsive_customizer_footer_html', 15, $footer_html_link_style_choices, 'normal', null );
 
+			$footer_html_text_label = __( 'Text Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_html_text', $footer_html_text_label, 'responsive_customizer_footer_html', 15, '', null );
+			
+			$footer_html_link_label = __( 'Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_html_link', $footer_html_link_label, 'responsive_customizer_footer_html', 15, '', null );
+			
+			$footer_html_link_hover_label = __( 'Link Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_html_link_hover', $footer_html_link_hover_label, 'responsive_customizer_footer_html', 15, '', null );
+
+			
 			// Content Align.
 			$footer_html_align_desktop_choices = array(
 				'left'   => __( 'Left', 'responsive' ),

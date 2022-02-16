@@ -465,4 +465,78 @@
             $('.header-mobile-cart-wrap .header-cart-button .responsive-svg-iconset').css('font-size', newval+'px' );
         } );
     } );
+
+    api( 'responsive_header_social_border_size', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons a').css('border-width', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_header_social_border_radius', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons a').css('border-radius', newval+'px' );
+        } );
+    } );
+    api( 'responsive_header_icon_size_tablet', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_icon_size_tablet' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_icon_size_tablet">@media screen and ( max-width: 768px ) {#mobile-header .social-icons {font-size: ${to}px !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_header_social_border_radius_tablet', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_social_border_radius_tablet' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_border_radius_tablet">@media screen and ( max-width: 768px ) {#main-header .social-icons a {border-radius: ${to}px !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_header_social_border_size_tablet', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_header_social_border_size_tablet' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_header_social_border_size_tablet">@media screen and ( max-width: 768px ) {#main-header .social-icons a {border-size: ${to}px !important;}}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    api( 'responsive_footer_icon_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons').css('font-size', newval+'px' );
+        } );
+    } );
+    api( 'responsive_footer_social_border_size', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons a').css('border-width', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_social_border_radius', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons a').css('border-radius', newval+'px' );
+        } );
+    } );
+      
 } )( jQuery );

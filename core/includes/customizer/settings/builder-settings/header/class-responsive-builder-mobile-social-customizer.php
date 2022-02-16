@@ -305,6 +305,43 @@ if ( ! class_exists( 'Responsive_Mobile_Social_Customizer' ) ) :
 				)
 			);
 
+			$header_icon_size_tablet_label = esc_html__( 'Icon Size (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_icon_size_tablet', $header_icon_size_tablet_label, 'responsive_customizer_mobile_social', 90, 18, null, 100 );
+
+			//Social Icon Colors.
+			$header_social_icon_color_tablet_label = __( 'Icon Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_social_icon_tablet', $header_social_icon_color_tablet_label, 'responsive_customizer_mobile_social', 95, '#333', null );
+
+			$header_social_icon_hover_color_tablet_label = __( 'Icon Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_social_icon_hover_tablet', $header_social_icon_hover_color_tablet_label, 'responsive_customizer_mobile_social', 100, '#333', null );
+
+			$header_social_icon_background_color_tablet_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_social_icon_background_tablet', $header_social_icon_background_color_tablet_label, 'responsive_customizer_mobile_social', 105, '#fff', null );
+
+			$header_social_icon_background_hover_color_tablet_label = __( 'Background Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_social_icon_background_hover_tablet', $header_social_icon_background_hover_color_tablet_label, 'responsive_customizer_mobile_social', 110, '#fff', null );
+
+			$header_social_icon_border_color_tablet_label = __( 'Border Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_social_icon_border_tablet', $header_social_icon_border_color_tablet_label, 'responsive_customizer_mobile_social', 115, '#fff', null );
+
+			$header_social_icon_border_hover_color_tablet_label = __( 'Border Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_social_icon_border_hover_tablet', $header_social_icon_border_hover_color_tablet_label, 'responsive_customizer_mobile_social', 120, '#fff', null );
+
+			$header_social_border_style_tablet_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$header_social_border_style_tablet_label = __( 'Border Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_social_border_style_tablet', $header_social_border_style_tablet_label, 'responsive_customizer_mobile_social', 125, $header_social_border_style_tablet_choices, 'solid', null );
+
+			$header_social_border_size_tablet_label = esc_html__( 'Border Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_social_border_size_tablet', $header_social_border_size_tablet_label, 'responsive_customizer_mobile_social', 125, 1, null, 20, 1, 'postMessage' );
+
+			$header_social_border_radius_tablet_label = esc_html__( 'Border Radius', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_social_border_radius_tablet', $header_social_border_radius_tablet_label, 'responsive_customizer_mobile_social', 125, 0, null, 120, 1, 'postMessage' );
+
 		}
 
 	}
