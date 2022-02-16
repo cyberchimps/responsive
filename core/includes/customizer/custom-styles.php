@@ -2715,8 +2715,8 @@ function responsive_customizer_styles() {
 	// Search colors.
 	$header_search_color       = esc_html( get_theme_mod( 'responsive_header_search_color', '#333' ) );
 	$header_search_hover_color = esc_html( get_theme_mod( 'responsive_header_search_hover_color', '#333' ) );
-	$header_search_background_color       = esc_html( get_theme_mod( 'responsive_header_search_background_color', '#333' ) );
-	$header_search_background_hover_color = esc_html( get_theme_mod( 'responsive_header_search_background_hover_color', '#333' ) );
+	$header_search_background_color       = esc_html( get_theme_mod( 'responsive_header_search_background_color', '' ) );
+	$header_search_background_hover_color = esc_html( get_theme_mod( 'responsive_header_search_background_hover_color', '' ) );
 	
 	$custom_css               .= ".search-toggle-open-container .search-toggle-open * {
 		color: {$header_search_color};

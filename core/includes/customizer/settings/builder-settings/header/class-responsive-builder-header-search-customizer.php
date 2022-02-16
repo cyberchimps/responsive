@@ -108,10 +108,10 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'header_search_hover', $header_search_hover_color_label, 'responsive_customizer_header_search', 50, '#333', null );
 
 			$header_search_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_search_background', $header_search_background_color_label, 'responsive_customizer_header_search', 50, '#333', null );
+			responsive_color_control( $wp_customize, 'header_search_background', $header_search_background_color_label, 'responsive_customizer_header_search', 50, '', null );
 
 			$header_search_background_hover_color_label = __( 'Background Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_search_background_hover', $header_search_background_hover_color_label, 'responsive_customizer_header_search', 50, '#333', null );
+			responsive_color_control( $wp_customize, 'header_search_background_hover', $header_search_background_hover_color_label, 'responsive_customizer_header_search', 50, '', null );
 
 			if ( class_exists( 'woocommerce' ) ) {
 				$header_search_woo = __( 'Products Search only?', 'responsive' );

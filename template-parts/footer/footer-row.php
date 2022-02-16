@@ -31,7 +31,7 @@ $i                 = 0;
 			</div>
 		<?php } ?>
 		<div class="site-container">
-			<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap site-footer-row site-footer-row-columns-<?php echo esc_attr( get_theme_mod( 'responsive_footer_' . $row . '_columns' ) ); ?> site-footer-row-column-layout-<?php echo esc_attr( $desktop_layout ); ?> site-footer-row-tablet-column-layout-<?php echo esc_attr( $tablet_layout ); ?> site-footer-row-mobile-column-layout-<?php echo esc_attr( $mobile_layout ); ?> ft-ro-dir-<?php echo esc_attr( $desktop_direction ); ?> ft-ro-collapse-<?php echo esc_attr( $footer_collapse ); ?> ft-ro-t-dir-<?php echo esc_attr( $tablet_direction ); ?> ft-ro-m-dir-<?php echo esc_attr( $mobile_direction ); ?> ft-ro-lstyle-<?php echo esc_attr( $link_style ); ?>">
+			<div class="site-<?php echo esc_attr( $row ); ?>-footer-inner-wrap site-footer-row site-footer-row-columns-<?php echo esc_attr( $columns ); ?> site-footer-row-column-layout-<?php echo esc_attr( $desktop_layout ); ?> site-footer-row-tablet-column-layout-<?php echo esc_attr( $tablet_layout ); ?> site-footer-row-mobile-column-layout-<?php echo esc_attr( $mobile_layout ); ?> ft-ro-dir-<?php echo esc_attr( $desktop_direction ); ?> ft-ro-collapse-<?php echo esc_attr( $footer_collapse ); ?> ft-ro-t-dir-<?php echo esc_attr( $tablet_direction ); ?> ft-ro-m-dir-<?php echo esc_attr( $mobile_direction ); ?> ft-ro-lstyle-<?php echo esc_attr( $link_style ); ?>">
 				<?php
 
 				while ( $i++ < $columns ) {
