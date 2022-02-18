@@ -122,6 +122,10 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			$search_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 50, null, null, null, $search_padding_label );
 
+			// Margin (px).
+			$search_margin_label = __( 'Margin (px)', 'responsive' );
+			responsive_margin_control( $wp_customize, 'search', 'responsive_customizer_header_search', 55, null, null, null, $search_margin_label );
+			
 			$header_search_icon_size_desktop_label = esc_html__( 'Icon Size Desktop', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_desktop', $header_search_icon_size_desktop_label, 'responsive_customizer_header_search', 70, 18, null, 200, 1, 'postMessage' );
 

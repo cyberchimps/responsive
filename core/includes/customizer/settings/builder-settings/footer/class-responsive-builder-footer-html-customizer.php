@@ -119,6 +119,10 @@ if ( ! class_exists( 'Responsive_Footer_HTML_Customizer' ) ) :
 			$footer_html_vertical_align_mobile         = __( 'Content Vertical Align Mobile', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_html_vertical_align_mobile', $footer_html_vertical_align_mobile, 'responsive_customizer_footer_html', 45, $footer_html_vertical_align_mobile_choices, 'middle', null );
 
+			// Margin (px).
+			$footer_html_margin_label = __( 'Margin (px)', 'responsive' );
+			responsive_margin_control( $wp_customize, 'footer_html', 'responsive_customizer_footer_html', 50, 13, null, null, $footer_html_margin_label );
+			
 			$footer_html_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
 			responsive_separator_control( $wp_customize, 'footer_html_typography_options_separator', $footer_html_typography_options_label, 'responsive_customizer_footer_html', 100 );
 
