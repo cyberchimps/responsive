@@ -2436,33 +2436,48 @@ function responsive_customizer_styles() {
 		}
 	}';
 
-	// Search Padding.
+	// Search Padding and Margin.
 	$search_padding_right  = esc_html( get_theme_mod( 'responsive_search_right_padding', null ) );
 	$search_padding_left   = esc_html( get_theme_mod( 'responsive_search_left_padding', null ) );
 	$search_padding_top    = esc_html( get_theme_mod( 'responsive_search_top_padding', null ) );
 	$search_padding_bottom = esc_html( get_theme_mod( 'responsive_search_bottom_padding', null ) );
+	$search_margin_right  = esc_html( get_theme_mod( 'responsive_search_right_margin', null ) );
+	$search_margin_left   = esc_html( get_theme_mod( 'responsive_search_left_margin', null ) );
+	$search_margin_top    = esc_html( get_theme_mod( 'responsive_search_top_margin', null ) );
+	$search_margin_bottom = esc_html( get_theme_mod( 'responsive_search_bottom_margin', null ) );
 
 	$search_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_search_tablet_right_padding', null ) );
 	$search_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_search_tablet_left_padding', null ) );
 	$search_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_search_tablet_top_padding', null ) );
 	$search_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_search_tablet_bottom_padding', null ) );
+	$search_tablet_margin_right  = esc_html( get_theme_mod( 'responsive_search_tablet_right_margin', null ) );
+	$search_tablet_margin_left   = esc_html( get_theme_mod( 'responsive_search_tablet_left_margin', null ) );
+	$search_tablet_margin_top    = esc_html( get_theme_mod( 'responsive_search_tablet_top_margin', null ) );
+	$search_tablet_margin_bottom = esc_html( get_theme_mod( 'responsive_search_tablet_bottom_margin', null ) );
 
 	$search_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_search_mobile_right_padding', null ) );
 	$search_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_search_mobile_left_padding', null ) );
 	$search_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_search_mobile_top_padding', null ) );
 	$search_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_search_mobile_bottom_padding', null ) );
+	$search_mobile_margin_right  = esc_html( get_theme_mod( 'responsive_search_mobile_right_margin', null ) );
+	$search_mobile_margin_left   = esc_html( get_theme_mod( 'responsive_search_mobile_left_margin', null ) );
+	$search_mobile_margin_top    = esc_html( get_theme_mod( 'responsive_search_mobile_top_margin', null ) );
+	$search_mobile_margin_bottom = esc_html( get_theme_mod( 'responsive_search_mobile_bottom_margin', null ) );
 
 	$custom_css .= '.search-toggle-open-container .search-toggle-open {
 		padding: ' . responsive_spacing_css( $search_padding_top, $search_padding_right, $search_padding_bottom, $search_padding_left ) . ';
+		margin: ' . responsive_spacing_css( $search_margin_top, $search_margin_right, $search_margin_bottom, $search_margin_left ) . ';
 	}
 	@media screen and ( max-width: 992px ) {
 		.search-toggle-open-container .search-toggle-open {
 			padding: ' . responsive_spacing_css( $search_tablet_padding_top, $search_tablet_padding_right, $search_tablet_padding_bottom, $search_tablet_padding_left ) . ';
+			margin: ' . responsive_spacing_css( $search_tablet_margin_top, $search_tablet_margin_right, $search_tablet_margin_bottom, $search_tablet_margin_left ) . ';
 		}
 	}
 	@media screen and ( max-width: 576px ) {
 		.search-toggle-open-container .search-toggle-open {
 			padding: ' . responsive_spacing_css( $search_mobile_padding_top, $search_mobile_padding_right, $search_mobile_padding_bottom, $search_mobile_padding_left ) . ';
+			margin: ' . responsive_spacing_css( $search_mobile_margin_top, $search_mobile_margin_right, $search_mobile_margin_bottom, $search_mobile_margin_left ) . ';
 		}
 	}';
 
@@ -2715,10 +2730,34 @@ function responsive_customizer_styles() {
 	// Search colors.
 	$header_search_color       = esc_html( get_theme_mod( 'responsive_header_search_color', '#333' ) );
 	$header_search_hover_color = esc_html( get_theme_mod( 'responsive_header_search_hover_color', '#333' ) );
-	$header_search_background_color       = esc_html( get_theme_mod( 'responsive_header_search_background_color', '#333' ) );
-	$header_search_background_hover_color = esc_html( get_theme_mod( 'responsive_header_search_background_hover_color', '#333' ) );
+	$header_search_background_color       = esc_html( get_theme_mod( 'responsive_header_search_background_color', '' ) );
+	$header_search_background_hover_color = esc_html( get_theme_mod( 'responsive_header_search_background_hover_color', '' ) );
 	
-	$custom_css               .= ".search-toggle-open-container .search-toggle-open * {
+	// Site Title Color
+	$site_title_color       = esc_html( get_theme_mod( 'responsive_site_title_color', '#333' ) );
+	$site_title_hover_color = esc_html( get_theme_mod( 'responsive_site_title_hover_color', '#333' ) );
+	
+	// Trigger Colors
+	$trigger_color       = esc_html( get_theme_mod( 'responsive_trigger_color', '#333' ) );
+	$trigger_hover_color = esc_html( get_theme_mod( 'responsive_trigger_hover_color', '#333' ) );
+	$trigger_navigation_color       = esc_html( get_theme_mod( 'responsive_trigger_navigation_color', '' ) );
+	$trigger_navigation_hover_color = esc_html( get_theme_mod( 'responsive_trigger_navigation_hover_color', '' ) );
+	
+	$custom_css               .= "#main-header .site-branding .site-title {
+		color: {$site_title_color};
+	}
+	#main-header .site-branding .site-title:hover {
+		color: {$site_title_hover_color};
+	}
+	.mobile-toggle-open-container .menu-toggle-open {
+		color: {$trigger_color};
+		background-color: {$trigger_navigation_color};
+	}
+	.mobile-toggle-open-container .menu-toggle-open:hover {
+		color: {$trigger_hover_color};
+		background-color: {$trigger_navigation_hover_color};
+	}
+	.search-toggle-open-container .search-toggle-open * {
 		color: {$header_search_color};
 	}
 	.search-toggle-open-container .search-toggle-open:hover * {
@@ -3125,6 +3164,35 @@ function responsive_customizer_styles() {
 			background: {$footer_bottom_row_background_mobile_color};
 		}
 	}";
+
+	// Footer HTML Margin
+	$footer_html_margin_right  = esc_html( get_theme_mod( 'responsive_footer_html_right_margin', null ) );
+	$footer_html_margin_left   = esc_html( get_theme_mod( 'responsive_footer_html_left_margin', null ) );
+	$footer_html_margin_top    = esc_html( get_theme_mod( 'responsive_footer_html_top_margin', 13 ) );
+	$footer_html_margin_bottom = esc_html( get_theme_mod( 'responsive_footer_html_bottom_margin', 13 ) );
+	$footer_html_tablet_margin_right  = esc_html( get_theme_mod( 'responsive_footer_html_tablet_right_margin', null ) );
+	$footer_html_tablet_margin_left   = esc_html( get_theme_mod( 'responsive_footer_html_tablet_left_margin', null ) );
+	$footer_html_tablet_margin_top    = esc_html( get_theme_mod( 'responsive_footer_html_tablet_top_margin', 13 ) );
+	$footer_html_tablet_margin_bottom = esc_html( get_theme_mod( 'responsive_footer_html_tablet_bottom_margin', 13 ) );
+	$footer_html_mobile_margin_right  = esc_html( get_theme_mod( 'responsive_footer_html_mobile_right_margin', null ) );
+	$footer_html_mobile_margin_left   = esc_html( get_theme_mod( 'responsive_footer_html_mobile_left_margin', null ) );
+	$footer_html_mobile_margin_top    = esc_html( get_theme_mod( 'responsive_footer_html_mobile_top_margin', 13 ) );
+	$footer_html_mobile_margin_bottom = esc_html( get_theme_mod( 'responsive_footer_html_mobile_bottom_margin', 13 ) );
+	
+	$custom_css               .= '#colophon .footer-html {
+		color: {$footer_html_text_color};
+		margin: ' . responsive_spacing_css( $footer_html_margin_top, $footer_html_margin_right, $footer_html_margin_bottom, $footer_html_margin_left ) . ';
+	}
+	@media screen and ( max-width: 992px ) {
+		#colophon .footer-html {
+			margin: ' . responsive_spacing_css( $footer_html_tablet_margin_top, $footer_html_tablet_margin_right, $footer_html_tablet_margin_bottom, $footer_html_tablet_margin_left ) . ';
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		#colophon .footer-html {
+			margin: ' . responsive_spacing_css( $footer_html_mobile_margin_top, $footer_html_mobile_margin_right, $footer_html_mobile_margin_bottom, $footer_html_mobile_margin_left ) . ';
+		}
+	}';
 
 	$mobile_trigger_icon_size = esc_html( get_theme_mod( 'responsive_mobile_trigger_icon_size', 20 ) );
 

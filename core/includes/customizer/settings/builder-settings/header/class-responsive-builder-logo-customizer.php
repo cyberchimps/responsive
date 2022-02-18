@@ -77,6 +77,13 @@ if ( ! class_exists( 'Responsive_Logo_Customizer' ) ) :
 			$logo_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'logo', 'responsive_customizer_logo', 45, null, null, null, $logo_padding_label );
 
+			// Site Title Color.
+			$site_title_color_label = __( 'Site Title Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'site_title', $site_title_color_label, 'responsive_customizer_logo', 50, '#333', null );
+
+			$site_title_hover_color_label = __( 'Site Title Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'site_title_hover', $site_title_hover_color_label, 'responsive_customizer_logo', 50, '#333', null );
+
 			$site_title_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
 			responsive_separator_control( $wp_customize, 'site_title_typography_options_separator', $site_title_typography_options_label, 'responsive_customizer_logo', 100 );
 

@@ -71,6 +71,18 @@ if ( ! class_exists( 'Responsive_Header_Trigger_Customizer' ) ) :
 			$mobile_trigger_icon_size_label = esc_html__( 'Icon Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_trigger_icon_size', $mobile_trigger_icon_size_label, 'responsive_customizer_mobile_trigger', 25, 20, null, 100, 1, 'postMessage' );
 
+			// Trigger Colors.
+			$trigger_color_label = __( 'Trigger Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'trigger', $trigger_color_label, 'responsive_customizer_mobile_trigger', 30, '#333', null );
+
+			$trigger_hover_color_label = __( 'Trigger Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'trigger_hover', $trigger_hover_color_label, 'responsive_customizer_mobile_trigger', 30, '#333', null );
+
+			$trigger_navigation_color_label = __( 'Navigation Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'trigger_navigation', $trigger_navigation_color_label, 'responsive_customizer_mobile_trigger', 30, '', null );
+
+			$trigger_navigation_hover_color_label = __( 'Navigation Background Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'trigger_navigation_hover', $trigger_navigation_hover_color_label, 'responsive_customizer_mobile_trigger', 30, '', null );
 		}
 
 	}

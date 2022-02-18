@@ -2997,4 +2997,67 @@
 			}
 		});
 	});
+
+    api( 'responsive_site_title_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .site-branding .site-title').css('color', newval );
+        } );
+    } );
+    api( 'responsive_site_title_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_site_title_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_site_title_hover_color">#main-header .site-branding .site-title:hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+
+    api( 'responsive_trigger_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-toggle-open-container .menu-toggle-open').css('color', newval );
+        } );
+    } );
+    api( 'responsive_trigger_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_trigger_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_trigger_hover_color">.mobile-toggle-open-container .menu-toggle-open:hover {color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
+    
+    api( 'responsive_trigger_navigation_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-toggle-open-container .menu-toggle-open').css('background-color', newval );
+        } );
+    } );
+    api( 'responsive_trigger_navigation_hover_color', function( value ) {
+		value.bind( function( to ) {
+			var $child = $( '.customizer-responsive_trigger_navigation_hover_color' );
+			if ( to ) {
+				var style = `<style class="customizer-responsive_trigger_navigation_hover_color">.mobile-toggle-open-container .menu-toggle-open:hover {background-color: ${to} !important;}</style>`;
+				if ( $child.length ) {
+					$child.replaceWith( style );
+				} else {
+					$( 'head' ).append( style );
+				}
+			} else {
+				$child.remove();
+			}
+		});
+	});
 } )( jQuery );
