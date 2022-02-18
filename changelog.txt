@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(01/27/2022) = Fix - Version 4.7.2
+ [+] = Added = Compatibility with WordPress 5.9.
+
 (10/29/2021) = Fix - Version 4.7.1
 [*] = Changed = Changed the layout of the settings in the Main Menu section of the Header panel.
 [!] = Fixed = 'Mobile Menu Settings' in the Main Menu section of the Header panel are hidden on the desktop view.
