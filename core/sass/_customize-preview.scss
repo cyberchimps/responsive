@@ -1,0 +1,87 @@
+.primary-menu-container .customize-partial-edit-shortcut {
+    display:none;
+}
+.secondary-menu-container .customize-partial-edit-shortcut {
+    display:none;
+}
+.footer-menu-container .customize-partial-edit-shortcut {
+    display:none;
+}
+span.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header_desktop_items {
+    display: none;
+}
+.site-branding .site-title, .site-branding .site-description {
+	.customize-partial-edit-shortcut {
+		display: none !important;
+	}
+}
+.menu-toggle-open .customize-partial-edit-shortcut {
+    display: none;
+}
+.mobile-menu-container .customize-partial-edit-shortcut {
+    display:none;
+}
+.site-header-focus-item {
+    outline: 2px solid transparent;
+	position: relative;
+	transition: all 0.3s;
+	box-shadow: 0 2px 1px rgba(46,68,83,0);
+	.customize-partial-edit-shortcut{
+		opacity: 0;
+		left:0;
+		transition: all 0.3s;
+		button {
+			border-radius: 0;
+			border: 0;
+			box-shadow: none;
+		}
+	}
+}
+.site-header-focus-item:hover {
+    outline: 2px solid #319cc7!important;
+	box-shadow: 0 2px 1px rgba(46,68,83,.15);
+	> * > .customize-partial-edit-shortcut{
+		opacity: 1;
+	}
+}
+.site-footer-focus-item {
+    outline: 2px solid transparent;
+	position: relative;
+	transition: all 0.3s;
+	box-shadow: 0 2px 1px rgba(46,68,83,0);
+	.customize-partial-edit-shortcut{
+		opacity: 0;
+		left:0;
+		transition: all 0.3s;
+		button {
+			border-radius: 0;
+			border: 0;
+			box-shadow: none;
+		}
+	}
+}
+.site-footer-focus-item:hover {
+    outline: 2px solid #319cc7!important;
+	box-shadow: 0 2px 1px rgba(46,68,83,.15);
+	> * > .customize-partial-edit-shortcut{
+		opacity: 1;
+	}
+	> * > *:first-child > .customize-partial-edit-shortcut{
+		opacity: 1;
+	}
+}
+.site-header-row-container-inner > .customize-partial-edit-shortcut button {
+    left: 0;
+}
+.site-footer-row-container-inner > .customize-partial-edit-shortcut button {
+    left: 0;
+}
+.site-header-row-layout-contained .site-header-row-container-inner > .customize-partial-edit-shortcut button {
+    left: calc(-30px + -1.5rem);
+}
+.site-footer-row-layout-contained .site-footer-row-container-inner > .customize-partial-edit-shortcut button {
+    left: calc(-30px + -1.5rem);
+}
+#kt-scroll-up .customize-partial-edit-shortcut {
+    display: none;
+}
