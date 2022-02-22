@@ -5,13 +5,13 @@
  * @package responsive
  */
 
-$align        = get_theme_mod( 'footer_social_align', 'default' );
-$tablet_align = get_theme_mod( 'footer_social_align', 'default' );
-$mobile_align = get_theme_mod( 'footer_social_align', 'default' );
+$align        = get_theme_mod( 'responsive_footer_social_align_desktop', 'default' );
+$tablet_align = get_theme_mod( 'responsive_footer_social_align_tablet', 'default' );
+$mobile_align = get_theme_mod( 'responsive_footer_social_align_mobile', 'default' );
 
-$valign        = get_theme_mod( 'footer_social_vertical_align', 'default' );
-$tablet_valign = get_theme_mod( 'footer_social_vertical_align', 'default' );
-$mobile_valign = get_theme_mod( 'footer_social_vertical_align', 'default' );
+$valign        = get_theme_mod( 'responsive_footer_social_vertical_align_desktop', 'default' );
+$tablet_valign = get_theme_mod( 'responsive_footer_social_vertical_align_tablet', 'default' );
+$mobile_valign = get_theme_mod( 'responsive_footer_social_vertical_align_mobile', 'default' );
 if ( ! wp_style_is( 'responsive-header', 'enqueued' ) ) {
 	wp_enqueue_style( 'responsive-header' );
 }
