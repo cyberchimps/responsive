@@ -1176,6 +1176,54 @@ a.social-button.has-custom-image {
 	button[type="submit"]:hover ~ .responsive-search-icon-wrap {
 		color: #ffffff;
 	}
+	.search-form {
+		position: relative;
+		input[type="search"], input.search-field {
+			padding-right: 60px;
+			width:100%;
+		}
+		.search-submit[type="submit"] {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			color: transparent;
+			background: transparent;
+			z-index: 2;
+			width: 50px;
+			border: 0;
+			padding: 8px 12px 7px;
+			border-radius: 0;
+			box-shadow: none;
+			overflow: hidden;
+			&:hover, &:focus {
+				color: transparent;
+				background: transparent;
+				box-shadow: none;
+			}
+		}
+		.responsive-search-icon-wrap {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			width: 50px;
+			padding: 0;
+			text-align: center;
+			background: 0 0;
+			z-index: 3;
+			cursor: pointer;
+			pointer-events: none;
+			color: var(--global-palette6);
+			text-shadow: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.search-submit[type="submit"]:hover ~ .responsive-search-icon-wrap {
+			color: var(--global-palette4);
+		}
+	}
 }
 //Transparent Header
 @media screen and (max-width: $tablet-minus-query) {

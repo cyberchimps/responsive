@@ -112,6 +112,11 @@ module.exports = function(grunt) {
 					{
 						'core/includes/customizer/controls/builder/builder-controls.css':'core/includes/customizer/controls/builder/builder-controls.scss'
 					},
+
+					/* customize preview CSS */
+					{
+						'core/includes/customizer/controls/builder/customize-preview.css':'core/sass/customize-preview.scss'
+					},
 				]
 			}
 		},
@@ -189,7 +194,8 @@ module.exports = function(grunt) {
 					'core/css/gutenberg-editor-rtl.min.css':  'core/css/gutenberg-editor-rtl.css',
 					'core/css/icomoon/style.min.css': 'core/css/icomoon/style.css',
 					'core/css/icomoon/style-rtl.min.css': 'core/css/icomoon/style-rtl.css',
-					'core/includes/customizer/assets/min/css/builder-control.min.css':'core/includes/customizer/controls/builder/builder-controls.css'
+					'core/includes/customizer/assets/min/css/builder-control.min.css':'core/includes/customizer/controls/builder/builder-controls.css',
+					'core/includes/customizer/assets/min/css/customize-preview.min.css':'core/includes/customizer/controls/builder/customize-preview.css'
 				}
 			}
 		},
