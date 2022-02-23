@@ -26,6 +26,8 @@ RUN go get github.com/mailhog/MailHog && \
     ln $GOPATH/bin/mhsendmail /usr/bin/mail &&\
     ### Apache ###
     apt-get update && \
+    apt-get remove --purge apache2 apache2-data apache2-utils && \
+    rm -rf /etc/apache2 && \
     apt-get -y install apache2 && \
     chown -R gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/log/apache2 && \
     echo "include ${HOME}/gitpod-wordpress/conf/apache.conf" > /etc/apache2/apache2.conf && \
