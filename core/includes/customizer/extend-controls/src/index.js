@@ -15,6 +15,7 @@ import { BuilderControl } from './builder-layout/control';
 import { BuilderHeaderControl } from './builder-layout/builder-header-control'
 import { HeaderTypeButtonControl } from './header-type-button/control';
 import { TabsControl } from './tabs/control.js';
+import { EditorControl } from './editor/control.js';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
@@ -31,3 +32,4 @@ wp.customize.controlConstructor['responsive-builder'] = BuilderControl;
 // wp.customize.controlConstructor['responsive-builder-header-control'] = BuilderHeaderControl;
 wp.customize.controlConstructor['responsive-header-type-button'] = HeaderTypeButtonControl;
 wp.customize.controlConstructor['responsive-tab-control'] = TabsControl;
+wp.customize.controlConstructor['responsive_editor_control'] = EditorControl;

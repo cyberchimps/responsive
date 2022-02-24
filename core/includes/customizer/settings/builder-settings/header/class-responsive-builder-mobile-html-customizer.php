@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Mobile_HTML_Customizer' ) ) :
 
 			// Mobile HTML content.
 			$mobile_html_content = __( 'Mobile HTML content', 'responsive' );
-			responsive_text_control( $wp_customize, 'mobile_html_content', $mobile_html_content, 'responsive_customizer_mobile_html', 10, '<p>Enter HTML here!</p>', null, 'sanitize_text_field', 'textarea' );
+			responsive_editor_control( $wp_customize, 'mobile_html_content', $mobile_html_content, 'responsive_customizer_mobile_html', 10, '<p>Enter HTML here!</p>' );
 
 			$mobile_wpautop = __( 'Automatically Add Paragraphs (Mobile)', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'mobile_html_wpautop', $mobile_wpautop, 'responsive_customizer_mobile_html', 15, 1 );

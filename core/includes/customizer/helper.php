@@ -1856,6 +1856,48 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
 }
 
 /**
+ * [responsive_editor_control description]
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call      [description].
+ * @return void               [description].
+ */
+function responsive_editor_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'wp_kses_post', $transport = 'refresh' ) {
+
+	// Add Twitter Setting.
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => $sanitize_function,
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Editor_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'active_callback' => $active_call,
+				'label'           => $label,
+				'priority'        => $priority,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'type'            => 'responsive_editor_control',
+				'input_attrs'     => array(
+					'id' => 'responsive_' . $element,
+				),
+			)
+		)
+	);
+}
+
+/**
  * [responsive_select_control description].
  *
  * @param  [type] $wp_customize [description].

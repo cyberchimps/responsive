@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Footer_HTML_Customizer' ) ) :
 
 			// HTML content.
 			$footer_html_content = __( 'HTML & Text', 'responsive' );
-			responsive_text_control( $wp_customize, 'footer_html_content', $footer_html_content, 'responsive_customizer_footer_html', 10, '{copyright} {year} {site-title} {theme-credit}', null, 'sanitize_text_field', 'textarea' );
+			responsive_editor_control( $wp_customize, 'footer_html_content', $footer_html_content, 'responsive_customizer_footer_html', 10, '{copyright} {year} {site-title} {theme-credit}' );
 
 			// Footer HTML Link Style.
 			$footer_html_link_style_choices = array(
@@ -61,14 +61,13 @@ if ( ! class_exists( 'Responsive_Footer_HTML_Customizer' ) ) :
 
 			$footer_html_text_label = __( 'Text Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_html_text', $footer_html_text_label, 'responsive_customizer_footer_html', 15, '', null );
-			
+
 			$footer_html_link_label = __( 'Link Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_html_link', $footer_html_link_label, 'responsive_customizer_footer_html', 15, '', null );
-			
+
 			$footer_html_link_hover_label = __( 'Link Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_html_link_hover', $footer_html_link_hover_label, 'responsive_customizer_footer_html', 15, '', null );
 
-			
 			// Content Align.
 			$footer_html_align_desktop_choices = array(
 				'left'   => __( 'Left', 'responsive' ),
@@ -122,7 +121,7 @@ if ( ! class_exists( 'Responsive_Footer_HTML_Customizer' ) ) :
 			// Margin (px).
 			$footer_html_margin_label = __( 'Margin (px)', 'responsive' );
 			responsive_margin_control( $wp_customize, 'footer_html', 'responsive_customizer_footer_html', 50, 13, null, null, $footer_html_margin_label );
-			
+
 			$footer_html_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
 			responsive_separator_control( $wp_customize, 'footer_html_typography_options_separator', $footer_html_typography_options_label, 'responsive_customizer_footer_html', 100 );
 

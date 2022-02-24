@@ -290,6 +290,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'builder/class-responsive-customizer-builder-control.php';
 	require_once $dir . 'builder/class-responsive-customizer-blank-control.php';
 	require_once $dir . 'tabs/class-responsive-customizer-tab-control.php';
+	require_once $dir . 'editor/class-responsive-customizer-editor-control.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-main-notice-section.php';
@@ -311,6 +312,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Redirect_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Tab_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Editor_Control' );
 
 }
 
