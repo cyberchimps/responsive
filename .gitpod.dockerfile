@@ -1,4 +1,4 @@
-# Gitpod docker image for WordPress | https://github.com/luizbills/gitpod-wordpress
+# Gitpod docker image for WordPress | https://github.com/ratnesh-kadam/gitpod-wordpress
 # License: MIT (c) 2020 Luiz Paulo "Bills"
 # Version: 0.8
 FROM gitpod/workspace-mysql
@@ -10,7 +10,7 @@ ENV APACHE_DOCROOT="public_html"
 ### Setups, Node, NPM ###
 USER gitpod
 ADD https://api.wordpress.org/secret-key/1.1/salt?rnd=152634 /dev/null
-RUN git clone https://github.com/luizbills/gitpod-wordpress $HOME/gitpod-wordpress && \
+RUN git clone https://github.com/ratnesh-kadam/gitpod-wordpress $HOME/gitpod-wordpress && \
     cat $HOME/gitpod-wordpress/conf/.bashrc.sh >> $HOME/.bashrc && \
     . $HOME/.bashrc && \
     bash -c ". .nvm/nvm.sh && nvm install --lts"
