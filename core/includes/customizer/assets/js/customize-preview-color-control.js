@@ -1395,4 +1395,5 @@
             $('.woocommerce-ordering .orderby').css('background-color', newval );
         } );
     } );
+
 } )( jQuery );

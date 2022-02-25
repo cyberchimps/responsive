@@ -117,8 +117,7 @@
 })( jQuery );
 
 function get_associated_fonts(fontValue){
-	var weightObject = [], isStandardFont = false, weight;
-
+	var weightObject = [], isStandardFont = false, weight, isCustomFont = false, custom_fonts_data = false, missingCustomFont = false;
 	for (var propName in responsive.std_fonts) {
 		if (fontValue === propName) {
 			isStandardFont = true;
@@ -127,14 +126,35 @@ function get_associated_fonts(fontValue){
 			}
 		}
 	}
-
-	if ( ! isStandardFont ) {
-		for (var i = 0; i < JSON.stringify( responsive.googleFonts[fontValue][0].length ); i++) {
-			weight = JSON.stringify( responsive.googleFonts[fontValue][0][i] ).replace( /"/g, '' );
-			if ( ! weight.includes( 'italic' )) {
-				weightObject.push( weight );
+	if ( ! isStandardFont && ! isCustomFont ) {
+		if ( responsive.googleFonts[fontValue] == undefined ) {
+			missingCustomFont = true;
+		}else{
+			for (var i = 0; i < JSON.stringify( responsive.googleFonts[fontValue][0].length ); i++) {
+				weight = JSON.stringify( responsive.googleFonts[fontValue][0][i] ).replace( /"/g, '' );
+				if ( ! weight.includes( 'italic' )) {
+					weightObject.push( weight );
+				}
 			}
 		}
+		
+	}
+	if ( missingCustomFont ) {
+		( function( $ ) {
+			var api = wp.customize;
+			$( '.responsive-font-family-select' ).each(
+				function(e) {
+					var optionName;
+					optionName = $( this ).data( 'name' );
+					var select = api.control( optionName ).container.find( 'select' ),
+					link   = select.data( 'customize-setting-link' ),
+					value = select.data( 'value' );
+					if(fontValue  === value ){
+						api( link ).set('');
+					}
+				}
+			);
+		})( jQuery );
 	}
 
 	return weightObject;
