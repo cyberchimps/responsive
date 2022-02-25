@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <body <?php body_class(); ?> <?php responsive_schema_markup( 'body' ); ?> >
 	<?php wp_body_open(); ?>
-	<?php Responsive\responsive_header(); // before header hook. ?>
+	<?php // Responsive\responsive_header(); // before header hook. ?>
 	<div class="skip-container cf">
 		<a class="skip-link screen-reader-text focusable" href="#primary"><?php esc_html_e( '&darr; Skip to Main Content', 'responsive' ); ?></a>
 	</div><!-- .skip-container -->
@@ -61,8 +61,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 			Responsive\responsive_custom_header();
 
 			if ( ! has_action( 'responsive_custom_header' ) ) {
+				if ( get_option( 'is-header-footer-builder' ) ) {
+					/**
+					 * Responsive before header hook.
+					 */
+					do_action( 'responsive_before_header' );
 
-				?>
+					/**
+					 * Responsive header hook.
+					 */
+					Responsive\responsive_header();
+
+					/**
+					 * Responsive after header hook.
+					 */
+					do_action( 'responsive_after_header' );
+				} else {
+					?>
 
 					<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
 						<div class="container">
@@ -86,7 +101,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</div>
 					</header>
 
-				<?php
+					<?php
+				}
 			}
 		}
 		Responsive\responsive_header_bottom();

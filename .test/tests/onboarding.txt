@@ -1,0 +1,10 @@
+tests/acceptance/AddwebsiteCest.php
+tests/acceptance/CreatePlanRestrictionCest.php
+tests/acceptance/EmailReportsCest.php
+tests/acceptance/ExistingUserAccountCest.php
+tests/acceptance/LTDPlanTestCest.php
+tests/acceptance/OnboardingExperienceTestsCest.php
+tests/acceptance/PlanChangeTestsCest.php
+tests/acceptance/PlanRestrictionForPageviewCest.php
+tests/acceptance/SignUpTestsCest.php
+

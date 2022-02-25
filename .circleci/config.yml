@@ -1,0 +1,329 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+workflows:
+  version: 2.1
+  main:
+    jobs:
+      # Support PHP Versions
+      # http://php.net/supported-versions.php
+      - php73-phpcs: # Will be deprecated on 30 Nov 2020
+          filters:
+            branches:
+              only: master
+      - unit-tests:
+          filters:
+            branches:
+              only: master
+      - theme-check:
+          filters:
+            branches:
+              only: master
+      - automation-test:
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - php73-phpcs
+            - unit-tests
+            - theme-check
+          filters:
+            tags:
+              only: /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))*)?(\+[0-9-]+(\.[0-9]+)*)?/ # Run on semantic version tags only
+            branches:
+              only: master
+
+version: 2.1
+jobs:
+  php73-phpcs:
+    docker:
+      - image: circleci/php:7.3.8
+    steps:
+      - checkout
+      - run:
+          name: "Setup Environment Variables"
+          command: |
+            echo "export PATH=$HOME/.composer/vendor/bin:$PATH" >> $BASH_ENV
+            source /home/circleci/.bashrc
+      - run:
+          name: "Install Dependencies"
+          command: |
+            composer global require wp-coding-standards/wpcs
+            phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+      - run:
+          name: "Run PHPCS"
+          command: phpcs --standard=phpcs.xml --extensions=php --colors -s -p -v .
+
+  unit-tests:
+    docker:
+      - image: circleci/php:7.3.8-apache-node-browsers
+      - image: circleci/mysql:5.7
+    steps:
+      - checkout
+      - run:
+          # Our primary container isn't MYSQL so run a sleep command until it's ready.
+          name: Waiting for MySQL to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z 127.0.0.1 3306 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for MySQL && exit 1
+      - run:
+          name: Update hosts
+          command: echo 127.0.0.1 responsive.test | sudo tee -a /etc/hosts
+      - run:
+          name: Update npm
+          command: sudo npm install -g npm@latest
+      - run:
+          name: Install rsync
+          command: sudo apt install rsync
+      - run:
+          name: Install Code Climate test reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+      - run:
+          name: Install WPCLI
+          command: |
+            curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+            chmod +x wp-cli.phar
+            sudo mv wp-cli.phar /usr/local/bin/wp
+      - run:
+          name: Install gettext
+          command: sudo apt-get install gettext
+      - run:
+          name: Install Subversion
+          command: sudo apt-get install subversion
+      - run:
+          name: Setup WordPress site
+          command: bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
+      - run:
+          name: Install Composer packages
+          command: composer install
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install node packages
+          command: npm install
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Build the Responsive Theme
+          command: npm run build
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - run:
+          name: "Run PHPUnit - Single Site - Generate Coverage Reports"
+          command: composer run test -- --coverage-html=/tmp/artifacts/code-coverage/phpunit/html --log-junit=/tmp/artifacts/code-coverage/phpunit/results.xml --coverage-clover=clover.xml
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - run:
+          name: "Deploy Coverage to Code Climate"
+          command: ./cc-test-reporter after-build -t clover --exit-code $?
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - store_artifacts:
+          path: /tmp/artifacts/code-coverage/
+          destination: phpunit-coverage
+      - store_test_results:
+          path: /tmp/artifacts/code-coverage/
+
+  theme-check:
+    docker:
+      - image: circleci/php:7.3.8-apache-node-browsers
+      - image: circleci/mysql:5.7
+    steps:
+      - checkout
+      - run:
+          # Our primary container isn't MYSQL so run a sleep command until it's ready.
+          name: Waiting for MySQL to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z 127.0.0.1 3306 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for MySQL && exit 1
+      - run:
+          name: Update npm
+          command: sudo npm install -g npm@latest
+      - run:
+          name: Install rsync
+          command: sudo apt install rsync
+      - run:
+          name: Install gettext
+          command: sudo apt-get install gettext
+      - run:
+          name: Install Grunt.js
+          command: sudo npm install -g grunt-cli
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install node packages
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Install WPCLI
+          command: |
+            curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+            chmod +x wp-cli.phar
+            sudo mv wp-cli.phar /usr/local/bin/wp
+      - run:
+          name: Build the Responsive Theme
+          command: npm run build
+      - run:
+          name: Install Subversion
+          command: sudo apt-get install subversion
+      - run:
+          name: Setup WordPress site and install the Theme Check package
+          command: bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
+      - run:
+          name: Run theme check
+          command: wp themecheck --theme=responsive --no-interactive --path=/tmp/wordpress
+
+  deploy:
+    docker:
+      - image: circleci/golang:latest-node-browsers-legacy
+    steps:
+      - checkout
+      - run:
+          name: Update npm
+          command: sudo npm install -g npm@latest
+      - run:
+          name: Install Grunt.js
+          command: sudo npm install -g grunt-cli
+      - run:
+          name: Install PHP
+          command: sudo apt-get install php libapache2-mod-php php-mbstring
+      - run:
+          name: Install gettext
+          command: sudo apt-get install gettext
+      - run:
+          name: Install WPCLI
+          command: |
+            curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+            chmod +x wp-cli.phar
+            sudo mv wp-cli.phar /usr/local/bin/wp
+      - run:
+          name: Install rsync
+          command: sudo apt install rsync
+      - run:
+          name: Install node packages
+          command: npm install
+      - run:
+          name: Build the Responsive Theme
+          command: |
+            npm run build
+            mkdir -p responsive
+            mkdir -p /tmp/artifacts
+            rsync -av --exclude-from ~/project/.distignore --delete ~/project/. ./responsive
+            rm -rf responsive/languages
+            zip -r /tmp/artifacts/responsive.zip ./responsive
+      - store_artifacts:
+          path: /tmp/artifacts
+  automation-test:
+    docker:
+      - image: circleci/php:7.3.8-apache-node-browsers
+      - image: circleci/mysql:5.7
+    steps:
+      - checkout
+      - run:
+          # Our primary container isn't MYSQL so run a sleep command until it's ready.
+          name: Waiting for MySQL to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z 127.0.0.1 3306 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for MySQL && exit 1
+      - run:
+          name: Update hosts
+          command: echo 127.0.0.1 responsive.test | sudo tee -a /etc/hosts
+      - run:
+          name: Update npm
+          command: sudo npm install -g npm@latest
+      - run:
+          name: Install MariaDB
+          command: |
+            sudo apt-get update
+            sudo apt-get install mariadb-client
+      - run:
+          name: Install rsync
+          command: sudo apt install rsync
+      - run:
+          name: Install Code Climate test reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+      - run:
+          name: Install WPCLI
+          command: |
+            curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+            chmod +x wp-cli.phar
+            sudo mv wp-cli.phar /usr/local/bin/wp
+      - run:
+          name: Install gettext
+          command: sudo apt-get install gettext
+      - run:
+          name: Install Subversion
+          command: sudo apt-get install subversion
+      - run:
+          name: Setup WordPress site
+          command: bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
+      - run:
+          name: Install Composer packages
+          command: composer install
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install node packages
+          command: npm install
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Build the Responsive Theme
+          command: npm run build
+          working_directory: /tmp/wordpress/wp-content/themes/responsive
+      - run:
+          name: "Setup custom environment variables // its your workflow step"
+          command: |
+            echo 'export LT_USERNAME="hellowpeka"' >> $BASH_ENV
+      - run:
+          name: "Setup custom environment variables"
+          command: |
+            echo 'export LT_ACCESS_KEY="mwkQv0Y7UbvhwCgc1NftL3E0z2TOgK6rxSNvAP5TQICjTI9rrT"' >> $BASH_ENV
+      - run: # Validating your above mentioned environment variables
+          name: "Here is the LT_Username : "
+          command: echo ${LT_USERNAME}
+      - run:
+          name: Install Composer packages
+          command: composer install
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Composer packages
+          command: vendor/bin/codecept build
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
+      - run:
+          name: Run Acceptance Test cases
+          command: vendor/bin/codecept run acceptance
+          working_directory: /tmp/wordpress/wp-content/themes/responsive/tests
