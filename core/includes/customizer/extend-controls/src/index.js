@@ -1,3 +1,4 @@
+import { Base } from './customizer.js';
 import { responsiveCore } from './core/control';
 import { responsiveSortable } from './sortable/control';
 import { responsiveSlider } from './slider/control';
@@ -10,6 +11,11 @@ import { responsiveTypography } from './typography/control';
 import { responsiveDimensions } from './dimensions/control';
 import { responsiveColor } from './color/control';
 import { responsiveRedirect} from './redirect/control';
+import { BuilderControl } from './builder-layout/control';
+import { BuilderHeaderControl } from './builder-layout/builder-header-control'
+import { HeaderTypeButtonControl } from './header-type-button/control';
+import { TabsControl } from './tabs/control.js';
+import { EditorControl } from './editor/control.js';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
@@ -22,3 +28,8 @@ wp.customize.controlConstructor['responsive-typography'] = responsiveTypography;
 wp.customize.controlConstructor['responsive-dimensions'] = responsiveDimensions;
 wp.customize.controlConstructor['alpha-color'] = responsiveColor;
 wp.customize.controlConstructor['responsive-redirect'] = responsiveRedirect;
+wp.customize.controlConstructor['responsive-builder'] = BuilderControl;
+// wp.customize.controlConstructor['responsive-builder-header-control'] = BuilderHeaderControl;
+wp.customize.controlConstructor['responsive-header-type-button'] = HeaderTypeButtonControl;
+wp.customize.controlConstructor['responsive-tab-control'] = TabsControl;
+wp.customize.controlConstructor['responsive_editor_control'] = EditorControl;

@@ -148,10 +148,15 @@ function responsive_customize_preview_js() {
 	wp_enqueue_script( 'responsive_theme_customizer_color', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-color-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_checkbox', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-checkbox-control.js', array( 'customize-preview', 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_padding', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-padding-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+	wp_enqueue_script( 'responsive_theme_customizer_margin', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-margin-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_number', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-number-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_drag_number', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-drag-number-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_select', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-select-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'responsive_theme_customizer_text', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-text-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
+	wp_localize_script( 'responsive_theme_customizer_color', 'responsive', array( 'is_header_footer_builder' => get_option( 'is-header-footer-builder' ) ) );
+	wp_localize_script( 'responsive_theme_customizer_padding', 'responsiveBuilder', array( 'is_header_footer_builder' => get_option( 'is-header-footer-builder' ) ) );
+	wp_enqueue_style( 'responsive-customizer-preview', get_template_directory_uri() . '/core/includes/customizer/assets/min/css/customize-preview.min.css', false, RESPONSIVE_THEME_VERSION );
+
 }
 
 /**
@@ -159,7 +164,10 @@ function responsive_customize_preview_js() {
  */
 function responsive_register_options() {
 	// Var.
-	$dir = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
+	$dir              = RESPONSIVE_THEME_DIR . 'core/includes/customizer/settings/';
+	$builder_settings = 'builder-settings/';
+	$header_settings  = $builder_settings . 'header/';
+	$footer_settings  = $builder_settings . 'footer/';
 	require get_template_directory() . '/admin/class-responsive-plugin-install-helper.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-abstract-main.php';
@@ -171,26 +179,17 @@ function responsive_register_options() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php';
 
 	// Customizer files array.
-	$files = array(
+	$files                   = array(
 		'class-responsive-panel',
 		'class-responsive-site-layouts-customizer',
 		'class-responsive-site-color-palettes-scheme-customizer',
 		'class-responsive-site-colors-customizer',
 		'class-responsive-site-typography-customizer',
-		'class-responsive-header-layout-customizer',
-		'class-responsive-header-title-tagline-customizer',
-		'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-scripts-customizer',
-		'class-responsive-header-menu-layouts-customizer',
-		'class-responsive-content-header-colors-customizer',
-		'class-responsive-content-header-layout-customizer',
-		'class-responsive-content-header-typography-customizer',
 		'class-responsive-blog-layout-customizer',
 		'class-responsive-single-blog-layout-customizer',
 		'class-responsive-page-content-customizer',
-		'class-responsive-footer-layout-customizer',
-		'class-responsive-footer-colors-customizer',
 		'class-responsive-footer-scripts-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
@@ -200,9 +199,60 @@ function responsive_register_options() {
 		'class-responsive-scroll-to-top-customizer',
 		'class-responsive-buttons-customizer',
 		'class-responsive-form-fields-customizer',
-		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
 	);
+
+	$old_header_footer_files = array(
+		'class-responsive-header-layout-customizer',
+		'class-responsive-header-title-tagline-customizer',
+		'class-responsive-header-colors-customizer',
+		'class-responsive-header-menu-layouts-customizer',
+		'class-responsive-content-header-colors-customizer',
+		'class-responsive-content-header-layout-customizer',
+		'class-responsive-content-header-typography-customizer',
+		'class-responsive-header-widgets-customizer',
+		'class-responsive-footer-layout-customizer',
+		'class-responsive-footer-colors-customizer',
+	);
+
+	$builder_files           = array(
+		$builder_settings . 'class-responsive-header-footer-builder',
+		$header_settings . 'class-responsive-builder-primary-navigation-customizer',
+		$header_settings . 'class-responsive-builder-secondary-navigation-customizer',
+		$header_settings . 'class-responsive-builder-logo-customizer',
+		$header_settings . 'class-responsive-builder-social-customizer',
+		$header_settings . 'class-responsive-builder-mobile-social-customizer',
+		$header_settings . 'class-responsive-builder-header-button-customizer',
+		$header_settings . 'class-responsive-builder-mobile-header-button-customizer',
+		$header_settings . 'class-responsive-builder-header-trigger-customizer',
+		$header_settings . 'class-responsive-builder-header-popup-customizer',
+		$header_settings . 'class-responsive-builder-header-search-customizer',
+		$header_settings . 'class-responsive-builder-header-html-customizer',
+		$header_settings . 'class-responsive-builder-mobile-html-customizer',
+		$header_settings . 'class-responsive-builder-top-row',
+		$header_settings . 'class-responsive-builder-main-row',
+		$header_settings . 'class-responsive-builder-bottom-row',
+		$header_settings . 'class-responsive-builder-header-cart-customizer',
+		$header_settings . 'class-responsive-builder-mobile-cart-customizer',
+		$footer_settings . 'class-responsive-builder-footer-html-customizer',
+		$footer_settings . 'class-responsive-builder-footer-navigation-customizer',
+		$footer_settings . 'class-responsive-builder-footer-social-customizer',
+		$footer_settings . 'class-responsive-builder-footer-bottom-row',
+		$footer_settings . 'class-responsive-builder-footer-middle-row',
+		$footer_settings . 'class-responsive-builder-footer-top-row',
+		$footer_settings . 'class-responsive-builder-footer-widget1-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget2-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget3-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget4-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget5-customizer',
+		$footer_settings . 'class-responsive-builder-footer-widget6-customizer',
+	);
+
+	if ( get_option( 'is-header-footer-builder' ) ) {
+		$files = array_merge( $files, $builder_files );
+	} else {
+		$files = array_merge( $files, $old_header_footer_files );
+	}
 
 	foreach ( $files as $key ) {
 
@@ -237,6 +287,10 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'select/class-responsive-customizer-responsive-select-control.php';
 	require_once $dir . 'checkbox/class-responsive-customizer-responsive-checkbox-control.php';
 	require_once $dir . 'redirect/class-responsive-customizer-redirect-control.php';
+	require_once $dir . 'builder/class-responsive-customizer-builder-control.php';
+	require_once $dir . 'builder/class-responsive-customizer-blank-control.php';
+	require_once $dir . 'tabs/class-responsive-customizer-tab-control.php';
+	require_once $dir . 'editor/class-responsive-customizer-editor-control.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-main-notice-section.php';
@@ -256,6 +310,9 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Select_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Checkbox_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Redirect_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Tab_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Editor_Control' );
 
 }
 
@@ -281,7 +338,11 @@ function responsive_custom_customize_enqueue() {
 			'wp-element',
 			'wp-media-utils',
 			'wp-block-editor',
+			'jquery',
+			'customize-controls',
+			'wp-edit-post',
 		);
+
 		if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 			wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
 		} else {
@@ -306,7 +367,7 @@ function responsive_tooltip_script() {
 	$output .= '
 	        	wp.customize.bind(\'ready\', function() {
 	            	wp.customize.control.each(function(ctrl, i) {
-	                	var desc = ctrl.container.find(".customize-control-description");
+	                	var desc = ctrl.container.find(".customize-control-description:not(.hf-builder)");
 	                	if( desc.length) {
 	                    	var title 		= ctrl.container.find(".customize-control-title");
 	                    	var li_wrapper 	= desc.closest("li");
