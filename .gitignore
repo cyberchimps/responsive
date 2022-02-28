@@ -57,3 +57,4 @@ jenkincodeception/vendor
 
 tests/tests/_output/
 .test/tests/_output/
+*.sql
