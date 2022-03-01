@@ -34,10 +34,15 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 ?>
 <form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label class="screen-reader-text" for="s"><?php esc_html_e( 'Search for:', 'responsive' ); ?></label>
-	<div class="res-search-wrapper">
-	<input type="search" class="field" name="s" id="s" placeholder="<?php esc_attr_e( 'Search here &hellip;', 'responsive' ); ?>" />
-	<button type="submit" class="search-submit" value="Search">	<span class="res-search-icon icon-search"></span></button>
-</div>
+	<?php
+		$is_header_footer_builder = get_option( 'is-header-footer-builder' );
+		echo ! $is_header_footer_builder ? '<div class="res-search-wrapper">' : '';
+	?>
+	<input type="search" class="<?php echo $is_header_footer_builder ? 'search-' : '';?>field"  name="s" id="s" placeholder="<?php esc_attr_e( 'Search here &hellip;', 'responsive' ); ?>" />
+	<?php
+	$markup = '<input type="submit" class="search-submit" value="Search"><div class="responsive-search-icon-wrap">' . get_icon( 'search', '', false ) . '</div>';
+		echo ! $is_header_footer_builder ? '<button type="submit" class="search-submit" value="Search">	<span class="res-search-icon icon-search"></span></button></div>' : $markup;
+	?>
 </form>
 <?php
 if ( class_exists( 'Responsive_Addons_Pro' ) ) {

@@ -23,7 +23,11 @@ function setup() {
 	};
 
 	add_action( 'widgets_init', $n( 'responsive_remove_recent_comments_style' ) );
-	add_filter( 'wp_page_menu', $n( 'responsive_wp_page_menu' ) );
+
+	if ( ! get_option( 'is-header-footer-builder' ) ) {
+		add_filter( 'wp_page_menu', $n( 'responsive_wp_page_menu' ) );
+	}
+
 	add_filter( 'wp_nav_menu_items', $n( 'responsive_search_icon' ), 99, 2 );
 
 	add_filter( 'gallery_style', $n( 'responsive_remove_gallery_css' ) );

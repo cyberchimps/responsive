@@ -63,7 +63,7 @@ if ( ! class_exists( 'Responsive_Header_Title_Tagline_Customizer' ) ) :
 			 * Site Title Heading.
 			 */
 			$site_title_separator_label = esc_html__( 'Site Title Typography', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_site_title_separator', $site_title_separator_label, 'responsive_header_title', 15 );
+			responsive_separator_control( $wp_customize, 'header_site_title_separator', $site_title_separator_label, 'responsive_header_title', 10 );
 
 			/**
 			 * Section for tagline.
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Responsive_Header_Title_Tagline_Customizer' ) ) :
 			 * Site Tagline Heading.
 			 */
 			$site_tagline_separator_label = esc_html__( 'Site Tagline Typography', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_site_tagline_separator', $site_tagline_separator_label, 'responsive_header_tagline', 15 );
+			responsive_separator_control( $wp_customize, 'header_site_tagline_separator', $site_tagline_separator_label, 'responsive_header_tagline', 10 );
 
 		}
 	}

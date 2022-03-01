@@ -8,9 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(02/24/2022) = Fix - Version 4.7.3
+(02/22/2022) = Fix - Version 4.7.3
  [!] = Fixed = Typography missing on selected custom font deletion or Responsive Pro deactivation.
- 
+
 (01/27/2022) = Fix - Version 4.7.2
  [+] = Added = Compatibility with WordPress 5.9.
 

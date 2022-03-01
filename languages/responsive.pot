@@ -1,14 +1,14 @@
-# <!=Copyright (C) 2022 CyberChimps
+# <!=Copyright (C) 2021 CyberChimps
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.7.3\n"
+"Project-Id-Version: Responsive 4.7.1\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2022-02-24 06:53:24+00:00\n"
+"POT-Creation-Date: 2021-11-18 10:28:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: CyberChimps <support@cyberchimps.com>\n"
 "Language-Team: CyberChimps Translate <support@cyberchimps.com>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
@@ -423,6 +423,8 @@ msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:50
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-cart-colors-customizer.php:70
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:97
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:212
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:309
 msgid "Button"
 msgstr ""
@@ -612,6 +614,13 @@ msgid "Content Aligmnment"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:84
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:65
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:73
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:81
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:53
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:61
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:69
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:81
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:152
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:158
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:284
@@ -631,6 +640,16 @@ msgstr ""
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:101
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:105
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:109
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:64
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:72
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:80
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:52
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:60
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:68
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:75
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:75
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:64
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:80
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:150
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:157
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:172
@@ -670,6 +689,16 @@ msgstr ""
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:99
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:103
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:107
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:66
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:74
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:82
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:54
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:62
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:70
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:76
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:76
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:63
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:82
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:151
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:156
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:173
@@ -735,6 +764,8 @@ msgid "Sale Notification"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:123
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:66
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:66
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:73
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:83
 msgid "None"
@@ -742,6 +773,8 @@ msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-shop-layout-customizer.php:124
 #: core/includes/customizer/controls/typography/class-responsive-customizer-typography-control.php:71
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:54
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-trigger-customizer.php:52
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:143
 #: core/includes/customizer/settings/class-responsive-page-content-customizer.php:96
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:98
@@ -878,6 +911,8 @@ msgid "Display"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/customizer/settings/class-responsive-woocommerce-single-product-layout-customizer.php:113
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:63
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:327
 msgid "Hide"
 msgstr ""
 
@@ -926,6 +961,8 @@ msgid "Add To Cart Font Hover: Color"
 msgstr ""
 
 #: core/includes/compatibility/woocommerce/woocommerce-helper.php:189
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:113
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:44
 msgid "Cart"
 msgstr ""
 
@@ -940,13 +977,27 @@ msgstr ""
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:98
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:102
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:106
-#: footer.php:112
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:89
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:97
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:105
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:77
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:85
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:93
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:90
+#: footer.php:115
 msgid "Top"
 msgstr ""
 
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:100
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:104
 #: core/includes/customizer/controls/dimensions/class-responsive-customizer-dimensions-control.php:108
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:91
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:99
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:107
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:79
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:87
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:95
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:92
 msgid "Bottom"
 msgstr ""
 
@@ -1129,6 +1180,1243 @@ msgstr ""
 msgid "Read More &raquo;"
 msgstr ""
 
+#: core/includes/customizer/helper.php:2019
+#: core/includes/customizer/helper.php:2027
+#: core/includes/customizer/helper.php:2059
+msgid "Dark Mode"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2035
+#: core/includes/customizer/helper.php:2043
+#: core/includes/customizer/helper.php:2051
+msgid "Light Mode"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2067
+msgid "Settings"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2075
+#: core/includes/starter-content.php:35 loop-no-posts.php:42
+#. translators: %s: link
+msgid "Home"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2083
+#: core/includes/customizer/helper.php:2091
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:93
+msgid "Search"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2099
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:74
+msgid "Zoom In"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2107
+msgid "Bag"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2115
+#: core/includes/customizer/helper.php:2123
+#: core/includes/customizer/helper.php:2131
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:92
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:92
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:238
+#: core/includes/functions-extensions.php:366
+msgid "Facebook"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2139
+#: core/includes/customizer/helper.php:2147
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:71
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:71
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:217
+#: core/includes/functions-extensions.php:365
+msgid "Twitter"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2155
+msgid "TikTok"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2163
+msgid "Discord"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2172
+#: core/includes/customizer/helper.php:2180
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:176
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:176
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:322
+#: core/includes/functions-extensions.php:371
+msgid "Instagram"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2188
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:239
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:239
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:385
+#: core/includes/functions-extensions.php:374
+msgid "Vimeo"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2196
+#: core/includes/customizer/helper.php:2204
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:134
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:134
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:280
+#: core/includes/functions-extensions.php:368
+msgid "YouTube"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2212
+#: core/includes/customizer/helper.php:2220
+msgid "Github"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2228
+#: core/includes/customizer/helper.php:2236
+#: core/includes/customizer/helper.php:2533
+msgid "RSS"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2244
+msgid "Facebook Group"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2252
+msgid "Dribbble"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2260
+msgid "Xing"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2268
+msgid "WordPress"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2276
+msgid "WhatsApp"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2284
+msgid "VK"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2292
+msgid "Tumblr"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2300
+#: core/includes/customizer/helper.php:2308
+msgid "Reddit"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2316
+msgid "Patreon"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2325
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:77
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:77
+msgid "Medium"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2333
+msgid "Behance"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2341
+msgid "Anchor"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2349
+#: core/includes/customizer/helper.php:2357
+msgid "SoundCloud"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2365
+#: core/includes/customizer/helper.php:2373
+#: core/includes/customizer/helper.php:2381
+#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:832
+#: core/includes/functions-extensions.php:376
+msgid "Email"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2389
+#: core/includes/customizer/helper.php:2397
+#: core/includes/customizer/helper.php:2405
+msgid "Phone"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2413
+msgid "Google Reviews"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2421
+#: core/includes/customizer/helper.php:2429
+msgid "Telegram"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2437
+msgid "Trip Advisor"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2445
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:260
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:260
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:406
+msgid "Yelp"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2453
+msgid "User"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2461
+#: core/includes/customizer/helper.php:2469
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:219
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:174
+msgid "Comments"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2477
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:218
+#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:173
+msgid "Categories"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2485
+#: core/includes/customizer/helper.php:2493
+msgid "Grid"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2501
+msgid "List"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2509
+#: core/includes/customizer/helper.php:2517
+#: core/includes/customizer/helper.php:2525
+msgid "Account"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2541
+#: core/includes/customizer/helper.php:2549
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:197
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:197
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:343
+#: core/includes/functions-extensions.php:372
+msgid "Pinterest"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2557
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:87
+#: core/includes/template-functions/header-functions.php:25
+msgid "Mobile"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2565
+#: core/includes/customizer/helper.php:2573
+#: core/includes/customizer/helper.php:2581
+msgid "Hours"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2589
+#: core/includes/customizer/helper.php:2597
+#: core/includes/customizer/helper.php:2605
+msgid "Location"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2613
+msgid "Envelop"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2621
+#: core/includes/customizer/helper.php:2629
+msgid "Linkedin"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2637
+msgid "Goodreads"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2645
+msgid "Amazon"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2655
+msgid "BookBub"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2663
+msgid "Quotes"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2671
+#: core/includes/customizer/helper.php:2695 home.php:69
+msgid "Previous"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2679 home.php:70
+msgid "Next"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2687
+msgid "Continue"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2703
+msgid "Expand"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2711
+#: core/includes/customizer/helper.php:2719
+#: core/includes/customizer/helper.php:2727
+#: core/includes/customizer/helper.php:2735
+msgid "Arrow Up"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2743
+#: core/includes/customizer/helper.php:2751
+#: core/includes/customizer/helper.php:2759
+msgid "Toggle Menu"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2767
+#: core/includes/customizer/helper.php:2775
+msgid "Filter"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2783
+#: core/includes/customizer/helper.php:2791
+#: core/includes/customizer/helper.php:2799
+msgid "Toggle Menu Close"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2807
+#: core/includes/customizer/helper.php:2815
+#: core/includes/template-functions/header-functions.php:1094
+#: core/includes/template-functions/header-functions.php:1107
+#: core/includes/template-functions/header-functions.php:1121
+#: core/includes/template-functions/header-functions.php:1187
+#: core/includes/template-functions/header-functions.php:1200
+msgid "Shopping Cart"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2823
+msgid "Apple Podcasts"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2831
+msgid "Spotify"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2839
+msgid "Flicker"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2847
+msgid "500PX"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2855
+msgid "Bandcamp"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2863
+msgid "IMDB"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2871
+msgid "Loading"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2879
+msgid "Done"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2887
+#: core/includes/customizer/helper.php:2896
+#: core/includes/customizer/helper.php:2904
+msgid "Check Mark"
+msgstr ""
+
+#: core/includes/customizer/helper.php:2912
+msgid "Disc"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:44
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:64
+msgid "Header Builder"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:56
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:86
+msgid "Desktop"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:60
+msgid "Tablet / Mobile"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:81
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:200
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:44
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:51
+msgid "Logo"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:85
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:44
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:44
+#: core/includes/template-functions/header-functions.php:493
+msgid "Primary Navigation"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:89
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:44
+#: core/includes/template-functions/header-functions.php:545
+msgid "Secondary Navigation"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:101
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:216
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:391
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:44
+msgid "Social"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:105
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:220
+msgid "HTML"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:171
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:175
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:292
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:294
+msgid "Top - Right"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:171
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:175
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:292
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:294
+msgid "Top - Left"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:172
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:174
+msgid "Top - Right Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:172
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:174
+msgid "Top - Left Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:173
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:293
+msgid "Top - Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:178
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:182
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:297
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:299
+msgid "Main - Right"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:178
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:182
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:297
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:299
+msgid "Main - Left"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:179
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:181
+msgid "Main - Right Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:179
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:181
+msgid "Main - Left Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:180
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:298
+msgid "Main - Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:185
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:189
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:302
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:304
+msgid "Bottom - Right"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:185
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:189
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:302
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:304
+msgid "Bottom - Left"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:186
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:188
+msgid "Bottom - Right Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:186
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:188
+msgid "Bottom - Left Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:187
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:303
+msgid "Bottom - Center"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:204
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:44
+msgid "Mobile Navigation"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:208
+msgid "Search Toggle"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:224
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-trigger-customizer.php:44
+msgid "Trigger"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:232
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:44
+msgid "Mobile Cart"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:289
+msgid "Popup Content"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:319
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:328
+msgid "Footer Builder"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:387
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:44
+#: core/includes/template-functions/footer-functions.php:162
+msgid "Footer Navigation"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:395
+msgid "Copyright"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:399
+msgid "Widget 1"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:403
+msgid "Widget 2"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:407
+msgid "Widget 3"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:411
+msgid "Widget 4"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:415
+msgid "Widget 5"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:419
+msgid "Widget 6"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:428
+msgid "Top - 1"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:429
+msgid "Top - 2"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:430
+msgid "Top - 3"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:431
+msgid "Top - 4"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:432
+msgid "Top - 5"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:435
+msgid "Middle - 1"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:436
+msgid "Middle - 2"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:437
+msgid "Middle - 3"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:438
+msgid "Middle - 4"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:439
+msgid "Middle - 5"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:442
+msgid "Bottom - 1"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:443
+msgid "Bottom - 2"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:444
+msgid "Bottom - 3"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:445
+msgid "Bottom - 4"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/class-responsive-header-footer-builder.php:446
+msgid "Bottom - 5"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:44
+msgid "Footer HTML & Text"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:51
+msgid "HTML & Text"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:56
+msgid "Underlined"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:57
+msgid "No Underline"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:59
+msgid "HTML Link Style"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:68
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:56
+msgid "Content Align Desktop"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:76
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:64
+msgid "Content Align Tablet"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:84
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:72
+msgid "Content Align Mobile"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:90
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:98
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:106
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:78
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:86
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:94
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:91
+msgid "Middle"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:93
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:81
+msgid "Content Vertical Align Desktop"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:101
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:89
+msgid "Content Vertical Align Tablet"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-html-customizer.php:109
+#: core/includes/customizer/settings/builder-settings/footer/class-responsive-builder-footer-navigation-customizer.php:97
+msgid "Content Vertical Align Mobile"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:44
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:44
+msgid "Bottom Rows"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:51
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:51
+msgid "Bottom Row Desktop Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:53
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:62
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:71
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:53
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:62
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:71
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:63
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:53
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:62
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:71
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:57
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:57
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:53
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:62
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:71
+msgid "Standard"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:54
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:63
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:72
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:54
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:63
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:72
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:54
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:63
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:72
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:56
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:54
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:63
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:72
+msgid "Fullwidth"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:55
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:64
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:73
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:55
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:64
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:73
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:55
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:64
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:73
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:55
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:64
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:73
+#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:112
+msgid "Contained"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:60
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:60
+msgid "Bottom Row Tablet Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row
+#: copy 2.php:69
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-bottom-row.php:69
+msgid "Bottom Row Mobile Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:44
+msgid "Header Button"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:51
+msgid "Button Label"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:55
+msgid "Button URL"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:59
+msgid "Open in New Tab"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:63
+msgid "Set link to nofollow"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:67
+msgid "Set link attribute Sponsored"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:71
+msgid "Set link to download"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:76
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:76
+msgid "Small"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:78
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:78
+msgid "large"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:80
+msgid "Header Button Size"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:85
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:85
+msgid "Filled"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:86
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:55
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-trigger-customizer.php:53
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:86
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:147
+msgid "Outline"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:88
+msgid "Header Button Style."
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:93
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:93
+msgid "Everyone"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:94
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:94
+msgid "Logged In Only"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:95
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:95
+msgid "Logged Out Only"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-button-customizer.php:97
+msgid "Header Button Visibility"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:51
+msgid "Cart Label"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:54
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:54
+msgid "Show Cart Total"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:59
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:75
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-trigger-customizer.php:60
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:59
+msgid "Icon 1"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:60
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:76
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-trigger-customizer.php:61
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:60
+msgid "Icon 2"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:62
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:62
+msgid "Cart Icon"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:67
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:67
+#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:308
+msgid "Link"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:68
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:68
+msgid "Slide"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:69
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:69
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:137
+msgid "Dropdown"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:71
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:71
+msgid "Cart Style"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-cart-customizer.php:78
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:78
+msgid "Cart Popup Side"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-html-customizer.php:44
+msgid "Header HTML & Text"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-html-customizer.php:51
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-cart-customizer.php:51
+msgid "HTML content"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-html-customizer.php:54
+msgid "Automatically Add Paragraphs"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:57
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:78
+msgid "Search Style"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:61
+msgid "Header Search Label"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:64
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:67
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:70
+msgid "Header Search Label Visibility"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-search-customizer.php:81
+msgid "Enable WooCommerce Search"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-trigger-customizer.php:55
+msgid "Trigger Style"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-trigger-customizer.php:62
+msgid "Icon 3"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-header-trigger-customizer.php:64
+msgid "Trigger Icon"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:52
+msgid "Logo & Title"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:53
+msgid "Logo, Title & Tagline"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:55
+msgid "Desktop Logo Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:57
+msgid "Tablet Logo Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:59
+msgid "Mobile Logo Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:64
+msgid "Title - Tagline - Logo"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:65
+msgid "Top Logo - Title - Tagline"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:66
+msgid "Top Title - Tagline - Logo"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:67
+msgid "Top Title - Logo - Tagline"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:69
+msgid "Desktop Logo Layout Structure"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:71
+msgid "Tablet Logo Layout Structure"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-logo-customizer.php:73
+msgid "Mobile Logo Layout Structure"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:44
+msgid "Main Row"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:51
+msgid "Main Row Desktop Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:60
+msgid "Main Row Tablet Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-main-row.php:69
+msgid "Main Row Mobile Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:44
+msgid "Mobile Header Button"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:51
+msgid "Mobile Button Label"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:55
+msgid "Mobile Button URL"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:59
+msgid "Mobile Open in New Tab"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:63
+msgid "Mobile Set link to nofollow"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:67
+msgid "Mobile Set link attribute Sponsored"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:71
+msgid "Mobile Set link to download"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:80
+msgid "Mobile Header Button Size"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:88
+msgid "Mobile Header Button Style."
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-header-button-customizer.php:97
+msgid "Mobile Header Button Visibility"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-html-customizer.php:44
+msgid "Mobile HTML & Text"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-html-customizer.php:51
+msgid "Mobile HTML content"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-html-customizer.php:54
+msgid "Automatically Add Paragraphs (Mobile)"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:50
+msgid "Stretch Mobile Menu?"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:55
+msgid "Sidepanel"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:58
+msgid "Menu Drawer Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:66
+msgid "Sidepanel Popup Side"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:71
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:67
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:67
+msgid "Fade"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:72
+msgid "Scale"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:73
+msgid "Slice"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:75
+msgid "Fullwidth Menu Animation"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:85
+msgid "Menu Content Alignment"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:95
+msgid "Menu Content Vertical Alignment"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:99
+msgid "Collapse Submenu Items?"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-navigation-customizer.php:103
+msgid "Parent menu item expands sub menu"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:44
+msgid "Mobile Social"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:51
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:51
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:196
+msgid "Open Social Icons in a new tab"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:53
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:53
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:153
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:198
+msgid "No"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:54
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:54
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:154
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:199
+msgid "Yes"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:113
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:113
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:259
+#: core/includes/functions-extensions.php:367
+msgid "LinkedIn"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:155
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:155
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:301
+#: core/includes/functions-extensions.php:370
+msgid "RSS Feed"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:218
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:218
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:364
+#: core/includes/functions-extensions.php:369
+msgid "StumbleUpon"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:281
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:281
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:427
+msgid "Foursquare"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-mobile-social-customizer.php:300
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-social-customizer.php:300
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:446
+msgid "Email Address"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:50
+msgid "Stretch Primary Menu?"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:53
+msgid "Fill and Center Primary Menu Items?"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:58
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:58
+msgid "Full height"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:59
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:59
+#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:75
+msgid "Underline"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:60
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:60
+msgid "Underline - Full height"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:62
+msgid "Primary Navigation Style"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:68
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:68
+msgid "Fade Up"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:69
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:69
+msgid "Fade Down"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-primary-navigation-customizer.php:71
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:71
+msgid "Dropdown Reveal"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:50
+msgid "Stretch Secondary Menu?"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:53
+msgid "Fill and Center Secondary Menu Items?"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-secondary-navigation-customizer.php:62
+msgid "Secondary Navigation Style"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:44
+msgid "Top Row"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:51
+msgid "Top Row Desktop Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:60
+msgid "Top Row Tablet Layout"
+msgstr ""
+
+#: core/includes/customizer/settings/builder-settings/header/class-responsive-builder-top-row.php:69
+msgid "Top Row Mobile Layout"
+msgstr ""
+
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:43
 #: core/includes/customizer/settings/class-responsive-panel.php:67
 msgid "Blog / Archive"
@@ -1211,16 +2499,6 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:218
-#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:173
-msgid "Categories"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:219
-#: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:174
-msgid "Comments"
-msgstr ""
-
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:220
 #: core/includes/customizer/settings/class-responsive-single-blog-layout-customizer.php:175
 msgid "Tag"
@@ -1269,10 +2547,6 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:306
 msgid "Read More Type"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-blog-layout-customizer.php:308
-msgid "Link"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-buttons-customizer.php:44
@@ -1497,16 +2771,6 @@ msgstr ""
 msgid "Open Powered By link in new tab"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:153
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:198
-msgid "No"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:154
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:199
-msgid "Yes"
-msgstr ""
-
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:159
 msgid "Hide Copyright on Desktop"
 msgstr ""
@@ -1525,67 +2789,6 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:192
 msgid "Social Links"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:196
-msgid "Open Social Icons in a new tab"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:217
-#: core/includes/functions-extensions.php:365
-msgid "Twitter"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:238
-#: core/includes/functions-extensions.php:366
-msgid "Facebook"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:259
-#: core/includes/functions-extensions.php:367
-msgid "LinkedIn"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:280
-#: core/includes/functions-extensions.php:368
-msgid "YouTube"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:301
-#: core/includes/functions-extensions.php:370
-msgid "RSS Feed"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:322
-#: core/includes/functions-extensions.php:371
-msgid "Instagram"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:343
-#: core/includes/functions-extensions.php:372
-msgid "Pinterest"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:364
-#: core/includes/functions-extensions.php:369
-msgid "StumbleUpon"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:385
-#: core/includes/functions-extensions.php:374
-msgid "Vimeo"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:406
-msgid "Yelp"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:427
-msgid "Foursquare"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:446
-msgid "Email Address"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-scripts-customizer.php:39
@@ -1683,14 +2886,6 @@ msgstr ""
 msgid "Menu Item Hover Style"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:74
-msgid "Zoom In"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:75
-msgid "Underline"
-msgstr ""
-
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:76
 msgid "Overline"
 msgstr ""
@@ -1759,10 +2954,6 @@ msgstr ""
 msgid "Mobile Menu Style"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:137
-msgid "Dropdown"
-msgstr ""
-
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:138
 msgid "FullScreen"
 msgstr ""
@@ -1778,10 +2969,6 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:146
 msgid "Fill"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:147
-msgid "Outline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-header-menu-layouts-customizer.php:148
@@ -2099,7 +3286,7 @@ msgid "Disable Hero Area"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:141
-#: core/includes/functions.php:92 functions.php:625
+#: core/includes/functions.php:95 functions.php:625
 msgid "HAPPINESS"
 msgstr ""
 
@@ -2108,7 +3295,7 @@ msgid "Headline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:160
-#: core/includes/functions.php:93 functions.php:628
+#: core/includes/functions.php:96 functions.php:628
 msgid "IS A WARM CUP"
 msgstr ""
 
@@ -2117,7 +3304,7 @@ msgid "Subheadline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:178
-#: core/includes/functions.php:94 functions.php:631
+#: core/includes/functions.php:97 functions.php:631
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -2313,11 +3500,6 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-home-page-customizer.php:832
-#: core/includes/functions-extensions.php:376
-msgid "Email"
-msgstr ""
-
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:851
 msgid "Phone no"
 msgstr ""
@@ -2382,6 +3564,7 @@ msgid "Sidebar Options"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-panel.php:85
+#: core/includes/template-functions/header-functions.php:26
 msgid "Footer"
 msgstr ""
 
@@ -2399,14 +3582,6 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:82
 msgid "Display On"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:86
-msgid "Desktop"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:87
-msgid "Mobile"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:88
@@ -2674,10 +3849,6 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:110
 msgid "Width"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:112
-msgid "Contained"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-site-layouts-customizer.php:113
@@ -2962,56 +4133,82 @@ msgstr ""
 msgid "Area 15 - sidebar-footer.php"
 msgstr ""
 
-#: core/includes/functions.php:95 functions.php:634
+#: core/includes/functions-sidebar.php:156
+msgid "Footer Widgets 5"
+msgstr ""
+
+#: core/includes/functions-sidebar.php:157
+msgid "Area 16 - sidebar-footer.php"
+msgstr ""
+
+#: core/includes/functions-sidebar.php:167
+msgid "Footer Widgets 6"
+msgstr ""
+
+#: core/includes/functions-sidebar.php:168
+msgid "Area 17 - sidebar-footer.php"
+msgstr ""
+
+#: core/includes/functions.php:98 functions.php:634
 msgid "Call to Action"
 msgstr ""
 
-#: core/includes/functions.php:248
+#: core/includes/functions.php:251
 msgid "Header Menu"
 msgstr ""
 
-#: core/includes/functions.php:249 partials/footer/footer-menu.php:10
+#: core/includes/functions.php:252 partials/footer/footer-menu.php:10
 #: partials/footer/footer-menu.php:11
 msgid "Footer Menu"
 msgstr ""
 
 #: core/includes/functions.php:404
+#: core/includes/template-functions/header-functions.php:452
+#: core/includes/template-functions/header-functions.php:481
+msgid "Expand child menu"
+msgstr ""
+
+#: core/includes/functions.php:405
+msgid "Collapse child menu"
+msgstr ""
+
+#: core/includes/functions.php:420
 msgid "Team Section Options"
 msgstr ""
 
-#: core/includes/functions.php:418
+#: core/includes/functions.php:434
 msgid "To use this post for front page's team section, please enter below details:"
 msgstr ""
 
-#: core/includes/functions.php:421
+#: core/includes/functions.php:437
 msgid "Member designation"
 msgstr ""
 
-#: core/includes/functions.php:425
+#: core/includes/functions.php:441
 msgid "Facebook Link"
 msgstr ""
 
-#: core/includes/functions.php:429
+#: core/includes/functions.php:445
 msgid "Twitter Link"
 msgstr ""
 
-#: core/includes/functions.php:433
+#: core/includes/functions.php:449
 msgid "GooglePlus Link"
 msgstr ""
 
-#: core/includes/functions.php:437
+#: core/includes/functions.php:453
 msgid "LinkedIn Link"
 msgstr ""
 
-#: core/includes/functions.php:755
+#: core/includes/functions.php:771
 msgid "Posted on"
 msgstr ""
 
-#: core/includes/functions.php:755
+#: core/includes/functions.php:771
 msgid "By"
 msgstr ""
 
-#: core/includes/functions.php:774 partials/entry/meta.php:54
+#: core/includes/functions.php:790 partials/entry/meta.php:54
 #: partials/single/meta.php:49
 #. translators: %s: view post by
 #. translators: view all posts by author
@@ -3019,7 +4216,7 @@ msgstr ""
 msgid "View all posts by %s"
 msgstr ""
 
-#: core/includes/functions.php:785 image.php:82 partials/entry/meta.php:104
+#: core/includes/functions.php:801 image.php:82 partials/entry/meta.php:104
 #: partials/single/meta.php:96
 #. translators: %s: category list
 #. translators: %s posted in categories
@@ -3027,13 +4224,13 @@ msgstr ""
 msgid "Posted in %s"
 msgstr ""
 
-#: core/includes/functions.php:785 partials/entry/meta.php:104
+#: core/includes/functions.php:801 partials/entry/meta.php:104
 #: partials/entry/meta.php:117 partials/single/meta.php:96
 #: partials/single/meta.php:109
 msgid ", "
 msgstr ""
 
-#: core/includes/functions.php:802
+#: core/includes/functions.php:818
 msgid "Upgrade To Pro"
 msgstr ""
 
@@ -3085,13 +4282,56 @@ msgstr ""
 msgid "Blog 4 Column"
 msgstr ""
 
-#: core/includes/starter-content.php:35 loop-no-posts.php:42
-#. translators: %s: link
-msgid "Home"
+#: core/includes/starter-content.php:243
+#: core/includes/template-functions/header-functions.php:23
+msgid "Primary"
 msgstr ""
 
-#: core/includes/starter-content.php:243
-msgid "Primary"
+#: core/includes/template-functions/footer-functions.php:122
+#. translators: %s is link to responsive WP.
+msgid "- Powered by %s"
+msgstr ""
+
+#: core/includes/template-functions/footer-functions.php:245
+#: core/includes/template-functions/footer-functions.php:246
+msgid "Scroll to top"
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:24
+msgid "Secondary"
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:205
+#: template-parts/footer/footer-row.php:23
+msgid "Click to edit this element."
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:790
+msgid "Open menu"
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:845
+msgid "Close menu"
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:906
+msgid "Primary Mobile Navigation"
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:1156
+msgid "Review Cart"
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:1157
+msgid "Close Cart"
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:1357
+msgid "View Search Form"
+msgstr ""
+
+#: core/includes/template-functions/header-functions.php:1407
+msgid "Close search"
 msgstr ""
 
 #: core/includes/widgets/class-responsive-about-me.php:27
@@ -3118,7 +4358,7 @@ msgstr ""
 msgid "Bio :"
 msgstr ""
 
-#: footer.php:112
+#: footer.php:115
 msgid "Scroll to Top"
 msgstr ""
 
@@ -3154,14 +4394,6 @@ msgstr ""
 
 #: header.php:36
 msgid "&darr; Skip to Main Content"
-msgstr ""
-
-#: home.php:69
-msgid "Previous"
-msgstr ""
-
-#: home.php:70
-msgid "Next"
 msgstr ""
 
 #: image.php:37
@@ -3574,6 +4806,11 @@ msgstr ""
 #. translators: %s: Page Number
 msgctxt "Text for a page Breadcrumb"
 msgid "Page %s"
+msgstr ""
+
+#: core/includes/template-functions/footer-functions.php:119
+msgctxt "copyright date format; check date() on php.net"
+msgid "Y"
 msgstr ""
 
 #: functions.php:225

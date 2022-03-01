@@ -1,48 +1,51 @@
 {
-  "name": "cyberchimps/responsive",
-  "type": "wordpress-theme",
-  "authors": [
-    {
-      "name": "CyberChimps",
-      "homepage": "http://www.cyberchimps.com",
-      "role": "Developer"
+    "name": "cyberchimps/responsive",
+    "type": "wordpress-theme",
+    "authors": [
+        {
+            "name": "CyberChimps",
+            "homepage": "http://www.cyberchimps.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Go\\": "includes/classes/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "extra": {
+        "installer-paths": {
+            "../../plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+    "require": {
+        "php": ">=5.6",
+        "wpackagist-plugin/woocommerce": "dev-trunk",
+        "oomphinc/composer-installers-extender": "^1.1",
+        "phpdocumentor/phpdocumentor": "2.*",
+        "codeception/codeception": "*",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.0.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "wp-coding-standards/wpcs": "^2.1",
+        "phpunit/phpunit": "^5",
+        "apigen/apigen": "^4.1",
+        "codeception/module-webdriver": "^2.0"
+    },
+    "scripts": {
+        "lint": "@php ./vendor/bin/phpcs --standard=phpcs.xml --extensions=php --colors -s -p -v ./",
+        "test": "@php ./vendor/bin/phpunit"
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Go\\": "includes/classes/"
-    }
-  },
-  "repositories": [
-    {
-      "type":"composer",
-      "url":"https://wpackagist.org"
-    }
-  ],
-  "extra": {
-    "installer-paths": {
-      "../../plugins/{$name}/": [
-        "type:wordpress-plugin"
-      ]
-    }
-  },
-  "require": {
-    "php": ">=5.6",
-    "wpackagist-plugin/woocommerce": "dev-trunk",
-    "oomphinc/composer-installers-extender": "^1.1",
-    "phpdocumentor/phpdocumentor": "2.*",
-    "codeception/codeception": "*"
-  },
-  "require-dev": {
-    "squizlabs/php_codesniffer": "^3.5",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-    "phpcompatibility/phpcompatibility-wp": "^2.1",
-    "wp-coding-standards/wpcs": "^2.1",
-    "phpunit/phpunit": "^5",
-    "apigen/apigen": "^4.1"
-  },
-  "scripts": {
-    "lint": "@php ./vendor/bin/phpcs --standard=phpcs.xml --extensions=php --colors -s -p -v ./",
-    "test": "@php ./vendor/bin/phpunit"
-  }
 }
