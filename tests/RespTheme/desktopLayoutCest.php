@@ -10,21 +10,21 @@ class desktopLayoutCest
     }
 
     // tests
-    public function tryToTest(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customizer $customizer)
+    public function DesktopLayoutSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customizer $customizer)
     {
         $I->amGoingTo('Login as Admin');
         $loginAndLogout->userLogin($I);
-        $I->click('//*[@id="wp-admin-bar-customize"]/a');
+        $I->click('/html/body/div[1]/div/ul[1]/li[3]/a');
         $I->wait(2);
-        $I->scrollTo('//*[@id="accordion-panel-responsive_header"]/h3');
+        $I->scrollTo('html/body/div[1]/form/div[3]/div[2]/div[2]/ul[1]/li[37]/h3/');
         $I->wait(2);
-        $I->click('//*[@id="accordion-panel-responsive_header"]/h3');
+        $I->click('html/body/div[1]/form/div[3]/div[2]/div[2]/ul[1]/li[37]/h3/');
         $I->wait(2);
-        $I->click('//*[@id="accordion-section-responsive_customizer_header_main"]/h3');
+        $I->click('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[6]/li[6]/h3');
         $I->wait(3);
-        $I->selectOption('//*[@id="customize-control-responsive_header_main_layout"]/select','Contained');
+        $I->selectOption('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[55]/li[2]/select','Contained');
         $I->wait(2);
-        $I->selectOption('//*[@id="customize-control-responsive_header_main_layout"]/select', 'Fullwidth');
+        $I->selectOption('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[55]/li[2]/select', 'Fullwidth');
         $I->wait(2);
     }
 }

@@ -10,28 +10,27 @@ class paddingCest
     }
 
     // tests
-    public function tryToTest(RespThemeTester $I,  LogInAndLogOut $loginAndLogout, Customizer $customizer)
+    public function PaddingSettings(RespThemeTester $I,  LogInAndLogOut $loginAndLogout, Customizer $customizer)
     {
         $I->amGoingTo('Login as Admin');
         $loginAndLogout->userLogin($I);
-        $I->click('//*[@id="wp-admin-bar-customize"]/a');
+        $I->click('/html/body/div[1]/div/ul[1]/li[3]/a');
         $I->wait(2);
-        $I->scrollTo('//*[@id="accordion-panel-responsive_header"]/h3');
+        $I->scrollTo('html/body/div[1]/form/div[3]/div[2]/div[2]/ul[1]/li[37]/h3/');
         $I->wait(2);
-        $I->click('//*[@id="accordion-panel-responsive_header"]/h3');
+        $I->click('html/body/div[1]/form/div[3]/div[2]/div[2]/ul[1]/li[37]/h3/');
         $I->wait(2);
-        $I->click('//*[@id="accordion-section-responsive_customizer_header_main"]/h3');
+        $I->click('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[6]/li[6]/h3');
         $I->wait(3);
-        $I->click('//*[@id="customize-control-responsive_main_row_padding"]/span/ul/li[1]/button/i');
+        $I->click('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[55]/li[11]/span/ul/li[1]/button/i');
+        $I->fillField('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[55]/li[11]/ul[2]/li[1]/input','5');
         $I->wait(2);
-        $I->fillField('//*[@id="customize-control-responsive_main_row_padding"]/ul[2]/li[1]/input','5');
+        $I->click('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[55]/li[11]/span/ul/li[2]/button/i');
+        $I->fillField('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[55]/li[11]/ul[2]/li[1]/input','3');
         $I->wait(2);
-        //$I->fillField('//*[@id="customize-control-responsive_main_row_padding"]/ul[2]/li[2]/input','5');
-        //$I->wait(1);
-        //$I->fillField('//*[@id="customize-control-responsive_main_row_padding"]/ul[2]/li[3]/input','5');
-        //$I->wait(1);
-        //$I->fillField('//*[@id="customize-control-responsive_main_row_padding"]/ul[2]/li[4]/input','5');
-        //$I->wait(1);
-
+        $I->click('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[55]/li[11]/span/ul/li[3]/button/i');
+        $I->fillField('/html/body/div[1]/form/div[3]/div[2]/div[2]/ul[55]/li[11]/ul[2]/li[1]/input','5');
+        $I->wait(2);
+        
     }
 }
