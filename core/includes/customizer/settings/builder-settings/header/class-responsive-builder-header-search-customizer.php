@@ -80,7 +80,7 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'header_search_border_hover', $header_search_border_color_hover_label, 'responsive_customizer_header_search', 15, '#0066cc', null );
 
 			// Header Search Label.
-			$header_search_label = __( 'Header Search Label test', 'responsive' );
+			$header_search_label = __( 'Header Search Label', 'responsive' );
 			responsive_text_control( $wp_customize, 'header_search_label', $header_search_label, 'responsive_customizer_header_search', 20, 'Search', null, 'sanitize_text_field', 'text' );
 
 			$header_search_label_visiblity_desktop = __( 'Header Search Label Visibility Desktop', 'responsive' );
