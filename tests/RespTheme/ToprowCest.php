@@ -2,6 +2,7 @@
 
 use \page\RespTheme\Customizer;
 use \page\RespTheme\LogInAndLogOut;
+use \Page\RespTheme\Toprow;
 
 class ToprowCest
 {
@@ -10,122 +11,135 @@ class ToprowCest
     }
 
     // tests
-    public function tryToTest(RespThemeTester $I,  LogInAndLogOut $loginAndLogout, Customizer $customizer)
+    public function tryToTest(RespThemeTester $I,  LogInAndLogOut $loginAndLogout, Customizer $customizer, Toprow $Toprow)
     {
         //$I->wait(5);
         $I->amGoingTo('Login as Admin');
         $loginAndLogout->userLogin($I);
         //$I->wait(3);
-        $I->click('//*[@id="wp-admin-bar-customize"]/a');
+        $I->click($Toprow->customizebutton);
         $I->wait(2);
-        $I->scrollTo('//*[@id="accordion-panel-responsive_header"]/h3');
+        $I->scrollTo($Toprow->headerbutton);
         $I->wait(2);
-        $I->click('//*[@id="accordion-panel-responsive_header"]/h3');
+        $I->click($Toprow->headerbutton);
         $I->wait(2);
-        $I->click('//*[@id="accordion-section-responsive_customizer_header_top"]');
+        $I->click($Toprow->toprowbutton);
         $I->wait(3);
 
-        /*this checks the desktop layout settings for top row */
-        $I->selectOption('//*[@id="customize-control-responsive_header_top_layout"]/select', 'fullwidth');
+        $I->amGoingTo('check the desktop layout settings for top row');
+        $I->selectOption($Toprow->toprowdesklayout, 'fullwidth');
         $I->wait(2);
-        $I->selectOption('//*[@id="customize-control-responsive_header_top_layout"]/select', 'standard');
+        $I->selectOption($Toprow->toprowdesklayout, 'standard');
+        $I->wait(2);
+        $I->click($Toprow->publishbutton);
+        $I->wait(5);
+       
+        $I->amGoingTo('check on the front end');
+        $I->amOnPage('/');
+        $I->seeElement('//*[@id="main-header"]/div/div/div/div[1]');
+        $I->click($Toprow->customizebutton);
+        $I->wait(2);
+        $I->scrollTo($Toprow->headerbutton);
+        $I->wait(2);
+        $I->click($Toprow->headerbutton);
+        $I->wait(2);
+        $I->click($Toprow->toprowbutton);
+
+        $I->amGoingTo('check the tablet layout settings for the top row');
+        $I->click($Toprow->tabletlayout);   
+        $I->wait(2);
+        $I->selectOption($Toprow->toprowtabletlayout, 'fullwidth');
+        $I->wait(2);
+        $I->selectOption($Toprow->toprowtabletlayout, 'contained');
+        $I->wait(2);
+        $I->selectOption($Toprow->toprowtabletlayout, 'standard');
+        $I->wait(2);
+
+        $I->amGoingTo('check the mobile layout settings for the top row');
+        $I->click($Toprow->mobilelayout);
+        $I->wait(2);
+        $I->selectOption($Toprow->toprowmoblayout, 'fullwidth');
+        $I->wait(2);
+        $I->selectOption($Toprow->toprowmoblayout, 'contained');
+        $I->wait(2);
+        $I->selectOption($Toprow->toprowmoblayout, 'standard');
         $I->wait(2);
         
-        /*this checks the tablet layout settings for the top row */
-        $I->click('//*[@id="customize-footer-actions"]/div/div/button[2]');
+        $I->amGoingTo('check min height settings for the top row');
+        $I->click($Toprow->desktoplayout);
+        $I->fillField($Toprow->minheightdesktop, '110');
         $I->wait(2);
-        $I->selectOption('//*[@id="customize-control-responsive_header_tablet_top_layout"]/select', 'fullwidth');
+        $I->click($Toprow->publishbutton);
+        $I->wait(5);
+       
+        $I->amOnPage('/');
+        $I->seeElement('//*[@id="main-header"]/div/div/div/div[1]/div/div/div');
+        $I->click($Toprow->customizebutton);
         $I->wait(2);
-        $I->selectOption('//*[@id="customize-control-responsive_header_tablet_top_layout"]/select', 'contained');
+        $I->scrollTo($Toprow->headerbutton);
         $I->wait(2);
-        $I->selectOption('//*[@id="customize-control-responsive_header_tablet_top_layout"]/select', 'standard');
+        $I->click($Toprow->headerbutton);
+        $I->wait(2);
+        $I->click($Toprow->toprowbutton);
+
+        $I->amGoingTo('check the min height for tablet settings for the top row');
+        $I->click($Toprow->tabletlayout);
+        $I->fillField($Toprow->minheighttablet, '50');
         $I->wait(2);
 
-        /*this checks the mobile layout settings for the top row */
-        $I->click('//*[@id="customize-footer-actions"]/div/div/button[3]');
-        $I->wait(2);
-        $I->selectOption('//*[@id="customize-control-responsive_header_mobile_top_layout"]/select', 'fullwidth');
-        $I->wait(2);
-        $I->selectOption('//*[@id="customize-control-responsive_header_mobile_top_layout"]/select', 'contained');
-        $I->wait(2);
-        $I->selectOption('//*[@id="customize-control-responsive_header_mobile_top_layout"]/select', 'standard');
+        $I->amGoingTo('check the min height for mobile settings for the top row');
+        $I->click($Toprow->mobilelayout);
+        $I->fillField($Toprow->minheightmobile, '30');
         $I->wait(2);
         
-        /*this checks min height settings for the top row */
-        $I->click('//*[@id="customize-footer-actions"]/div/div/button[1]');
-        $I->fillField('//*[@id="customize-control-responsive_top_row_min_height"]/label/div/input[2]', '110');
+        $I->amGoingTo('check the desktop background colour for top row');
+        $I->click($Toprow->desktoplayout);
+        $I->scrollTo($Toprow->backgrounddesktop);
+        $I->click($Toprow->backgrounddesktop);
+        $I->wait(2);
+        $I->click($Toprow->colordesktop);
         $I->wait(2);
 
-        /*this checks the min height for tablet settings for the top row */
-        $I->click('//*[@id="customize-footer-actions"]/div/div/button[2]');
-        $I->fillField('//*[@id="customize-control-responsive_top_row_min_height_tablet"]/label/div/input[2]', '50');
-        $I->wait(2);
-
-        /*this checks the min height for mobile settings for the top row */
-        $I->click('//*[@id="customize-footer-actions"]/div/div/button[3]');
-        $I->fillField('//*[@id="customize-control-responsive_top_row_min_height_mobile"]/label/div/input[2]', '30');
-        $I->wait(2);
-        
-        /*this checks the desktop background colour for top row */
-        $I->click('//*[@id="customize-footer-actions"]/div/div/button[1]');
-        $I->scrollTo('//*[@id="customize-control-responsive_top_row_background_tablet_color"]/label/span');
-        $I->click('//*[@id="customize-control-responsive_top_row_background_desktop_color"]/label/div/div/button');
-        $I->wait(2);
-        /*$I->scrollTo('//*[@id="customize-control-responsive_top_row_background_desktop_color"]/label/div/div/div/button');
-        $I->wait(2);
-        $I->click('//*[@id="customize-control-responsive_top_row_background_desktop_color"]/label/div/div/div/div[1]/div[2]/div[1]/button');
-        $I->wait(4);
-        $I->fillField('//*[@id="inspector-input-control-7"]', '#dd3333');
-        $I->wait(4);*/
-        $I->click('//*[@id="customize-control-responsive_top_row_background_desktop_color"]/label/div/div/div/div[2]/div/div/div[8]/button');
-        $I->wait(2);
-
-        /*this checks the tablet background colour for top row */
-        $I->click('//*[@id="customize-footer-actions"]/div/div/button[2]');
+        $I->amGoingTo('check the tablet background colour for top row');
+        $I->click($Toprow->tabletlayout);
         $I->scrollTo('//*[@id="customize-control-responsive_top_row_background_tablet_color"]');
-        $I->click('//*[@id="customize-control-responsive_top_row_background_tablet_color"]/label/div/div/button');
+        $I->click($Toprow->backgroundtablet);
         $I->wait(2);
-        //$I->click('//*[@id="customize-control-responsive_top_row_background_tablet_color"]/label/div/div/div/div[1]/div[2]/div[1]/button');
-        //$I->fillField('//*[@id="inspector-input-control-5"]', '#eeee22');
-        //$I->wait(4);
-        $I->click('//*[@id="customize-control-responsive_top_row_background_tablet_color"]/label/div/div/div/div[2]/div/div/div[1]/button');
+        $I->click($Toprow->colortablet);
         $I->wait(2);
 
-        /*this checks the mobile background colour for top row */
-        $I->click('//*[@id="customize-footer-actions"]/div/div/button[3]');
+        $I->amGoingTo('check the mobile background colour for top row');
+        $I->click($Toprow->mobilelayout);
         $I->scrollTo('//*[@id="customize-control-responsive_top_row_background_mobile_color"]');
-        $I->click('//*[@id="customize-control-responsive_top_row_background_mobile_color"]/label/div/div/button');
+        $I->click($Toprow->backgroundmobile);
         $I->wait(2);
-        //$I->click('//*[@id="customize-control-responsive_top_row_background_tablet_color"]/label/div/div/div/div[1]/div[2]/div[1]/button');
-        //$I->fillField('//*[@id="inspector-input-control-5"]', '#eeee22');
-        //$I->wait(4);
-        $I->click('//*[@id="customize-control-responsive_top_row_background_mobile_color"]/label/div/div/div/div[2]/div/div/div[3]/button');
+        $I->click($Toprow->colormobile);
         $I->wait(2);
 
-        /*this checks the padding for desktop for the top row */
-        $I->scrollTo('//*[@id="customize-control-responsive_top_row_padding"]');
+        $I->amGoingTo('check the padding for desktop for the top row ');
+        $I->scrollTo($Toprow->paddingspan);
         $I->wait(2);
-        $I->click('//*[@id="customize-control-responsive_top_row_padding"]/span/ul/li[1]/button');
+        $I->click($Toprow->paddinglayoutdesktop);
         $I->wait(2);
-        $I->fillField('//*[@id="customize-control-responsive_top_row_padding"]/ul[1]/li[1]/input', '50');
+        $I->fillField($Toprow->paddingfielddesktop, '50');
         $I->wait(2);
-        $I->click('//*[@id="customize-control-responsive_top_row_padding"]/span/ul/li[1]/button');
+        $I->click($Toprow->paddinglayoutdesktop);
 
 
-        /*this checks the padding for tablet for the top row */
-        $I->scrollTo('//*[@id="customize-control-responsive_top_row_padding"]');
+        $I->amGoingTo('check the padding for tablet for the top row');
+        $I->scrollTo($Toprow->paddingspan);
         $I->wait(2);
-        $I->click('//*[@id="customize-control-responsive_top_row_padding"]/span/ul/li[2]/button');
+        $I->click($Toprow->paddinglayouttablet);
         $I->wait(2);
-        $I->fillField('//*[@id="customize-control-responsive_top_row_padding"]/ul[2]/li[1]/input', '30');
+        $I->fillField($Toprow->paddingfieldtablet, '30');
         $I->wait(2);
 
-        /*this checks the padding for mobile for the top row */
-        $I->scrollTo('//*[@id="customize-control-responsive_top_row_padding"]');
+        $I->amGoingTo('check the padding for mobile for the top row ');
+        $I->scrollTo($Toprow->paddingspan);
         $I->wait(2);
-        $I->click('//*[@id="customize-control-responsive_top_row_padding"]/span/ul/li[3]/button');
+        $I->click($Toprow->paddinglayoutmobile);
         $I->wait(2);
-        $I->fillField('//*[@id="customize-control-responsive_top_row_padding"]/ul[3]/li[1]/input', '15');
+        $I->fillField($Toprow->paddingfieldmobile, '15');
         $I->wait(2);
     }
 }
