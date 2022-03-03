@@ -3,20 +3,22 @@
 use \page\RespTheme\Customizer;
 use \page\RespTheme\LogInAndLogOut;
 use \Page\RespTheme\Toprow;
+use \page\RespTheme\CommonFunctionsPage;
+use \Facebook\WebDriver\Remote\RemoteWebDriver;
+use \Facebook\WebDriver\WebDriverBy;
+use \Facebook\WebDriver\WebDriverKeys;
 
 class ToprowCest
 {
-    public function _before(RespThemeTester $I)
-    {
-    }
+    
 
     // tests
-    public function tryToTest(RespThemeTester $I,  LogInAndLogOut $loginAndLogout, Customizer $customizer, Toprow $Toprow)
+    public function TopRowCases(RespThemeTester $I,  LogInAndLogOut $loginAndLogout, Customizer $customizer, Toprow $Toprow, CommonFunctionsPage $commonFunctionsPage)
     {
         //$I->wait(5);
         $I->amGoingTo('Login as Admin');
         $loginAndLogout->userLogin($I);
-        //$I->wait(3);
+
         $I->click($Toprow->customizebutton);
         $I->wait(2);
         $I->scrollTo($Toprow->headerbutton);
@@ -28,31 +30,50 @@ class ToprowCest
 
         $I->amGoingTo('check the desktop layout settings for top row');
         $I->selectOption($Toprow->toprowdesklayout, 'fullwidth');
-        $I->wait(2);
-        $I->selectOption($Toprow->toprowdesklayout, 'standard');
-        $I->wait(2);
+        $I->wait(1);
         $I->click($Toprow->publishbutton);
-        $I->wait(5);
-       
+        $I->wait(3);
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
-        $I->seeElement('//*[@id="main-header"]/div/div/div/div[1]');
+        $I->seeElement($Toprow->desklayoutelement);
         $I->click($Toprow->customizebutton);
-        $I->wait(2);
+        $I->wait(1);
         $I->scrollTo($Toprow->headerbutton);
-        $I->wait(2);
+        $I->wait(1);
         $I->click($Toprow->headerbutton);
-        $I->wait(2);
+        $I->wait(1);
+        $I->click($Toprow->toprowbutton);
+        $I->wait(1);
+        
+        $I->selectOption($Toprow->toprowdesklayout, 'standard');
+        $I->wait(1);
+        $I->click($Toprow->publishbutton);
+        $I->wait(3);
+        $I->amGoingTo('check on the front end');
+        $I->amOnPage('/');
+        $I->seeElement($Toprow->desklayoutelement);
+        $I->click($Toprow->customizebutton);
+        $I->wait(1);
+        $I->scrollTo($Toprow->headerbutton);
+        $I->wait(1);
+        $I->click($Toprow->headerbutton);
+        $I->wait(1);
         $I->click($Toprow->toprowbutton);
 
         $I->amGoingTo('check the tablet layout settings for the top row');
         $I->click($Toprow->tabletlayout);   
-        $I->wait(2);
+        $I->wait(1);
         $I->selectOption($Toprow->toprowtabletlayout, 'fullwidth');
+        $I->click($Toprow->publishbutton);
         $I->wait(2);
         $I->selectOption($Toprow->toprowtabletlayout, 'contained');
+        $I->click($Toprow->publishbutton);
         $I->wait(2);
+        $I->click($Toprow->collapsebtn);
+        $I->wait(1);
+        $I->click($Toprow->collapsebtn);
         $I->selectOption($Toprow->toprowtabletlayout, 'standard');
+        $I->click($Toprow->publishbutton);
         $I->wait(2);
 
         $I->amGoingTo('check the mobile layout settings for the top row');
@@ -98,11 +119,22 @@ class ToprowCest
         $I->click($Toprow->backgrounddesktop);
         $I->wait(2);
         $I->click($Toprow->colordesktop);
+        $I->click($Toprow->publishbutton);
+        $I->amOnPage('/');
+
+        $commonFunctionsPage->_checkStyle($I, $commonFunctionsPage->field, 'background', 'xpath', 'rgba(130, 36, 227, 0)');
         $I->wait(2);
+        $I->click($Toprow->customizebutton);
+        $I->wait(1);
+        $I->scrollTo($Toprow->headerbutton);
+        $I->wait(1);
+        $I->click($Toprow->headerbutton);
+        $I->wait(1);
+        $I->click($Toprow->toprowbutton);
 
         $I->amGoingTo('check the tablet background colour for top row');
         $I->click($Toprow->tabletlayout);
-        $I->scrollTo('//*[@id="customize-control-responsive_top_row_background_tablet_color"]');
+        $I->scrollTo($Toprow->backgroundtablet);
         $I->click($Toprow->backgroundtablet);
         $I->wait(2);
         $I->click($Toprow->colortablet);
@@ -110,7 +142,7 @@ class ToprowCest
 
         $I->amGoingTo('check the mobile background colour for top row');
         $I->click($Toprow->mobilelayout);
-        $I->scrollTo('//*[@id="customize-control-responsive_top_row_background_mobile_color"]');
+        $I->scrollTo($Toprow->backgroundmobile);
         $I->click($Toprow->backgroundmobile);
         $I->wait(2);
         $I->click($Toprow->colormobile);
