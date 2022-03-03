@@ -13,6 +13,10 @@ class Toprow
     public $toprowdesklayout        =   '//*[@id="customize-control-responsive_header_top_layout"]/select';
     public $toprowtabletlayout      =   '//*[@id="customize-control-responsive_header_tablet_top_layout"]/select';
     public $toprowmoblayout         =   '//*[@id="customize-control-responsive_header_mobile_top_layout"]/select';
+
+    public $desklayoutelement       =   '//*[@id="main-header"]/div/div/div/div[1]'; 
+    //public $tablayoutelement        =   '//*[@id="mobile-header"]/div/div/div/div[1]';
+    //public $topcolordesk            =   '//*[@id="main-header"]/div/div[1]/div/div[1]/div'; 
    
     public $minheightdesktop        =   '//*[@id="customize-control-responsive_top_row_min_height"]/label/div/input[2]';
     public $minheighttablet         =   '//*[@id="customize-control-responsive_top_row_min_height_tablet"]/label/div/input[2]';
@@ -41,13 +45,20 @@ class Toprow
     public $desktoplayout           =   '//*[@id="customize-footer-actions"]/div/div/button[1]';
     public $tabletlayout            =   '//*[@id="customize-footer-actions"]/div/div/button[2]';
     public $mobilelayout            =   '//*[@id="customize-footer-actions"]/div/div/button[3]';
+    public $collapsebtn          =   '//*[@id="customize-footer-actions"]/button';
 
     //Bottom row components
     public $bottomrowbtn            =   '//*[@id="accordion-section-responsive_customizer_header_bottom"]';
     public $bottomrowdesklayout     =   '//*[@id="customize-control-responsive_header_bottom_layout"]/select';
     public $bottomrowtabletlayout   =   '//*[@id="customize-control-responsive_header_tablet_bottom_layout"]/select';
     public $bottomrowmoblayout      =   '//*[@id="customize-control-responsive_header_mobile_bottom_layout"]/select';
-    
+
+    public $botdesklayoutelement    =   '//*[@id="main-header"]/div/div[2]';
+    public $botminhtdeskelement     =   '//*[@id="main-header"]/div/div[2]/div/div/div';
+    public $botminhttabelement      =   '//*[@id="main-header"]/div/div[1]/div/div[1]';
+    public $botminhtmobelement      =   '//*[@id="mobile-header"]/div/div/div/div[1]';
+    //public $botcolorelementdesk     =   '//*[@id="main-header"]/div/div[2]/div';
+
     public $botminheightdesktop     =   '//*[@id="customize-control-responsive_bottom_row_min_height"]/label/div/input[2]';
     public $botminheighttablet      =   '//*[@id="customize-control-responsive_bottom_row_min_height_tablet"]/label/div/input[2]';
     public $botminheightmobile      =   '//*[@id="customize-control-responsive_bottom_row_min_height_mobile"]/label/div/input[2]';
@@ -56,9 +67,9 @@ class Toprow
     public $botbackgroundtablet     =   '//*[@id="customize-control-responsive_bottom_row_background_tablet_color"]/label/div/div/button';
     public $botbackgroundmobile     =   '//*[@id="customize-control-responsive_bottom_row_background_mobile_color"]/label/div/div/button';
    
-    public $botdeskcolor            =   '//*[@id="customize-control-responsive_top_row_background_desktop_color"]/label/div/div/div/div[2]/div/div/div[8]/button';
-    public $bottabletcolor          =   '//*[@id="customize-control-responsive_top_row_background_tablet_color"]/label/div/div/div/div[2]/div/div/div[1]/button';
-    public $botmobilecolor          =   '//*[@id="customize-control-responsive_top_row_background_mobile_color"]/label/div/div/div/div[2]/div/div/div[3]/button';
+    public $botdeskcolor            =   '//*[@id="customize-control-responsive_bottom_row_background_desktop_color"]/label/div/div/div/div[2]/div/div/div[7]/button';
+    public $bottabletcolor          =   '//*[@id="customize-control-responsive_bottom_row_background_tablet_color"]/label/div/div/div/div[2]/div/div/div[4]/button';
+    public $botmobilecolor          =   '//*[@id="customize-control-responsive_bottom_row_background_mobile_color"]/label/div/div/div/div[2]/div/div/div[5]/button';
     
     public $botpaddingspan          =   '//*[@id="customize-control-responsive_bottom_row_padding"]/span/span';
     public $botpaddinglayoutdesktop =   '//*[@id="customize-control-responsive_bottom_row_padding"]/span/ul/li[1]/button';
@@ -68,6 +79,9 @@ class Toprow
     public $botpaddingfieldtablet   =   '//*[@id="customize-control-responsive_bottom_row_padding"]/ul[2]/li[1]/input';
     public $botpaddingfieldmobile   =   '//*[@id="customize-control-responsive_bottom_row_padding"]/ul[3]/li[1]/input';
 
+
+
+    
 
     /**
      * Declare UI map for this page here. CSS or XPath allowed.
