@@ -1580,7 +1580,6 @@ function has_mobile_center_column( $row = 'main' ) {
  */
 function check_for_fragment_support() {
 	if ( cart_in_header() ) {
- error_log('cart_in_header');
 		add_filter( 'woocommerce_add_to_cart_fragments', 'get_refreshed_fragments_class' );
 		if ( get_theme_mod( 'responsive_header_cart_show_total', true ) ) {
 			add_filter( 'woocommerce_add_to_cart_fragments', 'get_refreshed_fragments_number' );
