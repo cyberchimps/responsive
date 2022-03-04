@@ -538,12 +538,5 @@
             $('.site-footer-row-container-inner .social-icons a').css('border-radius', newval+'px' );
         } );
     } );
-      
-    api( 'responsive_footer_middle_columns', function( value ) {
-        value.bind( function( newval ) {
-            $('.responsive-builder-areas').css('font-size', newval+'px' );
-        } );
-    } );
-
 
 } )( jQuery );
