@@ -53,11 +53,20 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			);
 
 			$wp_customize->add_panel(
+				'responsive_footer',
+				array(
+					'title'       => __( 'Footer', 'responsive' ),
+					'description' => __( 'Footer Options', 'responsive' ),
+					'priority'    => 130,
+				)
+			);
+
+			$wp_customize->add_panel(
 				'responsive_page',
 				array(
 					'title'       => __( 'Page', 'responsive' ),
 					'description' => __( 'Page Options', 'responsive' ),
-					'priority'    => 130,
+					'priority'    => 140,
 				)
 			);
 
@@ -66,7 +75,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Blog / Archive', 'responsive' ),
 					'description' => __( 'Blog Options', 'responsive' ),
-					'priority'    => 140,
+					'priority'    => 150,
 				)
 			);
 
@@ -75,15 +84,6 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Sidebar', 'responsive' ),
 					'description' => __( 'Sidebar Options', 'responsive' ),
-					'priority'    => 150,
-				)
-			);
-
-			$wp_customize->add_panel(
-				'responsive_footer',
-				array(
-					'title'       => __( 'Footer', 'responsive' ),
-					'description' => __( 'Footer Options', 'responsive' ),
 					'priority'    => 160,
 				)
 			);

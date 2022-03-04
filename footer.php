@@ -77,7 +77,6 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 								}
 
 								if ( 'social_icons' === $section ) {
-                                    echo responsive_get_social_icons() ;// phpcs:ignore
                                     echo responsive_get_social_icons('') ;// phpcs:ignore
 								}
 

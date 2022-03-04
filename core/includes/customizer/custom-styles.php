@@ -2437,28 +2437,28 @@ function responsive_customizer_styles() {
 	}';
 
 	// Search Padding and Margin.
-	$search_padding_right  = esc_html( get_theme_mod( 'responsive_search_right_padding', null ) );
-	$search_padding_left   = esc_html( get_theme_mod( 'responsive_search_left_padding', null ) );
-	$search_padding_top    = esc_html( get_theme_mod( 'responsive_search_top_padding', null ) );
-	$search_padding_bottom = esc_html( get_theme_mod( 'responsive_search_bottom_padding', null ) );
+	$search_padding_right  = esc_html( get_theme_mod( 'responsive_search_right_padding', 8 ) );
+	$search_padding_left   = esc_html( get_theme_mod( 'responsive_search_left_padding', 8 ) );
+	$search_padding_top    = esc_html( get_theme_mod( 'responsive_search_top_padding', 8 ) );
+	$search_padding_bottom = esc_html( get_theme_mod( 'responsive_search_bottom_padding', 8 ) );
 	$search_margin_right  = esc_html( get_theme_mod( 'responsive_search_right_margin', null ) );
 	$search_margin_left   = esc_html( get_theme_mod( 'responsive_search_left_margin', null ) );
 	$search_margin_top    = esc_html( get_theme_mod( 'responsive_search_top_margin', null ) );
 	$search_margin_bottom = esc_html( get_theme_mod( 'responsive_search_bottom_margin', null ) );
 
-	$search_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_search_tablet_right_padding', null ) );
-	$search_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_search_tablet_left_padding', null ) );
-	$search_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_search_tablet_top_padding', null ) );
-	$search_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_search_tablet_bottom_padding', null ) );
+	$search_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_search_tablet_right_padding', 8 ) );
+	$search_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_search_tablet_left_padding', 8 ) );
+	$search_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_search_tablet_top_padding', 8 ) );
+	$search_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_search_tablet_bottom_padding', 8 ) );
 	$search_tablet_margin_right  = esc_html( get_theme_mod( 'responsive_search_tablet_right_margin', null ) );
 	$search_tablet_margin_left   = esc_html( get_theme_mod( 'responsive_search_tablet_left_margin', null ) );
 	$search_tablet_margin_top    = esc_html( get_theme_mod( 'responsive_search_tablet_top_margin', null ) );
 	$search_tablet_margin_bottom = esc_html( get_theme_mod( 'responsive_search_tablet_bottom_margin', null ) );
 
-	$search_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_search_mobile_right_padding', null ) );
-	$search_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_search_mobile_left_padding', null ) );
-	$search_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_search_mobile_top_padding', null ) );
-	$search_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_search_mobile_bottom_padding', null ) );
+	$search_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_search_mobile_right_padding', 8 ) );
+	$search_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_search_mobile_left_padding', 8 ) );
+	$search_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_search_mobile_top_padding', 8 ) );
+	$search_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_search_mobile_bottom_padding', 8 ) );
 	$search_mobile_margin_right  = esc_html( get_theme_mod( 'responsive_search_mobile_right_margin', null ) );
 	$search_mobile_margin_left   = esc_html( get_theme_mod( 'responsive_search_mobile_left_margin', null ) );
 	$search_mobile_margin_top    = esc_html( get_theme_mod( 'responsive_search_mobile_top_margin', null ) );
@@ -2526,13 +2526,16 @@ function responsive_customizer_styles() {
 	$secondary_nav_dropdown_width            = esc_html( get_theme_mod( 'responsive_secondary_nav_dropdown_width', 200 ) );
 	$primary_nav_dropdown_vertical_spacing   = esc_html( get_theme_mod( 'responsive_primary_nav_dropdown_vertical_spacing', 8 ) );
 	$secondary_nav_dropdown_vertical_spacing = esc_html( get_theme_mod( 'responsive_secondary_nav_dropdown_vertical_spacing', 8 ) );
-	$custom_css                             .= ".header-navigation.main-navigation .header-menu-container ul ul.sub-menu,
-		.header-navigation.main-navigation .header-menu-container ul ul.submenu{
+
+	$custom_css .= ".header-navigation.main-navigation .header-menu-container ul ul.sub-menu,
+	.header-navigation.main-navigation .header-menu-container ul ul.submenu,
+	.header-navigation.main-navigation .header-menu-container ul ul li.menu-item > a{
 			width: {$primary_nav_dropdown_width}px;
 	}
 	.header-navigation.secondary-navigation .header-menu-container ul ul.sub-menu,
-		.header-navigation.secondary-navigation .header-menu-container ul ul.submenu{
-			width: {$secondary_nav_dropdown_width}px;
+	.header-navigation.secondary-navigation .header-menu-container ul ul.submenu,
+	.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item > a{
+		width: {$secondary_nav_dropdown_width}px;
 	}
 	.header-navigation.main-navigation ul.sub-menu li.menu-item > a,
 	.header-navigation.main-navigation ul.submenu li.menu-item > a{
@@ -2743,10 +2746,10 @@ function responsive_customizer_styles() {
 	$trigger_navigation_color       = esc_html( get_theme_mod( 'responsive_trigger_navigation_color', '' ) );
 	$trigger_navigation_hover_color = esc_html( get_theme_mod( 'responsive_trigger_navigation_hover_color', '' ) );
 	
-	$custom_css               .= "#main-header .site-branding .site-title {
+	$custom_css               .= "#main-header .site-branding .site-title, #mobile-header .site-branding .site-title {
 		color: {$site_title_color};
 	}
-	#main-header .site-branding .site-title:hover {
+	#main-header .site-branding .site-title:hover, #mobile-header .site-branding .site-title:hover {
 		color: {$site_title_hover_color};
 	}
 	.mobile-toggle-open-container .menu-toggle-open {
@@ -2977,11 +2980,11 @@ function responsive_customizer_styles() {
 	$custom_css .= "#main-header .header-button{
 		border: {$header_button_border_size}px {$header_button_border_style} {$header_button_border_color};
 		border-radius: {$header_button_border_radius}px;
-		color: {$header_button_color};
+		color: {$header_button_color} !important;
 		background: {$header_button_background_color};
 	}
 	#main-header .header-button:hover{
-		color:{$header_button_hover_color};
+		color:{$header_button_hover_color} !important;
 		background: {$header_button_background_hover_color};
 		border-color: $header_button_border_hover_color;
 	}
