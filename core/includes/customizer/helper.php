@@ -2037,6 +2037,22 @@ function responsive_menu_last_item_cta() {
 function responsive_menu_last_item_text() {
 	return ( 'text-html' === get_theme_mod( 'responsive_menu_last_item', 'none' ) ) ? true : false;
 }
+/**
+ * [responsive_header_cart_style description]
+ *
+ * @return [type] [description]
+ */
+function responsive_header_cart_style() {
+	return ( 'slide' === get_theme_mod( 'responsive_header_cart_style', 'link' ) ) ? true : false;
+}
+/**
+ * [responsive_header_mobile_cart_style description]
+ *
+ * @return [type] [description]
+ */
+function responsive_header_mobile_cart_style() {
+	return ( 'slide' === get_theme_mod( 'responsive_header_mobile_cart_style', 'link' ) ) ? true : false;
+}
 
 /**
  * [responsive_checkbox_control description]

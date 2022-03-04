@@ -120,7 +120,7 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 
 			// Padding (px).
 			$search_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 50, null, null, null, $search_padding_label );
+			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 50, 8, 8, null, $search_padding_label );
 
 			// Margin (px).
 			$search_margin_label = __( 'Margin (px)', 'responsive' );

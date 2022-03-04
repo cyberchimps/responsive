@@ -15,6 +15,7 @@ if ( get_option( 'is-header-footer-builder' ) ) {
 }
 add_filter( 'nav_menu_item_title', 'filter_primary_nav_menu_dropdown_symbol', 10, 4 );
 add_filter( 'walker_nav_menu_start_el', 'filter_mobile_nav_menu_dropdown_symbol', 10, 4 );
+add_action( 'wp', 'check_for_fragment_support' );
 
 /**
  * Registers the navigation menus.
@@ -1012,7 +1013,7 @@ function header_html() {
 		$link_style = get_theme_mod( 'header_html_link_style' );
 		$wpautop    = get_theme_mod( 'responsive_header_html_wpautop', 1 );
 		echo '<div class="header-html inner-link-style-' . esc_attr( $link_style ) . '">';
-		customizer_quick_link();
+		// customizer_quick_link();
 		echo '<div class="header-html-inner">';
 		if ( $wpautop ) {
 			echo do_shortcode( wpautop( $content ) );
@@ -1041,7 +1042,7 @@ function mobile_html() {
 		$link_style = get_theme_mod( 'responsive_mobile_html_link_style' );
 		$wpautop    = get_theme_mod( 'responsive_mobile_html_wpautop', 1 );
 		echo '<div class="mobile-html inner-link-style-' . esc_attr( $link_style ) . '">';
-		customizer_quick_link();
+		// customizer_quick_link();
 		echo '<div class="mobile-html-inner">';
 		if ( $wpautop ) {
 			echo do_shortcode( wpautop( $content ) );
@@ -1226,7 +1227,7 @@ function cart_popup() {
 				</button>
 			</div>
 			<div class="drawer-content woocommerce widget_shopping_cart">
-				<?php do_action( 'responsive-before-side-cart' ); ?>
+				<?php do_action( 'responsive_before_side_cart' ); ?>
 				<div class="mini-cart-container">
 					<div class="responsive-mini-cart-refresh">
 						<?php woocommerce_mini_cart(); ?>
@@ -1263,7 +1264,7 @@ function mobile_cart() {
 			}
 			echo '</a>';
 		} elseif ( 'slide' === get_theme_mod( 'responsive_header_mobile_cart_style', 'link' ) ) {
-			add_action( 'wp_footer', 'responsive\cart_popup', 5 );
+			add_action( 'wp_footer', 'cart_popup', 5 );
 			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
@@ -1574,3 +1575,95 @@ function has_mobile_center_column( $row = 'main' ) {
 	return $mobile_centre;
 }
 
+/**
+ * Checks to see if theme needs to hook into cart fragments.
+ */
+function check_for_fragment_support() {
+	if ( cart_in_header() ) {
+ error_log('cart_in_header');
+		add_filter( 'woocommerce_add_to_cart_fragments', 'get_refreshed_fragments_class' );
+		if ( get_theme_mod( 'responsive_header_cart_show_total', true ) ) {
+			add_filter( 'woocommerce_add_to_cart_fragments', 'get_refreshed_fragments_number' );
+		}
+		if ( 'slide' === get_theme_mod( 'responsive_header_cart_style', 'link' ) || 'slide' === get_theme_mod( 'responsive_header_mobile_cart_style', 'link' ) || 'dropdown' === get_theme_mod( 'responsive_header_cart_style', 'link' ) ) {
+			add_filter( 'woocommerce_add_to_cart_fragments', 'get_refreshed_fragments_mini' );
+		}
+	}
+}
+/**
+ * Refresh the cart for ajax adds.
+ *
+ * @param object $fragments the cart object.
+ */
+function get_refreshed_fragments_number( $fragments ) {
+	// Get cart items.
+	ob_start();
+
+	?>
+		<span class="header-cart-total header-cart-is-empty-<?php echo esc_attr( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ); ?>"><?php echo wp_kses_post( WC()->cart->get_cart_contents_count() ); ?></span> 
+		<?php
+
+		$fragments['span.header-cart-total'] = ob_get_clean();
+
+		return $fragments;
+
+}
+/**
+ * Refresh the cart for ajax adds.
+ *
+ * @param object $fragments the cart object.
+ */
+function get_refreshed_fragments_class( $fragments ) {
+	// Get cart items.
+	ob_start();
+
+	?>
+		<span class="header-cart-empty-check header-cart-is-empty-<?php echo esc_attr( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ); ?>"></span> 
+		<?php
+
+		$fragments['span.header-cart-empty-check'] = ob_get_clean();
+
+		return $fragments;
+
+}
+
+	/**
+	 * Refresh the cart for ajax adds.
+	 *
+	 * @param object $fragments the cart object.
+	 */
+function get_refreshed_fragments_mini( $fragments ) {
+	// Get mini cart.
+	ob_start();
+
+	echo '<div class="responsive-mini-cart-refresh">';
+	woocommerce_mini_cart();
+	echo '</div>';
+	$fragments['div.responsive-mini-cart-refresh'] = ob_get_clean();
+
+	return $fragments;
+
+}
+
+	/**
+	 * Checks to see if theme needs to hook into cart fragments.
+	 */
+function cart_in_header() {
+	$in_header = false;
+	$elements  = get_theme_mod( 'header_desktop_items',Responsive\Core\get_responsive_customizer_defaults( 'header_desktop_items' ) );
+	if ( isset( $elements ) && is_array( $elements ) ) {
+		foreach ( array( 'top', 'main', 'bottom' ) as $row ) {
+			if ( isset( $elements[ $row ] ) && is_array( $elements[ $row ] ) ) {
+				foreach ( array( 'left', 'left_center', 'center', 'right_center', 'right' ) as $column ) {
+					if ( isset( $elements[ $row ][ $row . '_' . $column ] ) && is_array( $elements[ $row ][ $row . '_' . $column ] ) ) {
+						if ( in_array( 'cart', $elements[ $row ][ $row . '_' . $column ], true ) ) {
+							$in_header = true;
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+	return $in_header;
+}
