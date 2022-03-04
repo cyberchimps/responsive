@@ -964,10 +964,10 @@
     //Icon Hover Color
     $("#scroll").hover(
         function() {
-            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
+            $("#scroll span").css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
         },
         function() {
-            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
+            $("#scroll span").css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
         });
 
     //Icon Background Color

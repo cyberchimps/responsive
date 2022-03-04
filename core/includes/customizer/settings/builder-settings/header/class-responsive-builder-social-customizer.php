@@ -310,10 +310,10 @@ if ( ! class_exists( 'Responsive_Social_Header_Customizer' ) ) :
 
 			//Social Icon Colors.
 			$header_social_icon_color_label = __( 'Icon Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_social_icon', $header_social_icon_color_label, 'responsive_customizer_header_social', 95, '#fff', null );
+			responsive_color_control( $wp_customize, 'header_social_icon', $header_social_icon_color_label, 'responsive_customizer_header_social', 95, '#0066cc', null );
 
 			$header_social_icon_hover_color_label = __( 'Icon Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'header_social_icon_hover', $header_social_icon_hover_color_label, 'responsive_customizer_header_social', 100, '#fff', null );
+			responsive_color_control( $wp_customize, 'header_social_icon_hover', $header_social_icon_hover_color_label, 'responsive_customizer_header_social', 100, '#0066cc', null );
 
 			$header_social_icon_background_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_social_icon_background', $header_social_icon_background_color_label, 'responsive_customizer_header_social', 105, '#fff', null );

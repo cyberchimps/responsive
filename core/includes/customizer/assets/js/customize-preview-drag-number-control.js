@@ -539,4 +539,11 @@
         } );
     } );
       
+    api( 'responsive_footer_middle_columns', function( value ) {
+        value.bind( function( newval ) {
+            $('.responsive-builder-areas').css('font-size', newval+'px' );
+        } );
+    } );
+
+
 } )( jQuery );

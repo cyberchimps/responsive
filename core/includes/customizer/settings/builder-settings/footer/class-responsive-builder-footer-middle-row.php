@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Middle_row' ) ) :
 			);
 
 			$footer_middle_columns = esc_html__( 'Number of Columns', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'footer_middle_columns', $footer_middle_columns, 'responsive_customizer_footer_middle', 10, 1, null, 5, 1, 'refresh' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_columns', $footer_middle_columns, 'responsive_customizer_footer_middle', 10, 1, null, 5, 1, 'postMessage' );
 
 			// Middle Row Desktop contain.
 			$middle_row_desktop_contain         = esc_html__( 'Desktop Container Width', 'responsive' );
