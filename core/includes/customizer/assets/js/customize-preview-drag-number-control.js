@@ -538,5 +538,5 @@
             $('.site-footer-row-container-inner .social-icons a').css('border-radius', newval+'px' );
         } );
     } );
-      
+
 } )( jQuery );
