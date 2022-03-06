@@ -964,10 +964,10 @@
     //Icon Hover Color
     $("#scroll").hover(
         function() {
-            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
+            $("#scroll span").css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
         },
         function() {
-            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
+            $("#scroll span").css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
         });
 
     //Icon Background Color
@@ -2081,7 +2081,7 @@
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_header_button_background_color' );
 			if ( to ) {
-				var style = `<style class="customizer-responsive_header_button_background_color">#main-header .header-button {background: ${to} !important;}</style>`;
+				var style = `<style class="customizer-responsive_header_button_background_color">#main-header .header-button.button-style-filled {background: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
@@ -2097,7 +2097,7 @@
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_header_button_background_hover_color' );
 			if ( to ) {
-				var style = `<style class="customizer-responsive_header_button_background_hover_color">#main-header .header-button:hover {background: ${to} !important;}</style>`;
+				var style = `<style class="customizer-responsive_header_button_background_hover_color">#main-header .header-button.button-style-filled:hover {background: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
@@ -3000,14 +3000,14 @@
 
     api( 'responsive_site_title_color', function( value ) {
         value.bind( function( newval ) {
-            $('#main-header .site-branding .site-title').css('color', newval );
+            $('#main-header .site-branding .site-title, #mobile-header .site-branding .site-title').css('color', newval );
         } );
     } );
     api( 'responsive_site_title_hover_color', function( value ) {
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_site_title_hover_color' );
 			if ( to ) {
-				var style = `<style class="customizer-responsive_site_title_hover_color">#main-header .site-branding .site-title:hover {color: ${to} !important;}</style>`;
+				var style = `<style class="customizer-responsive_site_title_hover_color">#main-header .site-branding .site-title:hover, #mobile-header .site-branding .site-title:hover {color: ${to} !important;}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {

@@ -468,11 +468,11 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			$status                 = $status ? $status : false;
 			$responsive_theme_title = self::$page_title;
 
-			$label = ( false !== $status ) ? __( 'Use Old Header/Footer', 'responsive' ) : __( 'Use New Header/Footer Builder', 'responsive' );
+			$label = ( false !== $status ) ? __( 'Deactivate Header/Footer Builder', 'responsive' ) : __( 'Activate Header/Footer Builder', 'responsive' );
 
 			?>
 		<div class="postbox">
-			<h2 class="handle ast-normal-cursor ast-addon-heading ast-flex">
+			<h2 class="handle responsive-normal-cursor responsive-addon-heading responsive-flex">
 				<span>
 					<?php
 						printf(
@@ -489,7 +489,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						<?php
 							printf(
 								/* translators: %1$s: Theme name. */
-								esc_html__( '%1$s Header/Footer Builder is a new and powerful way to design header and footer for your website. With this, you can give a creative look to your header/footer with less effort.', 'responsive' ),
+								esc_html__( '%1$s Header/Footer Builder is a new and powerful tool to enhance the look of your website’s header and footer. ', 'responsive' ),
 								esc_html( $responsive_theme_title )
 							);
 						?>
@@ -498,15 +498,14 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						<?php
 							printf(
 								/* translators: %1$s: Theme name. */
-								esc_html__( 'Activating this feature will add advanced options to %1$s customizer where you can create awesome new designs.', 'responsive' ),
+								esc_html__( 'On activation, advanced options will be added to the %1$s theme customizer. If you want, you can easily switch back to the default header/footer builder by clicking on the button below.', 'responsive' ),
 								esc_html( $responsive_theme_title )
 							);
 						?>
 					</p>
-					<p><?php esc_html_e( 'Note: The header/footer builder will replace the existing header/footer settings in the customizer. This might make your header/footer look a bit different. You can configure header/footer builder settings from customizer to give it a nice look. You can always come back here and switch to your old header/footer.', 'responsive' ); ?></p>
-					<div class="ast-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
-						<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="ast-go-to-customizer"><?php esc_html_e( 'Go to Customizer', 'responsive' ); ?></a>
-						<div class="ast-actions" style="display: inline-flex;">
+					<div class="responsive-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
+						<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="responsive-go-to-customizer"><?php esc_html_e( 'Go to Customizer', 'responsive' ); ?></a>
+						<div class="responsive-actions" style="display: inline-flex;">
 							<button href="#" class="button button-primary responsive-builder-migrate" style="margin-right:10px;" data-value="<?php echo ( $status ) ? 0 : 1; ?>"><?php echo esc_html( $label ); ?></button>
 						</div>
 					</div>

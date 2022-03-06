@@ -466,6 +466,33 @@ function responsive_edit_customize_register( $wp_customize ) {
 			'fallback_refresh'    => true,
 		)
 	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_html_content',
+		array(
+			'selector'            => '.header-html',
+			'container_inclusive' => false,
+			'render_callback'     => 'header_html',
+			'fallback_refresh'    => true,
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_html_content',
+		array(
+			'selector'            => '.mobile-html',
+			'container_inclusive' => false,
+			'render_callback'     => 'mobile_html',
+			'fallback_refresh'    => true,
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_footer_html_content',
+		array(
+			'selector'            => '.footer-html',
+			'container_inclusive' => false,
+			'render_callback'     => 'footer_html',
+			'fallback_refresh'    => true,
+		)
+	);
 
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );

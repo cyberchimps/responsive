@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Footer_HTML_Customizer' ) ) :
 
 			// HTML content.
 			$footer_html_content = __( 'HTML & Text', 'responsive' );
-			responsive_editor_control( $wp_customize, 'footer_html_content', $footer_html_content, 'responsive_customizer_footer_html', 10, '{copyright} {year} {site-title} {theme-credit}' );
+			responsive_editor_control( $wp_customize, 'footer_html_content', $footer_html_content, 'responsive_customizer_footer_html', 10, '{copyright} {year} {site-title} {theme-credit}', null, 'wp_kses_post', 'postMessage' );
 
 			// Footer HTML Link Style.
 			$footer_html_link_style_choices = array(

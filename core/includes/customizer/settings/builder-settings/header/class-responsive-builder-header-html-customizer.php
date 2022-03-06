@@ -49,7 +49,7 @@ if ( ! class_exists( 'Responsive_Header_HTML_Customizer' ) ) :
 
 			// HTML content.
 			$header_html_content = __( 'HTML content', 'responsive' );
-			responsive_editor_control( $wp_customize, 'header_html_content', $header_html_content, 'responsive_customizer_header_html', 10, '<p>Enter HTML here!</p>' );
+			responsive_editor_control( $wp_customize, 'header_html_content', $header_html_content, 'responsive_customizer_header_html', 10, '<p>Enter HTML here!</p>', null, 'wp_kses_post', 'postMessage' );
 
 			$wpautop = __( 'Automatically Add Paragraphs', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_html_wpautop', $wpautop, 'responsive_customizer_header_html', 15, 1 );

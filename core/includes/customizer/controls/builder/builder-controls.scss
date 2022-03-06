@@ -532,7 +532,7 @@
     min-width: 100%;
 	z-index: 1;
 	transition: all .2s ease-in-out;
-	color:transparent !important;
+	color:#444; // transparent !important;
 	&:hover, &:focus {
 		color:#444 !important;
 		background: rgba(0, 124, 186, 0.05)!important;
@@ -695,4 +695,15 @@
     .description {
     	padding: 0 20px;
     }
+}
+
+#customize-theme-controls {
+	#accordion-section-responsive_customizer_header_top,
+	#accordion-section-responsive_customizer_header_main,
+	#accordion-section-responsive_customizer_header_bottom,
+	#accordion-section-responsive_customizer_footer_bottom,
+	#accordion-section-responsive_customizer_footer_middle,
+	#accordion-section-responsive_customizer_footer_top{
+	display: none !important;
+}
 }
