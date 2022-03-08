@@ -393,6 +393,7 @@ class desktopLayoutCest
             $I->resizeWindow(1280, 950);
             $I->wait(2);
 
+            
             $I->amGoingTo('Check padding settings for mobile for the main row');
             $I->click($customize->url);
             $I->wait(2);
