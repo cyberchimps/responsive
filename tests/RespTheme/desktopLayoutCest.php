@@ -193,12 +193,7 @@ class desktopLayoutCest
         $I->seeElement($mainrowComponent->mobrow);
         $I->resizeWindow(1280, 950);
         $I->wait(2);
-    }
-
-    public function MinHtSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
-         {  
-            $I->amGoingTo('Check min height settings for desktop for the main row');
-            $I->click($customize->url);
+        $I->click($customize->url);
             $I->wait(2);
             $I->scrollTo($customize->header);
             $I->wait(2);
@@ -206,6 +201,11 @@ class desktopLayoutCest
             $I->wait(2);
             $I->click($mainrowComponent->mainRowButton);
             $I->wait(2);
+    }
+
+    public function MinHtSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
+         {  
+            $I->amGoingTo('Check min height settings for desktop for the main row');
             $I->click($mainrowComponent->desktop);
             $I->fillfield($mainrowComponent->minheightDesktop, '263');
             $I->wait(4);
@@ -261,12 +261,6 @@ class desktopLayoutCest
             $I->seeElement($mainrowComponent->mobrow);
             $I->resizeWindow(1280, 950);
             $I->wait(2);
-
-        }
-        
-        public function BackgroundcolorSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
-        {
-            $I->amGoingTo('Check background color settings for desktop for the main row');
             $I->click($customize->url);
             $I->wait(2);
             $I->scrollTo($customize->header);
@@ -275,6 +269,12 @@ class desktopLayoutCest
             $I->wait(2);
             $I->click($mainrowComponent->mainRowButton);
             $I->wait(2);
+
+        }
+        
+        public function BackgroundcolorSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
+        {
+            $I->amGoingTo('Check background color settings for desktop for the main row');
             $I->click($mainrowComponent->desktop);
             $I->wait(1);
             $I->scrollTo($mainrowComponent->backgroundDesktop);
@@ -340,10 +340,6 @@ class desktopLayoutCest
             $I->seeElement($mainrowComponent->mobrow);
             $I->resizeWindow(1280, 950);
             $I->wait(2);
-        }
-        public function PaddingSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
-        {
-            $I->amGoingTo('Check padding settings for desktop for the main row');
             $I->click($customize->url);
             $I->wait(2);
             $I->scrollTo($customize->header);
@@ -352,6 +348,10 @@ class desktopLayoutCest
             $I->wait(2);
             $I->click($mainrowComponent->mainRowButton);
             $I->wait(2);
+        }
+        public function PaddingSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
+        {
+            $I->amGoingTo('Check padding settings for desktop for the main row');
             $I->click($mainrowComponent->desktop);
             $I->wait(1);
             $I->scrollTo($mainrowComponent->paddingSpan);
