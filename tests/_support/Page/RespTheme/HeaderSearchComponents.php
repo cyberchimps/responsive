@@ -22,6 +22,7 @@ class HeaderSearchComponents
     public $borderWidth             =   '//*[@id="customize-control-responsive_header_search_border_size"]/label/div/input[2]';
     public $borderColour            =   '//*[@id="customize-control-responsive_header_search_border_color"]/label/div/div/button';
     public $borderColour5           =   '//*[@id="customize-control-responsive_header_search_border_color"]/label/div/div/div/div[2]/div/div/div[5]/button';
+    public $borderColour2           =   '//*[@id="customize-control-responsive_header_search_border_color"]/label/div/div/div/div[2]/div/div/div[2]/button';     
     public $borderHoverColour       =   '//*[@id="customize-control-responsive_header_search_border_hover_color"]/label/div/div/button';
     public $headerSearchLabel       =   '//*[@id="_customize-input-responsive_header_search_label"]';
     public $labelVisibilityDesktop  =   '//*[@id="responsive_header_search_label_visiblity_desktop"]';
@@ -35,7 +36,11 @@ class HeaderSearchComponents
     public $backgroundColour3       =   '//*[@id="customize-control-responsive_header_search_background_color"]/label/div/div/div/div[2]/div/div/div[3]/button';
     public $backgroundHoverColour   =   '//*[@id="customize-control-responsive_header_search_background_hover_color"]/label/div/div/button';
     public $paddingInput            =   '//*[@id="customize-control-responsive_search_padding"]/ul[1]/li[1]/input';
+    public $paddingInputTablet      =   '//*[@id="customize-control-responsive_search_padding"]/ul[2]/li[1]/input';
+    public $paddingInputMobile      =   '//*[@id="customize-control-responsive_search_padding"]/ul[3]/li[1]/input';
     public $marginInput             =   '//*[@id="customize-control-responsive_search_margin"]/ul[1]/li[1]/input';
+    public $marginInputTablet       =   '//*[@id="customize-control-responsive_search_margin"]/ul[2]/li[1]/input';
+    public $marginInputMobile       =   '//*[@id="customize-control-responsive_search_margin"]/ul[3]/li[1]/input';
     public $borderRadius            =   '//*[@id="customize-control-responsive_header_search_border_radius"]/label/div/input[2]';
     public $iconSizeDesktop         =   '//*[@id="customize-control-responsive_header_search_icon_size_desktop"]/label/div/input[2]';
     public $iconSizeTablet          =   '//*[@id="customize-control-responsive_header_search_icon_size_tablet"]/label/div/input[2]';
