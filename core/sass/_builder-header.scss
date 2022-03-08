@@ -1358,3 +1358,14 @@ a.social-button.has-custom-image {
 	top: .125em;
 	position: relative;
 }
+
+.social-icons a{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 2em;
+	height: 2em;
+}
+.social-icon .social-icons  > li{
+	margin-right: auto;
+}
