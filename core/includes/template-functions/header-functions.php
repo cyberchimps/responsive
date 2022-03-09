@@ -16,6 +16,7 @@ if ( get_option( 'is-header-footer-builder' ) ) {
 add_filter( 'nav_menu_item_title', 'filter_primary_nav_menu_dropdown_symbol', 10, 4 );
 add_filter( 'walker_nav_menu_start_el', 'filter_mobile_nav_menu_dropdown_symbol', 10, 4 );
 add_action( 'wp', 'check_for_fragment_support' );
+add_filter( 'responsive_logo_url', 'responsive_filter_custom_logo_url' );
 
 /**
  * Registers the navigation menus.
@@ -353,7 +354,14 @@ function site_branding() {
 	echo '</a>';
 	echo '</div>';
 }
-
+/**
+ * Gets custom logo URL.
+ *
+ * @return URL String
+ */
+function responsive_filter_custom_logo_url(){
+	return esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) );
+}
 /**
  * Checks whether the primary navigation menu is active.
  *
