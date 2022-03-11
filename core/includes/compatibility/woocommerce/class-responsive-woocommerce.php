@@ -512,7 +512,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 									echo self::floating_bar_add_to_cart( $product ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								} else {
 									?>
-										<button type="submit" class="floatingb-select-btn floating-bar-addbtn"><?php esc_html_e( 'Select options', 'responsive' ); ?></button>
+										<a href="#primary" class="floatingb-select-btn floating-bar-addbtn button"><?php esc_html_e( 'Select options', 'responsive' ); ?></a>
 									<?php
 								}
 							}
