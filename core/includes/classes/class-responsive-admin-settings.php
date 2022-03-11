@@ -468,8 +468,9 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			$status                 = $status ? $status : false;
 			$responsive_theme_title = self::$page_title;
 
-			$label = ( false !== $status ) ? __( 'Deactivate Header/Footer Builder', 'responsive' ) : __( 'Activate Header/Footer Builder', 'responsive' );
+			$label = ( false !== $status ) ? __( 'Activate Default Header/Footer Builder', 'responsive' ) : __( 'Activate Responsive Header/Footer Builder', 'responsive' );
 
+			$is_hfb_active = ( false !== $status ) ? 'button-primary' : '';
 			?>
 		<div class="postbox">
 			<h2 class="handle responsive-normal-cursor responsive-addon-heading responsive-flex">
@@ -506,7 +507,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					<div class="responsive-actions-wrap" style="justify-content: space-between;display: flex;align-items: center;" >
 						<a href="<?php echo esc_url( admin_url( '/customize.php' ) ); ?>" class="responsive-go-to-customizer"><?php esc_html_e( 'Go to Customizer', 'responsive' ); ?></a>
 						<div class="responsive-actions" style="display: inline-flex;">
-							<button href="#" class="button button-primary responsive-builder-migrate" style="margin-right:10px;" data-value="<?php echo ( $status ) ? 0 : 1; ?>"><?php echo esc_html( $label ); ?></button>
+							<button href="#" class="button responsive-builder-migrate <?php echo esc_html( $is_hfb_active ); ?>" style="margin-right:10px;" data-value="<?php echo ( $status ) ? 0 : 1; ?>"><?php echo esc_html( $label ); ?></button>
 						</div>
 					</div>
 				</div>

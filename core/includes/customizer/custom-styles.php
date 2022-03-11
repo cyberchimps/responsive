@@ -2774,6 +2774,37 @@ function responsive_customizer_styles() {
 	}
 	";
 
+	// Search modal colors.
+	$search_modal_color                    = esc_html( get_theme_mod( 'responsive_search_modal_color', '#333' ) );
+	$search_modal_focus_color              = esc_html( get_theme_mod( 'responsive_search_modal_focus_color', '' ) );
+	$search_modal_background_desktop_color = esc_html( get_theme_mod( 'responsive_search_modal_background_desktop_color', '#090c10' ) );
+	$search_modal_background_tablet_color  = esc_html( get_theme_mod( 'responsive_search_modal_background_tablet_color', '#090c10' ) );
+	$search_modal_background_mobile_color  = esc_html( get_theme_mod( 'responsive_search_modal_background_mobile_color', '#090c10' ) );
+
+	$custom_css .= "#search-drawer .drawer-inner .drawer-content form input.search-field, #search-drawer .drawer-inner .drawer-content form .responsive-search-icon-wrap, #search-drawer .drawer-header{
+		color: {$search_modal_color};
+	}
+	#search-drawer .drawer-inner .drawer-content form input.search-field:focus, #search-drawer .drawer-inner .drawer-content form input.search-submit:hover ~ .responsive-search-icon-wrap, #search-drawer .drawer-inner .drawer-content form button[type='submit']:hover ~ .responsive-search-icon-wrap{
+		color: {$search_modal_focus_color};
+	}
+	#search-drawer.popup-drawer.active .drawer-overlay,
+	#search-drawer .drawer-inner{
+		background-color: {$search_modal_background_desktop_color}
+	}
+	@media screen and ( max-width: 768px ) {
+		#search-drawer.popup-drawer.active .drawer-overlay,
+		#search-drawer .drawer-inner{
+			background-color: {$search_modal_background_tablet_color}
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		#search-drawer.popup-drawer.active .drawer-overlay,
+		#search-drawer .drawer-inner{
+			background-color: {$search_modal_background_mobile_color}
+		}
+	}
+	"; 
+
 	// Cart colors.
 	$header_cart_color       = esc_html( get_theme_mod( 'responsive_header_cart_color', '#333' ) );
 	$header_cart_hover_color = esc_html( get_theme_mod( 'responsive_header_cart_hover_color', '#333' ) );
