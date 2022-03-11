@@ -47,8 +47,6 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 				)
 			);
 
-
-
 			// Header search Style.
 			$header_search_style_choices = array(
 				'default'  => __( 'Default', 'responsive' ),
@@ -120,12 +118,12 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 
 			// Padding (px).
 			$search_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 50, null, null, null, $search_padding_label );
+			responsive_padding_control( $wp_customize, 'search', 'responsive_customizer_header_search', 50, 8, 8, null, $search_padding_label );
 
 			// Margin (px).
 			$search_margin_label = __( 'Margin (px)', 'responsive' );
 			responsive_margin_control( $wp_customize, 'search', 'responsive_customizer_header_search', 55, null, null, null, $search_margin_label );
-			
+
 			$header_search_icon_size_desktop_label = esc_html__( 'Icon Size Desktop', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_desktop', $header_search_icon_size_desktop_label, 'responsive_customizer_header_search', 70, 18, null, 200, 1, 'postMessage' );
 
@@ -146,6 +144,24 @@ if ( ! class_exists( 'Responsive_Header_Search_Customizer' ) ) :
 
 			$header_search_icon_size_mobile_label = esc_html__( 'Icon Size Mobile', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_search_icon_size_mobile', $header_search_icon_size_mobile_label, 'responsive_customizer_header_search', 80, '', null, 200, 1, 'postMessage' );
+
+			$search_modal_options_label = esc_html__( 'Modal Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'search_modal_options_separator', $search_modal_options_label, 'responsive_customizer_header_search', 85 );
+
+			$search_modal_color_label = __( 'Text Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'search_modal', $search_modal_color_label, 'responsive_customizer_header_search', 90, '#333', null );
+
+			$search_modal_hover_color_label = __( 'Text Focus Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'search_modal_focus', $search_modal_hover_color_label, 'responsive_customizer_header_search', 95, '#333', null );
+
+			$search_modal_background_desktop_color_label = __( 'Background Desktop Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'search_modal_background_desktop', $search_modal_background_desktop_color_label, 'responsive_customizer_header_search', 100, '#090c10', null );
+
+			$search_modal_background_tablet_color_label = __( 'Background Tablet Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'search_modal_background_tablet', $search_modal_background_tablet_color_label, 'responsive_customizer_header_search', 105, '#090c10', null );
+
+			$search_modal_background_mobile_color_label = __( 'Background Mobile Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'search_modal_background_mobile', $search_modal_background_mobile_color_label, 'responsive_customizer_header_search', 110, '#090c10', null );
 
 		}
 

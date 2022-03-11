@@ -78,7 +78,7 @@ if ( ! class_exists( 'Responsive_Header_Cart_Customizer' ) ) :
 				'right' => __( 'Right', 'responsive' ),
 			);
 			$header_cart_popup_side         = __( 'Cart Popup Side', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_cart_popup_side', $header_cart_popup_side, 'responsive_customizer_header_cart', 30, $header_cart_popup_side_choices, 'left', null );
+			responsive_select_control( $wp_customize, 'header_cart_popup_side', $header_cart_popup_side, 'responsive_customizer_header_cart', 30, $header_cart_popup_side_choices, 'left', 'responsive_header_cart_style' );
 
 			$header_cart_icon_size_label = esc_html__( 'Icon Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_cart_icon_size', $header_cart_icon_size_label, 'responsive_customizer_header_cart', 35, 20, null, 200, 1, 'postMessage' );
