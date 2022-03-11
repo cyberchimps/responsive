@@ -1,7 +1,7 @@
 (function ($) {
   $(document).ready(function ($) {
 
-    $('.input-text.qty.text').change(function () {
+    $('.input-text.qty.text:not(.grouped_form .input-text.qty.text)').change(function () {
       $('.input-text.qty.text').val($(this).val());
     });
 
