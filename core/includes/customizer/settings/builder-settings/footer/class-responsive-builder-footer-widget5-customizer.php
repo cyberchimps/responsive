@@ -41,7 +41,7 @@ if ( ! class_exists( 'Responsive_Footer_Widget5_Customizer' ) ) :
 			$wp_customize->add_section(
 				'responsive_customizer_sidebar-widgets-footer-widget-5',
 				array(
-					'title'    => esc_html__( 'Footer Widget 5 Options', 'responsive' ),
+					'title'    => esc_html__( 'Widget 5', 'responsive' ),
 					'panel'    => 'responsive_footer',
 					'priority' => 120,
 				)

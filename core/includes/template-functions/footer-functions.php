@@ -113,7 +113,7 @@ function footer_html() {
 	if ( $content || is_customize_preview() ) {
 		$link_style = get_theme_mod( 'responsive_footer_html_link_style', 'normal' );
 		echo '<div class="footer-html inner-link-style-' . esc_attr( $link_style ) . '">';
-		customizer_quick_link();
+		// customizer_quick_link();
 		echo '<div class="footer-html-inner">';
 		$content = str_replace( '{copyright}', '&copy;', $content );
 		$content = str_replace( '{year}', date_i18n( _x( 'Y', 'copyright date format; check date() on php.net', 'responsive' ) ), $content );
