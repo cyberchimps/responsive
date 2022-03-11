@@ -44,8 +44,8 @@ function responsive_enqueue_notices_handler() {
 	$localize = array(
 		'ajaxUrl'            => admin_url( 'admin-ajax.php' ),
 		'ajax_nonce'         => wp_create_nonce( 'responsive-builder-module-nonce' ),
-		'old_header_footer'  => __( 'Deactivate Header/Footer Builder', 'responsive' ),
-		'migrate_to_builder' => __( 'Activate Header/Footer Builder', 'responsive' ),
+		'old_header_footer'  => __( 'Activate Default Header/Footer Builder', 'responsive' ),
+		'migrate_to_builder' => __( 'Activate Responsive Header/Footer Builder', 'responsive' ),
 	);
 	wp_localize_script( 'responsive-plugin-notices-handler', 'responsive', $localize );
 
