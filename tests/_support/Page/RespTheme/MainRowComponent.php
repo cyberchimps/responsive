@@ -13,6 +13,8 @@ class MainRowComponent
     public $mobile = '//*[@id="customize-footer-actions"]/div/div/button[3]';
     public $desktop = '//*[@id="customize-footer-actions"]/div/div/button[1]';
     public $mobrow ='//*[@id="mobile-header"]/div/div/div/div';
+    public $deskrow = '//*[@id="main-header"]/div/div/div/div/div';
+    public $tabrow = '//*[@id="main-header"]/div/div/div/div/div';
     public $mainRowButton = '//*[@id="accordion-section-responsive_customizer_header_main"]';
     public $desktopLayout = '//*[@id="customize-control-responsive_header_main_layout"]/select';
     public $tabletLayout  = '//*[@id="customize-control-responsive_header_tablet_main_layout"]/select';
