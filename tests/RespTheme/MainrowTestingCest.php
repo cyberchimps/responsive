@@ -2,7 +2,7 @@
 use \page\RespTheme\Customize;
 use \page\RespTheme\LogInAndLogOut;
 use \page\RespTheme\MainRowComponent;
-use \page\RespTheme\RespThemeHelper;
+use \page\RespTheme\Helper;
 use \Facebook\WebDriver\Remote\RemoteWebDriver;
 use \Facebook\WebDriver\WebDriverBy;
 use \Facebook\WebDriver\WebDriverKeys;
@@ -11,7 +11,7 @@ class MainrowTestingCest
 {
 
 
-    public function _before(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowCompone,RespThemeHelper $helper)
+    public function _before(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent,Helper $helper)
     {
         $I->amGoingTo('Login as Admin');
         $loginAndLogout->userLogin($I);
@@ -28,7 +28,7 @@ class MainrowTestingCest
     }
 
     // tests
-    public function LayoutSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
+   public function LayoutSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, Helper $helper)
     {    
        $I->amGoingTo('check the desktop layout settings for main row');
         $I->selectOption($mainrowComponent->desktopLayout, 'Fullwidth');
@@ -37,6 +37,8 @@ class MainrowTestingCest
         $I->wait(3);
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
+        $I->wait(2);
+        $I->seeElement($mainrowComponent->deskrow);
         $I->wait(2);
         $I->click($customize->url);
         $I->wait(1);
@@ -53,6 +55,8 @@ class MainrowTestingCest
         $I->wait(3);
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
+        $I->wait(2);
+        $I->seeElement($mainrowComponent->deskrow);
         $I->wait(2);
         $I->click($customize->url);
         $I->wait(1);
@@ -75,6 +79,8 @@ class MainrowTestingCest
         $I->wait(2);
         $I->resizeWindow(768, 1024);
         $I->wait(2);
+        $I->seeElement($mainrowComponent->tabrow);
+        $I->wait(2);
         $I->resizeWindow(1280, 950);
         $I->wait(2);
 
@@ -94,6 +100,8 @@ class MainrowTestingCest
         $I->wait(3);
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
+        $I->wait(2);
+        $I->seeElement($mainrowComponent->tabrow);
         $I->wait(2);
         $I->resizeWindow(768, 1024);
         $I->wait(2);
@@ -116,6 +124,8 @@ class MainrowTestingCest
         $I->wait(3);
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
+        $I->wait(2);
+        $I->seeElement($mainrowComponent->tabrow);
         $I->wait(2);
         $I->resizeWindow(768, 1024);
         $I->wait(2);
@@ -191,17 +201,13 @@ class MainrowTestingCest
         $I->seeElement($mainrowComponent->mobrow);
         $I->resizeWindow(1280, 950);
         $I->wait(2);
-        $I->click($customize->url);
-            $I->wait(2);
-            $I->scrollTo($customize->header);
-            $I->wait(2);
-            $I->click($customize->header);
-            $I->wait(2);
-            $I->click($mainrowComponent->mainRowButton);
-            $I->wait(2);
+
+       $I->amGoingTo('Logout');
+       $loginAndLogout->userLogout($I);
+       $I->wait(2);
     }
 
-    public function MinHtSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
+   public function MinHtSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, Helper $helper)
          {  
             $I->amGoingTo('Check min height settings for desktop for the main row');
             $I->click($mainrowComponent->desktop);
@@ -212,8 +218,11 @@ class MainrowTestingCest
             $I->amGoingTo('Check on the front end');
             $I->amOnPage('/');
             $I->wait(2);
+            $helper->_checkStyle($I,$helper->desktopMinheight,'min-height','xpath','263px');
+            $I->wait(2);
+        
            
-            $I->amGoingTo('Check min height settings for tablet for the main row');
+           $I->amGoingTo('Check min height settings for tablet for the main row');
             $I->click($customize->url);
             $I->wait(2);
             $I->scrollTo($customize->header);
@@ -224,7 +233,7 @@ class MainrowTestingCest
             $I->wait(2);
             $I->click($mainrowComponent->tablet);
             $I->wait(1);
-            $I->fillfield($mainrowComponent->minheightTablet, '263');
+            $I->fillfield($mainrowComponent->minheightTablet, '250');
             $I->wait(4);
             $I->click($mainrowComponent->publishButton);
             $I->wait(3);
@@ -233,10 +242,12 @@ class MainrowTestingCest
             $I->wait(2);
             $I->resizeWindow(768, 1024);
             $I->wait(2);
+            $helper->_checkStyle($I,$helper->tabletMinheight,'min-height','xpath','250px');
+            $I->wait(2);
             $I->resizeWindow(1280, 950);
             $I->wait(2);
 
-            $I->amGoingTo('Check min height settings for tablet for the main row');
+            $I->amGoingTo('Check min height settings for moblie for the main row');
             $I->click($customize->url);
             $I->wait(2);
             $I->scrollTo($customize->header);
@@ -256,21 +267,18 @@ class MainrowTestingCest
             $I->wait(2);
             $I->resizeWindow(390, 844);
             $I->wait(2);
+            $helper->_checkStyle($I,$helper->mobileMinheight,'min-height','xpath','78px');
+            $I->wait(2);
             $I->seeElement($mainrowComponent->mobrow);
             $I->resizeWindow(1280, 950);
             $I->wait(2);
-            $I->click($customize->url);
-            $I->wait(2);
-            $I->scrollTo($customize->header);
-            $I->wait(2);
-            $I->click($customize->header);
-            $I->wait(2);
-            $I->click($mainrowComponent->mainRowButton);
-            $I->wait(2);
 
-        }
+            $I->amGoingTo('Logout');
+            $loginAndLogout->userLogout($I);
+            $I->wait(2);
+         }
         
-        public function BackgroundcolorSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
+       public function BackgroundcolorSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, Helper $helper)
         {
             $I->amGoingTo('Check background color settings for desktop for the main row');
             $I->click($mainrowComponent->desktop);
@@ -285,8 +293,11 @@ class MainrowTestingCest
             $I->amGoingTo('Check on the front end');
             $I->amOnPage('/');
             $I->wait(2);
+            $helper->_checkStyle($I,$helper->desktopBgColor,'background','xpath','rgb(221, 51, 51) none repeat scroll 0% 0%');
+            $I->wait(2);
 
-           $I->amGoingTo('Check background color settings for tablet for the main row');
+
+          $I->amGoingTo('Check background color settings for tablet for the main row');
             $I->click($customize->url);
             $I->wait(2);
             $I->scrollTo($customize->header);
@@ -308,6 +319,8 @@ class MainrowTestingCest
             $I->amOnPage('/');
             $I->wait(2);
             $I->resizeWindow(768, 1024);
+            $I->wait(2);
+            $helper->_checkStyle($I,$helper->tabletBgColor,'background','xpath','rgb(129, 215, 66) none repeat scroll 0% 0%');
             $I->wait(2);
             $I->resizeWindow(1280, 950);
             $I->wait(2);
@@ -335,21 +348,19 @@ class MainrowTestingCest
             $I->wait(2);
             $I->resizeWindow(390, 844);
             $I->wait(2);
+             $helper->_checkStyle($I,$helper->mobileBgColor,'background','xpath','rgb(30, 115, 190) none repeat scroll 0% 0%');
+            $I->wait(2);
             $I->seeElement($mainrowComponent->mobrow);
             $I->resizeWindow(1280, 950);
             $I->wait(2);
-            $I->click($customize->url);
-            $I->wait(2);
-            $I->scrollTo($customize->header);
-            $I->wait(2);
-            $I->click($customize->header);
-            $I->wait(2);
-            $I->click($mainrowComponent->mainRowButton);
+            
+            $I->amGoingTo('Logout');
+            $loginAndLogout->userLogout($I);
             $I->wait(2);
         }
-        public function PaddingSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, RespThemeHelper $helper)
+        public function PaddingSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, Helper $helper)
         {
-            $I->amGoingTo('Check padding settings for desktop for the main row');
+           $I->amGoingTo('Check padding settings for desktop for the main row');
             $I->click($mainrowComponent->desktop);
             $I->wait(1);
             $I->scrollTo($mainrowComponent->paddingSpan);
@@ -362,6 +373,8 @@ class MainrowTestingCest
             $I->wait(3);
             $I->amGoingTo('Check on the front end');
             $I->amOnPage('/');
+            $I->wait(2);
+            $helper->_checkStyle($I,$helper->desktopPadding,'padding','xpath','5px');
             $I->wait(2);
 
             $I->amGoingTo('Check padding settings for tablet for the main row');
@@ -387,6 +400,8 @@ class MainrowTestingCest
             $I->amOnPage('/');
             $I->wait(2);
             $I->resizeWindow(768, 1024);
+            $I->wait(2);
+            $helper->_checkStyle($I,$helper->tabletPadding,'padding','xpath','8px');
             $I->wait(2);
             $I->resizeWindow(1280, 950);
             $I->wait(2);
@@ -415,6 +430,8 @@ class MainrowTestingCest
             $I->amOnPage('/');
             $I->wait(2);
             $I->resizeWindow(390, 844);
+            $I->wait(2);
+            $helper->_checkStyle($I,$helper->mobilePadding,'padding','xpath','3px');
             $I->wait(2);
             $I->seeElement($mainrowComponent->mobrow);
             $I->resizeWindow(1280, 950);
