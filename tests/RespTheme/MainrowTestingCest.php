@@ -30,13 +30,15 @@ class MainrowTestingCest
     // tests
    public function LayoutSettings(RespThemeTester $I,LogInAndLogOut $loginAndLogout, Customize $customize, MainRowComponent $mainrowComponent, Helper $helper)
     {    
-       $I->amGoingTo('check the desktop layout settings for main row');
+        $I->amGoingTo('check the desktop layout settings for main row');
         $I->selectOption($mainrowComponent->desktopLayout, 'Fullwidth');
         $I->wait(1);
         $I->click($mainrowComponent->publishButton);
         $I->wait(3);
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
+        $I->wait(2);
+        $I->assertEquals($mainrowComponent->desktopLayout,$helper->desktop);
         $I->wait(2);
         $I->seeElement($mainrowComponent->deskrow);
         $I->wait(2);
@@ -55,6 +57,8 @@ class MainrowTestingCest
         $I->wait(3);
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
+        $I->wait(2);
+        $I->assertEquals($mainrowComponent->desktopLayout,$helper->desktop);
         $I->wait(2);
         $I->seeElement($mainrowComponent->deskrow);
         $I->wait(2);
@@ -79,7 +83,7 @@ class MainrowTestingCest
         $I->wait(2);
         $I->resizeWindow(768, 1024);
         $I->wait(2);
-        $I->seeElement($mainrowComponent->tabrow);
+        $I->assertEquals($mainrowComponent->desktopLayout,$helper->tablet);
         $I->wait(2);
         $I->resizeWindow(1280, 950);
         $I->wait(2);
@@ -101,9 +105,9 @@ class MainrowTestingCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $I->seeElement($mainrowComponent->tabrow);
-        $I->wait(2);
         $I->resizeWindow(768, 1024);
+        $I->wait(2);
+        $I->assertEquals($mainrowComponent->desktopLayout,$helper->tablet);
         $I->wait(2);
         $I->resizeWindow(1280, 950);
         $I->wait(2);
@@ -125,9 +129,9 @@ class MainrowTestingCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $I->seeElement($mainrowComponent->tabrow);
-        $I->wait(2);
         $I->resizeWindow(768, 1024);
+        $I->wait(2);
+        $I->assertEquals($mainrowComponent->desktopLayout,$helper->tablet);
         $I->wait(2);
         $I->resizeWindow(1280, 950);
         $I->wait(2);
@@ -152,6 +156,8 @@ class MainrowTestingCest
         $I->wait(2);
         $I->resizeWindow(390, 844);
         $I->wait(2);
+        $I->assertEquals($mainrowComponent->desktopLayout,$helper->mobile);
+        $I->wait(2);
         $I->seeElement($mainrowComponent->mobrow);
         $I->resizeWindow(1280, 950);
         $I->wait(2);
@@ -175,6 +181,8 @@ class MainrowTestingCest
         $I->wait(2);
         $I->resizeWindow(390, 844);
         $I->wait(2);
+        $I->assertEquals($mainrowComponent->desktopLayout,$helper->mobile);
+        $I->wait(2);
         $I->seeElement($mainrowComponent->mobrow);
         $I->resizeWindow(1280, 950);
         $I->wait(2);
@@ -197,6 +205,8 @@ class MainrowTestingCest
         $I->amOnPage('/');
         $I->wait(2);
         $I->resizeWindow(390, 844);
+        $I->wait(2);
+        $I->assertEquals($mainrowComponent->desktopLayout,$helper->mobile);
         $I->wait(2);
         $I->seeElement($mainrowComponent->mobrow);
         $I->resizeWindow(1280, 950);

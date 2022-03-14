@@ -14,7 +14,7 @@ class Helper
      * public static $usernameField = '#username';
      * public static $formSubmitButton = "#mainForm input[type=submit]";
      */
-    public $deskLayout = '//*[@id="main-header"]/div/div/div/div'; 
+   
     public $desktopMinheight = '//*[@id="main-header"]/div/div/div/div/div/div/div';
     public $desktopBgColor = '//*[@id="main-header"]/div/div/div/div/div';
     public $desktopPadding = '//*[@id="main-header"]/div/div/div/div/div';
@@ -26,10 +26,13 @@ class Helper
     public $mobileMinheight = '//*[@id="mobile-header"]/div/div/div/div/div/div/div';
 
     /**
-     * Basic route example for your current URL
-     * You can append any additional parameter to URL
-     * and use it in tests like: Page\Edit::route('/123-post');
+      *layout settings
      */
+    public $desktop = '//*[@id="customize-control-responsive_header_main_layout"]/select';
+    public $tablet = '//*[@id="customize-control-responsive_header_main_layout"]/select';
+    public $mobile = '//*[@id="customize-control-responsive_header_main_layout"]/select';
+
+
     public static function route($param)
     {
         return static::$URL.$param;
@@ -68,19 +71,6 @@ class Helper
         $I->assertEquals($expectedStyle, $actualStyle);
     }
 
-    /**
-     * This function select a single opton from a dropdown
-     */
-
-    public function _selectItem($I, $selectItems, $item)
-    {
-        $this->selectItems = $selectItems;
-        $this->item = $item;
-        $item = $I->executeInSelenium(function(RemoteWebDriver $webdriver){
-            return $webdriver->findElement(WebDriverBy::xpath($this->selectItems))->
-            findElement( WebDriverBy::cssSelector($this->item) )->click();
-        });
-    }
 
 
 
