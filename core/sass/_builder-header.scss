@@ -651,7 +651,7 @@ body[class*='amp-mode-'] .mobile-navigation ul ul {
 		bottom: 0;
 		opacity: 0;
 		position: fixed;
-		box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+		// box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
 		display: flex;
 		flex-direction: column;
 		transition: transform 0.3s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
@@ -862,6 +862,19 @@ body.admin-bar .popup-drawer {
 .popup-drawer.show-drawer {
     display: block;
 }
+
+/* click to close search popup */
+#search-drawer.popup-drawer.active{
+	.drawer-overlay{
+		background-color: #090c10;
+	}
+	.drawer-inner{
+		height: 25%;
+		top: 40%;
+	}
+}
+/* end click to close search popup */
+
 .popup-drawer.active {
 	left: 0;
     opacity: 1;

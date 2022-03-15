@@ -52,10 +52,12 @@ jQuery( function ( $ ) {
 						// Change button classes & text.
 						$this.text( responsive.old_header_footer );
 						$this.attr( 'data-value', '0' );
+						$this.addClass('button-primary');
 					} else {
 						// Change button classes & text.
 						$this.text( responsive.migrate_to_builder );
 						$this.attr( 'data-value', '1' );
+						$this.removeClass('button-primary');
 					}
 				}
 			}
