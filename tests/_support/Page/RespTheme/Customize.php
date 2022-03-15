@@ -34,22 +34,4 @@ class Customize
         $this->respThemeTester = $I;
     }
 
-    /**public function _openDefaultSettings($I, $url, $header)
-    {
-        $I->amOnPage($this->url);
-        $I->wait(3);
-        $I->click($this->header);
-        $I->wait(1);
-        /**$I->click($view);
-        $I->wait(1);
-        $I->moveMouseOver($container);
-        $I->wait(4);
-        $I->click($addBtn);
-        $I->wait(3);
-        $I->click($item);
-        $I->wait(2);
-        $I->click($itemSettingBtn);
-        $I->wait(2);*/
-    
-
 }
