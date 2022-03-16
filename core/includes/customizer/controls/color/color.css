@@ -37,7 +37,13 @@ label {
     margin-top: 10px;
     background-color: #fff;
     border-radius: 3px;
+    width: 100%;
 }
+.wp-picker-holder .components-color-picker,
+.wp-picker-holder .wp-picker-holder .react-colorful, .react-colorful{
+    width: 100% !important;
+}
+
 .components-color-picker__saturation{
     width: 100%;
     padding-bottom: 55%;
@@ -328,6 +334,9 @@ element.style {
 }
 .components-circular-option-picker__swatches{
     display: flex;
+}
+.components-circular-option-picker .components-circular-option-picker__swatches{
+    gap: inherit;
 }
 @media (max-width: 1845px){
  .responsive-alpha-color-picker.components-circular-option-picker {

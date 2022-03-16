@@ -34,8 +34,8 @@ body {
     }
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"]:not( .social-icons [class^="icon-"]),
+[class*=" icon-"]:not( .social-icons [class*="icon-"]) {
     margin-right: 5px;
 }
 
