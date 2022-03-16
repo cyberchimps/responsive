@@ -1177,10 +1177,7 @@ public function DropdownTypographySettings(RespThemeTester $I, LogInAndLogOut $l
       $I->amGoingTo('check on the front end');
       $I->amOnPage('/');
       $I->wait(2);
-      $I->amGoingTo('check on the front end');
-      $I->amOnPage('/');
-      $I->wait(2);
-      $helper->_checkStyle($I,$helper->dTypography,'font-style','xpath','normal');
+       $helper->_checkStyle($I,$helper->dTypography,'font-style','xpath','normal');
       $I->wait(2);
       $I->moveMouseOver($primaryNavigationComp->home);
         $I->wait(2);
@@ -1331,7 +1328,7 @@ public function DropdownTypographySettings(RespThemeTester $I, LogInAndLogOut $l
       $I->moveMouseOver($primaryNavigationComp->home);
         $I->wait(2);
       
-      I->amGoingTo('check the line height settings for primary navigation');
+      $I->amGoingTo('check the line height settings for primary navigation');
       $I->click($customize->url);
       $I->wait(2);
       $I->scrollTo($customize->header);
