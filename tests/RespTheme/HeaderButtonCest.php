@@ -6,7 +6,7 @@ use \Page\RespTheme\HeaderButtonComponents;
 use \Facebook\WebDriver\Remote\RemoteWebDriver;
 use \Facebook\WebDriver\WebDriverBy;
 use \Facebook\WebDriver\WebDriverKeys;
-use \page\RespTheme\CommonFunctionsPage;
+;
 
 class HeaderButtonCest
 {
@@ -28,7 +28,7 @@ class HeaderButtonCest
     }
 
     // tests
-    public function buttonSettingsForDesktop(RespThemeTester $I, LogInAndLogOut $loginAndLogout, Customizer $customizer, HeaderButtonComponents $HeaderButtonComponents, CommonFunctionsPage $commonFunctionsPage)
+    public function buttonSettingsForDesktop(RespThemeTester $I, LogInAndLogOut $loginAndLogout, Customizer $customizer, HeaderButtonComponents $HeaderButtonComponents)
     {
         $I->fillField($HeaderButtonComponents->buttonLabel, 'Button');
         $I->fillField($HeaderButtonComponents->buttonUrl, 'https://www.google.com/');
@@ -63,17 +63,17 @@ class HeaderButtonCest
         $I->amOnPage('/');
         $I->wait(2);
         $I->seeElement($HeaderButtonComponents->button);
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'border', 'xpath', '7px solid rgb(0, 0, 0)');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'border-radius', 'xpath', '20px');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'color', 'xpath', 'rgba(255, 255, 255, 1)');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'background', 'xpath', 'rgb(221, 51, 51) none repeat scroll 0% 0% / auto padding-box border-box');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'border', 'xpath', '7px solid rgb(0, 0, 0)');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'border-radius', 'xpath', '20px');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'color', 'xpath', 'rgba(255, 255, 255, 1)');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'background', 'xpath', 'rgb(221, 51, 51) none repeat scroll 0% 0% / auto padding-box border-box');
 
         $I->moveMouseOver($HeaderButtonComponents->button);
         $I->wait(10);
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'border', 'xpath', '7px solid rgb(129, 215, 66)');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'border-radius', 'xpath', '20px');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'color', 'xpath', 'rgba(0, 0, 0, 1)');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'background', 'xpath', 'rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'border', 'xpath', '7px solid rgb(129, 215, 66)');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'border-radius', 'xpath', '20px');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'color', 'xpath', 'rgba(0, 0, 0, 1)');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'background', 'xpath', 'rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box');
 
         $I->click($HeaderButtonComponents->button);
         $I->wait(2);
@@ -81,7 +81,7 @@ class HeaderButtonCest
         $I->amOnPage('/');
     }
 
-    public function buttonTypographySettingsForDesktop(RespThemeTester $I, LogInAndLogOut $loginAndLogout, Customizer $customizer, HeaderButtonComponents $HeaderButtonComponents, CommonFunctionsPage $commonFunctionsPage)
+    public function buttonTypographySettingsForDesktop(RespThemeTester $I, LogInAndLogOut $loginAndLogout, Customizer $customizer, HeaderButtonComponents $HeaderButtonComponents)
     {
         $I->selectOption($HeaderButtonComponents->fontFamily, 'Alegreya');
         $I->selectOption($HeaderButtonComponents->fontWeight, '700');
@@ -96,12 +96,12 @@ class HeaderButtonCest
         $I->amGoingTo('Check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'font-family', 'xpath', 'Alegreya, serif');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'font-weight', 'xpath', '700');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'font-style', 'xpath', 'italic');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'text-transform', 'xpath', 'uppercase');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'line-height', 'xpath', '64px');
-        $commonFunctionsPage->_checkStyle($I, $HeaderButtonComponents->button, 'font-size', 'xpath', '16px');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'font-family', 'xpath', 'Alegreya, serif');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'font-weight', 'xpath', '700');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'font-style', 'xpath', 'italic');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'text-transform', 'xpath', 'uppercase');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'line-height', 'xpath', '64px');
+        $HeaderButtonComponents->_checkStyle($I, $HeaderButtonComponents->button, 'font-size', 'xpath', '16px');
 
     }
 }                                      
