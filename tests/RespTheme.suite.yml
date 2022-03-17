@@ -3,7 +3,7 @@ modules:
     enabled:
         - \Helper\RespTheme
         - WebDriver:
-            url: 'http://one.wordpress.test/'
+            url: 'http://localhost/Header%20test/'
             browser: chrome
             restart: true
         - \Codeception\Module\Asserts
