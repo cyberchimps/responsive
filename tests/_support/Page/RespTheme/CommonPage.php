@@ -24,8 +24,8 @@ class CommonPage
     public $itemspacing = '//*[@id="menu-item-166"]/a';
     public $sItemColor = '//*[@id="menu-item-166"]/a';
     public $sItemHColor = '//*[@id="menu-item-166"]/a';
-    public $sActiveItemColor = '//*[@id="menu-item-172"]/a';
-    public $sBackgroundColor = '//*[@id="menu-item-172"]/a';
+    public $sActiveItemColor = '//*[@id="menu-item-433"]/a';
+    public $sBackgroundColor = '//*[@id="menu-item-433"]/a';
 
     /**
      * dropdown settings for secondary navigation 
@@ -44,7 +44,6 @@ class CommonPage
      * typography settings for secondary navigation
      */
     public $typography = '//*[@id="menu-item-166"]/a';
-
     /**
      * dropdown typograhy settings for secondary navigation
      */

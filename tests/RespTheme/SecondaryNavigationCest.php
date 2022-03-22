@@ -10,22 +10,16 @@ class SecondaryNavigationCest
 {
     public function _before(RespThemeTester $I, LogInAndLogOut $loginAndLogout, SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
     {
-          
         $I->amGoingTo('Login as Admin');
         $loginAndLogout->userLogin($I);
-
-       
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
         $I->wait(1);
     }
     // tests
-    public function SecondaryNavigationStyle(RespThemeTester $I, LogInAndLogOut $loginAndLogout, SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
+    public function secondaryNavigationStyle(RespThemeTester $I, LogInAndLogOut $loginAndLogout, SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
    {
     $I->amGoingTo('check the navigation style settings for secondary navigation');
     $I->click($secondaryNavigationComp->strechSMenu);
@@ -39,21 +33,14 @@ class SecondaryNavigationCest
     $I->amGoingTo('check on the front end');
     $I->amOnPage('/');
     $I->wait(2);
-    $I->assertEquals($secondaryNavigationComp->secondaryNavStyle,$helper->navigationStyle);
-    $I->wait(2);
     $I->seeElement($secondaryNavigationComp->deskrow);
     $I->wait(2);
     
     $I->click($secondaryNavigationComp->url);
-    $I->wait(2);
     $I->scrollTo($secondaryNavigationComp->header);
-    $I->wait(2);
     $I->click($secondaryNavigationComp->header);
-    $I->wait(2);
     $I->click($secondaryNavigationComp->secondaryNavButton);
-    $I->wait(1);
     $I->selectOption($secondaryNavigationComp->secondaryNavStyle, 'Full height');
-    $I->wait(1);
     $I->click($secondaryNavigationComp->desktop);
     $I->wait(2);
     $I->click($secondaryNavigationComp->publishButton);
@@ -61,19 +48,13 @@ class SecondaryNavigationCest
     $I->amGoingTo('check on the front end');
     $I->amOnPage('/');
     $I->wait(2);
-    $I->assertEquals($secondaryNavigationComp->secondaryNavStyle,$helper->navigationStyle);
-    $I->wait(2);
     $I->seeElement($secondaryNavigationComp->deskrow);
     $I->wait(2);
 
     $I->click($secondaryNavigationComp->url);
-    $I->wait(2);
     $I->scrollTo($secondaryNavigationComp->header);
-    $I->wait(2);
     $I->click($secondaryNavigationComp->header);
-    $I->wait(2);
     $I->click($secondaryNavigationComp->secondaryNavButton);
-    $I->wait(1);
     $I->selectOption($secondaryNavigationComp->secondaryNavStyle, 'Underline');
     $I->wait(2);
     $I->click($secondaryNavigationComp->desktop);
@@ -83,19 +64,13 @@ class SecondaryNavigationCest
     $I->amGoingTo('check on the front end');
     $I->amOnPage('/');
     $I->wait(2);
-    $I->assertEquals($secondaryNavigationComp->secondaryNavStyle,$helper->navigationStyle);
-    $I->wait(2);
     $I->seeElement($secondaryNavigationComp->deskrow);
     $I->wait(2);
 
     $I->click($secondaryNavigationComp->url);
-    $I->wait(2);
     $I->scrollTo($secondaryNavigationComp->header);
-    $I->wait(2);
     $I->click($secondaryNavigationComp->header);
-    $I->wait(2);
     $I->click($secondaryNavigationComp->secondaryNavButton);
-    $I->wait(1);
     $I->selectOption($secondaryNavigationComp->secondaryNavStyle, 'Underline - Full height');
     $I->wait(2);
     $I->click($secondaryNavigationComp->desktop);
@@ -105,8 +80,6 @@ class SecondaryNavigationCest
     $I->amGoingTo('check on the front end');
     $I->amOnPage('/');
     $I->wait(2);
-    $I->assertEquals($secondaryNavigationComp->secondaryNavStyle,$helper->navigationStyle);
-    $I->wait(2);
     $I->seeElement($secondaryNavigationComp->deskrow);
     $I->wait(2);
 
@@ -114,7 +87,7 @@ class SecondaryNavigationCest
     $loginAndLogout->userLogout($I);
     $I->wait(2);
    }
-   public function ItemSettings(RespThemeTester $I, LogInAndLogOut $loginAndLogout,SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
+   public function itemSettings(RespThemeTester $I, LogInAndLogOut $loginAndLogout,SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
     {
         $I->amGoingTo('check the Itemspacing and vertical itemspacing settings for seconary navigation');
         $I->fillField($secondaryNavigationComp->itemSpacing, '14');
@@ -133,13 +106,9 @@ class SecondaryNavigationCest
 
         $I->amGoingTo('check the Item color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->selectItemColor);
         $I->wait(1);
         $I->click($secondaryNavigationComp->itemColor);
@@ -181,20 +150,16 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->sItemHColor,'color','xpath','rgb(0, 0, 0)');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->moreinfo);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->sItemHColor,'color','xpath','rgb(130, 36, 227)');
+        $I->wait(2);
+        
         $I->amGoingTo('check the Active Item  color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->selectActiveItemColor);
         $I->wait(2);
         $I->click($secondaryNavigationComp->selectActiveItemColor);
@@ -213,22 +178,18 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->sActiveItemColor,'color','xpath','rgb(0, 0, 0)');
-        $I->wait(2);
         $I->click($secondaryNavigationComp->moreinfo);
         $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->moreinfo);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->sActiveItemColor,'color','xpath','rgb(129, 215, 66)');
+        $I->wait(2);
+        
         $I->amGoingTo('check the Background color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->selectBackgroundColor);
         $I->wait(2);
         $I->click($secondaryNavigationComp->selectBackgroundColor);
@@ -247,13 +208,9 @@ class SecondaryNavigationCest
 
         $I->amGoingTo('check the Background hover color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->selectBgHoverColor);
         $I->wait(1);
         $I->click($secondaryNavigationComp->bgHoverColor);
@@ -270,22 +227,17 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->sBackgroundColor,'background','xpath','rgb(238, 238, 34) none repeat scroll 0% 0%');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->moreinfo);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->sBackgroundColor,'background','xpath','rgb(30, 115, 190) none repeat scroll 0% 0%');
+        $I->wait(2);
+       
         $I->amGoingTo('check the Active background  color settings secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->selectActiveBgColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->selectActiveBgColor);
         $I->wait(1);
         $I->click($secondaryNavigationComp->activeBgColor);
@@ -302,18 +254,18 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->sBackgroundColor,'background','xpath','rgb(238, 238, 34) none repeat scroll 0% 0%');
-        $I->wait(2);
         $I->click($secondaryNavigationComp->moreinfo);
         $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->moreinfo);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->sBackgroundColor,'background','xpath','rgb(221, 51, 51) none repeat scroll 0% 0%');
+        $I->wait(2);
+        
         $I->amGoingTo('Logout');
         $loginAndLogout->userLogout($I);
         $I->wait(2);
     }
-    public function DropdownSettings(RespThemeTester $I, LogInAndLogOut $loginAndLogout, SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
+    public function dropdownSettings(RespThemeTester $I, LogInAndLogOut $loginAndLogout, SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
     {
         $I->amGoingTo('check the dropdown reveal settings for secondary navigation');
         $I->scrollTo($secondaryNavigationComp->dropdownReveal);
@@ -331,19 +283,14 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $I->assertEquals($secondaryNavigationComp->dropdownReveal,$helper->dDReveal);
-        $I->wait(2);
+        $I->seeElement($secondaryNavigationComp->sSettings);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
 
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->dropdownReveal);
         $I->selectOption($secondaryNavigationComp->dropdownReveal, 'Fade Up');
         $I->wait(1);
@@ -359,17 +306,13 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $I->assertEquals($secondaryNavigationComp->dropdownReveal,$helper->dDReveal);
-        $I->wait(2);
+        $I->seeElement($secondaryNavigationComp->sSettings);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
 
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
         $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->dropdownReveal);
@@ -387,17 +330,13 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $I->assertEquals($secondaryNavigationComp->dropdownReveal,$helper->dDReveal);
-        $I->wait(2);
+        $I->seeElement($secondaryNavigationComp->sSettings);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
 
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
         $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->dropdownReveal);
@@ -415,18 +354,14 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $I->assertEquals($secondaryNavigationComp->dropdownReveal,$helper->dDReveal);
-        $I->wait(2);
+        $I->seeElement($secondaryNavigationComp->sSettings);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
 
         $I->amGoingTo('Check drop down width settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
         $I->wait(2);
         $I->fillField($secondaryNavigationComp->dropdownWidth, '213');
@@ -502,8 +437,7 @@ class SecondaryNavigationCest
         $I->switchToIFrame();
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
-        $I->assertEquals($secondaryNavigationComp->dropdownDividerStyle,$helper->dividerStyle);
-        $I->wait(2);
+        $I->seeElement($secondaryNavigationComp->sSettings);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
          
@@ -530,8 +464,7 @@ class SecondaryNavigationCest
         $I->switchToIFrame();
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
-        $I->assertEquals($secondaryNavigationComp->dropdownDividerStyle,$helper->dividerStyle);
-        $I->wait(2);
+        $I->seeElement($secondaryNavigationComp->sSettings);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
 
@@ -558,8 +491,7 @@ class SecondaryNavigationCest
         $I->switchToIFrame();
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
-        $I->assertEquals($secondaryNavigationComp->dropdownDividerStyle,$helper->dividerStyle);
-        $I->wait(2);
+        $I->seeElement($secondaryNavigationComp->sSettings);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
 
@@ -654,24 +586,19 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dItemColor,'color','xpath','rgb(0, 0, 0)');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->editprofile);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dItemColor,'color','xpath','rgb(221, 153, 51)');
+        $I->wait(2);
+        
         $I->amGoingTo('check the  Dropdown Active Item color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->SelectDActiveItemColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->SelectDActiveItemColor);
         $I->wait(1);
         $I->click($secondaryNavigationComp->dActiveItemColor);
@@ -690,28 +617,22 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dItemColor,'color','xpath','rgb(0, 0, 0)');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $I->click($secondaryNavigationComp->editprofile);
         $I->wait(1);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dItemColor,'color','xpath','rgb(129, 215, 66)');
+        $I->wait(2);
+        
         $I->amGoingTo('check the  Dropdown background color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->selectDBgColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->selectDBgColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->dBgColor);
         $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
@@ -719,32 +640,24 @@ class SecondaryNavigationCest
         $I->click($secondaryNavigationComp->publishButton);
         $I->wait(3);
         $I->switchToIFrame($helper->frame);
-        $I->wait(1);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $I->switchToIFrame();
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dBgColor,'background','xpath','rgb(238, 238, 34) none repeat scroll 0% 0%');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dBgColor,'background','xpath','rgb(238, 238, 34) none repeat scroll 0% 0%');
+        $I->wait(2);
         
         $I->amGoingTo('check the  Dropdown background hover color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->selectDBgHoverColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->selectDBgHoverColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->dBgHoverColor);
         $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
@@ -756,31 +669,24 @@ class SecondaryNavigationCest
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->logout);
-        $I->wait(2);
         $I->switchToIFrame();
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
-        $I->wait(2);
-        $helper->_checkStyle($I,$helper->dBgHover ,'background','xpath','rgba(0, 0, 0, 0) none repeat scroll 0% 0%');
         $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->logout);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dBgHover ,'background','xpath','rgb(130, 36, 227) none repeat scroll 0% 0%');
+        $I->wait(2);
+        
         $I->amGoingTo('check the  Dropdown Active Background color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->SelectDActiveBgColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->SelectDActiveBgColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->dActiveBgColor);
         $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
@@ -788,7 +694,6 @@ class SecondaryNavigationCest
         $I->click($secondaryNavigationComp->publishButton);
         $I->wait(3);
         $I->switchToIFrame($helper->frame);
-        $I->wait(1);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $I->click($secondaryNavigationComp->editprofile);
@@ -797,28 +702,22 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dActiveBg,'color','xpath','rgb(0, 0, 0)');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $I->click($secondaryNavigationComp->editprofile);
         $I->wait(1);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dActiveBg,'color','xpath','rgb(129, 215, 66)');
+        $I->wait(2);
+        
         $I->amGoingTo('check the  Dropdown divider color settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->selectDDividerColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->selectDDividerColor);
-        $I->wait(1);
         $I->click($secondaryNavigationComp->dDividercolor);
         $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
@@ -833,23 +732,20 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dDividerColor ,'border-bottom','xpath','8px solid rgb(30, 115, 190)');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dDividerColor ,'border-bottom','xpath','8px solid rgb(30, 115, 190)');
+        $I->wait(2);
+        
         $I->amGoingTo('Logout');
         $loginAndLogout->userLogout($I);
         $I->wait(2);
-
     }
-    public function TypographySettings(RespThemeTester $I, LogInAndLogOut $loginAndLogout, SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
+    public function typographySettings(RespThemeTester $I, LogInAndLogOut $loginAndLogout, SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
     {
        $I->amGoingTo('check the font family settings for secondary navigation');
        $I->scrollTo($secondaryNavigationComp->fontFamily);
-       $I->wait(1);
        $I->selectOption($secondaryNavigationComp->fontFamily, 'Times New Roman');
-       $I->wait(1);
        $I->click($secondaryNavigationComp->desktop);
        $I->wait(2);
        $I->click($secondaryNavigationComp->publishButton);
@@ -861,13 +757,9 @@ class SecondaryNavigationCest
        $I->wait(2);
 
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
-       $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->fontFamily);
        $I->wait(1);
        $I->selectOption($secondaryNavigationComp->fontFamily, 'Aclonica');
@@ -884,11 +776,8 @@ class SecondaryNavigationCest
 
        $I->amGoingTo('check the font weight settings for secondary navigation');
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
        $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->fontWeight);
@@ -906,11 +795,8 @@ class SecondaryNavigationCest
        $I->wait(2);
 
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
        $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->fontWeight);
@@ -929,13 +815,10 @@ class SecondaryNavigationCest
 
        $I->amGoingTo('check the  font style settings for secondary navigation');
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
        $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
-       $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->fontStyle);
        $I->wait(1);
        $I->selectOption($secondaryNavigationComp->fontStyle, 'Normal');
@@ -951,13 +834,9 @@ class SecondaryNavigationCest
        $I->wait(2);
 
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
-       $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->fontStyle);
        $I->wait(1);
        $I->selectOption($secondaryNavigationComp->fontStyle, 'Italic');
@@ -974,11 +853,8 @@ class SecondaryNavigationCest
 
        $I->amGoingTo('check the  text transform settings for secondary navigation');
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
        $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->textTransform);
@@ -996,13 +872,9 @@ class SecondaryNavigationCest
        $I->wait(2);
 
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
-       $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->textTransform);
        $I->wait(1);
        $I->selectOption($secondaryNavigationComp->textTransform, 'Lowercase');
@@ -1018,13 +890,9 @@ class SecondaryNavigationCest
        $I->wait(2);
 
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
-       $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->textTransform);
        $I->wait(1);
        $I->selectOption($secondaryNavigationComp->textTransform, 'Uppercase');
@@ -1041,11 +909,8 @@ class SecondaryNavigationCest
 
        $I->amGoingTo('check the font size settings for secondary navigation');
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
        $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->fontSize);
@@ -1064,13 +929,9 @@ class SecondaryNavigationCest
 
        $I->amGoingTo('check the line height settings for secondary navigation');
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
-       $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->lineHeight);
        $I->wait(1);
        $I->fillField($secondaryNavigationComp->lineHeight, '2');
@@ -1087,13 +948,9 @@ class SecondaryNavigationCest
 
        $I->amGoingTo('check the letter spacing settings for secondary navigation');
        $I->click($secondaryNavigationComp->url);
-       $I->wait(2);
        $I->scrollTo($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->header);
-       $I->wait(2);
        $I->click($secondaryNavigationComp->secondaryNavButton);
-       $I->wait(1);
        $I->scrollTo($secondaryNavigationComp->letterSpacing);
        $I->wait(1);
        $I->fillField($secondaryNavigationComp->letterSpacing, '4');
@@ -1112,17 +969,13 @@ class SecondaryNavigationCest
        $loginAndLogout->userLogout($I);
        $I->wait(2);
     }
-    public function DropdownTypographySettings(RespThemeTester $I, LogInAndLogOut $loginAndLogout,  SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
+    public function dropdownTypographySettings(RespThemeTester $I, LogInAndLogOut $loginAndLogout,  SecondaryNavigationComp $secondaryNavigationComp, CommonPage $helper)
     { 
         $I->amGoingTo('check the dropdown font family settings for secondary navigation');
         $I->scrollTo($secondaryNavigationComp->dFontFamily);
-        $I->wait(1);
         $I->selectOption($secondaryNavigationComp->dFontFamily, 'Garamond');
-        $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->publishButton);
-        $I->wait(3);
         $I->switchToIFrame($helper->frame);
         $I->wait(1);
         $I->moveMouseOver($secondaryNavigationComp->settings);
@@ -1131,21 +984,16 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'font-family','xpath','Garamond');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
+        $I->wait(2);
+        $helper->_checkStyle($I,$helper->dTypography,'font-family','xpath','Garamond');
         $I->wait(2);
         
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dFontFamily);
-        $I->wait(1);
         $I->selectOption($secondaryNavigationComp->dFontFamily, 'Times New Roman');
         $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
@@ -1160,24 +1008,19 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'font-family','xpath','Times New Roman');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dTypography,'font-family','xpath','Times New Roman');
+        $I->wait(2);
+        
         $I->amGoingTo('check the dropdown font weight settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dFontWeight);
         $I->wait(1);
         $I->selectOption($secondaryNavigationComp->dFontWeight, 'Bold: 700');
-        $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
         $I->wait(2);
         $I->click($secondaryNavigationComp->publishButton);
@@ -1190,15 +1033,13 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'font-weight','xpath','700');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dTypography,'font-weight','xpath','700');
+        $I->wait(2);
+        
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
         $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
@@ -1219,20 +1060,16 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'font-weight','xpath','900');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dTypography,'font-weight','xpath','900');
+        $I->wait(2);
+        
         $I->amGoingTo('check the dropdown font style settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dFontStyle);
         $I->wait(1);
         $I->selectOption($secondaryNavigationComp->dFontStyle, 'Normal');
@@ -1249,19 +1086,15 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'font-style','xpath','normal');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dTypography,'font-style','xpath','normal');
+        $I->wait(2);
+        
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dFontStyle);
         $I->wait(1);
         $I->selectOption($secondaryNavigationComp->dFontStyle, 'Italic');
@@ -1278,22 +1111,17 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'font-style','xpath','italic');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dTypography,'font-style','xpath','italic');
+        $I->wait(2);
+        
         $I->amGoingTo('check the drop down text transform settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dTextTransform);
-        $I->wait(1);
         $I->selectOption($secondaryNavigationComp->dTextTransform, 'Capitalize');
         $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
@@ -1308,23 +1136,17 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'text-transform','xpath','capitalize');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dTypography,'text-transform','xpath','capitalize');
+        $I->wait(2);
+        
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dTextTransform);
-        $I->wait(1);
         $I->selectOption($secondaryNavigationComp->dTextTransform, 'Uppercase');
-        $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
         $I->wait(2);
         $I->click($secondaryNavigationComp->publishButton);
@@ -1336,24 +1158,18 @@ class SecondaryNavigationCest
         $I->switchToIFrame();
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
+        $I->wait(2);
+        $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $helper->_checkStyle($I,$helper->dTypography,'text-transform','xpath','uppercase');
         $I->wait(2);
-        $I->moveMouseOver($secondaryNavigationComp->settings);
-        $I->wait(2);
-
+        
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dTextTransform);
-        $I->wait(1);
         $I->selectOption($secondaryNavigationComp->dTextTransform, 'Lowercase');
-        $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
         $I->wait(2);
         $I->click($secondaryNavigationComp->publishButton);
@@ -1365,25 +1181,19 @@ class SecondaryNavigationCest
         $I->switchToIFrame();
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
+        $I->wait(2);
+        $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
         $helper->_checkStyle($I,$helper->dTypography,'text-transform','xpath','lowercase');
         $I->wait(2);
-        $I->moveMouseOver($secondaryNavigationComp->settings);
-        $I->wait(2);
-
+        
         $I->amGoingTo('check the dropdown font size settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dFontSize);
-        $I->wait(1);
         $I->fillField($secondaryNavigationComp->dFontSize, '16px');
-        $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
         $I->wait(2);
         $I->click($secondaryNavigationComp->publishButton);
@@ -1395,22 +1205,17 @@ class SecondaryNavigationCest
         $I->switchToIFrame();
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
-        $helper->_checkStyle($I,$helper->dTypography,'font-size','xpath','16px');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dTypography,'font-size','xpath','16px');
+        $I->wait(2);
+        
         $I->amGoingTo('check the dropdown line height settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dLineHeight);
-        $I->wait(1);
         $I->fillField($secondaryNavigationComp->dLineHeight, '3');
         $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
@@ -1425,24 +1230,18 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'line-height','xpath','48px');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
+        $I->wait(2);
+        $helper->_checkStyle($I,$helper->dTypography,'line-height','xpath','48px');
         $I->wait(2);
         
         $I->amGoingTo('check the letter spacing settings for secondary navigation');
         $I->click($secondaryNavigationComp->url);
-        $I->wait(2);
         $I->scrollTo($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->header);
-        $I->wait(2);
         $I->click($secondaryNavigationComp->secondaryNavButton);
-        $I->wait(1);
         $I->scrollTo($secondaryNavigationComp->dLetterSpacing);
-        $I->wait(1);
         $I->fillField($secondaryNavigationComp->dLetterSpacing, '2');
-        $I->wait(1);
         $I->click($secondaryNavigationComp->desktop);
         $I->wait(2);
         $I->click($secondaryNavigationComp->publishButton);
@@ -1455,11 +1254,11 @@ class SecondaryNavigationCest
         $I->amGoingTo('check on the front end');
         $I->amOnPage('/');
         $I->wait(2);
-        $helper->_checkStyle($I,$helper->dTypography,'letter-spacing','xpath','2px');
-        $I->wait(2);
         $I->moveMouseOver($secondaryNavigationComp->settings);
         $I->wait(2);
-
+        $helper->_checkStyle($I,$helper->dTypography,'letter-spacing','xpath','2px');
+        $I->wait(2);
+       
         $I->amGoingTo('Logout');
         $loginAndLogout->userLogout($I);
         $I->wait(2);

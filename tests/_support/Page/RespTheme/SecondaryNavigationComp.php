@@ -16,9 +16,10 @@ class SecondaryNavigationComp
     public $publishButton ='//*[@id="save"]';
     public $deskrow = '//*[@id="main-header"]/div/div/div/div/div';
     public $settings = '//*[@id="menu-item-166"]/a';
-    public $moreinfo = '//*[@id="menu-item-172"]/a';
+    public $moreinfo = '//*[@id="menu-item-433"]/a';
     public $editprofile = '//*[@id="menu-item-167"]/a';
     public $logout = '//*[@id="menu-item-168"]/a';
+    public $sSettings = '//*[@id="menu-item-166"]/a';
 
     /**
      *secondary navigation style
@@ -79,7 +80,7 @@ class SecondaryNavigationComp
     public $letterSpacing = '//*[@id="customize-control-secondary_navigation_typography-letter-spacing"]/label/div/input[2]';
 
     /**
-     * dropdown typogarphy settings for secondary navigation
+     * dropdown typogarphy settings for secondary navigation:
      */
     public $dFontFamily = '//*[@id="customize-control-secondary_dropdown_navigation_typography-font-family"]/label/select';
     public $dFontWeight = '//*[@id="customize-control-secondary_dropdown_navigation_typography-font-weight"]/label/select';

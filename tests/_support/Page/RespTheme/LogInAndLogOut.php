@@ -14,18 +14,14 @@ class LogInAndLogOut
     public $submitBtn = '#wp-submit';
     public $wordpressProfile='//*[@id="wp-admin-bar-my-account"]/a/span';
     public $logOutLink='//*[@id="wp-admin-bar-logout"]/a';
-
+  
     /**
      * Declare UI map for this page here. CSS or XPath allowed.
      * public static $usernameField = '#username';
      * public static $formSubmitButton = "#mainForm input[type=submit]";
      */
 
-    /**
-     * Basic route example for your current URL
-     * You can append any additional parameter to URL
-     * and use it in tests like: Page\Edit::route('/123-post');
-     */
+    
     public static function route($param)
     {
         return static::$URL.$param;
@@ -63,6 +59,7 @@ class LogInAndLogOut
         $I->click($this->logOutLink);
         $I->wait(2);
         $I->see('You are now logged out.');
+        $I->wait(2);
     }
 
 }
