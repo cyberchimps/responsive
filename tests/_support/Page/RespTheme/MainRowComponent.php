@@ -14,7 +14,8 @@ class MainRowComponent
     public $desktop = '//*[@id="customize-footer-actions"]/div/div/button[1]';
     public $mobrow ='//*[@id="mobile-header"]/div/div/div/div';
     public $deskrow = '//*[@id="main-header"]/div/div/div/div/div';
-    public $tabrow = '//*[@id="main-header"]/div/div/div/div/div';
+    public $tabrow = '//*[@id="mobile-header"]/div/div/div/div[1]';
+    
     public $mainRowButton = '//*[@id="accordion-section-responsive_customizer_header_main"]';
     public $desktopLayout = '//*[@id="customize-control-responsive_header_main_layout"]/select';
     public $tabletLayout  = '//*[@id="customize-control-responsive_header_tablet_main_layout"]/select';
@@ -39,13 +40,16 @@ class MainRowComponent
     public $tabletPField = '//*[@id="customize-control-responsive_main_row_padding"]/ul[2]/li[1]/input';
     public $mobilePField = '//*[@id="customize-control-responsive_main_row_padding"]/ul[3]/li[1]/input';
     public $publishButton = '//*[@id="save"]';
-
     
-    /**
-     * Basic route example for your current URL
-     * You can append any additional parameter to URL
-     * and use it in tests like: Page\Edit::route('/123-post');
-     */
+    public $classlayout = 'site-main-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-fullwidth';
+    public $classcontainedlayout = 'site-main-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-contained';
+    public $classTfullwidthlayout = 'site-main-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-fullwidth';
+    public $classTcontainedlayout = 'site-main-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-contained';
+    public $classTstandardlayout = 'site-main-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-standard';
+    public $classMstandardlayout = 'site-main-header-wrap site-header-focus-item site-header-row-layout-standard site-header-row-tablet-layout-standard site-header-row-mobile-layout-standard';
+    public $classMfullwidthlayout = 'site-main-header-wrap site-header-focus-item site-header-row-layout-standard site-header-row-tablet-layout-standard site-header-row-mobile-layout-fullwidth';
+    public $classMcontainedlayout = 'site-main-header-wrap site-header-focus-item site-header-row-layout-standard site-header-row-tablet-layout-standard site-header-row-mobile-layout-contained'; 
+    
     public static function route($param)
     {
         return static::$URL.$param;

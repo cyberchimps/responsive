@@ -76,6 +76,8 @@ class PrimaryNavigationComp
     public $dFontSize = '//*[@id="customize-control-primary_dropdown_navigation_typography-font-size"]/div[2]/input';
     public $dLineHeight = '//*[@id="customize-control-primary_dropdown_navigation_typography-line-height"]/label/div/input[2]';
     public $dLetterSpacing = '//*[@id="customize-control-primary_dropdown_navigation_typography-letter-spacing"]/label/div/input[2]';
+
+    public $sHome = '//*[@id="menu-item-18"]/a/span';
     /**
      * Basic route example for your current URL
      * You can append any additional parameter to URL

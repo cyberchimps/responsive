@@ -19,6 +19,10 @@ class CommonPrimarySettings
      */
     public $itemspacing = '//*[@id="menu-item-19"]/a';
     public $pItemColor = '//*[@id="menu-item-18"]/a';
+    public $pActiveItemColor = '//*[@id="menu-item-18"]/a';
+    public $pBgHoverColor = '//*[@id="menu-item-19"]/a';
+    public $pBackgroundColor = '//*[@id="menu-item-17"]/a';
+    public $pActiveBgColor = '//*[@id="menu-item-18"]/a';
     public $frame = '//*[@id="customize-preview"]/iframe';
 
     /**
