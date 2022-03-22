@@ -13,6 +13,7 @@ class RespThemeHelper
     public $publishBtn = '//div[@id="customize-save-button-wrapper"]';
     public $item = '';
     public $selectItems = '';
+    
 
     /**
      * Declare UI map for this page here. CSS or XPath allowed.

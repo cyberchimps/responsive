@@ -39,7 +39,7 @@ class ButtonComponents
     public $desktopButtonSize       = 'option[value="small"]';
     public $desktopButtonStyle      = 'option[value="outline"]';
     public $desktopButtonVisibility = 'option[value="loggedin"]';
-
+   
     /**
      * Button mobile settings
      */
