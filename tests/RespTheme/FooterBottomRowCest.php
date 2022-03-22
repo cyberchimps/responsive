@@ -19,7 +19,7 @@ class FooterBottomRowCest
     }
 
     // tests
-    /*public function ContainerWidth(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
+    public function ContainerWidth(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
     {
         $I->fillField($FooterBottomRowComponents->numberOfColumns, '3');
         $I->click($FooterBottomRowComponents->publishButton);
@@ -93,9 +93,9 @@ class FooterBottomRowCest
         $I->wait(1);
         $I->seeElement($FooterBottomRowComponents->bottomRowWidthDesk);
         $I->expectTo('See in the Class'.$FooterBottomRowComponents->fullwidthLayout);
-    }*/
+    }
 
-    /*public function RowCollapse(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
+    public function RowCollapse(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
     {
         $I->selectOption($FooterBottomRowComponents->collapseRow, 'rtl');
         $I->click($FooterBottomRowComponents->publishButton);
@@ -117,9 +117,9 @@ class FooterBottomRowCest
         $I->amGoingTo('Check on the front end');
         $I->amOnPage('/');
         $I->seeElement($FooterBottomRowComponents->bottomRowColumns);
-    }*/
+    }
 
-   /* public function SpacingAndHeight(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
+    public function SpacingAndHeight(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
     {
         $I->fillField($FooterBottomRowComponents->topSpacingDesk, '20');
         $I->fillField($FooterBottomRowComponents->topSpacingTab, '15');
@@ -137,6 +137,8 @@ class FooterBottomRowCest
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->bottomRowColumns, 'padding-top', 'xpath', '20px');
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->bottomRowColumns, 'padding-bottom', 'xpath', '20px');
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->bottomRowColumns, 'min-height', 'xpath', '15px');
+
+        //issue here
         $I->resizeWindow(768, 1024);
         $I->wait(1);
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->bottomRowColumns, 'padding-top', 'xpath', '15px');
@@ -147,10 +149,10 @@ class FooterBottomRowCest
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->bottomRowColumns, 'padding-top', 'xpath', '10px');
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->bottomRowColumns, 'padding-bottom', 'xpath', '10px');
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->bottomRowColumns, 'min-height', 'xpath', '10px');
-    }*/
+    }
 
 
-    /*public function LinkSettings(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
+    public function LinkSettings(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
     {
         $I->selectOption($FooterBottomRowComponents->linkStyle, 'normal');
         $I->click($FooterBottomRowComponents->linkColor);
@@ -167,10 +169,10 @@ class FooterBottomRowCest
         $I->moveMouseOver($FooterBottomRowComponents->link);
         $I->wait(2);
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->link, 'color', 'xpath', '(255, 255, 255, 1)');
-    }*/
+    }
 
 
-    /*public function BackgroundColor(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
+    public function BackgroundColor(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
     {
         $I->click($FooterBottomRowComponents->backgroundDesk);
         $I->click($FooterBottomRowComponents->backgroundDesk3);
@@ -189,7 +191,7 @@ class FooterBottomRowCest
         $I->resizeWindow(375, 812);
         $I->wait(1);
         $FooterBottomRowComponents->_checkstyle($I, $FooterBottomRowComponents->bkgColorBottomRow, 'background', 'xpath', 'rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box');
-    }*/
+    }
 
 
     public function TypographyOptions(RespThemeTester $I, FooterBottomRowComponents $FooterBottomRowComponents)
