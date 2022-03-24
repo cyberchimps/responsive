@@ -1,12 +1,17 @@
 <?php
 namespace Page\RespTheme;
 
+use \Facebook\WebDriver\Remote\RemoteWebDriver;
+use \Facebook\WebDriver\WebDriverBy;
+use \Facebook\WebDriver\WebDriverKeys;
+
+
 class HeaderButtonComponents
 {
     // include url of current page
     public static $URL = '';
 
-    //general
+
     public $customizeButton         =   '//*[@id="wp-admin-bar-customize"]/a';
     public $headerButton            =   '//*[@id="accordion-panel-responsive_header"]/h3';
     public $headerButtonSection     =   '//*[@id="accordion-section-responsive_customizer_header_button"]/h3';
@@ -49,6 +54,31 @@ class HeaderButtonComponents
     
 
     /**
+
+     * This function checks style in the frontend
+     */
+    public function _checkStyle($I, $field, $prop, $getSelectorBy, $expectedStyle)
+    {
+        $this->field = $field;
+        $this->prop = $prop;
+        $actualStyle = '';
+        if($getSelectorBy == 'css')
+        {
+            $actualStyle = $I->executeInSelenium(function(RemoteWebDriver $webdriver){
+                return $webdriver->findElement(WebDriverBy::cssSelector($this->field))->getCSSValue($this->prop);
+            });
+        }
+        else {
+            $actualStyle = $I->executeInSelenium(function(RemoteWebDriver $webdriver){
+                return $webdriver->findElement(WebDriverBy::xpath($this->field))->getCSSValue($this->prop);
+            });
+        }
+        $I->assertEquals($expectedStyle, $actualStyle);
+    }
+
+    /**
+
+
      * Declare UI map for this page here. CSS or XPath allowed.
      * public static $usernameField = '#username';
      * public static $formSubmitButton = "#mainForm input[type=submit]";
