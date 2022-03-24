@@ -20,14 +20,6 @@ class CommonFunctionsPage
     public $backgroundmobtop = '//*[@id="main-header"]/div/div[1]/div/div[1]/div';
     public $backgrounddesktop = '//*[@id="main-header"]/div/div[1]/div/div[1]/div';   
 
-    public $backgrounddeskbot       =   '//*[@id="main-header"]/div/div[2]/div';
-    public $backgroundtabbot        =   '//*[@id="main-header"]/div/div[2]/div';
-    public $backgroundmobbot        =   '//*[@id="main-header"]/div/div[2]/div';
-
-    public $botminhtdeskelement     =   '//*[@id="main-header"]/div/div[2]/div/div/div';  
-    public $botminhttabelement      =   '//*[@id="main-header"]/div/div[2]/div/div/div';
-    public $botminhtmobelement      =   '//*[@id="main-header"]/div/div[2]/div/div/div';
-
     public $field = '//*[@id="main-header"]/div/div[1]/div/div[1]/div';
     public $prop = 'background';
     public $editBlockBtn = '//*[text()="Edit Page"]';
