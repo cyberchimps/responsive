@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 Responsive\responsive_wrapper_top(); // before wrapper content hook.
 // Elementor `single` location.
-if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'single' ) ) ) {
 	Responsive\responsive_wrapper();
 
 	while ( have_posts() ) :

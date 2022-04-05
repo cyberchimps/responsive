@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		}
 
 		// Elementor `header` location.
-		if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) && $responsive_show_header ) {
+		if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'header' ) ) && $responsive_show_header ) {
 
 			// Replaces default header with custom header.
 			Responsive\responsive_custom_header();

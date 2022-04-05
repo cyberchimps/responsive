@@ -28,7 +28,7 @@ get_header();
 Responsive\responsive_wrapper_top(); // before wrapper content hook.
 
 // Elementor `archive` location.
-if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) {
+if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'archive' ) ) ) {
 	Responsive\responsive_wrapper();
 
 	if ( have_posts() ) {
@@ -42,7 +42,7 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 
 	} else {
 		// Elementor `404` location.
-		if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+		if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'single' ) ) ) {
 			get_template_part( 'partials/page/layout', get_post_type() );
 		}
 	}
