@@ -306,7 +306,7 @@ if ( ! class_exists( 'Responsive_Mobile_Social_Customizer' ) ) :
 			);
 
 			$header_icon_size_tablet_label = esc_html__( 'Icon Size (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'header_icon_size_tablet', $header_icon_size_tablet_label, 'responsive_customizer_mobile_social', 90, 18, null, 100 );
+			responsive_drag_number_control( $wp_customize, 'header_icon_size_tablet', $header_icon_size_tablet_label, 'responsive_customizer_mobile_social', 90, 18, null, 100, 1, 'postMessage' );
 
 			//Social Icon Colors.
 			$header_social_icon_color_tablet_label = __( 'Icon Color', 'responsive' );
