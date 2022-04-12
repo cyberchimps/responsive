@@ -34,10 +34,9 @@ const BuilderComponent = props => {
 		value: value,
 	});
 	const linkColumns = () => {
-		let self = this;
 		document.addEventListener('responsiveUpdateFooterColumns', function (e) {
-			if ('footer_items' === self.controlParams.group) {
-				self.onFooterUpdate(e.detail);
+			if ('footer_items' === controlParams.group) {
+				onFooterUpdate(e.detail);
 			}
 		});
 	}
@@ -144,7 +143,7 @@ const BuilderComponent = props => {
 		let updateState = state.value;
 		let update = updateState[row];
 		let removeEvent = false;
-		const columns = parseInt(props.customizer.control('footer_' + row + '_columns').setting.get(), 10);
+		const columns = parseInt(props.customizer.control('responsive_footer_' + row + '_columns').setting.get(), 10);
 		if (columns < 5) {
 			if (undefined !== update[row + '_5'] && update[row + '_5'].length > 0) {
 				updateState[row][row + '_5'] = [];
