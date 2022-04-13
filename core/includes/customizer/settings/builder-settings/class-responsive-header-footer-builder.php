@@ -314,7 +314,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->add_setting(
 				'footer_items',
 				array(
-					'transport'         => 'refresh',
+					'transport'         => 'postMessage',
 					'default'           => $footer_items,
 					'sanitize_callback' => 'responsive_sanitize_builder',
 				)
@@ -322,7 +322,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->selective_refresh->add_partial(
 				'footer_items',
 				array(
-					'selector'            => '#colophon',
+					'selector'            => '#footer',
 					'container_inclusive' => true,
 					'render_callback'     => 'footer_markup',
 					'fallback_refresh'    => true,

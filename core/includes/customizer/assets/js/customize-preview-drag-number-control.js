@@ -496,7 +496,7 @@
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_header_social_border_radius_tablet' );
 			if ( to ) {
-				var style = `<style class="customizer-responsive_header_social_border_radius_tablet">@media screen and ( max-width: 768px ) {#main-header .social-icons a {border-radius: ${to}px !important;}}</style>`;
+				var style = `<style class="customizer-responsive_header_social_border_radius_tablet">@media screen and ( max-width: 768px ) {#mobile-header .social-icons a {border-radius: ${to}px !important;}}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
@@ -511,7 +511,7 @@
 		value.bind( function( to ) {
 			var $child = $( '.customizer-responsive_header_social_border_size_tablet' );
 			if ( to ) {
-				var style = `<style class="customizer-responsive_header_social_border_size_tablet">@media screen and ( max-width: 768px ) {#main-header .social-icons a {border-size: ${to}px !important;}}</style>`;
+				var style = `<style class="customizer-responsive_header_social_border_size_tablet">@media screen and ( max-width: 768px ) {#mobile-header .social-icons a {border-width: ${to}px !important;}}</style>`;
 				if ( $child.length ) {
 					$child.replaceWith( style );
 				} else {
