@@ -2514,6 +2514,14 @@ function responsive_customizer_styles() {
 		padding: {$secondary_navigation_item_spacing_top_bottom}px {$secondary_navigation_item_spacing}px; 
 	}";
 
+	// Mobile Navigation Item Spacing.
+	$mobile_navigation_item_spacing_top_bottom = esc_html( get_theme_mod( 'responsive_mobile_navigation_item_top_bottom_spacing', 18 ) );
+
+	$custom_css .= ".mobile-navigation ul li a{
+		padding-top: {$mobile_navigation_item_spacing_top_bottom}px;
+		padding-bottom: {$mobile_navigation_item_spacing_top_bottom}px;
+	}";
+
 	// Footer Navigation Item Spacing.
 	$footer_navigation_item_spacing            = esc_html( get_theme_mod( 'responsive_footer_navigation_item_spacing', 18 ) );
 	$footer_navigation_item_spacing_top_bottom = esc_html( get_theme_mod( 'responsive_footer_navigation_item_top_bottom_spacing', 10 ) );
@@ -2562,6 +2570,12 @@ function responsive_customizer_styles() {
 	$secondary_background_color        = esc_html( get_theme_mod( 'responsive_secondary_background_color', '#fff' ) );
 	$secondary_background_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_background_hover_color', '#fff' ) );
 	$secondary_background_active_color = esc_html( get_theme_mod( 'responsive_secondary_background_active_color', '#fff' ) );
+	$mobile_navigation_color           = esc_html( get_theme_mod( 'responsive_mobile_navigation_color', '#333' ) );
+	$mobile_navigation_hover_color     = esc_html( get_theme_mod( 'responsive_mobile_navigation_hover_color', '#333' ) );
+	$mobile_navigation_active_color    = esc_html( get_theme_mod( 'responsive_mobile_navigation_active_color', '#333' ) );
+	$mobile_background_color           = esc_html( get_theme_mod( 'responsive_mobile_background_color', '#fff' ) );
+	$mobile_background_hover_color     = esc_html( get_theme_mod( 'responsive_mobile_background_hover_color', '#fff' ) );
+	$mobile_background_active_color    = esc_html( get_theme_mod( 'responsive_mobile_background_active_color', '#fff' ) );
 	$custom_css                       .= ".main-navigation .primary-menu-container > ul > li.menu-item > a{
 		color: {$primary_navigation_color};
 		background: {$primary_background_color };
@@ -2587,6 +2601,18 @@ function responsive_customizer_styles() {
 	.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-ancestor > a{
 		color: {$secondary_navigation_active_color };
 		background: {$secondary_background_active_color};
+	}
+	.mobile-navigation ul li > a, .mobile-navigation ul li.menu-item-has-children > .drawer-nav-drop-wrap{
+		color: {$mobile_navigation_color};
+		background: {$mobile_background_color };
+	}
+	.mobile-navigation ul li > a:hover, .mobile-navigation ul li.menu-item-has-children > .drawer-nav-drop-wrap:hover{
+		color: {$mobile_navigation_hover_color};
+		background: {$mobile_background_hover_color };
+	}
+	.mobile-navigation ul li.current-menu-item > a, .mobile-navigation ul li.current-menu-item.menu-item-has-children > .drawer-nav-drop-wrap{
+		color: {$mobile_navigation_active_color };
+		background: {$mobile_background_active_color};
 	}";
 
 	// Dropdown colors.
@@ -2648,6 +2674,9 @@ function responsive_customizer_styles() {
 	$secondary_dropdown_navigation_divider_type  = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_divider_type', 'solid' ) );
 	$secondary_dropdown_navigation_divider_size  = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_divider_size', 1 ) );
 	$secondary_dropdown_navigation_divider_color = esc_html( get_theme_mod( 'responsive_secondary_dropdown_navigation_divider_color', 'rgba(170, 170, 170, 0.2)' ) );
+	$mobile_navigation_divider_type              = esc_html( get_theme_mod( 'responsive_mobile_navigation_divider_type', 'solid' ) );
+	$mobile_navigation_divider_size              = esc_html( get_theme_mod( 'responsive_mobile_navigation_divider_size', 1 ) );
+	$mobile_navigation_divider_color             = esc_html( get_theme_mod( 'responsive_mobile_navigation_divider_color', 'rgba(170, 170, 170, 0.2)' ) );
 	$custom_css                                 .= ".header-navigation.main-navigation .header-menu-container ul ul li.menu-item,
 		.header-menu-container ul.menu > li.responsive-menu-mega-enabled > ul > li.menu-item > a{
 			border-bottom: {$primary_dropdown_navigation_divider_size}px {$primary_dropdown_navigation_divider_type} {$primary_dropdown_navigation_divider_color} ;
@@ -2655,6 +2684,12 @@ function responsive_customizer_styles() {
 	.header-navigation.secondary-navigation .header-menu-container ul ul li.menu-item,
 		.header-menu-container ul.menu > li.responsive-menu-mega-enabled > ul > li.menu-item > a{
 			border-bottom: {$secondary_dropdown_navigation_divider_size}px {$secondary_dropdown_navigation_divider_type} {$secondary_dropdown_navigation_divider_color} ;
+	}
+	.mobile-navigation ul li.menu-item-has-children .drawer-nav-drop-wrap, .mobile-navigation ul li:not(.menu-item-has-children) a{
+		border-bottom: {$mobile_navigation_divider_size}px {$mobile_navigation_divider_type} {$mobile_navigation_divider_color};
+	}
+	.mobile-navigation:not(.drawer-navigation-parent-toggle-true) ul li.menu-item-has-children .drawer-nav-drop-wrap button{
+		border-left: {$mobile_navigation_divider_size}px {$mobile_navigation_divider_type} {$mobile_navigation_divider_color};
 	}";
 
 	// Mobile Offcanvas Drawer.
