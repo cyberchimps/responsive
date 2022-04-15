@@ -2795,7 +2795,7 @@
 	});
     api( 'responsive_header_html_link_color', function( value ) {
         value.bind( function( newval ) {
-            $('#main-header .header-html a').css('color', newval );
+            $('.header-html a').css('color', newval );
         } );
     } );
     api( 'responsive_header_html_link_hover_color', function( value ) {
@@ -3265,4 +3265,14 @@
             }
         });
     });
+    api( 'responsive_header_html_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-html').css('color', newval );
+        } );
+    } );
+    api( 'responsive_mobile_html_text_color', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-html').css('color', newval );
+        } );
+    } );
 } )( jQuery );

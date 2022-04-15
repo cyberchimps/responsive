@@ -2481,17 +2481,26 @@ function responsive_customizer_styles() {
 		}
 	}';
 
-	// Header HTML 
-	$header_html_link_color          = esc_html( get_theme_mod( 'responsive_header_html_link_color', '' ) );
-	$header_html_link_hover_color          = esc_html( get_theme_mod( 'responsive_header_html_link_hover_color', '' ) );
-	$mobile_header_html_link_color          = esc_html( get_theme_mod( 'responsive_mobile_header_html_link_color', '' ) );
-	$mobile_header_html_link_hover_color          = esc_html( get_theme_mod( 'responsive_mobile_header_html_link_hover_color', '' ) );
-	
-	$custom_css .= "#main-header .header-html a {
+	// Header HTML .
+	$header_html_text_color              = esc_html( get_theme_mod( 'responsive_header_html_text_color', '' ) );
+	$header_html_link_color              = esc_html( get_theme_mod( 'responsive_header_html_link_color', '' ) );
+	$header_html_link_hover_color        = esc_html( get_theme_mod( 'responsive_header_html_link_hover_color', '' ) );
+	$mobile_html_text_color              = esc_html( get_theme_mod( 'responsive_mobile_html_text_color', '' ) );
+	$mobile_header_html_link_color       = esc_html( get_theme_mod( 'responsive_mobile_header_html_link_color', '' ) );
+	$mobile_header_html_link_hover_color = esc_html( get_theme_mod( 'responsive_mobile_header_html_link_hover_color', '' ) );
+
+	$custom_css .= "
+	#main-header .header-html{
+		color: {$header_html_text_color};
+	}
+	#main-header .header-html a {
 		color: {$header_html_link_color};
 	}
 	#main-header .header-html a:hover {
 		color: {$header_html_link_hover_color};
+	}
+	.mobile-html{
+		color: {$mobile_html_text_color};
 	}
 	.mobile-html a {
 		color: {$mobile_header_html_link_color};

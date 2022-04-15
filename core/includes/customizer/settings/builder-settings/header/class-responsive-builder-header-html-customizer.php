@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Responsive_Header_HTML_Customizer' ) ) :
 	/**
-	 * Header Footer Builder Customizer Options */
+	 * Header header Builder Customizer Options */
 	class Responsive_Header_HTML_Customizer {
 
 		/**
@@ -53,6 +53,23 @@ if ( ! class_exists( 'Responsive_Header_HTML_Customizer' ) ) :
 
 			$wpautop = __( 'Automatically Add Paragraphs', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'header_html_wpautop', $wpautop, 'responsive_customizer_header_html', 15, 1 );
+
+			$header_html_link_style_choices = array(
+				'normal' => __( 'Underline', 'responsive' ),
+				'noline' => __( 'No Underline', 'responsive' ),
+			);
+
+			$header_html_link_style = __( 'Link Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'header_html_link_style', $header_html_link_style, 'responsive_customizer_header_html', 20, $header_html_link_style_choices, 'normal', null );
+
+			$header_html_text_label = __( 'Text Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_html_text', $header_html_text_label, 'responsive_customizer_header_html', 25, '', null );
+
+			$header_html_row_link_label = __( 'Link Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_html_link', $header_html_row_link_label, 'responsive_customizer_header_html', 30, '', null );
+
+			$header_html_row_link_hover_label = __( 'Link Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'header_html_link_hover', $header_html_row_link_hover_label, 'responsive_customizer_header_html', 35, '', null );
 
 			$header_html_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
 			responsive_separator_control( $wp_customize, 'header_html_typography_options_separator', $header_html_typography_options_label, 'responsive_customizer_header_html', 100 );

@@ -1018,7 +1018,7 @@ function mobile_navigation() {
 function header_html() {
 	$content = get_theme_mod( 'responsive_header_html_content', '<p>Enter HTML here!</p>' );
 	if ( $content || is_customize_preview() ) {
-		$link_style = get_theme_mod( 'header_html_link_style' );
+		$link_style = get_theme_mod( 'responsive_header_html_link_style' );
 		$wpautop    = get_theme_mod( 'responsive_header_html_wpautop', 1 );
 		echo '<div class="header-html inner-link-style-' . esc_attr( $link_style ) . '">';
 		// customizer_quick_link();
