@@ -76,7 +76,7 @@ if ( ! class_exists( 'Responsive_Mobile_Navigation_Customizer' ) ) :
 			$mobile_background_active_color_label = __( 'Active Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'mobile_background_active', $mobile_background_active_color_label, 'responsive_customizer_mobile_navigation', 50, '#fff', null );
 
-            $mobile_navigation_divider_size_label = __( 'Mobile Divider Color', 'responsive' );
+			$mobile_navigation_divider_size_label = __( 'Mobile Divider Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'mobile_navigation_divider', $mobile_navigation_divider_size_label, 'responsive_customizer_mobile_navigation', 55, 'rgba(170, 170, 170, 0.2)', null );
 
 			$mobile_navigation_divider_type_choices = array(
@@ -91,6 +91,10 @@ if ( ! class_exists( 'Responsive_Mobile_Navigation_Customizer' ) ) :
 
 			$mobile_navigation_divider_size_label = esc_html__( 'mobile Divider Width', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_navigation_divider_size', $mobile_navigation_divider_size_label, 'responsive_customizer_mobile_navigation', 60, 1, null, 20 );
+
+			$mobile_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'mobile_typography_options_separator', $mobile_typography_options_label, 'responsive_customizer_mobile_navigation', 65 );
+
 		}
 
 	}
