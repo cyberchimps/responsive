@@ -545,4 +545,22 @@
         } );
     } );
 
+    api( 'responsive_header_social_item_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .social-icons').css('column-gap', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_header_mobile_social_item_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('#mobile-header .social-icons').css('column-gap', newval+'px' );
+        } );
+    } );
+
+    api( 'responsive_footer_social_item_spacing', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-footer-row-container-inner .social-icons').css('column-gap', newval+'px' );
+        } );
+    } );
+
 } )( jQuery );

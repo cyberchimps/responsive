@@ -2944,23 +2944,29 @@ function responsive_customizer_styles() {
 		}
 	}";
 
-	$header_icon_size = esc_html( get_theme_mod( 'responsive_header_icon_size', 18 ) );
-	$footer_icon_size = esc_html( get_theme_mod( 'responsive_footer_icon_size', 18 ) );
-	$header_social_icon_size_tablet = esc_html( get_theme_mod( 'responsive_header_icon_size_tablet', 18 ) );
-	$custom_css      .= "#main-header .social-icons {
+	$header_icon_size                  = esc_html( get_theme_mod( 'responsive_header_icon_size', 18 ) );
+	$footer_icon_size                  = esc_html( get_theme_mod( 'responsive_footer_icon_size', 18 ) );
+	$header_social_icon_size_tablet    = esc_html( get_theme_mod( 'responsive_header_icon_size_tablet', 18 ) );
+	$header_social_item_spacing        = esc_html( get_theme_mod( 'responsive_header_social_item_spacing', 6 ) );
+	$header_mobile_social_item_spacing = esc_html( get_theme_mod( 'responsive_header_mobile_social_item_spacing', 6 ) );
+	$footer_social_item_spacing        = esc_html( get_theme_mod( 'responsive_footer_social_item_spacing', 6 ) );
+
+	$custom_css .= "#main-header .social-icons {
 		font-size: {$header_icon_size}px;
+		column-gap: {$header_social_item_spacing}px;
 	}
 	.site-footer-row-container-inner .social-icons {
 		font-size: {$footer_icon_size}px;
+		column-gap: {$footer_social_item_spacing}px;
 	}
 	@media screen and ( max-width: 768px ) {
 		#mobile-header .social-icons {
 			font-size: {$header_social_icon_size_tablet}px;
+			column-gap: {$header_mobile_social_item_spacing}px;
 		}
 	}";
 
-
-	// Social Icon Border 
+	// Social Icon Border.
 	$header_social_border_size        = esc_html( get_theme_mod( 'responsive_header_social_border_size', 1 ) );
 	$header_social_border_style       = esc_html( get_theme_mod( 'responsive_header_social_border_style', 'solid' ) );
 	$header_social_border_radius      = esc_html( get_theme_mod( 'responsive_header_social_border_radius', 0 ) );

@@ -1368,13 +1368,21 @@ a.social-button.has-custom-image {
 	position: relative;
 }
 
-.social-icons a{
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	width: 2em;
-	height: 2em;
+.social-icons{
+	display: flex;
+	max-width: max-content;
+	column-gap: 6px;
+	a{
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: 2em;
+		height: 2em;
+	}
 }
 .social-icon .social-icons  > li{
 	margin-right: auto;
+}
+.mobile-toggle-open-container .menu-toggle-open{
+	padding: 10px 8px;
 }

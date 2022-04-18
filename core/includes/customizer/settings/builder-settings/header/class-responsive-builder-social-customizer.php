@@ -304,11 +304,11 @@ if ( ! class_exists( 'Responsive_Social_Header_Customizer' ) ) :
 					)
 				)
 			);
-			
+
 			$header_icon_size_label = esc_html__( 'Icon Size (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_icon_size', $header_icon_size_label, 'responsive_customizer_header_social', 90, 18, null, 100 );
 
-			//Social Icon Colors.
+			// Social Icon Colors.
 			$header_social_icon_color_label = __( 'Icon Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_social_icon', $header_social_icon_color_label, 'responsive_customizer_header_social', 95, '#0066cc', null );
 
@@ -341,6 +341,9 @@ if ( ! class_exists( 'Responsive_Social_Header_Customizer' ) ) :
 
 			$header_social_border_radius_label = esc_html__( 'Border Radius', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_social_border_radius', $header_social_border_radius_label, 'responsive_customizer_header_social', 125, 0, null, 120, 1, 'postMessage' );
+
+			$header_social_item_spacing_label = esc_html__( 'Item Spacing', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_social_item_spacing', $header_social_item_spacing_label, 'responsive_customizer_header_social', 130, 6, null, 120, 1, 'postMessage' );
 
 		}
 
