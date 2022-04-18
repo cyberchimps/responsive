@@ -539,4 +539,10 @@
         } );
     } );
 
+    api( 'responsive_trigger_border_width', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-toggle-open-container .menu-toggle-open.menu-toggle-style-bordered').css('border-width', newval+'px' );
+        } );
+    } );
+
 } )( jQuery );

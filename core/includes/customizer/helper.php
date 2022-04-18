@@ -2242,6 +2242,14 @@ function is_stretch_secondary_navigation() {
 function is_header_search_style_bordered() {
 	return get_theme_mod( 'responsive_header_search_style', 'outline' ) === 'bordered' ? true : false;
 }
+/**
+ * Check if Header Search Style is Outline
+ *
+ * @return bool
+ */
+function is_mobile_trigger_style_bordered() {
+	return get_theme_mod( 'responsive_mobile_trigger_style', 'default' ) === 'bordered' ? true : false;
+}
 
 /**
  * Get an SVG Icon
