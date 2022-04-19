@@ -3292,8 +3292,7 @@
         value.bind( function( to ) {
             var $child = $( '.customizer-responsive_footer_navigation_hover_color' );
             if ( to ) {
-                var style = `<style class="customizer-responsive_footer_navigation_hover_color">#colophon .footer-navigation .footer-menu-container > ul li a:hover {color:  ${to} !important ;}
-                </style>`;
+                var style = `<style class="customizer-responsive_footer_navigation_hover_color">#colophon .footer-navigation .footer-menu-container > ul li a:hover {color:  ${to} !important ;}</style>`;
                 if ( $child.length ) {
                     $child.replaceWith( style );
                 } else {

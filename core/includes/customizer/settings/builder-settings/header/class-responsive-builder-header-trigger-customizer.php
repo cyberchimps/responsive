@@ -84,6 +84,12 @@ if ( ! class_exists( 'Responsive_Header_Trigger_Customizer' ) ) :
 			$mobile_trigger_icon_size_label = esc_html__( 'Icon Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_trigger_icon_size', $mobile_trigger_icon_size_label, 'responsive_customizer_mobile_trigger', 25, 20, null, 100, 1, 'postMessage' );
 
+			$mobile_trigger_horizontal_padding_label = esc_html__( 'Horizontal Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_trigger_horizontal_padding', $mobile_trigger_horizontal_padding_label, 'responsive_customizer_mobile_trigger', 25, 10, null, 100, 1, 'postMessage' );
+
+			$mobile_trigger_vertical_padding_label = esc_html__( 'Vertical Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_trigger_vertical_padding', $mobile_trigger_vertical_padding_label, 'responsive_customizer_mobile_trigger', 25, 8, null, 100, 1, 'postMessage' );
+
 			// Trigger Colors.
 			$trigger_color_label = __( 'Trigger Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'trigger', $trigger_color_label, 'responsive_customizer_mobile_trigger', 30, '#333', null );

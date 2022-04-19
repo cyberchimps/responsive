@@ -2843,10 +2843,16 @@ function responsive_customizer_styles() {
 	$trigger_border_style   = esc_html( get_theme_mod( 'responsive_trigger_border_style', 'none' ) );
 	$trigger_border_width   = esc_html( get_theme_mod( 'responsive_trigger_border_width', 1 ) );
 
+	$mobile_trigger_horizontal_padding = esc_html( get_theme_mod( 'responsive_mobile_trigger_horizontal_padding', 10 ) );
+	$mobile_trigger_verticle_padding   = esc_html( get_theme_mod( 'responsive_mobile_trigger_vertical_padding', 8 ) );
+
 	$custom_css .= "@media screen and (max-width: {$mobile_menu_breakpoint}px){
 		.mobile-toggle-open-container .menu-toggle-open.menu-toggle-style-bordered{
 			border-style: {$trigger_border_style};
 			border-width: {$trigger_border_width}px;
+		}
+		.mobile-toggle-open-container .menu-toggle-open{
+			padding: {$mobile_trigger_horizontal_padding}px {$mobile_trigger_verticle_padding}px;
 		}
 	}";
 
