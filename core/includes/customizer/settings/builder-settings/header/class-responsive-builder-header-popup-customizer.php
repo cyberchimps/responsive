@@ -99,14 +99,6 @@ if ( ! class_exists( 'Responsive_Builder_Header_Popup_Customizer' ) ) :
 			$header_popup_vertical_align = __( 'Content Vertical Alignment', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_popup_vertical_align', $header_popup_vertical_align, 'responsive_customizer_header_popup', 30, $header_popup_vertical_align_choices, 'top', null );
 
-			// Collapse Submenu Items.
-			$mobile_navigation_collapse = __( 'Collapse Submenu Items?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'mobile_navigation_collapse', $mobile_navigation_collapse, 'responsive_customizer_header_popup', 35, 1, null );
-
-			// Entire parent menu item expands sub menu.
-			$mobile_navigation_parent_toggle = __( 'Parent menu item expands sub menu', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'mobile_navigation_parent_toggle', $mobile_navigation_parent_toggle, 'responsive_customizer_header_popup', 40, 0, 'is_menu_collapsible' );
-
 			$header_popup_close_icon_size_label = esc_html__( 'Close Icon Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_popup_close_icon_size', $header_popup_close_icon_size_label, 'responsive_customizer_header_popup', 45, 24, null, 100, 1, 'postMessage' );
 
