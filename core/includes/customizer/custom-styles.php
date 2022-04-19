@@ -2951,19 +2951,43 @@ function responsive_customizer_styles() {
 	$header_mobile_social_item_spacing = esc_html( get_theme_mod( 'responsive_header_mobile_social_item_spacing', 6 ) );
 	$footer_social_item_spacing        = esc_html( get_theme_mod( 'responsive_footer_social_item_spacing', 6 ) );
 
+	$header_social_label        = esc_html( get_theme_mod( 'responsive_header_social_label_visibility', 0 ) );
+	$header_mobile_social_label = esc_html( get_theme_mod( 'responsive_header_mobile_social_label_visibility', 0 ) );
+	$footer_social_label        = esc_html( get_theme_mod( 'responsive_footer_social_label_visibility', 0 ) );
+
+	$header_social_label_visibility        = $header_social_label ? 'block' : 'none';
+	$footer_social_label_visibility        = $footer_social_label ? 'block' : 'none';
+	$header_mobile_social_label_visibility = $header_mobile_social_label ? 'block' : 'none';
+
+
+	// $header_social_label_visible_css = $header_social_label ? '#main-header .social-icons a{ width: auto; padding: 5px;} #main-header .social-icons a i { margin-right: 3px; }' : '';
+	// $footer_social_label_visible_css = $footer_social_label ? '.site-footer-row-container-inner .social-icons a{ width: auto; padding: 5px;} .site-footer-row-container-inner .social-icons a i { margin-right: 3px; }' : '';
+	// $header_social_label_visible_css = $header_mobile_social_label ? '#mobile-header .social-icons a{ width: auto; padding: 5px;} #mobile-header .social-icons a i { margin-right: 3px; }' : '';
+
 	$custom_css .= "#main-header .social-icons {
 		font-size: {$header_icon_size}px;
 		column-gap: {$header_social_item_spacing}px;
+	}
+	#main-header .social-icons a .label{
+		display: {$header_social_label_visibility};
 	}
 	.site-footer-row-container-inner .social-icons {
 		font-size: {$footer_icon_size}px;
 		column-gap: {$footer_social_item_spacing}px;
 	}
+	.site-footer-row-container-inner .social-icons a .label {
+		display: {$footer_social_label_visibility};
+	}
+
 	@media screen and ( max-width: 768px ) {
 		#mobile-header .social-icons {
 			font-size: {$header_social_icon_size_tablet}px;
 			column-gap: {$header_mobile_social_item_spacing}px;
 		}
+		#mobile-header .social-icons a .label {
+			display: {$header_mobile_social_label_visibility};
+		}
+
 	}";
 
 	// Social Icon Border.

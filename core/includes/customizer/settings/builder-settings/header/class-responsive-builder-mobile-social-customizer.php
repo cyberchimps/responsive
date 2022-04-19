@@ -55,6 +55,9 @@ if ( ! class_exists( 'Responsive_Mobile_Social_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'mobile_social_link_new_tab', $social_link_new_label, 'responsive_customizer_mobile_social', 10, $social_link_choices, '_self', null );
 
+			$header_mobile_social_label_visibility_label = __( 'Show Icon label', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_mobile_social_label_visibility', $header_mobile_social_label_visibility_label, 'responsive_customizer_mobile_social', 10, 0, null );
+
 			// Add Twitter Setting.
 			$wp_customize->add_setting(
 				'responsive_theme_options[twitter_mobile_uid]',

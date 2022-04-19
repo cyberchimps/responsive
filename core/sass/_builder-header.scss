@@ -1372,6 +1372,7 @@ a.social-button.has-custom-image {
 	display: flex;
 	max-width: max-content;
 	column-gap: 6px;
+	flex-wrap: wrap;
 	a{
 		display: inline-flex;
 		justify-content: center;
@@ -1380,6 +1381,17 @@ a.social-button.has-custom-image {
 		height: 2em;
 	}
 }
+
+.site-footer-row-container-inner .social-icons a.social_show_label_footer_true,
+#mobile-header .social-icons a.social_show_label_mobile_true,
+#main-header .social-icons a.social_show_label_desktop_true {
+	width: auto;
+	padding: 5px;
+	i {
+		margin-right: 3px;
+	}
+}
+
 .social-icon .social-icons  > li{
 	margin-right: auto;
 }
