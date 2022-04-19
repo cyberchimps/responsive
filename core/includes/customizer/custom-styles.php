@@ -2567,25 +2567,39 @@ function responsive_customizer_styles() {
 	}";
 
 	// Herader navigation colors.
-	$primary_navigation_color          = esc_html( get_theme_mod( 'responsive_primary_navigation_color', '#333' ) );
-	$primary_navigation_hover_color    = esc_html( get_theme_mod( 'responsive_primary_navigation_hover_color', '#333' ) );
-	$primary_navigation_active_color   = esc_html( get_theme_mod( 'responsive_primary_navigation_active_color', '#333' ) );
+	$primary_navigation_color        = esc_html( get_theme_mod( 'responsive_primary_navigation_color', '#333' ) );
+	$primary_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_primary_navigation_hover_color', '#333' ) );
+	$primary_navigation_active_color = esc_html( get_theme_mod( 'responsive_primary_navigation_active_color', '#333' ) );
+
 	$secondary_navigation_color        = esc_html( get_theme_mod( 'responsive_secondary_navigation_color', '#333' ) );
 	$secondary_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_navigation_hover_color', '#333' ) );
 	$secondary_navigation_active_color = esc_html( get_theme_mod( 'responsive_secondary_navigation_active_color', '#333' ) );
-	$primary_background_color          = esc_html( get_theme_mod( 'responsive_primary_background_color', '#fff' ) );
-	$primary_background_hover_color    = esc_html( get_theme_mod( 'responsive_primary_background_hover_color', '#fff' ) );
-	$primary_background_active_color   = esc_html( get_theme_mod( 'responsive_primary_background_active_color', '#fff' ) );
+
+	$primary_background_color        = esc_html( get_theme_mod( 'responsive_primary_background_color', '#fff' ) );
+	$primary_background_hover_color  = esc_html( get_theme_mod( 'responsive_primary_background_hover_color', '#fff' ) );
+	$primary_background_active_color = esc_html( get_theme_mod( 'responsive_primary_background_active_color', '#fff' ) );
+
 	$secondary_background_color        = esc_html( get_theme_mod( 'responsive_secondary_background_color', '#fff' ) );
 	$secondary_background_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_background_hover_color', '#fff' ) );
 	$secondary_background_active_color = esc_html( get_theme_mod( 'responsive_secondary_background_active_color', '#fff' ) );
-	$mobile_navigation_color           = esc_html( get_theme_mod( 'responsive_mobile_navigation_color', '#333' ) );
-	$mobile_navigation_hover_color     = esc_html( get_theme_mod( 'responsive_mobile_navigation_hover_color', '#333' ) );
-	$mobile_navigation_active_color    = esc_html( get_theme_mod( 'responsive_mobile_navigation_active_color', '#333' ) );
-	$mobile_background_color           = esc_html( get_theme_mod( 'responsive_mobile_background_color', '#fff' ) );
-	$mobile_background_hover_color     = esc_html( get_theme_mod( 'responsive_mobile_background_hover_color', '#fff' ) );
-	$mobile_background_active_color    = esc_html( get_theme_mod( 'responsive_mobile_background_active_color', '#fff' ) );
-	$custom_css                       .= ".main-navigation .primary-menu-container > ul > li.menu-item > a{
+
+	$mobile_navigation_color        = esc_html( get_theme_mod( 'responsive_mobile_navigation_color', '#333' ) );
+	$mobile_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_mobile_navigation_hover_color', '#333' ) );
+	$mobile_navigation_active_color = esc_html( get_theme_mod( 'responsive_mobile_navigation_active_color', '#333' ) );
+	$mobile_background_color        = esc_html( get_theme_mod( 'responsive_mobile_background_color', '#fff' ) );
+	$mobile_background_hover_color  = esc_html( get_theme_mod( 'responsive_mobile_background_hover_color', '#fff' ) );
+	$mobile_background_active_color = esc_html( get_theme_mod( 'responsive_mobile_background_active_color', '#fff' ) );
+
+	$primary_navigation_parent_active     = esc_html( get_theme_mod( 'responsive_primary_navigation_parent_active', 0 ) );
+	$secondary_navigation_parent_active   = esc_html( get_theme_mod( 'responsive_secondary_navigation_parent_active', 0 ) );
+	$primary_navigation_active_selector   = $primary_navigation_parent_active ? '.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-item > a, .main-navigation .primary-menu-container > ul > li.menu-item.current-menu-ancestor > a' : '.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-item > a';
+	$secondary_navigation_active_selector = $secondary_navigation_parent_active ? '.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-item > a, .secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-ancestor > a' : '.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-item > a';
+
+	$footer_navigation_color        = esc_html( get_theme_mod( 'responsive_footer_navigation_color', '#eaeaea' ) );
+	$footer_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_footer_navigation_hover_color', '#eaeaea' ) );
+	$footer_navigation_active_color = esc_html( get_theme_mod( 'responsive_footer_navigation_active_color', '#eaeaea' ) );
+
+	$custom_css .= ".main-navigation .primary-menu-container > ul > li.menu-item > a{
 		color: {$primary_navigation_color};
 		background: {$primary_background_color };
 	}
@@ -2593,8 +2607,7 @@ function responsive_customizer_styles() {
 		color: {$primary_navigation_hover_color};
 		background: {$primary_background_hover_color };
 	}
-	.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-item > a,
-	.main-navigation .primary-menu-container > ul > li.menu-item.current-menu-ancestor > a{
+	{$primary_navigation_active_selector}{
 		color: {$primary_navigation_active_color };
 		background: {$primary_background_active_color};
 	}
@@ -2606,8 +2619,7 @@ function responsive_customizer_styles() {
 		color: {$secondary_navigation_hover_color};
 		background: {$secondary_background_hover_color};
 	}
-	.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-item > a,
-	.secondary-navigation .secondary-menu-container > ul > li.menu-item.current-menu-ancestor > a{
+	{$secondary_navigation_active_selector}{
 		color: {$secondary_navigation_active_color };
 		background: {$secondary_background_active_color};
 	}
@@ -2622,6 +2634,15 @@ function responsive_customizer_styles() {
 	.mobile-navigation ul li.current-menu-item > a, .mobile-navigation ul li.current-menu-item.menu-item-has-children > .drawer-nav-drop-wrap{
 		color: {$mobile_navigation_active_color };
 		background: {$mobile_background_active_color};
+	}
+	#colophon .footer-navigation .footer-menu-container > ul > li > a{
+		color: {$footer_navigation_color}
+	}
+	#colophon .footer-navigation .footer-menu-container > ul li a:hover{
+		color: {$footer_navigation_hover_color}
+	}
+	#colophon .footer-navigation .footer-menu-container > ul li.current-menu-item > a{
+		color: {$footer_navigation_active_color}
 	}";
 
 	// Dropdown colors.
@@ -2958,11 +2979,6 @@ function responsive_customizer_styles() {
 	$header_social_label_visibility        = $header_social_label ? 'block' : 'none';
 	$footer_social_label_visibility        = $footer_social_label ? 'block' : 'none';
 	$header_mobile_social_label_visibility = $header_mobile_social_label ? 'block' : 'none';
-
-
-	// $header_social_label_visible_css = $header_social_label ? '#main-header .social-icons a{ width: auto; padding: 5px;} #main-header .social-icons a i { margin-right: 3px; }' : '';
-	// $footer_social_label_visible_css = $footer_social_label ? '.site-footer-row-container-inner .social-icons a{ width: auto; padding: 5px;} .site-footer-row-container-inner .social-icons a i { margin-right: 3px; }' : '';
-	// $header_social_label_visible_css = $header_mobile_social_label ? '#mobile-header .social-icons a{ width: auto; padding: 5px;} #mobile-header .social-icons a i { margin-right: 3px; }' : '';
 
 	$custom_css .= "#main-header .social-icons {
 		font-size: {$header_icon_size}px;

@@ -322,7 +322,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 			$wp_customize->selective_refresh->add_partial(
 				'footer_items',
 				array(
-					'selector'            => '#footer',
+					'selector'            => '#colophon',
 					'container_inclusive' => true,
 					'render_callback'     => 'footer_markup',
 					'fallback_refresh'    => true,

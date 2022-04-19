@@ -3275,4 +3275,33 @@
             $('.mobile-html').css('color', newval );
         } );
     } );
+
+      api( 'responsive_footer_navigation_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .footer-navigation .footer-menu-container > ul > li > a').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_footer_navigation_active_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .footer-navigation .footer-menu-container > ul li.current-menu-item > a').css('color', newval );
+        } );
+    } );
+
+    api( 'responsive_footer_navigation_hover_color', function( value ) {
+        value.bind( function( to ) {
+            var $child = $( '.customizer-responsive_footer_navigation_hover_color' );
+            if ( to ) {
+                var style = `<style class="customizer-responsive_footer_navigation_hover_color">#colophon .footer-navigation .footer-menu-container > ul li a:hover {color:  ${to} !important ;}
+                </style>`;
+                if ( $child.length ) {
+                    $child.replaceWith( style );
+                } else {
+                    $( 'head' ).append( style );
+                }
+            } else {
+                $child.remove();
+            }
+        });
+    });
 } )( jQuery );
