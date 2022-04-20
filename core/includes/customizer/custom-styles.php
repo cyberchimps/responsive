@@ -3097,6 +3097,9 @@ function responsive_customizer_styles() {
 	$header_button_horizontal_padding = esc_html( get_theme_mod( 'responsive_header_button_horizontal_padding', 16 ) );
 	$header_button_verticle_padding   = esc_html( get_theme_mod( 'responsive_header_button_vertical_padding', 7 ) );
 
+	$mobile_button_horizontal_padding = esc_html( get_theme_mod( 'responsive_mobile_button_horizontal_padding', 16 ) );
+	$mobile_button_verticle_padding   = esc_html( get_theme_mod( 'responsive_mobile_button_vertical_padding', 7 ) );
+
 	$header_button_color_default            = get_theme_mod( 'responsive_header_button_style', 'filled' ) === 'outline' ? '#333' : '#fff';
 	$header_button_background_color_default = get_theme_mod( 'responsive_header_button_style', 'filled' ) === 'outline' ? '#fff' : '#0066cc';
 
@@ -3138,6 +3141,9 @@ function responsive_customizer_styles() {
 		border-radius: {$mobile_button_border_radius}px;
 		color: {$mobile_button_color};
 		background: {$mobile_button_background_color};
+	}
+	.mobile-header-button-wrap .mobile-header-button-inner-wrap .mobile-header-button.button-size-custom{
+		padding:  {$mobile_button_verticle_padding}px {$mobile_button_horizontal_padding}px;
 	}
 
 	.mobile-header-button-wrap .mobile-header-button-inner-wrap .mobile-header-button:focus,

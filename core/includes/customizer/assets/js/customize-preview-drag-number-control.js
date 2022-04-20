@@ -587,4 +587,17 @@
         } );
     } );
 
+    api( 'responsive_mobile_button_vertical_padding', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-header-button-wrap .mobile-header-button-inner-wrap .mobile-header-button.button-size-custom').css( {'padding-top': newval+'px', 'padding-bottom': newval + 'px'} );
+        } );
+    } );
+
+    api( 'responsive_mobile_button_horizontal_padding', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-header-button-wrap .mobile-header-button-inner-wrap .mobile-header-button.button-size-custom').css( {'padding-left': newval+'px', 'padding-right': newval + 'px'}  );
+        } );
+    } );
+
+
 } )( jQuery );

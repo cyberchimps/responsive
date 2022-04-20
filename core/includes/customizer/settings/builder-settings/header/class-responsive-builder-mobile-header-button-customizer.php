@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
+if ( ! class_exists( 'Responsive_Mobile_mobile_Button_Customizer' ) ) :
 	/**
 	 * Header Footer Builder Customizer Options */
-	class Responsive_Mobile_Header_Button_Customizer {
+	class Responsive_Mobile_mobile_Button_Customizer {
 
 		/**
 		 * Setup class.
@@ -76,9 +76,16 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 				'small'  => __( 'Small', 'responsive' ),
 				'medium' => __( 'Medium', 'responsive' ),
 				'large'  => __( 'Large', 'responsive' ),
+				'custom' => __( 'Custom', 'responsive' )
 			);
 			$mobile_button_size         = __( 'Mobile Header Button Size', 'responsive' );
 			responsive_select_control( $wp_customize, 'mobile_button_size', $mobile_button_size, 'responsive_customizer_mobile_button', 35, $mobile_button_size_choices, 'medium', null );
+
+			$mobile_button_horizontal_padding_label = esc_html__( 'Horizontal Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_button_horizontal_padding', $mobile_button_horizontal_padding_label, 'responsive_customizer_mobile_button', 35, 16, 'is_mobile_button_size_custom', 100, 1, 'postMessage' );
+
+			$mobile_button_vertical_padding_label = esc_html__( 'Vertical Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_button_vertical_padding', $mobile_button_vertical_padding_label, 'responsive_customizer_mobile_button', 35, 7, 'is_mobile_button_size_custom', 100, 1, 'postMessage' );
 
 			// Mobile Header Button Style.
 			$mobile_button_style_choices = array(
@@ -140,4 +147,4 @@ if ( ! class_exists( 'Responsive_Mobile_Header_Button_Customizer' ) ) :
 
 endif;
 
-return new Responsive_Mobile_Header_Button_Customizer();
+return new Responsive_Mobile_mobile_Button_Customizer();
