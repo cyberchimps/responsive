@@ -2843,8 +2843,8 @@ function responsive_customizer_styles() {
 	$trigger_border_style   = esc_html( get_theme_mod( 'responsive_trigger_border_style', 'none' ) );
 	$trigger_border_width   = esc_html( get_theme_mod( 'responsive_trigger_border_width', 1 ) );
 
-	$mobile_trigger_horizontal_padding = esc_html( get_theme_mod( 'responsive_mobile_trigger_horizontal_padding', 10 ) );
-	$mobile_trigger_verticle_padding   = esc_html( get_theme_mod( 'responsive_mobile_trigger_vertical_padding', 8 ) );
+	$mobile_trigger_horizontal_padding = esc_html( get_theme_mod( 'responsive_mobile_trigger_horizontal_padding', 8 ) );
+	$mobile_trigger_verticle_padding   = esc_html( get_theme_mod( 'responsive_mobile_trigger_vertical_padding', 10 ) );
 
 	$custom_css .= "@media screen and (max-width: {$mobile_menu_breakpoint}px){
 		.mobile-toggle-open-container .menu-toggle-open.menu-toggle-style-bordered{
@@ -2852,7 +2852,7 @@ function responsive_customizer_styles() {
 			border-width: {$trigger_border_width}px;
 		}
 		.mobile-toggle-open-container .menu-toggle-open{
-			padding: {$mobile_trigger_horizontal_padding}px {$mobile_trigger_verticle_padding}px;
+			padding:  {$mobile_trigger_verticle_padding}px {$mobile_trigger_horizontal_padding}px;
 		}
 	}";
 
@@ -3094,6 +3094,9 @@ function responsive_customizer_styles() {
 	$mobile_button_border_style  = esc_html( get_theme_mod( 'responsive_mobile_button_border_style', 'solid' ) );
 	$mobile_button_border_radius = esc_html( get_theme_mod( 'responsive_mobile_button_border_radius', 0 ) );
 
+	$header_button_horizontal_padding = esc_html( get_theme_mod( 'responsive_header_button_horizontal_padding', 16 ) );
+	$header_button_verticle_padding   = esc_html( get_theme_mod( 'responsive_header_button_vertical_padding', 7 ) );
+
 	$header_button_color_default            = get_theme_mod( 'responsive_header_button_style', 'filled' ) === 'outline' ? '#333' : '#fff';
 	$header_button_background_color_default = get_theme_mod( 'responsive_header_button_style', 'filled' ) === 'outline' ? '#fff' : '#0066cc';
 
@@ -3120,6 +3123,9 @@ function responsive_customizer_styles() {
 		border-radius: {$header_button_border_radius}px;
 		color: {$header_button_color} !important;
 		background: {$header_button_background_color};
+	}
+	#main-header .header-button.button-size-custom{
+		padding:  {$header_button_verticle_padding}px {$header_button_horizontal_padding}px;
 	}
 	#main-header .header-button:hover{
 		color:{$header_button_hover_color} !important;

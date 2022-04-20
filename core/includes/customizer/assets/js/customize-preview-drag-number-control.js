@@ -563,15 +563,27 @@
         } );
     } );
 
-    api( 'responsive_mobile_trigger_horizontal_padding', function( value ) {
+    api( 'responsive_mobile_trigger_vertical_padding', function( value ) {
         value.bind( function( newval ) {
             $('.mobile-toggle-open-container .menu-toggle-open').css( {'padding-top': newval+'px', 'padding-bottom': newval + 'px'} );
         } );
     } );
 
-    api( 'responsive_mobile_trigger_vertical_padding', function( value ) {
+    api( 'responsive_mobile_trigger_horizontal_padding', function( value ) {
         value.bind( function( newval ) {
-            $('.mobile-toggle-open-container .menu-toggle-open').css( {'padding-left': newval+'px', 'right': newval + 'px'}  );
+            $('.mobile-toggle-open-container .menu-toggle-open').css( {'padding-left': newval+'px', 'padding-right': newval + 'px'}  );
+        } );
+    } );
+
+    api( 'responsive_header_button_vertical_padding', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-button.button-size-custom').css( {'padding-top': newval+'px', 'padding-bottom': newval + 'px'} );
+        } );
+    } );
+
+    api( 'responsive_header_button_horizontal_padding', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-button.button-size-custom').css( {'padding-left': newval+'px', 'padding-right': newval + 'px'}  );
         } );
     } );
 

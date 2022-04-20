@@ -2250,6 +2250,14 @@ function is_header_search_style_bordered() {
 function is_mobile_trigger_style_bordered() {
 	return get_theme_mod( 'responsive_mobile_trigger_style', 'default' ) === 'bordered' ? true : false;
 }
+/**
+ * Check if Header Button Size Custom
+ *
+ * @return bool
+ */
+function is_header_button_size_custom() {
+	return get_theme_mod( 'responsive_header_button_size', 'medium' ) === 'custom' ? true : false;
+}
 
 /**
  * Get an SVG Icon
