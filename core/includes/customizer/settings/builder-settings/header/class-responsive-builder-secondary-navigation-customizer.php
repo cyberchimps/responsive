@@ -83,13 +83,13 @@ if ( ! class_exists( 'Responsive_Secondary_Navigation_Customizer' ) ) :
 			responsive_color_control( $wp_customize, 'secondary_navigation_active', $secondary_navigation_active_color_label, 'responsive_customizer_secondary_navigation', 30, '#333', null );
 
 			$secondary_background_color_label = __( 'Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'secondary_background', $secondary_background_color_label, 'responsive_customizer_secondary_navigation', 30, '#fff', null );
+			responsive_color_control( $wp_customize, 'secondary_background', $secondary_background_color_label, 'responsive_customizer_secondary_navigation', 30, '', null );
 
 			$secondary_background_hover_color_label = __( 'Background Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'secondary_background_hover', $secondary_background_hover_color_label, 'responsive_customizer_secondary_navigation', 30, '#fff', null );
+			responsive_color_control( $wp_customize, 'secondary_background_hover', $secondary_background_hover_color_label, 'responsive_customizer_secondary_navigation', 30, '', null );
 
 			$secondary_background_active_color_label = __( 'Active Background Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'secondary_background_active', $secondary_background_active_color_label, 'responsive_customizer_secondary_navigation', 30, '#fff', null );
+			responsive_color_control( $wp_customize, 'secondary_background_active', $secondary_background_active_color_label, 'responsive_customizer_secondary_navigation', 30, '', null );
 
 			/**
 			 * Dropdown Options.

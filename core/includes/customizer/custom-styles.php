@@ -2652,13 +2652,13 @@ function responsive_customizer_styles() {
 	$secondary_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_navigation_hover_color', '#333' ) );
 	$secondary_navigation_active_color = esc_html( get_theme_mod( 'responsive_secondary_navigation_active_color', '#333' ) );
 
-	$primary_background_color        = esc_html( get_theme_mod( 'responsive_primary_background_color', '#fff' ) );
-	$primary_background_hover_color  = esc_html( get_theme_mod( 'responsive_primary_background_hover_color', '#fff' ) );
-	$primary_background_active_color = esc_html( get_theme_mod( 'responsive_primary_background_active_color', '#fff' ) );
+	$primary_background_color        = esc_html( get_theme_mod( 'responsive_primary_background_color', '' ) );
+	$primary_background_hover_color  = esc_html( get_theme_mod( 'responsive_primary_background_hover_color', '#00000000' ) );
+	$primary_background_active_color = esc_html( get_theme_mod( 'responsive_primary_background_active_color', '' ) );
 
-	$secondary_background_color        = esc_html( get_theme_mod( 'responsive_secondary_background_color', '#fff' ) );
-	$secondary_background_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_background_hover_color', '#fff' ) );
-	$secondary_background_active_color = esc_html( get_theme_mod( 'responsive_secondary_background_active_color', '#fff' ) );
+	$secondary_background_color        = esc_html( get_theme_mod( 'responsive_secondary_background_color', '' ) );
+	$secondary_background_hover_color  = esc_html( get_theme_mod( 'responsive_secondary_background_hover_color', '#00000000' ) );
+	$secondary_background_active_color = esc_html( get_theme_mod( 'responsive_secondary_background_active_color', '' ) );
 
 	$mobile_navigation_color        = esc_html( get_theme_mod( 'responsive_mobile_navigation_color', '#333' ) );
 	$mobile_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_mobile_navigation_hover_color', '#333' ) );
