@@ -91,104 +91,104 @@ if ( ! class_exists( 'Responsive_Builder_Main_row' ) ) :
 			$main_row_background_mobile_label = __( 'Background Mobile', 'responsive' );
 			responsive_color_control( $wp_customize, 'main_row_background_mobile', $main_row_background_mobile_label, 'responsive_customizer_header_main', 55, '', null );
 
-			//Padding (px).
+			// Padding (px).
 			$main_row_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'main_row', 'responsive_customizer_header_main', 60, null, null, null, $main_row_padding_label );
 
 			$main_row_options_label = esc_html__( 'Border Options', 'responsive' );
-responsive_separator_control( $wp_customize, 'main_row_options_separator', $main_row_options_label, 'responsive_customizer_header_main', 65 );
+			responsive_separator_control( $wp_customize, 'main_row_options_separator', $main_row_options_label, 'responsive_customizer_header_main', 65 );
 
-$main_row_border_top_style_choices = array(
-	'none'   => __( 'None', 'responsive' ),
-	'solid'  => __( 'Solid', 'responsive' ),
-	'dashed' => __( 'Dashed', 'responsive' ),
-	'dotted' => __( 'Dotted', 'responsive' ),
-);
-$main_row_border_top_style_label   = __( 'Border Top Style', 'responsive' );
-responsive_select_control( $wp_customize, 'main_row_border_top_style', $main_row_border_top_style_label, 'responsive_customizer_header_main', 70, $main_row_border_top_style_choices, 'none', null );
+			$main_row_border_top_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$main_row_border_top_style_label   = __( 'Border Top Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'main_row_border_top_style', $main_row_border_top_style_label, 'responsive_customizer_header_main', 70, $main_row_border_top_style_choices, 'none', null );
 
-$main_row_border_top_size_label = esc_html__( 'Border Top Width', 'responsive' );
-responsive_drag_number_control( $wp_customize, 'main_row_border_top_size', $main_row_border_top_size_label, 'responsive_customizer_header_main', 75, 1, null, 20, 1, 'postMessage' );
+			$main_row_border_top_size_label = esc_html__( 'Border Top Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_border_top_size', $main_row_border_top_size_label, 'responsive_customizer_header_main', 75, 1, null, 20, 1, 'postMessage' );
 
-$main_row_border_bottom_style_choices = array(
-	'none'   => __( 'None', 'responsive' ),
-	'solid'  => __( 'Solid', 'responsive' ),
-	'dashed' => __( 'Dashed', 'responsive' ),
-	'dotted' => __( 'Dotted', 'responsive' ),
-);
+			$main_row_border_bottom_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
 
-$main_row_border_bottom_style_label = __( 'Border Bottom Style', 'responsive' );
-responsive_select_control( $wp_customize, 'main_row_border_bottom_style', $main_row_border_bottom_style_label, 'responsive_customizer_header_main', 80, $main_row_border_bottom_style_choices, 'none', null );
+			$main_row_border_bottom_style_label = __( 'Border Bottom Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'main_row_border_bottom_style', $main_row_border_bottom_style_label, 'responsive_customizer_header_main', 80, $main_row_border_bottom_style_choices, 'none', null );
 
-$main_row_border_bottom_size_label = esc_html__( 'Border Bottom Width', 'responsive' );
-responsive_drag_number_control( $wp_customize, 'main_row_border_bottom_size', $main_row_border_bottom_size_label, 'responsive_customizer_header_main', 85, 1, null, 20, 1, 'postMessage' );
+			$main_row_border_bottom_size_label = esc_html__( 'Border Bottom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_border_bottom_size', $main_row_border_bottom_size_label, 'responsive_customizer_header_main', 85, 1, null, 20, 1, 'postMessage' );
 
-$main_row_border_top_tablet_style_choices = array(
-	'none'   => __( 'None', 'responsive' ),
-	'solid'  => __( 'Solid', 'responsive' ),
-	'dashed' => __( 'Dashed', 'responsive' ),
-	'dotted' => __( 'Dotted', 'responsive' ),
-);
-$main_row_border_top_tablet_style_label   = __( 'Tablet Border Top Style', 'responsive' );
-responsive_select_control( $wp_customize, 'main_row_border_top_tablet_style', $main_row_border_top_tablet_style_label, 'responsive_customizer_header_main', 90, $main_row_border_top_tablet_style_choices, 'none', null );
+			$main_row_border_top_tablet_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$main_row_border_top_tablet_style_label   = __( 'Tablet Border Top Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'main_row_border_top_tablet_style', $main_row_border_top_tablet_style_label, 'responsive_customizer_header_main', 90, $main_row_border_top_tablet_style_choices, 'none', null );
 
-$main_row_border_top_tablet_size_label = esc_html__( 'Tablet Border Top Width', 'responsive' );
-responsive_drag_number_control( $wp_customize, 'main_row_border_top_tablet_size', $main_row_border_top_tablet_size_label, 'responsive_customizer_header_main', 95, 1, null, 20, 1, 'postMessage' );
+			$main_row_border_top_tablet_size_label = esc_html__( 'Tablet Border Top Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_border_top_tablet_size', $main_row_border_top_tablet_size_label, 'responsive_customizer_header_main', 95, 1, null, 20, 1, 'postMessage' );
 
-$main_row_border_bottom_tablet_style_choices = array(
-	'none'   => __( 'None', 'responsive' ),
-	'solid'  => __( 'Solid', 'responsive' ),
-	'dashed' => __( 'Dashed', 'responsive' ),
-	'dotted' => __( 'Dotted', 'responsive' ),
-);
+			$main_row_border_bottom_tablet_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
 
-$main_row_border_bottom_tablet_style_label = __( 'Tablet Border Bottom Style', 'responsive' );
-responsive_select_control( $wp_customize, 'main_row_border_bottom_tablet_style', $main_row_border_bottom_tablet_style_label, 'responsive_customizer_header_main', 100, $main_row_border_bottom_tablet_style_choices, 'none', null );
+			$main_row_border_bottom_tablet_style_label = __( 'Tablet Border Bottom Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'main_row_border_bottom_tablet_style', $main_row_border_bottom_tablet_style_label, 'responsive_customizer_header_main', 100, $main_row_border_bottom_tablet_style_choices, 'none', null );
 
-$main_row_border_bottom_tablet_size_label = esc_html__( 'Tablet Border Bottom Width', 'responsive' );
-responsive_drag_number_control( $wp_customize, 'main_row_border_bottom_tablet_size', $main_row_border_bottom_tablet_size_label, 'responsive_customizer_header_main', 105, 1, null, 20, 1, 'postMessage' );
-$main_row_border_top_mobile_style_choices = array(
-	'none'   => __( 'None', 'responsive' ),
-	'solid'  => __( 'Solid', 'responsive' ),
-	'dashed' => __( 'Dashed', 'responsive' ),
-	'dotted' => __( 'Dotted', 'responsive' ),
-);
-$main_row_border_top_mobile_style_label   = __( 'Mobile Border Top Style', 'responsive' );
-responsive_select_control( $wp_customize, 'main_row_border_top_mobile_style', $main_row_border_top_mobile_style_label, 'responsive_customizer_header_main', 110, $main_row_border_top_mobile_style_choices, 'none', null );
+			$main_row_border_bottom_tablet_size_label = esc_html__( 'Tablet Border Bottom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_border_bottom_tablet_size', $main_row_border_bottom_tablet_size_label, 'responsive_customizer_header_main', 105, 1, null, 20, 1, 'postMessage' );
+			$main_row_border_top_mobile_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$main_row_border_top_mobile_style_label   = __( 'Mobile Border Top Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'main_row_border_top_mobile_style', $main_row_border_top_mobile_style_label, 'responsive_customizer_header_main', 110, $main_row_border_top_mobile_style_choices, 'none', null );
 
-$main_row_border_top_mobile_size_label = esc_html__( 'Mobile Border Top Width', 'responsive' );
-responsive_drag_number_control( $wp_customize, 'main_row_border_top_mobile_size', $main_row_border_top_mobile_size_label, 'responsive_customizer_header_main', 115, 1, null, 20, 1, 'postMessage' );
+			$main_row_border_top_mobile_size_label = esc_html__( 'Mobile Border Top Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_border_top_mobile_size', $main_row_border_top_mobile_size_label, 'responsive_customizer_header_main', 115, 1, null, 20, 1, 'postMessage' );
 
-$main_row_border_bottom_mobile_style_choices = array(
-	'none'   => __( 'None', 'responsive' ),
-	'solid'  => __( 'Solid', 'responsive' ),
-	'dashed' => __( 'Dashed', 'responsive' ),
-	'dotted' => __( 'Dotted', 'responsive' ),
-);
+			$main_row_border_bottom_mobile_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
 
-$main_row_border_bottom_mobile_style_label = __( 'Mobile Border Bottom Style', 'responsive' );
-responsive_select_control( $wp_customize, 'main_row_border_bottom_mobile_style', $main_row_border_bottom_mobile_style_label, 'responsive_customizer_header_main', 120, $main_row_border_bottom_mobile_style_choices, 'none', null );
+			$main_row_border_bottom_mobile_style_label = __( 'Mobile Border Bottom Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'main_row_border_bottom_mobile_style', $main_row_border_bottom_mobile_style_label, 'responsive_customizer_header_main', 120, $main_row_border_bottom_mobile_style_choices, 'none', null );
 
-$main_row_border_bottom_mobile_size_label = esc_html__( 'Mobile Border Bottom Width', 'responsive' );
-responsive_drag_number_control( $wp_customize, 'main_row_border_bottom_mobile_size', $main_row_border_bottom_mobile_size_label, 'responsive_customizer_header_main', 125, 1, null, 20, 1, 'postMessage' );
+			$main_row_border_bottom_mobile_size_label = esc_html__( 'Mobile Border Bottom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'main_row_border_bottom_mobile_size', $main_row_border_bottom_mobile_size_label, 'responsive_customizer_header_main', 125, 1, null, 20, 1, 'postMessage' );
 
-$main_row_border_top_color_label = __( 'Border Top Color', 'responsive' );
-responsive_color_control( $wp_customize, 'main_row_border_top', $main_row_border_top_color_label, 'responsive_customizer_header_main', 130, '#fff', null );
+			$main_row_border_top_color_label = __( 'Border Top Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_border_top', $main_row_border_top_color_label, 'responsive_customizer_header_main', 130, '#fff', null );
 
-$main_row_border_bottom_color_label = __( 'Border Bottom Color', 'responsive' );
-responsive_color_control( $wp_customize, 'main_row_border_bottom', $main_row_border_bottom_color_label, 'responsive_customizer_header_main', 135, '#fff', null );
+			$main_row_border_bottom_color_label = __( 'Border Bottom Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_border_bottom', $main_row_border_bottom_color_label, 'responsive_customizer_header_main', 135, '#fff', null );
 
-$main_row_border_top_tablet_color_label = __( 'Tablet Border Top Color', 'responsive' );
-responsive_color_control( $wp_customize, 'main_row_border_top_tablet', $main_row_border_top_tablet_color_label, 'responsive_customizer_header_main', 140, '#fff', null );
+			$main_row_border_top_tablet_color_label = __( 'Tablet Border Top Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_border_top_tablet', $main_row_border_top_tablet_color_label, 'responsive_customizer_header_main', 140, '#fff', null );
 
-$main_row_border_bottom_tablet_color_label = __( 'Tablet Border Bottom Color', 'responsive' );
-responsive_color_control( $wp_customize, 'main_row_border_bottom_tablet', $main_row_border_bottom_tablet_color_label, 'responsive_customizer_header_main', 145, '#fff', null );
+			$main_row_border_bottom_tablet_color_label = __( 'Tablet Border Bottom Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_border_bottom_tablet', $main_row_border_bottom_tablet_color_label, 'responsive_customizer_header_main', 145, '#fff', null );
 
-$main_row_border_top_mobile_color_label = __( 'Mobile Border Top Color', 'responsive' );
-responsive_color_control( $wp_customize, 'main_row_border_top_mobile', $main_row_border_top_mobile_color_label, 'responsive_customizer_header_main', 150, '#fff', null );
+			$main_row_border_top_mobile_color_label = __( 'Mobile Border Top Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_border_top_mobile', $main_row_border_top_mobile_color_label, 'responsive_customizer_header_main', 150, '#fff', null );
 
-$main_row_border_bottom_mobile_color_label = __( 'Mobile Border Bottom Color', 'responsive' );
-responsive_color_control( $wp_customize, 'main_row_border_bottom_mobile', $main_row_border_bottom_mobile_color_label, 'responsive_customizer_header_main', 155, '#fff', null );
+			$main_row_border_bottom_mobile_color_label = __( 'Mobile Border Bottom Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'main_row_border_bottom_mobile', $main_row_border_bottom_mobile_color_label, 'responsive_customizer_header_main', 155, '#fff', null );
 
 		}
 
