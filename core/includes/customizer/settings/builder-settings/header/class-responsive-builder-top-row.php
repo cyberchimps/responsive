@@ -91,6 +91,15 @@ if ( ! class_exists( 'Responsive_Builder_Top_row' ) ) :
 			$top_row_background_mobile_label = __( 'Background Mobile', 'responsive' );
 			responsive_color_control( $wp_customize, 'top_row_background_mobile', $top_row_background_mobile_label, 'responsive_customizer_header_top', 55, '', null );
 
+			$top_row_transparent_background_desktop_color_label = __( 'Background Color Desktop (Transparent Header)', 'responsive' );
+			responsive_color_control( $wp_customize, 'top_row_transparent_background_desktop', $top_row_transparent_background_desktop_color_label, 'responsive_customizer_header_top', 55, '', 'responsive_is_transparent_header_enabled', 'Background color for Top Row when transparent header is active' );
+
+			$top_row_transparent_background_tablet_color_label = __( 'Background Color Tablet (Transparent Header)', 'responsive' );
+			responsive_color_control( $wp_customize, 'top_row_transparent_background_tablet', $top_row_transparent_background_tablet_color_label, 'responsive_customizer_header_top', 55, '', 'responsive_is_transparent_header_enabled', 'Background color for Top Row when transparent header is active' );
+
+			$top_row_transparent_background_mobile_color_label = __( 'Background Color Mobile (Transparent Header)', 'responsive' );
+			responsive_color_control( $wp_customize, 'top_row_transparent_background_mobile', $top_row_transparent_background_mobile_color_label, 'responsive_customizer_header_top', 55, '', 'responsive_is_transparent_header_enabled', 'Background color for Top Row when transparent header is active' );
+
 			// Padding (px).
 			$top_row_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'top_row', 'responsive_customizer_header_top', 60, null, null, null, $top_row_padding_label );
