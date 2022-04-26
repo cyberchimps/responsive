@@ -754,6 +754,53 @@
                 }
             });
         });
+
+        api( 'responsive_footer_' + row + '_row_border_column_size', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_column_size' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_column_size">.site-${row}-footer-inner-wrap .site-footer-section:not(:last-child):after {border-right-width: ${to}px !important;}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+        api( 'responsive_footer_' + row + '_row_border_column_tablet_size', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_column_tablet_size' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_column_tablet_size">@media screen and ( max-width: 768px ) {.site-${row}-footer-inner-wrap .site-footer-section:not(:last-child):after {border-right-width: ${to}px !important;}}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+
+        api( 'responsive_footer_' + row + '_row_border_column_mobile_size', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_column_mobile_size' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_column_mobile_size">@media screen and ( max-width: 576px ) {.site-${row}-footer-inner-wrap .site-footer-section:not(:last-child):after {border-right-width: ${to}px !important;}}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
     
     });
 } )( jQuery );
