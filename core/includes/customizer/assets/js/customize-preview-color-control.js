@@ -3455,4 +3455,105 @@
         });
         
     });
+
+    var footerRows = ['top', 'middle', 'bottom'];
+    footerRows.forEach(row =>{
+         
+        api( 'responsive_footer_' + row + '_row_border_top_color', function( value ) {
+            value.bind( function( newval ) {
+                $('.site-' + row + '-footer-wrap .site-footer-row-container-inner').css('border-top-color', newval );
+            } );
+        } );
+
+        api( 'responsive_footer_' + row + '_row_border_bottom_color', function( value ) {
+            value.bind( function( newval ) {
+                $('.site-' + row + '-footer-wrap .site-footer-row-container-inner').css('border-bottom-color', newval );
+            } );
+        } );
+
+        api( 'responsive_footer_' + row + '_row_border_top_tablet_color', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_top_tablet_color' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_top_tablet_color">
+                    @media screen and ( max-width: 768px ) {
+                        .site-${row}-footer-wrap .site-footer-row-container-inner{
+                            border-top-color: ${to} !important;
+                        }
+                    }
+                    </style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+        api( 'responsive_footer_' + row + '_row_border_bottom_tablet_color', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_bottom_tablet_color' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_tablet_bottom_color">
+                    @media screen and ( max-width: 768px ) {
+                        .site-${row}-footer-wrap .site-footer-row-container-inner{
+                            border-bottom-color: ${to} !important;
+                        }
+                    }
+                    </style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+        api( 'responsive_footer_' + row + '_row_border_bottom_mobile_color', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_bottom_mobile_color' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_bottom_mobile_color">
+                    @media screen and ( max-width: 576px ) {
+                        .site-${row}-footer-wrap .site-footer-row-container-inner{
+                            border-bottom-color: ${to} !important;
+                        }
+                    }
+                    </style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+        api( 'responsive_footer_' + row + '_row_border_top_mobile_color', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_top_mobile_color' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_top_mobile_color">
+                    @media screen and ( max-width: 576px ) {
+                        .site-${row}-footer-wrap .site-footer-row-container-inner{
+                            border-top-color: ${to} !important;
+                        }
+                    }
+                    </style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+    });
 } )( jQuery );

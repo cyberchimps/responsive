@@ -677,4 +677,83 @@
         });
     
     });
+
+    var footerRows = ['top', 'middle', 'bottom'];
+
+    footerRows.forEach(row =>{
+
+        api( 'responsive_footer_' + row + '_row_border_top_size', function( value ) {
+            value.bind( function( newval ) {
+                $('.site-' + row + '-footer-wrap .site-footer-row-container-inner').css( 'border-top-width', newval + 'px' );
+            } );
+        } );
+        api( 'responsive_footer_' + row + '_row_border_bottom_size', function( value ) {
+            value.bind( function( newval ) {
+                $('.site-' + row + '-footer-wrap .site-footer-row-container-inner').css( 'border-bottom-width', newval + 'px' );
+            } );
+        } );
+    
+        api( 'responsive_footer_' + row + '_row_border_top_tablet_size', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_top_tablet_size' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_top_tablet_size">@media screen and ( max-width: 768px ) {.site-${row}-footer-wrap .site-footer-row-container-inner {border-top-width: ${to}px !important;}}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+    
+        api( 'responsive_footer_' + row + '_row_border_bottom_tablet_size', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_bottom_tablet_size' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_bottom_tablet_size">@media screen and ( max-width: 768px ) {.site-${row}-footer-wrap .site-footer-row-container-inner {border-bottom-width: ${to}px !important;}}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+        api( 'responsive_footer_' + row + '_row_border_bottom_mobile_size', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_bottom_mobile_size' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_bottom_mobile_size">@media screen and ( max-width: 576px ) {.site-${row}-footer-wrap .site-footer-row-container-inner {border-bottom-width: ${to}px !important;}}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+        api( 'responsive_footer_' + row + '_row_border_top_mobile_size', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_row_border_top_mobile_size' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_row_border_top_mobile_size">@media screen and ( max-width: 576px ) {.site-${row}-footer-wrap .site-footer-row-container-inner {border-top-width: ${to}px !important;}}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+    
+    });
 } )( jQuery );
