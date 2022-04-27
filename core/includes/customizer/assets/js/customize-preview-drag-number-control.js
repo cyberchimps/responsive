@@ -847,4 +847,30 @@
             $('.mobile-html').css( 'margin-left', newval + 'px' );
         } );
     } );
+
+
+    api( 'responsive_header_cart_vertical_padding', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-header-item .header-cart-wrap .header-cart-inner-wrap .header-cart-button').css( {'padding-top': newval+'px', 'padding-bottom': newval + 'px'} );
+        } );
+    } );
+
+    api( 'responsive_header_cart_horizontal_padding', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-header-item .header-cart-wrap .header-cart-inner-wrap .header-cart-button').css( {'padding-left': newval+'px', 'padding-right': newval + 'px'}  );
+        } );
+    } );
+
+    api( 'responsive_mobile_cart_vertical_padding', function( value ) {
+        value.bind( function( newval ) {
+            $('.header-mobile-cart-wrap .header-cart-inner-wrap .header-cart-button').css( {'padding-top': newval+'px', 'padding-bottom': newval + 'px'} );
+        } );
+    } );
+
+    api( 'responsive_mobile_cart_horizontal_padding', function( value ) {
+        value.bind( function( newval ) {
+            $('.header-mobile-cart-wrap .header-cart-inner-wrap .header-cart-button').css( {'padding-left': newval+'px', 'padding-right': newval + 'px'}  );
+        } );
+    } );
+
 } )( jQuery );

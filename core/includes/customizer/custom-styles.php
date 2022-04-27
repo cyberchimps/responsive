@@ -3044,9 +3044,16 @@ function responsive_customizer_styles() {
 	$mobile_cart_total_background_color       = esc_html( get_theme_mod( 'responsive_mobile_cart_total_background_color', '#e9e9e9' ) );
 	$mobile_cart_total_background_hover_color = esc_html( get_theme_mod( 'responsive_mobile_cart_total_background_hover_color', '#e9e9e9' ) );
 
+	$header_cart_horizontal_padding = esc_html( get_theme_mod( 'responsive_header_cart_horizontal_padding', null ) );
+	$header_cart_verticle_padding   = esc_html( get_theme_mod( 'responsive_header_cart_vertical_padding', null ) );
+
+	$mobile_cart_horizontal_padding = esc_html( get_theme_mod( 'responsive_mobile_cart_horizontal_padding', null ) );
+	$mobile_cart_verticle_padding   = esc_html( get_theme_mod( 'responsive_mobile_cart_vertical_padding', null ) );
+
 	$custom_css .= ".site-header-item .header-cart-wrap .header-cart-inner-wrap .header-cart-button {
 		color: {$header_cart_color};
 		background-color: {$header_cart_background_color};
+		padding: {$header_cart_verticle_padding}px {$header_cart_horizontal_padding}px;
 	}
 	.site-header-item .header-cart-wrap .header-cart-inner-wrap .header-cart-button:hover {
 		color: {$header_cart_hover_color};
@@ -3063,6 +3070,7 @@ function responsive_customizer_styles() {
 	.header-mobile-cart-wrap .header-cart-inner-wrap .header-cart-button {
 		color: {$mobile_cart_color};
 		background-color: {$mobile_cart_background_color};
+		padding: {$mobile_cart_verticle_padding}px {$mobile_cart_horizontal_padding}px;
 	}
 	.header-mobile-cart-wrap .header-cart-inner-wrap .header-cart-button:hover {
 		color: {$mobile_cart_hover_color};
