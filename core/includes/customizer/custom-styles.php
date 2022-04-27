@@ -2719,6 +2719,10 @@ function responsive_customizer_styles() {
 	$footer_navigation_hover_color  = esc_html( get_theme_mod( 'responsive_footer_navigation_hover_color', '#eaeaea' ) );
 	$footer_navigation_active_color = esc_html( get_theme_mod( 'responsive_footer_navigation_active_color', '#eaeaea' ) );
 
+	$footer_navigation_background_color        = esc_html( get_theme_mod( 'responsive_footer_navigation_background_color', '' ) );
+	$footer_navigation_background_hover_color  = esc_html( get_theme_mod( 'responsive_footer_navigation_background_hover_color', '#00000000' ) );
+	$footer_navigation_background_active_color = esc_html( get_theme_mod( 'responsive_footer_navigation_background_active_color', '' ) );
+
 	$custom_css .= ".main-navigation .primary-menu-container > ul > li.menu-item > a{
 		color: {$primary_navigation_color};
 		background: {$primary_background_color };
@@ -2756,13 +2760,16 @@ function responsive_customizer_styles() {
 		background: {$mobile_background_active_color};
 	}
 	#colophon .footer-navigation .footer-menu-container > ul > li > a{
-		color: {$footer_navigation_color}
+		color: {$footer_navigation_color};
+		background: {$footer_navigation_background_color };
 	}
 	#colophon .footer-navigation .footer-menu-container > ul li a:hover{
-		color: {$footer_navigation_hover_color}
+		color: {$footer_navigation_hover_color};
+		background: {$footer_navigation_background_hover_color};
 	}
 	#colophon .footer-navigation .footer-menu-container > ul li.current-menu-item > a{
-		color: {$footer_navigation_active_color}
+		color: {$footer_navigation_active_color};
+		background: {$footer_navigation_background_active_color};
 	}";
 
 	// Dropdown colors.

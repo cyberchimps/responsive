@@ -3276,7 +3276,7 @@
         } );
     } );
 
-      api( 'responsive_footer_navigation_color', function( value ) {
+    api( 'responsive_footer_navigation_color', function( value ) {
         value.bind( function( newval ) {
             $('#colophon .footer-navigation .footer-menu-container > ul > li > a').css('color', newval );
         } );
@@ -3293,6 +3293,34 @@
             var $child = $( '.customizer-responsive_footer_navigation_hover_color' );
             if ( to ) {
                 var style = `<style class="customizer-responsive_footer_navigation_hover_color">#colophon .footer-navigation .footer-menu-container > ul li a:hover {color:  ${to} !important ;}</style>`;
+                if ( $child.length ) {
+                    $child.replaceWith( style );
+                } else {
+                    $( 'head' ).append( style );
+                }
+            } else {
+                $child.remove();
+            }
+        });
+    });
+
+    api( 'responsive_footer_navigation_background_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .footer-navigation .footer-menu-container > ul > li > a').css('background-color', newval );
+        } );
+    } );
+
+    api( 'responsive_footer_navigation_background_active_color', function( value ) {
+        value.bind( function( newval ) {
+            $('#colophon .footer-navigation .footer-menu-container > ul li.current-menu-item > a').css('background-color', newval );
+        } );
+    } );
+
+    api( 'responsive_footer_navigation_background_hover_color', function( value ) {
+        value.bind( function( to ) {
+            var $child = $( '.customizer-responsive_footer_navigation_background_hover_color' );
+            if ( to ) {
+                var style = `<style class="customizer-responsive_footer_navigation_background_hover_color">#colophon .footer-navigation .footer-menu-container > ul li a:hover {background-color:  ${to} !important ;}</style>`;
                 if ( $child.length ) {
                     $child.replaceWith( style );
                 } else {
