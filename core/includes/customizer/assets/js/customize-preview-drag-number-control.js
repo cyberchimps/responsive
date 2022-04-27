@@ -803,4 +803,48 @@
         });
     
     });
+    api( 'responsive_header_html_margin_top', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-html').css( 'margin-top', newval + 'px' );
+        } );
+    } );
+    api( 'responsive_header_html_margin_right', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-html').css( 'margin-right', newval + 'px' );
+        } );
+    } );
+    api( 'responsive_header_html_margin_bottom', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-html').css( 'margin-bottom', newval + 'px' );
+        } );
+    } );
+    api( 'responsive_header_html_margin_left', function( value ) {
+        value.bind( function( newval ) {
+            $('#main-header .header-html').css( 'margin-left', newval + 'px' );
+        } );
+    } );
+
+    
+
+
+    api( 'responsive_mobile_header_html_margin_top', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-html').css( 'margin-top', newval + 'px' );
+        } );
+    } );
+    api( 'responsive_mobile_header_html_margin_right', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-html').css( 'margin-right', newval + 'px' );
+        } );
+    } );
+    api( 'responsive_mobile_header_html_margin_bottom', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-html').css( 'margin-bottom', newval + 'px' );
+        } );
+    } );
+    api( 'responsive_mobile_header_html_margin_left', function( value ) {
+        value.bind( function( newval ) {
+            $('.mobile-html').css( 'margin-left', newval + 'px' );
+        } );
+    } );
 } )( jQuery );

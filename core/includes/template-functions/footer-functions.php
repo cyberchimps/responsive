@@ -170,7 +170,7 @@ function display_footer_nav_menu( array $args = array() ) {
  */
 function footer_navigation() {
 	?>
-	<nav id="footer-navigation" class="footer-navigation footer-navigation-layout-stretch-<?php echo esc_attr( get_theme_mod( 'responsive_footer_stretch_menu' ) ? "true" : "false" ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Footer Navigation', 'responsive' ); ?>">
+	<nav id="footer-navigation" class="footer-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Navigation', 'responsive' ); ?>">
 		<?php customizer_quick_link(); ?>
 		<div class="footer-menu-container">
 			<?php

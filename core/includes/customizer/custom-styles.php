@@ -2609,9 +2609,20 @@ function responsive_customizer_styles() {
 	$mobile_header_html_link_color       = esc_html( get_theme_mod( 'responsive_mobile_header_html_link_color', '' ) );
 	$mobile_header_html_link_hover_color = esc_html( get_theme_mod( 'responsive_mobile_header_html_link_hover_color', '' ) );
 
+	$header_html_margin_top    = esc_html( get_theme_mod( 'responsive_header_html_margin_top', '' ) );
+	$header_html_margin_right  = esc_html( get_theme_mod( 'responsive_header_html_margin_right', '' ) );
+	$header_html_margin_bottom = esc_html( get_theme_mod( 'responsive_header_html_margin_bottom', '' ) );
+	$header_html_margin_left   = esc_html( get_theme_mod( 'responsive_header_html_margin_left', '' ) );
+
+	$mobile_header_html_margin_top    = esc_html( get_theme_mod( 'responsive_mobile_header_html_margin_top', '' ) );
+	$mobile_header_html_margin_right  = esc_html( get_theme_mod( 'responsive_mobile_header_html_margin_right', '' ) );
+	$mobile_header_html_margin_bottom = esc_html( get_theme_mod( 'responsive_mobile_header_html_margin_bottom', '' ) );
+	$mobile_header_html_margin_left   = esc_html( get_theme_mod( 'responsive_mobile_header_html_margin_left', '' ) );
+
 	$custom_css .= "
 	#main-header .header-html{
 		color: {$header_html_text_color};
+		margin: {$header_html_margin_top}px {$header_html_margin_right}px {$header_html_margin_bottom}px {$header_html_margin_left}px;
 	}
 	#main-header .header-html a {
 		color: {$header_html_link_color};
@@ -2621,6 +2632,7 @@ function responsive_customizer_styles() {
 	}
 	.mobile-html{
 		color: {$mobile_html_text_color};
+		margin: {$mobile_header_html_margin_top}px {$mobile_header_html_margin_right}px {$mobile_header_html_margin_bottom}px {$mobile_header_html_margin_left}px;
 	}
 	.mobile-html a {
 		color: {$mobile_header_html_link_color};

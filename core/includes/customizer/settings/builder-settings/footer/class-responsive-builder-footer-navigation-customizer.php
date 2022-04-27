@@ -97,8 +97,8 @@ if ( ! class_exists( 'Responsive_Footer_Navigation_Customizer' ) ) :
 			$footer_navigation_vertical_align_mobile         = __( 'Content Vertical Align Mobile', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_navigation_vertical_align_mobile', $footer_navigation_vertical_align_mobile, 'responsive_customizer_footer_navigation', 45, $footer_navigation_vertical_align_mobile_choices, 'middle', null );
 
-			$footer_stretch_menu = __( 'Footer Stretch Menu?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_stretch_menu', $footer_stretch_menu, 'responsive_customizer_footer_navigation', 46, 0, null );
+			$stretch_footer_navigation = __( 'Footer Stretch Menu?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'stretch_footer_navigation', $stretch_footer_navigation, 'responsive_customizer_footer_navigation', 46, 0, null );
 
 			// footer nav item spacing.
 			$footer_nav_items_spacing_label = esc_html__( 'Item Spacing (px)', 'responsive' );
