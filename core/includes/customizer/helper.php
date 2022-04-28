@@ -2266,6 +2266,32 @@ function is_header_button_size_custom() {
 function is_mobile_button_size_custom() {
 	return get_theme_mod( 'responsive_mobile_button_size', 'medium' ) === 'custom' ? true : false;
 }
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_bottom_layout_contained() {
+	return get_theme_mod( 'responsive_header_bottom_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_tablet_bottom_layout_contained() {
+	return get_theme_mod( 'responsive_header_tablet_bottom_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_mobile_bottom_layout_contained() {
+	return get_theme_mod( 'responsive_header_mobile_bottom_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
 /**
  * Get an SVG Icon
  *

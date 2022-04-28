@@ -937,7 +937,7 @@ body[class*="showing-popup-drawer-"] {
 .site-header-row-layout-fullwidth > .site-header-row-container-inner > .site-container {
     max-width:none;
 }
-.site-container, .site-header-row-layout-contained, .site-footer-row-layout-contained, .entry-hero-layout-contained, .alignfull > .wp-block-cover__inner-container, .alignwide > .wp-block-cover__inner-container {
+.site-container, .site-header-row-layout-contained, .site-header-row-tablet-layout-contained, .site-header-row-mobile-layout-contained, .site-footer-row-layout-contained, .entry-hero-layout-contained, .alignfull > .wp-block-cover__inner-container, .alignwide > .wp-block-cover__inner-container {
 	margin: 0 auto;
 	padding: 0 var(--global-sm-spacing);
 }

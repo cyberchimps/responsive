@@ -55,6 +55,9 @@ if ( ! class_exists( 'Responsive_Builder_Bottom_row' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'header_bottom_layout', $bottom_row_desktop_layout, 'responsive_customizer_header_bottom', 15, $bottom_row_desktop_layout_choices, 'fullwidth', null );
 
+			$header_bottom_layout_container_width_label = __( 'Desktop Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_bottom_layout_container_width', $header_bottom_layout_container_width_label, 'responsive_customizer_header_bottom', 15, 2048, 'is_header_bottom_layout_contained', 4096, 1, 'postMessage' );
+
 			// Bottom Row Tablet Layout.
 			$bottom_row_tablet_layout         = esc_html__( 'Bottom Row Tablet Layout', 'responsive' );
 			$bottom_row_tablet_layout_choices = array(
@@ -63,6 +66,9 @@ if ( ! class_exists( 'Responsive_Builder_Bottom_row' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'header_tablet_bottom_layout', $bottom_row_tablet_layout, 'responsive_customizer_header_bottom', 20, $bottom_row_tablet_layout_choices, 'fullwidth', null );
 
+			$header_bottom_layout_container_width_tablet_label = __( 'Tablet Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_bottom_layout_container_width_tablet', $header_bottom_layout_container_width_tablet_label, 'responsive_customizer_header_bottom', 20, 992, 'is_header_tablet_bottom_layout_contained', 992, 1, 'postMessage' );
+
 			// Bottom Row Mobile Layout.
 			$bottom_row_mobile_layout         = esc_html__( 'Bottom Row Mobile Layout', 'responsive' );
 			$bottom_row_mobile_layout_choices = array(
@@ -70,6 +76,9 @@ if ( ! class_exists( 'Responsive_Builder_Bottom_row' ) ) :
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'header_mobile_bottom_layout', $bottom_row_mobile_layout, 'responsive_customizer_header_bottom', 25, $bottom_row_mobile_layout_choices, 'fullwidth', null );
+
+			$header_bottom_layout_container_width_mobile_label = __( 'Mobile Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_bottom_layout_container_width_mobile', $header_bottom_layout_container_width_mobile_label, 'responsive_customizer_header_bottom', 25, 576, 'is_header_mobile_bottom_layout_contained', 576, 1, 'postMessage' );
 
 			$bottom_row_min_height_label = esc_html__( 'Min Height (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'bottom_row_min_height', $bottom_row_min_height_label, 'responsive_customizer_header_bottom', 30, 80, null, 400 );
