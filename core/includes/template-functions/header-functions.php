@@ -43,7 +43,7 @@ function header_markup() {
  * @param string $row the header row.
  */
 function header_row_class( $row ) {
-	$classes = 'site-' . esc_attr( $row ) . '-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-' . esc_attr( get_theme_mod( 'responsive_header_' . $row . '_layout', 'standard' ) ) . esc_attr( get_theme_mod( 'header_sticky', 0 ) === $row ? ' responsive-sticky-header' : '' );
+	$classes = 'site-' . esc_attr( $row ) . '-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-' . esc_attr( get_theme_mod( 'responsive_header_' . $row . '_layout', 'fullwidth' ) ) . esc_attr( get_theme_mod( 'header_sticky', 0 ) === $row ? ' responsive-sticky-header' : '' );
 	return apply_filters( 'responsive-header-row-class-string', $classes );
 }
 

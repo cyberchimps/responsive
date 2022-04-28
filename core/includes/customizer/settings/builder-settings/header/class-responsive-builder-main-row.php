@@ -50,28 +50,26 @@ if ( ! class_exists( 'Responsive_Builder_Main_row' ) ) :
 			// Main Row Desktop Layout.
 			$main_row_desktop_layout         = esc_html__( 'Main Row Desktop Layout', 'responsive' );
 			$main_row_desktop_layout_choices = array(
-				'standard'  => esc_html__( 'Contained', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
+				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_main_layout', $main_row_desktop_layout, 'responsive_customizer_header_main', 15, $main_row_desktop_layout_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'header_main_layout', $main_row_desktop_layout, 'responsive_customizer_header_main', 15, $main_row_desktop_layout_choices, 'fullwidth', null );
 
 			// Main Row Tablet Layout.
 			$main_row_tablet_layout         = esc_html__( 'Main Row Tablet Layout', 'responsive' );
 			$main_row_tablet_layout_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_tablet_main_layout', $main_row_tablet_layout, 'responsive_customizer_header_main', 20, $main_row_tablet_layout_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'header_tablet_main_layout', $main_row_tablet_layout, 'responsive_customizer_header_main', 20, $main_row_tablet_layout_choices, 'fullwidth', null );
 
 			// Main Row Mobile Layout.
 			$main_row_mobile_layout         = esc_html__( 'Main Row Mobile Layout', 'responsive' );
 			$main_row_mobile_layout_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'header_mobile_main_layout', $main_row_mobile_layout, 'responsive_customizer_header_main', 25, $main_row_mobile_layout_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'header_mobile_main_layout', $main_row_mobile_layout, 'responsive_customizer_header_main', 25, $main_row_mobile_layout_choices, 'fullwidth', null );
 
 			$main_row_min_height_label = esc_html__( 'Min Height (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'main_row_min_height', $main_row_min_height_label, 'responsive_customizer_header_main', 30, 80, null, 400 );

@@ -200,19 +200,19 @@ function responsive_register_options() {
 		'class-responsive-buttons-customizer',
 		'class-responsive-form-fields-customizer',
 		'class-responsive-sidebar-layout-customizer',
+		'class-responsive-header-colors-customizer',
+		'class-responsive-footer-colors-customizer',
 	);
 
 	$old_header_footer_files = array(
 		'class-responsive-header-layout-customizer',
 		'class-responsive-header-title-tagline-customizer',
-		'class-responsive-header-colors-customizer',
 		'class-responsive-header-menu-layouts-customizer',
 		'class-responsive-content-header-colors-customizer',
 		'class-responsive-content-header-layout-customizer',
 		'class-responsive-content-header-typography-customizer',
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-footer-layout-customizer',
-		'class-responsive-footer-colors-customizer',
 	);
 
 	$builder_files           = array(
