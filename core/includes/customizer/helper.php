@@ -2292,6 +2292,134 @@ function is_header_tablet_bottom_layout_contained() {
 function is_header_mobile_bottom_layout_contained() {
 	return get_theme_mod( 'responsive_header_mobile_bottom_layout', 'fullwidth' ) === 'contained' ? true : false;
 }
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_main_layout_contained() {
+	return get_theme_mod( 'responsive_header_main_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_tablet_main_layout_contained() {
+	return get_theme_mod( 'responsive_header_tablet_main_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_mobile_main_layout_contained() {
+	return get_theme_mod( 'responsive_header_mobile_main_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_top_layout_contained() {
+	return get_theme_mod( 'responsive_header_top_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_tablet_top_layout_contained() {
+	return get_theme_mod( 'responsive_header_tablet_top_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_header_mobile_top_layout_contained() {
+	return get_theme_mod( 'responsive_header_mobile_top_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_bottom_layout_contained() {
+	return get_theme_mod( 'responsive_footer_bottom_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_tablet_bottom_layout_contained() {
+	return get_theme_mod( 'responsive_footer_tablet_bottom_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_mobile_bottom_layout_contained() {
+	return get_theme_mod( 'responsive_footer_mobile_bottom_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_middle_layout_contained() {
+	return get_theme_mod( 'responsive_footer_middle_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_tablet_middle_layout_contained() {
+	return get_theme_mod( 'responsive_footer_tablet_middle_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_mobile_middle_layout_contained() {
+	return get_theme_mod( 'responsive_footer_mobile_middle_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_top_layout_contained() {
+	return get_theme_mod( 'responsive_footer_top_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_tablet_top_layout_contained() {
+	return get_theme_mod( 'responsive_footer_tablet_top_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Header layout is contained
+ *
+ * @return bool
+ */
+function is_footer_mobile_top_layout_contained() {
+	return get_theme_mod( 'responsive_footer_mobile_top_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
 /**
  * Get an SVG Icon
  *

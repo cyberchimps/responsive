@@ -838,6 +838,43 @@
                 }
             });
         });
+
+        api( 'responsive_footer_' + row + '_layout_container_width', function( value ) {
+            value.bind( function( newval ) {
+                $('.site-' + row + '-footer-wrap.site-footer-row-layout-contained').css( 'max-width', newval + 'px' );
+            } );
+        } );
+
+        api( 'responsive_footer_' + row + '_layout_container_width_tablet', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_layout_container_width_tablet' );
+                if ( to ) {
+                    var style = `<style class="responsive_footer_${row}_layout_container_width_tablet">@media screen and ( max-width: 768px ) {.site-${row}-footer-wrap.site-footer-row-tablet-layout-contained {max-width: ${to}px !important;}}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
+        api( 'responsive_footer_' + row + '_layout_container_width_mobile', function( value ) {
+            value.bind( function( to ) {
+                var $child = $( '.customizer-responsive_footer_' + row + '_layout_container_width_mobile' );
+                if ( to ) {
+                    var style = `<style class="customizer-responsive_footer_${row}_layout_container_width_mobile">@media screen and ( max-width: 576px ) {.site-${row}-footer-wrap.site-footer-row-mobile-layout-contained {max-width: ${to}px !important;}}</style>`;
+                    if ( $child.length ) {
+                        $child.replaceWith( style );
+                    } else {
+                        $( 'head' ).append( style );
+                    }
+                } else {
+                    $child.remove();
+                }
+            });
+        });
     
     });
     api( 'responsive_header_html_margin_top', function( value ) {

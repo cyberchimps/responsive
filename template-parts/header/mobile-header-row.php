@@ -7,7 +7,6 @@
 
 
 $row           = get_query_var( 'mobile_row' );
-error_log('responsive_header_tablet_' . $row . '_layout    ' . get_theme_mod( 'responsive_header_tablet_' . $row . '_layout' ));
 $tablet_layout = ( get_theme_mod( 'responsive_header_tablet_' . $row . '_layout' ) ? get_theme_mod( 'responsive_header_tablet_' . $row . '_layout' ) : 'fullwidth' );
 $mobile_layout = ( get_theme_mod( 'responsive_header_mobile_' . $row . '_layout' ) ? get_theme_mod( 'responsive_header_mobile_' . $row . '_layout' ) : 'fullwidth' );
 ?>

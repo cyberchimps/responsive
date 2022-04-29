@@ -51,31 +51,37 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Top_row' ) ) :
 			responsive_drag_number_control( $wp_customize, 'footer_top_columns', $footer_top_columns, 'responsive_customizer_footer_top', 10, 1, null, 5, 1, 'refresh' );
 
 			// Top Row Desktop contain.
-			$top_row_desktop_contain         = esc_html__( 'Desktop Container Width', 'responsive' );
+			$top_row_desktop_contain         = esc_html__( 'Top Row Desktop layout', 'responsive' );
 			$top_row_desktop_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_top_contain', $top_row_desktop_contain, 'responsive_customizer_footer_top', 15, $top_row_desktop_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_top_layout', $top_row_desktop_contain, 'responsive_customizer_footer_top', 15, $top_row_desktop_contain_choices, 'fullwidth', null );
+
+			$footer_top_layout_container_width_label = __( 'Desktop Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_top_layout_container_width', $footer_top_layout_container_width_label, 'responsive_customizer_footer_top', 15, 2048, 'is_footer_top_layout_contained', 4096, 1, 'postMessage' );
 
 			// Top Row Tablet contain.
-			$top_row_tablet_contain         = esc_html__( 'Tablet Container Width', 'responsive' );
+			$top_row_tablet_contain         = esc_html__( 'Top Row Tablet layout', 'responsive' );
 			$top_row_tablet_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_tablet_top_contain', $top_row_tablet_contain, 'responsive_customizer_footer_top', 20, $top_row_tablet_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_tablet_top_layout', $top_row_tablet_contain, 'responsive_customizer_footer_top', 20, $top_row_tablet_contain_choices, 'fullwidth', null );
+
+			$footer_top_layout_container_width_tablet_label = __( 'Tablet Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_top_layout_container_width_tablet', $footer_top_layout_container_width_tablet_label, 'responsive_customizer_footer_top', 20, 992, 'is_footer_tablet_top_layout_contained', 992, 1, 'postMessage' );
 
 			// Top Row Mobile contain.
-			$top_row_mobile_contain         = esc_html__( 'Mobile Container Width', 'responsive' );
+			$top_row_mobile_contain         = esc_html__( 'Top Row Mobile layout', 'responsive' );
 			$top_row_mobile_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_mobile_top_contain', $top_row_mobile_contain, 'responsive_customizer_footer_top', 25, $top_row_mobile_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_mobile_top_layout', $top_row_mobile_contain, 'responsive_customizer_footer_top', 25, $top_row_mobile_contain_choices, 'fullwidth', null );
+
+			$footer_top_layout_container_width_mobile_label = __( 'Mobile Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_top_layout_container_width_mobile', $footer_top_layout_container_width_mobile_label, 'responsive_customizer_footer_top', 25, 576, 'is_footer_mobile_top_layout_contained', 576, 1, 'postMessage' );
 
 			// Footer Top Link Style.
 			$footer_top_link_style_choices = array(

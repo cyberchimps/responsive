@@ -51,31 +51,37 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Bottom_row' ) ) :
 			responsive_drag_number_control( $wp_customize, 'footer_bottom_columns', $footer_bottom_columns, 'responsive_customizer_footer_bottom', 10, 1, null, 5, 1, 'refresh' );
 
 			// Bottom Row Desktop contain.
-			$bottom_row_desktop_contain         = esc_html__( 'Desktop Container Width', 'responsive' );
+			$bottom_row_desktop_contain         = esc_html__( 'Bottom Row Desktop layout', 'responsive' );
 			$bottom_row_desktop_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_bottom_contain', $bottom_row_desktop_contain, 'responsive_customizer_footer_bottom', 15, $bottom_row_desktop_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_bottom_layout', $bottom_row_desktop_contain, 'responsive_customizer_footer_bottom', 15, $bottom_row_desktop_contain_choices, 'fullwidth', null );
+
+			$footer_bottom_layout_container_width_label = __( 'Desktop Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_layout_container_width', $footer_bottom_layout_container_width_label, 'responsive_customizer_footer_bottom', 15, 2048, 'is_footer_bottom_layout_contained', 4096, 1, 'postMessage' );
 
 			// Bottom Row Tablet contain.
-			$bottom_row_tablet_contain         = esc_html__( 'Tablet Container Width', 'responsive' );
+			$bottom_row_tablet_contain         = esc_html__( 'Bottom Row Tablet layout', 'responsive' );
 			$bottom_row_tablet_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_tablet_bottom_contain', $bottom_row_tablet_contain, 'responsive_customizer_footer_bottom', 20, $bottom_row_tablet_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_tablet_bottom_layout', $bottom_row_tablet_contain, 'responsive_customizer_footer_bottom', 20, $bottom_row_tablet_contain_choices, 'fullwidth', null );
+
+			$footer_bottom_layout_container_width_tablet_label = __( 'Tablet Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_layout_container_width_tablet', $footer_bottom_layout_container_width_tablet_label, 'responsive_customizer_footer_bottom', 20, 992, 'is_footer_tablet_bottom_layout_contained', 992, 1, 'postMessage' );
 
 			// Bottom Row Mobile contain.
-			$bottom_row_mobile_contain         = esc_html__( 'Mobile Container Width', 'responsive' );
+			$bottom_row_mobile_contain         = esc_html__( 'Bottom Row Mobile layout', 'responsive' );
 			$bottom_row_mobile_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_mobile_bottom_contain', $bottom_row_mobile_contain, 'responsive_customizer_footer_bottom', 25, $bottom_row_mobile_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_mobile_bottom_layout', $bottom_row_mobile_contain, 'responsive_customizer_footer_bottom', 25, $bottom_row_mobile_contain_choices, 'fullwidth', null );
+
+			$footer_bottom_layout_container_width_mobile_label = __( 'Mobile Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_bottom_layout_container_width_mobile', $footer_bottom_layout_container_width_mobile_label, 'responsive_customizer_footer_bottom', 25, 576, 'is_footer_mobile_bottom_layout_contained', 576, 1, 'postMessage' );
 
 			// Footer Bottom Link Style.
 			$footer_bottom_link_style_choices = array(

@@ -56,7 +56,7 @@ if ( ! class_exists( 'Responsive_Builder_Top_row' ) ) :
 			responsive_select_control( $wp_customize, 'header_top_layout', $top_row_desktop_layout, 'responsive_customizer_header_top', 15, $top_row_desktop_layout_choices, 'fullwidth', null );
 
 			$header_top_layout_container_width_label = __( 'Desktop Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'header_top_layout_container_width', $header_top_layout_container_width_label, 'responsive_customizer_header_top', 15, 2048, 'is_header_bottom_layout_contained', 4096, 1, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'header_top_layout_container_width', $header_top_layout_container_width_label, 'responsive_customizer_header_top', 15, 2048, 'is_header_top_layout_contained', 4096, 1, 'postMessage' );
 
 			// Top Row Tablet Layout.
 			$top_row_tablet_layout         = esc_html__( 'Top Row Tablet Layout', 'responsive' );
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Responsive_Builder_Top_row' ) ) :
 			responsive_select_control( $wp_customize, 'header_tablet_top_layout', $top_row_tablet_layout, 'responsive_customizer_header_top', 20, $top_row_tablet_layout_choices, 'fullwidth', null );
 
 			$header_top_layout_container_width_tablet_label = __( 'Tablet Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'header_top_layout_container_width_tablet', $header_top_layout_container_width_tablet_label, 'responsive_customizer_header_top', 20, 992, 'is_header_tablet_bottom_layout_contained', 992, 1, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'header_top_layout_container_width_tablet', $header_top_layout_container_width_tablet_label, 'responsive_customizer_header_top', 20, 992, 'is_header_tablet_top_layout_contained', 992, 1, 'postMessage' );
 
 			// Top Row Mobile Layout.
 			$top_row_mobile_layout         = esc_html__( 'Top Row Mobile Layout', 'responsive' );
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Responsive_Builder_Top_row' ) ) :
 			responsive_select_control( $wp_customize, 'header_mobile_top_layout', $top_row_mobile_layout, 'responsive_customizer_header_top', 25, $top_row_mobile_layout_choices, 'fullwidth', null );
 
 			$header_top_layout_container_width_mobile_label = __( 'Mobile Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'header_top_layout_container_width_mobile', $header_top_layout_container_width_mobile_label, 'responsive_customizer_header_top', 25, 576, 'is_header_mobile_bottom_layout_contained', 576, 1, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'header_top_layout_container_width_mobile', $header_top_layout_container_width_mobile_label, 'responsive_customizer_header_top', 25, 576, 'is_header_mobile_top_layout_contained', 576, 1, 'postMessage' );
 
 			$top_row_min_height_label = esc_html__( 'Min Height (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'top_row_min_height', $top_row_min_height_label, 'responsive_customizer_header_top', 30, 80, null, 400 );
