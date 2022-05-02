@@ -43,7 +43,7 @@ function header_markup() {
  * @param string $row the header row.
  */
 function header_row_class( $row ) {
-	$classes = 'site-' . esc_attr( $row ) . '-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-' . esc_attr( get_theme_mod( 'responsive_header_' . $row . '_layout', 'standard' ) ) . esc_attr( get_theme_mod( 'header_sticky', 0 ) === $row ? ' responsive-sticky-header' : '' );
+	$classes = 'site-' . esc_attr( $row ) . '-header-wrap site-header-row-container site-header-focus-item site-header-row-layout-' . esc_attr( get_theme_mod( 'responsive_header_' . $row . '_layout', 'fullwidth' ) ) . esc_attr( get_theme_mod( 'header_sticky', 0 ) === $row ? ' responsive-sticky-header' : '' );
 	return apply_filters( 'responsive-header-row-class-string', $classes );
 }
 
@@ -1554,7 +1554,7 @@ function has_mobile_side_columns( $row = 'main' ) {
 	if ( isset( $has_mobile_sides[ $row ] ) ) {
 		return $has_mobile_sides[ $row ];
 	}
-	$has_mobile_side = false;
+	$mobile_side = false;
 	$elements    = get_theme_mod( 'header_mobile_items', Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_items' ) );
 	if ( isset( $elements ) && isset( $elements[ $row ] ) ) {
 		if ( ( isset( $elements[ $row ][ $row . '_left' ] ) && is_array( $elements[ $row ][ $row . '_left' ] ) && ! empty( $elements[ $row ][ $row . '_left' ] ) ) || ( isset( $elements[ $row ][ $row . '_left_center' ] ) && is_array( $elements[ $row ][ $row . '_left_center' ] ) && ! empty( $elements[ $row ][ $row . '_left_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right_center' ] ) && is_array( $elements[ $row ][ $row . '_right_center' ] ) && ! empty( $elements[ $row ][ $row . '_right_center' ] ) ) || ( isset( $elements[ $row ][ $row . '_right' ] ) && is_array( $elements[ $row ][ $row . '_right' ] ) && ! empty( $elements[ $row ][ $row . '_right' ] ) ) ) {

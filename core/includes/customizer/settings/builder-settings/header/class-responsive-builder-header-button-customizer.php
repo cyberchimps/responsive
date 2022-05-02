@@ -76,9 +76,16 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				'small'  => __( 'Small', 'responsive' ),
 				'medium' => __( 'Medium', 'responsive' ),
 				'large'  => __( 'large', 'responsive' ),
+				'custom' => __( 'Custom', 'responsive' ),
 			);
 			$header_button_size         = __( 'Header Button Size', 'responsive' );
 			responsive_select_control( $wp_customize, 'header_button_size', $header_button_size, 'responsive_customizer_header_button', 40, $header_button_size_choices, 'medium', null );
+
+			$header_button_horizontal_padding_label = esc_html__( 'Horizontal Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_button_horizontal_padding', $header_button_horizontal_padding_label, 'responsive_customizer_header_button', 40, 16, 'is_header_button_size_custom', 100, 1, 'postMessage' );
+
+			$header_button_vertical_padding_label = esc_html__( 'Vertical Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_button_vertical_padding', $header_button_vertical_padding_label, 'responsive_customizer_header_button', 40, 7, 'is_header_button_size_custom', 100, 1, 'postMessage' );
 
 			// Header Button Style.
 			$header_button_style_choices = array(

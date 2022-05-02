@@ -1,6 +1,6 @@
 <?php
 /**
- * Header Customizer Options
+ * footer Customizer Options
  *
  * @package Responsive WordPress theme
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'Responsive_Footer_social_Customizer' ) ) :
 	/**
-	 * Header Footer Builder Customizer Options */
+	 * footer Footer Builder Customizer Options */
 	class Responsive_Footer_social_Customizer {
 
 		/**
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Responsive_Footer_social_Customizer' ) ) :
 		public function customizer_options( $wp_customize ) {
 
 			/**
-			 * Header Builder options
+			 * footer Builder options
 			 */
 
 			$wp_customize->add_section(
@@ -96,6 +96,9 @@ if ( ! class_exists( 'Responsive_Footer_social_Customizer' ) ) :
 			);
 			$footer_social_vertical_align_mobile         = __( 'Content Vertical Align Mobile', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_social_vertical_align_mobile', $footer_social_vertical_align_mobile, 'responsive_customizer_footer_social', 45, $footer_social_vertical_align_mobile_choices, 'middle', null );
+
+			$footer_social_label_visibility_label = __( 'Show Icon Label', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'footer_social_label_visibility', $footer_social_label_visibility_label, 'responsive_customizer_footer_social', 45, 0, null );
 
 			/**
 			 * Social Links Separator.
@@ -397,6 +400,9 @@ if ( ! class_exists( 'Responsive_Footer_social_Customizer' ) ) :
 
 			$footer_social_border_radius_label = esc_html__( 'Border Radius', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'footer_social_border_radius', $footer_social_border_radius_label, 'responsive_customizer_footer_social', 125, 0, null, 120, 1, 'postMessage' );
+
+			$footer_social_item_spacing_label = esc_html__( 'Item Spacing', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_social_item_spacing', $footer_social_item_spacing_label, 'responsive_customizer_footer_social', 130, 6, null, 120, 1, 'postMessage' );
 
 
 		}

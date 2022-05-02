@@ -419,7 +419,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => $selectorArray['footer_top_widget_title_typography'],
 						'section'  => 'responsive_customizer_footer_top',
 						'exclude'  => array( 'font-color' ),
-						'priority' => 105,
+						'priority' => 110,
 						'defaults' => array(
 							'font - size'   => '16px',
 							'font - weight' => '600',
@@ -431,7 +431,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => $selectorArray['footer_top_widget_content_typography'],
 						'section'  => 'responsive_customizer_footer_top',
 						'exclude'  => array( 'font-color' ),
-						'priority' => 105,
+						'priority' => 130,
 						'defaults' => array(
 							'font - size'   => '16px',
 							'font - weight' => '600',
@@ -443,7 +443,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => $selectorArray['footer_middle_widget_title_typography'],
 						'section'  => 'responsive_customizer_footer_middle',
 						'exclude'  => array( 'font-color' ),
-						'priority' => 105,
+						'priority' => 110,
 						'defaults' => array(
 							'font - size'   => '16px',
 							'font - weight' => '600',
@@ -455,7 +455,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => $selectorArray['footer_middle_widget_content_typography'],
 						'section'  => 'responsive_customizer_footer_middle',
 						'exclude'  => array( 'font-color' ),
-						'priority' => 105,
+						'priority' => 130,
 						'defaults' => array(
 							'font - size'   => '16px',
 							'font - weight' => '600',
@@ -467,7 +467,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => $selectorArray['footer_bottom_widget_title_typography'],
 						'section'  => 'responsive_customizer_footer_bottom',
 						'exclude'  => array( 'font-color' ),
-						'priority' => 105,
+						'priority' => 110,
 						'defaults' => array(
 							'font - size'   => '16px',
 							'font - weight' => '600',
@@ -479,7 +479,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'target'   => $selectorArray['footer_bottom_widget_content_typography'],
 						'section'  => 'responsive_customizer_footer_bottom',
 						'exclude'  => array( 'font-color' ),
-						'priority' => 105,
+						'priority' => 130,
 						'defaults' => array(
 							'font - size'   => '16px',
 							'font - weight' => '600',

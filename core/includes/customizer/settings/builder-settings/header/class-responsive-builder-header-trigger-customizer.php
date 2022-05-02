@@ -55,6 +55,19 @@ if ( ! class_exists( 'Responsive_Header_Trigger_Customizer' ) ) :
 			$mobile_trigger_style         = __( 'Trigger Style', 'responsive' );
 			responsive_select_control( $wp_customize, 'mobile_trigger_style', $mobile_trigger_style, 'responsive_customizer_mobile_trigger', 10, $mobile_trigger_style_choices, 'everyone', null );
 
+			$trigger_border_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+
+			$trigger_border_style_label = __( 'Border Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'trigger_border_style', $trigger_border_style_label, 'responsive_customizer_mobile_trigger', 10, $trigger_border_style_choices, 'none', 'is_mobile_trigger_style_bordered' );
+
+			$trigger_border_width_label = esc_html__( 'Border Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'trigger_border_width', $trigger_border_width_label, 'responsive_customizer_mobile_trigger', 10, 1, 'is_mobile_trigger_style_bordered', 50, 1, 'postMessage' );
+
 			// Mobile Menu Trigger Icon.
 			$mobile_trigger_icon_choices = array(
 				'menu'  => __( 'Icon 1', 'responsive' ),
@@ -71,6 +84,12 @@ if ( ! class_exists( 'Responsive_Header_Trigger_Customizer' ) ) :
 			$mobile_trigger_icon_size_label = esc_html__( 'Icon Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_trigger_icon_size', $mobile_trigger_icon_size_label, 'responsive_customizer_mobile_trigger', 25, 20, null, 100, 1, 'postMessage' );
 
+			$mobile_trigger_horizontal_padding_label = esc_html__( 'Horizontal Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_trigger_horizontal_padding', $mobile_trigger_horizontal_padding_label, 'responsive_customizer_mobile_trigger', 25, 8, null, 100, 1, 'postMessage' );
+
+			$mobile_trigger_vertical_padding_label = esc_html__( 'Vertical Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_trigger_vertical_padding', $mobile_trigger_vertical_padding_label, 'responsive_customizer_mobile_trigger', 25, 10, null, 100, 1, 'postMessage' );
+
 			// Trigger Colors.
 			$trigger_color_label = __( 'Trigger Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'trigger', $trigger_color_label, 'responsive_customizer_mobile_trigger', 30, '#333', null );
@@ -78,10 +97,10 @@ if ( ! class_exists( 'Responsive_Header_Trigger_Customizer' ) ) :
 			$trigger_hover_color_label = __( 'Trigger Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'trigger_hover', $trigger_hover_color_label, 'responsive_customizer_mobile_trigger', 30, '#333', null );
 
-			$trigger_navigation_color_label = __( 'Navigation Background Color', 'responsive' );
+			$trigger_navigation_color_label = __( 'Background Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'trigger_navigation', $trigger_navigation_color_label, 'responsive_customizer_mobile_trigger', 30, '', null );
 
-			$trigger_navigation_hover_color_label = __( 'Navigation Background Hover Color', 'responsive' );
+			$trigger_navigation_hover_color_label = __( 'Background Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'trigger_navigation_hover', $trigger_navigation_hover_color_label, 'responsive_customizer_mobile_trigger', 30, '', null );
 		}
 

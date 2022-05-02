@@ -97,8 +97,8 @@ if ( ! class_exists( 'Responsive_Footer_Navigation_Customizer' ) ) :
 			$footer_navigation_vertical_align_mobile         = __( 'Content Vertical Align Mobile', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_navigation_vertical_align_mobile', $footer_navigation_vertical_align_mobile, 'responsive_customizer_footer_navigation', 45, $footer_navigation_vertical_align_mobile_choices, 'middle', null );
 
-			$footer_stretch_menu = __( 'Footer Stretch Menu?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_stretch_menu', $footer_stretch_menu, 'responsive_customizer_footer_navigation', 46, 0, null );
+			$stretch_footer_navigation = __( 'Footer Stretch Menu?', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'stretch_footer_navigation', $stretch_footer_navigation, 'responsive_customizer_footer_navigation', 46, 0, null );
 
 			// footer nav item spacing.
 			$footer_nav_items_spacing_label = esc_html__( 'Item Spacing (px)', 'responsive' );
@@ -110,6 +110,26 @@ if ( ! class_exists( 'Responsive_Footer_Navigation_Customizer' ) ) :
 			$footer_navigation_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
 			responsive_separator_control( $wp_customize, 'footer_navigation_typography_options_separator', $footer_navigation_typography_options_label, 'responsive_customizer_footer_navigation', 100 );
 
+			$footer_navigation_color_options_label = esc_html__( 'Color Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'footer_navigation_color_options_separator', $footer_navigation_color_options_label, 'responsive_customizer_footer_navigation', 130 );
+
+			$footer_navigation_color_label = __( 'Item Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_navigation', $footer_navigation_color_label, 'responsive_customizer_footer_navigation', 140, '#eaeaea', null );
+
+			$footer_navigation_hover_color_label = __( 'Item Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_navigation_hover', $footer_navigation_hover_color_label, 'responsive_customizer_footer_navigation', 145, '#eaeaea', null );
+
+			$footer_navigation_active_color_label = __( 'Active Item Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_navigation_active', $footer_navigation_active_color_label, 'responsive_customizer_footer_navigation', 150, '#eaeaea', null );
+
+			$footer_navigation_background_color_label = __( 'Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_navigation_background', $footer_navigation_background_color_label, 'responsive_customizer_footer_navigation', 155, '', null );
+
+			$footer_navigation_background_hover_color_label = __( 'Background Hover Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_navigation_background_hover', $footer_navigation_background_hover_color_label, 'responsive_customizer_footer_navigation', 165, '', null );
+
+			$footer_navigation_background_active_color_label = __( 'Active Background Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_navigation_background_active', $footer_navigation_background_active_color_label, 'responsive_customizer_footer_navigation', 170, '', null );
 		}
 
 	}

@@ -73,6 +73,18 @@ if ( ! class_exists( 'Responsive_Mobile_HTML_Customizer' ) ) :
 			$mobile_header_html_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
 			responsive_separator_control( $wp_customize, 'mobile_header_html_typography_options_separator', $mobile_header_html_typography_options_label, 'responsive_customizer_mobile_html', 100 );
 
+			$mobile_hedader_html_margin_top_label = esc_html__( 'Margin Top (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_header_html_margin_top', $mobile_hedader_html_margin_top_label, 'responsive_customizer_mobile_html', 140, null, null, 100, 1, 'postMessage' );
+
+			$mobile_hedader_html_margin_right_label = esc_html__( 'Margin Right (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_header_html_margin_right', $mobile_hedader_html_margin_right_label, 'responsive_customizer_mobile_html', 145, null, null, 100, 1, 'postMessage' );
+
+			$mobile_hedader_html_margin_bottom_label = esc_html__( 'Margin Bottom (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_header_html_margin_bottom', $mobile_hedader_html_margin_bottom_label, 'responsive_customizer_mobile_html', 150, null, null, 100, 1, 'postMessage' );
+
+			$mobile_hedader_html_margin_left_label = esc_html__( 'Margin left (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'mobile_header_html_margin_left', $mobile_hedader_html_margin_left_label, 'responsive_customizer_mobile_html', 155, null, null, 100, 1, 'postMessage' );
+
 		}
 
 	}

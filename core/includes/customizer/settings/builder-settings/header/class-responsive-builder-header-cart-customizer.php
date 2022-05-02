@@ -83,6 +83,12 @@ if ( ! class_exists( 'Responsive_Header_Cart_Customizer' ) ) :
 			$header_cart_icon_size_label = esc_html__( 'Icon Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_cart_icon_size', $header_cart_icon_size_label, 'responsive_customizer_header_cart', 35, 20, null, 200, 1, 'postMessage' );
 
+			$header_cart_horizontal_padding_label = esc_html__( 'Horizontal Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_cart_horizontal_padding', $header_cart_horizontal_padding_label, 'responsive_customizer_header_cart', 40, null, null, 100, 1, 'postMessage' );
+
+			$header_cart_vertical_padding_label = esc_html__( 'Vertical Padding', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_cart_vertical_padding', $header_cart_vertical_padding_label, 'responsive_customizer_header_cart', 40, null, null, 100, 1, 'postMessage' );
+
 			$header_cart_color_label = __( 'Cart Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_cart', $header_cart_color_label, 'responsive_customizer_header_cart', 50, '#333', null );
 

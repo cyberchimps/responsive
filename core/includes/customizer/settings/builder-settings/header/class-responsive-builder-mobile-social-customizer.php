@@ -55,6 +55,9 @@ if ( ! class_exists( 'Responsive_Mobile_Social_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'mobile_social_link_new_tab', $social_link_new_label, 'responsive_customizer_mobile_social', 10, $social_link_choices, '_self', null );
 
+			$header_mobile_social_label_visibility_label = __( 'Show Icon label', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'header_mobile_social_label_visibility', $header_mobile_social_label_visibility_label, 'responsive_customizer_mobile_social', 10, 0, null );
+
 			// Add Twitter Setting.
 			$wp_customize->add_setting(
 				'responsive_theme_options[twitter_mobile_uid]',
@@ -341,6 +344,9 @@ if ( ! class_exists( 'Responsive_Mobile_Social_Customizer' ) ) :
 
 			$header_social_border_radius_tablet_label = esc_html__( 'Border Radius', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_social_border_radius_tablet', $header_social_border_radius_tablet_label, 'responsive_customizer_mobile_social', 125, 0, null, 120, 1, 'postMessage' );
+
+			$header_mobile_social_item_spacing_label = esc_html__( 'Item Spacing', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'header_mobile_social_item_spacing', $header_mobile_social_item_spacing_label, 'responsive_customizer_mobile_social', 130, 6, null, 120, 1, 'postMessage' );
 
 		}
 

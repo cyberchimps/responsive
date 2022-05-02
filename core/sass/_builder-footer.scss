@@ -149,9 +149,7 @@
 	margin-left: auto;
 	margin-right: auto;
 }
-.site-footer-row-tablet-layout-contained {
-	padding: 0 1.5rem;
-}
+
 .site-footer-row-link-style-normal a:not(.button) {
 	text-decoration: underline;
 }
@@ -424,6 +422,10 @@
 }
 
 @media screen and (max-width: $tablet-minus-query) {
+	.site-footer-row-tablet-layout-contained {
+		padding: 0 1.5rem;
+		margin: 0 auto;
+	}
 	.ft-ro-dir-row .footer-section-inner-items-2 .footer-widget-area.content-tablet-align-center:first-child {
 		margin-left: auto;
 	}

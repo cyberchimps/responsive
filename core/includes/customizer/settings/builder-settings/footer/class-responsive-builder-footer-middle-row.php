@@ -51,31 +51,37 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Middle_row' ) ) :
 			responsive_drag_number_control( $wp_customize, 'footer_middle_columns', $footer_middle_columns, 'responsive_customizer_footer_middle', 10, 1, null, 5, 1, 'refresh' );
 
 			// Middle Row Desktop contain.
-			$middle_row_desktop_contain         = esc_html__( 'Desktop Container Width', 'responsive' );
+			$middle_row_desktop_contain         = esc_html__( 'Middle Row Desktop layout', 'responsive' );
 			$middle_row_desktop_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_middle_contain', $middle_row_desktop_contain, 'responsive_customizer_footer_middle', 15, $middle_row_desktop_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_middle_layout', $middle_row_desktop_contain, 'responsive_customizer_footer_middle', 15, $middle_row_desktop_contain_choices, 'fullwidth', null );
+
+			$footer_middle_layout_container_width_label = __( 'Desktop Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_layout_container_width', $footer_middle_layout_container_width_label, 'responsive_customizer_footer_middle', 15, 2048, 'is_footer_middle_layout_contained', 4096, 1, 'postMessage' );
 
 			// Middle Row Tablet contain.
-			$middle_row_tablet_contain         = esc_html__( 'Tablet Container Width', 'responsive' );
+			$middle_row_tablet_contain         = esc_html__( 'Middle Row Tablet layout', 'responsive' );
 			$middle_row_tablet_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_tablet_middle_contain', $middle_row_tablet_contain, 'responsive_customizer_footer_middle', 20, $middle_row_tablet_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_tablet_middle_layout', $middle_row_tablet_contain, 'responsive_customizer_footer_middle', 20, $middle_row_tablet_contain_choices, 'fullwidth', null );
+
+			$footer_middle_layout_container_width_tablet_label = __( 'Tablet Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_layout_container_width_tablet', $footer_middle_layout_container_width_tablet_label, 'responsive_customizer_footer_middle', 20, 992, 'is_footer_tablet_middle_layout_contained', 992, 1, 'postMessage' );
 
 			// Middle Row Mobile contain.
-			$middle_row_mobile_contain         = esc_html__( 'Mobile Container Width', 'responsive' );
+			$middle_row_mobile_contain         = esc_html__( 'Middle Row Mobile layout', 'responsive' );
 			$middle_row_mobile_contain_choices = array(
-				'standard'  => esc_html__( 'Standard', 'responsive' ),
-				'fullwidth' => esc_html__( 'Fullwidth', 'responsive' ),
+				'fullwidth' => esc_html__( 'Full Width', 'responsive' ),
 				'contained' => esc_html__( 'Contained', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_mobile_middle_contain', $middle_row_mobile_contain, 'responsive_customizer_footer_middle', 25, $middle_row_mobile_contain_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'footer_mobile_middle_layout', $middle_row_mobile_contain, 'responsive_customizer_footer_middle', 25, $middle_row_mobile_contain_choices, 'fullwidth', null );
+
+			$footer_middle_layout_container_width_mobile_label = __( 'Mobile Container Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_layout_container_width_mobile', $footer_middle_layout_container_width_mobile_label, 'responsive_customizer_footer_middle', 25, 576, 'is_footer_mobile_middle_layout_contained', 576, 1, 'postMessage' );
 
 			// Footer Middle Link Style.
 			$footer_middle_link_style_choices = array(
@@ -108,11 +114,20 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Middle_row' ) ) :
 			responsive_select_control( $wp_customize, 'footer_middle_direction_mobile', $footer_middle_direction_mobile, 'responsive_customizer_footer_middle', 45, $footer_middle_direction_mobile_choices, 'column', null );
 
 			$footer_middle_collapse_choices = array(
-				'normal'    => __( 'Left To Right', 'responsive' ),
-				'rtl' => __( 'Right To Left', 'responsive' ),
+				'normal' => __( 'Left To Right', 'responsive' ),
+				'rtl'    => __( 'Right To Left', 'responsive' ),
 			);
 			$footer_middle_collapse         = __( 'Row Collapse', 'responsive' );
 			responsive_select_control( $wp_customize, 'footer_middle_collapse', $footer_middle_collapse, 'responsive_customizer_footer_middle', 45, $footer_middle_collapse_choices, 'column', null );
+
+			$footer_middle_row_column_spacing_label = esc_html__( 'Column Spacing Desktop (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_column_spacing', $footer_middle_row_column_spacing_label, 'responsive_customizer_footer_middle', 50, 30, null, 200 );
+
+			$footer_middle_row_column_spacing_tablet_label = esc_html__( 'Column Spacing Tablet (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_column_spacing_tablet', $footer_middle_row_column_spacing_tablet_label, 'responsive_customizer_footer_middle', 50, '', null, 200 );
+
+			$footer_middle_row_column_spacing_mobile_label = esc_html__( 'Column Spacing Mobile (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_column_spacing_mobile', $footer_middle_row_column_spacing_mobile_label, 'responsive_customizer_footer_middle', 50, '', null, 200 );
 
 			$footer_middle_row_top_spacing_label = esc_html__( 'Top Spacing (px)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'footer_middle_row_top_spacing', $footer_middle_row_top_spacing_label, 'responsive_customizer_footer_middle', 60, 30, null, 200 );
@@ -150,7 +165,7 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Middle_row' ) ) :
 
 			$footer_middle_row_link_label = __( 'Link Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_middle_row_link', $footer_middle_row_link_label, 'responsive_customizer_footer_middle', 80, '', null );
-			
+
 			$footer_middle_row_link_hover_label = __( 'Link Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_middle_row_link_hover', $footer_middle_row_link_hover_label, 'responsive_customizer_footer_middle', 80, '', null );
 
@@ -163,12 +178,151 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Middle_row' ) ) :
 			$footer_middle_row_background_mobile_label = __( 'Background Mobile', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_middle_row_background_mobile', $footer_middle_row_background_mobile_label, 'responsive_customizer_footer_middle', 90, '', null );
 
-			$footer_middle_widget_title_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
+			$footer_middle_widget_title_typography_options_label = esc_html__( 'Widgets Title Typography Options', 'responsive' );
 			responsive_separator_control( $wp_customize, 'footer_middle_widget_title_typography_options_separator', $footer_middle_widget_title_typography_options_label, 'responsive_customizer_footer_middle', 100 );
 
-			$footer_middle_widget_content_typography_options_label = esc_html__( 'Typography Options', 'responsive' );
-			responsive_separator_control( $wp_customize, 'footer_middle_widget_content_typography_options_separator', $footer_middle_widget_content_typography_options_label, 'responsive_customizer_footer_middle', 100 );
+			$footer_middle_widget_content_typography_options_label = esc_html__( 'Widgets Content Typography Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'footer_middle_widget_content_typography_options_separator', $footer_middle_widget_content_typography_options_label, 'responsive_customizer_footer_middle', 120 );
 
+			$footer_middle_row_options_label = esc_html__( 'Border Options', 'responsive' );
+			responsive_separator_control( $wp_customize, 'footer_middle_row_options_separator', $footer_middle_row_options_label, 'responsive_customizer_footer_middle', 135 );
+
+			$footer_middle_row_border_column_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$footer_middle_row_border_column_style_label   = __( 'Border Column Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_column_style', $footer_middle_row_border_column_style_label, 'responsive_customizer_footer_middle', 140, $footer_middle_row_border_column_style_choices, 'none', null );
+
+			$footer_middle_row_border_column_size_label = esc_html__( 'Border Column Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_column_size', $footer_middle_row_border_column_size_label, 'responsive_customizer_footer_middle', 145, 0, null, 20, 1, 'postMessage' );
+
+			$footer_middle_row_border_column_tablet_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$footer_middle_row_border_column_tablet_style_label   = __( 'Tablet Border column Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_column_tablet_style', $footer_middle_row_border_column_tablet_style_label, 'responsive_customizer_footer_middle', 150, $footer_middle_row_border_column_tablet_style_choices, 'none', null );
+
+			$footer_middle_row_border_column_tablet_size_label = esc_html__( 'Tablet Border column Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_column_tablet_size', $footer_middle_row_border_column_tablet_size_label, 'responsive_customizer_footer_middle', 155, 0, null, 20, 1, 'postMessage' );
+
+			$footer_middle_row_border_column_mobile_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$footer_middle_row_border_column_mobile_style_label   = __( 'Mobile Border column Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_column_mobile_style', $footer_middle_row_border_column_mobile_style_label, 'responsive_customizer_footer_middle', 160, $footer_middle_row_border_column_mobile_style_choices, 'none', null );
+
+			$footer_middle_row_border_column_mobile_size_label = esc_html__( 'Mobile Border column Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_column_mobile_size', $footer_middle_row_border_column_mobile_size_label, 'responsive_customizer_footer_middle', 165, 0, null, 20, 1, 'postMessage' );
+
+			$footer_middle_row_border_top_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$footer_middle_row_border_top_style_label   = __( 'Border Top Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_top_style', $footer_middle_row_border_top_style_label, 'responsive_customizer_footer_middle', 170, $footer_middle_row_border_top_style_choices, 'none', null );
+
+			$footer_middle_row_border_top_size_label = esc_html__( 'Border Top Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_top_size', $footer_middle_row_border_top_size_label, 'responsive_customizer_footer_middle', 175, 1, null, 20, 1, 'postMessage' );
+
+			$footer_middle_row_border_bottom_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+
+			$footer_middle_row_border_bottom_style_label = __( 'Border Bottom Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_bottom_style', $footer_middle_row_border_bottom_style_label, 'responsive_customizer_footer_middle', 180, $footer_middle_row_border_bottom_style_choices, 'none', null );
+
+			$footer_middle_row_border_bottom_size_label = esc_html__( 'Border Bottom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_bottom_size', $footer_middle_row_border_bottom_size_label, 'responsive_customizer_footer_middle', 185, 1, null, 20, 1, 'postMessage' );
+
+			$footer_middle_row_border_top_tablet_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$footer_middle_row_border_top_tablet_style_label   = __( 'Tablet Border Top Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_top_tablet_style', $footer_middle_row_border_top_tablet_style_label, 'responsive_customizer_footer_middle', 190, $footer_middle_row_border_top_tablet_style_choices, 'none', null );
+
+			$footer_middle_row_border_top_tablet_size_label = esc_html__( 'Tablet Border Top Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_top_tablet_size', $footer_middle_row_border_top_tablet_size_label, 'responsive_customizer_footer_middle', 195, 1, null, 20, 1, 'postMessage' );
+
+			$footer_middle_row_border_bottom_tablet_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+
+			$footer_middle_row_border_bottom_tablet_style_label = __( 'Tablet Border Bottom Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_bottom_tablet_style', $footer_middle_row_border_bottom_tablet_style_label, 'responsive_customizer_footer_middle', 200, $footer_middle_row_border_bottom_tablet_style_choices, 'none', null );
+
+			$footer_middle_row_border_bottom_tablet_size_label = esc_html__( 'Tablet Border Bottom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_bottom_tablet_size', $footer_middle_row_border_bottom_tablet_size_label, 'responsive_customizer_footer_middle', 205, 1, null, 20, 1, 'postMessage' );
+			$footer_middle_row_border_top_mobile_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+			$footer_middle_row_border_top_mobile_style_label   = __( 'Mobile Border Top Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_top_mobile_style', $footer_middle_row_border_top_mobile_style_label, 'responsive_customizer_footer_middle', 210, $footer_middle_row_border_top_mobile_style_choices, 'none', null );
+
+			$footer_middle_row_border_top_mobile_size_label = esc_html__( 'Mobile Border Top Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_top_mobile_size', $footer_middle_row_border_top_mobile_size_label, 'responsive_customizer_footer_middle', 215, 1, null, 20, 1, 'postMessage' );
+
+			$footer_middle_row_border_bottom_mobile_style_choices = array(
+				'none'   => __( 'None', 'responsive' ),
+				'solid'  => __( 'Solid', 'responsive' ),
+				'dashed' => __( 'Dashed', 'responsive' ),
+				'dotted' => __( 'Dotted', 'responsive' ),
+			);
+
+			$footer_middle_row_border_bottom_mobile_style_label = __( 'Mobile Border Bottom Style', 'responsive' );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_bottom_mobile_style', $footer_middle_row_border_bottom_mobile_style_label, 'responsive_customizer_footer_middle', 220, $footer_middle_row_border_bottom_mobile_style_choices, 'none', null );
+
+			$footer_middle_row_border_bottom_mobile_size_label = esc_html__( 'Mobile Border Bottom Width', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_bottom_mobile_size', $footer_middle_row_border_bottom_mobile_size_label, 'responsive_customizer_footer_middle', 225, 1, null, 20, 1, 'postMessage' );
+
+			$footer_middle_row_border_column_color_label = __( 'Border column Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_column', $footer_middle_row_border_column_color_label, 'responsive_customizer_footer_middle', 230, '', null );
+
+			$footer_middle_row_border_column_tablet_color_label = __( 'Tablet Border column Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_column_tablet', $footer_middle_row_border_column_tablet_color_label, 'responsive_customizer_footer_middle', 230, '', null );
+
+			$footer_middle_row_border_column_mobile_color_label = __( 'Mobile Border column Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_column_mobile', $footer_middle_row_border_column_mobile_color_label, 'responsive_customizer_footer_middle', 230, '', null );
+
+			$footer_middle_row_border_top_color_label = __( 'Border Top Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_top', $footer_middle_row_border_top_color_label, 'responsive_customizer_footer_middle', 230, '#fff', null );
+
+			$footer_middle_row_border_bottom_color_label = __( 'Border Bottom Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_bottom', $footer_middle_row_border_bottom_color_label, 'responsive_customizer_footer_middle', 235, '#fff', null );
+
+			$footer_middle_row_border_top_tablet_color_label = __( 'Tablet Border Top Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_top_tablet', $footer_middle_row_border_top_tablet_color_label, 'responsive_customizer_footer_middle', 240, '#fff', null );
+
+			$footer_middle_row_border_bottom_tablet_color_label = __( 'Tablet Border Bottom Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_bottom_tablet', $footer_middle_row_border_bottom_tablet_color_label, 'responsive_customizer_footer_middle', 245, '#fff', null );
+
+			$footer_middle_row_border_top_mobile_color_label = __( 'Mobile Border Top Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_top_mobile', $footer_middle_row_border_top_mobile_color_label, 'responsive_customizer_footer_middle', 250, '#fff', null );
+
+			$footer_middle_row_border_bottom_mobile_color_label = __( 'Mobile Border Bottom Color', 'responsive' );
+			responsive_color_control( $wp_customize, 'footer_middle_row_border_bottom_mobile', $footer_middle_row_border_bottom_mobile_color_label, 'responsive_customizer_footer_middle', 255, '#fff', null );
 		}
 
 	}
