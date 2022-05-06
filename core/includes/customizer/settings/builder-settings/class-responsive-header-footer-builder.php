@@ -80,30 +80,37 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				'logo'         => array(
 					'name'    => esc_html__( 'Logo', 'responsive' ),
 					'section' => 'responsive_customizer_logo',
+					'icon'    => 'wordpress',
 				),
 				'navigation'   => array(
 					'name'    => esc_html__( 'Primary Navigation', 'responsive' ),
 					'section' => 'responsive_customizer_primary_navigation',
+					'icon'    => 'menu-alt',
 				),
 				'navigation-2' => array(
 					'name'    => esc_html__( 'Secondary Navigation', 'responsive' ),
 					'section' => 'responsive_customizer_secondary_navigation',
+					'icon'    => 'menu-alt2',
 				),
 				'search'       => array(
 					'name'    => esc_html__( 'Search', 'responsive' ),
 					'section' => 'responsive_customizer_header_search',
+					'icon'    => 'search',
 				),
 				'button'       => array(
 					'name'    => esc_html__( 'Button', 'responsive' ),
 					'section' => 'responsive_customizer_header_button',
+					'icon'    => 'button',
 				),
 				'social'       => array(
 					'name'    => esc_html__( 'Social', 'responsive' ),
 					'section' => 'responsive_customizer_header_social',
+					'icon'    => 'networking',
 				),
 				'html'         => array(
 					'name'    => esc_html__( 'HTML', 'responsive' ),
 					'section' => 'responsive_customizer_header_html',
+					'icon'    => 'html',
 				),
 
 			);
@@ -112,6 +119,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				$header_desktop_items_choices['cart'] = array(
 					'name'    => esc_html__( 'Cart', 'responsive' ),
 					'section' => 'responsive_customizer_header_cart',
+					'icon'    => 'cart',
 				);
 			}
 			$header_desktop_items = Responsive\Core\get_responsive_customizer_defaults( 'header_desktop_items' );
@@ -183,30 +191,37 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				'mobile-logo'       => array(
 					'name'    => esc_html__( 'Logo', 'responsive' ),
 					'section' => 'responsive_customizer_logo',
+					'icon'    => 'wordpress',
 				),
 				'mobile-navigation' => array(
 					'name'    => esc_html__( 'Mobile Navigation', 'responsive' ),
 					'section' => 'responsive_customizer_mobile_navigation',
+					'icon'    => 'menu-alt',
 				),
 				'search'            => array(
 					'name'    => esc_html__( 'Search', 'responsive' ),
 					'section' => 'responsive_customizer_header_search',
+					'icon'    => 'search',
 				),
 				'mobile-button'     => array(
 					'name'    => esc_html__( 'Button', 'responsive' ),
 					'section' => 'responsive_customizer_mobile_button',
+					'icon'    => 'button',
 				),
 				'mobile-social'     => array(
 					'name'    => esc_html__( 'Social', 'responsive' ),
 					'section' => 'responsive_customizer_mobile_social',
+					'icon'    => 'networking',
 				),
 				'mobile-html'       => array(
 					'name'    => esc_html__( 'HTML', 'responsive' ),
 					'section' => 'responsive_customizer_mobile_html',
+					'icon'    => 'html',
 				),
 				'popup-toggle'      => array(
 					'name'    => esc_html__( 'Trigger', 'responsive' ),
 					'section' => 'responsive_customizer_mobile_trigger',
+					'icon'    => 'menu',
 				),
 
 			);
@@ -215,6 +230,7 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 				$header_mobile_items_choices['mobile-cart'] = array(
 					'name'    => esc_html__( 'Mobile Cart', 'responsive' ),
 					'section' => 'responsive_customizer_mobile_cart',
+					'icon'    => 'cart',
 				);
 			}
 			$header_mobile_items_default = Responsive\Core\get_responsive_customizer_defaults( 'header_mobile_items' );
@@ -340,38 +356,48 @@ if ( ! class_exists( 'Responsive_Header_Footer_Builder' ) ) :
 							'footer-navigation' => array(
 								'name'    => esc_html__( 'Footer Navigation', 'responsive' ),
 								'section' => 'responsive_customizer_footer_navigation',
+								'icon'    => 'menu-alt',
 							),
 							'footer-social'     => array(
 								'name'    => esc_html__( 'Social', 'responsive' ),
 								'section' => 'responsive_customizer_footer_social',
+								'icon'    => 'networking',
 							),
 							'footer-html'       => array(
 								'name'    => esc_html__( 'Copyright', 'responsive' ),
 								'section' => 'responsive_customizer_footer_html',
+								'icon'    => 'html',
 							),
 							'footer-widget1'    => array(
 								'name'    => esc_html__( 'Widget 1', 'responsive' ),
 								'section' => 'sidebar-widgets-footer-widget-1',
+								'icon'    => 'welcome-widgets-menus',
 							),
 							'footer-widget2'    => array(
 								'name'    => esc_html__( 'Widget 2', 'responsive' ),
 								'section' => 'sidebar-widgets-footer-widget-2',
+								'icon'    => 'welcome-widgets-menus',
 							),
 							'footer-widget3'    => array(
 								'name'    => esc_html__( 'Widget 3', 'responsive' ),
 								'section' => 'sidebar-widgets-footer-widget-3',
+								'icon'    => 'welcome-widgets-menus',
 							),
 							'footer-widget4'    => array(
 								'name'    => esc_html__( 'Widget 4', 'responsive' ),
 								'section' => 'sidebar-widgets-footer-widget-4',
+								'icon'    => 'welcome-widgets-menus',
 							),
 							'footer-widget5'    => array(
 								'name'    => esc_html__( 'Widget 5', 'responsive' ),
 								'section' => 'sidebar-widgets-footer-widget-5',
+								'icon'    => 'welcome-widgets-menus',
 							),
 							'footer-widget6'    => array(
 								'name'    => esc_html__( 'Widget 6', 'responsive' ),
 								'section' => 'sidebar-widgets-footer-widget-6',
+								'icon'    => 'welcome-widgets-menus',
+
 							),
 						),
 						'input_attrs' => array(
