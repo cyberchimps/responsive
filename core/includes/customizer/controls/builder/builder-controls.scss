@@ -183,8 +183,8 @@
 .responsive-builder-areas .responsive-builder-group-horizontal {
 	display: flex;
 	margin-bottom: 15px;
-	border: 1px dashed $color-gray-500;
 	background:#f7f7f7;
+	height: 52px;
 	.responsive-builder-area {
 		display: flex;
 	}
@@ -341,7 +341,7 @@
     position: relative;
 }
 .responsive-builder-areas:hover .responsive-builder-group-horizontal {
-	border: 1px solid $color-primary;
+	box-shadow: 4px 4px 8px #bab8b8;
 }
 .responsive-builder-group.responsive-builder-group-horizontal[data-setting="bottom"] {
     margin-bottom: 0;
@@ -554,9 +554,24 @@
 }
 .responsive-popover-builder-list {
 	padding: 10px;
-	.responsive-radio-container-control button.components-button.is-tertiary {
-		font-size: 10px;
-		margin: 0;
+	.responsive-radio-container-control {
+		button.components-button.is-tertiary {
+			font-size: 10px;
+			margin: 0;
+			padding: 13px 20px;
+			height: auto;
+			white-space: normal;
+			border: 0;
+			box-shadow: none;
+			border: 1px solid transparent;
+			&:hover{
+				border-color: #10659c;
+				border-radius: 5px;
+			}
+		}
+		.builder-add-btn{
+			flex-direction: column;
+		}
 	}
 }
 .responsive-builder-area .responsive-builder-item-add-icon svg {

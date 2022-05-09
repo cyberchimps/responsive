@@ -179,7 +179,7 @@ function responsive_register_options() {
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-upsell-manager.php';
 
 	// Customizer files array.
-	$files                   = array(
+	$files = array(
 		'class-responsive-panel',
 		'class-responsive-site-layouts-customizer',
 		'class-responsive-site-color-palettes-scheme-customizer',
@@ -215,7 +215,7 @@ function responsive_register_options() {
 		'class-responsive-footer-layout-customizer',
 	);
 
-	$builder_files           = array(
+	$builder_files = array(
 		$builder_settings . 'class-responsive-header-footer-builder',
 		$header_settings . 'class-responsive-builder-primary-navigation-customizer',
 		$header_settings . 'class-responsive-builder-secondary-navigation-customizer',
@@ -290,7 +290,6 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'redirect/class-responsive-customizer-redirect-control.php';
 	require_once $dir . 'builder/class-responsive-customizer-builder-control.php';
 	require_once $dir . 'builder/class-responsive-customizer-blank-control.php';
-	require_once $dir . 'tabs/class-responsive-customizer-tab-control.php';
 	require_once $dir . 'editor/class-responsive-customizer-editor-control.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -312,7 +311,6 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Checkbox_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Redirect_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Builder_Control' );
-	$wp_customize->register_control_type( 'Responsive_Customizer_Tab_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Editor_Control' );
 
 }

@@ -29,7 +29,7 @@ const AddComponent = props => {
 	}
 
 	const renderItems = (item, row, column) => {
-		let available = true;
+		let available = true , icon = props.choices[item].icon ? props.choices[item].icon : 'block-default' ;
 		props.controlParams.rows.map((zone) => {
 			Object.keys(props.settings[zone]).map((area) => {
 				if (props.settings[zone][area].includes(item)) {
@@ -46,6 +46,7 @@ const AddComponent = props => {
 						addItem(item, row, column);
 					}}
 				>
+					<i className={`dashicons dashicons-${icon}`}></i>
 					{(undefined !== props.choices[item] && undefined !== props.choices[item].name ? props.choices[item].name : '')}
 				</Button>
 			)}
