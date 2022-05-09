@@ -183,7 +183,6 @@
 .responsive-builder-areas .responsive-builder-group-horizontal {
 	display: flex;
 	margin-bottom: 15px;
-	// border: 1px dashed $color-gray-500;
 	background:#f7f7f7;
 	height: 52px;
 	.responsive-builder-area {
@@ -342,7 +341,6 @@
     position: relative;
 }
 .responsive-builder-areas:hover .responsive-builder-group-horizontal {
-	// border: 1px solid $color-primary;
 	box-shadow: 4px 4px 8px #bab8b8;
 }
 .responsive-builder-group.responsive-builder-group-horizontal[data-setting="bottom"] {
