@@ -47,7 +47,8 @@ module.exports = function(grunt) {
 					'!composer.lock',
 					'!phpcs.xml.dist',
 					'!**/*~',
-					'!.test/**'
+					'!.test/**',
+					'!tests/**'
 				],
 				expand: true
 			}
@@ -60,7 +61,7 @@ module.exports = function(grunt) {
 					mainFile: 'style.css',      // Main project file.
 					potFilename: 'responsive.pot',   // Name of the POT file.
 					type: 'wp-theme',  // Type of project (wp-plugin or wp-theme).
-					exclude: ['core/includes/classes/class-tgm-plugin-activation.php', 'core/includes/functions-install.php', 'build/.*'],       // List of files or directories to ignore.
+					exclude: ['core/includes/classes/class-tgm-plugin-activation.php', 'core/includes/functions-install.php', 'build/.*', 'vendor/*'],       // List of files or directories to ignore.
 					processPot: function( pot, options ) {
 						pot.headers['report-msgid-bugs-to'] = 'https://cyberchimps.com/forum/free/responsive/';
 						pot.headers['plural-forms'] = 'nplurals=2; plural=n != 1;';
@@ -257,7 +258,9 @@ module.exports = function(grunt) {
 					'!package.json',
 					'!composer.json',
 					'!.gitignore',
+					'!.codecov.yml',
 					'!.prettierrc',
+					'!.settings/**',
 					'!.prettierignore',
 					'!composer.json',
 					'!phpcs.xml.dist',
@@ -291,6 +294,10 @@ module.exports = function(grunt) {
 					'!travis.yml',
 					'!phpunit.xml.dist',
 					'!.codeclimate.yml',
+					'!.init.sh',
+					'!.buildpath',
+					'!.gitpod.yml',
+					'!.project',
 					'!.travis.yml',
 					'!.phpcs.xml.dist',
 					'!phpcs.xml',
@@ -303,6 +310,8 @@ module.exports = function(grunt) {
 					'!core/includes/customizer/extend-controls/node_modules/**',
 					'!core/includes/customizer/extend-controls/build/index.asset.php',
 					'!core/includes/customizer/extend-controls/build/index.js.map',
+					'!chromedriver',
+					'!.DS_Store',
 				],
 				dest: 'build/<%= pkg.name %>/'
 			},
