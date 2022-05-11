@@ -532,9 +532,9 @@
     min-width: 100%;
 	z-index: 1;
 	transition: all .2s ease-in-out;
-	color:#444; // transparent !important;
+	color:#9c9c9c; // transparent !important;
 	&:hover, &:focus {
-		color:#444 !important;
+		color:#333 !important;
 		background: rgba(0, 124, 186, 0.05)!important;
 		box-shadow: none !important;
 		border:0 !important;
