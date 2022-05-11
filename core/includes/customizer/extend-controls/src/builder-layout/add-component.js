@@ -37,7 +37,7 @@ const AddComponent = props => {
 				}
 			});
 		});
-		return <>
+		return <Fragment key={`${props.id}-${props.choices[item].icon}`}>
 			{available && (
 				<Button
 					isTertiary
@@ -50,7 +50,7 @@ const AddComponent = props => {
 					{(undefined !== props.choices[item] && undefined !== props.choices[item].name ? props.choices[item].name : '')}
 				</Button>
 			)}
-		</>
+		</Fragment>
 
 	};
 	const toggleClose = () => {
