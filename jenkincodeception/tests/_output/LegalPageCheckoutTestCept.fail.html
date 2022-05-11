@@ -1,0 +1,1622 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" class="wf-lato-n7-active wf-lato-n5-active wf-lato-n4-active wf-lato-n8-active wf-active"><head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" /><script type="text/javascript" src="https://bam.nr-data.net/1/03892a58f5?a=276081696&amp;v=1130.54e767a&amp;to=Y1VTNRdUD0RVV0VfVlofcAIRXA5ZG1FdU1RRXkUOFw%3D%3D&amp;rst=5525&amp;ref=https://wplegalpages.com/&amp;ap=1337&amp;be=2419&amp;fe=5084&amp;dc=4424&amp;perf=%7B%22timing%22:%7B%22of%22:1568264134126,%22n%22:0,%22f%22:0,%22dn%22:18,%22dne%22:20,%22c%22:20,%22s%22:273,%22ce%22:438,%22rq%22:438,%22rp%22:2379,%22rpe%22:2486,%22dl%22:2387,%22di%22:4423,%22ds%22:4424,%22de%22:4600,%22dc%22:5083,%22l%22:5083,%22le%22:5086%7D,%22navigation%22:%7B%7D%7D&amp;fp=2984&amp;fcp=2984&amp;at=TxJQQ19OHEo%3D&amp;jsonp=NREUM.setToken"></script><script src="https://js-agent.newrelic.com/nr-1130.min.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o&lt;t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&amp;&amp;(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&amp;&amp;(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a&lt;r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&amp;&amp;u.indexOf("Chrome")===-1&amp;&amp;u.indexOf("Chromium")===-1&amp;&amp;(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&amp;&amp;(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&amp;&amp;(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o&lt;0?0:o);++r&lt;o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&amp;&amp;window.performance.timing&amp;&amp;"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&amp;&amp;e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&amp;&amp;e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c&lt;f;c++)u[c].apply(a,r);var p=s[y[t]];return p&amp;&amp;p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r&lt;t.length;r++)t[r]===n&amp;&amp;t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&amp;&amp;(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&amp;&amp;Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&amp;&amp;"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&amp;&amp;e.licenseKey&amp;&amp;e.applicationID&amp;&amp;n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&amp;&amp;i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&amp;&amp;performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&amp;&amp;g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&amp;&amp;w&amp;&amp;w[m]&amp;&amp;!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<title>WPLegalPages - WordPress Privacy Policy Plugin</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v11.6 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://wplegalpages.com/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="WPLegalPages - WordPress Privacy Policy Plugin" />
+<meta property="og:description" content="Get The Most Powerful  WordPress Privacy Policy &amp; Terms of Use Generator Plugin  BUY NOW Why WP Legal Pages? Powerful Yet Simple Add 25+ legal policy pages to your WordPress website in less than…Read more of WPLegalPages – WordPress Privacy Policy Plugin" />
+<meta property="og:url" content="https://wplegalpages.com/" />
+<meta property="og:site_name" content="WP Legal Pages" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Get The Most Powerful  WordPress Privacy Policy &amp; Terms of Use Generator Plugin  BUY NOW Why WP Legal Pages? Powerful Yet Simple Add 25+ legal policy pages to your WordPress website in less than…Read more of WPLegalPages – WordPress Privacy Policy Plugin" />
+<meta name="twitter:title" content="WPLegalPages - WordPress Privacy Policy Plugin" />
+<meta name="twitter:image" content="https://wplegalpages.com/wp-content/uploads/2019/01/jullies.png" />
+<meta name="google-site-verification" content="fmCI2qVf8XLGCXCg0mdZqDmhoFeBv-kzTsYXY5xRQpE" />
+<script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://wplegalpages.com/#website","url":"https://wplegalpages.com/","name":"WP Legal Pages","potentialAction":{"@type":"SearchAction","target":"https://wplegalpages.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://wplegalpages.com/#primaryimage","url":"https://wplegalpages.com/wp-content/uploads/2019/01/jullies.png","width":82,"height":82},{"@type":"WebPage","@id":"https://wplegalpages.com/#webpage","url":"https://wplegalpages.com/","inLanguage":"en-US","name":"WPLegalPages - WordPress Privacy Policy Plugin","isPartOf":{"@id":"https://wplegalpages.com/#website"},"primaryImageOfPage":{"@id":"https://wplegalpages.com/#primaryimage"},"datePublished":"2019-01-18T10:40:56+00:00","dateModified":"2019-08-14T06:10:20+00:00"}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="//a.opmnstr.com" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//s.w.org" />
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect" />
+<link rel="alternate" type="application/rss+xml" title="WP Legal Pages » Feed" href="https://wplegalpages.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="WP Legal Pages » Comments Feed" href="https://wplegalpages.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/wplegalpages.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&amp;&amp;(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&amp;&amp;k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i&lt;j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&amp;&amp;c.supports[j[i]],"flag"!==j[i]&amp;&amp;(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&amp;&amp;c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&amp;&amp;!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&amp;&amp;c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&amp;&amp;g.twemoji&amp;&amp;(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://wplegalpages.com/wp-includes/js/wp-emoji-release.min.js?ver=5.2.3" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://wplegalpages.com/wp-includes/css/dist/block-library/style.min.css?ver=5.2.3" type="text/css" media="all" />
+<link rel="stylesheet" id="gdpr-cookie-consent-css" href="https://wplegalpages.com/wp-content/plugins/gdpr-cookie-consent/public/css/gdpr-cookie-consent-public.css?ver=1.2" type="text/css" media="all" />
+<link rel="stylesheet" id="response-style-css" href="https://wplegalpages.com/wp-content/themes/response-premium/style.css?ver=3.0.0" type="text/css" media="all" />
+<style id="response-style-inline-css" type="text/css">
+
+		a {
+			border-bottom-color: #f20242;
+			color: #f20242;
+		}
+
+		a:hover {
+			border-bottom-color: #D61516;
+			color: #D61516;
+		}
+
+		.btn,
+		button,
+		input[type=submit],
+		input[type=button],
+		.main-navigation .menu li.call-to-action a {
+			background-color: #f20242;
+			border-color: #f20242;
+		}
+
+		.btn:hover,
+		button:hover,
+		input[type=submit]:hover,
+		input[type=button]:hover,
+		.main-navigation .menu li.call-to-action a:hover {
+			background-color: #D61516;
+			border-color: #D61516;
+		}
+
+		.site-header a:hover,
+		.hentry .entry-header a:hover,
+		.hentry .entry-meta a:hover,
+		.widget-area.sidebar .widget a:hover {
+			color: #f20242;
+		}
+
+		.site-header-business .main-navigation,
+		.site-header-blog .main-navigation {
+			background-color: #f20242;
+		}
+
+		.bypostauthor .comment-meta .avatar{
+	   		border-color: #f20242;
+	   	}
+
+		.page-header,
+		.page-template-elementor .entry-header {
+			color: #222222;
+		}
+
+		@media ( min-width: 992px ) {
+			.site-header-business .main-navigation .sub-menu a:hover,
+			.site-header-blog .main-navigation .sub-menu a:hover {
+				color: #f20242;
+			}
+		}
+	
+
+		button,
+		body,
+		input,
+		select,
+		textarea {
+			font-family: 'Oxygen', serif;
+		}
+
+		.h1, h1,
+		.h2, h2,
+		.h3, h3,
+		.h4, h4,
+		.h5, h5,
+		.h6, h6,
+		.btn,
+		button,
+		input[type=submit],
+		input[type=button],
+		.main-navigation,
+		.comment-meta .fn,
+		.site-footer {
+			font-family: 'Merriweather Sans', serif;
+		}
+	
+
+		.page-template-homepage .home-section.hero,
+		.page-template-homepage-premium-1 .home-section.hero,
+		.page-template-homepage-premium-2 .home-section.hero {
+			background-image: url();
+			color: #FFFFFF;
+		}
+		.page-template-homepage .home-section.hero:before,
+		.page-template-homepage-premium-1 .home-section.hero:before,
+		.page-template-homepage-premium-2 .home-section.hero:before {
+			background-color: #000000;
+			opacity: 0.6;
+		}
+	
+		.page-template-homepage .home-section.recent-posts,
+		.page-template-homepage-premium-1 .home-section.recent-posts,
+		.page-template-homepage-premium-2 .home-section.recent-posts {
+			background-image: url();
+			color: #222222;
+		}
+		.page-template-homepage .home-section.recent-posts:before,
+		.page-template-homepage-premium-1 .home-section.recent-posts:before,
+		.page-template-homepage-premium-2 .home-section.recent-posts:before{
+			background-color: #EAEAEA;
+			opacity: 1;
+		}
+	
+
+		.site-header-business .main-navigation,
+		.site-header-blog .main-navigation {
+			background-color: #1569AE;
+		}
+
+		.site-header-business .main-navigation a,
+		.site-header-blog .main-navigation a {
+			color: #FFFFFF;
+		}
+
+		@media ( min-width: 992px ) {
+			.site-header-business .main-navigation .sub-menu a:hover,
+			.site-header-blog .main-navigation .sub-menu a:hover {
+				color: #1569AE;
+			}
+		}
+	
+
+		button,
+		body,
+		input,
+		select,
+		textarea {
+			font-size: 1.125rem;
+			line-height: 1.75;
+		}
+
+		.h1, h1,
+		.h2, h2,
+		.h3, h3,
+		.h4, h4,
+		.h5, h5,
+		.h6, h6 {
+			line-height: 1.25;
+		}
+
+		.h1, h1 {
+			font-size: 2.197265625rem;
+		}
+
+		.h2, h2 {
+			font-size: 1.7578125rem;
+		}
+
+		.h3, h3 {
+			font-size: 1.40625rem;
+		}
+
+		.h4, h4 {
+			font-size: 1.125rem;
+		}
+
+		.h5, h5 {
+			font-size: 0.9rem;
+		}
+
+		.h6, h6 {
+			font-size: 0.9rem;
+		}
+
+		figure figcaption,
+		small,
+		sub,
+		sup,
+		label,
+		.brand .site-description,
+		.business-info,
+		.main-navigation .menu,
+		.hentry .entry-meta,
+		.comment-meta .comment-metadata,
+		.widget,
+		.site-footer {
+			font-size: 0.9rem;
+		}
+	
+
+		@media ( min-width: 992px ) {
+			.content-area {
+				width: 66.666666666667%;
+			}
+
+			.widget-area.sidebar {
+				width: 33.333333333333%;
+			}
+		}
+	
+
+		.page-template-homepage .home-section.citations,
+		.page-template-homepage-premium-1 .home-section.citations,
+		.page-template-homepage-premium-2 .home-section.citations {
+			background-image: url();
+			color: #222222;
+		}
+		.page-template-homepage .home-section.citations:before,
+		.page-template-homepage-premium-1 .home-section.citations:before,
+		.page-template-homepage-premium-2 .home-section.citations:before {
+			background: #EAEAEA;
+			opacity: 1;
+		}
+	
+		.page-template-homepage .home-section.funnel,
+		.page-template-homepage-premium-1 .home-section.funnel,
+		.page-template-homepage-premium-2 .home-section.funnel {
+			background-image: url();
+			color: #222222;
+		}
+		.page-template-homepage .home-section.funnel:before,
+		.page-template-homepage-premium-1 .home-section.funnel:before,
+		.page-template-homepage-premium-2 .home-section.funnel:before  {
+			background: #FFFFFF;
+			opacity: 1;
+		}
+	
+</style>
+<link rel="stylesheet" id="response-fonts-css" href="https://fonts.googleapis.com/css?family=Merriweather+Sans%3A400%2C400i%2C700%2C700i%7COxygen%3A400%2C700%7CInconsolata%3A400&amp;subset=latin%2Clatin-ext&amp;ver=3.0.0" type="text/css" media="all" />
+<link rel="stylesheet" id="elementor-icons-css" href="https://wplegalpages.com/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=4.1.0" type="text/css" media="all" />
+<link rel="stylesheet" id="font-awesome-css" href="https://wplegalpages.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0" type="text/css" media="all" />
+<link rel="stylesheet" id="elementor-animations-css" href="https://wplegalpages.com/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=2.4.1" type="text/css" media="all" />
+<link rel="stylesheet" id="elementor-frontend-css" href="https://wplegalpages.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=2.4.1" type="text/css" media="all" />
+<link rel="stylesheet" id="elementor-pro-css" href="https://wplegalpages.com/wp-content/plugins/elementor-pro/assets/css/frontend.min.css?ver=2.3.1" type="text/css" media="all" />
+<link rel="stylesheet" id="elementor-global-css" href="https://wplegalpages.com/wp-content/uploads/elementor/css/global.css?ver=1547793303" type="text/css" media="all" />
+<link rel="stylesheet" id="elementor-post-850-css" href="https://wplegalpages.com/wp-content/uploads/elementor/css/post-850.css?ver=1565763078" type="text/css" media="all" />
+<link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CLato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;ver=5.2.3" type="text/css" media="all" />
+<link rel="stylesheet" id="slidedeck-css" href="https://wplegalpages.com/wp-content/plugins/slidedeck/css/slidedeck.css?ver=5.1.11" type="text/css" media="screen" />
+<script type="text/javascript">
+window.slideDeck2Version = "5.1.11";
+window.slideDeck2Distribution = "lite";
+</script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
+<script type="text/javascript">
+/* &lt;![CDATA[ */
+var log_obj = {"ajax_url":"https:\/\/wplegalpages.com\/wp-admin\/admin-ajax.php"};
+/* ]]&gt; */
+</script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/gdpr-cookie-consent/public/js/gdpr-cookie-consent-public.js?ver=1.2"></script>
+<script type="text/javascript" data-cfasync="false" id="omapi-script" async="async" src="https://a.opmnstr.com/app/js/api.min.js"></script>
+<link rel="https://api.w.org/" href="https://wplegalpages.com/wp-json/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://wplegalpages.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://wplegalpages.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.2.3" />
+<link rel="shortlink" href="https://wplegalpages.com/" />
+		<!-- Custom Logo: hide header text -->
+		<style id="custom-logo-css" type="text/css">
+			.site-title, .site-description {
+				position: absolute;
+				clip: rect(1px, 1px, 1px, 1px);
+			}
+		</style>
+		<link rel="alternate" type="application/json+oembed" href="https://wplegalpages.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwplegalpages.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://wplegalpages.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwplegalpages.com%2F&amp;format=xml" />
+<meta name="google-site-verification" content="9SOxsdEKUlojHh_IQUs93VgYXuy7OqGVx5Ki0E1UTHI" />
+
+<!-- Hotjar Tracking Code for http://wplegalpages.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:740042,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script><script async="" src="https://static.hotjar.com/c/hotjar-740042.js?sv=6"></script><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f2f2f2; }
+</style>
+			<style type="text/css" id="wp-custom-css">
+			a {
+	border-bottom: none !important;
+}
+
+.site-footer .container{
+	max-width: 100%;
+}
+
+
+.site-footer .container span.copyright.visible a {
+    margin-left: 30px;
+}
+
+@media screen and (max-width:480px){
+.site-footer .container span.copyright.visible a {
+		display:block;
+		margin-left: 0px;
+	}
+}		</style>
+		<script async="" src="https://script.hotjar.com/modules.29a329b2f7876a65f063.js" charset="utf-8"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><style type="text/css">@-webkit-keyframes bounce{0%,20%,50%,80%,to{-webkit-transform:translateY(0);transform:translateY(0)}40%{-webkit-transform:translateY(-30px);transform:translateY(-30px)}60%{-webkit-transform:translateY(-15px);transform:translateY(-15px)}}@keyframes bounce{0%,20%,50%,80%,to{-webkit-transform:translateY(0);transform:translateY(0)}40%{-webkit-transform:translateY(-30px);transform:translateY(-30px)}60%{-webkit-transform:translateY(-15px);transform:translateY(-15px)}}.om-animation-bounce{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:bounce;animation-name:bounce}@-webkit-keyframes bounceIn{0%{opacity:0;-webkit-transform:scale(.3);transform:scale(.3)}50%{opacity:1;-webkit-transform:scale(1.05);transform:scale(1.05)}70%{-webkit-transform:scale(.9);transform:scale(.9)}to{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}@keyframes bounceIn{0%{opacity:0;-webkit-transform:scale(.3);transform:scale(.3)}50%{opacity:1;-webkit-transform:scale(1.05);transform:scale(1.05)}70%{-webkit-transform:scale(.9);transform:scale(.9)}to{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}.om-animation-bounce-in{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceIn;animation-name:bounceIn}@-webkit-keyframes bounceInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}60%{opacity:1;-webkit-transform:translateY(30px);transform:translateY(30px)}80%{-webkit-transform:translateY(-10px);transform:translateY(-10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes bounceInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}60%{opacity:1;-webkit-transform:translateY(30px);transform:translateY(30px)}80%{-webkit-transform:translateY(-10px);transform:translateY(-10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-bounce-in-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceInDown;animation-name:bounceInDown}@-webkit-keyframes bounceInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}60%{opacity:1;-webkit-transform:translateX(30px);transform:translateX(30px)}80%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes bounceInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}60%{opacity:1;-webkit-transform:translateX(30px);transform:translateX(30px)}80%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-bounce-in-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceInLeft;animation-name:bounceInLeft}@-webkit-keyframes bounceInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}60%{opacity:1;-webkit-transform:translateX(-30px);transform:translateX(-30px)}80%{-webkit-transform:translateX(10px);transform:translateX(10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes bounceInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}60%{opacity:1;-webkit-transform:translateX(-30px);transform:translateX(-30px)}80%{-webkit-transform:translateX(10px);transform:translateX(10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-bounce-in-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceInRight;animation-name:bounceInRight}@-webkit-keyframes bounceInUp{0%{opacity:0;-webkit-transform:translateY(2000px);transform:translateY(2000px)}60%{opacity:1;-webkit-transform:translateY(-30px);transform:translateY(-30px)}80%{-webkit-transform:translateY(10px);transform:translateY(10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes bounceInUp{0%{opacity:0;-webkit-transform:translateY(2000px);transform:translateY(2000px)}60%{opacity:1;-webkit-transform:translateY(-30px);transform:translateY(-30px)}80%{-webkit-transform:translateY(10px);transform:translateY(10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-bounce-in-up{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceInUp;animation-name:bounceInUp}@-webkit-keyframes flash{0%,50%,to{opacity:1}25%,75%{opacity:0}}@keyframes flash{0%,50%,to{opacity:1}25%,75%{opacity:0}}.om-animation-flash{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:flash;animation-name:flash}@-webkit-keyframes flip{0%{-webkit-transform:perspective(800px) translateZ(0) rotateY(0) scale(1);transform:perspective(800px) translateZ(0) rotateY(0) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}40%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}50%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}80%{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}to{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}}@keyframes flip{0%{-webkit-transform:perspective(800px) translateZ(0) rotateY(0) scale(1);transform:perspective(800px) translateZ(0) rotateY(0) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}40%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}50%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}80%{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}to{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}}.om-animation-flip{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:flip;animation-name:flip}@-webkit-keyframes flipInX{0%{-webkit-transform:perspective(800px) rotateX(90deg);transform:perspective(800px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateX(-10deg);transform:perspective(800px) rotateX(-10deg)}70%{-webkit-transform:perspective(800px) rotateX(10deg);transform:perspective(800px) rotateX(10deg)}to{-webkit-transform:perspective(800px) rotateX(0deg);transform:perspective(800px) rotateX(0deg);opacity:1}}@keyframes flipInX{0%{-webkit-transform:perspective(800px) rotateX(90deg);transform:perspective(800px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateX(-10deg);transform:perspective(800px) rotateX(-10deg)}70%{-webkit-transform:perspective(800px) rotateX(10deg);transform:perspective(800px) rotateX(10deg)}to{-webkit-transform:perspective(800px) rotateX(0deg);transform:perspective(800px) rotateX(0deg);opacity:1}}.om-animation-flip-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:flipInX;animation-name:flipInX}@-webkit-keyframes flipInY{0%{-webkit-transform:perspective(800px) rotateY(90deg);transform:perspective(800px) rotateY(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateY(-10deg);transform:perspective(800px) rotateY(-10deg)}70%{-webkit-transform:perspective(800px) rotateY(10deg);transform:perspective(800px) rotateY(10deg)}to{-webkit-transform:perspective(800px) rotateY(0deg);transform:perspective(800px) rotateY(0deg);opacity:1}}@keyframes flipInY{0%{-webkit-transform:perspective(800px) rotateY(90deg);transform:perspective(800px) rotateY(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateY(-10deg);transform:perspective(800px) rotateY(-10deg)}70%{-webkit-transform:perspective(800px) rotateY(10deg);transform:perspective(800px) rotateY(10deg)}to{-webkit-transform:perspective(800px) rotateY(0deg);transform:perspective(800px) rotateY(0deg);opacity:1}}.om-animation-flip-side{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:flipInY;animation-name:flipInY}@-webkit-keyframes lightSpeedIn{0%{-webkit-transform:translateX(100%) skewX(-30deg);transform:translateX(100%) skewX(-30deg);opacity:0}60%{-webkit-transform:translateX(-20%) skewX(30deg);transform:translateX(-20%) skewX(30deg);opacity:1}80%{-webkit-transform:translateX(0) skewX(-15deg);transform:translateX(0) skewX(-15deg);opacity:1}to{-webkit-transform:translateX(0) skewX(0deg);transform:translateX(0) skewX(0deg);opacity:1}}@keyframes lightSpeedIn{0%{-webkit-transform:translateX(100%) skewX(-30deg);transform:translateX(100%) skewX(-30deg);opacity:0}60%{-webkit-transform:translateX(-20%) skewX(30deg);transform:translateX(-20%) skewX(30deg);opacity:1}80%{-webkit-transform:translateX(0) skewX(-15deg);transform:translateX(0) skewX(-15deg);opacity:1}to{-webkit-transform:translateX(0) skewX(0deg);transform:translateX(0) skewX(0deg);opacity:1}}.om-animation-light-speed{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:lightSpeedIn;animation-name:lightSpeedIn;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}@-webkit-keyframes pulse{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.1);transform:scale(1.1)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes pulse{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.1);transform:scale(1.1)}to{-webkit-transform:scale(1);transform:scale(1)}}.om-animation-pulse{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:pulse;animation-name:pulse}@-webkit-keyframes rollIn{0%{opacity:0;-webkit-transform:translateX(-100%) rotate(-120deg);transform:translateX(-100%) rotate(-120deg)}to{opacity:1;-webkit-transform:translateX(0) rotate(0deg);transform:translateX(0) rotate(0deg)}}@keyframes rollIn{0%{opacity:0;-webkit-transform:translateX(-100%) rotate(-120deg);transform:translateX(-100%) rotate(-120deg)}to{opacity:1;-webkit-transform:translateX(0) rotate(0deg);transform:translateX(0) rotate(0deg)}}.om-animation-roll-in{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rollIn;animation-name:rollIn}@-webkit-keyframes rotateIn{0%{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(-200deg);transform:rotate(-200deg);opacity:0}to{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateIn{0%{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(-200deg);transform:rotate(-200deg);opacity:0}to{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateIn;animation-name:rotateIn}@-webkit-keyframes rotateInDownLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateInDownLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-down-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateInDownLeft;animation-name:rotateInDownLeft}@-webkit-keyframes rotateInDownRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateInDownRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-down-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateInDownRight;animation-name:rotateInDownRight}@-webkit-keyframes rotateInUpLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateInUpLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-up-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateInUpLeft;animation-name:rotateInUpLeft}@-webkit-keyframes rotateInUpRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateInUpRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-up-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateInUpRight;animation-name:rotateInUpRight}@-webkit-keyframes rubberBand{0%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scaleX(1.25) scaleY(.75);transform:scaleX(1.25) scaleY(.75)}40%{-webkit-transform:scaleX(.75) scaleY(1.25);transform:scaleX(.75) scaleY(1.25)}60%{-webkit-transform:scaleX(1.15) scaleY(.85);transform:scaleX(1.15) scaleY(.85)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes rubberBand{0%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scaleX(1.25) scaleY(.75);transform:scaleX(1.25) scaleY(.75)}40%{-webkit-transform:scaleX(.75) scaleY(1.25);transform:scaleX(.75) scaleY(1.25)}60%{-webkit-transform:scaleX(1.15) scaleY(.85);transform:scaleX(1.15) scaleY(.85)}to{-webkit-transform:scale(1);transform:scale(1)}}.om-animation-rubber-band{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:rubberBand;animation-name:rubberBand}@-webkit-keyframes shake{0%,to{-webkit-transform:translateX(0);transform:translateX(0)}10%,30%,50%,70%,90%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}20%,40%,60%,80%{-webkit-transform:translateX(10px);transform:translateX(10px)}}@keyframes shake{0%,to{-webkit-transform:translateX(0);transform:translateX(0)}10%,30%,50%,70%,90%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}20%,40%,60%,80%{-webkit-transform:translateX(10px);transform:translateX(10px)}}.om-animation-shake{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:shake;animation-name:shake}@-webkit-keyframes slideInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes slideInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-slide-in-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:slideInDown;animation-name:slideInDown}@-webkit-keyframes slideInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes slideInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-slide-in-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:slideInLeft;animation-name:slideInLeft}@-webkit-keyframes slideInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes slideInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-slide-in-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:slideInRight;animation-name:slideInRight}@-webkit-keyframes swing{20%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}40%{-webkit-transform:rotate(-10deg);transform:rotate(-10deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}80%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes swing{20%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}40%{-webkit-transform:rotate(-10deg);transform:rotate(-10deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}80%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}.om-animation-swing{-webkit-animation-duration:1s;animation-duration:1s;-webkit-transform-origin:top center;transform-origin:top center;-webkit-animation-name:swing;animation-name:swing}@-webkit-keyframes tada{0%{-webkit-transform:scale(1);transform:scale(1)}10%,20%{-webkit-transform:scale(.9) rotate(-3deg);transform:scale(.9) rotate(-3deg)}30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg);transform:scale(1.1) rotate(3deg)}40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg);transform:scale(1.1) rotate(-3deg)}to{-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}}@keyframes tada{0%{-webkit-transform:scale(1);transform:scale(1)}10%,20%{-webkit-transform:scale(.9) rotate(-3deg);transform:scale(.9) rotate(-3deg)}30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg);transform:scale(1.1) rotate(3deg)}40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg);transform:scale(1.1) rotate(-3deg)}to{-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}}.om-animation-tada{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:tada;animation-name:tada}@-webkit-keyframes wobble{0%{-webkit-transform:translateX(0);transform:translateX(0)}15%{-webkit-transform:translateX(-25%) rotate(-5deg);transform:translateX(-25%) rotate(-5deg)}30%{-webkit-transform:translateX(20%) rotate(3deg);transform:translateX(20%) rotate(3deg)}45%{-webkit-transform:translateX(-15%) rotate(-3deg);transform:translateX(-15%) rotate(-3deg)}60%{-webkit-transform:translateX(10%) rotate(2deg);transform:translateX(10%) rotate(2deg)}75%{-webkit-transform:translateX(-5%) rotate(-1deg);transform:translateX(-5%) rotate(-1deg)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes wobble{0%{-webkit-transform:translateX(0);transform:translateX(0)}15%{-webkit-transform:translateX(-25%) rotate(-5deg);transform:translateX(-25%) rotate(-5deg)}30%{-webkit-transform:translateX(20%) rotate(3deg);transform:translateX(20%) rotate(3deg)}45%{-webkit-transform:translateX(-15%) rotate(-3deg);transform:translateX(-15%) rotate(-3deg)}60%{-webkit-transform:translateX(10%) rotate(2deg);transform:translateX(10%) rotate(2deg)}75%{-webkit-transform:translateX(-5%) rotate(-1deg);transform:translateX(-5%) rotate(-1deg)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-wobble{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:wobble;animation-name:wobble}.om-content-lock{color:transparent!important;text-shadow:rgba(0,0,0,.5) 0 0 10px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;filter:url("data:image/svg+xml;utf9,&lt;svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter%20id='blur'&gt;&lt;feGaussianBlur%20stdDeviation='10'%20/&gt;&lt;/filter&gt;&lt;/svg&gt;#blur");-webkit-filter:blur(10px);-ms-filter:blur(10px);-o-filter:blur(10px);filter:blur(10px)}html.om-mobile-position,html.om-mobile-position body{position:fixed!important}html.om-ios-form,html.om-ios-form body{-webkit-transform:translateZ(0)!important;transform:translateZ(0)!important;-webkit-overflow-scrolling:touch!important;height:100%!important;overflow:auto!important}html.om-position-popup body{overflow:hidden!important}html.om-position-floating-top{transition:padding-top .5s ease!important}html.om-position-floating-bottom{transition:padding-bottom .5s ease!important}html.om-reset-dimensions{height:100%!important;width:100%!important}.om-verification-confirmation{font-family:Lato,Arial,Helvetica,sans-serif;position:fixed;border-radius:10px;bottom:20px;left:20px;padding:10px 20px;opacity:0;transition:opacity .3s ease-in;background:#85bf31;color:#fff;font-size:18px;font-weight:700;z-index:9999}</style><style type="text/css">@-webkit-keyframes bounce{0%,20%,50%,80%,to{-webkit-transform:translateY(0);transform:translateY(0)}40%{-webkit-transform:translateY(-30px);transform:translateY(-30px)}60%{-webkit-transform:translateY(-15px);transform:translateY(-15px)}}@keyframes bounce{0%,20%,50%,80%,to{-webkit-transform:translateY(0);transform:translateY(0)}40%{-webkit-transform:translateY(-30px);transform:translateY(-30px)}60%{-webkit-transform:translateY(-15px);transform:translateY(-15px)}}.om-animation-bounce{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:bounce;animation-name:bounce}@-webkit-keyframes bounceIn{0%{opacity:0;-webkit-transform:scale(.3);transform:scale(.3)}50%{opacity:1;-webkit-transform:scale(1.05);transform:scale(1.05)}70%{-webkit-transform:scale(.9);transform:scale(.9)}to{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}@keyframes bounceIn{0%{opacity:0;-webkit-transform:scale(.3);transform:scale(.3)}50%{opacity:1;-webkit-transform:scale(1.05);transform:scale(1.05)}70%{-webkit-transform:scale(.9);transform:scale(.9)}to{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}.om-animation-bounce-in{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceIn;animation-name:bounceIn}@-webkit-keyframes bounceInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}60%{opacity:1;-webkit-transform:translateY(30px);transform:translateY(30px)}80%{-webkit-transform:translateY(-10px);transform:translateY(-10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes bounceInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}60%{opacity:1;-webkit-transform:translateY(30px);transform:translateY(30px)}80%{-webkit-transform:translateY(-10px);transform:translateY(-10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-bounce-in-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceInDown;animation-name:bounceInDown}@-webkit-keyframes bounceInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}60%{opacity:1;-webkit-transform:translateX(30px);transform:translateX(30px)}80%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes bounceInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}60%{opacity:1;-webkit-transform:translateX(30px);transform:translateX(30px)}80%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-bounce-in-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceInLeft;animation-name:bounceInLeft}@-webkit-keyframes bounceInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}60%{opacity:1;-webkit-transform:translateX(-30px);transform:translateX(-30px)}80%{-webkit-transform:translateX(10px);transform:translateX(10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes bounceInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}60%{opacity:1;-webkit-transform:translateX(-30px);transform:translateX(-30px)}80%{-webkit-transform:translateX(10px);transform:translateX(10px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-bounce-in-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceInRight;animation-name:bounceInRight}@-webkit-keyframes bounceInUp{0%{opacity:0;-webkit-transform:translateY(2000px);transform:translateY(2000px)}60%{opacity:1;-webkit-transform:translateY(-30px);transform:translateY(-30px)}80%{-webkit-transform:translateY(10px);transform:translateY(10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes bounceInUp{0%{opacity:0;-webkit-transform:translateY(2000px);transform:translateY(2000px)}60%{opacity:1;-webkit-transform:translateY(-30px);transform:translateY(-30px)}80%{-webkit-transform:translateY(10px);transform:translateY(10px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-bounce-in-up{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:bounceInUp;animation-name:bounceInUp}@-webkit-keyframes flash{0%,50%,to{opacity:1}25%,75%{opacity:0}}@keyframes flash{0%,50%,to{opacity:1}25%,75%{opacity:0}}.om-animation-flash{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:flash;animation-name:flash}@-webkit-keyframes flip{0%{-webkit-transform:perspective(800px) translateZ(0) rotateY(0) scale(1);transform:perspective(800px) translateZ(0) rotateY(0) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}40%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}50%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}80%{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}to{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}}@keyframes flip{0%{-webkit-transform:perspective(800px) translateZ(0) rotateY(0) scale(1);transform:perspective(800px) translateZ(0) rotateY(0) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}40%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(170deg) scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}50%{-webkit-transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);transform:perspective(800px) translateZ(150px) rotateY(190deg) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}80%{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(.95);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}to{-webkit-transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);transform:perspective(800px) translateZ(0) rotateY(1turn) scale(1);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}}.om-animation-flip{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:flip;animation-name:flip}@-webkit-keyframes flipInX{0%{-webkit-transform:perspective(800px) rotateX(90deg);transform:perspective(800px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateX(-10deg);transform:perspective(800px) rotateX(-10deg)}70%{-webkit-transform:perspective(800px) rotateX(10deg);transform:perspective(800px) rotateX(10deg)}to{-webkit-transform:perspective(800px) rotateX(0deg);transform:perspective(800px) rotateX(0deg);opacity:1}}@keyframes flipInX{0%{-webkit-transform:perspective(800px) rotateX(90deg);transform:perspective(800px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateX(-10deg);transform:perspective(800px) rotateX(-10deg)}70%{-webkit-transform:perspective(800px) rotateX(10deg);transform:perspective(800px) rotateX(10deg)}to{-webkit-transform:perspective(800px) rotateX(0deg);transform:perspective(800px) rotateX(0deg);opacity:1}}.om-animation-flip-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:flipInX;animation-name:flipInX}@-webkit-keyframes flipInY{0%{-webkit-transform:perspective(800px) rotateY(90deg);transform:perspective(800px) rotateY(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateY(-10deg);transform:perspective(800px) rotateY(-10deg)}70%{-webkit-transform:perspective(800px) rotateY(10deg);transform:perspective(800px) rotateY(10deg)}to{-webkit-transform:perspective(800px) rotateY(0deg);transform:perspective(800px) rotateY(0deg);opacity:1}}@keyframes flipInY{0%{-webkit-transform:perspective(800px) rotateY(90deg);transform:perspective(800px) rotateY(90deg);opacity:0}40%{-webkit-transform:perspective(800px) rotateY(-10deg);transform:perspective(800px) rotateY(-10deg)}70%{-webkit-transform:perspective(800px) rotateY(10deg);transform:perspective(800px) rotateY(10deg)}to{-webkit-transform:perspective(800px) rotateY(0deg);transform:perspective(800px) rotateY(0deg);opacity:1}}.om-animation-flip-side{-webkit-animation-duration:1s;animation-duration:1s;-webkit-backface-visibility:visible;backface-visibility:visible;-webkit-animation-name:flipInY;animation-name:flipInY}@-webkit-keyframes lightSpeedIn{0%{-webkit-transform:translateX(100%) skewX(-30deg);transform:translateX(100%) skewX(-30deg);opacity:0}60%{-webkit-transform:translateX(-20%) skewX(30deg);transform:translateX(-20%) skewX(30deg);opacity:1}80%{-webkit-transform:translateX(0) skewX(-15deg);transform:translateX(0) skewX(-15deg);opacity:1}to{-webkit-transform:translateX(0) skewX(0deg);transform:translateX(0) skewX(0deg);opacity:1}}@keyframes lightSpeedIn{0%{-webkit-transform:translateX(100%) skewX(-30deg);transform:translateX(100%) skewX(-30deg);opacity:0}60%{-webkit-transform:translateX(-20%) skewX(30deg);transform:translateX(-20%) skewX(30deg);opacity:1}80%{-webkit-transform:translateX(0) skewX(-15deg);transform:translateX(0) skewX(-15deg);opacity:1}to{-webkit-transform:translateX(0) skewX(0deg);transform:translateX(0) skewX(0deg);opacity:1}}.om-animation-light-speed{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:lightSpeedIn;animation-name:lightSpeedIn;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}@-webkit-keyframes pulse{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.1);transform:scale(1.1)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes pulse{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.1);transform:scale(1.1)}to{-webkit-transform:scale(1);transform:scale(1)}}.om-animation-pulse{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:pulse;animation-name:pulse}@-webkit-keyframes rollIn{0%{opacity:0;-webkit-transform:translateX(-100%) rotate(-120deg);transform:translateX(-100%) rotate(-120deg)}to{opacity:1;-webkit-transform:translateX(0) rotate(0deg);transform:translateX(0) rotate(0deg)}}@keyframes rollIn{0%{opacity:0;-webkit-transform:translateX(-100%) rotate(-120deg);transform:translateX(-100%) rotate(-120deg)}to{opacity:1;-webkit-transform:translateX(0) rotate(0deg);transform:translateX(0) rotate(0deg)}}.om-animation-roll-in{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rollIn;animation-name:rollIn}@-webkit-keyframes rotateIn{0%{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(-200deg);transform:rotate(-200deg);opacity:0}to{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateIn{0%{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(-200deg);transform:rotate(-200deg);opacity:0}to{-webkit-transform-origin:center center;transform-origin:center center;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateIn;animation-name:rotateIn}@-webkit-keyframes rotateInDownLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateInDownLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-down-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateInDownLeft;animation-name:rotateInDownLeft}@-webkit-keyframes rotateInDownRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateInDownRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-down-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateInDownRight;animation-name:rotateInDownRight}@-webkit-keyframes rotateInUpLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateInUpLeft{0%{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(90deg);transform:rotate(90deg);opacity:0}to{-webkit-transform-origin:left bottom;transform-origin:left bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-up-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateInUpLeft;animation-name:rotateInUpLeft}@-webkit-keyframes rotateInUpRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}@keyframes rotateInUpRight{0%{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(-90deg);transform:rotate(-90deg);opacity:0}to{-webkit-transform-origin:right bottom;transform-origin:right bottom;-webkit-transform:rotate(0);transform:rotate(0);opacity:1}}.om-animation-rotate-up-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:rotateInUpRight;animation-name:rotateInUpRight}@-webkit-keyframes rubberBand{0%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scaleX(1.25) scaleY(.75);transform:scaleX(1.25) scaleY(.75)}40%{-webkit-transform:scaleX(.75) scaleY(1.25);transform:scaleX(.75) scaleY(1.25)}60%{-webkit-transform:scaleX(1.15) scaleY(.85);transform:scaleX(1.15) scaleY(.85)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes rubberBand{0%{-webkit-transform:scale(1);transform:scale(1)}30%{-webkit-transform:scaleX(1.25) scaleY(.75);transform:scaleX(1.25) scaleY(.75)}40%{-webkit-transform:scaleX(.75) scaleY(1.25);transform:scaleX(.75) scaleY(1.25)}60%{-webkit-transform:scaleX(1.15) scaleY(.85);transform:scaleX(1.15) scaleY(.85)}to{-webkit-transform:scale(1);transform:scale(1)}}.om-animation-rubber-band{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:rubberBand;animation-name:rubberBand}@-webkit-keyframes shake{0%,to{-webkit-transform:translateX(0);transform:translateX(0)}10%,30%,50%,70%,90%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}20%,40%,60%,80%{-webkit-transform:translateX(10px);transform:translateX(10px)}}@keyframes shake{0%,to{-webkit-transform:translateX(0);transform:translateX(0)}10%,30%,50%,70%,90%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}20%,40%,60%,80%{-webkit-transform:translateX(10px);transform:translateX(10px)}}.om-animation-shake{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:shake;animation-name:shake}@-webkit-keyframes slideInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes slideInDown{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}to{-webkit-transform:translateY(0);transform:translateY(0)}}.om-animation-slide-in-down{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:slideInDown;animation-name:slideInDown}@-webkit-keyframes slideInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes slideInLeft{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-slide-in-left{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:slideInLeft;animation-name:slideInLeft}@-webkit-keyframes slideInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes slideInRight{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-slide-in-right{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:slideInRight;animation-name:slideInRight}@-webkit-keyframes swing{20%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}40%{-webkit-transform:rotate(-10deg);transform:rotate(-10deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}80%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes swing{20%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}40%{-webkit-transform:rotate(-10deg);transform:rotate(-10deg)}60%{-webkit-transform:rotate(5deg);transform:rotate(5deg)}80%{-webkit-transform:rotate(-5deg);transform:rotate(-5deg)}to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}.om-animation-swing{-webkit-animation-duration:1s;animation-duration:1s;-webkit-transform-origin:top center;transform-origin:top center;-webkit-animation-name:swing;animation-name:swing}@-webkit-keyframes tada{0%{-webkit-transform:scale(1);transform:scale(1)}10%,20%{-webkit-transform:scale(.9) rotate(-3deg);transform:scale(.9) rotate(-3deg)}30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg);transform:scale(1.1) rotate(3deg)}40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg);transform:scale(1.1) rotate(-3deg)}to{-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}}@keyframes tada{0%{-webkit-transform:scale(1);transform:scale(1)}10%,20%{-webkit-transform:scale(.9) rotate(-3deg);transform:scale(.9) rotate(-3deg)}30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg);transform:scale(1.1) rotate(3deg)}40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg);transform:scale(1.1) rotate(-3deg)}to{-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}}.om-animation-tada{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:tada;animation-name:tada}@-webkit-keyframes wobble{0%{-webkit-transform:translateX(0);transform:translateX(0)}15%{-webkit-transform:translateX(-25%) rotate(-5deg);transform:translateX(-25%) rotate(-5deg)}30%{-webkit-transform:translateX(20%) rotate(3deg);transform:translateX(20%) rotate(3deg)}45%{-webkit-transform:translateX(-15%) rotate(-3deg);transform:translateX(-15%) rotate(-3deg)}60%{-webkit-transform:translateX(10%) rotate(2deg);transform:translateX(10%) rotate(2deg)}75%{-webkit-transform:translateX(-5%) rotate(-1deg);transform:translateX(-5%) rotate(-1deg)}to{-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes wobble{0%{-webkit-transform:translateX(0);transform:translateX(0)}15%{-webkit-transform:translateX(-25%) rotate(-5deg);transform:translateX(-25%) rotate(-5deg)}30%{-webkit-transform:translateX(20%) rotate(3deg);transform:translateX(20%) rotate(3deg)}45%{-webkit-transform:translateX(-15%) rotate(-3deg);transform:translateX(-15%) rotate(-3deg)}60%{-webkit-transform:translateX(10%) rotate(2deg);transform:translateX(10%) rotate(2deg)}75%{-webkit-transform:translateX(-5%) rotate(-1deg);transform:translateX(-5%) rotate(-1deg)}to{-webkit-transform:translateX(0);transform:translateX(0)}}.om-animation-wobble{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-name:wobble;animation-name:wobble}.om-content-lock{color:transparent!important;text-shadow:rgba(0,0,0,.5) 0 0 10px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;filter:url("data:image/svg+xml;utf9,&lt;svg%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'&gt;&lt;filter%20id='blur'&gt;&lt;feGaussianBlur%20stdDeviation='10'%20/&gt;&lt;/filter&gt;&lt;/svg&gt;#blur");-webkit-filter:blur(10px);-ms-filter:blur(10px);-o-filter:blur(10px);filter:blur(10px)}html.om-mobile-position,html.om-mobile-position body{position:fixed!important}html.om-ios-form,html.om-ios-form body{-webkit-transform:translateZ(0)!important;transform:translateZ(0)!important;-webkit-overflow-scrolling:touch!important;height:100%!important;overflow:auto!important}html.om-position-popup body{overflow:hidden!important}html.om-position-floating-top{transition:padding-top .5s ease!important}html.om-position-floating-bottom{transition:padding-bottom .5s ease!important}html.om-reset-dimensions{height:100%!important;width:100%!important}.om-verification-confirmation{font-family:Lato,Arial,Helvetica,sans-serif;position:fixed;border-radius:10px;bottom:20px;left:20px;padding:10px 20px;opacity:0;transition:opacity .3s ease-in;background:#85bf31;color:#fff;font-size:18px;font-weight:700;z-index:9999}</style><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:800,700,500,400" media="all" /><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js" async=""></script></head>
+<body class="home page-template page-template-templates page-template-elementor page-template-templateselementor-php page page-id-850 custom-background wp-custom-logo full-width-header elementor-default elementor-page elementor-page-850" data-elementor-device-mode="desktop">
+<a href="#content" class="skip-link screen-reader-text">Skip to content</a>
+
+<header id="masthead" class="site-header" role="banner">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="brand col-xs-12 col-lg-4">
+				<a href="https://wplegalpages.com/" class="custom-logo-link" rel="home"><img width="250" height="88" src="https://wplegalpages.com/wp-content/uploads/2019/01/cropped-WPLegalPages.png" class="custom-logo" alt="WP Legal Pages" /></a>	<p class="site-title h3"><a href="https://wplegalpages.com/" rel="home">WP Legal Pages</a></p>
+				</div>
+
+							<nav id="site-navigation" class="main-navigation clear col-xs-12 col-lg-8" role="navigation">
+					<button class="menu-toggle show-xs hide-lg" aria-controls="primary-menu" aria-expanded="false">
+	<i class="icon-menu"> </i>
+	<span class="screen-reader-text">Menu</span>
+</button>
+
+<ul id="primary-menu" class="menu nav-menu" aria-expanded="false"><li id="menu-item-58" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-58"><a href="https://wplegalpages.com/" aria-current="page">Home</a></li>
+<li id="menu-item-789" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-789"><a href="https://wplegalpages.com/testimonials/">Testimonials</a></li>
+<li id="menu-item-799" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-799"><a href="https://wplegalpages.com/category/blog/">Blog</a></li>
+<li id="menu-item-786" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-786"><a target="_blank" rel="noopener noreferrer" href="https://wpeka.freshdesk.com/">Support</a></li>
+<li id="menu-item-62" class="call-to-action menu-item menu-item-type-custom menu-item-object-custom menu-item-62"><a href="https://club.wpeka.com/checkout/?add-to-cart=33363">Buy Now</a></li>
+</ul>				</nav>
+					</div>
+	</div>
+</header><!-- #masthead -->
+
+<div id="content" class="site-content">
+	<main id="primary" class="content-area" role="main">
+		<article id="post-850" class="post-850 page type-page status-publish hentry">
+	<header class="entry-header"><h1 class="entry-title">WPLegalPages – WordPress Privacy Policy Plugin</h1></header>
+	<div class="entry-content">
+				<div data-elementor-type="post" data-elementor-id="850" class="elementor elementor-850" data-elementor-settings="[]">
+			<div class="elementor-inner">
+				<div class="elementor-section-wrap">
+							<section data-id="087323b" class="elementor-element elementor-element-087323b elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="3f9a6bf" class="elementor-element elementor-element-3f9a6bf elementor-column elementor-col-100 elementor-top-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="c877d36" class="elementor-element elementor-element-c877d36 container-sm elementor-widget elementor-widget-text-editor" data-element_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Get The Most Powerful  WordPress Privacy Policy &amp; Terms of Use Generator Plugin </p></div>
+				</div>
+				</div>
+				<div data-id="090c400" class="elementor-element elementor-element-090c400 elementor-align-center elementor-widget elementor-widget-button" data-element_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://club.wpeka.com/checkout/?add-to-cart=33363" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">BUY NOW</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div data-id="25a5cc5" class="elementor-element elementor-element-25a5cc5 container-sm elementor-aspect-ratio-169 elementor-widget elementor-widget-video" data-settings="{&quot;aspect_ratio&quot;:&quot;169&quot;}" data-element_type="video.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-wrapper elementor-fit-aspect-ratio elementor-open-inline">
+			<iframe class="elementor-video-iframe" allowfullscreen="" src="https://www.youtube.com/embed/iqdLl9qsBHc?feature=oembed&amp;start&amp;end&amp;wmode=opaque&amp;loop=0&amp;controls=0&amp;mute=0&amp;rel=0&amp;modestbranding=0"></iframe>		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section data-id="5992f73" class="elementor-element elementor-element-5992f73 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="a133bd3" class="elementor-element elementor-element-a133bd3 elementor-column elementor-col-100 elementor-top-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="f10c041" class="elementor-element elementor-element-f10c041 elementor-widget elementor-widget-heading" data-element_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">Why WP Legal Pages?</h1>		</div>
+				</div>
+				<section data-id="35198d3" class="elementor-element elementor-element-35198d3 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="6623894" class="elementor-element elementor-element-6623894 elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="eff31a0" class="elementor-element elementor-element-eff31a0 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-superpowers" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Powerful Yet Simple</span>
+				</h3>
+				<p class="elementor-icon-box-description">Add 25+ legal policy pages to your WordPress website in less than 5 minutes.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="43e22a2" class="elementor-element elementor-element-43e22a2 elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="8ca9b88" class="elementor-element elementor-element-8ca9b88 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-file-text-o" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Pre-built Templates</span>
+				</h3>
+				<p class="elementor-icon-box-description">Choose from 25+ lawyer approved, legal policy pages from GDPR policies to affiliate disclosures.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="2a56741" class="elementor-element elementor-element-2a56741 elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="b011993" class="elementor-element elementor-element-b011993 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Editable Templates</span>
+				</h3>
+				<p class="elementor-icon-box-description">Edit or create your own legal policy templates using the WYSIWYG WordPress editor.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section data-id="83be9ac" class="elementor-element elementor-element-83be9ac elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="bd86d47" class="elementor-element elementor-element-bd86d47 elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="41b24ef" class="elementor-element elementor-element-41b24ef elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-globe" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>GDPR Compliance</span>
+				</h3>
+				<p class="elementor-icon-box-description">Easy to use shortcodes to display business information in legal policy pages.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="e1e127a" class="elementor-element elementor-element-e1e127a elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="dbfa8bd" class="elementor-element elementor-element-dbfa8bd elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-lock" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Forced Consent</span>
+				</h3>
+				<p class="elementor-icon-box-description">Force website visitors to agree to your Terms, Privacy Policy, etc using post / page lock down features.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="a4f3166" class="elementor-element elementor-element-a4f3166 elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="ddaf0e6" class="elementor-element elementor-element-ddaf0e6 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-code" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Easy Shortcodes</span>
+				</h3>
+				<p class="elementor-icon-box-description">Easy to use shortcodes to display business information in legal policy pages.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section data-id="1557f1b" class="elementor-element elementor-element-1557f1b elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="0a98745" class="elementor-element elementor-element-0a98745 elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="20a9787" class="elementor-element elementor-element-20a9787 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-download" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Easy To Install</span>
+				</h3>
+				<p class="elementor-icon-box-description">WP Legal Pages is super-easy to install. Download &amp; install takes less than 2 minutes.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="b5a1293" class="elementor-element elementor-element-b5a1293 elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="df36c69" class="elementor-element elementor-element-df36c69 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-book" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Helpful Docs &amp; Guides</span>
+				</h3>
+				<p class="elementor-icon-box-description">Even if you get stuck using WP Legal Pages, you can use our easy to follow docs &amp; guides.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="3d939aa" class="elementor-element elementor-element-3d939aa elementor-column elementor-col-33 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="89abdad" class="elementor-element elementor-element-89abdad elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-support" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Expert Support</span>
+				</h3>
+				<p class="elementor-icon-box-description">WP Legal Pages is backed with support from our expert WordPress staff &amp; developers.</p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<div data-id="a1fbce1" class="elementor-element elementor-element-a1fbce1 elementor-align-center elementor-widget elementor-widget-button" data-element_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://club.wpeka.com/checkout/?add-to-cart=33363" class="elementor-button-link elementor-button elementor-size-lg" target="_blank" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Buy WPLegalPages Now</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section data-id="6f0dd56" class="elementor-element elementor-element-6f0dd56 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="17ecd4c" class="elementor-element elementor-element-17ecd4c elementor-column elementor-col-100 elementor-top-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="350f0e9" class="elementor-element elementor-element-350f0e9 elementor-widget elementor-widget-heading" data-element_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">25+ READY TO USE LEGAL TEMPLATES </h1>		</div>
+				</div>
+				<section data-id="5a60c8f" class="elementor-element elementor-element-5a60c8f elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-wider">
+				<div class="elementor-row">
+				<div data-id="3f592aa" class="elementor-element elementor-element-3f592aa elementor-column elementor-col-50 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="1cc26de" class="elementor-element elementor-element-1cc26de elementor-widget elementor-widget-icon-list" data-element_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">GDPR Privacy Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">GDPR Cookie Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Terms of Use</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Terms &amp; Conditions</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Amazon Affiliate Disclosure</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Privacy Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Linking Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Blog Comments Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Affiliate Agreement</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Affiliate Disclosure</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">External Links Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">DoubleClick DART Cookie Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Returns &amp; Refunds Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Digital Goods Refunds Policy</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="86071e0" class="elementor-element elementor-element-86071e0 elementor-column elementor-col-50 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="032c881" class="elementor-element elementor-element-032c881 elementor-widget elementor-widget-icon-list" data-element_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Anti Spam Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Facebook Privacy Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Terms of Use</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Earnings Disclaimer</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Medical Disclaimer Template</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Disclaimer Template</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">FTC Disclaimer Widget</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">FTC Testimonials Disclosure</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">California Privacy Rights Policy Template</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">DMCA Policy Template</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Children’s Online Privacy Policy (COPPA)</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Newsletter Subscription Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">Refund Policy</span>
+									</li>
+								<li class="elementor-icon-list-item">
+											<span class="elementor-icon-list-icon">
+							<i class="fa fa-check-circle" aria-hidden="true"></i>
+						</span>
+										<span class="elementor-icon-list-text">FTC Disclosure Statement</span>
+									</li>
+						</ul>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<div data-id="af1625d" class="elementor-element elementor-element-af1625d elementor-align-center elementor-widget elementor-widget-button" data-element_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://club.wpeka.com/checkout/?add-to-cart=33363" class="elementor-button-link elementor-button elementor-size-lg" target="_blank" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Buy WPLegalPages Now</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section data-id="fe7be01" class="elementor-element elementor-element-fe7be01 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" id="cookie-consent" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="a967cc6" class="elementor-element elementor-element-a967cc6 elementor-column elementor-col-100 elementor-top-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="f411a66" class="elementor-element elementor-element-f411a66 container-sm elementor-widget elementor-widget-text-editor" data-element_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Add 3<sup>rd</sup> Party Cookie Audit Tables To Your GDPR Legal Pages With –</p></div>
+				</div>
+				</div>
+				<div data-id="197b37e" class="elementor-element elementor-element-197b37e elementor-widget elementor-widget-heading" data-element_type="heading.default">
+				<div class="elementor-widget-container">
+			<h1 class="elementor-heading-title elementor-size-default">WP GDPR COOKIE CONSENT</h1>		</div>
+				</div>
+				<div data-id="db4eb5d" class="elementor-element elementor-element-db4eb5d container-sm elementor-widget elementor-widget-text-editor" data-element_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>The WP GDPR Cookie Consent Plugin works along with the WPLegalPages plugin to help you comply with GDPR requirements.</p></div>
+				</div>
+				</div>
+				<section data-id="a8294b3" class="elementor-element elementor-element-a8294b3 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="ea8a44c" class="elementor-element elementor-element-ea8a44c elementor-column elementor-col-16 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="bebb05f" class="elementor-element elementor-element-bebb05f elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-search" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Auto Cookie Scanner</span>
+				</h3>
+				<p class="elementor-icon-box-description"></p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="1551828" class="elementor-element elementor-element-1551828 elementor-column elementor-col-16 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="ed2b828" class="elementor-element elementor-element-ed2b828 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-flag-checkered" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Cookie Consent Banner</span>
+				</h3>
+				<p class="elementor-icon-box-description"></p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="3085379" class="elementor-element elementor-element-3085379 elementor-column elementor-col-16 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="6ef9d76" class="elementor-element elementor-element-6ef9d76 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-table" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span> 3<sup>rd</sup> Party Cookie Audit</span>
+				</h3>
+				<p class="elementor-icon-box-description"></p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="0cdb06a" class="elementor-element elementor-element-0cdb06a elementor-column elementor-col-16 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="bf6df1b" class="elementor-element elementor-element-bf6df1b elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-map-pin" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Real-time Geo Targeting</span>
+				</h3>
+				<p class="elementor-icon-box-description"></p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="b879721" class="elementor-element elementor-element-b879721 elementor-column elementor-col-16 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="c2c7618" class="elementor-element elementor-element-c2c7618 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-list-alt" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Cookie Consent Log</span>
+				</h3>
+				<p class="elementor-icon-box-description"></p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+				<div data-id="d70d435" class="elementor-element elementor-element-d70d435 elementor-column elementor-col-16 elementor-inner-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="37be4c4" class="elementor-element elementor-element-37be4c4 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-element_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+					<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i class="fa fa-language" aria-hidden="true"></i>
+				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span>Multiple Languages</span>
+				</h3>
+				<p class="elementor-icon-box-description"></p>
+			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<div data-id="15e065c" class="elementor-element elementor-element-15e065c elementor-align-center elementor-widget elementor-widget-button" data-element_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://club.wpeka.com/product/wp-gdpr-cookie-consent/" class="elementor-button-link elementor-button elementor-size-lg" target="_blank" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Learn More About WP GDPR Cookie Consent</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+				<section data-id="3d2328d" class="elementor-element elementor-element-3d2328d elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" data-element_type="section" style="width: 1280px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+				<div class="elementor-row">
+				<div data-id="4e36779" class="elementor-element elementor-element-4e36779 elementor-column elementor-col-100 elementor-top-column" data-element_type="column">
+			<div class="elementor-column-wrap  elementor-element-populated">
+					<div class="elementor-widget-wrap">
+				<div data-id="992dacb" class="elementor-element elementor-element-992dacb elementor-widget elementor-widget-heading" data-element_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-xl">TESTIMONIALS</h2>		</div>
+				</div>
+				<div data-id="bdfbe50" class="elementor-element elementor-element-bdfbe50 elementor-testimonial--skin-default elementor-testimonial--layout-image_inline elementor-testimonial--align-center elementor-arrows-yes elementor-pagination-type-bullets elementor-widget elementor-widget-testimonial-carousel" data-settings="{&quot;slides_per_view&quot;:&quot;1&quot;,&quot;slides_to_scroll&quot;:&quot;1&quot;,&quot;speed&quot;:300,&quot;show_arrows&quot;:&quot;yes&quot;,&quot;pagination&quot;:&quot;bullets&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;loop&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10},&quot;space_between_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10},&quot;space_between_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10}}" data-element_type="testimonial-carousel.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-swiper">
+			<div class="elementor-main-swiper swiper-container swiper-container-horizontal" style="cursor: grab;">
+				<div class="swiper-wrapper" style="transition-duration: 300ms; transform: translate3d(-4890px, 0px, 0px);"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="8" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						It was a doddle to install using the WP dashboard and there were no surprises on activation of set up <img draggable="false" class="emoji" alt="🙂" src="https://s.w.org/images/core/emoji/12.0.0-1/svg/1f642.svg" /> everything went as per the instructions. I added the plugin and created the 4 policy pages on 3 test domains in just under 12 minutes.
+
+WP Legal Pages will enable you to ensure that you have all the relevant policy pages in place on your site to keep Google spiders fed!					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/sadie-150x150.png" alt="Sadie" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Sadie</span><span class="elementor-testimonial__title">CEO</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide" data-swiper-slide-index="0" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						Great idea and time saver. I had to get it. I already install it and edit the pages on one of my sites. It was super easy to install and edit.					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/jullies.png" alt="Julio Mario" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Julio Mario</span><span class="elementor-testimonial__title">CEO</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide" data-swiper-slide-index="1" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						This was the type of plugin that I have been longing to see up until now. This is a must have plugin for all marketers regardless unless you have pro lawyer in hand (This is a different story though).					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/ra.png" alt="Rabindra" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Rabindra</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide" data-swiper-slide-index="2" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						t took about a minute to get my company information loaded and I had 4 pages published. Yeah, it will take a few minutes to proof read everything but there wasn't anything I had a problem with. Loading this up on all my sites and all my clients' sites 					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/wayne-150x150.png" alt="Wayne Walters" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Wayne Walters</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="3" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						I can't believe no one thought of this sooner.. genius! This applies to literally every website we all build. When I first read the title after being given a review copy, I thought this was some legal niche thing, and then when I actually dove into it I realized that Jameson had hit a home run.					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/sean1.png" alt="Sean" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Sean</span><span class="elementor-testimonial__title">CEO</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="4" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						Thanks Jameson. I just picked this up and love it. I wish I had this about 10 sites ago. Great job and keep up the fantastic work!					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/steve-150x150.png" alt="Steven" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Steven</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide swiper-slide-next" data-swiper-slide-index="5" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						His videos are super short and to the point. Although if you are remotely familiar with plugins, it's a very intuitive and super fast plugin to setup and implement.
+
+In just a few steps, I had a complete set of legal pages on my sites -- and it even includes a box to check if you don't want them in your header.					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/kate-150x150.png" alt="Kate Saunders" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Kate Saunders</span><span class="elementor-testimonial__title">CEO</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide" data-swiper-slide-index="6" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						WPLP is really easy to make the legal pages that are becoming more and more required. The templates that he has built into it are definitely great and I like the short codes he has built in as well.					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/adam1.png" alt="Adam Teece" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Adam Teece</span><span class="elementor-testimonial__title">CEO</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide" data-swiper-slide-index="7" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						If you are in the business of building out sites for clients or affiliate sites for yourself, this will save a ton of time creating these necessary pages and keep your butt out of legal trouble.					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/ty-150x150.png" alt="Ty Bohannon" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Ty Bohannon</span><span class="elementor-testimonial__title">CEO</span></cite>			</div>
+		</div>
+								</div>
+											<div class="swiper-slide" data-swiper-slide-index="8" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						It was a doddle to install using the WP dashboard and there were no surprises on activation of set up <img draggable="false" class="emoji" alt="🙂" src="https://s.w.org/images/core/emoji/12.0.0-1/svg/1f642.svg" /> everything went as per the instructions. I added the plugin and created the 4 policy pages on 3 test domains in just under 12 minutes.
+
+WP Legal Pages will enable you to ensure that you have all the relevant policy pages in place on your site to keep Google spiders fed!					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/sadie-150x150.png" alt="Sadie" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Sadie</span><span class="elementor-testimonial__title">CEO</span></cite>			</div>
+		</div>
+								</div>
+									<div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 968px; margin-right: 10px;">
+									<div class="elementor-testimonial">
+							<div class="elementor-testimonial__content">
+					<div class="elementor-testimonial__text">
+						Great idea and time saver. I had to get it. I already install it and edit the pages on one of my sites. It was super easy to install and edit.					</div>
+									</div>
+						<div class="elementor-testimonial__footer">
+									<div class="elementor-testimonial__image">
+						<img src="https://wplegalpages.com/wp-content/uploads/2019/01/jullies.png" alt="Julio Mario" />
+					</div>
+								<cite class="elementor-testimonial__cite"><span class="elementor-testimonial__name">Julio Mario</span><span class="elementor-testimonial__title">CEO</span></cite>			</div>
+		</div>
+								</div></div>
+															<div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 5"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9"></span></div>
+																<div class="elementor-swiper-button elementor-swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide">
+							<i class="eicon-chevron-left"></i>
+						</div>
+						<div class="elementor-swiper-button elementor-swiper-button-next" tabindex="0" role="button" aria-label="Next slide">
+							<i class="eicon-chevron-right"></i>
+						</div>
+												<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+		</div>
+				</div>
+				</div>
+				<div data-id="4241f65" class="elementor-element elementor-element-4241f65 elementor-align-center elementor-widget elementor-widget-button" data-element_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://club.wpeka.com/checkout/?add-to-cart=33363" class="elementor-button-link elementor-button elementor-size-lg" target="_blank" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Buy WPLegalPages Now</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+			</div>
+		</div>
+						</div>
+			</div>
+		</section>
+						</div>
+			</div>
+		</div>
+			</div>
+</article>
+	</main>
+</div><!-- #content -->
+
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+	<div class="container">
+		<span class="copyright visible">
+			Copyright © 2019 WPLegalPages Plugin
+  <a href="https://wplegalpages.com/gdpr-privacy-policy">GDPR Privacy Policy
+</a>
+ <a href="https://wplegalpages.com/gdpr-cookie-policy">GDPR Cookie Policy
+</a>
+		</span>
+
+		<span class="generator visible">
+			Powered by 			<a href="https://wordpress.org">WordPress</a>
+		</span>
+
+		<span class="designer visible">
+			Theme Response by 			<a href="https://cyberchimps.com">CyberChimps</a>
+		</span>
+	</div>
+</footer>
+
+<div id="gdpr-cookie-consent-bar" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: inherit; position: fixed; bottom: 0px; display: block;"><div class="gdpr_messagebar_content"><div><p>This website uses cookies to improve your experience. We'll assume you're ok with this, but you can opt-out if you wish.</p>
+<p><a data-gdpr_action="accept" id="cookie_action_close_header" class="medium gdpr-plugin-button gdpr-plugin-main-button cookie_action_close_header gdpr_action_button" style="display: inline-block; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 0px !important; color: rgb(255, 255, 255); background-color: rgb(24, 163, 0);">Accept</a> <a id="cookie_action_close_header_reject" class="medium gdpr-plugin-button gdpr-plugin-main-button cookie_action_close_header_reject gdpr_action_button" data-gdpr_action="reject" style="margin: 5px; color: rgb(255, 255, 255); background-color: rgb(51, 51, 51);">Reject</a><a id="gdpr_action_settings" data-gdpr_action="show_settings" class="gdpr-plugin-main-link gdpr_action_button" style="display: inline-block; margin-top: 5px; margin-bottom: 5px; margin-left: 5px; margin-right: 0px !important; color: rgb(53, 155, 245);">Show Details</a><a id="gdpr_action_hide_settings" data-gdpr_action="hide_settings" class="gdpr-plugin-main-link gdpr_action_button" style="display: none; margin-top: 5px; margin-bottom: 5px; margin-left: 5px; margin-right: 0px !important; color: rgb(53, 155, 245);">Hide Details</a></p>
+</div>
+<div class="gdpr_messagebar_detail" style="display:none;">
+	<div>I consent to the use of following cookies:</div>
+	<div id="gdpr_messagebar_body_buttons_select_pane">
+						<div class="gdpr_messagebar_body_buttons_wrapper">
+											<input type="checkbox" id="gdpr_messagebar_body_button_necessary" class="gdpr_messagebar_body_button gdpr_messagebar_body_button_disabled" disabled="disabled" checked="checked" value="necessary" />
+										<label for="gdpr_messagebar_body_button_necessary">Necessary</label>
+				</div>
+								<div class="gdpr_messagebar_body_buttons_wrapper">
+											<input type="checkbox" id="gdpr_messagebar_body_button_marketing" class="gdpr_messagebar_body_button" value="marketing" />
+										<label for="gdpr_messagebar_body_button_marketing">Marketing</label>
+				</div>
+								<div class="gdpr_messagebar_body_buttons_wrapper">
+											<input type="checkbox" id="gdpr_messagebar_body_button_analytics" class="gdpr_messagebar_body_button" value="analytics" />
+										<label for="gdpr_messagebar_body_button_analytics">Analytics</label>
+				</div>
+								<div class="gdpr_messagebar_body_buttons_wrapper">
+											<input type="checkbox" id="gdpr_messagebar_body_button_preferences" class="gdpr_messagebar_body_button" value="preferences" />
+										<label for="gdpr_messagebar_body_button_preferences">Preferences</label>
+				</div>
+					</div>
+	<div id="gdpr_messagebar_detail_body">
+		<div id="gdpr_messagebar_detail_body_content_tabs" style="border-color: rgb(179, 179, 179);">
+			<a id="gdpr_messagebar_detail_body_content_tabs_overview" class="gdpr_messagebar_detail_body_content_tab gdpr_messagebar_detail_body_content_tab_item_selected" style="border-color: rgb(179, 179, 179) rgb(179, 179, 179) rgb(255, 255, 255);">Cookie declaration</a>
+			<a id="gdpr_messagebar_detail_body_content_tabs_about" class="gdpr_messagebar_detail_body_content_tab" style="border-color: rgb(179, 179, 179);">About cookies</a>
+		</div>
+		<div id="gdpr_messagebar_detail_body_content" style="border-color: rgb(179, 179, 179);">
+			<div id="gdpr_messagebar_detail_body_content_overview" style="display:block;">
+				<div id="gdpr_messagebar_detail_body_content_overview_cookie_container">
+					<div id="gdpr_messagebar_detail_body_content_overview_cookie_container_types">
+												<a data-target="gdpr_messagebar_detail_body_content_cookie_tabs_necessary" id="gdpr_messagebar_detail_body_content_overview_cookie_container_necessary" class="gdpr_messagebar_detail_body_content_overview_cookie_container_types&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;gdpr_messagebar_detail_body_content_overview_cookie_container_type_selected" style="border-color: rgb(179, 179, 179) rgb(255, 255, 255) rgb(179, 179, 179) rgb(179, 179, 179);">Necessary (0)</a>
+												<a data-target="gdpr_messagebar_detail_body_content_cookie_tabs_marketing" id="gdpr_messagebar_detail_body_content_overview_cookie_container_marketing" class="gdpr_messagebar_detail_body_content_overview_cookie_container_types&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;" style="border-color: rgb(179, 179, 179);">Marketing (2)</a>
+												<a data-target="gdpr_messagebar_detail_body_content_cookie_tabs_analytics" id="gdpr_messagebar_detail_body_content_overview_cookie_container_analytics" class="gdpr_messagebar_detail_body_content_overview_cookie_container_types&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;" style="border-color: rgb(179, 179, 179);">Analytics (9)</a>
+												<a data-target="gdpr_messagebar_detail_body_content_cookie_tabs_preferences" id="gdpr_messagebar_detail_body_content_overview_cookie_container_preferences" class="gdpr_messagebar_detail_body_content_overview_cookie_container_types&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;" style="border-color: rgb(179, 179, 179);">Preferences (0)</a>
+												<a data-target="gdpr_messagebar_detail_body_content_cookie_tabs_unclassified" id="gdpr_messagebar_detail_body_content_overview_cookie_container_unclassified" class="gdpr_messagebar_detail_body_content_overview_cookie_container_types&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;" style="border-color: rgb(179, 179, 179);">Unclassified (3)</a>
+											</div>
+					<div id="gdpr_messagebar_detail_body_content_overview_cookie_container_type_details">
+													<div id="gdpr_messagebar_detail_body_content_cookie_tabs_necessary" style="display:block;" class="gdpr_messagebar_detail_body_content_cookie_type_details">
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_intro" style="border-color: rgb(179, 179, 179);">
+									Necessary cookies help make a website usable by enabling basic functions like page navigation and access to secure areas of the website. The website cannot function properly without these cookies.								</div>
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_table_container">
+									We do not use cookies of this type.								</div>
+							</div>
+													<div id="gdpr_messagebar_detail_body_content_cookie_tabs_marketing" style="display:none;" class="gdpr_messagebar_detail_body_content_cookie_type_details">
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_intro" style="border-color: rgb(179, 179, 179);">
+									Marketing cookies are used to track visitors across websites. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.								</div>
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_table_container">
+																			<table id="gdpr_messagebar_detail_table_marketing" class="gdpr_messagebar_detail_body_content_cookie_type_table">
+											<thead>
+											<tr style="border-color: rgb(179, 179, 179);">
+												<th scope="col">Name</th>
+												<th scope="col">Domain</th>
+												<th scope="col">Purpose</th>
+												<th scope="col">Expiry</th>
+												<th scope="col">Type</th>
+											</tr>
+											</thead>
+											<tbody>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="GPS">
+													GPS													</td>
+													<td title="youtube.com">
+													youtube.com													</td>
+																											<td style="white-space:normal;" title="Google advertising domain">Google advertising domain</td>
+																										<td title="Session">
+													Session													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="IDE">
+													IDE													</td>
+													<td title="doubleclick.net">
+													doubleclick.net													</td>
+																											<td style="white-space:normal;" title="Google advertising cookie used for user tracking and ad targeting purposes">Google advertising cookie used for user tracking and ad targeting purposes</td>
+																										<td title="2 years">
+													2 years													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																						</tbody>
+										</table>
+																		</div>
+							</div>
+													<div id="gdpr_messagebar_detail_body_content_cookie_tabs_analytics" style="display:none;" class="gdpr_messagebar_detail_body_content_cookie_type_details">
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_intro" style="border-color: rgb(179, 179, 179);">
+									Analytics cookies help website owners to understand how visitors interact with websites by collecting and reporting information anonymously.								</div>
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_table_container">
+																			<table id="gdpr_messagebar_detail_table_analytics" class="gdpr_messagebar_detail_body_content_cookie_type_table">
+											<thead>
+											<tr style="border-color: rgb(179, 179, 179);">
+												<th scope="col">Name</th>
+												<th scope="col">Domain</th>
+												<th scope="col">Purpose</th>
+												<th scope="col">Expiry</th>
+												<th scope="col">Type</th>
+											</tr>
+											</thead>
+											<tbody>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="_omappvp">
+													_omappvp													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="OptinMonster tracking cookie">OptinMonster tracking cookie</td>
+																										<td title="12 years">
+													12 years													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="_ga">
+													_ga													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="Google Universal Analytics long-time unique user tracking identifier.">Google Universal Analytics long-time unique user tracking identifier.</td>
+																										<td title="2 years">
+													2 years													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="_gid">
+													_gid													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="Google Universal Analytics short-time unique user tracking identifier.">Google Universal Analytics short-time unique user tracking identifier.</td>
+																										<td title="1 day">
+													1 day													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="_gat_gtag_UA_36188819_1">
+													_gat_gtag_UA_36188819_1													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="Google Analytics tracking cookie.">Google Analytics tracking cookie.</td>
+																										<td title="Session">
+													Session													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="wpl_user_preference">
+													wpl_user_preference													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="WP GDPR Cookie Consent Preferences">WP GDPR Cookie Consent Preferences</td>
+																										<td title="1 year">
+													1 year													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="tfw_exp">
+													tfw_exp													</td>
+													<td title="twitter.com">
+													twitter.com													</td>
+																											<td style="white-space:normal;" title="Twitter tracking cookie">Twitter tracking cookie</td>
+																										<td title="1 day">
+													1 day													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="_hjid">
+													_hjid													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="Hotjar cookie, set when the customer first lands on a page. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.">Hotjar cookie, set when the customer first lands on a page. It is used to persist the random user ID, unique to that site on the browser. This ensures that behavior in subsequent visits to the same site will be attributed to the same user ID.</td>
+																										<td title="1 year">
+													1 year													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="_hjIncludedInSample">
+													_hjIncludedInSample													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="Hotjar cookie. This cookie is set to let Hotjar know whether that visitor is included in the sample which is used to generate funnels.">Hotjar cookie. This cookie is set to let Hotjar know whether that visitor is included in the sample which is used to generate funnels.</td>
+																										<td title="1 year">
+													1 year													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="_omappvs">
+													_omappvs													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="OptinMonster tracking cookie">OptinMonster tracking cookie</td>
+																										<td title="2 Years">
+													2 Years													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																						</tbody>
+										</table>
+																		</div>
+							</div>
+													<div id="gdpr_messagebar_detail_body_content_cookie_tabs_preferences" style="display:none;" class="gdpr_messagebar_detail_body_content_cookie_type_details">
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_intro" style="border-color: rgb(179, 179, 179);">
+									Preference cookies enable a website to remember information that changes the way the website behaves or looks, like your preferred language or the region that you are in.								</div>
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_table_container">
+									We do not use cookies of this type.								</div>
+							</div>
+													<div id="gdpr_messagebar_detail_body_content_cookie_tabs_unclassified" style="display:none;" class="gdpr_messagebar_detail_body_content_cookie_type_details">
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_intro" style="border-color: rgb(179, 179, 179);">
+									Unclassified cookies are cookies that we are in the process of classifying, together with the providers of individual cookies.								</div>
+								<div class="gdpr_messagebar_detail_body_content_cookie_type_table_container">
+																			<table id="gdpr_messagebar_detail_table_unclassified" class="gdpr_messagebar_detail_body_content_cookie_type_table">
+											<thead>
+											<tr style="border-color: rgb(179, 179, 179);">
+												<th scope="col">Name</th>
+												<th scope="col">Domain</th>
+												<th scope="col">Purpose</th>
+												<th scope="col">Expiry</th>
+												<th scope="col">Type</th>
+											</tr>
+											</thead>
+											<tbody>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="__cfduid">
+													__cfduid													</td>
+													<td title="wplegalpages.com">
+													wplegalpages.com													</td>
+																											<td style="white-space:normal;" title="Generic CloudFlare functional cookie.">Generic CloudFlare functional cookie.</td>
+																										<td title="1 year">
+													1 year													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="VISITOR_INFO1_LIVE">
+													VISITOR_INFO1_LIVE													</td>
+													<td title="youtube.com">
+													youtube.com													</td>
+																											<td style="white-space:normal;" title="Google advertising domain.">Google advertising domain.</td>
+																										<td title="Session">
+													Session													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																							<tr style="border-color: rgb(179, 179, 179);">
+													<td title="YSC">
+													YSC													</td>
+													<td title="youtube.com">
+													youtube.com													</td>
+																											<td style="white-space:normal;" title="Google advertising domain.">Google advertising domain.</td>
+																										<td title="Session">
+													Session													</td>
+													<td title="HTTP">
+													HTTP													</td>
+												</tr>
+																						</tbody>
+										</table>
+																		</div>
+							</div>
+											</div>
+				</div>
+			</div>
+			<div id="gdpr_messagebar_detail_body_content_about" style="display:none;">
+				Cookies are small text files that can be used by websites to make a user's experience more efficient. The law states that we can store cookies on your device if they are strictly necessary for the operation of this site. For all other types of cookies we need your permission. This site uses different types of cookies. Some cookies are placed by third party services that appear on our pages.			</div>
+		</div>
+	</div>
+		<div class="powered-by-credits">Powered by <a href="https://club.wpeka.com/product/wp-gdpr-cookie-consent/" target="_blank" style="border-color: rgb(179, 179, 179);">GDPR Cookie Consent</a></div>
+	</div>
+</div></div>
+<script type="text/javascript">
+	/* &lt;![CDATA[ */
+	gdpr_cookiebar_settings='{"animate_speed_hide":"500","animate_speed_show":"500","background":"#FFF","button_1_link_color":"#fff","button_1_button_color":"#18a300","button_1_button_hover":"#138200","button_1_as_button":true,"button_1_new_win":false,"button_2_link_color":"#359bf5","button_2_button_color":"#333","button_2_button_hover":"#292929","button_2_as_button":false,"button_2_new_win":false,"button_3_link_color":"#fff","button_3_button_color":"#333","button_3_button_hover":"#292929","button_3_as_button":true,"button_3_new_win":false,"font_family":"inherit","notify_animate_hide":true,"notify_animate_show":"","notify_div_id":"#gdpr-cookie-consent-bar","notify_position_vertical":"bottom","text":"#000","bar_heading_text":"","cookie_bar_as":"banner","border_color":"#b3b3b3","border_active_color":"#FFF","logging_on":true}';
+	/* ]]&gt; */
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-36188819-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-36188819-1');
+</script><!-- This site is converting visitors into subscribers and customers with OptinMonster - https://optinmonster.com :: Campaign Title: WPLegalPages --><script type="text/javascript" src="https://a.optmnstr.com/app/js/api.min.js" data-campaign="tz3ujlzoav0x8ewexp0m" data-user="1738" data-env="production"></script><!-- / OptinMonster -->		<script type="text/javascript">var tz3ujlzoav0x8ewexp0m_shortcode = true;</script>
+		<style type="text/css">.saboxplugin-wrap{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;border:1px solid #eee;width:100%;clear:both;display:block;overflow:hidden;word-wrap:break-word;position:relative}.saboxplugin-wrap .saboxplugin-gravatar{float:left;padding:20px}.saboxplugin-wrap .saboxplugin-gravatar img{max-width:100px;height:auto;border-radius:0;}.saboxplugin-wrap .saboxplugin-authorname{font-size:18px;line-height:1;margin:20px 0 0 20px;display:block}.saboxplugin-wrap .saboxplugin-authorname a{text-decoration:none}.saboxplugin-wrap .saboxplugin-authorname a:focus{outline:0}.saboxplugin-wrap .saboxplugin-desc{display:block;margin:5px 20px}.saboxplugin-wrap .saboxplugin-desc a{text-decoration:underline}.saboxplugin-wrap .saboxplugin-desc p{margin:5px 0 12px}.saboxplugin-wrap .saboxplugin-web{margin:0 20px 15px;text-align:left}.saboxplugin-wrap .sab-web-position{text-align:right}.saboxplugin-wrap .saboxplugin-web a{color:#ccc;text-decoration:none}.saboxplugin-wrap .saboxplugin-socials{position:relative;display:block;background:#fcfcfc;padding:5px;border-top:1px solid #eee}.saboxplugin-wrap .saboxplugin-socials a svg{width:20px;height:20px}.saboxplugin-wrap .saboxplugin-socials a svg .st2{fill:#fff}.saboxplugin-wrap .saboxplugin-socials a svg .st1{fill:rgba(0,0,0,.3)}.saboxplugin-wrap .saboxplugin-socials a:hover{opacity:.8;-webkit-transition:opacity .4s;-moz-transition:opacity .4s;-o-transition:opacity .4s;transition:opacity .4s;box-shadow:none!important;-webkit-box-shadow:none!important}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-color{box-shadow:none;padding:0;border:0;-webkit-transition:opacity .4s;-moz-transition:opacity .4s;-o-transition:opacity .4s;transition:opacity .4s;display:inline-block;color:#fff;font-size:0;text-decoration:inherit;margin:5px;-webkit-border-radius:0;-moz-border-radius:0;-ms-border-radius:0;-o-border-radius:0;border-radius:0;overflow:hidden}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-grey{text-decoration:inherit;box-shadow:none;position:relative;display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;margin:10px 5px;color:#444}.clearfix:after,.clearfix:before{content:' ';display:table;line-height:0;clear:both}.ie7 .clearfix{zoom:1}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-twitch{border-color:#38245c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-addthis{border-color:#e91c00}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-behance{border-color:#003eb0}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-delicious{border-color:#06c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-deviantart{border-color:#036824}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-digg{border-color:#00327c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-dribbble{border-color:#ba1655}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-facebook{border-color:#1e2e4f}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-flickr{border-color:#003576}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-github{border-color:#264874}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-google{border-color:#0b51c5}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-googleplus{border-color:#96271a}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-html5{border-color:#902e13}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-instagram{border-color:#1630aa}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-linkedin{border-color:#00344f}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-pinterest{border-color:#5b040e}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-reddit{border-color:#992900}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-rss{border-color:#a43b0a}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-sharethis{border-color:#5d8420}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-skype{border-color:#00658a}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-soundcloud{border-color:#995200}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-spotify{border-color:#0f612c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-stackoverflow{border-color:#a95009}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-steam{border-color:#006388}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-user_email{border-color:#b84e05}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-stumbleUpon{border-color:#9b280e}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-tumblr{border-color:#10151b}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-twitter{border-color:#0967a0}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-vimeo{border-color:#0d7091}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-windows{border-color:#003f71}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-wordpress{border-color:#0f3647}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-yahoo{border-color:#14002d}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-youtube{border-color:#900}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-xing{border-color:#000202}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-mixcloud{border-color:#2475a0}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-vk{border-color:#243549}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-medium{border-color:#00452c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-quora{border-color:#420e00}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-meetup{border-color:#9b181c}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-goodreads{border-color:#000}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-snapchat{border-color:#999700}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-500px{border-color:#00557f}.saboxplugin-socials.sabox-colored .saboxplugin-icon-color .sab-mastodont{border-color:#185886}.sabox-plus-item{margin-bottom:20px}@media screen and (max-width:480px){.saboxplugin-wrap{text-align:center}.saboxplugin-wrap .saboxplugin-gravatar{float:none;padding:20px 0;text-align:center;margin:0 auto;display:block}.saboxplugin-wrap .saboxplugin-gravatar img{float:none;display:inline-block;display:-moz-inline-stack;vertical-align:middle;zoom:1}.saboxplugin-wrap .saboxplugin-desc{margin:0 10px 20px;text-align:center}.saboxplugin-wrap .saboxplugin-authorname{text-align:center;margin:10px 0 20px}}body .saboxplugin-authorname a,body .saboxplugin-authorname a:hover{box-shadow:none;-webkit-box-shadow:none}a.sab-profile-edit{font-size:16px!important;line-height:1!important}.sab-edit-settings a,a.sab-profile-edit{color:#0073aa!important;box-shadow:none!important;-webkit-box-shadow:none!important}.sab-edit-settings{margin-right:15px;position:absolute;right:0;z-index:2;bottom:10px;line-height:20px}.sab-edit-settings i{margin-left:5px}.saboxplugin-socials{line-height:1!important}.rtl .saboxplugin-wrap .saboxplugin-gravatar{float:right}.rtl .saboxplugin-wrap .saboxplugin-authorname{display:flex;align-items:center}.rtl .saboxplugin-wrap .saboxplugin-authorname .sab-profile-edit{margin-right:10px}.rtl .sab-edit-settings{right:auto;left:0}img.sab-custom-avatar{max-width:75px;}.saboxplugin-wrap .saboxplugin-desc a, .saboxplugin-wrap .saboxplugin-desc  {color:0 !important;}.saboxplugin-wrap .saboxplugin-socials .saboxplugin-icon-grey {color:0;}.saboxplugin-wrap .saboxplugin-authorname a,.saboxplugin-wrap .saboxplugin-authorname span {color:0;}.saboxplugin-wrap {margin-top:0px; margin-bottom:0px; padding: 0px 0px }.saboxplugin-wrap .saboxplugin-authorname {font-size:18px; line-height:25px;}.saboxplugin-wrap .saboxplugin-desc p, .saboxplugin-wrap .saboxplugin-desc {font-size:14px !important; line-height:21px !important;}.saboxplugin-wrap .saboxplugin-web {font-size:14px;}.saboxplugin-wrap .saboxplugin-socials a svg {width:18px;height:18px;}</style><script type="text/javascript" src="https://wplegalpages.com/wp-content/themes/response-premium/assets/js/navigation.js?ver=3.0.0"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/themes/response-premium/assets/js/skip-link-focus-fix.js?ver=3.0.0"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/slidedeck/js/jail.js?ver=5.1.11"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/slidedeck/js/jquery-mousewheel/jquery.mousewheel.min.js?ver=3.0.6"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/slidedeck/js/jquery.easing.1.3.js?ver=1.3"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/slidedeck/js/slidedeck.jquery.js?ver=1.4.1"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/slidedeck/js/slidedeck-public.js?ver=5.1.11"></script>
+<script type="text/javascript" src="https://platform.twitter.com/widgets.js?ver=1316526300"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-includes/js/wp-embed.min.js?ver=5.2.3"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-includes/js/imagesloaded.min.js?ver=3.2.0"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=2.3.1"></script>
+<script type="text/javascript">
+/* &lt;![CDATA[ */
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/wplegalpages.com\/wp-admin\/admin-ajax.php","nonce":"6cc6f51fbb","shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"delicious":{"title":"Delicious"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"}},"facebook_sdk":{"lang":"en_US","app_id":""}};
+/* ]]&gt; */
+</script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=2.3.1"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/elementor/assets/js/frontend-modules.js?ver=2.4.1"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.7.1"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2"></script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/elementor/assets/lib/swiper/swiper.jquery.min.js?ver=4.4.3"></script>
+<script type="text/javascript">
+/* &lt;![CDATA[ */
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"is_rtl":"","breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"2.4.1","urls":{"assets":"https:\/\/wplegalpages.com\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"general":{"elementor_global_image_lightbox":"yes","elementor_enable_lightbox_in_editor":"yes"}},"post":{"id":850,"title":"WPLegalPages - WordPress Privacy Policy Plugin","excerpt":""}};
+/* ]]&gt; */
+</script>
+<script type="text/javascript" src="https://wplegalpages.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=2.4.1"></script>
+<script type="text/javascript">
+var slideDeck2URLPath = "https://wplegalpages.com/wp-content/plugins/slidedeck";
+var slideDeck2iframeByDefault = false;
+</script>
+		<script type="text/javascript">var omapi_localized = { ajax: 'https://wplegalpages.com/wp-admin/admin-ajax.php?optin-monster-ajax-route=1', nonce: '7916097c8f', slugs: {"tz3ujlzoav0x8ewexp0m":{"slug":"tz3ujlzoav0x8ewexp0m","mailpoet":false}} };</script>
+				<script type="text/javascript">var omapi_data = {"object_id":850,"object_type":"post","object_key":"page","term_ids":[]};</script>
+		<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"03892a58f5","applicationID":"276081696","transactionName":"Y1VTNRdUD0RVV0VfVlofcAIRXA5ZG1FdU1RRXkUOFw==","queueTime":0,"applicationTime":1337,"atts":"TxJQQ19OHEo=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+
+Served from: wplegalpages.com @ 2019-09-12 04:55:35 by W3 Total Cache
+--><iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.d9084ca5af1ffbe01c8d444cfadfa6fe.html?origin=https%3A%2F%2Fwplegalpages.com" title="Twitter settings iframe" style="display: none;"></iframe><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="https://vars.hotjar.com/box-90f3a29ef7448451db5af955688970d7.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><div id="om-tz3ujlzoav0x8ewexp0m-holder"></div></body></html>

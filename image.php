@@ -101,7 +101,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		else :
 			// Elementor `404` location.
-			if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+			if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'single' ) ) ) {
 
 				get_template_part( 'loop-no-posts', get_post_type() );
 			}

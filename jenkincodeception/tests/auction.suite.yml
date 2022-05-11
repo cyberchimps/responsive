@@ -1,0 +1,18 @@
+actor: AcceptanceTester
+modules:
+    enabled:
+        - Humcommerce\WarningAndError:
+        # - WebDriver:
+
+            url: 'http://127.0.0.1:8080/wordpress'
+
+            browser: chrome # 'chrome' or 'firefox'
+            restart: true
+            # browser: firefox
+            # capabilities:
+            #     chromeOptions:
+            #         args: ["--headless", "--disable-extensions","--window-size=1280,960"]
+
+
+        # - \Helper\ImageAssertHelper
+        - Filesystem

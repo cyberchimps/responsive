@@ -41,7 +41,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 	}
 }
 		// Elementor `footer` location.
-if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) && $responsive_show_footer ) {
+if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'footer' ) ) && $responsive_show_footer ) {
 
 	// Replaces default footer with custom footer.
 	Responsive\responsive_custom_footer();

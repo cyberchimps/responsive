@@ -35,7 +35,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 	$blog_pagination = 'default';
 }
 // Elementor `archive` location.
-if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) {
+if ( ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'archive' ) ) ) ) {
 	Responsive\responsive_wrapper();
 	?>
 	<div class="content-area-wrapper">

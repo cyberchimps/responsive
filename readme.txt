@@ -3,7 +3,7 @@ Contributors: cyberchimps
 Requires at least: 5.0
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 4.7.3
+Stable tag: 4.7.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

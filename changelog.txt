@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/11/2022) = Fix - Version 4.7.4
+ [+] = Added = Support for REA Theme Builder locations.
+
 (02/24/2022) = Fix - Version 4.7.3
  [!] = Fixed = Typography missing on selected custom font deletion or Responsive Pro deactivation.
  
