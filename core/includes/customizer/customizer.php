@@ -342,15 +342,17 @@ function responsive_custom_customize_enqueue() {
 			'wp-edit-post',
 		);
 
+		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
 		if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
-			wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index' . $suffix . '.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
 		} else {
 			$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
 			$plugin_info            = get_plugin_data( $plugin_path );
 			$responsive_pro_version = $plugin_info['Version'];
 			$compare                = version_compare( $responsive_pro_version, RESPONSIVE_PRO_OLDER_VERSION_CHECK );
 			if ( 0 === $compare || 1 === $compare ) {
-				wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
+				wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index' . $suffix . '.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
 			}
 		}
 }
