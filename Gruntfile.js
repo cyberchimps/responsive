@@ -166,6 +166,18 @@ module.exports = function(grunt) {
 					},
 				]
 			},
+			react_controls: {
+				files: [
+					{
+						expand: true, // Enable dynamic expansion.
+						cwd: 'core/includes/customizer/extend-controls/build/', // Src matches are relative to this path.
+						src: ['*.js', '!*.min.js', '!*.js.map', '!*.php'], // Actual pattern(s) to match.
+						dest: 'core/includes/customizer/extend-controls/build/', // Destination path prefix.
+						ext: '.min.js', // Dest filepaths will have this extension.
+					},
+				]
+			},
+
 		},
 
 		csscomb: {

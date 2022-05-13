@@ -1,94 +1,87 @@
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
+import {useState, useEffect } from 'react';
 
 const { __ } = wp.i18n;
 const { Component } = wp.element;
 
-class EditorComponent extends Component {
-	constructor(props) {
-		super( props );
-		this.updateValues = this.updateValues.bind( this );
-		this.triggerChangeIfDirty = this.triggerChangeIfDirty.bind( this );
-		this.onInit = this.onInit.bind( this );
-		let value = props.control.setting.get();
-		this.state = {
-			value,
-			editor:{},
-			restoreTextMode: false,
-		};
-		let defaultParams = {
-			id: 'header_html',
-			toolbar1: 'bold,italic,bullist,numlist,link',
-			toolbar2: '',
-		};
-		this.controlParams = this.props.control.params.input_attrs ? {
-			...defaultParams,
-			...this.props.control.params.input_attrs,
-		} : defaultParams;
-		this.defaultValue = props.control.params.default || '';
-	}
-	componentDidMount() {
-		if ( window.tinymce.get( this.controlParams.id ) ) {
-			this.setState( { restoreTextMode: window.tinymce.get( this.controlParams.id ).isHidden() } );
-			window.wp.oldEditor.remove( this.controlParams.id );
+const EditorComponent = props => {
+
+
+	let value = props.control.setting.get();
+	const [state, setState] = useState({
+		value,
+		editor: {},
+		restoreTextMode: false,
+	});
+	let defaultParams = {
+		id: 'header_html',
+		toolbar1: 'bold,italic,bullist,numlist,link',
+		toolbar2: '',
+	};
+	const controlParams = props.control.params.input_attrs ? {
+		...defaultParams,
+		...props.control.params.input_attrs,
+	} : defaultParams;
+	let defaultValue = props.control.params.default || '';
+
+	useEffect(() => {
+		if (window.tinymce.get(controlParams.id)) {
+			setState({ restoreTextMode: window.tinymce.get(controlParams.id).isHidden() });
+			window.wp.oldEditor.remove(controlParams.id);
 		}
-		window.wp.oldEditor.initialize( this.controlParams.id, {
+		window.wp.oldEditor.initialize(controlParams.id, {
 			tinymce: {
 				wpautop: true,
-				toolbar1: this.controlParams.toolbar1,
-				toolbar2: this.controlParams.toolbar2,
+				toolbar1: controlParams.toolbar1,
+				toolbar2: controlParams.toolbar2,
 			},
 			quicktags: true,
 			mediaButtons: true,
-		} );
-		const editor = window.tinymce.get( this.controlParams.id );
-		if ( editor.initialized ) {
-			this.onInit();
+		});
+		const editor = window.tinymce.get(controlParams.id);
+		if (editor.initialized) {
+			onInit();
 		} else {
-			editor.on( 'init', this.onInit );
+			editor.on('init', onInit);
 		}
-	}
-	onInit() {
-		const editor = window.tinymce.get( this.controlParams.id );
-		if ( this.state.restoreTextMode ) {
-			window.switchEditors.go( this.controlParams.id, 'html' );
+	}, []);
+	const onInit = () => {
+		const editor = window.tinymce.get(controlParams.id);
+		if (state.restoreTextMode) {
+			window.switchEditors.go(controlParams.id, 'html');
 		}
-		editor.on( 'NodeChange', debounce( this.triggerChangeIfDirty, 250 ) );
+		editor.on('NodeChange', debounce(triggerChangeIfDirty, 250));
 
-		this.setState( { editor: editor } );
+		setState({ editor: editor });
 	}
-	triggerChangeIfDirty() {
-		this.updateValues( window.wp.oldEditor.getContent( this.controlParams.id ) );
+	const triggerChangeIfDirty = () => {
+		updateValues(window.wp.oldEditor.getContent(controlParams.id));
 	}
-	render() {
-		return (
-			<div className="responsive-control-field responsive-editor-control">
-				{ this.props.control.params.label && (
-					<span className="customize-control-title">{ this.props.control.params.label }</span>
-				) }
-				<textarea
-					className="responsive-control-tinymce-editor wp-editor-area"
-					id={ this.controlParams.id }
-					value={ this.state.value }
-					onChange={ ( { target: { value } } ) => {
-						this.updateValues(value);
-					} }
-				/>
-				{ this.props.control.params.description && (
-					<span className="customize-control-description">{ this.props.control.params.description }</span>
-				) }
-			</div>
-		);
+	const updateValues = (value) => {
+		setState({ value: value });
+		props.control.setting.set(value);
 	}
-	updateValues(value) {
-		this.setState( { value: value } );
-		this.props.control.setting.set( value );
-	}
+
+	return (
+		<div className="responsive-control-field responsive-editor-control">
+			{props.control.params.label && (
+				<span className="customize-control-title">{props.control.params.label}</span>
+			)}
+			<textarea
+				className="responsive-control-tinymce-editor wp-editor-area"
+				id={controlParams.id}
+				value={state.value}
+				onChange={({ target: { value } }) => {
+					updateValues(value);
+				}}
+			/>
+			{props.control.params.description && (
+				<span className="customize-control-description">{props.control.params.description}</span>
+			)}
+		</div>
+	);
+
 }
-
-EditorComponent.propTypes = {
-	// control: PropTypes.object.isRequired,
-	// customizer: PropTypes.object.isRequired,
-};
 
 export default EditorComponent;

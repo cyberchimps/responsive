@@ -29,7 +29,8 @@ const AddComponent = props => {
 	}
 
 	const renderItems = (item, row, column) => {
-		let available = true , icon = props.choices[item].icon ? props.choices[item].icon : 'block-default' ;
+		let available = true , icon = props.choices[item].icon ? props.choices[item].icon : 'block-default',
+		iconKey = `${props.id}-${props.choices[item].name.split(' ').join('-')}`;
 		props.controlParams.rows.map((zone) => {
 			Object.keys(props.settings[zone]).map((area) => {
 				if (props.settings[zone][area].includes(item)) {
@@ -37,7 +38,7 @@ const AddComponent = props => {
 				}
 			});
 		});
-		return <>
+		return <Fragment key={iconKey}>
 			{available && (
 				<Button
 					isTertiary
@@ -50,7 +51,7 @@ const AddComponent = props => {
 					{(undefined !== props.choices[item] && undefined !== props.choices[item].name ? props.choices[item].name : '')}
 				</Button>
 			)}
-		</>
+		</Fragment>
 
 	};
 	const toggleClose = () => {
