@@ -23,7 +23,6 @@ If ( 'main' === $row && 'main' === get_theme_mod( 'header_sticky' ) ) {
 ?>
 >
 	<div class="site-header-row-container-inner">
-		<?php customizer_quick_link(); ?>
 		<div class="site-container">
 			<div class="site-<?php echo esc_attr( $row ); ?>-header-inner-wrap site-header-row <?php echo ( has_side_columns( $row ) ? 'site-header-row-has-sides' : 'site-header-row-only-center-column' ); ?> <?php echo ( has_center_column( $row ) ? 'site-header-row-center-column' : 'site-header-row-no-center' ); ?>">
 				<?php if ( has_side_columns( $row ) ) { ?>

@@ -230,7 +230,7 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Middle_row' ) ) :
 				'dotted' => __( 'Dotted', 'responsive' ),
 			);
 			$footer_middle_row_border_top_style_label   = __( 'Border Top Style', 'responsive' );
-			responsive_select_control( $wp_customize, 'footer_middle_row_border_top_style', $footer_middle_row_border_top_style_label, 'responsive_customizer_footer_middle', 170, $footer_middle_row_border_top_style_choices, 'none', null );
+			responsive_select_control( $wp_customize, 'footer_middle_row_border_top_style', $footer_middle_row_border_top_style_label, 'responsive_customizer_footer_middle', 170, $footer_middle_row_border_top_style_choices, 'none', null, 'postMessage' );
 
 			$footer_middle_row_border_top_size_label = esc_html__( 'Border Top Width', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'footer_middle_row_border_top_size', $footer_middle_row_border_top_size_label, 'responsive_customizer_footer_middle', 175, 1, null, 20, 1, 'postMessage' );

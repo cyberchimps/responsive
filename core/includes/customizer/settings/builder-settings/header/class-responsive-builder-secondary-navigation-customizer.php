@@ -64,7 +64,7 @@ if ( ! class_exists( 'Responsive_Secondary_Navigation_Customizer' ) ) :
 				'underline-fullheight' => __( 'Underline - Full height', 'responsive' ),
 			);
 			$header_secondary_navigation_style_label   = __( 'Secondary Navigation Style', 'responsive' );
-			responsive_select_control( $wp_customize, 'secondary_navigation_style', $header_secondary_navigation_style_label, 'responsive_customizer_secondary_navigation', 20, $header_secondary_navigation_style_choices, 'standard', null );
+			responsive_select_control( $wp_customize, 'secondary_navigation_style', $header_secondary_navigation_style_label, 'responsive_customizer_secondary_navigation', 20, $header_secondary_navigation_style_choices, 'standard', null, 'postMessage' );
 
 			// Seconsary nav item spacing.
 			$secondary_nav_items_spacing_label = esc_html__( 'Item Spacing (px)', 'responsive' );
