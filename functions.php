@@ -493,7 +493,34 @@ function responsive_edit_customize_register( $wp_customize ) {
 			'fallback_refresh'    => true,
 		)
 	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_trigger_icon',
+		array(
+			'selector'            => '.menu-toggle-icon',
+			'container_inclusive' => false,
+			'render_callback'     => 'popup_toggle',
+		)
+	);
 
+	$screen_sizes = array( 'desktop', 'tablet', 'mobile' );
+	foreach ( $screen_sizes as $screen ) {
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_{$screen}_logo_layout_include",
+			array(
+				'selector'            => '#masthead',
+				'container_inclusive' => true,
+				'render_callback'     => 'header_markup',
+			)
+		);
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_{$screen}_logo_layout_structure",
+			array(
+				'selector'            => '#masthead',
+				'container_inclusive' => true,
+				'render_callback'     => 'header_markup',
+			)
+		);
+	}
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );

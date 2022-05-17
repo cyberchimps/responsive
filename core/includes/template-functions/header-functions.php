@@ -359,7 +359,7 @@ function site_branding() {
  *
  * @return URL String
  */
-function responsive_filter_custom_logo_url(){
+function responsive_filter_custom_logo_url() {
 	return esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) );
 }
 /**
@@ -421,7 +421,7 @@ function display_primary_nav_menu( array $args = array() ) {
  * Changes the page menu classes.
  *
  * @param string $menu
- * @param array $args
+ * @param array  $args
  * @return void
  */
 function change_page_menu_classes( $menu, $args ) {
@@ -1021,7 +1021,6 @@ function header_html() {
 		$link_style = get_theme_mod( 'responsive_header_html_link_style' );
 		$wpautop    = get_theme_mod( 'responsive_header_html_wpautop', 1 );
 		echo '<div class="header-html inner-link-style-' . esc_attr( $link_style ) . '">';
-		// customizer_quick_link();
 		echo '<div class="header-html-inner">';
 		if ( $wpautop ) {
 			echo do_shortcode( wpautop( $content ) );
@@ -1335,8 +1334,7 @@ function header_social() {
 					} elseif ( ! empty( $item['url'] ) ) {
 						echo '<img src="' . esc_attr( $item['url'] ) . '" alt="' . esc_attr( $item['label'] ) . '" class="social-icon-image" style="max-width:' . esc_attr( $item['width'] ) . 'px"/>';
 					}
-				}
-				else {
+				} else {
 					echo get_icon( $item['icon'], '', false );
 				}
 				if ( $show_label ) {
@@ -1657,7 +1655,7 @@ function get_refreshed_fragments_mini( $fragments ) {
 	 */
 function cart_in_header() {
 	$in_header = false;
-	$elements  = get_theme_mod( 'header_desktop_items',Responsive\Core\get_responsive_customizer_defaults( 'header_desktop_items' ) );
+	$elements  = get_theme_mod( 'header_desktop_items', Responsive\Core\get_responsive_customizer_defaults( 'header_desktop_items' ) );
 	if ( isset( $elements ) && is_array( $elements ) ) {
 		foreach ( array( 'top', 'main', 'bottom' ) as $row ) {
 			if ( isset( $elements[ $row ] ) && is_array( $elements[ $row ] ) ) {
