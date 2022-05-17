@@ -121,7 +121,7 @@ if ( ! class_exists( 'Responsive_Builder_Bottom_row' ) ) :
 				'dotted' => __( 'Dotted', 'responsive' ),
 			);
 			$bottom_row_border_top_style_label   = __( 'Border Top Style', 'responsive' );
-			responsive_select_control( $wp_customize, 'bottom_row_border_top_style', $bottom_row_border_top_style_label, 'responsive_customizer_header_bottom', 70, $bottom_row_border_top_style_choices, 'none', null );
+			responsive_select_control( $wp_customize, 'bottom_row_border_top_style', $bottom_row_border_top_style_label, 'responsive_customizer_header_bottom', 70, $bottom_row_border_top_style_choices, 'none', null, 'postMessage' );
 
 			$bottom_row_border_top_size_label = esc_html__( 'Border Top Width', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'bottom_row_border_top_size', $bottom_row_border_top_size_label, 'responsive_customizer_header_bottom', 75, 1, null, 20, 1, 'postMessage' );

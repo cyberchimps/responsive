@@ -75,7 +75,7 @@ if ( ! class_exists( 'Responsive_Header_Trigger_Customizer' ) ) :
 				'menu3' => __( 'Icon 3', 'responsive' ),
 			);
 			$mobile_trigger_icon         = __( 'Trigger Icon', 'responsive' );
-			responsive_select_control( $wp_customize, 'mobile_trigger_icon', $mobile_trigger_icon, 'responsive_customizer_mobile_trigger', 15, $mobile_trigger_icon_choices, 'menu', null );
+			responsive_select_control( $wp_customize, 'mobile_trigger_icon', $mobile_trigger_icon, 'responsive_customizer_mobile_trigger', 15, $mobile_trigger_icon_choices, 'menu', null, 'postMessage' );
 
 			// Hamburger Menu Label.
 			$trigger_label = __( 'Trigger Label', 'responsive' );

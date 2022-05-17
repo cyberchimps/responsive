@@ -493,7 +493,70 @@ function responsive_edit_customize_register( $wp_customize ) {
 			'fallback_refresh'    => true,
 		)
 	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_trigger_icon',
+		array(
+			'selector'            => '.menu-toggle-icon',
+			'container_inclusive' => false,
+			'render_callback'     => 'popup_toggle',
+		)
+	);
 
+	$screen_sizes = array( 'desktop', 'tablet', 'mobile' );
+	foreach ( $screen_sizes as $screen ) {
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_{$screen}_logo_layout_include",
+			array(
+				'selector'            => '.site-branding',
+				'container_inclusive' => false,
+				'render_callback'     => 'site_branding',
+			)
+		);
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_{$screen}_logo_layout_structure",
+			array(
+				'selector'            => '.site-branding',
+				'container_inclusive' => false,
+				'render_callback'     => 'site_branding',
+			)
+		);
+	}
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_primary_navigation_style',
+		array(
+			'selector'            => '.main-navigation.header-navigation',
+			'container_inclusive' => true,
+			'render_callback'     => 'primary_navigation',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_secondary_navigation_style',
+		array(
+			'selector'            => '.secondary-navigation.header-navigation',
+			'container_inclusive' => true,
+			'render_callback'     => 'secondary_navigation',
+		)
+	);
+
+	$header_rows = array( 'top', 'main', 'bottom' );
+	foreach ( $header_rows as $row ) {
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_{$row}_row_border_top_style",
+			array(
+				'selector' => ".site-{$row}-header-wrap .site-header-row-container-inner",
+			)
+		);
+	}
+	$footer_rows = array( 'top', 'middle', 'bottom' );
+	foreach ( $footer_rows as $row ) {
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_footer_{$row}_row_border_top_style",
+			array(
+				'selector' => ".site-{$row}-footer-wrap .site-footer-row-container-inner",
+			)
+		);
+	}
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );

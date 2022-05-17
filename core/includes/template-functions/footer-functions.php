@@ -113,7 +113,6 @@ function footer_html() {
 	if ( $content || is_customize_preview() ) {
 		$link_style = get_theme_mod( 'responsive_footer_html_link_style', 'normal' );
 		echo '<div class="footer-html inner-link-style-' . esc_attr( $link_style ) . '">';
-		// customizer_quick_link();
 		echo '<div class="footer-html-inner">';
 		$content = str_replace( '{copyright}', '&copy;', $content );
 		$content = str_replace( '{year}', date_i18n( _x( 'Y', 'copyright date format; check date() on php.net', 'responsive' ) ), $content );
@@ -171,7 +170,6 @@ function display_footer_nav_menu( array $args = array() ) {
 function footer_navigation() {
 	?>
 	<nav id="footer-navigation" class="footer-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Navigation', 'responsive' ); ?>">
-		<?php customizer_quick_link(); ?>
 		<div class="footer-menu-container">
 			<?php
 			if ( is_footer_nav_menu_active() ) {
@@ -202,7 +200,6 @@ function footer_social() {
 		$brand_color_class = ' social-show-brand-always';
 	}
 	echo '<div class="footer-social-wrap">';
-	customizer_quick_link();
 	if ( ! empty( $title ) ) {
 		echo '<h2 class="widget-title">' . wp_kses_post( $title ) . '</h2>';
 	}

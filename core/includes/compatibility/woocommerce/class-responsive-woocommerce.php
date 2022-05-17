@@ -369,7 +369,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			if ( is_woocommerce() && is_singular( 'product' ) ) {
 				wp_enqueue_script( 'responsive-woo-floating-bar', get_template_directory_uri() . '/core/includes/compatibility/woocommerce/js/woo-floating-bar.js', array( 'customize-preview', 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 			}
-			if ( class_exists( 'woocommerce' ) && is_cart() ) {
+			if ( class_exists( 'woocommerce' ) && ( is_cart() || is_checkout() ) ) {
 				// Enqueue the quantity script.
 				wp_enqueue_script(
 					'responsive-cart-update',

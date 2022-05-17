@@ -321,7 +321,6 @@ function site_branding() {
 	}
 
 	echo '<div class="site-branding branding-layout-' . esc_attr( $layout_class ) . '">';
-	customizer_quick_link();
 	echo '<a class="brand' . ( in_array( 'logo', $includes, true ) && get_theme_mod( 'custom_logo' ) ? ' has-logo-image' : '' ) . ( in_array( 'logo', $includes, true ) && 'no' !== get_theme_mod( 'header_sticky' ) && get_theme_mod( 'header_sticky_custom_logo' ) && get_theme_mod( 'header_sticky_logo' ) ? ' has-sticky-logo' : '' ) . '" href="' . esc_url( apply_filters( 'responsive_logo_url', home_url( '/' ) ) ) . '" rel="home" aria-label="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
 	foreach ( $includes as $include ) {
 		switch ( $include ) {
@@ -359,7 +358,7 @@ function site_branding() {
  *
  * @return URL String
  */
-function responsive_filter_custom_logo_url(){
+function responsive_filter_custom_logo_url() {
 	return esc_url( get_theme_mod( 'responsive_custom_logo_url', home_url( '/' ) ) );
 }
 /**
@@ -421,7 +420,7 @@ function display_primary_nav_menu( array $args = array() ) {
  * Changes the page menu classes.
  *
  * @param string $menu
- * @param array $args
+ * @param array  $args
  * @return void
  */
 function change_page_menu_classes( $menu, $args ) {
@@ -525,7 +524,6 @@ function filter_mobile_nav_menu_dropdown_symbol( $item_output, $item, $depth, $a
 function primary_navigation() {
 	?>
 	<nav id="site-navigation" class="main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'responsive_primary_navigation_style', 'standard' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'responsive_primary_dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'responsive' ); ?>">
-		<?php customizer_quick_link(); ?>
 		<div class="primary-menu-container header-menu-container">
 			<?php
 			if ( is_primary_nav_menu_active() ) {
@@ -598,7 +596,6 @@ function is_secondary_nav_menu_active() : bool {
 function secondary_navigation() {
 	?>
 		<nav id="secondary-navigation" class="secondary-navigation main-navigation header-navigation nav--toggle-sub header-navigation-style-<?php echo esc_attr( get_theme_mod( 'responsive_secondary_navigation_style' ) ); ?> header-navigation-dropdown-animation-<?php echo esc_attr( get_theme_mod( 'responsive_secondary_dropdown_navigation_reveal' ) ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Navigation', 'responsive' ); ?>">
-		<?php customizer_quick_link(); ?>
 			<div class="secondary-menu-container header-menu-container">
 			<?php
 			if ( is_secondary_nav_menu_active() ) {
@@ -828,7 +825,6 @@ function navigation_popup_toggle() {
 	add_action( 'wp_footer', 'navigation_popup' );
 	?>
 	<div class="mobile-toggle-open-container">
-		<?php customizer_quick_link(); ?>
 		<?php
 		if ( is_amp() ) {
 			?>
@@ -980,7 +976,6 @@ function display_mobile_nav_menu( array $args = array() ) {
 function mobile_navigation() {
 	?>
 	<nav id="mobile-site-navigation" class="mobile-navigation drawer-navigation drawer-navigation-parent-toggle-<?php echo esc_attr( get_theme_mod( 'responsive_mobile_navigation_parent_toggle' ) ? 'true' : 'false' ); ?>" role="navigation" aria-label="<?php esc_attr_e( 'Primary Mobile Navigation', 'responsive' ); ?>">
-		<?php customizer_quick_link(); ?>
 		<div class="mobile-menu-container drawer-menu-container">
 			<?php
 			if ( is_mobile_nav_menu_active() ) {
@@ -1021,7 +1016,6 @@ function header_html() {
 		$link_style = get_theme_mod( 'responsive_header_html_link_style' );
 		$wpautop    = get_theme_mod( 'responsive_header_html_wpautop', 1 );
 		echo '<div class="header-html inner-link-style-' . esc_attr( $link_style ) . '">';
-		// customizer_quick_link();
 		echo '<div class="header-html-inner">';
 		if ( $wpautop ) {
 			echo do_shortcode( wpautop( $content ) );
@@ -1050,7 +1044,6 @@ function mobile_html() {
 		$link_style = get_theme_mod( 'responsive_mobile_html_link_style' );
 		$wpautop    = get_theme_mod( 'responsive_mobile_html_wpautop', 1 );
 		echo '<div class="mobile-html inner-link-style-' . esc_attr( $link_style ) . '">';
-		// customizer_quick_link();
 		echo '<div class="mobile-html-inner">';
 		if ( $wpautop ) {
 			echo do_shortcode( wpautop( $content ) );
@@ -1083,7 +1076,6 @@ function header_button() {
 			$wrap_classes[] = 'vs-logged-in-false';
 		}
 		echo '<div class="' . esc_attr( implode( ' ', $wrap_classes ) ) . '">';
-		customizer_quick_link();
 		echo '<div class="header-button-inner-wrap">';
 		$rel = array();
 		if ( get_theme_mod( 'responsive_header_button_target' ) ) {
@@ -1126,7 +1118,6 @@ function mobile_button() {
 			$wrap_classes[] = 'vs-logged-in-false';
 		}
 		echo '<div class="' . esc_attr( implode( ' ', $wrap_classes ) ) . '">';
-		customizer_quick_link();
 		$rel = array();
 		if ( get_theme_mod( 'responsive_mobile_button_target' ) ) {
 			$rel[] = 'noopener';
@@ -1163,7 +1154,6 @@ function header_cart() {
 		$icon       = get_theme_mod( 'responsive_header_cart_icon', 'shopping-cart' );
 		$dropdown   = 'header-navigation nav--toggle-sub header-navigation-dropdown-animation-' . esc_attr( get_theme_mod( 'responsive_primary_dropdown_navigation_reveal' ) );
 		echo '<div class="header-cart-wrap responsive-header-cart' . ( 'dropdown' === get_theme_mod( 'responsive_header_cart_style', 'link' ) ? ' ' . esc_attr( $dropdown ) : '' ) . '">';
-		customizer_quick_link();
 		echo '<span class="header-cart-empty-check header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'false' : 'true' ) . '"></span>';
 		echo '<div class="header-cart-inner-wrap cart-show-label-' . ( ! empty( $label ) ? 'true' : 'false' ) . ' cart-style-' . esc_attr( get_theme_mod( 'responsive_header_cart_style', 'link' ) ) . ( 'dropdown' === get_theme_mod( 'responsive_header_cart_style', 'link' ) ? ' header-menu-container' : '' ) . '">';
 		if ( 'link' === get_theme_mod( 'responsive_header_cart_style', 'link' ) ) {
@@ -1257,7 +1247,6 @@ function mobile_cart() {
 		$show_total = get_theme_mod( 'responsive_header_mobile_cart_show_total', true );
 		$icon       = get_theme_mod( 'responsive_header_mobile_cart_icon', 'shopping-cart' );
 		echo '<div class="header-mobile-cart-wrap responsive-header-cart">';
-		customizer_quick_link();
 		echo '<div class="header-cart-inner-wrap header-cart-is-empty-' . ( WC()->cart->get_cart_contents_count() > 0 ? 'true' : 'false' ) . ' cart-show-label-' . ( ! empty( $label ) ? 'true' : 'false' ) . ' cart-style-' . esc_attr( get_theme_mod( 'responsive_header_mobile_cart_style', 'link' ) ) . '">';
 		if ( 'link' === get_theme_mod( 'responsive_header_mobile_cart_style', 'link' ) ) {
 			echo '<a href="' . esc_url( wc_get_cart_url() ) . '"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="header-cart-button">';
@@ -1306,7 +1295,6 @@ function header_social() {
 		$brand_color_class = ' social-show-brand-always';
 	}
 	echo '<div class="header-social-wrap">';
-	customizer_quick_link();
 	echo '<div class="header-social-inner-wrap element-social-inner-wrap social-show-label-' . ( $show_label ? 'true' : 'false' ) . ' social-style-' . esc_attr( get_theme_mod( 'header_social_style' ) ) . esc_attr( $brand_color_class ) . '">';
 	if ( is_array( $items ) && ! empty( $items ) ) {
 		foreach ( $items as $item ) {
@@ -1335,8 +1323,7 @@ function header_social() {
 					} elseif ( ! empty( $item['url'] ) ) {
 						echo '<img src="' . esc_attr( $item['url'] ) . '" alt="' . esc_attr( $item['label'] ) . '" class="social-icon-image" style="max-width:' . esc_attr( $item['width'] ) . 'px"/>';
 					}
-				}
-				else {
+				} else {
 					echo get_icon( $item['icon'], '', false );
 				}
 				if ( $show_label ) {
@@ -1366,7 +1353,6 @@ function mobile_social() {
 		$brand_color_class = ' social-show-brand-always';
 	}
 	echo '<div class="header-mobile-social-wrap">';
-	customizer_quick_link();
 	echo '<div class="header-mobile-social-inner-wrap element-social-inner-wrap social-show-label-' . ( $show_label ? 'true' : 'false' ) . ' social-style-' . esc_attr( get_theme_mod( 'header_mobile_social_style' ) ) . esc_attr( $brand_color_class ) . '">';
 	if ( is_array( $items ) && ! empty( $items ) ) {
 		foreach ( $items as $item ) {
@@ -1416,7 +1402,6 @@ function header_search() {
 	add_action( 'wp_footer', 'search_modal', 20 );
 	?>
 	<div class="search-toggle-open-container">
-		<?php customizer_quick_link(); ?>
 		<?php
 		if ( is_amp() ) {
 			?>
@@ -1657,7 +1642,7 @@ function get_refreshed_fragments_mini( $fragments ) {
 	 */
 function cart_in_header() {
 	$in_header = false;
-	$elements  = get_theme_mod( 'header_desktop_items',Responsive\Core\get_responsive_customizer_defaults( 'header_desktop_items' ) );
+	$elements  = get_theme_mod( 'header_desktop_items', Responsive\Core\get_responsive_customizer_defaults( 'header_desktop_items' ) );
 	if ( isset( $elements ) && is_array( $elements ) ) {
 		foreach ( array( 'top', 'main', 'bottom' ) as $row ) {
 			if ( isset( $elements[ $row ] ) && is_array( $elements[ $row ] ) ) {
