@@ -382,8 +382,14 @@
 .footer-widget-area.content-valign-bottom {
     align-items: flex-end;
 }
+.social-icon{
+	display: flex;
+}
 .footer-widget-area.content-align-center {
 	text-align: center;
+	.social-icon{
+		justify-content: center;
+	}
 	.footer-navigation {
 		justify-content: center;
 	}
@@ -393,6 +399,9 @@
 }
 .footer-widget-area.content-align-right {
 	text-align: right;
+	.social-icon{
+		justify-content: flex-end;
+	}
 	.footer-navigation {
 		justify-content: flex-end;
 		.menu {
@@ -405,6 +414,9 @@
 }
 .footer-widget-area.content-align-left {
 	text-align: left;
+	.social-icon{
+		justify-content: flex-start;
+	}
 	.footer-navigation {
 		justify-content: flex-start;
 		.menu {
