@@ -49,27 +49,27 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 
 			// Button Label.
 			$header_button_label = __( 'Button Label', 'responsive' );
-			responsive_text_control( $wp_customize, 'header_button_label', $header_button_label, 'responsive_customizer_header_button', 10, 'Button', null, 'sanitize_text_field', 'text' );
+			responsive_text_control( $wp_customize, 'header_button_label', $header_button_label, 'responsive_customizer_header_button', 10, 'Button', null, 'sanitize_text_field', 'text', 'postMessage' );
 
 			// Header Button Link.
 			$header_button_link = __( 'Button URL', 'responsive' );
-			responsive_text_control( $wp_customize, 'header_button_link', $header_button_link, 'responsive_customizer_header_button', 15, '', null, 'sanitize_text_field', 'text' );
+			responsive_text_control( $wp_customize, 'header_button_link', $header_button_link, 'responsive_customizer_header_button', 15, '', null, 'sanitize_text_field', 'text', 'postMessage' );
 
 			// Header Button Target.
 			$header_button_target = __( 'Open in New Tab', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_button_target', $header_button_target, 'responsive_customizer_header_button', 20, 0, null );
+			responsive_checkbox_control( $wp_customize, 'header_button_target', $header_button_target, 'responsive_customizer_header_button', 20, 0, null, 'postMessage' );
 
 			// Header Button nofollow.
 			$header_button_nofollow = __( 'Set link to nofollow', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_button_nofollow', $header_button_nofollow, 'responsive_customizer_header_button', 25, 0, null );
+			responsive_checkbox_control( $wp_customize, 'header_button_nofollow', $header_button_nofollow, 'responsive_customizer_header_button', 25, 0, null, 'postMessage' );
 
 			// Header Button sponsored.
 			$header_button_sponsored = __( 'Set link attribute Sponsored', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_button_sponsored', $header_button_sponsored, 'responsive_customizer_header_button', 30, 0, null );
+			responsive_checkbox_control( $wp_customize, 'header_button_sponsored', $header_button_sponsored, 'responsive_customizer_header_button', 30, 0, null, 'postMessage' );
 
 			// Header Button download.
 			$header_button_download = __( 'Set link to download', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'header_button_download', $header_button_download, 'responsive_customizer_header_button', 35, 0, null );
+			responsive_checkbox_control( $wp_customize, 'header_button_download', $header_button_download, 'responsive_customizer_header_button', 35, 0, null, 'postMessage' );
 
 			// Header Button size.
 			$header_button_size_choices = array(
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				'custom' => __( 'Custom', 'responsive' ),
 			);
 			$header_button_size         = __( 'Header Button Size', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_button_size', $header_button_size, 'responsive_customizer_header_button', 40, $header_button_size_choices, 'medium', null );
+			responsive_select_control( $wp_customize, 'header_button_size', $header_button_size, 'responsive_customizer_header_button', 40, $header_button_size_choices, 'medium', null, 'postMessage' );
 
 			$header_button_horizontal_padding_label = esc_html__( 'Horizontal Padding', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_button_horizontal_padding', $header_button_horizontal_padding_label, 'responsive_customizer_header_button', 40, 16, 'is_header_button_size_custom', 100, 1, 'postMessage' );
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				'outline' => __( 'Outline', 'responsive' ),
 			);
 			$header_button_style         = __( 'Header Button Style', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_button_style', $header_button_style, 'responsive_customizer_header_button', 45, $header_button_style_choices, 'medium', null );
+			responsive_select_control( $wp_customize, 'header_button_style', $header_button_style, 'responsive_customizer_header_button', 45, $header_button_style_choices, 'medium', null, 'postMessage' );
 
 			// Header Button visibility.
 			$header_button_visibility_choices = array(
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 				'loggedout' => __( 'Logged Out Only', 'responsive' ),
 			);
 			$header_button_visibility         = __( 'Header Button Visibility', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_button_visibility', $header_button_visibility, 'responsive_customizer_header_button', 50, $header_button_visibility_choices, 'everyone', null );
+			responsive_select_control( $wp_customize, 'header_button_visibility', $header_button_visibility, 'responsive_customizer_header_button', 50, $header_button_visibility_choices, 'everyone', null, 'postMessage' );
 
 			$header_button_border_style_choices = array(
 				'none'   => __( 'None', 'responsive' ),
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Responsive_Header_Button_Customizer' ) ) :
 			);
 
 			$header_button_border_style_label = __( 'Button Border Style', 'responsive' );
-			responsive_select_control( $wp_customize, 'header_button_border_style', $header_button_border_style_label, 'responsive_customizer_header_button', 55, $header_button_border_style_choices, 'solid', null );
+			responsive_select_control( $wp_customize, 'header_button_border_style', $header_button_border_style_label, 'responsive_customizer_header_button', 55, $header_button_border_style_choices, 'solid', null, 'postMessage' );
 
 			$header_button_border_size_label = esc_html__( 'Button Border Width', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'header_button_border_size', $header_button_border_size_label, 'responsive_customizer_header_button', 60, 1, null, 20, 1, 'postMessage' );
