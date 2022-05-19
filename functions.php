@@ -752,6 +752,16 @@ function responsive_edit_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_footer_social_link_new_tab',
+		array(
+			'selector'            => '.footer-widget-area .footer-social-inner .social-icon',
+			'container_inclusive' => true,
+			'render_callback'     => function() {
+				return responsive_get_social_icons( '_footer' );
+			},
+		)
+	);
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );
