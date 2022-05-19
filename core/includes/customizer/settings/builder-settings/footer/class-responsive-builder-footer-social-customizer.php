@@ -54,7 +54,7 @@ if ( ! class_exists( 'Responsive_Footer_social_Customizer' ) ) :
 				'right'  => __( 'Right', 'responsive' ),
 			);
 			$footer_social_align_desktop         = __( 'Content Align Desktop', 'responsive' );
-			responsive_select_control( $wp_customize, 'footer_social_align_desktop', $footer_social_align_desktop, 'responsive_customizer_footer_social', 20, $footer_social_align_desktop_choices, 'left', null );
+			responsive_select_control( $wp_customize, 'footer_social_align_desktop', $footer_social_align_desktop, 'responsive_customizer_footer_social', 20, $footer_social_align_desktop_choices, 'left', null, 'postMessage' );
 
 			$footer_social_align_tablet_choices = array(
 				'left'   => __( 'Left', 'responsive' ),
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Responsive_Footer_social_Customizer' ) ) :
 				'_self'  => esc_html__( 'No', 'responsive' ),
 				'_blank' => esc_html__( 'Yes', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'footer_social_link_new_tab', $social_link_new_label, 'responsive_customizer_footer_social', 55, $social_link_choices, '_self', null );
+			responsive_select_control( $wp_customize, 'footer_social_link_new_tab', $social_link_new_label, 'responsive_customizer_footer_social', 55, $social_link_choices, '_self', null, 'postMessage' );
 
 			// Add Twitter Setting.
 			$wp_customize->add_setting(
