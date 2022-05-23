@@ -2057,7 +2057,7 @@
             );
 
         } );
-    } ), api( "footer_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2067,7 +2067,7 @@
             );
 
         } );
-    } ), api( "footer_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2163,7 +2163,7 @@
             );
 
         } );
-    } ), api( "primary_dropdown_navigation_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "primary_dropdown_navigation_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-primary_dropdown_navigation_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2173,7 +2173,7 @@
             );
 
         } );
-    } ), api( "primary_dropdown_navigation_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "primary_dropdown_navigation_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2269,7 +2269,7 @@
             );
 
         } );
-    } ), api( "secondary_dropdown_navigation_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "secondary_dropdown_navigation_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-secondary_dropdown_navigation_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2279,7 +2279,7 @@
             );
 
         } );
-    } ), api( "secondary_dropdown_navigation_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "secondary_dropdown_navigation_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2375,7 +2375,7 @@
             );
 
         } );
-    } ), api( "primary_navigation_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "primary_navigation_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-primary_navigation_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2385,7 +2385,7 @@
             );
 
         } );
-    } ), api( "primary_navigation_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "primary_navigation_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2481,7 +2481,7 @@
             );
 
         } );
-    } ), api( "secondary_navigation_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "secondary_navigation_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-secondary_navigation_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2491,7 +2491,7 @@
             );
 
         } );
-    } ), api( "secondary_navigation_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "secondary_navigation_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2587,7 +2587,7 @@
             );
 
         } );
-    } ), api( "header_html_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "header_html_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_html_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2597,7 +2597,7 @@
             );
 
         } );
-    } ), api( "header_html_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "header_html_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_html_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2693,7 +2693,7 @@
             );
 
         } );
-    } ), api( "mobile_header_html_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "mobile_header_html_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_html_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2703,7 +2703,7 @@
             );
 
         } );
-    } ), api( "mobile_header_html_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "mobile_header_html_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_html_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2799,7 +2799,7 @@
             );
 
         } );
-    } ), api( "header_button_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "header_button_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_button_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2809,7 +2809,7 @@
             );
 
         } );
-    } ), api( "header_button_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "header_button_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-header_button_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2905,7 +2905,7 @@
             );
 
         } );
-    } ), api( "mobile_header_button_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "mobile_header_button_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_button_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -2915,7 +2915,7 @@
             );
 
         } );
-    } ), api( "mobile_header_button_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "mobile_header_button_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_header_button_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3011,7 +3011,7 @@
             );
 
         } );
-    } ), api( "site_title_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "site_title_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-site_title_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3021,7 +3021,7 @@
             );
 
         } );
-    } ), api( "site_title_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "site_title_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-site_title_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3117,7 +3117,7 @@
             );
 
         } );
-    } ), api( "footer_html_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_html_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_html_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3127,7 +3127,7 @@
             );
 
         } );
-    } ), api( "footer_html_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_html_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_html_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3223,7 +3223,7 @@
             );
 
         } );
-    } ), api( "footer_navigation_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_navigation_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_navigation_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3233,7 +3233,7 @@
             );
 
         } );
-    } ), api( "footer_navigation_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_navigation_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_navigation_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3329,7 +3329,7 @@
             );
 
         } );
-    } ), api( "footer_top_widget_title_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_top_widget_title_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_top_widget_title_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3339,7 +3339,7 @@
             );
 
         } );
-    } ), api( "footer_top_widget_title_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_top_widget_title_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_top_widget_title_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3435,7 +3435,7 @@
             );
 
         } );
-    } ), api( "footer_top_widget_content_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_top_widget_content_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_top_widget_content_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3445,7 +3445,7 @@
             );
 
         } );
-    } ), api( "footer_top_widget_content_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_top_widget_content_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_top_widget_content_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3541,7 +3541,7 @@
             );
 
         } );
-    } ), api( "footer_middle_widget_title_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_middle_widget_title_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_middle_widget_title_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3551,7 +3551,7 @@
             );
 
         } );
-    } ), api( "footer_middle_widget_title_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_middle_widget_title_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_middle_widget_title_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3647,7 +3647,7 @@
             );
 
         } );
-    } ), api( "footer_middle_widget_content_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_middle_widget_content_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_middle_widget_content_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3657,7 +3657,7 @@
             );
 
         } );
-    } ), api( "footer_middle_widget_content_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_middle_widget_content_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_middle_widget_content_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3753,7 +3753,7 @@
             );
 
         } );
-    } ), api( "footer_bottom_widget_title_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_bottom_widget_title_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_bottom_widget_title_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3763,7 +3763,7 @@
             );
 
         } );
-    } ), api( "footer_bottom_widget_title_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_bottom_widget_title_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_bottom_widget_title_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3859,7 +3859,7 @@
             );
 
         } );
-    } ), api( "footer_bottom_widget_content_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_bottom_widget_content_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_bottom_widget_content_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3869,7 +3869,7 @@
             );
 
         } );
-    } ), api( "footer_bottom_widget_content_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_bottom_widget_content_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_bottom_widget_content_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3965,7 +3965,7 @@
             );
     
         } );
-    } ), api( "mobile_navigation_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "mobile_navigation_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-mobile_navigation_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
@@ -3975,7 +3975,7 @@
             );
     
         } );
-    } ), api( "mobile_navigation_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "mobile_navigation_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(
