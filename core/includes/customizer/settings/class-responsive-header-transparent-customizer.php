@@ -90,35 +90,36 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 			$menu_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'transparent_header_menu_border', $menu_border_color_label, 'responsive_header_transparent', 180, Responsive\Core\get_responsive_customizer_defaults( 'header_menu_border' ), 'responsive_active_vertical_transparent_header' );
 
-			$is_header_footer_builder = get_option( 'is-header-footer-builder' );
-			if ( ! $is_header_footer_builder ) {
-				// Different Logo For Transparent Header.
-				$transparent_header_logo_option_label = __( 'Different Logo For Transparent Header ', 'responsive' );
-				responsive_checkbox_control( $wp_customize, 'transparent_header_logo_option', $transparent_header_logo_option_label, 'responsive_header_transparent', 25, 0, null );
+			// Different Logo For Transparent Header.
+			$transparent_header_logo_option_label = __( 'Different Logo For Transparent Header ', 'responsive' );
+			responsive_checkbox_control( $wp_customize, 'transparent_header_logo_option', $transparent_header_logo_option_label, 'responsive_header_transparent', 25, 0, null );
 
-				$wp_customize->add_setting(
+			$wp_customize->add_setting(
+				'responsive_transparent_header_logo',
+				array(
+					'sanitize_callback' => 'absint',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Cropped_Image_Control(
+					$wp_customize,
 					'responsive_transparent_header_logo',
 					array(
-						'sanitize_callback' => 'absint',
+						'label'           => esc_html__( 'Logo For Transparent Header', 'responsive' ),
+						'section'         => 'responsive_header_transparent',
+						'flex_height'     => true,
+						'flex_width'      => true,
+						'height'          => 100, // pixels.
+						'width'           => 300, // pixels.
+						'priority'        => 28,
+						'active_callback' => 'is_transparent_header_logo_option',
 					)
-				);
+				)
+			);
 
-				$wp_customize->add_control(
-					new WP_Customize_Cropped_Image_Control(
-						$wp_customize,
-						'responsive_transparent_header_logo',
-						array(
-							'label'           => esc_html__( 'Logo For Transparent Header', 'responsive' ),
-							'section'         => 'responsive_header_transparent',
-							'flex_height'     => true,
-							'flex_width'      => true,
-							'height'          => 100, // pixels.
-							'width'           => 300, // pixels.
-							'priority'        => 28,
-							'active_callback' => null,
-						)
-					)
-				);
+			$is_header_footer_builder = get_option( 'is-header-footer-builder' );
+			if ( ! $is_header_footer_builder ) {
 				/**
 				 * Transparent Header Colors Separator.
 				 */

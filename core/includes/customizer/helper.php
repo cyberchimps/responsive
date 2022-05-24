@@ -2405,7 +2405,7 @@ function is_footer_top_layout_contained() {
 }
 
 /**
- * Check if Header layout is contained
+ * Check if Footer layout is contained
  *
  * @return bool
  */
@@ -2413,12 +2413,20 @@ function is_footer_tablet_top_layout_contained() {
 	return get_theme_mod( 'responsive_footer_tablet_top_layout', 'fullwidth' ) === 'contained' ? true : false;
 }
 /**
- * Check if Header layout is contained
+ * Check if Footer layout is contained
  *
  * @return bool
  */
 function is_footer_mobile_top_layout_contained() {
 	return get_theme_mod( 'responsive_footer_mobile_top_layout', 'fullwidth' ) === 'contained' ? true : false;
+}
+/**
+ * Check if Different Logo For Transparent Header
+ *
+ * @return bool
+ */
+function is_transparent_header_logo_option() {
+	return get_theme_mod( 'responsive_transparent_header_logo_option', 0 );
 }
 /**
  * Get an SVG Icon
