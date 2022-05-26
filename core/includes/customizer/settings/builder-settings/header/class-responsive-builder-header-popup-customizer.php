@@ -51,9 +51,6 @@ if ( ! class_exists( 'Responsive_Builder_Header_Popup_Customizer' ) ) :
 			$mobile_menu_breakpoint_label = __( 'Breakpoint', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'mobile_menu_breakpoint', $mobile_menu_breakpoint_label, 'responsive_customizer_header_popup', 10, 767, null, 4096, 1, 'postMessage' );
 
-			$stretch_mobile_navigation_label = __( 'Stretch Mobile Menu?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'stretch_mobile_navigation', $stretch_mobile_navigation_label, 'responsive_customizer_header_popup', 10, 0, null );
-
 			// Mobile Menu Layout.
 			$header_popup_layout_choices = array(
 				'sidepanel' => __( 'Sidepanel', 'responsive' ),

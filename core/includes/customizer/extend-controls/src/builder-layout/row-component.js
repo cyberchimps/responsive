@@ -1,13 +1,6 @@
-/* jshint esversion: 6 */
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import ResponsiveControl from '../common/responsive.js';
-import Icons from '../common/icons.js';
 import DropComponent from './drop-component';
-
 const { __ } = wp.i18n;
-
-const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
+const { Dashicon, Button } = wp.components;
 
 const RowComponent = props => {
 	const {
@@ -25,7 +18,6 @@ const RowComponent = props => {
 		centerClass = 'popup-vertical-group';
 	}
 	if ('footer_items' === controlParamsGroup) {
-		// var layout = customizer.control('footer_' + props.row + '_layout').setting.get();
 		var columns = customizer.control('responsive_footer_' + props.row + '_columns').setting.get();
 		var direction = customizer.control('responsive_footer_' + props.row + '_direction_desktop').setting.get();
 		centerClass = 'footer-column-row footer-row-columns-' + columns + ' footer-row-layout-equal' + ' footer-row-direction-' + direction;  //' footer-row-layout-' + layout.desktop.

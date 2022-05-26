@@ -1,17 +1,8 @@
-/* jshint esversion: 6 */
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import ResponsiveControl from '../common/responsive.js';
 import { ReactSortable } from "react-sortablejs";
-import Icons from '../common/icons.js';
 import ItemComponent from './item-component';
 import AddComponent from './add-component';
+const { Fragment } = wp.element;
 
-const { __ } = wp.i18n;
-
-const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
-
-const { Component, Fragment } = wp.element;
 const DropComponent = props => {
 
 	const location = props.zone.replace(props.row + '_', '');

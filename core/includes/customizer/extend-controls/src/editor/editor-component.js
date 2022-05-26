@@ -16,7 +16,7 @@ const EditorComponent = props => {
 	});
 	let defaultParams = {
 		id: 'header_html',
-		toolbar1: 'formatselect | styleselect | bold italic strikethrough | forecolor backcolor | link | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | fontsizeselect',
+		toolbar1: 'formatselect | styleselect | bold italic strikethrough | forecolor backcolor | link | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | fontsizeselect insert',
 		toolbar2: '',
 	};
 	const controlParams = props.control.params.input_attrs ? {
@@ -65,7 +65,10 @@ const EditorComponent = props => {
 		}
 		editor.on('NodeChange', debounce(triggerChangeIfDirty, 250));
 
-		setState({ editor: editor });
+		setState(prevState => ({
+			...prevState,
+			editor: editor
+		}));
 	}
 
 	const triggerChangeIfDirty = () => {
@@ -73,9 +76,13 @@ const EditorComponent = props => {
 	}
 
 	const updateValues = (value) => {
-		setState({ value: value });
+
+		setState(prevState => ({
+			...prevState,
+			value: value
+		}));
 		props.control.setting.set(value);
-	}
+	};
 
 	return (
 		<div className="responsive-control-field responsive-editor-control">
@@ -97,5 +104,9 @@ const EditorComponent = props => {
 	);
 
 }
+EditorComponent.propTypes = {
+	control: PropTypes.object.isRequired,
+	customizer: PropTypes.func.isRequired,
+};
 
 export default EditorComponent;
