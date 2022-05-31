@@ -1,15 +1,7 @@
 /* jshint esversion: 6 */
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import ResponsiveControl from '../common/responsive.js';
-import Icons from '../common/icons.js';
 import { useState } from 'react';
-
 import RowComponent from './row-component';
-
-const { __ } = wp.i18n;
-
-const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
 
 const BuilderComponent = props => {
 	let value = props.control.setting.get();
@@ -236,19 +228,11 @@ const BuilderComponent = props => {
 			</div>
 		</div>
 	</>
-	// linkFocusButtons() {
-	// 	props.control.container.on( 'click', '.responsive-builder-areas .responsive-builder-item', function( e ) {
-	// 		e.preventDefault();
-	// 		var targetKey = e.target.getAttribute( 'data-section' );
-	// 		var targetControl = wp.customize.section( targetKey );
-	// 		if ( targetControl ) targetControl.focus();
-	// 	} );
-	// }
 }
 
 BuilderComponent.propTypes = {
 	control: PropTypes.object.isRequired,
-	// customizer: PropTypes.object.isRequired
+	customizer: PropTypes.func.isRequired
 };
 
 export default BuilderComponent;

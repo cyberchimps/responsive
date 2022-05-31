@@ -16,7 +16,7 @@ const EditorComponent = props => {
 	});
 	let defaultParams = {
 		id: 'header_html',
-		toolbar1: 'bold,italic,bullist,numlist,link',
+		toolbar1: 'formatselect | styleselect | bold italic strikethrough | forecolor backcolor | link | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | fontsizeselect insert',
 		toolbar2: '',
 	};
 	const controlParams = props.control.params.input_attrs ? {
@@ -27,25 +27,37 @@ const EditorComponent = props => {
 
 	useEffect(() => {
 		if (window.tinymce.get(controlParams.id)) {
-			setState({ restoreTextMode: window.tinymce.get(controlParams.id).isHidden() });
+
+			setState(prevState => ({
+				...prevState,
+				restoreTextMode: window.tinymce.get(controlParams.id).isHidden()
+			}));
+
 			window.wp.oldEditor.remove(controlParams.id);
 		}
 		window.wp.oldEditor.initialize(controlParams.id, {
 			tinymce: {
 				wpautop: true,
+				height: 200,
+				menubar: false,
 				toolbar1: controlParams.toolbar1,
 				toolbar2: controlParams.toolbar2,
+				fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 18pt 24pt 30pt 36pt 48pt 60pt 72pt 96pt"
 			},
 			quicktags: true,
 			mediaButtons: true,
 		});
+
 		const editor = window.tinymce.get(controlParams.id);
+
 		if (editor.initialized) {
 			onInit();
 		} else {
 			editor.on('init', onInit);
 		}
+
 	}, []);
+
 	const onInit = () => {
 		const editor = window.tinymce.get(controlParams.id);
 		if (state.restoreTextMode) {
@@ -53,15 +65,24 @@ const EditorComponent = props => {
 		}
 		editor.on('NodeChange', debounce(triggerChangeIfDirty, 250));
 
-		setState({ editor: editor });
+		setState(prevState => ({
+			...prevState,
+			editor: editor
+		}));
 	}
+
 	const triggerChangeIfDirty = () => {
 		updateValues(window.wp.oldEditor.getContent(controlParams.id));
 	}
+
 	const updateValues = (value) => {
-		setState({ value: value });
+
+		setState(prevState => ({
+			...prevState,
+			value: value
+		}));
 		props.control.setting.set(value);
-	}
+	};
 
 	return (
 		<div className="responsive-control-field responsive-editor-control">
@@ -83,5 +104,9 @@ const EditorComponent = props => {
 	);
 
 }
+EditorComponent.propTypes = {
+	control: PropTypes.object.isRequired,
+	customizer: PropTypes.func.isRequired,
+};
 
 export default EditorComponent;

@@ -326,8 +326,8 @@ function site_branding() {
 		switch ( $include ) {
 			case 'logo':
 				do_action( 'before_responsive_logo_output' );
-				if ( /* responsive()->desk_transparent_header() && */ get_theme_mod( 'transparent_header_custom_logo' ) && get_theme_mod( 'transparent_header_logo' ) ) {
-					render_custom_logo( 'transparent_header_logo', 'responsive-transparent-logo' );
+				if ( get_theme_mod( 'responsive_transparent_header_logo_option' ) && get_theme_mod( 'responsive_transparent_header_logo' ) ) {
+					render_custom_logo( 'responsive_transparent_header_logo', 'responsive-transparent-logo' );
 				} else {
 					custom_logo();
 				}
@@ -770,9 +770,9 @@ function mobile_site_branding() {
 		switch ( $include ) {
 			case 'logo':
 				do_action( 'before_responsive_mobile_logo_output' );
-				if ( /* responsive()->mobile_transparent_header() && */ get_theme_mod( 'transparent_header_custom_mobile_logo' ) && get_theme_mod( 'transparent_header_mobile_logo' ) ) {
-					render_custom_logo( 'transparent_header_mobile_logo', 'responsive-transparent-logo' );
-				} elseif ( /* responsive()->mobile_transparent_header() && */ get_theme_mod( 'transparent_header_custom_logo' ) && get_theme_mod( 'transparent_header_logo' ) ) {
+				if ( get_theme_mod( 'responsive_transparent_header_logo_option' ) && get_theme_mod( 'responsive_transparent_header_logo' ) ) {
+					render_custom_logo( 'responsive_transparent_header_logo', 'responsive-transparent-logo' );
+				} elseif ( get_theme_mod( 'transparent_header_custom_logo' ) && get_theme_mod( 'transparent_header_logo' ) ) {
 					render_custom_logo( 'transparent_header_logo', 'responsive-transparent-logo' );
 				} else {
 					if ( get_theme_mod( 'use_mobile_logo' ) && get_theme_mod( 'mobile_logo' ) ) {

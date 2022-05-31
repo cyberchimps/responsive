@@ -1,14 +1,7 @@
-/* jshint esversion: 6 */
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import ResponsiveControl from '../common/responsive.js';
 import Icons from '../common/icons.js';
-
 const { __ } = wp.i18n;
+const { Dashicon, Button } = wp.components;
 
-const { ButtonGroup, Dashicon, Tooltip, Button } = wp.components;
-
-const { Component, Fragment } = wp.element;
 const ItemComponent = props => {
 
 	const choices = props.choices;

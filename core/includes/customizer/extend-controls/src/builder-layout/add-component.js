@@ -1,8 +1,3 @@
-/* jshint esversion: 6 */
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import ResponsiveControl from '../common/responsive.js';
-import Icons from '../common/icons.js';
 import { useState } from 'react';
 
 const { __ } = wp.i18n;

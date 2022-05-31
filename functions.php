@@ -504,12 +504,13 @@ function responsive_edit_customize_register( $wp_customize ) {
 
 	$screen_sizes = array( 'desktop', 'tablet', 'mobile' );
 	foreach ( $screen_sizes as $screen ) {
+		$cb_prefix = ( $screen === 'tablet' || $screen === 'mobile') ? 'mobile_' : '';
 		$wp_customize->selective_refresh->add_partial(
 			"responsive_{$screen}_logo_layout_include",
 			array(
 				'selector'            => '.site-branding',
 				'container_inclusive' => false,
-				'render_callback'     => 'site_branding',
+				'render_callback'     => $cb_prefix . 'site_branding',
 			)
 		);
 		$wp_customize->selective_refresh->add_partial(
@@ -517,7 +518,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 			array(
 				'selector'            => '.site-branding',
 				'container_inclusive' => false,
-				'render_callback'     => 'site_branding',
+				'render_callback'     => $cb_prefix . 'site_branding',
 			)
 		);
 	}
@@ -561,7 +562,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_search_label',
 		array(
-			'selector' => '.search-toggle-open-container',
+			'selector'        => '.search-toggle-open-container',
 			'render_callback' => 'header_search',
 		)
 	);
@@ -569,7 +570,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_label',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -577,14 +578,14 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_link',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_search_label_visiblity_desktop',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -592,7 +593,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_nofollow',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -600,7 +601,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_sponsored',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -608,7 +609,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_download',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -616,7 +617,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_size',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -624,7 +625,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_style',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -632,7 +633,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_visibility',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -640,7 +641,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_button_border_style',
 		array(
-			'selector' => '.header-button-wrap',
+			'selector'        => '.header-button-wrap',
 			'render_callback' => 'header_button',
 		)
 	);
@@ -648,7 +649,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_search_label_visiblity_desktop',
 		array(
-			'selector' => '.search-toggle-open-container',
+			'selector'        => '.search-toggle-open-container',
 			'render_callback' => 'header_search',
 		)
 	);
@@ -656,7 +657,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_search_label_visiblity_tablet',
 		array(
-			'selector' => '.search-toggle-open-container',
+			'selector'        => '.search-toggle-open-container',
 			'render_callback' => 'header_search',
 		)
 	);
@@ -664,7 +665,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_search_label_visiblity_mobile',
 		array(
-			'selector' => '.search-toggle-open-container',
+			'selector'        => '.search-toggle-open-container',
 			'render_callback' => 'header_search',
 		)
 	);
@@ -672,7 +673,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_header_search_icon',
 		array(
-			'selector' => '.search-toggle-open-container',
+			'selector'        => '.search-toggle-open-container',
 			'render_callback' => 'header_search',
 		)
 	);
@@ -680,7 +681,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_label',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
@@ -688,7 +689,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_link',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
@@ -696,7 +697,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_target',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
@@ -704,7 +705,7 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_nofollow',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
@@ -712,42 +713,42 @@ function responsive_edit_customize_register( $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_sponsored',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_download',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_size',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_style',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_visibility',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
 		'responsive_mobile_button_border_style',
 		array(
-			'selector' => '.mobile-header-button-wrap',
+			'selector'        => '.mobile-header-button-wrap',
 			'render_callback' => 'mobile_button',
 		)
 	);

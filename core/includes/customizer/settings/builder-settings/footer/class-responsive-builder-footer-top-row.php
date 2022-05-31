@@ -59,7 +59,7 @@ if ( ! class_exists( 'Responsive_Builder_Footer_Top_row' ) ) :
 			responsive_select_control( $wp_customize, 'footer_top_layout', $top_row_desktop_contain, 'responsive_customizer_footer_top', 15, $top_row_desktop_contain_choices, 'fullwidth', null );
 
 			$footer_top_layout_container_width_label = __( 'Desktop Container Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'footer_top_layout_container_width', $footer_top_layout_container_width_label, 'responsive_customizer_footer_top', 15, 2048, 'is_footer_top_layout_contained', 4096, 1, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'footer_top_layout_container_width', $footer_top_layout_container_width_label, 'responsive_customizer_footer_top', 15, 1140, 'is_footer_top_layout_contained', 4096, 1, 'postMessage' );
 
 			// Top Row Tablet contain.
 			$top_row_tablet_contain         = esc_html__( 'Top Row Tablet layout', 'responsive' );
