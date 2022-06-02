@@ -357,10 +357,14 @@ add_action( 'after_setup_theme', 'responsive_add_image_size' );
  *
  * @return void [description].
  */
-function responsive_get_social_icons() {
+function responsive_get_social_icons( $area ) {
 
 	$responsive_options = Responsive\Core\responsive_get_options();
 
+	$header_social_label        = esc_html( get_theme_mod( 'responsive_header_social_label_visibility', 0 ) ) ? 'social_show_label_desktop_true' : '';
+	$header_mobile_social_label = esc_html( get_theme_mod( 'responsive_header_mobile_social_label_visibility', 0 ) ) ? 'social_show_label_mobile_true' : '';
+	$footer_social_label        = esc_html( get_theme_mod( 'responsive_footer_social_label_visibility', 0 ) ) ? 'social_show_label_footer_true' : '';
+	$social_visibility_classes  = "{$header_social_label } {$header_mobile_social_label} {$footer_social_label}";
 	$icons = array(
 		'twitter'     => __( 'Twitter', 'responsive' ),
 		'facebook'    => __( 'Facebook', 'responsive' ),
@@ -379,23 +383,24 @@ function responsive_get_social_icons() {
 	$count = 0;
 
 	foreach ( $icons as $key => $value ) {
-		if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+		if ( ! empty( $responsive_options[ $key . $area . '_uid' ] ) ) {
 			$count++;
 		}
 	}
 	if ( $count > 0 ) {
 		?>
-		<div class="footer-layouts social-icon">
+		<div class="<?php echo esc_attr( $area ); ?>-layouts social-icon">
 			<ul class="social-icons">
 				<?php
-				$target_social_link = get_theme_mod( 'responsive_social_link_new_tab', '_self' );
+				$taget_mod          = 'responsive' . $area . '_social_link_new_tab';
+				$target_social_link = get_theme_mod( $taget_mod, '_self' );
 
 				foreach ( $icons as $key => $value ) {
-					if ( ! empty( $responsive_options[ $key . '_uid' ] ) ) {
+					if ( ! empty( $responsive_options[ $key . $area . '_uid' ] ) ) {
 						if ( 'email' === $key ) {
 							?>
 							<li>
-								<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . '_uid' ] ); ?>" <?php responsive_schema_markup( 'url' ); ?>>
+								<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . $area . '_uid' ] ); ?>" <?php responsive_schema_markup( 'url' ); ?>>
 									<i class="icon-envelope-o" aria-hidden="true"></i>
 								</a>
 							</li>
@@ -403,8 +408,8 @@ function responsive_get_social_icons() {
 						} else {
 							?>
 							<li>
-								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo $target_social_link ?> <?php responsive_schema_markup( 'url' ); ?>>
-									<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
+								<a  class="<?php echo esc_attr( $social_visibility_classes  ); ?>" aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . $area . '_uid' ] ); ?>" target=<?php echo $target_social_link ?> <?php responsive_schema_markup( 'url' ); ?>>
+									<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i> <span class="label label-<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $value ); ?></span>
 								</a>
 							</li>
 							<?php

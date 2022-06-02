@@ -48,8 +48,19 @@ const ResponsiveSliderComponent = props => {
 	}
 
 	const updateValues = ( value ) => {
-		setPropsValue( value )
+		setPropsValue( value );
 		props.control.setting.set( value );
+		let control_id   = props.control.params.id.split('_');
+		let area         = control_id[1];
+		let row          = control_id[2];
+		let area_setting = control_id[3];
+		if ( area === 'footer' && area_setting === 'columns') {
+			let event = new CustomEvent(
+				'responsiveUpdateFooterColumns', {
+					'detail': row,
+				} );
+			document.dispatchEvent( event );
+		}
 	};
 
 	return <label>

@@ -157,7 +157,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			 * Title Heading.
 			 */
 			$header_menu_typography_separator_label = esc_html__( 'Main Menu Typography', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_menu_typography_separator', $header_menu_typography_separator_label, 'responsive_header_menu_layout', 110, 'responsive_disabled_main_menu' );
+			responsive_separator_control( $wp_customize, 'header_menu_typography_separator', $header_menu_typography_separator_label, 'responsive_header_menu_layout', 105, 'responsive_disabled_main_menu' );
 
 			/**
 			 * Title Heading.

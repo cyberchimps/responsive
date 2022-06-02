@@ -445,6 +445,17 @@ function responsive_edit_customize_register( $wp_customize ) {
 		)
 	);
 	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_trigger_label',
+		array(
+			'selector'            => '.menu-toggle-label',
+			'container_inclusive' => false,
+			'render_callback'     => function() {
+				printf( esc_html( responsive_mobile_trigger_label() ) );
+			},
+			'fallback_refresh'    => true,
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
 		'responsive_hamburger_off_canvas_btn_label_text',
 		array(
 			'selector'            => '.off-canvas-filter-text',
@@ -455,7 +466,303 @@ function responsive_edit_customize_register( $wp_customize ) {
 			'fallback_refresh'    => true,
 		)
 	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_html_content',
+		array(
+			'selector'            => '.header-html',
+			'container_inclusive' => false,
+			'render_callback'     => 'header_html',
+			'fallback_refresh'    => true,
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_html_content',
+		array(
+			'selector'            => '.mobile-html',
+			'container_inclusive' => false,
+			'render_callback'     => 'mobile_html',
+			'fallback_refresh'    => true,
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_footer_html_content',
+		array(
+			'selector'            => '.footer-html',
+			'container_inclusive' => false,
+			'render_callback'     => 'footer_html',
+			'fallback_refresh'    => true,
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_trigger_icon',
+		array(
+			'selector'            => '.menu-toggle-icon',
+			'container_inclusive' => false,
+			'render_callback'     => 'popup_toggle',
+		)
+	);
 
+	$screen_sizes = array( 'desktop', 'tablet', 'mobile' );
+	foreach ( $screen_sizes as $screen ) {
+		$cb_prefix = ( $screen === 'tablet' || $screen === 'mobile') ? 'mobile_' : '';
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_{$screen}_logo_layout_include",
+			array(
+				'selector'            => '.site-branding',
+				'container_inclusive' => false,
+				'render_callback'     => $cb_prefix . 'site_branding',
+			)
+		);
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_{$screen}_logo_layout_structure",
+			array(
+				'selector'            => '.site-branding',
+				'container_inclusive' => false,
+				'render_callback'     => $cb_prefix . 'site_branding',
+			)
+		);
+	}
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_primary_navigation_style',
+		array(
+			'selector'            => '.main-navigation.header-navigation',
+			'container_inclusive' => true,
+			'render_callback'     => 'primary_navigation',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_secondary_navigation_style',
+		array(
+			'selector'            => '.secondary-navigation.header-navigation',
+			'container_inclusive' => true,
+			'render_callback'     => 'secondary_navigation',
+		)
+	);
+
+	$header_rows = array( 'top', 'main', 'bottom' );
+	foreach ( $header_rows as $row ) {
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_{$row}_row_border_top_style",
+			array(
+				'selector' => ".site-{$row}-header-wrap .site-header-row-container-inner",
+			)
+		);
+	}
+	$footer_rows = array( 'top', 'middle', 'bottom' );
+	foreach ( $footer_rows as $row ) {
+		$wp_customize->selective_refresh->add_partial(
+			"responsive_footer_{$row}_row_border_top_style",
+			array(
+				'selector' => ".site-{$row}-footer-wrap .site-footer-row-container-inner",
+			)
+		);
+	}
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_search_label',
+		array(
+			'selector'        => '.search-toggle-open-container',
+			'render_callback' => 'header_search',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_label',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_link',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_search_label_visiblity_desktop',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_nofollow',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_sponsored',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_download',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_size',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_style',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_visibility',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_button_border_style',
+		array(
+			'selector'        => '.header-button-wrap',
+			'render_callback' => 'header_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_search_label_visiblity_desktop',
+		array(
+			'selector'        => '.search-toggle-open-container',
+			'render_callback' => 'header_search',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_search_label_visiblity_tablet',
+		array(
+			'selector'        => '.search-toggle-open-container',
+			'render_callback' => 'header_search',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_search_label_visiblity_mobile',
+		array(
+			'selector'        => '.search-toggle-open-container',
+			'render_callback' => 'header_search',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_header_search_icon',
+		array(
+			'selector'        => '.search-toggle-open-container',
+			'render_callback' => 'header_search',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_label',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_link',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_target',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_nofollow',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_sponsored',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_download',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_size',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_style',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_visibility',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_mobile_button_border_style',
+		array(
+			'selector'        => '.mobile-header-button-wrap',
+			'render_callback' => 'mobile_button',
+		)
+	);
+
+	$wp_customize->selective_refresh->add_partial(
+		'responsive_footer_social_link_new_tab',
+		array(
+			'selector'            => '.footer-widget-area .footer-social-inner .social-icon',
+			'container_inclusive' => true,
+			'render_callback'     => function() {
+				return responsive_get_social_icons( '_footer' );
+			},
+		)
+	);
 }
 add_action( 'customize_register', 'responsive_edit_customize_register' );
 add_theme_support( 'customize-selective-refresh-widgets' );

@@ -47,8 +47,12 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 	Responsive\responsive_custom_footer();
 
 	if ( ! has_action( 'responsive_custom_footer' ) ) {
-
-		?>
+		if ( get_option( 'is-header-footer-builder' ) ) {
+			// do_action( 'responsive_before_footer' );
+			do_action( 'responsive_footer' );
+			// do_action( 'responsive_after_footer' );
+		} else {
+			?>
 			<footer id="footer" class="clearfix site-footer" role="contentinfo" <?php responsive_schema_markup( 'site-footer' ); ?>>
 				<?php Responsive\responsive_footer_top(); ?>
 				<?php get_sidebar( 'footer' ); ?>
@@ -73,7 +77,7 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 								}
 
 								if ( 'social_icons' === $section ) {
-                                    echo responsive_get_social_icons() ;// phpcs:ignore
+                                    echo responsive_get_social_icons('') ;// phpcs:ignore
 								}
 
 								// Copy Rights.
@@ -85,7 +89,7 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 							if ( has_nav_menu( 'footer-menu' ) ) {
 								get_template_part( 'partials/footer/footer-menu' );
 							}
-                            echo responsive_get_social_icons() ;// phpcs:ignore
+                            echo responsive_get_social_icons('') ;// phpcs:ignore
 							get_template_part( 'partials/footer/copy-right' );
 						}
 						?>
@@ -96,7 +100,8 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 
 				<?php Responsive\responsive_footer_bottom(); ?>
 			</footer><!-- end #footer -->
-		<?php
+			<?php
+		}
 	}
 }
 			Responsive\responsive_footer_after();

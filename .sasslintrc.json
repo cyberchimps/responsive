@@ -1,0 +1,43 @@
+{
+  "files": {
+    "include": "core/sass/*.scss",
+    "ignore": [
+      "node_modules/**/*.*",
+      "node_modules/node-sass/**/*.*"
+    ]
+  },
+  "rules": {
+    "property-sort-order": [
+      1,
+      {
+        "order": "smacss"
+      }
+    ],
+    "class-name-format": [
+      1,
+      {
+        "convention": "hyphenatedbem"
+      }
+    ],
+    "no-color-literals": 0,
+    "nesting-depth": [
+      1,
+      {
+        "max-depth": 5
+      }
+    ],
+    "no-qualifying-elements": [
+      1,
+      {
+        "allow-element-with-attribute": true
+      }
+    ],
+    "force-pseudo-nesting": 0,
+    "mixins-before-declarations": [
+      1,
+      {
+        "exclude": ["mobile", "tablet", "mobile-and-tablet"]
+      }
+    ]
+  }
+}

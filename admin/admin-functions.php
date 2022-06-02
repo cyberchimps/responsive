@@ -41,6 +41,13 @@ function responsive_enqueue_notices_handler() {
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		)
 	);
+	$localize = array(
+		'ajaxUrl'            => admin_url( 'admin-ajax.php' ),
+		'ajax_nonce'         => wp_create_nonce( 'responsive-builder-module-nonce' ),
+		'old_header_footer'  => __( 'Activate Default Header/Footer Builder', 'responsive' ),
+		'migrate_to_builder' => __( 'Activate Responsive Header/Footer Builder', 'responsive' ),
+	);
+	wp_localize_script( 'responsive-plugin-notices-handler', 'responsive', $localize );
 
 	wp_enqueue_script( 'responsive-plugin-notices-handler' );
 }

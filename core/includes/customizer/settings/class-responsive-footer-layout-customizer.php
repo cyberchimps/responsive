@@ -132,13 +132,13 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			);
 
 			$wp_customize->add_control(
-				'res_copyright_textbox',
+				'res_footer_copyright_textbox',
 				array(
-					'label'    => __( 'Copyright HTML', 'responsive' ),
-					'section'  => 'responsive_footer_layout',
-					'settings' => 'responsive_theme_options[copyright_textbox]',
-					'type'     => 'textarea',
-					'priority' => 110,
+					'label'       => __( 'Copyright HTML', 'responsive' ),
+					'section'     => 'responsive_footer_layout',
+					'settings'    => 'responsive_theme_options[copyright_textbox]',
+					'type'        => 'textarea',
+					'priority'    => 110,
 					'description' => __( 'If this is empty, site title will be visible as copyright text', 'responsive' ),
 				)
 			);
@@ -148,8 +148,8 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			responsive_checkbox_control( $wp_customize, 'copyright_icon_and_year', $copyright_icon_and_year_label, 'responsive_footer_layout', 115, 0, null, 'postMessage' );
 
 			// Open copyright in new tab.
-			$copyright_new_tab = esc_html__( 'Open Powered By link in new tab', 'responsive' );
-			$copyright_new_tab_choices   = array(
+			$copyright_new_tab         = esc_html__( 'Open Powered By link in new tab', 'responsive' );
+			$copyright_new_tab_choices = array(
 				'_self'  => esc_html__( 'No', 'responsive' ),
 				'_blank' => esc_html__( 'Yes', 'responsive' ),
 			);
@@ -184,8 +184,6 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			responsive_number_control( $wp_customize, 'footer_border_size', $footer_border_label, 'responsive_footer_layout', 145, 1 );
 
-
-
 			/**
 			 * Social Links Separator.
 			 */
@@ -199,7 +197,6 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 				'_blank' => esc_html__( 'Yes', 'responsive' ),
 			);
 			responsive_select_control( $wp_customize, 'social_link_new_tab', $social_link_new_label, 'responsive_footer_layout', 155, $social_link_choices, '_self', null );
-
 
 			// Add Twitter Setting.
 			$wp_customize->add_setting(
