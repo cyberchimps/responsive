@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.7.3\n"
+"Project-Id-Version: Responsive 4.7.4\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2022-04-28 09:54:30+00:00\n"
+"POT-Creation-Date: 2022-05-11 09:08:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5050,6 +5050,22 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:158
 msgid "Border Radius (%)"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:184
+msgid "Icon Color"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:205
+msgid "Icon Hover Color"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:226
+msgid "Icon Background Color"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:247
+msgid "Icon Background Hover Color"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:46
