@@ -43,9 +43,11 @@ if ( ! class_exists( 'Responsive_Footer_Colors_Customizer' ) ) :
 			);
 
 			// Background Color.
-			$footer_background_label = __( 'Background Color', 'responsive' );
+			$section_is_hfb          = get_option( 'is-header-footer-builder' ) ? 'responsive_colors' : 'responsive_footer_colors';
+			$priority_is_hfb         = get_option( 'is-header-footer-builder' ) ? 21 : 10;
+			$footer_background_label = get_option( 'is-header-footer-builder' ) ? __( 'Footer Background Color', 'responsive' ) : __( 'Background Color', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'footer_background', $footer_background_label, 'responsive_footer_colors', 10, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ), null );
+			responsive_color_control( $wp_customize, 'footer_background', $footer_background_label, $section_is_hfb, $priority_is_hfb, Responsive\Core\get_responsive_customizer_defaults( 'footer_background' ), null );
 
 			// Text Color.
 			$footer_text_label = __( 'Text Color', 'responsive' );
@@ -62,7 +64,6 @@ if ( ! class_exists( 'Responsive_Footer_Colors_Customizer' ) ) :
 			// Links Color.
 			$footer_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_border', $footer_border_color_label, 'responsive_footer_colors', 50, '#aaaaaa', null );
-
 
 		}
 

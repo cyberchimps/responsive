@@ -1,3 +1,6 @@
+
+@import 'builder-header';
+
 /**
  * Site header and Header Menu styles
  * -----------------------------------------------------------------------------
@@ -44,6 +47,12 @@
             max-width: 250px;
         }
     }
+    .site-mobile-header-layout-horizontal #mobile-header & {
+        @media( max-width: map-get($screens, sm) ) {
+            max-width: 100%;
+        }
+    }
+
 
     .site-mobile-header-layout-vertical & {
         @media( max-width: map-get($screens, sm) ) {

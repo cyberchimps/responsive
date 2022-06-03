@@ -278,3 +278,15 @@ if ( ! function_exists( 'responsive_check_submenu_divider' ) ) {
 
 	}
 }
+/**
+ * Sanitize Builder Setting.
+ *
+ * @param [type] $input
+ * @return array
+ */
+function responsive_sanitize_builder( $input ) {
+	if ( is_array( $input ) ) {
+		return $input;
+	}
+	return array();
+}

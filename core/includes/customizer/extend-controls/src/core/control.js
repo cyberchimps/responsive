@@ -38,6 +38,72 @@
 		control.propertyElements = [];
 		wp.customize.Control.prototype.initialize.call( control, id, args );
 	},
+	/**
+	 * Add bidirectional data binding links between inputs and the setting(s).
+	 *
+	 * This is copied from wp.customize.Control.prototype.initialize(). It
+	 * should be changed in Core to be applied once the control is embedded.
+	 *
+	 * @private
+	 * @returns {null}
+	 */
+	 _setUpSettingRootLinks: function() {
+		var control = this,
+			nodes   = control.container.find( '[data-customize-setting-link]' );
+
+		nodes.each( function() {
+			var node = jQuery( this );
+
+			wp.customize( node.data( 'customizeSettingLink' ), function( setting ) {
+				var element = new wp.customize.Element( node );
+				control.elements.push( element );
+				element.sync( setting );
+				element.set( setting() );
+			} );
+		} );
+	},
+
+	/**
+	 * Add bidirectional data binding links between inputs and the setting properties.
+	 *
+	 * @private
+	 * @returns {null}
+	 */
+	_setUpSettingPropertyLinks: function() {
+		var control = this,
+			nodes;
+
+		if ( ! control.setting ) {
+			return;
+		}
+
+		nodes = control.container.find( '[data-customize-setting-property-link]' );
+
+		nodes.each( function() {
+			var node = jQuery( this ),
+				element,
+				propertyName = node.data( 'customizeSettingPropertyLink' );
+
+			element = new wp.customize.Element( node );
+			control.propertyElements.push( element );
+			element.set( control.setting()[ propertyName ] );
+
+			element.bind( function( newPropertyValue ) {
+				var newSetting = control.setting();
+				if ( newPropertyValue === newSetting[ propertyName ] ) {
+					return;
+				}
+				newSetting = _.clone( newSetting );
+				newSetting[ propertyName ] = newPropertyValue;
+				control.setting.set( newSetting );
+			} );
+			control.setting.bind( function( newValue ) {
+				if ( newValue[ propertyName ] !== element.get() ) {
+					element.set( newValue[ propertyName ] );
+				}
+			} );
+		} );
+	},
 
 	/**
 	 * Triggered when the control's markup has been injected into the DOM.

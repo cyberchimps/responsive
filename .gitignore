@@ -54,7 +54,10 @@ core/css/woocommerce.min.css
 core/includes/customizer/assets/js/typography-customize-preview.min.js
 core/includes/customizer/assets/js/*.min.*
 jenkincodeception/vendor
-
+core/includes/customizer/controls/builder/builder-controls.css
+core/includes/customizer/assets/min/css/builder-control.min.css
 tests/tests/_output/
 .test/tests/_output/
 *.sql
+/core/includes/customizer/assets/min/css/customize-preview.min.css
+/core/includes/customizer/controls/builder/customize-preview.css

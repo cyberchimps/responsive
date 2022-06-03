@@ -18,6 +18,9 @@ namespace Responsive\Core;
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 require get_template_directory() . '/core/includes/page-custom-meta.php';
 
+// Load the template hooks.
+require get_template_directory() . '/core/includes/template-hooks.php';
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -237,18 +240,19 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		add_theme_support( 'wc-product-gallery-zoom' );
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-slider' );
-
-		/**
-		 * This feature enables custom-menus support for a theme.
-		 *
-		 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
-		 */
-		register_nav_menus(
-			array(
-				'header-menu' => __( 'Header Menu', 'responsive' ),
-				'footer-menu' => __( 'Footer Menu', 'responsive' ),
-			)
+		if ( ! get_option( 'is-header-footer-builder' ) ) {
+			/**
+			 * This feature enables custom-menus support for a theme.
+			 *
+			 * @see http://codex.wordpress.org/Function_Reference/register_nav_menus
+			 */
+			register_nav_menus(
+				array(
+					'header-menu' => __( 'Header Menu', 'responsive' ),
+					'footer-menu' => __( 'Footer Menu', 'responsive' ),
+				)
 		);
+		}
 
 		add_theme_support( 'custom-background' );
 
@@ -393,7 +397,20 @@ if ( ! function_exists( 'responsive_js' ) ) {
 
 		$mobile_menu_breakpoint = array( 'mobileBreakpoint' => get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		wp_localize_script( 'navigation-scripts', 'responsive_breakpoint', $mobile_menu_breakpoint );
-
+		wp_localize_script(
+			'navigation-scripts',
+			'responsiveConfig',
+			array(
+				'screenReader' => array(
+					'expand'   => __( 'Expand child menu', 'responsive' ),
+					'collapse' => __( 'Collapse child menu', 'responsive' ),
+				),
+				'breakPoints'  => array(
+					'desktop' => esc_attr( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) ),
+					'tablet'  => 768,
+				),
+			)
+		);
 	}
 }
 
@@ -1078,6 +1095,74 @@ function defaults() {
 			'responsive_body_text_color'          => '#333333',
 			'responsive_link_color'               => '#0066CC',
 			'responsive_link_hover_color'         => '#10659C',
+
+			'header_desktop_items'                => array(
+				'top'    => array(
+					'top_left'         => array(),
+					'top_left_center'  => array(),
+					'top_center'       => array(),
+					'top_right_center' => array(),
+					'top_right'        => array(),
+				),
+				'main'   => array(
+					'main_left'         => array( 'logo' ),
+					'main_left_center'  => array(),
+					'main_center'       => array(),
+					'main_right_center' => array(),
+					'main_right'        => array( 'navigation' ),
+				),
+				'bottom' => array(
+					'bottom_left'         => array(),
+					'bottom_left_center'  => array(),
+					'bottom_center'       => array(),
+					'bottom_right_center' => array(),
+					'bottom_right'        => array(),
+				),
+			),
+			'header_mobile_items'                 => array(
+				'popup'  => array(
+					'popup_content' => array( 'mobile-navigation' ),
+				),
+				'top'    => array(
+					'top_left'   => array(),
+					'top_center' => array(),
+					'top_right'  => array(),
+				),
+				'main'   => array(
+					'main_left'   => array( 'mobile-logo' ),
+					'main_center' => array(),
+					'main_right'  => array( 'popup-toggle' ),
+				),
+				'bottom' => array(
+					'bottom_left'   => array(),
+					'bottom_center' => array(),
+					'bottom_right'  => array(),
+				),
+			),
+			'footer_items'                        => array(
+				'top'    => array(
+					'top_1' => array(),
+					'top_2' => array(),
+					'top_3' => array(),
+					'top_4' => array(),
+					'top_5' => array(),
+				),
+				'middle' => array(
+					'middle_1' => array(),
+					'middle_2' => array(),
+					'middle_3' => array(),
+					'middle_4' => array(),
+					'middle_5' => array(),
+				),
+				'bottom' => array(
+					'bottom_1' => array( 'footer-html' ),
+					'bottom_2' => array(),
+					'bottom_3' => array(),
+					'bottom_4' => array(),
+					'bottom_5' => array(),
+				),
+			),
+
 		)
 	);
 	return $theme_options;
