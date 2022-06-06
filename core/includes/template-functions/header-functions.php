@@ -1170,7 +1170,7 @@ function header_cart() {
 			echo '</a>';
 		} elseif ( 'slide' === get_theme_mod( 'responsive_header_cart_style', 'link' ) ) {
 			add_action( 'wp_footer', 'cart_popup', 5 );
-			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
+			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'responsive_header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
@@ -1215,12 +1215,12 @@ function header_cart() {
  */
 function cart_popup() {
 	?>
-	<div id="cart-drawer" class="popup-drawer popup-drawer-layout-sidepanel popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'responsive_header_cart_popup_side', 'right' ) ); ?> popup-mobile-drawer-side-<?php echo esc_attr( get_theme_mod( 'header_mobile_cart_popup_side', 'left' ) ); ?>" data-drawer-target-string="#cart-drawer">
+	<div id="cart-drawer" class="popup-drawer popup-drawer-layout-sidepanel popup-drawer-side-<?php echo esc_attr( get_theme_mod( 'responsive_header_cart_popup_side', 'right' ) ); ?> popup-mobile-drawer-side-<?php echo esc_attr( get_theme_mod( 'responsive_header_mobile_cart_popup_side', 'left' ) ); ?>" data-drawer-target-string="#cart-drawer">
 		<div class="drawer-overlay" data-drawer-target-string="#cart-drawer"></div>
 		<div class="drawer-inner">
 			<div class="drawer-header">
 				<h2 class="side-cart-header"><?php esc_html_e( 'Review Cart', 'responsive' ); ?></h2>
-				<button class="cart-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close Cart', 'responsive' ); ?>"  data-toggle-target="#cart-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( get_theme_mod( 'header_mobile_cart_popup_side', 'left' ) ); ?>" aria-expanded="false" data-set-focus=".header-cart-button">
+				<button class="cart-toggle-close drawer-toggle" aria-label="<?php esc_attr_e( 'Close Cart', 'responsive' ); ?>"  data-toggle-target="#cart-drawer" data-toggle-body-class="showing-popup-drawer-from-<?php echo esc_attr( get_theme_mod( 'responsive_header_mobile_cart_popup_side', 'left' ) ); ?>" aria-expanded="false" data-set-focus=".header-cart-button">
 					<?php echo get_icon( 'close', '', false ); ?>
 				</button>
 			</div>
@@ -1262,7 +1262,7 @@ function mobile_cart() {
 			echo '</a>';
 		} elseif ( 'slide' === get_theme_mod( 'responsive_header_mobile_cart_style', 'link' ) ) {
 			add_action( 'wp_footer', 'cart_popup', 5 );
-			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
+			echo '<button data-toggle-target="#cart-drawer"' . ( ! empty( $label ) ? '' : ' aria-label="' . esc_attr__( 'Shopping Cart', 'responsive' ) . '"' ) . ' class="drawer-toggle header-cart-button" data-toggle-body-class="showing-popup-drawer-from-' . esc_attr( get_theme_mod( 'responsive_header_mobile_cart_popup_side' ) ) . '" aria-expanded="false" data-set-focus=".cart-toggle-close">';
 			if ( ! empty( $label ) || is_customize_preview() ) {
 				?>
 				<span class="header-cart-label"><?php echo esc_html( $label ); ?></span>
