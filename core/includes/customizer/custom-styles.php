@@ -2031,63 +2031,63 @@ function responsive_customizer_styles() {
 
 	// Hide Widget1.
 	$footer_widget1_desktop_visibility = get_theme_mod( 'responsive_footer_widget1_hide_on_desktop', 0 );
-	$footer_widget1_desktop_visibility = ( 1 === $footer_widget1_desktop_visibility ) ? 'none' : 'block';
+	$footer_widget1_desktop_visibility = ( 1 === $footer_widget1_desktop_visibility ) ? 'none' : 'flex';
 
 	$footer_widget1_tablet_visibility = get_theme_mod( 'responsive_footer_widget1_hide_on_tablet', 0 );
-	$footer_widget1_tablet_visibility = ( 1 === $footer_widget1_tablet_visibility ) ? 'none' : 'block';
+	$footer_widget1_tablet_visibility = ( 1 === $footer_widget1_tablet_visibility ) ? 'none' : 'flex';
 
 	$footer_widget1_mobile_visibility = get_theme_mod( 'responsive_footer_widget1_hide_on_mobile', 0 );
-	$footer_widget1_mobile_visibility = ( 1 === $footer_widget1_mobile_visibility ) ? 'none' : 'block';
+	$footer_widget1_mobile_visibility = ( 1 === $footer_widget1_mobile_visibility ) ? 'none' : 'flex';
 
 	// Hide Widget2.
 	$footer_widget2_desktop_visibility = get_theme_mod( 'responsive_footer_widget2_hide_on_desktop', 0 );
-	$footer_widget2_desktop_visibility = ( 1 === $footer_widget2_desktop_visibility ) ? 'none' : 'block';
+	$footer_widget2_desktop_visibility = ( 1 === $footer_widget2_desktop_visibility ) ? 'none' : 'flex';
 
 	$footer_widget2_tablet_visibility = get_theme_mod( 'responsive_footer_widget2_hide_on_tablet', 0 );
-	$footer_widget2_tablet_visibility = ( 1 === $footer_widget2_tablet_visibility ) ? 'none' : 'block';
+	$footer_widget2_tablet_visibility = ( 1 === $footer_widget2_tablet_visibility ) ? 'none' : 'flex';
 
 	$footer_widget2_mobile_visibility = get_theme_mod( 'responsive_footer_widget2_hide_on_mobile', 0 );
-	$footer_widget2_mobile_visibility = ( 1 === $footer_widget2_mobile_visibility ) ? 'none' : 'block';
+	$footer_widget2_mobile_visibility = ( 1 === $footer_widget2_mobile_visibility ) ? 'none' : 'flex';
 
 	// Hide Widget3.
 	$footer_widget3_desktop_visibility = get_theme_mod( 'responsive_footer_widget3_hide_on_desktop', 0 );
-	$footer_widget3_desktop_visibility = ( 1 === $footer_widget3_desktop_visibility ) ? 'none' : 'block';
+	$footer_widget3_desktop_visibility = ( 1 === $footer_widget3_desktop_visibility ) ? 'none' : 'flex';
 
 	$footer_widget3_tablet_visibility = get_theme_mod( 'responsive_footer_widget3_hide_on_tablet', 0 );
-	$footer_widget3_tablet_visibility = ( 1 === $footer_widget3_tablet_visibility ) ? 'none' : 'block';
+	$footer_widget3_tablet_visibility = ( 1 === $footer_widget3_tablet_visibility ) ? 'none' : 'flex';
 
 	$footer_widget3_mobile_visibility = get_theme_mod( 'responsive_footer_widget3_hide_on_mobile', 0 );
-	$footer_widget3_mobile_visibility = ( 1 === $footer_widget3_mobile_visibility ) ? 'none' : 'block';
+	$footer_widget3_mobile_visibility = ( 1 === $footer_widget3_mobile_visibility ) ? 'none' : 'flex';
 
 	// Hide Widget4.
 	$footer_widget4_desktop_visibility = get_theme_mod( 'responsive_footer_widget4_hide_on_desktop', 0 );
-	$footer_widget4_desktop_visibility = ( 1 === $footer_widget4_desktop_visibility ) ? 'none' : 'block';
+	$footer_widget4_desktop_visibility = ( 1 === $footer_widget4_desktop_visibility ) ? 'none' : 'flex';
 
 	$footer_widget4_tablet_visibility = get_theme_mod( 'responsive_footer_widget4_hide_on_tablet', 0 );
-	$footer_widget4_tablet_visibility = ( 1 === $footer_widget4_tablet_visibility ) ? 'none' : 'block';
+	$footer_widget4_tablet_visibility = ( 1 === $footer_widget4_tablet_visibility ) ? 'none' : 'flex';
 
 	$footer_widget4_mobile_visibility = get_theme_mod( 'responsive_footer_widget4_hide_on_mobile', 0 );
-	$footer_widget4_mobile_visibility = ( 1 === $footer_widget4_mobile_visibility ) ? 'none' : 'block';
+	$footer_widget4_mobile_visibility = ( 1 === $footer_widget4_mobile_visibility ) ? 'none' : 'flex';
 
 	// Hide Widget5.
 	$footer_widget5_desktop_visibility = get_theme_mod( 'responsive_footer_widget5_hide_on_desktop', 0 );
-	$footer_widget5_desktop_visibility = ( 1 === $footer_widget5_desktop_visibility ) ? 'none' : 'block';
+	$footer_widget5_desktop_visibility = ( 1 === $footer_widget5_desktop_visibility ) ? 'none' : 'flex';
 
 	$footer_widget5_tablet_visibility = get_theme_mod( 'responsive_footer_widget5_hide_on_tablet', 0 );
-	$footer_widget5_tablet_visibility = ( 1 === $footer_widget5_tablet_visibility ) ? 'none' : 'block';
+	$footer_widget5_tablet_visibility = ( 1 === $footer_widget5_tablet_visibility ) ? 'none' : 'flex';
 
 	$footer_widget5_mobile_visibility = get_theme_mod( 'responsive_footer_widget5_hide_on_mobile', 0 );
-	$footer_widget5_mobile_visibility = ( 1 === $footer_widget5_mobile_visibility ) ? 'none' : 'block';
+	$footer_widget5_mobile_visibility = ( 1 === $footer_widget5_mobile_visibility ) ? 'none' : 'flex';
 
 	// Hide Widget6.
 	$footer_widget6_desktop_visibility = get_theme_mod( 'responsive_footer_widget6_hide_on_desktop', 0 );
-	$footer_widget6_desktop_visibility = ( 1 === $footer_widget6_desktop_visibility ) ? 'none' : 'block';
+	$footer_widget6_desktop_visibility = ( 1 === $footer_widget6_desktop_visibility ) ? 'none' : 'flex';
 
 	$footer_widget6_tablet_visibility = get_theme_mod( 'responsive_footer_widget6_hide_on_tablet', 0 );
-	$footer_widget6_tablet_visibility = ( 1 === $footer_widget6_tablet_visibility ) ? 'none' : 'block';
+	$footer_widget6_tablet_visibility = ( 1 === $footer_widget6_tablet_visibility ) ? 'none' : 'flex';
 
 	$footer_widget6_mobile_visibility = get_theme_mod( 'responsive_footer_widget6_hide_on_mobile', 0 );
-	$footer_widget6_mobile_visibility = ( 1 === $footer_widget6_mobile_visibility ) ? 'none' : 'block';
+	$footer_widget6_mobile_visibility = ( 1 === $footer_widget6_mobile_visibility ) ? 'none' : 'flex';
 
 	$custom_css .= ".footer-widgets {
 		display: {$footer_widget_desktop_visibility};
