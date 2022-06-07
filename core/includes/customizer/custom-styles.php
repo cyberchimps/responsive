@@ -2712,33 +2712,42 @@ function responsive_customizer_styles() {
 	}';
 
 	// Logo Padding.
-	$logo_padding_right  = esc_html( get_theme_mod( 'responsive_logo_right_padding', null ) );
-	$logo_padding_left   = esc_html( get_theme_mod( 'responsive_logo_left_padding', null ) );
-	$logo_padding_top    = esc_html( get_theme_mod( 'responsive_logo_top_padding', null ) );
-	$logo_padding_bottom = esc_html( get_theme_mod( 'responsive_logo_bottom_padding', null ) );
+	$logo_padding_right  = esc_html( get_theme_mod( 'responsive_logo_right_padding' ) );
+	$logo_padding_left   = esc_html( get_theme_mod( 'responsive_logo_left_padding' ) );
+	$logo_padding_top    = esc_html( get_theme_mod( 'responsive_logo_top_padding' ) );
+	$logo_padding_bottom = esc_html( get_theme_mod( 'responsive_logo_bottom_padding' ) );
 
-	$logo_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_logo_tablet_right_padding', null ) );
-	$logo_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_logo_tablet_left_padding', null ) );
-	$logo_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_logo_tablet_top_padding', null ) );
-	$logo_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_logo_tablet_bottom_padding', null ) );
+	$logo_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_logo_tablet_right_padding' ) );
+	$logo_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_logo_tablet_left_padding' ) );
+	$logo_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_logo_tablet_top_padding' ) );
+	$logo_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_logo_tablet_bottom_padding' ) );
 
-	$logo_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_logo_mobile_right_padding', null ) );
-	$logo_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_logo_mobile_left_padding', null ) );
-	$logo_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_logo_mobile_top_padding', null ) );
-	$logo_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_logo_mobile_bottom_padding', null ) );
+	$logo_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_logo_mobile_right_padding' ) );
+	$logo_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_logo_mobile_left_padding' ) );
+	$logo_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_logo_mobile_top_padding' ) );
+	$logo_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_logo_mobile_bottom_padding' ) );
+
+	$desktop_logo_padding = responsive_spacing_css( $logo_padding_top, $logo_padding_right, $logo_padding_bottom, $logo_padding_left );
+	$desktop_logo_padding = '0px' !== $desktop_logo_padding ? $desktop_logo_padding : '';
+
+	$tablet_logo_padding = responsive_spacing_css( $logo_tablet_padding_top, $logo_tablet_padding_right, $logo_tablet_padding_bottom, $logo_tablet_padding_left );
+	$tablet_logo_padding = '0px' !== $tablet_logo_padding ? $tablet_logo_padding : '';
+
+	$mobile_logo_padding = responsive_spacing_css( $logo_mobile_padding_top, $logo_mobile_padding_right, $logo_mobile_padding_bottom, $logo_mobile_padding_left );
+	$mobile_logo_padding = '0px' !== $mobile_logo_padding ? $mobile_logo_padding : '';
 
 	$custom_css .= '.site-branding {
-		padding: ' . responsive_spacing_css( $logo_padding_top, $logo_padding_right, $logo_padding_bottom, $logo_padding_left ) . ';
+		padding: ' . $desktop_logo_padding . ';
 
 	}
 	@media screen and ( max-width: 992px ) {
 		.site-branding {
-			padding: ' . responsive_spacing_css( $logo_tablet_padding_top, $logo_tablet_padding_right, $logo_tablet_padding_bottom, $logo_tablet_padding_left ) . ';
+			padding: ' . $tablet_logo_padding . ';
 		}
 	}
 	@media screen and ( max-width: 576px ) {
 		.site-branding {
-			padding: ' . responsive_spacing_css( $logo_mobile_padding_top, $logo_mobile_padding_right, $logo_mobile_padding_bottom, $logo_mobile_padding_left ) . ';
+			padding: ' . $mobile_logo_padding . ';
 		}
 	}';
 
