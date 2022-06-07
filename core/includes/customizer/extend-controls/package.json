@@ -5,18 +5,19 @@
   "main": "src/index.js",
   "dependencies": {
     "@fonticonpicker/react-fonticonpicker": "^1.2.0",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
+    "html-react-parser": "^1.4.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-html-parser": "^2.0.2",
-    "react-select": "^3.1.0",
+    "react-select": "^5.2.1",
     "react-sortablejs": "^6.0.0",
-    "sortablejs": "^1.12.0",
+    "sortablejs": "^1.14.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^12.5.0"
+    "@wordpress/scripts": "^19.2.2"
   },
   "scripts": {
     "build": "wp-scripts build",
