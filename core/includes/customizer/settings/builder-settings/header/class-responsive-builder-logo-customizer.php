@@ -81,7 +81,7 @@ if ( ! class_exists( 'Responsive_Logo_Customizer' ) ) :
 
 			// Padding (px).
 			$logo_padding_label = __( 'Padding (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'logo', 'responsive_customizer_logo', 45, null, null, null, $logo_padding_label );
+			responsive_padding_control( $wp_customize, 'logo', 'responsive_customizer_logo', 45, null, 28, 0, $logo_padding_label );
 
 			// Site Title Color.
 			$site_title_color_label = __( 'Site Title Color', 'responsive' );
