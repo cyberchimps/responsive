@@ -229,6 +229,18 @@
 
 
 /* global responsiveConfig */
+if ( typeof responsiveConfig == "undefined" ) {
+	responsiveConfig = {
+		"screenReader": {
+			"expand": "Expand child menu",
+			"collapse": "Collapse child menu"
+		},
+		"breakPoints": {
+			"desktop": 767,
+			"tablet": 768
+		}
+	};
+}
 /**
  * File navigation.js.
  *
