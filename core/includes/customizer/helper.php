@@ -804,6 +804,34 @@ function responsive_custom_excerpt_length( $length ) {
 
 	return $length;
 }
+
+/**
+ * Returns excerpt cut with given length
+ *
+ * @param  string $text text of excerpt.
+ * @return integer $limit       Length of excerpt.
+ */
+function responsive_custom_excerpt_limit_text( $text ) {
+	$limit = get_theme_mod( 'responsive_excerpt_length' );
+	if ( ! empty( $limit ) ) {
+		if ( str_word_count( $text, 0 ) > $limit ) {
+			$words = str_word_count( $text, 2 );
+			$pos   = array_keys( $words );
+			$text  = substr( $text, 0, $pos[ $limit ] );
+		}
+	}
+	$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
+
+	$post_link = sprintf(
+		esc_html( '%s' ),
+		'<a class="more-link" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
+	);
+
+	$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
+	$text  .= $output;
+	return $text;
+}
+
 /**
  * Function to get Read More Link of Post
  *

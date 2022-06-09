@@ -15,8 +15,16 @@ $format = get_post_format();
 
 $responsive_blog_entry_content_type = get_theme_mod( 'responsive_blog_entry_content_type', 'excerpt' );
 if ( 'excerpt' === $responsive_blog_entry_content_type ) {
-	add_filter( 'excerpt_length', 'responsive_custom_excerpt_length' );
-	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
+	if ( has_excerpt() ) {
+		add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
+		add_filter( 'get_the_excerpt', 'responsive_custom_excerpt_limit_text' );
+	} else {
+		if ( has_filter( 'get_the_excerpt' ) ) {
+			remove_filter( 'get_the_excerpt', 'responsive_custom_excerpt_limit_text' );
+		}
+		add_filter( 'excerpt_length', 'responsive_custom_excerpt_length' );
+		add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
+	}
 } elseif ( 'content' === $responsive_blog_entry_content_type ) {
 	add_filter( 'the_content_more_link', 'responsive_modify_read_more_link' );
 	add_filter( 'responsive_post_read_more', 'responsive_read_more_text' );
