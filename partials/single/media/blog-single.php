@@ -33,6 +33,7 @@ $caption = get_the_post_thumbnail_caption(); ?>
 	the_post_thumbnail( 'full', $img_args );
 
 	// Caption.
+	if ( 0 === get_theme_mod('responsive_single_blog_featured_image_caption') ) {
 	if ( $caption ) {
 		?>
 		<div class="thumbnail-caption">
@@ -40,6 +41,7 @@ $caption = get_the_post_thumbnail_caption(); ?>
 		</div>
 		<?php
 	}
+}
 	?>
 
 </div><!-- .thumbnail -->
