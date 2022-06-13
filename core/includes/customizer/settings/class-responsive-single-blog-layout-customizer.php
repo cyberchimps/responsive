@@ -116,8 +116,8 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			}
 			responsive_select_control( $wp_customize, 'single_blog_featured_image_alignment', $featured_image_alignment_label, 'responsive_single_blog_layout', 70, $featured_image_alignment_choices, 'left', null );
 
-			//Featured Image Caption.
-			$featured_image_caption_label   = esc_html__( 'Hide Image Caption', 'responsive' );
+			// Featured Image Caption.
+			$featured_image_caption_label = esc_html__( 'Hide Image Caption', 'responsive' );
 			responsive_checkbox_control( $wp_customize, 'single_blog_featured_image_caption', $featured_image_caption_label, 'responsive_single_blog_layout', 75, 0 );
 
 			/**
@@ -243,7 +243,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 				);
 			}
 			responsive_select_control( $wp_customize, 'single_blog_content_alignment', $single_blog_content_alignment_label, 'responsive_single_blog_layout', 150, $single_blog_content_alignment_choices, 'left', null );
-
 
 		}
 
