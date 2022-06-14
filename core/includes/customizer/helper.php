@@ -818,20 +818,20 @@ function responsive_custom_excerpt_limit_text( $text ) {
 		$text      = strip_shortcodes( $text );
 		$check_end = 0;
 		if ( $limit >= str_word_count( $text, 0 ) - 1 ) {
-			$check_end        = 1;
-			$limit            = str_word_count( $text, 0 ) - 1;
-			$words            = str_word_count( $text, 2 );
-			$pos              = array_keys( $words );
-			$excerpt_end_text = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more &raquo;', 'responsive' ) );
-			$excerpt_end_arr  = explode( ' ', $excerpt_end_text );
-			$occ_char         = strripos( $text, $excerpt_end_arr[0] );
-			$text             = substr( $text, 0, $pos[ $limit ] );
-			$text_two         = substr( '' . $text, 0, $occ_char );
+			$check_end             = 1;
+			$limit                 = str_word_count( $text, 0 ) - 1;
+			$words                 = str_word_count( $text, 2 );
+			$pos                   = array_keys( $words );
+			$excerpt_end_text      = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more &raquo;', 'responsive' ) );
+			$excerpt_end_arr       = explode( ' ', $excerpt_end_text );
+			$occurence_of_end_char = strripos( $text, $excerpt_end_arr[0] );
+			$text                  = substr( $text, 0, $pos[ $limit ] );
+			$text_to_view          = substr( '' . $text, 0, $occurence_of_end_char );
 		} else {
-			$words    = str_word_count( $text, 2 );
-			$pos      = array_keys( $words );
-			$text     = substr( $text, 0, $pos[ $limit ] );
-			$text_two = $text;
+			$words        = str_word_count( $text, 2 );
+			$pos          = array_keys( $words );
+			$text         = substr( $text, 0, $pos[ $limit ] );
+			$text_to_view = $text;
 		}
 	}
 	$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
@@ -847,7 +847,7 @@ function responsive_custom_excerpt_limit_text( $text ) {
 		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
 	}
 
-	return $text_two .= $output;
+	return $text_to_view .= $output;
 }
 
 /**
