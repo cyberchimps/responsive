@@ -814,10 +814,24 @@ function responsive_custom_excerpt_length( $length ) {
 function responsive_custom_excerpt_limit_text( $text ) {
 	$limit = get_theme_mod( 'responsive_excerpt_length' );
 	if ( ! empty( $limit ) ) {
-		if ( str_word_count( $text, 0 ) > $limit ) {
-			$words = str_word_count( $text, 2 );
-			$pos   = array_keys( $words );
-			$text  = substr( $text, 0, $pos[ $limit ] );
+		$text      = wp_strip_all_tags( $text );
+		$text      = strip_shortcodes( $text );
+		$check_end = 0;
+		if ( $limit >= str_word_count( $text, 0 ) - 1 ) {
+			$check_end        = 1;
+			$limit            = str_word_count( $text, 0 ) - 1;
+			$words            = str_word_count( $text, 2 );
+			$pos              = array_keys( $words );
+			$excerpt_end_text = get_theme_mod( 'responsive_blog_read_more_text', __( 'Read more &raquo;', 'responsive' ) );
+			$excerpt_end_arr  = explode( ' ', $excerpt_end_text );
+			$occ_char         = strripos( $text, $excerpt_end_arr[0] );
+			$text             = substr( $text, 0, $pos[ $limit ] );
+			$text_two         = substr( '' . $text, 0, $occ_char );
+		} else {
+			$words    = str_word_count( $text, 2 );
+			$pos      = array_keys( $words );
+			$text     = substr( $text, 0, $pos[ $limit ] );
+			$text_two = $text;
 		}
 	}
 	$read_more_text = apply_filters( 'responsive_post_read_more', __( 'Read More &raquo;', 'responsive' ) );
@@ -827,9 +841,13 @@ function responsive_custom_excerpt_limit_text( $text ) {
 		'<a class="more-link" href="' . esc_url( get_permalink() ) . '"> ' . the_title( '<span class="screen-reader-text">', '</span>', false ) . ' ' . $read_more_text . '</a>'
 	);
 
-	$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
-	$text  .= $output;
-	return $text;
+	if ( 1 === $check_end ) {
+		$output = '<p class="read-more"> ' . $post_link . '</p>';
+	} else {
+		$output = ' &hellip;<p class="read-more"> ' . $post_link . '</p>';
+	}
+
+	return $text_two .= $output;
 }
 
 /**
