@@ -87,6 +87,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			);
 			responsive_select_control( $wp_customize, 'menu_last_item', $menu_last_item, 'responsive_header_menu_layout', 30, $menu_last_item_choices, 'none', 'responsive_disabled_main_menu' );
 
+			// Menu Left-Right Padding.
+			$menu_left_right_padding_label = __( 'Menu Left Right Padding (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'menu_left_right_padding', $menu_left_right_padding_label, 'responsive_header_menu_layout', 35, 18 );
+
 			// Last Item In Menu CTA Text.
 			$menu_button_text = __( 'CTA Button Text', 'responsive' );
 			responsive_text_control( $wp_customize, 'menu_button_text', $menu_button_text, 'responsive_header_menu_layout', 40, 'Call Now', 'responsive_menu_last_item_cta' );
