@@ -3,7 +3,7 @@
  * @package Responsive
  * */
 
-( function( $ ) {
+ ( function( $ ) {
 
 	var api              = wp.customize;
 	ResponsiveTypography = {
@@ -121,8 +121,11 @@ function get_associated_fonts(fontValue){
 	for (var propName in responsive.std_fonts) {
 		if (fontValue === propName) {
 			isStandardFont = true;
-			for (var i = 0; i < JSON.stringify( responsive.std_fonts[fontValue].weights.length ); i++) {
-				weightObject.push( JSON.stringify( responsive.std_fonts[fontValue].weights[i] ) );
+			for (var i = 0; i < JSON.stringify( responsive.std_fonts[fontValue][0].length ); i++) {
+				weight = JSON.stringify( responsive.std_fonts[fontValue][0][i] ).replace( /"/g, '' );
+				if ( ! weight.includes( 'italic' )) {
+					weightObject.push( weight );
+				}
 			}
 		}
 	}
@@ -137,7 +140,6 @@ function get_associated_fonts(fontValue){
 				}
 			}
 		}
-		
 	}
 	if ( missingCustomFont ) {
 		( function( $ ) {
