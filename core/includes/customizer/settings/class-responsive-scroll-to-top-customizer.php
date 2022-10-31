@@ -181,7 +181,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 					$wp_customize,
 					'responsive_scroll_to_top_icon_color',
 					array(
-						'label'    => 'Icon Color',
+						'label'    => __( 'Icon Color', 'responsive' ),
 						'section'  => 'responsive_scrolltotop_section',
 						'settings' => 'responsive_scroll_to_top_icon_color',
 						'priority' => 10,
@@ -202,7 +202,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 					$wp_customize,
 					'responsive_scroll_to_top_icon_hover_color',
 					array(
-						'label'    => 'Icon Hover Color',
+						'label'    => __( 'Icon Hover Color', 'responsive' ),
 						'section'  => 'responsive_scrolltotop_section',
 						'settings' => 'responsive_scroll_to_top_icon_hover_color',
 						'priority' => 10,
@@ -223,7 +223,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 					$wp_customize,
 					'responsive_scroll_to_top_icon_background_color',
 					array(
-						'label'    => 'Icon Background Color',
+						'label'    => __( 'Icon Background Color', 'responsive' ),
 						'section'  => 'responsive_scrolltotop_section',
 						'settings' => 'responsive_scroll_to_top_icon_background_color',
 						'priority' => 10,
@@ -244,7 +244,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 					$wp_customize,
 					'responsive_scroll_to_top_icon_background_hover_color',
 					array(
-						'label'    => 'Icon Background Hover Color',
+						'label'    => __( 'Icon Background Hover Color', 'responsive' ),
 						'section'  => 'responsive_scrolltotop_section',
 						'settings' => 'responsive_scroll_to_top_icon_background_hover_color',
 						'priority' => 10,

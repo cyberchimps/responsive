@@ -2425,6 +2425,22 @@ msgstr ""
 msgid "Border Radius (%)"
 msgstr ""
 
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:184
+msgid "Icon Color"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:205
+msgid "Icon Hover Color"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:226
+msgid "Icon Background Color"
+msgstr ""
+
+#: core/includes/customizer/settings/class-responsive-scroll-to-top-customizer.php:247
+msgid "Icon Background Hover Color"
+msgstr ""
+
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:46
 msgid "Headings Color"
 msgstr ""
