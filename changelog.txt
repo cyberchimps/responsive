@@ -8,12 +8,16 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(11/2/2022) = Fix - Version 4.7.5
+ [!] = Fixed = Fallback font for standard typography fonts.
+ [!] = Fixed = Dropdown Icon Size for Mobile Menu.
+
 (05/11/2022) = Fix - Version 4.7.4
  [+] = Added = Support for REA Theme Builder locations.
 
 (02/24/2022) = Fix - Version 4.7.3
  [!] = Fixed = Typography missing on selected custom font deletion or Responsive Pro deactivation.
- 
+
 (01/27/2022) = Fix - Version 4.7.2
  [+] = Added = Compatibility with WordPress 5.9.
 
