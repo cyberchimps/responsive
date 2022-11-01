@@ -57,10 +57,9 @@ const TypographyComponent = props => {
         if (description) {
             familyDescriptionHtml = <span class="description customize-control-description">{description}</span>
         }
-      
         if (stdFonts) {
             standardFontsOptionsHtml = Object.entries(stdFonts).map(font => {
-                let html = <option key={font[0]} value={font[0]}>{font[0]}</option>;
+                let html = <option key={font[0]} value={`\'${font[0]}\', ${font[1][1]}`}>{font[0]}</option>;
 		        return html;
             });
         }
