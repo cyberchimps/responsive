@@ -48,7 +48,7 @@
 						<div class="feature-description"><?php esc_html_e( 'Ready-to-use Elementor page builder and Gutenberg website templates', 'responsive' ); ?></div>
 					</td>
 					<td class="feature-status"><a href="https://cyberchimps.com/wordpress-themes/free/" target="_blank"><?php esc_html_e( 'Free Only', 'responsive' ); ?></a></td>
-					<td class="feature-status"><a href="https://cyberchimps.com/wordpress-themes/" target="_blank"><?php esc_html_e( '40+ Free & Pro', 'responsive' ); ?></a></td>
+					<td class="feature-status"><a href="https://cyberchimps.com/wordpress-themes/" target="_blank"><?php esc_html_e( '100+ Free & Pro', 'responsive' ); ?></a></td>
 				</tr>
 				<tr>
 					<td class="feature">
