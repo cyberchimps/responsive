@@ -9,6 +9,7 @@ Changelog Legend:
 [!] = Bugs
 
 (11/2/2022) = Fix - Version 4.7.5
+ [+] = Added = Compatibility with WordPress 6.1.
  [!] = Fixed = Fallback font for standard typography fonts.
  [!] = Fixed = Dropdown Icon Size for Mobile Menu.
 
