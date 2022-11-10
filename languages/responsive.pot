@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.7.4\n"
+"Project-Id-Version: Responsive 4.7.5\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2022-05-11 09:08:40+00:00\n"
+"POT-Creation-Date: 2022-11-08 11:41:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -131,7 +131,7 @@ msgid "Free Only"
 msgstr ""
 
 #: admin/templates/free-vs-pro.php:51
-msgid "40+ Free & Pro"
+msgid "100+ Free & Pro"
 msgstr ""
 
 #: admin/templates/free-vs-pro.php:55
@@ -3398,7 +3398,7 @@ msgid ""
 "Websites (Gutenberg & Elementor) # LMS Ready (Sensei, LearnDash) # RTL # "
 "Translations Ready & Included # WPML Compatible # Retina Logo # Layout "
 "Settings # Transparent Headers # White Label # Site/Blog Layouts #Unlimited "
-"Colors Check out the list of all 15+ ready sites here "
+"Colors Check out the list of all dy sites here "
 "https://cyberchimps.com/wordpress-themes/"
 msgstr ""
 
