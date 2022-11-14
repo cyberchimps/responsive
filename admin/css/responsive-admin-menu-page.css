@@ -269,17 +269,16 @@ a.responsivera-starter-sites-detail-link {
 .responsive-top-banner-text p{
 	color: #C5C3FF;
 }
-.responsive-top-banner-button div{
+.responsive-top-banner-button .plugin-card-responsive-add-ons{
 	text-align: center ;
-	padding: 19px 0 5px !important;
 }
-.responsive-top-banner-button a{
-	color: #FFFFFF !important;
-	font-weight: 600 !important;
-	padding: 9px 25px 9px 25px !important;
-	background-color: #FF793F !important;
-	border-radius: 2.5px !important;
-	border: none !important;
+.responsive-top-banner-button .plugin-card-responsive-add-ons a{
+	color: #FFFFFF ;
+	font-weight: 600 ;
+	padding: 9px 25px 9px 25px ;
+	background-color: #FF793F ;
+	border-radius: 2.5px ;
+	border: none ;
 }
 
 /* Bottom banner CSS*/
@@ -303,11 +302,13 @@ a.responsivera-starter-sites-detail-link {
 .responsive-bottom-banner-button div{
 	text-align: start ;
 }
-.responsive-bottom-banner-button a{
-	color: #FFFFFF !important;
-	padding: 9px 20px 9px 20px !important;
-	background-color: #FF793F !important;
-	border-radius: 5px !important;
+.responsive-bottom-banner-button .plugin-card-responsive-add-ons a{
+	color: #FFFFFF ;
+	font-weight: 600 ;
+	padding: 9px 25px 9px 25px ;
+	background-color:  #FF793F ;
+	border-radius: 2.5px ;
+	border: none ;
 }
 
 
