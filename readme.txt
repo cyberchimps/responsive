@@ -3,7 +3,7 @@ Contributors: cyberchimps
 Requires at least: 5.0
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 4.7.5
+Stable tag: 4.7.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -57,6 +57,8 @@ Used to render fonts in typography settings
 * Responsive: /images/box1.jpg, CC0, https://stocksnap.io/photo/2RHWIACZP0
 * Responsive: /images/box2.jpg, CC0, https://stocksnap.io/photo/47E77904CB
 * Responsive: /images/box3.jpg, CC0, https://stocksnap.io/photo/XQDKTDJD8K
+* Responsive: /images/rst-bottom-banner.png, https://www.cyberchimps.com
+* Responsive: /images/rst-top-banner.png, https://www.cyberchimps.com
 * Responsive: /core/images/featured-image.jpg, CC0, https://stocksnap.io/photo/C5Y10KIIHA
 * Responsive: /admin/images/responsive-thumbnail.jpg GPLv3, https://www.cyberchimps.com
 * Responsive: /images/responsive-starter-sites.jpg GPLv3, https://www.cyberchimps.com

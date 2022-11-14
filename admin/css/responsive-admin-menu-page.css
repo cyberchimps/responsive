@@ -258,3 +258,56 @@ a.responsivera-starter-sites-detail-link {
 .deactivate-ready-site {
 	display: none;
 }
+/* CSS for top and bottom banner in Responsive option submenu*/
+
+/* Top banner CSS*/
+.responsive-top-banner-text{
+		padding-bottom: 0px;
+	margin-top: 100px;
+	text-align: center;
+}
+.responsive-top-banner-text p{
+	color: #C5C3FF;
+}
+.responsive-top-banner-button div{
+	text-align: center ;
+	padding: 19px 0 5px !important;
+}
+.responsive-top-banner-button a{
+	color: #FFFFFF !important;
+	font-weight: 600 !important;
+	padding: 9px 25px 9px 25px !important;
+	background-color: #FF793F !important;
+	border-radius: 2.5px !important;
+	border: none !important;
+}
+
+/* Bottom banner CSS*/
+.inside-bottom-banner{
+	display: grid;
+	grid-template-columns: 75% 25%;
+}
+.responsive-bottom-banner-text p{
+	color: #C5C3FF;
+	font-weight: 400;
+	font-size: 13px;
+	padding-top: 124px;
+	text-align: start;
+	padding-left: 45px;
+
+}
+.responsive-bottom-banner-button {
+	padding-top: 80px;
+
+}
+.responsive-bottom-banner-button div{
+	text-align: start ;
+}
+.responsive-bottom-banner-button a{
+	color: #FFFFFF !important;
+	padding: 9px 20px 9px 20px !important;
+	background-color: #FF793F !important;
+	border-radius: 5px !important;
+}
+
+

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.7.5\n"
+"Project-Id-Version: Responsive 4.7.6\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2022-11-08 11:41:04+00:00\n"
+"POT-Creation-Date: 2022-11-14 04:44:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -158,6 +158,12 @@ msgstr ""
 msgid "Upgrade to Pro"
 msgstr ""
 
+#: admin/templates/get-started.php:25
+msgid ""
+"Get free access to 100+ ready-to-use Elementor & Block templates. Import a "
+"template, edit content and launch your website."
+msgstr ""
+
 #. Theme Name of the plugin/theme
 msgid "Responsive"
 msgstr ""
@@ -225,107 +231,97 @@ msgstr ""
 msgid "Responsive Options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:192
+#: core/includes/classes/class-responsive-admin-settings.php:191
 msgid "Get Started"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:194
+#: core/includes/classes/class-responsive-admin-settings.php:193
 msgid "Free Vs Pro "
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:229
-msgid "Import a website template(FREE)"
-msgstr ""
-
-#: core/includes/classes/class-responsive-admin-settings.php:235
-msgid ""
-"Install Responsive Starter Templates for Gutenberg & Elementor to get "
-"ready-to-use website templates that can be imported with one click."
-msgstr ""
-
-#: core/includes/classes/class-responsive-admin-settings.php:240
-msgid "Learn More &raquo;"
-msgstr ""
-
-#: core/includes/classes/class-responsive-admin-settings.php:267
+#: core/includes/classes/class-responsive-admin-settings.php:230
 msgid "Support"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:271
+#: core/includes/classes/class-responsive-admin-settings.php:234
 msgid "Have questions? Get in touch with us. We'll be happy to help"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:275
+#: core/includes/classes/class-responsive-admin-settings.php:238
 msgid "Request Support &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:301
+#: core/includes/classes/class-responsive-admin-settings.php:264
 #. translators: %1$s: Responsive Support link.
 msgid "Change site layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:306
+#: core/includes/classes/class-responsive-admin-settings.php:269
 msgid "Customize fonts/typography"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:311
+#: core/includes/classes/class-responsive-admin-settings.php:274
 msgid "Upload logo & site icon"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:316
+#: core/includes/classes/class-responsive-admin-settings.php:279
 msgid "Add/edit navigation menu"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:321
+#: core/includes/classes/class-responsive-admin-settings.php:284
 msgid "Customize header options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:326
+#: core/includes/classes/class-responsive-admin-settings.php:289
 msgid "Customize footer options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:331
+#: core/includes/classes/class-responsive-admin-settings.php:294
 msgid "Update blog layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:336
+#: core/includes/classes/class-responsive-admin-settings.php:299
 msgid "Update page layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:344
+#: core/includes/classes/class-responsive-admin-settings.php:307
 msgid "Quick Start:"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:363
+#: core/includes/classes/class-responsive-admin-settings.php:326
 msgid "Community"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:367
+#: core/includes/classes/class-responsive-admin-settings.php:330
 msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:371
+#: core/includes/classes/class-responsive-admin-settings.php:334
 msgid "Join Facebook Group &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:385
+#: core/includes/classes/class-responsive-admin-settings.php:348
 msgid "Feedback"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:389
+#: core/includes/classes/class-responsive-admin-settings.php:352
 msgid ""
 "Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:393
+#: core/includes/classes/class-responsive-admin-settings.php:356
 msgid "Submit Review &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:419
+#: core/includes/classes/class-responsive-admin-settings.php:374
+msgid "Get free access to 100+ ready-to-use Elementor & Block templates."
+msgstr ""
+
+#: core/includes/classes/class-responsive-admin-settings.php:403
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr ""
 
@@ -3382,23 +3378,24 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Responsive is a modern, lightweight, fully customizable, fast & Responsive "
-"WordPress theme, which includes 15+ ready-to-use templates for websites of "
-"all types (blog, WooCommerce, Portfolio, Podcast, Startups, Consultancy, "
-"Education, LMS, Auctions, and more). The theme is easy to customize and you "
-"can create blog or eCommerce websites using a user-friendly drag and drop "
-"interface. It is optimized for SEO with support for Schema.org microdata, "
-"fast loading speed, and responsive layout designs. Responsive works with "
-"all popular WordPress plugins, including WooCommerce, Sensei, bbPress, "
-"LearnDash, BuddyPress, etc. Fully compatible with popular page builders "
-"like Elementor, Brizy, Beaver Builder, Visual Composer, SiteOrigin, Divi, "
-"etc. It comes with ready to use websites: Built on Gutenberg & Elementor, "
+"Responsive is a fast, lightweight, & fully customizable WordPress theme, "
+"which offers 100+ free ready-to-use Elementor & WordPress Block templates "
+"for websites of all types (blog, WooCommerce, Portfolio, Podcast, Startups, "
+"Consultancy, Education, LMS, Auctions, and more). The theme is easy to "
+"customize and you can create blog or eCommerce websites using a "
+"user-friendly drag and drop interface. It's optimized for SEO with support "
+"for Schema.org microdata, fast loading speed, and responsive layout "
+"designs. Responsive works with all popular WordPress plugins like "
+"WooCommerce, bbPress, LearnDash, BuddyPress, etc. Responsive theme is fully "
+"compatible with popular page builders like Elementor, Brizy, Beaver "
+"Builder, Visual Composer, SiteOrigin, Divi, etc. It comes with ready to "
+"import websites: Built with Elementor & full site editing(FSE) features, "
 "it's an ideal theme to quickly launch a fully functional website. Features: "
-"# Responsive #Starter Data # WooCommerce Ready # Import Pre-Built Ready "
-"Websites (Gutenberg & Elementor) # LMS Ready (Sensei, LearnDash) # RTL # "
-"Translations Ready & Included # WPML Compatible # Retina Logo # Layout "
-"Settings # Transparent Headers # White Label # Site/Blog Layouts #Unlimited "
-"Colors Check out the list of all dy sites here "
+"#Responsive #Starter Templates #WooCommerce Ready #Import Pre-Built "
+"Elementor Websites (Elementor & Block editor) #LearnDash LMS Ready #RTL "
+"support #Translations Ready #WPML Compatible #Retina Logo #Layout Settings "
+"#Transparent Headers #Blog Layouts #Unlimited Colors. Check out the list of "
+"all 100+ Responsive Starter Templates: "
 "https://cyberchimps.com/wordpress-themes/"
 msgstr ""
 
