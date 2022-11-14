@@ -92,7 +92,6 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			self::$page_title      = apply_filters( 'responsive_page_title', __( 'Responsive', 'responsive' ) );
 			self::$plugin_slug     = self::get_theme_page_slug();
 
-
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
@@ -216,43 +215,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			require_once RESPONSIVE_THEME_DIR . 'admin/templates/free-vs-pro.php';
 		}
 
-		/**
-		 * Include Welcome page right starter sites content
-		 *
-		 * @since 4.0.3
-		 */
-		public static function responsive_welcome_page_starter_sites_section() {
-			?>
 
-			<div class="postbox responsive-import-starter-sites-section">
-				<h2 class="handle">
-					<span><?php echo esc_html( apply_filters( 'responsive_sites_menu_page_title', __( 'Import a website template(FREE)', 'responsive' ) ) ); ?></span>
-				</h2>
-				<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-starter-sites.png' ); ?>">
-				<div class="inside">
-					<p>
-						<?php
-						esc_html_e( 'Install Responsive Starter Templates for Gutenberg & Elementor to get ready-to-use website templates that can be imported with one click.', 'responsive' );
-						?>
-                        <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
-						<?php
-						$responsive_facebook_group_link      = 'https://wordpress.org/plugins/responsive-add-ons';
-						$responsive_facebook_group_link_text = __( 'Learn More &raquo;', 'responsive' );
-
-						printf(
-							'%1$s',
-							! empty( $responsive_facebook_group_link ) ? '<p><a href=' . esc_url( $responsive_facebook_group_link ) . ' target="_blank" rel="noopener">' . esc_html( $responsive_facebook_group_link_text ) . '</a></p>' :
-							esc_html( $responsive_facebook_group_link_text )
-						);
-						?>
-					</p>
-					<div>
-					</div>
-				</div>
-			</div>
-
-			<?php
-		}
 
 		/**
 		 * Include support section on right side of the Responsive Options page
@@ -398,6 +361,27 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 								esc_html( $responsive_submit_review_link_text )
 						);
 						?>
+					</div>
+				</div>
+			</div>
+
+			<div class="postbox responsive-bottom-banner" style="background-image: url(<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/rst-bottom-banner.png' ); ?>);background-size:auto; background-position: center;">
+				<div class="inside resposive-documentation inside-bottom-banner">
+					
+						<div class="responsive-bottom-banner-text">
+						<p>
+							<?php
+							esc_html_e( 'Get free access to 100+ ready-to-use Elementor & Block templates.', 'responsive' );
+							?>
+						</p>
+						</div>
+						<div class="responsive-bottom-banner-button">
+							<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
+							<?php
+							$responsive_facebook_group_link = 'https://wordpress.org/plugins/responsive-add-ons';
+							?>
+						</div>
+					<div>
 					</div>
 				</div>
 			</div>

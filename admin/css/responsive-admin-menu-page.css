@@ -258,3 +258,57 @@ a.responsivera-starter-sites-detail-link {
 .deactivate-ready-site {
 	display: none;
 }
+/* CSS for top and bottom banner in Responsive option submenu*/
+
+/* Top banner CSS*/
+.responsive-top-banner-text{
+		padding-bottom: 0px;
+	margin-top: 100px;
+	text-align: center;
+}
+.responsive-top-banner-text p{
+	color: #C5C3FF;
+}
+.responsive-top-banner-button .plugin-card-responsive-add-ons{
+	text-align: center ;
+}
+.responsive-top-banner-button .plugin-card-responsive-add-ons a{
+	color: #FFFFFF ;
+	font-weight: 600 ;
+	padding: 9px 25px 9px 25px ;
+	background-color: #FF793F ;
+	border-radius: 2.5px ;
+	border: none ;
+}
+
+/* Bottom banner CSS*/
+.inside-bottom-banner{
+	display: grid;
+	grid-template-columns: 75% 25%;
+}
+.responsive-bottom-banner-text p{
+	color: #C5C3FF;
+	font-weight: 400;
+	font-size: 13px;
+	padding-top: 124px;
+	text-align: start;
+	padding-left: 45px;
+
+}
+.responsive-bottom-banner-button {
+	padding-top: 80px;
+
+}
+.responsive-bottom-banner-button div{
+	text-align: start ;
+}
+.responsive-bottom-banner-button .plugin-card-responsive-add-ons a{
+	color: #FFFFFF ;
+	font-weight: 600 ;
+	padding: 9px 25px 9px 25px ;
+	background-color:  #FF793F ;
+	border-radius: 2.5px ;
+	border: none ;
+}
+
+
