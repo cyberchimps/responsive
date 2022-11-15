@@ -44,8 +44,8 @@
 				</tr>
 				<tr>
 					<td class="feature">
-						<div class="feature-title"><?php esc_html_e( 'Ready-to-use Website Templates', 'responsive' ); ?></div>
-						<div class="feature-description"><?php esc_html_e( 'Ready-to-use Elementor page builder and Gutenberg website templates', 'responsive' ); ?></div>
+						<div class="feature-title"><?php esc_html_e( 'Responsive Starter Templates', 'responsive' ); ?></div>
+						<div class="feature-description"><?php esc_html_e( 'Ready-to-use Elementor and WordPress Block Templates', 'responsive' ); ?></div>
 					</td>
 					<td class="feature-status"><a href="https://cyberchimps.com/wordpress-themes/free/" target="_blank"><?php esc_html_e( 'Free Only', 'responsive' ); ?></a></td>
 					<td class="feature-status"><a href="https://cyberchimps.com/wordpress-themes/" target="_blank"><?php esc_html_e( '100+ Free & Pro', 'responsive' ); ?></a></td>
