@@ -160,7 +160,7 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 						'redirect' => admin_url( 'customize.php' ),
 					),
 					/* translators: Orbit Fox Companion */
-					'description' => sprintf( esc_html__( 'Get 30+ fully working ready-to-use website templates that you can import. Simply edit the content and launch your website.', 'responsive' ), sprintf('<strong>%s</strong>', 'Upgrade To Pro' ) ),
+					'description' => sprintf( esc_html__( 'Get free access to 100+ ready-to-use Elementor & Block templates. Import a template, edit content and launch your website.', 'responsive' ), sprintf( '<strong>%s</strong>', 'Upgrade To Pro' ) ),
 				),
 				'Responsive_Main_Notice_Section'
 			)

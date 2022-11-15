@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.7.6\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2022-11-14 04:44:05+00:00\n"
+"POT-Creation-Date: 2022-11-15 05:47:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -159,6 +159,8 @@ msgid "Upgrade to Pro"
 msgstr ""
 
 #: admin/templates/get-started.php:25
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+#. translators: Orbit Fox Companion
 msgid ""
 "Get free access to 100+ ready-to-use Elementor & Block templates. Import a "
 "template, edit content and launch your website."
@@ -231,97 +233,97 @@ msgstr ""
 msgid "Responsive Options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:191
+#: core/includes/classes/class-responsive-admin-settings.php:190
 msgid "Get Started"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:193
+#: core/includes/classes/class-responsive-admin-settings.php:192
 msgid "Free Vs Pro "
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:230
+#: core/includes/classes/class-responsive-admin-settings.php:229
 msgid "Support"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:234
+#: core/includes/classes/class-responsive-admin-settings.php:233
 msgid "Have questions? Get in touch with us. We'll be happy to help"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:238
+#: core/includes/classes/class-responsive-admin-settings.php:237
 msgid "Request Support &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:264
+#: core/includes/classes/class-responsive-admin-settings.php:263
 #. translators: %1$s: Responsive Support link.
 msgid "Change site layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:269
+#: core/includes/classes/class-responsive-admin-settings.php:268
 msgid "Customize fonts/typography"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:274
+#: core/includes/classes/class-responsive-admin-settings.php:273
 msgid "Upload logo & site icon"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:279
+#: core/includes/classes/class-responsive-admin-settings.php:278
 msgid "Add/edit navigation menu"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:284
+#: core/includes/classes/class-responsive-admin-settings.php:283
 msgid "Customize header options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:289
+#: core/includes/classes/class-responsive-admin-settings.php:288
 msgid "Customize footer options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:294
+#: core/includes/classes/class-responsive-admin-settings.php:293
 msgid "Update blog layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:299
+#: core/includes/classes/class-responsive-admin-settings.php:298
 msgid "Update page layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:307
+#: core/includes/classes/class-responsive-admin-settings.php:306
 msgid "Quick Start:"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:326
+#: core/includes/classes/class-responsive-admin-settings.php:325
 msgid "Community"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:330
+#: core/includes/classes/class-responsive-admin-settings.php:329
 msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:334
+#: core/includes/classes/class-responsive-admin-settings.php:333
 msgid "Join Facebook Group &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:348
+#: core/includes/classes/class-responsive-admin-settings.php:347
 msgid "Feedback"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:352
+#: core/includes/classes/class-responsive-admin-settings.php:351
 msgid ""
 "Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:356
+#: core/includes/classes/class-responsive-admin-settings.php:355
 msgid "Submit Review &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:374
+#: core/includes/classes/class-responsive-admin-settings.php:373
 msgid "Get free access to 100+ ready-to-use Elementor & Block templates."
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:403
+#: core/includes/classes/class-responsive-admin-settings.php:402
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr ""
 
@@ -1386,13 +1388,6 @@ msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
 msgid "Recommended Plugins"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
-#. translators: Orbit Fox Companion
-msgid ""
-"Get 30+ fully working ready-to-use website templates that you can import. "
-"Simply edit the content and launch your website."
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:51
