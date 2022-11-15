@@ -102,7 +102,6 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 			add_action( 'responsive_header_right_section', __CLASS__ . '::top_header_right_section' );
 
-			add_action( 'responsive_welcome_page_right_sidebar_content', __CLASS__ . '::responsive_welcome_page_starter_sites_section', 10 );
 			add_action( 'responsive_welcome_page_right_sidebar_content', __CLASS__ . '::responsive_welcome_page_support_section', 11 );
 
 			add_action( 'responsive_welcome_page_content', __CLASS__ . '::responsive_welcome_page_content' );
