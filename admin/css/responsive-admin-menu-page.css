@@ -255,14 +255,14 @@ a.responsivera-starter-sites-detail-link {
 	margin-top: 2em;
 }
 
-.deactivate-ready-site {
+.likedus-ready-site {
 	display: none;
 }
 /* CSS for top and bottom banner in Responsive option submenu*/
 
 /* Top banner CSS*/
 .responsive-top-banner-text{
-		padding-bottom: 0px;
+	padding-bottom: 0px;
 	margin-top: 100px;
 	text-align: center;
 }
@@ -310,5 +310,10 @@ a.responsivera-starter-sites-detail-link {
 	border-radius: 2.5px ;
 	border: none ;
 }
+
+img.emoji{
+	font-size: 16px;
+}
+
 
 
