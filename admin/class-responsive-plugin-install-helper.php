@@ -123,7 +123,7 @@ class Responsive_Plugin_Install_Helper {
 
 		$rateus = '';
 
-		if ( 'ratedus' === $state ) {
+		if ( 'rateus' === $state ) {
 			$rateus .= '<div class="rateus-ready-site">';
 		}
 		return $rateus;
