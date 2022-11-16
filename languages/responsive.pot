@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.7.6\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2022-11-15 06:17:48+00:00\n"
+"POT-Creation-Date: 2022-11-16 08:46:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 
 #: admin/admin-functions.php:21
-#: admin/class-responsive-plugin-install-helper.php:196
+#: admin/class-responsive-plugin-install-helper.php:186
 msgid "Activating "
 msgstr ""
 
@@ -59,20 +59,20 @@ msgstr ""
 msgid "Thank You for installing Responsive"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:90
+#: admin/class-responsive-plugin-install-helper.php:91
 msgid "Install and activate &raquo;"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:94
-#: admin/class-responsive-plugin-install-helper.php:114
+#: admin/class-responsive-plugin-install-helper.php:95
+#: admin/class-responsive-plugin-install-helper.php:104
 msgid "Activate"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:109
-msgid "Deactivate"
+#: admin/class-responsive-plugin-install-helper.php:99
+msgid "Rate  us ★★★★★"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:114
+#: admin/class-responsive-plugin-install-helper.php:104
 msgid "Jetpack Portfolio"
 msgstr ""
 

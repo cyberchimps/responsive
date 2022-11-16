@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(11/15/2022) = Fix - Version 4.7.6
+(11/16/2022) = Fix - Version 4.7.6
  [!] = Fixed = Minor CSS Issues.
 
 (11/2/2022) = Fix - Version 4.7.5
