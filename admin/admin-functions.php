@@ -57,7 +57,7 @@ function responsive_welcome_banner_notice() {
 	if ( 1 != get_option( 'responsive-readysite-promotion' ) ) {
 		?>
 
-	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_content( 'responsive-add-ons' ); //phpcs:ignore ?>
+	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_content( 'responsive-add-ons' ); //phpcs:ignore ?>
 	<div class="postbox responsive-sites-active" id="responsive-sites-active">
 		<div class="responsive-notice-image">
 			<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-thumbnail.jpg' ); ?>">
@@ -73,7 +73,7 @@ function responsive_welcome_banner_notice() {
 			</div>
 			<button type="button" class="notice-dismiss"></button>
 		</div>
-	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_end_content( 'responsive-add-ons' ); //phpcs:ignore
+	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_end_content( 'responsive-add-ons' ); //phpcs:ignore
 	}
 }
 
