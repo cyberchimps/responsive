@@ -240,7 +240,6 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 			}
 			responsive_select_control( $wp_customize, 'single_blog_content_alignment', $single_blog_content_alignment_label, 'responsive_single_blog_layout', 150, $single_blog_content_alignment_choices, 'left', null );
 
-
 		}
 
 	}

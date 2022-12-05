@@ -2,7 +2,8 @@
 /**
  * All helper functions for woocommerce helper
  *
- * @package Responsive
+ *
+ * @package Responsive
  */
 
 namespace Responsive\WooCommerce;
@@ -190,11 +191,11 @@ function responsive_menu_cart_icon( $menu, $args ) {
 				$cart_title        = get_theme_mod( 'responsive_cart_title' );
 				$cart_icon         = get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
 				$cart_total        = get_theme_mod( 'responsive_cart_count' );
-				if ( '1' == $cart_title && '1' == $cart_total ) {
+				if ( '1' === $cart_title && '1' === $cart_total ) {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-header-cart-info-wrap"> ' . $cart_title_markup . '' . __( ' / ', 'responsive' ) . '' . $cart_total_markup . '</span><span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} elseif ( isset( $cart_title ) && '1' == $cart_title ) {
+				} elseif ( isset( $cart_title ) && '1' === $cart_title ) {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap">' . $cart_title_markup . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} elseif ( isset( $cart_total ) && '1' == $cart_total ) {
+				} elseif ( isset( $cart_total ) && '1' === $cart_total ) {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"> ' . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span>' . $cart_total_markup . '</div></a></li>';
 				} else {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-cart-icon fa ' . esc_attr( $cart_icon ) . '"  data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
@@ -208,15 +209,16 @@ function responsive_menu_cart_icon( $menu, $args ) {
 }
 /**
  * Show cart contents / total Ajax
+ *
+ * @param mixed $fragments Fragments.
  */
-
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	global $woocommerce;
 
 	ob_start();
 
 	?>
-	<span class="res-header-cart-total" ><?php echo $woocommerce->cart->get_cart_total(); ?></span>
+	<span class="res-header-cart-total" ><?php echo wp_kses_post( $woocommerce->cart->get_cart_total() ); ?></span>
 	<?php
 	$fragments['span.res-header-cart-total'] = ob_get_clean();
 	return $fragments;

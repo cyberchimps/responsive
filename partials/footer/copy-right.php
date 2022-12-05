@@ -50,7 +50,7 @@ $cyberchimps_link   = '';
 		);
 		?>
 			"
-			target=<?php echo $copyright_new_tab ?>
+			target=<?php echo $copyright_new_tab; ?>
 			>
 			<?php
 			echo apply_filters(
