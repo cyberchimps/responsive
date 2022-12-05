@@ -928,9 +928,9 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 			$args->after      = '<span class="res-iconify res-iconify-outer">
 				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
 				</span>';
-			$args->link_after = '<span class="res-iconify res-iconify-inner">
+			$args->link_after = '<a href="#"><span class="res-iconify res-iconify-inner">
 				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-				</span>';
+				</span></a>';
 		} else {
 			$args->after      = '';
 			$args->link_after = '';
@@ -978,17 +978,17 @@ if ( ! function_exists( 'responsive_fallback_menu' ) ) {
 	 */
 	function responsive_fallback_menu() {
 		$args    = array(
-			'depth'       => 0,
-			'sort_column' => 'menu_order, post_title',
-			'menu_class'  => 'menu',
-			'include'     => '',
-			'exclude'     => '',
-			'echo'        => false,
-			'show_home'   => true,
-			'link_before' => '',
-			'link_after'  => '',
+			'depth'               => 0,
+			'sort_column'         => 'menu_order, post_title',
+			'menu_class'          => 'menu',
+			'include'             => '',
+			'exclude'             => '',
+			'echo'                => false,
+			'show_home'           => true,
+			'link_before'         => '',
+			'link_after'          => '',
 			'show_sub_menu_icons' => true,
-			'walker'      => new Responsive_Walker_Page(),
+			'walker'              => new Responsive_Walker_Page(),
 		);
 		$pages   = wp_page_menu( $args );
 		$prepend = '<div id="header-menu" class="menu">';

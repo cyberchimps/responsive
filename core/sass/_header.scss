@@ -88,6 +88,7 @@
 
     li {
         position: relative;
+        display: flex;
     }
 
     a {
@@ -143,7 +144,7 @@
 
         & > li {
             border-bottom: 1px solid rgba(170, 170, 170, 0.2);
-
+            
             @media( min-width: map-get($screens, xxxl) ) {
                 margin-left: 2px;
                 float: left;
@@ -766,7 +767,8 @@ body.mega-menu-header-menu button.menu-toggle {
 @media screen and (min-width: 768px) {
     .res-iconify-inner, 
     .res-iconify.no-menu.res-iconify-inner {
-        display: block;
+        display: flex;
+        padding-top: 8px;
     }
     .res-iconify-outer, 
     .res-iconify.no-menu.res-iconify-outer {
