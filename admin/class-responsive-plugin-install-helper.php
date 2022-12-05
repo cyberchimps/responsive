@@ -58,10 +58,10 @@ class Responsive_Plugin_Install_Helper {
 	 * @return string
 	 */
 	public function get_button_html( $slug, $settings = array() ) {
-		$button   = '';
-		$redirect = admin_url( 'admin.php?page=responsive-add-ons' );
-		$reviewurl      = 'https://wordpress.org/support/plugin/responsive-add-ons/reviews/';
-		$state    = $this->check_plugin_state( $slug );
+		$button    = '';
+		$redirect  = admin_url( 'admin.php?page=responsive-add-ons' );
+		$reviewurl = 'https://wordpress.org/support/plugin/responsive-add-ons/reviews/';
+		$state     = $this->check_plugin_state( $slug );
 		if ( empty( $slug ) ) {
 			return '';
 		}
@@ -94,9 +94,9 @@ class Responsive_Plugin_Install_Helper {
 			case 'activate':
 				$button .= '<a  data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $slug ) . '" class="activate-now button button-primary" href="' . esc_url( $nonce ) . '" aria-label="Activate ' . esc_attr( $slug ) . '">' . esc_html__( 'Activate', 'responsive' ) . '</a>';
 				break;
-			
+
 			case 'rateus':
-				$button .= '<a  data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $slug ) . '" class="rateus-now button" href="' . esc_url( $reviewurl ) . '" target="_blank" data-name="' . esc_attr( $slug ) . '" aria-label="Rate Us ' . esc_attr( $slug ) . '">' . __( 'Rate  us ★★★★★' , 'responsive' ) . ' </a> ';
+				$button .= '<a  data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $slug ) . '" class="rateus-now button" href="' . esc_url( $reviewurl ) . '" target="_blank" data-name="' . esc_attr( $slug ) . '" aria-label="Rate Us ' . esc_attr( $slug ) . '">' . __( 'Rate  us ★★★★★', 'responsive' ) . ' </a> ';
 				break;
 
 			case 'enable_cpt':

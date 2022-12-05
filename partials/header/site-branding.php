@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		the_custom_logo();
 		if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 
-			echo Responsive\Core\responsive_sticky_custom_logo();
+			echo Responsive\Core\responsive_sticky_custom_logo(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
-		echo Responsive\Core\responsive_mobile_custom_logo();
+		echo Responsive\Core\responsive_mobile_custom_logo(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
 		<div class="site-title-tagline">
 		<?php
