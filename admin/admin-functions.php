@@ -7,6 +7,8 @@
 
 /**
  * Enqueue admin scipts.
+ *
+ * @param string $hook Hook.
  */
 function responsive_admin_scripts( $hook ) {
 	if ( 'post-new.php' === $hook || 'post.php' === $hook ) {
@@ -31,6 +33,9 @@ function responsive_admin_scripts( $hook ) {
 }
 add_action( 'admin_enqueue_scripts', 'responsive_admin_scripts' );
 
+/**
+ * Responsive_enqueue_notices_handler.
+ */
 function responsive_enqueue_notices_handler() {
 	wp_register_script( 'responsive-plugin-notices-handler', trailingslashit( get_template_directory_uri() ) . '/admin/js/notices.js', array( 'jquery' ), true, RESPONSIVE_THEME_VERSION );
 	wp_localize_script(
@@ -54,7 +59,7 @@ add_action( 'admin_enqueue_scripts', 'responsive_enqueue_notices_handler', 99 );
  * @since 4.0.3
  */
 function responsive_welcome_banner_notice() {
-	if ( 1 != get_option( 'responsive-readysite-promotion' ) ) {
+	if ( 1 !== get_option( 'responsive-readysite-promotion' ) ) {
 		?>
 
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_content( 'responsive-add-ons' ); //phpcs:ignore ?>
@@ -81,6 +86,11 @@ add_action( 'admin_notices', 'responsive_welcome_banner_notice', 10 );
 
 add_action( 'wp_ajax_responsive_delete_transient_action', 'responsive_delete_transient_action' );
 
+/**
+ * Responsive Delete Transient Action
+ *
+ * @since 4.0.3
+ */
 function responsive_delete_transient_action() {
 	$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
 
@@ -90,6 +100,12 @@ function responsive_delete_transient_action() {
 	update_option( 'responsive-readysite-promotion', 1 );
 
 }
+
+/**
+ * Responsive Upgrade Pro React
+ *
+ * @since 4.0.3
+ */
 function responsive_upgrade_pro_react() {
 	?>
 

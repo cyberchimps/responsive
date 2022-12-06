@@ -318,7 +318,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				$template = get_post_meta( get_option( 'page_on_front' ), '_wp_page_template', true );
 
 				/** If static front page template is set to default then set front page toggle of theme option to 1 */
-				if ( 'page' == get_option( 'show_on_front' ) && 'default' == $template ) {
+				if ( 'page' === get_option( 'show_on_front' ) && 'default' === $template ) {
 					$responsive_options['front_page'] = 1;
 				} else {
 					$responsive_options['front_page'] = 0;
@@ -338,7 +338,7 @@ endif;
  */
 function responsive_content_width() {
 	global $content_width;
-	$full_width = is_page_template( 'full-width-page.php' ) || is_404() || 'full-width-page' == responsive_get_layout();
+	$full_width = is_page_template( 'full-width-page.php' ) || is_404() || 'full-width-page' === responsive_get_layout();
 	if ( $full_width ) {
 		$content_width = 918;
 	}
@@ -455,19 +455,19 @@ function responsive_team_meta_box_save( $post_id ) {
 	);
 
 	if ( isset( $_POST['responsive_meta_box_designation'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_designation', wp_kses( $_POST['responsive_meta_box_designation'], $allowed ) );
+		update_post_meta( $post_id, 'responsive_meta_box_designation', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_designation'] ), $allowed ) ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_facebook'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_facebook', wp_kses( $_POST['responsive_meta_box_facebook'], $allowed ) );
+		update_post_meta( $post_id, 'responsive_meta_box_facebook', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_facebook'] ), $allowed ) ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_twitter'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_twitter', wp_kses( $_POST['responsive_meta_box_twitter'], $allowed ) );
+		update_post_meta( $post_id, 'responsive_meta_box_twitter', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_twitter'] ), $allowed ) ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_googleplus'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_googleplus', wp_kses( $_POST['responsive_meta_box_googleplus'], $allowed ) );
+		update_post_meta( $post_id, 'responsive_meta_box_googleplus',wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_googleplus'] ), $allowed ) ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_text_linkedin'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_kses( $_POST['responsive_meta_box_text_linkedin'], $allowed ) );
+		update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_text_linkedin'] ), $allowed ) ) );
 	}
 }
 
@@ -928,7 +928,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 	/**
 	 * [responsive_sticky_custom_logo description]
 	 *
-	 * @param  [type] $html [description].
+	 * @param  [type] $html Html.
 	 * @return [type]       [description]
 	 */
 	function responsive_sticky_custom_logo() {
@@ -998,10 +998,10 @@ function defaults() {
 			'blog_entry_elements_positioning'     => array( 'title', 'meta', 'featured_image', 'content' ),
 			'blog_single_elements_positioning'    => array( 'title', 'meta', 'featured_image', 'content' ),
 
-			// alignment
+			// alignment.
 			'blog_entry_title_alignment'          => 'left',
 			'blog_entry_meta_alignment'           => 'left',
-			// Padding
+			// Padding.
 			'box_padding'                         => 30,
 			'logo_padding'                        => 28,
 			// Colors.
@@ -1086,7 +1086,7 @@ function defaults() {
 /**
  * [responsive_mobile_custom_logo description]
  *
- * @param  [type] $html [description].
+ * @param  [type] $html Html.
  * @return [type]       [description]
  */
 function responsive_mobile_custom_logo() {
@@ -1121,7 +1121,6 @@ function responsive_mobile_custom_logo() {
 
 /**
  * Register Widgets for the theme.
- *
  */
 function responsive_register_widgets() {
 	/**
