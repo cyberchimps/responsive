@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Responsive 4.7.7\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2022-11-17 04:07:22+00:00\n"
+"POT-Creation-Date: 2022-12-05 07:46:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,40 +22,40 @@ msgstr ""
 "x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
 "X-Textdomain-Support: yes\n"
 
-#: admin/admin-functions.php:21
+#: admin/admin-functions.php:23
 #: admin/class-responsive-plugin-install-helper.php:186
 msgid "Activating "
 msgstr ""
 
-#: admin/admin-functions.php:22
+#: admin/admin-functions.php:24
 msgid "Not connect. Verify Network."
 msgstr ""
 
-#: admin/admin-functions.php:23
+#: admin/admin-functions.php:25
 msgid "Requested page not found. [404]"
 msgstr ""
 
-#: admin/admin-functions.php:24
+#: admin/admin-functions.php:26
 msgid "Internal Server Error [500]"
 msgstr ""
 
-#: admin/admin-functions.php:25
+#: admin/admin-functions.php:27
 msgid "Requested JSON parse failed"
 msgstr ""
 
-#: admin/admin-functions.php:26
+#: admin/admin-functions.php:28
 msgid "Time out error"
 msgstr ""
 
-#: admin/admin-functions.php:27
+#: admin/admin-functions.php:29
 msgid "Ajax request aborted"
 msgstr ""
 
-#: admin/admin-functions.php:28
+#: admin/admin-functions.php:30
 msgid "Uncaught Error"
 msgstr ""
 
-#: admin/admin-functions.php:67
+#: admin/admin-functions.php:72
 msgid "Thank You for installing Responsive"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgid "Upgrade to Pro"
 msgstr ""
 
 #: admin/templates/get-started.php:25
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:173
 #. translators: Orbit Fox Companion
 msgid ""
 "Get free access to 100+ ready-to-use Elementor & Block templates. Import a "
@@ -395,15 +395,15 @@ msgid ""
 "check Enable Off Canvas Filter checkbox under Off Canvas Filter section."
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:499
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:504
 msgid "Selected : "
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:508
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:513
 msgid "Out Of Stock"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:515
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:520
 msgid "Select options"
 msgstr ""
 
@@ -923,11 +923,11 @@ msgstr ""
 msgid "Add To Cart Font Hover: Color"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/woocommerce-helper.php:189
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:190
 msgid "Cart"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/woocommerce-helper.php:194
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:195
 msgid " / "
 msgstr ""
 
@@ -1373,20 +1373,20 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:79
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:89
 msgid "Documentation"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:123
 #. translators: %1$s is Plugin Name
 msgid "To have access to a shop section please install and configure %1$s."
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:124
 msgid "WooCommerce plugin"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:168
 msgid "Recommended Plugins"
 msgstr ""
 
@@ -2090,7 +2090,7 @@ msgid "Disable Hero Area"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:141
-#: core/includes/functions.php:92 functions.php:625
+#: core/includes/functions.php:92 functions.php:626
 msgid "HAPPINESS"
 msgstr ""
 
@@ -2099,7 +2099,7 @@ msgid "Headline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:160
-#: core/includes/functions.php:93 functions.php:628
+#: core/includes/functions.php:93 functions.php:629
 msgid "IS A WARM CUP"
 msgstr ""
 
@@ -2108,7 +2108,7 @@ msgid "Subheadline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:178
-#: core/includes/functions.php:94 functions.php:631
+#: core/includes/functions.php:94 functions.php:632
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -2969,7 +2969,7 @@ msgstr ""
 msgid "Area 15 - sidebar-footer.php"
 msgstr ""
 
-#: core/includes/functions.php:95 functions.php:634
+#: core/includes/functions.php:95 functions.php:635
 msgid "Call to Action"
 msgstr ""
 
@@ -3129,22 +3129,23 @@ msgstr ""
 msgid "Scroll to Top"
 msgstr ""
 
-#: functions.php:520
+#: functions.php:521
+#. translators: 1 : Permalink, 2 : Title
 msgid "Permalink to %s"
 msgstr ""
 
-#: functions.php:585
+#: functions.php:586
 #. translators: %s Link to 5 star rating
 msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
 
-#: functions.php:586
+#: functions.php:587
 msgid "Thanks :)"
 msgstr ""
 
-#: functions.php:637
+#: functions.php:638
 msgid "#"
 msgstr ""
 
@@ -3325,18 +3326,18 @@ msgstr ""
 msgid "Camera:"
 msgstr ""
 
-#: sidebar-home.php:33
+#: sidebar-home.php:34
 msgid "Fermentum"
 msgstr ""
 
-#: sidebar-home.php:40
+#: sidebar-home.php:41
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
 
-#: sidebar-home.php:42 sidebar-home.php:70 sidebar-home.php:96
+#: sidebar-home.php:43 sidebar-home.php:71 sidebar-home.php:97
 msgid ""
 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
 "Lorem Ipsum has been the industry's standard dummy text ever since the "
@@ -3345,22 +3346,22 @@ msgid ""
 "also the leap into electronic typesetting, remaining essentially unchanged."
 msgstr ""
 
-#: sidebar-home.php:59
+#: sidebar-home.php:60
 msgid "Elementum"
 msgstr ""
 
-#: sidebar-home.php:68
+#: sidebar-home.php:69
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
 
-#: sidebar-home.php:87
+#: sidebar-home.php:88
 msgid "Interdum"
 msgstr ""
 
-#: sidebar-home.php:94
+#: sidebar-home.php:95
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "

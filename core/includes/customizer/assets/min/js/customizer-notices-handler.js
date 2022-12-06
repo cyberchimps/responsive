@@ -11,7 +11,8 @@ jQuery( function ( $ ) {
 			type: 'POST',
 			data: {
 				action: 'dismissed_notice_handler',
-				control: control_id
+				control: control_id,
+				nonce: dismissNotices._notice_nonce,
 			},
 			success: function () {
 				$( '#accordion-section-' + control_id ).fadeOut( 300, function () {

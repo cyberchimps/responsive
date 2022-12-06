@@ -134,7 +134,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		 * @return boolean True IF Elementor Editor is loaded, False If Elementor Editor is not loaded.
 		 */
 		public function is_elementor_editor() {
-			if ( ( isset( $_REQUEST['action'] ) && 'elementor' == $_REQUEST['action'] ) || isset( $_REQUEST['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( ( isset( $_REQUEST['action'] ) && 'elementor' === $_REQUEST['action'] ) || isset( $_REQUEST['elementor-preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 				return true;
 			}
 
@@ -219,7 +219,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 
 			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-				$breadcrumb_flag            = get_theme_mod( 'breadcrumbs_options', 1 );
+				$breadcrumb_flag = get_theme_mod( 'breadcrumbs_options', 1 );
 				if ( ! $breadcrumb_flag ) {
 					remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
 					add_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
@@ -386,7 +386,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				$classes[] = 'product-gallery-layout-' . get_theme_mod( 'responsive_single_product_gallery_layout', 'horizontal' );
 			}
 
-			if ( ( is_woocommerce() && is_shop() ) ||  is_cart() || is_checkout() || is_product_category() ) {
+			if ( ( is_woocommerce() && is_shop() ) || is_cart() || is_checkout() || is_product_category() ) {
 				// Product catalog Page sidebar Position.
 				$classes[] = 'sidebar-position-' . get_theme_mod( 'responsive_shop_sidebar_position', 'no' );
 				$classes[] = 'responsive-catalog-view-' . get_theme_mod( 'responsive_woocommerce_catalog_view', 'grid' );
@@ -473,6 +473,11 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 			);
 
 		}
+		/**
+		 * Register off canvas filter button.
+		 *
+		 * @since 1.5.0
+		 */
 		public function off_canvas_filter_button() {
 			$text = responsive_hamburger_off_canvas_btn_label_text_label();
 
@@ -527,6 +532,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 
 		/**
 		 * Floating bar add to cart button.
+		 *
+		 * @param mixed $product Product.
 		 */
 		public static function floating_bar_add_to_cart( $product ) {
 
@@ -535,7 +542,7 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 				array(
 					'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
 					'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
-					'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : $product->get_min_purchase_quantity(),
+					'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_verify_nonce( sanitize_key( wp_unslash( $_POST['quantity'] ) ) ) ) : $product->get_min_purchase_quantity(),
 				),
 				$product,
 				false

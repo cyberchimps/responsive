@@ -63,7 +63,6 @@ if ( ! class_exists( 'Responsive_Footer_Colors_Customizer' ) ) :
 			$footer_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_border', $footer_border_color_label, 'responsive_footer_colors', 50, '#aaaaaa', null );
 
-
 		}
 
 

@@ -81,9 +81,10 @@ if ( ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme
 						?>
 				</div>
 				<?php
-				if ( is_home() || is_archive() ) {?>
+				if ( is_home() || is_archive() ) {
+					?>
 			</div>
-		<?php }?>
+		<?php } ?>
 			</main><!-- end of #primary -->
 
 	<?php
