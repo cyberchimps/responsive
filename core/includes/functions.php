@@ -455,19 +455,19 @@ function responsive_team_meta_box_save( $post_id ) {
 	);
 
 	if ( isset( $_POST['responsive_meta_box_designation'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_designation', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_designation'] ), $allowed ) ) );
+		update_post_meta( $post_id, 'responsive_meta_box_designation', wp_kses( wp_unslash( $_POST['responsive_meta_box_designation'] ), $allowed ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_facebook'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_facebook', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_facebook'] ), $allowed ) ) );
+		update_post_meta( $post_id, 'responsive_meta_box_facebook', wp_kses( wp_unslash( $_POST['responsive_meta_box_facebook'] ), $allowed ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_twitter'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_twitter', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_twitter'] ), $allowed ) ) );
+		update_post_meta( $post_id, 'responsive_meta_box_twitter', wp_kses( wp_unslash( $_POST['responsive_meta_box_twitter'] ), $allowed ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_googleplus'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_googleplus',wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_googleplus'] ), $allowed ) ) );
+		update_post_meta( $post_id, 'responsive_meta_box_googleplus', wp_kses( wp_unslash( $_POST['responsive_meta_box_googleplus'] ), $allowed ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_text_linkedin'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_text_linkedin'] ), $allowed ) ) );
+		update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_kses( wp_unslash( $_POST['responsive_meta_box_text_linkedin'] ), $allowed ) );
 	}
 }
 
@@ -515,7 +515,7 @@ function responsive_add_class( $classes ) {
 
 	// Get Responsive theme option.
 	global $responsive_options;
-	if ( 1 == $responsive_options['front_page'] && is_front_page() ) {
+	if ( 1 === $responsive_options['front_page'] && is_front_page() ) {
 		$classes[] = 'front-page';
 	}
 
@@ -558,7 +558,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 		$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
 		$search_screen = get_theme_mod( 'search_style', 'search' );
-		if ( 'search' === $search_icon && 'full-screen' == $search_screen ) {
+		if ( 'search' === $search_icon && 'full-screen' === $search_screen ) {
 			$classes[] = 'full-screen';
 		}
 	}
@@ -1096,7 +1096,7 @@ function responsive_mobile_custom_logo() {
 
 	$html = '';
 
-	if ( '' !== $responsive_mobile_logo && '1' == $responsive_mobile_logo_option ) {
+	if ( '' !== $responsive_mobile_logo && '1' === $responsive_mobile_logo_option ) {
 
 		/* Replace transparent header logo and width */
 
