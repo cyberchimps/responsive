@@ -113,13 +113,11 @@ if ( ! class_exists( 'Responsive_Header_Widgets_Customizer' ) ) :
 			$menu_link_hover_color_label = __( 'Links Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'header_widget_link_hover', $menu_link_hover_color_label, 'responsive_header_widget', 140, Responsive\Core\get_responsive_customizer_defaults( 'header_widget_link_hover' ), 'responsive_active_header_widget' );
 
-
 			/**
 			 * Header Widgets.
 			 */
 			$header_widgets_separator_label = esc_html__( 'Header Widgets Typography', 'responsive' );
 			responsive_separator_control( $wp_customize, 'header_widgets_separator', $header_widgets_separator_label, 'responsive_header_widget', 150 );
-
 
 		}
 	}

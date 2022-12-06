@@ -128,11 +128,11 @@ function responsive_excerpt_length( $length ) {
  */
 function responsive_read_more() {
 	global $post;
-    if(is_object($post)) {
-        if ('product' !== $post->post_type) {
-            return '<div class="read-more"><a href="' . get_permalink() . '">' . __('Read more &#8250;', 'responsive') . '</a></div><!-- end of .read-more -->';
-        }
-    }
+	if ( is_object( $post ) ) {
+		if ( 'product' !== $post->post_type ) {
+			return '<div class="read-more"><a href="' . get_permalink() . '">' . __( 'Read more &#8250;', 'responsive' ) . '</a></div><!-- end of .read-more -->';
+		}
+	}
 }
 
 /**
@@ -277,7 +277,7 @@ function responsive_search_icon( $menu, $args ) {
 		if ( 'search' === $search_icon ) {
 
 			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-				$search_screen         = get_theme_mod( 'search_style', 'search' );
+				$search_screen = get_theme_mod( 'search_style', 'search' );
 				if ( 'full-screen' == $search_screen ) {
 					get_search_form();
 					$menu .= '<li class="res-last-item res-search-link" id="full-screen-res-search-link"><a class="full-screen res-search-icon" aria-label="Search icon link" href="#"><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
@@ -285,7 +285,6 @@ function responsive_search_icon( $menu, $args ) {
 					get_search_form();
 					$menu .= '<li class="res-last-item res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
 				}
-
 			} else {
 				get_search_form();
 				$menu .= '<li class="res-last-item res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';

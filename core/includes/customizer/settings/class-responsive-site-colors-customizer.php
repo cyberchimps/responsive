@@ -151,7 +151,6 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$meta_text_color_label = __( 'Meta Text Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'meta_text', $meta_text_color_label, 'responsive_colors', 100, Responsive\Core\get_responsive_customizer_defaults( 'meta_text' ) );
 
-
 			// Links.
 			$general_links_label = esc_html__( 'Links', 'responsive' );
 			responsive_separator_control( $wp_customize, 'responsive_general_links_separator', $general_links_label, 'responsive_colors', 110 );
@@ -164,7 +163,6 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			// Link Hover Color.
 			$link_hover_color_label = __( 'Link Hover Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'link_hover', $link_hover_color_label, 'responsive_colors', 120, Responsive\Core\get_responsive_customizer_defaults( 'link_hover' ) );
-
 
 			// Buttons.
 			$general_buttons_label = esc_html__( 'Buttons', 'responsive' );
@@ -220,7 +218,6 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$label_color_label = __( 'Label Color', 'responsive' );
 
 			responsive_color_control( $wp_customize, 'label', $inputs_text_color_label, 'responsive_colors', 240, Responsive\Core\get_responsive_customizer_defaults( 'label' ) );
-
 
 		}
 

@@ -55,6 +55,8 @@ function responsive_content_width() {
 if ( ! function_exists( 'responsive_css' ) ) {
 
 	/**
+	 * Responsive CSS
+	 *
 	 * @deprecated use Responsive\Core\responsive_css() instead
 	 * @return void [description]
 	 */
@@ -117,6 +119,8 @@ function responsive_enqueue_comment_reply() {
 /**
  * Front Page function starts here. The Front page overides WP's show_on_front option. So when show_on_front option changes it sets the themes front_page to 0 therefore displaying the new option
  *
+ * @param mixed $new New.
+ * @param mixed $orig Orig.
  * @deprecated use Responsive\Core\responsive_front_page_override() instead
  */
 function responsive_front_page_override( $new, $orig ) {
@@ -137,6 +141,7 @@ function responsive_add_class( $classes ) {
 /**
  * [responsive_add_custom_body_classes Funtion to add CSS class to body].
  *
+ * @param mixed $classes Classes.
  * @deprecated use Responsive\Core\responsive_add_custom_body_classes() instead
  */
 function responsive_add_custom_body_classes( $classes ) {
@@ -185,6 +190,7 @@ if ( ! function_exists( 'responsive_is_transparent_header' ) ) {
  * Helps file locations in child themes. If the file is not being overwritten by the child theme then
  * return the parent theme location of the file. Great for images.
  *
+ * @param mixed $dir DIR.
  * @deprecated use Responsive\Extra\responsive_child_uri() instead
  * @return string complete uri
  */
@@ -896,25 +902,31 @@ function responsive_menu_cart_icon( $menu, $args ) {
 }
 
 
-//Child themes compatibility - Responsive blog and Responsive Business
+// Child themes compatibility - Responsive blog and Responsive Business.
 
 /**
+ * Get Responsive Breadcrumb Lists.
+ *
  * @deprecated use responsive_get_breadcrumb_lists instead
  */
 function get_responsive_breadcrumb_lists() {
-    responsive_get_breadcrumb_lists();
+	responsive_get_breadcrumb_lists();
 }
 
 /**
+ * Responsive_in_header
+ *
  * @deprecated
  */
 function responsive_in_header() {
-    do_action( 'responsive_in_header' );
+	do_action( 'responsive_in_header' );
 }
 
 /**
+ * Responsive_header_end
+ *
  * @deprecated
  */
 function responsive_header_end() {
-    do_action( 'responsive_header_end' );
+	do_action( 'responsive_header_end' );
 }

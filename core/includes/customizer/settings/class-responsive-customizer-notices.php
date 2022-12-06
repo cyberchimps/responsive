@@ -24,7 +24,13 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 	 * AJAX handler to store the state of dismissible notices.
 	 */
 	final public function ajax_notice_handler() {
-		$control_id = sanitize_text_field( wp_unslash( $_POST['control'] ) );
+
+		$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
+
+		if ( false === wp_verify_nonce( $nonce, 'responsive-plugin-notices-handler' ) ) {
+			  return;
+		}
+		$control_id = isset( $_POST['control'] ) ? sanitize_text_field( wp_unslash( $_POST['control'] ) ) : '';
 		if ( empty( $control_id ) ) {
 			die();
 		}
@@ -41,7 +47,8 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 			'responsive-customizer-notices-handler',
 			'dismissNotices',
 			array(
-				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'_notice_nonce' => wp_create_nonce( 'responsive-customizer-notices-handler' ),
+				'ajaxurl'       => admin_url( 'admin-ajax.php' ),
 			)
 		);
 
