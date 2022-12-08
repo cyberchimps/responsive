@@ -88,7 +88,6 @@
 
     li {
         position: relative;
-        display: flex;
     }
 
     a {
@@ -767,8 +766,7 @@ body.mega-menu-header-menu button.menu-toggle {
 @media screen and (min-width: 768px) {
     .res-iconify-inner, 
     .res-iconify.no-menu.res-iconify-inner {
-        display: flex;
-        padding-top: 8px;
+        display: block;
     }
     .res-iconify-outer, 
     .res-iconify.no-menu.res-iconify-outer {
