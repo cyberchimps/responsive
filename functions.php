@@ -947,9 +947,9 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 			$args->after      = '<span class="res-iconify res-iconify-outer">
 				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
 				</span>';
-			$args->link_after = '<a href="#"><span class="res-iconify res-iconify-inner">
+			$args->link_after = '<span class="res-iconify res-iconify-inner">
 				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
-				</span></a>';
+				</span>';
 		} else {
 			$args->after      = '';
 			$args->link_after = '';
