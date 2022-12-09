@@ -143,7 +143,7 @@
 
         & > li {
             border-bottom: 1px solid rgba(170, 170, 170, 0.2);
-
+            
             @media( min-width: map-get($screens, xxxl) ) {
                 margin-left: 2px;
                 float: left;

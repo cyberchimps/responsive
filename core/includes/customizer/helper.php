@@ -1116,6 +1116,8 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
  * @param  [type]  $active_call  [description].
  * @param  integer $max          [description].
  * @param  integer $min          [description].
+ * @param  [type]  $transport  [description].
+ * @param  [type]  $step  [description].
  * @return void                [description].
  */
 function responsive_drag_number_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1 ) {
@@ -1669,6 +1671,9 @@ function responsive_number_control( $wp_customize, $element, $label, $section, $
  * @param  [type] $priority     [description].
  * @param  [type] $default      [description].
  * @param  [type] $active_call      [description].
+ * @param  [type] $sanitize_function      [description].
+ * @param  [type] $type      [description].
+ * @param  [type] $transport      [description].
  * @return void               [description].
  */
 function responsive_text_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $sanitize_function = 'sanitize_text_field', $type = 'text', $transport = 'refresh' ) {
@@ -1709,6 +1714,8 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
  * @param  [type] $choices      [description].
  * @param  [type] $default      [description].
  * @param  [type] $active_call  [description].
+ * @param  [type] $transport  [description].
+ * @param  [type] $description  [description].
  *
  * @return void               [description].
  */
@@ -1778,7 +1785,7 @@ function responsive_disabled_mobile_menu() {
 /**
  * Toggle style if outline border color control.
  *
- * @return void
+ * @return mixed
  */
 function responsive_toggle_border_color() {
 	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) ? true : false;
@@ -1786,7 +1793,7 @@ function responsive_toggle_border_color() {
 /**
  * Toggle style if outline & fill border radius control.
  *
- * @return void
+ * @return mixed
  */
 function responsive_toggle_border_radius() {
 	return ( ( 'outline' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) || 'fill' === get_theme_mod( 'responsive_mobile_menu_toggle_style', 'fill' ) ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 0 === get_theme_mod( 'responsive_disable_menu', 0 ) ) ? true : false;
@@ -1849,6 +1856,8 @@ function responsive_menu_last_item_text() {
  * @param  [type] $priority     [description].
  * @param  [type] $default      [description].
  * @param  [type] $active_call  [description].
+ * @param  [type] $transport  [description].
+ * @param  [type] $desc  [description].
  * @return void               [description].
  */
 function responsive_checkbox_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $transport = 'refresh', $desc = '' ) {
@@ -1921,7 +1930,8 @@ function responsive_checkbox_control( $wp_customize, $element, $label, $section,
  * @param  [type] $label        [description].
  * @param  [type] $section      [description].
  * @param  [type] $priority     [description].
- * @param  [type] $value        [description].
+ * @param  [type] $linktype  [description].
+ * @param  [type] $linkval  [description].
  * @param  [type] $active_call  [description].
  * @return void                 [description].
  */
@@ -1954,7 +1964,7 @@ function responsive_redirect_control( $wp_customize, $element, $label, $section,
 /**
  * Check if off canvas is active
  *
- * @return void
+ * @return mixed
  */
 function enable_off_canvas_filter_check() {
 	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_filter', 0 ) ) ? true : false;
@@ -1962,7 +1972,7 @@ function enable_off_canvas_filter_check() {
 /**
  * Check if off canvas close button is active
  *
- * @return void
+ * @return mixed
  */
 function enable_enable_off_canvas_close_btn() {
 	return ( 0 !== get_theme_mod( 'responsive_enable_off_canvas_close_btn', 0 ) ) ? true : false;

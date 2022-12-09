@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.7.4\n"
+"Project-Id-Version: Responsive 4.7.8\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2022-05-11 09:08:40+00:00\n"
+"POT-Creation-Date: 2022-12-06 11:03:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,57 +22,57 @@ msgstr ""
 "x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
 "X-Textdomain-Support: yes\n"
 
-#: admin/admin-functions.php:21
-#: admin/class-responsive-plugin-install-helper.php:196
+#: admin/admin-functions.php:23
+#: admin/class-responsive-plugin-install-helper.php:186
 msgid "Activating "
 msgstr ""
 
-#: admin/admin-functions.php:22
+#: admin/admin-functions.php:24
 msgid "Not connect. Verify Network."
 msgstr ""
 
-#: admin/admin-functions.php:23
+#: admin/admin-functions.php:25
 msgid "Requested page not found. [404]"
 msgstr ""
 
-#: admin/admin-functions.php:24
+#: admin/admin-functions.php:26
 msgid "Internal Server Error [500]"
 msgstr ""
 
-#: admin/admin-functions.php:25
+#: admin/admin-functions.php:27
 msgid "Requested JSON parse failed"
 msgstr ""
 
-#: admin/admin-functions.php:26
+#: admin/admin-functions.php:28
 msgid "Time out error"
 msgstr ""
 
-#: admin/admin-functions.php:27
+#: admin/admin-functions.php:29
 msgid "Ajax request aborted"
 msgstr ""
 
-#: admin/admin-functions.php:28
+#: admin/admin-functions.php:30
 msgid "Uncaught Error"
 msgstr ""
 
-#: admin/admin-functions.php:67
+#: admin/admin-functions.php:72
 msgid "Thank You for installing Responsive"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:90
+#: admin/class-responsive-plugin-install-helper.php:91
 msgid "Install and activate &raquo;"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:94
-#: admin/class-responsive-plugin-install-helper.php:114
+#: admin/class-responsive-plugin-install-helper.php:95
+#: admin/class-responsive-plugin-install-helper.php:104
 msgid "Activate"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:109
-msgid "Deactivate"
+#: admin/class-responsive-plugin-install-helper.php:99
+msgid "Rate  us ★★★★★"
 msgstr ""
 
-#: admin/class-responsive-plugin-install-helper.php:114
+#: admin/class-responsive-plugin-install-helper.php:104
 msgid "Jetpack Portfolio"
 msgstr ""
 
@@ -119,11 +119,11 @@ msgid "Limited Options"
 msgstr ""
 
 #: admin/templates/free-vs-pro.php:47
-msgid "Ready-to-use Website Templates"
+msgid "Responsive Starter Templates"
 msgstr ""
 
 #: admin/templates/free-vs-pro.php:48
-msgid "Ready-to-use Elementor page builder and Gutenberg website templates"
+msgid "Ready-to-use Elementor and WordPress Block Templates"
 msgstr ""
 
 #: admin/templates/free-vs-pro.php:50
@@ -131,7 +131,7 @@ msgid "Free Only"
 msgstr ""
 
 #: admin/templates/free-vs-pro.php:51
-msgid "40+ Free & Pro"
+msgid "100+ Free & Pro"
 msgstr ""
 
 #: admin/templates/free-vs-pro.php:55
@@ -156,6 +156,14 @@ msgstr ""
 
 #: admin/templates/free-vs-pro.php:82
 msgid "Upgrade to Pro"
+msgstr ""
+
+#: admin/templates/get-started.php:25
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:170
+#. translators: Orbit Fox Companion
+msgid ""
+"Get free access to 100+ ready-to-use Elementor & Block templates. Import a "
+"template, edit content and launch your website."
 msgstr ""
 
 #. Theme Name of the plugin/theme
@@ -225,107 +233,97 @@ msgstr ""
 msgid "Responsive Options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:192
+#: core/includes/classes/class-responsive-admin-settings.php:190
 msgid "Get Started"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:194
+#: core/includes/classes/class-responsive-admin-settings.php:192
 msgid "Free Vs Pro "
 msgstr ""
 
 #: core/includes/classes/class-responsive-admin-settings.php:229
-msgid "Import a website template(FREE)"
-msgstr ""
-
-#: core/includes/classes/class-responsive-admin-settings.php:235
-msgid ""
-"Install Responsive Starter Templates for Gutenberg & Elementor to get "
-"ready-to-use website templates that can be imported with one click."
-msgstr ""
-
-#: core/includes/classes/class-responsive-admin-settings.php:240
-msgid "Learn More &raquo;"
-msgstr ""
-
-#: core/includes/classes/class-responsive-admin-settings.php:267
 msgid "Support"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:271
+#: core/includes/classes/class-responsive-admin-settings.php:233
 msgid "Have questions? Get in touch with us. We'll be happy to help"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:275
+#: core/includes/classes/class-responsive-admin-settings.php:237
 msgid "Request Support &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:301
+#: core/includes/classes/class-responsive-admin-settings.php:263
 #. translators: %1$s: Responsive Support link.
 msgid "Change site layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:306
+#: core/includes/classes/class-responsive-admin-settings.php:268
 msgid "Customize fonts/typography"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:311
+#: core/includes/classes/class-responsive-admin-settings.php:273
 msgid "Upload logo & site icon"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:316
+#: core/includes/classes/class-responsive-admin-settings.php:278
 msgid "Add/edit navigation menu"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:321
+#: core/includes/classes/class-responsive-admin-settings.php:283
 msgid "Customize header options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:326
+#: core/includes/classes/class-responsive-admin-settings.php:288
 msgid "Customize footer options"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:331
+#: core/includes/classes/class-responsive-admin-settings.php:293
 msgid "Update blog layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:336
+#: core/includes/classes/class-responsive-admin-settings.php:298
 msgid "Update page layout"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:344
+#: core/includes/classes/class-responsive-admin-settings.php:306
 msgid "Quick Start:"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:363
+#: core/includes/classes/class-responsive-admin-settings.php:325
 msgid "Community"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:367
+#: core/includes/classes/class-responsive-admin-settings.php:329
 msgid ""
 "Meet the Responsive Power-users. Say hello, ask questions, give feedback, "
 "and help each other"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:371
+#: core/includes/classes/class-responsive-admin-settings.php:333
 msgid "Join Facebook Group &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:385
+#: core/includes/classes/class-responsive-admin-settings.php:347
 msgid "Feedback"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:389
+#: core/includes/classes/class-responsive-admin-settings.php:351
 msgid ""
 "Hi! Thanks for using the Responsive theme. Can you please do us a favor and "
 "give us a 5-star rating? Your feedback keeps us motivated and helps us grow "
 "the Responsive community."
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:393
+#: core/includes/classes/class-responsive-admin-settings.php:355
 msgid "Submit Review &raquo;"
 msgstr ""
 
-#: core/includes/classes/class-responsive-admin-settings.php:419
+#: core/includes/classes/class-responsive-admin-settings.php:373
+msgid "Get free access to 100+ ready-to-use Elementor & Block templates."
+msgstr ""
+
+#: core/includes/classes/class-responsive-admin-settings.php:402
 msgid "Blazing Fast, mobile-friendly, fully-customizable WordPress theme."
 msgstr ""
 
@@ -397,15 +395,15 @@ msgid ""
 "check Enable Off Canvas Filter checkbox under Off Canvas Filter section."
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:499
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:504
 msgid "Selected : "
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:508
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:513
 msgid "Out Of Stock"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:515
+#: core/includes/compatibility/woocommerce/class-responsive-woocommerce.php:520
 msgid "Select options"
 msgstr ""
 
@@ -925,11 +923,11 @@ msgstr ""
 msgid "Add To Cart Font Hover: Color"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/woocommerce-helper.php:189
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:190
 msgid "Cart"
 msgstr ""
 
-#: core/includes/compatibility/woocommerce/woocommerce-helper.php:194
+#: core/includes/compatibility/woocommerce/woocommerce-helper.php:195
 msgid " / "
 msgstr ""
 
@@ -1276,7 +1274,7 @@ msgid "Link"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-buttons-customizer.php:44
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:170
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:168
 msgid "Buttons"
 msgstr ""
 
@@ -1375,36 +1373,29 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:79
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:86
 msgid "Documentation"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:113
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:120
 #. translators: %1$s is Plugin Name
 msgid "To have access to a shop section please install and configure %1$s."
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:114
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:121
 msgid "WooCommerce plugin"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:158
+#: core/includes/customizer/settings/class-responsive-customizer-notices.php:165
 msgid "Recommended Plugins"
-msgstr ""
-
-#: core/includes/customizer/settings/class-responsive-customizer-notices.php:163
-#. translators: Orbit Fox Companion
-msgid ""
-"Get 30+ fully working ready-to-use website templates that you can import. "
-"Simply edit the content and launch your website."
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-colors-customizer.php:51
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:211
 #: core/includes/customizer/settings/class-responsive-header-widgets-customizer.php:96
 #: core/includes/customizer/settings/class-responsive-sidebar-colors-customizer.php:54
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:183
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:208
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:181
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:206
 msgid "Text Color"
 msgstr ""
 
@@ -1429,8 +1420,8 @@ msgstr ""
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:149
 #: core/includes/customizer/settings/class-responsive-header-transparent-customizer.php:220
 #: core/includes/customizer/settings/class-responsive-header-widgets-customizer.php:105
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:191
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:212
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:189
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:210
 msgid "Border Color"
 msgstr ""
 
@@ -1498,12 +1489,12 @@ msgid "Open Powered By link in new tab"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:153
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:198
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:196
 msgid "No"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:154
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:199
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:197
 msgid "Yes"
 msgstr ""
 
@@ -1523,68 +1514,68 @@ msgstr ""
 msgid "Border Size"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:192
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:190
 msgid "Social Links"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:196
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:194
 msgid "Open Social Icons in a new tab"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:217
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:214
 #: core/includes/functions-extensions.php:365
 msgid "Twitter"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:238
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:235
 #: core/includes/functions-extensions.php:366
 msgid "Facebook"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:259
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:256
 #: core/includes/functions-extensions.php:367
 msgid "LinkedIn"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:280
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:277
 #: core/includes/functions-extensions.php:368
 msgid "YouTube"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:301
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:298
 #: core/includes/functions-extensions.php:370
 msgid "RSS Feed"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:322
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:319
 #: core/includes/functions-extensions.php:371
 msgid "Instagram"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:343
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:340
 #: core/includes/functions-extensions.php:372
 msgid "Pinterest"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:364
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:361
 #: core/includes/functions-extensions.php:369
 msgid "StumbleUpon"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:385
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:382
 #: core/includes/functions-extensions.php:374
 msgid "Vimeo"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:406
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:403
 msgid "Yelp"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:427
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:424
 msgid "Foursquare"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:446
+#: core/includes/customizer/settings/class-responsive-footer-layout-customizer.php:443
 msgid "Email Address"
 msgstr ""
 
@@ -2065,7 +2056,7 @@ msgstr ""
 msgid "Header Widget Colors"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-header-widgets-customizer.php:120
+#: core/includes/customizer/settings/class-responsive-header-widgets-customizer.php:119
 msgid "Header Widgets Typography"
 msgstr ""
 
@@ -2099,7 +2090,7 @@ msgid "Disable Hero Area"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:141
-#: core/includes/functions.php:92 functions.php:625
+#: core/includes/functions.php:92 functions.php:626
 msgid "HAPPINESS"
 msgstr ""
 
@@ -2108,7 +2099,7 @@ msgid "Headline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:160
-#: core/includes/functions.php:93 functions.php:628
+#: core/includes/functions.php:93 functions.php:629
 msgid "IS A WARM CUP"
 msgstr ""
 
@@ -2117,7 +2108,7 @@ msgid "Subheadline"
 msgstr ""
 
 #: core/includes/customizer/settings/class-responsive-home-page-customizer.php:178
-#: core/includes/functions.php:94 functions.php:631
+#: core/includes/functions.php:94 functions.php:632
 msgid ""
 "Your title, subtitle and this very content is editable from Theme Option. "
 "Call to Action button and its destination link as well. Image on your right "
@@ -2623,44 +2614,44 @@ msgstr ""
 msgid "Meta Text Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:156
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:155
 msgid "Links"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:160
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:159
 msgid "Link Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:165
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:164
 msgid "Link Hover Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:174
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:203
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:172
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:201
 msgid "Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:179
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:177
 msgid "Hover Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:187
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:185
 msgid "Hover Text Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:195
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:193
 msgid "Hover Border Color"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:199
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:197
 msgid "Inputs"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:216
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:214
 msgid "Labels"
 msgstr ""
 
-#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:220
+#: core/includes/customizer/settings/class-responsive-site-colors-customizer.php:218
 msgid "Label Color"
 msgstr ""
 
@@ -2978,7 +2969,7 @@ msgstr ""
 msgid "Area 15 - sidebar-footer.php"
 msgstr ""
 
-#: core/includes/functions.php:95 functions.php:634
+#: core/includes/functions.php:95 functions.php:635
 msgid "Call to Action"
 msgstr ""
 
@@ -3138,22 +3129,23 @@ msgstr ""
 msgid "Scroll to Top"
 msgstr ""
 
-#: functions.php:520
+#: functions.php:521
+#. translators: 1 : Permalink, 2 : Title
 msgid "Permalink to %s"
 msgstr ""
 
-#: functions.php:585
+#: functions.php:586
 #. translators: %s Link to 5 star rating
 msgid ""
 "If you like <strong>Responsive Theme</strong> please leave us a %s rating. "
 "It takes a minute and helps a lot. Thanks in advance!"
 msgstr ""
 
-#: functions.php:586
+#: functions.php:587
 msgid "Thanks :)"
 msgstr ""
 
-#: functions.php:637
+#: functions.php:638
 msgid "#"
 msgstr ""
 
@@ -3334,18 +3326,18 @@ msgstr ""
 msgid "Camera:"
 msgstr ""
 
-#: sidebar-home.php:33
+#: sidebar-home.php:34
 msgid "Fermentum"
 msgstr ""
 
-#: sidebar-home.php:40
+#: sidebar-home.php:41
 msgid ""
 "This is your first home widget box. To edit please go to Appearance > "
 "Widgets and choose 6th widget from the top in area 6 called Home Widget 1. "
 "Title is also manageable from widgets as well."
 msgstr ""
 
-#: sidebar-home.php:42 sidebar-home.php:70 sidebar-home.php:96
+#: sidebar-home.php:43 sidebar-home.php:71 sidebar-home.php:97
 msgid ""
 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
 "Lorem Ipsum has been the industry's standard dummy text ever since the "
@@ -3354,22 +3346,22 @@ msgid ""
 "also the leap into electronic typesetting, remaining essentially unchanged."
 msgstr ""
 
-#: sidebar-home.php:59
+#: sidebar-home.php:60
 msgid "Elementum"
 msgstr ""
 
-#: sidebar-home.php:68
+#: sidebar-home.php:69
 msgid ""
 "This is your second home widget box. To edit please go to Appearance > "
 "Widgets and choose 7th widget from the top in area 7 called Home Widget 2. "
 "Title is also manageable from widgets as well."
 msgstr ""
 
-#: sidebar-home.php:87
+#: sidebar-home.php:88
 msgid "Interdum"
 msgstr ""
 
-#: sidebar-home.php:94
+#: sidebar-home.php:95
 msgid ""
 "This is your third home widget box. To edit please go to Appearance > "
 "Widgets and choose 8th widget from the top in area 8 called Home Widget 3. "
@@ -3382,23 +3374,24 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Responsive is a modern, lightweight, fully customizable, fast & Responsive "
-"WordPress theme, which includes 15+ ready-to-use templates for websites of "
-"all types (blog, WooCommerce, Portfolio, Podcast, Startups, Consultancy, "
-"Education, LMS, Auctions, and more). The theme is easy to customize and you "
-"can create blog or eCommerce websites using a user-friendly drag and drop "
-"interface. It is optimized for SEO with support for Schema.org microdata, "
-"fast loading speed, and responsive layout designs. Responsive works with "
-"all popular WordPress plugins, including WooCommerce, Sensei, bbPress, "
-"LearnDash, BuddyPress, etc. Fully compatible with popular page builders "
-"like Elementor, Brizy, Beaver Builder, Visual Composer, SiteOrigin, Divi, "
-"etc. It comes with ready to use websites: Built on Gutenberg & Elementor, "
+"Responsive is a fast, lightweight, & fully customizable WordPress theme, "
+"which offers 100+ free ready-to-use Elementor & WordPress Block templates "
+"for websites of all types (blog, WooCommerce, Portfolio, Podcast, Startups, "
+"Consultancy, Education, LMS, Auctions, and more). The theme is easy to "
+"customize and you can create blog or eCommerce websites using a "
+"user-friendly drag and drop interface. It's optimized for SEO with support "
+"for Schema.org microdata, fast loading speed, and responsive layout "
+"designs. Responsive works with all popular WordPress plugins like "
+"WooCommerce, bbPress, LearnDash, BuddyPress, etc. Responsive theme is fully "
+"compatible with popular page builders like Elementor, Brizy, Beaver "
+"Builder, Visual Composer, SiteOrigin, Divi, etc. It comes with ready to "
+"import websites: Built with Elementor & full site editing(FSE) features, "
 "it's an ideal theme to quickly launch a fully functional website. Features: "
-"# Responsive #Starter Data # WooCommerce Ready # Import Pre-Built Ready "
-"Websites (Gutenberg & Elementor) # LMS Ready (Sensei, LearnDash) # RTL # "
-"Translations Ready & Included # WPML Compatible # Retina Logo # Layout "
-"Settings # Transparent Headers # White Label # Site/Blog Layouts #Unlimited "
-"Colors Check out the list of all 15+ ready sites here "
+"#Responsive #Starter Templates #WooCommerce Ready #Import Pre-Built "
+"Elementor Websites (Elementor & Block editor) #LearnDash LMS Ready #RTL "
+"support #Translations Ready #WPML Compatible #Retina Logo #Layout Settings "
+"#Transparent Headers #Blog Layouts #Unlimited Colors. Check out the list of "
+"all 100+ Responsive Starter Templates: "
 "https://cyberchimps.com/wordpress-themes/"
 msgstr ""
 
@@ -3422,132 +3415,132 @@ msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/includes/customizer/helper.php:1364
+#: core/includes/customizer/helper.php:1366
 msgctxt "design style name"
 msgid "Playful"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1425
+#: core/includes/customizer/helper.php:1427
 msgctxt "design style name"
 msgid "Traditional"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1460
+#: core/includes/customizer/helper.php:1462
 msgctxt "design style name"
 msgid "Modern"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1495
+#: core/includes/customizer/helper.php:1497
 msgctxt "design style name"
 msgid "Trendy"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1547
+#: core/includes/customizer/helper.php:1549
 msgctxt "design style name"
 msgid "Welcoming"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1367
+#: core/includes/customizer/helper.php:1369
 msgctxt "color palette name"
 msgid "Default"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1377
+#: core/includes/customizer/helper.php:1379
 msgctxt "color palette name"
 msgid "Frolic"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1388
+#: core/includes/customizer/helper.php:1390
 msgctxt "color palette name"
 msgid "Coral"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1399
+#: core/includes/customizer/helper.php:1401
 msgctxt "color palette name"
 msgid "Organic"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1410
+#: core/includes/customizer/helper.php:1412
 msgctxt "color palette name"
 msgid "Berry"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1428
+#: core/includes/customizer/helper.php:1430
 msgctxt "color palette name"
 msgid "Apricot"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1435
+#: core/includes/customizer/helper.php:1437
 msgctxt "color palette name"
 msgid "Emerald"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1442
+#: core/includes/customizer/helper.php:1444
 msgctxt "color palette name"
 msgid "Brick"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1449
+#: core/includes/customizer/helper.php:1451
 msgctxt "color palette name"
 msgid "Bronze"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1463
+#: core/includes/customizer/helper.php:1465
 msgctxt "color palette name"
 msgid "Shade"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1470
+#: core/includes/customizer/helper.php:1472
 msgctxt "color palette name"
 msgid "Blush"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1477
+#: core/includes/customizer/helper.php:1479
 msgctxt "color palette name"
 msgid "Indiresponsive"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1484
+#: core/includes/customizer/helper.php:1486
 msgctxt "color palette name"
 msgid "Pacific"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1498
+#: core/includes/customizer/helper.php:1500
 msgctxt "color palette name"
 msgid "Plum"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1510
+#: core/includes/customizer/helper.php:1512
 msgctxt "color palette name"
 msgid "Steel"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1521
+#: core/includes/customizer/helper.php:1523
 msgctxt "color palette name"
 msgid "Avocado"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1532
+#: core/includes/customizer/helper.php:1534
 msgctxt "color palette name"
 msgid "Champagne"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1550
+#: core/includes/customizer/helper.php:1552
 msgctxt "color palette name"
 msgid "Forest"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1558
+#: core/includes/customizer/helper.php:1560
 msgctxt "color palette name"
 msgid "Spruce"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1566
+#: core/includes/customizer/helper.php:1568
 msgctxt "color palette name"
 msgid "Mocha"
 msgstr ""
 
-#: core/includes/customizer/helper.php:1574
+#: core/includes/customizer/helper.php:1576
 msgctxt "color palette name"
 msgid "Lavender"
 msgstr ""

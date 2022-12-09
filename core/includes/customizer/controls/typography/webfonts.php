@@ -15,16 +15,17 @@ function responsive_standard_fonts() {
 		'responsive_standard_fonts_array',
 		array(
 			'Open Sans'       => array(
-				'weights' => array(
+				array(
 					300,
 					400,
 					600,
 					700,
 					800,
 				),
+				'sans-serif',
 			),
 			'Times New Roman' => array(
-				'weights' => array(
+				array(
 					400,
 					500,
 					600,
@@ -32,21 +33,24 @@ function responsive_standard_fonts() {
 					800,
 					900,
 				),
+				'sans-serif',
 			),
 			'Georgia'         => array(
-				'weights' => array(
+				array(
 					400,
 					700,
 				),
+				'sans-serif',
 			),
 			'Garamond'        => array(
-				'weights' => array(
+				array(
 					400,
 					500,
 					600,
 					700,
 					800,
 				),
+				'sans-serif',
 			),
 		)
 	);

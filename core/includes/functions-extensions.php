@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function responsive_get_breadcrumb_lists() {
 	$responsive_options = get_option( 'responsive_theme_options' );
 	$yoast_options      = get_option( 'wpseo_titles' );
-	if ( 1 == $responsive_options['breadcrumb'] ) {
+	if ( 1 === $responsive_options['breadcrumb'] ) {
 		return;
 	} elseif ( function_exists( 'bcn_display' ) ) {
 		echo '<span class="breadcrumb" typeof="v:Breadcrumb">';
@@ -93,7 +93,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 			$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
 
 			if ( is_home() ) {
-				if ( 1 == $show['current'] ) {
+				if ( 1 === $show['current'] ) {
 					$html_output .= $before . get_the_title( get_option( 'page_for_posts', true ) ) . $after;
 				}
 			} elseif ( is_category() ) {
@@ -135,11 +135,11 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= $before . get_the_time( 'Y' ) . $after;
 
 			} elseif ( is_single() && ! is_attachment() ) {
-				if ( 'post' != get_post_type() ) {
+				if ( 'post' !== get_post_type() ) {
 					$post_type    = get_post_type_object( get_post_type() );
 					$archive_link = get_post_type_archive_link( $post_type->name );
 					$html_output .= sprintf( $link, $archive_link, $post_type->labels->singular_name );
-					if ( 1 == $show['current'] ) {
+					if ( 1 === $show['current'] ) {
 						$html_output .= $delimiter . $before . get_the_title() . $after;
 					}
 				} else {
@@ -156,7 +156,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 						$term_id = $term->parent;
 					}
 
-					if ( 0 == $show['current'] ) {
+					if ( 0 === $show['current'] ) {
 						$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
 					}
 					$cats = str_replace( '<a', $before_link . '<meta itemprop="position" content="' . $position . '" /><a itemprop="item"' . $link_att, $cats );
@@ -164,11 +164,11 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 					$html_output .= $cats;
 
-					if ( 1 == $show['current'] ) {
+					if ( 1 === $show['current'] ) {
 						$html_output .= $before . get_the_title() . $after;
 					}
 				}
-			} elseif ( ! is_single() && ! is_page() && ! is_404() && 'post' != get_post_type() ) {
+			} elseif ( ! is_single() && ! is_page() && ! is_404() && 'post' !== get_post_type() ) {
 				$post_type    = get_post_type_object( get_post_type() );
 				$html_output .= $before . $post_type->labels->singular_name . $after;
 
@@ -190,11 +190,11 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				}
 
 				$html_output .= sprintf( $link, get_permalink( $parent ), $parent->post_title );
-				if ( 1 == $show['current'] ) {
+				if ( 1 === $show['current'] ) {
 					$html_output .= $delimiter . $before . get_the_title() . $after;
 				}
 			} elseif ( is_page() && ! $parent_id ) {
-				if ( 1 == $show['current'] ) {
+				if ( 1 === $show['current'] ) {
 					$html_output .= $before . get_the_title() . $after;
 				}
 			} elseif ( is_page() && $parent_id ) {
@@ -207,11 +207,11 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$breadcrumbs = array_reverse( $breadcrumbs );
 				for ( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
 					$html_output .= $breadcrumbs[ $i ];
-					if ( $i != count( $breadcrumbs ) - 1 ) {
+					if ( $i !== count( $breadcrumbs ) - 1 ) {
 						$html_output .= $delimiter;
 					}
 				}
-				if ( 1 == $show['current'] ) {
+				if ( 1 === $show['current'] ) {
 					$html_output .= $delimiter . $before . get_the_title() . $after;
 				}
 			} elseif ( is_tag() ) {
@@ -403,7 +403,7 @@ function responsive_get_social_icons() {
 						} else {
 							?>
 							<li>
-								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo $target_social_link ?> <?php responsive_schema_markup( 'url' ); ?>>
+								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo esc_attr( $target_social_link ); ?> <?php responsive_schema_markup( 'url' ); ?>>
 									<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
 								</a>
 							</li>

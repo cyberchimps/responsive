@@ -7,6 +7,8 @@
 
 /**
  * Enqueue admin scipts.
+ *
+ * @param string $hook Hook.
  */
 function responsive_admin_scripts( $hook ) {
 	if ( 'post-new.php' === $hook || 'post.php' === $hook ) {
@@ -31,6 +33,9 @@ function responsive_admin_scripts( $hook ) {
 }
 add_action( 'admin_enqueue_scripts', 'responsive_admin_scripts' );
 
+/**
+ * Responsive_enqueue_notices_handler.
+ */
 function responsive_enqueue_notices_handler() {
 	wp_register_script( 'responsive-plugin-notices-handler', trailingslashit( get_template_directory_uri() ) . '/admin/js/notices.js', array( 'jquery' ), true, RESPONSIVE_THEME_VERSION );
 	wp_localize_script(
@@ -38,7 +43,7 @@ function responsive_enqueue_notices_handler() {
 		'dismissNotices',
 		array(
 			'_notice_nonce' => wp_create_nonce( 'responsive-plugin-notices-handler' ),
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'ajaxurl'       => admin_url( 'admin-ajax.php' ),
 		)
 	);
 
@@ -54,10 +59,10 @@ add_action( 'admin_enqueue_scripts', 'responsive_enqueue_notices_handler', 99 );
  * @since 4.0.3
  */
 function responsive_welcome_banner_notice() {
-	if ( 1 != get_option( "responsive-readysite-promotion" ) ) {
-	?>
+	if ( 1 !== get_option( 'responsive-readysite-promotion' ) ) {
+		?>
 
-	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_content( 'responsive-add-ons' ); //phpcs:ignore ?>
+	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_content( 'responsive-add-ons' ); //phpcs:ignore ?>
 	<div class="postbox responsive-sites-active" id="responsive-sites-active">
 		<div class="responsive-notice-image">
 			<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/responsive-thumbnail.jpg' ); ?>">
@@ -67,29 +72,40 @@ function responsive_welcome_banner_notice() {
 				<span><?php echo esc_html( apply_filters( 'responsive_sites_menu_page_title', __( 'Thank You for installing Responsive', 'responsive' ) ) ); ?></span>
 			</h2>
 				<p>
-					You can get a fully functional ready site with Responsive. Browse 90+ <a href="https://cyberchimps.com/wordpress-themes/?utm_source=wordpress-install-notice&utm_medium=button&utm_campaign=ready-site-templates" target="_blank" rel="noopener">ready site templates</a> Install the Ready Site Importer plugin to get started.
+					You can get a fully functional ready site with Responsive. Browse 100+ <a href="https://cyberchimps.com/wordpress-themes/?utm_source=wordpress-install-notice&utm_medium=button&utm_campaign=ready-site-templates" target="_blank" rel="noopener">ready site templates</a> Install the Responsive Starter Templates plugin to get started.
 					<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 				</p>
 			</div>
 			<button type="button" class="notice-dismiss"></button>
 		</div>
-	<?php echo Responsive_Plugin_Install_Helper::instance()->get_deactivate_end_content( 'responsive-add-ons' ); //phpcs:ignore
-}
+	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_end_content( 'responsive-add-ons' ); //phpcs:ignore
+	}
 }
 
 add_action( 'admin_notices', 'responsive_welcome_banner_notice', 10 );
 
 add_action( 'wp_ajax_responsive_delete_transient_action', 'responsive_delete_transient_action' );
 
+/**
+ * Responsive Delete Transient Action
+ *
+ * @since 4.0.3
+ */
 function responsive_delete_transient_action() {
 	$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
 
 	if ( false === wp_verify_nonce( $nonce, 'responsive-plugin-notices-handler' ) ) {
 		return;
 	}
-	update_option( "responsive-readysite-promotion", 1 );
+	update_option( 'responsive-readysite-promotion', 1 );
 
 }
+
+/**
+ * Responsive Upgrade Pro React
+ *
+ * @since 4.0.3
+ */
 function responsive_upgrade_pro_react() {
 	?>
 
