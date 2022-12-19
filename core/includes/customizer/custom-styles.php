@@ -1060,6 +1060,8 @@ function responsive_customizer_styles() {
 		}
 		.res-iconify {
 			top: 0.3px;
+			display: block;
+			position: absolute;
 		}
 		.main-navigation .res-iconify.no-menu {
 			top: 16.3px;
