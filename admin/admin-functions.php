@@ -59,7 +59,7 @@ add_action( 'admin_enqueue_scripts', 'responsive_enqueue_notices_handler', 99 );
  * @since 4.0.3
  */
 function responsive_welcome_banner_notice() {
-	if ( 1 !== get_option( 'responsive-readysite-promotion' ) ) {
+	if ( '1' !== get_option( 'responsive-readysite-promotion' ) ) {
 		?>
 
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_content( 'responsive-add-ons' ); //phpcs:ignore ?>
