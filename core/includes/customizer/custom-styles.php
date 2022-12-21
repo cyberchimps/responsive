@@ -1059,7 +1059,9 @@ function responsive_customizer_styles() {
 			display: none;
 		}
 		.res-iconify {
-			top: 0.3px;
+			top: 5.3px;
+			display: block;
+			position: absolute;
 		}
 		.main-navigation .res-iconify.no-menu {
 			top: 16.3px;
@@ -1358,6 +1360,7 @@ function responsive_customizer_styles() {
 				top: 0;
 				width: 100%;
 			    z-index: 100000;
+				padding-top: 80px;
 			}
 			.main-navigation.toggled .menu {
 				margin-top: 70px;
