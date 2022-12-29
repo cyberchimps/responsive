@@ -113,6 +113,7 @@
         line-height: $base-line-height-px * 1.75;
         text-align: center;
         z-index: 9999;
+        display:flex;
 
         &-cancel {
             display: none;

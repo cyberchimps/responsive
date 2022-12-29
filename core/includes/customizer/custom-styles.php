@@ -1015,7 +1015,7 @@ function responsive_customizer_styles() {
 			bottom:{$header_tablet_padding_bottom}px;
 		}
 		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
-			top: 15px;
+			top:{$header_tablet_padding_top}px;
 		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 75px;
@@ -1072,7 +1072,7 @@ function responsive_customizer_styles() {
 			bottom:{$header_mobile_padding_bottom}px;
 		}
 		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
-			top: 15px;
+			top: {$header_mobile_padding_top}px;
 		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 15px;
