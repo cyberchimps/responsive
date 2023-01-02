@@ -1016,6 +1016,7 @@ function responsive_customizer_styles() {
 		}
 		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
 			top:{$header_tablet_padding_top}px;
+			margin-right: 2px;
 		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 75px;
