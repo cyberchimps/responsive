@@ -1363,8 +1363,7 @@ function responsive_customizer_styles() {
 				padding-top: 80px;
 			}
 			.main-navigation.toggled .menu {
-				margin-top: 70px;
-			    margin: 0 auto;
+				margin-top: 20px;
 			}
 			.site-mobile-header-layout-vertical .main-navigation.toggled .menu {
 				margin-top: 0px;
@@ -1396,6 +1395,7 @@ function responsive_customizer_styles() {
 				position: absolute;
 				top: 28px;
 				right: 15px;
+				margin: 0;
 			}
 			.site-mobile-header-layout-vertical .main-navigation.toggled .menu,
 			.main-navigation.toggled .menu {
@@ -1568,6 +1568,7 @@ function responsive_customizer_styles() {
 					background-color:{$header_menu_toggle_background_color};
 					border: none;
 					border-radius: {$mobile_menu_border_radius}px;
+					margin: 0;
 				}
 				.main-navigation .menu-toggle{
 					background-color: {$header_menu_toggle_background_color} ;
@@ -1582,6 +1583,7 @@ function responsive_customizer_styles() {
 				.main-navigation.toggled .menu-toggle{
 					background-color: {$header_background_color};
 					border: none;
+					margin: 0;
 				}
 				.main-navigation .menu-toggle{
 					background-color: {$header_background_color}  ;
@@ -1599,6 +1601,7 @@ function responsive_customizer_styles() {
 					border-width: 1px;
 					border-color:{$mobile_menu_toggle_border_color };
 					border-radius: {$mobile_menu_border_radius}px;
+					margin: 0;
 
 				}
 				.main-navigation .menu-toggle{
