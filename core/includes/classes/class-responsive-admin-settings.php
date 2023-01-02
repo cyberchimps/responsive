@@ -374,7 +374,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 							?>
 						</p>
 						</div>
-						<div class="responsive-bottom-banner-button">
+						<div id="responsive-bottom-btn" class="responsive-bottom-banner-button">
 							<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 							<?php
 							$responsive_facebook_group_link = 'https://wordpress.org/plugins/responsive-add-ons';

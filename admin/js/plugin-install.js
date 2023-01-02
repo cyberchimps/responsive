@@ -30,8 +30,11 @@ jQuery( document ).ready(
 							{
 								slug: slug,
 								success: function () {
-									button.text( responsiveAboutPluginInstall.activating + '...' );
-									self.activatePlugin( url, redirect );
+								$('#responsive-top-btn a').text(responsiveAboutPluginInstall.activating + '...')
+								$('#responsive-bottom-btn a').text(responsiveAboutPluginInstall.activating + '...')
+								$('#responsive-top-btn a').addClass( 'updating-message' );
+								$('#responsive-bottom-btn a').addClass( 'updating-message' );
+								self.activatePlugin( url, redirect );
 								}
 							}
 						);
@@ -90,8 +93,10 @@ jQuery( document ).ready(
 						var button   = $( this );
 						var url      = button.attr( 'href' );
 						var redirect = button.attr( 'data-redirect' );
-						button.addClass( 'updating-message' );
-						button.text( responsiveAboutPluginInstall.activating + '...' );
+						$('#responsive-top-btn a').text(responsiveAboutPluginInstall.activating + '...')
+						$('#responsive-bottom-btn a').text(responsiveAboutPluginInstall.activating + '...')
+						$('#responsive-top-btn a').addClass( 'updating-message' );
+						$('#responsive-bottom-btn a').addClass( 'updating-message' );
 						self.activatePlugin( url, redirect );
 					}
 				);
