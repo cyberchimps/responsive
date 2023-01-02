@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/09/2022) = Fix - Version 4.7.8
+[+] = Feature = Improved performance.
+[!] = Fixed = Fixed Typography issue.
+
 (11/17/2022) = Fix - Version 4.7.7
 [*] = Changed = Minor UI Changes.
 

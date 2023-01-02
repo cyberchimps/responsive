@@ -155,7 +155,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 		 */
 		public static function menu_callback() {
 
-			$current_slug = isset( $_GET['action'] ) ? esc_attr( $_GET['action'] ) : self::$current_slug;
+			$current_slug = isset( $_GET['action'] ) ? ( sanitize_key( ( wp_unslash( ( $_GET['action'] ) ) ) ) ) : self::$current_slug;
 
 			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
@@ -366,7 +366,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 			<div class="postbox responsive-bottom-banner" style="background-image: url(<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/rst-bottom-banner.png' ); ?>);background-size:auto; background-position: center;">
 				<div class="inside resposive-documentation inside-bottom-banner">
-					
+
 						<div class="responsive-bottom-banner-text">
 						<p>
 							<?php

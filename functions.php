@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.7.7' );
+define( 'RESPONSIVE_THEME_VERSION', '4.7.8' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -517,6 +517,7 @@ if ( ! function_exists( 'responsive_page_featured_image' ) ) :
 		if ( has_post_thumbnail() ) {
 			?>
 						<div class="featured-image">
+						<?php /* translators: 1 : Permalink, 2 : Title */ ?>
 							<a href="<?php the_permalink(); ?>" aria-label="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'responsive' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" <?php responsive_schema_markup( 'url' ); ?>>
 								<?php	the_post_thumbnail(); ?>
 							</a>
@@ -909,9 +910,19 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 		do_action( 'wp_body_open' );
 	}
 }
+
+/**
+ * [responsive_nav_menu_link_attributes]
+ *
+ * @param array $atts Attribute.
+ * @param mixed $item Item.
+ * @param mixed $args Arguments.
+ * @param mixed $depth Depth.
+ * @return array $atts.
+ */
 function responsive_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 
-	// Add [aria-haspopup] and [aria-expanded] to menu items that have children
+	// Add [aria-haspopup] and [aria-expanded] to menu items that have children.
 	$item_has_children = in_array( 'menu-item-has-children', $item->classes );
 	if ( $item_has_children ) {
 		$atts['aria-haspopup'] = 'true';
@@ -922,6 +933,14 @@ function responsive_nav_menu_link_attributes( $atts, $item, $args, $depth ) {
 }
 add_filter( 'nav_menu_link_attributes', 'responsive_nav_menu_link_attributes', 10, 4 );
 
+/**
+ * [responsive_add_sub_toggles_to_main_menu]
+ *
+ * @param mixed $args Arguments.
+ * @param mixed $item Item.
+ * @param mixed $depth Depth.
+ * @return $args.
+ */
 function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 	if ( 'header-menu' === $args->theme_location ) {
 		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
@@ -944,6 +963,9 @@ add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_main_menu', 10,
 if ( ! function_exists( 'responsive_display_date_box' ) ) {
 	/**
 	 * Display date box on blog/archive page.
+	 *
+	 * @param mixed $date_box_toggle Date Box Toggle.
+	 * @param mixed $toggle Toggle.
 	 */
 	function responsive_display_date_box( $date_box_toggle, $toggle ) {
 		if ( $date_box_toggle ) {
@@ -978,17 +1000,17 @@ if ( ! function_exists( 'responsive_fallback_menu' ) ) {
 	 */
 	function responsive_fallback_menu() {
 		$args    = array(
-			'depth'       => 0,
-			'sort_column' => 'menu_order, post_title',
-			'menu_class'  => 'menu',
-			'include'     => '',
-			'exclude'     => '',
-			'echo'        => false,
-			'show_home'   => true,
-			'link_before' => '',
-			'link_after'  => '',
+			'depth'               => 0,
+			'sort_column'         => 'menu_order, post_title',
+			'menu_class'          => 'menu',
+			'include'             => '',
+			'exclude'             => '',
+			'echo'                => false,
+			'show_home'           => true,
+			'link_before'         => '',
+			'link_after'          => '',
 			'show_sub_menu_icons' => true,
-			'walker'      => new Responsive_Walker_Page(),
+			'walker'              => new Responsive_Walker_Page(),
 		);
 		$pages   = wp_page_menu( $args );
 		$prepend = '<div id="header-menu" class="menu">';

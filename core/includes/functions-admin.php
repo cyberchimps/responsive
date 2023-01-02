@@ -75,11 +75,11 @@ function responsive_ask_for_review_notice() {
          					</div>',
 			esc_url( $image_path ),
 			'https://wordpress.org/support/theme/responsive/reviews/#new-post',
-			__( 'Hi! Thanks for using the Responsive theme.', 'responsive' ),
-			__( 'Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ),
-			__( 'Ok, you deserve it', 'responsive' ),
-			__( 'Nope, maybe later', 'responsive' ),
-			__( 'I already did', 'responsive' )
+			esc_html__( 'Hi! Thanks for using the Responsive theme.', 'responsive' ),
+			esc_html__( 'Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ),
+			esc_html__( 'Ok, you deserve it', 'responsive' ),
+			esc_html__( 'Nope, maybe later', 'responsive' ),
+			esc_html__( 'I already did', 'responsive' )
 		);
 		do_action( 'tag_review' );
 	}

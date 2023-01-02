@@ -102,13 +102,16 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 				'responsive-typography-weight',
 				'responsive',
 				array(
-					'googleFonts'  => responsive_get_google_fonts(),
-					'weigthMap'    => $this->all_font_weight,
-					'std_fonts'    => responsive_standard_fonts(),
+					'googleFonts' => responsive_get_google_fonts(),
+					'weigthMap'   => $this->all_font_weight,
+					'std_fonts'   => responsive_standard_fonts(),
 
 				)
 			);
 		}
+		/**
+		 * Get Custom Fonts.
+		 */
 		public function get_custom_fonts() {
 					return class_exists( 'Responsive_Addons_Pro' ) ? Responsive_Pro_Custom_Fonts_Taxonomy::get_fonts() : null;
 		}

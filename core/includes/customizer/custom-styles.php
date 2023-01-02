@@ -832,7 +832,7 @@ function responsive_customizer_styles() {
 			padding-top: {$header_height_half}px;
 			padding-bottom: {$header_height_half}px;
 		}
-		
+
 		@media screen and (max-width: {$mobile_menu_breakpoint}px) {
 			body.site-header-layout-vertical.site-mobile-header-layout-horizontal:not(.res-transparent-header) .site-header .main-navigation {
 				border-top: 0;
@@ -849,7 +849,7 @@ function responsive_customizer_styles() {
 			padding-top: {$transparent_header_height_half}px;
 			padding-bototm: {$transparent_header_height_half}px;
 		}
-		
+
 		@media screen and (max-width: {$mobile_menu_breakpoint}px) {
 			body.site-header-layout-vertical.site-mobile-header-layout-horizontal.res-transparent-header .site-header .main-navigation {
 				border-top: 0;
@@ -1059,7 +1059,9 @@ function responsive_customizer_styles() {
 			display: none;
 		}
 		.res-iconify {
-			top: 0.3px;
+			top: 5.3px;
+			display: block;
+			position: absolute;
 		}
 		.main-navigation .res-iconify.no-menu {
 			top: 16.3px;
@@ -1070,7 +1072,7 @@ function responsive_customizer_styles() {
 			bottom:{$header_mobile_padding_bottom}px;
 		}
 		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
-			top:{$header_mobile_padding_top}px;
+			top: {$header_mobile_padding_top}px;
 		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 15px;
@@ -1251,7 +1253,7 @@ function responsive_customizer_styles() {
 		}
 	}";
 
-	if ( 1 == $sub_menu_divider ) {
+	if ( 1 === $sub_menu_divider ) {
 		$custom_css .= "
 	.main-navigation .children li, .main-navigation .sub-menu li {
 		border-bottom-width: 1px;
@@ -1264,7 +1266,7 @@ function responsive_customizer_styles() {
 	";
 	}
 
-	if ( ( 1 == $disable_menu ) && ( 0 == $disable_mobile_menu ) ) {
+	if ( ( 1 === $disable_menu ) && ( 0 === $disable_mobile_menu ) ) {
 		$custom_css .= '.site-branding {
 
 	    		width: -webkit-fill-available;
@@ -1358,6 +1360,7 @@ function responsive_customizer_styles() {
 				top: 0;
 				width: 100%;
 			    z-index: 100000;
+				padding-top: 80px;
 			}
 			.main-navigation.toggled .menu {
 				margin-top: 70px;
@@ -1613,7 +1616,7 @@ function responsive_customizer_styles() {
 
 	$responsive_mobile_logo_option = get_theme_mod( 'responsive_mobile_logo_option', 0 );
 	$responsive_mobile_logo        = get_theme_mod( 'responsive_mobile_logo' );
-	if ( '' !== $responsive_mobile_logo && '1' == $responsive_mobile_logo_option ) {
+	if ( '' !== $responsive_mobile_logo && '1' === $responsive_mobile_logo_option ) {
 		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
 			.mobile-custom-logo {
 				display: none;
@@ -1629,7 +1632,7 @@ function responsive_customizer_styles() {
 		}';
 	}
 	$responsive_hide_last_item_mobile_menu = get_theme_mod( 'responsive_hide_last_item_mobile_menu', 0 );
-	if ( '1' == $responsive_hide_last_item_mobile_menu ) {
+	if ( '1' === $responsive_hide_last_item_mobile_menu ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 			.res-cart-link, .res-last-item {
 				display: none;
@@ -2109,7 +2112,7 @@ function responsive_customizer_styles() {
 	}
 	";
 
-	// Hide Copyright on selected Devices
+	// Hide Copyright on selected Devices.
 
 	$copyright_desktop_visibility = get_theme_mod( 'responsive_copyright', 0 );
 	$copyright_desktop_visibility = ( 1 === $copyright_desktop_visibility ) ? 'none' : 'block';
@@ -2134,7 +2137,7 @@ function responsive_customizer_styles() {
 		}
 	}";
 
-	// Scroll To Top
+	// Scroll To Top.
 	$scroll_totop                    = get_theme_mod( 'responsive_scroll_to_top' );
 	$stt_devices                     = get_theme_mod( 'responsive_scroll_to_top_on_devices' );
 	$stt_position                    = get_theme_mod( 'responsive_scroll_to_top_icon_position' );
@@ -2145,7 +2148,7 @@ function responsive_customizer_styles() {
 	$stt_icon_background_color       = get_theme_mod( 'responsive_scroll_to_top_icon_background_color' );
 	$stt_icon_background_hover_color = get_theme_mod( 'responsive_scroll_to_top_icon_background_hover_color' );
 
-	if ( 1 == $scroll_totop ) {
+	if ( 1 === $scroll_totop ) {
 		$custom_css .= '@media (min-width: 769px) {
 	    #scroll {
 	    content: "769"; } }
