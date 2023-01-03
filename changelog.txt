@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(01/03/2023) = Fix - Version 4.7.9
+[!] = Fixed = Hamburger menu alignment.
+[!] = Fixed = Changed the button text for installing the Responsive Starter Templates plugin.
+[+] = Feature = Moved the Global settings to top in the customizer.
+
 (12/09/2022) = Fix - Version 4.7.8
 [+] = Feature = Improved performance.
 [!] = Fixed = Fixed Typography issue.
