@@ -39,7 +39,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Global Settings', 'responsive' ),
 					'description' => __( 'Global Settings', 'responsive' ),
-					'priority'    => 110,
+					'priority'    => 10,
 				)
 			);
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Header', 'responsive' ),
 					'description' => __( 'Header Options', 'responsive' ),
-					'priority'    => 120,
+					'priority'    => 10,
 				)
 			);
 
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Page', 'responsive' ),
 					'description' => __( 'Page Options', 'responsive' ),
-					'priority'    => 130,
+					'priority'    => 10,
 				)
 			);
 
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Blog / Archive', 'responsive' ),
 					'description' => __( 'Blog Options', 'responsive' ),
-					'priority'    => 140,
+					'priority'    => 10,
 				)
 			);
 
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Sidebar', 'responsive' ),
 					'description' => __( 'Sidebar Options', 'responsive' ),
-					'priority'    => 150,
+					'priority'    => 10,
 				)
 			);
 
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Footer', 'responsive' ),
 					'description' => __( 'Footer Options', 'responsive' ),
-					'priority'    => 160,
+					'priority'    => 10,
 				)
 			);
 

@@ -1016,6 +1016,8 @@ function responsive_customizer_styles() {
 		}
 		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
 			top:{$header_tablet_padding_top}px;
+			margin: -14px;
+			margin-right: 2px;
 		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 75px;
@@ -1059,7 +1061,9 @@ function responsive_customizer_styles() {
 			display: none;
 		}
 		.res-iconify {
-			top: 0.3px;
+			top: 5.3px;
+			display: block;
+			position: absolute;
 		}
 		.main-navigation .res-iconify.no-menu {
 			top: 16.3px;
@@ -1070,7 +1074,7 @@ function responsive_customizer_styles() {
 			bottom:{$header_mobile_padding_bottom}px;
 		}
 		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle {
-			top:{$header_mobile_padding_top}px;
+			top: {$header_mobile_padding_top}px;
 		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 15px;
@@ -1358,10 +1362,10 @@ function responsive_customizer_styles() {
 				top: 0;
 				width: 100%;
 			    z-index: 100000;
+				padding-top: 80px;
 			}
 			.main-navigation.toggled .menu {
-				margin-top: 70px;
-			    margin: 0 auto;
+				margin-top: 20px;
 			}
 			.site-mobile-header-layout-vertical .main-navigation.toggled .menu {
 				margin-top: 0px;
@@ -1393,6 +1397,7 @@ function responsive_customizer_styles() {
 				position: absolute;
 				top: 28px;
 				right: 15px;
+				margin: 0;
 			}
 			.site-mobile-header-layout-vertical .main-navigation.toggled .menu,
 			.main-navigation.toggled .menu {
@@ -1565,6 +1570,7 @@ function responsive_customizer_styles() {
 					background-color:{$header_menu_toggle_background_color};
 					border: none;
 					border-radius: {$mobile_menu_border_radius}px;
+					margin: 0;
 				}
 				.main-navigation .menu-toggle{
 					background-color: {$header_menu_toggle_background_color} ;
@@ -1579,6 +1585,7 @@ function responsive_customizer_styles() {
 				.main-navigation.toggled .menu-toggle{
 					background-color: {$header_background_color};
 					border: none;
+					margin: 0;
 				}
 				.main-navigation .menu-toggle{
 					background-color: {$header_background_color}  ;
@@ -1596,6 +1603,7 @@ function responsive_customizer_styles() {
 					border-width: 1px;
 					border-color:{$mobile_menu_toggle_border_color };
 					border-radius: {$mobile_menu_border_radius}px;
+					margin: 0;
 
 				}
 				.main-navigation .menu-toggle{

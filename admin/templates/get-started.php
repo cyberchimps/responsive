@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							?>
 						</p>
 						</div>
-						<div class="responsive-top-banner-button">
+						<div id="responsive-top-btn" class="responsive-top-banner-button">
 							<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 							<?php
 							$responsive_facebook_group_link = 'https://wordpress.org/plugins/responsive-add-ons';
