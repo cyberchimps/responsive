@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(03/30/2023) = Fix - Version 4.8.0
+ [+] = Added = Libre Franklin, Verdana, Helvetica, Arial, Courier Fonts to the Standard fonts.
+
 (01/03/2023) = Fix - Version 4.7.9
 [!] = Fixed = Hamburger menu alignment.
 [!] = Fixed = Changed the button text for installing the Responsive Starter Templates plugin.

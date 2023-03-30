@@ -52,6 +52,43 @@ function responsive_standard_fonts() {
 				),
 				'sans-serif',
 			),
+			'Verdana'        => array(
+				array(
+					400,
+					700,
+				),
+				'sans-serif',
+			),
+			'Helvetica'        => array(
+				array(
+					400,
+					700,
+				),
+				'sans-serif',
+			),
+			'Arial'        => array(
+				array(
+					400,
+					700,
+				),
+				'sans-serif',
+			),
+			'Courier'        => array(
+				array(
+					400,
+					700,
+				),
+				'sans-serif',
+			),
+			'Libre Franklin'  => array(
+				array(
+					200,
+					400,
+					700,
+				),
+				'sans-serif',
+			),
+
 		)
 	);
 }
