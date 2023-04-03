@@ -53,6 +53,16 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			);
 
 			$wp_customize->add_panel(
+				'responsive_breadcrumb',
+				array(
+					'title'       => __( 'Breadcrumb', 'responsive' ),
+					'description' => __( 'Breadcrumb Options', 'responsive' ),
+					'priority'    => 10,
+				)
+			);
+
+
+			$wp_customize->add_panel(
 				'responsive_page',
 				array(
 					'title'       => __( 'Page', 'responsive' ),
