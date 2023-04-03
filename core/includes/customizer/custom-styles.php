@@ -1019,6 +1019,10 @@ function responsive_customizer_styles() {
 			margin: -14px;
 			margin-right: 2px;
 		}
+		.site-mobile-header-layout-horizontal.site-header-site-branding-main-navigation .main-navigation .menu-toggle i.icon-times {
+			position: fixed;
+			top: 12%;
+		}
 		.site-mobile-header-layout-horizontal.header-widget-position-with_logo .site-branding {
 			padding-right: 75px;
 		}
