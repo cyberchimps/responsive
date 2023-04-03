@@ -39,7 +39,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Global Settings', 'responsive' ),
 					'description' => __( 'Global Settings', 'responsive' ),
-					'priority'    => 10,
+					'priority'    => 7,
 				)
 			);
 
@@ -48,9 +48,19 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Header', 'responsive' ),
 					'description' => __( 'Header Options', 'responsive' ),
-					'priority'    => 10,
+					'priority'    => 8,
 				)
 			);
+
+			$wp_customize->add_section(
+				'responsive_breadcrumb',
+				array(
+					'title'       => __( 'Breadcrumb', 'responsive' ),
+					'description' => __( 'Breadcrumb Options', 'responsive' ),
+					'priority'    => 9,
+				)
+			);
+
 
 			$wp_customize->add_panel(
 				'responsive_page',

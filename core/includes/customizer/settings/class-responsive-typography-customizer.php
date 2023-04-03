@@ -263,7 +263,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'label'           => esc_html__( 'Typography', 'responsive' ),
 						'target'          => $selectorArray['breadcrumb'],
 						'priority'        => 110,
-						'section'         => 'responsive_content_header_layout',
+						'section'         => 'responsive_breadcrumb',
 						'exclude'         => array( 'font-color' ),
 						'active_callback' => 'responsive_active_breadcrumb',
 						'defaults'        => array(
