@@ -45,8 +45,8 @@ function setup() {
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_scrolltotop' ) );
 	add_action( 'widgets_init', $n( 'responsive_register_widgets' ) );
 	add_filter( 'pre_update_option_show_on_front', $n( 'responsive_front_page_override' ), 10, 2 );
-	add_filter( 'body_class', $n( 'responsive_add_class' ) );
-	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ) );
+	add_filter( 'body_class', $n( 'responsive_add_class' ),999 );
+	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ),999 );
 	add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
 
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
@@ -733,7 +733,6 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'menu-item-hover-style-overline';
 		}
 	}
-
 	return $classes;
 }
 
