@@ -86,12 +86,22 @@ function responsive_customizer_styles() {
 	// Box Padding.
 	error_log( get_theme_mod( 'lifterlms_top_padding'));
 
-	if ( get_theme_mod( 'lifterlms_top_padding') || get_theme_mod( 'lifterlms_top_padding') || get_theme_mod( 'lifterlms_top_padding') || get_theme_mod( 'lifterlms_top_padding')) {
+	if ( get_theme_mod( 'lifterlms_top_padding') || get_theme_mod( 'lifterlms_left_padding') || get_theme_mod( 'lifterlms_right_padding') || get_theme_mod( 'lifterlms_bottom_padding') || get_theme_mod( 'lifterlms_tablet_left_padding') || get_theme_mod( 'lifterlms_tablet_left_padding') || get_theme_mod( 'lifterlms_tablet_top_padding') || get_theme_mod( 'lifterlms_tablet_bottom_padding') || get_theme_mod( 'lifterlms_top_padding') || get_theme_mod( 'lifterlms_mobile_right_padding') || get_theme_mod( 'lifterlms_mobile_left_padding') || get_theme_mod( 'lifterlms_mobile_top_padding') || get_theme_mod( 'lifterlms_mobile_bottom_padding')) {
 
 		$box_padding_right  = esc_html( get_theme_mod( 'lifterlms_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 		$box_padding_left   = esc_html( get_theme_mod( 'lifterlms_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 		$box_padding_top    = esc_html( get_theme_mod( 'lifterlms_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 		$box_padding_bottom = esc_html( get_theme_mod( 'lifterlms_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+
+		$box_tablet_padding_right  = esc_html( get_theme_mod( 'lifterlms_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_tablet_padding_left   = esc_html( get_theme_mod( 'lifterlms_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_tablet_padding_top    = esc_html( get_theme_mod( 'lifterlms_tablet_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_tablet_padding_bottom = esc_html( get_theme_mod( 'lifterlms_tablet_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+
+		$box_mobile_padding_right  = esc_html( get_theme_mod( 'lifterlms_mobile_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_mobile_padding_left   = esc_html( get_theme_mod( 'lifterlms_mobile_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_mobile_padding_top    = esc_html( get_theme_mod( 'lifterlms_mobile_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_mobile_padding_bottom = esc_html( get_theme_mod( 'lifterlms_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 
 	}
 	else {
@@ -101,20 +111,17 @@ function responsive_customizer_styles() {
 		$box_padding_top    = esc_html( get_theme_mod( 'responsive_box_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 		$box_padding_bottom = esc_html( get_theme_mod( 'responsive_box_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 
+		$box_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_box_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_box_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_box_tablet_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+
+		$box_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_box_mobile_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_box_mobile_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_box_mobile_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+
 	}
-
-
-
-
-	$box_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_box_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_box_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_box_tablet_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-
-	$box_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_box_mobile_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_box_mobile_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_box_mobile_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 
 	// Box Radius.
 

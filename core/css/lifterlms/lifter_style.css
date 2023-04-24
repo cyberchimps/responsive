@@ -86,10 +86,6 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-.llms-loop-item {
-	margin: 0 0 ;
-}
-
 /**
  * Container styles
  * -----------------------------------------------------------------------------
@@ -2046,12 +2042,12 @@ body.mega-menu-header-menu button.menu-toggle {
   margin-bottom: 0;
 }
 
-.responsive-site-style-llms-flat .site-content-header {
+.responsive-site-style-flat .site-content-header {
   padding: 0;
   background-color: transparent;
 }
 
-.responsive-site-style-llms-content-boxed .site-content-header {
+.responsive-site-style-content-boxed .site-content-header {
   margin: 0;
   border-bottom: 1px solid #eaeaea;
 }
@@ -2111,11 +2107,11 @@ body.mega-menu-header-menu button.menu-toggle {
   padding: 0;
 }
 
-.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-llms-content-boxed .site-content, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-llms-boxed .site-content {
+.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-content-boxed .site-content, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-boxed .site-content {
   background-color: #ffffff;
 }
 
-.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-llms-content-boxed .hentry, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-llms-content-boxed article.product, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-llms-boxed .hentry, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-llms-boxed article.product {
+.page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-content-boxed .hentry, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-content-boxed article.product, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-boxed .hentry, .page-template-gutenberg-fullwidth:not(.front-page):not(.res-transparent-header).responsive-site-style-boxed article.product {
   background-color: transparent;
 }
 
@@ -2136,19 +2132,19 @@ body.mega-menu-header-menu button.menu-toggle {
   margin-bottom: 0;
 }
 
-.responsive-site-style-llms-content-boxed .hentry, .responsive-site-style-llms-content-boxed article.product,
-.responsive-site-style-llms-boxed .hentry,
-.responsive-site-style-llms-boxed article.product {
+.responsive-site-style-content-boxed .hentry, .responsive-site-style-content-boxed article.product,
+.responsive-site-style-boxed .hentry,
+.responsive-site-style-boxed article.product {
   padding: 28px;
 }
 
-.page-template-gutenberg-fullwidth.responsive-site-style-llms-content-boxed .hentry, .page-template-gutenberg-fullwidth.responsive-site-style-llms-content-boxed article.product,
-.page-template-gutenberg-fullwidth.responsive-site-style-llms-boxed .hentry,
-.page-template-gutenberg-fullwidth.responsive-site-style-llms-boxed article.product {
+.page-template-gutenberg-fullwidth.responsive-site-style-content-boxed .hentry, .page-template-gutenberg-fullwidth.responsive-site-style-content-boxed article.product,
+.page-template-gutenberg-fullwidth.responsive-site-style-boxed .hentry,
+.page-template-gutenberg-fullwidth.responsive-site-style-boxed article.product {
   padding: 0;
 }
 
-.responsive-site-style-llms-content-boxed .hentry, .responsive-site-style-llms-content-boxed article.product {
+.responsive-site-style-content-boxed .hentry, .responsive-site-style-content-boxed article.product {
   margin: 0;
   border-bottom: 1px solid #eaeaea;
 }
@@ -2282,7 +2278,7 @@ article.product .post-meta > span .avatar {
   width: auto;
 }
 
-.responsive-site-style-llms-boxed .elementor-widget-posts .hentry, .responsive-site-style-llms-boxed .elementor-widget-posts article.product {
+.responsive-site-style-boxed .elementor-widget-posts .hentry, .responsive-site-style-boxed .elementor-widget-posts article.product {
   background-color: inherit;
 }
 
@@ -2488,7 +2484,7 @@ article.product .post-meta > span .avatar {
   text-align: center;
 }
 
-.responsive-site-style-llms-content-boxed .content-area-wrapper {
+.responsive-site-style-content-boxed .content-area-wrapper {
   background-color: #ffffff;
 }
 
@@ -2518,11 +2514,11 @@ article.product .post-meta > span .avatar {
   margin-bottom: 0;
 }
 
-.responsive-site-style-llms-content-boxed #main-blog.row .entry-column, .responsive-site-style-llms-content-boxed .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .responsive-site-style-llms-content-boxed #main-blog.header-widgets-wrapper .entry-column, .responsive-site-style-llms-content-boxed #main-blog.navigation .entry-column, .responsive-site-style-llms-content-boxed .page.front-page .custom-home-about-section #main-blog.about-section-wrapper .entry-column, .page.front-page .custom-home-about-section .responsive-site-style-llms-content-boxed #main-blog.about-section-wrapper .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page .custom-home-about-section #main-blog.about-section-wrapper .entry-column, .blog.front-page .custom-home-about-section .responsive-site-style-llms-content-boxed #main-blog.about-section-wrapper .entry-column, .responsive-site-style-llms-content-boxed .page.front-page .custom-home-featured-area #main-blog.featured-area-wrapper .entry-column, .page.front-page .custom-home-featured-area .responsive-site-style-llms-content-boxed #main-blog.featured-area-wrapper .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page .custom-home-featured-area #main-blog.featured-area-wrapper .entry-column, .blog.front-page .custom-home-featured-area .responsive-site-style-llms-content-boxed #main-blog.featured-area-wrapper .entry-column, .responsive-site-style-llms-content-boxed .page.front-page .custom-home-testimonial-section #main-blog.testimonial-content .entry-column, .page.front-page .custom-home-testimonial-section .responsive-site-style-llms-content-boxed #main-blog.testimonial-content .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page .custom-home-testimonial-section #main-blog.testimonial-content .entry-column, .blog.front-page .custom-home-testimonial-section .responsive-site-style-llms-content-boxed #main-blog.testimonial-content .entry-column, .responsive-site-style-llms-content-boxed .page.front-page .custom-home-contact-section #main-blog.contact-content .entry-column, .page.front-page .custom-home-contact-section .responsive-site-style-llms-content-boxed #main-blog.contact-content .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page .custom-home-contact-section #main-blog.contact-content .entry-column, .blog.front-page .custom-home-contact-section .responsive-site-style-llms-content-boxed #main-blog.contact-content .entry-column, .responsive-site-style-llms-content-boxed .page.front-page #main-blog.team-main-div .entry-column, .page.front-page .responsive-site-style-llms-content-boxed #main-blog.team-main-div .entry-column, .responsive-site-style-llms-content-boxed .page.front-page #main-blog.feature-main-div .entry-column, .page.front-page .responsive-site-style-llms-content-boxed #main-blog.feature-main-div .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page #main-blog.team-main-div .entry-column, .blog.front-page .responsive-site-style-llms-content-boxed #main-blog.team-main-div .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page #main-blog.feature-main-div .entry-column, .blog.front-page .responsive-site-style-llms-content-boxed #main-blog.feature-main-div .entry-column, .responsive-site-style-llms-content-boxed .page.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .page.front-page aside.home-widgets .responsive-site-style-llms-content-boxed #main-blog.home-widget-wrapper .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .blog.front-page aside.home-widgets .responsive-site-style-llms-content-boxed #main-blog.home-widget-wrapper .entry-column {
+.responsive-site-style-content-boxed #main-blog.row .entry-column, .responsive-site-style-content-boxed .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .responsive-site-style-content-boxed #main-blog.header-widgets-wrapper .entry-column, .responsive-site-style-content-boxed #main-blog.navigation .entry-column, .responsive-site-style-content-boxed .page.front-page .custom-home-about-section #main-blog.about-section-wrapper .entry-column, .page.front-page .custom-home-about-section .responsive-site-style-content-boxed #main-blog.about-section-wrapper .entry-column, .responsive-site-style-content-boxed .blog.front-page .custom-home-about-section #main-blog.about-section-wrapper .entry-column, .blog.front-page .custom-home-about-section .responsive-site-style-content-boxed #main-blog.about-section-wrapper .entry-column, .responsive-site-style-content-boxed .page.front-page .custom-home-featured-area #main-blog.featured-area-wrapper .entry-column, .page.front-page .custom-home-featured-area .responsive-site-style-content-boxed #main-blog.featured-area-wrapper .entry-column, .responsive-site-style-content-boxed .blog.front-page .custom-home-featured-area #main-blog.featured-area-wrapper .entry-column, .blog.front-page .custom-home-featured-area .responsive-site-style-content-boxed #main-blog.featured-area-wrapper .entry-column, .responsive-site-style-content-boxed .page.front-page .custom-home-testimonial-section #main-blog.testimonial-content .entry-column, .page.front-page .custom-home-testimonial-section .responsive-site-style-content-boxed #main-blog.testimonial-content .entry-column, .responsive-site-style-content-boxed .blog.front-page .custom-home-testimonial-section #main-blog.testimonial-content .entry-column, .blog.front-page .custom-home-testimonial-section .responsive-site-style-content-boxed #main-blog.testimonial-content .entry-column, .responsive-site-style-content-boxed .page.front-page .custom-home-contact-section #main-blog.contact-content .entry-column, .page.front-page .custom-home-contact-section .responsive-site-style-content-boxed #main-blog.contact-content .entry-column, .responsive-site-style-content-boxed .blog.front-page .custom-home-contact-section #main-blog.contact-content .entry-column, .blog.front-page .custom-home-contact-section .responsive-site-style-content-boxed #main-blog.contact-content .entry-column, .responsive-site-style-content-boxed .page.front-page #main-blog.team-main-div .entry-column, .page.front-page .responsive-site-style-content-boxed #main-blog.team-main-div .entry-column, .responsive-site-style-content-boxed .page.front-page #main-blog.feature-main-div .entry-column, .page.front-page .responsive-site-style-content-boxed #main-blog.feature-main-div .entry-column, .responsive-site-style-content-boxed .blog.front-page #main-blog.team-main-div .entry-column, .blog.front-page .responsive-site-style-content-boxed #main-blog.team-main-div .entry-column, .responsive-site-style-content-boxed .blog.front-page #main-blog.feature-main-div .entry-column, .blog.front-page .responsive-site-style-content-boxed #main-blog.feature-main-div .entry-column, .responsive-site-style-content-boxed .page.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .page.front-page aside.home-widgets .responsive-site-style-content-boxed #main-blog.home-widget-wrapper .entry-column, .responsive-site-style-content-boxed .blog.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .blog.front-page aside.home-widgets .responsive-site-style-content-boxed #main-blog.home-widget-wrapper .entry-column {
   margin-bottom: 0;
 }
 
-.responsive-site-style-llms-content-boxed .content-area-wrapper {
+.responsive-site-style-content-boxed .content-area-wrapper {
   background-color: #ffffff;
 }
 
@@ -2552,7 +2548,7 @@ article.product .post-meta > span .avatar {
   margin-bottom: 0;
 }
 
-.responsive-site-style-llms-content-boxed #main-blog.row .entry-column, .responsive-site-style-llms-content-boxed .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .responsive-site-style-llms-content-boxed #main-blog.header-widgets-wrapper .entry-column, .responsive-site-style-llms-content-boxed #main-blog.navigation .entry-column, .responsive-site-style-llms-content-boxed .page.front-page .custom-home-about-section #main-blog.about-section-wrapper .entry-column, .page.front-page .custom-home-about-section .responsive-site-style-llms-content-boxed #main-blog.about-section-wrapper .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page .custom-home-about-section #main-blog.about-section-wrapper .entry-column, .blog.front-page .custom-home-about-section .responsive-site-style-llms-content-boxed #main-blog.about-section-wrapper .entry-column, .responsive-site-style-llms-content-boxed .page.front-page .custom-home-featured-area #main-blog.featured-area-wrapper .entry-column, .page.front-page .custom-home-featured-area .responsive-site-style-llms-content-boxed #main-blog.featured-area-wrapper .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page .custom-home-featured-area #main-blog.featured-area-wrapper .entry-column, .blog.front-page .custom-home-featured-area .responsive-site-style-llms-content-boxed #main-blog.featured-area-wrapper .entry-column, .responsive-site-style-llms-content-boxed .page.front-page .custom-home-testimonial-section #main-blog.testimonial-content .entry-column, .page.front-page .custom-home-testimonial-section .responsive-site-style-llms-content-boxed #main-blog.testimonial-content .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page .custom-home-testimonial-section #main-blog.testimonial-content .entry-column, .blog.front-page .custom-home-testimonial-section .responsive-site-style-llms-content-boxed #main-blog.testimonial-content .entry-column, .responsive-site-style-llms-content-boxed .page.front-page .custom-home-contact-section #main-blog.contact-content .entry-column, .page.front-page .custom-home-contact-section .responsive-site-style-llms-content-boxed #main-blog.contact-content .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page .custom-home-contact-section #main-blog.contact-content .entry-column, .blog.front-page .custom-home-contact-section .responsive-site-style-llms-content-boxed #main-blog.contact-content .entry-column, .responsive-site-style-llms-content-boxed .page.front-page #main-blog.team-main-div .entry-column, .page.front-page .responsive-site-style-llms-content-boxed #main-blog.team-main-div .entry-column, .responsive-site-style-llms-content-boxed .page.front-page #main-blog.feature-main-div .entry-column, .page.front-page .responsive-site-style-llms-content-boxed #main-blog.feature-main-div .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page #main-blog.team-main-div .entry-column, .blog.front-page .responsive-site-style-llms-content-boxed #main-blog.team-main-div .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page #main-blog.feature-main-div .entry-column, .blog.front-page .responsive-site-style-llms-content-boxed #main-blog.feature-main-div .entry-column, .responsive-site-style-llms-content-boxed .page.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .page.front-page aside.home-widgets .responsive-site-style-llms-content-boxed #main-blog.home-widget-wrapper .entry-column, .responsive-site-style-llms-content-boxed .blog.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .blog.front-page aside.home-widgets .responsive-site-style-llms-content-boxed #main-blog.home-widget-wrapper .entry-column {
+.responsive-site-style-content-boxed #main-blog.row .entry-column, .responsive-site-style-content-boxed .header-widgets #main-blog.header-widgets-wrapper .entry-column, .header-widgets .responsive-site-style-content-boxed #main-blog.header-widgets-wrapper .entry-column, .responsive-site-style-content-boxed #main-blog.navigation .entry-column, .responsive-site-style-content-boxed .page.front-page .custom-home-about-section #main-blog.about-section-wrapper .entry-column, .page.front-page .custom-home-about-section .responsive-site-style-content-boxed #main-blog.about-section-wrapper .entry-column, .responsive-site-style-content-boxed .blog.front-page .custom-home-about-section #main-blog.about-section-wrapper .entry-column, .blog.front-page .custom-home-about-section .responsive-site-style-content-boxed #main-blog.about-section-wrapper .entry-column, .responsive-site-style-content-boxed .page.front-page .custom-home-featured-area #main-blog.featured-area-wrapper .entry-column, .page.front-page .custom-home-featured-area .responsive-site-style-content-boxed #main-blog.featured-area-wrapper .entry-column, .responsive-site-style-content-boxed .blog.front-page .custom-home-featured-area #main-blog.featured-area-wrapper .entry-column, .blog.front-page .custom-home-featured-area .responsive-site-style-content-boxed #main-blog.featured-area-wrapper .entry-column, .responsive-site-style-content-boxed .page.front-page .custom-home-testimonial-section #main-blog.testimonial-content .entry-column, .page.front-page .custom-home-testimonial-section .responsive-site-style-content-boxed #main-blog.testimonial-content .entry-column, .responsive-site-style-content-boxed .blog.front-page .custom-home-testimonial-section #main-blog.testimonial-content .entry-column, .blog.front-page .custom-home-testimonial-section .responsive-site-style-content-boxed #main-blog.testimonial-content .entry-column, .responsive-site-style-content-boxed .page.front-page .custom-home-contact-section #main-blog.contact-content .entry-column, .page.front-page .custom-home-contact-section .responsive-site-style-content-boxed #main-blog.contact-content .entry-column, .responsive-site-style-content-boxed .blog.front-page .custom-home-contact-section #main-blog.contact-content .entry-column, .blog.front-page .custom-home-contact-section .responsive-site-style-content-boxed #main-blog.contact-content .entry-column, .responsive-site-style-content-boxed .page.front-page #main-blog.team-main-div .entry-column, .page.front-page .responsive-site-style-content-boxed #main-blog.team-main-div .entry-column, .responsive-site-style-content-boxed .page.front-page #main-blog.feature-main-div .entry-column, .page.front-page .responsive-site-style-content-boxed #main-blog.feature-main-div .entry-column, .responsive-site-style-content-boxed .blog.front-page #main-blog.team-main-div .entry-column, .blog.front-page .responsive-site-style-content-boxed #main-blog.team-main-div .entry-column, .responsive-site-style-content-boxed .blog.front-page #main-blog.feature-main-div .entry-column, .blog.front-page .responsive-site-style-content-boxed #main-blog.feature-main-div .entry-column, .responsive-site-style-content-boxed .page.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .page.front-page aside.home-widgets .responsive-site-style-content-boxed #main-blog.home-widget-wrapper .entry-column, .responsive-site-style-content-boxed .blog.front-page aside.home-widgets #main-blog.home-widget-wrapper .entry-column, .blog.front-page aside.home-widgets .responsive-site-style-content-boxed #main-blog.home-widget-wrapper .entry-column {
   margin-bottom: 0;
 }
 
@@ -3754,12 +3750,12 @@ article.product .post-meta > span .avatar {
   margin-bottom: 0;
 }
 
-.responsive-site-style-llms-content-boxed .navigation {
+.responsive-site-style-content-boxed .navigation {
   margin: 0;
   border-bottom: 1px solid #eaeaea;
 }
 
-.responsive-site-style-llms-flat .navigation {
+.responsive-site-style-flat .navigation {
   padding: 0;
   background-color: transparent;
 }
@@ -3818,13 +3814,13 @@ article.product .post-meta > span .avatar {
   margin-bottom: 0;
 }
 
-.responsive-site-style-llms-content-boxed .comment-respond, .responsive-site-style-llms-content-boxed
+.responsive-site-style-content-boxed .comment-respond, .responsive-site-style-content-boxed
 .comments-area {
   margin: 0;
   border-bottom: 1px solid #eaeaea;
 }
 
-.responsive-site-style-llms-flat .comment-respond, .responsive-site-style-llms-flat
+.responsive-site-style-flat .comment-respond, .responsive-site-style-flat
 .comments-area {
   padding: 0;
   background-color: transparent;
@@ -4246,36 +4242,36 @@ article.product .post-meta > span .avatar {
   }
 }
 
-.responsive-site-style-llms-content-boxed .custom-home-about-section,
-.responsive-site-style-llms-boxed .custom-home-about-section, .responsive-site-style-llms-content-boxed .custom-home-feature-section,
-.responsive-site-style-llms-boxed .custom-home-feature-section, .responsive-site-style-llms-content-boxed .custom-home-team-section,
-.responsive-site-style-llms-boxed .custom-home-team-section, .responsive-site-style-llms-content-boxed .custom-home-testimonial-section,
-.responsive-site-style-llms-boxed .custom-home-testimonial-section, .responsive-site-style-llms-content-boxed .custom-home-contact-section,
-.responsive-site-style-llms-boxed .custom-home-contact-section, .responsive-site-style-llms-content-boxed .custom-home-widget-section,
-.responsive-site-style-llms-boxed .custom-home-widget-section, .responsive-site-style-llms-content-boxed .custom-home-featured-area,
-.responsive-site-style-llms-boxed .custom-home-featured-area {
+.responsive-site-style-content-boxed .custom-home-about-section,
+.responsive-site-style-boxed .custom-home-about-section, .responsive-site-style-content-boxed .custom-home-feature-section,
+.responsive-site-style-boxed .custom-home-feature-section, .responsive-site-style-content-boxed .custom-home-team-section,
+.responsive-site-style-boxed .custom-home-team-section, .responsive-site-style-content-boxed .custom-home-testimonial-section,
+.responsive-site-style-boxed .custom-home-testimonial-section, .responsive-site-style-content-boxed .custom-home-contact-section,
+.responsive-site-style-boxed .custom-home-contact-section, .responsive-site-style-content-boxed .custom-home-widget-section,
+.responsive-site-style-boxed .custom-home-widget-section, .responsive-site-style-content-boxed .custom-home-featured-area,
+.responsive-site-style-boxed .custom-home-featured-area {
   background-color: #ffffff;
 }
 
-.page.front-page.responsive-site-style-llms-content-boxed .custom-home-about-section,
-.blog.front-page.responsive-site-style-llms-content-boxed .custom-home-about-section, .page.front-page.responsive-site-style-llms-content-boxed .custom-home-feature-section,
-.blog.front-page.responsive-site-style-llms-content-boxed .custom-home-feature-section, .page.front-page.responsive-site-style-llms-content-boxed .custom-home-team-section,
-.blog.front-page.responsive-site-style-llms-content-boxed .custom-home-team-section, .page.front-page.responsive-site-style-llms-content-boxed .custom-home-testimonial-section,
-.blog.front-page.responsive-site-style-llms-content-boxed .custom-home-testimonial-section, .page.front-page.responsive-site-style-llms-content-boxed .custom-home-contact-section,
-.blog.front-page.responsive-site-style-llms-content-boxed .custom-home-contact-section, .page.front-page.responsive-site-style-llms-content-boxed .custom-home-widget-section,
-.blog.front-page.responsive-site-style-llms-content-boxed .custom-home-widget-section, .page.front-page.responsive-site-style-llms-content-boxed .custom-home-featured-area,
-.blog.front-page.responsive-site-style-llms-content-boxed .custom-home-featured-area {
+.page.front-page.responsive-site-style-content-boxed .custom-home-about-section,
+.blog.front-page.responsive-site-style-content-boxed .custom-home-about-section, .page.front-page.responsive-site-style-content-boxed .custom-home-feature-section,
+.blog.front-page.responsive-site-style-content-boxed .custom-home-feature-section, .page.front-page.responsive-site-style-content-boxed .custom-home-team-section,
+.blog.front-page.responsive-site-style-content-boxed .custom-home-team-section, .page.front-page.responsive-site-style-content-boxed .custom-home-testimonial-section,
+.blog.front-page.responsive-site-style-content-boxed .custom-home-testimonial-section, .page.front-page.responsive-site-style-content-boxed .custom-home-contact-section,
+.blog.front-page.responsive-site-style-content-boxed .custom-home-contact-section, .page.front-page.responsive-site-style-content-boxed .custom-home-widget-section,
+.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section, .page.front-page.responsive-site-style-content-boxed .custom-home-featured-area,
+.blog.front-page.responsive-site-style-content-boxed .custom-home-featured-area {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(170, 170, 170, 0.2);
 }
 
-.page.front-page.responsive-site-style-llms-content-boxed .custom-home-widget-section.home-widgets,
-.blog.front-page.responsive-site-style-llms-content-boxed .custom-home-widget-section.home-widgets {
+.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets {
   padding: 28px;
   background-color: #ffffff;
 }
 
-.responsive-site-style-llms-boxed .site-content article.product {
+.responsive-site-style-boxed .site-content article.product {
   background-color: #ffffff;
 }
 
@@ -4328,7 +4324,7 @@ embed, iframe, object {
   padding-bottom: 0;
 }
 
-.responsive-site-style-llms-boxed .widget-wrapper {
+.responsive-site-style-boxed .widget-wrapper {
   padding: 28px;
 }
 
@@ -4365,7 +4361,7 @@ embed, iframe, object {
   border: 0;
 }
 
-.responsive-site-style-llms-boxed .widget-wrapper.colophon-widget {
+.responsive-site-style-boxed .widget-wrapper.colophon-widget {
   padding: 0;
 }
 
@@ -6743,4 +6739,56 @@ body {
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
   outline: 0;
+}
+
+/* Lifter LMS */
+
+@media (max-width: 768px) {
+	.llms-loop .llms-loop-list.cols-1 .llms-loop-item {
+	  width: 100%;
+	}
+	.llms-loop .llms-loop-list.cols-2 .llms-loop-item {
+	  width: 50%;
+	}
+	.llms-loop .llms-loop-list.cols-3 .llms-loop-item {
+	  width: 33.33333%;
+	}
+	.llms-loop .llms-loop-list.cols-4 .llms-loop-item {
+	  width: 25%;
+	}
+	.llms-loop .llms-loop-list.cols-5 .llms-loop-item {
+	  width: 20%;
+	}
+	.llms-loop .llms-loop-list.cols-6 .llms-loop-item {
+	  width: 16.66667%;
+	}
+  }
+
+  @media (max-width: 544px) {
+	.llms-loop .llms-loop-list.cols-1 .llms-loop-item {
+	  width: 100%;
+	}
+	.llms-loop .llms-loop-list.cols-2 .llms-loop-item {
+	  width: 50%;
+	}
+	.llms-loop .llms-loop-list.cols-3 .llms-loop-item {
+	  width: 33.33333%;
+	}
+	.llms-loop .llms-loop-list.cols-4 .llms-loop-item {
+	  width: 25%;
+	}
+	.llms-loop .llms-loop-list.cols-5 .llms-loop-item {
+	  width: 20%;
+	}
+	.llms-loop .llms-loop-list.cols-6 .llms-loop-item {
+	  width: 16.66667%;
+	}
+  }
+
+.llms-loop .llms-loop-list .llms-loop-item {
+	margin: 0;
+}
+
+#primary {
+	width: 100%;
 }

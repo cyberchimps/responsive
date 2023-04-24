@@ -126,11 +126,11 @@ function responsive_lifter_dynamic_box_padding( ) {
 
 
 	var desktopTopMargin = 'margin-top: -'+ api('lifterlms_top_padding').get()+'px;';
-	var tabletTopMargin = 'margin-top: -'+ api('responsive_box_tablet_top_padding').get()+'px;';
-	var mobileTopMargin = 'margin-top: -'+ api('responsive_box_mobile_top_padding').get()+'px;';
+	var tabletTopMargin = 'margin-top: -'+ api('lifterlms_tablet_top_padding').get()+'px;';
+	var mobileTopMargin = 'margin-top: -'+ api('lifterlms_mobile_top_padding').get()+'px;';
 	var desktopLeftRightMargin = 'margin-left: -'+ api('lifterlms_right_padding').get()+'px; margin-right: -'+ api('lifterlms_right_padding').get() +'px';
-	var tabletLeftRightMargin = 'margin-left: -'+ api('responsive_box_tablet_left_padding').get()+'px; margin-right: -'+ api('responsive_box_tablet_right_padding').get() +'px';
-	var mobileLeftRightMargin = 'margin-left: -'+ api('responsive_box_mobile_left_padding').get()+'px; margin-right: -'+ api('responsive_box_mobile_right_padding').get() +'px';
+	var tabletLeftRightMargin = 'margin-left: -'+ api('lifterlms_tablet_left_padding').get()+'px; margin-right: -'+ api('lifterlms_tablet_right_padding').get() +'px';
+	var mobileLeftRightMargin = 'margin-left: -'+ api('lifterlms_mobile_left_padding').get()+'px; margin-right: -'+ api('lifterlms_mobile_right_padding').get() +'px';
 	if('stretched' === api( 'responsive_blog_entry_featured_image_style' ).get()) {
 		style += topBlogSelector + '{ ' + desktopTopMargin + ' }'
 			+ leftRightBlogSelector + '{ ' + desktopLeftRightMargin + ' }'
@@ -173,8 +173,8 @@ function responsive_lifter_dynamic_box_padding( ) {
 
 	jQuery( 'style#responsive-box-padding' ).remove();
 	var desktopPadding = 'padding-top:'+ api('lifterlms_top_padding').get()+'px; '+'padding-bottom:'+ api('lifterlms_right_padding').get()+'px; '+'padding-left:'+ api('lifterlms_right_padding').get()+'px; '+'padding-right:'+ api('lifterlms_right_padding').get()+'px;';
-	var tabletPadding = 'padding-top:'+ api('responsive_box_tablet_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_box_tablet_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_box_tablet_left_padding').get()+'px; '+'padding-right:'+ api('responsive_box_tablet_right_padding').get()+'px;';
-	var mobilePadding = 'padding-top:'+ api('responsive_box_mobile_top_padding').get()+'px; '+'padding-bottom:'+ api('responsive_box_mobile_bottom_padding').get()+'px; '+'padding-left:'+ api('responsive_box_mobile_left_padding').get()+'px; '+'padding-right:'+ api('responsive_box_mobile_right_padding').get()+'px;';
+	var tabletPadding = 'padding-top:'+ api('lifterlms_tablet_top_padding').get()+'px; '+'padding-bottom:'+ api('lifterlms_tablet_bottom_padding').get()+'px; '+'padding-left:'+ api('lifterlms_tablet_left_padding').get()+'px; '+'padding-right:'+ api('lifterlms_tablet_right_padding').get()+'px;';
+	var mobilePadding = 'padding-top:'+ api('lifterlms_mobile_top_padding').get()+'px; '+'padding-bottom:'+ api('lifterlms_mobile_bottom_padding').get()+'px; '+'padding-left:'+ api('lifterlms_mobile_left_padding').get()+'px; '+'padding-right:'+ api('lifterlms_mobile_right_padding').get()+'px;';
 	style += selector + '	{ ' + desktopPadding +' }'
 		+ '@media (max-width: ' + mobile_menu_breakpoint +'px) {' + selector+ extraSelector + '	{ ' + tabletPadding + ' } }'
 		+ '@media (max-width: 544px) {' + selector + extraSelector + '	{ ' + mobilePadding + ' } }'
@@ -203,6 +203,50 @@ function responsive_lifter_dynamic_box_padding( ) {
         } );
     } );
     api( 'lifterlms_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_lifter_dynamic_box_padding( );
+        } );
+    } );
+
+	   //Box Tablet Padding
+	   api( 'lifterlms_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_lifter_dynamic_box_padding( );
+        } );
+    } );
+    api( 'lifterlms_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_lifter_dynamic_box_padding( );
+        } );
+    } );
+    api( 'lifterlms_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_lifter_dynamic_box_padding( );
+        } );
+    } );
+    api( 'lifterlms_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_lifter_dynamic_box_padding( );
+        } );
+    } );
+
+    //Box Mobile Padding
+    api( 'lifterlms_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_lifter_dynamic_box_padding( );
+        } );
+    } );
+    api( 'lifterlms_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_lifter_dynamic_box_padding( );
+        } );
+    } );
+    api( 'lifterlms_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_lifter_dynamic_box_padding( );
+        } );
+    } );
+    api( 'lifterlms_mobile_right_padding', function( value ) {
         value.bind( function( newval ) {
             responsive_lifter_dynamic_box_padding( );
         } );

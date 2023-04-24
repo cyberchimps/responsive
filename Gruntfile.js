@@ -99,11 +99,6 @@ module.exports = function(grunt) {
 						'core/css/sensei_content.css': 'core/sass/sensei_content.scss'
 					},
 
-					/* Lifter CSS file */
-					{
-						'core/css/lifter/lifter_style.css': 'core/sass/lifter.scss'
-					},
-
 					/* WooCommerce */
 					{
 						'core/css/woocommerce.css': 'core/sass/woocommerce.scss',

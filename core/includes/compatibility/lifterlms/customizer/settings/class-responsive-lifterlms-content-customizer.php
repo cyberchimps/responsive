@@ -163,7 +163,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 10,
+						'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -171,7 +171,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 10,
+						'default'           => 20,
 					)
 				);
 
@@ -180,7 +180,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 10,
+						'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -188,7 +188,73 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 10,
+						'default'           => 20,
+					)
+				);
+
+				$wp_customize->add_setting(
+					'lifterlms_tablet_top_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 20,
+					)
+				);
+				$wp_customize->add_setting(
+					'lifterlms_tablet_right_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 20,
+					)
+				);
+				$wp_customize->add_setting(
+					'lifterlms_tablet_bottom_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 20,
+					)
+				);
+				$wp_customize->add_setting(
+					'lifterlms_tablet_left_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 20,
+					)
+				);
+
+				$wp_customize->add_setting(
+					'lifterlms_mobile_top_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 20,
+					)
+				);
+				$wp_customize->add_setting(
+					'lifterlms_mobile_right_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 20,
+					)
+				);
+				$wp_customize->add_setting(
+					'lifterlms_mobile_bottom_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 20,
+					)
+				);
+				$wp_customize->add_setting(
+					'lifterlms_mobile_left_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 20,
 					)
 				);
 
@@ -204,14 +270,14 @@ if ( class_exists( 'LifterLMS' ) ) {
 								'desktop_right'  => 'lifterlms_right_padding',
 								'desktop_bottom' => 'lifterlms_bottom_padding',
 								'desktop_left'   => 'lifterlms_left_padding',
-								// 'tablet_top'     => 'responsive_' . $element . '_tablet_top_padding',
-								// 'tablet_right'   => 'responsive_' . $element . '_tablet_right_padding',
-								// 'tablet_bottom'  => 'responsive_' . $element . '_tablet_bottom_padding',
-								// 'tablet_left'    => 'responsive_' . $element . '_tablet_left_padding',
-								// 'mobile_top'     => 'responsive_' . $element . '_mobile_top_padding',
-								// 'mobile_right'   => 'responsive_' . $element . '_mobile_right_padding',
-								// 'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_padding',
-								// 'mobile_left'    => 'responsive_' . $element . '_mobile_left_padding',
+								'tablet_top'     => 'lifterlms_tablet_top_padding',
+								'tablet_right'   => 'lifterlms_tablet_right_padding',
+								'tablet_bottom'  => 'lifterlms_tablet_bottom_padding',
+								'tablet_left'    => 'lifterlms_tablet_left_padding',
+								'mobile_top'     => 'lifterlms_mobile_top_padding',
+								'mobile_right'   => 'lifterlms_mobile_right_padding',
+								'mobile_bottom'  => 'lifterlms_mobile_bottom_padding',
+								'mobile_left'    => 'lifterlms_mobile_left_padding',
 							),
 							// 'priority'        => $priority,
 							// 'active_callback' => $active_call,
