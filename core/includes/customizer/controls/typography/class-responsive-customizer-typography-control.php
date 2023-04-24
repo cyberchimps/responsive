@@ -98,6 +98,7 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 
 			wp_enqueue_script( 'responsive-typography-weight', RESPONSIVE_THEME_URI . 'core/includes/customizer/controls/typography/typography-weight-control.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 			wp_enqueue_script( 'responsive-conditional-display-controls', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/conditional-display-controls.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
+			wp_enqueue_script( 'lifter-conditional-display-controls', RESPONSIVE_THEME_URI . 'core/includes/customizer/assets/js/lifter-conditional-controls.js', array( 'jquery', 'customize-base' ), RESPONSIVE_THEME_VERSION, true );
 			wp_localize_script(
 				'responsive-typography-weight',
 				'responsive',

@@ -47,12 +47,22 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		 */
 		public function __construct() {
 
+			add_filter( 'llms_get_theme_default_sidebar', array( $this, 'add_sidebar' ) );
+
+			add_filter( 'after_setup_theme', array( $this, 'responsive_llms_setup' ) );
+
+
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'lifterlms_loop_columns', array( $this, 'columns_lifter_lms' ) );
 			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
 
+			// Remove Content Wrappers
+			remove_action( 'lifterlms_before_main_content', 'lifterlms_output_content_wrapper', 10 );
+			remove_action( 'lifterlms_after_main_content', 'lifterlms_output_content_wrapper_end', 10 );
+			remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar' );
 
+			// Add Content Wrappers
 			add_action( 'lifterlms_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'lifterlms_after_main_content', array( $this, 'before_main_content_end' ) );
 
@@ -82,17 +92,31 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-content-customizer.php';
 		}
 
+
+		/**
+		 * Declare explicit theme support for LifterLMS course and lesson sidebars
+		 *
+		 * @since 1.2.0
+		 * @return   void
+		 */
+		public function responsive_llms_setup() {
+			add_theme_support( 'lifterlms' );
+			add_theme_support( 'lifterlms-quizzes' );
+			add_theme_support( 'lifterlms-sidebars' );
+		}
+
+
+
+
 		public function columns_lifter_lms ( $grid ) {
 
-			error_log($grid);
-
 			$course_grid = get_option( 'theme_mods_responsive' );
-			error_log(print_r($course_grid['lifterlms_columns'],true));
+			// error_log(print_r($course_grid['lifterlms_columns'],true));
 			return $course_grid;
 		}
 
 		public function course_responsive_grid ( $classes ) {
-			error_log("WEEEEEEEEEE");
+
 			$llms_grid = get_option( 'theme_mods_responsive' );
 			$no_of_cols = $llms_grid['lifterlms_columns'];
 
@@ -137,6 +161,20 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			<?php
 		}
 
+
+				/**
+		 * Display LifterLMS Course and Lesson sidebars
+		 * on courses and lessons in place of the sidebar returned by
+		 * this function
+		 *
+		 * @since 1.2.0
+		 * @param    string $id    default sidebar id (an empty string).
+		 * @return   string
+		 */
+		public function add_sidebar( $id ) {
+			$sidebar_id = 'sidebar'; // replace this with theme's sidebar ID.
+			return $sidebar_id;
+		}
 
 
 
@@ -198,7 +236,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			$classes[] = 'site-header-' . implode( '-', $elements );
 
 			// Site Width class.
-			$classes[] = 'responsive-site-' . get_theme_mod( 'lifterlms_style', 'contained' );
+			$classes[] = 'responsive-site-' . get_theme_mod( 'lifterlms_width', 'contained' );
 
 			// Site Style class.
 			if ( is_page() ) {
@@ -210,9 +248,6 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			} else {
 				$classes[] = 'responsive-site-style-' . get_theme_mod( 'lifterlms_style', 'boxed' );
 			}
-
-			error_log('I RAN');
-			error_log(get_theme_mod( 'lifterlms_style'));
 
 			return $classes;
 		}

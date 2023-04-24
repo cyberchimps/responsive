@@ -50,26 +50,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 				)
 				);
 
-				// Setting for Copyright text.
-				// $wp_customize->add_setting( 'responsive_dosth_copyright_text',
-				// array(
-				// 	'default'           => __( 'All rights reserved ', 'responsive' ),
-				// 	'sanitize_callback' => 'sanitize_text_field',
-				// 	'transport'         => 'refresh',
-				// )
-				// );
-
-				// // Control for Copyright text
-				// $wp_customize->add_control( 'responsive_dosth_copyright_text',
-				// array(
-				// 	'type'        => 'text',
-				// 	'priority'    => 10,
-				// 	'section'     => 'responsive_lifterlms_layout',
-				// 	'label'       => 'Copyright text',
-				// 	'description' => 'Text put here will be outputted in the footer',
-				// )
-				// );
-
 				// // Site Width.
 				// $responsive_width_label  = __( 'Width', 'responsive' );
 				// $responsive_width_choice = array(
@@ -97,21 +77,35 @@ if ( class_exists( 'LifterLMS' ) ) {
 					'section' => 'responsive_lifterlms_layout',
 					) ) );
 
-				// Container Width.
-				$container_width_label = __( 'Container Width (px)', 'responsive' );
-				responsive_drag_number_control( $wp_customize, 'lifter_container_width', $container_width_label, 'responsive_lifterlms_layout', 20, 1140, 'responsive_active_site_layout_contained', 4096, 1, 'postMessage' );
+				// lifter container width
+
+
+
+				// $wp_customize->add_setting( 'lifterlms_container_width' , array(
+				// 	'default'     => 1140,
+				// 	'sanitize_callback' => 'responsive_sanitize_select',
+				// 	'transport'   => 'postMessage',
+				// 	) );
+
+				// $wp_customize->add_control( new Responsive_Customizer_Range_Control( $wp_customize, 'lifterlms_container_width', array(
+				// 	'label'	=>  'Container Width Test PX PX',
+				// 	'input_attrs'     => array(
+				// 		'min'  => 1,
+				// 		'max'  => 4096,
+				// 		'step' => 1,
+				// 	),
+				// 	'section' => 'responsive_lifterlms_layout',
+				// 	) ) );
+
+
+				// $container_width_label = __( 'Container Width (px)', 'responsive' );
+				// responsive_drag_number_control( $wp_customize, 'lifterlms_container_width', $container_width_label, 'responsive_lifterlms_layout', 20, 1140, 'responsive_active_site_layout_contained', 4096, 1, 'postMessage' );
+
+
+
 
 				/*************************/
 
-
-				// Header Allignment.
-				// $responsive_style_label  = __( 'Style', 'responsive' );
-				// $responsive_style_choice = array(
-				// 	'boxed'         => esc_html__( 'Boxed', 'responsive' ),
-				// 	'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
-				// 	'flat'          => esc_html__( 'Flat', 'responsive' ),
-				// );
-				// responsive_select_control( $wp_customize, 'lifter_style', $responsive_style_label, 'responsive_lifterlms_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
 
 				//Style setting
 
@@ -130,18 +124,107 @@ if ( class_exists( 'LifterLMS' ) ) {
 					'section' => 'responsive_lifterlms_layout',
 				) ) );
 
+				// Add BOX RADIUS Setting.
+				$wp_customize->add_setting(
+					'lifterlms_box_radius',
+					array(
+						'default'           => 50,
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'transport'         => 'postMessage',
+					)
+				);
+				$wp_customize->add_control(
+					new WP_Customize_Control(
+						$wp_customize,
+						'lifterlms_box_radius',
+						array(
+							// 'active_callback' => $active_call,
+							'label'           => 'BOX RADIUS TEST',
+							// 'priority'        => $priority,
+							'section'         => 'responsive_lifterlms_layout',
+							// 'settings'        => 'responsive_' . $element,
+							'type'            => 'number',
+						)
+					)
+				);
 
 
 
+				// Box Padding (px).
+				// $box_padding_label = __( 'Inside Container PADDING (px)', 'responsive' );
+				// responsive_padding_control( $wp_customize, 'lifterlms_box_padding', 'responsive_lifterlms_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
 
 
-				// // Box Padding (px).
-				// $box_padding_label = __( 'Inside Container (px)', 'responsive' );
-				// responsive_padding_control( $wp_customize, 'lifter_box', 'responsive_lifterlms_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
+				/**
+				 *  Padding control.
+				 */
+				$wp_customize->add_setting(
+					'lifterlms_top_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 10,
+					)
+				);
+				$wp_customize->add_setting(
+					'lifterlms_left_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 10,
+					)
+				);
 
-				// // Box Radius.
-				// $box_radius_label = __( 'Box Radius (px)', 'responsive' );
-				// responsive_number_control( $wp_customize, 'lifter_box_radius', $box_radius_label, 'responsive_lifterlms_layout', 50, 0, 'responsive_not_active_site_style_flat' );
+				$wp_customize->add_setting(
+					'lifterlms_bottom_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 10,
+					)
+				);
+				$wp_customize->add_setting(
+					'lifterlms_right_padding',
+					array(
+						'transport'         => 'postMessage',
+						'sanitize_callback' => 'responsive_sanitize_number',
+						'default'           => 10,
+					)
+				);
+
+				$wp_customize->add_control(
+					new Responsive_Customizer_Dimensions_Control(
+						$wp_customize,
+						'lifterlms_box_padding',
+						array(
+							'label'           => 'Padding Px',
+							'section'         => 'responsive_lifterlms_layout',
+							'settings'        => array(
+								'desktop_top'    => 'lifterlms_top_padding',
+								'desktop_right'  => 'lifterlms_right_padding',
+								'desktop_bottom' => 'lifterlms_bottom_padding',
+								'desktop_left'   => 'lifterlms_left_padding',
+								// 'tablet_top'     => 'responsive_' . $element . '_tablet_top_padding',
+								// 'tablet_right'   => 'responsive_' . $element . '_tablet_right_padding',
+								// 'tablet_bottom'  => 'responsive_' . $element . '_tablet_bottom_padding',
+								// 'tablet_left'    => 'responsive_' . $element . '_tablet_left_padding',
+								// 'mobile_top'     => 'responsive_' . $element . '_mobile_top_padding',
+								// 'mobile_right'   => 'responsive_' . $element . '_mobile_right_padding',
+								// 'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_padding',
+								// 'mobile_left'    => 'responsive_' . $element . '_mobile_left_padding',
+							),
+							// 'priority'        => $priority,
+							// 'active_callback' => $active_call,
+							'input_attrs'     => array(
+								'min'  => 0,
+								'max'  => 100,
+								'step' => 1,
+							),
+						)
+					)
+				);
+
+
 
 
 

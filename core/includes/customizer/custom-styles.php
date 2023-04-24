@@ -84,10 +84,27 @@ function responsive_customizer_styles() {
 	$custom_css = '';
 
 	// Box Padding.
-	$box_padding_right  = esc_html( get_theme_mod( 'responsive_box_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_padding_left   = esc_html( get_theme_mod( 'responsive_box_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_padding_top    = esc_html( get_theme_mod( 'responsive_box_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
-	$box_padding_bottom = esc_html( get_theme_mod( 'responsive_box_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+	error_log( get_theme_mod( 'lifterlms_top_padding'));
+
+	if ( get_theme_mod( 'lifterlms_top_padding') || get_theme_mod( 'lifterlms_top_padding') || get_theme_mod( 'lifterlms_top_padding') || get_theme_mod( 'lifterlms_top_padding')) {
+
+		$box_padding_right  = esc_html( get_theme_mod( 'lifterlms_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_padding_left   = esc_html( get_theme_mod( 'lifterlms_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_padding_top    = esc_html( get_theme_mod( 'lifterlms_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_padding_bottom = esc_html( get_theme_mod( 'lifterlms_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+
+	}
+	else {
+
+		$box_padding_right  = esc_html( get_theme_mod( 'responsive_box_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_padding_left   = esc_html( get_theme_mod( 'responsive_box_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_padding_top    = esc_html( get_theme_mod( 'responsive_box_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+		$box_padding_bottom = esc_html( get_theme_mod( 'responsive_box_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
+
+	}
+
+
+
 
 	$box_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_box_tablet_right_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 	$box_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_box_tablet_left_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
@@ -100,14 +117,36 @@ function responsive_customizer_styles() {
 	$box_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ) ) );
 
 	// Box Radius.
-	$box_radius = esc_html( get_theme_mod( 'responsive_box_radius', 0 ) );
+
+	if ( get_theme_mod( 'lifterlms_box_radius') ) {
+
+		$box_radius = esc_html( get_theme_mod( 'lifterlms_box_radius', 0 ) );
+
+	} else {
+
+		$box_radius = esc_html( get_theme_mod( 'responsive_box_radius', 0 ) );
+
+	}
 
 	// Paragraph Margin Bottom.
 	$paragraph_margin_bottom = esc_html( get_theme_mod( 'responsive_paragraph_margin_bottom', '' ) );
 
 	// Site custom styles.
 
-	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+	if ( get_theme_mod( 'lifterlms_container_width') ) {
+
+		$container_max_width = esc_html( get_theme_mod( 'lifterlms_container_width', 1140 ) );
+
+	} else {
+
+		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
+
+	}
+
+	// error_log('container width');
+	// error_log(get_theme_mod( 'lifterlms_container_width'));
+	// error_log($container_max_width);
+	// $container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
 
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
 	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ) ) );
@@ -2737,6 +2776,24 @@ function responsive_customizer_styles() {
 		";
 		wp_add_inline_style( 'responsive-woocommerce-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $woocommerce_custom_css ) ) );
 	}
+
+	// if ( class_exists( 'LifterLMS' ) ) {
+
+	// 	$llms_box_radius = esc_html( get_theme_mod( 'lifterlms_box_radius', 0 ) );
+	// 	error_log('HEWLLLLOO');
+	// 	error_log($llms_box_radius);
+	// 	$llms_container_max_width = esc_html( get_theme_mod( 'lifter_container_width', 1140 ) );
+
+	// 	$custom_css .= "
+
+	// 	.llms-loop-item {
+	// 		border-radius:{$llms_box_radius}px !important;
+	// 	}
+
+	// 	";
+	// 	error_log($custom_css);
+
+	// }
 }
 add_action( 'wp_enqueue_scripts', 'responsive_customizer_styles', 99 );
 
