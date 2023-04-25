@@ -548,7 +548,6 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	}
 
-
 	// Site Style class.
 
 	if ( ! get_theme_mod( 'lifterlms_width' ) ) {
@@ -556,7 +555,6 @@ function responsive_add_custom_body_classes( $classes ) {
 		if ( is_page() ) {
 			$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
 			$site_style = $site_style ? $site_style : get_theme_mod( 'responsive_style', 'boxed' );
-
 			$classes[] = 'responsive-site-style-' . $site_style;
 
 		} else {

@@ -43,11 +43,10 @@ require $responsive_template_directory . '/core/includes/customizer/customizer.p
 require $responsive_template_directory . '/core/includes/customizer/custom-styles.php';
 require $responsive_template_directory . '/core/includes/compatibility/woocommerce/class-responsive-woocommerce.php';
 require $responsive_template_directory . '/core/includes/compatibility/sensei/class-responsive-sensei.php';
-require $responsive_template_directory . '/core/includes/compatibility/lifterlms/class-responsive-lifterlms.php';
-// require $responsive_template_directory . '/core/includes/compatibility/lifterlms/test.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
+require $responsive_template_directory . '/core/includes/compatibility/lifterlms/class-responsive-lifterlms.php';
 // Deprecated functions.
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
 // Custom page walker.

@@ -23,7 +23,7 @@ if ( ! class_exists( 'Responsive_LifterLMS_Panel' ) ) :
 		/**
 		 * Setup class.
 		 *
-		 * @since 4.3.0
+		 * @since 4.8.2
 		 */
 		public function __construct() {
 
@@ -35,14 +35,14 @@ if ( ! class_exists( 'Responsive_LifterLMS_Panel' ) ) :
 		 * Customizer options
 		 *
 		 * @param  object $wp_customize WordPress customization option.
-		 * @since 4.3.0
+		 * @since 4.8.2
 		 */
 		public function customizer_options( $wp_customize ) {
 
 			$wp_customize->add_panel( 'responsive_lifterlms',
 			array(
-				'title'            => __( 'LifterLMS WIP', 'responsive' ),
-				'description'      => __( 'Theme Modifications like color scheme, theme texts and layout preferences can be done here', 'responsive_dosth' ),
+				'title'            => __( 'LifterLMS', 'responsive' ),
+				'description'      => __( 'Course Modifications like course colums,layout preferences can be done here', 'responsive' ),
 				'priority'    => 10,
 			)
 			);

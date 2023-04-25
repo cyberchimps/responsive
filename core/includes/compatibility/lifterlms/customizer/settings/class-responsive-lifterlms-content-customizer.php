@@ -1,13 +1,13 @@
 <?php
 /**
- * Create Sensei Content section in customizer
+ * Create LifterLMS Content section in customizer
  *
  * @package Responsive
  */
 
 if ( class_exists( 'LifterLMS' ) ) {
 	/**
-	 * Sensei Customizer Options
+	 * LifterLMS Customizer Options
 	 *
 	 * @package Responsive WordPress theme
 	 */
@@ -25,7 +25,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 			/**
 			 * Setup class.
 			 *
-			 * @since 4.3.0
+			 * @since 4.8.2
 			 */
 			public function __construct() {
 
@@ -37,28 +37,17 @@ if ( class_exists( 'LifterLMS' ) ) {
 			 * Customizer options
 			 *
 			 * @param  object $wp_customize WordPress customization option.
-			 * @since 4.3.0
+			 * @since 4.8.2
 			 */
 			public function customizer_options( $wp_customize ) {
 
-				// Text Options Section Inside Theme
 				$wp_customize->add_section( 'responsive_lifterlms_layout',
 				array(
-					'title'         => __( 'Container Layout', 'responsive' ),
+					'title'         => __( 'Course Archive Layout', 'responsive' ),
 					'priority'      => 1,
 					'panel'         => 'responsive_lifterlms'
 				)
 				);
-
-				// // Site Width.
-				// $responsive_width_label  = __( 'Width', 'responsive' );
-				// $responsive_width_choice = array(
-				// 	'contained'  => esc_html__( 'Contained', 'responsive' ),
-				// 	'full-width' => esc_html__( 'Full Width', 'responsive' ),
-				// );
-				// responsive_select_control( $wp_customize, 'lifter_width', $responsive_width_label, 'responsive_lifterlms_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
-
-				/*************************/
 
 				//Container width setting
 
@@ -69,43 +58,13 @@ if ( class_exists( 'LifterLMS' ) ) {
 					) );
 
 				$wp_customize->add_control( new Responsive_Customizer_Select_Control( $wp_customize, 'lifterlms_width', array(
-					'label'	=>  'Container Width Test',
+					'label'	=>  'Width',
 					'choices' 	=> array(
 						'contained'         => esc_html__( 'Contained', 'responsive' ),
 						'full-width' => esc_html__( 'Full Width', 'responsive' ),
 					),
 					'section' => 'responsive_lifterlms_layout',
 					) ) );
-
-				// lifter container width
-
-
-
-				// $wp_customize->add_setting( 'lifterlms_container_width' , array(
-				// 	'default'     => 1140,
-				// 	'sanitize_callback' => 'responsive_sanitize_select',
-				// 	'transport'   => 'postMessage',
-				// 	) );
-
-				// $wp_customize->add_control( new Responsive_Customizer_Range_Control( $wp_customize, 'lifterlms_container_width', array(
-				// 	'label'	=>  'Container Width Test PX PX',
-				// 	'input_attrs'     => array(
-				// 		'min'  => 1,
-				// 		'max'  => 4096,
-				// 		'step' => 1,
-				// 	),
-				// 	'section' => 'responsive_lifterlms_layout',
-				// 	) ) );
-
-
-				// $container_width_label = __( 'Container Width (px)', 'responsive' );
-				// responsive_drag_number_control( $wp_customize, 'lifterlms_container_width', $container_width_label, 'responsive_lifterlms_layout', 20, 1140, 'responsive_active_site_layout_contained', 4096, 1, 'postMessage' );
-
-
-
-
-				/*************************/
-
 
 				//Style setting
 
@@ -115,7 +74,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 				) );
 
 				$wp_customize->add_control( new Responsive_Customizer_Select_Control( $wp_customize, 'lifterlms_style', array(
-					'label'	=>  'Style Test',
+					'label'	=>  'Style',
 					'choices' 	=> array(
 					'boxed'         => esc_html__( 'Boxed', 'responsive' ),
 					'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
@@ -128,7 +87,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 				$wp_customize->add_setting(
 					'lifterlms_box_radius',
 					array(
-						'default'           => 50,
+						// 'default'           => 50,
 						'sanitize_callback' => 'responsive_sanitize_number',
 						'transport'         => 'postMessage',
 					)
@@ -138,22 +97,12 @@ if ( class_exists( 'LifterLMS' ) ) {
 						$wp_customize,
 						'lifterlms_box_radius',
 						array(
-							// 'active_callback' => $active_call,
-							'label'           => 'BOX RADIUS TEST',
-							// 'priority'        => $priority,
+							'label'           => 'Box Radius (px)',
 							'section'         => 'responsive_lifterlms_layout',
-							// 'settings'        => 'responsive_' . $element,
 							'type'            => 'number',
 						)
 					)
 				);
-
-
-
-				// Box Padding (px).
-				// $box_padding_label = __( 'Inside Container PADDING (px)', 'responsive' );
-				// responsive_padding_control( $wp_customize, 'lifterlms_box_padding', 'responsive_lifterlms_layout', 80, Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'box_padding' ), 'responsive_not_active_site_style_flat', $box_padding_label );
-
 
 				/**
 				 *  Padding control.
@@ -163,7 +112,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -171,7 +120,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 
@@ -180,7 +129,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -188,7 +137,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 
@@ -197,7 +146,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -205,7 +154,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -213,7 +162,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -221,7 +170,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 
@@ -230,7 +179,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -238,7 +187,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -246,7 +195,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -254,7 +203,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						'default'           => 20,
+						// 'default'           => 20,
 					)
 				);
 
@@ -263,7 +212,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 						$wp_customize,
 						'lifterlms_box_padding',
 						array(
-							'label'           => 'Padding Px',
+							'label'           => 'Inside Container (px)',
 							'section'         => 'responsive_lifterlms_layout',
 							'settings'        => array(
 								'desktop_top'    => 'lifterlms_top_padding',
@@ -279,8 +228,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 								'mobile_bottom'  => 'lifterlms_mobile_bottom_padding',
 								'mobile_left'    => 'lifterlms_mobile_left_padding',
 							),
-							// 'priority'        => $priority,
-							// 'active_callback' => $active_call,
 							'input_attrs'     => array(
 								'min'  => 0,
 								'max'  => 100,
@@ -289,11 +236,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 						)
 					)
 				);
-
-
-
-
-
 
 			}
 		}

@@ -6,27 +6,6 @@
  ( function( $ ) {
 	var api = wp.customize;
 
-	// api(
-	// 	'lifterlms_width',
-	// 	function( $swipe ) {
-	// 		$swipe.bind(
-	// 			function( newval ) {
-	// 				switch (newval) {
-	// 					case 'full-width':
-	// 						api.control( 'lifterlms_container_width' ).toggle( false );
-	// 						break;
-	// 					/**
-	// 					 * The select was switched to »show«.
-	// 					 */
-	// 					case 'contained':
-	// 						api.control( 'lifterlms_container_width' ).toggle( true );
-	// 						break;
-	// 				}
-	// 			}
-	// 		);
-	// 	}
-	// );
-
 	api(
 		'lifterlms_style',
 		function( $swipe ) {
@@ -50,15 +29,5 @@
 			);
 		}
 	);
-
-
-
-
-
-
-
-
-
-
 
 })( jQuery );

@@ -18,11 +18,9 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 	/**
 	 * Responsive LifterLMS Compatibility
 	 *
-	 * @since 4.3.0
+	 * @since 4.8.2
 	 */
 	class Responsive_LifterLMS {
-
-
 
 		/**
 		 * Member Variable
@@ -47,10 +45,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		 */
 		public function __construct() {
 
-			// add_filter( 'llms_get_theme_default_sidebar', array( $this, 'add_sidebar' ) );
-
 			add_filter( 'after_setup_theme', array( $this, 'responsive_llms_setup' ) );
-
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
@@ -60,7 +55,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			// Remove Content Wrappers
 			remove_action( 'lifterlms_before_main_content', 'lifterlms_output_content_wrapper', 10 );
 			remove_action( 'lifterlms_after_main_content', 'lifterlms_output_content_wrapper_end', 10 );
-			remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar' );
+			// remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar' );
 
 			// Add Content Wrappers
 			add_action( 'lifterlms_before_main_content', array( $this, 'before_main_content_start' ) );
@@ -73,30 +68,25 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			add_filter( 'body_class', array( $this, 'responsive_add_custom_body_classes_llms' ),7 );
 
 
-			// add_filter( 'llms_get_theme_default_sidebar', array( $this, 'llms_sidebar' ) );
-			// add_filter( 'body_class', array( $this, 'add_body_class' ) );
-
-
 		}
+
 		/**
 		 * Register Customizer sections and panel for LifterLMS
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 *
-		 * @since 4.3.0
+		 * @since 4.8.2
 		 */
 		public function customize_register( $wp_customize ) {
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-panel.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-columns.php';
-			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-sidebar.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-content-customizer.php';
 		}
-
 
 		/**
 		 * Declare explicit theme support for LifterLMS course and lesson sidebars
 		 *
-		 * @since 1.2.0
+		 * @since 4.8.2
 		 * @return   void
 		 */
 		public function responsive_llms_setup() {
@@ -105,13 +95,16 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			add_theme_support( 'lifterlms-sidebars' );
 		}
 
-
-
+		/**
+		 * Classes for Number of columns
+		 *
+		 * @since 4.8.2
+		 * @return   void
+		 */
 
 		public function columns_lifter_lms ( $grid ) {
 
 			$course_grid = get_option( 'theme_mods_responsive' );
-			// error_log(print_r($course_grid['lifterlms_columns'],true));
 			return $course_grid;
 		}
 
@@ -124,12 +117,10 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			return $classes;
 		}
 
-
-
 		/**
 		 * Add start of wrapper
 		 *
-		 * @since 1.2.0
+		 * @since 4.8.2
 		 * @return void
 		 */
 		function before_main_content_start() {
@@ -147,7 +138,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		/**
 		 * Add end of wrapper
 		 *
-		 * @since 1.2.0
+		 * @since 4.8.2
 		 * @return void
 		 */
 		function before_main_content_end() {
@@ -161,29 +152,10 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			<?php
 		}
 
-
-				/**
-		 * Display LifterLMS Course and Lesson sidebars
-		 * on courses and lessons in place of the sidebar returned by
-		 * this function
-		 *
-		 * @since 1.2.0
-		 * @param    string $id    default sidebar id (an empty string).
-		 * @return   string
-		 */
-		public function add_sidebar( $id ) {
-			$sidebar_id = 'sidebar'; // replace this with theme's sidebar ID.
-			return $sidebar_id;
-		}
-
-
-
-
-
 		/**
 		 * Add Custom LLMS scripts.
 		 *
-		 * @since 1.0.0
+		 * @since 4.8.2
 		 */
 		public static function add_custom_scripts() {
 
@@ -213,9 +185,6 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 			return $classes;
 		}
-
-
-
 
 		/**
 		 * [responsive_add_custom_body_classes Funtion to add CSS class to body].
@@ -251,20 +220,6 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 			return $classes;
 		}
-
-		/**
-		 * Display LifterLMS Course and Lesson sidebars
-		 * on courses and lessons in place of the sidebar returned by
-		 * this function
-		 *
-		 * @since 1.2.10
-		 */
-		public static function llms_sidebar( $id ) {
-			$id = 'sidebar';
-			return $id;
-		}
-
-
 
 	}
 

@@ -1,13 +1,13 @@
 <?php
 /**
- * Create Sensei Content section in customizer
+ * Create LifterLMS Content section in customizer
  *
  * @package Responsive
  */
 
 if ( class_exists( 'LifterLMS' ) ) {
 	/**
-	 * Sensei Customizer Options
+	 * LifterLMS Customizer Options
 	 *
 	 * @package Responsive WordPress theme
 	 */
@@ -50,45 +50,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 				)
 				);
 
-				// // Setting for Copyright text.
-				// $wp_customize->add_setting( 'responsive_dosth_copyright_text_side',
-				// array(
-				// 	'default'           => __( 'All rights reserved ', 'responsive' ),
-				// 	'sanitize_callback' => 'sanitize_text_field',
-				// 	'transport'         => 'refresh',
-				// )
-				// );
-
-				// // Control for Copyright text
-				// $wp_customize->add_control( 'responsive_dosth_copyright_text_side',
-				// array(
-				// 	'type'        => 'text',
-				// 	'priority'    => 10,
-				// 	'section'     => 'responsive_lifterlms_sidebar',
-				// 	'label'       => 'Copyright text',
-				// 	'description' => 'Text put here will be outputted in the footer',
-				// )
-				// );
-
-
-			// Sidebar 1.
-			// $sidebar_label   = esc_html__( 'Course Arcive Sidebar Position', 'responsive' );
-			// $sidebar_choices = array(
-			// 	'right' => esc_html__( 'Right Sidebar', 'responsive' ),
-			// 	'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
-			// 	'no'    => esc_html__( 'No Sidebar', 'responsive' ),
-			// );
-			// if ( is_rtl() ) {
-			// 	$sidebar_choices = array(
-			// 		'right' => esc_html__( 'Left Sidebar', 'responsive' ),
-			// 		'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
-			// 		'no'    => esc_html__( 'No Sidebar', 'responsive' ),
-			// 	);
-			// }
-			// responsive_select_control( $wp_customize, 'lifter_page_sidebar_position', $sidebar_label, 'responsive_lifterlms_sidebar', 20, $sidebar_choices, 'right', null );
-
-
-			//newsidebar
+			//Sidebar 1
 			$wp_customize->add_setting( 'lifter_page_sidebar_position' , array(
 				'default'     => 'right',
 				'transport'   => 'postMessage',
@@ -103,20 +65,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 				),
 				'section' => 'responsive_lifterlms_sidebar',
 			) ) );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 			// Sidebar 2.
 			$sidebar_label_mem   = esc_html__( 'Single Course Sidebar Position', 'responsive' );
@@ -133,8 +81,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 				);
 			}
 			responsive_select_control( $wp_customize, 'lifter_page_sidebar_position_mem', $sidebar_label_mem, 'responsive_lifterlms_sidebar', 20, $sidebar_choices_mem, 'right', null );
-
-
 
 			}
 		}
