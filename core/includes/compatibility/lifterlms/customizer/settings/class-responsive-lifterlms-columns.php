@@ -52,6 +52,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 				$wp_customize->add_setting( 'lifterlms_columns' , array(
 					'default'     => 1,
 					'transport'   => 'postMessage',
+					'sanitize_callback' => 'responsive_sanitize_number',
 				) );
 
 				$wp_customize->add_control( new Responsive_Customizer_Range_Control( $wp_customize, 'lifterlms_columns', array(
