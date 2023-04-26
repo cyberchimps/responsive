@@ -50,7 +50,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 				);
 
 				$wp_customize->add_setting( 'lifterlms_columns' , array(
-					// 'default'     => 3,
 					'transport'   => 'postMessage',
 				) );
 
