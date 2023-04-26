@@ -87,7 +87,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 				$wp_customize->add_setting(
 					'lifterlms_box_radius',
 					array(
-						// 'default'           => 50,
 						'sanitize_callback' => 'responsive_sanitize_number',
 						'transport'         => 'postMessage',
 					)
@@ -112,7 +111,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -120,7 +118,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 
@@ -129,7 +126,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -137,7 +133,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 
@@ -146,7 +141,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -154,7 +148,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -162,7 +155,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -170,7 +162,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 
@@ -179,7 +170,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -187,7 +177,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -195,7 +184,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 				$wp_customize->add_setting(
@@ -203,7 +191,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					array(
 						'transport'         => 'postMessage',
 						'sanitize_callback' => 'responsive_sanitize_number',
-						// 'default'           => 20,
 					)
 				);
 
