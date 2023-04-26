@@ -37,7 +37,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 			 * Customizer options
 			 *
 			 * @param  object $wp_customize WordPress customization option.
-			 * @since 4.3.0
+			 * @since 4.8.2
 			 */
 			public function customizer_options( $wp_customize ) {
 
@@ -54,6 +54,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 			$wp_customize->add_setting( 'lifter_page_sidebar_position' , array(
 				'default'     => 'right',
 				'transport'   => 'postMessage',
+				'sanitize_callback' => 'responsive_sanitize_select',
 			) );
 
 			$wp_customize->add_control( new Responsive_Customizer_Select_Control( $wp_customize, 'lifter_page_sidebar_position', array(
