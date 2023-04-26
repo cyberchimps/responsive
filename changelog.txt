@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/26/2023) = Fix - Version 4.8.2
+[+] = Feature = Added Compatability for LifterLMS plugin.
+
 (04/06/2023) = Fix - Version 4.8.1
 [^] = Moved = Moved the Breadcrumb settings in the customizer.
 [!] = Fixed = SKU was not visible on woocommerce single product page.
