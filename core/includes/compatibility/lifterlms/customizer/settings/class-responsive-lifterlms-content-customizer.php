@@ -49,7 +49,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 				)
 				);
 
-				//Container width setting
+				//Container width setting.
 
 				$wp_customize->add_setting( 'lifterlms_width' , array(
 					'default'     => 'contained',
@@ -70,6 +70,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 
 				$wp_customize->add_setting( 'lifterlms_style' , array(
 					'default'     => 'boxed',
+					'sanitize_callback' => 'responsive_sanitize_select',
 					'transport'   => 'postMessage',
 				) );
 
