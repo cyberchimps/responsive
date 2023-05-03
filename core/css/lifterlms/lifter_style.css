@@ -73,7 +73,7 @@
 
 .responsive-site-style-llms-boxed .site-content .hentry {
 	background-color: #ffffff !important;
-	border-radius: 0px !important;
+	border-radius: 0px;
 }
 
 .responsive-site-style-llms-boxed .site-content article.product {
@@ -92,7 +92,7 @@
 
 .responsive-site-style-llms-content-boxed .site-content .hentry {
 	background-color: #ffffff !important;
-	border-radius: 0px !important;
+	border-radius: 0px;
 }
 
 .responsive-site-style-llms-content-boxed .site-content article.product {

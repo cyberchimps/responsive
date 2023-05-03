@@ -123,15 +123,7 @@ function responsive_customizer_styles() {
 
 	// Box Radius.
 
-	if ( get_theme_mod( 'lifterlms_box_radius') ) {
-
-		$box_radius = esc_html( get_theme_mod( 'lifterlms_box_radius', 0 ) );
-
-	} else {
-
-		$box_radius = esc_html( get_theme_mod( 'responsive_box_radius', 0 ) );
-
-	}
+	$box_radius = esc_html( get_theme_mod( 'responsive_box_radius', 0 ) );
 
 	// Paragraph Margin Bottom.
 	$paragraph_margin_bottom = esc_html( get_theme_mod( 'responsive_paragraph_margin_bottom', '' ) );
@@ -258,6 +250,39 @@ function responsive_customizer_styles() {
 			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 		}
 	}';
+
+	// lifter settings
+
+	if ( class_exists( 'LifterLMS' ) ) {
+
+		$lifter_box_radius = esc_html( get_theme_mod( 'lifterlms_box_radius', 0 ) );
+
+		error_log($lifter_box_radius);
+
+		$custom_css .= "
+		.responsive-site-style-llms-content-boxed .site-content .hentry,
+		.responsive-site-style-llms-boxed .site-content .hentry {
+			border-radius:{$lifter_box_radius}px;
+		}
+		";
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+	///////////////////////////////////////
+
+
+
+
 
 	$body_text_color      = esc_html( get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'body_text' ) ) );
 	$meta_text_color      = esc_html( get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'meta_text' ) ) );
