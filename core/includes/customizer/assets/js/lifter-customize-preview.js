@@ -91,8 +91,9 @@
 					$(this).attr('class', classArray.join(' '));
 				};
 
-				$('body').removeClassRegEx('responsive-site-style-');
-				jQuery( 'body' ).addClass( 'responsive-site-style-'+ newval );
+				// $('body').removeClassRegEx('responsive-site-style-');
+				$('body').removeClassRegEx('responsive-site-style-llms-');
+				jQuery( 'body' ).addClass( 'responsive-site-style-llms-'+ newval );
 			}
 		);
 	}

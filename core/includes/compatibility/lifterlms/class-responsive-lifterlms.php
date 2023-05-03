@@ -164,7 +164,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			$responsive_options = responsive_get_options();
 			$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-			wp_enqueue_style( 'lifter-style', get_template_directory_uri() . "/core/css/lifterlms/llms{$suffix}.css", false, $responsive['Version'] );
+			// wp_enqueue_style( 'lifter-style', get_template_directory_uri() . "/core/css/lifterlms/llms{$suffix}.css", false, $responsive['Version'] );
 
 			wp_enqueue_style( 'lifter-main-style', get_template_directory_uri() . "/core/css/lifterlms/lifter_style{$suffix}.css", false, $responsive['Version'] );
 		}
@@ -205,18 +205,27 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			$classes[] = 'site-header-' . implode( '-', $elements );
 
 			// Site Width class.
-			$classes[] = 'responsive-site-' . get_theme_mod( 'lifterlms_width', 'contained' );
+			// $classes[] = 'responsive-site-llms-' . get_theme_mod( 'lifterlms_width', 'contained' );
 
-			// Site Style class.
-			if ( is_page() ) {
-				$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
-				$site_style = $site_style ? $site_style : get_theme_mod( 'lifterlms_style', 'boxed' );
 
-				$classes[] = 'responsive-site-style-' . $site_style;
+			if ( is_post_type_archive( 'course' )  ){
 
-			} else {
-				$classes[] = 'responsive-site-style-' . get_theme_mod( 'lifterlms_style', 'boxed' );
+				$classes[] = 'responsive-site-llms-' . get_theme_mod( 'lifterlms_width', 'contained' );
+
+				// Site Style class.
+				if ( is_page() ) {
+					$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
+					$site_style = $site_style ? $site_style : get_theme_mod( 'lifterlms_style', 'boxed' );
+
+					$classes[] = 'responsive-site-style-llms-' . $site_style;
+
+				} else {
+					$classes[] = 'responsive-site-style-llms-' . get_theme_mod( 'lifterlms_style', 'boxed' );
+				}
+
 			}
+
+
 
 			return $classes;
 		}

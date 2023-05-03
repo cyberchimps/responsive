@@ -52,6 +52,8 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 		return;
 	}
 
+	/*
+
 	if ( in_array('post-type-archive-course', get_body_class()) || in_array('post-type-archive-llms_membership', get_body_class()) ) {
 		?>
 		<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" style="display:none" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
@@ -63,6 +65,13 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 
 		<?php
 	}
+
+	*/
+
+	?>
+	<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+
+	<?php
 
 	Responsive\responsive_widgets(); // above widgets hook.
 	if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
