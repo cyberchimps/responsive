@@ -122,3 +122,75 @@
 	background-color: transparent!important;
 	padding: 0 !important;
 }
+
+
+/*sidebar*/
+
+@media (min-width: 992px) {
+
+	.post-type-archive-course .content-area {
+	  width: 100% !important;
+	  padding-right: 15px;
+	  padding-left: 15px;
+	}
+
+  }
+
+.archive.post-type-archive-course #content-wrap #primary.content-area {
+	display: flex;
+}
+
+
+#content-wrap #primary #content {
+	width: 80%;
+}
+
+
+.archive.post-type-archive-course #secondary {
+	padding-top: 97px;
+}
+
+.archive.post-type-archive-course #primary {
+	padding: 28px 0;
+}
+
+.archive.post-type-archive-course #primary #content .llms-loop {
+	margin-right: 28px;
+}
+
+/* For Sidebar 1*/
+
+/*right*/
+
+.responsive-llms-sidebar-right #primary {
+	flex-direction: row;
+
+}
+
+.responsive-llms-sidebar-right .llms-loop {
+	margin-left: 0;
+	margin-right: 28px;
+}
+
+/*left*/
+
+.responsive-llms-sidebar-left #primary {
+	flex-direction: row-reverse;
+
+}
+
+.responsive-llms-sidebar-left .llms-loop {
+	margin-left: 28px;
+	margin-right: 0;
+}
+
+/*no*/
+
+.responsive-llms-sidebar-no #content {
+	margin: 0 auto;
+
+}
+
+.responsive-llms-sidebar-no #secondary{
+	display: none;
+}

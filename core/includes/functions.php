@@ -540,21 +540,7 @@ function responsive_add_custom_body_classes( $classes ) {
 
 	$classes[] = 'site-header-' . implode( '-', $elements );
 
-	// Site Width class.
-
-	// if ( ! get_theme_mod( 'lifterlms_width' ) ) {
-
-
-	// }
-
 	$classes[] = 'responsive-site-' . get_theme_mod( 'responsive_width', 'contained' );
-
-	// Site Style class.
-
-	// if ( ! get_theme_mod( 'lifterlms_width' ) ) {
-
-
-	// }
 
 	if ( is_page() ) {
 		$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );

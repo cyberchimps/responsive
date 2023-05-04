@@ -42,6 +42,32 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 	</aside>
 		<?php
 
+} elseif ( class_exists( 'LifterLMS' ) ) {
+
+
+			if ( in_array('post-type-archive-course', get_body_class()) || in_array('post-type-archive-llms_membership', get_body_class()) ) {
+
+				return;
+			} else {
+
+				?>
+				<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+
+				<?php
+
+				Responsive\responsive_widgets(); // above widgets hook.
+				if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
+				endif; // End of main-sidebar.
+					Responsive\responsive_widgets_end(); // after widgets hook.
+				?>
+
+				</aside><!-- end of #secondary -->
+				<?php
+				Responsive\responsive_widgets_after(); // after widgets container hook.
+
+			}
+
+
 } else {
 
 	if ( ( is_page() && 'no' === get_theme_mod( 'responsive_page_sidebar_position', 'right' ) ) ||

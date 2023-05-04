@@ -81,6 +81,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-panel.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-columns.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-content-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-sidebar.php';
 		}
 
 		/**
@@ -142,10 +143,21 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		 * @return void
 		 */
 		function before_main_content_end() {
-			?>
-						</div><!-- #content -->
+				?>
 
 				</div><!-- #primary -->
+
+				<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+
+				<?php
+
+				Responsive\responsive_widgets(); // above widgets hook.
+				if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
+				endif; // End of main-sidebar.
+					Responsive\responsive_widgets_end(); // after widgets hook.
+				?>
+
+				</aside>
 
 			</div><!-- #content-wrap -->
 
@@ -204,12 +216,9 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 			$classes[] = 'site-header-' . implode( '-', $elements );
 
-			// Site Width class.
-			// $classes[] = 'responsive-site-llms-' . get_theme_mod( 'lifterlms_width', 'contained' );
-
-
 			if ( is_post_type_archive( 'course' )  ){
 
+				// Site Width class.
 				$classes[] = 'responsive-site-llms-' . get_theme_mod( 'lifterlms_width', 'contained' );
 
 				// Site Style class.
@@ -222,6 +231,10 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 				} else {
 					$classes[] = 'responsive-site-style-llms-' . get_theme_mod( 'lifterlms_style', 'boxed' );
 				}
+
+				//sidebar classes
+
+				$classes[] = 'responsive-llms-sidebar-' . get_theme_mod( 'lifter_page_sidebar_position', 'right' );
 
 			}
 

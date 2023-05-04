@@ -50,38 +50,38 @@ if ( class_exists( 'LifterLMS' ) ) {
 				)
 				);
 
-			//Sidebar 1
-			$wp_customize->add_setting( 'lifter_page_sidebar_position' , array(
-				'default'     => 'right',
-				'transport'   => 'postMessage',
-				'sanitize_callback' => 'responsive_sanitize_select',
-			) );
+				//Sidebar 1
+				$wp_customize->add_setting( 'lifter_page_sidebar_position' , array(
+					'default'     => 'right',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'   => 'refresh',
+				) );
 
-			$wp_customize->add_control( new Responsive_Customizer_Select_Control( $wp_customize, 'lifter_page_sidebar_position', array(
-				'label'	=>  'SIDE BAR TEST',
-				'choices' 	=> array(
-				'right'         => esc_html__( 'Right', 'responsive' ),
-				'left' => esc_html__( 'Left', 'responsive' ),
-				'no'          => esc_html__( 'No', 'responsive' ),
-				),
-				'section' => 'responsive_lifterlms_sidebar',
-			) ) );
+				$wp_customize->add_control( new Responsive_Customizer_Select_Control( $wp_customize, 'lifter_page_sidebar_position', array(
+					'label'	=>  'Course Archive Sidebar Position',
+					'choices' 	=> array(
+					'right'         => esc_html__( 'Right Sidebar', 'responsive' ),
+					'left' => esc_html__( 'Left Sidebar', 'responsive' ),
+					'no'          => esc_html__( 'No Sidebar', 'responsive' ),
+					),
+					'section' => 'responsive_lifterlms_sidebar',
+				) ) );
 
-			// Sidebar 2.
-			$sidebar_label_mem   = esc_html__( 'Single Course Sidebar Position', 'responsive' );
-			$sidebar_choices_mem = array(
-				'right' => esc_html__( 'Right Sidebar', 'responsive' ),
-				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
-				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
-			);
-			if ( is_rtl() ) {
-				$sidebar_choices_mem = array(
-					'right' => esc_html__( 'Left Sidebar', 'responsive' ),
-					'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
-					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
-				);
-			}
-			responsive_select_control( $wp_customize, 'lifter_page_sidebar_position_mem', $sidebar_label_mem, 'responsive_lifterlms_sidebar', 20, $sidebar_choices_mem, 'right', null );
+				// Sidebar 2.
+				// $sidebar_label_mem   = esc_html__( 'Single Course Sidebar Position', 'responsive' );
+				// $sidebar_choices_mem = array(
+				// 	'right' => esc_html__( 'Right Sidebar', 'responsive' ),
+				// 	'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
+				// 	'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+				// );
+				// if ( is_rtl() ) {
+				// 	$sidebar_choices_mem = array(
+				// 		'right' => esc_html__( 'Left Sidebar', 'responsive' ),
+				// 		'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
+				// 		'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+				// 	);
+				// }
+				// responsive_select_control( $wp_customize, 'lifter_page_sidebar_position_mem', $sidebar_label_mem, 'responsive_lifterlms_sidebar', 20, $sidebar_choices_mem, 'right', null );
 
 			}
 		}
