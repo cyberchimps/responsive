@@ -237,6 +237,7 @@ function responsive_customizer_styles() {
 
 		$custom_css .= "
 		.responsive-site-style-llms-content-boxed .site-content .hentry,
+		.responsive-site-style-llms-boxed aside#secondary .widget-wrapper,
 		.responsive-site-style-llms-boxed .site-content .hentry {
 			border-radius:{$lifter_box_radius}px;
 		}

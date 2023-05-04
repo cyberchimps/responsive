@@ -102,7 +102,7 @@
 
 api( 'lifterlms_box_radius', function( value ) {
 	value.bind( function( newval ) {
-		$('.responsive-site-style-llms-content-boxed .site-content .hentry,.responsive-site-style-llms-boxed .site-content .hentry').css('border-radius', newval+'px');
+		$('.responsive-site-style-llms-content-boxed .site-content .hentry,.responsive-site-style-llms-boxed .site-content .hentry,.responsive-site-style-llms-boxed aside#secondary .widget-wrapper').css('border-radius', newval+'px');
 	} );
 } );
 
