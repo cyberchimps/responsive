@@ -7,13 +7,45 @@
 
 /* Width layout */
 
-.responsive-site-llms-full-width #content-wrap {
-	max-width: none !important;
+.responsive-site-llms-full-width #primary {
+	/* max-width: 1300px !important; */
+	width: 100% !important;
+}
+
+.responsive-site-llms-full-width #secondary {
+	/* max-width: 1300px !important; */
+	width: 130%;
+}
+
+
+.archive.post-type-archive-course #inner-content .page-title {
+	display: none;
+}
+
+/* make content and side bar flex*/
+.archive.post-type-archive-course #content {
+	display: flex;
+	margin: 0 auto;
+}
+
+/* width content*/
+
+.responsive-site-llms-contained #content {
+	max-width: 1140px !important;
 }
 
 .responsive-site-llms-contained #content-wrap {
-	max-width: 1140px !important;
+	/* max-width: 1140px !important; */
+	width: 66%;
 }
+
+.responsive-site-llms-contained #secondary {
+	/* max-width: 1140px !important; */
+	width: 44%;
+}
+
+
+
 
 @media screen and (max-width: 600px) {
 	.llms-loop .llms-loop-list {
@@ -43,10 +75,6 @@
 }
 
 /*content boxed*/
-
-/* .responsive-site-style-llms-content-boxed {
-	background-color: orange !important;
-} */
 
 .responsive-site-style-llms-content-boxed .site-content .hentry {
 	background-color: #ffffff !important;
@@ -99,8 +127,8 @@
 }
 
 
-#content-wrap #primary #content {
-	width: 80%;
+#content-wrap #primary #inner-content {
+	/* width: 80%; */
 }
 
 
@@ -112,7 +140,7 @@
 	padding: 28px 0;
 }
 
-.archive.post-type-archive-course #primary #content .llms-loop {
+.archive.post-type-archive-course #primary #inner-content .llms-loop {
 	margin-right: 28px;
 }
 
@@ -120,7 +148,7 @@
 
 /*right sidebar*/
 
-.responsive-llms-sidebar-right #primary {
+.responsive-llms-sidebar-right #content {
 	flex-direction: row;
 
 }
@@ -132,7 +160,7 @@
 
 /*left sidebar*/
 
-.responsive-llms-sidebar-left #primary {
+.responsive-llms-sidebar-left #content {
 	flex-direction: row-reverse;
 
 }
@@ -144,7 +172,7 @@
 
 /*no sidebar*/
 
-.responsive-llms-sidebar-no #content {
+.responsive-llms-sidebar-no #inner-content {
 	margin: 0 auto;
 
 }
@@ -156,37 +184,47 @@
 /* styling lifter */
 
 @media screen and (max-width: 800px) {
-	.archive.post-type-archive-course #content-wrap #primary.content-area {
+	.archive.post-type-archive-course #content {
 		display: block;
 	}
-	#content-wrap #primary #content {
+	#content-wrap #primary #inner-content {
 		width: 100%;
 	}
-	.archive.post-type-archive-course #primary #content .llms-loop {
+	.archive.post-type-archive-course #primary #inner-content .llms-loop {
 		margin: 0 auto;
 		margin: 0 15px;
 	}
 
 	.archive.post-type-archive-course #secondary {
-		padding-top: 0;
+		padding-top: 0 !important;
+	}
+
+	.responsive-site-llms-contained #content-wrap {
+		/* max-width: 1140px !important; */
+		width: 100%;
+	}
+
+	.responsive-site-llms-contained #secondary {
+		/* max-width: 1140px !important; */
+		width: 100%;
 	}
 
 }
 
 @media screen and (max-width: 576px) {
-	.archive.post-type-archive-course #content-wrap #primary.content-area {
+	.archive.post-type-archive-course #content {
 		display: block;
 	}
-	#content-wrap #primary #content {
+	#content-wrap #primary #inner-content {
 		width: 100%;
 	}
-	.archive.post-type-archive-course #primary #content .llms-loop {
+	.archive.post-type-archive-course #primary #inner-content .llms-loop {
 		margin: 0 auto;
-		margin: 0 10px;
+		margin: 0 15px;
 	}
 
 	.archive.post-type-archive-course #secondary {
-		padding-top: 0;
+		padding-top: 0 !important;
 	}
 
 }
@@ -201,7 +239,7 @@
 /*flat style for sidebar*/
 
 .responsive-site-style-llms-flat #secondary {
-	padding-top: 99px !important;
+	padding-top: 16px !important;
 }
 
 .responsive-site-style-llms-flat aside#secondary .widget-wrapper {
@@ -211,6 +249,11 @@
 
 /*content style for sidebar*/
 
+.responsive-site-style-llms-content-boxed #secondary {
+	padding-top: 11px !important;
+	padding-bottom: 28px;
+}
+
 .responsive-site-style-llms-content-boxed aside#secondary .widget-wrapper {
 	background: transparent !important;
 
@@ -219,7 +262,8 @@
 /*boxed style for sidebar*/
 
 .responsive-site-style-llms-boxed #secondary {
-	padding-top: 99px !important;
+	padding-top: 57px !important;
+	padding-bottom: 28px;
 }
 
 .responsive-site-style-llms-boxed aside#secondary .widget-wrapper {

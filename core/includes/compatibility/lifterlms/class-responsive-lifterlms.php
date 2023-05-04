@@ -53,8 +53,8 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
 
 			// Remove Content Wrappers
-			remove_action( 'lifterlms_before_main_content', 'lifterlms_output_content_wrapper', 10 );
-			remove_action( 'lifterlms_after_main_content', 'lifterlms_output_content_wrapper_end', 10 );
+			// remove_action( 'lifterlms_before_main_content', 'lifterlms_output_content_wrapper', 10 );
+			// remove_action( 'lifterlms_after_main_content', 'lifterlms_output_content_wrapper_end', 10 );
 			// remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar' );
 
 			// Add Content Wrappers
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 				<div id="primary" class="content-area clr">
 
-					<div id="content" class="site-content clr">
+					<div id="inner-content" class="site-content clr">
 			<?php
 		}
 
