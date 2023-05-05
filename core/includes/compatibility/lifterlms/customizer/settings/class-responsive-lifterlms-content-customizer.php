@@ -43,13 +43,17 @@ if ( class_exists( 'LifterLMS' ) ) {
 
 				$wp_customize->add_section( 'responsive_lifterlms_layout',
 				array(
-					'title'         => __( 'Course Archive Layout', 'responsive' ),
+					'title'         => __( 'Layout', 'responsive' ),
 					'priority'      => 1,
 					'panel'         => 'responsive_lifterlms'
 				)
 				);
 
 				//Container width setting.
+
+				// Course Archive layout Separator.
+				$course_separator_label = esc_html__( 'Course Archive Layout', 'responsive' );
+				responsive_separator_control( $wp_customize, 'course_separator', $course_separator_label, 'responsive_lifterlms_layout',1 );
 
 				$wp_customize->add_setting( 'lifterlms_width' , array(
 					'default'     => 'contained',
@@ -224,6 +228,34 @@ if ( class_exists( 'LifterLMS' ) ) {
 						)
 					)
 				);
+
+			// Columns Separator.
+			$columns_separator_label = esc_html__( 'Columns', 'responsive' );
+			responsive_separator_control( $wp_customize, 'columns_separator', $columns_separator_label, 'responsive_lifterlms_layout', 10 );
+
+
+			//Columns settings.
+
+			$wp_customize->add_setting( 'lifterlms_columns' , array(
+				'default'     => 1,
+				'transport'   => 'postMessage',
+				'sanitize_callback' => 'responsive_sanitize_number',
+			) );
+
+			$wp_customize->add_control( new Responsive_Customizer_Range_Control( $wp_customize, 'lifterlms_columns', array(
+				'label'	=>  'Course Columns',
+				'input_attrs'     => array(
+					'min'  => 1,
+					'max'  => 6,
+					'step' => 1,
+				),
+				'section' => 'responsive_lifterlms_layout',
+			) ) );
+
+
+
+
+
 
 			}
 		}
