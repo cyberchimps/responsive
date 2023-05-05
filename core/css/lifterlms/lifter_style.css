@@ -7,6 +7,17 @@
 
 /* Width layout */
 
+.responsive-site-llms-full-width #content {
+	/* max-width: 1300px !important; */
+	width: 100% !important;
+}
+
+.responsive-site-llms-full-width #content-wrap {
+	/* max-width: 1300px !important; */
+	width: 300% !important;
+}
+
+
 .responsive-site-llms-full-width #primary {
 	/* max-width: 1300px !important; */
 	width: 100% !important;
@@ -14,7 +25,7 @@
 
 .responsive-site-llms-full-width #secondary {
 	/* max-width: 1300px !important; */
-	width: 130%;
+	width: 150% !important;
 }
 
 
@@ -200,13 +211,29 @@
 	}
 
 	.responsive-site-llms-contained #content-wrap {
-		/* max-width: 1140px !important; */
 		width: 100%;
 	}
 
 	.responsive-site-llms-contained #secondary {
-		/* max-width: 1140px !important; */
 		width: 100%;
+	}
+
+	.responsive-site-llms-full-width #content-wrap {
+		width: 100%;
+	}
+
+	.responsive-site-llms-full-width #secondary {
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-full-width #content {
+		/* max-width: 1300px !important; */
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-full-width #content-wrap {
+		/* max-width: 1300px !important; */
+		width: 100% !important;
 	}
 
 }
@@ -225,6 +252,30 @@
 
 	.archive.post-type-archive-course #secondary {
 		padding-top: 0 !important;
+	}
+
+	.responsive-site-llms-contained #secondary {
+		/* max-width: 1140px !important; */
+		width: 100%;
+	}
+
+	.responsive-site-llms-full-width #content-wrap {
+		width: 100%;
+	}
+
+	.responsive-site-llms-full-width #secondary {
+		/* max-width: 1300px !important; */
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-full-width #content {
+		/* max-width: 1300px !important; */
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-full-width #content-wrap {
+		/* max-width: 1300px !important; */
+		width: 100% !important;
 	}
 
 }
