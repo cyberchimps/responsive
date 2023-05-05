@@ -66,23 +66,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 					),
 					'section' => 'responsive_lifterlms_sidebar',
 				) ) );
-
-				// Sidebar 2.
-				// $sidebar_label_mem   = esc_html__( 'Single Course Sidebar Position', 'responsive' );
-				// $sidebar_choices_mem = array(
-				// 	'right' => esc_html__( 'Right Sidebar', 'responsive' ),
-				// 	'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
-				// 	'no'    => esc_html__( 'No Sidebar', 'responsive' ),
-				// );
-				// if ( is_rtl() ) {
-				// 	$sidebar_choices_mem = array(
-				// 		'right' => esc_html__( 'Left Sidebar', 'responsive' ),
-				// 		'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
-				// 		'no'    => esc_html__( 'No Sidebar', 'responsive' ),
-				// 	);
-				// }
-				// responsive_select_control( $wp_customize, 'lifter_page_sidebar_position_mem', $sidebar_label_mem, 'responsive_lifterlms_sidebar', 20, $sidebar_choices_mem, 'right', null );
-
 			}
 		}
 
