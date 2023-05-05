@@ -1,5 +1,5 @@
 
-/* Lifter LMS */
+/* Styling for Lifter LMS */
 
 .llms-loop .llms-loop-list .llms-loop-item {
 	margin: 0;
@@ -8,23 +8,18 @@
 /* Width layout */
 
 .responsive-site-llms-full-width #content {
-	/* max-width: 1300px !important; */
 	width: 100% !important;
 }
 
 .responsive-site-llms-full-width #content-wrap {
-	/* max-width: 1300px !important; */
 	width: 300% !important;
 }
 
-
 .responsive-site-llms-full-width #primary {
-	/* max-width: 1300px !important; */
 	width: 100% !important;
 }
 
 .responsive-site-llms-full-width #secondary {
-	/* max-width: 1300px !important; */
 	width: 150% !important;
 }
 
@@ -41,30 +36,19 @@
 
 /* width content*/
 
-.responsive-site-llms-contained #content {
-	/* max-width: 1140px !important; */
-	/* max-width: 1140px; */
-}
-
 .responsive-site-llms-contained #content-wrap {
-	/* max-width: 1140px !important; */
 	width: 66%;
 }
 
 .responsive-site-llms-contained #secondary {
-	/* max-width: 1140px !important; */
 	width: 44%;
 }
-
-
-
 
 @media screen and (max-width: 600px) {
 	.llms-loop .llms-loop-list {
 		display: flex;
     	flex-direction: column;
     	flex-wrap: wrap;
-    	/* width: 250vw; */
 		margin: 0 auto;
 	}
 }
@@ -101,15 +85,7 @@
 	padding: 25px 0 !important;
 }
 
-
-
 /*flat*/
-
-
-/* .responsive-site-style-llms-flat {
-	background-color: transparent!important;
-	padding: 0 !important;
-} */
 
 .responsive-site-style-llms-flat .site-content .hentry {
 	background-color: transparent!important;
@@ -137,12 +113,6 @@
 .archive.post-type-archive-course #content-wrap #primary.content-area {
 	display: flex;
 }
-
-
-#content-wrap #primary #inner-content {
-	/* width: 80%; */
-}
-
 
 .archive.post-type-archive-course #secondary {
 	padding-top: 97px;
@@ -228,12 +198,14 @@
 	}
 
 	.responsive-site-llms-full-width #content {
-		/* max-width: 1300px !important; */
 		width: 100% !important;
 	}
 
 	.responsive-site-llms-full-width #content-wrap {
-		/* max-width: 1300px !important; */
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-contained #content {
 		width: 100% !important;
 	}
 
@@ -256,7 +228,6 @@
 	}
 
 	.responsive-site-llms-contained #secondary {
-		/* max-width: 1140px !important; */
 		width: 100%;
 	}
 
@@ -265,17 +236,18 @@
 	}
 
 	.responsive-site-llms-full-width #secondary {
-		/* max-width: 1300px !important; */
 		width: 100% !important;
 	}
 
 	.responsive-site-llms-full-width #content {
-		/* max-width: 1300px !important; */
 		width: 100% !important;
 	}
 
 	.responsive-site-llms-full-width #content-wrap {
-		/* max-width: 1300px !important; */
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-contained #content {
 		width: 100% !important;
 	}
 
@@ -291,7 +263,7 @@
 /*flat style for sidebar*/
 
 .responsive-site-style-llms-flat #secondary {
-	padding-top: 16px !important;
+	padding-top: 59px !important;
 }
 
 .responsive-site-style-llms-flat aside#secondary .widget-wrapper {
@@ -302,7 +274,7 @@
 /*content style for sidebar*/
 
 .responsive-site-style-llms-content-boxed #secondary {
-	padding-top: 11px !important;
+	padding-top: 59px !important;
 	padding-bottom: 28px;
 }
 

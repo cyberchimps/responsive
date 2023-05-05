@@ -52,21 +52,14 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			add_filter( 'lifterlms_loop_columns', array( $this, 'columns_lifter_lms' ) );
 			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
 
-			// Remove Content Wrappers
-			// remove_action( 'lifterlms_before_main_content', 'lifterlms_output_content_wrapper', 10 );
-			// remove_action( 'lifterlms_after_main_content', 'lifterlms_output_content_wrapper_end', 10 );
-			// remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar' );
-
 			// Add Content Wrappers
 			add_action( 'lifterlms_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'lifterlms_after_main_content', array( $this, 'before_main_content_end' ) );
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_custom_scripts' ) );
 
-
 			add_filter( 'body_class', array( $this, 'responsive_add_class_llms' ),7 );
 			add_filter( 'body_class', array( $this, 'responsive_add_custom_body_classes_llms' ),7 );
-
 
 		}
 
@@ -79,7 +72,6 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		 */
 		public function customize_register( $wp_customize ) {
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-panel.php';
-			// require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-columns.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-content-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-sidebar.php';
 		}
@@ -176,11 +168,8 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			$responsive_options = responsive_get_options();
 			$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-			// wp_enqueue_style( 'lifter-style', get_template_directory_uri() . "/core/css/lifterlms/llms{$suffix}.css", false, $responsive['Version'] );
-
 			wp_enqueue_style( 'lifter-main-style', get_template_directory_uri() . "/core/css/lifterlms/lifter_style{$suffix}.css", false, $responsive['Version'] );
 		}
-
 
 		/**
 		 * Funtion to add CSS class to body
@@ -237,8 +226,6 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 				$classes[] = 'responsive-llms-sidebar-' . get_theme_mod( 'lifter_page_sidebar_position', 'right' );
 
 			}
-
-
 
 			return $classes;
 		}

@@ -255,11 +255,6 @@ function responsive_lifter_dynamic_box_padding( ) {
         } );
     } );
 
-
-
-
-
-
 api( 'lifterlms_container_width', function( value ) {
 	value.bind( function( newval ) {
 		$('.responsive-site-llms-contained #content').css('width', newval+'px');

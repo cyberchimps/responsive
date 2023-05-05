@@ -52,6 +52,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 				//Container width setting.
 
 				// Course Archive layout Separator.
+
 				$course_separator_label = esc_html__( 'Course Archive Layout', 'responsive' );
 				responsive_separator_control( $wp_customize, 'course_separator', $course_separator_label, 'responsive_lifterlms_layout',1 );
 
@@ -108,6 +109,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 				) ) );
 
 				// Add BOX RADIUS Setting.
+
 				$wp_customize->add_setting(
 					'lifterlms_box_radius',
 					array(
@@ -249,6 +251,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 				);
 
 			// Columns Separator.
+
 			$columns_separator_label = esc_html__( 'Columns', 'responsive' );
 			responsive_separator_control( $wp_customize, 'columns_separator', $columns_separator_label, 'responsive_lifterlms_layout', 10 );
 
@@ -270,11 +273,6 @@ if ( class_exists( 'LifterLMS' ) ) {
 				),
 				'section' => 'responsive_lifterlms_layout',
 			) ) );
-
-
-
-
-
 
 			}
 		}

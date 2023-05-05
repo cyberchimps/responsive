@@ -279,23 +279,7 @@ function responsive_customizer_styles() {
 		}
 		';
 
-
-
-
-
 	}
-
-
-
-
-
-
-
-	///////////////////////////////////////
-
-
-
-
 
 	$body_text_color      = esc_html( get_theme_mod( 'responsive_body_text_color', Responsive\Core\get_responsive_customizer_defaults( 'body_text' ) ) );
 	$meta_text_color      = esc_html( get_theme_mod( 'responsive_meta_text_color', Responsive\Core\get_responsive_customizer_defaults( 'meta_text' ) ) );
