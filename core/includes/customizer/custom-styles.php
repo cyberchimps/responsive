@@ -108,15 +108,8 @@ function responsive_customizer_styles() {
 
 	// Site custom styles.
 
-	if ( get_theme_mod( 'lifterlms_container_width') ) {
+	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
 
-		$container_max_width = esc_html( get_theme_mod( 'lifterlms_container_width', 1140 ) );
-
-	} else {
-
-		$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
-
-	}
 
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
 	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ) ) );
@@ -232,6 +225,24 @@ function responsive_customizer_styles() {
 	// lifter settings
 
 	if ( class_exists( 'LifterLMS' ) ) {
+
+		//container width.
+
+		$lifter_container_max_width = esc_html( get_theme_mod( 'lifterlms_container_width', 1140 ) );
+
+		if ( $lifter_container_max_width >=1500 ) {
+
+			$lifter_container_max_width = 1500;
+
+		}
+
+		$custom_css .= "
+		.responsive-site-llms-contained #content {
+			width: {$lifter_container_max_width}px;
+		}
+		";
+
+		//box radius.
 
 		$lifter_box_radius = esc_html( get_theme_mod( 'lifterlms_box_radius', 0 ) );
 

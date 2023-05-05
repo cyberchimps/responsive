@@ -70,6 +70,25 @@ if ( class_exists( 'LifterLMS' ) ) {
 					'section' => 'responsive_lifterlms_layout',
 					) ) );
 
+				// Container Width.
+
+				$wp_customize->add_setting( 'lifterlms_container_width' , array(
+					'default'     => 1140,
+					'transport'   => 'refresh',
+					'sanitize_callback' => 'responsive_sanitize_number',
+				) );
+
+				$wp_customize->add_control( new Responsive_Customizer_Range_Control( $wp_customize, 'lifterlms_container_width', array(
+					'label'	=>  'Container Width (px)',
+					'input_attrs'     => array(
+						'min'  => 1,
+						'max'  => 4096,
+						'step' => 1,
+					),
+					'section' => 'responsive_lifterlms_layout',
+				) ) );
+
+
 				//Style setting
 
 				$wp_customize->add_setting( 'lifterlms_style' , array(
@@ -237,7 +256,7 @@ if ( class_exists( 'LifterLMS' ) ) {
 			//Columns settings.
 
 			$wp_customize->add_setting( 'lifterlms_columns' , array(
-				'default'     => 1,
+				'default'     => 3,
 				'transport'   => 'postMessage',
 				'sanitize_callback' => 'responsive_sanitize_number',
 			) );

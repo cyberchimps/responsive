@@ -99,6 +99,7 @@
 	}
 );
 
+//Box radius
 
 api( 'lifterlms_box_radius', function( value ) {
 	value.bind( function( newval ) {
@@ -106,6 +107,7 @@ api( 'lifterlms_box_radius', function( value ) {
 	} );
 } );
 
+//Box Padding
 
 function responsive_lifter_dynamic_box_padding( ) {
 	var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
@@ -258,7 +260,11 @@ function responsive_lifter_dynamic_box_padding( ) {
 
 
 
-
+api( 'lifterlms_container_width', function( value ) {
+	value.bind( function( newval ) {
+		$('.responsive-site-llms-contained #content').css('width', newval+'px');
+	} );
+} );
 
 
 

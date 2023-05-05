@@ -42,7 +42,8 @@
 /* width content*/
 
 .responsive-site-llms-contained #content {
-	max-width: 1140px !important;
+	/* max-width: 1140px !important; */
+	/* max-width: 1140px; */
 }
 
 .responsive-site-llms-contained #content-wrap {
