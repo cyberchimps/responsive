@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(05/6/2023) = Fix - Version 4.8.3
+[+] = Changed = Improved customizer settings for LifterLMS plugin.
+
 (04/26/2023) = Fix - Version 4.8.2
 [+] = Feature = Added Compatability for LifterLMS plugin.
 
