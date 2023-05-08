@@ -52,21 +52,14 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			add_filter( 'lifterlms_loop_columns', array( $this, 'columns_lifter_lms' ) );
 			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
 
-			// Remove Content Wrappers
-			remove_action( 'lifterlms_before_main_content', 'lifterlms_output_content_wrapper', 10 );
-			remove_action( 'lifterlms_after_main_content', 'lifterlms_output_content_wrapper_end', 10 );
-			// remove_action( 'lifterlms_sidebar', 'lifterlms_get_sidebar' );
-
 			// Add Content Wrappers
 			add_action( 'lifterlms_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'lifterlms_after_main_content', array( $this, 'before_main_content_end' ) );
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_custom_scripts' ) );
 
-
 			add_filter( 'body_class', array( $this, 'responsive_add_class_llms' ),7 );
 			add_filter( 'body_class', array( $this, 'responsive_add_custom_body_classes_llms' ),7 );
-
 
 		}
 
@@ -79,8 +72,8 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		 */
 		public function customize_register( $wp_customize ) {
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-panel.php';
-			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-columns.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-content-customizer.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-sidebar.php';
 		}
 
 		/**
@@ -131,7 +124,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 				<div id="primary" class="content-area clr">
 
-					<div id="content" class="site-content clr">
+					<div id="inner-content" class="site-content clr">
 			<?php
 		}
 
@@ -142,10 +135,21 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		 * @return void
 		 */
 		function before_main_content_end() {
-			?>
-						</div><!-- #content -->
+				?>
 
 				</div><!-- #primary -->
+
+				<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
+
+				<?php
+
+				Responsive\responsive_widgets(); // above widgets hook.
+				if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
+				endif; // End of main-sidebar.
+					Responsive\responsive_widgets_end(); // after widgets hook.
+				?>
+
+				</aside>
 
 			</div><!-- #content-wrap -->
 
@@ -164,11 +168,8 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			$responsive_options = responsive_get_options();
 			$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-			wp_enqueue_style( 'lifter-style', get_template_directory_uri() . "/core/css/lifterlms/llms{$suffix}.css", false, $responsive['Version'] );
-
 			wp_enqueue_style( 'lifter-main-style', get_template_directory_uri() . "/core/css/lifterlms/lifter_style{$suffix}.css", false, $responsive['Version'] );
 		}
-
 
 		/**
 		 * Funtion to add CSS class to body
@@ -204,18 +205,26 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 			$classes[] = 'site-header-' . implode( '-', $elements );
 
-			// Site Width class.
-			$classes[] = 'responsive-site-' . get_theme_mod( 'lifterlms_width', 'contained' );
+			if ( is_post_type_archive( 'course' )  ){
 
-			// Site Style class.
-			if ( is_page() ) {
-				$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
-				$site_style = $site_style ? $site_style : get_theme_mod( 'lifterlms_style', 'boxed' );
+				// Site Width class.
+				$classes[] = 'responsive-site-llms-' . get_theme_mod( 'lifterlms_width', 'contained' );
 
-				$classes[] = 'responsive-site-style-' . $site_style;
+				// Site Style class.
+				if ( is_page() ) {
+					$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
+					$site_style = $site_style ? $site_style : get_theme_mod( 'lifterlms_style', 'boxed' );
 
-			} else {
-				$classes[] = 'responsive-site-style-' . get_theme_mod( 'lifterlms_style', 'boxed' );
+					$classes[] = 'responsive-site-style-llms-' . $site_style;
+
+				} else {
+					$classes[] = 'responsive-site-style-llms-' . get_theme_mod( 'lifterlms_style', 'boxed' );
+				}
+
+				//sidebar classes
+
+				$classes[] = 'responsive-llms-sidebar-' . get_theme_mod( 'lifter_page_sidebar_position', 'right' );
+
 			}
 
 			return $classes;
