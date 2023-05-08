@@ -17,19 +17,19 @@
   }
   .llms-loop-list.cols-3 .llms-loop-item {
 	width: 30%;
-	margin: 0 10px !important;
+	margin: 0px 15px 10px 10px !important;
 }
   .llms-loop-list.cols-4 .llms-loop-item {
     width: 22%;
-	margin: 0 10px !important;
+	margin: 0px 15px 10px 10px !important;
   }
   .llms-loop-list.cols-5 .llms-loop-item {
     width: 18%;
-	margin: 0 10px !important;
+	margin: 0px 15px 10px 10px !important;
   }
   .llms-loop-list.cols-6 .llms-loop-item {
     width: 14.6666666667%;
-	margin: 0 10px !important;
+	margin: 0px 15px 10px 10px !important;
   }
 
 /* Width layout */
