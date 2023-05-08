@@ -91,20 +91,23 @@
 					$(this).attr('class', classArray.join(' '));
 				};
 
-				$('body').removeClassRegEx('responsive-site-style-');
-				jQuery( 'body' ).addClass( 'responsive-site-style-'+ newval );
+				// $('body').removeClassRegEx('responsive-site-style-');
+				$('body').removeClassRegEx('responsive-site-style-llms-');
+				jQuery( 'body' ).addClass( 'responsive-site-style-llms-'+ newval );
 			}
 		);
 	}
 );
 
+//Box radius
 
 api( 'lifterlms_box_radius', function( value ) {
 	value.bind( function( newval ) {
-		$('.page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,.responsive-site-style-content-boxed .custom-home-about-section,.responsive-site-style-content-boxed .custom-home-feature-section,.responsive-site-style-content-boxed .custom-home-team-section,.responsive-site-style-content-boxed .custom-home-testimonial-section,.responsive-site-style-content-boxed .custom-home-contact-section,.responsive-site-style-content-boxed .custom-home-widget-section,.responsive-site-style-content-boxed .custom-home-featured-area,.responsive-site-style-content-boxed .site-content-header,.responsive-site-style-content-boxed .content-area-wrapper,.responsive-site-style-content-boxed .site-content .hentry,.responsive-site-style-content-boxed .navigation,.responsive-site-style-content-boxed .comments-area,.responsive-site-style-content-boxed .comment-respond,.responsive-site-style-boxed .custom-home-about-section,.responsive-site-style-boxed .custom-home-feature-section,.responsive-site-style-boxed .custom-home-team-section,.responsive-site-style-boxed .custom-home-testimonial-section,.responsive-site-style-boxed .custom-home-contact-section,.responsive-site-style-boxed .custom-home-widget-section,.responsive-site-style-boxed .custom-home-featured-area,.responsive-site-style-boxed .site-content-header,.responsive-site-style-boxed .site-content .hentry,.responsive-site-style-boxed .navigation,.responsive-site-style-boxed .comments-area,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed .comment-respond,.responsive-site-style-boxed aside#secondary .widget-wrapper,.responsive-site-style-boxed .site-content article.product').css('border-radius', newval+'px' );
+		$('.responsive-site-style-llms-content-boxed .site-content .hentry,.responsive-site-style-llms-boxed .site-content .hentry,.responsive-site-style-llms-boxed aside#secondary .widget-wrapper').css('border-radius', newval+'px');
 	} );
 } );
 
+//Box Padding
 
 function responsive_lifter_dynamic_box_padding( ) {
 	var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
@@ -252,12 +255,11 @@ function responsive_lifter_dynamic_box_padding( ) {
         } );
     } );
 
-
-
-
-
-
-
+api( 'lifterlms_container_width', function( value ) {
+	value.bind( function( newval ) {
+		$('.responsive-site-llms-contained #content').css('width', newval+'px');
+	} );
+} );
 
 
 
