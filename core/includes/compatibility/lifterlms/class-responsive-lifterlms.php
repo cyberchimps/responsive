@@ -61,6 +61,10 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			add_filter( 'body_class', array( $this, 'responsive_add_class_llms' ),7 );
 			add_filter( 'body_class', array( $this, 'responsive_add_custom_body_classes_llms' ),7 );
 
+			// Lifter Notice
+			add_action( 'customize_controls_enqueue_scripts', array( $this, 'lifter_enqueue_notices_handler' ), 999 );
+			add_action( 'customize_controls_print_scripts', array( $this, 'lifter_print_templates' ), 1 );
+
 		}
 
 		/**
@@ -228,6 +232,37 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			}
 
 			return $classes;
+		}
+
+		/**
+		 * Enqueue the controls script.
+		 */
+		public function lifter_enqueue_notices_handler() {
+
+			$responsive         = wp_get_theme( 'responsive' );
+			$responsive_options = responsive_get_options();
+			$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+			wp_enqueue_style( 'lifter-main-notice-style', get_template_directory_uri() . "/core/css/lifterlms/lifter_notice{$suffix}.css", false, $responsive['Version'] );
+
+			wp_register_script( 'responsive-customizer-lms-notices-handler', trailingslashit( get_template_directory_uri() ) . 'core/includes/customizer/assets/min/js/lms-customizer-notices-handler.js', array( 'customize-controls' ), RESPONSIVE_THEME_VERSION );
+
+			wp_enqueue_script( 'responsive-customizer-lms-notices-handler' );
+		}
+
+		/**
+		 * Notice template.
+		 */
+
+		public function lifter_print_templates() {
+			?>
+			<script type="text/html" id="tmpl-lifter-custom-message">
+				<div class="lifter-lms-notice">
+				<p class="lifter-custom-message"><span class="lms-note">Note: </span><?php esc_html_e( 'The above settings apply to the default LifterLMS Course Catalog archive page.' ) ?></p>
+				</div>
+
+			</script>
+			<?php
 		}
 
 	}

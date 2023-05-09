@@ -277,6 +277,23 @@ function responsive_customizer_styles() {
 		.responsive-site-style-llms-boxed .site-content article.product {
 			padding: ' . responsive_spacing_css( $lifter_box_padding_top, $lifter_box_padding_right, $lifter_box_padding_bottom, $lifter_box_padding_left ) . ';
 		}
+		@media screen and ( max-width: 992px ) {
+			.responsive-site-style-llms-content-boxed .hentry,
+			.responsive-site-style-llms-boxed .hentry,
+			.responsive-site-style-llms-boxed .widget-wrapper,
+			.responsive-site-style-llms-boxed .site-content article.product {
+				padding: ' . responsive_spacing_css( $lifter_box_tablet_padding_top, $lifter_box_tablet_padding_right, $lifter_box_tablet_padding_bottom, $lifter_box_tablet_padding_left ) . ';
+			}
+		}
+
+		@media screen and ( max-width: 576px ) {
+			.responsive-site-style-llms-content-boxed .hentry,
+			.responsive-site-style-llms-boxed .hentry,
+			.responsive-site-style-llms-boxed .widget-wrapper,
+			.responsive-site-style-llms-boxed .site-content article.product {
+				padding: ' . responsive_spacing_css( $lifter_box_mobile_padding_top, $lifter_box_mobile_padding_right, $lifter_box_mobile_padding_bottom, $lifter_box_mobile_padding_left ) . ';
+			}
+		}
 		';
 
 	}
