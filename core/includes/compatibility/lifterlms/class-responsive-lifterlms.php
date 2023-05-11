@@ -108,7 +108,8 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 		public function course_responsive_grid ( $classes ) {
 
 			$llms_grid = get_option( 'theme_mods_responsive' );
-			$no_of_cols = $llms_grid['lifterlms_columns'];
+
+			$no_of_cols = get_theme_mod ( 'lifterlms_columns' ) ;
 
 			$classes[] ='cols-'.$no_of_cols;
 			return $classes;
