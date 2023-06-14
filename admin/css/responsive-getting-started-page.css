@@ -206,41 +206,6 @@ body.appearance_page_responsive #wpbody-content {
 
 /* Home Tab Starts */
 
-.responsive-theme-left-home-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
-    gap: 60px;
-    height: 1280px;
-    flex: none;
-    order: 0;
-    flex-grow: 1;
-}
-
-.responsive-theme-home-vertical-line {
-    width: 1280px;
-    height: 0px;
-    border: 1px solid #F3F4F6;
-    transform: rotate(90deg);
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-}
-
-.responsive-theme-right-home-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 40px;
-    height: 808px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-}
-
 .responsive-theme-home-line {
     color: #F3F4F6;
 }
@@ -357,6 +322,29 @@ hr {
 .responsive-theme-learn-more-btn {
     padding: 8px 0 5px;
 }
+
+.responsive-plugin-activated-button-disabled {
+    color: #C1C1C1 !important;
+    border-color: #C1C1C1 !important;
+}
+
+.responsive-theme-rst-content .responsive-plugin-activated-button-disabled {
+    font-weight: 600;
+    font-size: 16px !important;
+    line-height: 21px !important;
+    padding: 10px 20px !important;
+
+}
+
+.responsive-plugin-activated-button-disabled:hover {
+    background: #f6f7f7 !important;
+    cursor: auto;
+}
+
+.responsive-plugin-activated-button-disabled:focus {
+    box-shadow: none !important;
+}
+
 /* Home Tab Ends */
 
 /* Starter Template Tab Starts */
@@ -622,6 +610,10 @@ hr {
     .responsive-theme-cyberchimps-logo {
         width: 119px;
         height: 35px;
+    }
+
+    .responsive-theme-home-line {
+        display: flex !important;
     }
 
 }

@@ -142,15 +142,15 @@ class Responsive_Plugin_Install_Helper {
 		);
 		switch ( $state ) {
 			case 'install':
-				$button .= '<a id="responsive-theme-' . esc_attr( $identifier ) . '" data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $slug ) . '" class="install-now button  " href="' . esc_url( $nonce ) . '" data-name="' . esc_attr( $slug ) . '" aria-label="Install ' . esc_attr( $slug ) . '">' . esc_html( $button_text ) . '</a>';
+				$button .= '<a id="responsive-theme-' . esc_attr( $identifier ) . '" data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $slug ) . '" class="responsive-theme-install-plugin install-now button  " href="' . esc_url( $nonce ) . '" data-name="' . esc_attr( $slug ) . '" aria-label="Install ' . esc_attr( $slug ) . '">' . esc_html( $button_text ) . '</a>';
 				break;
 
 			case 'activate':
-				$button .= '<a  data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $slug ) . '" class="activate-now button button-primary" href="' . esc_url( $nonce ) . '" aria-label="Activate ' . esc_attr( $slug ) . '">' . esc_html__( 'Activate', 'responsive' ) . '</a>';
+				$button .= '<a  data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $slug ) . '" class="responsive-theme-activate-plugin activate-now button button-primary" href="' . esc_url( $nonce ) . '" aria-label="Activate ' . esc_attr( $slug ) . '">' . esc_html__( 'Activate', 'responsive' ) . '</a>';
 				break;
 
 			case 'activated':
-				$button .= '<button class="responsive-plugin-activated-button-disabled" aria-label="Activated ' . esc_attr( $slug ) . '">' . esc_html__( 'Activated', 'responsive' ) . '</button>';
+				$button .= '<button class="responsive-plugin-activated-button-disabled button" aria-label="Activated ' . esc_attr( $slug ) . '">' . esc_html__( 'Activated', 'responsive' ) . '</button>';
 				break;
 		} // End switch.
 		$button .= '</div>';

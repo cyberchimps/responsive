@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Provide a admin area view for the plugin
  *
@@ -13,62 +12,60 @@
 
 ?>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<?php
+
+	$useful_plugins = array(
+		array(
+			'tag'    => __( 'free', 'responsive' ),
+			'title'  => 'Responsive Starter Templates',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst-plugins', 'responsive-add-ons' ),
+		),
+		array(
+			'tag'    => __( 'free', 'responsive' ),
+			'title'  => 'Responsive Blocks Library',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-block-editor-addons', 'rbl-plugins', 'responsive_block_editor_addons' ),
+		),
+		array(
+			'tag'    => __( 'pro', 'responsive' ),
+			'title'  => 'Responsive Elementor Addons',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => '<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;"><a class="button" href="">Learn More</a></div>',
+		),
+		array(
+			'tag'    => __( 'free', 'responsive' ),
+			'title'  => 'WP Legal Pages',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'wplegalpages', 'wplegalpages-plugins', 'getting-started' ),
+		),
+		array(
+			'tag'    => __( 'free', 'responsive' ),
+			'title'  => 'GDPR Cookie Consent',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'gdpr-cookie-consent', 'gdpr-plugins', 'gdpr-cookie-consent' ),
+		),
+	);
+
+	?>
+
 <div class="container">
 	<div class="row gy-4">
+		<?php
+		foreach ( $useful_plugins as $useful_plugin ) {
+			?>
 		<div class="col-xl-4 col-lg-6 col-md-6">
 			<div class="responsive-theme-feature-cards">
 				<div class="responsive-theme-feature-cards-content">
-					<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
-					<div class="responsive-theme-feature-card-title mt-2">Responsive Starter Templates</div>
-					<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-                    <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html('responsive-add-ons'); //phpcs:ignore 
-					?>
+					<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_attr( $useful_plugin['tag'] ); ?>"><span><?php echo esc_html( $useful_plugin['tag'] ); ?></span></span>
+					<div class="responsive-theme-feature-card-title mt-2"><?php echo esc_html( $useful_plugin['title'] ); ?></div>
+					<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $useful_plugin['desc'] ); ?></div>
+					<?php echo wp_kses_post( $useful_plugin['button'] ); ?>
 				</div>
 			</div>
 		</div>
-		<div class="col-xl-4 col-lg-6 col-md-6">
-			<div class="responsive-theme-feature-cards">
-				<div class="responsive-theme-feature-cards-content">
-					<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
-					<div class="responsive-theme-feature-card-title mt-2">Responsive Blocks Library</div>
-					<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-                    <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html('responsive-add-ons'); //phpcs:ignore 
-					?>
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-4 col-lg-6 col-md-6">
-			<div class="responsive-theme-feature-cards">
-				<div class="responsive-theme-feature-cards-content">
-					<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span>Pro</span></span>
-					<div class="responsive-theme-feature-card-title mt-2">Responsive Elementor Addons</div>
-					<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-                    <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html('responsive-add-ons'); //phpcs:ignore 
-					?>
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-4 col-lg-6 col-md-6">
-			<div class="responsive-theme-feature-cards">
-				<div class="responsive-theme-feature-cards-content">
-					<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
-					<div class="responsive-theme-feature-card-title mt-2">WP Legal Pages</div>
-					<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-                    <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html('responsive-add-ons'); //phpcs:ignore 
-					?>
-				</div>
-			</div>
-		</div>
-		<div class="col-xl-4 col-lg-6 col-md-6">
-			<div class="responsive-theme-feature-cards">
-				<div class="responsive-theme-feature-cards-content">
-					<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
-					<div class="responsive-theme-feature-card-title mt-2">GDPR Cookie Consent</div>
-					<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-                    <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html('responsive-add-ons'); //phpcs:ignore 
-					?>
-				</div>
-			</div>
-		</div>
+			<?php
+		}
+		?>
 	</div>
 </div>

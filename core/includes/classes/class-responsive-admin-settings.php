@@ -95,16 +95,6 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
-
-			// add_action( 'responsive_menu_general_action', __CLASS__ . '::general_page' );
-
-			// add_action( 'responsive_menu_upgrade_to_pro_action', __CLASS__ . '::upgrade_to_pro_page' );
-
-			// add_action( 'responsive_header_right_section', __CLASS__ . '::top_header_right_section' );
-
-			// add_action( 'responsive_welcome_page_right_sidebar_content', __CLASS__ . '::responsive_welcome_page_support_section', 11 );
-
-			// add_action( 'responsive_welcome_page_content', __CLASS__ . '::responsive_welcome_page_content' );
 		}
 
 		/**
@@ -143,10 +133,19 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 					'responsive-getting-started-jsfile',
 					'localize',
 					array(
-						'ajaxurl'        => admin_url( 'admin-ajax.php' ),
-						'responsiveurl'  => RESPONSIVE_THEME_URI,
-						'siteurl'        => site_url(),
-						'isRSTActivated' => is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ),
+						'ajaxurl'               => admin_url( 'admin-ajax.php' ),
+						'responsiveurl'         => RESPONSIVE_THEME_URI,
+						'siteurl'               => site_url(),
+						'isRSTActivated'        => is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ),
+						'installing'            => esc_html__( 'Installing ', 'responsive' ),
+						'activating'            => esc_html__( 'Activating ', 'responsive' ),
+						'verify_network'        => esc_html__( 'Not connect. Verify Network.', 'responsive' ),
+						'page_not_found'        => esc_html__( 'Requested page not found. [404]', 'responsive' ),
+						'internal_server_error' => esc_html__( 'Internal Server Error [500]', 'responsive' ),
+						'json_parse_failed'     => esc_html__( 'Requested JSON parse failed', 'responsive' ),
+						'timeout_error'         => esc_html__( 'Time out error', 'responsive' ),
+						'ajax_req_aborted'      => esc_html__( 'Ajax request aborted', 'responsive' ),
+						'uncaught_error'        => esc_html__( 'Uncaught Error', 'responsive' ),
 					)
 				);
 
@@ -184,194 +183,6 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			require_once RESPONSIVE_THEME_DIR . 'admin/templates/get-started.php';
 		}
 
-		/**
-		 * Include Welcome page content
-		 *
-		 * @since 1.2.4
-		 */
-		public static function responsive_welcome_page_content() {
-
-			// Quick settings.
-			$quick_settings = apply_filters(
-				'responsive_quick_settings',
-				array(
-					'change-layout' => array(
-						'title'     => __( 'Change site layout', 'responsive' ),
-						'dashicon'  => 'dashicons-welcome-widgets-menus',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_layout' ),
-					),
-					'typography'    => array(
-						'title'     => __( 'Customize fonts/typography', 'responsive' ),
-						'dashicon'  => 'dashicons-editor-textcolor',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_typography' ),
-					),
-					'logo-favicon'  => array(
-						'title'     => __( 'Upload logo & site icon', 'responsive' ),
-						'dashicon'  => 'dashicons-format-image',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=title_tagline' ),
-					),
-					'navigation'    => array(
-						'title'     => __( 'Add/edit navigation menu', 'responsive' ),
-						'dashicon'  => 'dashicons-menu',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=nav_menus' ),
-					),
-					'header'        => array(
-						'title'     => __( 'Customize header options', 'responsive' ),
-						'dashicon'  => 'dashicons-editor-table',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive_header' ),
-					),
-					'footer'        => array(
-						'title'     => __( 'Customize footer options', 'responsive' ),
-						'dashicon'  => 'dashicons-editor-table',
-						'quick_url' => admin_url( 'customize.php?autofocus[panel]=responsive_footer' ),
-					),
-					'blog-layout'   => array(
-						'title'     => __( 'Update blog layout', 'responsive' ),
-						'dashicon'  => 'dashicons-welcome-write-blog',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_blog_layout' ),
-					),
-					'page'          => array(
-						'title'     => __( 'Update page layout', 'responsive' ),
-						'dashicon'  => 'dashicons-welcome-widgets-menus',
-						'quick_url' => admin_url( 'customize.php?autofocus[section]=responsive_page_content' ),
-					),
-				)
-			);
-			?>
-			<div class="postbox responsive-quick-setting-section">
-				<h2 class="handle"><span><?php esc_html_e( 'Quick Start:', 'responsive' ); ?></span></h2>
-				<div class="responsive-quick-setting-section-inner">
-					<?php
-					if ( ! empty( $quick_settings ) ) :
-						?>
-						<div class="responsive-quick-links">
-							<ul class="responsive-flex">
-								<?php
-								foreach ( (array) $quick_settings as $key => $link ) {
-									echo '<li class=""><span class="dashicons ' . esc_attr( $link['dashicon'] ) . '"></span><a class="responsive-quick-setting-title" href="' . esc_url( $link['quick_url'] ) . '" target="_blank" rel="noopener">' . esc_html( $link['title'] ) . '</a></li>';
-								}
-								?>
-							</ul>
-						</div>
-					<?php endif; ?>
-				</div>
-			</div>
-
-			<div class="postbox">
-				<h2 class="handle"><?php esc_html_e( 'Community', 'responsive' ); ?></h2>
-				<div class="responsive-documentation-section">
-					<div class="resposive-documentation">
-						<p>
-							<?php esc_html_e( 'Meet the Responsive Power-users. Say hello, ask questions, give feedback, and help each other', 'responsive' ); ?>
-						</p>
-						<?php
-						$responsive_facebook_group_link      = 'https://www.facebook.com/groups/responsive.theme';
-						$responsive_facebook_group_link_text = __( 'Join Facebook Group &raquo;', 'responsive' );
-
-						printf(
-							'%1$s',
-							! empty( $responsive_facebook_group_link ) ? '<a href=' . esc_url( $responsive_facebook_group_link ) . ' target="_blank" rel="noopener">' . esc_html( $responsive_facebook_group_link_text ) . '</a>' :
-								esc_html( $responsive_facebook_group_link_text )
-						);
-						?>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="postbox">
-				<h2 class="handle"><?php esc_html_e( 'Feedback', 'responsive' ); ?></h2>
-				<div class="responsive-review-section">
-					<div class="responsive-review">
-						<p>
-							<?php esc_html_e( 'Hi! Thanks for using the Responsive theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?>
-						</p>
-						<?php
-						$responsive_submit_review_link      = 'https://wordpress.org/support/theme/responsive/reviews/#new-post';
-						$responsive_submit_review_link_text = __( 'Submit Review &raquo;', 'responsive' );
-
-						printf(
-							'%1$s',
-							! empty( $responsive_submit_review_link ) ? '<a href=' . esc_url( $responsive_submit_review_link ) . ' target="_blank" rel="noopener">' . esc_html( $responsive_submit_review_link_text ) . '</a>' :
-								esc_html( $responsive_submit_review_link_text )
-						);
-						?>
-					</div>
-				</div>
-			</div>
-
-			<div class="postbox responsive-bottom-banner" style="background-image: url(<?php echo esc_url( RESPONSIVE_THEME_URI . 'images/rst-bottom-banner.png' ); ?>);background-size:auto; background-position: center;">
-				<div class="inside resposive-documentation inside-bottom-banner">
-
-						<div class="responsive-bottom-banner-text">
-						<p>
-							<?php
-							esc_html_e( 'Get free access to 100+ ready-to-use Elementor & Block templates.', 'responsive' );
-							?>
-						</p>
-						</div>
-						<div id="responsive-bottom-btn" class="responsive-bottom-banner-button">
-							<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
-							<?php
-							$responsive_facebook_group_link = 'https://wordpress.org/plugins/responsive-add-ons';
-							?>
-						</div>
-					<div>
-					</div>
-				</div>
-			</div>
-
-			<?php
-		}
-
-		/**
-		 * Responsive Header Right Section Links
-		 *
-		 * @since 4.0.3
-		 */
-		public static function top_header_right_section() {
-
-			$top_links = apply_filters(
-				'responsive_header_top_links',
-				array(
-					'responsive-theme-info' => array(
-						'title' => __( 'Blazing Fast, mobile-friendly, fully-customizable WordPress theme.', 'responsive' ),
-					),
-				)
-			);
-
-			if ( ! empty( $top_links ) ) {
-				?>
-				<div class="responsive-top-links">
-					<ul>
-						<?php
-						foreach ( (array) $top_links as $key => $info ) {
-							if ( isset( $info['url'] ) ) {
-								printf(
-									/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
-									'<li><%1$s %2$s %3$s > %4$s </%1$s>',
-									'a',
-									'href="' . esc_url( $info['url'] ) . '"',
-									'target="_blank" rel="noopener"',
-									esc_html( $info['title'] )
-								);
-							} else {
-								printf(
-									/* translators: %1$s: Top Link URL wrapper, %2$s: Top Link URL, %3$s: Top Link URL target attribute */
-									'<li><%1$s %2$s %3$s > %4$s </%1$s>',
-									'span',
-									'',
-									'',
-									esc_html( $info['title'] )
-								);
-							}
-						}
-						?>
-					</ul>
-				</div>
-				<?php
-			}
-		}
 	}
 
 	new Responsive_Admin_Settings();

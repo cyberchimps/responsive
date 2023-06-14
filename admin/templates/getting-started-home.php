@@ -13,13 +13,6 @@
 ?>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
-<!-- <div class="responsive-theme-left-home-content">
-
-</div>
-<div class="responsive-theme-home-vertical-line"></div>
-<div class="responsive-theme-right-home-content">
-
-</div> -->
 <?php
 
 	$home_settings = array(
@@ -98,6 +91,33 @@
 		),
 	);
 
+	$useful_plugins = array(
+		array(
+			'tag'    => __( 'free', 'responsive' ),
+			'title'  => 'Responsive Starter Templates',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive-add-ons' ),
+		),
+		array(
+			'tag'    => __( 'free', 'responsive' ),
+			'title'  => 'Responsive Blocks Library',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-block-editor-addons', 'rbl', 'responsive_block_editor_addons' ),
+		),
+		array(
+			'tag'    => __( 'pro', 'responsive' ),
+			'title'  => 'Responsive Elementor Addons',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => '<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;"><a class="button" href="">Learn More</a></div>',
+		),
+		array(
+			'tag'    => __( 'free', 'responsive' ),
+			'title'  => 'WP Legal Pages',
+			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'wplegalpages', 'wplegalpages', 'getting-started' ),
+		),
+	);
+
 	?>
 
 <div class="container">
@@ -163,48 +183,22 @@
 				</div>
 			</div>
 			<div class="row gy-4">
+			<?php
+			foreach ( $useful_plugins as $useful_plugin ) {
+				?>
 				<div class="col-xl-6 col-lg-6 col-md-6">
 					<div class="responsive-theme-feature-cards">
 						<div class="responsive-theme-feature-cards-content">
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
-							<div class="responsive-theme-feature-card-title mt-2">Responsive Starter Templates</div>
-							<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-                            <?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive-add-ons' ); //phpcs:ignore ?>
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_attr( $useful_plugin['tag'] ); ?>"><span><?php echo esc_html( $useful_plugin['tag'] ); ?></span></span>
+							<div class="responsive-theme-feature-card-title mt-2"><?php echo esc_html( $useful_plugin['title'] ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $useful_plugin['desc'] ); ?></div>
+							<?php echo wp_kses_post( $useful_plugin['button'] ); ?>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-6 col-lg-6 col-md-6">
-					<div class="responsive-theme-feature-cards">
-						<div class="responsive-theme-feature-cards-content">
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
-							<div class="responsive-theme-feature-card-title mt-2">Responsive Blocks Library</div>
-							<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-                            <?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-block-editor-addons', 'rbl', 'responsive_block_editor_addons' ); //phpcs:ignore ?>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-6 col-lg-6 col-md-6">
-					<div class="responsive-theme-feature-cards">
-						<div class="responsive-theme-feature-cards-content">
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span>Pro</span></span>
-							<div class="responsive-theme-feature-card-title mt-2">Responsive Elementor Addons</div>
-							<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-							<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;">
-								<a class="button" href="">Learn More</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-6 col-lg-6 col-md-6">
-					<div class="responsive-theme-feature-cards">
-						<div class="responsive-theme-feature-cards-content">
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
-							<div class="responsive-theme-feature-card-title mt-2">WP Legal Pages</div>
-							<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
-                            <?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'wplegalpages', 'wplegalpages', 'getting-started' ); //phpcs:ignore ?>
-						</div>
-					</div>
-				</div>
+				<?php
+			}
+			?>
 			</div>
 		</div>
 		<div class="col-lg-1 col-md-1">
@@ -214,7 +208,7 @@
 		</div>
 		<div class="col-lg-3 col-md-4">
 			<div class="row">
-				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Support', 'responsive' ); ?></p>
+				<p class="responsive-theme-home-settings-text fw-bolder mt-lg-0 mt-4"><?php esc_html_e( 'Support', 'responsive' ); ?></p>
 				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Have questions? Get in touch with us. We\'ll be happy to help', 'responsive' ); ?></p>
 				<div class="responsive-theme-home-links">
 					<a href="" target="_blank"><?php esc_html_e( 'Request Support', 'responsive' ); ?></a>
@@ -223,7 +217,7 @@
 					<a href="" target="_blank"><?php esc_html_e( 'Browse Docs', 'responsive' ); ?></a>
 				</div>
 				<div class="responsive-theme-home-links">
-					<a href="" target="_blank"><?php esc_html_e( 'Request Support', 'responsive' ); ?></a>
+					<a href="" target="_blank"><?php esc_html_e( 'View Changelog', 'responsive' ); ?></a>
 				</div>
 			</div>
 			<hr>

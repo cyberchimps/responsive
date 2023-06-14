@@ -68,7 +68,7 @@
 					</tr>
 					<tr>
 						<td class="responsive-theme-freevspro-features">
-							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Exclusive Widgets', 'responsive'); ?></div>
+							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Exclusive Widgets', 'responsive' ); ?></div>
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Slider, portfolio, pricing tables, WooCommerce widgets etc', 'responsive' ); ?></div>
 						</td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>

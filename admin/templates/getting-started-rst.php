@@ -23,7 +23,7 @@
 						<p class="responsive-theme-rst-brand-desc"><?php esc_html_e( 'Browse 150+ fully-functional ready site templates by installing the free Responsive Starter Templates plugin. Click the button below to get started.', 'responsive' ); ?></p>
 					</div>
 					<div class="responsive-theme-rst-button-section">
-                        <?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
+						<?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst-templates', 'responsive-add-ons', 'Install & Activate' ); //phpcs:ignore ?>
 						<div class="responsive-theme-rst-learn-more">
 							<a class="" href="https://wordpress.org/plugins/responsive-add-ons/" target="_blank"><?php esc_html_e( 'Learn More', 'responsive' ); ?></a>
 						</div>
