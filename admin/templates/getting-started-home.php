@@ -1,0 +1,251 @@
+<?php
+/**
+ * Provide a admin area view for the plugin
+ *
+ * Getting Started Home Tab
+ *
+ * @link       https://cyberchimps.com/
+ * @since      4.8.4
+ *
+ * @package responsive
+ */
+
+?>
+<!-- This file should primarily consist of HTML with a little bit of PHP. -->
+
+<!-- <div class="responsive-theme-left-home-content">
+
+</div>
+<div class="responsive-theme-home-vertical-line"></div>
+<div class="responsive-theme-right-home-content">
+
+</div> -->
+<?php
+
+	$home_settings = array(
+		array(
+			'label' => __( 'Change Site Layout', 'responsive' ),
+			'icon'  => 'icon_welcome_widgets_menus_.svg',
+			'link'  => '',
+		),
+		array(
+			'label' => __( 'Customize fonts/typography', 'responsive' ),
+			'icon'  => 'icon_editor_textcolor_.svg',
+			'link'  => '',
+		),
+		array(
+			'label' => __( 'Upload logo & site icon', 'responsive' ),
+			'icon'  => 'icon_format_image_.svg',
+			'link'  => '',
+		),
+		array(
+			'label' => __( 'Add/edit navigation menu', 'responsive' ),
+			'icon'  => 'icon_menu_alt_.svg',
+			'link'  => '',
+		),
+		array(
+			'label' => __( 'Customize header options', 'responsive' ),
+			'icon'  => 'icon_table_row_after_.svg',
+			'link'  => '',
+		),
+		array(
+			'label' => __( 'Customize footer options', 'responsive' ),
+			'icon'  => 'icon_table_row_after_.svg',
+			'link'  => '',
+		),
+		array(
+			'label' => __( 'Update blog layout', 'responsive' ),
+			'icon'  => 'icon_welcome_write_blog_.svg',
+			'link'  => '',
+		),
+		array(
+			'label' => __( 'Update page layout', 'responsive' ),
+			'icon'  => 'icon_text_page_.svg',
+			'link'  => '',
+		),
+	);
+
+	$upgrade_to_pro = array(
+		array(
+			'tag'   => 'pro',
+			'title' => __( 'White Label', 'responsive' ),
+			'desc'  => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+		),
+		array(
+			'tag'   => 'pro',
+			'title' => __( 'Starter Templates', 'responsive' ),
+			'desc'  => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+		),
+		array(
+			'tag'   => 'pro',
+			'title' => __( 'Premium Support', 'responsive' ),
+			'desc'  => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+		),
+		array(
+			'tag'   => 'pro',
+			'title' => __( 'Pro Customizer Options', 'responsive' ),
+			'desc'  => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+		),
+		array(
+			'tag'   => 'rea',
+			'title' => __( '50+ Elementor Widgets', 'responsive' ),
+			'desc'  => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+		),
+		array(
+			'tag'   => 'rea',
+			'title' => __( 'Elementor Theme Builder', 'responsive' ),
+			'desc'  => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+		),
+	);
+
+	?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-md-7">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Settings', 'responsive' ); ?></p>
+				</div>
+			</div>
+			<div class="row">
+				<?php
+				foreach ( $home_settings as $home_setting ) {
+					?>
+				<div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="responsive-theme-home-setting">
+						<div class="responsive-theme-home-setting-button">
+							<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/' . esc_attr( $home_setting['icon'] ); ?>" alt="">
+							<span class="responsive-theme-home-setting-button-label"><?php echo esc_attr( $home_setting['label'] ); ?></span>
+						</div>
+						<div class="responsive-theme-home-setting-arrow">
+							<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/trending_flat.svg'; ?>" alt="">
+						</div>
+					</div>
+				</div>
+				<?php } ?>
+			</div>
+			<div class="row mt-lg-5 mt-2">
+				<div class="col-md-6">
+					<p class="responsive-theme-home-settings-text fw-bolder mt-2"><?php esc_html_e( 'Upgrade to Pro Features', 'responsive' ); ?></p>
+				</div>
+				<div class="col-md-6">
+					<a href="" target="_blank" class="responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-2"><?php echo esc_html_e( 'Upgrade Now', 'responsive' ); ?></a>
+				</div>
+			</div>
+			<div class="row gy-4">
+				<?php
+				foreach ( $upgrade_to_pro as $feature ) {
+					?>
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php echo esc_html( $feature['tag'] ); ?></span></span>
+							<div class="responsive-theme-feature-card-title mt-2"><?php echo esc_html( $feature['title'] ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $feature['desc'] ); ?></div>
+						</div>
+					</div>
+				</div>
+					<?php
+				}
+				?>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="responsive-theme-home-links mt-4">
+						<a href="" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-lg-5 mt-2">
+				<div class="col-md-12">
+					<p class="responsive-theme-home-settings-text fw-bolder mt-2"><?php esc_html_e( 'Useful Plugins', 'responsive' ); ?></p>
+				</div>
+			</div>
+			<div class="row gy-4">
+				<div class="col-xl-6 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
+							<div class="responsive-theme-feature-card-title mt-2">Responsive Starter Templates</div>
+							<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
+                            <?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive-add-ons' ); //phpcs:ignore ?>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
+							<div class="responsive-theme-feature-card-title mt-2">Responsive Blocks Library</div>
+							<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
+                            <?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-block-editor-addons', 'rbl', 'responsive_block_editor_addons' ); //phpcs:ignore ?>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span>Pro</span></span>
+							<div class="responsive-theme-feature-card-title mt-2">Responsive Elementor Addons</div>
+							<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
+							<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;">
+								<a class="button" href="">Learn More</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span>Free</span></span>
+							<div class="responsive-theme-feature-card-title mt-2">WP Legal Pages</div>
+							<div class="responsive-theme-feature-card-desc">Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.</div>
+                            <?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'wplegalpages', 'wplegalpages', 'getting-started' ); //phpcs:ignore ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-1 col-md-1">
+			<div class="d-flex justify-content-center responsive-theme-home-line" style="height: 100%;">
+				<div class="vr"></div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4">
+			<div class="row">
+				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Support', 'responsive' ); ?></p>
+				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Have questions? Get in touch with us. We\'ll be happy to help', 'responsive' ); ?></p>
+				<div class="responsive-theme-home-links">
+					<a href="" target="_blank"><?php esc_html_e( 'Request Support', 'responsive' ); ?></a>
+				</div>
+				<div class="responsive-theme-home-links">
+					<a href="" target="_blank"><?php esc_html_e( 'Browse Docs', 'responsive' ); ?></a>
+				</div>
+				<div class="responsive-theme-home-links">
+					<a href="" target="_blank"><?php esc_html_e( 'Request Support', 'responsive' ); ?></a>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Learn and Grow', 'responsive' ); ?></p>
+				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Meet the Responsive Power-users. Say hello, ask questions, give feedback, and help each other', 'responsive' ); ?></p>
+				<div class="responsive-theme-home-links">
+					<a href="" target="_blank"><?php esc_html_e( 'Join Facebook', 'responsive' ); ?></a>
+				</div>
+				<div class="responsive-theme-home-links">
+					<a href="" target="_blank"><?php esc_html_e( 'Watch Video Tutorials', 'responsive' ); ?></a>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Rate Us', 'responsive' ); ?></p>
+				<p><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""></p>
+				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Hi! Thanks for using the Responsive theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?></p>
+				<div class="responsive-theme-home-links">
+					<a href="" target="_blank"><?php esc_html_e( 'Submit Review', 'responsive' ); ?></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

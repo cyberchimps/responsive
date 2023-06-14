@@ -96,15 +96,15 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 
-			add_action( 'responsive_menu_general_action', __CLASS__ . '::general_page' );
+			// add_action( 'responsive_menu_general_action', __CLASS__ . '::general_page' );
 
-			add_action( 'responsive_menu_upgrade_to_pro_action', __CLASS__ . '::upgrade_to_pro_page' );
+			// add_action( 'responsive_menu_upgrade_to_pro_action', __CLASS__ . '::upgrade_to_pro_page' );
 
-			add_action( 'responsive_header_right_section', __CLASS__ . '::top_header_right_section' );
+			// add_action( 'responsive_header_right_section', __CLASS__ . '::top_header_right_section' );
 
-			add_action( 'responsive_welcome_page_right_sidebar_content', __CLASS__ . '::responsive_welcome_page_support_section', 11 );
+			// add_action( 'responsive_welcome_page_right_sidebar_content', __CLASS__ . '::responsive_welcome_page_support_section', 11 );
 
-			add_action( 'responsive_welcome_page_content', __CLASS__ . '::responsive_welcome_page_content' );
+			// add_action( 'responsive_welcome_page_content', __CLASS__ . '::responsive_welcome_page_content' );
 		}
 
 		/**
@@ -123,9 +123,36 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		public static function styles_scripts() {
-
 			wp_enqueue_style( 'responsive-admin-settings', RESPONSIVE_THEME_URI . 'admin/css/responsive-admin-menu-page.css', array(), RESPONSIVE_THEME_VERSION );
 
+			if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
+
+				wp_enqueue_script( 'responsive-getting-started-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+
+				wp_enqueue_style( 'responsive-admin-getting-started', RESPONSIVE_THEME_URI . 'admin/css/responsive-getting-started-page.css', array(), RESPONSIVE_THEME_VERSION );
+
+				wp_enqueue_script(
+					'responsive-getting-started-jsfile',
+					RESPONSIVE_THEME_URI . 'admin/js/responsive-getting-started.js',
+					array( 'jquery' ),
+					RESPONSIVE_THEME_VERSION,
+					true
+				);
+
+				wp_localize_script(
+					'responsive-getting-started-jsfile',
+					'localize',
+					array(
+						'ajaxurl'        => admin_url( 'admin-ajax.php' ),
+						'responsiveurl'  => RESPONSIVE_THEME_URI,
+						'siteurl'        => site_url(),
+						'isRSTActivated' => is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ),
+					)
+				);
+
+				add_filter( 'admin_footer_text', '__return_false' );
+				remove_filter( 'update_footer', 'core_update_footer' );
+			}
 		}
 
 		/**
@@ -154,98 +181,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		public static function menu_callback() {
-
-			$current_slug = isset( $_GET['action'] ) ? ( sanitize_key( ( wp_unslash( ( $_GET['action'] ) ) ) ) ) : self::$current_slug;
-
-			$active_tab   = str_replace( '_', '-', $current_slug );
-			$current_slug = str_replace( '-', '_', $current_slug );
-
-			$responsive_icon           = apply_filters( 'responsive_page_top_icon', true );
-			$responsive_visit_site_url = 'https://www.cyberchimps.com';
-			$responsive_wrapper_class  = apply_filters( 'responsive_welcome_wrapper_class', array( $current_slug ) );
-
-            $responsive_recommended_addons_screen = ( isset( $_GET['action'] ) && 'upgrade_to_pro' === $_GET['action'] ) ? true : false; //phpcs:ignore?>
-
-			<div class="responsive-menu-page-wrapper wrap responsive-clear <?php echo esc_attr( implode( ' ', $responsive_wrapper_class ) ); ?>">
-				<div class="responsive-theme-page-header">
-					<div class="responsive-container responsive-flex">
-						<div class="responsive-theme-title">
-							<a href="<?php echo esc_url( $responsive_visit_site_url ); ?>" target="_blank" rel="noopener" >
-								<?php if ( $responsive_icon ) { ?>
-									<img src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'core/images/cc-responsive-wp-theme-logo.png' ); ?>" class="responsive-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
-									<span class="responsive-theme-version"><?php echo esc_html( RESPONSIVE_THEME_VERSION ); ?></span>
-								<?php } ?>
-								<?php do_action( 'responsive_welcome_page_header_title' ); ?>
-							</a>
-						</div>
-
-						<?php do_action( 'responsive_header_right_section' ); ?>
-
-					</div>
-				</div>
-			</div>
-			<div class="wrap responsive-theme-options-page">
-				<h2 class="nav-tab-wrapper">
-                    <a href="<?php echo esc_url( admin_url( 'themes.php?page=responsive' ) ); ?>" class="nav-tab get-started<?php if ( ! isset( $_GET['action'] ) || isset( $_GET['action'] ) && 'upgrade_to_pro' != $_GET['action'] ) echo ' nav-tab-active';//phpcs:ignore ?>">
-						<?php esc_html_e( 'Get Started', 'responsive' ); ?>
-					</a>
-                    <a href="<?php echo esc_url( add_query_arg( array( 'action' => 'upgrade_to_pro' ), admin_url( 'themes.php?page=responsive' ) ) ); ?>" class="nav-tab upgrade_to_pro<?php if ( $responsive_recommended_addons_screen ) echo ' nav-tab-active';//phpcs:ignore ?>"><?php esc_html_e( 'Free Vs Pro ', 'responsive' );?>&#9733;</a>
-				</h2>
-				<?php do_action( 'responsive_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
-			</div>
-			<?php
-		}
-
-		/**
-		 * Include general page
-		 *
-		 * @since 4.0.3
-		 */
-		public static function general_page() {
 			require_once RESPONSIVE_THEME_DIR . 'admin/templates/get-started.php';
-		}
-
-		/**
-		 * Include general page
-		 *
-		 * @since 4.0.3
-		 */
-		public static function upgrade_to_pro_page() {
-			require_once RESPONSIVE_THEME_DIR . 'admin/templates/free-vs-pro.php';
-		}
-
-
-
-		/**
-		 * Include support section on right side of the Responsive Options page
-		 *
-		 * @since 4.0.3
-		 */
-		public static function responsive_welcome_page_support_section() {
-			?>
-
-			<div class="postbox responsive-support-section">
-				<h2 class="handle">
-					<span><?php esc_html_e( 'Support', 'responsive' ); ?></span>
-				</h2>
-				<div class="inside">
-					<p>
-						<?php esc_html_e( 'Have questions? Get in touch with us. We\'ll be happy to help', 'responsive' ); ?>
-					</p>
-					<?php
-					$responsive_support_link           = 'https://wordpress.org/support/theme/responsive/';
-					$responsive_support_link_link_text = __( 'Request Support &raquo;', 'responsive' );
-
-					printf(
-						/* translators: %1$s: Responsive Support link. */
-						'%1$s',
-						! empty( $responsive_support_link ) ? '<a href=' . esc_url( $responsive_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $responsive_support_link_link_text ) . '</a>' :
-							esc_html( $responsive_support_link_link_text )
-					);
-					?>
-				</div>
-			</div>
-			<?php
 		}
 
 		/**
