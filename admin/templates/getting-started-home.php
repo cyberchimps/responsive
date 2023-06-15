@@ -175,7 +175,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="responsive-theme-home-links mt-4">
-						<a href="https://cyberchimps.com/responsive-go-pro/" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
+						<a href="https://cyberchimps.com/responsive-features/" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
 					</div>
 				</div>
 			</div>

@@ -270,6 +270,10 @@ body.appearance_page_responsive #wpbody-content {
     color: #FFFFFF;
 }
 
+.responsive-theme-upgrade-now-btn:active {
+    color: #FFFFFF;
+}
+
 .responsive-theme-feature-cards {
     border: 1px solid #E5E7EB;
     padding: 16px;
