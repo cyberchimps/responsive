@@ -25,7 +25,7 @@
 					<div class="responsive-theme-rst-button-section">
 						<?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst-templates', 'responsive-add-ons', 'Install & Activate' ); //phpcs:ignore ?>
 						<div class="responsive-theme-rst-learn-more">
-							<a class="" href="https://wordpress.org/plugins/responsive-add-ons/" target="_blank"><?php esc_html_e( 'Learn More', 'responsive' ); ?></a>
+							<a href="https://wordpress.org/plugins/responsive-add-ons/" target="_blank"><?php esc_html_e( 'Learn More', 'responsive' ); ?></a>
 						</div>
 					</div>
 				</div>

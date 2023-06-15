@@ -18,31 +18,31 @@
 		array(
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'Responsive Starter Templates',
-			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'desc'   => __( '150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst-plugins', 'responsive-add-ons' ),
 		),
 		array(
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'Responsive Blocks Library',
-			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'desc'   => __( '50+ Blocks to Enhance Your WordPress Block Editor Experience.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-block-editor-addons', 'rbl-plugins', 'responsive_block_editor_addons' ),
 		),
 		array(
 			'tag'    => __( 'pro', 'responsive' ),
 			'title'  => 'Responsive Elementor Addons',
-			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
-			'button' => '<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;"><a class="button" href="">Learn More</a></div>',
+			'desc'   => __( 'Premium Elementor Add-on Plugin that Comes Bundled with Responsive Pro.', 'responsive' ),
+			'button' => '<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;"><a class="button" href="https://cyberchimps.com/elementor-widgets/home/#home-menu" target="_blank">Learn More</a></div>',
 		),
 		array(
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'WP Legal Pages',
-			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'desc'   => __( 'Free Plugin to Create Privacy Policy Pages for Your Website.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'wplegalpages', 'wplegalpages-plugins', 'getting-started' ),
 		),
 		array(
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'GDPR Cookie Consent',
-			'desc'   => __( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed.', 'responsive' ),
+			'desc'   => __( 'Free Plugin for adding cookie consent & CCPA\'s opt-out regulations.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'gdpr-cookie-consent', 'gdpr-plugins', 'gdpr-cookie-consent' ),
 		),
 	);

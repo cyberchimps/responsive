@@ -56,14 +56,10 @@
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Ready-to-use Elementor and WordPress Block Templates', 'responsive' ); ?></div>
 						</td>
 						<td class="text-center">
-							<div class="responsive-theme-home-links">
-								<a href="" target="_blank"><?php esc_html_e( 'Free Only', 'responsive' ); ?></a>
-							</div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Free Only', 'responsive' ); ?></div>
 						</td>
 						<td class="text-center">
-							<div class="responsive-theme-home-links">
-								<a href="" target="_blank"><?php esc_html_e( '100+ Free & Pro', 'responsive' ); ?></a>
-							</div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( '100+ Free & Pro', 'responsive' ); ?></div>
 						</td>
 					</tr>
 					<tr>
@@ -106,7 +102,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 mt-3">
-						<a href="" target="_blank" class="responsive-theme-upgrade-now-btn text-decoration-none"><?php esc_html_e( 'Upgrade to Pro', 'responsive' ); ?></a>
+						<a href="https://cyberchimps.com/responsive-go-pro/" target="_blank" class="responsive-theme-upgrade-now-btn text-decoration-none"><?php esc_html_e( 'Upgrade to Pro', 'responsive' ); ?></a>
 					</div>
 				</div>
 			</div>
