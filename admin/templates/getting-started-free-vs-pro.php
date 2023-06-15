@@ -28,7 +28,7 @@
 					<tr>
 						<td class="responsive-theme-freevspro-features">
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Mobile Friendly', 'responsive' ); ?></div>
-							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Slider, portfolio, pricing tables, WooCommerce widgets etc', 'responsive' ); ?></div></td>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Fully responsive on devices like mobiles and tablets', 'responsive' ); ?></div></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
@@ -43,11 +43,36 @@
 					<tr>
 						<td class="responsive-theme-freevspro-features">
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Fully Customizable', 'responsive' ); ?></div>
-							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Using the customizer options for layout, fonts & colors', 'responsive' ); ?></div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Advanced settings for Typography, Layouts and Colors', 'responsive' ); ?></div>
 						</td>
 						<td class="text-center">
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Limited Options', 'responsive' ); ?></div>
 						</td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
+					</tr>
+					<tr>
+					<tr>
+						<td class="responsive-theme-freevspro-features">
+							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'White Label Feature', 'responsive' ); ?></div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'White Label the theme and plugin name', 'responsive' ); ?></div>
+						</td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
+					</tr>
+					<tr>
+						<td class="responsive-theme-freevspro-features">
+							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Lifter LMS Integration', 'responsive' ); ?></div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Advanced customizer settings for Lifter LMS Plugin', 'responsive' ); ?></div>
+						</td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
+					</tr>
+					<tr>
+						<td class="responsive-theme-freevspro-features">
+							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Learn Dash Integration', 'responsive' ); ?></div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Advanced customizer settings for Learn Dash', 'responsive' ); ?></div>
+						</td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
@@ -64,8 +89,16 @@
 					</tr>
 					<tr>
 						<td class="responsive-theme-freevspro-features">
-							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Exclusive Widgets', 'responsive' ); ?></div>
-							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Slider, portfolio, pricing tables, WooCommerce widgets etc', 'responsive' ); ?></div>
+							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Elementor Widgets', 'responsive' ); ?></div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Access to 50+ Elementor Widgets for free', 'responsive' ); ?></div>
+						</td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
+					</tr>
+					<tr>
+						<td class="responsive-theme-freevspro-features">
+							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Theme Builder', 'responsive' ); ?></div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Access to REA Theme Builder Feature', 'responsive' ); ?></div>
 						</td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>

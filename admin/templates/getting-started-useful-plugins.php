@@ -31,7 +31,7 @@
 			'tag'    => __( 'pro', 'responsive' ),
 			'title'  => 'Responsive Elementor Addons',
 			'desc'   => __( 'Premium Elementor Add-on Plugin that Comes Bundled with Responsive Pro.', 'responsive' ),
-			'button' => '<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;"><a class="button" href="https://cyberchimps.com/elementor-widgets/home/#home-menu" target="_blank">Learn More</a></div>',
+			'button' => '<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;"><a class="button" href="https://cyberchimps.com/elementor-widgets/home/" target="_blank">Learn More</a></div>',
 		),
 		array(
 			'tag'    => __( 'free', 'responsive' ),

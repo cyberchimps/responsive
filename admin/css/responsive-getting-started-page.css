@@ -266,11 +266,7 @@ body.appearance_page_responsive #wpbody-content {
     color: white;
 }
 
-.responsive-theme-upgrade-now-btn:hover {
-    color: #FFFFFF;
-}
-
-.responsive-theme-upgrade-now-btn:active {
+.responsive-theme-upgrade-now-btn:hover, .responsive-theme-upgrade-now-btn:focus {
     color: #FFFFFF;
 }
 
