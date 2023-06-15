@@ -124,6 +124,10 @@ body.appearance_page_responsive #wpbody-content {
     border-color: #E5E7EB;
 }
 
+.responsive-theme-active-tab .responsive-theme-tab-name {
+    color: #111827;
+}
+
 .responsive-theme-tab-name {
     height: 21px;
     font-weight: 600;
@@ -430,6 +434,10 @@ hr {
     padding-bottom: 20px;
 }
 
+.responsive-theme-freevspro tr td:first-child {
+    padding-left: 30px;
+}
+
 .responsive-theme-freevspro-feature-title {
     font-weight: 600;
     font-size: 15px;
@@ -458,7 +466,7 @@ hr {
 
 .responsive-theme-freevspro-responsive-pro-desc {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: #6B7280;
 }

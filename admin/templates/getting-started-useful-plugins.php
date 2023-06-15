@@ -58,7 +58,7 @@
 			<div class="responsive-theme-feature-cards">
 				<div class="responsive-theme-feature-cards-content">
 					<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_attr( $useful_plugin['tag'] ); ?>"><span><?php echo esc_html( $useful_plugin['tag'] ); ?></span></span>
-					<div class="responsive-theme-feature-card-title mt-2"><?php echo esc_html( $useful_plugin['title'] ); ?></div>
+					<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html( $useful_plugin['title'] ); ?></div>
 					<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $useful_plugin['desc'] ); ?></div>
 					<?php echo wp_kses_post( $useful_plugin['button'] ); ?>
 				</div>

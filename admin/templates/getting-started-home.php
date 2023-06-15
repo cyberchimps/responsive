@@ -62,7 +62,7 @@
 		array(
 			'tag'   => 'pro',
 			'title' => __( 'White Label', 'responsive' ),
-			'desc'  => __( 'White Label the theme name and settings with the Pro Plugin.', 'responsive' ),
+			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
 		),
 		array(
 			'tag'   => 'pro',
@@ -152,7 +152,7 @@
 					<p class="responsive-theme-home-settings-text fw-bolder mt-2"><?php esc_html_e( 'Upgrade to Pro Features', 'responsive' ); ?></p>
 				</div>
 				<div class="col-md-6">
-					<a href="https://cyberchimps.com/responsive-go-pro/" target="_blank" class="responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-2"><?php echo esc_html_e( 'Upgrade Now', 'responsive' ); ?></a>
+					<a href="https://cyberchimps.com/responsive-go-pro/" target="_blank" class="responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-4"><?php echo esc_html_e( 'Upgrade Now', 'responsive' ); ?></a>
 				</div>
 			</div>
 			<div class="row gy-4">
@@ -162,8 +162,8 @@
 				<div class="col-xl-4 col-lg-6 col-md-6">
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php echo esc_html( $feature['tag'] ); ?></span></span>
-							<div class="responsive-theme-feature-card-title mt-2"><?php echo esc_html( $feature['title'] ); ?></div>
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_html( $feature['tag'] ); ?>"><span><?php echo esc_html( $feature['tag'] ); ?></span></span>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html( $feature['title'] ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $feature['desc'] ); ?></div>
 						</div>
 					</div>
@@ -192,7 +192,7 @@
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_attr( $useful_plugin['tag'] ); ?>"><span><?php echo esc_html( $useful_plugin['tag'] ); ?></span></span>
-							<div class="responsive-theme-feature-card-title mt-2"><?php echo esc_html( $useful_plugin['title'] ); ?></div>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html( $useful_plugin['title'] ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $useful_plugin['desc'] ); ?></div>
 							<?php echo wp_kses_post( $useful_plugin['button'] ); ?>
 						</div>

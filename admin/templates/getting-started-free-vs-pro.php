@@ -96,8 +96,8 @@
 			<div class="responsive-theme-freevspro-responsive-pro text-center">
 				<p class="responsive-theme-freevspro-responsive-pro-title"><?php esc_html_e( 'Download Responsive Pro', 'responsive' ); ?></p>
 				<div class="row">
-					<div class="col-md-8 offset-md-2">
-						<p class="responsive-theme-freevspro-responsive-pro-desc mt-3"><?php esc_html_e( 'Lorem ipsum dolor sit amet consectetur. Fermentum faucibus duis enim sit nec ac ante aliquet lacus. Mattis sit nunc elit tempor habitant.', 'responsive' ); ?></p>
+					<div class="col-md-10 offset-md-1">
+						<p class="responsive-theme-freevspro-responsive-pro-desc mt-3"><?php esc_html_e( 'Get powerful customizer settings in the Responsive Pro plugin, access to Premium Starter Template, and Responsive Elementor addons worth $47 for free. With all the features you get, the product pays for itself!', 'responsive' ); ?></p>
 					</div>
 				</div>
 				<div class="row">
