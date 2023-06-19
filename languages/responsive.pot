@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Responsive 4.8.3.1\n"
+"Project-Id-Version: Responsive 4.8.4\n"
 "Report-Msgid-Bugs-To: https://cyberchimps.com/forum/free/responsive/\n"
-"POT-Creation-Date: 2023-06-15 11:03:40+00:00\n"
+"POT-Creation-Date: 2023-06-19 04:12:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -124,8 +124,7 @@ msgid "Mobile Friendly"
 msgstr ""
 
 #: admin/templates/getting-started-free-vs-pro.php:31
-#: admin/templates/getting-started-free-vs-pro.php:68
-msgid "Slider, portfolio, pricing tables, WooCommerce widgets etc"
+msgid "Fully responsive on devices like mobiles and tablets"
 msgstr ""
 
 #: admin/templates/getting-started-free-vs-pro.php:37
@@ -141,61 +140,97 @@ msgid "Fully Customizable"
 msgstr ""
 
 #: admin/templates/getting-started-free-vs-pro.php:46
-msgid "Using the customizer options for layout, fonts & colors"
+msgid "Advanced settings for Typography, Layouts and Colors"
 msgstr ""
 
 #: admin/templates/getting-started-free-vs-pro.php:49
 msgid "Limited Options"
 msgstr ""
 
-#: admin/templates/getting-started-free-vs-pro.php:55
+#: admin/templates/getting-started-free-vs-pro.php:56
+msgid "White Label Feature"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:57
+msgid "White Label the theme and plugin name"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:64
+msgid "Lifter LMS Integration"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:65
+msgid "Advanced customizer settings for Lifter LMS Plugin"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:72
+msgid "Learn Dash Integration"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:73
+msgid "Advanced customizer settings for Learn Dash"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:80
 msgid "Responsive Starter Templates"
 msgstr ""
 
-#: admin/templates/getting-started-free-vs-pro.php:56
+#: admin/templates/getting-started-free-vs-pro.php:81
 msgid "Ready-to-use Elementor and WordPress Block Templates"
 msgstr ""
 
-#: admin/templates/getting-started-free-vs-pro.php:59
+#: admin/templates/getting-started-free-vs-pro.php:84
 msgid "Free Only"
 msgstr ""
 
-#: admin/templates/getting-started-free-vs-pro.php:62
+#: admin/templates/getting-started-free-vs-pro.php:87
 msgid "100+ Free & Pro"
 msgstr ""
 
-#: admin/templates/getting-started-free-vs-pro.php:67
-msgid "Exclusive Widgets"
+#: admin/templates/getting-started-free-vs-pro.php:92
+msgid "Elementor Widgets"
 msgstr ""
 
-#: admin/templates/getting-started-free-vs-pro.php:75
-msgid "Exclusive Content, Deals & Offers"
-msgstr ""
-
-#: admin/templates/getting-started-free-vs-pro.php:76
-msgid "Get access to exclusive WordPress content, deals & offers"
-msgstr ""
-
-#: admin/templates/getting-started-free-vs-pro.php:83
-msgid "Private Priority Email Support"
-msgstr ""
-
-#: admin/templates/getting-started-free-vs-pro.php:84
-msgid "Need help? Just raise a support ticket to get priority email support"
-msgstr ""
-
-#: admin/templates/getting-started-free-vs-pro.php:97
-msgid "Download Responsive Pro"
+#: admin/templates/getting-started-free-vs-pro.php:93
+msgid "Access to 50+ Elementor Widgets for free"
 msgstr ""
 
 #: admin/templates/getting-started-free-vs-pro.php:100
+msgid "Theme Builder"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:101
+msgid "Access to REA Theme Builder Feature"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:108
+msgid "Exclusive Content, Deals & Offers"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:109
+msgid "Get access to exclusive WordPress content, deals & offers"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:116
+msgid "Private Priority Email Support"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:117
+msgid "Need help? Just raise a support ticket to get priority email support"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:130
+msgid "Download Responsive Pro"
+msgstr ""
+
+#: admin/templates/getting-started-free-vs-pro.php:133
 msgid ""
 "Get powerful customizer settings in the Responsive Pro plugin, access to "
 "Premium Starter Template, and Responsive Elementor addons worth $47 for "
 "free. With all the features you get, the product pays for itself!"
 msgstr ""
 
-#: admin/templates/getting-started-free-vs-pro.php:105
+#: admin/templates/getting-started-free-vs-pro.php:138
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -315,7 +350,7 @@ msgid "Free Plugin to Create Privacy Policy Pages for Your Website."
 msgstr ""
 
 #: admin/templates/getting-started-home.php:128
-msgid "Settings"
+msgid "Customizer Settings"
 msgstr ""
 
 #: admin/templates/getting-started-home.php:152
