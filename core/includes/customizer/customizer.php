@@ -23,6 +23,7 @@ function setup() {
 	add_action( 'customize_controls_print_scripts', $n( 'responsive_tooltip_script' ) );
 	add_action( 'customize_register', $n( 'responsive_controls_helpers' ) );
 	add_action( 'customize_controls_enqueue_scripts', $n( 'responsive_custom_customize_enqueue' ) );
+	add_action( 'customize_controls_print_scripts', $n( 'responsive_customizer_promo_print_template' ) );
 
 }
 
@@ -318,6 +319,13 @@ function responsive_tooltip_script() {
 	                    	li_wrapper.append(" <i class=\'res-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
 	                	}
 	            	});
+					wp.customize.section( \'responsive_header_scripts\', function( section ) {
+						section.deferred.embedded.done( function() {
+							var customMessage;
+							customMessage = jQuery( wp.template( \'resp-customizer-promo-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					} );
 	        	});';
 
 	$output .= '</script>';
@@ -325,4 +333,17 @@ function responsive_tooltip_script() {
 	// Ignoring EscapeOutput to print JS.
 	echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
+}
+
+/**
+ * Promo template.
+ */
+function responsive_customizer_promo_print_template() {
+	?>
+	<script type="text/html" id="tmpl-resp-customizer-promo-section">
+		<div>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis consequuntur ipsum eaque quasi cupiditate provident temporibus, vel natus numquam similique illum delectus voluptates excepturi, culpa animi, deleniti ea distinctio tenetur.</p>
+		</div>
+	</script>
+	<?php
 }
