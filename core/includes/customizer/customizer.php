@@ -21,6 +21,9 @@ function setup() {
 	add_action( 'after_setup_theme', $n( 'responsive_register_options' ) );
 	add_action( 'customize_register', $n( 'responsive_custom_controls' ) );
 	add_action( 'customize_controls_print_scripts', $n( 'responsive_tooltip_script' ) );
+	if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
+		add_action( 'customize_controls_print_scripts', $n( 'responsive_pro_promotion_scripts' ) );
+	}
 	add_action( 'customize_register', $n( 'responsive_controls_helpers' ) );
 	add_action( 'customize_controls_enqueue_scripts', $n( 'responsive_custom_customize_enqueue' ) );
 	add_action( 'customize_controls_print_scripts', $n( 'responsive_customizer_promo_print_template' ) );
@@ -319,13 +322,6 @@ function responsive_tooltip_script() {
 	                    	li_wrapper.append(" <i class=\'res-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
 	                	}
 	            	});
-					wp.customize.section( \'responsive_header_scripts\', function( section ) {
-						section.deferred.embedded.done( function() {
-							var customMessage;
-							customMessage = jQuery( wp.template( \'resp-customizer-promo-section\' )() );
-							section.headContainer.append( customMessage );
-						} );
-					} );
 	        	});';
 
 	$output .= '</script>';
@@ -336,13 +332,287 @@ function responsive_tooltip_script() {
 }
 
 /**
- * Promo template.
+ * Responsive Pro Promotion Scripts.
+ *
+ * @since 4.8.5
+ */
+function responsive_pro_promotion_scripts() {
+	$output  = '<script type="text/javascript">';
+	$output .= '
+	        	wp.customize.bind(\'ready\', function() {
+	            	wp.customize.section( \'responsive_header_scripts\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-header-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
+	            	wp.customize.section( \'responsive_page_content\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-page-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
+	            	wp.customize.section( \'responsive_single_blog_layout\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-blog-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
+	            	wp.customize.section( \'responsive_scrolltotop_section\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-footer-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
+	            	wp.customize.section( \'woocommerce_checkout\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-woocommerce-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
+	            	wp.customize.section( \'responsive_woocommerce_shop_colors\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-product-catalog-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
+	            	wp.customize.section( \'responsive_woocommerce_single_product_layout\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-product-options-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
+	            	wp.customize.section( \'responsive_woocommerce_cart_colors\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-cart-options-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
+	        	});';
+
+	$output .= '</script>';
+
+	// Ignoring EscapeOutput to print JS.
+	echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+/**
+ * Responsive Pro Promotion Templates.
+ *
+ * @since 4.8.5
  */
 function responsive_customizer_promo_print_template() {
 	?>
-	<script type="text/html" id="tmpl-resp-customizer-promo-section">
-		<div>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis consequuntur ipsum eaque quasi cupiditate provident temporibus, vel natus numquam similique illum delectus voluptates excepturi, culpa animi, deleniti ea distinctio tenetur.</p>
+	<script type="text/html" id="tmpl-resp-customizer-promo-header-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Impress your website visitors with stunning site headers.', 'responsive' ); ?></p>
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text">Sticky Header</p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text">Shrink Logo On Scroll</p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text">Separate Logo for Mobile</p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text">Header Widget Background Image</p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text">Transparent Header Background Image</p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=header_options" target="_blank">Upgrade To Pro</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="tmpl-resp-customizer-promo-page-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Match the typography of your pages as per your designs.', 'responsive' ); ?></p>
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Page Title Typography Options', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=page_options" target="_blank">Upgrade To Pro</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="tmpl-resp-customizer-promo-blog-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Control layouts, and make detailed changes to your blog pages with more features.', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Desktop Blog Layouts', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Date Box Styling', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Post Pagination Options', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Enable/Disable Author Profile Box', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=blog_options" target="_blank">Upgrade To Pro</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="tmpl-resp-customizer-promo-footer-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Add amazing footers to your website to finish it off in your way.', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Multiple Footer Elements', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Hide Powered By Responsive Theme', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Footer Background Image', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=footer_options" target="_blank">Upgrade To Pro</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="tmpl-resp-customizer-promo-woocommerce-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Add enhanced features to your WooCommerce store to maximize profits.', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Checkout Form Width', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=wooCommerce_options" target="_blank">Upgrade To Pro</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="tmpl-resp-customizer-promo-product-catalog-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Add essential product page features to improve the experience and get more sales.', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Product Page Breadcrumbs', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Product Image Styling Options', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Shop Page Typography Options', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Product Page Typography Options', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=product_catalog_options" target="_blank">Upgrade To Pro</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="tmpl-resp-customizer-promo-product-options-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Match the typography of your products to match your designs.', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Product Title Typography Options', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=product_options" target="_blank">Upgrade To Pro</a>
+			</div>
+		</div>
+	</script>
+	<script type="text/html" id="tmpl-resp-customizer-promo-cart-options-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Maximize your sales by adding appealing cart button that gets more clicks.', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Different Icon Options', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Icon Color', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Display Cart Title', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Display Cart Total', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=cart_options" target="_blank">Upgrade To Pro</a>
+			</div>
 		</div>
 	</script>
 	<?php
