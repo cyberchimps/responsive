@@ -1,6 +1,9 @@
 /**
  * Customizer css
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&display=swap');
+
 li#accordion-section-responsive_docs_section,
 li#accordion-panel-responsive_site,
 li#accordion-panel-responsive_content_header,
@@ -98,4 +101,69 @@ li#accordion-section-title_tagline {
 .notice.notice-info h3,
 .accordion-section-title {
 	padding-right: 36px;
+}
+
+/* Responsive Pro Promotion Section */
+#customize-controls #resp-pro-promo-section .resp-pro-promo-header {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-header img {
+  width: 30px;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-header .resp-pro-promo-header-text {
+  width: 80%;
+  text-align: center;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-header .resp-pro-promo-header-text p {
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 400;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-features {
+  margin: 24px 0;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-features .resp-pro-promo-feature {
+  display: flex;
+  margin: 0 30px;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-features .resp-pro-promo-feature .dashicons.dashicons-saved {
+  color: #2271B1;
+  font-weight: 600;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-features .resp-pro-promo-feature .resp-pro-promo-feature-text {
+  margin: 0 0 6px 0;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-upgrade-btn {
+  margin: 0 auto 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+#customize-controls #resp-pro-promo-section .resp-pro-promo-upgrade-btn a {
+  display: block;
+  width: 60%;
+  text-align: center;
+  padding: 12px 24px;
+  border: 1px solid #2271B1;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
 }
