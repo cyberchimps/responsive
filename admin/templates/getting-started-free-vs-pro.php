@@ -135,7 +135,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 mt-3">
-						<a href="https://cyberchimps.com/responsive-go-pro/" target="_blank" class="responsive-theme-upgrade-now-btn text-decoration-none"><?php esc_html_e( 'Upgrade to Pro', 'responsive' ); ?></a>
+						<a href="https://cyberchimps.com/pricing/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=Upgrade_now_free_vs_pro" target="_blank" class="responsive-theme-upgrade-now-btn text-decoration-none"><?php esc_html_e( 'Upgrade to Pro', 'responsive' ); ?></a>
 					</div>
 				</div>
 			</div>
