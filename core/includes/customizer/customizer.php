@@ -340,6 +340,12 @@ function responsive_pro_promotion_scripts() {
 	$output  = '<script type="text/javascript">';
 	$output .= '
 	        	wp.customize.bind(\'ready\', function() {
+	            	wp.customize.section( \'responsive_typography\', function( section ) {
+						section.deferred.embedded.done( function() {
+							let customMessage = jQuery( wp.template( \'resp-customizer-promo-global-settings-section\' )() );
+							section.headContainer.append( customMessage );
+						} );
+					});
 	            	wp.customize.section( \'responsive_header_scripts\', function( section ) {
 						section.deferred.embedded.done( function() {
 							let customMessage = jQuery( wp.template( \'resp-customizer-promo-header-section\' )() );
@@ -403,6 +409,33 @@ function responsive_pro_promotion_scripts() {
  */
 function responsive_customizer_promo_print_template() {
 	?>
+	<script type="text/html" id="tmpl-resp-customizer-promo-global-settings-section">
+		<div id="resp-pro-promo-section">
+			<div class="resp-pro-promo-header">
+				<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'images/cc_logo_customizer.svg'; ?>" alt="cc_logo_customizer">
+				<div class="resp-pro-promo-header-text">
+					<p><?php esc_html_e( 'Get access to global features that save your time & designing efforts.', 'responsive' ); ?></p>
+				</div>
+			</div>
+			<div class="resp-pro-promo-features">
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Background Images', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Spacing', 'responsive' ); ?></p>	
+				</div>
+				<div class="resp-pro-promo-feature">
+					<span class="dashicons dashicons-saved"></span>&emsp;
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Button Images', 'responsive' ); ?></p>	
+				</div>
+			</div>
+			<div class="resp-pro-promo-upgrade-btn">
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=global_settings" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
+			</div>
+		</div>
+	</script>
 	<script type="text/html" id="tmpl-resp-customizer-promo-header-section">
 		<div id="resp-pro-promo-section">
 			<div class="resp-pro-promo-header">
@@ -414,27 +447,27 @@ function responsive_customizer_promo_print_template() {
 			<div class="resp-pro-promo-features">
 				<div class="resp-pro-promo-feature">
 					<span class="dashicons dashicons-saved"></span>&emsp;
-					<p class="resp-pro-promo-feature-text">Sticky Header</p>	
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Sticky Header', 'responsive' ); ?></p>	
 				</div>
 				<div class="resp-pro-promo-feature">
 					<span class="dashicons dashicons-saved"></span>&emsp;
-					<p class="resp-pro-promo-feature-text">Shrink Logo On Scroll</p>	
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Shrink Logo On Scroll', 'responsive' ); ?></p>	
 				</div>
 				<div class="resp-pro-promo-feature">
 					<span class="dashicons dashicons-saved"></span>&emsp;
-					<p class="resp-pro-promo-feature-text">Separate Logo for Mobile</p>	
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Separate Logo for Mobile', 'responsive' ); ?></p>	
 				</div>
 				<div class="resp-pro-promo-feature">
 					<span class="dashicons dashicons-saved"></span>&emsp;
-					<p class="resp-pro-promo-feature-text">Header Widget Background Image</p>	
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Header Widget Background Image', 'responsive' ); ?></p>	
 				</div>
 				<div class="resp-pro-promo-feature">
 					<span class="dashicons dashicons-saved"></span>&emsp;
-					<p class="resp-pro-promo-feature-text">Transparent Header Background Image</p>	
+					<p class="resp-pro-promo-feature-text"><?php esc_html_e( 'Transparent Header Background Image', 'responsive' ); ?></p>	
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=header_options" target="_blank">Upgrade To Pro</a>
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=header_options" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>
@@ -453,7 +486,7 @@ function responsive_customizer_promo_print_template() {
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=page_options" target="_blank">Upgrade To Pro</a>
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=page_options" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>
@@ -484,7 +517,7 @@ function responsive_customizer_promo_print_template() {
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=blog_options" target="_blank">Upgrade To Pro</a>
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=blog_options" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>
@@ -511,7 +544,7 @@ function responsive_customizer_promo_print_template() {
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=footer_options" target="_blank">Upgrade To Pro</a>
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=footer_options" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>
@@ -530,7 +563,7 @@ function responsive_customizer_promo_print_template() {
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=wooCommerce_options" target="_blank">Upgrade To Pro</a>
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=wooCommerce_options" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>
@@ -561,7 +594,7 @@ function responsive_customizer_promo_print_template() {
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=product_catalog_options" target="_blank">Upgrade To Pro</a>
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=product_catalog_options" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>
@@ -580,7 +613,7 @@ function responsive_customizer_promo_print_template() {
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=product_options" target="_blank">Upgrade To Pro</a>
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=product_options" target="_blank"><?php esc_attr_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>
@@ -611,7 +644,7 @@ function responsive_customizer_promo_print_template() {
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=cart_options" target="_blank">Upgrade To Pro</a>
+				<a href="https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=cart_options" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>

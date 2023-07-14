@@ -8,7 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(05/19/2023) = Changed - Version 4.8.4
+(07/17/2023) = Added - Version 4.8.5
+[+] = Added = Made slight changes in the customizer UI.
+
+(06/19/2023) = Changed - Version 4.8.4
 [*] = Changed = New: Introduced a new User Admin Interface.
 
 (05/12/2023) = Fix - Version 4.8.3.1
