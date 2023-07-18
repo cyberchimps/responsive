@@ -925,7 +925,7 @@ function responsive_customizer_styles() {
 		$mobile_menu_breakpoint         = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 		$custom_css                    .= "body.res-transparent-header .site-header {
 			padding-top: {$transparent_header_height_half}px;
-			padding-bototm: {$transparent_header_height_half}px;
+			padding-bottom: {$transparent_header_height_half}px;
 		}
 
 		@media screen and (max-width: {$mobile_menu_breakpoint}px) {
