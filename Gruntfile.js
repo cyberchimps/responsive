@@ -184,7 +184,10 @@ module.exports = function(grunt) {
 					'core/css/gutenberg-editor.min.css':  'core/css/gutenberg-editor.css',
 					'core/css/gutenberg-editor-rtl.min.css':  'core/css/gutenberg-editor-rtl.css',
 					'core/css/icomoon/style.min.css': 'core/css/icomoon/style.css',
-					'core/css/icomoon/style-rtl.min.css': 'core/css/icomoon/style-rtl.css'
+					'core/css/icomoon/style-rtl.min.css': 'core/css/icomoon/style-rtl.css',
+					'core/css/lifterlms/lifter_notice.min.css': 'core/css/lifterlms/lifter_notice.css',
+					'core/css/lifterlms/lifter_style.min.css': 'core/css/lifterlms/lifter_style.css',
+					'core/css/lifterlms/llms.min.css': 'core/css/lifterlms/llms.css'
 				}
 			}
 		},

@@ -1,0 +1,11 @@
+
+.lifter-custom-message {
+	font-size: 15px;
+	background: white;
+	border-bottom: 1px solid #ddd;
+	padding: 10px 12px 10px 12px;
+}
+
+.lms-note {
+	font-weight:bold;
+}

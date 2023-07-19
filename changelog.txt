@@ -8,6 +8,28 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/17/2023) = Added - Version 4.8.5
+[+] = Added = Made slight changes in the customizer UI.
+
+(06/19/2023) = Changed - Version 4.8.4
+[*] = Changed = New: Introduced a new User Admin Interface.
+
+(05/12/2023) = Fix - Version 4.8.3.1
+[!] = Fixed = Minor Bug Fixes.
+
+(05/09/2023) = Fix - Version 4.8.3
+[+] = Changed = Improved customizer settings for LifterLMS plugin.
+
+(04/26/2023) = Fix - Version 4.8.2
+[+] = Feature = Added Compatability for LifterLMS plugin.
+
+(04/06/2023) = Fix - Version 4.8.1
+[^] = Moved = Moved the Breadcrumb settings in the customizer.
+[!] = Fixed = SKU was not visible on woocommerce single product page.
+
+(03/30/2023) = Fix - Version 4.8.0
+ [+] = Added = Libre Franklin, Verdana, Helvetica, Arial, Courier Fonts to the Standard fonts.
+
 (01/03/2023) = Fix - Version 4.7.9
 [!] = Fixed = Hamburger menu alignment.
 [!] = Fixed = Changed the button text for installing the Responsive Starter Templates plugin.

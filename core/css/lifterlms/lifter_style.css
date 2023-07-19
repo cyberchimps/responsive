@@ -1,0 +1,332 @@
+
+/* Styling for Lifter LMS */
+
+.llms-loop .llms-loop-list .llms-loop-item {
+	margin: 0;
+}
+
+/* llms cols*/
+
+.llms-loop-list.cols-1 .llms-loop-item {
+    width: 100%;
+	margin-bottom: 40px;
+  }
+  .llms-loop-list.cols-2 .llms-loop-item {
+    width: 45%;
+	margin: 0px 15px 20px 15px !important;
+  }
+  .llms-loop-list.cols-3 .llms-loop-item {
+	width: 28% !important;
+	margin: 0px 15px 10px 10px !important;
+}
+  .llms-loop-list.cols-4 .llms-loop-item {
+    width: 20%;
+	margin: 0px 15px 10px 10px !important;
+  }
+  .llms-loop-list.cols-5 .llms-loop-item {
+    width: 16%;
+	margin: 0px 10px 10px 10px !important;
+  }
+  .llms-loop-list.cols-6 .llms-loop-item {
+    width: 12.6666666667%;
+	margin: 0px 10px 10px 10px !important;
+  }
+
+/* Width layout */
+
+.responsive-site-llms-full-width #content {
+	width: 100% !important;
+}
+
+.responsive-site-llms-full-width #content-wrap {
+	width: 300% !important;
+}
+
+.responsive-site-llms-full-width #primary {
+	width: 100% !important;
+}
+
+.responsive-site-llms-full-width #secondary {
+	width: 150% !important;
+}
+
+
+.archive.post-type-archive-course #inner-content .page-title {
+	display: none;
+}
+
+/* make content and side bar flex*/
+.archive.post-type-archive-course #content {
+	display: flex;
+	margin: 0 auto;
+}
+
+/* width content*/
+
+.responsive-site-llms-contained #content-wrap {
+	width: 66%;
+}
+
+.responsive-site-llms-contained #secondary {
+	width: 44%;
+}
+
+@media screen and (max-width: 600px) {
+	.llms-loop .llms-loop-list {
+		display: flex;
+    	flex-direction: column;
+    	flex-wrap: wrap;
+		margin: 0 auto;
+	}
+}
+
+/* Style layout */
+
+/*boxed*/
+
+.responsive-site-style-llms-boxed .site-content .hentry {
+	background-color: #ffffff !important;
+	border-radius: 0px;
+}
+
+.responsive-site-style-llms-boxed .site-content article.product {
+	padding: 30px !important;
+}
+
+.responsive-site-style-llms-boxed .site-content {
+	padding: 28px 0 !important;
+}
+
+/*content boxed*/
+
+.responsive-site-style-llms-content-boxed .site-content .hentry {
+	background-color: #ffffff !important;
+	border-radius: 0px;
+}
+
+.responsive-site-style-llms-content-boxed .site-content article.product {
+	padding: 30px !important;
+}
+
+.responsive-site-style-llms-content-boxed .site-content {
+	padding: 25px 0 !important;
+}
+
+/*flat*/
+
+.responsive-site-style-llms-flat .site-content .hentry {
+	background-color: transparent!important;
+	padding: 0 !important;
+}
+
+.responsive-site-style-llms-flat #secondary {
+	background-color: transparent!important;
+	padding: 0 !important;
+}
+
+
+/*sidebar*/
+
+@media (min-width: 992px) {
+
+	.post-type-archive-course .content-area {
+	  width: 100% !important;
+	  padding-right: 15px;
+	  padding-left: 15px;
+	}
+
+  }
+
+.archive.post-type-archive-course #content-wrap #primary.content-area {
+	display: flex;
+}
+
+.archive.post-type-archive-course #secondary {
+	padding-top: 97px;
+}
+
+.archive.post-type-archive-course #primary {
+	padding: 28px 0;
+}
+
+.archive.post-type-archive-course #primary #inner-content .llms-loop {
+	margin-right: 28px;
+}
+
+/* For Sidebar 1*/
+
+/*right sidebar*/
+
+.responsive-llms-sidebar-right #content {
+	flex-direction: row;
+
+}
+
+.responsive-llms-sidebar-right .llms-loop {
+	margin-left: 0;
+	margin-right: 28px;
+}
+
+/*left sidebar*/
+
+.responsive-llms-sidebar-left #content {
+	flex-direction: row-reverse;
+
+}
+
+.responsive-llms-sidebar-left .llms-loop {
+	margin-left: 28px;
+	margin-right: 0;
+}
+
+/*no sidebar*/
+
+.responsive-llms-sidebar-no #inner-content {
+	margin: 0 auto;
+
+}
+
+.responsive-llms-sidebar-no #secondary{
+	display: none;
+}
+
+/* styling lifter */
+
+@media screen and (max-width: 800px) {
+	.archive.post-type-archive-course #content {
+		display: block;
+	}
+	#content-wrap #primary #inner-content {
+		width: 100%;
+	}
+	.archive.post-type-archive-course #primary #inner-content .llms-loop {
+		margin: 0 auto;
+		margin: 0 15px;
+	}
+
+	.archive.post-type-archive-course #secondary {
+		padding-top: 0 !important;
+	}
+
+	.responsive-site-llms-contained #content-wrap {
+		width: 100%;
+	}
+
+	.responsive-site-llms-contained #secondary {
+		width: 100%;
+	}
+
+	.responsive-site-llms-full-width #content-wrap {
+		width: 100%;
+	}
+
+	.responsive-site-llms-full-width #secondary {
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-full-width #content {
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-full-width #content-wrap {
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-contained #content {
+		width: 100% !important;
+	}
+
+}
+
+@media screen and (max-width: 576px) {
+	.archive.post-type-archive-course #content {
+		display: block;
+	}
+	#content-wrap #primary #inner-content {
+		width: 100%;
+	}
+	.archive.post-type-archive-course #primary #inner-content .llms-loop {
+		margin: 0 auto;
+		margin: 0 15px;
+	}
+
+	.archive.post-type-archive-course #secondary {
+		padding-top: 0 !important;
+	}
+
+	.responsive-site-llms-contained #secondary {
+		width: 100%;
+	}
+
+	.responsive-site-llms-full-width #content-wrap {
+		width: 100%;
+	}
+
+	.responsive-site-llms-full-width #secondary {
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-full-width #content {
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-full-width #content-wrap {
+		width: 100% !important;
+	}
+
+	.responsive-site-llms-contained #content {
+		width: 100% !important;
+	}
+
+	.llms-loop-list.cols-1 .llms-loop-item,.llms-loop-list.cols-2 .llms-loop-item,.llms-loop-list.cols-3 .llms-loop-item,.llms-loop-list.cols-4 .llms-loop-item,.llms-loop-list.cols-5 .llms-loop-item,.llms-loop-list.cols-6 .llms-loop-item {
+		width: 100% !important;
+		margin: 0px 15px 10px 10px !important;
+	}
+
+}
+
+.archive.post-type-archive.post-type-archive-llms_membership #secondary {
+	display: none;
+}
+
+.archive.post-type-archive-course .main-navigation-wrapper {
+
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+/*flat style for sidebar*/
+
+.responsive-site-style-llms-flat #secondary {
+	padding-top: 59px !important;
+}
+
+.responsive-site-style-llms-flat aside#secondary .widget-wrapper {
+	background: transparent !important;
+
+}
+
+/*content style for sidebar*/
+
+.responsive-site-style-llms-content-boxed #secondary {
+	padding-top: 59px !important;
+	padding-bottom: 28px;
+}
+
+.responsive-site-style-llms-content-boxed aside#secondary .widget-wrapper {
+	background: transparent !important;
+
+}
+
+/*boxed style for sidebar*/
+
+.responsive-site-style-llms-boxed #secondary {
+	padding-top: 57px !important;
+	padding-bottom: 28px;
+}
+
+.responsive-site-style-llms-boxed aside#secondary .widget-wrapper {
+	background: #ffffff !important;
+
+}

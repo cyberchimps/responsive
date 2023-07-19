@@ -1,0 +1,627 @@
+/**
+ * CSS code for Responsive Theme Admin Getting Started Page.
+ *
+ * @package Responsive
+ * @since 4.8.4
+ */
+
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&display=swap');
+
+* {
+    font-family: 'Libre Franklin', sans-serif;
+    font-style: normal;
+}
+
+body.appearance_page_responsive #wpcontent {
+    padding-left: 0;
+    background: #F0F0F1;
+}
+
+body.appearance_page_responsive #wpfooter {
+    display: none;
+}
+
+body.appearance_page_responsive #wpbody-content {
+    padding-bottom: 30px;
+}
+
+.responsive-theme-getting-started-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px 30px;
+    gap: 16px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.responsive-theme-brand {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.responsive-theme-version {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    gap: 8px;
+    width: 50px;
+    height: 24px;
+    background: #E5E7EB;
+    border-radius: 2px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #4B5563;
+}
+
+.responsive-theme-brand-desc {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #4B5563;
+    text-transform: capitalize;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.responsive-theme-tabs-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 40px 0px;
+    gap: 8px;
+    height: 93px;
+}
+
+.responsive-theme-tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    height: 53px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.responsive-theme-tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 16px 40px;
+    gap: 8px;
+    height: 53px;
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    cursor: pointer;
+}
+
+.responsive-theme-active-tab {
+    background: #FFFFFF;
+    border-width: 1px 1px 0px 1px;
+    border-style: solid;
+    border-color: #E5E7EB;
+}
+
+.responsive-theme-active-tab .responsive-theme-tab-name {
+    color: #111827;
+}
+
+.responsive-theme-tab-name {
+    height: 21px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #6B7280;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.responsive-theme-tabs-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px 40px;
+    gap: 8px;
+}
+
+.responsive-theme-tabs-inner-content {
+    padding: 50px 40px;
+    width: 100%;
+    background: #FFFFFF;
+}
+
+.responsive-theme-tab-content {
+    display: none;
+}
+
+.responsive-theme-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0px 0px;
+    gap: 10px;
+    height: 130px;
+}
+
+.responsive-theme-mobile-line-break {
+    display: none;
+}
+
+.responsive-theme-footer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    height: 45px;
+}
+
+.responsive-theme-footer-text-line {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    color: #6B7280;
+}
+
+.responsive-theme-footer-brand-name {
+    font-weight: 500;
+    color: #374151;
+}
+
+.responsive-theme-star-rating {
+    vertical-align: text-bottom;
+    text-decoration: none;
+}
+
+.responsive-theme-hr {
+    width: 200px;
+    height: 0px;
+    border: 1px solid #E5E7EB;
+    margin: 0 auto;
+}
+
+.responsive-theme-cyberchimps-logo {
+    width: 119px;
+    height: 35px;
+}
+
+/* Home Tab Starts */
+
+.responsive-theme-home-line {
+    color: #F3F4F6;
+}
+
+.responsive-theme-home-line .vr{
+    opacity: 1;
+}
+
+.responsive-theme-home-settings-text {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #374151;
+}
+
+.responsive-theme-home-setting {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 20px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.responsive-theme-home-setting:hover {
+    box-shadow: 0px 4px 20px -1px rgba(12, 41, 66, 0.13);
+}
+
+.responsive-theme-home-setting-button {
+    width: 90%;
+}
+
+.responsive-theme-home-setting-button-label {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    text-transform: capitalize;
+    vertical-align: middle;
+    color: #374151;
+}
+
+.responsive-theme-home-links {
+    margin-bottom: 12px;
+}
+
+.responsive-theme-upgrade-now-btn {
+    padding: 8px 20px;
+    background-color: #2271B1;
+    border: none;
+    border-radius: 4px;
+    color: white;
+}
+
+.responsive-theme-upgrade-now-btn:hover, .responsive-theme-upgrade-now-btn:focus {
+    color: #FFFFFF;
+}
+
+.responsive-theme-feature-cards {
+    border: 1px solid #E5E7EB;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.responsive-theme-feature-cards-content {
+    position: relative;
+}
+
+.responsive-theme-feature-card {
+    position: absolute;
+    right: -8px;
+    top: -18px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 3px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 2px;
+    color: #374151;
+}
+
+.responsive-theme-feature-card-pro {
+    background-color: #FEF9C3;
+}
+
+.responsive-theme-feature-card-free {
+    background-color: #DCFCE7;
+}
+
+.responsive-theme-feature-card-rea {
+    background-color: #DDD6FE;
+}
+
+.responsive-theme-feature-card-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.responsive-theme-feature-card-desc {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 170%;
+    color: #6B7280;
+}
+
+hr {
+    border-top: 1px solid #F3F4F6;
+    opacity: 1;
+}
+
+.responsive-theme-learn-more-btn {
+    padding: 8px 0 5px;
+}
+
+.responsive-plugin-activated-button-disabled {
+    color: #C1C1C1 !important;
+    border-color: #C1C1C1 !important;
+}
+
+.responsive-theme-rst-content .responsive-plugin-activated-button-disabled {
+    font-weight: 600;
+    font-size: 16px !important;
+    line-height: 21px !important;
+    padding: 10px 20px !important;
+
+}
+
+.responsive-plugin-activated-button-disabled:hover {
+    background: #f6f7f7 !important;
+    cursor: auto;
+}
+
+.responsive-plugin-activated-button-disabled:focus {
+    box-shadow: none !important;
+}
+
+/* Home Tab Ends */
+
+/* Starter Template Tab Starts */
+
+.responsive-theme-rst-content {
+    padding: 40px 60px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+}
+
+.responsive-theme-responsive-logo {
+    width: 47px;
+    height: 44px;
+}
+
+.responsive-theme-rst-brand-name {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #4B5563;
+}
+
+.responsive-theme-rst-brand-desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #6B7280;
+}
+
+.responsive-theme-rst-button-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    gap: 16px;
+}
+
+.responsive-theme-rst-button-section .plugin-card-responsive-add-ons a {
+    background-color: #2271B1;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    padding: 10px 20px;
+}
+
+.responsive-theme-rst-learn-more a, .responsive-theme-home-links a  {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    color: #2271B1;
+}
+
+.responsive-theme-home-desc-text {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 170%;
+    color: #6B7280;
+}
+
+/* Starter Template Tab Ends */
+
+/* FreevsPro Tab Starts */
+
+.responsive-theme-freevspro {
+    border: 1px solid #E5E7EB;
+}
+
+.responsive-theme-freevspro thead tr td {
+    background-color: #E5E7EB;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #374151;
+}
+
+.responsive-theme-freevspro tbody tr td {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.responsive-theme-freevspro tr td:first-child {
+    padding-left: 30px;
+}
+
+.responsive-theme-freevspro-feature-title {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #4B5563;
+}
+
+.responsive-theme-freevspro-feature-desc {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #6B7280;
+}
+
+.responsive-theme-freevspro-responsive-pro {
+    background-color: #F3F4F6;
+    padding: 40px;
+}
+
+.responsive-theme-freevspro-responsive-pro-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #4B5563;
+}
+
+.responsive-theme-freevspro-responsive-pro-desc {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #6B7280;
+}
+
+/* FreevsPro Tab Ends */
+
+@media (max-width: 768px) {
+
+    .responsive-theme-brand {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .responsive-theme-getting-started-header {
+        padding: 20px;
+        height: auto;
+    }
+
+    .responsive-theme-version {
+        width: auto;
+        height: auto;
+        padding: 4px;
+        font-size: 10px;
+    }
+
+    .responsive-theme-brand-desc {
+        font-size: 12px;
+    }
+
+    .responsive-theme-tabs-section {
+        padding: 20px 10px 0;
+        height: auto;
+    }
+
+    .responsive-theme-tabs {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+        height: auto;
+    }
+
+    .responsive-theme-tab {
+        width: auto;
+        flex-grow: 1;
+        max-width: 200px;
+        padding: 10px 20px;
+        height: 40px;
+    }
+      
+    .responsive-theme-tab-name {
+        width: auto;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .responsive-theme-tabs-content {
+        padding: 0 10px;
+        height: auto;
+    }
+
+    .responsive-theme-tabs-inner-content {
+        padding: 50px 0;
+        width: 100%;
+    }
+
+    .responsive-theme-footer {
+        padding: 20px 0;
+        height: auto;
+    }
+
+    .responsive-theme-mobile-line-break {
+        display: block;
+    }
+
+    .responsive-theme-star-rating {
+        vertical-align: baseline;
+    }
+
+    .responsive-theme-star-rating img {
+        width: 14px;
+        height: 14px;
+    }
+      
+    .responsive-theme-footer-text {
+        gap: 12px;
+        height: auto;
+    }
+      
+    .responsive-theme-footer-text-line {
+        font-size: 14px;
+        text-align: center;
+    }
+      
+    .responsive-theme-cyberchimps-logo {
+        width: 100px;
+        height: auto;
+    }
+
+    .responsive-theme-rst-content {
+        padding: 40px 30px;
+    }
+
+    .responsive-theme-home-line {
+        display: none !important;
+    }
+
+}
+
+
+@media (min-width: 767px) and (max-width: 1024px) {
+
+    .responsive-theme-getting-started-header {
+        padding: 20px 40px;
+    }
+
+    .responsive-theme-tabs-section {
+        padding: 40px 40px 0;
+        height: auto;
+    }
+    
+    .responsive-theme-tab {
+        padding: 16px 40px;
+        height: 53px;
+    }
+
+    .responsive-theme-tab-name {
+        font-size: 16px;
+    }
+
+    .responsive-theme-tabs-content {
+        padding: 0px 40px;
+    }
+
+    .responsive-theme-tabs-inner-content {
+        width: 100%;
+    }
+
+    .responsive-theme-footer {
+        padding: 40px 0px 0px;
+        gap: 20px;
+        height: auto;
+    }
+    
+    .responsive-theme-footer-text-line {
+        font-size: 16px;
+    }
+
+    .responsive-theme-cyberchimps-logo {
+        width: 119px;
+        height: 35px;
+    }
+
+    .responsive-theme-home-line {
+        display: flex !important;
+    }
+
+}
