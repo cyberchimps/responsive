@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(07/20/2023) = Fix - Version 4.8.5.1
+[!] = Fixed = Minor Bug Fixes.
+
 (07/17/2023) = Added - Version 4.8.5
 [+] = Added = Made slight changes in the customizer UI.
 
