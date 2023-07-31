@@ -191,11 +191,12 @@ function responsive_menu_cart_icon( $menu, $args ) {
 				$cart_title        = get_theme_mod( 'responsive_cart_title' );
 				$cart_icon         = get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );
 				$cart_total        = get_theme_mod( 'responsive_cart_count' );
-				if ( '1' === $cart_title && '1' === $cart_total ) {
+
+				if ( 1 === $cart_title && 1 === $cart_total ) {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-header-cart-info-wrap"> ' . $cart_title_markup . '' . __( ' / ', 'responsive' ) . '' . $cart_total_markup . '</span><span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} elseif ( isset( $cart_title ) && '1' === $cart_title ) {
+				} elseif ( isset( $cart_title ) && 1 === $cart_title ) {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap">' . $cart_title_markup . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
-				} elseif ( isset( $cart_total ) && '1' === $cart_total ) {
+				} elseif ( isset( $cart_total ) && 1 === $cart_total ) {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"> ' . ' <span class="res-cart-icon icon ' . esc_attr( $cart_icon ) . '" data-cart-total="' . $cart_contents_count . '"></span>' . $cart_total_markup . '</div></a></li>';
 				} else {
 					$menu .= '<li class="res-cart-link"><a href="' . esc_url( wc_get_cart_url() ) . '"><div class="res-addon-cart-wrap"><span class="res-cart-icon fa ' . esc_attr( $cart_icon ) . '"  data-cart-total="' . $cart_contents_count . '"></span></div></a></li>';
