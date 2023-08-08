@@ -969,7 +969,7 @@
         },
         function() {
             $(this).find('span').css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
-        },
+        });
 
     //Icon Background Color
     api( 'responsive_scroll_to_top_icon_background_color', function( value ) {
