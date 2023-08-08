@@ -75,7 +75,7 @@ function responsive_welcome_banner_notice() {
 				<span><?php echo esc_html( apply_filters( 'responsive_sites_menu_page_title', __( 'Thank You for installing Responsive', 'responsive' ) ) ); ?></span>
 			</h2>
 				<p>
-					You can get a fully functional ready site with Responsive. Browse 100+ <a href="https://cyberchimps.com/wordpress-themes/?utm_source=wordpress-install-notice&utm_medium=button&utm_campaign=ready-site-templates" target="_blank" rel="noopener">ready site templates</a> Install the Responsive Starter Templates plugin to get started.
+					You can get a fully functional ready site with Responsive. Browse 100+ <a href="<?php echo esc_url( 'https://cyberchimps.com/wordpress-themes/?utm_source=wordpress-install-notice&utm_medium=button&utm_campaign=ready-site-templates' ); ?>" target="_blank" rel="noopener">ready site templates</a> Install the Responsive Starter Templates plugin to get started.
 					<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 				</p>
 			</div>
@@ -113,7 +113,7 @@ function responsive_upgrade_pro_react() {
 	?>
 
 	<div class="notice notice-error">
-		<p>Please update to the latest version of <strong>Responsive Pro ( V2.4.2 or higher )</strong> to be compatible with the latest <strong>Responsive</strong> theme. To upgrade to latest version of <strong>Responsive Pro Plugin</strong> follow <a href="https://docs.cyberchimps.com/responsive/faq#upgrade-responsive-pro-plugin-from-wordpress-dashboard">Documentation</a>.</p>
+		<p>Please update to the latest version of <strong>Responsive Pro ( V2.4.2 or higher )</strong> to be compatible with the latest <strong>Responsive</strong> theme. To upgrade to latest version of <strong>Responsive Pro Plugin</strong> follow <a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/faq#upgrade-responsive-pro-plugin-from-wordpress-dashboard' ); ?>">Documentation</a>.</p>
 	</div>
 	<?php
 }
