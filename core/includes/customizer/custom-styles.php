@@ -1699,7 +1699,7 @@ function responsive_customizer_styles() {
 
 	$responsive_mobile_logo_option = get_theme_mod( 'responsive_mobile_logo_option', 0 );
 	$responsive_mobile_logo        = get_theme_mod( 'responsive_mobile_logo' );
-	if ( '' !== $responsive_mobile_logo && '1' === $responsive_mobile_logo_option ) {
+	if ( '' !== $responsive_mobile_logo && 1 === $responsive_mobile_logo_option ) {
 		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
 			.mobile-custom-logo {
 				display: none;
@@ -1715,7 +1715,7 @@ function responsive_customizer_styles() {
 		}';
 	}
 	$responsive_hide_last_item_mobile_menu = get_theme_mod( 'responsive_hide_last_item_mobile_menu', 0 );
-	if ( '1' === $responsive_hide_last_item_mobile_menu ) {
+	if ( 1 === $responsive_hide_last_item_mobile_menu ) {
 		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 			.res-cart-link, .res-last-item {
 				display: none;
