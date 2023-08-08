@@ -919,7 +919,8 @@
     //Headings Color
     api( 'responsive_sidebar_headings_color', function( value ) {
         value.bind( function( newval ) {
-            $('.widget-area .widget-title h4').css('color', newval );
+            let sidebarHeadings = $('.widget-area').find('h1, h2, h3, h4, h5, h6');
+            sidebarHeadings.css('color', newval);
         } );
     } );
 

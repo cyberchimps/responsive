@@ -881,7 +881,7 @@ function responsive_customizer_styles() {
 	$sidebar_link_hover_color = esc_html( get_theme_mod( 'responsive_sidebar_link_hover_color', Responsive\Core\get_responsive_customizer_defaults( 'responsive_link_hover_color' ) ) );
 
 	$custom_css .= "
-    .widget-area .widget-title h4{
+    .widget-area h1, .widget-area h2, .widget-area h3, .widget-area h4, .widget-area h5, .widget-area h6 {
         color: {$sidebar_headings_color};
     }
 
