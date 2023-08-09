@@ -259,7 +259,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			?>
 			<script type="text/html" id="tmpl-lifter-custom-message">
 				<div class="lifter-lms-notice">
-				<p class="lifter-custom-message"><span class="lms-note">Note: </span><?php esc_html_e( 'The above settings apply to the default LifterLMS Course Catalog archive page.' ) ?></p>
+				<p class="lifter-custom-message"><span class="lms-note">Note: </span><?php esc_html_e( 'The above settings apply to the default LifterLMS Course Catalog archive page.', 'responsive' ); ?></p>
 				</div>
 
 			</script>
