@@ -1020,3 +1020,20 @@ if ( ! function_exists( 'responsive_fallback_menu' ) ) {
 		echo wp_kses_post( $output );
 	}
 }
+
+add_action( 'wp_footer', 'prevent_menu_icon_redirection' );
+
+/**
+ * Prevent redirection after menu icons are clicked.
+ */
+function prevent_menu_icon_redirection() {
+	echo "<script>
+	var iconElement = document.querySelectorAll('.res-iconify-inner');
+	iconElement.forEach(function(element) {
+		element.addEventListener('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+		});
+	});
+	</script>";
+}
