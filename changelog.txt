@@ -8,6 +8,13 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(08/21/2023) = Fix - Version 4.8.7
+[!] = Fixed = Scroll to Top icon hover color not working.
+[!] = Fixed = Sidebar Heading color not working.
+[!] = Fixed = Different logo for mobile devices option not working.
+[!] = Fixed = Hamburger submenu issue on desktop.
+[!] = Fixed = Few changes as per coding standards.
+
 (07/31/2023) = Fix - Version 4.8.6
 [!] = Fixed = Cart total and title in customizer not working.
 
