@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.8.6' );
+define( 'RESPONSIVE_THEME_VERSION', '4.8.7' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1019,4 +1019,21 @@ if ( ! function_exists( 'responsive_fallback_menu' ) ) {
 		$output  = $prepend . $pages . $append;
 		echo wp_kses_post( $output );
 	}
+}
+
+add_action( 'wp_footer', 'prevent_menu_icon_redirection' );
+
+/**
+ * Prevent redirection after menu icons are clicked.
+ */
+function prevent_menu_icon_redirection() {
+	echo "<script>
+	var iconElement = document.querySelectorAll('.res-iconify-inner');
+	iconElement.forEach(function(element) {
+		element.addEventListener('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+		});
+	});
+	</script>";
 }
