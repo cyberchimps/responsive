@@ -282,6 +282,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							'line-height' => '1.75',
 						),
 					),
+					'add_to_cart'                => array(
+						'label'    => esc_html__( 'Typography', 'responsive' ),
+						'target'   => $selectorArray['add_to_cart'],
+						'priority' => 75,
+						'section'  => 'responsive_woocommerce_shop_colors',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '33px',
+							'line-height' => '1.75',
+						),
+					),
 				)
 			);
 		}
@@ -314,6 +325,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'content_header_description' => '.site-content-header .page-header .page-description',
 					'breadcrumb'                 => '.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb',
 					'footer'                     => '.site-footer',
+					'add_to_cart'                => '.add_to_cart_button, .product_type_grouped',
 				)
 			);
 			return $selectorArray;
@@ -836,6 +848,12 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 
 						// Add to inline CSS.
 						if ( 'css' === $return ) {
+							if ( 'add_to_cart' === $element ) {
+								if ( 'font-weight' === $attribute || 'font-size' === $attribute || 'line-height' === $attribute ) {
+									$add_css .= $attribute . ':' . $val . $px . ' !important;';
+									continue;
+								}
+							}
 							$add_css .= $attribute . ':' . $val . $px . ';';
 						} elseif ( 'preview_styles' === $return ) {
 							$preview_styles[ 'customizer-typography-' . $element . '-' . $attribute ] = $target . '{' . $attribute . ':' . $val . $px . ';}';
