@@ -330,6 +330,9 @@ hr {
 .responsive-plugin-activated-button-disabled {
     color: #C1C1C1 !important;
     border-color: #C1C1C1 !important;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
 }
 
 .responsive-theme-rst-content .responsive-plugin-activated-button-disabled {
@@ -347,6 +350,16 @@ hr {
 
 .responsive-plugin-activated-button-disabled:focus {
     box-shadow: none !important;
+}
+
+.responsive-theme-home-setting-button .dashicons {
+    color: #2271B1;
+    font-size: 24px;
+    vertical-align: text-bottom;
+}
+
+.responsive-theme-pro-features .responsive-theme-feature-seperator {
+    color: #2271B1;
 }
 
 /* Home Tab Ends */
@@ -396,7 +409,7 @@ hr {
     padding: 10px 20px;
 }
 
-.responsive-theme-rst-learn-more a, .responsive-theme-home-links a  {
+.responsive-theme-rst-learn-more a, .responsive-theme-home-links a, .responsive-theme-pro-features a {
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
