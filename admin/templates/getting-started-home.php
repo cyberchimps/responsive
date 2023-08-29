@@ -284,7 +284,7 @@ $nonce = add_query_arg(
 			<div class="row">
 				<div class="col-md-12">
 					<div class="responsive-theme-home-links mt-4">
-						<a href="https://cyberchimps.com/responsive-features/" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
+						<a href="<?php echo esc_url( 'https://cyberchimps.com/responsive-features/' ); ?>" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
 					</div>
 				</div>
 			</div>
@@ -322,13 +322,13 @@ $nonce = add_query_arg(
 				<p class="responsive-theme-home-settings-text fw-bolder mt-lg-0 mt-4"><?php esc_html_e( 'Support', 'responsive' ); ?></p>
 				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Have questions? Get in touch with us. We\'ll be happy to help', 'responsive' ); ?></p>
 				<div class="responsive-theme-home-links">
-					<a href="https://wordpress.org/support/theme/responsive/" target="_blank"><?php esc_html_e( 'Request Support', 'responsive' ); ?></a>
+					<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/' ); ?>" target="_blank"><?php esc_html_e( 'Request Support', 'responsive' ); ?></a>
 				</div>
 				<div class="responsive-theme-home-links">
-					<a href="https://docs.cyberchimps.com/responsive" target="_blank"><?php esc_html_e( 'Browse Docs', 'responsive' ); ?></a>
+					<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive' ); ?>" target="_blank"><?php esc_html_e( 'Browse Docs', 'responsive' ); ?></a>
 				</div>
 				<div class="responsive-theme-home-links">
-					<a href="https://cyberchimps.com/changelog/responsive-theme/" target="_blank"><?php esc_html_e( 'View Changelog', 'responsive' ); ?></a>
+					<a href="<?php echo esc_url( 'https://cyberchimps.com/changelog/responsive-theme/' ); ?>" target="_blank"><?php esc_html_e( 'View Changelog', 'responsive' ); ?></a>
 				</div>
 			</div>
 			<hr>
@@ -336,10 +336,10 @@ $nonce = add_query_arg(
 				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Learn and Grow', 'responsive' ); ?></p>
 				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Meet the Responsive Power-users. Say hello, ask questions, give feedback, and help each other', 'responsive' ); ?></p>
 				<div class="responsive-theme-home-links">
-					<a href="https://www.facebook.com/groups/responsive.theme/" target="_blank"><?php esc_html_e( 'Join Facebook', 'responsive' ); ?></a>
+					<a href="<?php echo esc_url( 'https://www.facebook.com/groups/responsive.theme/' ); ?>" target="_blank"><?php esc_html_e( 'Join Facebook', 'responsive' ); ?></a>
 				</div>
 				<div class="responsive-theme-home-links">
-					<a href="https://www.youtube.com/playlist?list=PLXTwxw3ZJwPSKbf3-vo7sMBkXr9cakAPT" target="_blank"><?php esc_html_e( 'Watch Video Tutorials', 'responsive' ); ?></a>
+					<a href="<?php echo esc_url( 'https://www.youtube.com/playlist?list=PLXTwxw3ZJwPSKbf3-vo7sMBkXr9cakAPT' ); ?>" target="_blank"><?php esc_html_e( 'Watch Video Tutorials', 'responsive' ); ?></a>
 				</div>
 			</div>
 			<hr>
@@ -348,7 +348,7 @@ $nonce = add_query_arg(
 				<p><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""></p>
 				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Hi! Thanks for using the Responsive theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?></p>
 				<div class="responsive-theme-home-links">
-					<a href="https://wordpress.org/support/theme/responsive/reviews/#new-post" target="_blank"><?php esc_html_e( 'Submit Review', 'responsive' ); ?></a>
+					<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post' ); ?>" target="_blank"><?php esc_html_e( 'Submit Review', 'responsive' ); ?></a>
 				</div>
 			</div>
 		</div>

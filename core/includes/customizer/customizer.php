@@ -613,7 +613,7 @@ function responsive_customizer_promo_print_template() {
 				</div>
 			</div>
 			<div class="resp-pro-promo-upgrade-btn">
-				<a href="<?php echo esc_url( 'https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=product_options' ); ?>" target="_blank"><?php esc_attr_e( 'Upgrade To Pro', 'responsive' ); ?></a>
+				<a href="<?php echo esc_url( 'https://cyberchimps.com/pricing/?utm_source=responsive_theme&utm_medium=customizer&utm_campaign=free-to-pro&utm_term=product_options' ); ?>" target="_blank"><?php esc_html_e( 'Upgrade To Pro', 'responsive' ); ?></a>
 			</div>
 		</div>
 	</script>

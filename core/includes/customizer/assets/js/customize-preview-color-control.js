@@ -919,7 +919,8 @@
     //Headings Color
     api( 'responsive_sidebar_headings_color', function( value ) {
         value.bind( function( newval ) {
-            $('.widget-area .widget-title h4').css('color', newval );
+            let sidebarHeadings = $('.widget-area').find('h1, h2, h3, h4, h5, h6');
+            sidebarHeadings.css('color', newval);
         } );
     } );
 
@@ -964,10 +965,10 @@
     //Icon Hover Color
     $("#scroll").hover(
         function() {
-            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
+            $(this).find('span').css("border-bottom-color", api('responsive_scroll_to_top_icon_hover_color').get());
         },
         function() {
-            $(this).css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
+            $(this).find('span').css("border-bottom-color", api('responsive_scroll_to_top_icon_color').get());
         });
 
     //Icon Background Color
