@@ -20,6 +20,12 @@
             
         } );
     } );
+    //Logo Width
+    api( 'responsive_logo_width', function( value ) {
+        value.bind( function( newval ) {
+            $('.site-header .custom-logo').css('width', newval+'px' );         
+        } );
+    } );
 
     api( 'responsive_width', function( value ) {
       value.bind( function( newval ) {

@@ -48,7 +48,11 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			$responsive_retina_logo_label = __( 'Enable Retina Logo ?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'title_tagline', 9, 0, null );
+			responsive_checkbox_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'title_tagline', 8, 0, null );
+
+			// Logo Width Controller.
+			$logo_width_label = __( 'Logo Width (px)', 'responsive' );
+			responsive_drag_number_control( $wp_customize, 'logo_width', $logo_width_label, 'title_tagline', 9, 120, null, 1200, 20, 'postMessage' );
 
 			// Different Logo For Mobile Device.
 			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );
