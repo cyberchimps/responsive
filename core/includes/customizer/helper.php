@@ -1277,6 +1277,42 @@ function responsive_not_active_site_style_flat() {
 }
 
 /**
+ * [responsive_not_active_page_sidebar description]
+ *
+ * @return [type] [description]
+ */
+function responsive_not_active_page_sidebar() {
+
+	$page_sidebar_position = get_theme_mod( 'responsive_page_sidebar_position' );
+
+	return ( 'no' === $page_sidebar_position ) ? false : true;
+}
+
+/**
+ * [responsive_not_active_blog_archive_sidebar description]
+ *
+ * @return [type] [description]
+ */
+function responsive_not_active_blog_archive_sidebar() {
+
+	$blog_archive_sidebar_position = get_theme_mod( 'responsive_blog_sidebar_position' );
+
+	return ( 'no' === $blog_archive_sidebar_position ) ? false : true;
+}
+
+/**
+ * [responsive_not_active_single_post_sidebar description]
+ *
+ * @return [type] [description]
+ */
+function responsive_not_active_single_post_sidebar() {
+
+	$single_post_sidebar_position = get_theme_mod( 'responsive_single_blog_sidebar_position' );
+
+	return ( 'no' === $single_post_sidebar_position ) ? false : true;
+}
+
+/**
  * [responsive_active_breadcrumb description].
  *
  * @return [type] [description]
