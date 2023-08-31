@@ -85,7 +85,7 @@ $nonce = add_query_arg(
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => '',
+					'link' => 'https://docs.cyberchimps.com/responsive/white-label/',
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
@@ -100,7 +100,7 @@ $nonce = add_query_arg(
 			'links' => array(
 				array(
 					'name' => __( 'Explore Templates', 'responsive' ),
-					'link' => '',
+					'link' => admin_url( 'admin.php?page=responsive-add-ons' ),
 				),
 			),
 		),
@@ -111,7 +111,7 @@ $nonce = add_query_arg(
 			'links' => array(
 				array(
 					'name' => __( 'Open Ticket', 'responsive' ),
-					'link' => '',
+					'link' => 'https://cyberchimps.com/open-a-ticket/',
 				),
 			),
 		),
@@ -122,11 +122,11 @@ $nonce = add_query_arg(
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => '',
+					'link' => 'https://docs.cyberchimps.com/responsive/responsive-pro-modules/',
 				),
 				array(
 					'name' => __( 'Customize', 'responsive' ),
-					'link' => '',
+					'link' => admin_url( 'customize.php?return=%2Fresponsive%2Fwp-admin%2Fthemes.php%3Fpage%3Dresponsive' ),
 				),
 			),
 		),
@@ -137,11 +137,11 @@ $nonce = add_query_arg(
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => '',
+					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/ ',
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
-					'link' => '',
+					'link' => admin_url( 'admin.php?page=rea_getting_started#widgets' ),
 				),
 			),
 		),
@@ -152,11 +152,11 @@ $nonce = add_query_arg(
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => '',
+					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/rea-theme-builder',
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
-					'link' => '',
+					'link' => admin_url( 'edit.php?post_type=rea-theme-template' ),
 				),
 			),
 		),
@@ -227,7 +227,7 @@ $nonce = add_query_arg(
 					switch ( $state ) {
 						case 'not installed':
 							?>
-							<a href="https://cyberchimps.com/pricing/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=Upgrade_now_home" target="_blank" class="responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-4"><?php echo esc_html_e( 'Upgrade Now', 'responsive' ); ?></a>
+							<a href="<?php echo esc_url( 'https://cyberchimps.com/pricing/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=Upgrade_now_home' ); ?>" target="_blank" class="responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-4"><?php echo esc_html_e( 'Upgrade Now', 'responsive' ); ?></a>
 							<?php
 							break;
 						case 'installed':
@@ -261,7 +261,7 @@ $nonce = add_query_arg(
 									<?php
 									foreach ( $feature['links'] as $index => $feature_link ) {
 										?>
-											<a href="<?php echo esc_url( $feature_link['link'] ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
+											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" target="_blank"><?php echo esc_html( $feature_link['name'] ); ?></a>
 										<?php
 										if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
 											?>
