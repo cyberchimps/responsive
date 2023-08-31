@@ -15,25 +15,6 @@
 
 <?php
 
-$slug  = 'responsive-addons-pro';
-$state = '';
-if ( file_exists( ABSPATH . 'wp-content/plugins/' . $slug . '/' . $slug . '.php' ) ) {
-	$state = is_plugin_active( $slug . '/' . $slug . '.php' ) ? 'activated' : 'installed';
-} else {
-	$state = 'not installed';
-}
-
-$nonce = add_query_arg(
-	array(
-		'action'        => 'activate',
-		'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
-		'plugin_status' => 'all',
-		'paged'         => '1',
-		'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $slug . '.php' ),
-	),
-	network_admin_url( 'plugins.php' )
-);
-
 	$home_settings = array(
 		array(
 			'label' => __( 'Change Site Layout', 'responsive' ),
