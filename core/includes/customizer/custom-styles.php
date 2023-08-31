@@ -111,6 +111,18 @@ function responsive_customizer_styles() {
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
 	$logo_custom_width = esc_html( get_theme_mod( 'responsive_logo_width', 120 ) );
 
+	$responsive_page_sidebar_position = esc_html( get_theme_mod( 'responsive_page_sidebar_position') );
+	$responsive_page_sidebar_width = esc_html( get_theme_mod( 'responsive_page_sidebar_width', 30) );
+	$page_primary_content_area_width = 100 - $responsive_page_sidebar_width;
+
+	$responsive_blog_archive_sidebar_position = esc_html( get_theme_mod( 'responsive_blog_sidebar_position') );
+	$responsive_blog_archive_sidebar_width = esc_html( get_theme_mod( 'responsive_blog_sidebar_width', 30) );
+	$blog_archive_primary_content_area_width = 100 - $responsive_blog_archive_sidebar_width;
+
+	$responsive_single_blog_sidebar_position = esc_html( get_theme_mod( 'responsive_single_blog_sidebar_position') );
+	$responsive_single_blog_sidebar_width = esc_html( get_theme_mod( 'responsive_single_blog_sidebar_width', 30) );
+	$single_blog_primary_content_area_width = 100 - $responsive_single_blog_sidebar_width;
+
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
 	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ) ) );
 
@@ -226,6 +238,42 @@ function responsive_customizer_styles() {
 		width: {$logo_custom_width}px;
 	}";
 
+	if($responsive_page_sidebar_position !== 'no'){
+		$custom_css .= "
+		@media screen and ( min-width: 992px ) {
+			.page aside.widget-area:not(.home-widgets)#secondary{
+				width: {$responsive_page_sidebar_width}%;
+			}
+			.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.front-page)  #primary.content-area {
+				width: {$page_primary_content_area_width}%;
+			}
+		}";
+	}
+	if($responsive_blog_archive_sidebar_position !== 'no'){
+		$custom_css .= "
+		@media screen and ( min-width: 992px ) {
+			.archive:not(.post-type-archive-product) aside.widget-area#secondary,
+			.blog:not(.custom-home-page-active) aside.widget-area#secondary{
+				width: {$responsive_blog_archive_sidebar_width}%;
+			}
+			.archive:not(.post-type-archive-product):not(.post-type-archive-course) #primary.content-area,
+			.blog:not(.custom-home-page-active) #primary.content-area{
+				width: {$blog_archive_primary_content_area_width}%;
+			}
+		}";
+	}
+	if($responsive_single_blog_sidebar_position !== 'no'){
+		$custom_css .= "
+		@media screen and ( min-width: 992px ) {
+			.single:not(.single-product) aside.widget-area#secondary{
+				width: {$responsive_single_blog_sidebar_width}%;
+			}
+			.single:not(.single-product) #primary.content-area {
+				width: {$single_blog_primary_content_area_width}%;
+			}
+		}";
+	}
+	
 	// lifter settings
 
 	if ( class_exists( 'LifterLMS' ) ) {

@@ -61,6 +61,9 @@ if ( ! class_exists( 'Responsive_Sidebar_Layout_Customizer' ) ) :
 			}
 			responsive_select_control( $wp_customize, 'page_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 20, $sidebar_choices, 'right', null );
 
+			$page_sidebar_width_label = esc_html__( 'Page Sidebar Width (%)', 'responsive');
+			responsive_drag_number_control( $wp_customize, 'page_sidebar_width', $page_sidebar_width_label, 'responsive_sidebar_layout', 25, 30, 'responsive_not_active_page_sidebar', 50, 20, 'postMessage' );
+
 			// Sidebar.
 			$sidebar_label   = esc_html__( 'Blog / Archive Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
@@ -76,6 +79,9 @@ if ( ! class_exists( 'Responsive_Sidebar_Layout_Customizer' ) ) :
 				);
 			}
 			responsive_select_control( $wp_customize, 'blog_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 30, $sidebar_choices, Responsive\Core\get_responsive_customizer_defaults( 'blog_sidebar_position' ), null );
+
+			$page_sidebar_width_label = esc_html__( 'Blog / Archive Sidebar Width (%)', 'responsive');
+			responsive_drag_number_control( $wp_customize, 'blog_sidebar_width', $page_sidebar_width_label, 'responsive_sidebar_layout', 35, 30, 'responsive_not_active_blog_archive_sidebar', 50, 20, 'postMessage' );
 
 			// Sidebar.
 			$sidebar_label   = esc_html__( 'Single Post Sidebar Position', 'responsive' );
@@ -93,6 +99,8 @@ if ( ! class_exists( 'Responsive_Sidebar_Layout_Customizer' ) ) :
 			}
 			responsive_select_control( $wp_customize, 'single_blog_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 40, $sidebar_choices, 'right', null );
 
+			$page_sidebar_width_label = esc_html__( 'Single Post Sidebar Width (%)', 'responsive');
+			responsive_drag_number_control( $wp_customize, 'single_blog_sidebar_width', $page_sidebar_width_label, 'responsive_sidebar_layout', 45, 30, 'responsive_not_active_single_post_sidebar', 50, 20, 'postMessage' );
 		}
 
 	}
