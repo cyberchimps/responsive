@@ -118,4 +118,57 @@ $(document).ready(function () {
         }
     );
 
+    // Display Toast Message.
+    function displayToast( msg, status ) {
+        let background = status === 'error' ? '#FF5151' : '#00CF21';
+        Toastify({
+            text: msg,
+            duration: 3000,
+            gravity: "top", 
+            position: "center",
+            stopOnFocus: true,
+            offset: {
+                x: 0,
+                y: 30
+              },
+            style: {
+                background,
+            },
+        }).showToast();
+    }
+
+    // White Label Settings.
+    $('#resp-theme-wl-settings-submit').click( function( event ) {
+        event.preventDefault()
+        let nonce = $(this).data('nonce')
+        let authorName = $('#resp_wl_author_name').val()
+        let websiteURL = $('#resp_wl_website_url').val()
+        let pluginName = $('#resp_wl_plugin_name').val()
+        let pluginURL = $('#resp_wl_plugin_url').val()
+        let pluginDesc = $('#resp_wl_plugin_desc').val()
+        let hideSettings = $('#resp_wl_hide_settings').prop('checked')
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-white-label-settings',
+                    _nonce: nonce,
+                    authorName, websiteURL, pluginName, pluginURL, pluginDesc, hideSettings
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( data.data.msg, 'success' );
+                    } else {
+                        displayToast( data.data.msg, 'error' );
+                    }
+                }
+            }
+        );
+
+    })
+
 });

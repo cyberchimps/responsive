@@ -13,6 +13,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+$slug  = 'responsive-addons-pro';
+$state = '';
+if ( file_exists( ABSPATH . 'wp-content/plugins/' . $slug . '/' . $slug . '.php' ) ) {
+	$state = is_plugin_active( $slug . '/' . $slug . '.php' ) ? 'activated' : 'installed';
+} else {
+	$state = 'not installed';
+}
+
+$nonce = add_query_arg(
+	array(
+		'action'        => 'activate',
+		'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
+		'plugin_status' => 'all',
+		'paged'         => '1',
+		'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $slug . '.php' ),
+	),
+	network_admin_url( 'plugins.php' )
+);
+
 ?>
 
 <div class="responsive-theme-getting-started-page">
@@ -28,15 +47,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="responsive-theme-tab responsive-theme-home-tab" data-tab="home">
 				<p class="responsive-theme-tab-name">Home</p>
 			</div>
+			<?php
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				?>
+				<div class="responsive-theme-tab responsive-theme-settings-tab" data-tab="settings">
+					<p class="responsive-theme-tab-name">Settings</p>
+				</div>
+				<?php
+			}
+			?>
 			<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
 				<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
 			</div>
 			<div class="responsive-theme-tab responsive-theme-plugins-tab" data-tab="plugins">
 				<p class="responsive-theme-tab-name">Useful&nbsp;Plugins</p>
 			</div>
-			<div class="responsive-theme-tab responsive-theme-freevspro-tab" data-tab="freevspro">
-				<p class="responsive-theme-tab-name">Free&nbsp;vs&nbsp;Pro</p>
-			</div>
+			<?php
+			if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
+				?>
+				<div class="responsive-theme-tab responsive-theme-freevspro-tab" data-tab="freevspro">
+					<p class="responsive-theme-tab-name">Free&nbsp;vs&nbsp;Pro</p>
+				</div>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 	<div class="responsive-theme-tabs-content">
@@ -44,15 +78,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="responsive-theme-home-content responsive-theme-tab-content" id="responsive_home">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-home.php'; ?>
 			</div>
+			<?php
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				?>
+				<div class="responsive-theme-settings-content responsive-theme-tab-content" id="responsive_settings">
+					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-settings.php'; ?>
+				</div>
+				<?php
+			}
+			?>
 			<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_templates">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rst.php'; ?>
 			</div>
 			<div class="responsive-theme-plugins-content responsive-theme-tab-content" id="responsive_plugins">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-useful-plugins.php'; ?>
 			</div>
-			<div class="responsive-theme-help-content responsive-theme-tab-content" id="responsive_freevspro">
-				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-free-vs-pro.php'; ?>
-			</div>
+			<?php
+			if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
+				?>
+				<div class="responsive-theme-help-content responsive-theme-tab-content" id="responsive_freevspro">
+					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-free-vs-pro.php'; ?>
+				</div>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 	<div class="responsive-theme-footer">
