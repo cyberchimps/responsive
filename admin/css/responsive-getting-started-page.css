@@ -7,6 +7,7 @@
 
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
 
 * {
     font-family: 'Libre Franklin', sans-serif;
@@ -486,6 +487,95 @@ hr {
 
 /* FreevsPro Tab Ends */
 
+/* Settings Tab Starts */
+.responsive-theme-setting-item-icon {
+    margin-right: 28px;
+    color: #2271B1;
+}
+
+.responsive-theme-setting-item-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #2271B1;
+}
+
+.responsive-theme-setting-border-left {
+    border-left: 1px solid #DEDEDE;
+}
+
+.responsive-theme-setting-hr {
+    border-top: 1px solid #DEDEDE;
+    margin-left: -12px;
+}
+
+.responsive-theme-single-setting-section {
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+.responsive-theme-setting-title {
+    margin-bottom: 29px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.24px;
+}
+
+.responsive-theme-setting-input-label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23.8px;
+    color: #747B81;
+}
+
+.responsive-theme-setting-form-control {
+    width: 60%;
+    border: 1px solid #CACDD2 !important;
+    height: 42px;
+}
+
+/* For Chrome, Firefox, Opera, Safari 10.1+ */
+.responsive-theme-setting-form-control::placeholder {
+    color: #BCC1C5;
+    opacity: 1; /* Firefox */
+}
+
+/* Internet Explorer 10-11 */
+.responsive-theme-setting-form-control:-ms-input-placeholder { 
+    color: #BCC1C5;
+}
+
+/* Microsoft Edge */
+.responsive-theme-setting-form-control::-ms-input-placeholder { 
+    color: #BCC1C5;
+}
+
+.responsive-theme-single-setting-section textarea {
+    height: 80px;
+}
+
+.responsive-theme-setting-checkbox-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #4B4B4B;
+    vertical-align: inherit;
+}
+
+.responsive-theme-setting-note {
+    margin-top: 22px;
+    line-height: 23.8px;
+}
+
+.responsive-theme-setting-primary-btn {
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 21.28px !important;
+    border-radius: 4px !important;
+}
+
+/* Settings Tab Ends */
+
 @media (max-width: 768px) {
 
     .responsive-theme-brand {
@@ -587,6 +677,14 @@ hr {
         display: none !important;
     }
 
+    .responsive-theme-setting-border-left {
+        border-left: none;
+    }
+
+    .responsive-theme-setting-form-control {
+        width: 100%;
+    }
+
 }
 
 
@@ -635,6 +733,14 @@ hr {
 
     .responsive-theme-home-line {
         display: flex !important;
+    }
+
+    .responsive-theme-setting-border-left {
+        border-left: 1px solid #DEDEDE;
+    }
+
+    .responsive-theme-setting-form-control {
+        width: 100%;
     }
 
 }

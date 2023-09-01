@@ -47,6 +47,15 @@ $nonce = add_query_arg(
 			<div class="responsive-theme-tab responsive-theme-home-tab" data-tab="home">
 				<p class="responsive-theme-tab-name">Home</p>
 			</div>
+			<?php
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				?>
+				<div class="responsive-theme-tab responsive-theme-settings-tab" data-tab="settings">
+					<p class="responsive-theme-tab-name">Settings</p>
+				</div>
+				<?php
+			}
+			?>
 			<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
 				<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
 			</div>
@@ -69,6 +78,15 @@ $nonce = add_query_arg(
 			<div class="responsive-theme-home-content responsive-theme-tab-content" id="responsive_home">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-home.php'; ?>
 			</div>
+			<?php
+			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+				?>
+				<div class="responsive-theme-settings-content responsive-theme-tab-content" id="responsive_settings">
+					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-settings.php'; ?>
+				</div>
+				<?php
+			}
+			?>
 			<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_templates">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rst.php'; ?>
 			</div>

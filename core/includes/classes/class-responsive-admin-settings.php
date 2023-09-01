@@ -119,6 +119,8 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 				wp_enqueue_script( 'responsive-getting-started-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
 
+				wp_enqueue_script( 'responsive-getting-started-toastify', 'https://cdn.jsdelivr.net/npm/toastify-js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+
 				wp_enqueue_style( 'responsive-admin-getting-started', RESPONSIVE_THEME_URI . 'admin/css/responsive-getting-started-page.css', array(), RESPONSIVE_THEME_VERSION );
 
 				wp_enqueue_script(
