@@ -16,7 +16,6 @@
 $wl_settings = '';
 if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 	$wl_settings = get_option( 'rpro_elementor_settings' );
-	error_log( print_r( $wl_settings, true ) );
 }
 ?>
 <div class="container">
