@@ -71,6 +71,9 @@ $nonce = add_query_arg(
 				<?php
 			}
 			?>
+			<div class="responsive-theme-tab responsive-theme-help-tab" data-tab="help">
+				<p class="responsive-theme-tab-name">Get&nbsp;Help</p>
+			</div>
 		</div>
 	</div>
 	<div class="responsive-theme-tabs-content">
@@ -102,6 +105,9 @@ $nonce = add_query_arg(
 				<?php
 			}
 			?>
+			<div class="responsive-theme-help-content responsive-theme-tab-content" id="responsive_help">
+				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-help.php'; ?>
+			</div>
 		</div>
 	</div>
 	<div class="responsive-theme-footer">

@@ -576,6 +576,97 @@ hr {
 
 /* Settings Tab Ends */
 
+/* Help Tab Starts */
+
+.responsive-theme-help-support-title {
+    font-size: 22px;
+    color: #374151;
+}
+
+.responsive-theme-help-support-desc {
+    color: #4B4B4B;
+}
+
+.responsive-theme-help-card-section {
+    margin-top: 34px;
+}
+
+.responsive-theme-help-card-section .card {
+    border-color: #DEDEDE;
+}
+
+.responsive-theme-help-card-section .card-body {
+    margin-top: 16px;
+}
+
+.responsive-theme-help-card-icon-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.responsive-theme-help-card-icon-wrapper {
+    height: 60px;
+    padding: 20px;
+    background-color: #7C29C4;
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.responsive-theme-help-card-title {
+    font-size: 15px;
+    color: #374151;
+}
+
+.responsive-theme-help-card-desc {
+    font-size: 14px;
+    color: #4B4B4B;
+}
+
+.responsive-theme-help-ticket-text {
+    font-size: 18px;
+}
+
+.responsive-theme-help-ticket-btn {
+    padding: 6px 16px !important;
+    margin-top: 40px;
+}
+.responsive-theme-help-ticket-btn img {
+    margin-left: 10px;
+    margin-top: -2px;
+}
+
+.responsive-theme-help-faq-title {
+    margin-top: 60px;
+    margin-bottom: 50px;
+    font-size: 30px;
+}
+
+.responsive-theme-help-faq-section .accordion-button:focus {
+    box-shadow: none;
+}
+
+.responsive-theme-help-faq-section .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: #212529;
+}
+
+.responsive-theme-help-faq-section .accordion-item:last-of-type {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.responsive-theme-help-faq-section .accordion-item:first-of-type {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Help Tab Ends */
+
 @media (max-width: 768px) {
 
     .responsive-theme-brand {
