@@ -109,7 +109,7 @@ function responsive_customizer_styles() {
 	// Site custom styles.
 
 	$container_max_width = esc_html( get_theme_mod( 'responsive_container_width', 1140 ) );
-	$logo_custom_width = esc_html( get_theme_mod( 'responsive_logo_width', 120 ) );
+	$logo_custom_width = esc_html( get_theme_mod( 'responsive_logo_width' ) );
 
 	$box_background_color = esc_html( get_theme_mod( 'responsive_box_background_color', Responsive\Core\get_responsive_customizer_defaults( 'box_background' ) ) );
 	$alt_background_color = esc_html( get_theme_mod( 'responsive_alt_background_color', Responsive\Core\get_responsive_customizer_defaults( 'alt_background' ) ) );
@@ -221,10 +221,11 @@ function responsive_customizer_styles() {
 			padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
 		}
 	}';
-
-	$custom_css .= ".site-header .custom-logo {
-		width: {$logo_custom_width}px;
-	}";
+	if($logo_custom_width){
+		$custom_css .= ".site-header .custom-logo {
+			width: {$logo_custom_width}px;
+		}";
+	}
 
 	// lifter settings
 

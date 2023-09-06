@@ -1233,6 +1233,19 @@ function responsive_active_mobile_vertical_header() {
 }
 
 /**
+ * Check to see if we have a logo or not.
+ *
+ * @return [type] [description]
+ */
+function responsive_has_custom_logo_callback() {
+	if ( get_theme_mod( 'custom_logo' ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
  * [responsive_active_sidebar_menu description].
  *
  * @return [type] [description]

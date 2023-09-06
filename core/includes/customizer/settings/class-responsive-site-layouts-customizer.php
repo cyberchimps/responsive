@@ -52,7 +52,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Logo Width Controller.
 			$logo_width_label = __( 'Logo Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'logo_width', $logo_width_label, 'title_tagline', 9, 120, null, 1200, 20, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'logo_width', $logo_width_label, 'title_tagline', 9, null, 'responsive_has_custom_logo_callback', 1200, 20, 'postMessage' );
 
 			// Different Logo For Mobile Device.
 			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );
