@@ -23,7 +23,12 @@
     //Logo Width
     api( 'responsive_logo_width', function( value ) {
         value.bind( function( newval ) {
-            $('.site-header .custom-logo').css('width', newval+'px' );         
+            if( newval.length !== 0 ){
+                $('.site-header .custom-logo').css('width', newval+'px' );         
+            }
+            else{
+                $('.site-header .custom-logo').css('width', '100%' ); 
+            }
         } );
     } );
     // Page Sidebar width
