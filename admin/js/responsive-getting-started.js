@@ -162,6 +162,9 @@ $(document).ready(function () {
                 {
                     if (data.success) {
                         displayToast( data.data.msg, 'success' );
+                        if ( hideSettings ) {
+                            location.reload()
+                        }
                     } else {
                         displayToast( data.data.msg, 'error' );
                     }
@@ -169,6 +172,61 @@ $(document).ready(function () {
             }
         );
 
+    })
+
+    // Switching of Setting Tabs.
+    $('#responsive-theme-setting-wl-tab').click(function(){
+        $('#responsive-theme-setting-wl-section').show()
+        $('#responsive-theme-setting-activation-key-section').hide()
+    })
+
+    $('#responsive-theme-setting-activation-key-tab').click(function(){
+        $('#responsive-theme-setting-activation-key-section').show()
+        $('#responsive-theme-setting-wl-section').hide()
+    })
+
+    $('#resp_pro_activation_key_deactivate_api_key_submit').click( function(event) {
+        event.preventDefault()
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-api-key-deactivate',
+                    _nonce: nonce,
+                },
+                success: function success( data )
+                {
+                    console.log(data)
+                }
+            }
+        );
+    })
+
+    $('#resp_pro_activation_key_activate_api_key_submit').click( function(event) {
+        event.preventDefault()
+        let productId = $('#resp_pro_activation_key_product_id').val()
+        let apiKey = $('#resp_pro_activation_key_api_key').val()
+        let nonce = $(this).data('nonce')
+        console.log(nonce)
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-api-key-activate',
+                    _nonce: nonce,
+                    productId, apiKey 
+                },
+                success: function success( data )
+                {
+                    console.log(data)
+                }
+            }
+        );
     })
 
 });
