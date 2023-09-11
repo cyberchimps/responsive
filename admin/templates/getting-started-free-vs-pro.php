@@ -127,7 +127,7 @@
 	<div class="row mt-4">
 		<div class="col-md-10 offset-md-1">
 			<div class="responsive-theme-freevspro-responsive-pro text-center">
-				<p class="responsive-theme-freevspro-responsive-pro-title"><?php esc_html_e( 'Download Responsive Pro', 'responsive' ); ?></p>
+				<p class="responsive-theme-freevspro-responsive-pro-title"><?php esc_html_e( 'Do More with Responsive Pro', 'responsive' ); ?></p>
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
 						<p class="responsive-theme-freevspro-responsive-pro-desc mt-3"><?php esc_html_e( 'Get powerful customizer settings in the Responsive Pro plugin, access to Premium Starter Template, and Responsive Elementor addons worth $47 for free. With all the features you get, the product pays for itself!', 'responsive' ); ?></p>

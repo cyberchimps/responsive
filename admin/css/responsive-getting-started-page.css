@@ -294,6 +294,10 @@ body.appearance_page_responsive #wpbody-content {
     color: #374151;
 }
 
+.responsive-theme-feature-card-useful-plugin-section {
+    top: 1px;
+}
+
 .responsive-theme-feature-card-pro {
     background-color: #FEF9C3;
 }
