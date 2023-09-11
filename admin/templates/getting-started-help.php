@@ -64,6 +64,10 @@ $accordions = array(
 		'content' => __( 'We’re 100% sure you’ll love Responsive. But we also understand it’s not for everyone. If for some reason you don’t want to continue using Responsive, <a href="https://cyberchimps.com/my-account/orders/" target="_blank">get in touch</a> with us within 30 days of your purchase. We’ll gladly refund your order amount.', 'responsive' ),
 	),
 	array(
+		'title'   => __( 'Is it necessary to renew the license every year?', 'responsive' ),
+		'content' => __( 'No. Annual license fees help us provide you with regular products updates and professional, one-on-one support. If you do not need either, you can choose not to renew your license.', 'responsive' ),
+	),
+	array(
 		'title'   => __( 'What kind of support do you offer?', 'responsive' ),
 		'content' => __( 'We offer professional, premium support to our customers through ticketing system.', 'responsive' ),
 	),
@@ -133,12 +137,12 @@ $accordions = array(
 						<div class="col-md-6 gy-3">
 							<div class="accordion-item">
 								<h2 class="accordion-header">
-								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>" aria-expanded="true" aria-controls="resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>">
+								<button class="fw-semibold accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>" aria-expanded="true" aria-controls="resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>">
 								<?php echo esc_html( $accordion['title'] ); ?>
 								</button>
 								</h2>
 								<div id="resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>" class="accordion-collapse collapse" data-bs-parent="#resp-faq-accordion">
-									<div class="accordion-body">
+									<div class="accordion-body responsive-help-accordion-body">
 									<?php echo wp_kses_post( $accordion['content'] ); ?>
 									</div>
 								</div>

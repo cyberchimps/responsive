@@ -72,7 +72,7 @@ $nonce = add_query_arg(
 			}
 			?>
 			<div class="responsive-theme-tab responsive-theme-help-tab" data-tab="help">
-				<p class="responsive-theme-tab-name">Get&nbsp;Help</p>
+				<p class="responsive-theme-tab-name">Help</p>
 			</div>
 		</div>
 	</div>

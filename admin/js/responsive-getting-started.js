@@ -146,7 +146,10 @@ $(document).ready(function () {
         let pluginName = $('#resp_wl_plugin_name').val()
         let pluginURL = $('#resp_wl_plugin_url').val()
         let pluginDesc = $('#resp_wl_plugin_desc').val()
-        let hideSettings = $('#resp_wl_hide_settings').prop('checked')
+        let hideSettings = 'off'
+        if( $('#resp_wl_hide_settings').prop('checked') ) {
+            hideSettings = 'on'
+        }
 
         $.ajax(
             {
@@ -162,7 +165,7 @@ $(document).ready(function () {
                 {
                     if (data.success) {
                         displayToast( data.data.msg, 'success' );
-                        if ( hideSettings ) {
+                        if ( 'on' === hideSettings ) {
                             location.reload()
                         }
                     } else {
@@ -176,17 +179,78 @@ $(document).ready(function () {
 
     // Switching of Setting Tabs.
     $('#responsive-theme-setting-wl-tab').click(function(){
+        if ($("#responsive-theme-setting-wl-section").length === 0) {
+            return
+        } 
         $('#responsive-theme-setting-wl-section').show()
+        $('#responsive-theme-setting-activation-key-tab span, #responsive-theme-setting-activation-key-tab p').removeClass('responsive-theme-setting-active-tab');
+        $('#responsive-theme-setting-wl-tab span, #responsive-theme-setting-wl-tab p').addClass('responsive-theme-setting-active-tab')
         $('#responsive-theme-setting-activation-key-section').hide()
     })
 
     $('#responsive-theme-setting-activation-key-tab').click(function(){
         $('#responsive-theme-setting-activation-key-section').show()
+        $('#responsive-theme-setting-activation-key-tab span, #responsive-theme-setting-activation-key-tab p').addClass('responsive-theme-setting-active-tab')
+        $('#responsive-theme-setting-wl-tab span, #responsive-theme-setting-wl-tab p').removeClass('responsive-theme-setting-active-tab')
         $('#responsive-theme-setting-wl-section').hide()
     })
 
+    // Function to show error styling and message while activating license.
+    function show_activation_error( inputTarget, msgTarget, msg ) {
+        $(`#${inputTarget}`).addClass('responsive-theme-setting-activation-form-border-error');
+        $(`#${msgTarget}`).addClass('responsive-theme-setting-activation-form-text-error');
+        $(`#${msgTarget}`).text(msg);
+    }
+
+    // Resets the applied activation errors.
+    function reset_activation_errors() {
+        $('#resp_pro_activation_key_api_key, #resp_pro_activation_key_product_id').removeClass('responsive-theme-setting-activation-form-border-error');
+
+        $('#resp_pro_activation_key_api_key_msg, #resp_pro_activation_key_product_id_msg')
+            .removeClass('responsive-theme-setting-activation-form-text-error')
+            .text('');
+
+    }
+
+    // Creates the alert element before activation form submit and after destroying the previous alert element.
+    function createAlertElement() {
+        let alertElement = '<div id="responsive-theme-setting-activation-alert" class="alert alert-dismissible responsive-theme-single-setting-section fade show" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+        $('#responsive-theme-setting-activation-key-section').prepend(alertElement);
+    }
+
+    // Removes the previous Alert element.
+    function destroyAlertElement() {
+        $('#responsive-theme-setting-activation-alert').remove()
+    }
+
+    // Alert type - success, warning, error.
+    function displayAlert(type, text) {
+        var $activationAlert = $('#responsive-theme-setting-activation-alert');
+        $activationAlert.addClass('alert-' + type).prepend(text).show();
+
+    }
+
+    $('#resp_pro_activation_key_api_key').keyup(function(){
+        if ('' !== $(this).val()) {
+            $('#resp_pro_activation_key_api_key').removeClass('responsive-theme-setting-activation-form-border-error');
+            $('#resp_pro_activation_key_api_key_msg').removeClass('responsive-theme-setting-activation-form-text-error').text('');
+        }
+    });
+
+    $('#resp_pro_activation_key_product_id').keyup(function(){
+        if ('' !==  $(this).val()) {
+            $('#resp_pro_activation_key_product_id').removeClass('responsive-theme-setting-activation-form-border-error');
+            $('#resp_pro_activation_key_product_id_msg').removeClass('responsive-theme-setting-activation-form-text-error').text('');
+        }
+    });
+
+    // Request to deactivate Responsive Pro License.
     $('#resp_pro_activation_key_deactivate_api_key_submit').click( function(event) {
         event.preventDefault()
+        reset_activation_errors()
+        destroyAlertElement()
+        createAlertElement()
+        $('#resp_pro_activation_key_deactivate_api_key_submit').text('Deactivating...')
         let nonce = $(this).data('nonce')
         $.ajax(
             {
@@ -199,18 +263,45 @@ $(document).ready(function () {
                 },
                 success: function success( data )
                 {
-                    console.log(data)
+                    if ( false === data.data.error ) {
+                        displayAlert( 'success', 'API Key Deactivated. ' + data.data.message )
+                        $('#resp_pro_activation_key_deactivate_api_key_submit').text('Deactivated!')
+                        setTimeout(function(){
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        displayAlert( 'warning', data.data.message )
+                        $('#resp_pro_activation_key_deactivate_api_key_submit').text('Deactivate')
+                        return
+                    }
                 }
             }
         );
     })
 
+    // Request to activate Responsive Pro License.
     $('#resp_pro_activation_key_activate_api_key_submit').click( function(event) {
         event.preventDefault()
+        reset_activation_errors()
+        destroyAlertElement()
+        createAlertElement()
+
         let productId = $('#resp_pro_activation_key_product_id').val()
         let apiKey = $('#resp_pro_activation_key_api_key').val()
         let nonce = $(this).data('nonce')
-        console.log(nonce)
+
+        if ( '' === apiKey ) {
+            show_activation_error( 'resp_pro_activation_key_api_key', 'resp_pro_activation_key_api_key_msg', 'Please Enter the API Key' );
+            return
+        }
+
+        if ( '' === productId ) {
+            show_activation_error( 'resp_pro_activation_key_product_id', 'resp_pro_activation_key_product_id_msg', 'Please Enter the Product ID' );
+            return
+        }
+
+        $('#resp_pro_activation_key_activate_api_key_submit').text( 'Activating...' )
+        
         $.ajax(
             {
                 type: 'POST',
@@ -223,7 +314,22 @@ $(document).ready(function () {
                 },
                 success: function success( data )
                 {
-                    console.log(data)
+                    if ( 'undefined' === data.data.error && false === data.data.activate_results.success ) {
+                        displayAlert( 'warning', data.data.activate_results.data.error )
+                        $('#resp_pro_activation_key_activate_api_key_submit').text( 'Activate' )
+                        return
+                    }
+                    if ( false === data.data.error ) {
+                        displayAlert( 'success', 'API Key Activated. ' + data.data.message )
+                        $('#resp_pro_activation_key_activate_api_key_submit').text( 'Activated!' )
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        displayAlert( 'warning', data.data.message )
+                        $('#resp_pro_activation_key_activate_api_key_submit').text( 'Activate' )
+                        return
+                    }
                 }
             }
         );
