@@ -13,9 +13,12 @@
 ?>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <?php
-$wl_settings = '';
+$wl_settings    = '';
+$license_status = '';
 if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-	$wl_settings = get_option( 'rpro_elementor_settings' );
+	global $wcam_lib_responsive_pro;
+	$wl_settings    = get_option( 'rpro_elementor_settings' );
+	$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
 }
 ?>
 <div class="container">
@@ -39,7 +42,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 					?>
 				<div tabindex="1" class="responsive-theme-setting-item d-flex" 
 					<?php
-					if ( 'activated' === $state ) {
+					if ( 'activated' === $state && 'Activated' === $license_status ) {
 						?>
 					id="responsive-theme-setting-wl-tab" role="button"
 						<?php
@@ -96,13 +99,11 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 			<?php
 		}
 		if ( 'activated' === $state ) {
-			global $wcam_lib_responsive_pro;
-			$license_status         = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
 			$disabled               = '';
 			$activated_form         = '';
 			$api_placeholder        = __( 'Enter your API Key here', 'responsive' );
 			$product_id_placeholder = __( 'Enter your Product ID here', 'responsive' );
-			if ( 'Deactivated' !== $license_status ) {
+			if ( 'Deactivated' !== $license_status && '' !== $license_status ) {
 				$disabled               = 'disabled';
 				$activated_form         = 'responsive-theme-setting-form-control-activated';
 				$api_placeholder        = __( 'API Key Active!', 'responsive' );

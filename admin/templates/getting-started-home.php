@@ -58,6 +58,9 @@
 		),
 	);
 
+	$is_rea_active = class_exists( 'Responsive_Elementor_Addons' ) ? true : false;
+	$is_rst_active = class_exists( 'Responsive_Add_Ons' ) ? true : false;
+
 	$upgrade_to_pro = array(
 		array(
 			'tag'   => 'pro',
@@ -70,7 +73,7 @@
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
-					'link' => '',
+					'link' => admin_url( 'themes.php?page=responsive#settings' ),
 				),
 			),
 		),
@@ -80,8 +83,9 @@
 			'desc'  => __( 'Unlock the library of 100+ Premium Starter Templates.', 'responsive' ),
 			'links' => array(
 				array(
-					'name' => __( 'Explore Templates', 'responsive' ),
-					'link' => admin_url( 'admin.php?page=responsive-add-ons' ),
+					'name'   => __( 'Explore Templates', 'responsive' ),
+					'link'   => admin_url( 'admin.php?page=responsive-add-ons' ),
+					'status' => $is_rst_active,
 				),
 			),
 		),
@@ -121,8 +125,9 @@
 					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/ ',
 				),
 				array(
-					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'admin.php?page=rea_getting_started#widgets' ),
+					'name'   => __( 'Settings', 'responsive' ),
+					'link'   => admin_url( 'admin.php?page=rea_getting_started#widgets' ),
+					'status' => $is_rea_active,
 				),
 			),
 		),
@@ -136,8 +141,9 @@
 					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/rea-theme-builder',
 				),
 				array(
-					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'edit.php?post_type=rea-theme-template' ),
+					'name'   => __( 'Settings', 'responsive' ),
+					'link'   => admin_url( 'edit.php?post_type=rea-theme-template' ),
+					'status' => $is_rea_active,
 				),
 			),
 		),
@@ -257,8 +263,9 @@
 								<div class="responsive-theme-pro-features mt-2">
 									<?php
 									foreach ( $feature['links'] as $index => $feature_link ) {
+										$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 										?>
-											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" target="_blank"><?php echo esc_html( $feature_link['name'] ); ?></a>
+											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="_blank"><?php echo esc_html( $feature_link['name'] ); ?></a>
 										<?php
 										if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
 											?>
