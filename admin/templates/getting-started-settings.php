@@ -211,7 +211,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								$plugin_desc = $wl_settings['plugin_desc'];
 							}
 							?>
-							<textarea type="text" class="form-control responsive-theme-setting-form-control" placeholder="<?php esc_attr_e( 'Responsive Pro is a Premium Plugin' ); ?>" id="resp_wl_plugin_desc"><?php echo esc_html( $plugin_desc ); ?></textarea>
+							<textarea type="text" class="form-control responsive-theme-setting-form-control" placeholder="<?php esc_attr_e( 'Responsive Pro is a Premium Plugin', 'responsive' ); ?>" id="resp_wl_plugin_desc"><?php echo esc_html( $plugin_desc ); ?></textarea>
 						</div>
 					</div>
 					<hr class="responsive-theme-setting-hr">
