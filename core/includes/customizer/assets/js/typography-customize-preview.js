@@ -663,6 +663,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h5-font-size">'
                 + responsive.selectorArray['heading_h5'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h5'] +'{ font-size:' + api( "heading_h5_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h5'] +'{ font-size:' + api( "heading_h5_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -673,6 +675,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h5-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h5'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h5'] +'{ font-size:' + api( "heading_h5_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -770,6 +773,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h6-font-size">'
                 + responsive.selectorArray['heading_h6'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h6'] +'{ font-size:' + api( "heading_h6_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h6'] +'{ font-size:' + api( "heading_h6_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -780,6 +785,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h6-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h6'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h6'] +'{ font-size:' + api( "heading_h6_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
