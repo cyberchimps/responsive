@@ -58,6 +58,9 @@
 		),
 	);
 
+	$is_rea_active = class_exists( 'Responsive_Elementor_Addons' ) ? true : false;
+	$is_rst_active = class_exists( 'Responsive_Add_Ons' ) ? true : false;
+
 	$upgrade_to_pro = array(
 		array(
 			'tag'   => 'pro',
@@ -70,7 +73,7 @@
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
-					'link' => '',
+					'link' => admin_url( 'themes.php?page=responsive#settings' ),
 				),
 			),
 		),
@@ -80,8 +83,9 @@
 			'desc'  => __( 'Unlock the library of 100+ Premium Starter Templates.', 'responsive' ),
 			'links' => array(
 				array(
-					'name' => __( 'Explore Templates', 'responsive' ),
-					'link' => admin_url( 'admin.php?page=responsive-add-ons' ),
+					'name'   => __( 'Explore Templates', 'responsive' ),
+					'link'   => admin_url( 'admin.php?page=responsive-add-ons' ),
+					'status' => $is_rst_active,
 				),
 			),
 		),
@@ -121,8 +125,9 @@
 					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/ ',
 				),
 				array(
-					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'admin.php?page=rea_getting_started#widgets' ),
+					'name'   => __( 'Settings', 'responsive' ),
+					'link'   => admin_url( 'admin.php?page=rea_getting_started#widgets' ),
+					'status' => $is_rea_active,
 				),
 			),
 		),
@@ -136,8 +141,9 @@
 					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/rea-theme-builder',
 				),
 				array(
-					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'edit.php?post_type=rea-theme-template' ),
+					'name'   => __( 'Settings', 'responsive' ),
+					'link'   => admin_url( 'edit.php?post_type=rea-theme-template' ),
+					'status' => $is_rea_active,
 				),
 			),
 		),
@@ -149,24 +155,28 @@
 			'title'  => 'Responsive Starter Templates',
 			'desc'   => __( '150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive-add-ons' ),
+			'logo'   => 'rst',
 		),
 		array(
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'Responsive Blocks Library',
 			'desc'   => __( '50+ Blocks to Enhance Your WordPress Block Editor Experience.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-block-editor-addons', 'rbl', 'responsive_block_editor_addons' ),
+			'logo'   => 'responsive_blocks',
 		),
 		array(
 			'tag'    => __( 'pro', 'responsive' ),
 			'title'  => 'Responsive Elementor Addons',
 			'desc'   => __( 'Premium Elementor Add-on Plugin that Comes Bundled with Responsive Pro.', 'responsive' ),
 			'button' => '<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;"><a class="button" href="https://cyberchimps.com/elementor-widgets/home/" target="_blank">Learn More</a></div>',
+			'logo'   => 'rea',
 		),
 		array(
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'WP Legal Pages',
 			'desc'   => __( 'Free Plugin to Create Privacy Policy Pages for Your Website.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'wplegalpages', 'wplegalpages', 'getting-started' ),
+			'logo'   => 'wp_legal_pages',
 		),
 	);
 
@@ -201,7 +211,19 @@
 			</div>
 			<div class="row mt-lg-5 mt-2">
 				<div class="col-md-6">
-					<p class="responsive-theme-home-settings-text fw-bolder mt-2"><?php esc_html_e( 'Upgrade to Pro Features', 'responsive' ); ?></p>
+					<p class="responsive-theme-home-settings-text fw-bolder mt-2">
+						<?php
+						switch ( $state ) {
+							case 'not installed':
+								esc_html_e( 'Upgrade to Pro Features', 'responsive' );
+								break;
+							case 'installed':
+							case 'activated':
+								esc_html_e( 'Responsive Pro Features', 'responsive' );
+								break;
+						}
+						?>
+					</p>
 				</div>
 				<div class="col-md-6">
 					<?php
@@ -241,8 +263,9 @@
 								<div class="responsive-theme-pro-features mt-2">
 									<?php
 									foreach ( $feature['links'] as $index => $feature_link ) {
+										$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 										?>
-											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" target="_blank"><?php echo esc_html( $feature_link['name'] ); ?></a>
+											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="_blank"><?php echo esc_html( $feature_link['name'] ); ?></a>
 										<?php
 										if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
 											?>
@@ -281,7 +304,8 @@
 				<div class="col-xl-6 col-lg-6 col-md-6">
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_attr( $useful_plugin['tag'] ); ?>"><span><?php echo esc_html( $useful_plugin['tag'] ); ?></span></span>
+							<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/' . esc_attr( $useful_plugin['logo'] ) . '.svg'; ?>" alt="<?php echo esc_attr( $useful_plugin['logo'] ); ?>">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-useful-plugin-section responsive-theme-feature-card-<?php echo esc_attr( $useful_plugin['tag'] ); ?>"><span><?php echo esc_html( $useful_plugin['tag'] ); ?></span></span>
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html( $useful_plugin['title'] ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $useful_plugin['desc'] ); ?></div>
 							<?php echo wp_kses_post( $useful_plugin['button'] ); ?>
@@ -300,17 +324,16 @@
 		</div>
 		<div class="col-lg-3 col-md-4">
 			<div class="row">
-				<p class="responsive-theme-home-settings-text fw-bolder mt-lg-0 mt-4"><?php esc_html_e( 'Support', 'responsive' ); ?></p>
-				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Have questions? Get in touch with us. We\'ll be happy to help', 'responsive' ); ?></p>
+				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Rate Us', 'responsive' ); ?></p>
+				<p><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""></p>
+				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Hi! Thanks for using the Responsive theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?></p>
 				<div class="responsive-theme-home-links">
-					<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/' ); ?>" target="_blank"><?php esc_html_e( 'Request Support', 'responsive' ); ?></a>
+					<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post' ); ?>" target="_blank"><?php esc_html_e( 'Submit Review', 'responsive' ); ?></a>
 				</div>
-				<div class="responsive-theme-home-links">
-					<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive' ); ?>" target="_blank"><?php esc_html_e( 'Browse Docs', 'responsive' ); ?></a>
-				</div>
-				<div class="responsive-theme-home-links">
-					<a href="<?php echo esc_url( 'https://cyberchimps.com/changelog/responsive-theme/' ); ?>" target="_blank"><?php esc_html_e( 'View Changelog', 'responsive' ); ?></a>
-				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<a class="responsive-theme-no-focus" href="<?php echo esc_url( 'https://cyberchimps.com/wordpress-themes/actor/' ); ?>" target="_blank"><img class="my-4 w-100" src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/banner-rst-template.jpg'; ?>" alt="banner-rst-template"></a>
 			</div>
 			<hr>
 			<div class="row">
@@ -321,15 +344,6 @@
 				</div>
 				<div class="responsive-theme-home-links">
 					<a href="<?php echo esc_url( 'https://www.youtube.com/playlist?list=PLXTwxw3ZJwPSKbf3-vo7sMBkXr9cakAPT' ); ?>" target="_blank"><?php esc_html_e( 'Watch Video Tutorials', 'responsive' ); ?></a>
-				</div>
-			</div>
-			<hr>
-			<div class="row">
-				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Rate Us', 'responsive' ); ?></p>
-				<p><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""></p>
-				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Hi! Thanks for using the Responsive theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?></p>
-				<div class="responsive-theme-home-links">
-					<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post' ); ?>" target="_blank"><?php esc_html_e( 'Submit Review', 'responsive' ); ?></a>
 				</div>
 			</div>
 		</div>

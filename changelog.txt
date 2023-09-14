@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(09/07/2023) = Added - Version 4.8.8
+[+] = Feature = Added option to adjust the width of Logo.
+[+] = Feature = Added option to adjust width of different sidebars in Sidebar menu.
+
 (08/21/2023) = Fix - Version 4.8.7
 [!] = Fixed = Scroll to Top icon hover color not working.
 [!] = Fixed = Sidebar Heading color not working.
