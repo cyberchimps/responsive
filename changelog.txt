@@ -8,9 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(09/07/2023) = Added - Version 4.8.8
+(09/18/2023) = Added - Version 4.8.8
 [+] = Feature = Added option to adjust the width of Logo.
 [+] = Feature = Added option to adjust width of different sidebars in Sidebar menu.
+[+] = Added = Added the "Help" tab in welcome dashboard.
+[+] = Added = Added Useful Plugins Icons in welcome dashboard.
 
 (08/21/2023) = Fix - Version 4.8.7
 [!] = Fixed = Scroll to Top icon hover color not working.
