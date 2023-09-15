@@ -122,7 +122,7 @@
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/ ',
+					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/',
 				),
 				array(
 					'name'   => __( 'Settings', 'responsive' ),
