@@ -19,6 +19,13 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 	global $wcam_lib_responsive_pro;
 	$wl_settings    = get_option( 'rpro_elementor_settings' );
 	$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
+	if ( 'Deactivated' !== $license_status || '' !== $license_status ) {
+		$license_key_server_status = $wcam_lib_responsive_pro->license_key_status();
+		if ( empty( $license_key_server_status['data']['activated'] ) ) {
+			update_option( $wcam_lib_responsive_pro->wc_am_activated_key, 'Deactivated' );
+			$license_status = 'Deactivated';
+		}
+	}
 }
 ?>
 <div class="container">
