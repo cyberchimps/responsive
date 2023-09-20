@@ -127,7 +127,7 @@
 	<div class="row mt-4">
 		<div class="col-md-10 offset-md-1">
 			<div class="responsive-theme-freevspro-responsive-pro text-center">
-				<p class="responsive-theme-freevspro-responsive-pro-title"><?php esc_html_e( 'Download Responsive Pro', 'responsive' ); ?></p>
+				<p class="responsive-theme-freevspro-responsive-pro-title"><?php esc_html_e( 'Do More with Responsive Pro', 'responsive' ); ?></p>
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
 						<p class="responsive-theme-freevspro-responsive-pro-desc mt-3"><?php esc_html_e( 'Get powerful customizer settings in the Responsive Pro plugin, access to Premium Starter Template, and Responsive Elementor addons worth $47 for free. With all the features you get, the product pays for itself!', 'responsive' ); ?></p>
@@ -135,7 +135,25 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 mt-3">
-						<a href="<?php echo esc_url( 'https://cyberchimps.com/pricing/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=Upgrade_now_free_vs_pro' ); ?>" target="_blank" class="responsive-theme-upgrade-now-btn text-decoration-none"><?php esc_html_e( 'Upgrade to Pro', 'responsive' ); ?></a>
+					<?php
+					switch ( $state ) {
+						case 'not installed':
+							?>
+							<a href="<?php echo esc_url( 'https://cyberchimps.com/pricing/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=Upgrade_now_free_vs_pro' ); ?>" target="_blank" class="responsive-theme-upgrade-now-btn text-decoration-none"><?php esc_html_e( 'Upgrade to Pro', 'responsive' ); ?></a>
+							<?php
+							break;
+						case 'installed':
+							?>
+							<a data-redirect="<?php echo esc_url( admin_url( 'themes.php?page=responsive' ) ); ?>" data-slug="<?php echo esc_attr( $slug ); ?>" class="responsive-theme-activate-plugin activate-now responsive-theme-upgrade-now-btn text-decoration-none mb-4" href="<?php echo esc_url( $nonce ); ?>" aria-label="Activate <?php echo esc_attr( $slug ); ?>"><?php echo esc_html__( 'Activate', 'responsive' ); ?></a>
+							<?php
+							break;
+						case 'activated':
+							?>
+							<button class="responsive-plugin-activated-button-disabled text-decoration-none mb-4" aria-label="Activated <?php echo esc_attr( $slug ); ?>"><?php echo esc_html__( 'Activated', 'responsive' ); ?></button>
+							<?php
+							break;
+					} // End switch.
+					?>
 					</div>
 				</div>
 			</div>

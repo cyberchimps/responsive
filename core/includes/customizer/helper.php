@@ -1233,6 +1233,19 @@ function responsive_active_mobile_vertical_header() {
 }
 
 /**
+ * Check to see if we have a logo or not.
+ *
+ * @return [type] [description]
+ */
+function responsive_has_custom_logo_callback() {
+	if ( get_theme_mod( 'custom_logo' ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
  * [responsive_active_sidebar_menu description].
  *
  * @return [type] [description]
@@ -1274,6 +1287,42 @@ function responsive_not_active_site_style_flat() {
 	$header_layout = get_theme_mod( 'responsive_style', 'contained' );
 
 	return ( 'flat' === $header_layout ) ? false : true;
+}
+
+/**
+ * [responsive_not_active_page_sidebar description]
+ *
+ * @return [type] [description]
+ */
+function responsive_not_active_page_sidebar() {
+
+	$page_sidebar_position = get_theme_mod( 'responsive_page_sidebar_position' );
+
+	return ( 'no' === $page_sidebar_position ) ? false : true;
+}
+
+/**
+ * [responsive_not_active_blog_archive_sidebar description]
+ *
+ * @return [type] [description]
+ */
+function responsive_not_active_blog_archive_sidebar() {
+
+	$blog_archive_sidebar_position = get_theme_mod( 'responsive_blog_sidebar_position' );
+
+	return ( 'no' === $blog_archive_sidebar_position ) ? false : true;
+}
+
+/**
+ * [responsive_not_active_single_post_sidebar description]
+ *
+ * @return [type] [description]
+ */
+function responsive_not_active_single_post_sidebar() {
+
+	$single_post_sidebar_position = get_theme_mod( 'responsive_single_blog_sidebar_position' );
+
+	return ( 'no' === $single_post_sidebar_position ) ? false : true;
 }
 
 /**

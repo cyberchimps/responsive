@@ -2105,9 +2105,8 @@
                 +  responsive.selectorArray['footer'] + '{ text-transform:' + dataAndEvents +';}'
                 + '</style>'
             );
-
         } );
-    } );
+    } )
 
 } )( jQuery );
 
