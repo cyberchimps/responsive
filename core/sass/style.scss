@@ -82,3 +82,26 @@ body {
 #content[tabindex="-1"]:focus {
 	outline: 0;
 }
+
+/* Static styles of Single Blog related posts  */
+.responsive-single-related-posts-container .responsive-related-single-posts-wrapper .responsive-related-single-post{
+	margin: 0;
+	padding: 0 !important;
+}
+.responsive-related-single-posts-title-section{
+	padding-bottom: 20px;
+}
+.responsive-single-related-posts-container .responsive-related-single-post-content .responsive-related-single-post-title{
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.responsive-single-related-posts-container .responsive-related-single-post-content .post-meta{
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+.responsive-related-single-post-excerpt{
+	margin: 0;
+}
+.responsive-related-single-post-not-found{
+	margin: 0;
+}

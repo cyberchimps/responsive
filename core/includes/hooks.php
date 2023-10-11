@@ -531,3 +531,10 @@ function responsive_custom_header() {
 function responsive_custom_footer() {
 	do_action( 'responsive_custom_footer' );
 }
+
+/**
+ * Single Blog Related Posts Entry
+ */
+function responsive_single_blog_related_posts_entry() {
+	do_action( 'responsive_single_blog_related_posts_entry' );
+}
