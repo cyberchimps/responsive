@@ -10,7 +10,6 @@ Changelog Legend:
 
 (10/16/2023) = Added - Version 4.8.9
 [+] = Feature = Added Related Posts option for Single Posts.
-[*] = Changed = Updated Template of the Month in Dashboard.
 
 (09/18/2023) = Added - Version 4.8.8
 [+] = Feature = Added option to adjust the width of Logo.
