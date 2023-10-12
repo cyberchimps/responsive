@@ -228,6 +228,60 @@ if ( ! function_exists( 'responsive_blog_single_meta' ) ) {
 
 	}
 }
+	/**
+	* Returns single blog related posts structure
+	*
+	*/
+if ( ! function_exists( 'responsive_single_blog_related_post_structure' ) ) {
+	/** Function to display single blog post structure */
+	function responsive_single_blog_related_post_structure() {
+
+		/** Default sections */
+		$sections = array( 'title', 'featured-image', 'meta', 'excerpt' );
+
+		/** Get sections from Customizer */
+		$sections = get_theme_mod( 'responsive_single_blog_related_post_structure', $sections );
+
+		/** Turn into array if string */
+		if ( $sections && ! is_array( $sections ) ) {
+			$sections = explode( ',', $sections );
+		}
+
+		/** Apply filters for easy modification */
+		$sections = apply_filters( 'responsive_single_blog_related_post_structure', $sections );
+
+		/** Return sections */
+		return $sections;
+
+	}
+}
+	/**
+	* Returns single blog related posts meta elements
+	*
+	*/
+	if ( ! function_exists( 'responsive_single_blog_related_post_meta_elements' ) ) {
+		/** Function to display single blog meta structure */
+		function responsive_single_blog_related_post_meta_elements() {
+	
+			/** Default sections */
+			$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
+	
+			/** Get sections from Customizer */
+			$sections = get_theme_mod( 'responsive_single_blog_related_post_meta_elements', $sections );
+	
+			/** Turn into array if string */
+			if ( $sections && ! is_array( $sections ) ) {
+				$sections = explode( ',', $sections );
+			}
+	
+			/** Apply filters for easy modification */
+			$sections = apply_filters( 'responsive_single_blog_related_post_meta_elements', $sections );
+	
+			/** Return sections */
+			return $sections;
+	
+		}
+	}
 if ( ! function_exists( 'responsive_page_elements' ) ) {
 	/**
 	 * Returns blog single elements for the customizer
@@ -2035,4 +2089,29 @@ if ( ! function_exists( 'responsive_hamburger_off_canvas_btn_label_text_label' )
 		$hamburger_off_canvas_btn_label_text_label = get_theme_mod( 'responsive_hamburger_off_canvas_btn_label_text', 'Filter' );
 		return $hamburger_off_canvas_btn_label_text_label;
 	}
+}
+
+/**
+ * Provision to update display rules for visibility of Related Posts section in Responsive.
+ *
+ * @return bool
+ */
+function responsive_target_rules_for_related_posts() {
+
+	$allow_related_posts = false;
+
+	if ( 1=== get_theme_mod('responsive_single_blog_enable_related_posts', 0) && is_singular( 'post' ) ) {
+		$allow_related_posts = true;
+	}
+
+	return apply_filters( 'responsive_showcase_single_blog_related_posts', $allow_related_posts );
+}
+
+/**
+ * [responsive_single_blog_disabled_related_posts description]
+ *
+ * @return [type] [description]
+ */
+function responsive_single_blog_disabled_related_posts() {
+	return ( 1 === get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) ) ? true : false;
 }

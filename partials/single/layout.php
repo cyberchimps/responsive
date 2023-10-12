@@ -81,4 +81,5 @@ the_post_navigation(
 		'excluded_terms' => get_theme_mod( 'exclude_post_cat' ),
 	)
 );
+Responsive\responsive_single_blog_related_posts_entry();
 ?>

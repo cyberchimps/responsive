@@ -146,6 +146,7 @@ function responsive_customizer_styles() {
 	.responsive-site-style-content-boxed .site-content .hentry,
 	.responsive-site-style-content-boxed .give-wrap .give_forms,
 	.responsive-site-style-content-boxed .navigation,
+	.responsive-site-style-content-boxed .responsive-single-related-posts-container,
 	.responsive-site-style-content-boxed .comments-area,
 	.responsive-site-style-content-boxed .comment-respond,
 	.responsive-site-style-boxed .custom-home-about-section,
@@ -159,6 +160,7 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed .site-content .hentry,
 	.responsive-site-style-boxed .give-wrap .give_forms,
 	.responsive-site-style-boxed .navigation,
+	.responsive-site-style-boxed .responsive-single-related-posts-container,
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
 	.responsive-site-style-boxed .comment-respond,
@@ -178,11 +180,13 @@ function responsive_customizer_styles() {
 	$custom_css .= '.responsive-site-style-content-boxed .hentry,
 	.responsive-site-style-content-boxed .give-wrap .give_forms,
 	.responsive-site-style-content-boxed .navigation,
+	.responsive-site-style-content-boxed .responsive-single-related-posts-container,
 	.responsive-site-style-content-boxed .comments-area,
 	.responsive-site-style-content-boxed .comment-respond,
 	.responsive-site-style-boxed .give-wrap .give_forms,
 	.responsive-site-style-boxed .hentry,
 	.responsive-site-style-boxed .navigation,
+	.responsive-site-style-boxed .responsive-single-related-posts-container,
 	.responsive-site-style-boxed .comments-area,
 	.responsive-site-style-boxed .comment-respond,
 	.page.front-page.responsive-site-style-flat .widget-wrapper,
@@ -196,11 +200,13 @@ function responsive_customizer_styles() {
 		.responsive-site-style-content-boxed .hentry,
 		.responsive-site-style-content-boxed .give-wrap .give_forms,
 		.responsive-site-style-content-boxed .navigation,
+		.responsive-site-style-content-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-content-boxed .comments-area,
 		.responsive-site-style-content-boxed .comment-respond,
 		.responsive-site-style-boxed .hentry,
 		.responsive-site-style-boxed .give-wrap .give_forms,
 		.responsive-site-style-boxed .navigation,
+		.responsive-site-style-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.page.front-page.responsive-site-style-flat .widget-wrapper,
@@ -217,11 +223,13 @@ function responsive_customizer_styles() {
 		.responsive-site-style-content-boxed .give-wrap .give_forms,
 		.responsive-site-style-content-boxed .hentry,
 		.responsive-site-style-content-boxed .navigation,
+		.responsive-site-style-content-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-content-boxed .comments-area,
 		.responsive-site-style-content-boxed .comment-respond,
 		.responsive-site-style-boxed .hentry,
 		.responsive-site-style-boxed .give-wrap .give_forms,
 		.responsive-site-style-boxed .navigation,
+		.responsive-site-style-boxed .responsive-single-related-posts-container,
 		.responsive-site-style-boxed .comments-area,
 		.responsive-site-style-boxed .comment-respond,
 		.page.front-page.responsive-site-style-flat .widget-wrapper,
@@ -2354,6 +2362,31 @@ function responsive_customizer_styles() {
 			border-bottom-color : {$stt_icon_hover_color};
 		}";
 	}
+	$responsive_single_blog_related_posts_title_alignment = get_theme_mod( 'responsive_single_blog_related_posts_title_alignment', 'left' );
+	$custom_css .= ".single:not(.single-product) .responsive-related-single-posts-title{
+		text-align : $responsive_single_blog_related_posts_title_alignment;
+	}";
+	$related_single_posts_per_row_count = absint( get_theme_mod( 'responsive_single_blog_related_posts_per_row', 2 ) );
+	$custom_css .= ".responsive-single-related-posts-container .responsive-related-single-posts-wrapper {
+	    display: grid;
+		grid-column-gap: 25px;
+		grid-row-gap: 25px;
+	}
+	@media screen and ( min-width: 993px ) {
+	    .responsive-single-related-posts-container .responsive-related-single-posts-wrapper {
+			grid-template-columns: repeat( $related_single_posts_per_row_count, 1fr );
+	    }
+	}
+	@media screen and ( max-width: 992px ) {
+	    .responsive-single-related-posts-container .responsive-related-single-posts-wrapper {
+			grid-template-columns: repeat( 2, 1fr );
+	    }
+	}
+	@media screen and ( max-width: 576px ) {
+	    .responsive-single-related-posts-container .responsive-related-single-posts-wrapper {
+			grid-template-columns: repeat( 1 , 1fr );
+	    }
+	}";
 
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 
