@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.8.8' );
+define( 'RESPONSIVE_THEME_VERSION', '4.8.9' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -47,6 +47,7 @@ require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 require $responsive_template_directory . '/core/includes/compatibility/lifterlms/class-responsive-lifterlms.php';
+require $responsive_template_directory . '/core/includes/modules/related-posts/class-responsive-related-posts.php';
 // Deprecated functions.
 require $responsive_template_directory . '/core/includes/functions-deprecated.php';
 // Custom page walker.
