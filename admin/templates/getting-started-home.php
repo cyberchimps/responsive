@@ -180,6 +180,8 @@
 		),
 	);
 
+	$rpro_megamenu_status = 'on' === get_option( 'rpo_megamenu_enable' ) ? 'checked' : '';
+
 	?>
 
 <div class="container">
@@ -284,6 +286,41 @@
 					<?php
 				}
 				?>
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards h-100">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Mega Menu', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Enable menu options for mega menus, highlight tags, icons and more.', 'responsive' ); ?></div>
+							<?php
+							if ( 'activated' === $state ) {
+								?>
+								<div class="responsive-theme-pro-features mt-2">
+									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<span class="responsive-theme-feature-seperator">|</span>
+									<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<?php
+									global $wcam_lib_responsive_pro;
+									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
+									if ( 'Activated' !== $license_status && 'on' === $rpro_megamenu_status ) {
+										update_option( 'rpo_megamenu_enable', 'off' );
+									}
+									if ( 'Activated' === $license_status ) {
+										?>
+									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
+										<input class="resp-megamenu-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
+										<span class="resp-megamenu-slider resp-megamenu-round"></span>
+									</label>
+										<?php
+									}
+									?>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">

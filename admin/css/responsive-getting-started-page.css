@@ -376,6 +376,61 @@ hr {
     color: #afafaf !important;
 }
 
+.resp-megamenu-switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+  
+.resp-megamenu-switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.resp-megamenu-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.resp-megamenu-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .resp-megamenu-slider {
+    background-color: #2271B1;
+}
+
+input:focus + .resp-megamenu-slider {
+    box-shadow: 0 0 1px #2271B1;
+}
+
+input:checked + .resp-megamenu-slider:before {
+    transform: translateX(16px);
+}
+
+.resp-megamenu-slider.resp-megamenu-round {
+    border-radius: 10px;
+}
+
+.resp-megamenu-slider.resp-megamenu-round:before {
+    border-radius: 50%;
+}
+
 /* Home Tab Ends */
 
 /* Starter Template Tab Starts */

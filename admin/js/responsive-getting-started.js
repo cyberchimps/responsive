@@ -137,6 +137,34 @@ $(document).ready(function () {
         }).showToast();
     }
 
+    // Toggle for MegaMenu.
+    $('.resp-megamenu-input-checkbox').on('change', function(event){
+        event.preventDefault()
+        let value = $(this).prop("checked") ? 'on' : 'off'
+        console.log(value)
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-enable-megamenu',
+                    _nonce: nonce,
+                    value
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( 'Settings Saved', 'success' );
+                    } else {
+                        displayToast( 'Error', 'error' );
+                    }
+                }
+            }
+        );
+    })
+    
     // White Label Settings.
     $('#resp-theme-wl-settings-submit').click( function( event ) {
         event.preventDefault()
