@@ -38,7 +38,7 @@ if ( ! class_exists( 'Responsive_Header_Transparent_Customizer' ) ) :
 				array(
 					'title'    => esc_html__( 'Transparent Header', 'responsive' ),
 					'panel'    => 'responsive_header',
-					'priority' => 30,
+					'priority' => 35,
 
 				)
 			);

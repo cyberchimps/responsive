@@ -186,7 +186,7 @@ function responsive_register_options() {
 		'class-responsive-header-title-tagline-customizer',
 		'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
-		'class-responsive-header-scripts-customizer',
+		// 'class-responsive-header-scripts-customizer',
 		'class-responsive-header-menu-layouts-customizer',
 		'class-responsive-content-header-colors-customizer',
 		'class-responsive-content-header-layout-customizer',
@@ -196,7 +196,7 @@ function responsive_register_options() {
 		'class-responsive-page-content-customizer',
 		'class-responsive-footer-layout-customizer',
 		'class-responsive-footer-colors-customizer',
-		'class-responsive-footer-scripts-customizer',
+		// 'class-responsive-footer-scripts-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
 		'class-responsive-home-page-customizer',
@@ -208,6 +208,14 @@ function responsive_register_options() {
 		'class-responsive-header-widgets-customizer',
 		'class-responsive-sidebar-layout-customizer',
 	);
+
+	$header_footer_scripts_file = array(
+		'class-responsive-header-scripts-customizer',
+		'class-responsive-footer-scripts-customizer',
+	);
+	if('on'=== get_option('rpro_headerfooter_scripts_enable')){
+		$files = array_merge($files, $header_footer_scripts_file);
+	}
 
 	foreach ( $files as $key ) {
 
@@ -346,7 +354,7 @@ function responsive_pro_promotion_scripts() {
 							section.headContainer.append( customMessage );
 						} );
 					});
-	            	wp.customize.section( \'responsive_header_scripts\', function( section ) {
+	            	wp.customize.section( \'responsive_header_transparent\', function( section ) {
 						section.deferred.embedded.done( function() {
 							let customMessage = jQuery( wp.template( \'resp-customizer-promo-header-section\' )() );
 							section.headContainer.append( customMessage );

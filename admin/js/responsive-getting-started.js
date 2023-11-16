@@ -164,6 +164,88 @@ $(document).ready(function () {
             }
         );
     })
+
+    // Toggle for Woocommerce.
+    $('.resp-woocommerce-input-checkbox').on('change', function(event){
+        event.preventDefault()
+        let value = $(this).prop("checked") ? 'on' : 'off'
+        console.log(value)
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-enable-woocommerce',
+                    _nonce: nonce,
+                    value
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( 'Settings Saved', 'success' );
+                    } else {
+                        displayToast( 'Error', 'error' );
+                    }
+                }
+            }
+        );
+    })
+    // Toggle for Woocommerce.
+    $('.resp-typography-input-checkbox').on('change', function(event){
+        event.preventDefault()
+        let value = $(this).prop("checked") ? 'on' : 'off'
+        console.log(value)
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-enable-typography',
+                    _nonce: nonce,
+                    value
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( 'Settings Saved', 'success' );
+                    } else {
+                        displayToast( 'Error', 'error' );
+                    }
+                }
+            }
+        );
+    })
+    // Toggle for Header Footer scripts.
+    $('.resp-header-footer-scripts-input-checkbox').on('change', function(event){
+        event.preventDefault()
+        let value = $(this).prop("checked") ? 'on' : 'off'
+        console.log(value)
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-enable-header-footer-scripts',
+                    _nonce: nonce,
+                    value
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( 'Settings Saved', 'success' );
+                    } else {
+                        displayToast( 'Error', 'error' );
+                    }
+                }
+            }
+        );
+    })
     
     // White Label Settings.
     $('#resp-theme-wl-settings-submit').click( function( event ) {

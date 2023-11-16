@@ -181,6 +181,11 @@
 	);
 
 	$rpro_megamenu_status = 'on' === get_option( 'rpo_megamenu_enable' ) ? 'checked' : '';
+	// error_log("rpro_megamenu_status");
+	// error_log(print_r($rpro_megamenu_status, true));
+	$rpro_woocommerce_status = 'on' === get_option( 'rpro_woocommerce_enable' ) ? 'checked' : '';
+	$rpro_typography_status = 'on' === get_option( 'rpro_typography_enable' ) ? 'checked' : '';
+	$rpro_headerfooter_scripts_status = 'on' === get_option( 'rpro_headerfooter_scripts_enable' ) ? 'checked' : '';
 
 	?>
 
@@ -303,12 +308,125 @@
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
 									if ( 'Activated' !== $license_status && 'on' === $rpro_megamenu_status ) {
+										error_log("rpo_megamenu_enable option value");
+										error_log(print_r(get_option('rpo_megamenu_enable'), true));
 										update_option( 'rpo_megamenu_enable', 'off' );
 									}
 									if ( 'Activated' === $license_status ) {
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
 										<input class="resp-megamenu-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
+										<span class="resp-megamenu-slider resp-megamenu-round"></span>
+									</label>
+										<?php
+									}
+									?>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards h-100">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Woocommerce', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds new options into the customizer for WooCommerce stores.', 'responsive' ); ?></div>
+							<?php
+							if ( 'activated' === $state ) {
+								?>
+								<div class="responsive-theme-pro-features mt-2">
+									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<span class="responsive-theme-feature-seperator">|</span>
+									<a href="<?php echo admin_url( 'customize.php' ) . '?autofocus[section]=responsive_shop'; ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<?php
+									global $wcam_lib_responsive_pro;
+									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
+									if ( 'Activated' !== $license_status && 'on' === $rpro_woocommerce_status ) {
+										// error_log("rpo_megamenu_enable option value");
+										// error_log(print_r(get_option('rpo_megamenu_enable'), true));
+										update_option( 'rpro_woocommerce_enable', 'off' );
+									}
+									if ( 'Activated' === $license_status ) {
+										?>
+									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
+										<input class="resp-woocommerce-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
+										<span class="resp-megamenu-slider resp-megamenu-round"></span>
+									</label>
+										<?php
+									}
+									?>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards h-100">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Typography', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed and ded.', 'responsive' ); ?></div>
+							<?php
+							if ( 'activated' === $state ) {
+								?>
+								<div class="responsive-theme-pro-features mt-2">
+									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<span class="responsive-theme-feature-seperator">|</span>
+									<a href="<?php echo esc_url( admin_url( 'customize.php?autofocus[section]=section-woocommerce' ) ); ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<?php
+									global $wcam_lib_responsive_pro;
+									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
+									if ( 'Activated' !== $license_status && 'on' === $rpro_typography_status ) {
+										// error_log("rpo_megamenu_enable option value");
+										// error_log(print_r(get_option('rpo_megamenu_enable'), true));
+										update_option( 'rpro_typography_enable', 'off' );
+									}
+									if ( 'Activated' === $license_status ) {
+										?>
+									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
+										<input class="resp-typography-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_typography' ) ); ?>" <?php echo esc_attr( $rpro_typography_status ); ?>>
+										<span class="resp-megamenu-slider resp-megamenu-round"></span>
+									</label>
+										<?php
+									}
+									?>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards h-100">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Header/Footer Scripts', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed and ded.', 'responsive' ); ?></div>
+							<?php
+							if ( 'activated' === $state ) {
+								?>
+								<div class="responsive-theme-pro-features mt-2">
+									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<span class="responsive-theme-feature-seperator">|</span>
+									<a href="<?php echo admin_url( 'customize.php?autofocus[section]=section-woocommerce' ) ; ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<?php
+									global $wcam_lib_responsive_pro;
+									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
+									if ( 'Activated' !== $license_status && 'checked' === $rpro_headerfooter_scripts_status ) {
+										update_option( 'rpro_headerfooter_scripts_enable', 'off' );
+										error_log("value of rpro_headerfooter_scripts_enable option");
+										error_log(print_r(get_option('rpro_headerfooter_scripts_enable'), true));
+									}
+									if ( 'Activated' === $license_status ) {
+										?>
+									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
+										<input class="resp-header-footer-scripts-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_header_footer_scripts' ) ); ?>" <?php echo esc_attr( $rpro_typography_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
@@ -363,7 +481,7 @@
 			<div class="row">
 				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Rate Us', 'responsive' ); ?></p>
 				<p><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""></p>
-				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Hi! Thanks for using the Responsive theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?></p>
+				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Hi! Thanks for using the ', 'responsive'). esc_html_e('Responsive', 'responsive'). esc_html_e(' theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?></p>
 				<div class="responsive-theme-home-links">
 					<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post' ); ?>" target="_blank"><?php esc_html_e( 'Submit Review', 'responsive' ); ?></a>
 				</div>
