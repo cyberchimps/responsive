@@ -46,8 +46,10 @@ function responsive_inline_js_head() {
 		echo "\n";
 	}
 }
-
-add_action( 'wp_head', 'responsive_inline_js_head' );
+if( 'on'=== get_option('rpro_headerfooter_scripts_enable' ) ) {
+	add_action( 'wp_head', 'responsive_inline_js_head' );
+	add_action( 'wp_footer', 'responsive_inline_js_footer' );
+}
 
 /**
  * Add inline js to footer
@@ -61,5 +63,6 @@ function responsive_inline_js_footer() {
 		echo "\n";
 	}
 }
-
-add_action( 'wp_footer', 'responsive_inline_js_footer' );
+// if( 'on'=== get_option('rpro_headerfooter_scripts_enable' ) ) {
+// 	add_action( 'wp_footer', 'responsive_inline_js_footer' );
+// }

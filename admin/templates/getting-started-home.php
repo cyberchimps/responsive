@@ -340,7 +340,7 @@
 								<div class="responsive-theme-pro-features mt-2">
 									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo admin_url( 'customize.php' ) . '?autofocus[section]=responsive_shop'; ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo admin_url( 'customize.php' ) . '?autofocus[section]=woocommerce'; ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
@@ -377,7 +377,7 @@
 								<div class="responsive-theme-pro-features mt-2">
 									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo esc_url( admin_url( 'customize.php?autofocus[section]=section-woocommerce' ) ); ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_page_typography' ); ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
@@ -409,32 +409,32 @@
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Header/Footer Scripts', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Lorem ipsum dolor sit amet consectetur. Quis massa enim sed and ded.', 'responsive' ); ?></div>
 							<?php
-							if ( 'activated' === $state ) {
+							// if ( 'activated' === $state ) {
 								?>
 								<div class="responsive-theme-pro-features mt-2">
 									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo admin_url( 'customize.php?autofocus[section]=section-woocommerce' ) ; ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo admin_url( 'customize.php').'?autofocus[section]=responsive_header_scripts' ; ?>" class="" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
-									global $wcam_lib_responsive_pro;
-									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
-									if ( 'Activated' !== $license_status && 'checked' === $rpro_headerfooter_scripts_status ) {
-										update_option( 'rpro_headerfooter_scripts_enable', 'off' );
-										error_log("value of rpro_headerfooter_scripts_enable option");
-										error_log(print_r(get_option('rpro_headerfooter_scripts_enable'), true));
-									}
-									if ( 'Activated' === $license_status ) {
+									// global $wcam_lib_responsive_pro;
+									// $license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
+									// if ( 'Activated' !== $license_status && 'checked' === $rpro_headerfooter_scripts_status ) {
+									// 	update_option( 'rpro_headerfooter_scripts_enable', 'off' );
+									// 	error_log("value of rpro_headerfooter_scripts_enable option");
+									// 	error_log(print_r(get_option('rpro_headerfooter_scripts_enable'), true));
+									// }
+									// if ( 'Activated' === $license_status ) {
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
 										<input class="resp-header-footer-scripts-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_header_footer_scripts' ) ); ?>" <?php echo esc_attr( $rpro_typography_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
-									}
+									// }
 									?>
 								</div>
 								<?php
-							}
+							// }
 							?>
 						</div>
 					</div>
