@@ -174,6 +174,10 @@ $(document).ready(function () {
         let pluginName = $('#resp_wl_plugin_name').val()
         let pluginURL = $('#resp_wl_plugin_url').val()
         let pluginDesc = $('#resp_wl_plugin_desc').val()
+        let themeName = $('#resp_wl_theme_name').val()
+        let themeDesc = $('#resp_wl_theme_desc').val()
+        let themeScreenshotURL= $('#resp_wl_theme_screenshot_url').val()
+        let themeIconURL= $('#resp_wl_theme_icon_url').val()
         let hideSettings = 'off'
         if( $('#resp_wl_hide_settings').prop('checked') ) {
             hideSettings = 'on'
@@ -187,15 +191,13 @@ $(document).ready(function () {
                 {
                     action: 'responsive-pro-white-label-settings',
                     _nonce: nonce,
-                    authorName, websiteURL, pluginName, pluginURL, pluginDesc, hideSettings
+                    authorName, websiteURL, pluginName, pluginURL, pluginDesc, hideSettings, themeName, themeDesc, themeScreenshotURL, themeIconURL
                 },
                 success: function success( data )
                 {
                     if (data.success) {
                         displayToast( data.data.msg, 'success' );
-                        if ( 'on' === hideSettings ) {
-                            location.reload()
-                        }
+                        location.reload()
                     } else {
                         displayToast( data.data.msg, 'error' );
                     }

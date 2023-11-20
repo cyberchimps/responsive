@@ -163,7 +163,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="CyberChimps" id="resp_wl_author_name">
+							id="resp_wl_author_name">
 						</div>
 					</div>
 					<div class="responsive-theme-single-setting-section">
@@ -177,12 +177,70 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="https://cyberchimps.com" id="resp_wl_website_url">
+							id="resp_wl_website_url">
 						</div>
 					</div>
 					<hr class="responsive-theme-setting-hr">
 					<div class="responsive-theme-single-setting-section">
-						<p class="responsive-theme-setting-title mt-4"><?php esc_html_e( 'Plugin Details', 'responsive' ); ?></p>
+						<p class="responsive-theme-setting-title mt-4"><?php esc_html_e( 'Responsive Theme Branding', 'responsive' ); ?></p>
+						<div class="mb-2">
+							<label for="resp_wl_theme_name" class="responsive-theme-setting-input-label"><?php esc_html_e( 'Theme Name', 'responsive' ); ?></label>
+							<input type="text" class="form-control responsive-theme-setting-form-control" autocomplete="off"
+							<?php
+							if ( ! empty( $wl_settings ) ) {
+								?>
+								value="<?php echo esc_attr( $wl_settings['theme_name'] ); ?>"
+								<?php
+							}
+							?>
+							id="resp_wl_theme_name">
+						</div>
+					</div>
+					<div class="responsive-theme-single-setting-section">
+						<div class="mb-2">
+							<label for="resp_wl_theme_desc" class="responsive-theme-setting-input-label"><?php esc_html_e( 'Theme Description', 'responsive' ); ?></label>
+							<?php
+							$theme_desc = '';
+							if ( ! empty( $wl_settings ) ) {
+								$theme_desc = $wl_settings['theme_desc'];
+							}
+							?>
+							<textarea type="text" class="form-control responsive-theme-setting-form-control" id="resp_wl_theme_desc"><?php echo esc_html( $theme_desc ); ?></textarea>
+						</div>
+					</div>
+					<div class="responsive-theme-single-setting-section">
+						<div class="mb-2">
+							<label for="resp_wl_theme_screenshot_url" class="responsive-theme-setting-input-label"><?php esc_html_e( 'Theme Screenshot URL', 'responsive' ); ?></label>
+							<input type="url" pattern="https?://.+" class="form-control responsive-theme-setting-form-control" autocomplete="off" 
+							<?php
+							if ( ! empty( $wl_settings ) ) {
+								?>
+								value="<?php echo esc_url( $wl_settings['theme_screenshot_url'] ); ?>"
+								<?php
+							}
+							?>
+							id="resp_wl_theme_screenshot_url">
+						</div>
+						<p class="mt-2 responsive-theme-setting-form-control-hint"><?php esc_attr_e( 'The recommended image size is 1200px wide and 900px tall.', 'responsive' ) ?></p>
+					</div>
+					<div class="responsive-theme-single-setting-section">
+						<div class="mb-2">
+							<label for="resp_wl_theme_icon_url" class="responsive-theme-setting-input-label"><?php esc_html_e( 'Theme Icon URL', 'responsive' ); ?></label>
+							<input type="text" class="form-control responsive-theme-setting-form-control" autocomplete="off"
+							<?php
+							if ( ! empty( $wl_settings ) ) {
+								?>
+								value="<?php echo esc_attr( $wl_settings['theme_icon_url'] ); ?>"
+								<?php
+							}
+							?>
+							id="resp_wl_theme_icon_url">
+						</div>
+						<p class="mt-2 responsive-theme-setting-form-control-hint"><?php esc_attr_e( 'The recommended icon should have some background to get adjust properly .', 'responsive' ) ?></p>
+					</div>
+					<hr class="responsive-theme-setting-hr">
+					<div class="responsive-theme-single-setting-section">
+						<p class="responsive-theme-setting-title mt-4"><?php esc_html_e( 'Responsive Pro Branding', 'responsive' ); ?></p>
 						<div class="mb-2">
 							<label for="resp_wl_plugin_name" class="responsive-theme-setting-input-label"><?php esc_html_e( 'Plugin Name', 'responsive' ); ?></label>
 							<input type="text" class="form-control responsive-theme-setting-form-control" autocomplete="off"
@@ -193,7 +251,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="CyberChimps" id="resp_wl_plugin_name">
+							id="resp_wl_plugin_name">
 						</div>
 					</div>
 					<div class="responsive-theme-single-setting-section">
@@ -207,7 +265,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="https://cyberchimps.com/responsivepro" id="resp_wl_plugin_url">
+							id="resp_wl_plugin_url">
 						</div>
 					</div>
 					<div class="responsive-theme-single-setting-section">
@@ -219,7 +277,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								$plugin_desc = $wl_settings['plugin_desc'];
 							}
 							?>
-							<textarea type="text" class="form-control responsive-theme-setting-form-control" placeholder="<?php esc_attr_e( 'Responsive Pro is a Premium Plugin', 'responsive' ); ?>" id="resp_wl_plugin_desc"><?php echo esc_html( $plugin_desc ); ?></textarea>
+							<textarea type="text" class="form-control responsive-theme-setting-form-control" id="resp_wl_plugin_desc"><?php echo esc_html( $plugin_desc ); ?></textarea>
 						</div>
 					</div>
 					<hr class="responsive-theme-setting-hr">

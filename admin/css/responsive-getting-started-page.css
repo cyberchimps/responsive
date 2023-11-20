@@ -208,7 +208,9 @@ body.appearance_page_responsive #wpbody-content {
     width: 119px;
     height: 35px;
 }
-
+.responsive-theme-logo{
+    height: 82px;
+}
 /* Home Tab Starts */
 
 .responsive-theme-home-line {
@@ -725,6 +727,15 @@ input:checked + .resp-megamenu-slider:before {
     font-size: 14px;
     color: #2271B1;
     text-decoration: none;
+}
+
+.responsive-theme-setting-form-control-hint{
+    margin-bottom: 0;
+    color: #747B81;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170%;
 }
 
 /* Settings Tab Ends */
