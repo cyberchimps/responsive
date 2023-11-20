@@ -197,9 +197,7 @@ $(document).ready(function () {
                 {
                     if (data.success) {
                         displayToast( data.data.msg, 'success' );
-                        if ( 'on' === hideSettings ) {
-                            location.reload()
-                        }
+                        location.reload()
                     } else {
                         displayToast( data.data.msg, 'error' );
                     }
