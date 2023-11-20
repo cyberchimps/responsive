@@ -194,7 +194,7 @@ $(document).ready(function () {
             }
         );
     })
-    // Toggle for Woocommerce.
+    // Toggle for Typography.
     $('.resp-typography-input-checkbox').on('change', function(event){
         event.preventDefault();
         $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
@@ -208,34 +208,6 @@ $(document).ready(function () {
                 data:
                 {
                     action: 'responsive-pro-enable-typography',
-                    _nonce: nonce,
-                    value
-                },
-                success: function success( data )
-                {
-                    if (data.success) {
-                        displayToast( 'Settings Saved', 'success' );
-                    } else {
-                        displayToast( 'Error', 'error' );
-                    }
-                }
-            }
-        );
-    })
-    // Toggle for Header Footer scripts.
-    $('.resp-header-footer-scripts-input-checkbox').on('change', function(event){
-        event.preventDefault();
-        $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
-        let value = $(this).prop("checked") ? 'on' : 'off'
-        console.log(value)
-        let nonce = $(this).data('nonce')
-        $.ajax(
-            {
-                type: 'POST',
-                url: localize.ajaxurl,
-                data:
-                {
-                    action: 'responsive-pro-enable-header-footer-scripts',
                     _nonce: nonce,
                     value
                 },

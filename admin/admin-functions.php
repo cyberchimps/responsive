@@ -128,25 +128,3 @@ if ( class_exists( 'responsive_addons_pro' ) ) {
 	}
 }
 
-// if( is_admin() ){
-// 	add_action( 'wp_ajax_responsive-pro-enable-header-footer-scripts', 'responsive_pro_enable_header_footer_scripts' );
-// 	add_action( 'wp_ajax_nopriv_responsive-pro-enable-header-footer-scripts', 'responsive_pro_enable_header_footer_scripts' );
-// }
-
-// /**
-//  * Enable/Disables the Typography customizer settings on switch toggle.
-//  *
-//  * @since 2.5.4
-//  * @access public
-//  */
-// function responsive_pro_enable_header_footer_scripts() {
-
-// 	check_ajax_referer( 'rpro_toggle_header_footer_scripts', '_nonce' );
-
-// 	$value = isset( $_POST['value'] ) ? sanitize_text_field( wp_unslash( $_POST['value'] ) ) : '';
-
-// 	update_option( 'rpro_headerfooter_scripts_enable', $value );
-
-// 	wp_send_json_success();
-
-// }
