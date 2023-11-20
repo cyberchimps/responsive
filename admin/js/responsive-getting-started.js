@@ -283,14 +283,7 @@ $(document).ready(function () {
                 {
                     if (data.success) {
                         displayToast( data.data.msg, 'success' );
-<<<<<<< HEAD
-                        location.reload();
-                        // if ( 'on' === hideSettings ) {
-                        //     location.reload()
-                        // }
-=======
                         location.reload()
->>>>>>> ce4f6026cefdaebd49df7916f849ccfe6c77bfb1
                     } else {
                         displayToast( data.data.msg, 'error' );
                     }

@@ -88,11 +88,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 		 * @since 4.0.3
 		 */
 		public static function init_admin_settings() {
-<<<<<<< HEAD
-			self::$menu_page_title = apply_filters( 'responsive_menu_page_title', __('Responsive', 'responsive'). __( ' Options', 'responsive' ) );
-=======
 			self::$menu_page_title = apply_filters( 'responsive_menu_page_title',__('Responsive', 'responsive'). __( ' Options', 'responsive' ) );
->>>>>>> ce4f6026cefdaebd49df7916f849ccfe6c77bfb1
 			self::$page_title      = apply_filters( 'responsive_page_title', __( 'Responsive', 'responsive' ) );
 			self::$plugin_slug     = self::get_theme_page_slug();
 
