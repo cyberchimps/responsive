@@ -163,7 +163,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="CyberChimps" id="resp_wl_author_name">
+							id="resp_wl_author_name">
 						</div>
 					</div>
 					<div class="responsive-theme-single-setting-section">
@@ -177,7 +177,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="https://cyberchimps.com" id="resp_wl_website_url">
+							id="resp_wl_website_url">
 						</div>
 					</div>
 					<hr class="responsive-theme-setting-hr">
@@ -193,7 +193,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="Responsive" id="resp_wl_theme_name">
+							id="resp_wl_theme_name">
 						</div>
 					</div>
 					<div class="responsive-theme-single-setting-section">
@@ -205,7 +205,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								$theme_desc = $wl_settings['theme_desc'];
 							}
 							?>
-							<textarea type="text" class="form-control responsive-theme-setting-form-control" placeholder="<?php esc_attr_e( 'Responsive is a fast, lightweight, & fully customizable WordPress theme', 'responsive' ); ?>" id="resp_wl_theme_desc"><?php echo esc_html( $theme_desc ); ?></textarea>
+							<textarea type="text" class="form-control responsive-theme-setting-form-control" id="resp_wl_theme_desc"><?php echo esc_html( $theme_desc ); ?></textarea>
 						</div>
 					</div>
 					<div class="responsive-theme-single-setting-section">
@@ -251,7 +251,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="CyberChimps" id="resp_wl_plugin_name">
+							id="resp_wl_plugin_name">
 						</div>
 					</div>
 					<div class="responsive-theme-single-setting-section">
@@ -265,7 +265,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								<?php
 							}
 							?>
-							placeholder="https://cyberchimps.com/responsivepro" id="resp_wl_plugin_url">
+							id="resp_wl_plugin_url">
 						</div>
 					</div>
 					<div class="responsive-theme-single-setting-section">
@@ -277,7 +277,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 								$plugin_desc = $wl_settings['plugin_desc'];
 							}
 							?>
-							<textarea type="text" class="form-control responsive-theme-setting-form-control" placeholder="<?php esc_attr_e( 'Responsive Pro is a Premium Plugin', 'responsive' ); ?>" id="resp_wl_plugin_desc"><?php echo esc_html( $plugin_desc ); ?></textarea>
+							<textarea type="text" class="form-control responsive-theme-setting-form-control" id="resp_wl_plugin_desc"><?php echo esc_html( $plugin_desc ); ?></textarea>
 						</div>
 					</div>
 					<hr class="responsive-theme-setting-hr">
