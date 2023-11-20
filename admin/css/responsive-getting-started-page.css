@@ -495,6 +495,10 @@ input:checked + .resp-megamenu-slider:before {
     color: #6B7280;
 }
 
+.responsive-theme-pro-features.disable-customize .rpro-feature-customize-btn{
+    color: #afafaf;
+    pointer-events: none;
+}
 /* Starter Template Tab Ends */
 
 /* FreevsPro Tab Starts */
