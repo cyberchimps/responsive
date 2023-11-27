@@ -54,7 +54,7 @@ $cyberchimps_link   = '';
 			>
 			<?php
 			echo apply_filters(
-				'responsive_theme_footer_link_text',
+				'responsive_theme_footer_theme_text',
 				esc_html__( ' Responsive Theme', 'responsive' )
 			)
 			?>

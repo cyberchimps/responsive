@@ -32,12 +32,14 @@ $nonce = add_query_arg(
 	network_admin_url( 'plugins.php' )
 );
 
+$admin_logo = apply_filters( 'responsive_admin_menu_icon', esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-logo-colored.jpg' );
+$admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url( RESPONSIVE_THEME_URI . 'admin/images/cyberchimps-logo.png' ));
 ?>
 
 <div class="responsive-theme-getting-started-page">
 	<div class="responsive-theme-getting-started-header bg-white">
 		<div class="responsive-theme-brand">
-			<img class="responsive-theme-logo" src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-logo-colored.jpg'; ?>" >
+			<img class="responsive-theme-logo" src="<?php echo $admin_logo; ?>" >
 			<div class="responsive-theme-version"><?php echo esc_html( RESPONSIVE_THEME_VERSION ); ?></div>
 		</div>
 		<p class="responsive-theme-brand-desc"><?php esc_html_e( 'Blazing fast, mobile-friendly, fully-customizable WordPress theme.', 'responsive' ); ?></p>
@@ -114,7 +116,7 @@ $nonce = add_query_arg(
 		<div class="responsive-theme-footer-details">
 			<div class="responsive-theme-footer-text">
 				<p class="responsive-theme-footer-text-line"><?php esc_html_e( 'If you like', 'responsive' ); ?>
-					<span class="responsive-theme-footer-brand-name">Responsive Theme</span>, <br class="responsive-theme-mobile-line-break"><?php esc_html_e( 'please leave us a', 'responsive' ); ?> 
+					<span class="responsive-theme-footer-brand-name"><?php esc_html_e( 'Responsive', 'responsive' ); ?></span>, <br class="responsive-theme-mobile-line-break"><?php esc_html_e( 'please leave us a', 'responsive' ); ?> 
 					<a href="https://wordpress.org/support/theme/responsive/reviews/#new-post" target="_blank" class="responsive-theme-star-rating">
 						<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt="">
 					</a> <?php esc_html_e( 'rating. Thank you!', 'responsive' ); ?>
@@ -122,6 +124,6 @@ $nonce = add_query_arg(
 			</div>
 			<div class="responsive-theme-hr"></div>
 		</div>
-		<img class="responsive-theme-cyberchimps-logo" src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cyberchimps-logo.png'; ?>" alt="">
+		<img class="responsive-theme-cyberchimps-logo" src="<?php echo $admin_footer_logo; ?>" alt="">
 	</div>
 </div>
