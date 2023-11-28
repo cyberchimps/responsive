@@ -390,7 +390,7 @@ function responsive_customizer_styles() {
 	$buttons_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_mobile_bottom_padding', 10 ) );
 
 	$buttons_radius       = esc_html( get_theme_mod( 'responsive_buttons_radius', Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) ) );
-	$buttons_border_width = esc_html( get_theme_mod( 'responsive_buttons_border_width', 0 ) );
+	$buttons_border_width = esc_html( get_theme_mod( 'responsive_buttons_border_width', 1 ) );
 
 	// Inputs Padding.
 	$inputs_padding_right  = esc_html( get_theme_mod( 'responsive_inputs_right_padding', 3 ) );
