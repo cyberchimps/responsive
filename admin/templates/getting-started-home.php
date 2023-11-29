@@ -64,21 +64,6 @@
 	$upgrade_to_pro = array(
 		array(
 			'tag'   => 'pro',
-			'title' => __( 'White Label', 'responsive' ),
-			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
-			'links' => array(
-				array(
-					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://docs.cyberchimps.com/responsive/white-label/',
-				),
-				array(
-					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'themes.php?page=responsive#settings' ),
-				),
-			),
-		),
-		array(
-			'tag'   => 'pro',
 			'title' => __( 'Starter Templates', 'responsive' ),
 			'desc'  => __( 'Unlock the library of 100+ Premium Starter Templates.', 'responsive' ),
 			'links' => array(
@@ -97,21 +82,6 @@
 				array(
 					'name' => __( 'Open Ticket', 'responsive' ),
 					'link' => 'https://cyberchimps.com/open-a-ticket/',
-				),
-			),
-		),
-		array(
-			'tag'   => 'pro',
-			'title' => __( 'Pro Customizer Options', 'responsive' ),
-			'desc'  => __( 'Unlock Premium Customizer Settings with the Responsive Pro Plugin.', 'responsive' ),
-			'links' => array(
-				array(
-					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://docs.cyberchimps.com/responsive/responsive-pro-modules/',
-				),
-				array(
-					'name' => __( 'Customize', 'responsive' ),
-					'link' => admin_url( 'customize.php?return=%2Fresponsive%2Fwp-admin%2Fthemes.php%3Fpage%3Dresponsive' ),
 				),
 			),
 		),
@@ -144,6 +114,21 @@
 					'name'   => __( 'Settings', 'responsive' ),
 					'link'   => admin_url( 'edit.php?post_type=rea-theme-template' ),
 					'status' => $is_rea_active,
+				),
+			),
+		),
+		array(
+			'tag'   => 'pro',
+			'title' => __( 'White Label', 'responsive' ),
+			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
+			'links' => array(
+				array(
+					'name' => __( 'Docs', 'responsive' ),
+					'link' => 'https://docs.cyberchimps.com/responsive/white-label/',
+				),
+				array(
+					'name' => __( 'Settings', 'responsive' ),
+					'link' => admin_url( 'themes.php?page=responsive#settings' ),
 				),
 			),
 		),
@@ -299,7 +284,7 @@
 							if ( 'activated' === $state ) {
 								?>
 								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpo_megamenu_enable')) { echo 'disable-customize'; }?>">
-									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
 									<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
@@ -328,48 +313,13 @@
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
-							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Woocommerce', 'responsive' ); ?></div>
-							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds enhanced set of options in the WooCommerce store customizer.', 'responsive' ); ?></div>
-							<?php
-							if ( 'activated' === $state ) {
-								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpro_woocommerce_enable')) { echo 'disable-customize'; }?>">
-									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
-									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo admin_url( 'customize.php' ) . '?autofocus[section]=woocommerce'; ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
-									<?php
-									global $wcam_lib_responsive_pro;
-									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
-									if ( 'Activated' !== $license_status && 'on' === $rpro_woocommerce_status ) {
-										update_option( 'rpro_woocommerce_enable', 'off' );
-									}
-									if ( 'Activated' === $license_status ) {
-										?>
-									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-woocommerce-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
-										<span class="resp-megamenu-slider resp-megamenu-round"></span>
-									</label>
-										<?php
-									}
-									?>
-								</div>
-								<?php
-							}
-							?>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="responsive-theme-feature-cards h-100">
-						<div class="responsive-theme-feature-cards-content">
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Typography', 'responsive' ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds options for font style, size, and family that suits your website best.', 'responsive' ); ?></div>
 							<?php
 							if ( 'activated' === $state ) {
 								?>
 								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpro_typography_enable')) { echo 'disable-customize'; }?>">
-									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/pro-modules/#typography-3' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
 									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_page_typography' ); ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
@@ -404,7 +354,7 @@
 							if ( 'activated' === $state ) {
 								?>
 								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpro_colors_backgrounds_enable')) { echo 'disable-customize'; }?>">
-									<a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/introducing-mega-menu-feature-in-responsive-theme' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/colors-and-backgrounds/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
 									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_colors' ); ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
@@ -417,6 +367,41 @@
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
 										<input class="resp-colors-backgrounds-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_colors_backgrounds' ) ); ?>" <?php echo esc_attr( $rpro_colors_backgrounds_status ); ?>>
+										<span class="resp-megamenu-slider resp-megamenu-round"></span>
+									</label>
+										<?php
+									}
+									?>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="responsive-theme-feature-cards h-100">
+						<div class="responsive-theme-feature-cards-content">
+							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
+							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html_e( 'Woocommerce', 'responsive' ); ?></div>
+							<div class="responsive-theme-feature-card-desc"><?php echo esc_html_e( 'Adds enhanced set of options in the WooCommerce store customizer.', 'responsive' ); ?></div>
+							<?php
+							if ( 'activated' === $state ) {
+								?>
+								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpro_woocommerce_enable')) { echo 'disable-customize'; }?>">
+									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/woocommerce-module/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
+									<span class="responsive-theme-feature-seperator">|</span>
+									<a href="<?php echo admin_url( 'customize.php' ) . '?autofocus[section]=woocommerce'; ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<?php
+									global $wcam_lib_responsive_pro;
+									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
+									if ( 'Activated' !== $license_status && 'on' === $rpro_woocommerce_status ) {
+										update_option( 'rpro_woocommerce_enable', 'off' );
+									}
+									if ( 'Activated' === $license_status ) {
+										?>
+									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
+										<input class="resp-woocommerce-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
