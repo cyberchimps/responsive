@@ -121,6 +121,38 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			}
 			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_breadcrumb', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'postMessage' );
 
+			// Breadcrumb separator.
+			$breadcrumb_separator_label   = esc_html__( 'Breadcrumb Seperator', 'responsive' );
+			$breadcrumb_separator_choices = array(
+				'rsaquo' => esc_html__( '›', 'responsive' ),
+				'raquo' => esc_html__( '»', 'responsive' ),
+				'sol' => esc_html__( '/', 'responsive' ),
+				'unicode' => esc_html('[/]','responsive'),
+			);
+			responsive_select_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_label, 'responsive_breadcrumb', 25, $breadcrumb_separator_choices, 'rsaquo', 'responsive_active_breadcrumb', 'refresh' );
+
+			// Breadcrumb Separator Text.
+			$wp_customize->add_setting(
+				'responsive_breadcrumb_unicode',
+				array(
+					'default'           => '\\00BB',
+					'sanitize_callback' => 'wp_check_invalid_utf8',
+					'type'              => 'theme_mod',
+					'transport'         => 'refresh',
+				)
+			);
+			$wp_customize->add_control(
+				'responsive_breadcrumb_unicode',
+				array(
+					'label'    => __( 'Unicode', 'responsive' ),
+					'section'  => 'responsive_breadcrumb',
+					'settings' => 'responsive_breadcrumb_unicode',
+					'type'     => 'text',
+					'priority' => 25,
+					'active_callback' => 'responsive_breadcrumb_separator_unicode'
+				)
+			);
+
 			// Padding (px).
 			$content_header_spacing_label = __( 'Spacing (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'content_header', 'responsive_breadcrumb', 35, 30, 30, 'responsive_active_breadcrumb', $content_header_spacing_label );

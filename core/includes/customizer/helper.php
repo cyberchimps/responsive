@@ -1392,6 +1392,16 @@ function responsive_active_breadcrumb() {
 }
 
 /**
+ * [responsive_breadcrumb_separator_unicode description].
+ *
+ * @return [type] [description]
+ */
+function responsive_breadcrumb_separator_unicode() {
+	$responsive_breadcrumb_separator     = get_theme_mod( 'responsive_breadcrumb_separator', '&rsaquo;' );
+	return ( responsive_active_breadcrumb() && 'unicode' === $responsive_breadcrumb_separator ) ? true : false;
+}
+
+/**
  * [responsive_enable_header_bottom_border_check description].
  */
 function responsive_enable_header_bottom_border_check() {
