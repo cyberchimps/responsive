@@ -1397,7 +1397,7 @@ function responsive_active_breadcrumb() {
  * @return [type] [description]
  */
 function responsive_breadcrumb_separator_unicode() {
-	$responsive_breadcrumb_separator     = get_theme_mod( 'responsive_breadcrumb_separator', '&rsaquo;' );
+	$responsive_breadcrumb_separator     = get_theme_mod( 'responsive_breadcrumb_separator', 'rsaquo' );
 	return ( responsive_active_breadcrumb() && 'unicode' === $responsive_breadcrumb_separator ) ? true : false;
 }
 

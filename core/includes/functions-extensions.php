@@ -69,7 +69,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show.
 		$show['home']    = 1; // 1 - show breadcrumbs on the homepage, 0 - don't show.
 
-		$responsive_breadcrumb_separator = get_theme_mod( 'responsive_breadcrumb_separator', '&rsaquo;' );
+		$responsive_breadcrumb_separator = get_theme_mod( 'responsive_breadcrumb_separator', 'rsaquo' );
 
 		$responsive_breadcrumb_unicode	= get_theme_mod('responsive_breadcrumb_unicode');
 		$unicode_lower=strtolower($responsive_breadcrumb_unicode);
