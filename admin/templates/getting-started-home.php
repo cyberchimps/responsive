@@ -124,7 +124,7 @@
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://docs.cyberchimps.com/responsive/white-label/',
+					'link' => 'https://cyberchimps.com/docs/how-to-white-label-cyberchimps-responsive-theme/',
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
@@ -169,6 +169,22 @@
 	$rpro_woocommerce_status = 'on' === get_option( 'rpro_woocommerce_enable' ) ? 'checked' : '';
 	$rpro_typography_status = 'on' === get_option( 'rpro_typography_enable' ) ? 'checked' : '';
 	$rpro_colors_backgrounds_status = 'on' === get_option( 'rpro_colors_backgrounds_enable' ) ? 'checked' : '';
+	
+	if (!get_option('rpo_megamenu_enable')) {
+		add_option('rpo_megamenu_enable', 'on');
+	}
+	
+	if (!get_option('rpro_typography_enable')) {
+		add_option('rpro_typography_enable', 'on');
+	}
+	
+	if (!get_option('rpro_colors_backgrounds_enable')) {
+		add_option('rpro_colors_backgrounds_enable', 'on');
+	}
+	
+	if (!get_option('rpro_woocommerce_enable')) {
+		add_option('rpro_woocommerce_enable', 'on');
+	}
 
 	?>
 
@@ -283,10 +299,10 @@
 							<?php
 							if ( 'activated' === $state ) {
 								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpo_megamenu_enable')) { echo 'disable-customize'; }?>">
+								<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpo_megamenu_enable') ) { echo 'disable-customize'; }?>">
 									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
@@ -296,7 +312,7 @@
 									if ( 'Activated' === $license_status ) {
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-megamenu-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
+										<input class="resp-megamenu-input-checkbox" type="checkbox" <?php if('on' === get_option('rpo_megamenu_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
@@ -318,20 +334,20 @@
 							<?php
 							if ( 'activated' === $state ) {
 								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpro_typography_enable')) { echo 'disable-customize'; }?>">
+								<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpro_typography_enable') ) { echo 'disable-customize'; }?>">
 									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/pro-modules/#typography-3' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_page_typography' ); ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_page_typography' ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
-									if ( 'Activated' !== $license_status && 'checked' === $rpro_typography_status ) {
+									if ( 'Activated' !== $license_status && 'on' === $rpro_typography_status ) {
 										update_option( 'rpro_typography_enable', 'off' );
 									}
 									if ( 'Activated' === $license_status ) {
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-typography-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_typography' ) ); ?>" <?php echo esc_attr( $rpro_typography_status ); ?>>
+										<input class="resp-typography-input-checkbox" type="checkbox" <?php if('on' === get_option('rpro_typography_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_typography' ) ); ?>" <?php echo esc_attr( $rpro_typography_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
@@ -353,20 +369,20 @@
 							<?php
 							if ( 'activated' === $state ) {
 								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpro_colors_backgrounds_enable')) { echo 'disable-customize'; }?>">
+								<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpro_colors_backgrounds_enable') ) { echo 'disable-customize'; }?>">
 									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/colors-and-backgrounds/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_colors' ); ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_colors' ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
-									if ( 'Activated' !== $license_status && 'checked' === $rpro_colors_backgrounds_status ) {
+									if ( 'Activated' !== $license_status && 'on' === $rpro_colors_backgrounds_status ) {
 										update_option( 'rpro_colors_backgrounds_enable', 'off' );
 									}
 									if ( 'Activated' === $license_status ) {
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-colors-backgrounds-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_colors_backgrounds' ) ); ?>" <?php echo esc_attr( $rpro_colors_backgrounds_status ); ?>>
+										<input class="resp-colors-backgrounds-input-checkbox" type="checkbox" <?php if('on' === get_option('rpro_colors_backgrounds_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_colors_backgrounds' ) ); ?>" <?php echo esc_attr( $rpro_colors_backgrounds_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
@@ -388,10 +404,10 @@
 							<?php
 							if ( 'activated' === $state ) {
 								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if('off'=== get_option('rpro_woocommerce_enable')) { echo 'disable-customize'; }?>">
+								<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpro_woocommerce_enable') ) { echo 'disable-customize'; }?>">
 									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/woocommerce-module/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo admin_url( 'customize.php' ) . '?autofocus[section]=woocommerce'; ?>" class="rpro-feature-customize-btn" target="_blank"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo admin_url( 'customize.php' ) . '?autofocus[section]=woocommerce'; ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
@@ -401,7 +417,7 @@
 									if ( 'Activated' === $license_status ) {
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-woocommerce-input-checkbox" type="checkbox" data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
+										<input class="resp-woocommerce-input-checkbox" type="checkbox" <?php if('on' === get_option('rpro_woocommerce_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
@@ -418,7 +434,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="responsive-theme-home-links mt-4">
-						<a href="<?php echo esc_url( 'https://cyberchimps.com/responsive-features/' ); ?>" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
+						<a href="<?php echo esc_url( 'https://cyberchimps.com/responsive-go-pro/' ); ?>" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
 					</div>
 				</div>
 			</div>

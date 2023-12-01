@@ -142,7 +142,7 @@ $(document).ready(function () {
         event.preventDefault();
         $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
         let value = $(this).prop("checked") ? 'on' : 'off'
-        console.log(value)
+
         let nonce = $(this).data('nonce')
         $.ajax(
             {
@@ -171,7 +171,7 @@ $(document).ready(function () {
         event.preventDefault();
         $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
         let value = $(this).prop("checked") ? 'on' : 'off'
-        console.log(value)
+
         let nonce = $(this).data('nonce')
         $.ajax(
             {
@@ -199,7 +199,7 @@ $(document).ready(function () {
         event.preventDefault();
         $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
         let value = $(this).prop("checked") ? 'on' : 'off'
-        console.log(value)
+
         let nonce = $(this).data('nonce')
         $.ajax(
             {
@@ -227,7 +227,7 @@ $(document).ready(function () {
         event.preventDefault()
         $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
         let value = $(this).prop("checked") ? 'on' : 'off'
-        console.log(value)
+
         let nonce = $(this).data('nonce')
         $.ajax(
             {

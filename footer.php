@@ -35,7 +35,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		|| ( is_account_page() && 1 === get_theme_mod( 'responsive_disable_account_header_footer', 0 ) )
 		|| ( is_product_category() && 1 === get_theme_mod( 'responsive_disable_product_category_header_footer', 0 ) )
 		|| ( is_product_tag() && 1 === get_theme_mod( 'responsive_disable_product_tag_header_footer', 0 ) )
-		)
+		) && 'on' === get_option( 'rpro_woocommerce_enable' )
 	) {
 		$responsive_show_footer = false;
 	}

@@ -57,7 +57,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 
 			// Buttons Border Width.
 			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 17, 0 );
+			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 17, 1 );
 
 			// Buttons Typography.
 			$buttons_typography_label = esc_html__( 'Buttons Typography', 'responsive' );
