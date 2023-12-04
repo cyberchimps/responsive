@@ -92,7 +92,7 @@
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/',
+					'link' => 'https://cyberchimps.com/elementor-widgets/docs/',
 				),
 				array(
 					'name'   => __( 'Settings', 'responsive' ),
@@ -108,7 +108,7 @@
 			'links' => array(
 				array(
 					'name' => __( 'Docs', 'responsive' ),
-					'link' => 'https://docs.cyberchimps.com/responsive-elementor-addons/rea-theme-builder',
+					'link' => 'https://cyberchimps.com/elementor-widgets/docs/theme-builder/',
 				),
 				array(
 					'name'   => __( 'Settings', 'responsive' ),
