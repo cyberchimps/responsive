@@ -346,7 +346,7 @@ function responsive_pro_promotion_scripts() {
 							section.headContainer.append( customMessage );
 						} );
 					});
-	            	wp.customize.section( \'responsive_header_scripts\', function( section ) {
+	            	wp.customize.section( \'responsive_header_transparent\', function( section ) {
 						section.deferred.embedded.done( function() {
 							let customMessage = jQuery( wp.template( \'resp-customizer-promo-header-section\' )() );
 							section.headContainer.append( customMessage );

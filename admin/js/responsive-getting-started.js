@@ -139,9 +139,10 @@ $(document).ready(function () {
 
     // Toggle for MegaMenu.
     $('.resp-megamenu-input-checkbox').on('change', function(event){
-        event.preventDefault()
+        event.preventDefault();
+        $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
         let value = $(this).prop("checked") ? 'on' : 'off'
-        console.log(value)
+
         let nonce = $(this).data('nonce')
         $.ajax(
             {
@@ -150,6 +151,91 @@ $(document).ready(function () {
                 data:
                 {
                     action: 'responsive-pro-enable-megamenu',
+                    _nonce: nonce,
+                    value
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( 'Settings Saved', 'success' );
+                    } else {
+                        displayToast( 'Error', 'error' );
+                    }
+                }
+            }
+        );
+    })
+
+    // Toggle for Woocommerce.
+    $('.resp-woocommerce-input-checkbox').on('change', function(event){
+        event.preventDefault();
+        $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
+        let value = $(this).prop("checked") ? 'on' : 'off'
+
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-enable-woocommerce',
+                    _nonce: nonce,
+                    value
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( 'Settings Saved', 'success' );
+                    } else {
+                        displayToast( 'Error', 'error' );
+                    }
+                }
+            }
+        );
+    })
+    // Toggle for Typography.
+    $('.resp-typography-input-checkbox').on('change', function(event){
+        event.preventDefault();
+        $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
+        let value = $(this).prop("checked") ? 'on' : 'off'
+
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-enable-typography',
+                    _nonce: nonce,
+                    value
+                },
+                success: function success( data )
+                {
+                    if (data.success) {
+                        displayToast( 'Settings Saved', 'success' );
+                    } else {
+                        displayToast( 'Error', 'error' );
+                    }
+                }
+            }
+        );
+    })
+    // Toggle for Colors & Backgrounds scripts.
+    $('.resp-colors-backgrounds-input-checkbox').on('change', function(event){
+        event.preventDefault()
+        $(this).parents('.responsive-theme-pro-features').toggleClass('disable-customize');
+        let value = $(this).prop("checked") ? 'on' : 'off'
+
+        let nonce = $(this).data('nonce')
+        $.ajax(
+            {
+                type: 'POST',
+                url: localize.ajaxurl,
+                data:
+                {
+                    action: 'responsive-pro-enable-colors-backgrounds',
                     _nonce: nonce,
                     value
                 },

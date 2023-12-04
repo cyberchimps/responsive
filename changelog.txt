@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/04/2023) = Added - Version 4.9.2
+[+] = Feature = Introducing performance based modules for Typograpy, Colors and Backgrounds, WooCommerce. With the introduction of modules, you can enable/disable settings from Responsive Pro plugin as required.
+[!] = Fixed = Minor Bug Fixes.
+
 (11/21/2023) = Added - Version 4.9.1
 [+] = Feature = Introducing the white labelling feature for Responsive theme.
 

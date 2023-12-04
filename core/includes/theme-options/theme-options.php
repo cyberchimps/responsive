@@ -49,6 +49,7 @@ function responsive_inline_js_head() {
 
 add_action( 'wp_head', 'responsive_inline_js_head' );
 
+
 /**
  * Add inline js to footer
  */
@@ -63,3 +64,4 @@ function responsive_inline_js_footer() {
 }
 
 add_action( 'wp_footer', 'responsive_inline_js_footer' );
+
