@@ -434,7 +434,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="responsive-theme-home-links mt-4">
-						<a href="<?php echo esc_url( 'https://cyberchimps.com/responsive-go-pro/' ); ?>" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
+						<a href="<?php echo esc_url( 'https://cyberchimps.com/responsive-go-pro/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=See_all_Pro_features' ); ?>" target="_blank"><?php esc_html_e( 'See all PRO features', 'responsive' ); ?></a>
 					</div>
 				</div>
 			</div>
