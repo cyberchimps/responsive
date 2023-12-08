@@ -19,7 +19,7 @@ $help_card = array(
 		'title' => __( 'Documentation', 'responsive' ),
 		'desc'  => __( 'Search for articles and documents created to help you use Responsive plugins.', 'responsive' ),
 		'icon'  => 'getting-started-help-documentation',
-		'link'  => 'https://docs.cyberchimps.com/responsive',
+		'link'  => 'https://cyberchimps.com/docs/',
 	),
 	array(
 		'title' => __( 'Video Tutorials', 'responsive' ),

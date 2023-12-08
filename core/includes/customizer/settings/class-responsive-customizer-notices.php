@@ -82,7 +82,7 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 				'responsive_docs_section',
 				array(
 					'theme_info_title' => esc_html__( 'Responsive', 'responsive' ),
-					'label_url'        => 'https://docs.cyberchimps.com/responsive/',
+					'label_url'        => 'https://cyberchimps.com/docs/',
 					'label_text'       => esc_html__( 'Documentation', 'responsive' ),
 					'priority'         => 259,
 				),

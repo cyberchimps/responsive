@@ -113,7 +113,7 @@ function responsive_upgrade_pro_react() {
 	?>
 
 	<div class="notice notice-error">
-		<p>Please update to the latest version of <strong>Responsive Pro ( V2.4.2 or higher )</strong> to be compatible with the latest <strong>Responsive</strong> theme. To upgrade to latest version of <strong>Responsive Pro Plugin</strong> follow <a href="<?php echo esc_url( 'https://docs.cyberchimps.com/responsive/faq#upgrade-responsive-pro-plugin-from-wordpress-dashboard' ); ?>">Documentation</a>.</p>
+		<p>Please update to the latest version of <strong>Responsive Pro ( V2.4.2 or higher )</strong> to be compatible with the latest <strong>Responsive</strong> theme. To upgrade to latest version of <strong>Responsive Pro Plugin</strong> follow <a href="<?php echo esc_url( 'https://cyberchimps.com/docs-category/faq/' ); ?>">Documentation</a>.</p>
 	</div>
 	<?php
 }
