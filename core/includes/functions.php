@@ -485,7 +485,9 @@ function responsive_enqueue_comment_reply() {
  * Function enqueues scroll-to-top JS file
  */
 function responsive_enqueue_scrolltotop() {
-	wp_enqueue_script( 'responsive_theme_scroll-to-top', get_template_directory_uri() . '/core/includes/customizer/assets/js/scroll-to-top.js', array( 'jquery' ), RESPONSIVE_THEME_VERSION, true );
+	if ( get_theme_mod( 'responsive_scroll_to_top' ) ) {
+		wp_enqueue_script( 'responsive_theme_scroll-to-top', get_template_directory_uri() . '/core/includes/customizer/assets/js/scroll-to-top.js', array(), RESPONSIVE_THEME_VERSION, true );
+	}
 }
 
 /**
