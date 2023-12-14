@@ -8,7 +8,7 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
-(14/12/2023) = Added - Version 4.9.3
+(14/12/2023) = Added - Version 4.9.5
 [!] = Fixed = Minor Bug Fixes.
 [+] = Feature = Added separator icon options to Breadcrumbs settings.
 [*] = Changed = Minor UI Changes.
