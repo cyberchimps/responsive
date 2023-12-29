@@ -53,18 +53,18 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'Single Product Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
-				'right' => esc_html__( 'Right Sidebar', 'responsive' ),
-				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
-				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+				'left'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				'right' => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+				'no'    => esc_html__( 'dashicons-hidden', 'responsive' ),
 			);
 			if ( is_rtl() ) {
 				$sidebar_choices = array(
-					'right' => esc_html__( 'Left Sidebar', 'responsive' ),
-					'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
-					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+					'left'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'right' => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'no'    => esc_html__( 'dashicons-hidden', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 60, $sidebar_choices, 'no', null );
+			responsive_select_button_control( $wp_customize, 'single_product_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 60, $sidebar_choices, 'no', null );
 
 			// Product Elements.
 			$single_product_elements_label = esc_html__( 'Product Elements', 'responsive' );

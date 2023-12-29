@@ -101,13 +101,13 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 					$i
 				);
 				$alignment_choices = array(
-					'left'   => esc_html__( 'Left', 'responsive' ),
-					'center' => esc_html__( 'Center', 'responsive' ),
-					'right'  => esc_html__( 'Right', 'responsive' ),
+					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 				);
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_desktop_' . $i, $alignment_desktop_label, $_section, 40, $alignment_choices, 'left', null, 'postMessage' );
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_tablet_' . $i, $alignment_tablet_label, $_section, 40, $alignment_choices, 'center', null, 'postMessage' );
-				responsive_select_control( $wp_customize, 'footer_widget_alignment_mobile_' . $i, $alignment_mobile_label, $_section, 40, $alignment_choices, 'center', null, 'postMessage' );
+				responsive_select_button_control( $wp_customize, 'footer_widget_alignment_desktop_' . $i, $alignment_desktop_label, $_section, 40, $alignment_choices, 'left', null, 'postMessage' );
+				responsive_select_button_control( $wp_customize, 'footer_widget_alignment_tablet_' . $i, $alignment_tablet_label, $_section, 40, $alignment_choices, 'center', null, 'postMessage' );
+				responsive_select_button_control( $wp_customize, 'footer_widget_alignment_mobile_' . $i, $alignment_mobile_label, $_section, 40, $alignment_choices, 'center', null, 'postMessage' );
 			}
 
 			/**
