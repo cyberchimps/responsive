@@ -4,7 +4,7 @@
  *
  * @package     Responsive WordPress theme
  * @subpackage  Controls
- * @since       4.6
+ * @since       4.9.6
  */
 
 // Exit if accessed directly.
