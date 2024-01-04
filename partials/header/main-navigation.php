@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <nav id="site-navigation" class="main-navigation" role="navigation"  <?php responsive_schema_markup( 'site-title' ); ?> aria-label="<?php esc_attr_e( 'Main Menu', 'responsive' ); ?>" >
-	<h2 class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></h2>
+	<p class="screen-reader-text"><?php esc_html_e( 'Main Navigation', 'responsive' ); ?></p>
 	<div class="main-navigation-wrapper">
 		<?php
 		if ( function_exists( 'responsive_hamburger_menu_label' ) ) {
