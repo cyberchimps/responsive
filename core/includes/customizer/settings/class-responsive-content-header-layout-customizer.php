@@ -107,19 +107,19 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			// Content Header Allignment.
 			$content_header_alignment_label   = esc_html__( 'Alignment', 'responsive' );
 			$content_header_alignment_choices = array(
-				'center' => esc_html__( 'Center', 'responsive' ),
-				'left'   => esc_html__( 'Left', 'responsive' ),
-				'right'  => esc_html__( 'Right', 'responsive' ),
+				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 			);
 
 			if ( is_rtl() ) {
 				$content_header_alignment_choices = array(
-					'left'   => esc_html__( 'Right', 'responsive' ),
-					'right'  => esc_html__( 'Left', 'responsive' ),
-					'center' => esc_html__( 'center', 'responsive' ),
+					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_breadcrumb', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'content_header_alignment', $content_header_alignment_label, 'responsive_breadcrumb', 30, $content_header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb_alignment' ), 'responsive_active_breadcrumb', 'postMessage' );
 
 			// Breadcrumb separator.
 			$breadcrumb_separator_label   = esc_html__( 'Breadcrumb Seperator', 'responsive' );
@@ -129,7 +129,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 				'sol' => esc_html__( '/', 'responsive' ),
 				'unicode' => esc_html('[/]','responsive'),
 			);
-			responsive_select_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_label, 'responsive_breadcrumb', 25, $breadcrumb_separator_choices, 'rsaquo', 'responsive_active_breadcrumb', 'refresh' );
+			responsive_select_button_control( $wp_customize, 'breadcrumb_separator', $breadcrumb_separator_label, 'responsive_breadcrumb', 25, $breadcrumb_separator_choices, 'rsaquo', 'responsive_active_breadcrumb', 'refresh' );
 
 			// Breadcrumb Separator Text.
 			$wp_customize->add_setting(

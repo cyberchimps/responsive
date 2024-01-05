@@ -53,18 +53,18 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			// Sidebar Position.
 			$sidebar_label   = esc_html__( 'Woocommerce Sidebar Position', 'responsive' );
 			$sidebar_choices = array(
-				'right' => esc_html__( 'Right Sidebar', 'responsive' ),
-				'left'  => esc_html__( 'Left Sidebar', 'responsive' ),
-				'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+					'left'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'right' => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'no'    => esc_html__( 'dashicons-hidden', 'responsive' ),
 			);
 			if ( is_rtl() ) {
 				$sidebar_choices = array(
-					'right' => esc_html__( 'Left Sidebar', 'responsive' ),
-					'left'  => esc_html__( 'Right Sidebar', 'responsive' ),
-					'no'    => esc_html__( 'No Sidebar', 'responsive' ),
+					'left'  => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'right' => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'no'    => esc_html__( 'dashicons-hidden', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 50, $sidebar_choices, 'no', null );
+			responsive_select_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 50, $sidebar_choices, 'no', null );
 
 			// Shop Elements.
 			$shop_elements_label = esc_html__( 'Shop Product', 'responsive' );
@@ -81,18 +81,18 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			// Product content Aligmnment.
 			$product_content_aligmnment_label   = esc_html__( 'Content Aligmnment', 'responsive' );
 			$product_content_aligmnment_choices = array(
-				'center' => esc_html__( 'Center', 'responsive' ),
-				'left'   => esc_html__( 'Left', 'responsive' ),
-				'right'  => esc_html__( 'Right', 'responsive' ),
+				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 			);
 			if ( is_rtl() ) {
 				$product_content_aligmnment_choices = array(
-					'right'  => esc_html__( 'Left', 'responsive' ),
-					'left'   => esc_html__( 'Right', 'responsive' ),
-					'center' => esc_html__( 'center', 'responsive' ),
+					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'product_content_aligmnment', $product_content_aligmnment_label, 'responsive_woocommerce_shop_layout', 60, $product_content_aligmnment_choices, 'center', null );
+			responsive_select_button_control( $wp_customize, 'product_content_aligmnment', $product_content_aligmnment_label, 'responsive_woocommerce_shop_layout', 60, $product_content_aligmnment_choices, 'center', null );
 
 			// Shop Elements.
 			$wp_customize->add_setting(
