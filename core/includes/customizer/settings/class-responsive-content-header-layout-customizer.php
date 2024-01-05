@@ -144,7 +144,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			$wp_customize->add_control(
 				'responsive_breadcrumb_unicode',
 				array(
-					'label'    => __( 'Unicode', 'responsive' ),
+					'label'    => __( 'Custom Icon (Unicode)', 'responsive' ),
 					'section'  => 'responsive_breadcrumb',
 					'settings' => 'responsive_breadcrumb_unicode',
 					'type'     => 'text',
