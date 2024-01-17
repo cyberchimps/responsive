@@ -51,6 +51,9 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 			add_filter( 'lifterlms_loop_columns', array( $this, 'columns_lifter_lms' ) );
 			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
+			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid_2' ), 9999 );
+			add_action('lifterlms_before_student_dashboard',array($this,'dashboard_layout'));
+			add_action( 'lifterlms_after_student_dashboard', array( $this, 'dashboard_wrapper_close' ), 20 );
 
 			// Add Content Wrappers
 			add_action( 'lifterlms_before_main_content', array( $this, 'before_main_content_start' ) );
@@ -63,8 +66,6 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 			// Lifter Notice
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'lifter_enqueue_notices_handler' ), 999 );
-			add_action( 'customize_controls_print_scripts', array( $this, 'lifter_print_templates' ), 1 );
-
 		}
 
 		/**
@@ -78,6 +79,8 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-panel.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-content-customizer.php';
 			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-sidebar.php';
+			require RESPONSIVE_THEME_DIR . 'core/includes/compatibility/lifterlms/customizer/settings/class-responsive-lifterlms-user-dashborad.php';
+
 		}
 
 		/**
@@ -113,6 +116,29 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 			$classes[] ='cols-'.$no_of_cols;
 			return $classes;
+		}
+		public function course_responsive_grid_2 ( $classes ) {
+
+			$llms_grid = get_option( 'theme_mods_responsive' );
+
+			$no_of_cols = get_theme_mod ( 'lifterlms_dashboard_course_columns' ) ;
+			$dash_id = llms_get_page_id( 'myaccount' );
+			if ( get_the_ID() === $dash_id ) {
+			
+			$classes = array_filter($classes, function($class) {
+				return strpos($class, 'cols-') !== 0;
+			});	
+			}		
+			$classes[] ='cols-'.$no_of_cols;
+			return $classes;
+		}
+		public function dashboard_layout() {
+			$dashboard_display = get_theme_mod('lifterlms_navigation_layout');
+			echo '<div class="responsive-llms-dash-wrap responsive-llms-dash-nav-' . esc_attr( $dashboard_display ) . '">';
+
+		}
+		public function dashboard_wrapper_close() {
+			echo '</div>';
 		}
 
 		/**
