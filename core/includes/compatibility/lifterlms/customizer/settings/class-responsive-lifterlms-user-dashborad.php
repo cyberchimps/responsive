@@ -29,8 +29,6 @@ if (class_exists('LifterLMS')) {
 			 */
             public function __construct()
 			{
-                error_log("i m running");
-
 				add_action('customize_register', array($this, 'customizer_options'));
 			}
 
