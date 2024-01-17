@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     function goToRST() {
         if ( localize.isRSTActivated ) {
-            window.location.href = localize.siteurl + '/wp-admin/admin.php?page=responsive-add-ons'
+            window.location.href = localize.siteurl + '/wp-admin/admin.php?page=responsive_add_ons'
             return
         }
     }

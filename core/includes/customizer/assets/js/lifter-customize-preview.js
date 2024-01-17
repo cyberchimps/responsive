@@ -39,18 +39,33 @@
 
     	/******** LifterLMS *********/
 		// Courses columns
-		api('lifterlms_columns', function( value ) {
-			value.bind( function( newval ) {
-				var coursesCol = $( '.llms-loop-list.llms-course-list' );
-				if ( coursesCol.length ) {
-					$.each( llmsCol, function( i, v ) {
-						coursesCol.removeClass( 'cols-'+ v );
-					});
-					coursesCol.addClass( 'cols-'+ newval );
-				}
+		if ($('body').hasClass('post-type-archive')) {
+			api('lifterlms_columns', function (value) {
+				value.bind(function (newval) {
+					var coursesCol = $(".llms-loop-list.llms-course-list");
+						if (coursesCol.length) {
+							coursesCol.removeClass(function (index, className) {
+								return (className.match(/(^|\s)cols-\S+/g) || []).join(' ');			
+							});
+						coursesCol.addClass('cols-' + newval);
+					}
+				});
 			});
-		});
-
+		}
+		if ($('.llms-student-dashboard').length > 0) {
+			console.log("i got executed");
+		api('lifterlms_dashboard_course_columns', function (value) {
+				value.bind(function (newval) {
+					var coursesCol = $(".llms-loop-list.llms-course-list");
+					console.log(coursesCol);
+					if (coursesCol.length) {
+						coursesCol.removeClass(function (index, className) {
+							return (className.match(/(^|\s)cols-\S+/g) || []).join(' ');			
+						});
+					}
+				});
+			});
+		}
 
 
 	// Theme Options -> Layout
