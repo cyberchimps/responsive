@@ -269,8 +269,6 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 
 			wp_enqueue_style( 'lifter-main-notice-style', get_template_directory_uri() . "/core/css/lifterlms/lifter_notice{$suffix}.css", false, $responsive['Version'] );
 
-			// wp_register_script( 'responsive-customizer-lms-notices-handler', trailingslashit( get_template_directory_uri() ) . 'core/includes/customizer/assets/min/js/lms-customizer-notices-handler.js', array( 'customize-controls' ), RESPONSIVE_THEME_VERSION );
-
 			wp_enqueue_script( 'responsive-customizer-lms-notices-handler' );
 		}
 
