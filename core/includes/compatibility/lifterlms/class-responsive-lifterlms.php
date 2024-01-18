@@ -50,8 +50,7 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
 			add_filter( 'lifterlms_loop_columns', array( $this, 'columns_lifter_lms' ) );
-			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 999 );
-			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid_2' ), 9999 );
+			add_filter( 'llms_get_loop_list_classes', array( $this, 'course_responsive_grid' ), 9999 );
 			add_action('lifterlms_before_student_dashboard',array($this,'dashboard_layout'));
 			add_action( 'lifterlms_after_student_dashboard', array( $this, 'dashboard_wrapper_close' ), 20 );
 
@@ -108,30 +107,28 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			return $course_grid;
 		}
 
-		public function course_responsive_grid ( $classes ) {
-
+		public function course_responsive_grid( $classes ) {
 			$llms_grid = get_option( 'theme_mods_responsive' );
-
-			$no_of_cols = get_theme_mod ( 'lifterlms_columns' ) ;
-
-			$classes[] ='cols-'.$no_of_cols;
-			return $classes;
-		}
-		public function course_responsive_grid_2 ( $classes ) {
-
-			$llms_grid = get_option( 'theme_mods_responsive' );
-
-			$no_of_cols = get_theme_mod ( 'lifterlms_dashboard_course_columns' ) ;
+			$no_of_cols = get_theme_mod( 'lifterlms_columns' );
+			$no_of_cols_dashboard = get_theme_mod( 'lifterlms_dashboard_course_columns' );
 			$dash_id = llms_get_page_id( 'myaccount' );
+		
+			if ( in_array( 'post-type-archive', get_body_class() ) ) {
+				$classes = array_filter( $classes, function( $class ) {
+					return strpos( $class, 'cols-' ) !== 0;
+				});
+				$classes[] = 'cols-' . $no_of_cols;
+			} 
 			if ( get_the_ID() === $dash_id ) {
-			
-			$classes = array_filter($classes, function($class) {
-				return strpos($class, 'cols-') !== 0;
-			});	
-			}		
-			$classes[] ='cols-'.$no_of_cols;
+				$classes = array_filter( $classes, function( $class ) {
+					return strpos( $class, 'cols-' ) !== 0;
+				});
+				$classes[] = 'cols-' . $no_of_cols_dashboard;
+			}
+		
 			return $classes;
 		}
+		
 		public function dashboard_layout() {
 			$dashboard_display = get_theme_mod('lifterlms_navigation_layout');
 			echo '<div class="responsive-llms-dash-wrap responsive-llms-dash-nav-' . esc_attr( $dashboard_display ) . '">';
@@ -271,8 +268,6 @@ if ( ! class_exists( 'Responsive_LifterLMS' ) ) :
 			$suffix             = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 			wp_enqueue_style( 'lifter-main-notice-style', get_template_directory_uri() . "/core/css/lifterlms/lifter_notice{$suffix}.css", false, $responsive['Version'] );
-
-			wp_register_script( 'responsive-customizer-lms-notices-handler', trailingslashit( get_template_directory_uri() ) . 'core/includes/customizer/assets/min/js/lms-customizer-notices-handler.js', array( 'customize-controls' ), RESPONSIVE_THEME_VERSION );
 
 			wp_enqueue_script( 'responsive-customizer-lms-notices-handler' );
 		}
