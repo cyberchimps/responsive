@@ -330,15 +330,30 @@
   margin-left: -1px;
 }
 
-.llms-student-dashboard .llms-sd-item a:hover {
+.llms-student-dashboard .responsive-llms-dash-nav-right .llms-sd-item a:hover {
   border-left: 5px solid gray;
 }
-
-.llms-student-dashboard .llms-sd-item.current a {
+.llms-student-dashboard .responsive-llms-dash-nav-left .llms-sd-item a:hover {
+  border-right: 5px solid gray;
+}
+.llms-student-dashboard
+  .responsive-llms-dash-nav-right
+  .llms-sd-item.current
+  a {
   border-left: 5px solid gray;
   font-weight: bold;
 }
 
+.llms-student-dashboard
+  .responsive-llms-dash-nav-above
+  .llms-sd-item.current
+  a {
+  font-weight: bold;
+}
+.llms-student-dashboard .responsive-llms-dash-nav-left .llms-sd-item.current a {
+  border-right: 5px solid gray;
+  font-weight: bold;
+}
 .llms-student-dashboard .llms-sd-item {
   float: none;
 }
@@ -432,6 +447,6 @@
 .wp-site-blocks .grid-cols:before {
   display: none;
 }
-.llms-course-list {
+.responsive-llms-dash-wrap .llms-course-list {
   display: flex;
 }
