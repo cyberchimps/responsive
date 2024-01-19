@@ -354,12 +354,6 @@ function responsive_pro_promotion_scripts() {
 							section.headContainer.append( customMessage );
 						} );
 					});
-	            	wp.customize.section( \'responsive_page_content\', function( section ) {
-						section.deferred.embedded.done( function() {
-							let customMessage = jQuery( wp.template( \'resp-customizer-promo-page-section\' )() );
-							section.headContainer.append( customMessage );
-						} );
-					});
 	            	wp.customize.section( \'responsive_single_blog_layout\', function( section ) {
 						section.deferred.embedded.done( function() {
 							let customMessage = jQuery( wp.template( \'resp-customizer-promo-blog-section\' )() );
