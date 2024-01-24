@@ -1530,6 +1530,30 @@ function responsive_customizer_styles() {
 	.main-navigation .menu > li > a {
 		color: {$header_menu_link_color};
 	}
+	.responsive-llms-dash-wrap .llms-sd-item .llms-sd-link {
+		color: {$link_color};
+	}
+	.responsive-llms-dash-wrap .llms-sd-item .llms-sd-link:hover {
+		color: {$link_hover_color};
+	}
+	.llms-student-dashboard .responsive-llms-dash-nav-left .llms-sd-item.current a {
+	border-right: 5px solid {$button_border_color};
+	}
+	.llms-student-dashboard .responsive-llms-dash-nav-left .llms-sd-item a:hover {
+		border-right: 5px solid {$button_hover_border_color};
+		}
+	.llms-student-dashboard .responsive-llms-dash-nav-right .llms-sd-item.current a {
+		border-left: 5px solid {$button_border_color};
+		}
+		.llms-student-dashboard .responsive-llms-dash-nav-right .llms-sd-item a:hover {
+		border-left: 5px solid {$button_hover_border_color};
+		}	
+	.llms-student-dashboard .responsive-llms-dash-nav-right nav.llms-sd-nav	{
+	border-left:1px solid {$button_border_color};
+	}
+	.llms-student-dashboard .responsive-llms-dash-nav-left nav.llms-sd-nav{
+		border-right:1px solid {$button_border_color};
+	}
 	.main-navigation .res-iconify svg{
 		stroke: {$header_menu_link_color};
 	}
