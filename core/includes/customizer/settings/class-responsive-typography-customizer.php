@@ -39,250 +39,294 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		}
 
 		/**
+		 * Verify if the version of specified products is greater or not.
+		 *
+		 * @since 4.9.7
+		 */
+		public function is_responsive_version_greater() {
+			$theme                    = wp_get_theme( 'responsive' );
+			$is_theme_version_greater = false;
+			if ( version_compare( $theme['Version'], '4.9.6', '>' ) ) {
+				$is_theme_version_greater = true;
+			}
+			return $is_theme_version_greater;
+		}
+
+		/**
 		 * Array of Typography settings to add to the customizer
 		 *
 		 * @since 1.0.0
 		 */
 		public function elements() {
 			$selectorArray = self::getSelectorArray();
+
+			$responsive_theme_typography_settings = array(
+				'body'                       => array(
+					'label'    => esc_html__( 'Body', 'responsive' ),
+					'target'   => $selectorArray['body'],
+					'section'  => 'responsive_typography',
+					'priority' => 2,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '16px',
+						'font-weight'    => '400',
+						'line-height'    => '1.75',
+						'text-transform' => 'inherit',
+					),
+				),
+
+				'headings'                   => array(
+					'label'    => esc_html__( 'All Headings', 'responsive' ),
+					'target'   => $selectorArray['headings'],
+					'section'  => 'responsive_typography',
+					'priority' => 5,
+					'exclude'  => array( 'font-color', 'font-size', 'font-style' ),
+					'defaults' => array(
+						'line-height'    => '1.25',
+						'text-transform' => 'inherit',
+					),
+				),
+
+				'heading_h1'                 => array(
+					'label'    => esc_html__( 'Heading 1 (H1)', 'responsive' ),
+					'target'   => $selectorArray['heading_h1'],
+					'section'  => 'responsive_typography',
+					'priority' => 7,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '33px',
+						'line-height'    => '1.25',
+						'text-transform' => 'inherit',
+					),
+				),
+				'heading_h2'                 => array(
+					'label'    => esc_html__( 'Heading 2 (H2)', 'responsive' ),
+					'target'   => $selectorArray['heading_h2'],
+					'section'  => 'responsive_typography',
+					'priority' => 9,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '26px',
+						'line-height'    => '1.25',
+						'text-transform' => 'inherit',
+					),
+				),
+				'heading_h3'                 => array(
+					'label'    => esc_html__( 'Heading 3 (H3)', 'responsive' ),
+					'target'   => $selectorArray['heading_h3'],
+					'section'  => 'responsive_typography',
+					'priority' => 11,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '20px',
+						'line-height'    => '1.25',
+						'text-transform' => 'inherit',
+					),
+				),
+				'heading_h4'                 => array(
+					'label'    => esc_html__( 'Heading 4 (H4)', 'responsive' ),
+					'target'   => $selectorArray['heading_h4'],
+					'section'  => 'responsive_typography',
+					'priority' => 13,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '16px',
+						'line-height'    => '1.25',
+						'text-transform' => 'inherit',
+					),
+				),
+				'heading_h5'                 => array(
+					'label'    => esc_html__( 'Heading 5 (H5)', 'responsive' ),
+					'target'   => $selectorArray['heading_h5'],
+					'section'  => 'responsive_typography',
+					'priority' => 15,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '13px',
+						'line-height'    => '1.25',
+						'text-transform' => 'inherit',
+					),
+				),
+				'heading_h6'                 => array(
+					'label'    => esc_html__( 'Heading 6 (H6)', 'responsive' ),
+					'target'   => $selectorArray['heading_h6'],
+					'section'  => 'responsive_typography',
+					'priority' => 17,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.25',
+					),
+				),
+				'meta'                       => array(
+					'label'    => esc_html__( 'Meta', 'responsive' ),
+					'target'   => $selectorArray['meta'],
+					'section'  => 'responsive_typography',
+					'priority' => 19,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '12px',
+						'line-height'    => '1.75',
+						'text-transform' => 'uppercase',
+					),
+				),
+				'button'                     => array(
+					'label'    => esc_html__( 'Body', 'responsive' ),
+					'target'   => $selectorArray['button'],
+					'section'  => 'responsive_button',
+					'priority' => 21,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1',
+					),
+				),
+				'input'                      => array(
+					'label'    => esc_html__( 'Body', 'responsive' ),
+					'target'   => $selectorArray['input'],
+					'section'  => 'responsive_form_fields',
+					'priority' => 23,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
+				'header_site_title'          => array(
+					'label'    => esc_html__( 'Site Title', 'responsive' ),
+					'target'   => $selectorArray['header_site_title'],
+					'section'  => 'responsive_header_title',
+					'priority' => 15,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '20px',
+						'line-height'    => '1',
+						'letter-spacing' => '0',
+					),
+				),
+				'header_site_tagline'        => array(
+					'label'    => esc_html__( 'Site Tagline', 'responsive' ),
+					'target'   => $selectorArray['header_site_tagline'],
+					'section'  => 'responsive_header_tagline',
+					'priority' => 15,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'      => '13px',
+						'line-height'    => '1.25',
+						'letter-spacing' => '0',
+					),
+				),
+				'header_widgets'             => array(
+					'label'    => esc_html__( 'Header Widgets', 'responsive' ),
+					'target'   => $selectorArray['header_widgets'],
+					'section'  => 'responsive_header_widget',
+					'priority' => 160,
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size' => '13px',
+					),
+				),
+				'header_menu'                => array(
+					'label'           => esc_html__( 'Typography', 'responsive' ),
+					'target'          => $selectorArray['header_menu'],
+					'section'         => 'responsive_header_menu_layout',
+					'exclude'         => array( 'font-color' ),
+					'priority'        => 110,
+					'active_callback' => 'responsive_disabled_main_menu',
+					'defaults'        => array(
+						'font-size'   => '16px',
+						'font-weight' => '600',
+						'line-height' => '1.75',
+					),
+				),
+				'sidebar'                    => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['sidebar'],
+					'panel'    => 'responsive_sidebar',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 30,
+					'defaults' => array(
+						'font-size' => '13px',
+					),
+				),
+				'content_header_heading'     => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['content_header_heading'],
+					'priority' => 90,
+					'section'  => 'responsive_content_header_layout',
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '33px',
+						'line-height' => '1.75',
+					),
+				),
+				'content_header_description' => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['content_header_description'],
+					'priority' => 100,
+					'section'  => 'responsive_content_header_layout',
+					'exclude'  => array( 'font-color' ),
+					'defaults' => array(
+						'font-size'   => '16px',
+						'line-height' => '1.75',
+					),
+				),
+				'breadcrumb'                 => array(
+					'label'           => esc_html__( 'Typography', 'responsive' ),
+					'target'          => $selectorArray['breadcrumb'],
+					'priority'        => 110,
+					'section'         => 'responsive_breadcrumb',
+					'exclude'         => array( 'font-color' ),
+					'active_callback' => 'responsive_active_breadcrumb',
+					'defaults'        => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
+				'footer'                     => array(
+					'label'    => esc_html__( 'Typography', 'responsive' ),
+					'target'   => $selectorArray['footer'],
+					'panel'    => 'responsive_footer',
+					'exclude'  => array( 'font-color' ),
+					'priority' => 30,
+					'defaults' => array(
+						'font-size'   => '13px',
+						'line-height' => '1.75',
+					),
+				),
+				'page_title'                 => array(
+					'label'    => esc_html__( 'Page Title', 'responsive' ),
+					'target'   => $selectorArray['page'],
+					'section'  => 'responsive_page_typography',
+					'exclude'  => array( '' ),
+					'priority' => 10,
+					'defaults' => array(
+						'color'       => '#333333',
+						'font-size'   => '32px',
+						'line-height' => '1.4',
+					),
+				),
+			);
+
+			if ( $this->is_responsive_version_greater() ) {
+				$responsive_theme_typography_settings['page_title'] = array(
+					'label'    => esc_html__( 'Page Title', 'responsive' ),
+					'target'   => $selectorArray['page'],
+					'section'  => 'responsive_page_typography',
+					'exclude'  => array( '' ),
+					'priority' => 10,
+					'defaults' => array(
+						'color'       => '#333333',
+						'font-size'   => '32px',
+						'line-height' => '1.4',
+					),
+				);
+			}
+
 			// Return settings.
 			return apply_filters(
 				'responsive_typography_settings',
-				array(
-					'body'                       => array(
-						'label'    => esc_html__( 'Body', 'responsive' ),
-						'target'   => $selectorArray['body'],
-						'section'  => 'responsive_typography',
-						'priority' => 2,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '16px',
-							'font-weight'    => '400',
-							'line-height'    => '1.75',
-							'text-transform' => 'inherit',
-						),
-					),
-
-					'headings'                   => array(
-						'label'    => esc_html__( 'All Headings', 'responsive' ),
-						'target'   => $selectorArray['headings'],
-						'section'  => 'responsive_typography',
-						'priority' => 5,
-						'exclude'  => array( 'font-color', 'font-size', 'font-style' ),
-						'defaults' => array(
-							'line-height'    => '1.25',
-							'text-transform' => 'inherit',
-						),
-					),
-
-					'heading_h1'                 => array(
-						'label'    => esc_html__( 'Heading 1 (H1)', 'responsive' ),
-						'target'   => $selectorArray['heading_h1'],
-						'section'  => 'responsive_typography',
-						'priority' => 7,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '33px',
-							'line-height'    => '1.25',
-							'text-transform' => 'inherit',
-						),
-					),
-					'heading_h2'                 => array(
-						'label'    => esc_html__( 'Heading 2 (H2)', 'responsive' ),
-						'target'   => $selectorArray['heading_h2'],
-						'section'  => 'responsive_typography',
-						'priority' => 9,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '26px',
-							'line-height'    => '1.25',
-							'text-transform' => 'inherit',
-						),
-					),
-					'heading_h3'                 => array(
-						'label'    => esc_html__( 'Heading 3 (H3)', 'responsive' ),
-						'target'   => $selectorArray['heading_h3'],
-						'section'  => 'responsive_typography',
-						'priority' => 11,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '20px',
-							'line-height'    => '1.25',
-							'text-transform' => 'inherit',
-						),
-					),
-					'heading_h4'                 => array(
-						'label'    => esc_html__( 'Heading 4 (H4)', 'responsive' ),
-						'target'   => $selectorArray['heading_h4'],
-						'section'  => 'responsive_typography',
-						'priority' => 13,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '16px',
-							'line-height'    => '1.25',
-							'text-transform' => 'inherit',
-						),
-					),
-					'heading_h5'                 => array(
-						'label'    => esc_html__( 'Heading 5 (H5)', 'responsive' ),
-						'target'   => $selectorArray['heading_h5'],
-						'section'  => 'responsive_typography',
-						'priority' => 15,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '13px',
-							'line-height'    => '1.25',
-							'text-transform' => 'inherit',
-						),
-					),
-					'heading_h6'                 => array(
-						'label'    => esc_html__( 'Heading 6 (H6)', 'responsive' ),
-						'target'   => $selectorArray['heading_h6'],
-						'section'  => 'responsive_typography',
-						'priority' => 17,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'   => '13px',
-							'line-height' => '1.25',
-						),
-					),
-					'meta'                       => array(
-						'label'    => esc_html__( 'Meta', 'responsive' ),
-						'target'   => $selectorArray['meta'],
-						'section'  => 'responsive_typography',
-						'priority' => 19,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '12px',
-							'line-height'    => '1.75',
-							'text-transform' => 'uppercase',
-						),
-					),
-					'button'                     => array(
-						'label'    => esc_html__( 'Body', 'responsive' ),
-						'target'   => $selectorArray['button'],
-						'section'  => 'responsive_button',
-						'priority' => 21,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'   => '16px',
-							'line-height' => '1',
-						),
-					),
-					'input'                      => array(
-						'label'    => esc_html__( 'Body', 'responsive' ),
-						'target'   => $selectorArray['input'],
-						'section'  => 'responsive_form_fields',
-						'priority' => 23,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'   => '16px',
-							'line-height' => '1.75',
-						),
-					),
-					'header_site_title'          => array(
-						'label'    => esc_html__( 'Site Title', 'responsive' ),
-						'target'   => $selectorArray['header_site_title'],
-						'section'  => 'responsive_header_title',
-						'priority' => 15,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '20px',
-							'line-height'    => '1',
-							'letter-spacing' => '0',
-						),
-					),
-					'header_site_tagline'        => array(
-						'label'    => esc_html__( 'Site Tagline', 'responsive' ),
-						'target'   => $selectorArray['header_site_tagline'],
-						'section'  => 'responsive_header_tagline',
-						'priority' => 15,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'      => '13px',
-							'line-height'    => '1.25',
-							'letter-spacing' => '0',
-						),
-					),
-					'header_widgets'             => array(
-						'label'    => esc_html__( 'Header Widgets', 'responsive' ),
-						'target'   => $selectorArray['header_widgets'],
-						'section'  => 'responsive_header_widget',
-						'priority' => 160,
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size' => '13px',
-						),
-					),
-					'header_menu'                => array(
-						'label'           => esc_html__( 'Typography', 'responsive' ),
-						'target'          => $selectorArray['header_menu'],
-						'section'         => 'responsive_header_menu_layout',
-						'exclude'         => array( 'font-color' ),
-						'priority'        => 110,
-						'active_callback' => 'responsive_disabled_main_menu',
-						'defaults'        => array(
-							'font-size'   => '16px',
-							'font-weight' => '600',
-							'line-height' => '1.75',
-						),
-					),
-					'sidebar'                    => array(
-						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['sidebar'],
-						'panel'    => 'responsive_sidebar',
-						'exclude'  => array( 'font-color' ),
-						'priority' => 30,
-						'defaults' => array(
-							'font-size' => '13px',
-						),
-					),
-					'content_header_heading'     => array(
-						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['content_header_heading'],
-						'priority' => 90,
-						'section'  => 'responsive_content_header_layout',
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'   => '33px',
-							'line-height' => '1.75',
-						),
-					),
-					'content_header_description' => array(
-						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['content_header_description'],
-						'priority' => 100,
-						'section'  => 'responsive_content_header_layout',
-						'exclude'  => array( 'font-color' ),
-						'defaults' => array(
-							'font-size'   => '16px',
-							'line-height' => '1.75',
-						),
-					),
-					'breadcrumb'                 => array(
-						'label'           => esc_html__( 'Typography', 'responsive' ),
-						'target'          => $selectorArray['breadcrumb'],
-						'priority'        => 110,
-						'section'         => 'responsive_breadcrumb',
-						'exclude'         => array( 'font-color' ),
-						'active_callback' => 'responsive_active_breadcrumb',
-						'defaults'        => array(
-							'font-size'   => '13px',
-							'line-height' => '1.75',
-						),
-					),
-					'footer'                     => array(
-						'label'    => esc_html__( 'Typography', 'responsive' ),
-						'target'   => $selectorArray['footer'],
-						'panel'    => 'responsive_footer',
-						'exclude'  => array( 'font-color' ),
-						'priority' => 30,
-						'defaults' => array(
-							'font-size'   => '13px',
-							'line-height' => '1.75',
-						),
-					),
-				)
+				$responsive_theme_typography_settings
 			);
 		}
 
@@ -290,32 +334,41 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 		 * Array of Typography settings selectors
 		 */
 		public function getSelectorArray() {
+
+			$responsive_typography_selectors = array(
+				'body'                       => 'body',
+				'headings'                   => 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6',
+				'heading_h1'                 => 'h1',
+				'heading_h2'                 => 'h2',
+				'heading_h3'                 => 'h3',
+				'heading_h4'                 => 'h4',
+				'heading_h5'                 => 'h5',
+				'heading_h6'                 => 'h6',
+				'meta'                       => '.hentry .post-data,.post-meta *',
+				'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, .entry-content div.wpforms-container-full .wpforms-form input[type=submit], body .entry-content div.wpforms-container-full .wpforms-form button[type=submit], .entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,.entry-content div.wpforms-container-full .wpforms-form input[type=submit],.entry-content div.wpforms-container-full .wpforms-form button[type=submit],.entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form button[type=submit], button,div.wpforms-container-full .wpforms-form .wpforms-submit-container',
+				'input'                      => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],.entry-content div.wpforms-container-full .wpforms-form input[type=date],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime-local],.entry-content div.wpforms-container-full .wpforms-form input[type=email],.entry-content div.wpforms-container-full .wpforms-form input[type=month],.entry-content div.wpforms-container-full .wpforms-form input[type=number],.entry-content div.wpforms-container-full .wpforms-form input[type=password],.entry-content div.wpforms-container-full .wpforms-form input[type=range],.entry-content div.wpforms-container-full .wpforms-form input[type=search],.entry-content div.wpforms-container-full .wpforms-form input[type=tel],.entry-content div.wpforms-container-full .wpforms-form input[type=text],.entry-content div.wpforms-container-full .wpforms-form input[type=time],.entry-content div.wpforms-container-full .wpforms-form input[type=url],.entry-content div.wpforms-container-full .wpforms-form input[type=week],.entry-content div.wpforms-container-full .wpforms-form select,.entry-content div.wpforms-container-full .wpforms-form textarea,body div.wpforms-container-full .wpforms-form input[type=text],body div.wpforms-container-full .wpforms-form input[type=email],body div.wpforms-container-full .wpforms-form textarea',
+				'header_site_title'          => '.site-title',
+				'header_site_title2'         => '.site-title a',
+				'header_site_tagline'        => '.site-description',
+				'header_widgets'             => '.header-widgets',
+				'header_menu'                => '.main-navigation a',
+				'sidebar'                    => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
+				'content_header_heading'     => '.site-content-header .page-header .page-title,.site-content-header .page-title',
+				'content_header_description' => '.site-content-header .page-header .page-description',
+				'breadcrumb'                 => '.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb',
+				'footer'                     => '.site-footer',
+				'page'                       => '.page .post-title, #main-blog h1',
+			);
+
+			if ( $this->is_responsive_version_greater() ) {
+				$responsive_typography_selectors['page'] = '.page .post-title, #main-blog h1';
+			}
+
 			$selectorArray = apply_filters(
 				'responsive_typography_selectors',
-				array(
-					'body'                       => 'body',
-					'headings'                   => 'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6',
-					'heading_h1'                 => 'h1',
-					'heading_h2'                 => 'h2',
-					'heading_h3'                 => 'h3',
-					'heading_h4'                 => 'h4',
-					'heading_h5'                 => 'h5',
-					'heading_h6'                 => 'h6',
-					'meta'                       => '.hentry .post-data,.post-meta *',
-					'button'                     => '.course #commentform #submit, .course .submit, .course a.button, .course a.button:visited, .course a.comment-reply-link, .course button.button, .course input.button, .course input[type=submit], .course-container #commentform #submit, .course-container .submit, .course-container a.button, .course-container a.button:visited, .course-container a.comment-reply-link, .course-container button.button, .course-container input.button, .course-container input[type=submit], .lesson #commentform #submit, .lesson .submit, .lesson a.button, .lesson a.button:visited, .lesson a.comment-reply-link, .lesson button.button, .lesson input.button, .lesson input[type=submit], .quiz #commentform #submit, .quiz .submit, .quiz a.button, .quiz a.button:visited, .quiz a.comment-reply-link, .quiz button.button, .quiz input.button, .quiz input[type=submit], .page.front-page .button, .blog.front-page .button, .read-more-button .hentry .read-more .more-link, input[type=button], input[type=submit], button, .button, .wp-block-button__link, .entry-content div.wpforms-container-full .wpforms-form input[type=submit], body .entry-content div.wpforms-container-full .wpforms-form button[type=submit], .entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,.entry-content div.wpforms-container-full .wpforms-form input[type=submit],.entry-content div.wpforms-container-full .wpforms-form button[type=submit],.entry-content div.wpforms-container-full .wpforms-form .wpforms-page-button,.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button, .woocommerce-cart .woocommerce a.button.alt,.woocommerce-cart .woocommerce a.button,.woocommerce button.button,.wp-block-button__link,body div.wpforms-container-full .wpforms-form button[type=submit], button,div.wpforms-container-full .wpforms-form .wpforms-submit-container',
-					'input'                      => 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],.entry-content div.wpforms-container-full .wpforms-form input[type=date],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime],.entry-content div.wpforms-container-full .wpforms-form input[type=datetime-local],.entry-content div.wpforms-container-full .wpforms-form input[type=email],.entry-content div.wpforms-container-full .wpforms-form input[type=month],.entry-content div.wpforms-container-full .wpforms-form input[type=number],.entry-content div.wpforms-container-full .wpforms-form input[type=password],.entry-content div.wpforms-container-full .wpforms-form input[type=range],.entry-content div.wpforms-container-full .wpforms-form input[type=search],.entry-content div.wpforms-container-full .wpforms-form input[type=tel],.entry-content div.wpforms-container-full .wpforms-form input[type=text],.entry-content div.wpforms-container-full .wpforms-form input[type=time],.entry-content div.wpforms-container-full .wpforms-form input[type=url],.entry-content div.wpforms-container-full .wpforms-form input[type=week],.entry-content div.wpforms-container-full .wpforms-form select,.entry-content div.wpforms-container-full .wpforms-form textarea,body div.wpforms-container-full .wpforms-form input[type=text],body div.wpforms-container-full .wpforms-form input[type=email],body div.wpforms-container-full .wpforms-form textarea',
-					'header_site_title'          => '.site-title',
-					'header_site_title2'         => '.site-title a',
-					'header_site_tagline'        => '.site-description',
-					'header_widgets'             => '.header-widgets',
-					'header_menu'                => '.main-navigation a',
-					'sidebar'                    => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
-					'content_header_heading'     => '.site-content-header .page-header .page-title,.site-content-header .page-title',
-					'content_header_description' => '.site-content-header .page-header .page-description',
-					'breadcrumb'                 => '.site-content-header .breadcrumb-list,.woocommerce .woocommerce-breadcrumb',
-					'footer'                     => '.site-footer',
-				)
+				$responsive_typography_selectors
 			);
+
 			return $selectorArray;
 		}
 
@@ -342,6 +395,17 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority' => 500,
 				)
 			);
+
+			if ( $this->is_responsive_version_greater() ) {
+				$wp_customize->add_section(
+					'responsive_page_typography',
+					array(
+						'title'    => esc_html__( 'Typography', 'responsive' ),
+						'panel'    => 'responsive_page',
+						'priority' => 30,
+					)
+				);
+			}
 
 			// Lopp through elements.
 			$count = '1';
@@ -747,6 +811,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'googleFontsWeight' => '100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i',
 					'googleFonts'       => responsive_get_google_fonts(),
 					'selectorArray'     => self::getSelectorArray(),
+					'isThemeGreater'    => $this->is_responsive_version_greater(),
 				)
 			);
 		}

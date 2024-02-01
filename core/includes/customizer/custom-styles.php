@@ -74,6 +74,22 @@ function responsive_get_color_palettes_schemes_as_customizer_choices() {
 
 }
 
+if ( ! function_exists( 'is_responsive_version_greater' ) ) {
+	/**
+	 * Verify if the version of specified products is greater or not.
+	 *
+	 * @since 4.9.7
+	 */
+	function is_responsive_version_greater() {
+		$theme                    = wp_get_theme( 'responsive' );
+		$is_theme_version_greater = false;
+		if ( version_compare( $theme['Version'], '4.9.6', '>' ) ) {
+			$is_theme_version_greater = true;
+		}
+		return $is_theme_version_greater;
+	}
+}
+
 /**
  * Outputs the custom styles for the theme.
  *
@@ -282,7 +298,237 @@ function responsive_customizer_styles() {
 			}
 		}";
 	}
-	
+
+	if ( is_responsive_version_greater() ) {
+		$footer_background_image                    = esc_url( get_theme_mod( 'responsive_footer_background_image' ) );
+		$header_background_image                    = esc_url( get_theme_mod( 'responsive_header_background_image' ) );
+		$header_widget_background_image             = esc_url( get_theme_mod( 'responsive_header_widget_background_image' ) );
+		$transparent_header_widget_background_image = esc_url( get_theme_mod( 'responsive_transparent_header_widget_background_image' ) );
+		$sidebar_background_image                   = esc_url( get_theme_mod( 'responsive_sidebar_background_image' ) );
+		$box_background_image                       = esc_url( get_theme_mod( 'responsive_box_background_image' ) );
+		$button_background_image                    = esc_url( get_theme_mod( 'responsive_button_background_image' ) );
+		$inputs_background_image                    = esc_url( get_theme_mod( 'responsive_inputs_background_image' ) );
+
+		if ( $box_background_image ) {
+			if ( class_exists( 'Sensei_Main' ) ) {
+				$custom_css .= '
+				.responsive-site-style-content-boxed .sensei-pagination,
+				.responsive-site-style-content-boxed.single-course nav.post-entries.fix,
+				.responsive-site-style-boxed .sensei-pagination,
+				.responsive-site-style-boxed.single-course nav.post-entries.fix,';
+			}
+
+				$custom_css .= ".page.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+			.blog.front-page.responsive-site-style-content-boxed .custom-home-widget-section.home-widgets,
+			.responsive-site-style-content-boxed .custom-home-about-section,
+			.responsive-site-style-content-boxed .custom-home-feature-section,
+			.responsive-site-style-content-boxed .custom-home-team-section,
+			.responsive-site-style-content-boxed .custom-home-testimonial-section,
+			.responsive-site-style-content-boxed .custom-home-contact-section,
+			.responsive-site-style-content-boxed .custom-home-widget-section,
+			.responsive-site-style-content-boxed .custom-home-featured-area,
+			.responsive-site-style-content-boxed .site-content-header,
+			.responsive-site-style-content-boxed .content-area-wrapper,
+			.responsive-site-style-content-boxed .site-content .hentry,
+			.responsive-site-style-content-boxed .give-wrap .give_forms,
+			.responsive-site-style-content-boxed .navigation,
+			.responsive-site-style-content-boxed .comments-area,
+			.responsive-site-style-content-boxed .comment-respond,
+			.responsive-site-style-boxed .custom-home-about-section,
+			.responsive-site-style-boxed .custom-home-feature-section,
+			.responsive-site-style-boxed .custom-home-team-section,
+			.responsive-site-style-boxed .custom-home-testimonial-section,
+			.responsive-site-style-boxed .custom-home-contact-section,
+			.responsive-site-style-boxed .custom-home-widget-section,
+			.responsive-site-style-boxed .custom-home-featured-area,
+			.responsive-site-style-boxed .site-content-header,
+			.responsive-site-style-boxed .site-content .hentry,
+			.responsive-site-style-boxed .give-wrap .give_forms,
+			.responsive-site-style-boxed .navigation,
+			.responsive-site-style-boxed .comments-area,
+			.responsive-site-style-boxed .comment-respond,
+			.responsive-site-style-boxed .comment-respond,
+			.responsive-site-style-boxed aside#secondary .widget-wrapper,
+			.responsive-site-style-boxed .site-content article.product {
+				background-color:{$box_background_color};
+				background-image: linear-gradient(to right, {$box_background_color}, {$box_background_color}), url({$box_background_image});
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: scroll;
+			}";
+		}
+	}
+
+	$sensei_button = '';
+	if ( class_exists( 'Sensei_Main' ) ) {
+
+		$sensei_button = '.course #commentform #submit,
+		.course .submit,
+		.course a.button,
+		.course a.button:visited,
+		.course a.comment-reply-link,
+		.course button.button,
+		.course input.button,
+		.course input[type=submit],
+		.course-container #commentform #submit,
+		.course-container .submit,
+		.course-container a.button,
+		.course-container a.button:visited,
+		.course-container a.comment-reply-link,
+		.course-container button.button,
+		.course-container input.button,
+		.course-container input[type=submit],
+		.lesson #commentform #submit,
+		.lesson .submit,
+		.lesson a.button,
+		.lesson a.button:visited,
+		.lesson a.comment-reply-link,
+		.lesson button.button,
+		.lesson input.button,
+		.lesson input[type=submit],
+		.quiz #commentform #submit,
+		.quiz .submit,
+		.quiz a.button,
+		.quiz a.button:visited,
+		.quiz a.comment-reply-link,
+		.quiz button.button,
+		.quiz input.button,
+		.quiz input[type=submit],';
+	}
+
+	if ( is_responsive_version_greater() ) {
+		$button_background_color = esc_html( get_theme_mod( 'responsive_button_color', '#0066CC' ) );
+		if ( $button_background_image ) {
+			$custom_css .= $sensei_button . "
+				.page.front-page .button,
+				.blog.front-page .button,
+				.read-more-button .hentry .read-more .more-link,
+				input[type=button],
+				input[type=submit],
+				button,
+				.button,
+				.wp-block-button__link,
+				body div.wpforms-container-full .wpforms-form input[type=submit],
+				body div.wpforms-container-full .wpforms-form button[type=submit],
+				body div.wpforms-container-full .wpforms-form .wpforms-page-button {
+					background-color:{$button_background_color};
+					background-image: linear-gradient(to right, {$button_background_color}, {$button_background_color}), url({$button_background_image});
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-attachment: scroll;
+				}";
+		}
+
+		$inputs_background_color = esc_html( get_theme_mod( 'responsive_inputs_background_color', '#ffffff' ) );
+
+		if ( $inputs_background_image ) {
+			$custom_css .= "select,
+				textarea,
+				input[type=tel],
+				input[type=email],
+				input[type=number],
+				input[type=search],
+				input[type=text],
+				input[type=date],
+				input[type=datetime],
+				input[type=datetime-local],
+				input[type=month],
+				input[type=password],
+				input[type=range],
+				input[type=time],
+				input[type=url],
+				input[type=week],
+				body div.wpforms-container-full .wpforms-form input[type=date],
+				body div.wpforms-container-full .wpforms-form input[type=datetime],
+				body div.wpforms-container-full .wpforms-form input[type=datetime-local],
+				body div.wpforms-container-full .wpforms-form input[type=email],
+				body div.wpforms-container-full .wpforms-form input[type=month],
+				body div.wpforms-container-full .wpforms-form input[type=number],
+				body div.wpforms-container-full .wpforms-form input[type=password],
+				body div.wpforms-container-full .wpforms-form input[type=range],
+				body div.wpforms-container-full .wpforms-form input[type=search],
+				body div.wpforms-container-full .wpforms-form input[type=tel],
+				body div.wpforms-container-full .wpforms-form input[type=text],
+				body div.wpforms-container-full .wpforms-form input[type=time],
+				body div.wpforms-container-full .wpforms-form input[type=url],
+				body div.wpforms-container-full .wpforms-form input[type=week],
+				body div.wpforms-container-full .wpforms-form select,
+				body div.wpforms-container-full .wpforms-form textarea,
+				#add_payment_method table.cart td.actions .coupon .input-text,
+				.woocommerce-cart table.cart td.actions .coupon .input-text,
+				.woocommerce-checkout table.cart td.actions .coupon .input-text,
+				.woocommerce form .form-row input.input-text,
+				.woocommerce form .form-row textarea {
+					background-color: ' . $inputs_background_color . ';
+					background-image: linear-gradient(to right, {$inputs_background_color}, {$inputs_background_color}), url({$inputs_background_image});
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-attachment: scroll;
+
+				}";
+		}
+
+		$sidebar_background_color = esc_html( get_theme_mod( 'responsive_sidebar_background_color', '#ffffff' ) );
+
+		if ( $sidebar_background_image ) {
+			$custom_css .= ".responsive-site-style-boxed aside#secondary .widget-wrapper {
+				background-color: ' . $sidebar_background_color . ';
+				background-image: linear-gradient(to right, {$sidebar_background_color}, {$sidebar_background_color}), url({$sidebar_background_image});
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: scroll;
+			}";
+		}
+
+		$header_background_color = esc_html( get_theme_mod( 'responsive_header_background_color', '#ffffff' ) );
+
+		if ( $header_background_image ) {
+			$custom_css .= "body:not(.res-transparent-header) .site-header {
+				background-color: ' . $header_background_color . ';
+				background-image: linear-gradient(to right, {$header_background_color}, {$header_background_color}), url({$header_background_image});
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: scroll;
+			}";
+		}
+
+		$header_widget_background_color = esc_html( get_theme_mod( 'responsive_header_widget_background_color', '#ffffff' ) );
+
+		if ( $header_widget_background_image ) {
+				$custom_css .= "body:not(.res-transparent-header) .header-widgets {
+					background-color: ' . $header_widget_background_color . ';
+					background-image: linear-gradient(to right, {$header_widget_background_color}, {$header_widget_background_color}), url({$header_widget_background_image});
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-attachment: scroll;
+			}";
+		}
+
+		$transparent_header_widget_background_color = esc_html( get_theme_mod( 'responsive_transparent_header_widget_background_color', '' ) );
+
+		if ( $transparent_header_widget_background_image ) {
+			$custom_css .= ".res-transparent-header .header-widgets {
+				background-color: ' . $transparent_header_widget_background_color . ';
+				background-image: linear-gradient(to right, {$transparent_header_widget_background_color}, {$transparent_header_widget_background_color}), url({$transparent_header_widget_background_image});
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: scroll;
+			}";
+		}
+
+		$footer_background_color = esc_html( get_theme_mod( 'responsive_footer_background_color', '#333333' ) );
+
+		if ( $footer_background_image ) {
+			$custom_css .= ".site-footer {
+				background-color: ' . $footer_background_color . ';
+				background-image: linear-gradient(to right, {$footer_background_color}, {$footer_background_color}), url({$footer_background_image});
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: scroll;
+			}";
+		}
+	}
+
 	// lifter settings
 
 	if ( class_exists( 'LifterLMS' ) ) {
