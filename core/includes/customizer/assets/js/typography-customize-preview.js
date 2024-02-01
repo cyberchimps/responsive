@@ -11,7 +11,6 @@
 
     /******** TYPOGRAPHY OPTIONS LOOP *********/
     if ( responsive.isThemeGreater ) {
-        console.log('log from theme');
         api( "page_title_typography[font-family]", function( $swipe ) {
             $swipe.bind( function( pair ) {
                 if ( pair ) {
