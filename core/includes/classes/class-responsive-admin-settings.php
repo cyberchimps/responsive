@@ -169,11 +169,13 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			if ( apply_filters( 'responsive_dashboard_admin_menu', true ) ) {
-				add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
-			} else {
-				do_action( 'responsivea_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
-			}
+			add_menu_page( 'Responsive', 'Responsive', $capability, $page_menu_slug, $page_menu_func, '', 59 );
+
+			add_submenu_page( $page_menu_slug, 'Theme', 'Theme', $capability, $page_menu_slug, $page_menu_func );
+
+			add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+
+			do_action( 'responsive_register_admin_menu', $page_menu_slug );
 		}
 
 		/**
