@@ -40,7 +40,8 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 			$wp_customize->add_setting(
 				'responsive_' . $element . '_image',
 				array(
-					'transport' => 'postMessage',
+					'transport'         => 'postMessage',
+					'sanitize_callback' => 'responsive_sanitize_image',
 				)
 			);
 
