@@ -27,6 +27,22 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 		}
 
 		/**
+		 * Check if Responsive Pro is greater.
+		 *
+		 * @since 4.9.7
+		 */
+		public function is_pro_version_greater() {
+			$is_pro_version_greater = false;
+			if ( ! defined( 'RESPONSIVE_ADDONS_PRO_VERSION' ) ) {
+				return false;
+			}
+			if ( version_compare( RESPONSIVE_ADDONS_PRO_VERSION, '2.6.3', '>' ) ) {
+				$is_pro_version_greater = true;
+			}
+			return $is_pro_version_greater;
+		}
+
+		/**
 		 * Customizer options
 		 *
 		 * @since 0.2
@@ -119,6 +135,14 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			*/
 			$page_title_label = esc_html__( 'Page Title', 'responsive' );
 			responsive_separator_control( $wp_customize, 'page_title_separator', $page_title_label, 'responsive_page_content', 60 );
+
+			if ( is_responsive_version_greater() && ! class_exists( 'Responsive_Addons_Pro' ) ) {
+				responsive_separator_control( $wp_customize, 'page_typography_title_separator', $page_title_label, 'responsive_page_typography', 10 );
+			}
+
+			if ( is_responsive_version_greater() && $this->is_pro_version_greater() ) {
+				responsive_separator_control( $wp_customize, 'page_typography_title_separator', $page_title_label, 'responsive_page_typography', 10 );
+			}
 
 			// Alignment.
 			$page_title_alignment_label   = esc_html__( 'Alignment', 'responsive' );

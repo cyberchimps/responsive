@@ -10,6 +10,167 @@
     var api = wp.customize;
 
     /******** TYPOGRAPHY OPTIONS LOOP *********/
+    if ( responsive.isThemeGreater ) {
+        api( "page_title_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-page_title-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
+                jQuery( 'style.customizer-typography-page_title-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-font-family">'
+                    + '.page .post-title, #main-blog h1 { font-family:' + pair +' }'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-font-weight">'
+                    + '.page .post-title, #main-blog h1{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-font-style">'
+                    + '.page .post-title, #main-blog h1{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-font-size">'
+                    + '.page .post-title, #main-blog h1{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){.page .post-title, #main-blog h1{ font-size:' + api( "page_title_tablet_typography[font-size]" ).get() +';}}'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ font-size:' + api( "page_title_mobile_typography[font-size]" ).get() +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-tablet-font-size">'
+                    + '@media (max-width: 768px){.page .post-title, #main-blog h1{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ font-size:' + api( "page_title_mobile_typography[font-size]" ).get() +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-mobile-font-size">'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[color]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-color' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-color">'
+                    + '.page .post-title, #main-blog h1{ color:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-line-height">'
+                    + '.page .post-title, #main-blog h1{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_tablet_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-tablet-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-tablet-line-height">'
+                    + '@media (max-width: 768px){.page .post-title, #main-blog h1{ line-height:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_mobile_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-mobile-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-mobile-line-height">'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ line-height:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-letter-spacing">'
+                    + '.page .post-title, #main-blog h1{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_tablet_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-tablet-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-tablet-letter-spacing">'
+                    + '@media (max-width: 768px){.page .post-title, #main-blog h1{ letter-spacing:' + dataAndEvents +'px;}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_mobile_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-mobile-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-mobile-letter-spacing">'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ letter-spacing:' + dataAndEvents +'px;}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-text-transform">'
+                    + '.page .post-title, #main-blog h1{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } )
+    }
     api( "body_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
             if ( pair ) {
