@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(02/01/2024) = Added - Version 4.9.7
+[*] = Added = Introducing LifterLMS user dashboard compatibility in the Responsive theme. Added alignment options for LifterLMS user dashboard menu and course columns.
+[*] = Added = Added new typography, colors and background settings in the Responsive theme customizer.
+
 (09/01/2024) = Added - Version 4.9.6
 [*] = Changed = Changed UI for alignment controls from dropdown menu to icon buttons
 
