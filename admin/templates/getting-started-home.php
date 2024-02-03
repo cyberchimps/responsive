@@ -139,7 +139,7 @@
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'Responsive Starter Templates',
 			'desc'   => __( '150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive' ),
-			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive-add-ons' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive_add_ons' ),
 			'logo'   => 'rst',
 		),
 		array(
