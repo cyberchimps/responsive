@@ -449,4 +449,5 @@
 }
 .responsive-llms-dash-wrap .llms-course-list {
   display: flex;
+  flex-wrap: wrap;
 }

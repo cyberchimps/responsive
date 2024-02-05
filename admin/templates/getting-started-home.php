@@ -139,7 +139,7 @@
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'Responsive Starter Templates',
 			'desc'   => __( '150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive' ),
-			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive-add-ons' ),
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive_add_ons' ),
 			'logo'   => 'rst',
 		),
 		array(
@@ -165,25 +165,29 @@
 		),
 	);
 
-	$rpro_megamenu_status = 'on' === get_option( 'rpo_megamenu_enable' ) ? 'checked' : '';
+	$rpro_megamenu_status    = 'on' === get_option( 'rpo_megamenu_enable' ) ? 'checked' : '';
 	$rpro_woocommerce_status = 'on' === get_option( 'rpro_woocommerce_enable' ) ? 'checked' : '';
-	$rpro_typography_status = 'on' === get_option( 'rpro_typography_enable' ) ? 'checked' : '';
-	$rpro_colors_backgrounds_status = 'on' === get_option( 'rpro_colors_backgrounds_enable' ) ? 'checked' : '';
-	
-	if (!get_option('rpo_megamenu_enable')) {
-		add_option('rpo_megamenu_enable', 'on');
+	if ( ! is_responsive_version_greater() ) {
+		$rpro_typography_status         = 'on' === get_option( 'rpro_typography_enable' ) ? 'checked' : '';
+		$rpro_colors_backgrounds_status = 'on' === get_option( 'rpro_colors_backgrounds_enable' ) ? 'checked' : '';
 	}
-	
-	if (!get_option('rpro_typography_enable')) {
-		add_option('rpro_typography_enable', 'on');
+
+	if ( ! get_option( 'rpo_megamenu_enable' ) ) {
+		add_option( 'rpo_megamenu_enable', 'on' );
 	}
-	
-	if (!get_option('rpro_colors_backgrounds_enable')) {
-		add_option('rpro_colors_backgrounds_enable', 'on');
+
+	if ( ! get_option( 'rpro_typography_enable' ) ) {
+		add_option( 'rpro_typography_enable', 'on' );
 	}
-	
-	if (!get_option('rpro_woocommerce_enable')) {
-		add_option('rpro_woocommerce_enable', 'on');
+
+	if ( ! is_responsive_version_greater() ) {
+		if ( ! get_option( 'rpro_colors_backgrounds_enable' ) ) {
+			add_option( 'rpro_colors_backgrounds_enable', 'on' );
+		}
+
+		if ( ! get_option( 'rpro_woocommerce_enable' ) ) {
+			add_option( 'rpro_woocommerce_enable', 'on' );
+		}
 	}
 
 	?>
@@ -325,6 +329,9 @@
 						</div>
 					</div>
 				</div>
+				<?php
+				if ( ! is_responsive_version_greater() ) {
+					?>
 				<div class="col-xl-4 col-lg-6 col-md-6">
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
@@ -395,6 +402,17 @@
 						</div>
 					</div>
 				</div>
+					<?php
+				} else {
+					if ( 'off' === get_option( 'rpro_typography_enable' ) ) {
+						add_option( 'rpro_typography_enable', 'on' );
+					}
+
+					if ( get_option( 'rpro_colors_backgrounds_enable' ) ) {
+						add_option( 'rpro_colors_backgrounds_enable', 'on' );
+					}
+				}
+				?>
 				<div class="col-xl-4 col-lg-6 col-md-6">
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
