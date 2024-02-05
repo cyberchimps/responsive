@@ -35,3 +35,8 @@
 	display: none;
 }
 /* RST Promo notice ends */
+
+.responsive-theme-builder-icon {
+	transform: scaleX(-1);
+    color: #c3c4c7;
+}
