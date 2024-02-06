@@ -1,0 +1,26 @@
+.customize-control-responsive-selectbtn{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+}
+
+.customize-control-responsive-selectbtn__button{
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.customize-control-responsive-selectbtn__button.active{
+    color: white;
+    background-color: rgb(30, 115, 190);
+}
+
+
+.responsive-selectbtn-text{
+    font-size: 24px;
+    line-height: 18px;
+    font-weight: 300;
+}

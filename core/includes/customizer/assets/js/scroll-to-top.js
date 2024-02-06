@@ -1,58 +1,52 @@
-(function ($) {
-	jQuery( document ).ready(
-		function($) {
-			var masthead = document.querySelector( '.site-header' );
-			if ( jQuery( '#scroll' ) && jQuery( '#scroll' ).length ) {
-				 responsive_scroll_top = function () {
-
-					 var responsive_scroll_top = jQuery( '#scroll' ),
-					content                    = responsive_scroll_top.css( 'content' ),
-					device                     = responsive_scroll_top.data( 'on-devices' );
-					content                    = content.replace( /[^0-9]/g, '' );
-					if ( 'both' == device || ( 'desktop' == device && '769' == content ) || ( 'mobile' == device && '' == content ) ) {
-
-						// Get current window / document scroll.
-						var  scrollTop = window.pageYOffset || document.body.scrollTop;
-						// If masthead found.
-						if ( masthead && masthead.length ) {
-							if (scrollTop > masthead.offsetHeight + 100) {
-								responsive_scroll_top.show();
-							} else {
-								responsive_scroll_top.hide();
-							}
-						} else {
-							// If there is no masthead set default start scroll
-							if ( jQuery( window ).scrollTop() > 300 ) {
-								responsive_scroll_top.show();
-							} else {
-								responsive_scroll_top.hide();
-							}
-						}
-					} else {
-						responsive_scroll_top.hide();
-					}
-				 };
-				responsive_scroll_top();
-				jQuery( window ).on(
-					'scroll',
-					function () {
-						responsive_scroll_top();
-					}
-				);
-				jQuery( '#scroll' ).on(
-					'click',
-					function (e) {
-						e.preventDefault();
-						jQuery( 'html,body' ).animate(
-							{
-								scrollTop: 0
-							},
-							200
-						);
-					}
-				);
+document.addEventListener('DOMContentLoaded', function() {
+	var masthead = document.querySelector('.site-header');
+	var responsiveScrollTop = document.getElementById('scroll');
+  
+	if (responsiveScrollTop) {
+	  var getNumericContent = function(element) {
+		return parseInt(getComputedStyle(element).getPropertyValue('content').replace(/[^0-9]/g, ''), 10);
+	  };
+  
+	  var handleScroll = function() {
+		var content = getNumericContent(responsiveScrollTop);
+		var device = responsiveScrollTop.getAttribute('data-on-devices');
+		var screenWidth = window.innerWidth;
+		var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  
+		if (device === 'both' ||
+			(device === 'desktop' && screenWidth >= 769 && content === 769) ||
+			(device === 'mobile' && (screenWidth < 769 || content === ''))) {
+  
+		  if (masthead) {
+			if (scrollTop > masthead.offsetHeight + 100) {
+			  responsiveScrollTop.style.display = 'block';
+			} else {
+			  responsiveScrollTop.style.display = 'none';
 			}
+		  } else {
+			if (scrollTop > 300) {
+			  responsiveScrollTop.style.display = 'block';
+			} else {
+			  responsiveScrollTop.style.display = 'none';
+			}
+		  }
+		} else {
+		  responsiveScrollTop.style.display = 'none';
 		}
-	);
-
-})( jQuery );
+	  };
+  
+	  handleScroll();
+  
+	  window.addEventListener('scroll', handleScroll);
+  
+	  responsiveScrollTop.addEventListener('click', function(event) {
+		event.preventDefault();
+		window.scrollTo({
+		  top: 0,
+		  behavior: 'smooth'
+		});
+	  });
+	}
+  });
+  
+  

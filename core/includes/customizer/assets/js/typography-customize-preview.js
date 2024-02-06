@@ -10,6 +10,167 @@
     var api = wp.customize;
 
     /******** TYPOGRAPHY OPTIONS LOOP *********/
+    if ( responsive.isThemeGreater ) {
+        api( "page_title_typography[font-family]", function( $swipe ) {
+            $swipe.bind( function( pair ) {
+                if ( pair ) {
+                    /** @type {string} */
+                    var fontName = pair.split(",")[0];
+                    fontName = fontName.replace(/'/g, '');
+                    var idfirst = ( fontName.trim().toLowerCase().replace( " ", "-" ), "customizer-typography-page_title-font-family" );
+                    var fontSize = fontName.replace( " ", "%20" );
+                    fontSize = fontSize.replace( ",", "%2C" );
+                    /** @type {string} */
+                    fontSize = responsive.googleFontsUrl + "/css?family=" + fontName + ":" + responsive.googleFontsWeight;
+                    if ( $( "#" + idfirst ).length ) {
+                        $( "#" + idfirst ).attr( "href", fontSize );
+                    } else {
+                        $( "head" ).append( '<link id="' + idfirst + '" rel="stylesheet" type="text/css" href="' + fontSize + '">' );
+                    }
+                }
+                jQuery( 'style.customizer-typography-page_title-font-family' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-font-family">'
+                    + '.page .post-title, #main-blog h1 { font-family:' + pair +' }'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[font-weight]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-font-weight' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-font-weight">'
+                    + '.page .post-title, #main-blog h1{ font-weight:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[font-style]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-font-style' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-font-style">'
+                    + '.page .post-title, #main-blog h1{ font-style:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-font-size">'
+                    + '.page .post-title, #main-blog h1{ font-size:' + dataAndEvents +';}'
+                    + '@media (max-width: 768px){.page .post-title, #main-blog h1{ font-size:' + api( "page_title_tablet_typography[font-size]" ).get() +';}}'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ font-size:' + api( "page_title_mobile_typography[font-size]" ).get() +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_tablet_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-tablet-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-tablet-font-size">'
+                    + '@media (max-width: 768px){.page .post-title, #main-blog h1{ font-size:' + dataAndEvents +';}}'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ font-size:' + api( "page_title_mobile_typography[font-size]" ).get() +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_mobile_typography[font-size]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-mobile-font-size' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-mobile-font-size">'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ font-size:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[color]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-color' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-color">'
+                    + '.page .post-title, #main-blog h1{ color:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-line-height">'
+                    + '.page .post-title, #main-blog h1{ line-height:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_tablet_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-tablet-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-tablet-line-height">'
+                    + '@media (max-width: 768px){.page .post-title, #main-blog h1{ line-height:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_mobile_typography[line-height]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-mobile-line-height' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-mobile-line-height">'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ line-height:' + dataAndEvents +';}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-letter-spacing">'
+                    + '.page .post-title, #main-blog h1{ letter-spacing:' + dataAndEvents +'px;}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_tablet_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-tablet-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-tablet-letter-spacing">'
+                    + '@media (max-width: 768px){.page .post-title, #main-blog h1{ letter-spacing:' + dataAndEvents +'px;}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_mobile_typography[letter-spacing]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-mobile-letter-spacing' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-mobile-letter-spacing">'
+                    + '@media (max-width: 480px){.page .post-title, #main-blog h1{ letter-spacing:' + dataAndEvents +'px;}}'
+                    + '</style>'
+                );
+    
+            } );
+        } ), api( "page_title_typography[text-transform]", function( $swipe ) {
+            $swipe.bind( function( dataAndEvents ) {
+                jQuery( 'style.customizer-typography-page_title-text-transform' ).remove();
+                jQuery( 'head' ).append(
+                    '<style class="customizer-typography-page_title-text-transform">'
+                    + '.page .post-title, #main-blog h1{ text-transform:' + dataAndEvents +';}'
+                    + '</style>'
+                );
+    
+            } );
+        } )
+    }
     api( "body_typography[font-family]", function( $swipe ) {
         $swipe.bind( function( pair ) {
             if ( pair ) {
@@ -60,7 +221,9 @@
             jQuery( 'style.customizer-typography-body-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-body-font-size">'
-                + responsive.selectorArray['body'] + ' { font-size:' + dataAndEvents +' }'
+                + responsive.selectorArray['body'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['body'] +'{ font-size:' + api( "body_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['body'] +'{ font-size:' + api( "body_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -71,6 +234,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-body-tablet-font-size">'
                 + '@media (max-width: 768px){'+responsive.selectorArray['body'] + ' { font-size:' + dataAndEvents +' }}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['body'] +'{ font-size:' + api( "body_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -235,6 +399,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h1-font-size">'
                 + responsive.selectorArray['heading_h1'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h1'] +'{ font-size:' + api( "heading_h1_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h1'] +'{ font-size:' + api( "heading_h1_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -245,6 +411,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h1-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h1'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h1'] +'{ font-size:' + api( "heading_h1_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -342,6 +509,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h2-font-size">'
                 + responsive.selectorArray['heading_h2'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h2'] +'{ font-size:' + api( "heading_h2_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h2'] +'{ font-size:' + api( "heading_h2_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -352,6 +521,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h2-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h2'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h2'] +'{ font-size:' + api( "heading_h2_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -449,6 +619,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h3-font-size">'
                 + responsive.selectorArray['heading_h3'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h3'] +'{ font-size:' + api( "heading_h3_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h3'] +'{ font-size:' + api( "heading_h3_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -459,6 +631,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h3-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h3'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h3'] +'{ font-size:' + api( "heading_h3_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -556,6 +729,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h4-font-size">'
                 + responsive.selectorArray['heading_h4'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h4'] +'{ font-size:' + api( "heading_h4_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h4'] +'{ font-size:' + api( "heading_h4_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -566,6 +741,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h4-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h4'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h4'] +'{ font-size:' + api( "heading_h4_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -663,6 +839,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h5-font-size">'
                 + responsive.selectorArray['heading_h5'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h5'] +'{ font-size:' + api( "heading_h5_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h5'] +'{ font-size:' + api( "heading_h5_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -673,6 +851,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h5-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h5'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h5'] +'{ font-size:' + api( "heading_h5_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -770,6 +949,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h6-font-size">'
                 + responsive.selectorArray['heading_h6'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h6'] +'{ font-size:' + api( "heading_h6_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h6'] +'{ font-size:' + api( "heading_h6_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -780,6 +961,7 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-heading_h6-tablet-font-size">'
                 + '@media (max-width: 768px){'+ responsive.selectorArray['heading_h6'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['heading_h6'] +'{ font-size:' + api( "heading_h6_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -877,6 +1059,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-meta-font-size">'
                 + responsive.selectorArray['meta'] + '{ font-size:' + dataAndEvents +';}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['meta'] +'{ font-size:' + api( "meta_tablet_typography[font-size]").get() +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['meta'] +'{ font-size:' + api( "meta_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -886,7 +1070,8 @@
             jQuery( 'style.customizer-typography-meta-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-meta-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['meta']+'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['meta'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['meta'] +'{ font-size:' + api( "meta_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -984,6 +1169,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-button-font-size">'
                 + responsive.selectorArray['button'] + '{ font-size:' + dataAndEvents +';}'
+        		+ '@media (max-width: 768px){'+ responsive.selectorArray['button'] +'{ font-size:' + api( "button_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['button'] +'{ font-size:' + api( "button_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -993,7 +1180,8 @@
             jQuery( 'style.customizer-typography-button-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-button-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['button'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['button'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['button'] +'{ font-size:' + api( "button_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1091,6 +1279,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-input-font-size">'
                 + responsive.selectorArray['input'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['input'] +'{ font-size:' + api( "input_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['input'] +'{ font-size:' + api( "input_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1100,7 +1290,8 @@
             jQuery( 'style.customizer-typography-input-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-input-tablet-font-size">'
-                + '@media (max-width: 768px){'+responsive.selectorArray['input'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['input'] +'{ font-size:' + dataAndEvents +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['input'] +'{ font-size:' + api( "input_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1197,7 +1388,9 @@
             jQuery( 'style.customizer-typography-header_site_title-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_site_title-font-size">'
-                + responsive.selectorArray['header_site_title2'] + '{ font-size:' + dataAndEvents +';}'
+                + responsive.selectorArray['header_site_title'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['header_site_title'] +'{ font-size:' + api( "header_site_title_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['header_site_title'] +'{ font-size:' + api( "header_site_title_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1207,7 +1400,8 @@
             jQuery( 'style.customizer-typography-header_site_title-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_site_title-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['header_site_title2'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['header_site_title'] +'{ font-size:' + dataAndEvents +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['header_site_title'] +'{ font-size:' + api( "header_site_title_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1305,6 +1499,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_site_tagline-font-size">'
                 + responsive.selectorArray['header_site_tagline'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['header_site_tagline'] +'{ font-size:' + api( "header_site_tagline_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['header_site_tagline'] +'{ font-size:' + api( "header_site_tagline_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1314,7 +1510,8 @@
             jQuery( 'style.customizer-typography-header_site_tagline-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_site_tagline-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['header_site_tagline'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['header_site_tagline'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['header_site_tagline'] +'{ font-size:' + api( "header_site_tagline_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1412,6 +1609,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_widgets-font-size">'
                 + responsive.selectorArray['header_widgets'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['header_widgets'] +'{ font-size:' + api( "header_widgets_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['header_widgets'] +'{ font-size:' + api( "header_widgets_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1421,7 +1620,8 @@
             jQuery( 'style.customizer-typography-header_widgets-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_widgets-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['header_widgets'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['header_widgets'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['header_widgets'] +'{ font-size:' + api( "header_widgets_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1519,6 +1719,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_menu_typography-font-size">'
                 + responsive.selectorArray['header_menu'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['header_menu'] +'{ font-size:' + api( "header_menu_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['header_menu'] +'{ font-size:' + api( "header_menu_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1528,7 +1730,8 @@
             jQuery( 'style.customizer-typography-header_menu_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-header_menu_typography-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['header_menu'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['header_menu'] +'{ font-size:' + dataAndEvents +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['header_menu'] +'{ font-size:' + api( "header_menu_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1625,7 +1828,9 @@
             jQuery( 'style.customizer-typography-sidebar_typography-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-sidebar_typography-font-size">'
-                + responsive.selectorArray['sidebar'] + ' { font-size:' + dataAndEvents +';}'
+                + responsive.selectorArray['sidebar'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['sidebar'] +'{ font-size:' + api( "sidebar_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['sidebar'] +'{ font-size:' + api( "sidebar_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1635,7 +1840,8 @@
             jQuery( 'style.customizer-typography-sidebar_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-sidebar_typography-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['sidebar'] + ' { font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['sidebar'] +'{ font-size:' + dataAndEvents +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['sidebar'] +'{ font-size:' + api( "sidebar_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1733,6 +1939,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-content_header_heading-font-size">'
                 + responsive.selectorArray['content_header_heading'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['content_header_heading'] +'{ font-size:' + api( "content_header_heading_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['content_header_heading'] +'{ font-size:' + api( "content_header_heading_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1742,7 +1950,8 @@
             jQuery( 'style.customizer-typography-content_header_heading-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-content_header_heading-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['content_header_heading'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['content_header_heading'] +'{ font-size:' + dataAndEvents +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['content_header_heading'] +'{ font-size:' + api( "content_header_heading_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1840,6 +2049,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-content_header_description-font-size">'
                 + responsive.selectorArray['content_header_description'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['content_header_description'] +'{ font-size:' + api( "content_header_description_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['content_header_description'] +'{ font-size:' + api( "content_header_description_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1849,7 +2060,8 @@
             jQuery( 'style.customizer-typography-content_header_description-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-content_header_description-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['content_header_description'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['content_header_description'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['content_header_description'] +'{ font-size:' + api( "content_header_description_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1947,6 +2159,8 @@
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-breadcrumb-font-size">'
                 + responsive.selectorArray['breadcrumb'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['breadcrumb'] +'{ font-size:' + api( "breadcrumb_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['breadcrumb'] +'{ font-size:' + api( "breadcrumb_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -1956,7 +2170,8 @@
             jQuery( 'style.customizer-typography-breadcrumb-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-breadcrumb-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['breadcrumb'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['breadcrumb'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['breadcrumb'] +'{ font-size:' + api( "breadcrumb_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
@@ -2052,22 +2267,25 @@
             jQuery( 'style.customizer-typography-footer_typography-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-footer_typography-font-size">'
-                +  responsive.selectorArray['footer'] + '{ font-size:' + dataAndEvents +';}'
+                + responsive.selectorArray['footer'] + '{ font-size:' + dataAndEvents +';}'
+		        + '@media (max-width: 768px){'+ responsive.selectorArray['footer'] +'{ font-size:' + api( "footer_tablet_typography[font-size]").get() +';}}'
+		        + '@media (max-width: 480px){'+ responsive.selectorArray['footer'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
         } );
-    } ), api( "footer_typography_tablet_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_tablet_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-tablet-font-size' ).remove();
             jQuery( 'head' ).append(
                 '<style class="customizer-typography-footer_typography-tablet-font-size">'
-                + '@media (max-width: 768px){'+ responsive.selectorArray['footer'] + '{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 768px){'+ responsive.selectorArray['footer'] +'{ font-size:' + dataAndEvents +';}}'
+                + '@media (max-width: 480px){'+ responsive.selectorArray['footer'] +'{ font-size:' + api( "footer_mobile_typography[font-size]").get() +';}}'
                 + '</style>'
             );
 
         } );
-    } ), api( "footer_typography_mobile_typography[font-size]", function( $swipe ) {
+    } ), api( "footer_mobile_typography[font-size]", function( $swipe ) {
         $swipe.bind( function( dataAndEvents ) {
             jQuery( 'style.customizer-typography-footer_typography-mobile-font-size' ).remove();
             jQuery( 'head' ).append(

@@ -51,6 +51,13 @@
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
+						<td class="responsive-theme-freevspro-features">
+							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Mega Menu', 'responsive' ); ?></div>
+							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Adds Nav module for building mega menu, & highlight tags', 'responsive' ); ?></div>
+						</td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
+					</tr>
 					<tr>
 						<td class="responsive-theme-freevspro-features">
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'White Label Feature', 'responsive' ); ?></div>
@@ -119,6 +126,7 @@
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
+					
 				</tbody>
 			</table>
 			</div>

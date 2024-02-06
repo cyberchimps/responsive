@@ -10,6 +10,7 @@ import { responsiveTypography } from './typography/control';
 import { responsiveDimensions } from './dimensions/control';
 import { responsiveColor } from './color/control';
 import { responsiveRedirect} from './redirect/control';
+import { responsiveSelectButton } from './selectbtn/control';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
@@ -22,3 +23,4 @@ wp.customize.controlConstructor['responsive-typography'] = responsiveTypography;
 wp.customize.controlConstructor['responsive-dimensions'] = responsiveDimensions;
 wp.customize.controlConstructor['alpha-color'] = responsiveColor;
 wp.customize.controlConstructor['responsive-redirect'] = responsiveRedirect;
+wp.customize.controlConstructor['responsive-selectbtn'] = responsiveSelectButton;

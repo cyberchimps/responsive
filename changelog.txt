@@ -8,6 +8,30 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(12/02/2024) = Added - Version 4.9.8
+[+] = Added = Introduced a new dedicated menu for the Responsive Theme in the admin dashboard.
+
+(05/02/2024) = Added - Version 4.9.7.1
+[!] = Fixed = Minor Bug Fix.
+
+(02/01/2024) = Added - Version 4.9.7
+[*] = Added = Introducing LifterLMS user dashboard compatibility in the Responsive theme. Added alignment options for LifterLMS user dashboard menu and course columns.
+[*] = Added = Added new typography, colors and background settings in the Responsive theme customizer.
+
+(09/01/2024) = Added - Version 4.9.6
+[*] = Changed = Changed UI for alignment controls from dropdown menu to icon buttons
+
+(14/12/2023) = Added - Version 4.9.5
+[!] = Fixed = Minor Bug Fixes.
+[+] = Feature = Added separator icon options to Breadcrumbs settings.
+[*] = Changed = Minor UI Changes.
+[*] = Changed = Improved use of javascript in theme for better performance.
+
+
+(12/04/2023) = Added - Version 4.9.2
+[+] = Feature = Introducing performance based modules for Typograpy, Colors and Backgrounds, WooCommerce. With the introduction of modules, you can enable/disable settings from Responsive Pro plugin as required.
+[!] = Fixed = Minor Bug Fixes.
+
 (11/21/2023) = Added - Version 4.9.1
 [+] = Feature = Introducing the white labelling feature for Responsive theme.
 

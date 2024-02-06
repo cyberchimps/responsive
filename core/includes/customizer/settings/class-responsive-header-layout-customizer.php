@@ -96,19 +96,19 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 			// Header Alignment.
 			$header_alignment_label   = esc_html__( 'Header Alignment', 'responsive' );
 			$header_alignment_choices = array(
-				'center' => esc_html__( 'Center', 'responsive' ),
-				'left'   => esc_html__( 'Left', 'responsive' ),
-				'right'  => esc_html__( 'Right', 'responsive' ),
+				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 			);
 
 			if ( is_rtl() ) {
 				$header_alignment_choices = array(
-					'left'   => esc_html__( 'Right', 'responsive' ),
-					'right'  => esc_html__( 'Left', 'responsive' ),
-					'center' => esc_html__( 'center', 'responsive' ),
+					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 				);
 			}
-			responsive_select_control( $wp_customize, 'header_alignment', $header_alignment_label, 'responsive_header_layout', 30, $header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_alignment' ), 'responsive_active_vertical_header', 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'header_alignment', $header_alignment_label, 'responsive_header_layout', 25, $header_alignment_choices, Responsive\Core\get_responsive_customizer_defaults( 'responsive_header_alignment' ), 'responsive_active_vertical_header', 'postMessage' );
 
 			// Mobile Header Layout.
 			$mobile_header_layout_label = esc_html__( 'Mobile Header Layout', 'responsive' );
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Responsive_Header_Layout_Customizer' ) ) :
 
 			// Mobile Header Alignment.
 			$mobile_header_alignment_label = esc_html__( 'Mobile Header Alignment', 'responsive' );
-			responsive_select_control( $wp_customize, 'mobile_header_alignment', $mobile_header_alignment_label, 'responsive_header_layout', 35, $header_alignment_choices, get_theme_mod( 'responsive_header_alignment', 'center' ), 'responsive_active_mobile_vertical_header', 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'mobile_header_alignment', $mobile_header_alignment_label, 'responsive_header_layout', 35, $header_alignment_choices, get_theme_mod( 'responsive_header_alignment', 'center' ), 'responsive_active_mobile_vertical_header', 'postMessage' );
 
 			// Logo Padding.
 			$logo_padding_label = esc_html__( 'Logo Padding (px)', 'responsive' );

@@ -69,7 +69,18 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 		$show['current'] = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show.
 		$show['home']    = 1; // 1 - show breadcrumbs on the homepage, 0 - don't show.
 
-		$delimiter = ' <span class="chevron">&#8250;</span> '; // delimiter between crumbs.
+		$responsive_breadcrumb_separator = get_theme_mod( 'responsive_breadcrumb_separator', 'rsaquo' );
+
+		$responsive_breadcrumb_unicode	= get_theme_mod('responsive_breadcrumb_unicode');
+		$unicode_lower=strtolower($responsive_breadcrumb_unicode);
+		$unicode_entity = ($unicode_lower=='\\' || $unicode_lower=='')?'\\':str_replace('\\','&#x',$unicode_lower).';';
+
+		if($responsive_breadcrumb_separator!='unicode'){
+			$delimiter=' <span class="chevron">&'.$responsive_breadcrumb_separator.';</span> ';
+		}else{
+			$delimiter=' <span class="chevron">'.$unicode_entity.'</span> ';
+		}
+
 		$before    = '<span class="breadcrumb-current">'; // tag before the current crumb.
 		$after     = '</span>'; // t    ag after the current crumb.
 		/* === END OF OPTIONS === */

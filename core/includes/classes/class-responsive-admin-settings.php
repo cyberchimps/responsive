@@ -88,7 +88,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 		 * @since 4.0.3
 		 */
 		public static function init_admin_settings() {
-			self::$menu_page_title = apply_filters( 'responsive_menu_page_title',__('Responsive', 'responsive'). __( ' Options', 'responsive' ) );
+			self::$menu_page_title = apply_filters( 'responsive_menu_page_title', __( 'Responsive', 'responsive' ) . __( ' Options', 'responsive' ) );
 			self::$page_title      = apply_filters( 'responsive_page_title', __( 'Responsive', 'responsive' ) );
 			self::$plugin_slug     = self::get_theme_page_slug();
 
@@ -169,11 +169,13 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			if ( apply_filters( 'responsive_dashboard_admin_menu', true ) ) {
-				add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
-			} else {
-				do_action( 'responsivea_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
-			}
+			add_menu_page( __( 'Responsive', 'responsive' ), __( 'Responsive', 'responsive' ), $capability, $page_menu_slug, $page_menu_func, esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-add-ons-menu-icon.png', 59 );
+
+			add_submenu_page( $page_menu_slug, __( 'Theme', 'responsive' ), __( 'Theme', 'responsive' ), $capability, $page_menu_slug, $page_menu_func );
+
+			add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
+
+			do_action( 'responsive_register_admin_menu', $page_menu_slug );
 		}
 
 		/**

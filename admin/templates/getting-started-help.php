@@ -19,7 +19,7 @@ $help_card = array(
 		'title' => __( 'Documentation', 'responsive' ),
 		'desc'  => __( 'Search for articles and documents created to help you use Responsive plugins.', 'responsive' ),
 		'icon'  => 'getting-started-help-documentation',
-		'link'  => 'https://docs.cyberchimps.com/responsive',
+		'link'  => 'https://cyberchimps.com/docs/',
 	),
 	array(
 		'title' => __( 'Video Tutorials', 'responsive' ),
@@ -86,7 +86,7 @@ $accordions = array(
 			<p class="text-center mb-0 responsive-theme-help-support-desc"><?php esc_html_e( 'Got a question or need some help with our theme and Plugins?', 'responsive' ); ?></p>
 			<p class="text-center responsive-theme-help-support-desc mb-5"><?php esc_html_e( 'We are here to help and guide you.', 'responsive' ); ?></p>
 			<div class="text-center">
-				<iframe width="100%" height="440" src="https://www.youtube.com/embed/O9K0CLXMI1E?si=VIqFGroEMYOGptb0" title="<?php esc_attr_e( 'How to install and activate Responsive WordPress Theme', 'responsive' ); ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				<iframe width="100%" height="440" src="https://www.youtube.com/embed/ehKE0nj-hxo?si=_VdA-dX9msRaDbIY" title="<?php esc_attr_e( 'How to install and activate Responsive WordPress Theme', 'responsive' ); ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>
 			<div class="responsive-theme-help-card-section">
 				<div class="row">

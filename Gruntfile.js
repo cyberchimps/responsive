@@ -187,7 +187,8 @@ module.exports = function(grunt) {
 					'core/css/icomoon/style-rtl.min.css': 'core/css/icomoon/style-rtl.css',
 					'core/css/lifterlms/lifter_notice.min.css': 'core/css/lifterlms/lifter_notice.css',
 					'core/css/lifterlms/lifter_style.min.css': 'core/css/lifterlms/lifter_style.css',
-					'core/css/lifterlms/llms.min.css': 'core/css/lifterlms/llms.css'
+					'core/css/lifterlms/llms.min.css': 'core/css/lifterlms/llms.css',
+					'core/includes/customizer/assets/min/css/selectbtn.min.css':'core/includes/customizer/controls/selectbtn/selectbtn.css'
 				}
 			}
 		},

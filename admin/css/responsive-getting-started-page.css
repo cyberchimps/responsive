@@ -14,16 +14,19 @@
     font-style: normal;
 }
 
-body.appearance_page_responsive #wpcontent {
+body.appearance_page_responsive #wpcontent,
+body.toplevel_page_responsive #wpcontent {
     padding-left: 0;
     background: #F0F0F1;
 }
 
-body.appearance_page_responsive #wpfooter {
+body.appearance_page_responsive #wpfooter,
+body.toplevel_page_responsive #wpfooter {
     display: none;
 }
 
-body.appearance_page_responsive #wpbody-content {
+body.appearance_page_responsive #wpbody-content,
+body.toplevel_page_responsive #wpbody-content {
     padding-bottom: 30px;
 }
 
@@ -495,6 +498,10 @@ input:checked + .resp-megamenu-slider:before {
     color: #6B7280;
 }
 
+.responsive-theme-pro-features.disable-customize .rpro-feature-customize-btn{
+    color: #afafaf;
+    pointer-events: none;
+}
 /* Starter Template Tab Ends */
 
 /* FreevsPro Tab Starts */
