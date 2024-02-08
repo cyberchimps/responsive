@@ -59,7 +59,7 @@ class Responsive_Plugin_Install_Helper {
 	 */
 	public function get_button_html( $slug, $settings = array() ) {
 		$button    = '';
-		$redirect  = admin_url( 'admin.php?page=responsive-add-ons' );
+		$redirect  = admin_url( 'admin.php?page=responsive_add_ons' );
 		$reviewurl = 'https://wordpress.org/support/plugin/responsive-add-ons/reviews/';
 		$state     = $this->check_plugin_state( $slug );
 		if ( empty( $slug ) ) {
