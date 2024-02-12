@@ -171,7 +171,7 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 
 			add_menu_page( __( 'Responsive', 'responsive' ), __( 'Responsive', 'responsive' ), $capability, $page_menu_slug, $page_menu_func, esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-add-ons-menu-icon.png', 59 );
 
-			add_submenu_page( $page_menu_slug, __( 'Theme', 'responsive' ), __( 'Theme', 'responsive' ), $capability, $page_menu_slug, $page_menu_func );
+			add_submenu_page( $page_menu_slug, __( 'Responsive - Dashboard', 'responsive' ), __( 'Dashboard', 'responsive' ), $capability, $page_menu_slug, $page_menu_func );
 
 			add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
 
