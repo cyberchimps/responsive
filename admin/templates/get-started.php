@@ -32,14 +32,14 @@ $nonce = add_query_arg(
 	network_admin_url( 'plugins.php' )
 );
 
-$admin_logo = apply_filters( 'responsive_admin_menu_icon', esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-logo-colored.jpg' );
-$admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url( RESPONSIVE_THEME_URI . 'admin/images/cyberchimps-logo.png' ));
+$admin_logo        = apply_filters( 'responsive_admin_menu_icon', esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-logo-colored.jpg' );
+$admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url( RESPONSIVE_THEME_URI . 'admin/images/cyberchimps-logo.png' ) );
 ?>
 
 <div class="responsive-theme-getting-started-page">
 	<div class="responsive-theme-getting-started-header bg-white">
 		<div class="responsive-theme-brand">
-			<img class="responsive-theme-logo" src="<?php echo $admin_logo; ?>" >
+			<img class="responsive-theme-logo" src="<?php echo esc_url( $admin_logo ); ?>" >
 			<div class="responsive-theme-version"><?php echo esc_html( RESPONSIVE_THEME_VERSION ); ?></div>
 		</div>
 		<p class="responsive-theme-brand-desc"><?php esc_html_e( 'Blazing fast, mobile-friendly, fully-customizable WordPress theme.', 'responsive' ); ?></p>
@@ -58,6 +58,7 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 				<?php
 			}
 			?>
+			<?php do_action( 'responsive_addons_getting_started_settings_tab' ); ?>
 			<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
 				<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
 			</div>
@@ -92,6 +93,7 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 				<?php
 			}
 			?>
+			<?php do_action( 'responsive_addons_getting_started_settings_tab_content' ); ?>
 			<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_templates">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rst.php'; ?>
 			</div>
@@ -124,6 +126,6 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 			</div>
 			<div class="responsive-theme-hr"></div>
 		</div>
-		<img class="responsive-theme-cyberchimps-logo" src="<?php echo $admin_footer_logo; ?>" alt="">
+		<img class="responsive-theme-cyberchimps-logo" src="<?php echo esc_url( $admin_footer_logo ); ?>" alt="">
 	</div>
 </div>

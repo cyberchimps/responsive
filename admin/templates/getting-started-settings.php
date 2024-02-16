@@ -221,7 +221,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 							?>
 							id="resp_wl_theme_screenshot_url">
 						</div>
-						<p class="mt-2 responsive-theme-setting-form-control-hint"><?php esc_attr_e( 'The recommended image size is 1200px wide and 900px tall.', 'responsive' ) ?></p>
+						<p class="mt-2 responsive-theme-setting-form-control-hint"><?php esc_html_e( 'The recommended image size is 1200px wide and 900px tall.', 'responsive' ); ?></p>
 					</div>
 					<div class="responsive-theme-single-setting-section">
 						<div class="mb-2">
@@ -236,7 +236,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 							?>
 							id="resp_wl_theme_icon_url">
 						</div>
-						<p class="mt-2 responsive-theme-setting-form-control-hint"><?php esc_attr_e( 'The recommended icon should have some background to get adjust properly .', 'responsive' ) ?></p>
+						<p class="mt-2 responsive-theme-setting-form-control-hint"><?php esc_html_e( 'The recommended icon should have some background to get adjust properly .', 'responsive' ); ?></p>
 					</div>
 					<hr class="responsive-theme-setting-hr">
 					<div class="responsive-theme-single-setting-section">
