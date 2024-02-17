@@ -12,10 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Return if there isn't a thumbnail defined.
 if ( ! has_post_thumbnail() ) {
-	if ( class_exists( 'Responsive_Addons_Pro' ) && function_exists( 'responsive_date_box_toggle_value' ) ) {
-		$date_box_toggle_value = responsive_date_box_toggle_value();
-	} else {
-		$date_box_toggle_value = 0;
+	if (
+		( version_compare( RESPONSIVE_THEME_VERSION, '4.9.9', '<' ) && class_exists( 'Responsive_Addons_Pro' ) ) ||
+		( version_compare( RESPONSIVE_THEME_VERSION, '4.9.8', '>' ) )
+	) {
+		if ( function_exists( 'responsive_date_box_toggle_value' ) ) {
+			$date_box_toggle_value = responsive_date_box_toggle_value();
+		} else {
+			$date_box_toggle_value = 0;
+		}
 	}
 	// Display date box.
 	if ( function_exists( 'responsive_display_date_box' ) ) {
@@ -53,10 +58,15 @@ $caption = get_the_post_thumbnail_caption(); ?>
 <div class="thumbnail">
 
 	<?php
-	if ( class_exists( 'Responsive_Addons_Pro' ) && function_exists( 'responsive_date_box_toggle_value' ) ) {
-		$date_box_toggle_value = responsive_date_box_toggle_value();
-	} else {
-		$date_box_toggle_value = 0;
+	if (
+		( version_compare( RESPONSIVE_THEME_VERSION, '4.9.9', '<' ) && class_exists( 'Responsive_Addons_Pro' ) ) ||
+		( version_compare( RESPONSIVE_THEME_VERSION, '4.9.8', '>' ) )
+	) {
+		if ( function_exists( 'responsive_date_box_toggle_value' ) ) {
+			$date_box_toggle_value = responsive_date_box_toggle_value();
+		} else {
+			$date_box_toggle_value = 0;
+		}
 	}
 	// Display date box.
 	if ( function_exists( 'responsive_display_date_box' ) ) {

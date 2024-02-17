@@ -701,20 +701,25 @@ function responsive_add_custom_body_classes( $classes ) {
 	$classes[] = 'scroll-to-top-aligmnment-' . get_theme_mod( 'responsive_scroll_to_top_icon_aligmnment', 'right' );
 
 	// Blog/Archive layout classes.
-	if ( class_exists( 'Responsive_Addons_Pro' ) && ! is_front_page() || is_home() ) {
-		if ( get_theme_mod( 'responsive_blog_entry_columns' ) ) {
-			$blog_entry_columns_count = esc_html( get_theme_mod( 'responsive_blog_entry_columns' ) );
-		} else {
-			$blog_entry_columns_count = 1;
-		}
+	if (
+		( version_compare( RESPONSIVE_THEME_VERSION, '4.9.9', '<' ) && class_exists( 'Responsive_Addons_Pro' ) ) ||
+		( version_compare( RESPONSIVE_THEME_VERSION, '4.9.8', '>' ) )
+	) {
+		if ( ! is_front_page() || is_home() ) {
+			if ( get_theme_mod( 'responsive_blog_entry_columns' ) ) {
+				$blog_entry_columns_count = esc_html( get_theme_mod( 'responsive_blog_entry_columns' ) );
+			} else {
+				$blog_entry_columns_count = 1;
+			}
 
-		if ( get_theme_mod( 'responsive_blog_layout_options' ) ) {
-			if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) ) {
-				$classes[] = 'standard-blog-layout';
-			} elseif ( 'blog-layout-2' === get_theme_mod( 'responsive_blog_layout_options' ) && 1 >= $blog_entry_columns_count ) {
-				$classes[] = 'blog-layout-two';
-			} elseif ( 'blog-layout-3' === get_theme_mod( 'responsive_blog_layout_options' ) && 1 >= $blog_entry_columns_count ) {
-				$classes[] = 'blog-layout-three';
+			if ( get_theme_mod( 'responsive_blog_layout_options' ) ) {
+				if ( 'blog-layout-1' === get_theme_mod( 'responsive_blog_layout_options' ) ) {
+					$classes[] = 'standard-blog-layout';
+				} elseif ( 'blog-layout-2' === get_theme_mod( 'responsive_blog_layout_options' ) && 1 >= $blog_entry_columns_count ) {
+					$classes[] = 'blog-layout-two';
+				} elseif ( 'blog-layout-3' === get_theme_mod( 'responsive_blog_layout_options' ) && 1 >= $blog_entry_columns_count ) {
+					$classes[] = 'blog-layout-three';
+				}
 			}
 		}
 	}
@@ -907,7 +912,10 @@ function responsive_transparent_custom_logo( $html ) {
 	return $html;
 }
 
-if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+if (
+	( version_compare( RESPONSIVE_THEME_VERSION, '4.9.9', '<' ) && class_exists( 'Responsive_Addons_Pro' ) ) ||
+	( version_compare( RESPONSIVE_THEME_VERSION, '4.9.8', '>' ) )
+) {
 
 	if ( ! function_exists( 'responsive_is_sticky_header_enabled' ) ) {
 		/**

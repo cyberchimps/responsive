@@ -15,7 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="site-branding-wrapper">
 		<?php
 		the_custom_logo();
-		if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+		if (
+			( version_compare( RESPONSIVE_THEME_VERSION, '4.9.9', '<' ) && class_exists( 'Responsive_Addons_Pro' ) ) ||
+			( version_compare( RESPONSIVE_THEME_VERSION, '4.9.8', '>' ) )
+		) {
 
 			echo Responsive\Core\responsive_sticky_custom_logo(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}

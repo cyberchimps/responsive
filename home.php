@@ -29,11 +29,7 @@ get_header();
 
 Responsive\responsive_wrapper_top(); // before wrapper content hook.
 
-if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-	$blog_pagination = responsive_blog_pagination();
-} else {
-	$blog_pagination = 'default';
-}
+$blog_pagination = '' === responsive_blog_pagination() ? 'default' : responsive_blog_pagination();
 // Elementor `archive` location.
 if ( ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'archive' ) ) ) ) {
 	Responsive\responsive_wrapper();
