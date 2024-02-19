@@ -34,7 +34,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 			<div class="responsive-theme-setting-list">
 				<div tabindex="0" class="responsive-theme-setting-item d-flex" 
 				<?php
-				if ( 'activated' === $state ) {
+				if ( 'activated' === $state || 'installed' === $state ) {
 					?>
 					id="responsive-theme-setting-activation-key-tab" role="button"
 					<?php
@@ -61,6 +61,8 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 				</div>
 					<?php
 				}
+
+				do_action( 'responsive_theme_setting_item' );
 				?>
 			</div>
 		</div>
@@ -297,6 +299,8 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 				}
 			}
 		}
+
+		do_action( 'responsive_add_ons_app_connection_setting' );
 		?>
 		</div>
 	</div>

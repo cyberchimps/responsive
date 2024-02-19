@@ -702,7 +702,8 @@ input:checked + .resp-megamenu-slider:before {
     border-radius: 4px !important;
 }
 
-#responsive-theme-setting-wl-section {
+#responsive-theme-setting-wl-section,
+#responsive-theme-setting-app-connection-section {
     display: none;
 }
 
