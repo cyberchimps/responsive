@@ -2658,6 +2658,382 @@ function responsive_customizer_styles() {
 	    }
 	}";
 
+	if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
+		// Outside Container Spacing.
+		$outside_container_padding_right  = esc_html( get_theme_mod( 'responsive_outside_container_right_padding', 15 ) );
+		$outside_container_padding_left   = esc_html( get_theme_mod( 'responsive_outside_container_left_padding', 15 ) );
+		$outside_container_padding_top    = esc_html( get_theme_mod( 'responsive_outside_container_top_padding', 0 ) );
+		$outside_container_padding_bottom = esc_html( get_theme_mod( 'responsive_outside_container_bottom_padding', 0 ) );
+
+		$outside_container_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_outside_container_tablet_right_padding', 15 ) );
+		$outside_container_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_outside_container_tablet_left_padding', 15 ) );
+		$outside_container_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_outside_container_tablet_top_padding', 0 ) );
+		$outside_container_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_outside_container_tablet_bottom_padding', 0 ) );
+
+		$outside_container_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_outside_container_mobile_right_padding', 15 ) );
+		$outside_container_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_outside_container_mobile_left_padding', 15 ) );
+		$outside_container_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_outside_container_mobile_top_padding', 0 ) );
+		$outside_container_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_outside_container_mobile_bottom_padding', 0 ) );
+
+		// Outside Container Spacing.
+		$blog_outside_container_padding_right  = esc_html( get_theme_mod( 'responsive_blog_outside_container_right_padding', 15 ) );
+		$blog_outside_container_padding_left   = esc_html( get_theme_mod( 'responsive_blog_outside_container_left_padding', 15 ) );
+		$blog_outside_container_padding_top    = esc_html( get_theme_mod( 'responsive_blog_outside_container_top_padding', 15 ) );
+		$blog_outside_container_padding_bottom = esc_html( get_theme_mod( 'responsive_blog_outside_container_bottom_padding', 15 ) );
+
+		$blog_outside_container_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_blog_outside_container_tablet_right_padding', 15 ) );
+		$blog_outside_container_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_blog_outside_container_tablet_left_padding', 15 ) );
+		$blog_outside_container_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_blog_outside_container_tablet_top_padding', 15 ) );
+		$blog_outside_container_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_blog_outside_container_tablet_bottom_padding', 15 ) );
+
+		$blog_outside_container_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_blog_outside_container_mobile_right_padding', 15 ) );
+		$blog_outside_container_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_blog_outside_container_mobile_left_padding', 15 ) );
+		$blog_outside_container_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_blog_outside_container_mobile_top_padding', 15 ) );
+		$blog_outside_container_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_blog_outside_container_mobile_bottom_padding', 15 ) );
+
+		// Inside Container Spacing.
+		$blog_inside_container_padding_right  = esc_html( get_theme_mod( 'responsive_blog_inside_container_right_padding', 15 ) );
+		$blog_inside_container_padding_left   = esc_html( get_theme_mod( 'responsive_blog_inside_container_left_padding', 15 ) );
+		$blog_inside_container_padding_top    = esc_html( get_theme_mod( 'responsive_blog_inside_container_top_padding', 15 ) );
+		$blog_inside_container_padding_bottom = esc_html( get_theme_mod( 'responsive_blog_inside_container_bottom_padding', 15 ) );
+
+		$blog_inside_container_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_blog_inside_container_tablet_right_padding', 15 ) );
+		$blog_inside_container_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_blog_inside_container_tablet_left_padding', 15 ) );
+		$blog_inside_container_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_blog_inside_container_tablet_top_padding', 15 ) );
+		$blog_inside_container_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_blog_inside_container_tablet_bottom_padding', 15 ) );
+
+		$blog_inside_container_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_blog_inside_container_mobile_right_padding', 15 ) );
+		$blog_inside_container_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_blog_inside_container_mobile_left_padding', 15 ) );
+		$blog_inside_container_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_blog_inside_container_mobile_top_padding', 15 ) );
+		$blog_inside_container_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_blog_inside_container_mobile_bottom_padding', 15 ) );
+
+		// Outside Container Spacing.
+		$single_blog_outside_container_padding_right  = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_right_padding', 15 ) );
+		$single_blog_outside_container_padding_left   = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_left_padding', 15 ) );
+		$single_blog_outside_container_padding_top    = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_top_padding', 15 ) );
+		$single_blog_outside_container_padding_bottom = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_bottom_padding', 15 ) );
+
+		$single_blog_outside_container_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_tablet_right_padding', 15 ) );
+		$single_blog_outside_container_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_tablet_left_padding', 15 ) );
+		$single_blog_outside_container_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_tablet_top_padding', 15 ) );
+		$single_blog_outside_container_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_tablet_bottom_padding', 15 ) );
+
+		$single_blog_outside_container_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_mobile_right_padding', 15 ) );
+		$single_blog_outside_container_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_mobile_left_padding', 15 ) );
+		$single_blog_outside_container_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_mobile_top_padding', 15 ) );
+		$single_blog_outside_container_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_single_blog_outside_container_mobile_bottom_padding', 15 ) );
+
+		// Inside Container Spacing.
+		$single_blog_inside_container_padding_right  = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_right_padding', 15 ) );
+		$single_blog_inside_container_padding_left   = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_left_padding', 15 ) );
+		$single_blog_inside_container_padding_top    = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_top_padding', 15 ) );
+		$single_blog_inside_container_padding_bottom = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_bottom_padding', 15 ) );
+
+		$single_blog_inside_container_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_tablet_right_padding', 15 ) );
+		$single_blog_inside_container_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_tablet_left_padding', 15 ) );
+		$single_blog_inside_container_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_tablet_top_padding', 15 ) );
+		$single_blog_inside_container_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_tablet_bottom_padding', 15 ) );
+
+		$single_blog_inside_container_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_mobile_right_padding', 15 ) );
+		$single_blog_inside_container_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_mobile_left_padding', 15 ) );
+		$single_blog_inside_container_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_mobile_top_padding', 15 ) );
+		$single_blog_inside_container_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_single_blog_inside_container_mobile_bottom_padding', 15 ) );
+
+		// Outside Container Spacing.
+		$sidebar_outside_container_padding_right  = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_right_padding', 15 ) );
+		$sidebar_outside_container_padding_left   = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_left_padding', 15 ) );
+		$sidebar_outside_container_padding_top    = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_top_padding', 0 ) );
+		$sidebar_outside_container_padding_bottom = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_bottom_padding', 0 ) );
+
+		$sidebar_outside_container_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_tablet_right_padding', 15 ) );
+		$sidebar_outside_container_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_tablet_left_padding', 15 ) );
+		$sidebar_outside_container_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_tablet_top_padding', 0 ) );
+		$sidebar_outside_container_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_tablet_bottom_padding', 0 ) );
+
+		$sidebar_outside_container_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_mobile_right_padding', 15 ) );
+		$sidebar_outside_container_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_mobile_left_padding', 15 ) );
+		$sidebar_outside_container_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_mobile_top_padding', 0 ) );
+		$sidebar_outside_container_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_sidebar_outside_container_mobile_bottom_padding', 0 ) );
+
+		// Inside Container Spacing.
+		$sidebar_inside_container_padding_right  = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_right_padding', 28 ) );
+		$sidebar_inside_container_padding_left   = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_left_padding', 28 ) );
+		$sidebar_inside_container_padding_top    = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_top_padding', 28 ) );
+		$sidebar_inside_container_padding_bottom = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_bottom_padding', 28 ) );
+
+		$sidebar_inside_container_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_tablet_right_padding', 28 ) );
+		$sidebar_inside_container_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_tablet_left_padding', 28 ) );
+		$sidebar_inside_container_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_tablet_top_padding', 28 ) );
+		$sidebar_inside_container_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_tablet_bottom_padding', 28 ) );
+
+		$sidebar_inside_container_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_mobile_right_padding', 28 ) );
+		$sidebar_inside_container_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_mobile_left_padding', 28 ) );
+		$sidebar_inside_container_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_mobile_top_padding', 28 ) );
+		$sidebar_inside_container_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_sidebar_inside_container_mobile_bottom_padding', 28 ) );
+
+		$custom_css .= '
+		.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area{
+			padding: ' . responsive_spacing_css( $outside_container_padding_top, $outside_container_padding_right, $outside_container_padding_bottom, $outside_container_padding_left ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area{
+				padding: ' . responsive_spacing_css( $outside_container_tablet_padding_top, $outside_container_tablet_padding_right, $outside_container_tablet_padding_bottom, $outside_container_tablet_padding_left ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.responsive-site-style-content-boxed #primary.content-area, .responsive-site-style-boxed #primary.content-area{
+				padding: ' . responsive_spacing_css( $outside_container_mobile_padding_top, $outside_container_mobile_padding_right, $outside_container_mobile_padding_bottom, $outside_container_mobile_padding_left ) . ';
+			}
+		}
+
+		.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area{
+			padding: ' . responsive_spacing_css( $blog_outside_container_padding_top, $blog_outside_container_padding_right, $blog_outside_container_padding_bottom, $blog_outside_container_padding_left ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area{
+				padding: ' . responsive_spacing_css( $blog_outside_container_tablet_padding_top, $blog_outside_container_tablet_padding_right, $blog_outside_container_tablet_padding_bottom, $blog_outside_container_tablet_padding_left ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.blog.responsive-site-style-content-boxed #primary.content-area, .blog.responsive-site-style-boxed #primary.content-area, .archive.responsive-site-style-content-boxed #primary.content-area, .archive.responsive-site-style-boxed #primary.content-area{
+				padding: ' . responsive_spacing_css( $blog_outside_container_mobile_padding_top, $blog_outside_container_mobile_padding_right, $blog_outside_container_mobile_padding_bottom, $blog_outside_container_mobile_padding_left ) . ';
+			}
+		}
+
+		.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry{
+			padding: ' . responsive_spacing_css( $blog_inside_container_padding_top, $blog_inside_container_padding_right, $blog_inside_container_padding_bottom, $blog_inside_container_padding_left ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry{
+				padding: ' . responsive_spacing_css( $blog_inside_container_tablet_padding_top, $blog_inside_container_tablet_padding_right, $blog_inside_container_tablet_padding_bottom, $blog_inside_container_tablet_padding_left ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.blog.responsive-site-style-content-boxed .site-content .hentry, .blog.responsive-site-style-boxed .site-content .hentry, .archive.responsive-site-style-content-boxed .site-content .hentry, .archive.responsive-site-style-boxed .site-content .hentry{
+				padding: ' . responsive_spacing_css( $blog_inside_container_mobile_padding_top, $blog_inside_container_mobile_padding_right, $blog_inside_container_mobile_padding_bottom, $blog_inside_container_mobile_padding_left ) . ';
+			}
+		}
+
+		.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area{
+			padding: ' . responsive_spacing_css( $single_blog_outside_container_padding_top, $single_blog_outside_container_padding_right, $single_blog_outside_container_padding_bottom, $single_blog_outside_container_padding_left ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area{
+				padding: ' . responsive_spacing_css( $single_blog_outside_container_tablet_padding_top, $single_blog_outside_container_tablet_padding_right, $single_blog_outside_container_tablet_padding_bottom, $single_blog_outside_container_tablet_padding_left ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.single.single-post.responsive-site-style-content-boxed #primary.content-area, .single.single-post.responsive-site-style-boxed #primary.content-area{
+				padding: ' . responsive_spacing_css( $single_blog_outside_container_mobile_padding_top, $single_blog_outside_container_mobile_padding_right, $single_blog_outside_container_mobile_padding_bottom, $single_blog_outside_container_mobile_padding_left ) . ';
+			}
+		}
+		.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry{
+			padding: ' . responsive_spacing_css( $single_blog_inside_container_padding_top, $single_blog_inside_container_padding_right, $single_blog_inside_container_padding_bottom, $single_blog_inside_container_padding_left ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry{
+				padding: ' . responsive_spacing_css( $single_blog_inside_container_tablet_padding_top, $single_blog_inside_container_tablet_padding_right, $single_blog_inside_container_tablet_padding_bottom, $single_blog_inside_container_tablet_padding_left ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry{
+				padding: ' . responsive_spacing_css( $single_blog_inside_container_mobile_padding_top, $single_blog_inside_container_mobile_padding_right, $single_blog_inside_container_mobile_padding_bottom, $single_blog_inside_container_mobile_padding_left ) . ';
+			}
+		}
+
+		#secondary.widget-area {
+			padding: ' . responsive_spacing_css( $sidebar_outside_container_padding_top, $sidebar_outside_container_padding_right, $sidebar_outside_container_padding_bottom, $sidebar_outside_container_padding_left ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			#secondary.widget-area {
+				padding: ' . responsive_spacing_css( $sidebar_outside_container_tablet_padding_top, $sidebar_outside_container_tablet_padding_right, $sidebar_outside_container_tablet_padding_bottom, $sidebar_outside_container_tablet_padding_left ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			#secondary.widget-area {
+				padding: ' . responsive_spacing_css( $sidebar_outside_container_mobile_padding_top, $sidebar_outside_container_mobile_padding_right, $sidebar_outside_container_mobile_padding_bottom, $sidebar_outside_container_mobile_padding_left ) . ';
+			}
+		}
+		#secondary.widget-area .widget-wrapper{
+			padding: ' . responsive_spacing_css( $sidebar_inside_container_padding_top, $sidebar_inside_container_padding_right, $sidebar_inside_container_padding_bottom, $sidebar_inside_container_padding_left ) . ';
+		}
+		@media screen and ( max-width: 992px ) {
+			#secondary.widget-area .widget-wrapper{
+				padding: ' . responsive_spacing_css( $sidebar_inside_container_tablet_padding_top, $sidebar_inside_container_tablet_padding_right, $sidebar_inside_container_tablet_padding_bottom, $sidebar_inside_container_tablet_padding_left ) . ';
+			}
+		}
+		@media screen and ( max-width: 576px ) {
+			#secondary.widget-area .widget-wrapper{
+				padding: ' . responsive_spacing_css( $sidebar_inside_container_mobile_padding_top, $sidebar_inside_container_mobile_padding_right, $sidebar_inside_container_mobile_padding_bottom, $sidebar_inside_container_mobile_padding_left ) . ';
+			}
+		}
+		';
+
+		// Mobile Menu Breakpoint.
+		$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
+		$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
+
+		if ( 0 === $disable_mobile_menu ) {
+			$mobile_menu_breakpoint = 0;
+		}
+
+		$responsive_disable_sticky_header_mobile_menu = get_theme_mod( 'responsive_disable_sticky_header_mobile_menu', 0 );
+		if ( '1' == $responsive_disable_sticky_header_mobile_menu ) {
+			$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
+				#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header {
+					position: relative;
+					scroll-behavior: smooth;
+				}
+				#wrapper.site-content {
+					margin-top: 0px !important;
+				}
+			}";
+		}
+
+		$sticky_header_background_color             = get_theme_mod( 'responsive_sticky_header_background_color' );
+		$sticky_header_site_title_color             = get_theme_mod( 'responsive_sticky_header_site_title_color' );
+		$sticky_header_site_title_hover_color       = get_theme_mod( 'responsive_sticky_header_site_title_hover_color' );
+		$sticky_header_text_color                   = get_theme_mod( 'responsive_sticky_header_text_color' );
+		$sticky_header_menu_background_color        = get_theme_mod( 'responsive_sticky_header_menu_background_color' );
+		$sticky_header_active_menu_background_color = get_theme_mod( 'responsive_sticky_header_active_menu_background_color' );
+		$sticky_header_menu_link_color              = get_theme_mod( 'responsive_sticky_header_menu_link_color' );
+		$sticky_header_menu_link_hover_color        = get_theme_mod( 'responsive_sticky_header_menu_link_hover_color' );
+		$sticky_header_sub_menu_background_color    = get_theme_mod( 'responsive_sticky_header_sub_menu_background_color' );
+		$sticky_header_sub_menu_link_color          = get_theme_mod( 'responsive_sticky_header_sub_menu_link_color' );
+		$sticky_header_sub_menu_link_hover_color    = get_theme_mod( 'responsive_sticky_header_sub_menu_link_hover_color' );
+
+		$custom_css .= "
+			#masthead.sticky-header, .res-transparent-header #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header, .res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout) #masthead.sticky-header {
+				background-color: {$sticky_header_background_color};
+			}
+			#masthead.sticky-header .site-title a, .res-transparent-header #masthead.sticky-header .site-title a {
+				color: {$sticky_header_site_title_color};
+			}
+			#masthead.sticky-header .site-title a:hover, .res-transparent-header #masthead.sticky-header .site-title a:hover {
+				color: {$sticky_header_site_title_hover_color};
+			}
+			#masthead.sticky-header .site-description, .res-transparent-header #masthead.sticky-header .site-description {
+				color: {$sticky_header_text_color};
+			}
+			#masthead.sticky-header .main-navigation, .res-transparent-header #masthead.sticky-header .main-navigation, #masthead.sticky-header .main-navigation div, .res-transparent-header #masthead.sticky-header .main-navigation div {
+				background-color: {$sticky_header_menu_background_color};
+			}
+			#masthead.sticky-header .main-navigation .menu > li > a, .res-transparent-header #masthead.sticky-header .main-navigation .menu > li > a {
+				color: {$sticky_header_menu_link_color};
+			}
+
+			#masthead.sticky-header .main-navigation .menu .current_page_item > a,
+			#masthead.sticky-header .main-navigation .menu .current-menu-item > a,
+			#masthead.sticky-header .main-navigation .menu li > a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .menu .current_page_item > a,
+			.res-transparent-header #masthead.sticky-header .main-navigation .menu .current-menu-item > a,
+			.res-transparent-header #masthead.sticky-header .main-navigation .menu li > a:hover {
+				color: {$sticky_header_menu_link_hover_color};
+				background-color: {$sticky_header_active_menu_background_color};
+			}
+			#masthead.sticky-header .main-navigation .children,
+			#masthead.sticky-header .main-navigation .sub-menu, .res-transparent-header #masthead.sticky-header .main-navigation .children,
+			.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu {
+				background-color: {$sticky_header_sub_menu_background_color};
+			}
+			#masthead.sticky-header .main-navigation .children li a,
+			#masthead.sticky-header .main-navigation .sub-menu li a, .res-transparent-header #masthead.sticky-header .main-navigation .children li a,
+			.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu li a {
+				color: {$sticky_header_sub_menu_link_color};
+			}
+			#masthead.sticky-header .main-navigation .children li a:hover,
+			#masthead.sticky-header .main-navigation .sub-menu li a:hover, .res-transparent-header #masthead.sticky-header .main-navigation .children li a:hover,
+			.res-transparent-header #masthead.sticky-header .main-navigation .sub-menu li a:hover {
+				color: {$sticky_header_sub_menu_link_hover_color};
+			}
+			";
+
+		// Styling for blog/archive date box.
+		$responsive_date_box             = esc_html( get_theme_mod( 'responsive_date_box_toggle' ) );
+		$date_box_background_color       = esc_html( get_theme_mod( 'responsive_link_color', '#0066CC' ) );
+		$date_box_calculated_color_value = required_font_color_value( $date_box_background_color );
+			/* Taking body font size value for all views */
+		$body_font_val_desktop = ( isset( get_theme_mod( 'body_typography' )['font-size'] ) && '' !== get_theme_mod( 'body_typography' )['font-size'] ) ? get_theme_mod( 'body_typography' )['font-size'] : '16px';
+		$body_font_val_desktop = str_replace( 'px', '', $body_font_val_desktop );
+		$body_font_val_tablet  = ( isset( get_theme_mod( 'body_tablet_typography' )['font-size'] ) && '' !== get_theme_mod( 'body_tablet_typography' )['font-size'] ) ? get_theme_mod( 'body_tablet_typography' )['font-size'] : '16px';
+		$body_font_val_tablet  = str_replace( 'px', '', $body_font_val_tablet );
+		$body_font_val_mobile  = ( isset( get_theme_mod( 'body_mobile_typography' )['font-size'] ) && '' !== get_theme_mod( 'body_mobile_typography' )['font-size'] ) ? get_theme_mod( 'body_mobile_typography' )['font-size'] : '16px';
+		$body_font_val_mobile  = str_replace( 'px', '', $body_font_val_mobile );
+			/* Calculation for desktop view */
+		$datebox_month_year_font_desktop        = $body_font_val_desktop - 2.5;
+		$datebox_day_font_desktop               = $body_font_val_desktop * 2;
+		$datebox_container_width_height_desktop = ( $body_font_val_desktop * 2 ) + $datebox_day_font_desktop + 20;
+			/* Calculation for tablet view */
+		$datebox_month_year_font_tablet        = $body_font_val_tablet - 2.5;
+		$datebox_day_font_tablet               = $body_font_val_tablet * 2;
+		$datebox_container_width_height_tablet = ( $body_font_val_tablet * 2 ) + $datebox_day_font_tablet + 20;
+			/* Calculation for mobile view */
+		$datebox_month_year_font_mobile        = $body_font_val_mobile - 2.5;
+		$datebox_day_font_mobile               = $body_font_val_mobile * 2;
+		$datebox_container_width_height_mobile = ( $body_font_val_mobile * 2 ) + $datebox_day_font_mobile + 20;
+
+		if ( $responsive_date_box ) {
+			$custom_css .= ".responsive-date-box {
+				background-color: {$date_box_background_color};
+				width: {$datebox_container_width_height_desktop}px;
+				height: {$datebox_container_width_height_desktop}px;
+			}
+			.date-box-day {
+				color: {$date_box_calculated_color_value};
+				font-size: {$datebox_day_font_desktop}px;
+			}
+			.date-box-month {
+				color: {$date_box_calculated_color_value};
+				font-size: {$datebox_month_year_font_desktop}px;
+			}
+			.date-box-year {
+				color: {$date_box_calculated_color_value};
+				font-size: {$datebox_month_year_font_desktop}px;
+			}
+			@media (min-width: 576px) and (max-width: 768px) {
+				.responsive-date-box {
+					width: {$datebox_container_width_height_tablet}px;
+					height: {$datebox_container_width_height_tablet}px;
+				}
+				.date-box-day {
+					font-size: {$datebox_day_font_tablet}px;
+				}
+				.date-box-month,
+				.date-box-year {
+					font-size: {$datebox_month_year_font_tablet}px;
+				}
+			}
+			@media (max-width: 575px) {
+				.responsive-date-box {
+					width: {$datebox_container_width_height_mobile}px;
+					height: {$datebox_container_width_height_mobile}px;
+				}
+				.date-box-day {
+					font-size: {$datebox_day_font_mobile}px;
+				}
+				.date-box-month,
+				.date-box-year {
+					font-size: {$datebox_month_year_font_mobile}px;
+				}
+			}";
+		}
+
+		// Change of blog/archive date box style.
+		$responsive_date_box_style = esc_html( get_theme_mod( 'responsive_date_box_style' ) );
+		if ( 'round' === $responsive_date_box_style ) {
+			$custom_css .= ".responsive-date-box {
+				border-radius: 100%;
+			}";
+		} elseif ( 'square' === $responsive_date_box_style ) {
+			$custom_css .= ".responsive-date-box {
+				border-radius: 0;
+			}";
+		} else {
+			$custom_css .= ".responsive-date-box {
+				border-radius: 0;
+			}";
+		}
+	}
+
 	wp_add_inline_style( 'responsive-style', apply_filters( 'responsive_head_css', responsive_minimize_css( $custom_css ) ) );
 
 	if ( class_exists( 'WooCommerce' ) ) {

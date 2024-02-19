@@ -1,0 +1,28 @@
+//
+// Blog Layouts Mixin
+// -----------------------------------------------------------------------------
+@mixin blog-layout-medias() {
+    @media (max-width: 768px) {
+        #main-blog .post-entry {
+            display: block;
+        }
+        #main-blog .entry-title {
+            margin-bottom: 14px;
+        }
+        .responsive-date-box.without-thumbnail {
+            position: static;
+            margin-left: 0;
+        }
+        #main-blog .post-entry>.datebox-container {
+            margin-bottom: 14px;
+        }
+        #main-blog .thumbnail>.thumbnail-link>img {
+            max-height: 100%;
+            width: 100%;
+        }
+        .responsive-date-box.with-thumbnail {
+            top: 0;
+            right: 0;
+        }
+    }
+  }

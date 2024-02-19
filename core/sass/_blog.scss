@@ -1,0 +1,185 @@
+/* Loader */
+.responsive-loader {
+    display: none;
+    margin: 0 auto;
+    min-height: 58px;
+    line-height: 58px;
+    width: 70px;
+    text-align: center;
+  }
+  .responsive-loader > div {
+    width: 18px;
+    height: 18px;
+    background-color: #0085ba;
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+  .responsive-loader .responsive-loader-1 {
+    animation-delay: -0.32s;
+  }
+  .responsive-loader .responsive-loader-2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
+  @keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+      transform: scale(0);
+    }
+    40% {
+      transform: scale(1);
+    }
+  }
+  .responsive-load-more {
+    cursor: pointer;
+    display: none;
+    border: 2px solid #ffffff;
+    transition: all .2s linear;
+    color: #000;
+  
+    &.active{
+      display: inline-block;
+      padding: 0 1.5em;
+      line-height: 3em;
+    }
+  }
+  .responsive-pagination-infinite{
+    text-align: center;
+    margin: 2.5em 0 0;
+  }
+  
+  /* Date Box */
+  .responsive-date-box {
+    text-align: center;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .date-box-links {
+    text-decoration: none;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .date-box-day {
+    line-height: 1em;
+    font-weight: 900;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+  .date-box-month,
+  .date-box-year {
+    line-height: 1em;
+  }
+  
+  /* Blog/Archive Layouts */
+  .standard-blog-layout {
+    #main-blog .post-entry {
+      display: block;
+    }
+    .responsive-date-box.with-thumbnail {
+      margin-top: 0;
+    }
+  }
+  
+  .blog-layout-two {
+    #main-blog .entry-title {
+      grid-area: title;
+      margin-top: 0;
+      margin-bottom: 0;
+      word-break: break-all;
+    }
+    #main-blog .post-meta {
+      grid-area: meta;
+    }
+    #main-blog .datebox-container {
+      grid-area: rightside;
+      position: relative;
+    }
+    #main-blog .thumbnail {
+      grid-area: rightside;
+      position: relative;
+      margin-top: 0;
+    }
+    #main-blog .entry-content {
+      grid-area: content;
+    }
+    #main-blog .post-entry {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+      grid-column-gap: 15px;
+      grid-template-areas:
+       'title rightside'
+       'meta rightside'
+       'content rightside';
+    }
+    .responsive-date-box.without-thumbnail {
+      position: relative;
+      margin: 0;
+      margin-left: auto;
+    }
+    .responsive-date-box.with-thumbnail {
+      position: relative;
+      top: 0;
+      right: 0;
+      margin-top: 0;
+    }
+    #main-blog .thumbnail > .thumbnail-link>img {
+      max-height: 230px;
+      width: 360px;
+    }
+    @include blog-layout-medias();
+  }
+  
+  .blog-layout-three {
+    #main-blog .entry-title {
+      grid-area: title;
+      margin-top: 0;
+      margin-bottom: 0;
+      word-break: break-all;
+    }
+    #main-blog .post-meta {
+      grid-area: meta;
+    }
+    #main-blog .datebox-container {
+      grid-area: leftside;
+      position: relative;
+    }
+    #main-blog .thumbnail {
+      grid-area: leftside;
+      position: relative;
+      margin-top: 0;
+    }
+    #main-blog .entry-content {
+      grid-area: content;
+    }
+    #main-blog .post-entry {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto;
+      grid-column-gap: 15px;
+      grid-template-areas:
+       'leftside title'
+       'leftside meta'
+       'leftside content';
+    }
+    .responsive-date-box.without-thumbnail {
+      position: relative;
+      margin: 0;
+      margin-right: auto;
+    }
+    .responsive-date-box.with-thumbnail {
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-top: 0;
+    }
+    #main-blog .thumbnail > .thumbnail-link>img {
+      max-height: 230px;
+      width: 360px;
+    }
+    @include blog-layout-medias();
+  }

@@ -1,0 +1,44 @@
+.res-transparent-header:not(.woocommerce-cart):not(.woocommerce-checkout)  #masthead.sticky-header,
+.res-transparent-header #masthead.sticky-header,
+#masthead.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0px;
+  z-index: 200;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 !important;
+  opacity:0.9;
+  -webkit-transition: all 0.8s ease-in-out 0s;
+  -moz-transition: all 0.8s ease-in-out 0s;
+  -o-transition: all 0.8s ease-in-out 0s;
+  transition: all 0.8s ease-in-out 0s;
+  z-index: 99999;
+
+    &.shrink .site-branding .custom-logo {
+        -webkit-transition: all 0.8s ease-in-out 0s;
+        -moz-transition: all 0.8s ease-in-out 0s;
+        -o-transition: all 0.8s ease-in-out 0s;
+        transition: all 0.8s ease-in-out 0s;
+        max-height: 60px;
+        width: auto;
+    }
+
+}
+
+.admin-bar #masthead.sticky-header{
+  top:32px;
+}
+.main-navigation-wrapper .full-screen-search-wrapper{
+  display:none;
+}
+@media (max-width: 780px) {
+  .admin-bar #masthead.sticky-header{
+    top:46px;
+  }
+}
+@media (max-width: 600px) {
+  .admin-bar #masthead.sticky-header{
+    top:0;
+  }
+}

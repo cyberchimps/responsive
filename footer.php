@@ -60,34 +60,27 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 						<?php
 						get_sidebar( 'colophon' );
 
-						if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-							$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
-							$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
-							foreach ( $sections as $section ) {
+						$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+						$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
+						foreach ( $sections as $section ) {
 
-								// Footer Menu.
-								if ( 'footer_menu' === $section ) {
-									if ( has_nav_menu( 'footer-menu' ) ) {
-										get_template_part( 'partials/footer/footer-menu' );
-									}
-								}
-
-								if ( 'social_icons' === $section ) {
-                                    echo responsive_get_social_icons() ;// phpcs:ignore
-								}
-
-								// Copy Rights.
-								if ( 'copy_right_text' === $section ) {
-									get_template_part( 'partials/footer/copy-right' );
+							// Footer Menu.
+							if ( 'footer_menu' === $section ) {
+								if ( has_nav_menu( 'footer-menu' ) ) {
+									get_template_part( 'partials/footer/footer-menu' );
 								}
 							}
-						} else {
-							if ( has_nav_menu( 'footer-menu' ) ) {
-								get_template_part( 'partials/footer/footer-menu' );
+
+							if ( 'social_icons' === $section ) {
+								echo responsive_get_social_icons() ;// phpcs:ignore
 							}
-                            echo responsive_get_social_icons() ;// phpcs:ignore
-							get_template_part( 'partials/footer/copy-right' );
+
+							// Copy Rights.
+							if ( 'copy_right_text' === $section ) {
+								get_template_part( 'partials/footer/copy-right' );
+							}
 						}
+
 						?>
 
 						</div>

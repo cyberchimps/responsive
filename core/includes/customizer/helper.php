@@ -2168,3 +2168,112 @@ function responsive_target_rules_for_related_posts() {
 function responsive_single_blog_disabled_related_posts() {
 	return ( 1 === get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) ) ? true : false;
 }
+
+if ( ! function_exists( 'responsive_radio_button_control' ) ) {
+	/**
+	 * [responsive_radio_button_control description].
+	 *
+	 * @param  [type] $wp_customize [description].
+	 * @param  [type] $element      [description].
+	 * @param  [type] $label        [description].
+	 * @param  [type] $section      [description].
+	 * @param  [type] $priority     [description].
+	 * @param  [type] $default      [description].
+	 * @param  [type] $choices      [description].
+	 * @param  [type] $transport    [description].
+	 * @return void               [description].
+	 */
+	function responsive_radio_button_control( $wp_customize, $element, $label, $section, $priority, $default, $choices = '', $transport = 'refresh' ) {
+
+		$wp_customize->add_setting(
+			'responsive_' . $element,
+			array(
+				'default'   => $default,
+				'transport' => $transport,
+			)
+		);
+		$wp_customize->add_control(
+			'responsive_' . $element,
+			array(
+				'label'    => $label,
+				'section'  => $section,
+				'settings' => 'responsive_' . $element,
+				'type'     => 'radio',
+				'priority' => $priority,
+				'choices'  => $choices,
+			)
+		);
+	}
+}
+
+if ( ! function_exists( 'responsive_date_box_toggle_value' ) ) {
+	/**
+	 * Returns date box option
+	 */
+	function responsive_date_box_toggle_value() {
+		$date_box_toggle_value = get_theme_mod( 'responsive_date_box_toggle' );
+		return $date_box_toggle_value;
+	}
+}
+
+if ( ! function_exists( 'required_font_color_value' ) ) {
+	/**
+	 * Returns needed font color value for date box
+	 *
+	 * @param [type] $color [description] Needed font color value of the date box.
+	 */
+	function required_font_color_value( $color ) {
+		list($r, $g, $b) = sscanf( $color, "#%02x%02x%02x" );
+		$red             = $r * 299;
+		$green           = $g * 587;
+		$blue            = $b * 114;
+		$sum             = round( ( $red + $green + $blue ) / 1000 );
+		if ( $sum > 125 ) {
+			$font_color_needed = "black";
+		} else {
+			$font_color_needed = "white";
+		}
+		return $font_color_needed;
+	}
+}
+
+if ( ! function_exists( 'responsive_blog_pagination' ) ) {
+	/**
+	 * Returns blog pagination option
+	 */
+	function responsive_blog_pagination() {
+
+		$blog_pagination = get_theme_mod( 'blog_pagination' );
+
+		return $blog_pagination;
+
+	}
+}
+
+if ( ! function_exists( 'responsive_footer_elements_positioning' ) ) {
+	/**
+	 * Returns footer elements positioning
+	 *
+	 * @since 0.2
+	 */
+	function responsive_footer_elements_positioning() {
+
+		// Default sections.
+		$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+
+		// Get sections from Customizer.
+		$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
+
+		// Turn into array if string.
+		if ( $sections && ! is_array( $sections ) ) {
+			$sections = explode( ',', $sections );
+		}
+
+		// Apply filters for easy modification.
+		$sections = apply_filters( 'responsive_footer_elements_positioning', $sections );
+
+		// Return sections.
+		return $sections;
+
+	}
+}
