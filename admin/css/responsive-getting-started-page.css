@@ -703,7 +703,8 @@ input:checked + .resp-megamenu-slider:before {
 }
 
 #responsive-theme-setting-wl-section,
-#responsive-theme-setting-app-connection-section {
+.responsive-theme-setting-pro-not-activated-section,
+#responsive-theme-setting-activation-key-section {
     display: none;
 }
 
