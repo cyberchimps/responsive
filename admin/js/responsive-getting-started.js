@@ -301,15 +301,30 @@ $(document).ready(function () {
         $('#responsive-theme-setting-wl-section').show()
         $('#responsive-theme-setting-activation-key-tab span, #responsive-theme-setting-activation-key-tab p').removeClass('responsive-theme-setting-active-tab');
         $('#responsive-theme-setting-wl-tab span, #responsive-theme-setting-wl-tab p').addClass('responsive-theme-setting-active-tab')
+        $('#responsive-setting-item-app-connection-tab span, #responsive-setting-item-app-connection-tab p').removeClass('responsive-theme-setting-active-tab')
         $('#responsive-theme-setting-activation-key-section').hide()
+        $('#responsive-theme-setting-app-connection-section').hide()
     })
 
     $('#responsive-theme-setting-activation-key-tab').click(function(){
         $('#responsive-theme-setting-activation-key-section').show()
+        $('.responsive-theme-setting-pro-not-activated-section').show()
+        $('#responsive-theme-setting-app-connection-section').hide()
         $('#responsive-theme-setting-activation-key-tab span, #responsive-theme-setting-activation-key-tab p').addClass('responsive-theme-setting-active-tab')
         $('#responsive-theme-setting-wl-tab span, #responsive-theme-setting-wl-tab p').removeClass('responsive-theme-setting-active-tab')
+        $('#responsive-setting-item-app-connection-tab span, #responsive-setting-item-app-connection-tab p').removeClass('responsive-theme-setting-active-tab')
         $('#responsive-theme-setting-wl-section').hide()
     })
+    
+    $('#responsive-setting-item-app-connection-tab').click(function(){
+        $('#responsive-theme-setting-app-connection-section').show()
+        $('#responsive-theme-setting-activation-key-section').hide()
+        $('.responsive-theme-setting-pro-not-activated-section').hide()
+        $('#responsive-setting-item-app-connection-tab span, #responsive-setting-item-app-connection-tab p').addClass('responsive-theme-setting-active-tab')
+        $('#responsive-theme-setting-activation-key-tab span, #responsive-theme-setting-activation-key-tab p').removeClass('responsive-theme-setting-active-tab');
+        $('#responsive-theme-setting-wl-tab span, #responsive-theme-setting-wl-tab p').removeClass('responsive-theme-setting-active-tab')
+        $('#responsive-theme-setting-wl-section').hide()
+    })    
 
     // Function to show error styling and message while activating license.
     function show_activation_error( inputTarget, msgTarget, msg ) {
