@@ -1,0 +1,15 @@
+.responsive-custom-fonts-file-wrap.form-field .responsive-custom-fonts-link{
+	width: 80%;
+}
+
+.responsive-custom-fonts-file-wrap.form-field .responsive-custom-fonts-upload {
+	margin-top: 2px;
+	float: right;
+	margin-right: 5%;
+	line-height: 1.5;
+	min-height: 10px;
+}
+
+.responsive-custom-fonts-upload svg {
+	margin-top: 5px;
+}
