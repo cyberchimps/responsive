@@ -28,23 +28,13 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 	}
 }
 ?>
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="responsive-theme-setting-list">
-				<div tabindex="0" class="responsive-theme-setting-item d-flex" 
 				<?php
-				if ( 'activated' === $state || 'installed' === $state ) {
-					?>
-					id="responsive-theme-setting-activation-key-tab" role="button"
-					<?php
-				}
-				?>
-				>
-					<span class="responsive-theme-setting-item-icon dashicons dashicons-shield-alt responsive-theme-setting-active-tab"></span>
-					<p class="responsive-theme-setting-item-title responsive-theme-setting-active-tab"><?php esc_html_e( 'Activate Key', 'responsive' ); ?></p>
-				</div>
-				<?php
+				do_action( 'responsive_theme_setting_item' );
+
 				if ( empty( $wl_settings ) || ( ! empty( $wl_settings ) && 'off' === $wl_settings['hide_wl_settings'] ) ) {
 					?>
 				<div tabindex="1" class="responsive-theme-setting-item d-flex" 
@@ -56,17 +46,26 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 					}
 					?>
 				>
-					<span class="responsive-theme-setting-item-icon dashicons dashicons-edit-page"></span>
-					<p class="responsive-theme-setting-item-title"><?php esc_html_e( 'White Label', 'responsive' ); ?></p>
+				<span class="responsive-theme-setting-item-icon dashicons dashicons-edit-page"></span>
+				<p class="responsive-theme-setting-item-title"><?php esc_html_e( 'White Label', 'responsive' ); ?></p>
 				</div>
+				<?php
+				}?>
+				<div tabindex="0" class="responsive-theme-setting-item d-flex" 
+				<?php
+				if ( 'activated' === $state || 'installed' === $state ) {
+					?>
+					id="responsive-theme-setting-activation-key-tab" role="button"
 					<?php
 				}
-
-				do_action( 'responsive_theme_setting_item' );
 				?>
+				>
+					<span class="responsive-theme-setting-item-icon dashicons dashicons-shield-alt"></span>
+					<p class="responsive-theme-setting-item-title"><?php esc_html_e( 'Activate Key', 'responsive' ); ?></p>
+				</div>
 			</div>
 		</div>
-		<div class="col-md-9 responsive-theme-setting-border-left">
+		<div class="col-md-10 responsive-theme-setting-border-left">
 		<?php
 		if ( 'installed' === $state ) {
 			?>
