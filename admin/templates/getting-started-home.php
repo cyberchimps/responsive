@@ -32,19 +32,21 @@ function check_is_responsive_pro_installed() {
 	}
 }
 
-/**
- * Check if Responsive Addons Pro is installed.
- */
-function check_is_responsive_addons_greater() {
-	if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
-		$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
-		$is_raddons_greater = false;
-		if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
-			$is_raddons_greater = true;
+if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
+	/**
+	 * Check if Responsive Addons is installed.
+	 */
+	function check_is_responsive_addons_greater() {
+		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
+			$is_raddons_greater = false;
+			if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
+				$is_raddons_greater = true;
+			}
+			return $is_raddons_greater;
 		}
-		return $is_raddons_greater;
+		return false;
 	}
-	return false;
 }
 
 	$home_settings = array(
@@ -92,6 +94,11 @@ function check_is_responsive_addons_greater() {
 
 	$is_rea_active = class_exists( 'Responsive_Elementor_Addons' ) ? true : false;
 	$is_rst_active = class_exists( 'Responsive_Add_Ons' ) ? true : false;
+
+	$white_label_url = admin_url( 'themes.php?page=responsive#settings' );
+	if ( ! check_is_responsive_pro_installed() && $is_rst_active && check_is_responsive_addons_greater() ) {
+		$white_label_url = admin_url( 'themes.php?page=responsive#raddons-settings' );
+	}
 
 	$upgrade_to_pro = array(
 		array(
@@ -160,7 +167,7 @@ function check_is_responsive_addons_greater() {
 				),
 				array(
 					'name' => __( 'Settings', 'responsive' ),
-					'link' => admin_url( 'themes.php?page=responsive#settings' ),
+					'link' => $white_label_url,
 				),
 			),
 		),
