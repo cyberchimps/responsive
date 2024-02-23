@@ -169,6 +169,23 @@ function woocommerce_checkout() {
 	remove_action( 'woocommerce_checkout_shipping', array( WC()->checkout(), 'checkout_form_shipping' ) );
 }
 
+if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
+	/**
+	 * Check if Responsive Addons is installed.
+	 */
+	function check_is_responsive_addons_greater() {
+		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
+			$is_raddons_greater = false;
+			if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
+				$is_raddons_greater = true;
+			}
+			return $is_raddons_greater;
+		}
+		return false;
+	}
+}
+
 /**
  * Adds cart icon to menu
  *
@@ -186,7 +203,7 @@ function responsive_menu_cart_icon( $menu, $args ) {
 				$cart_total_markup   = '<span class="res-header-cart-total">' . WC()->cart->get_cart_total() . '</span>';
 
 			}
-			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+			if ( class_exists( 'Responsive_Addons_Pro' ) || check_is_responsive_addons_greater() ) {
 				$cart_title_markup = '<span class="res-woo-header-cart-title">' . __( 'Cart', 'responsive' ) . '</span>';
 				$cart_title        = get_theme_mod( 'responsive_cart_title' );
 				$cart_icon         = get_theme_mod( 'responsive_cart_icon', 'icon-opencart' );

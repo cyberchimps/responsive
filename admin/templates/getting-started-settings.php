@@ -49,8 +49,9 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 				<span class="responsive-theme-setting-item-icon dashicons dashicons-edit-page"></span>
 				<p class="responsive-theme-setting-item-title"><?php esc_html_e( 'White Label', 'responsive' ); ?></p>
 				</div>
-				<?php
-				}?>
+					<?php
+				}
+				?>
 				<div tabindex="0" class="responsive-theme-setting-item d-flex" 
 				<?php
 				if ( 'activated' === $state || 'installed' === $state ) {
@@ -67,45 +68,6 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		</div>
 		<div class="col-md-10 responsive-theme-setting-border-left">
 		<?php
-		if ( 'installed' === $state ) {
-			?>
-			<div class="responsive-theme-setting-pro-not-activated-section">
-				<div class="responsive-theme-single-setting-section">
-					<div class="row">
-						<div class="col-md-8">
-							<p class="fs-4 fw-semibold responsive-theme-setting-pro-not-activated-title"><?php esc_html_e( 'Access Premium Settings with Responsive Pro', 'responsive' ); ?></p>
-						</div>
-						<div class="col-md-4">
-						<?php
-						switch ( $state ) {
-							case 'not installed':
-								?>
-								<a href="<?php echo esc_url( 'https://cyberchimps.com/pricing/?utm_source=Responsive_theme&utm_medium=intro_screen&utm_campaign=free-to-pro&utm_term=Upgrade_now_home' ); ?>" target="_blank" class="responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-4"><?php echo esc_html_e( 'Upgrade Now', 'responsive' ); ?></a>
-								<?php
-								break;
-							case 'installed':
-								?>
-								<a data-slug="<?php echo esc_attr( $slug ); ?>" class="responsive-theme-activate-plugin activate-now responsive-theme-upgrade-now-btn float-lg-end float-start text-decoration-none mb-4" href="<?php echo esc_url( $nonce ); ?>" aria-label="Activate <?php echo esc_attr( $slug ); ?>"><?php echo esc_html__( 'Activate Now', 'responsive' ); ?></a>
-								<?php
-								break;
-							case 'activated':
-								?>
-								<button class="responsive-plugin-activated-button-disabled float-lg-end float-start text-decoration-none mb-4" aria-label="Activated <?php echo esc_attr( $slug ); ?>"><?php echo esc_html__( 'Activated', 'responsive' ); ?></button>
-								<?php
-								break;
-						} // End switch.
-						?>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8">
-							<p class="fw-normal responsive-theme-setting-pro-not-activated-desc"><?php esc_html_e( 'You have the Responsive Pro plugin installed. Activate the API key to access premium templates, enhanced integrations, and customizer settings.', 'responsive' ); ?></p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<?php
-		}
 		if ( 'activated' === $state ) {
 			$disabled               = '';
 			$activated_form         = '';
