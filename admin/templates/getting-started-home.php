@@ -32,19 +32,21 @@ function check_is_responsive_pro_installed() {
 	}
 }
 
-/**
- * Check if Responsive Addons is installed.
- */
-function check_is_responsive_addons_greater() {
-	if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
-		$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
-		$is_raddons_greater = false;
-		if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
-			$is_raddons_greater = true;
+if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
+	/**
+	 * Check if Responsive Addons is installed.
+	 */
+	function check_is_responsive_addons_greater() {
+		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
+			$is_raddons_greater = false;
+			if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
+				$is_raddons_greater = true;
+			}
+			return $is_raddons_greater;
 		}
-		return $is_raddons_greater;
+		return false;
 	}
-	return false;
 }
 
 	$home_settings = array(
