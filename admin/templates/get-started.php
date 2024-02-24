@@ -13,6 +13,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
+	/**
+	 * Check if Responsive Addons is installed.
+	 */
+	function check_is_responsive_addons_greater() {
+		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
+			$is_raddons_greater = false;
+			if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
+				$is_raddons_greater = true;
+			}
+			return $is_raddons_greater;
+		}
+		return false;
+	}
+}
+
 $slug  = 'responsive-addons-pro';
 $state = '';
 if ( file_exists( ABSPATH . 'wp-content/plugins/' . $slug . '/' . $slug . '.php' ) ) {
@@ -50,7 +67,7 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 				<p class="responsive-theme-tab-name">Home</p>
 			</div>
 			<?php
-			if ( 'installed' === $state || 'activated' === $state ) {
+			if ( 'activated' === $state ) {
 				?>
 				<div class="responsive-theme-tab responsive-theme-settings-tab" data-tab="settings">
 					<p class="responsive-theme-tab-name">Settings</p>
@@ -87,7 +104,7 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-home.php'; ?>
 			</div>
 			<?php
-			if ( 'installed' === $state || 'activated' === $state ) {
+			if ( 'activated' === $state ) {
 				?>
 				<div class="responsive-theme-settings-content responsive-theme-tab-content" id="responsive_settings">
 					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-settings.php'; ?>
