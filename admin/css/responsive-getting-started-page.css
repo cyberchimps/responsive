@@ -264,7 +264,8 @@ body.toplevel_page_responsive #wpbody-content {
     margin-bottom: 12px;
 }
 
-.responsive-theme-upgrade-now-btn {
+.responsive-theme-upgrade-now-btn,
+.responsive-theme-install-responsive-add-ons {
     padding: 8px 20px;
     background-color: #2271B1;
     border: none;
@@ -272,7 +273,8 @@ body.toplevel_page_responsive #wpbody-content {
     color: white;
 }
 
-.responsive-theme-upgrade-now-btn:hover, .responsive-theme-upgrade-now-btn:focus {
+.responsive-theme-upgrade-now-btn:hover, .responsive-theme-upgrade-now-btn:focus,
+.responsive-theme-install-responsive-add-ons:hover, .responsive-theme-install-responsive-add-ons:focus {
     color: #FFFFFF;
 }
 

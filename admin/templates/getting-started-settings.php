@@ -27,6 +27,7 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		}
 	}
 }
+$is_rst_active = class_exists( 'Responsive_Add_Ons' ) ? true : false;
 ?>
 <div class="container-fluid">
 	<div class="row">
@@ -61,8 +62,8 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 				}
 				?>
 				>
-					<span class="responsive-theme-setting-item-icon dashicons dashicons-shield-alt"></span>
-					<p class="responsive-theme-setting-item-title"><?php esc_html_e( 'Activate Key', 'responsive' ); ?></p>
+					<span class="responsive-theme-setting-item-icon dashicons dashicons-shield-alt <?php if(!$is_rst_active) echo 'responsive-theme-setting-active-tab' ?>"></span>
+					<p class="responsive-theme-setting-item-title <?php if(!$is_rst_active) echo 'responsive-theme-setting-active-tab' ?>"><?php esc_html_e( 'Activate Key', 'responsive' ); ?></p>
 				</div>
 			</div>
 		</div>

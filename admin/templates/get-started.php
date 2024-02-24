@@ -76,9 +76,11 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 			}
 			?>
 			<?php do_action( 'responsive_addons_getting_started_settings_tab' ); ?>
-			<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
-				<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
-			</div>
+			<?php if( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ): ?>
+				<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
+					<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
+				</div>
+			<?php endif; ?>
 			<div class="responsive-theme-tab responsive-theme-plugins-tab" data-tab="plugins">
 				<p class="responsive-theme-tab-name">Useful&nbsp;Plugins</p>
 			</div>
@@ -111,9 +113,11 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 			}
 			?>
 			<?php do_action( 'responsive_addons_getting_started_settings_tab_content' ); ?>
-			<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_templates">
-				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rst.php'; ?>
-			</div>
+			<?php if( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ): ?>
+				<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_templates">
+					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rst.php'; ?>
+				</div>
+			<?php endif; ?>
 			<div class="responsive-theme-plugins-content responsive-theme-tab-content" id="responsive_plugins">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-useful-plugins.php'; ?>
 			</div>
