@@ -1248,6 +1248,21 @@ function responsive_customizer_styles() {
 	$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
 	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 
+	$hamburger_menu_padding_right  = esc_html( get_theme_mod( 'responsive_hamburger_menu_right_padding' ) );
+	$hamburger_menu_padding_left   = esc_html( get_theme_mod( 'responsive_hamburger_menu_left_padding' ) );
+	$hamburger_menu_padding_top    = esc_html( get_theme_mod( 'responsive_hamburger_menu_top_padding', Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ) ) );
+	$hamburger_menu_padding_bottom = esc_html( get_theme_mod( 'responsive_hamburger_menu_bottom_padding', Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ) ) );
+
+	$hamburger_menu_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_hamburger_menu_tablet_right_padding' ) );
+	$hamburger_menu_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_hamburger_menu_tablet_left_padding' ) );
+	$hamburger_menu_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_hamburger_menu_tablet_top_padding', 28 ) );
+	$hamburger_menu_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_hamburger_menu_tablet_bottom_padding', 28 ) );
+
+	$hamburger_menu_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_hamburger_menu_mobile_right_padding' ) );
+	$hamburger_menu_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_hamburger_menu_mobile_left_padding' ) );
+	$hamburger_menu_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_hamburger_menu_mobile_top_padding', 28 ) );
+	$hamburger_menu_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_hamburger_menu_mobile_bottom_padding', 28 ) );
+
 	$disable_menu = get_theme_mod( 'responsive_disable_menu', 0 );
 
 	if ( 0 === $disable_mobile_menu ) {
@@ -1396,6 +1411,11 @@ function responsive_customizer_styles() {
 		}
 	}
   	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
+		.main-navigation .menu-toggle{
+			display: flex;
+			justif-content: center;
+			align-items: center;
+		}
 		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
 			bottom:{$header_tablet_padding_bottom}px;
 		}
@@ -1685,11 +1705,13 @@ function responsive_customizer_styles() {
 	}
 
 	$custom_css .= '.site-branding-wrapper {
+		max-width: fit-content;
 		padding: ' . responsive_spacing_css( $header_padding_top, $header_padding_right, $header_padding_bottom, $header_padding_left ) . ';
 
 	}
 	@media screen and ( max-width: 992px ) {
 		.site-branding-wrapper {
+			max-width: fit-content;
 			padding: ' . responsive_spacing_css( $header_tablet_padding_top, $header_tablet_padding_right, $header_tablet_padding_bottom, $header_tablet_padding_left ) . ';
 		}
 	}
@@ -1948,18 +1970,24 @@ function responsive_customizer_styles() {
 	}
 
 	// Hamburger Menu Width Style.
-	$hamburger_menu_width_style = get_theme_mod( 'responsive_hamburger_menu_label_text', '' );
-	if ( '' !== $hamburger_menu_width_style ) {
-		$custom_css .= '.main-navigation .menu-toggle {
-			width: auto;
-			padding-left: 10px;
-			padding-right: 10px;
-		}';
-	} else {
-		$custom_css .= '.main-navigation .menu-toggle {
-			width: 49px;
-		}';
+	$custom_css .= '@media (max-width:{' . $mobile_menu_breakpoint . '}px) {
+		.main-navigation .menu-toggle {
+		width: auto;
+		padding:' . $hamburger_menu_padding_top . 'px ' . $hamburger_menu_padding_right . 'px ' . $hamburger_menu_padding_bottom . 'px ' . $hamburger_menu_padding_left . 'px;
+		}
 	}
+	@media (max-width:992px) {
+		.main-navigation .menu-toggle {
+		width: auto;
+		padding:' . $hamburger_menu_tablet_padding_top . 'px ' . $hamburger_menu_tablet_padding_right . 'px ' . $hamburger_menu_tablet_padding_bottom . 'px ' . $hamburger_menu_tablet_padding_left . 'px;
+		}
+	}
+	@media (max-width:576px) {
+		.main-navigation .menu-toggle {
+		width: auto;
+		padding:' . $hamburger_menu_mobile_padding_top . 'px ' . $hamburger_menu_mobile_padding_right . 'px ' . $hamburger_menu_mobile_padding_bottom . 'px ' . $hamburger_menu_mobile_padding_left . 'px;
+		}
+	}';
 
 	// Hamburger Menu Label Font Size.
 	$hamburger_menu_label_font_value = get_theme_mod( 'responsive_hamburger_menu_label_font_size', 20 );
@@ -2037,12 +2065,14 @@ function responsive_customizer_styles() {
 			}
 			.custom-logo-link {
 				display: grid;
+				max-width: fit-content;
 			}
 		}
 		";
 	} else {
 		$custom_css .= '.custom-logo-link {
 			display: grid;
+			max-width: fit-content;
 		}';
 	}
 	$responsive_hide_last_item_mobile_menu = get_theme_mod( 'responsive_hide_last_item_mobile_menu', 0 );

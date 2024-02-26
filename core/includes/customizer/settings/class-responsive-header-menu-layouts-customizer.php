@@ -131,6 +131,10 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 			$hamburger_menu_label_font_size = __( 'Menu Label Font Size', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'hamburger_menu_label_font_size', $hamburger_menu_label_font_size, 'responsive_header_menu_layout', 85, 20, 'responsive_disabled_mobile_menu', 100, 1, 'postMessage' );
 
+			// Logo Padding.
+			$hamburger_menu_padding_label = esc_html__( 'Hamburger Menu padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'hamburger_menu', 'responsive_header_menu_layout', 88, Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ), 'responsive_disabled_mobile_menu', $hamburger_menu_padding_label, 'refresh' );
+
 			// Mobile Menu Style.
 			$mobile_menu_style_label   = __( 'Mobile Menu Style', 'responsive' );
 			$mobile_menu_style_choices = array(
