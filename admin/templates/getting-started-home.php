@@ -327,9 +327,9 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 						if( check_is_responsive_pro_activated() ) {
 							esc_html_e( 'Responsive Pro Features', 'responsive' );
 						} else if ( check_is_responsive_addons_installed() ) {
-							esc_html_e( 'Responsive Addons Features', 'responsive' );
+							esc_html_e( 'Responsive Add-ons Features', 'responsive' );
 						} else {
-							esc_html_e( 'Install Responsive Add-ons for Free to unlock more features', 'responsive' );
+							esc_html_e( 'Unlock More Features by Installing Responsive Add-ons', 'responsive' );
 						}
 						?>
 					</p>
@@ -415,7 +415,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										foreach ( $feature['links'] as $index => $feature_link ) {
 											$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 											?>
-												<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="_blank"><?php echo esc_html( $feature_link['name'] ); ?></a>
+												<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
 											<?php
 											if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
 												?>
@@ -435,7 +435,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 									foreach ( $feature['links'] as $index => $feature_link ) {
 										$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 										?>
-											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="_blank"><?php echo esc_html( $feature_link['name'] ); ?></a>
+											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
 										<?php
 										if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
 											?>
