@@ -136,7 +136,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		/**
 		 * Responsive Custom Fonts
 		 *
-		 * @since 4.9.9
+		 * @since 5.0.0
 		 */
 		function responsive_custom_fonts_admin_scripts() {
 			wp_enqueue_media();
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		/**
 		 * Register custom font menu
 		 *
-		 * @since 4.9.9
+		 * @since 5.0.0
 		 */
 		function responsive_register_custom_fonts_menu() {
 
@@ -173,7 +173,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		/**
 		 * Highlight custom font menu
 		 *
-		 * @since 4.9.9
+		 * @since 5.0.0
 		 */
 		function responsive_custom_fonts_menu_highlight() {
 			global $parent_file, $submenu_file;
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		/**
 		 * Manage Columns
 		 *
-		 * @since 4.9.9
+		 * @since 5.0.0
 		 * @param array $columns default columns.
 		 * @return array $columns updated columns.
 		 */
@@ -228,7 +228,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		/**
 		 * Add new Taxonomy data
 		 *
-		 * @since 4.9.9
+		 * @since 5.0.0
 		 */
 		function add_new_taxonomy_data() {
 			responsive_theme_font_file_new_field( 'font_woff_2', __( 'Upload Font', 'responsive' ), __( 'Allowed Font types are .woff2, .woff, .ttf, .eot, .svg, .otf', 'responsive' ) );
@@ -252,7 +252,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		/**
 		 * Add Taxonomy data field
 		 *
-		 * @since 4.9.9
+		 * @since 5.0.0
 		 * @param int    $id current term id.
 		 * @param string $title font type title.
 		 * @param string $description title font type description.
@@ -339,7 +339,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		/**
 		 * Save Taxonomy meta data value
 		 *
-		 * @since 4.9.9
+		 * @since 5.0.0
 		 * @param int $term_id current term id.
 		 */
 		function responsive_theme_save_metadata( $term_id ) {
@@ -361,7 +361,7 @@ if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		/**
 		 * Allowed mime types and file extensions
 		 *
-		 * @since 4.9.9
+		 * @since 5.0.0
 		 * @param array $mimes Current array of mime types.
 		 * @return array $mimes Updated array of mime types.
 		 */
