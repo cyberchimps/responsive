@@ -310,7 +310,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 						<div class="responsive-theme-home-setting">
 							<div class="responsive-theme-home-setting-button">
 								<span class="dashicons <?php echo esc_attr( $home_setting['icon'] ); ?> mt-1 me-2"></span>
-								<span class="responsive-theme-home-setting-button-label"><?php echo esc_attr( $home_setting['label'] ); ?></span>
+								<span class="responsive-theme-home-setting-button-label"><?php echo wp_kses_post( $home_setting['label'] ); ?></span>
 							</div>
 							<div class="responsive-theme-home-setting-arrow">
 								<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/trending_flat.svg'; ?>" alt="">

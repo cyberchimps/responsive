@@ -47,7 +47,6 @@ require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
 if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 	require $responsive_template_directory . '/core/includes/classes/class-responsive-blog-markup.php';
-	require $responsive_template_directory . '/core/includes/custom-fonts/class-responsive-custom-fonts-taxonomy.php';
 }
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 require $responsive_template_directory . '/core/includes/compatibility/lifterlms/class-responsive-lifterlms.php';

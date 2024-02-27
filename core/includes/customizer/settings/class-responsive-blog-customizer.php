@@ -31,13 +31,36 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 		public function customizer_options( $wp_customize ) {
 
 			/* Setting to change layout of the blog */
-			$blog_layout_label   = esc_html__( 'Blog/Archive Layouts (Desktop)', 'responsive' );
+
 			$blog_layout_choices = array(
 				'blog-layout-1' => esc_html__( 'Standard Layout', 'responsive' ),
 				'blog-layout-2' => esc_html__( 'Datebox/Image To Right', 'responsive' ),
 				'blog-layout-3' => esc_html__( 'Datebox/Image To Left', 'responsive' ),
 			);
-			responsive_radio_button_control( $wp_customize, 'blog_layout_options', $blog_layout_label, 'responsive_blog_layout', 10, 'blog-layout-1', $blog_layout_choices );
+
+			$wp_customize->add_setting(
+				'responsive_blog_layout_options',
+				array(
+					'default'           => 'blog-layout-1',
+					'sanitize_callback' => 'responsive_sanitize_select',
+					'transport'         => 'refresh',
+				)
+			);
+
+			$wp_customize->add_control(
+				new Responsive_Customizer_Select_Control(
+					$wp_customize,
+					'responsive_blog_layout_options',
+					array(
+						'label'    => esc_html__( 'Blog/Archive Layouts (Desktop)', 'responsive' ),
+						'section'  => 'responsive_blog_layout',
+						'settings' => 'responsive_blog_layout_options',
+						'priority' => 10,
+						'choices'  => $blog_layout_choices,
+					)
+				)
+			);
+
 			/* End of blog layout setting */
 
 			/* Setting to enable date box on blog/archive page.*/
