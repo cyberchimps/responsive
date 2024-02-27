@@ -2169,43 +2169,6 @@ function responsive_single_blog_disabled_related_posts() {
 	return ( 1 === get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) ) ? true : false;
 }
 
-if ( ! function_exists( 'responsive_radio_button_control' ) ) {
-	/**
-	 * [responsive_radio_button_control description].
-	 *
-	 * @param  [type] $wp_customize [description].
-	 * @param  [type] $element      [description].
-	 * @param  [type] $label        [description].
-	 * @param  [type] $section      [description].
-	 * @param  [type] $priority     [description].
-	 * @param  [type] $default      [description].
-	 * @param  [type] $choices      [description].
-	 * @param  [type] $transport    [description].
-	 * @return void               [description].
-	 */
-	function responsive_radio_button_control( $wp_customize, $element, $label, $section, $priority, $default, $choices = '', $transport = 'refresh' ) {
-
-		$wp_customize->add_setting(
-			'responsive_' . $element,
-			array(
-				'default'   => $default,
-				'transport' => $transport,
-			)
-		);
-		$wp_customize->add_control(
-			'responsive_' . $element,
-			array(
-				'label'    => $label,
-				'section'  => $section,
-				'settings' => 'responsive_' . $element,
-				'type'     => 'radio',
-				'priority' => $priority,
-				'choices'  => $choices,
-			)
-		);
-	}
-}
-
 if ( ! function_exists( 'responsive_date_box_toggle_value' ) ) {
 	/**
 	 * Returns date box option

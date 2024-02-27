@@ -55,7 +55,7 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 						$wp_customize,
 						'responsive_footer_elements_positioning',
 						array(
-							'label'    => esc_html__( 'Footer Elements', 'responsive-addons-pro' ),
+							'label'    => esc_html__( 'Footer Elements', 'responsive' ),
 							'section'  => 'responsive_footer_layout',
 							'settings' => 'responsive_footer_elements_positioning',
 							'priority' => 11,
@@ -63,9 +63,9 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 								apply_filters(
 									'responsie_footer_elements',
 									array(
-										'social_icons'    => esc_html__( 'Social Icons', 'responsive-addons-pro' ),
-										'footer_menu'     => esc_html__( 'Footer Menu', 'responsive-addons-pro' ),
-										'copy_right_text' => esc_html__( 'Copy Right Text', 'responsive-addons-pro' ),
+										'social_icons'    => esc_html__( 'Social Icons', 'responsive' ),
+										'footer_menu'     => esc_html__( 'Footer Menu', 'responsive' ),
+										'copy_right_text' => esc_html__( 'Copy Right Text', 'responsive' ),
 									)
 								),
 						)
