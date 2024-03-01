@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '4.9.8' );
+define( 'RESPONSIVE_THEME_VERSION', '5.0.0' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -45,6 +45,9 @@ require $responsive_template_directory . '/core/includes/compatibility/woocommer
 require $responsive_template_directory . '/core/includes/compatibility/sensei/class-responsive-sensei.php';
 require $responsive_template_directory . '/admin/admin-functions.php';
 require $responsive_template_directory . '/core/includes/classes/class-responsive-mobile-menu-markup.php';
+if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
+	require $responsive_template_directory . '/core/includes/classes/class-responsive-blog-markup.php';
+}
 require $responsive_template_directory . '/core/gutenberg/gutenberg-support.php';
 require $responsive_template_directory . '/core/includes/compatibility/lifterlms/class-responsive-lifterlms.php';
 require $responsive_template_directory . '/core/includes/modules/related-posts/class-responsive-related-posts.php';
@@ -1037,4 +1040,77 @@ function prevent_menu_icon_redirection() {
 		});
 	});
 	</script>";
+}
+
+add_action( 'wp_footer', 'responsive_pro_fixed_menu_onscroll' );
+
+if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
+	/**
+	 * Shows fixed header on scroll if sticky-header is enabled
+	 */
+	function responsive_pro_fixed_menu_onscroll() {
+		$responsive_options = wp_parse_args( get_option( 'responsive_theme_options', array() ) );
+
+		if ( isset( $responsive_options['sticky-header'] ) && 1 === $responsive_options['sticky-header'] ) {
+
+			if ( get_theme_mod( 'responsive_shrink_sticky_header' ) ) {
+				?>
+				<script type="text/javascript">
+					document.getElementById("masthead").classList.add( 'shrink' );
+				</script>
+				<?php } else { ?>
+				<script type="text/javascript">
+					document.getElementById("masthead").classList.remove( 'shrink' );
+				</script>
+			<?php }
+			if ( get_theme_mod( 'responsive_sticky_header_logo_option' ) ) {?>
+				<script type="text/javascript">
+					document.getElementById("masthead").classList.add( 'sticky-logo' );
+				</script>
+			<?php } else { ?>
+				<script type="text/javascript">
+					document.getElementById("masthead").classList.remove( 'sticky-logo' );
+				</script>
+			<?php }?>
+
+		<script type="text/javascript">
+			window.addEventListener("scroll", responsiveStickyHeader);
+
+			function responsiveStickyHeader() {
+				var height = document.getElementById("masthead").offsetHeight;
+				if (document.documentElement.scrollTop > 0 ) {
+					document.getElementById("masthead").classList.add( 'sticky-header' );
+					if (document.getElementById("wrapper") ) {
+						document.getElementById("wrapper").style.marginTop = height+'px';
+					}
+					if (document.getElementsByClassName("elementor")[0] ) {
+						document.getElementsByClassName("elementor")[0].style.marginTop = height+'px';
+					}
+
+					let container = document.getElementById( 'site-navigation' );
+					let button = container.getElementsByTagName( 'button' )[0];
+					let menu = container.getElementsByTagName( 'ul' )[0];
+					let icon = button.getElementsByTagName( 'i' )[0];
+					container.classList.remove( 'toggled' );
+					menu.setAttribute( 'aria-expanded', 'false' );
+					button.setAttribute( 'aria-expanded', 'false' );
+					icon.setAttribute( 'class', 'icon-bars' );
+					if(document.getElementById("sidebar-menu-overlay")) {
+						document.getElementById("sidebar-menu-overlay").style.display = "none";
+					}
+
+				} else {
+					document.getElementById("masthead").classList.remove( 'sticky-header' );
+					if (document.getElementById("wrapper") ) {
+						document.getElementById("wrapper").style.marginTop = '0px';
+					}
+					if (document.getElementsByClassName("elementor")[0] ) {
+						document.getElementsByClassName("elementor")[0].style.marginTop = '0px';
+					}
+				}
+			}
+		</script>
+			<?php
+		}
+	}
 }

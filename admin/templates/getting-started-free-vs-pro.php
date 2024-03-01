@@ -20,7 +20,7 @@
 				<thead class="">
 					<tr>
 						<td><?php esc_html_e( 'Features', 'responsive' ); ?></td>
-						<td class="text-center"><?php esc_html_e( 'Free', 'responsive' ); ?></td>
+						<td class="text-center"><?php esc_html_e( 'Responsive Free', 'responsive' ); ?></td>
 						<td class="text-center"><?php esc_html_e( 'Responsive Pro', 'responsive' ); ?></td>
 					</tr>
 				</thead>
@@ -45,9 +45,7 @@
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Fully Customizable', 'responsive' ); ?></div>
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Advanced settings for Typography, Layouts and Colors', 'responsive' ); ?></div>
 						</td>
-						<td class="text-center">
-							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Limited Options', 'responsive' ); ?></div>
-						</td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
@@ -55,7 +53,7 @@
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Mega Menu', 'responsive' ); ?></div>
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Adds Nav module for building mega menu, & highlight tags', 'responsive' ); ?></div>
 						</td>
-						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
@@ -63,7 +61,7 @@
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'White Label Feature', 'responsive' ); ?></div>
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'White Label the theme and plugin name', 'responsive' ); ?></div>
 						</td>
-						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
@@ -71,7 +69,7 @@
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Lifter LMS Integration', 'responsive' ); ?></div>
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Advanced customizer settings for Lifter LMS Plugin', 'responsive' ); ?></div>
 						</td>
-						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
@@ -79,7 +77,7 @@
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Learn Dash Integration', 'responsive' ); ?></div>
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Advanced customizer settings for Learn Dash', 'responsive' ); ?></div>
 						</td>
-						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
@@ -99,7 +97,7 @@
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Elementor Widgets', 'responsive' ); ?></div>
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Access to 50+ Elementor Widgets for free', 'responsive' ); ?></div>
 						</td>
-						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
@@ -107,7 +105,7 @@
 							<div class="responsive-theme-freevspro-feature-title mb-2"><?php esc_html_e( 'Theme Builder', 'responsive' ); ?></div>
 							<div class="responsive-theme-freevspro-feature-desc"><?php esc_html_e( 'Access to REA Theme Builder Feature', 'responsive' ); ?></div>
 						</td>
-						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/cross.svg'; ?>" alt=""></td>
+						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 						<td class="text-center"><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/tick.svg'; ?>" alt=""></td>
 					</tr>
 					<tr>
@@ -138,7 +136,7 @@
 				<p class="responsive-theme-freevspro-responsive-pro-title"><?php esc_html_e( 'Do More with Responsive Pro', 'responsive' ); ?></p>
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
-						<p class="responsive-theme-freevspro-responsive-pro-desc mt-3"><?php esc_html_e( 'Get powerful customizer settings in the Responsive Pro plugin, access to Premium Starter Template, and Responsive Elementor addons worth $47 for free. With all the features you get, the product pays for itself!', 'responsive' ); ?></p>
+						<p class="responsive-theme-freevspro-responsive-pro-desc mt-3"><?php esc_html_e( 'Get powerful theme customizer settings, integrations with third party plugins and access to Premium Starter Templates.', 'responsive' ); ?></p>
 					</div>
 				</div>
 				<div class="row">

@@ -18,6 +18,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
+	/**
+	 * Check if Responsive Addons is installed.
+	 */
+	function check_is_responsive_addons_greater() {
+		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
+			$is_raddons_greater = false;
+			if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
+				$is_raddons_greater = true;
+			}
+			return $is_raddons_greater;
+		}
+		return false;
+	}
+}
+
 /*
  * Globalize Theme options
  */
@@ -26,7 +43,7 @@ $responsive_options = Responsive\Core\responsive_get_options();
 global $responsive_blog_layout_columns;
 do_action( 'cyberchimps_footer' );
 $responsive_show_footer = true;
-if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+if ( class_exists( 'Responsive_Addons_Pro' ) || check_is_responsive_addons_greater() ) {
 	if ( ( 1 === get_theme_mod( 'responsive_distraction_free_woocommerce', 0 ) ) && (
 		( is_shop() && 1 === get_theme_mod( 'responsive_disable_shop_header_footer', 0 ) )
 		|| ( is_product() && 1 === get_theme_mod( 'responsive_disable_single_product_header_footer', 0 ) )
@@ -60,34 +77,27 @@ if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_d
 						<?php
 						get_sidebar( 'colophon' );
 
-						if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-							$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
-							$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
-							foreach ( $sections as $section ) {
+						$sections = array( 'social_icons', 'footer_menu', 'copy_right_text' );
+						$sections = get_theme_mod( 'responsive_footer_elements_positioning', $sections );
+						foreach ( $sections as $section ) {
 
-								// Footer Menu.
-								if ( 'footer_menu' === $section ) {
-									if ( has_nav_menu( 'footer-menu' ) ) {
-										get_template_part( 'partials/footer/footer-menu' );
-									}
-								}
-
-								if ( 'social_icons' === $section ) {
-                                    echo responsive_get_social_icons() ;// phpcs:ignore
-								}
-
-								// Copy Rights.
-								if ( 'copy_right_text' === $section ) {
-									get_template_part( 'partials/footer/copy-right' );
+							// Footer Menu.
+							if ( 'footer_menu' === $section ) {
+								if ( has_nav_menu( 'footer-menu' ) ) {
+									get_template_part( 'partials/footer/footer-menu' );
 								}
 							}
-						} else {
-							if ( has_nav_menu( 'footer-menu' ) ) {
-								get_template_part( 'partials/footer/footer-menu' );
+
+							if ( 'social_icons' === $section ) {
+								echo responsive_get_social_icons() ;// phpcs:ignore
 							}
-                            echo responsive_get_social_icons() ;// phpcs:ignore
-							get_template_part( 'partials/footer/copy-right' );
+
+							// Copy Rights.
+							if ( 'copy_right_text' === $section ) {
+								get_template_part( 'partials/footer/copy-right' );
+							}
 						}
+
 						?>
 
 						</div>

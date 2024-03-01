@@ -13,6 +13,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
+	/**
+	 * Check if Responsive Addons is installed.
+	 */
+	function check_is_responsive_addons_greater() {
+		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
+			$is_raddons_greater = false;
+			if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
+				$is_raddons_greater = true;
+			}
+			return $is_raddons_greater;
+		}
+		return false;
+	}
+}
+
 $slug  = 'responsive-addons-pro';
 $state = '';
 if ( file_exists( ABSPATH . 'wp-content/plugins/' . $slug . '/' . $slug . '.php' ) ) {
@@ -32,14 +49,14 @@ $nonce = add_query_arg(
 	network_admin_url( 'plugins.php' )
 );
 
-$admin_logo = apply_filters( 'responsive_admin_menu_icon', esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-logo-colored.jpg' );
-$admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url( RESPONSIVE_THEME_URI . 'admin/images/cyberchimps-logo.png' ));
+$admin_logo        = apply_filters( 'responsive_admin_menu_icon', esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-logo-colored.jpg' );
+$admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url( RESPONSIVE_THEME_URI . 'admin/images/cyberchimps-logo.png' ) );
 ?>
 
 <div class="responsive-theme-getting-started-page">
 	<div class="responsive-theme-getting-started-header bg-white">
 		<div class="responsive-theme-brand">
-			<img class="responsive-theme-logo" src="<?php echo $admin_logo; ?>" >
+			<img class="responsive-theme-logo" src="<?php echo esc_url( $admin_logo ); ?>" >
 			<div class="responsive-theme-version"><?php echo esc_html( RESPONSIVE_THEME_VERSION ); ?></div>
 		</div>
 		<p class="responsive-theme-brand-desc"><?php esc_html_e( 'Blazing fast, mobile-friendly, fully-customizable WordPress theme.', 'responsive' ); ?></p>
@@ -50,7 +67,7 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 				<p class="responsive-theme-tab-name">Home</p>
 			</div>
 			<?php
-			if ( 'installed' === $state || 'activated' === $state ) {
+			if ( 'activated' === $state ) {
 				?>
 				<div class="responsive-theme-tab responsive-theme-settings-tab" data-tab="settings">
 					<p class="responsive-theme-tab-name">Settings</p>
@@ -58,9 +75,12 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 				<?php
 			}
 			?>
-			<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
-				<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
-			</div>
+			<?php do_action( 'responsive_addons_getting_started_settings_tab' ); ?>
+			<?php if( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ): ?>
+				<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
+					<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
+				</div>
+			<?php endif; ?>
 			<div class="responsive-theme-tab responsive-theme-plugins-tab" data-tab="plugins">
 				<p class="responsive-theme-tab-name">Useful&nbsp;Plugins</p>
 			</div>
@@ -84,7 +104,7 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-home.php'; ?>
 			</div>
 			<?php
-			if ( 'installed' === $state || 'activated' === $state ) {
+			if ( 'activated' === $state ) {
 				?>
 				<div class="responsive-theme-settings-content responsive-theme-tab-content" id="responsive_settings">
 					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-settings.php'; ?>
@@ -92,9 +112,12 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 				<?php
 			}
 			?>
-			<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_templates">
-				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rst.php'; ?>
-			</div>
+			<?php do_action( 'responsive_addons_getting_started_settings_tab_content' ); ?>
+			<?php if( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ): ?>
+				<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_templates">
+					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rst.php'; ?>
+				</div>
+			<?php endif; ?>
 			<div class="responsive-theme-plugins-content responsive-theme-tab-content" id="responsive_plugins">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-useful-plugins.php'; ?>
 			</div>
@@ -124,6 +147,6 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 			</div>
 			<div class="responsive-theme-hr"></div>
 		</div>
-		<img class="responsive-theme-cyberchimps-logo" src="<?php echo $admin_footer_logo; ?>" alt="">
+		<img class="responsive-theme-cyberchimps-logo" src="<?php echo esc_url( $admin_footer_logo ); ?>" alt="">
 	</div>
 </div>
