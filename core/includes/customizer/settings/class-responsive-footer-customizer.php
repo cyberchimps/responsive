@@ -71,28 +71,6 @@ if ( ! class_exists( 'Responsive_Footer_Customizer' ) ) :
 						)
 					)
 				);
-
-				$wp_customize->add_setting(
-					'responsive_theme_options[poweredby_link]',
-					array(
-						'default'           => false,
-						'sanitize_callback' => 'responsive_sanitize_checkbox',
-						'type'              => 'option',
-					)
-				);
-				$wp_customize->add_control(
-					new Responsive_Customizer_Checkbox_Control(
-						$wp_customize,
-						'res_poweredby_link',
-						array(
-							'label'    => __( 'Hide Powered By Responsive Theme', 'responsive' ),
-							'section'  => 'responsive_footer_layout',
-							'settings' => 'responsive_theme_options[poweredby_link]',
-							'priority' => 120,
-						)
-					)
-				);
-
 			}
 		}
 

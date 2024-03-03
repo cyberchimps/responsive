@@ -1114,3 +1114,37 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 		}
 	}
 }
+
+function copyright_shortcode_function() {
+    return esc_html( '&copy;' );
+}
+add_shortcode('copyright', 'copyright_shortcode_function');
+
+function date_shortcode_function() {
+    return esc_attr( gmdate( 'Y' ) );
+}
+add_shortcode('current_year', 'date_shortcode_function');
+
+function site_title_shortcode_function() {
+    return esc_html( get_bloginfo( 'name' ) );
+}
+add_shortcode('site_title', 'site_title_shortcode_function');
+
+function theme_author_shortcode_function() {
+    return esc_html('Responsive Theme');
+}
+add_shortcode('theme_author', 'theme_author_shortcode_function');
+
+add_action('wp_ajax_save_footer_text', 'save_footer_text_callback');
+add_action('wp_ajax_nopriv_save_footer_text', 'save_footer_text_callback');
+
+function save_footer_text_callback() {
+
+  $footer_text = wp_kses_post($_POST['footer_text']);
+
+  update_option('footer-copyright', $footer_text);
+
+  wp_send_json_success('Data saved successfully');
+
+  wp_die();
+}

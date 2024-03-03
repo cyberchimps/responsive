@@ -1,0 +1,24 @@
+.customize-control-tags{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    align-items: center;
+    border: 1px solid #dcdcde;
+    border-bottom: none;
+    background: #f6f6f6;
+}
+
+.customize-control-tags select{
+    border: 1px solid #dcdcde;
+    width: 150px;
+}
+
+.customize-control-tags span{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.customize-control-tags select:focus{
+    border: none;
+    color: #000;
+}
