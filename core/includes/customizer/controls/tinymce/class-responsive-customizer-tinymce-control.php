@@ -38,7 +38,7 @@ if (class_exists('WP_Customize_Control')) {
           <div class="customize-control-tags">
           <span>Tags</span>
             <select id="<?php echo esc_attr($this->id) ?>-dropdown" <?php $this->link(); ?>>
-            <option value='' disabled></option>
+            <option value='' disabled>Select Tag</option>
                 <?php
                 foreach ($dropdown_options as $label => $option_value) {
                     $selected = selected($value, $option_value, false);
@@ -47,81 +47,74 @@ if (class_exists('WP_Customize_Control')) {
                 ?>
             </select>
           </div>
-        <label>
+          </label>
           <input id="<?php echo esc_attr($this->id) ?>-link" class="wp-editor-area" type="hidden" <?php $this->link(); ?> value="<?php echo esc_textarea($value); ?>">
           <?php
-          wp_editor($value, $this->id, array(
-              'textarea_name'      => $this->id,
-              'media_buttons'      => false,
-              'drag_drop_upload'   => false,
-              'teeny'              => true,
-              'quicktags'          => false,
-              'textarea_rows'      => 5,
-              'wpautop' => false,
-          ));
+            $settings = array(
+              'textarea_name' => 'my_custom_editor_content',
+              'media_buttons' => false,
+              'teeny'         => false,
+              'textarea_rows' => 10,
+              'quicktags'     => false,
+              'tinymce'       => array(
+                'toolbar1'  => 'formatselect styleselect',
+                'toolbar2'  => 'bold italic strikethrough | forecolor backcolor | link | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+                'setup'     => "function (editor) {
+
+                  editor.on('BeforeSetContent', function(event) {
+                  event.content = event.content.replace(/<p>|<\/p>/g, '');
+                  });
+                  
+                  var linkInput = document.getElementById('$this->id-link');
+                  var dropdown = document.getElementById('$this->id-dropdown');
+                  dropdown.selectedIndex = 0;
+                  linkInput.value = editor.getContent();
+                  editor.setContent(linkInput.value);
+
+                  function updateContent() {
+                    var content = editor.getContent();
+                    var ajaxUrl = '" . admin_url('admin-ajax.php') . "';
+
+          
+                    fetch(ajaxUrl, {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                      },
+                      body: new URLSearchParams({
+                        action: 'save_footer_text',
+                        footer_text: content,
+                      }),
+                    });
+                  }
+
+                  dropdown.addEventListener('change', function() {
+                  var selectedOption = dropdown.options[dropdown.selectedIndex];
+                  if (selectedOption.value) {
+                  var newContent = editor.getContent() + ' ' + selectedOption.value;
+                  linkInput.value = newContent;
+                  editor.setContent(linkInput.value);
+                  cb();
+                  }
+                  });
+
+                  var cb = function () {
+                  var newContent = editor.getContent();
+                  linkInput.value = newContent;
+                  updateContent();
+                  dropdown.selectedIndex = 0;
+                  }
+
+                  editor.on('Change', cb);
+                  editor.on('Undo', cb);
+                  editor.on('Redo', cb);
+                }"
+              ),
+            );
+        
+            wp_editor($value, $this->id, $settings);
         ?>
       </label>
-      <script>
-        function updateContent() {
-          var editor = tinymce.get('<?php echo esc_attr($this->id); ?>');
-          var content = editor.getContent();
-          var ajaxUrl = '<?php echo esc_url(admin_url('admin-ajax.php')); ?>';
-
-          fetch(ajaxUrl, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-              action: 'save_footer_text',
-              footer_text: content,
-            }),
-          });
-        }
-
-        tinymce.init({
-          selector: '#<?php echo esc_attr($this->id); ?>',
-          toolbar: 'bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
-          menubar: false,
-          setup: function (editor) {
-            editor.on('BeforeSetContent', function (event) {
-              event.content = event.content.replace(/<p>|<\/p>/g, '');
-            });
-
-            var linkInput = document.getElementById('<?php echo esc_attr($this->id); ?>-link');
-            var dropdown = document.getElementById('<?php echo esc_attr($this->id); ?>-dropdown');
-
-            linkInput.value = editor.getContent();
-            editor.setContent(linkInput.value);
-
-            dropdown.addEventListener('change', function () {
-              var selectedOption = dropdown.options[dropdown.selectedIndex];
-              if (selectedOption.value) {
-                var newContent = editor.getContent() + ' ' + selectedOption.value;
-                linkInput.value = newContent;
-                editor.setContent(linkInput.value);
-                dropdown.selectedIndex = 0;
-                updateContent();
-                linkInput.dispatchEvent(new Event('change'));
-              }
-            });
-
-            var cb = function () {
-              var newContent = editor.getContent();
-              linkInput.value = newContent;
-              updateContent();
-              linkInput.dispatchEvent(new Event('change'));
-            };
-
-            editor.on('init', cb);
-            editor.on('Change', cb);
-            editor.on('Undo', cb);
-            editor.on('Redo', cb);
-            editor.on('KeyUp', cb);
-          }
-        });
-      </script>
-
       <?php
       if ($num_customizer_teenies_rendered == $num_customizer_teenies_initiated)
         do_action('admin_print_footer_scripts');
