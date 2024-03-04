@@ -1,7 +1,7 @@
 .customize-control-tags{
     display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
+    gap: 20px;
+    padding: 5px 20px;
     align-items: center;
     border: 1px solid #dcdcde;
     border-bottom: none;
@@ -10,7 +10,8 @@
 
 .customize-control-tags select{
     border: 1px solid #dcdcde;
-    width: 150px;
+    width: auto;
+    flex-grow: 1;
     color: #000;
 }
 
