@@ -57,8 +57,8 @@ if (class_exists('WP_Customize_Control')) {
               'textarea_rows' => 10,
               'quicktags'     => false,
               'tinymce'       => array(
-                'toolbar1'  => 'formatselect styleselect',
-                'toolbar2'  => 'bold italic strikethrough | forecolor backcolor | link | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+                'toolbar1'  => 'bold italic strikethrough forecolor backcolor | link unlink | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+                'toolbar2'  => '',                
                 'setup'     => "function (editor) {
 
                   editor.on('BeforeSetContent', function(event) {
@@ -67,7 +67,6 @@ if (class_exists('WP_Customize_Control')) {
                   
                   var linkInput = document.getElementById('$this->id-link');
                   var dropdown = document.getElementById('$this->id-dropdown');
-                  dropdown.selectedIndex = 0;
                   linkInput.value = editor.getContent();
                   editor.setContent(linkInput.value);
 
@@ -76,16 +75,16 @@ if (class_exists('WP_Customize_Control')) {
                     var ajaxUrl = '" . admin_url('admin-ajax.php') . "';
 
           
-                  fetch(ajaxUrl, {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams({
-                      action: 'save_footer_text',
-                      footer_text: content,
-                    }),
-                  });
+                    fetch(ajaxUrl, {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                      },
+                      body: new URLSearchParams({
+                        action: 'save_footer_text',
+                        footer_text: content,
+                      }),
+                    });
                   }
 
                   dropdown.addEventListener('change', function() {
@@ -94,7 +93,9 @@ if (class_exists('WP_Customize_Control')) {
                   var newContent = editor.getContent() + ' ' + selectedOption.value;
                   linkInput.value = newContent;
                   editor.setContent(linkInput.value);
-                  cb();
+                  dropdown.selectedIndex = 0;
+                  updateContent();
+                  linkInput.dispatchEvent(new Event('change'));
                   }
                   });
 
@@ -102,12 +103,13 @@ if (class_exists('WP_Customize_Control')) {
                   var newContent = editor.getContent();
                   linkInput.value = newContent;
                   updateContent();
-                  dropdown.selectedIndex = 0;
+                  linkInput.dispatchEvent(new Event('change'));
                   }
 
                   editor.on('Change', cb);
                   editor.on('Undo', cb);
                   editor.on('Redo', cb);
+                  editor.on('KeyUp', cb);
                 }"
               ),
             );
