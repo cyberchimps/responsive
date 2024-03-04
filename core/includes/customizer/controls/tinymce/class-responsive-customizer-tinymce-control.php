@@ -76,16 +76,16 @@ if (class_exists('WP_Customize_Control')) {
                     var ajaxUrl = '" . admin_url('admin-ajax.php') . "';
 
           
-                    fetch(ajaxUrl, {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                      },
-                      body: new URLSearchParams({
-                        action: 'save_footer_text',
-                        footer_text: content,
-                      }),
-                    });
+                  fetch(ajaxUrl, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                      action: 'save_footer_text',
+                      footer_text: content,
+                    }),
+                  });
                   }
 
                   dropdown.addEventListener('change', function() {
