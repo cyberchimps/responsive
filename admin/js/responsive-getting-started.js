@@ -292,6 +292,9 @@ $(document).ready(function () {
         );
 
     })
+    if ( ! localize.isRSTActivated ) {
+        $('#responsive-theme-setting-activation-key-section').show();
+    }
 
     // Switching of Setting Tabs.
     $('#responsive-theme-setting-wl-tab').click(function(){

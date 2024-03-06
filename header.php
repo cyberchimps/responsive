@@ -17,6 +17,24 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
+	/**
+	 * Check if Responsive Addons is installed.
+	 */
+	function check_is_responsive_addons_greater() {
+		if ( is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) {
+			$raddons_version    = get_plugin_data( WP_PLUGIN_DIR . '/responsive-add-ons/responsive-add-ons.php' )['Version'];
+			$is_raddons_greater = false;
+			if ( version_compare( $raddons_version, '3.0.0', '>=' ) ) {
+				$is_raddons_greater = true;
+			}
+			return $is_raddons_greater;
+		}
+		return false;
+	}
+}
+
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> > <!--<![endif]-->
@@ -39,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 		Responsive\responsive_header_top();
 		$responsive_show_header = true;
-		if ( class_exists( 'Responsive_Addons_Pro' ) ) {
+		if ( class_exists( 'Responsive_Addons_Pro' ) || check_is_responsive_addons_greater() ) {
 			if ( ( 1 === get_theme_mod( 'responsive_distraction_free_woocommerce', 0 ) ) && (
 				( is_shop() && 1 === get_theme_mod( 'responsive_disable_shop_header_footer', 0 ) )
 				|| ( is_product() && 1 === get_theme_mod( 'responsive_disable_single_product_header_footer', 0 ) )
@@ -48,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				|| ( is_account_page() && 1 === get_theme_mod( 'responsive_disable_account_header_footer', 0 ) )
 				|| ( is_product_category() && 1 === get_theme_mod( 'responsive_disable_product_category_header_footer', 0 ) )
 				|| ( is_product_tag() && 1 === get_theme_mod( 'responsive_disable_product_tag_header_footer', 0 ) )
-				) && 'on' === get_option('rpro_woocommerce_enable')
+				) && 'on' === get_option( 'rpro_woocommerce_enable' )
 			) {
 				$responsive_show_header = false;
 			}

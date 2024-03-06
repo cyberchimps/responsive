@@ -127,4 +127,3 @@ if ( class_exists( 'responsive_addons_pro' ) ) {
 		add_action( 'admin_notices', 'responsive_upgrade_pro_react', 20 );
 	}
 }
-

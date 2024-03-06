@@ -49,7 +49,7 @@ const TypographyComponent = props => {
         let optgrpOfGoogleFonts = null;
         let optgrpOfStandardFontsLabel = __( 'Standard Fonts', 'responsive' );
         let optgrpOfGoogleFontsLabel = __( 'Google Fonts', 'responsive' );
-        let optgrpOfCustomFontsLabel = __( 'Custom Fonts', 'responsive-addons-pro' );
+        let optgrpOfCustomFontsLabel = __( 'Custom Fonts', 'responsive' );
         let standardFontsOptionsHtml = null;
         let googleFontsOptionsHtml = null;
         let customFontsOptionsHtml = null;
