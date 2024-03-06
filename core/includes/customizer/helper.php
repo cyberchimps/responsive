@@ -944,14 +944,14 @@ if ( ! function_exists( 'responsive_spacing_css' ) ) {
  * @param  string  $label [description].
  * @return void
  */
-function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)' ) {
+function responsive_padding_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)', $transport = 'postMessage' ) {
 	/**
 	 *  Padding control.
 	 */
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_top_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -959,7 +959,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_left_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -968,7 +968,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_bottom_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -976,7 +976,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_right_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -984,7 +984,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_tablet_top_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -992,7 +992,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_tablet_right_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -1000,7 +1000,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_tablet_bottom_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -1008,7 +1008,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_tablet_left_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -1017,7 +1017,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_mobile_top_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -1025,7 +1025,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_mobile_right_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
@@ -1033,7 +1033,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_mobile_bottom_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_y,
 		)
@@ -1041,7 +1041,7 @@ function responsive_padding_control( $wp_customize, $element, $section, $priorit
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_mobile_left_padding',
 		array(
-			'transport'         => 'postMessage',
+			'transport'         => $transport,
 			'sanitize_callback' => 'responsive_sanitize_number',
 			'default'           => $default_values_x,
 		)
