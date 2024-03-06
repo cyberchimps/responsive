@@ -66,6 +66,16 @@ if ( ! class_exists( 'Responsive_Woocommerce_Shop_Layout_Customizer' ) ) :
 			}
 			responsive_select_button_control( $wp_customize, 'shop_sidebar_position', $sidebar_label, 'responsive_sidebar_layout', 50, $sidebar_choices, 'no', null );
 
+			$container_spacing_label = esc_html__( 'Product Card Spacing', 'responsive' );
+			responsive_separator_control( $wp_customize, 'product_card_spacing', $container_spacing_label, 'responsive_woocommerce_shop_layout', 30 );
+
+			$outside_container_label = __( 'Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'product_card_outside_container', 'responsive_woocommerce_shop_layout', 33, 15, 15, '', $outside_container_label );
+
+			// Inside Container.
+			$inside_container_label = __( 'Margin (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'product_card_inside_container', 'responsive_woocommerce_shop_layout', 36, 15, 15, '', $inside_container_label );
+
 			// Shop Elements.
 			$shop_elements_label = esc_html__( 'Shop Product', 'responsive' );
 			responsive_separator_control( $wp_customize, 'shop_elements_separator', $shop_elements_label, 'responsive_woocommerce_shop_layout', 40 );
