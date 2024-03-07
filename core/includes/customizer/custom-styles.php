@@ -1970,13 +1970,13 @@ function responsive_customizer_styles() {
 	}
 
 	// Hamburger Menu Width Style.
-	$custom_css .= '@media (max-width:{' . $mobile_menu_breakpoint . '}px) {
-		.main-navigation .menu-toggle {
-		width: auto;
-		padding:' . $hamburger_menu_padding_top . 'px ' . $hamburger_menu_padding_right . 'px ' . $hamburger_menu_padding_bottom . 'px ' . $hamburger_menu_padding_left . 'px;
+	$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
+		.main-navigation .menu-toggle{			
+			padding:{$hamburger_menu_padding_top}px {$hamburger_menu_padding_right}px {$hamburger_menu_padding_bottom}px {$hamburger_menu_padding_left}px;
 		}
-	}
-	@media (max-width:992px) {
+	}";
+	$custom_css .= 
+	'@media (max-width:992px) {
 		.main-navigation .menu-toggle {
 		width: auto;
 		padding:' . $hamburger_menu_tablet_padding_top . 'px ' . $hamburger_menu_tablet_padding_right . 'px ' . $hamburger_menu_tablet_padding_bottom . 'px ' . $hamburger_menu_tablet_padding_left . 'px;
