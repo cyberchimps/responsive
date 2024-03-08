@@ -137,7 +137,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 					$wp_customize,
 					'footer_copyright',
 					array(
-						'label' => __('Copyright', 'responsive'),
+						'label' => __('Copyright Text', 'responsive'),
 						'section' => 'responsive_footer_layout',
 						'priority'    => 110,
 					)
