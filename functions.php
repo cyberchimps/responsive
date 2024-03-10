@@ -1132,7 +1132,7 @@ add_shortcode('site_title', 'site_title_shortcode_function');
 
 function theme_author_shortcode_function() {
 	?>
-    <a href="https://cyberchimps.com/" rel="nofollow noopener" target="_blank"><?php return esc_html('Responsive Theme');?></a>
+    <a href="<?php echo esc_url('https://cyberchimps.com/'); ?>" rel="nofollow noopener" target="_blank"><?php return esc_html('Responsive Theme');?></a>
 	<?php
 }
 add_shortcode('theme_author', 'theme_author_shortcode_function');
