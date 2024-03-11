@@ -22,7 +22,24 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 		public function __construct() {
 
 			add_action( 'customize_register', array( $this, 'customizer_options' ) );
+			add_action( 'responsive_footer_copyright', array( $this, 'footer_copyright' ), 10 );
 
+		}
+		
+		public function footer_copyright() {
+			$theme_author = responsive_get_theme_author_details();
+		
+			$content = get_option( 'footer-copyright' );
+			if ( $content || is_customize_preview() ) {
+				echo '<div class="footer_copyright">';						
+						$content = str_replace( '[copyright]', '&copy;', $content );
+						$content = str_replace( '[current_year]', gmdate( 'Y' ), $content );
+						$content = str_replace( '[site_title]', get_bloginfo( 'name' ), $content );
+						$content = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '" rel="nofollow noopener" target="_blank">' . $theme_author['theme_name'] . '</a>', $content );
+						echo do_shortcode( wp_kses_post( wpautop( $content ) ) );
+				echo '</div>';
+			}
+		
 		}
 
 		/**
