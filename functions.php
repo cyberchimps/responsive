@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '5.0.0' );
+define( 'RESPONSIVE_THEME_VERSION', '5.0.1' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1131,7 +1131,9 @@ function site_title_shortcode_function() {
 add_shortcode('site_title', 'site_title_shortcode_function');
 
 function theme_author_shortcode_function() {
-    return esc_html('Responsive Theme');
+	?>
+    <a href="<?php echo esc_url('https://cyberchimps.com/'); ?>" rel="nofollow noopener" target="_blank"><?php return esc_html('Responsive Theme');?></a>
+	<?php
 }
 add_shortcode('theme_author', 'theme_author_shortcode_function');
 
