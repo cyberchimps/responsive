@@ -16,7 +16,7 @@ $footer_text = get_option('footer-copyright');
 <div class="footer-layouts copyright">
 	<?php
 	if ( ! empty($footer_text)){
-		echo do_shortcode( wp_kses_post($footer_text) );
+		 do_action( 'responsive_footer_copyright' );
 	}else{
 	?>
 	<div class="footer-layouts copyright">

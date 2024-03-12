@@ -1115,27 +1115,22 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 	}
 }
 
-function copyright_shortcode_function() {
-    return esc_html( '&copy;' );
-}
-add_shortcode('copyright', 'copyright_shortcode_function');
+/**
+ * Get theme author details
+ */
 
-function date_shortcode_function() {
-    return esc_attr( gmdate( 'Y' ) );
-}
-add_shortcode('current_year', 'date_shortcode_function');
+function responsive_get_theme_author_details() {
 
-function site_title_shortcode_function() {
-    return esc_html( get_bloginfo( 'name' ) );
-}
-add_shortcode('site_title', 'site_title_shortcode_function');
+	$theme_author = apply_filters(
+		'responsive_theme_author',
+		array(
+			'theme_name'       => __( 'Responsive Theme', 'responsive' ),
+			'theme_author_url' => 'https://cyberchimps.com/',
+		)
+	);
 
-function theme_author_shortcode_function() {
-	?>
-    <a href="<?php echo esc_url('https://cyberchimps.com/'); ?>" rel="nofollow noopener" target="_blank"><?php return esc_html('Responsive Theme');?></a>
-	<?php
+	return $theme_author;
 }
-add_shortcode('theme_author', 'theme_author_shortcode_function');
 
 add_action('wp_ajax_save_footer_text', 'save_footer_text_callback');
 add_action('wp_ajax_nopriv_save_footer_text', 'save_footer_text_callback');
