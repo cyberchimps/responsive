@@ -1705,13 +1705,11 @@ function responsive_customizer_styles() {
 	}
 
 	$custom_css .= '.site-branding-wrapper {
-		max-width: fit-content;
 		padding: ' . responsive_spacing_css( $header_padding_top, $header_padding_right, $header_padding_bottom, $header_padding_left ) . ';
 
 	}
 	@media screen and ( max-width: 992px ) {
 		.site-branding-wrapper {
-			max-width: fit-content;
 			padding: ' . responsive_spacing_css( $header_tablet_padding_top, $header_tablet_padding_right, $header_tablet_padding_bottom, $header_tablet_padding_left ) . ';
 		}
 	}
@@ -2065,14 +2063,12 @@ function responsive_customizer_styles() {
 			}
 			.custom-logo-link {
 				display: grid;
-				max-width: fit-content;
 			}
 		}
 		";
 	} else {
 		$custom_css .= '.custom-logo-link {
 			display: grid;
-			max-width: fit-content;
 		}';
 	}
 	$responsive_hide_last_item_mobile_menu = get_theme_mod( 'responsive_hide_last_item_mobile_menu', 0 );
