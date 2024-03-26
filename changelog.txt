@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(26/03/2024) = Added - Version 5.0.2
+[*] = Changed = Changed Theme successful installation welcome banner notice.
+[!] = Fixed = Fixed header menu items alignment issue.
+
 (12/03/2024) = Added - Version 5.0.1
 [!] = Fixed = Customization link opening in new tab.
 [!] = Fixed = Responsive theme Page options alignment issue.

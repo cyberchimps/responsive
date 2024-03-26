@@ -1037,7 +1037,7 @@ function defaults() {
 			'header_widget_link_hover'            => '#10659C',
 
 			//hamburger menu padding
-			'hamburger_menu_padding'		  => 15,
+			'hamburger_menu_padding'		      => 15,
 			'header_menu_background'              => '#ffffff',
 			'header_menu_border'                  => '#eaeaea',
 			'header_active_menu_background'       => '#ffffff',
