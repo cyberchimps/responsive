@@ -1133,10 +1133,15 @@ function responsive_get_theme_author_details() {
 }
 
 add_action('wp_ajax_save_footer_text', 'save_footer_text_callback');
-add_action('wp_ajax_nopriv_save_footer_text', 'save_footer_text_callback');
 
 function save_footer_text_callback() {
 
+	check_ajax_referer( 'responsive-save-footer-content', '_ajax_nonce' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( esc_html__( 'You do not have sufficient permissions to perform this action.', 'responsive' ) );
+    }
+	
   $footer_text = wp_kses_post($_POST['footer_text']);
 
   update_option('footer-copyright', $footer_text);

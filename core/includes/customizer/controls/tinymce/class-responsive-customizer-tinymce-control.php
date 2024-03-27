@@ -36,9 +36,9 @@ if (class_exists('WP_Customize_Control')) {
         <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
         <label>
           <div class="customize-control-tags">
-          <span>Tags</span>
+          <span><?php esc_html_e( 'Tags', 'responsive' ); ?></span>
             <select id="<?php echo esc_attr($this->id) ?>-dropdown" <?php $this->link(); ?>>
-            <option value='' disabled>Select Tag</option>
+            <option value='' disabled><?php esc_html_e( 'Select Tag', 'responsive' ); ?></option>
                 <?php
                 foreach ($dropdown_options as $label => $option_value) {
                     $selected = selected($value, $option_value, false);
@@ -73,6 +73,7 @@ if (class_exists('WP_Customize_Control')) {
                   function updateContent() {
                     var content = editor.getContent();
                     var ajaxUrl = '" . admin_url('admin-ajax.php') . "';
+                    let _ajax_nonce = '" . wp_create_nonce('responsive-save-footer-content') . "';
 
           
                     fetch(ajaxUrl, {
@@ -83,6 +84,7 @@ if (class_exists('WP_Customize_Control')) {
                       body: new URLSearchParams({
                         action: 'save_footer_text',
                         footer_text: content,
+                        _ajax_nonce: _ajax_nonce,
                       }),
                     });
                   }
