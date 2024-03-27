@@ -72,10 +72,10 @@ function responsive_welcome_banner_notice() {
 		</div>
 		<div class="responsive-notice-content">
 			<h2 class="handle">
-				<span><?php echo esc_html( apply_filters( 'responsive_sites_menu_page_title', __( 'Thank You for installing Responsive', 'responsive' ) ) ); ?></span>
+				<span><?php echo esc_html( apply_filters( 'responsive_sites_menu_page_title', __( 'Thank You for Installing Responsive Theme', 'responsive' ) ) ); ?></span>
 			</h2>
 				<p>
-					You can get a fully functional ready site with Responsive. Browse 100+ <a href="<?php echo esc_url( 'https://cyberchimps.com/wordpress-themes/?utm_source=wordpress-install-notice&utm_medium=button&utm_campaign=ready-site-templates' ); ?>" target="_blank" rel="noopener">ready site templates</a> Install the Responsive Starter Templates plugin to get started.
+					<?php esc_html_e( 'Import 250+ fully functional and ready to use business websites with the free Responsive Addons Plugin. Explore features like the mega menu, white label, advance WooCommerce settings and many more.', 'responsive' ); ?>
 					<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 				</p>
 			</div>

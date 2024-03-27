@@ -47,7 +47,7 @@ function responsive_meta_box( $post ) {
 	}
 	?>
 	<div class="components-base-control ">
-		<div class="components-base-control__field">
+		<div class="components-base-control__field" style="display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 10px;">
 			<label for="responsive_page_meta_sidebar_position"><?php esc_html_e( 'Sidebar Position', 'responsive' ); ?></label>
 			<select name="responsive_page_meta_sidebar_position" id="responsive_page_meta_sidebar_position" class="components-select-control__input" style="max-width:86%">
 				<?php
@@ -77,7 +77,7 @@ function responsive_meta_box( $post ) {
 	);
 	?>
 	<div class="components-base-control ">
-		<div class="components-base-control__field">
+		<div class="components-base-control__field" style="display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 10px;">
 			<label for="responsive_page_meta_layout_style"><?php esc_html_e( 'Page Layout Style', 'responsive' ); ?></label>
 			<select name="responsive_page_meta_layout_style" id="responsive_page_meta_layout_style" class="components-select-control__input" style="max-width:86%">
 				<?php
@@ -105,7 +105,7 @@ function responsive_meta_box( $post ) {
 	);
 	?>
 	<div class="components-base-control ">
-		<div class="components-base-control__field">
+		<div class="components-base-control__field" style="display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 10px;">
 			<label for="responsive_page_meta_transparent_header"><?php esc_html_e( 'Transparent Header', 'responsive' ); ?></label>
 			<select name="responsive_page_meta_transparent_header" id="responsive_page_meta_transparent_header" class="components-select-control__input" style="max-width:86%">
 				<?php
@@ -126,7 +126,7 @@ function responsive_meta_box( $post ) {
 	</div>
 
 	<div class="components-base-control ">
-		<div class="components-base-control__field">
+		<div class="components-base-control__field" style="display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 10px;">
 			<label for="responsive_page_meta_content_width"><?php esc_html_e( 'Content Width in % Max 100 ', 'responsive' ); ?></label>
 			<input type="number" value="<?php echo esc_html( get_post_meta( get_the_ID(), 'responsive_page_meta_content_width', true ) ); ?>" name="responsive_page_meta_content_width" id="responsive_page_meta_content_width" class="components-select-control__input" max="100">
 		</div>

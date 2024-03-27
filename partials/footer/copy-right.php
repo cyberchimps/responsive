@@ -9,14 +9,23 @@
 global $responsive_options;
 $responsive_options = Responsive\Core\responsive_get_options();
 $cyberchimps_link   = '';
+$footer_text = get_option('footer-copyright');
+
 ?>
 
 <div class="footer-layouts copyright">
+	<?php
+	if ( ! empty($footer_text)){
+		 do_action( 'responsive_footer_copyright' );
+	}else{
+	?>
+	<div class="footer-layouts copyright">
 	<?php
 	if ( ! get_theme_mod( 'responsive_copyright_icon_and_year' ) ) {
 		?>
 		<span class="copyright_icon_and_year" >
 			<?php
+				esc_attr_e('Copyright', 'responsive');
 				esc_attr_e( ' &copy; ', 'responsive' );
 				echo esc_attr( gmdate( ' Y' ) );
 			?>
@@ -46,11 +55,11 @@ $cyberchimps_link   = '';
 		<?php
 		echo apply_filters(
 			'responsive_theme_footer_link',
-			esc_url( 'https://cyberchimps.com/' )
+			esc_url( 'https://cyberchimps.com/')
 		);
 		?>
 			"
-			target=<?php echo $copyright_new_tab; ?>
+			target="_blank"
 			>
 			<?php
 			echo apply_filters(
@@ -58,5 +67,9 @@ $cyberchimps_link   = '';
 				esc_html__( ' Responsive Theme', 'responsive' )
 			)
 			?>
-			</a>	<?php } ?>
+			</a><?php } ?>
+		</div>
+		<?php
+		}
+	?>
 </div>

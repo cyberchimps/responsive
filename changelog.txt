@@ -8,8 +8,18 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(26/03/2024) = Added - Version 5.0.2
+[*] = Changed = Changed Theme successful installation welcome banner notice.
+[!] = Fixed = Fixed header menu items alignment issue.
+
+(12/03/2024) = Added - Version 5.0.1
+[!] = Fixed = Customization link opening in new tab.
+[!] = Fixed = Responsive theme Page options alignment issue.
+[+] = Added = Added customizer settings for adding padding to Hamburger menu icon.
+[+] = Added = Added padding options for product shop page.
+[+] = Added = Added customizer setting for editing Copyright Footer.
+
 (27/02/2024) = Added - Version 5.0.0
-[+] = Feature = Introduced the custom fonts feature. Now you can upload your own font libraries for your website.
 [+] = Feature = Introduced customizer settings to control inside and outside padding in Global, Blog Archives, Single Post and Sidebar menus.
 [+] = Feature = Introduced Sticky header in theme customizer. Now you can make header sticky from the free Responsive Theme.
 [+] = Feature = Introduced new customizer settings for Blog Archive layout: Desktop Layouts, Date box styling, Post pagination.

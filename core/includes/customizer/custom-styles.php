@@ -1248,6 +1248,23 @@ function responsive_customizer_styles() {
 	$disable_mobile_menu    = get_theme_mod( 'responsive_disable_mobile_menu', 1 );
 	$mobile_menu_breakpoint = esc_html( get_theme_mod( 'responsive_mobile_menu_breakpoint', 767 ) );
 
+	$hamburger_menu_default_padding = Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' );
+
+	$hamburger_menu_padding_right  = esc_html( get_theme_mod( 'responsive_hamburger_menu_right_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_padding_left   = esc_html( get_theme_mod( 'responsive_hamburger_menu_left_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_padding_top    = esc_html( get_theme_mod( 'responsive_hamburger_menu_top_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_padding_bottom = esc_html( get_theme_mod( 'responsive_hamburger_menu_bottom_padding', $hamburger_menu_default_padding ) );
+
+	$hamburger_menu_tablet_padding_right  = esc_html( get_theme_mod( 'responsive_hamburger_menu_tablet_right_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_tablet_padding_left   = esc_html( get_theme_mod( 'responsive_hamburger_menu_tablet_left_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_tablet_padding_top    = esc_html( get_theme_mod( 'responsive_hamburger_menu_tablet_top_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_tablet_padding_bottom = esc_html( get_theme_mod( 'responsive_hamburger_menu_tablet_bottom_padding', $hamburger_menu_default_padding ) );
+
+	$hamburger_menu_mobile_padding_right  = esc_html( get_theme_mod( 'responsive_hamburger_menu_mobile_right_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_mobile_padding_left   = esc_html( get_theme_mod( 'responsive_hamburger_menu_mobile_left_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_hamburger_menu_mobile_top_padding', $hamburger_menu_default_padding ) );
+	$hamburger_menu_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_hamburger_menu_mobile_bottom_padding', $hamburger_menu_default_padding ) );
+
 	$disable_menu = get_theme_mod( 'responsive_disable_menu', 0 );
 
 	if ( 0 === $disable_mobile_menu ) {
@@ -1396,6 +1413,11 @@ function responsive_customizer_styles() {
 		}
 	}
   	@media screen and ( max-width: {$mobile_menu_breakpoint}px ) {
+		.main-navigation .menu-toggle{
+			display: flex;
+			justif-content: center;
+			align-items: center;
+		}
 		.site-mobile-header-layout-horizontal.site-header-main-navigation-site-branding .main-navigation .menu-toggle {
 			bottom:{$header_tablet_padding_bottom}px;
 		}
@@ -1948,18 +1970,24 @@ function responsive_customizer_styles() {
 	}
 
 	// Hamburger Menu Width Style.
-	$hamburger_menu_width_style = get_theme_mod( 'responsive_hamburger_menu_label_text', '' );
-	if ( '' !== $hamburger_menu_width_style ) {
-		$custom_css .= '.main-navigation .menu-toggle {
-			width: auto;
-			padding-left: 10px;
-			padding-right: 10px;
-		}';
-	} else {
-		$custom_css .= '.main-navigation .menu-toggle {
-			width: 49px;
-		}';
+	$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
+		.main-navigation .menu-toggle{			
+			padding:{$hamburger_menu_padding_top}px {$hamburger_menu_padding_right}px {$hamburger_menu_padding_bottom}px {$hamburger_menu_padding_left}px;
+		}
+	}";
+	$custom_css .= 
+	'@media (max-width:992px) {
+		.main-navigation .menu-toggle {
+		width: auto;
+		padding:' . $hamburger_menu_tablet_padding_top . 'px ' . $hamburger_menu_tablet_padding_right . 'px ' . $hamburger_menu_tablet_padding_bottom . 'px ' . $hamburger_menu_tablet_padding_left . 'px;
+		}
 	}
+	@media (max-width:576px) {
+		.main-navigation .menu-toggle {
+		width: auto;
+		padding:' . $hamburger_menu_mobile_padding_top . 'px ' . $hamburger_menu_mobile_padding_right . 'px ' . $hamburger_menu_mobile_padding_bottom . 'px ' . $hamburger_menu_mobile_padding_left . 'px;
+		}
+	}';
 
 	// Hamburger Menu Label Font Size.
 	$hamburger_menu_label_font_value = get_theme_mod( 'responsive_hamburger_menu_label_font_size', 20 );
@@ -3055,8 +3083,6 @@ function responsive_customizer_styles() {
 		.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,
 		.woocommerce.responsive-site-style-content-boxed .products-wrapper,
 		.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,
-		.woocommerce-page.responsive-site-style-boxed ul.products li.product,
-		.woocommerce.responsive-site-style-boxed ul.products li.product,
 		.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
 		.woocommerce.single-product:not(.responsive-site-style-flat) div.product, .elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap {
 			background-color: ' . $box_background_color . ';
@@ -3069,8 +3095,6 @@ function responsive_customizer_styles() {
 			.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,
 			.woocommerce.responsive-site-style-content-boxed .products-wrapper,
 			.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,
-			.woocommerce-page.responsive-site-style-boxed ul.products li.product,
-			.woocommerce.responsive-site-style-boxed ul.products li.product,
 			.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
 			.woocommerce.single-product:not(.responsive-site-style-flat) div.product, .elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap {
 				padding: ' . responsive_spacing_css( $box_tablet_padding_top, $box_tablet_padding_right, $box_tablet_padding_bottom, $box_tablet_padding_left ) . ';
@@ -3082,8 +3106,6 @@ function responsive_customizer_styles() {
 			.woocommerce-page.responsive-site-style-content-boxed .products-wrapper,
 			.woocommerce.responsive-site-style-content-boxed .products-wrapper,
 			.woocommerce-page:not(.responsive-site-style-flat) .woocommerce-pagination,
-			.woocommerce-page.responsive-site-style-boxed ul.products li.product,
-			.woocommerce.responsive-site-style-boxed ul.products li.product,
 			.woocommerce-page.single-product:not(.responsive-site-style-flat) div.product,
 			.woocommerce.single-product:not(.responsive-site-style-flat) div.product, .elementor-element.elementor-products-grid ul.products li.product .responsive-shop-summary-wrap {
 				padding: ' . responsive_spacing_css( $box_mobile_padding_top, $box_mobile_padding_right, $box_mobile_padding_bottom, $box_mobile_padding_left ) . ';
@@ -3091,7 +3113,7 @@ function responsive_customizer_styles() {
 			.woocommerce ul.products[class*=columns-] li.product, .woocommerce-page ul.products[class*=columns-] li.product{
 		        width:100%;
 		    }
-		}';
+		}';		
 
 		// Shop Styles.
 		$shop_content_width                  = esc_html( get_theme_mod( 'responsive_shop_content_width', Responsive\Core\get_responsive_customizer_defaults( 'shop_content_width' ) ) );
@@ -3140,6 +3162,65 @@ function responsive_customizer_styles() {
 		$filter_button_color_hover        = get_theme_mod( 'responsive_off_canvas_filter_button_hover_color', 'transparent' );
 		$filter_text_color_hover          = get_theme_mod( 'responsive_off_canvas_filter_button_text_hover_color', '#10659c' );
 		$filter_button_border_color_hover = get_theme_mod( 'responsive_off_canvas_filter_button_border_hover_color', '#10659c' );
+		//product card spacing desktop
+	$product_card_outside_container_padding_top  	= esc_html( get_theme_mod( 'responsive_product_card_outside_container_top_padding', 15 ) );
+	$product_card_outside_container_padding_bottom  = esc_html( get_theme_mod( 'responsive_product_card_outside_container_bottom_padding', 15 ) );
+	$product_card_outside_container_padding_left    = esc_html( get_theme_mod( 'responsive_product_card_outside_container_left_padding', 15 ) );
+	$product_card_outside_container_padding_right   = esc_html( get_theme_mod( 'responsive_product_card_outside_container_right_padding', 15 ) );
+
+	//product card spacing tablet
+	$product_card_outside_container_tablet_padding_top  	= esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_top_padding', 15 ) );
+	$product_card_outside_container_tablet_padding_bottom  = esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_bottom_padding', 15 ) );
+	$product_card_outside_container_tablet_padding_left    = esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_left_padding', 15 ) );
+	$product_card_outside_container_tablet_padding_right   = esc_html( get_theme_mod( 'responsive_product_card_outside_container_tablet_right_padding', 15 ) );
+
+	//product card spacing mobile
+	$product_card_outside_container_mobile_padding_top  	= esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_top_padding', 15 ) );
+	$product_card_outside_container_mobile_padding_bottom  = esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_bottom_padding', 15 ) );
+	$product_card_outside_container_mobile_padding_left    = esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_left_padding', 15 ) );
+	$product_card_outside_container_mobile_padding_right   = esc_html( get_theme_mod( 'responsive_product_card_outside_container_mobile_right_padding', 15 ) );
+
+	//product card Margin desktop
+	$product_card_inside_container_margin_top  	= esc_html( get_theme_mod( 'responsive_product_card_inside_container_top_padding', 15 ) );
+	$product_card_inside_container_margin_bottom  = esc_html( get_theme_mod( 'responsive_product_card_inside_container_bottom_padding', 15 ) );
+	$product_card_inside_container_margin_left    = esc_html( get_theme_mod( 'responsive_product_card_inside_container_left_padding', 15 ) );
+	$product_card_inside_container_padding_right   = esc_html( get_theme_mod( 'responsive_product_card_inside_container_right_padding', 15 ) );
+
+	//product card Margin tablet
+	$product_card_inside_container_tablet_margin_top  	= esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_top_padding', 10 ) );
+	$product_card_inside_container_tablet_margin_bottom  = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_bottom_padding', 10 ) );
+	$product_card_inside_container_tablet_margin_left    = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_left_padding', 10 ) );
+	$product_card_inside_container_tablet_margin_right   = esc_html( get_theme_mod( 'responsive_product_card_inside_container_tablet_right_padding', 10 ) );
+
+	// //product card Margin mobile
+	$product_card_inside_container_mobile_margin_top  	= esc_html( get_theme_mod( 'responsive_product_card_inside_container_mobile_top_padding', 10 ) );
+	$product_card_inside_container_mobile_margin_bottom  = esc_html( get_theme_mod( 'responsive_product_card_inside_container_mobile_bottom_padding', 10 ) );
+	$product_card_inside_container_mobile_margin_left    = esc_html( get_theme_mod( 'responsive_product_card_inside_container_mobile_left_padding', 10 ) );
+	$product_card_inside_container_mobile_margin_right   = esc_html( get_theme_mod( 'responsive_product_card_inside_container_mobile_right_padding', 10 ) );
+
+	$woocommerce_custom_css .= '.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce.responsive-site-style-boxed ul.products li.product{
+		padding: ' . responsive_spacing_css( $product_card_outside_container_padding_top, $product_card_outside_container_padding_right, $product_card_outside_container_padding_bottom, $product_card_outside_container_padding_left ) . ';
+		margin: ' . responsive_spacing_css( $product_card_inside_container_margin_top, $product_card_inside_container_padding_right, $product_card_inside_container_margin_bottom, $product_card_inside_container_margin_left ) . ';
+	}
+
+	@media screen and ( max-width: 992px ) {
+		.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce.responsive-site-style-boxed ul.products li.product {
+			padding: ' . responsive_spacing_css(
+				$product_card_outside_container_tablet_padding_top, $product_card_outside_container_tablet_padding_right, $product_card_outside_container_tablet_padding_bottom, $product_card_outside_container_tablet_padding_left ) . ';
+			margin: ' .responsive_spacing_css( 
+				$product_card_inside_container_tablet_margin_top, $product_card_inside_container_tablet_margin_right ,$product_card_inside_container_tablet_margin_bottom, $product_card_inside_container_tablet_margin_left ) . ';
+
+		}
+	}
+	@media screen and ( max-width: 576px ) {
+		.woocommerce-page.responsive-site-style-boxed ul.products li.product, .woocommerce.responsive-site-style-boxed ul.products li.product {
+			padding: ' . responsive_spacing_css( 
+			$product_card_outside_container_mobile_padding_top, $product_card_outside_container_mobile_padding_right, $product_card_outside_container_mobile_padding_bottom, $product_card_outside_container_mobile_padding_left ) . ';
+			margin: ' .responsive_spacing_css( 
+				$product_card_inside_container_mobile_margin_top, $product_card_inside_container_mobile_margin_right ,$product_card_inside_container_mobile_margin_bottom, $product_card_inside_container_mobile_margin_left ) . ';
+			
+		}
+	}';
 
 		$woocommerce_custom_css .= "
 		@media (min-width:992px) {

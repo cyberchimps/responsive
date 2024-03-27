@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '5.0.0' );
+define( 'RESPONSIVE_THEME_VERSION', '5.0.2' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1113,4 +1113,35 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 			<?php
 		}
 	}
+}
+
+/**
+ * Get theme author details
+ */
+
+function responsive_get_theme_author_details() {
+
+	$theme_author = apply_filters(
+		'responsive_theme_author',
+		array(
+			'theme_name'       => __( 'Responsive Theme', 'responsive' ),
+			'theme_author_url' => 'https://cyberchimps.com/',
+		)
+	);
+
+	return $theme_author;
+}
+
+add_action('wp_ajax_save_footer_text', 'save_footer_text_callback');
+add_action('wp_ajax_nopriv_save_footer_text', 'save_footer_text_callback');
+
+function save_footer_text_callback() {
+
+  $footer_text = wp_kses_post($_POST['footer_text']);
+
+  update_option('footer-copyright', $footer_text);
+
+  wp_send_json_success('Data saved successfully');
+
+  wp_die();
 }

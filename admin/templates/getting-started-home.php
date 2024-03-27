@@ -415,7 +415,9 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										foreach ( $feature['links'] as $index => $feature_link ) {
 											$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 											?>
-												<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
+
+												<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="<?php if( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) echo esc_attr( '_blank' ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
+
 											<?php
 											if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
 												?>
@@ -435,7 +437,9 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 									foreach ( $feature['links'] as $index => $feature_link ) {
 										$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 										?>
-											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
+
+											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="<?php if( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) echo esc_attr( '_blank' ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
+											
 										<?php
 										if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
 											?>

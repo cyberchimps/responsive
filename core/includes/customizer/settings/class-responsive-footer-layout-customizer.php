@@ -22,7 +22,24 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 		public function __construct() {
 
 			add_action( 'customize_register', array( $this, 'customizer_options' ) );
+			add_action( 'responsive_footer_copyright', array( $this, 'footer_copyright' ), 10 );
 
+		}
+		
+		public function footer_copyright() {
+			$theme_author = responsive_get_theme_author_details();
+		
+			$content = get_option( 'footer-copyright' );
+			if ( $content || is_customize_preview() ) {
+				echo '<div class="footer_copyright">';						
+						$content = str_replace( '[copyright]', '&copy;', $content );
+						$content = str_replace( '[current_year]', gmdate( 'Y' ), $content );
+						$content = str_replace( '[site_title]', get_bloginfo( 'name' ), $content );
+						$content = str_replace( '[theme_author]', '<a href="' . esc_url( $theme_author['theme_author_url'] ) . '" rel="nofollow noopener" target="_blank">' . $theme_author['theme_name'] . '</a>', $content );
+						echo do_shortcode( wp_kses_post( wpautop( $content ) ) );
+				echo '</div>';
+			}
+		
 		}
 
 		/**
@@ -121,39 +138,28 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			// Copyright Text
 			-------------------------------------------------------------------
 			*/
-
+			
+			// 1st EDITOR
 			$wp_customize->add_setting(
-				'responsive_theme_options[copyright_textbox]',
+				'footer_copyright',
 				array(
-					'default'           => get_bloginfo( 'name' ),
+					'type' => 'option',
 					'sanitize_callback' => 'wp_kses_post',
-					'type'              => 'option',
-				)
+					'transport'   => 'refresh',
+				),
 			);
-
+			
 			$wp_customize->add_control(
-				'res_copyright_textbox',
-				array(
-					'label'       => __( 'Copyright HTML', 'responsive' ),
-					'section'     => 'responsive_footer_layout',
-					'settings'    => 'responsive_theme_options[copyright_textbox]',
-					'type'        => 'textarea',
-					'priority'    => 110,
-					'description' => __( 'If this is empty, site title will be visible as copyright text', 'responsive' ),
+				new Responsive_Customizer_Tinymce_Control(
+					$wp_customize,
+					'footer_copyright',
+					array(
+						'label' => __('Copyright Text', 'responsive'),
+						'section' => 'responsive_footer_layout',
+						'priority'    => 110,
+					)
 				)
 			);
-
-			// Hide Copyright Icon & Year.
-			$copyright_icon_and_year_label = __( 'Hide Copyright Icon & Year', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'copyright_icon_and_year', $copyright_icon_and_year_label, 'responsive_footer_layout', 115, 0, null, 'postMessage' );
-
-			// Open copyright in new tab.
-			$copyright_new_tab         = esc_html__( 'Open Powered By link in new tab', 'responsive' );
-			$copyright_new_tab_choices = array(
-				'_self'  => esc_html__( 'No', 'responsive' ),
-				'_blank' => esc_html__( 'Yes', 'responsive' ),
-			);
-			responsive_select_control( $wp_customize, 'copyright_new_tab', $copyright_new_tab, 'responsive_footer_layout', 117, $copyright_new_tab_choices, '_self', null );
 
 			// Hide Copyright.
 			$copyright_visibility_label = __( 'Hide Copyright on Desktop', 'responsive' );
