@@ -1145,3 +1145,10 @@ function save_footer_text_callback() {
 
   wp_die();
 }
+
+add_action('admin_menu', 'remove_unnecessary_wordpress_menus', 999);
+
+function remove_unnecessary_wordpress_menus(){
+    global $submenu;
+    unset($submenu['themes.php'][20]);
+}
