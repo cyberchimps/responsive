@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(28/03/2024) = Fix - Version 5.0.3
+[*] = Changed = Minor UI Changes
+[!] = Fixed = Fixed the vulnerability of unauthorized modification of footer text.
+
 (26/03/2024) = Added - Version 5.0.2
 [*] = Changed = Changed Theme successful installation welcome banner notice.
 [!] = Fixed = Fixed header menu items alignment issue.

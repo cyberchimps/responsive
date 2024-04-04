@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '5.0.2' );
+define( 'RESPONSIVE_THEME_VERSION', '5.0.3' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1133,10 +1133,15 @@ function responsive_get_theme_author_details() {
 }
 
 add_action('wp_ajax_save_footer_text', 'save_footer_text_callback');
-add_action('wp_ajax_nopriv_save_footer_text', 'save_footer_text_callback');
 
 function save_footer_text_callback() {
 
+	check_ajax_referer( 'responsive-save-footer-content', '_ajax_nonce' );
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( esc_html__( 'You do not have sufficient permissions to perform this action.', 'responsive' ) );
+    }
+	
   $footer_text = wp_kses_post($_POST['footer_text']);
 
   update_option('footer-copyright', $footer_text);
@@ -1144,4 +1149,11 @@ function save_footer_text_callback() {
   wp_send_json_success('Data saved successfully');
 
   wp_die();
+}
+
+add_action('admin_menu', 'remove_unnecessary_wordpress_menus', 999);
+
+function remove_unnecessary_wordpress_menus(){
+    global $submenu;
+    unset($submenu['themes.php'][20]);
 }
