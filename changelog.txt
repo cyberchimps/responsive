@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(17/04/2024) = Fix - Version 5.0.3.1
+[!] = Fixed = Enhanced Security: Strengthened the codebase to further protect your website.
+
 (28/03/2024) = Fix - Version 5.0.3
 [*] = Changed = Minor UI Changes
 [!] = Fixed = Fixed the vulnerability of unauthorized modification of footer text.

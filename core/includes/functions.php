@@ -774,8 +774,8 @@ if ( ! function_exists( 'responsive_post_meta_data' ) ) {
 						</span>',
 						esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 						/* translators: %s: view post by */
-						sprintf( esc_attr__( 'View all posts by %s', 'responsive' ), get_the_author() ),
-						esc_attr( get_the_author() )
+						esc_attr( sprintf( __( 'View all posts by %s', 'responsive' ), get_the_author() ) ),
+						esc_attr( wp_kses_post( get_the_author() ) )
 					)
 				);
 			?>
