@@ -5,8 +5,8 @@ $(document).ready(function () {
             window.location.hash = '#home'
             hash = '#home'
         }
-        if ( hash === '#templates' ) {
-            goToRST()
+        if ( hash === '#templates' || hash === '#blocks' || hash === '#rae' ) {
+            navigateTo(hash)
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/rst-template-preview.jpg')");
         }
         $('.responsive-theme-tab-content').hide()
@@ -26,17 +26,28 @@ $(document).ready(function () {
 
     $(window).on('hashchange', function() {
         let currentHash = window.location.hash;
-        if ( currentHash === '#templates') {
-            goToRST()
+        if ( currentHash === '#templates' || currentHash === '#blocks' || currentHash === '#rae' ) {
+            navigateTo(currentHash);
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/rst-template-preview.jpg')");
         } else {
             $(".responsive-theme-tabs-inner-content").css("background-image", "none");
         }
     });
 
-    function goToRST() {
-        if ( localize.isRSTActivated ) {
+    function navigateTo( hash ) {
+
+        if ( hash === '#templates' && localize.isRSTActivated ) {
             window.location.href = localize.siteurl + '/wp-admin/admin.php?page=responsive_add_ons'
+            return
+        }
+
+        if ( hash === '#blocks' && localize.isRBAActivated ) {
+            window.location.href = localize.siteurl + '/wp-admin/admin.php?page=responsive_block_editor_addons'
+            return
+        }
+
+        if ( hash === '#rae' && localize.isRAEActivated ) {
+            window.location.href = localize.siteurl + '/wp-admin/admin.php?page=rael_getting_started'
             return
         }
     }

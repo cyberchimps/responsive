@@ -139,6 +139,8 @@ if ( ! class_exists( 'Responsive_Admin_Settings' ) ) {
 						'responsiveurl'         => RESPONSIVE_THEME_URI,
 						'siteurl'               => site_url(),
 						'isRSTActivated'        => is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ),
+						'isRBAActivated'        => is_plugin_active( 'responsive-block-editor-addons/responsive-block-editor-addons.php' ),
+						'isRAEActivated'        => is_plugin_active( 'responsive-addons-for-elementor/responsive-addons-for-elementor.php' ),
 						'installing'            => esc_html__( 'Installing ', 'responsive' ),
 						'activating'            => esc_html__( 'Activating ', 'responsive' ),
 						'verify_network'        => esc_html__( 'Not connect. Verify Network.', 'responsive' ),

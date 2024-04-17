@@ -476,7 +476,9 @@ input:checked + .resp-megamenu-slider:before {
     gap: 16px;
 }
 
-.responsive-theme-rst-button-section .plugin-card-responsive-add-ons a {
+.responsive-theme-rst-button-section .plugin-card-responsive-add-ons a,
+.responsive-theme-rst-button-section .plugin-card-responsive-block-editor-addons a,
+.responsive-theme-rst-button-section .plugin-card-responsive-addons-for-elementor a {
     background-color: #2271B1;
     color: #FFFFFF;
     font-weight: 600;
