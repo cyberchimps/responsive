@@ -23,7 +23,7 @@
 						<p class="responsive-theme-rst-brand-desc"><?php esc_html_e( 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, voluptatibus cupiditate consequuntur dolore iusto ad sequi nesciunt harum illum. In hic, sequi nihil blanditiis nisi molestias quibusdam quidem odit exercitationem?', 'responsive' ); ?></p>
 					</div>
 					<div class="responsive-theme-rst-button-section">
-						<?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-addons-for-elementor', 'rae', 'responsive_addons_for_elementor', 'Install & Activate' ); //phpcs:ignore ?>
+						<?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-addons-for-elementor', 'rae', 'rael_getting_started', 'Install & Activate' ); //phpcs:ignore ?>
 						<div class="responsive-theme-rst-learn-more">
 							<a href="https://wordpress.org/plugins/responsive-addons-for-elementor/" target="_blank"><?php esc_html_e( 'Learn More', 'responsive' ); ?></a>
 						</div>
