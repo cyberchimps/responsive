@@ -844,6 +844,107 @@ input:checked + .resp-megamenu-slider:before {
     border-top-right-radius: 0;
 }
 
+#responsive-theme-help-ticket-settings {
+    display: none;
+}
+
+.responsive-theme-help-setting-icon-wrapper {
+    width: 20px;
+}
+
+.responsive-theme-help-setting-icon-wrapper:hover {
+    cursor: pointer;
+}
+
+.responsive-theme-help-ticket-support-title {
+    font-size: 36px;
+    color: #374151;
+}
+
+.responsive-theme-help-ticket-support-desc {
+    font-size: 16px;
+    color: #4B4B4B;
+} 
+
+.responsive-theme-help-tab-button {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.responsive-theme-help-flex-display {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: lightgray;
+}
+
+.responsive-theme-help-settings-active-tab {
+    color: #2271B1 !important;
+}
+
+.responsive-theme-help-setting-icon-active {
+    fill: #2271B1;
+}
+
+.responsive-theme-help-margin-zero {
+    margin: 0;
+    font-size: 16px;
+    cursor: default;
+}
+.responsive-theme-help-margin-zero:hover {
+    cursor: pointer;
+}
+
+.responsive-theme-help-setting-border-left {
+    border-left: 1px solid #DEDEDE;
+}
+
+.responsive-theme-theme-settings-section {
+    margin: 0 0 40px 40px;
+}
+
+.responsive-theme-ticket-card-body {
+    background-color: #FAF5FF;
+}
+
+.responsive-theme-ticket-section {
+    margin-top: 80px;
+    padding: 40px 40px;
+}
+
+.responsive-theme-help-ticket-form-title {
+    color: #1F2937;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.responsive-theme-help-ticket-form-desc {
+    color: #6B7280;
+    font-size: 16px;
+    line-height: 27px;
+}
+
+.responsive-theme-ticket-form-label {
+    font-size: 14px;
+}
+
+.responsive-theme-ticket-form-input {
+    background-color: #F9FAFB !important;
+    border-color: #D1D5DB !important;
+    border-width: 1px 1px 1px 1px !important;
+    padding: 6px 16px !important;
+}
+
+.responsive-theme-ticket-form-submit,
+.responsive-theme-ticket-form-submit:active,
+.responsive-theme-ticket-form-submit:focus,
+.responsive-theme-ticket-form-submit:focus-visible,
+.responsive-theme-ticket-form-submit:hover {
+    background-color: #FF793F !important;
+    border-color: #FF793F !important;
+    box-shadow: none;
+}
+
 /* Help Tab Ends */
 
 @media (max-width: 768px) {
