@@ -498,38 +498,4 @@ $(document).ready(function () {
         $('#responsive-theme-help-ticket-settings').show();
     })
 
-    $('#responsive_theme_ticket_form').on('submit', function(e) {
-        e.preventDefault();
-        let name        = $('#ticket_user_name').val();
-        let email       = $('#ticket_user_email').val();
-        let subject     = $('#ticket_title').val();
-        let description = $('#ticket_description').val();
-        let nonce       = $('#responsive_theme_submit_ticket').data('nonce');
-
-        $.ajax(
-            {
-                type: 'POST',
-                url: localize.ajaxurl,
-                data:
-                {
-                    action: 'responsive_theme_ticket_form_submit',
-                    _nonce: nonce,
-                    name, email, subject, description 
-                },
-                success: function success( data )
-                {
-                    if ( data.success ) {
-                        displayToast( 'Ticket Submitted Successfully' );
-                        $('#ticket_user_name').val('');
-                        $('#ticket_user_email').val('');
-                        $('#ticket_title').val('');
-                        $('#ticket_description').val('');
-                    } else {
-                        displayToast( 'Failed to Submit Ticket, Please Try Again Later' );
-                    }
-                }
-            }
-        );
-    })
-
 });

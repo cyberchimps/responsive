@@ -907,42 +907,39 @@ input:checked + .resp-megamenu-slider:before {
     background-color: #FAF5FF;
 }
 
-.responsive-theme-ticket-section {
-    margin-top: 80px;
-    padding: 40px 40px;
+.responsive-theme-help-open-ticket-section-box {
+    margin-top: 65px;
+    padding: 26px 0;
+    background-color: #7C29C4;
+    margin-bottom: 20px;
 }
 
-.responsive-theme-help-ticket-form-title {
-    color: #1F2937;
+.responsive-theme-help-open-ticket-title {
+    font-weight: 600;
     font-size: 24px;
     line-height: 32px;
+    margin-bottom: 30px;
+    color: #fff;
 }
 
-.responsive-theme-help-ticket-form-desc {
-    color: #6B7280;
+.responsive-theme-help-open-ticket-button {
+    font-weight: 600;
     font-size: 16px;
-    line-height: 27px;
+    line-height: 32px;
+    color: #431669;
+    background-color: #fff;
+    padding: 10px 25px;
 }
 
-.responsive-theme-ticket-form-label {
-    font-size: 14px;
+.responsive-theme-help-open-ticket-button:hover {
+    color: #431669;
+    background-color: #fff;
 }
 
-.responsive-theme-ticket-form-input {
-    background-color: #F9FAFB !important;
-    border-color: #D1D5DB !important;
-    border-width: 1px 1px 1px 1px !important;
-    padding: 6px 16px !important;
-}
-
-.responsive-theme-ticket-form-submit,
-.responsive-theme-ticket-form-submit:active,
-.responsive-theme-ticket-form-submit:focus,
-.responsive-theme-ticket-form-submit:focus-visible,
-.responsive-theme-ticket-form-submit:hover {
-    background-color: #FF793F !important;
-    border-color: #FF793F !important;
-    box-shadow: none;
+.responsive-theme-help-open-ticket-button span {
+    font-size: 10px;
+    position: relative;
+    top: -10px;
 }
 
 /* Help Tab Ends */

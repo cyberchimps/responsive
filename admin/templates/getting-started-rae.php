@@ -20,7 +20,7 @@
 					<img class="responsive-theme-responsive-logo" src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/rea.svg'; ?>" class="rounded mx-auto d-block" alt="">
 					<div class="responsive-theme-brand-text mt-4">
 						<p class="responsive-theme-rst-brand-name"><?php esc_html( 'Responsive Addons for Elementor' ); ?></p>
-						<p class="responsive-theme-rst-brand-desc"><?php esc_html_e( 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, voluptatibus cupiditate consequuntur dolore iusto ad sequi nesciunt harum illum. In hic, sequi nihil blanditiis nisi molestias quibusdam quidem odit exercitationem?', 'responsive' ); ?></p>
+						<p class="responsive-theme-rst-brand-desc"><?php esc_html_e( 'Responsive Addons for Elementor plugin offers a collection of 80+ Elementor widgets to level up your designing process with Elementor. Click the button below to get started.', 'responsive' ); ?></p>
 					</div>
 					<div class="responsive-theme-rst-button-section">
 						<?php echo Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-addons-for-elementor', 'rae', 'rael_getting_started', 'Install & Activate' ); //phpcs:ignore ?>

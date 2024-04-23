@@ -170,36 +170,6 @@ $accordions = array(
 						</div>
 					</div>
 
-					<div class="col-md-10 offset-1">
-						<div class="responsive-theme-ticket-section border rounded">
-							<p class="text-center responsive-theme-help-ticket-form-title fw-semibold">Submit A Ticket</p>
-							<p class="text-center responsive-theme-help-ticket-form-desc fw-normal">If you cannot find answers to your questions, fill the form below and submit your support ticket. Our experts will get back to you in no time.</p>
-
-							<form id="responsive_theme_ticket_form">
-								<div class="mb-3">
-									<label for="ticket_user_name" class="responsive-theme-ticket-form-label fw-semibold form-label">Name <span class="text-danger"> *</span></label>
-									<input type="text" class="responsive-theme-ticket-form-input form-control" placeholder="Your Name" name="ticket_user_name" name="ticket_user_name" id="ticket_user_name" autocomplete="off" title="Please Enter Your Name" required>
-								</div>
-								<div class="mb-3">
-									<label for="ticket_user_email" class="responsive-theme-ticket-form-label fw-semibold form-label">Email <span class="text-danger"> *</span></label>
-									<input type="email" class="responsive-theme-ticket-form-input form-control" placeholder="Email Address" name="ticket_user_email" id="ticket_user_email" autocomplete="off" title="Please Enter Your Email" required>
-								</div>
-								<div class="mb-3">
-									<label for="ticket_title" class="responsive-theme-ticket-form-label fw-semibold form-label">Subject <span class="text-danger"> *</span></label>
-									<input type="text" class="responsive-theme-ticket-form-input form-control" placeholder="Title" name="ticket_title" id="ticket_title" autocomplete="off" title="Please Enter Subject" required>
-								</div>
-								<div class="mb-3">
-									<label for="ticket_description" class="responsive-theme-ticket-form-label fw-semibold form-label">Description <span class="text-danger"> *</span></label>
-									<textarea class="responsive-theme-ticket-form-input form-control" placeholder="Add detailed description about your issue." name="ticket_description" id="ticket_description" rows="4" autocomplete="off" title="Please Enter Description" required></textarea>
-								</div>
-								<div class="d-grid gap-2">
-									<button id="responsive_theme_submit_ticket" class="btn btn-primary responsive-theme-ticket-form-submit" data-nonce="<?php echo esc_attr( wp_create_nonce( 'responsive-theme-ticket-form' ) ); ?>" type="submit">Submit Ticket</button>
-								</div>
-							</form>
-
-						</div>
-					</div>
-
 					<div class="row">
 						<div class="col-md-12">
 							<p class="fw-semibold text-center responsive-theme-help-faq-title"><?php esc_html_e( 'Frequently Asked Questions', 'responsive' ); ?></p>
@@ -236,6 +206,16 @@ $accordions = array(
 							</div>
 						</div>
 					</div>
+
+					<div class="row">
+						<div class="col-md-10 offset-md-1 text-center">
+							<div class="responsive-theme-help-open-ticket-section-box">
+								<p class="responsive-theme-help-open-ticket-title">Still Have Questions?</p>
+								<button class="btn responsive-theme-help-open-ticket-button">Open a Ticket <span>&#8599;</span></button>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>

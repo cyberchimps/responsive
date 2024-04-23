@@ -88,7 +88,6 @@ function responsive_welcome_banner_notice() {
 add_action( 'admin_notices', 'responsive_welcome_banner_notice', 10 );
 
 add_action( 'wp_ajax_responsive_delete_transient_action', 'responsive_delete_transient_action' );
-add_action( 'wp_ajax_responsive_theme_ticket_form_submit', 'responsive_theme_ticket_form_submit' );
 
 /**
  * Responsive Delete Transient Action
@@ -127,38 +126,4 @@ if ( class_exists( 'responsive_addons_pro' ) ) {
 	if ( -1 === $compare ) {
 		add_action( 'admin_notices', 'responsive_upgrade_pro_react', 20 );
 	}
-}
-
-/**
- * Ticket Submission from Help Tab
- *
- * @since 5.0.4
- */
-function responsive_theme_ticket_form_submit() {
-	check_ajax_referer( 'responsive-theme-ticket-form', '_nonce' );
-
-	$name        = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
-	$email       = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
-	$subject     = isset( $_POST['subject'] ) ? sanitize_text_field( wp_unslash( $_POST['subject'] ) ) : '';
-	$description = isset( $_POST['description'] ) ? sanitize_textarea_field( wp_unslash( $_POST['description'] ) ) : '';
-
-	$email_content = '<div>
-	<p> Name: ' . $name . ' </p>
-	<p> Email: ' . $email . ' </p>
-	<p> Subject: ' . $subject . ' </p>
-	<p> Description: ' . $description . ' </p>
-	</div>';
-
-	$mail_headers = array(
-		'Content-Type: text/html; charset=UTF-8',
-	);
-
-	$result = wp_mail( 'support@cyberchimps.com', $subject, $email_content, $mail_headers );
-
-	if ( $result ) {
-		wp_send_json_success();
-	} else {
-		wp_send_json_error();
-	}
-
 }
