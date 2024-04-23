@@ -5,10 +5,13 @@ $(document).ready(function () {
             window.location.hash = '#home'
             hash = '#home'
         }
-        if ( hash === '#templates' || hash === '#blocks' || hash === '#rae' ) {
-            navigateTo(hash)
+        if ( hash === '#templates' ) {
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/rst-template-preview.jpg')");
         }
+        if ( hash === '#blocks' || hash === '#rae' ) {
+            $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/" +  hash.substring(1) + "-template-preview.jpg')");
+        }
+        navigateTo(hash);
         $('.responsive-theme-tab-content').hide()
         $('.responsive-theme-tab').removeClass('responsive-theme-active-tab')
         $('.responsive-theme-' + hash.substring(1) + '-tab').addClass('responsive-theme-active-tab')
@@ -26,9 +29,11 @@ $(document).ready(function () {
 
     $(window).on('hashchange', function() {
         let currentHash = window.location.hash;
-        if ( currentHash === '#templates' || currentHash === '#blocks' || currentHash === '#rae' ) {
-            navigateTo(currentHash);
+        navigateTo(currentHash);
+        if ( currentHash === '#templates' ) {
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/rst-template-preview.jpg')");
+        } else if ( currentHash === '#rae' || currentHash === '#blocks' ) {
+            $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/" + currentHash.substring(1) + "-template-preview.jpg')");
         } else {
             $(".responsive-theme-tabs-inner-content").css("background-image", "none");
         }
