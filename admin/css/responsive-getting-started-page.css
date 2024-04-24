@@ -931,9 +931,13 @@ input:checked + .resp-megamenu-slider:before {
     padding: 10px 25px;
 }
 
-.responsive-theme-help-open-ticket-button:hover {
-    color: #431669;
-    background-color: #fff;
+.responsive-theme-help-open-ticket-button:hover,
+.responsive-theme-help-open-ticket-button:active,
+.responsive-theme-help-open-ticket-button:focus,
+.responsive-theme-help-open-ticket-button:focus-visible {
+    color: #431669 !important;
+    background-color: #fff !important;
+    box-shadow: none;
 }
 
 .responsive-theme-help-open-ticket-button span {
