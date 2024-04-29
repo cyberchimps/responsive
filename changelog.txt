@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(30/04/2024) = Fix - Version 5.0.4
+[*] = Changed = UI changes in admin dashboard.
+
 (17/04/2024) = Fix - Version 5.0.3.1
 [!] = Fixed = Enhanced Security: Strengthened the codebase to further protect your website.
 

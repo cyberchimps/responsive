@@ -64,37 +64,31 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 	<div class="responsive-theme-tabs-section">
 		<div class="responsive-theme-tabs">
 			<div class="responsive-theme-tab responsive-theme-home-tab" data-tab="home">
-				<p class="responsive-theme-tab-name">Home</p>
+				<p class="responsive-theme-tab-name"><?php esc_html_e( 'Home', 'responsive' ); ?></p>
 			</div>
 			<?php
 			if ( 'activated' === $state ) {
 				?>
 				<div class="responsive-theme-tab responsive-theme-settings-tab" data-tab="settings">
-					<p class="responsive-theme-tab-name">Settings</p>
+					<p class="responsive-theme-tab-name"><?php esc_html_e( 'Settings', 'responsive' ); ?></p>
 				</div>
 				<?php
 			}
 			?>
 			<?php do_action( 'responsive_addons_getting_started_settings_tab' ); ?>
-			<?php if( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ): ?>
+			<?php if ( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) : ?>
 				<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
-					<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
+					<p class="responsive-theme-tab-name"><?php esc_html_e( 'Starter&nbsp;Templates', 'responsive' ); ?></p>
 				</div>
 			<?php endif; ?>
-			<div class="responsive-theme-tab responsive-theme-plugins-tab" data-tab="plugins">
-				<p class="responsive-theme-tab-name">Useful&nbsp;Plugins</p>
-			</div>
-			<?php
-			if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
-				?>
-				<div class="responsive-theme-tab responsive-theme-freevspro-tab" data-tab="freevspro">
-					<p class="responsive-theme-tab-name">Free&nbsp;vs&nbsp;Pro</p>
+				<div class="responsive-theme-tab responsive-theme-blocks-tab" data-tab="blocks">
+					<p class="responsive-theme-tab-name"><?php esc_html_e( 'Blocks', 'responsive' ); ?></p>
 				</div>
-				<?php
-			}
-			?>
+				<div class="responsive-theme-tab responsive-theme-rae-tab" data-tab="rae">
+					<p class="responsive-theme-tab-name"><?php esc_html_e( 'Addons&nbsp;for&nbsp;Elementor', 'responsive' ); ?></p>
+				</div>
 			<div class="responsive-theme-tab responsive-theme-help-tab" data-tab="help">
-				<p class="responsive-theme-tab-name">Help</p>
+				<p class="responsive-theme-tab-name"><?php esc_html_e( 'Help', 'responsive' ); ?></p>
 			</div>
 		</div>
 	</div>
@@ -113,23 +107,17 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 			}
 			?>
 			<?php do_action( 'responsive_addons_getting_started_settings_tab_content' ); ?>
-			<?php if( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ): ?>
+			<?php if ( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) : ?>
 				<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_templates">
 					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rst.php'; ?>
 				</div>
 			<?php endif; ?>
-			<div class="responsive-theme-plugins-content responsive-theme-tab-content" id="responsive_plugins">
-				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-useful-plugins.php'; ?>
-			</div>
-			<?php
-			if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
-				?>
-				<div class="responsive-theme-help-content responsive-theme-tab-content" id="responsive_freevspro">
-					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-free-vs-pro.php'; ?>
+				<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_blocks">
+					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-blocks.php'; ?>
 				</div>
-				<?php
-			}
-			?>
+				<div class="responsive-theme-templates-content responsive-theme-tab-content" id="responsive_rae">
+					<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-rae.php'; ?>
+				</div>
 			<div class="responsive-theme-help-content responsive-theme-tab-content" id="responsive_help">
 				<?php require_once RESPONSIVE_THEME_DIR . 'admin/templates/getting-started-help.php'; ?>
 			</div>
@@ -139,7 +127,7 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 		<div class="responsive-theme-footer-details">
 			<div class="responsive-theme-footer-text">
 				<p class="responsive-theme-footer-text-line"><?php esc_html_e( 'If you like', 'responsive' ); ?>
-					<span class="responsive-theme-footer-brand-name"><?php esc_html_e( 'Responsive', 'responsive' ); ?></span>, <br class="responsive-theme-mobile-line-break"><?php esc_html_e( 'please leave us a', 'responsive' ); ?> 
+					<span class="responsive-theme-footer-brand-name"><?php esc_html_e( 'Responsive Theme', 'responsive' ); ?></span>, <br class="responsive-theme-mobile-line-break"><?php esc_html_e( 'please leave us a', 'responsive' ); ?> 
 					<a href="https://wordpress.org/support/theme/responsive/reviews/#new-post" target="_blank" class="responsive-theme-star-rating">
 						<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt="">
 					</a> <?php esc_html_e( 'rating. Thank you!', 'responsive' ); ?>
