@@ -127,7 +127,7 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 		<div class="responsive-theme-footer-details">
 			<div class="responsive-theme-footer-text">
 				<p class="responsive-theme-footer-text-line"><?php esc_html_e( 'If you like', 'responsive' ); ?>
-					<span class="responsive-theme-footer-brand-name"><?php esc_html_e( 'Responsive', 'responsive' ); ?></span>, <br class="responsive-theme-mobile-line-break"><?php esc_html_e( 'please leave us a', 'responsive' ); ?> 
+					<span class="responsive-theme-footer-brand-name"><?php esc_html_e( 'Responsive Theme', 'responsive' ); ?></span>, <br class="responsive-theme-mobile-line-break"><?php esc_html_e( 'please leave us a', 'responsive' ); ?> 
 					<a href="https://wordpress.org/support/theme/responsive/reviews/#new-post" target="_blank" class="responsive-theme-star-rating">
 						<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt="">
 					</a> <?php esc_html_e( 'rating. Thank you!', 'responsive' ); ?>

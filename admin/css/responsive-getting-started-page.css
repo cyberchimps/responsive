@@ -940,12 +940,6 @@ input:checked + .resp-megamenu-slider:before {
     box-shadow: none;
 }
 
-.responsive-theme-help-open-ticket-button span {
-    font-size: 10px;
-    position: relative;
-    top: -10px;
-}
-
 /* Help Tab Ends */
 
 @media (max-width: 768px) {

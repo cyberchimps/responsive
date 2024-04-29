@@ -17,13 +17,13 @@
 $help_card = array(
 	array(
 		'title' => __( 'Documentation', 'responsive' ),
-		'desc'  => __( 'Search for articles and documents created to help you use Responsive plugins.', 'responsive' ),
+		'desc'  => __( 'Search for articles and documents created to help you use Cyberchimps products.', 'responsive' ),
 		'icon'  => 'getting-started-help-documentation',
 		'link'  => 'https://cyberchimps.com/docs/',
 	),
 	array(
 		'title' => __( 'Video Tutorials', 'responsive' ),
-		'desc'  => __( 'Our short and easy-to-follow video tutorials help to set up and use the theme like a pro in no time.', 'responsive' ),
+		'desc'  => __( 'Our short and easy-to-follow video tutorials help to set up and use our products like an expert in no time.', 'responsive' ),
 		'icon'  => 'getting-started-help-video',
 		'link'  => 'https://www.youtube.com/playlist?list=PLXTwxw3ZJwPSKbf3-vo7sMBkXr9cakAPT',
 	),
@@ -53,15 +53,15 @@ $accordions = array(
 	),
 	array(
 		'title'   => __( 'What can I expect in updates?', 'responsive' ),
-		'content' => __( 'As part of our Responsive plugin development, we are actively working on it. Free updates will be provided to you every time we improve, add new features, or fix bugs in the plugin.', 'responsive' ),
+		'content' => __( 'As part of our development, we are actively working on it. Free updates will be provided to you every time we improve, add new features, or fix bugs in the plugin.', 'responsive' ),
 	),
 	array(
 		'title'   => __( 'What is included in Responsive Pro bundle?', 'responsive' ),
-		'content' => __( 'Responsive Pro bundle includes the Pro plugin that adds more features to the Responsive theme. It also includes access to 100+ starter website templates & Responsive Elementor Addons with 50+ Elementor widgets.', 'responsive' ),
+		'content' => __( 'Responsive Pro bundle includes access to 100+ premium starter website templates & priority customer care support.', 'responsive' ),
 	),
 	array(
 		'title'   => __( 'What’s your refund policy?', 'responsive' ),
-		'content' => __( 'We’re 100% sure you’ll love Responsive. But we also understand it’s not for everyone. If for some reason you don’t want to continue using Responsive, <a href="https://cyberchimps.com/my-account/orders/" target="_blank">get in touch</a> with us within 30 days of your purchase. We’ll gladly refund your order amount.', 'responsive' ),
+		'content' => __( 'We’re 100% sure you’ll love our products. But we also understand it’s not for everyone. If for some reason you don’t want to continue our products, <a href="https://cyberchimps.com/my-account/orders/" target="_blank">get in touch</a> with us within 30 days of your purchase. We’ll gladly refund your order amount.', 'responsive' ),
 	),
 	array(
 		'title'   => __( 'Is it necessary to renew the license every year?', 'responsive' ),
@@ -103,8 +103,8 @@ $accordions = array(
 			<div id="responsive-theme-help-theme-settings" class="responsive-theme-theme-settings-section responsive-theme-help-sections">
 				<div class="responsive-theme-inner-settings responsive-theme-help-theme-section">
 					<p class="text-center fw-semibold responsive-theme-help-support-title"><?php esc_html_e( 'Support', 'responsive' ); ?></p>
-					<p class="text-center mb-0 responsive-theme-help-support-desc"><?php esc_html_e( 'Got a question or need some help with our theme and Plugins?', 'responsive' ); ?></p>
-					<p class="text-center responsive-theme-help-support-desc mb-5"><?php esc_html_e( 'We are here to help and guide you.', 'responsive' ); ?></p>
+					<p class="text-center mb-0 responsive-theme-help-support-desc"><?php esc_html_e( 'Got a question while using the Responsive theme?', 'responsive' ); ?></p>
+					<p class="text-center responsive-theme-help-support-desc mb-5"><?php esc_html_e( 'Check the docs and videos to resolve issues.', 'responsive' ); ?></p>
 					<div class="text-center">
 						<iframe width="100%" height="440" src="https://www.youtube.com/embed/ehKE0nj-hxo?si=_VdA-dX9msRaDbIY" title="<?php esc_attr_e( 'How to install and activate Responsive WordPress Theme', 'responsive' ); ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</div>
@@ -211,7 +211,7 @@ $accordions = array(
 						<div class="col-md-10 offset-md-1 text-center">
 							<div class="responsive-theme-help-open-ticket-section-box rounded">
 								<p class="responsive-theme-help-open-ticket-title"><?php esc_html_e( 'Still Have Questions?', 'responsive' ); ?></p>
-								<a href="<?php echo esc_url( 'https://cyberchimps.com/open-a-ticket/' ); ?>" target="_blank" class="btn responsive-theme-help-open-ticket-button"> <?php esc_html_e( 'Open a Ticket', 'responsive' ); ?><span>&#8599;</span></a>
+								<a href="<?php echo esc_url( 'https://cyberchimps.com/open-a-ticket/' ); ?>" target="_blank" class="btn responsive-theme-help-open-ticket-button"> <?php esc_html_e( 'Open a Ticket', 'responsive' ); ?></a>
 							</div>
 						</div>
 					</div>
