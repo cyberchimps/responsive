@@ -64,13 +64,13 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 	<div class="responsive-theme-tabs-section">
 		<div class="responsive-theme-tabs">
 			<div class="responsive-theme-tab responsive-theme-home-tab" data-tab="home">
-				<p class="responsive-theme-tab-name">Home</p>
+				<p class="responsive-theme-tab-name"><?php esc_html_e( 'Home', 'responsive' ); ?></p>
 			</div>
 			<?php
 			if ( 'activated' === $state ) {
 				?>
 				<div class="responsive-theme-tab responsive-theme-settings-tab" data-tab="settings">
-					<p class="responsive-theme-tab-name">Settings</p>
+					<p class="responsive-theme-tab-name"><?php esc_html_e( 'Settings', 'responsive' ); ?></p>
 				</div>
 				<?php
 			}
@@ -78,17 +78,17 @@ $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url
 			<?php do_action( 'responsive_addons_getting_started_settings_tab' ); ?>
 			<?php if ( ! is_plugin_active( 'responsive-add-ons/responsive-add-ons.php' ) ) : ?>
 				<div class="responsive-theme-tab responsive-theme-templates-tab" data-tab="templates">
-					<p class="responsive-theme-tab-name">Starter&nbsp;Templates</p>
+					<p class="responsive-theme-tab-name"><?php esc_html_e( 'Starter&nbsp;Templates', 'responsive' ); ?></p>
 				</div>
 			<?php endif; ?>
 				<div class="responsive-theme-tab responsive-theme-blocks-tab" data-tab="blocks">
-					<p class="responsive-theme-tab-name">Blocks</p>
+					<p class="responsive-theme-tab-name"><?php esc_html_e( 'Blocks', 'responsive' ); ?></p>
 				</div>
 				<div class="responsive-theme-tab responsive-theme-rae-tab" data-tab="rae">
-					<p class="responsive-theme-tab-name">Addons&nbsp;for&nbsp;Elementor</p>
+					<p class="responsive-theme-tab-name"><?php esc_html_e( 'Addons&nbsp;for&nbsp;Elementor', 'responsive' ); ?></p>
 				</div>
 			<div class="responsive-theme-tab responsive-theme-help-tab" data-tab="help">
-				<p class="responsive-theme-tab-name">Help</p>
+				<p class="responsive-theme-tab-name"><?php esc_html_e( 'Help', 'responsive' ); ?></p>
 			</div>
 		</div>
 	</div>
