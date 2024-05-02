@@ -251,10 +251,10 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			'logo'   => 'responsive_blocks',
 		),
 		array(
-			'tag'    => __( 'pro', 'responsive' ),
-			'title'  => 'Responsive Elementor Addons',
+			'tag'    => __( 'free', 'responsive' ),
+			'title'  => 'Responsive Addons for Elementor',
 			'desc'   => __( 'Premium Elementor Add-on Plugin that Comes Bundled with Responsive Pro.', 'responsive' ),
-			'button' => '<div class="responsive-theme-learn-more-btn" style="padding: 8px 0 5px;"><a class="button" href="https://cyberchimps.com/elementor-widgets/home/" target="_blank">Learn More</a></div>',
+			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-addons-for-elementor', 'rae', 'rael_getting_started', 'Install & Activate' ),
 			'logo'   => 'rea',
 		),
 		array(

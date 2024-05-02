@@ -6,9 +6,12 @@ $(document).ready(function () {
             hash = '#home'
         }
         if ( hash === '#templates' ) {
-            goToRST()
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/rst-template-preview.jpg')");
         }
+        if ( hash === '#blocks' || hash === '#rae' ) {
+            $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/" +  hash.substring(1) + "-template-preview.jpg')");
+        }
+        navigateTo(hash);
         $('.responsive-theme-tab-content').hide()
         $('.responsive-theme-tab').removeClass('responsive-theme-active-tab')
         $('.responsive-theme-' + hash.substring(1) + '-tab').addClass('responsive-theme-active-tab')
@@ -26,17 +29,30 @@ $(document).ready(function () {
 
     $(window).on('hashchange', function() {
         let currentHash = window.location.hash;
-        if ( currentHash === '#templates') {
-            goToRST()
+        navigateTo(currentHash);
+        if ( currentHash === '#templates' ) {
             $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/rst-template-preview.jpg')");
+        } else if ( currentHash === '#rae' || currentHash === '#blocks' ) {
+            $(".responsive-theme-tabs-inner-content").css("background-image", "url('" + localize.responsiveurl + "admin/images/" + currentHash.substring(1) + "-template-preview.jpg')");
         } else {
             $(".responsive-theme-tabs-inner-content").css("background-image", "none");
         }
     });
 
-    function goToRST() {
-        if ( localize.isRSTActivated ) {
+    function navigateTo( hash ) {
+
+        if ( hash === '#templates' && localize.isRSTActivated ) {
             window.location.href = localize.siteurl + '/wp-admin/admin.php?page=responsive_add_ons'
+            return
+        }
+
+        if ( hash === '#blocks' && localize.isRBAActivated ) {
+            window.location.href = localize.siteurl + '/wp-admin/admin.php?page=responsive_block_editor_addons'
+            return
+        }
+
+        if ( hash === '#rae' && localize.isRAEActivated ) {
+            window.location.href = localize.siteurl + '/wp-admin/admin.php?page=rael_getting_started'
             return
         }
     }
@@ -467,6 +483,24 @@ $(document).ready(function () {
                 }
             }
         );
+    })
+
+    $('#responsive-theme-help-theme-tab .responsive-theme-help-setting-icon-wrapper, #responsive-theme-help-theme-tab .responsive-theme-help-margin-zero').on('click', function() {
+        $('.responsive-theme-help-sections').hide();
+        $('.responsive-theme-help-tab-button .responsive-theme-help-setting-icon-wrapper svg path').removeClass('responsive-theme-help-setting-icon-active');
+        $('.responsive-theme-help-tab-button').removeClass('responsive-theme-help-settings-active-tab');
+        $('#responsive-theme-help-theme-tab .responsive-theme-help-setting-icon-wrapper svg path').addClass('responsive-theme-help-setting-icon-active');
+        $('#responsive-theme-help-theme-tab').addClass('responsive-theme-help-settings-active-tab');
+        $('#responsive-theme-help-theme-settings').show();
+    })
+
+    $('#responsive-theme-help-ticket-tab .responsive-theme-help-setting-icon-wrapper, #responsive-theme-help-ticket-tab .responsive-theme-help-margin-zero').on('click', function() {
+        $('.responsive-theme-help-sections').hide();
+        $('.responsive-theme-help-tab-button .responsive-theme-help-setting-icon-wrapper svg path').removeClass('responsive-theme-help-setting-icon-active');
+        $('.responsive-theme-help-tab-button').removeClass('responsive-theme-help-settings-active-tab');
+        $('#responsive-theme-help-ticket-tab .responsive-theme-help-setting-icon-wrapper svg path').addClass('responsive-theme-help-setting-icon-active');
+        $('#responsive-theme-help-ticket-tab').addClass('responsive-theme-help-settings-active-tab');
+        $('#responsive-theme-help-ticket-settings').show();
     })
 
 });
