@@ -105,7 +105,7 @@ $accordions = array(
 					<p class="text-center fw-semibold responsive-theme-help-support-title"><?php esc_html_e( 'Support', 'responsive' ); ?></p>
 					<p class="text-center mb-0 responsive-theme-help-support-desc"><?php esc_html_e( 'Got a question while using the Responsive theme?', 'responsive' ); ?></p>
 					<p class="text-center responsive-theme-help-support-desc mb-5"><?php esc_html_e( 'Check the docs and videos to resolve issues.', 'responsive' ); ?></p>
-					<div class="text-center">
+					<div class="text-center fitvidsignore">
 						<iframe width="100%" height="440" src="https://www.youtube.com/embed/ehKE0nj-hxo?si=_VdA-dX9msRaDbIY" title="<?php esc_attr_e( 'How to install and activate Responsive WordPress Theme', 'responsive' ); ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</div>
 					<div class="responsive-theme-help-card-section">

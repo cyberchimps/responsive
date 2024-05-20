@@ -8,6 +8,9 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(16/05/2024) = Fix - Version 5.0.5
+[*] = Fixed = Resolved a conflict with BuddyBoss platform plugin.
+
 (30/04/2024) = Fix - Version 5.0.4
 [*] = Changed = UI changes in admin dashboard.
 
