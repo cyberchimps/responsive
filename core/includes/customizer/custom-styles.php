@@ -1961,10 +1961,15 @@ function responsive_customizer_styles() {
 	}
 
 	if ( 'zoom' === $menu_item_hover_style_selected ) {
-		$custom_css .= "@media (min-width:{$mobile_menu_breakpoint}px) {
+		$custom_css .= '.menu-item-hover-style-zoom .menu.nav-menu > li > a:hover, .menu.nav-menu > .menu-item > .menu-link:hover {
+			transition: all 0.3s ease-in-out;
+			transform: scale(1.1);
+		}';
+
+		$custom_css .= "@media (max-width:{$mobile_menu_breakpoint}px) {
 			.menu-item-hover-style-zoom .menu.nav-menu > li > a:hover, .menu.nav-menu > .menu-item > .menu-link:hover {
 				transition: all 0.3s ease-in-out;
-				transform: scale(1.1);
+				transform: scale(1.01);
 			}
 		}";
 	}

@@ -756,12 +756,12 @@ input:checked + .resp-megamenu-slider:before {
 /* Help Tab Starts */
 
 .responsive-theme-help-support-title {
-    font-size: 22px;
+    font-size: 36px;
     color: #374151;
 }
 
 .responsive-theme-help-support-desc {
-    font-size: 14px;
+    font-size: 16px;
     color: #4B4B4B;
 }
 

@@ -81,7 +81,7 @@ $accordions = array(
 
 <div class="responsive-theme-main-settings-section d-flex">
 	<div class="row">
-		<div class="responsive-theme-settings-tab-selection col-md-3">
+		<div class="responsive-theme-settings-tab-selection col-md-2">
 			<div id="responsive-theme-help-theme-tab" class="mb-4 responsive-theme-help-tab-button fw-medium responsive-theme-help-flex-display responsive-theme-help-settings-active-tab">
 				<div class="responsive-theme-help-setting-icon-wrapper d-flex justify-content-center">
 					<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">

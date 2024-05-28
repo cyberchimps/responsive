@@ -73,7 +73,7 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 	}
 }
 
-$responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_plugin_installed_activated('responsive-add-ons');
+$responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_plugin_installed_activated( 'responsive-add-ons' );
 
 	$home_settings = array(
 		array(
@@ -238,7 +238,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 	$useful_plugins = array(
 		array(
 			'tag'    => __( 'free', 'responsive' ),
-			'title'  => 'Responsive Starter Templates',
+			'title'  => 'Responsive Plus - Starter Templates',
 			'desc'   => __( '150+ Ready to Import Designer-Made Website Starter Templates.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-add-ons', 'rst', 'responsive_add_ons' ),
 			'logo'   => 'rst',
@@ -253,7 +253,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 		array(
 			'tag'    => __( 'free', 'responsive' ),
 			'title'  => 'Responsive Addons for Elementor',
-			'desc'   => __( 'Premium Elementor Add-on Plugin that Comes Bundled with Responsive Pro.', 'responsive' ),
+			'desc'   => __( 'A free Elementor Addons plugin with more than 80+ premium quality Elementor widgets.', 'responsive' ),
 			'button' => Responsive_Plugin_Install_Helper::instance()->responsive_install_plugin_button( 'responsive-addons-for-elementor', 'rae', 'rael_getting_started', 'Install & Activate' ),
 			'logo'   => 'rea',
 		),
@@ -324,12 +324,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 				<div class="col-md-9">
 					<p class="responsive-theme-home-settings-text fw-bolder mt-2">
 						<?php
-						if( check_is_responsive_pro_activated() ) {
+						if ( check_is_responsive_pro_activated() ) {
 							esc_html_e( 'Responsive Pro Features', 'responsive' );
-						} else if ( check_is_responsive_addons_installed() ) {
+						} elseif ( check_is_responsive_addons_installed() ) {
 							esc_html_e( 'Responsive Add-ons Features', 'responsive' );
 						} else {
-							esc_html_e( 'Unlock More Features by Installing Responsive Add-ons', 'responsive' );
+							esc_html_e( 'Unlock More Features by Installing Responsive Plus', 'responsive' );
 						}
 						?>
 					</p>
@@ -355,10 +355,10 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 								break;
 						} // End switch.
 					} else {
-						$button = '';
-						$identifier = 'rst';
-						$redirect = admin_url( 'admin.php?page=responsive_add_ons' );
-						$responsive_addons_slug = 'responsive-add-ons';
+						$button                  = '';
+						$identifier              = 'rst';
+						$redirect                = admin_url( 'admin.php?page=responsive_add_ons' );
+						$responsive_addons_slug  = 'responsive-add-ons';
 						$responsive_addons_nonce = add_query_arg(
 							array(
 								'action'        => 'activate',
@@ -374,7 +374,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							case 'install':
 								$button .= '<a id="responsive-theme-' . esc_attr( $identifier ) . '" data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $responsive_addons_slug ) . '" class="responsive-theme-install-plugin install-now responsive-theme-install-responsive-add-ons float-lg-end float-start text-decoration-none mb-4" href="' . esc_url( $responsive_addons_nonce ) . '" data-name="' . esc_attr( $responsive_addons_slug ) . '" aria-label="Install ' . esc_attr( $responsive_addons_slug ) . '">' . esc_html( 'Install' ) . '</a>';
 								break;
-				
+
 							case 'activate':
 								$button .= '<a  data-redirect="' . esc_url( $redirect ) . '" data-slug="' . esc_attr( $responsive_addons_slug ) . '" class="responsive-theme-activate-plugin activate-now responsive-theme-install-responsive-add-ons float-lg-end float-start text-decoration-none mb-4" href="' . esc_url( $responsive_addons_nonce ) . '" aria-label="Activate ' . esc_attr( $responsive_addons_slug ) . '">' . esc_html__( 'Activate', 'responsive' ) . '</a>';
 								break;
@@ -416,7 +416,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 											$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 											?>
 
-												<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="<?php if( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) echo esc_attr( '_blank' ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
+												<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="
+																	<?php
+																	if ( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) {
+																		echo esc_attr( '_blank' );}
+																	?>
+												"><?php echo esc_html( $feature_link['name'] ); ?></a>
 
 											<?php
 											if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
@@ -438,7 +443,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										$disabled_links = ( isset( $feature_link['status'] ) && false === $feature_link['status'] ) ? 'responsive-theme-disabled-links' : '';
 										?>
 
-											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="<?php if( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) echo esc_attr( '_blank' ); ?>"><?php echo esc_html( $feature_link['name'] ); ?></a>
+											<a href="<?php echo esc_url( $feature_link['link'] ); ?>" class="<?php echo esc_attr( $disabled_links ); ?>" target="
+																<?php
+																if ( 'Docs' === $feature_link['name'] || 'Open Ticket' === $feature_link['name'] ) {
+																	echo esc_attr( '_blank' );}
+																?>
+											"><?php echo esc_html( $feature_link['name'] ); ?></a>
 											
 										<?php
 										if ( ( count( $feature['links'] ) - $index ) !== 1 ) {
@@ -478,7 +488,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							if ( check_is_responsive_pro_installed() ) {
 								if ( 'activated' === $state ) {
 									?>
-									<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpo_megamenu_enable') ) { echo 'disable-customize'; }?>">
+									<div class="responsive-theme-pro-features mt-2 
+									<?php
+									if ( 'on' !== get_option( 'rpo_megamenu_enable' ) ) {
+										echo 'disable-customize'; }
+									?>
+									">
 										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 										<span class="responsive-theme-feature-seperator">|</span>
 										<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
@@ -491,7 +506,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										if ( 'Activated' === $license_status ) {
 											?>
 										<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-											<input class="resp-megamenu-input-checkbox" type="checkbox" <?php if('on' === get_option('rpo_megamenu_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
+											<input class="resp-megamenu-input-checkbox" type="checkbox" 
+											<?php
+											if ( 'on' === get_option( 'rpo_megamenu_enable' ) ) {
+												echo 'checked'; }
+											?>
+											 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
 											<span class="resp-megamenu-slider resp-megamenu-round"></span>
 										</label>
 											<?php
@@ -503,12 +523,22 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							}
 							if ( ! check_is_responsive_pro_activated() && check_is_responsive_addons_greater() ) {
 								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpo_megamenu_enable') ) { echo 'disable-customize'; }?>">
+								<div class="responsive-theme-pro-features mt-2 
+								<?php
+								if ( 'on' !== get_option( 'rpo_megamenu_enable' ) ) {
+									echo 'disable-customize'; }
+								?>
+								">
 									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/mega-menu/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
 									<a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-megamenu-input-checkbox" type="checkbox" <?php if('on' === get_option('rpo_megamenu_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
+										<input class="resp-megamenu-input-checkbox" type="checkbox" 
+										<?php
+										if ( 'on' === get_option( 'rpo_megamenu_enable' ) ) {
+											echo 'checked'; }
+										?>
+										 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_megamenu' ) ); ?>" <?php echo esc_attr( $rpro_megamenu_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 								</div>
@@ -536,10 +566,15 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							<?php
 							if ( 'activated' === $state ) {
 								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpro_typography_enable') ) { echo 'disable-customize'; }?>">
+								<div class="responsive-theme-pro-features mt-2 
+								<?php
+								if ( 'on' !== get_option( 'rpro_typography_enable' ) ) {
+									echo 'disable-customize'; }
+								?>
+								">
 									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/pro-modules/#typography-3' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_page_typography' ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( admin_url( 'customize.php' ) . '?autofocus[section]=responsive_page_typography' ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
@@ -549,7 +584,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 									if ( 'Activated' === $license_status ) {
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-typography-input-checkbox" type="checkbox" <?php if('on' === get_option('rpro_typography_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_typography' ) ); ?>" <?php echo esc_attr( $rpro_typography_status ); ?>>
+										<input class="resp-typography-input-checkbox" type="checkbox" 
+										<?php
+										if ( 'on' === get_option( 'rpro_typography_enable' ) ) {
+											echo 'checked'; }
+										?>
+										 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_typography' ) ); ?>" <?php echo esc_attr( $rpro_typography_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
@@ -577,10 +617,15 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							<?php
 							if ( 'activated' === $state ) {
 								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpro_colors_backgrounds_enable') ) { echo 'disable-customize'; }?>">
+								<div class="responsive-theme-pro-features mt-2 
+								<?php
+								if ( 'on' !== get_option( 'rpro_colors_backgrounds_enable' ) ) {
+									echo 'disable-customize'; }
+								?>
+								">
 									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/colors-and-backgrounds/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
-									<a href="<?php echo esc_url( admin_url( 'customize.php').'?autofocus[section]=responsive_colors' ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
+									<a href="<?php echo esc_url( admin_url( 'customize.php' ) . '?autofocus[section]=responsive_colors' ); ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<?php
 									global $wcam_lib_responsive_pro;
 									$license_status = get_option( $wcam_lib_responsive_pro->wc_am_activated_key );
@@ -590,7 +635,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 									if ( 'Activated' === $license_status ) {
 										?>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-colors-backgrounds-input-checkbox" type="checkbox" <?php if('on' === get_option('rpro_colors_backgrounds_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_colors_backgrounds' ) ); ?>" <?php echo esc_attr( $rpro_colors_backgrounds_status ); ?>>
+										<input class="resp-colors-backgrounds-input-checkbox" type="checkbox" 
+										<?php
+										if ( 'on' === get_option( 'rpro_colors_backgrounds_enable' ) ) {
+											echo 'checked'; }
+										?>
+										 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_colors_backgrounds' ) ); ?>" <?php echo esc_attr( $rpro_colors_backgrounds_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 										<?php
@@ -634,7 +684,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							if ( check_is_responsive_pro_installed() ) {
 								if ( 'activated' === $state ) {
 									?>
-									<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpro_woocommerce_enable') ) { echo 'disable-customize'; }?>">
+									<div class="responsive-theme-pro-features mt-2 
+									<?php
+									if ( 'on' !== get_option( 'rpro_woocommerce_enable' ) ) {
+										echo 'disable-customize'; }
+									?>
+									">
 										<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/woocommerce-module/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 										<span class="responsive-theme-feature-seperator">|</span>
 										<a href="<?php echo esc_url( admin_url( 'customize.php' ) ) . '?autofocus[section]=woocommerce'; ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
@@ -647,7 +702,12 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 										if ( 'Activated' === $license_status ) {
 											?>
 										<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-											<input class="resp-woocommerce-input-checkbox" type="checkbox" <?php if('on' === get_option('rpro_woocommerce_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
+											<input class="resp-woocommerce-input-checkbox" type="checkbox" 
+											<?php
+											if ( 'on' === get_option( 'rpro_woocommerce_enable' ) ) {
+												echo 'checked'; }
+											?>
+											 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
 											<span class="resp-megamenu-slider resp-megamenu-round"></span>
 										</label>
 											<?php
@@ -660,12 +720,22 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 
 							if ( ! check_is_responsive_pro_activated() && check_is_responsive_addons_greater() ) {
 								?>
-								<div class="responsive-theme-pro-features mt-2 <?php if( 'on' !== get_option('rpro_woocommerce_enable') ) { echo 'disable-customize'; }?>">
+								<div class="responsive-theme-pro-features mt-2 
+								<?php
+								if ( 'on' !== get_option( 'rpro_woocommerce_enable' ) ) {
+									echo 'disable-customize'; }
+								?>
+								">
 									<a href="<?php echo esc_url( 'https://cyberchimps.com/docs/woocommerce-module/' ); ?>" class="" target="_blank"><?php esc_html_e( 'Docs', 'responsive' ); ?></a>
 									<span class="responsive-theme-feature-seperator">|</span>
 									<a href="<?php echo esc_url( admin_url( 'customize.php' ) ) . '?autofocus[section]=woocommerce'; ?>" class="rpro-feature-customize-btn"><?php esc_html_e( 'Customize', 'responsive' ); ?></a>
 									<label class="resp-megamenu-switch float-md-none float-end float-lg-end float-xl-end float-xxl-end">
-										<input class="resp-woocommerce-input-checkbox" type="checkbox" <?php if('on' === get_option('rpro_woocommerce_enable') ) { echo 'checked'; }?> data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
+										<input class="resp-woocommerce-input-checkbox" type="checkbox" 
+										<?php
+										if ( 'on' === get_option( 'rpro_woocommerce_enable' ) ) {
+											echo 'checked'; }
+										?>
+										 data-nonce="<?php echo esc_attr( wp_create_nonce( 'rpro_toggle_woocommerce' ) ); ?>" <?php echo esc_attr( $rpro_woocommerce_status ); ?>>
 										<span class="resp-megamenu-slider resp-megamenu-round"></span>
 									</label>
 								</div>
@@ -723,7 +793,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			<div class="row">
 				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Rate Us', 'responsive' ); ?></p>
 				<p><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""><img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/ph_star-fill.svg'; ?>" alt=""></p>
-				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Hi! Thanks for using the ', 'responsive'). esc_html_e('Responsive', 'responsive'). esc_html_e(' theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?></p>
+				<p class="responsive-theme-home-desc-text"><?php esc_html_e( 'Hi! Thanks for using the ', 'responsive' ) . esc_html_e( 'Responsive', 'responsive' ) . esc_html_e( ' theme. Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ); ?></p>
 				<div class="responsive-theme-home-links">
 					<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post' ); ?>" target="_blank"><?php esc_html_e( 'Submit Review', 'responsive' ); ?></a>
 				</div>
