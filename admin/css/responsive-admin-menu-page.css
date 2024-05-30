@@ -9,11 +9,11 @@
 /* RST Promo notice starts */
 .postbox.responsive-sites-active {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: left;
 	align-items: start;
 	padding: 0 20px;
-	margin: 5px 0px 24px 0px;
+	margin: 40px 20px 24px 0px;
 	border-style: solid;
 	border-left-width: 3px;
     border-left-color: #007CBA;
@@ -28,7 +28,13 @@
 .postbox.responsive-sites-active .responsive-starter-sites-img {
 	margin-left: 5px;
 }
-
+.responsive-banner-starter-sites-img{
+	width: 550px;
+}
+.postbox.responsive-sites-active .responsive-banner-outer-container{
+	width: 60%;
+	padding-right: 15px;
+}
 .responsive-notice-content {
 	margin-left: 15px;
 	margin-top: 1em;
@@ -53,7 +59,6 @@
     line-height: 21px;
     font-family: "Roboto", sans-serif;
     color: #333;
-    max-width: 60%;
 }
 .responsive-notice-content p{	
 	font-weight: 400;
