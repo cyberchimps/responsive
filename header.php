@@ -73,7 +73,21 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 		}
 
 		// Elementor `header` location.
-		if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'header' ) ) && $responsive_show_header ) {
+		if ( (
+			! function_exists( 'elementor_theme_do_location' ) ||
+			! elementor_theme_do_location( 'header' )
+		) &&
+		! (
+			(
+				function_exists( 'rea_theme_template_render_at_location' ) &&
+				rea_theme_template_render_at_location( 'header' )
+			) ||
+			(
+				function_exists( 'rael_theme_template_render_at_location' ) &&
+				rael_theme_template_render_at_location( 'header' )
+			)
+		)
+		) {
 
 			// Replaces default header with custom header.
 			Responsive\responsive_custom_header();
