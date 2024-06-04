@@ -72,7 +72,7 @@ class Responsive_Plugin_Install_Helper {
 			$additional = ' action_button active';
 		}
 
-		$button .= '<div class="plugin-card-' . esc_attr( $slug ) . esc_attr( $additional ) . '" style="padding: 8px 0 5px;">';
+		$button .= '<div class="plugin-card-' . esc_attr( $slug ) . esc_attr( $additional ) . '" style="padding: 16px 0 5px;">';
 
 		$plugin_link_suffix = self::get_plugin_path( $slug );
 
