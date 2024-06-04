@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '5.0.5' );
+define( 'RESPONSIVE_THEME_VERSION', '5.0.6' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1062,16 +1062,18 @@ if ( ! function_exists( 'responsive_pro_fixed_menu_onscroll' ) ) {
 				<script type="text/javascript">
 					document.getElementById("masthead").classList.remove( 'shrink' );
 				</script>
-			<?php }
-			if ( get_theme_mod( 'responsive_sticky_header_logo_option' ) ) {?>
+				<?php
+				}
+				if ( get_theme_mod( 'responsive_sticky_header_logo_option' ) ) {
+					?>
 				<script type="text/javascript">
 					document.getElementById("masthead").classList.add( 'sticky-logo' );
 				</script>
-			<?php } else { ?>
+				<?php } else { ?>
 				<script type="text/javascript">
 					document.getElementById("masthead").classList.remove( 'sticky-logo' );
 				</script>
-			<?php }?>
+			<?php } ?>
 
 		<script type="text/javascript">
 			window.addEventListener("scroll", responsiveStickyHeader);
@@ -1132,28 +1134,28 @@ function responsive_get_theme_author_details() {
 	return $theme_author;
 }
 
-add_action('wp_ajax_save_footer_text', 'save_footer_text_callback');
+add_action( 'wp_ajax_save_footer_text', 'save_footer_text_callback' );
 
 function save_footer_text_callback() {
 
 	check_ajax_referer( 'responsive-save-footer-content', '_ajax_nonce' );
 
 	if ( ! current_user_can( 'manage_options' ) ) {
-        wp_send_json_error( esc_html__( 'You do not have sufficient permissions to perform this action.', 'responsive' ) );
-    }
-	
-  $footer_text = wp_kses_post($_POST['footer_text']);
+		wp_send_json_error( esc_html__( 'You do not have sufficient permissions to perform this action.', 'responsive' ) );
+	}
 
-  update_option('footer-copyright', $footer_text);
+	$footer_text = wp_kses_post( $_POST['footer_text'] );
 
-  wp_send_json_success('Data saved successfully');
+	update_option( 'footer-copyright', $footer_text );
 
-  wp_die();
+	wp_send_json_success( 'Data saved successfully' );
+
+	wp_die();
 }
 
-add_action('admin_menu', 'remove_unnecessary_wordpress_menus', 999);
+add_action( 'admin_menu', 'remove_unnecessary_wordpress_menus', 999 );
 
-function remove_unnecessary_wordpress_menus(){
-    global $submenu;
-    unset($submenu['themes.php'][20]);
+function remove_unnecessary_wordpress_menus() {
+	global $submenu;
+	unset( $submenu['themes.php'][20] );
 }
