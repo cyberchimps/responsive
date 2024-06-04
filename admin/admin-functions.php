@@ -66,7 +66,7 @@ function responsive_welcome_banner_notice() {
 		?>
 
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_content( 'responsive-add-ons' ); //phpcs:ignore ?>
-	<div class="postbox responsive-sites-active" id="responsive-sites-active" style="background: url('<?php echo esc_url( RESPONSIVE_THEME_URI . 'admin/images/responisve-addons-notice-banner-bg.png' ); ?>'); background-position: right;background-repeat: no-repeat; background-size: cover;">
+	<div class="postbox responsive-sites-active" id="responsive-sites-active">
 		<div class="responsive-banner-outer-container">
 			<div class="responisve-addons-banner-header">
 				<div class="responsive-notice-image">
@@ -84,10 +84,11 @@ function responsive_welcome_banner_notice() {
 					<?php echo Responsive_Plugin_Install_Helper::instance()->get_button_html( 'responsive-add-ons' ); //phpcs:ignore ?>
 				</p>
 			</div>
-	</div>			
-			<!-- <div class="responsive-theme-starter-template-image">
-				<img class="responsive-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'admin/images/cyberchimps-logo-thumbnail.png' ); ?>">
-			</div> -->
+		</div>
+		<div class="responsive-banner-image-container">
+			<img class="responsive-banner-starter-sites-img" src="<?php echo esc_url( RESPONSIVE_THEME_URI . 'admin/images/resp-plus-starter-template.png' ); ?>">
+		</div>			
+			
 			<button type="button" class="notice-dismiss"></button>
 		</div>
 	<?php echo Responsive_Plugin_Install_Helper::instance()->get_rateus_end_content( 'responsive-add-ons' ); //phpcs:ignore
