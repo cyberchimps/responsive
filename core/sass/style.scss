@@ -110,3 +110,7 @@ body {
 .responsive-related-single-post-not-found{
 	margin: 0;
 }
+.page.sidebar-position-no:not(.woocommerce) .alignwide{
+	margin-left: auto;
+	margin-right: auto;
+}

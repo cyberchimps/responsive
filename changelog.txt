@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(04/06/2024) = Fix - Version 5.0.6
+[*] = Changed = Minor UI Changes.
+[!] = Fixed = Menu Item hover style zoom in effect not working.
+[!] = Fixed = Cart and checkout container issue.
+[!] = Fixed = Other minor Bug Fixes.
+
 (16/05/2024) = Fix - Version 5.0.5
 [*] = Fixed = Resolved a conflict with BuddyBoss platform plugin.
 
