@@ -8,6 +8,12 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(10/06/2024) = Fix - Version 5.0.7
+[*] = Changed = Made compatible with latest Responsive addons for Elementor for theme builder locations.
+[!] = Fixed = Colors and background settings of cart options not working with latest WooCommerce Cart Blocks.
+[!] = Fixed = Enable Cross-sells customizer option not working with latest WooCommerce Cart Blocks.
+[!] = Fixed = Disable Cart Fragments customizer option issue.
+
 (04/06/2024) = Fix - Version 5.0.6
 [*] = Changed = Minor UI Changes.
 [!] = Fixed = Menu Item hover style zoom in effect not working.
