@@ -114,6 +114,8 @@ if ( ! class_exists( 'Responsive_Woocommerce' ) ) :
 		public function responsive_disable_woocommerce_cart_fragments() {
 			if ( get_theme_mod( 'responsive_disable_cart_fragments' ) ) {
 				wp_dequeue_script( 'wc-cart-fragments' );
+			} else {
+				wp_enqueue_script( 'wc-cart-fragments' );
 			}
 		}
 

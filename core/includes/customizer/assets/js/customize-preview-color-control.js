@@ -797,6 +797,8 @@
     api( 'responsive_cart_buttons_color', function( value ) {
         value.bind( function( newval ) {
             $('.page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button').css('background-color', newval );
+            $('.page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button').css('background-color', newval );
+            $('.page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button').css('border-color', newval );
             $('.woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button ').css('border-color', newval );
         } );
     } );
@@ -805,6 +807,7 @@
     api( 'responsive_cart_buttons_text_color', function( value ) {
         value.bind( function( newval ) {
             $('.page.woocommerce-cart .woocommerce button.button:disabled,.page.woocommerce-cart .woocommerce button.button:disabled[disabled],.page.woocommerce-cart .woocommerce button.button').css('color', newval );
+            $('.page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button').css('color', newval );
         } );
     } );
 
@@ -812,6 +815,7 @@
     api( 'responsive_cart_checkout_button_color', function( value ) {
         value.bind( function( newval ) {
             $('.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button').css('background-color', newval );
+            $('.page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button').css('background-color', newval );
         } );
     } );
 
@@ -819,6 +823,59 @@
     api( 'responsive_cart_checkout_button_text_color', function( value ) {
         value.bind( function( newval ) {
             $('.page.woocommerce-cart .woocommerce a.button.alt,.page.woocommerce-cart .woocommerce a.button,.page.woocommerce-checkout .woocommerce button.button.alt,.page.woocommerce-checkout .woocommerce button.button').css('color', newval );
+            $('.page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button').css('color', newval );
+        } );
+    } );
+    // Cart Buttons Text Color.
+    api ( 'responsive_cart_buttons_hover_color', function(value){
+        value.bind( function( newval ) {
+            $(".page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button").hover(
+                function() {
+                    $(this).css("background-color", api('responsive_cart_buttons_hover_color').get());
+                },
+                function() {
+                    $(this).css("background-color", api('responsive_cart_buttons_color').get());
+                }
+            );
+        } );
+    } );
+    // Cart Buttons Text Hover Color.
+    api ( 'responsive_cart_buttons_hover_text_color', function(value){
+        value.bind( function( newval ) {
+            $(".page.woocommerce-cart .wp-block-woocommerce-cart button.wc-block-components-totals-coupon__button").hover(
+                function() {
+                    $(this).css("color", api('responsive_cart_buttons_hover_text_color').get());
+                },
+                function() {
+                    $(this).css("color", api('responsive_cart_buttons_text_color').get());
+                }
+            );
+        } );
+    } );
+    //Checkout Button Hover Color
+    api ( 'responsive_cart_checkout_button_hover_color', function(value){
+        value.bind( function( newval ) {
+            $(".page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button").hover(
+                function() {
+                    $(this).css("background-color", api('responsive_cart_checkout_button_hover_color').get());
+                },
+                function() {
+                    $(this).css("background-color", api('responsive_cart_checkout_button_color').get());
+                }
+            );
+        } );
+    } );
+    //Checkout Button Text Hover Color
+    api ( 'responsive_cart_checkout_button_hover_text_color', function(value){
+        value.bind( function( newval ) {
+            $(".page.woocommerce-cart .wp-block-woocommerce-cart a.wc-block-cart__submit-button, .page.woocommerce-checkout .wp-block-woocommerce-checkout button.wc-block-components-checkout-place-order-button").hover(
+                function() {
+                    $(this).css("color", api('responsive_cart_checkout_button_hover_text_color').get());
+                },
+                function() {
+                    $(this).css("color", api('responsive_cart_checkout_button_text_color').get());
+                }
+            );
         } );
     } );
 
