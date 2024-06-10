@@ -57,8 +57,22 @@ if ( class_exists( 'Responsive_Addons_Pro' ) || check_is_responsive_addons_great
 		$responsive_show_footer = false;
 	}
 }
-		// Elementor `footer` location.
-if ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'footer' ) ) && $responsive_show_footer ) {
+// Elementor `footer` location.
+if ( (
+		! function_exists( 'elementor_theme_do_location' ) ||
+		! elementor_theme_do_location( 'footer' )
+	) &&
+! (
+	(
+		function_exists( 'rea_theme_template_render_at_location' ) &&
+		rea_theme_template_render_at_location( 'footer' )
+	) ||
+	(
+		function_exists( 'rael_theme_template_render_at_location' ) &&
+		rael_theme_template_render_at_location( 'footer' )
+	)
+	)
+) {
 
 	// Replaces default footer with custom footer.
 	Responsive\responsive_custom_footer();

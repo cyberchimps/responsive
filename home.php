@@ -31,7 +31,21 @@ Responsive\responsive_wrapper_top(); // before wrapper content hook.
 
 $blog_pagination = '' === responsive_blog_pagination() ? 'default' : responsive_blog_pagination();
 // Elementor `archive` location.
-if ( ( ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ) && ! ( function_exists( 'rea_theme_template_render_at_location' ) && rea_theme_template_render_at_location( 'archive' ) ) ) ) {
+if ( (
+	! function_exists( 'elementor_theme_do_location' ) ||
+	! elementor_theme_do_location( 'archive' )
+) &&
+! (
+	(
+		function_exists( 'rea_theme_template_render_at_location' ) &&
+		rea_theme_template_render_at_location( 'archive' )
+	) ||
+	(
+		function_exists( 'rael_theme_template_render_at_location' ) &&
+		rael_theme_template_render_at_location( 'archive' )
+	)
+)
+) {
 	Responsive\responsive_wrapper();
 	?>
 	<div class="content-area-wrapper">
