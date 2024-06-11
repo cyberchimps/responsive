@@ -39,44 +39,45 @@ function responsive_ask_for_review_notice() {
 	}
 
 	if ( false === get_option( 'responsive-theme-old-setup' ) ) {
-		set_transient( 'responsive_theme_ask_review_flag', true, MONTH_IN_SECONDS );
+		set_transient( 'responsive_theme_ask_review_flag', true, 15 * 24 * 60 * 60 );
 		update_option( 'responsive-theme-old-setup', true );
 	} elseif ( false === get_transient( 'responsive_theme_ask_review_flag' ) && false === get_option( 'responsive_theme_review_notice_dismissed' ) ) {
 
 		$image_path = get_template_directory_uri() . '/admin/images/responsive-thumbnail.jpg';
 		echo sprintf(
-			'<div class="notice notice-warning ask-for-review-notice">
-             					<div class="notice-image">
-									<img src="%1$s" class="custom-logo" alt="Responsive" itemprop="logo">
-								</div>
-								<div class="notice-content">
-									<div class="notice-heading">
-										%3$s
-									</div>
-									%4$s<br />
-									<div class="responsive-review-notice-container">
-										<a href="%2$s" class="responsive-notice-close responsive-review-notice button-primary" target="_blank">
-										%5$s
-										</a>
-										<span class="dashicons dashicons-calendar"></span>
-										<a href="?responsive-theme-review-notice-change-timeout=true" data-repeat-notice-after="60" class="responsive-notice-close responsive-review-notice">
-										%6$s
-										</a>
-										<span class="dashicons dashicons-smiley"></span>
-										<a href="?responsive-theme-review-notice-dismissed=true" class="responsive-notice-close responsive-review-notice">
-										%7$s
-										</a>
-									</div>
-								</div>
-								<div>
-									<a href="?responsive-theme-review-notice-dismissed=true">Dismiss</a>
-
-								</div>
-         					</div>',
+			'<div class="notice notice-warning responsive-ask-for-review-notice">
+				<div class="notice-content-wrapper">
+					<div class="notice-image">
+						<img src="%1$s" class="custom-logo" alt="Responsive" itemprop="logo">
+					</div>
+					<div class="notice-content">
+						<div class="notice-heading">
+							%3$s
+						</div>
+						<p class="responsive-review-request-text">%4$s</p>
+						<div class="responsive-review-notice-container">
+							<a href="%2$s" class="responsive-notice-close responsive-review-notice button-primary" target="_blank">
+								%5$s
+							</a>
+							<span class="dashicons dashicons-calendar"></span>
+							<a href="?responsive-theme-review-notice-change-timeout=true" data-repeat-notice-after="60" class="responsive-notice-close responsive-review-notice">
+								%6$s
+							</a>
+							<span class="dashicons dashicons-smiley"></span>
+							<a href="?responsive-theme-review-notice-dismissed=true" class="responsive-notice-close responsive-review-notice">
+								%7$s
+							</a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<a href="?responsive-theme-review-notice-dismissed=true"><button type="button" class="responsive-ask-review-notice-dismiss"></button></a>
+				</div>
+			</div>',
 			esc_url( $image_path ),
 			'https://wordpress.org/support/theme/responsive/reviews/#new-post',
-			esc_html__( 'Hi! Thanks for using the Responsive theme.', 'responsive' ),
-			esc_html__( 'Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.', 'responsive' ),
+			esc_html__( 'Hello! Seems like you have used Responsive Theme to build this website — Thanks a ton!', 'responsive' ),
+			esc_html__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Responsive Theme.', 'responsive' ),
 			esc_html__( 'Ok, you deserve it', 'responsive' ),
 			esc_html__( 'Nope, maybe later', 'responsive' ),
 			esc_html__( 'I already did', 'responsive' )
@@ -112,17 +113,24 @@ function responsive_theme_notice_change_timeout() {
 function responsive_add_review_styling() {
 	?>
 	<style>
-	.ask-for-review-notice {
+	.responsive-ask-for-review-notice {
 		display:flex;
-		padding: 15px;
+		padding: 16px 24px;
+		justify-content: space-between;
+		position: relative;
 	}
 
+	.responsive-ask-for-review-notice.notice-warning {
+		border-left-color: #2D2D53;
+		border-left-width: 6px;
+	}
 	.notice-image {
 		align-self: center;
 	}
 
-	.notice-content {
-		padding-left: 20px;
+	.responsive-ask-for-review-notice .notice-content-wrapper {
+		display: flex;
+		gap: 30px;
 	}
 
 	.responsive-review-notice-container .dashicons {
@@ -133,7 +141,7 @@ function responsive_add_review_styling() {
 	.responsive-review-notice-container {
 		display: flex;
 		align-items: center;
-		padding-top: 10px;
+		padding-top: 20px;
 	}
 
 	.responsive-review-notice-container .dashicons {
@@ -154,12 +162,37 @@ function responsive_add_review_styling() {
 		max-width: 90px;
 	}
 
-	.notice-content .notice-heading {
-		padding-bottom: 5px;
+	.responsive-ask-for-review-notice .notice-content-wrapper .notice-heading {
+		padding-bottom: 10px;
+		color: #333333;
+		font-size: 12px;
 	}
 
-	.notice-content {
-		margin-right: 12%;
+	.responsive-ask-for-review-notice .responsive-review-request-text {
+		margin: 0;
+		color: #333333;
+		font-size: 12px;
+	}
+	.responsive-ask-review-notice-dismiss {
+		position: absolute;
+		top: 0;
+		right: 1px;
+		border: none;
+		margin: 0;
+		padding: 9px;
+		background: 0 0;
+		color: #787c82;
+		cursor: pointer;
+	}
+	.responsive-ask-review-notice-dismiss::before {
+		background: 0 0;
+		color: #787c82;
+		content: "\f153";
+		display: block;
+		font: normal 16px/20px dashicons;
+		height: 20px;
+		text-align: center;
+		width: 20px;
 	}
 
 	.notice-container {
