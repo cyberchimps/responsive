@@ -54,8 +54,12 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$shop_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
 				responsive_drag_number_control( $wp_customize, 'cart_content_width', $shop_content_width_label, 'responsive_woocommerce_cart_layout', 10, 70, null, 100, 1, 'postMessage' );
 
-				$enable_crosssells_options_label = esc_html__( 'Enable Cross-sells', 'responsive' );
-				responsive_checkbox_control( $wp_customize, 'enable_crosssells_options', $enable_crosssells_options_label, 'responsive_woocommerce_cart_layout', 2, 1, null );
+				$cart_page_id   = wc_get_page_id( 'cart' );
+				$is_cart_block_present = has_block( 'woocommerce/cart', $cart_page_id );
+				if( ! $is_cart_block_present ) {
+					$enable_crosssells_options_label = esc_html__( 'Enable Cross-sells', 'responsive' );
+					responsive_checkbox_control( $wp_customize, 'enable_crosssells_options', $enable_crosssells_options_label, 'responsive_woocommerce_cart_layout', 2, 1, null );
+				}
 
 				$disable_cart_fragments_label = esc_html__( 'Disable Cart Fragments', 'responsive' );
 				responsive_checkbox_control( $wp_customize, 'disable_cart_fragments', $disable_cart_fragments_label, 'responsive_woocommerce_cart_layout', 2, 0, null );
