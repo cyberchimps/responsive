@@ -6,7 +6,7 @@
 * [ ] Appropriate comments are added in the code
 * [ ] There are no error_log statements 
 * [ ] There are no unnecessary console log statements
-* [ ] Changeling is updated if required
-* [ ] Version no is updated
+* [ ] Changelog is updated if required
+* [ ] Version no is updated if required
 * [ ] All best practices are followed, and code doesn't contain any deprecated code/methods
 * [ ] There are no console errors due to your code
