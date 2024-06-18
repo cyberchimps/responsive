@@ -61,6 +61,37 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 					'priority' => 20,
 				)
 			);
+
+			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
+			$design_tab_ids_prefix = 'customize-control-page_title_typography-';
+			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'font-family',
+				$design_tab_ids_prefix . 'font-weight',
+				$design_tab_ids_prefix . 'font-style',
+				$design_tab_ids_prefix . 'text-transform',
+				$design_tab_ids_prefix . 'font-size',
+				$design_tab_ids_prefix . 'line-height',
+				$design_tab_ids_prefix . 'letter-spacing',
+				$design_tab_ids_prefix . 'color',
+			);
+
+			$general_tab_ids_prefix = 'customize-control-responsive_page_';
+			$general_tab_ids        = array(
+				$general_tab_ids_prefix . 'content_width',
+				$general_tab_ids_prefix . 'elements_separator',
+				$general_tab_ids_prefix . 'single_elements_positioning',
+				$general_tab_ids_prefix . 'featured_image_separator',
+				$general_tab_ids_prefix . 'featured_image_width',
+				$general_tab_ids_prefix . 'featured_image_style',
+				$general_tab_ids_prefix . 'featured_image_style',
+				$general_tab_ids_prefix . 'featured_image_alignment',
+				$general_tab_ids_prefix . 'title_separator',
+				$general_tab_ids_prefix . 'title_alignment',
+				$general_tab_ids_prefix . 'content_separator',
+				$general_tab_ids_prefix . 'content_alignment',
+			);
+			responsive_tabs_button_control( $wp_customize, 'page_tabs', $tabs_label, 'responsive_page_content', 10, '', 'responsive_page_content_general_tab', 'responsive_page_content_design_tab', $general_tab_ids, $design_tab_ids, null );
+
 			// Main Content Width.
 			$page_content_width_label = esc_html__( 'Main Content Width (%)', 'responsive' );
 			responsive_drag_number_control( $wp_customize, 'page_content_width', $page_content_width_label, 'responsive_page_content', 10, Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ), null, 100, 1, 'postMessage' );
@@ -170,16 +201,16 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$page_content_alignment_label   = esc_html__( 'Content Alignment', 'responsive' );
 			$page_content_alignment_choices = array(
 				'justify' => esc_html__( 'dashicons-editor-justify', 'responsive' ),
-				'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-				'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-				'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+				'left'    => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+				'center'  => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+				'right'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 			);
 			if ( is_rtl() ) {
 				$single_blog_content_alignment_choices = array(
 					'justify' => esc_html__( 'dashicons-editor-justify', 'responsive' ),
-					'left'   => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
-					'center' => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
-					'right'  => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
+					'left'    => esc_html__( 'dashicons-editor-alignleft', 'responsive' ),
+					'center'  => esc_html__( 'dashicons-editor-aligncenter', 'responsive' ),
+					'right'   => esc_html__( 'dashicons-editor-alignright', 'responsive' ),
 				);
 			}
 			responsive_select_button_control( $wp_customize, 'page_content_alignment', $page_content_alignment_label, 'responsive_page_content', 90, $page_content_alignment_choices, 'left', null );

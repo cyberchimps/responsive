@@ -47,6 +47,26 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				)
 			);
 
+			$tabs_label     = esc_html__( 'Tabs', 'responsive' );
+			$tab_ids_prefix = 'customize-control-';
+			$design_tab_ids = array(
+				$tab_ids_prefix . 'responsive_buttons_radius',
+				$tab_ids_prefix . 'responsive_buttons_border_width',
+				$tab_ids_prefix . 'responsive_buttons_typography_separator',
+				$tab_ids_prefix . 'button_typography-font-family',
+				$tab_ids_prefix . 'button_typography-font-weight',
+				$tab_ids_prefix . 'button_typography-font-style',
+				$tab_ids_prefix . 'button_typography-text-transform',
+				$tab_ids_prefix . 'button_typography-font-size',
+				$tab_ids_prefix . 'button_typography-line-height',
+				$tab_ids_prefix . 'button_typography-letter-spacing',
+			);
+
+			$general_tab_ids = array(
+				$tab_ids_prefix . 'responsive_buttons_padding',
+			);
+			responsive_tabs_button_control( $wp_customize, 'buttons_tabs', $tabs_label, 'responsive_button', 10, '', 'responsive_button_general_tab', 'responsive_button_design_tab', $general_tab_ids, $design_tab_ids, null );
+
 			// Buttons Padding (px).
 			$buttons_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'buttons', 'responsive_button', 14, 10, 10, null, $buttons_padding_label );

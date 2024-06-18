@@ -188,7 +188,8 @@ module.exports = function(grunt) {
 					'core/css/lifterlms/lifter_notice.min.css': 'core/css/lifterlms/lifter_notice.css',
 					'core/css/lifterlms/lifter_style.min.css': 'core/css/lifterlms/lifter_style.css',
 					'core/css/lifterlms/llms.min.css': 'core/css/lifterlms/llms.css',
-					'core/includes/customizer/assets/min/css/selectbtn.min.css':'core/includes/customizer/controls/selectbtn/selectbtn.css'
+					'core/includes/customizer/assets/min/css/selectbtn.min.css':'core/includes/customizer/controls/selectbtn/selectbtn.css',
+					'core/includes/customizer/assets/min/css/general.min.css': 'core/includes/customizer/controls/general.css',
 				}
 			}
 		},
@@ -370,7 +371,7 @@ module.exports = function(grunt) {
 
 	// SASS compile
 	grunt.registerTask('scss', ['sass']);
-	grunt.registerTask( 'default', [ 'scss', 'rtl', 'uglify', 'cssmin' ] );
+	grunt.registerTask( 'default', [ 'shell:multiple','scss', 'rtl', 'uglify', 'cssmin' ] );
 	grunt.registerTask( 'build', [ 'shell:multiple','i18n', 'scss', 'rtl', 'uglify', 'cssmin', 'clean', 'copy', 'compress' ] );
 	grunt.registerTask( 'i18n', [ 'addtextdomain', 'makepot' ] );
 

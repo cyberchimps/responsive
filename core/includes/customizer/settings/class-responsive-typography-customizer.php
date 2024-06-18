@@ -312,7 +312,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				$responsive_theme_typography_settings['page_title'] = array(
 					'label'    => esc_html__( 'Page Title', 'responsive' ),
 					'target'   => $selectorArray['page'],
-					'section'  => 'responsive_page_typography',
+					'section'  => 'responsive_page_content',
 					'exclude'  => array( '' ),
 					'priority' => 10,
 					'defaults' => array(
