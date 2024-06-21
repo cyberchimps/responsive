@@ -47,6 +47,26 @@ if ( ! class_exists( 'Responsive_Form_Fields_Customizer' ) ) :
 				)
 			);
 
+			$tabs_label     = esc_html__( 'Tabs', 'responsive' );
+			$tab_ids_prefix = 'customize-control-';
+			$design_tab_ids = array(
+				$tab_ids_prefix . 'responsive_inputs_radius',
+				$tab_ids_prefix . 'responsive_inputs_border_width',
+				$tab_ids_prefix . 'responsive_inputs_typography_separator',
+				$tab_ids_prefix . 'input_typography-font-family',
+				$tab_ids_prefix . 'input_typography-font-weight',
+				$tab_ids_prefix . 'input_typography-font-style',
+				$tab_ids_prefix . 'input_typography-text-transform',
+				$tab_ids_prefix . 'input_typography-font-size',
+				$tab_ids_prefix . 'input_typography-line-height',
+				$tab_ids_prefix . 'input_typography-letter-spacing',
+			);
+
+			$general_tab_ids = array(
+				$tab_ids_prefix . 'responsive_inputs_padding',
+			);
+			responsive_tabs_button_control( $wp_customize, 'form_fields_tabs', $tabs_label, 'responsive_form_fields', 10, '', 'responsive_form_fields_general_tab', 'responsive_form_fields_design_tab', $general_tab_ids, $design_tab_ids, null );
+
 			// Inputs Padding (px).
 			$inputs_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'inputs', 'responsive_form_fields', 15, 3, 3, null, $inputs_padding_label );
