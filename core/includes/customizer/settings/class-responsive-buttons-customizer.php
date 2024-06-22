@@ -60,6 +60,14 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				$tab_ids_prefix . 'button_typography-font-size',
 				$tab_ids_prefix . 'button_typography-line-height',
 				$tab_ids_prefix . 'button_typography-letter-spacing',
+				$tab_ids_prefix . 'responsive_responsive_general_buttons_separator',
+				$tab_ids_prefix . 'responsive_button_color',
+				$tab_ids_prefix . 'responsive_button_background_image',
+				$tab_ids_prefix . 'responsive_button_hover_color',
+				$tab_ids_prefix . 'responsive_button_text_color',
+				$tab_ids_prefix . 'responsive_button_border_color',
+				$tab_ids_prefix . 'responsive_button_hover_border_color',
+				$tab_ids_prefix . 'responsive_button_hover_text_color',
 			);
 
 			$general_tab_ids = array(

@@ -3,12 +3,10 @@
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-li#accordion-section-responsive_docs_section,
-li#accordion-panel-responsive_site,
 li#accordion-panel-responsive_content_header,
-li#accordion-panel-woocommerce,
-li#accordion-section-title_tagline {
+li#accordion-panel-woocommerce {
 	margin-top: 15px;
 }
 .responsive-upsell {
@@ -88,8 +86,10 @@ li#accordion-section-title_tagline {
   color: #fff;
 }
 
-.customize-control {
+.customize-control:not(.customize-control-responsive-tabs,ul li:last-child, ul li:first-child,.customize-control-responsive-heading,#customize-control-meta_typography-letter-spacing,#customize-control-responsive_single_blog_sidebar_width,#customize-control-responsive_buttons_padding,#customize-control-responsive_inputs_padding)  {
 	position: relative;
+  padding-bottom: 24px;
+    border-bottom: 1px solid #d0d0d0;
 }
 
 .customize-control .res-control-tooltip{
@@ -101,4 +101,25 @@ li#accordion-section-title_tagline {
 .notice.notice-info h3,
 .accordion-section-title {
 	padding-right: 36px;
+}
+.customize-section-title h3{
+  color: #50575e;
+  font-family: 'Roboto','sans-serif';
+  font-weight: 600 !important;
+}
+.customize-control-title {
+  font-family: 'Roboto','sans-serif';
+  color: #50575e;
+
+}
+[class^="_customize-input"] {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #d0d0d0;
+}
+.responsive-customizer-heading{
+  border-bottom: none;
+  /* padding: none; */
+}
+#customize-control-responsive_responsive_site_background_separator,#customize-control-responsive_body_typography_separator,#customize-control-responsive_responsive_general_texts_separator,#customize-control-responsive_header_title_colors_separator,#customize-control-responsive_header_tagline_colors_separator,#customize-control-responsive_header_widget_separator,#customize-control-responsive_content_header_color,#customize-control-responsive_main_menu_separator,#customize-control-responsive_transparent_header_separator{
+  border-top: none;
 }

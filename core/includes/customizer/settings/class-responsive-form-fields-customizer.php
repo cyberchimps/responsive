@@ -60,6 +60,13 @@ if ( ! class_exists( 'Responsive_Form_Fields_Customizer' ) ) :
 				$tab_ids_prefix . 'input_typography-font-size',
 				$tab_ids_prefix . 'input_typography-line-height',
 				$tab_ids_prefix . 'input_typography-letter-spacing',
+				$tab_ids_prefix . 'responsive_responsive_general_inputs_separator',
+				$tab_ids_prefix . 'responsive_inputs_background_color',
+				$tab_ids_prefix . 'responsive_inputs_background_image',
+				$tab_ids_prefix . 'responsive_inputs_text_color',
+				$tab_ids_prefix . 'responsive_inputs_border_color',
+				$tab_ids_prefix . 'responsive_responsive_general_labels_separator',
+				$tab_ids_prefix . 'responsive_label_color',
 			);
 
 			$general_tab_ids = array(

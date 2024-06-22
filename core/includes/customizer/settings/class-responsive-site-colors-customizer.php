@@ -125,58 +125,58 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 
 			// Buttons.
 			$general_buttons_label = esc_html__( 'Buttons', 'responsive' );
-			responsive_separator_control( $wp_customize, 'responsive_general_buttons_separator', $general_buttons_label, 'responsive_colors', 130 );
+			responsive_separator_control( $wp_customize, 'responsive_general_buttons_separator', $general_buttons_label, 'responsive_button', 130 );
 
 			// Button Color.
 			$button_color_label = __( 'Color', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'button', $button_color_label, 'responsive_colors', 130, Responsive\Core\get_responsive_customizer_defaults( 'button' ) );
+			responsive_color_control( $wp_customize, 'button', $button_color_label, 'responsive_button', 130, Responsive\Core\get_responsive_customizer_defaults( 'button' ) );
 
 			// Button Hover Color.
 			$button_hover_color_label = __( 'Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_hover', $button_hover_color_label, 'responsive_colors', 140, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ) );
+			responsive_color_control( $wp_customize, 'button_hover', $button_hover_color_label, 'responsive_button', 140, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ) );
 
 			// Button Text Color.
 			$button_text_color_label = __( 'Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_text', $button_text_color_label, 'responsive_colors', 150, Responsive\Core\get_responsive_customizer_defaults( 'button_text' ) );
+			responsive_color_control( $wp_customize, 'button_text', $button_text_color_label, 'responsive_button', 150, Responsive\Core\get_responsive_customizer_defaults( 'button_text' ) );
 
 			// Button Hover Text Color.
 			$button_hover_text_color_label = __( 'Hover Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_hover_text', $button_hover_text_color_label, 'responsive_colors', 160, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_text' ) );
+			responsive_color_control( $wp_customize, 'button_hover_text', $button_hover_text_color_label, 'responsive_button', 160, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_text' ) );
 
 			// Button Border Color.
 			$button_border_color_label = __( 'Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_border', $button_border_color_label, 'responsive_colors', 170, Responsive\Core\get_responsive_customizer_defaults( 'button_border' ) );
+			responsive_color_control( $wp_customize, 'button_border', $button_border_color_label, 'responsive_button', 170, Responsive\Core\get_responsive_customizer_defaults( 'button_border' ) );
 
 			// Button Hover Border Color.
 			$button_hover_border_color_label = __( 'Hover Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_hover_border', $button_hover_border_color_label, 'responsive_colors', 180, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ) );
+			responsive_color_control( $wp_customize, 'button_hover_border', $button_hover_border_color_label, 'responsive_button', 180, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ) );
 
 			// Inputs.
 			$general_inputs_label = esc_html__( 'Inputs', 'responsive' );
-			responsive_separator_control( $wp_customize, 'responsive_general_inputs_separator', $general_inputs_label, 'responsive_colors', 190 );
+			responsive_separator_control( $wp_customize, 'responsive_general_inputs_separator', $general_inputs_label, 'responsive_form_fields', 190 );
 
 			// Inputs background Color.
 			$inputs_color_label = __( 'Color', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'inputs_background', $inputs_color_label, 'responsive_colors', 200, Responsive\Core\get_responsive_customizer_defaults( 'inputs_background' ) );
+			responsive_color_control( $wp_customize, 'inputs_background', $inputs_color_label, 'responsive_form_fields', 200, Responsive\Core\get_responsive_customizer_defaults( 'inputs_background' ) );
 
 			// Inputs Text Color.
 			$inputs_text_color_label = __( 'Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'inputs_text', $inputs_text_color_label, 'responsive_colors', 210, Responsive\Core\get_responsive_customizer_defaults( 'inputs_text' ) );
+			responsive_color_control( $wp_customize, 'inputs_text', $inputs_text_color_label, 'responsive_form_fields', 210, Responsive\Core\get_responsive_customizer_defaults( 'inputs_text' ) );
 
 			// Inputs Border Color.
 			$inputs_border_color_label = __( 'Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'inputs_border', $inputs_border_color_label, 'responsive_colors', 220, Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) );
+			responsive_color_control( $wp_customize, 'inputs_border', $inputs_border_color_label, 'responsive_form_fields', 220, Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) );
 
 			// Labels.
 			$label_label = esc_html__( 'Labels', 'responsive' );
-			responsive_separator_control( $wp_customize, 'responsive_general_labels_separator', $label_label, 'responsive_colors', 230 );
+			responsive_separator_control( $wp_customize, 'responsive_general_labels_separator', $label_label, 'responsive_form_fields', 230 );
 
 			// Label Color.
 			$label_color_label = __( 'Label Color', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'label', $inputs_text_color_label, 'responsive_colors', 240, Responsive\Core\get_responsive_customizer_defaults( 'label' ) );
+			responsive_color_control( $wp_customize, 'label', $inputs_text_color_label, 'responsive_form_fields', 240, Responsive\Core\get_responsive_customizer_defaults( 'label' ) );
 
 		}
 
