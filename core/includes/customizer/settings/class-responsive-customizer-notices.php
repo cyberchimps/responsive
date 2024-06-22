@@ -62,6 +62,8 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 		$this->register_types();
 		$this->add_docs_link_section();
 		$this->maybe_add_main_notice();
+		$this->add_upsell_section();
+
 	}
 
 	/**
@@ -71,6 +73,7 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 		$this->register_type( 'Responsive_Section_Docs', 'section' );
 		$this->register_type( 'Responsive_Generic_Notice_Section', 'section' );
 		$this->register_type( 'Responsive_Main_Notice_Section', 'section' );
+		$this->register_type( 'Responsive_Upsell_Section', 'section' );
 	}
 
 	/**
@@ -181,6 +184,34 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 				),
 				array(
 					'section' => 'responsive_info_pro',
+					'type'    => 'hidden',
+				)
+			)
+		);
+	}
+
+	/**
+	 * Add View Pro Features section.
+	 */
+	private function add_upsell_section() {
+		$this->add_section(
+			new Responsive_Customizer_Section(
+				'responsive_upsell_section',
+				array(
+					'theme_info_title' => esc_html__( 'View PRO Features', 'responsive' ),
+					'priority'         => 1,
+				),
+				'Responsive_Upsell_Section'
+			)
+		);
+		$this->add_control(
+			new Responsive_Customizer_Control(
+				'responsive_control_to_enable_upsell_section',
+				array(
+					'sanitize_callback' => 'sanitize_text_field',
+				),
+				array(
+					'section' => 'responsive_upsell_section',
 					'type'    => 'hidden',
 				)
 			)

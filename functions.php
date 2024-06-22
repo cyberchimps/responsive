@@ -1157,5 +1157,6 @@ add_action( 'admin_menu', 'remove_unnecessary_wordpress_menus', 999 );
 
 function remove_unnecessary_wordpress_menus() {
 	global $submenu;
+	unset( $submenu['themes.php'][15] );
 	unset( $submenu['themes.php'][20] );
 }
