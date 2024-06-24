@@ -108,12 +108,12 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				)
 			);
 
-			$wp_customize->add_panel(
+			$wp_customize->add_section(
 				'responsive_sidebar',
 				array(
-					'title'       => __( 'Sidebar', 'responsive' ),
-					'description' => __( 'Sidebar Options', 'responsive' ),
-					'priority'    => 10,
+					'title'    => __( 'Sidebar', 'responsive' ),
+					// 'description' => __( 'Sidebar Options', 'responsive' ),
+					'priority' => 10,
 				)
 			);
 

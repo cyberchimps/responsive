@@ -242,9 +242,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'sidebar'                    => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['sidebar'],
-					'panel'    => 'responsive_sidebar',
+					'section'  => 'responsive_sidebar',
 					'exclude'  => array( 'font-color' ),
-					'priority' => 30,
+					'priority' => 60,
 					'defaults' => array(
 						'font-size' => '13px',
 					),
