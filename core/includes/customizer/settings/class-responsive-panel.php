@@ -95,7 +95,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				'responsive_page',
 				array(
 					'title'    => __( 'Page', 'responsive' ),
-					'priority' => 10,
+					'priority' => 9,
 				)
 			);
 
@@ -122,11 +122,11 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Footer', 'responsive' ),
 					'description' => __( 'Footer Options', 'responsive' ),
-					'priority'    => 10,
+					'priority'    => 11,
 				)
 			);
 
-			$wp_customize->get_section( 'title_tagline' )->priority     = 10;
+			$wp_customize->get_section( 'title_tagline' )->priority     = 12;
 			$wp_customize->get_section( 'static_front_page' )->priority = 109;
 			$wp_customize->get_section( 'custom_css' )->priority        = 300;
 		}
