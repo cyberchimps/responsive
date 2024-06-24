@@ -401,7 +401,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'responsive_page_typography',
 					array(
 						'title'    => esc_html__( 'Typography', 'responsive' ),
-						'section'  => 'responsive_page',
+						'panel'    => 'responsive_page',
 						'priority' => 30,
 					)
 				);
