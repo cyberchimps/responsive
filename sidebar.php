@@ -83,25 +83,16 @@ if ( ( class_exists( 'WooCommerce' ) && ( is_woocommerce() || is_cart() || is_ch
 	) {
 		return;
 	}
-	global $post;
-	$custom = ( get_post_custom( $post->ID ) ? get_post_custom( $post->ID ) : false );
-	$layout = ( isset( $custom['_responsive_layout'][0] ) ? $custom['_responsive_layout'][0] : 'default' );
-	if ( 'full-width-page' === $layout ) {
-		?>
-		<aside id="secondary" style="display:none;"class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
-		<?php
-	} else {
-		?>
 
+	?>
 	<aside id="secondary" class="main-sidebar widget-area <?php echo esc_attr( implode( ' ', responsive_get_sidebar_classes() ) ); ?>" role="complementary" <?php responsive_schema_markup( 'sidebar' ); ?>>
 
-	<?php } ?>
 	<?php
 
 	Responsive\responsive_widgets(); // above widgets hook.
 	if ( ! dynamic_sidebar( 'main-sidebar' ) ) :
 	endif; // End of main-sidebar.
-	Responsive\responsive_widgets_end(); // after widgets hook.
+		Responsive\responsive_widgets_end(); // after widgets hook.
 	?>
 
 	</aside><!-- end of #secondary -->
