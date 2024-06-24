@@ -67,7 +67,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_button_hover_text_color',
 				$tab_ids_prefix . 'responsive_button_border_color',
 				$tab_ids_prefix . 'responsive_button_hover_border_color',
-
+				$tab_ids_prefix . 'responsive_button_background_image',
 			);
 
 			$general_tab_ids = array(

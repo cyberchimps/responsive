@@ -66,6 +66,7 @@ if ( ! class_exists( 'Responsive_Form_Fields_Customizer' ) ) :
 				$tab_ids_prefix . 'responsive_inputs_border_color',
 				$tab_ids_prefix . 'responsive_responsive_general_labels_separator',
 				$tab_ids_prefix . 'responsive_label_color',
+				$tab_ids_prefix . 'responsive_inputs_background_image',
 
 			);
 
