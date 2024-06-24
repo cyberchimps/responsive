@@ -90,12 +90,12 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'breadcrumb_tabs', $tabs_label, 'responsive_breadcrumb', 10, '', 'responsive_breadcrumb_general_tab', 'responsive_breadcrumb_design_tab', $general_tab_ids, $design_tab_ids, null );
-			$wp_customize->add_panel(
+
+			$wp_customize->add_section(
 				'responsive_page',
 				array(
-					'title'       => __( 'Page', 'responsive' ),
-					'description' => __( 'Page Options', 'responsive' ),
-					'priority'    => 10,
+					'title'    => __( 'Page', 'responsive' ),
+					'priority' => 10,
 				)
 			);
 
