@@ -303,13 +303,38 @@ remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wra
  * Responsive_wrapper_class
  */
 function responsive_wrapper_classes() {
+	global $post;
+	$custom = ( get_post_custom( $post->ID ) ? get_post_custom( $post->ID ) : false );
+	$layout = ( isset( $custom['_responsive_layout'][0] ) ? $custom['_responsive_layout'][0] : 'default' );
+	error_log( 'Layout in hook =>' . print_r( $layout, true ) );
 	?>
+
 	<div id="wrapper" class="site-content clearfix">
 		<div class="content-outer container">
-			<div class="row">
-				<?php responsive_in_wrapper(); // wrapper hook. ?>
-
+			<?php
+			if ( 'sidebar-content-page' === $layout ) {
+				?>
+					<div class="row responsive-sidebar-content-post" style="flex-direction: row-reverse;">
+				<?php
+			} elseif ( 'full-width-page' === $layout ) {
+				?>
+				<div class="row" id="responsive-post-layout-container">
+				<?php
+			} else {
+				?>
+				<div class="row " id="responsive-post-layout-container">
+				<?php
+			}
+			?>
+						
+				<?php
+				responsive_in_wrapper(); // wrapper hook.
+				if ( 'full-width-page' === $layout ) {
+					?>
+				<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main" style="width:100%;">
+				<?php } else { ?>
 				<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
+				<?php } ?>
 					<?php
 					if ( is_home() || is_archive() ) {
 						echo '<div class="content-area-wrapper">';
@@ -319,36 +344,36 @@ function responsive_wrapper_classes() {
 					}
 }
 
-/**
- * Responsive_wrapper_class
- */
+				/**
+				 * Responsive_wrapper_class
+				 */
 function responsive_wrapper_classes_close() {
 	?>
 		</div>
 	</div>
 	<?php responsive_wrapper_bottom(); // after wrapper content hook. ?>
 </div> <!-- end of #wrapper -->
-	<?php
+					<?php
 }
 
-/**
- * Responsive_woocommerce_wrapper
- */
+				/**
+				 * Responsive_woocommerce_wrapper
+				 */
 function responsive_woocommerce_wrapper() {
 	?>
 	<div id="wrapper" class="site-content clearfix">
 			<div class="content-outer container">
 				<div class="row">
 					<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
-						<?php
-						if ( is_woocommerce() ) {
-							echo '<div class="site-content-header">';
-						}
+		<?php
+		if ( is_woocommerce() ) {
+			echo '<div class="site-content-header">';
+		}
 }
 
-/**
- * [responsive_woocommerce_wrapper_end description]
- */
+				/**
+				 * [responsive_woocommerce_wrapper_end description]
+				 */
 function responsive_woocommerce_wrapper_end() {
 	echo '</main><!-- end of #primary -->';
 		get_sidebar();
@@ -356,11 +381,11 @@ function responsive_woocommerce_wrapper_end() {
 }
 
 
-/**
- * [responsive_woocommerce_before_shop_loop description]
- *
- * @return void [description].
- */
+				/**
+				 * [responsive_woocommerce_before_shop_loop description]
+				 *
+				 * @return void [description].
+				 */
 function responsive_woocommerce_archive_description() {
 	?>
 	</div>
@@ -368,11 +393,11 @@ function responsive_woocommerce_archive_description() {
 		<?php
 }
 
-/**
- * [responsive_woocommerce_after_single_product_summary description]
- *
- * @return void [description].
- */
+				/**
+				 * [responsive_woocommerce_after_single_product_summary description]
+				 *
+				 * @return void [description].
+				 */
 function responsive_woocommerce_after_single_product_summary() {
 	?>
 	</div>
@@ -380,12 +405,12 @@ function responsive_woocommerce_after_single_product_summary() {
 		<?php
 }
 
-/**
- * Read more text.
- *
- * @param string $text default read more text.
- * @return string read more text
- */
+				/**
+				 * Read more text.
+				 *
+				 * @param string $text default read more text.
+				 * @return string read more text
+				 */
 function responsive_sensei_read_more_text( $text ) {
 	global $post;
 	if ( 'course' === $post->post_type ) {
@@ -397,12 +422,12 @@ function responsive_sensei_read_more_text( $text ) {
 	return $text;
 }
 
-/**
- * Returns excerpt length
- *
- * @param  integer $length Length of excerpt.
- * @return integer         Length of excerpt.
- */
+				/**
+				 * Returns excerpt length
+				 *
+				 * @param  integer $length Length of excerpt.
+				 * @return integer         Length of excerpt.
+				 */
 function responsive_sensei_custom_excerpt_length( $length ) {
 	global $post;
 	if ( 'course' === $post->post_type ) {
@@ -414,11 +439,11 @@ function responsive_sensei_custom_excerpt_length( $length ) {
 	return $length;
 }
 
-/**
- * [responsive_theme_wrapper_start description]
- *
- * @return void [description].
- */
+				/**
+				 * [responsive_theme_wrapper_start description]
+				 *
+				 * @return void [description].
+				 */
 function responsive_theme_wrapper_start() {
 	?>
 	<div id="wrapper" class="site-content clearfix">
@@ -428,11 +453,11 @@ function responsive_theme_wrapper_start() {
 					<?php
 }
 
-/**
- * [responsive_theme_wrapper_end description]
- *
- * @return void [description].
- */
+				/**
+				 * [responsive_theme_wrapper_end description]
+				 *
+				 * @return void [description].
+				 */
 function responsive_theme_wrapper_end() {
 	echo '</main><!-- end of #primary -->';
 	if ( is_single() ) {
@@ -441,31 +466,31 @@ function responsive_theme_wrapper_end() {
 	echo '</div></div></div>';
 }
 
-/**
- * [responsive_open_container description]
- *
- * @return void [description]
- */
+				/**
+				 * [responsive_open_container description]
+				 *
+				 * @return void [description]
+				 */
 function responsive_open_container() {
 	echo '<div class="container">';
 }
 
-/**
- * [responsive_close_container description]
- *
- * @return void [description]
- */
+				/**
+				 * [responsive_close_container description]
+				 *
+				 * @return void [description]
+				 */
 function responsive_close_container() {
 	echo '</div>';
 }
 
-/**
- * Classes
- */
-/**
- * Add No-JS Class.
- * If we're missing JavaScript support, the HTML element will have a no-js class.
- */
+				/**
+				 * Classes
+				 */
+				/**
+				 * Add No-JS Class.
+				 * If we're missing JavaScript support, the HTML element will have a no-js class.
+				 */
 function responsive_no_js_class() {
 
 	?>
@@ -474,9 +499,9 @@ function responsive_no_js_class() {
 
 }
 
-/**
- * Change the custom logo URL
- */
+				/**
+				 * Change the custom logo URL
+				 */
 function responsive_custom_logo_link() {
 
 	// The logo.
@@ -514,27 +539,27 @@ function responsive_custom_logo_link() {
 	return $html;
 }
 
-/**
- * Responsive child theme custom header
- *
- * @see header.php
- */
+				/**
+				 * Responsive child theme custom header
+				 *
+				 * @see header.php
+				 */
 function responsive_custom_header() {
 	do_action( 'responsive_custom_header' );
 }
 
-/**
- * Responsive child theme custom footer
- *
- * @see footer.php
- */
+				/**
+				 * Responsive child theme custom footer
+				 *
+				 * @see footer.php
+				 */
 function responsive_custom_footer() {
 	do_action( 'responsive_custom_footer' );
 }
 
-/**
- * Single Blog Related Posts Entry
- */
+				/**
+				 * Single Blog Related Posts Entry
+				 */
 function responsive_single_blog_related_posts_entry() {
 	do_action( 'responsive_single_blog_related_posts_entry' );
 }

@@ -137,9 +137,6 @@ function responsive_get_valid_layouts() {
 		'content-sidebar-page' => __( 'Content/Sidebar', 'responsive' ),
 		'sidebar-content-page' => __( 'Sidebar/Content', 'responsive' ),
 		'full-width-page'      => __( 'Full Width Page (no sidebar)', 'responsive' ),
-		'blog-2-col'           => __( 'Blog 2 Column', 'responsive' ),
-		'blog-3-col'           => __( 'Blog 3 Column', 'responsive' ),
-		'blog-4-col'           => __( 'Blog 4 Column', 'responsive' ),
 	);
 
 	return apply_filters( 'responsive_valid_layouts', $layouts );
@@ -194,7 +191,7 @@ function responsive_layout_meta_box() {
 	$valid_layouts = responsive_get_valid_layouts();
 	?>
 	<p>
-		<select name="_responsive_layout">
+		<select name="_responsive_layout" id="responsive-layout-select">
 		<?php foreach ( $valid_layouts as $slug => $name ) { ?>
 			<?php $selected = selected( $layout, $slug, false ); ?>
 			<option value="<?php echo esc_html( $slug ); ?>" <?php echo esc_html( $selected ); ?>><?php echo esc_html( $name ); ?></option>
@@ -203,6 +200,13 @@ function responsive_layout_meta_box() {
 	</p>
 	<?php
 }
+function save_responsive_layout_meta( $post_id ) {
+	if ( isset( $_POST['_responsive_layout'] ) ) {
+		update_post_meta( $post_id, '_responsive_layout', sanitize_text_field( $_POST['_responsive_layout'] ) );
+	}
+}
+add_action( 'save_post', 'save_responsive_layout_meta' );
+
 
 /**
  * Validate, sanitize, and save post metadata.
