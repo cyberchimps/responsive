@@ -194,7 +194,7 @@ function responsive_layout_meta_box() {
 		<select name="_responsive_layout">
 		<?php foreach ( $valid_layouts as $slug => $name ) { ?>
 			<?php $selected = selected( $layout, $slug, false ); ?>
-			<<option value="<?php echo esc_html( $slug ); ?>" <?php echo wp_kses_post( $selected ); ?>><?php echo esc_html( $name ); ?></option>
+			<option value="<?php echo esc_html( $slug ); ?>" <?php echo wp_kses_post( $selected ); ?>><?php echo esc_html( $name ); ?></option>
 		<?php } ?>
 		</select>
 	</p>
