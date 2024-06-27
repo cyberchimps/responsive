@@ -5,9 +5,9 @@
 #customize-control-responsive_content_header_colorh4.responsive-customizer-heading,
 #customize-control-responsive_main_menu_separator h4.responsive-customizer-heading,
 #customize-control-responsive_transparent_header_separator h4.responsive-customizer-heading,
-#customize-control-responsive_page_typography_title_separator h4.responsive-customizer-heading{
+#customize-control-responsive_page_typography_title_separator h4.responsive-customizer-heading,#customize-control-responsive_content_header_color h4.responsive-customizer-heading{
     border-top: 0;    
 }
-#customize-control-responsive_body_typography_separator,#customize-control-responsive_responsive_general_texts_separator{
+#customize-control-responsive_body_typography_separator,#customize-control-responsive_responsive_general_texts_separator,#customize-control-responsive_content_header_color,#customize-control-responsive_page_typography_title_separator{
     margin-top: 0;
 }
