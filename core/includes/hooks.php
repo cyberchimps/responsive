@@ -303,13 +303,36 @@ remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wra
  * Responsive_wrapper_class
  */
 function responsive_wrapper_classes() {
+	global $post;
+	$custom        = ( get_post_custom( $post->ID ) ? get_post_custom( $post->ID ) : false );
+	$layout        = ( isset( $custom['_responsive_layout'][0] ) ? $custom['_responsive_layout'][0] : 'default' );
+	$valid_layouts = responsive_get_valid_layouts();
 	?>
 	<div id="wrapper" class="site-content clearfix">
-		<div class="content-outer container">
-			<div class="row">
+		<div class="content-outer container">			
+		<?php
+		if ( is_single() ) {
+			$row_class = ( 'sidebar-content-page' === $layout )
+				? esc_attr( implode( ' ', responsive_get_content_classes() ) )
+				: '';
+		} else {
+			$row_class = '';
+		}
+		?>
+		<div class="row <?php echo esc_html( $row_class ); ?>">
+			
 				<?php responsive_in_wrapper(); // wrapper hook. ?>
-
-				<main id="primary" class="content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role="main">
+				<?php
+				if ( is_single() && 'full-width-page' === $layout ) {
+					?>
+					<main id="primary" class="content-area col-layout-full-width" role="main" style="width:100%;">
+					<?php
+				} else {
+					?>
+					<main id = 'primary' class = "content-area <?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>" role = 'main' >
+					<?php
+				}
+				?>
 					<?php
 					if ( is_home() || is_archive() ) {
 						echo '<div class="content-area-wrapper">';

@@ -137,9 +137,6 @@ function responsive_get_valid_layouts() {
 		'content-sidebar-page' => __( 'Content/Sidebar', 'responsive' ),
 		'sidebar-content-page' => __( 'Sidebar/Content', 'responsive' ),
 		'full-width-page'      => __( 'Full Width Page (no sidebar)', 'responsive' ),
-		'blog-2-col'           => __( 'Blog 2 Column', 'responsive' ),
-		'blog-3-col'           => __( 'Blog 3 Column', 'responsive' ),
-		'blog-4-col'           => __( 'Blog 4 Column', 'responsive' ),
 	);
 
 	return apply_filters( 'responsive_valid_layouts', $layouts );
@@ -197,12 +194,27 @@ function responsive_layout_meta_box() {
 		<select name="_responsive_layout">
 		<?php foreach ( $valid_layouts as $slug => $name ) { ?>
 			<?php $selected = selected( $layout, $slug, false ); ?>
-			<option value="<?php echo esc_html( $slug ); ?>" <?php echo esc_html( $selected ); ?>><?php echo esc_html( $name ); ?></option>
+			<option value="<?php echo esc_html( $slug ); ?>" <?php echo wp_kses_post( $selected ); ?>><?php echo esc_html( $name ); ?></option>
 		<?php } ?>
 		</select>
 	</p>
 	<?php
 }
+/**
+ * Saves the layout meta data for a post.
+ *
+ * This function checks if the '_responsive_layout' value is set in the POST request.
+ * If it is set, it sanitizes the input and updates the post meta for the given post ID.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function save_responsive_layout_meta( $post_id ) {
+	if ( isset( $_POST['_responsive_layout'] ) ) {
+		update_post_meta( $post_id, '_responsive_layout', sanitize_text_field( $_POST['_responsive_layout'] ) );
+	}
+}
+add_action( 'save_post', 'save_responsive_layout_meta' );
+
 
 /**
  * Validate, sanitize, and save post metadata.
@@ -225,7 +237,6 @@ function responsive_save_layout_post_metadata() {
 	}
 	$valid_layouts = responsive_get_valid_layouts();
 	$layout        = ( isset( $_POST['_responsive_layout'] ) && array_key_exists( (string) wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_responsive_layout'] ) ) ), $valid_layouts ) ? wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_responsive_layout'] ) ) ) : 'default' );
-
 	update_post_meta( $post->ID, '_responsive_layout', $layout );
 }
 
