@@ -41,7 +41,9 @@
     opacity: 0.8;
     color: #50575e;
 }
-
+a.nav-tab-active:focus{
+    box-shadow: none;
+}
 .responsive-component-tabs .responsive-component-tabs-button.nav-tab-active {
     background-color: #FFF;
     border-bottom-color: #007CBA;

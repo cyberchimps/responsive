@@ -60,7 +60,7 @@ if ( ! class_exists( 'Responsive_Site_Color_Palettes_Scheme_Customizer' ) ) :
 					'responsive_color_scheme_control',
 					array(
 						'label'        => esc_html__( 'Color Palettes Scheme', 'responsive' ),
-						'section'      => 'responsive_color_palettes_scheme',
+						'section'      => 'responsive_colors',
 						'settings'     => 'responsive_color_scheme',
 						'choices'      => responsive_get_color_schemes_as_choices(),
 						'palette_type' => 'color-scheme',
