@@ -37,6 +37,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Layout_Customizer' ) ) :
 			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'responsive_sidebar_typography_separator',
 				$design_tab_ids_prefix . 'sidebar_typography-font-family',
 				$design_tab_ids_prefix . 'sidebar_typography-font-weight',
 				$design_tab_ids_prefix . 'sidebar_typography-font-style',
@@ -49,6 +50,7 @@ if ( ! class_exists( 'Responsive_Sidebar_Layout_Customizer' ) ) :
 				$design_tab_ids_prefix . 'responsive_sidebar_text_color',
 				$design_tab_ids_prefix . 'responsive_sidebar_link_color',
 				$design_tab_ids_prefix . 'responsive_sidebar_link_hover_color',
+				$design_tab_ids_prefix . 'responsive_sidebar_background_image',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-';
@@ -62,6 +64,12 @@ if ( ! class_exists( 'Responsive_Sidebar_Layout_Customizer' ) ) :
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'sidebar_tabs', $tabs_label, 'responsive_sidebar', 1, '', 'responsive_sidebar_general_tab', 'responsive_sidebar_design_tab', $general_tab_ids, $design_tab_ids, null );
+
+			/**
+			 * Entry Elements.
+			 */
+			$sidebar_typography_label = esc_html__( 'Typography', 'responsive' );
+			responsive_separator_control( $wp_customize, 'sidebar_typography_separator', $sidebar_typography_label, 'responsive_sidebar', 60 );
 
 			// Sidebar.
 			$sidebar_label   = esc_html__( 'Page Sidebar Position', 'responsive' );
