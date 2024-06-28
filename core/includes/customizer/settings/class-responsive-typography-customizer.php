@@ -244,7 +244,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'target'   => $selectorArray['sidebar'],
 					'section'  => 'responsive_sidebar',
 					'exclude'  => array( 'font-color' ),
-					'priority' => 60,
+					'priority' => 70,
 					'defaults' => array(
 						'font-size' => '13px',
 					),

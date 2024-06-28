@@ -51,16 +51,17 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 		 */
 		public function customizer_options( $wp_customize ) {
 			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
-			$design_tab_ids_prefix = 'customize-control-page_title_typography-';
+			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
-				$design_tab_ids_prefix . 'font-family',
-				$design_tab_ids_prefix . 'font-weight',
-				$design_tab_ids_prefix . 'font-style',
-				$design_tab_ids_prefix . 'text-transform',
-				$design_tab_ids_prefix . 'font-size',
-				$design_tab_ids_prefix . 'line-height',
-				$design_tab_ids_prefix . 'letter-spacing',
-				$design_tab_ids_prefix . 'color',
+				$design_tab_ids_prefix . 'responsive_page_typography_title_separator',
+				$design_tab_ids_prefix . 'page_title_typography-font-family',
+				$design_tab_ids_prefix . 'page_title_typography-font-weight',
+				$design_tab_ids_prefix . 'page_title_typography-font-style',
+				$design_tab_ids_prefix . 'page_title_typography-text-transform',
+				$design_tab_ids_prefix . 'page_title_typography-font-size',
+				$design_tab_ids_prefix . 'page_title_typography-line-height',
+				$design_tab_ids_prefix . 'page_title_typography-letter-spacing',
+				$design_tab_ids_prefix . 'page_title_typography-color',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-responsive_page_';
@@ -156,11 +157,11 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'page_title_separator', $page_title_label, 'responsive_page', 60 );
 
 			if ( is_responsive_version_greater() && ! class_exists( 'Responsive_Addons_Pro' ) ) {
-				responsive_separator_control( $wp_customize, 'page_typography_title_separator', $page_title_label, 'responsive_page_typography', 10 );
+				responsive_separator_control( $wp_customize, 'page_typography_title_separator', $page_title_label, 'responsive_page', 10 );
 			}
 
 			if ( is_responsive_version_greater() && $this->is_pro_version_greater() ) {
-				responsive_separator_control( $wp_customize, 'page_typography_title_separator', $page_title_label, 'responsive_page_typography', 10 );
+				responsive_separator_control( $wp_customize, 'page_typography_title_separator', $page_title_label, 'responsive_page', 10 );
 			}
 
 			// Alignment.
