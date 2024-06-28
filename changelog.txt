@@ -8,6 +8,11 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(28/06/2024) = Fix - Version 5.0.8
+[*] = Changed = Customizer background color.
+[*] = Changed = Restructured the customizer settings into two tabs - General and Design.
+[!] = Fixed = Post editor: Layout option not working.
+
 (10/06/2024) = Fix - Version 5.0.7
 [*] = Changed = Made compatible with latest Responsive addons for Elementor for theme builder locations.
 [!] = Fixed = Colors and background settings of cart options not working with latest WooCommerce Cart Blocks.
