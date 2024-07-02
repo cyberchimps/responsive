@@ -230,7 +230,6 @@ if ( ! function_exists( 'responsive_blog_single_meta' ) ) {
 }
 	/**
 	* Returns single blog related posts structure
-	*
 	*/
 if ( ! function_exists( 'responsive_single_blog_related_post_structure' ) ) {
 	/** Function to display single blog post structure */
@@ -257,31 +256,30 @@ if ( ! function_exists( 'responsive_single_blog_related_post_structure' ) ) {
 }
 	/**
 	* Returns single blog related posts meta elements
-	*
 	*/
-	if ( ! function_exists( 'responsive_single_blog_related_post_meta_elements' ) ) {
-		/** Function to display single blog meta structure */
-		function responsive_single_blog_related_post_meta_elements() {
-	
-			/** Default sections */
-			$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
-	
-			/** Get sections from Customizer */
-			$sections = get_theme_mod( 'responsive_single_blog_related_post_meta_elements', $sections );
-	
-			/** Turn into array if string */
-			if ( $sections && ! is_array( $sections ) ) {
-				$sections = explode( ',', $sections );
-			}
-	
-			/** Apply filters for easy modification */
-			$sections = apply_filters( 'responsive_single_blog_related_post_meta_elements', $sections );
-	
-			/** Return sections */
-			return $sections;
-	
+if ( ! function_exists( 'responsive_single_blog_related_post_meta_elements' ) ) {
+	/** Function to display single blog meta structure */
+	function responsive_single_blog_related_post_meta_elements() {
+
+		/** Default sections */
+		$sections = array( 'author', 'date', 'categories', 'comments', 'tag' );
+
+		/** Get sections from Customizer */
+		$sections = get_theme_mod( 'responsive_single_blog_related_post_meta_elements', $sections );
+
+		/** Turn into array if string */
+		if ( $sections && ! is_array( $sections ) ) {
+			$sections = explode( ',', $sections );
 		}
+
+		/** Apply filters for easy modification */
+		$sections = apply_filters( 'responsive_single_blog_related_post_meta_elements', $sections );
+
+		/** Return sections */
+		return $sections;
+
 	}
+}
 if ( ! function_exists( 'responsive_page_elements' ) ) {
 	/**
 	 * Returns blog single elements for the customizer
@@ -1397,7 +1395,7 @@ function responsive_active_breadcrumb() {
  * @return [type] [description]
  */
 function responsive_breadcrumb_separator_unicode() {
-	$responsive_breadcrumb_separator     = get_theme_mod( 'responsive_breadcrumb_separator', 'rsaquo' );
+	$responsive_breadcrumb_separator = get_theme_mod( 'responsive_breadcrumb_separator', 'rsaquo' );
 	return ( responsive_active_breadcrumb() && 'unicode' === $responsive_breadcrumb_separator ) ? true : false;
 }
 
@@ -1903,6 +1901,55 @@ function responsive_select_button_control( $wp_customize, $element, $label, $sec
 }
 
 /**
+ * [responsive_select_button_control description].
+ *
+ * @param  [type]  $wp_customize [description].
+ * @param  [type]  $element      [description].
+ * @param  [type]  $label        [description].
+ * @param  [type]  $section      [description].
+ * @param  integer $priority     [description].
+ * @param  [type]  $default      [description].
+ * @param  string  $general_id  [description].
+ * @param  string  $design_id  [description].
+ * @param  array   $general_tab_ids  [description].
+ * @param  array   $design_tab_ids  [description].
+ * @param  [type]  $active_call  [description].
+ * @param  [type]  $transport  [description].
+ * @param  [type]  $description  [description].
+ *
+ * @return void               [description].
+ */
+function responsive_tabs_button_control( $wp_customize, $element, $label, $section, $priority, $default, $general_id, $design_id, $general_tab_ids, $design_tab_ids, $active_call, $transport = 'refresh', $description = '' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_select',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Responsive_Tabs_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'description'     => $description,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'general_id'      => $general_id,
+				'design_id'       => $design_id,
+				'general_tab_ids' => $general_tab_ids,
+				'design_tab_ids'  => $design_tab_ids,
+			)
+		)
+	);
+}
+
+/**
  * [responsive_active_blog_entry_content_type_excerpt description]
  *
  * @return [type] [description]
@@ -2153,7 +2200,7 @@ function responsive_target_rules_for_related_posts() {
 
 	$allow_related_posts = false;
 
-	if ( 1=== get_theme_mod('responsive_single_blog_enable_related_posts', 0) && is_singular( 'post' ) ) {
+	if ( 1 === get_theme_mod( 'responsive_single_blog_enable_related_posts', 0 ) && is_singular( 'post' ) ) {
 		$allow_related_posts = true;
 	}
 
@@ -2186,15 +2233,15 @@ if ( ! function_exists( 'required_font_color_value' ) ) {
 	 * @param [type] $color [description] Needed font color value of the date box.
 	 */
 	function required_font_color_value( $color ) {
-		list($r, $g, $b) = sscanf( $color, "#%02x%02x%02x" );
+		list($r, $g, $b) = sscanf( $color, '#%02x%02x%02x' );
 		$red             = $r * 299;
 		$green           = $g * 587;
 		$blue            = $b * 114;
 		$sum             = round( ( $red + $green + $blue ) / 1000 );
 		if ( $sum > 125 ) {
-			$font_color_needed = "black";
+			$font_color_needed = 'black';
 		} else {
-			$font_color_needed = "white";
+			$font_color_needed = 'white';
 		}
 		return $font_color_needed;
 	}
