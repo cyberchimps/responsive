@@ -242,9 +242,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'sidebar'                    => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['sidebar'],
-					'panel'    => 'responsive_sidebar',
+					'section'  => 'responsive_sidebar',
 					'exclude'  => array( 'font-color' ),
-					'priority' => 30,
+					'priority' => 70,
 					'defaults' => array(
 						'font-size' => '13px',
 					),
@@ -312,7 +312,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				$responsive_theme_typography_settings['page_title'] = array(
 					'label'    => esc_html__( 'Page Title', 'responsive' ),
 					'target'   => $selectorArray['page'],
-					'section'  => 'responsive_page_typography',
+					'section'  => 'responsive_page',
 					'exclude'  => array( '' ),
 					'priority' => 10,
 					'defaults' => array(

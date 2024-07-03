@@ -813,7 +813,7 @@ function responsive_add_pro_button() {
 	if (sectionTitle.length) {
 		sectionTitle.click(function(event) {
 			event.preventDefault(); // Prevent the default behavior
-			window.open('https://app.cyberchimps.com/pricing/', '_blank'); // Open in a new tab
+			window.open('https://cyberchimps.com/pricing/?utm_source=customizer&utm_medium=responsive-theme&utm_campaign=responsive-pro&utm_content=customizer_button', '_blank'); // Open in a new tab
 		});
 	}
 });

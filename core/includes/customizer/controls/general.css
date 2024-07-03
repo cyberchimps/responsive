@@ -416,3 +416,6 @@ body.rtl .customize-control .responsive-switchers li {
 .preview-mobile #customize-control-responsive_footer_widget_alignment_mobile_4{
 	display:block;
 }
+.wp-full-overlay-sidebar {
+	background-color: #ffffff;
+}
