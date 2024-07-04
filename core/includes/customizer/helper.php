@@ -1815,6 +1815,154 @@ function responsive_text_control( $wp_customize, $element, $label, $section, $pr
 }
 
 /**
+ * Responsive_Radius_control.
+ *
+ * @param  object  $wp_customize  [description].
+ * @param  integer $element  [description].
+ * @param  string  $section  [description].
+ * @param  integer $priority [description].
+ * @param  integer $default_values_y [description].
+ * @param  integer $default_values_x [description].
+ * @param  bool    $active_call [description].
+ * @param  string  $label [description].
+ * @return void
+ */
+function responsive_radius_control( $wp_customize, $element, $section, $priority, $default_values_y = '', $default_values_x = '', $active_call = null, $label = 'Padding (px)', $transport = 'postMessage' ) {
+	/**
+	 *  Padding control.
+	 */
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_top_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_left_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_x,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_bottom_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_right_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_x,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_top_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_right_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_x,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_bottom_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet_left_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_x,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_top_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_right_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_x,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_bottom_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_y,
+		)
+	);
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile_left_radius',
+		array(
+			'transport'         => $transport,
+			'sanitize_callback' => 'responsive_sanitize_number',
+			'default'           => $default_values_x,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Dimensions_Control(
+			$wp_customize,
+			'responsive_' . $element . '_radius',
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => array(
+					'desktop_top'    => 'responsive_' . $element . '_top_radius',
+					'desktop_right'  => 'responsive_' . $element . '_right_radius',
+					'desktop_bottom' => 'responsive_' . $element . '_bottom_radius',
+					'desktop_left'   => 'responsive_' . $element . '_left_radius',
+					'tablet_top'     => 'responsive_' . $element . '_tablet_top_radius',
+					'tablet_right'   => 'responsive_' . $element . '_tablet_right_radius',
+					'tablet_bottom'  => 'responsive_' . $element . '_tablet_bottom_radius',
+					'tablet_left'    => 'responsive_' . $element . '_tablet_left_radius',
+					'mobile_top'     => 'responsive_' . $element . '_mobile_top_radius',
+					'mobile_right'   => 'responsive_' . $element . '_mobile_right_radius',
+					'mobile_bottom'  => 'responsive_' . $element . '_mobile_bottom_radius',
+					'mobile_left'    => 'responsive_' . $element . '_mobile_left_radius',
+				),
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'input_attrs'     => array(
+					'min'  => 0,
+					'max'  => 100,
+					'step' => 1,
+				),
+			)
+		)
+	);
+}
+
+/**
  * [responsive_imageradio_button_control description].
  *
  * @param  [type] $wp_customize [description].

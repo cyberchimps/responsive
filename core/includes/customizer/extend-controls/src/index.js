@@ -13,6 +13,7 @@ import { responsiveRedirect} from './redirect/control';
 import { responsiveSelectButton } from './selectbtn/control';
 import { responsiveTabs } from './tabs/control';
 import { responsiveImageRadioButton } from './imageradiobtn/control';
+import { responsiveRadiusDimensions } from './radiusdimensions/control';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
@@ -28,3 +29,4 @@ wp.customize.controlConstructor['responsive-redirect'] = responsiveRedirect;
 wp.customize.controlConstructor['responsive-selectbtn'] = responsiveSelectButton;
 wp.customize.controlConstructor['responsive-tabs'] = responsiveTabs;
 wp.customize.controlConstructor['responsive-imageradiobtn'] = responsiveImageRadioButton;
+wp.customize.controlConstructor['responsive-radiusdimensions'] = responsiveRadiusDimensions;
