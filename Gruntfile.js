@@ -188,6 +188,7 @@ module.exports = function(grunt) {
 					'core/css/lifterlms/lifter_notice.min.css': 'core/css/lifterlms/lifter_notice.css',
 					'core/css/lifterlms/lifter_style.min.css': 'core/css/lifterlms/lifter_style.css',
 					'core/css/lifterlms/llms.min.css': 'core/css/lifterlms/llms.css',
+					'core/includes/customizer/assets/min/css/dimensions.min.css':'core/includes/customizer/controls/dimensions/dimensions.css',
 					'core/includes/customizer/assets/min/css/selectbtn.min.css':'core/includes/customizer/controls/selectbtn/selectbtn.css',
 					'core/includes/customizer/assets/min/css/general.min.css': 'core/includes/customizer/controls/general.css',
 					'core/includes/customizer/assets/min/css/imageradiobtn.min.css':'core/includes/customizer/controls/imageradiobtn/imageradiobtn.css',
