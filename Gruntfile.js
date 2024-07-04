@@ -190,6 +190,8 @@ module.exports = function(grunt) {
 					'core/css/lifterlms/llms.min.css': 'core/css/lifterlms/llms.css',
 					'core/includes/customizer/assets/min/css/selectbtn.min.css':'core/includes/customizer/controls/selectbtn/selectbtn.css',
 					'core/includes/customizer/assets/min/css/general.min.css': 'core/includes/customizer/controls/general.css',
+					'core/includes/customizer/assets/min/css/imageradiobtn.min.css':'core/includes/customizer/controls/imageradiobtn/imageradiobtn.css',
+
 				}
 			}
 		},

@@ -116,7 +116,9 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				'contained'  => esc_html__( 'Contained', 'responsive' ),
 				'full-width' => esc_html__( 'Full Width', 'responsive' ),
 			);
-				responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
+			responsive_imageradio_button_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
+
+				// responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
 
 			// Container Width.
 			$container_width_label = __( 'Container Width (px)', 'responsive' );

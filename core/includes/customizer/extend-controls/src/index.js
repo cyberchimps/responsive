@@ -12,6 +12,7 @@ import { responsiveColor } from './color/control';
 import { responsiveRedirect} from './redirect/control';
 import { responsiveSelectButton } from './selectbtn/control';
 import { responsiveTabs } from './tabs/control';
+import { responsiveImageRadioButton } from './imageradiobtn/control';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
@@ -26,3 +27,4 @@ wp.customize.controlConstructor['alpha-color'] = responsiveColor;
 wp.customize.controlConstructor['responsive-redirect'] = responsiveRedirect;
 wp.customize.controlConstructor['responsive-selectbtn'] = responsiveSelectButton;
 wp.customize.controlConstructor['responsive-tabs'] = responsiveTabs;
+wp.customize.controlConstructor['responsive-imageradiobtn'] = responsiveImageRadioButton;

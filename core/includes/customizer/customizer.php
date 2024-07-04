@@ -268,6 +268,7 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'redirect/class-responsive-customizer-redirect-control.php';
 	require_once $dir . 'selectbtn/class-responsive-customizer-responsive-selectbtn-control.php';
 	require_once $dir . 'tabs/class-responsive-customizer-responsive-tabs-control.php';
+	require_once $dir . 'imageradiobtn/class-responsive-customizer-imageradio-button-control.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-main-notice-section.php';
@@ -289,6 +290,7 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Redirect_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Select_Button_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Responsive_Tabs_Control' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Imageradio_Button_Control' );
 
 }
 
@@ -326,6 +328,10 @@ function responsive_custom_customize_enqueue() {
 				wp_enqueue_script( 'responsive-custom-control-react-script', get_template_directory_uri() . '/core/includes/customizer/extend-controls/build/index.js', $custom_controls_react_deps, RESPONSIVE_THEME_VERSION, true );
 			}
 		}
+		$localize_array = array(
+			'path' => get_stylesheet_directory_uri() . '/core/includes/customizer/assets/images/',
+		);
+		wp_localize_script( 'responsive-custom-control-react-script', 'localize', $localize_array );
 }
 
 /**
