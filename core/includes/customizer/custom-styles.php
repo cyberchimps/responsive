@@ -119,20 +119,20 @@ function responsive_customizer_styles() {
 
 	$box_radius = esc_html( get_theme_mod( 'responsive_box_radius', 0 ) );
 
-	$box_radius_right  = esc_html( get_theme_mod( 'responsive_box_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_radius_left   = esc_html( get_theme_mod( 'responsive_box_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_radius_top    = esc_html( get_theme_mod( 'responsive_box_top_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_radius_bottom = esc_html( get_theme_mod( 'responsive_box_bottom_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
 
-	$box_tablet_radius_right  = esc_html( get_theme_mod( 'responsive_box_tablet_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_tablet_radius_left   = esc_html( get_theme_mod( 'responsive_box_tablet_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_tablet_radius_top    = esc_html( get_theme_mod( 'responsive_box_tablet_top_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_tablet_radius_bottom = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_tablet_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_tablet_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_tablet_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_tablet_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_tablet_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_tablet_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
 
-	$box_mobile_radius_right  = esc_html( get_theme_mod( 'responsive_box_mobile_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_mobile_radius_left   = esc_html( get_theme_mod( 'responsive_box_mobile_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_mobile_radius_top    = esc_html( get_theme_mod( 'responsive_box_mobile_top_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_mobile_radius_bottom = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_mobile_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_mobile_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_mobile_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_mobile_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_mobile_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_mobile_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
 
 	// Paragraph Margin Bottom.
 	$paragraph_margin_bottom = esc_html( get_theme_mod( 'responsive_paragraph_margin_bottom', '' ) );
@@ -198,7 +198,7 @@ function responsive_customizer_styles() {
 	.responsive-site-style-boxed aside#secondary .widget-wrapper,
 	.responsive-site-style-boxed .site-content article.product {
 		background-color:{$box_background_color};
-		border-radius:{$box_radius_top}px {$box_radius_right}px {$box_radius_bottom}px {$box_radius_left}px;
+		border-radius:{$box_top_left_radius}px {$box_top_right_radius}px {$box_bottom_left_radius}px {$box_bottom_left_radius}px;
 	}
 	address, blockquote, pre, code, kbd, tt, var {
 		background-color:{$alt_background_color};
@@ -764,8 +764,37 @@ function responsive_customizer_styles() {
 	$buttons_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_buttons_mobile_top_padding', 10 ) );
 	$buttons_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_buttons_mobile_bottom_padding', 10 ) );
 
-	$buttons_radius       = esc_html( get_theme_mod( 'responsive_buttons_radius', Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) ) );
+	$buttons_radius = esc_html( get_theme_mod( 'responsive_buttons_radius', Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) ) );
+	/*new control- start*/
+	$button_top_left_radius     = esc_html( get_theme_mod( 'responsive_buttons_radius_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_top_right_radius    = esc_html( get_theme_mod( 'responsive_buttons_radius_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_bottom_right_radius = esc_html( get_theme_mod( 'responsive_buttons_radius_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_buttons_radius_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+
+	// Tablet button.
+	$button_tablet_top_left_radius     = esc_html( get_theme_mod( 'responsive_buttons_radius_tablet_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_tablet_top_right_radius    = esc_html( get_theme_mod( 'responsive_buttons_radius_tablet_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_tablet_bottom_right_radius = esc_html( get_theme_mod( 'responsive_buttons_radius_tablet_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_tablet_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_buttons_radius_tablet_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+
+	// Mobile value.
+	$button_mobile_top_left_radius     = esc_html( get_theme_mod( 'responsive_buttons_radius_mobile_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_mobile_top_right_radius    = esc_html( get_theme_mod( 'responsive_buttons_radius_mobile_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_mobile_bottom_right_radius = esc_html( get_theme_mod( 'responsive_buttons_radius_mobile_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_mobile_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_buttons_radius_mobile_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+
+	/* New  control - end  */
 	$buttons_border_width = esc_html( get_theme_mod( 'responsive_buttons_border_width', 1 ) );
+	// Border width new control.
+	$button_border_top_width    = esc_html( get_theme_mod( 'responsive_buttons_border_width_top_border', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_border_right_width  = esc_html( get_theme_mod( 'responsive_buttons_border_width_right_border', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_border_bottom_width = esc_html( get_theme_mod( 'responsive_buttons_border_width_bottom_border', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_border_left_width   = esc_html( get_theme_mod( 'responsive_buttons_border_width_left_border', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	// Border width tablet
+	$button_tablet_border_top_width    = esc_html( get_theme_mod( 'responsive_buttons_border_width_top_border', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_tablet_border_right_width  = esc_html( get_theme_mod( 'responsive_buttons_border_width_right_border', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_tablet_border_bottom_width = esc_html( get_theme_mod( 'responsive_buttons_border_width_bottom_border', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
+	$button_tablet_border_left_width   = esc_html( get_theme_mod( 'responsive_buttons_border_width_left_border', Responsive\Core\get_responsive_customizer_defaults( 'responsive_buttons_radius' ) ) );
 
 	// Inputs Padding.
 	$inputs_padding_right  = esc_html( get_theme_mod( 'responsive_inputs_right_padding', 3 ) );
@@ -783,8 +812,15 @@ function responsive_customizer_styles() {
 	$inputs_mobile_padding_top    = esc_html( get_theme_mod( 'responsive_inputs_mobile_top_padding', 3 ) );
 	$inputs_mobile_padding_bottom = esc_html( get_theme_mod( 'responsive_inputs_mobile_bottom_padding', 3 ) );
 
-	$inputs_radius           = esc_html( get_theme_mod( 'responsive_inputs_radius', 0 ) );
-	$inputs_border_width     = esc_html( get_theme_mod( 'responsive_inputs_border_width', 1 ) );
+	$inputs_radius       = esc_html( get_theme_mod( 'responsive_inputs_radius', 0 ) );
+	$inputs_border_width = esc_html( get_theme_mod( 'responsive_inputs_border_width', 1 ) );
+	// New Border width control start from here.
+	$input_border_top_width    = esc_html( get_theme_mod( 'responsive_inputs_border_width_top_border', 0 ) );
+	$input_border_right_width  = esc_html( get_theme_mod( 'responsive_inputs_border_width_right_border', 0 ) );
+	$input_border_bottom_width = esc_html( get_theme_mod( 'responsive_inputs_border_width_bottom_border', 0 ) );
+	$input_border_left_width   = esc_html( get_theme_mod( 'responsive_inputs_border_width_left_border', 0 ) );
+
+	// New Border width control ends here.
 	$inputs_border_color     = esc_html( get_theme_mod( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
 	$inputs_text_color       = esc_html( get_theme_mod( 'responsive_inputs_text_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_text' ) ) );
 	$inputs_background_color = esc_html( get_theme_mod( 'responsive_inputs_background_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_background' ) ) );
@@ -934,7 +970,7 @@ function responsive_customizer_styles() {
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button {
 		background-color:' . $button_color . ';
 		border: ' . $buttons_border_width . 'px solid ' . $button_border_color . ';
-		border-radius:' . $buttons_radius . 'px;
+		border-radius:' . responsive_spacing_css( $button_top_left_radius, $button_top_right_radius, $button_bottom_right_radius, $button_bottom_left_radius ) . ';
 	    color: ' . $button_text_color . ';
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
 	}
@@ -952,6 +988,7 @@ function responsive_customizer_styles() {
 		body div.wpforms-container-full .wpforms-form button[type=submit],
 		body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button {
 			padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
+			border-radius:' . responsive_spacing_css( $button_tablet_top_left_radius, $button_tablet_top_right_radius, $button_tablet_bottom_right_radius, $button_tablet_bottom_left_radius ) . ';
 		}
 	}
 
@@ -969,6 +1006,7 @@ function responsive_customizer_styles() {
 		body div.wpforms-container-full .wpforms-form button[type=submit],
 		body div.wpforms-container-full .wpforms-form .wpforms-page-button, .main-navigation .menu .res-button-menu .res-custom-button {
 			padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
+			border-radius:' . responsive_spacing_css( $button_mobile_top_left_radius, $button_mobile_top_right_radius, $button_mobile_bottom_right_radius, $button_mobile_bottom_left_radius ) . ';
 		}
 	}
 
@@ -1009,7 +1047,7 @@ function responsive_customizer_styles() {
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:active,
 	body div.wpforms-container-full .wpforms-form .wpforms-page-button:focus, .main-navigation .menu .res-button-menu .res-custom-button:hover {
 	    color:' . $button_hover_text_color . ';
-		border: ' . $buttons_border_width . 'px solid ' . $button_hover_border_color . ';
+		border: ' . responsive_spacing_css( $button_border_top_width, $button_border_right_width, $button_border_bottom_width, $button_border_left_width ) . 'px solid ' . $button_hover_border_color . ';
 		background-color:' . $button_hover_color . ';
 	}
 
@@ -1046,8 +1084,11 @@ function responsive_customizer_styles() {
 	body div.wpforms-container-full .wpforms-form select,
 	body div.wpforms-container-full .wpforms-form textarea {
 		color: ' . $inputs_text_color . ';
+		border-width: ' . responsive_spacing_css( $input_border_top_width, $input_border_right_width, $input_border_bottom_width, $input_border_left_width ) . ';
+		border-style: solid;
+		border-color: ' . $inputs_border_color . ';
 		background-color: ' . $inputs_background_color . ';
-		border: ' . $inputs_border_width . 'px solid ' . $inputs_border_color . ';
+		// border: ' . $inputs_border_width . 'px solid ' . $inputs_border_color . ';
 		border-radius: ' . $inputs_radius . 'px;
 		line-height: 1.75;
 		padding: ' . responsive_spacing_css( $inputs_padding_top, $inputs_padding_right, $inputs_padding_bottom, $inputs_padding_left ) . ';
@@ -3754,8 +3795,9 @@ function responsive_customizer_styles() {
 		.woocommerce button.button,
 		.woocommerce input.button {
 			line-height: 1;
-			border: ' . $buttons_border_width . 'px solid ' . $cart_buttons_color . ';
-			border-radius:' . $buttons_radius . 'px;
+			border: ' . responsive_spacing_css( $button_border_top_width, $button_border_right_width, $button_border_bottom_width, $button_border_left_width ) . 'px solid ' . $cart_buttons_color . ';
+			// border-radius:' . $buttons_radius . 'px;
+			border-radius:' . responsive_spacing_css( $button_top_left_radius, $button_top_right_radius, $button_bottom_right_radius, $button_bottom_left_radius ) . ';
 			padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
 		}
 		@media screen and ( max-width: 992px ) {
@@ -3768,6 +3810,9 @@ function responsive_customizer_styles() {
 			.woocommerce button.button,
 			.woocommerce input.button {
 				padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
+				border-radius:' . responsive_spacing_css( $button_tablet_top_left_radius, $button_tablet_top_right_radius, $button_tablet_bottom_right_radius, $button_tablet_bottom_left_radius ) . ';
+				border: ' . responsive_spacing_css( $button_border_top_width, $button_border_right_width, $button_border_bottom_width, $button_border_left_width ) . 'px solid ' . $cart_buttons_color . ';
+
 			}
 		}
 		@media screen and ( max-width: 576px ) {
@@ -3780,6 +3825,8 @@ function responsive_customizer_styles() {
 			.woocommerce button.button,
 			.woocommerce input.button {
 				padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
+				border-radius:' . responsive_spacing_css( $button_mobile_top_left_radius, $button_mobile_top_right_radius, $button_mobile_bottom_right_radius, $button_mobile_bottom_left_radius ) . ';
+
 			}
 		}';
 

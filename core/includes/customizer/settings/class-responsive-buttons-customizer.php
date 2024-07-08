@@ -50,7 +50,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			$tabs_label     = esc_html__( 'Tabs', 'responsive' );
 			$tab_ids_prefix = 'customize-control-';
 			$design_tab_ids = array(
-				$tab_ids_prefix . 'responsive_buttons_radius',
+				$tab_ids_prefix . 'responsive_border_buttons_radius',
 				$tab_ids_prefix . 'responsive_buttons_border_width',
 				$tab_ids_prefix . 'responsive_buttons_typography_separator',
 				$tab_ids_prefix . 'button_typography-font-family',
@@ -81,11 +81,13 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 
 			// Buttons Radius.
 			$buttons_radius_label = __( 'Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_button', 16, Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) );
+			// responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_button', 16, Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) );
+			responsive_radius_control( $wp_customize, 'buttons_radius', 'responsive_button', 16, 0, 0, null, $buttons_radius_label );
 
 			// Buttons Border Width.
 			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
 			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 17, 1 );
+			// responsive_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_button', 17, 0, 0, null, $buttons_border_width_label );
 
 			// Buttons Typography.
 			$buttons_typography_label = esc_html__( 'Buttons Typography', 'responsive' );
