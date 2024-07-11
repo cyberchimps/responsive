@@ -193,7 +193,6 @@ function responsive_register_options() {
 		'class-responsive-single-blog-layout-customizer',
 		'class-responsive-page-content-customizer',
 		'class-responsive-footer-layout-customizer',
-		'class-responsive-footer-colors-customizer',
 		'class-responsive-footer-scripts-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
