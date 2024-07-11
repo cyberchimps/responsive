@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '5.0.7' );
+define( 'RESPONSIVE_THEME_VERSION', '5.0.8' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -1157,5 +1157,6 @@ add_action( 'admin_menu', 'remove_unnecessary_wordpress_menus', 999 );
 
 function remove_unnecessary_wordpress_menus() {
 	global $submenu;
+	unset( $submenu['themes.php'][15] );
 	unset( $submenu['themes.php'][20] );
 }

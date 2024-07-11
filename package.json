@@ -1,6 +1,6 @@
 {
   "name": "responsive",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "description": "Responsive theme by CyberChimps",
   "main": "Gruntfile.js",
   "sasslintConfig": ".sasslintrc.json",

@@ -8,9 +8,9 @@
  */
 
 /**
- * Class Responsive_Section_Upsell
+ * Class Responsive_Upsell_Section
  */
-class Responsive_Section_Upsell extends WP_Customize_Section {
+class Responsive_Upsell_Section extends WP_Customize_Section {
 
 	/**
 	 * The type of customize section being rendered.
@@ -19,7 +19,7 @@ class Responsive_Section_Upsell extends WP_Customize_Section {
 	 * @access public
 	 * @var    string
 	 */
-	public $type = 'responsive-section-upsell';
+	public $type = 'responsive-upsell-section';
 
 	/**
 	 * Upsell text to output.
@@ -28,67 +28,7 @@ class Responsive_Section_Upsell extends WP_Customize_Section {
 	 * @access public
 	 * @var    string
 	 */
-	public $upsell_text = '';
-
-	/**
-	 * Button text to output.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @var    string
-	 */
-	public $button_text = '';
-
-	/**
-	 * Button link to output.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @var    string
-	 */
-	public $button_url = '';
-
-	/**
-	 * List of theme options to output.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @var    array
-	 */
-	public $options = array();
-
-	/**
-	 * List of additional explanations to output.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @var    array
-	 */
-	public $explained_features = array();
-
-
-	/**
-	 * Label text to output.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @var    string
-	 */
-	private $pro_label;
-
-	/**
-	 * Responsive_Customizer_Theme_Info_Section constructor.
-	 *
-	 * @param WP_Customize_Manager $manager Manager.
-	 * @param [type]               $id      id.
-	 * @param array                $args    args.
-	 */
-	public function __construct( WP_Customize_Manager $manager, $id, array $args ) {
-		parent::__construct( $manager, $id, $args );
-		$this->pro_label       = esc_html__( 'PRO', 'responsive' );
-		$this->active_callback = true;
-	}
-
+	public $theme_info_title = '';
 	/**
 	 * Add custom parameters to pass to the JS via JSON.
 	 *
@@ -96,13 +36,9 @@ class Responsive_Section_Upsell extends WP_Customize_Section {
 	 * @access public
 	 */
 	public function json() {
-		$json                       = parent::json();
-		$json['button_text']        = esc_html( $this->button_text );
-		$json['button_url']         = esc_url( $this->button_url );
-		$json['options']            = $this->options;
-		$json['explained_features'] = $this->explained_features;
-		$json['pro_label']          = esc_html( $this->pro_label );
+		$json = parent::json();
 
+		$json['theme_info_title'] = $this->theme_info_title;
 		return $json;
 	}
 
@@ -115,30 +51,13 @@ class Responsive_Section_Upsell extends WP_Customize_Section {
 	 */
 	protected function render_template() {
 		?>
-		<div class="responsive-upsell responsive-boxed-section">
-			<# if ( data.options.length > 0 ) { #>
-			<ul class="responsive-upsell-features <# if ( data.explained_features.length <= 0 ) { #> no-explained <# } #>">
-				<# for (option in data.options) { #>
-				<li><span class="upsell-pro-label">{{ data.pro_label }}</span>{{{ data.options[option] }}}
-				</li>
-				<# } #>
-			</ul>
-			<# } #>
 
-			<# if ( data.button_text && data.button_url ) { #>
-			<a target="_blank" href="{{{ data.button_url }}}" class="button button-primary" target="_blank">{{
-				data.button_text }}</a>
-			<# } #>
-
-			<# if ( data.explained_features.length > 0 ) { #>
-			<hr>
-			<ul class="responsive-upsell-feature-list">
-				<# for (feature in data.explained_features) { #>
-				<li>* {{ data.explained_features[feature] }}</li>
-				<# } #>
-			</ul>
-			<# } #>
-		</div>
+		<li id="accordion-section-{{ data.id }}"
+			class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
+				<h3 class="accordion-section-title">
+				{{data.theme_info_title}}
+				</h3>
+		</li>
 		<?php
 	}
 }
