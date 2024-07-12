@@ -116,7 +116,9 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				'contained'  => esc_html__( 'Contained', 'responsive' ),
 				'full-width' => esc_html__( 'Full Width', 'responsive' ),
 			);
-				responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
+			responsive_imageradio_button_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
+
+				// responsive_select_control( $wp_customize, 'width', $responsive_width_label, 'responsive_layout', 10, $responsive_width_choice, 'contained', null, 'postMessage' );
 
 			// Container Width.
 			$container_width_label = __( 'Container Width (px)', 'responsive' );
@@ -129,7 +131,9 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 				'content-boxed' => esc_html__( 'Content Boxed', 'responsive' ),
 				'flat'          => esc_html__( 'Flat', 'responsive' ),
 			);
-			responsive_select_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
+			responsive_select_button_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
+
+			// responsive_select_control( $wp_customize, 'style', $responsive_style_label, 'responsive_layout', 30, $responsive_style_choice, Responsive\Core\get_responsive_customizer_defaults( 'responsive_style' ), null, 'postMessage' );
 
 			// Box Padding (px).
 			$box_padding_label = __( 'Inside Container (px)', 'responsive' );
@@ -137,8 +141,9 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Box Radius.
 			$box_radius_label = __( 'Box Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, 0, 'responsive_not_active_site_style_flat' );
+			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 0, 0, 'responsive_not_active_site_style_flat', $box_radius_label );
 
+			// responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, 0, 'responsive_not_active_site_style_flat' );
 		}
 
 
