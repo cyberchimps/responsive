@@ -1533,7 +1533,7 @@ function responsive_not_active_single_post_sidebar() {
 function responsive_active_breadcrumb() {
 
 	$responsive_options = get_option( 'responsive_theme_options' );
-	return ( $responsive_options['breadcrumb'] ) ? false : true;
+	return ( $responsive_options['breadcrumb'] ) ? true : false;
 
 }
 
@@ -2283,6 +2283,86 @@ function responsive_tabs_button_control( $wp_customize, $element, $label, $secti
 				'design_id'       => $design_id,
 				'general_tab_ids' => $general_tab_ids,
 				'design_tab_ids'  => $design_tab_ids,
+			)
+		)
+	);
+}
+
+/**
+ * [responsive_toggle_control description].
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call  [description].
+ * @param  [type] $transport    [description].
+ * @param  [type] $description  [description].
+ *
+ * @return void [description].
+ */
+function responsive_toggle_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call, $transport = 'refresh', $description = '' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_checkbox_validate',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Toggle_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'description'     => $description,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+			)
+		)
+	);
+}
+
+/**
+ * [responsive_horizontal_separator_control description].
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call  [description].
+ * @param  [type] $transport    [description].
+ * @param  [type] $description  [description].
+ *
+ * @return void [description].
+ */
+function responsive_horizontal_separator_control( $wp_customize, $element, $count, $section, $priority, $default, $active_call, $transport = 'refresh' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_checkbox_validate',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Horizontal_Separator(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $count,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
 			)
 		)
 	);
