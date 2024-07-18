@@ -63,9 +63,8 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 
 			/* End of blog layout setting */
 
-			/* Setting to enable date box on blog/archive page.*/
 			$date_box_label = esc_html__( 'Enable Date Box', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'date_box_toggle', $date_box_label, 'responsive_blog_layout', 10, 0 );
+			responsive_toggle_control( $wp_customize, 'date_box_toggle', $date_box_label, 'responsive_blog_layout', 10, 0, '' );
 			/* End of date box setting */
 
 			/* Setting for changing style of the date box */
@@ -143,7 +142,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 						)
 					);
 					$wp_customize->add_control(
-						new Responsive_Customizer_Checkbox_Control(
+						new Responsive_Customizer_Toggle_Control(
 							$wp_customize,
 							'responsive_disable_author_meta',
 							array(

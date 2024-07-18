@@ -9,3 +9,12 @@
     margin-left: -12px;
     margin-right: -12px;
 }
+#customize-control-responsive_breadcrumb_position_separator hr {
+    margin-top: 24px;
+}
+#customize-control-responsive_breadcrumb_separator_separator hr {
+    margin-top: 24px;
+}
+#customize-control-responsive_content_header_alignment_separator hr {
+    margin-top: 24px;
+}

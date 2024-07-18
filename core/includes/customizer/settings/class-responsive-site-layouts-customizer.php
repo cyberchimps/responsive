@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			$responsive_retina_logo_label = __( 'Enable Retina Logo ?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'title_tagline', 8, 0, null );
+			responsive_toggle_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'title_tagline', 8, 0, null );
 
 			// Logo Width Controller.
 			$logo_width_label = __( 'Logo Width (px)', 'responsive' );
@@ -56,7 +56,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 
 			// Different Logo For Mobile Device.
 			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'title_tagline', 10, 0, null );
+			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'title_tagline', 10, 0, null );
 
 			$wp_customize->add_setting(
 				'responsive_mobile_logo',
@@ -83,10 +83,10 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			$responsive_hide_title_label = __( 'Hide Site Title', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'title_tagline', 14, 0, null );
+			responsive_toggle_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'title_tagline', 14, 0, null );
 
 			$responsive_hide_tagline_label = __( 'Hide Tagline', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'title_tagline', 15, 1, null );
+			responsive_toggle_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'title_tagline', 15, 1, null );
 
 			// Add Custom Logo URL.
 			$wp_customize->add_setting(

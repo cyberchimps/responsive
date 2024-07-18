@@ -77,6 +77,7 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'res_breadcrumb',
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_separator',				
 				$tab_ids_prefix . 'responsive_breadcrumb_position',
+				$tab_ids_prefix . 'responsive_breadcrumb_position_separator',
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_home_page',
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_blog_posts_page',
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_search',
@@ -86,7 +87,9 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_singular',
 				$tab_ids_prefix . 'responsive_breadcrumb_enable_404_page',
 				$tab_ids_prefix . 'responsive_breadcrumb_separator',
+				$tab_ids_prefix . 'responsive_breadcrumb_separator_separator',
 				$tab_ids_prefix . 'responsive_content_header_alignment',
+				$tab_ids_prefix . 'responsive_content_header_alignment_separator',
 				$tab_ids_prefix . 'responsive_content_header_padding',
 				$tab_ids_prefix . 'responsive_breadcrumb_display_settings_separator',
 			);
