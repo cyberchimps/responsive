@@ -62,7 +62,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 					)
 				);
 				$wp_customize->add_control(
-					new Responsive_Customizer_Checkbox_Control(
+					new Responsive_Customizer_Toggle_Control(
 						$wp_customize,
 						'res_sticky-header',
 						array(
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 					)
 				);
 				$wp_customize->add_control(
-					new Responsive_Customizer_Checkbox_Control(
+					new Responsive_Customizer_Toggle_Control(
 						$wp_customize,
 						'responsive_shrink_sticky_header',
 						array(
@@ -97,11 +97,11 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 
 				// Disable Sticky Header on Mobile.
 				$disable_sticky_header_mobile_menu_label = __( 'Disable Sticky Header on Mobile Menu', 'responsive' );
-				responsive_checkbox_control( $wp_customize, 'disable_sticky_header_mobile_menu', $disable_sticky_header_mobile_menu_label, 'responsive_header_sticky_menu_layout', 25, 0, null );
+				responsive_toggle_control( $wp_customize, 'disable_sticky_header_mobile_menu', $disable_sticky_header_mobile_menu_label, 'responsive_header_sticky_menu_layout', 25, 0, null );
 
 				// Different Logo For Transparent Header.
 				$sticky_header_logo_option_label = __( 'Different Logo For Sticky Header', 'responsive' );
-				responsive_checkbox_control( $wp_customize, 'sticky_header_logo_option', $sticky_header_logo_option_label, 'responsive_header_sticky_menu_layout', 30, 0, null );
+				responsive_toggle_control( $wp_customize, 'sticky_header_logo_option', $sticky_header_logo_option_label, 'responsive_header_sticky_menu_layout', 30, 0, null );
 
 				$wp_customize->add_setting(
 					'responsive_sticky_header_logo',

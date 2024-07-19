@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import PaletteColorPicker from './palette-color-picker.js';
 
 const PaletteComponent = props => {
 
@@ -11,6 +12,42 @@ const PaletteComponent = props => {
         description,
         link
     } = props.control.params;
+
+    const [selectedChoice, setSelectedChoice] = useState(() => {
+        return props.control.setting.get() || 'playful-default';
+    });
+
+    const handlePaletteChange = (choice) => {
+        setSelectedChoice(choice);
+        props.control.setting.set(choice);
+    };
+
+    const [isPaletteVisible, setIsPaletteVisible] = useState(false);
+    const togglePaletteVisibility = (e) => {
+        e.stopPropagation();
+        setIsPaletteVisible(!isPaletteVisible);
+    };
+
+    const paletteWrapperRef = useRef(null);
+    const buttonRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = event => {
+            if (
+                paletteWrapperRef.current &&
+                !paletteWrapperRef.current.contains(event.target) &&
+                buttonRef.current &&
+                !buttonRef.current.contains(event.target)
+                ) {
+                setIsPaletteVisible(false);
+            }
+        };
+
+        window.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            window.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [paletteWrapperRef, buttonRef]);
 
     let htmlLabel = null;
     let descriptionHtml = null;
@@ -42,34 +79,47 @@ const PaletteComponent = props => {
     }
 
     let optionsHtml = Object.keys(choices).map(choice => {
-        if (choices[choice].preview_image) {
-            paletteDisplayImage = <img src={choices[choice].preview_image} />;
-        } else {
-            paletteDisplayImage = <>
-                <span className="color-scheme" style={{ background: `linear-gradient(to right, ${choices[choice].accent}, ${choices[choice].accent} 33.33%, ${choices[choice].text} 33.33%, ${choices[choice].text} 66.66%, ${choices[choice].alt_background} 66.66%, ${choices[choice].alt_background} 100%)` }}></span>
-                <span className="color-scheme__check"></span>
-                <span className="label">{choices[choice].label}</span>
-            </>
-        }
-
-        let html = <label key={choice} htmlFor={`${id}-${choice}`} className="palette__choice">
-            <span className="screen-reader-text">{choices[choice].label} design style</span>
-            <input type="radio" value={choice}
-                name={`_customize-${id}`} id={`${id}-${choice}`}
-                className="layout"
-                data-customize-setting-link={linkNew}
-            />
-            {paletteDisplayImage}
+        let html = <label key={choice} htmlFor={`${id}-${choice}`} className={`palette__choice ${choice === selectedChoice ? 'selected' : '' }`}>
+            <div className="label">{choices[choice].label}</div>
+            <div className="responsive-palette-picker-control-wrapper">
+                <span className="screen-reader-text">{choices[choice].label} design style</span>
+                <input type="radio" value={choice}
+                    name={`_customize-${id}`} id={`${id}-${choice}`}
+                    className="layout"
+                    data-customize-setting-link={linkNew}
+                    onChange={() => handlePaletteChange(choice)}
+                />
+                {paletteDisplayImage}
+                <PaletteColorPicker colorsPicks={choices[choice]} />
+            </div>
         </label>;
         return html;
     });
 
+    let selectedPaletteDetails = <div className="responsive-selected-palette-details">
+        <div className="label">{choices[selectedChoice].label}</div>
+        <div className="responsive-color-picker-btn-wrap" tabIndex="0">
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ background: choices[selectedChoice].accent }}></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{background: choices[selectedChoice].text}}></span>
+            <span className="component-color-indicator responsive-color-palette-indicate" style={{ background: choices[selectedChoice].background }}></span>
+            <span
+                id="responsive-color-palette-btn"
+                className={`dashicons ${isPaletteVisible ? 'dashicons-arrow-up-alt2' : 'dashicons-arrow-down-alt2'}`}
+                onClick={togglePaletteVisibility}
+                ref={buttonRef}
+            ></span>
+        </div>
+    </div>;
+
     return <>
         {htmlLabel}
         {descriptionHtml}
-        <div role="group" className={`palette__wrapper ${paletteTypeCheck}`}>
-            {optionsHtml}
-        </div>
+        {selectedPaletteDetails}
+        {isPaletteVisible && (
+            <div role="group" className={`palette__wrapper ${paletteTypeCheck}`} ref={paletteWrapperRef}>
+                {optionsHtml}
+            </div>
+        )}
     </>;
 
 };

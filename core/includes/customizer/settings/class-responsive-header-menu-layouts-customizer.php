@@ -53,7 +53,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Disable Menu.
 			$disable_menu_label = __( 'Disable Main Menu', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_menu', $disable_menu_label, 'responsive_header_menu_layout', 15, 0, null );
+			responsive_toggle_control( $wp_customize, 'disable_menu', $disable_menu_label, 'responsive_header_menu_layout', 15, 0, null );
 
 			// Full Width Menu.
 			$header_menu_full_width_label = __( 'Full Width Main Navigation', 'responsive' );
@@ -109,11 +109,11 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Disable Mobile Menu.
 			$disable_mobile_menu_label = __( 'Enable Mobile Menu', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_mobile_menu', $disable_mobile_menu_label, 'responsive_header_menu_layout', 60, 1, 'responsive_disabled_main_menu' );
+			responsive_toggle_control( $wp_customize, 'disable_mobile_menu', $disable_mobile_menu_label, 'responsive_header_menu_layout', 60, 1, 'responsive_disabled_main_menu' );
 
 			// Disable Mobile Menu stacked.
 			$stacked_mobile_menu_label = __( 'Stack Mobile Menu', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'stacked_mobile_menu', $stacked_mobile_menu_label, 'responsive_header_menu_layout', 65, 1, 'responsive_disabled_mobile_menu', 'postMessage' );
+			responsive_toggle_control( $wp_customize, 'stacked_mobile_menu', $stacked_mobile_menu_label, 'responsive_header_menu_layout', 65, 1, 'responsive_disabled_mobile_menu', 'postMessage' );
 
 			// Hide last item in Mobile Menu.
 			$hide_last_item_mobile_menu_label = __( 'Hide Last item in Mobile Menu', 'responsive' );
@@ -227,7 +227,7 @@ if ( ! class_exists( 'Responsive_Header_Menu_Layouts_Customizer' ) ) :
 
 			// Enable Sub Menu Divider.
 			$sub_menu_divider_label = __( 'Item Divider', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_label, 'responsive_header_menu_layout', 185, 0, 'responsive_disabled_main_menu' );
+			responsive_toggle_control( $wp_customize, 'sub_menu_divider', $sub_menu_divider_label, 'responsive_header_menu_layout', 185, 0, 'responsive_disabled_main_menu' );
 
 			// Sub Menu Colors.
 			$sub_menu_colors_separator_label = esc_html__( 'Sub Menu Colors', 'responsive' );

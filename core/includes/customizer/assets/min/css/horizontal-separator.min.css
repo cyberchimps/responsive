@@ -1,0 +1,20 @@
+.responsive-horizontal-separator-control-wrapper hr {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border: 0;
+    border-top: 0.5px solid #D0D0D0;
+    border-bottom: 0.5px solid #D0D0D0;
+}
+.responsive-horizontal-separator-control-wrapper {
+    margin-left: -12px;
+    margin-right: -12px;
+}
+#customize-control-responsive_breadcrumb_position_separator hr {
+    margin-top: 24px;
+}
+#customize-control-responsive_breadcrumb_separator_separator hr {
+    margin-top: 24px;
+}
+#customize-control-responsive_content_header_alignment_separator hr {
+    margin-top: 24px;
+}
