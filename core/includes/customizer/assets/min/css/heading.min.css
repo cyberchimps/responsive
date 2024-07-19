@@ -11,3 +11,10 @@
 #customize-control-responsive_body_typography_separator,#customize-control-responsive_responsive_general_texts_separator,#customize-control-responsive_content_header_color,#customize-control-responsive_page_typography_title_separator{
     margin-top: 0;
 }
+#customize-control-responsive_breadcrumb_display_settings_separator .responsive-customizer-heading {
+    padding-top: 24px;
+    padding-bottom: 32px;
+}
+#customize-control-responsive_breadcrumb_enable_404_page .responsive-toggle-control-wrapper {
+    padding-bottom: 12px;
+}

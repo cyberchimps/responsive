@@ -62,7 +62,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Full Width Footer.
 			$footer_full_width_label = __( 'Full Width Footer', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_full_width', $footer_full_width_label, 'responsive_footer_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
+			responsive_toggle_control( $wp_customize, 'footer_full_width', $footer_full_width_label, 'responsive_footer_layout', 10, 0, 'responsive_active_site_layout_contained', 'postMessage' );
 
 			/**
 			 * Footer Widget Separator.
@@ -79,15 +79,15 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Hide on Desktop.
 			$footer_widget_desktop_visibility = __( 'Hide on Desktop', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_widget_desktop_visibility', $footer_widget_desktop_visibility, 'responsive_footer_layout', 30, 0, null );
+			responsive_toggle_control( $wp_customize, 'footer_widget_desktop_visibility', $footer_widget_desktop_visibility, 'responsive_footer_layout', 30, 0, null );
 
 			// Hide on Tablet.
 			$footer_widget_tablet_visibility = __( 'Hide on Tablet', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_widget_tablet_visibility', $footer_widget_tablet_visibility, 'responsive_footer_layout', 30, 0, null );
+			responsive_toggle_control( $wp_customize, 'footer_widget_tablet_visibility', $footer_widget_tablet_visibility, 'responsive_footer_layout', 30, 0, null );
 
 			// Hide on Mobile.
 			$footer_widget_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'footer_widget_mobile_visibility', $footer_widget_mobile_visibility, 'responsive_footer_layout', 30, 0, null );
+			responsive_toggle_control( $wp_customize, 'footer_widget_mobile_visibility', $footer_widget_mobile_visibility, 'responsive_footer_layout', 30, 0, null );
 
 			/**
 			 * Footer Widgets Alignment Separator
@@ -163,15 +163,15 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 
 			// Hide Copyright.
 			$copyright_visibility_label = __( 'Hide Copyright on Desktop', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'copyright', $copyright_visibility_label, 'responsive_footer_layout', 118, 0, null );
+			responsive_toggle_control( $wp_customize, 'copyright', $copyright_visibility_label, 'responsive_footer_layout', 118, 0, null );
 
 			// Hide on Tablet.
 			$copyright_visibility_tablet_label = __( 'Hide Copyright on Tablet', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'copyright_tablet', $copyright_visibility_tablet_label, 'responsive_footer_layout', 119, 0, null );
+			responsive_toggle_control( $wp_customize, 'copyright_tablet', $copyright_visibility_tablet_label, 'responsive_footer_layout', 119, 0, null );
 
 			// Hide on Mobile.
 			$copyright_visibility_mobile_label = __( 'Hide Copyright on Mobile', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'copyright_mobile', $copyright_visibility_mobile_label, 'responsive_footer_layout', 120, 0, null );
+			responsive_toggle_control( $wp_customize, 'copyright_mobile', $copyright_visibility_mobile_label, 'responsive_footer_layout', 120, 0, null );
 
 			// Footer Bar Layout.
 			$footer_bar_layout_label = esc_html__( 'Layout', 'responsive' );

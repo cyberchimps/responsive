@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Header_Widgets_Customizer' ) ) :
 
 			// Header Widget.
 			$header_widget_label = esc_html__( 'Enable Header Widgets', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'enable_header_widget', $header_widget_label, 'responsive_header_widget', 70, 1, null, 'postMessage' );
+			responsive_toggle_control( $wp_customize, 'enable_header_widget', $header_widget_label, 'responsive_header_widget', 70, 1, null, 'postMessage' );
 
 			// Redirect to header widgets button.
 			$redirect_to_header_widgets_label = esc_html__( 'Add Header Widgets', 'responsive' );

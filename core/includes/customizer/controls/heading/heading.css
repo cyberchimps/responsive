@@ -4,3 +4,7 @@
 #customize-control-responsive_body_typography_separator h4.responsive-customizer-heading{
     margin-top: 0;
 }
+#customize-control-responsive_breadcrumb_display_settings_separator .responsive-customizer-heading {
+    padding-top: 24px;
+    padding-bottom: 32px;
+}

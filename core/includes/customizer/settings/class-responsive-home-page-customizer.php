@@ -96,7 +96,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 					);
 				} else {
 					$wp_customize->add_control(
-						new Responsive_Customizer_Checkbox_Control(
+						new Responsive_Customizer_Toggle_Control(
 							$wp_customize,
 							'res_front_page',
 							array(
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				}
 			} else {
 				$wp_customize->add_control(
-					new Responsive_Customizer_Checkbox_Control(
+					new Responsive_Customizer_Toggle_Control(
 						$wp_customize,
 						'res_front_page',
 						array(
@@ -131,7 +131,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 
 			// Disable Hero Area.
 			$disable_hero_area_label = __( 'Disable Hero Area', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'disable_hero_area', $disable_hero_area_label, 'static_front_page', 10, 0, 'responsive_custom_home_active' );
+			responsive_toggle_control( $wp_customize, 'disable_hero_area', $disable_hero_area_label, 'static_front_page', 10, 0, 'responsive_custom_home_active' );
 
 			$wp_customize->add_setting(
 				'responsive_theme_options[home_headline]',
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'res_cta_button',
 					array(
@@ -335,7 +335,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'about',
 					array(
@@ -440,7 +440,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 			responsive_separator_control( $wp_customize, 'custom_feature_section_separtor', $custom_feature_section_label, 'static_front_page', 22, 'responsive_custom_home_active' );
 
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'feature_front_page',
 					array(
@@ -551,7 +551,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'testimonial_front_page',
 					array(
@@ -617,7 +617,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'team_front_page',
 					array(
@@ -723,7 +723,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'home-widgets',
 					array(
@@ -747,7 +747,7 @@ if ( ! class_exists( 'Responsive_Home_Page_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'contact_front_page',
 					array(

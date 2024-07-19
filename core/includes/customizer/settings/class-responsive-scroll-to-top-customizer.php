@@ -55,7 +55,7 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'responsive_scroll_to_top',
 					array(
