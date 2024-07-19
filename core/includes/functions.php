@@ -45,8 +45,8 @@ function setup() {
 	add_action( 'wp_enqueue_scripts', $n( 'responsive_enqueue_scrolltotop' ) );
 	add_action( 'widgets_init', $n( 'responsive_register_widgets' ) );
 	add_filter( 'pre_update_option_show_on_front', $n( 'responsive_front_page_override' ), 10, 2 );
-	add_filter( 'body_class', $n( 'responsive_add_class' ),999 );
-	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ),999 );
+	add_filter( 'body_class', $n( 'responsive_add_class' ), 999 );
+	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ), 999 );
 	add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
 
 	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
@@ -464,7 +464,7 @@ function responsive_team_meta_box_save( $post_id ) {
 		update_post_meta( $post_id, 'responsive_meta_box_twitter', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_twitter'] ), $allowed ) ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_googleplus'] ) ) {
-		update_post_meta( $post_id, 'responsive_meta_box_googleplus',wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_googleplus'] ), $allowed ) ) );
+		update_post_meta( $post_id, 'responsive_meta_box_googleplus', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_googleplus'] ), $allowed ) ) );
 	}
 	if ( isset( $_POST['responsive_meta_box_text_linkedin'] ) ) {
 		update_post_meta( $post_id, 'responsive_meta_box_text_linkedin', wp_verify_nonce( wp_kses( wp_unslash( $_POST['responsive_meta_box_text_linkedin'] ), $allowed ) ) );
@@ -547,7 +547,7 @@ function responsive_add_custom_body_classes( $classes ) {
 	if ( is_page() ) {
 		$site_style = get_post_meta( get_the_ID(), 'responsive_page_meta_layout_style', true );
 		$site_style = $site_style ? $site_style : get_theme_mod( 'responsive_style', 'boxed' );
-		$classes[] = 'responsive-site-style-' . $site_style;
+		$classes[]  = 'responsive-site-style-' . $site_style;
 
 	} else {
 		$classes[] = 'responsive-site-style-' . get_theme_mod( 'responsive_style', 'boxed' );
@@ -807,6 +807,17 @@ function responsive_add_pro_button() {
 				event.stopPropagation();
 			} );
 		} );
+
+	jQuery(document).ready(function($) {
+	var sectionTitle = $('#accordion-section-responsive_upsell_section .accordion-section-title');	
+	if (sectionTitle.length) {
+		sectionTitle.click(function(event) {
+			event.preventDefault(); // Prevent the default behavior
+			window.open('https://cyberchimps.com/pricing/?utm_source=customizer&utm_medium=responsive-theme&utm_campaign=responsive-pro&utm_content=customizer_button', '_blank'); // Open in a new tab
+		});
+	}
+});
+
 	</script>
 	<style>
 		.wp-core-ui .btn-upgrade {
@@ -1036,8 +1047,8 @@ function defaults() {
 			'header_widget_link'                  => '#0066CC',
 			'header_widget_link_hover'            => '#10659C',
 
-			//hamburger menu padding
-			'hamburger_menu_padding'		      => 15,
+			// hamburger menu padding
+			'hamburger_menu_padding'              => 15,
 			'header_menu_background'              => '#ffffff',
 			'header_menu_border'                  => '#eaeaea',
 			'header_active_menu_background'       => '#ffffff',

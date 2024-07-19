@@ -55,19 +55,47 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$wp_customize->add_section(
 				'responsive_breadcrumb',
 				array(
-					'title'       => __( 'Breadcrumb', 'responsive' ),
-					'description' => __( 'Breadcrumb Options', 'responsive' ),
-					'priority'    => 9,
+					'title'    => __( 'Breadcrumb', 'responsive' ),
+					'priority' => 9,
 				)
 			);
 
+			$tabs_label      = esc_html__( 'Tabs', 'responsive' );
+			$tab_ids_prefix  = 'customize-control-';
+			$design_tab_ids  = array(
+				$tab_ids_prefix . 'responsive_breadcrumb_color',
+				$tab_ids_prefix . 'responsive_breadcrumb',
+				$tab_ids_prefix . 'breadcrumb_typography-font-family',
+				$tab_ids_prefix . 'breadcrumb_typography-font-weight',
+				$tab_ids_prefix . 'breadcrumb_typography-font-style',
+				$tab_ids_prefix . 'breadcrumb_typography-text-transform',
+				$tab_ids_prefix . 'breadcrumb_typography-font-size',
+				$tab_ids_prefix . 'breadcrumb_typography-line-height',
+				$tab_ids_prefix . 'breadcrumb_typography-letter-spacing',
+			);
+			$general_tab_ids = array(
+				$tab_ids_prefix . 'res_breadcrumb',
+				$tab_ids_prefix . 'responsive_breadcrumb_position',
+				$tab_ids_prefix . 'responsive_breadcrumb_disable_home_page',
+				$tab_ids_prefix . 'responsive_breadcrumb_disable_blog_posts_page',
+				$tab_ids_prefix . 'responsive_breadcrumb_disable_search',
+				$tab_ids_prefix . 'responsive_breadcrumb_disable_archive',
+				$tab_ids_prefix . 'responsive_breadcrumb_disable_single_page',
+				$tab_ids_prefix . 'responsive_breadcrumb_disable_single_post',
+				$tab_ids_prefix . 'responsive_breadcrumb_disable_singular',
+				$tab_ids_prefix . 'responsive_breadcrumb_disable_404_page',
+				$tab_ids_prefix . 'responsive_breadcrumb_separator',
+				$tab_ids_prefix . 'responsive_content_header_alignment',
+				$tab_ids_prefix . 'responsive_content_header_padding',
+			);
 
-			$wp_customize->add_panel(
+			responsive_tabs_button_control( $wp_customize, 'breadcrumb_tabs', $tabs_label, 'responsive_breadcrumb', 10, '', 'responsive_breadcrumb_general_tab', 'responsive_breadcrumb_design_tab', $general_tab_ids, $design_tab_ids, null );
+
+			$wp_customize->add_section(
 				'responsive_page',
 				array(
-					'title'       => __( 'Page', 'responsive' ),
-					'description' => __( 'Page Options', 'responsive' ),
-					'priority'    => 10,
+					'title'    => __( 'Page', 'responsive' ),
+					'priority' => 9,
 				)
 			);
 
@@ -80,12 +108,12 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				)
 			);
 
-			$wp_customize->add_panel(
+			$wp_customize->add_section(
 				'responsive_sidebar',
 				array(
-					'title'       => __( 'Sidebar', 'responsive' ),
-					'description' => __( 'Sidebar Options', 'responsive' ),
-					'priority'    => 10,
+					'title'    => __( 'Sidebar', 'responsive' ),
+					// 'description' => __( 'Sidebar Options', 'responsive' ),
+					'priority' => 10,
 				)
 			);
 
@@ -94,11 +122,11 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				array(
 					'title'       => __( 'Footer', 'responsive' ),
 					'description' => __( 'Footer Options', 'responsive' ),
-					'priority'    => 10,
+					'priority'    => 11,
 				)
 			);
 
-			$wp_customize->get_section( 'title_tagline' )->priority     = 10;
+			$wp_customize->get_section( 'title_tagline' )->priority     = 12;
 			$wp_customize->get_section( 'static_front_page' )->priority = 109;
 			$wp_customize->get_section( 'custom_css' )->priority        = 300;
 		}
