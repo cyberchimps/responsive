@@ -78,7 +78,7 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 			*/
 			if ( 'Responsive' === $theme->name || 'Responsive' === $theme->parent_theme ) {
 				$background_label = __( 'Background Image', 'responsive' );
-				$this->background_image_control( $wp_customize, 'footer_background', $background_label, 'responsive_footer_colors', 15 );
+				$this->background_image_control( $wp_customize, 'footer_background', $background_label, 'responsive_footer_layout', 15 );
 				$this->background_image_control( $wp_customize, 'header_background', $background_label, 'responsive_header_colors', 15 );
 				$this->background_image_control( $wp_customize, 'header_widget_background', $background_label, 'responsive_header_widget', 145 );
 				$this->background_image_control( $wp_customize, 'transparent_header_widget_background', $background_label, 'responsive_header_transparent', 295 );
