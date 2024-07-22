@@ -59,7 +59,7 @@ if ( ! class_exists( 'Responsive_Site_Color_Palettes_Scheme_Customizer' ) ) :
 					$wp_customize,
 					'responsive_color_scheme_control',
 					array(
-						'label'        => esc_html__( 'Color Palettes Scheme', 'responsive' ),
+						'label'        => esc_html__( 'Color Palette', 'responsive' ),
 						'section'      => 'responsive_colors',
 						'settings'     => 'responsive_color_scheme',
 						'choices'      => responsive_get_color_schemes_as_choices(),

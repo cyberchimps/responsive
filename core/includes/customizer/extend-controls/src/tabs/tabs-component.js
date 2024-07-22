@@ -42,8 +42,6 @@ const TabsComponent = props => {
 		});
 	}, [tab]);
 
-	console.log('props.control.params');
-	console.log(props.control.params);
 
 	return <>
 		<div className='responsive-component-tabs nav-tab-wrapper wp-clearfix' data-name={name}>

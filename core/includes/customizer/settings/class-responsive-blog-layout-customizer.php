@@ -54,7 +54,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'res_blog_post_title_toggle',
 					array(

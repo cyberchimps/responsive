@@ -277,7 +277,6 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 					'priority'        => 110,
 					'section'         => 'responsive_breadcrumb',
 					'exclude'         => array( 'font-color' ),
-					'active_callback' => 'responsive_active_breadcrumb',
 					'defaults'        => array(
 						'font-size'   => '13px',
 						'line-height' => '1.75',
