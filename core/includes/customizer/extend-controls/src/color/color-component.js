@@ -46,7 +46,7 @@ const ColorComponent = props => {
     }
 
 	return <>
-		<label>
+		<label className='responsive-color-control-main-wrap'>
 			{labelHtml}
             <div>
                 <ResponsiveColorPickerControl color={undefined !== state.value && state.value ? state.value : ''}
