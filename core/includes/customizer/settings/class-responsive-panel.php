@@ -134,6 +134,61 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$wp_customize->get_section( 'title_tagline' )->priority     = 12;
 			$wp_customize->get_section( 'static_front_page' )->priority = 109;
 			$wp_customize->get_section( 'custom_css' )->priority        = 300;
+			$wp_customize->get_control( 'custom_logo' )->section        = 'responsive_header_site_logo_title';
+			$wp_customize->get_control( 'blogname' )->section           = 'responsive_header_site_logo_title';
+			$wp_customize->get_control( 'blogdescription' )->section    = 'responsive_header_site_logo_title';
+
+			$tabs_label      = esc_html__( 'Tabs', 'responsive' );
+			$tab_ids_prefix  = 'customize-control-';
+			$logo_design_tab_ids  = array(
+				$tab_ids_prefix . 'responsive_header_title_colors_separator',
+				$tab_ids_prefix . 'responsive_header_site_title_color',
+				$tab_ids_prefix . 'responsive_header_site_title',
+				$tab_ids_prefix . 'responsive_header_site_title_hover',
+				$tab_ids_prefix . 'responsive_header_site_title_hover_color',
+				$tab_ids_prefix . 'responsive_header_site_title_separator',
+				$tab_ids_prefix . 'header_site_title_typography-font-family',
+				$tab_ids_prefix . 'header_site_title_typography-font-weight',
+				$tab_ids_prefix . 'header_site_title_typography-font-style',
+				$tab_ids_prefix . 'header_site_title_typography-text-transform',
+				$tab_ids_prefix . 'header_site_title_typography-font-size',
+				$tab_ids_prefix . 'header_site_title_typography-line-height',
+				$tab_ids_prefix . 'header_site_title_typography-letter-spacing',
+				
+				$tab_ids_prefix . 'responsive_header_tagline_colors_separator',
+				$tab_ids_prefix . 'responsive_header_text',
+				$tab_ids_prefix . 'responsive_header_text_color',
+				$tab_ids_prefix . 'responsive_header_site_tagline_separator',
+				$tab_ids_prefix . 'header_site_tagline_typography-font-family',
+				$tab_ids_prefix . 'header_site_tagline_typography-font-weight',
+				$tab_ids_prefix . 'header_site_tagline_typography-font-style',
+				$tab_ids_prefix . 'header_site_tagline_typography-text-transform',
+				$tab_ids_prefix . 'header_site_tagline_typography-font-size',
+				$tab_ids_prefix . 'header_site_tagline_typography-line-height',
+				$tab_ids_prefix . 'header_site_tagline_typography-letter-spacing',
+			);
+			$logo_general_tab_ids = array(
+				$tab_ids_prefix . 'custom_logo',
+				$tab_ids_prefix . 'blogname',
+				$tab_ids_prefix . 'blogdescription',
+				$tab_ids_prefix . 'responsive_retina_logo',
+				$tab_ids_prefix . 'responsive_logo_width',
+				$tab_ids_prefix . 'responsive_mobile_logo_option',
+				$tab_ids_prefix . 'responsive_mobile_logo',
+				$tab_ids_prefix . 'responsive_hide_title',
+				$tab_ids_prefix . 'responsive_hide_tagline',
+				$tab_ids_prefix . 'responsive_custom_logo_url',
+			);
+			
+			if( ! get_theme_mod( 'custom_logo' ) ) {
+				$key = array_search($tab_ids_prefix . 'responsive_logo_width', $logo_general_tab_ids);
+				if ($key !== false) {
+					unset($logo_general_tab_ids[$key]);
+				}
+			}
+			$logo_general_tab_ids = array_values($logo_general_tab_ids);
+
+			responsive_tabs_button_control( $wp_customize, 'logo_tabs', $tabs_label, 'responsive_header_site_logo_title', 1, '', 'responsive_logo_general_tab', 'responsive_logo_design_tab', $logo_general_tab_ids, $logo_design_tab_ids, null );
 		}
 	}
 
