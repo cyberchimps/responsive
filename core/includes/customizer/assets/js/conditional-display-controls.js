@@ -88,7 +88,7 @@
 					switch (newval) {
 						case 'flat':
 							api.control( 'responsive_box_padding' ).toggle( false );
-							api.control( 'responsive_box_radius' ).toggle( false );
+							api.control( 'responsive_border_box' ).toggle( false );
 							api.control( 'responsive_box_background_color' ).toggle( false );
 
 							break;
@@ -98,7 +98,7 @@
 						case 'boxed':
 						case 'content-boxed':
 							api.control( 'responsive_box_padding' ).toggle( true );
-							api.control( 'responsive_box_radius' ).toggle( true );
+							api.control( 'responsive_border_box' ).toggle( true );
 							api.control( 'responsive_box_background_color' ).toggle( true );
 							break;
 					}

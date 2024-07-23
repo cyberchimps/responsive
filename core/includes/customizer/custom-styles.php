@@ -117,22 +117,22 @@ function responsive_customizer_styles() {
 
 	// Box Radius.
 
-	$box_radius = esc_html( get_theme_mod( 'responsive_box_radius', 0 ) );
+	$box_radius = esc_html( get_theme_mod( 'responsive_border_box', 0 ) );
 
-	$box_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
 
-	$box_tablet_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_tablet_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_tablet_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_tablet_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_tablet_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_tablet_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_tablet_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_tablet_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_tablet_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_tablet_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_tablet_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_tablet_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_tablet_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
 
-	$box_mobile_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_mobile_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_mobile_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_mobile_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_mobile_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
-	$box_mobile_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_box_radius' ) ) );
+	$box_mobile_top_left_radius     = esc_html( get_theme_mod( 'responsive_box_mobile_top_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_mobile_top_right_radius    = esc_html( get_theme_mod( 'responsive_box_mobile_top_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_mobile_bottom_left_radius  = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_left_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
+	$box_mobile_bottom_right_radius = esc_html( get_theme_mod( 'responsive_box_mobile_bottom_right_radius', Responsive\Core\get_responsive_customizer_defaults( 'responsive_border_box' ) ) );
 
 	// Paragraph Margin Bottom.
 	$paragraph_margin_bottom = esc_html( get_theme_mod( 'responsive_paragraph_margin_bottom', '' ) );
