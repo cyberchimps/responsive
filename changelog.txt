@@ -1,12 +1,18 @@
 Changelog Legend:
 ----
 
-[+] = Added
-[*] = Changed
+[+] = New
+[*] = Improvement
 [^] = Moved
 [=] = No Changes
 [x] = Deleted
 [!] = Bugs
+
+(25/07/2024) = Fix - Version 5.0.9
+[*] = Improvement = Replaced checkbox control with new toggle control in customizer.
+[*] = Improvement = Restructured the customizer footer settings.
+[*] = Improvement = Customizer UI changes for better navigation.
+[*] = Improvement = Improved UI of customizer color palette.
 
 (28/06/2024) = Fix - Version 5.0.8
 [*] = Changed = Customizer background color.
