@@ -162,3 +162,7 @@
 #customize-control-responsive_cart_count .responsive-toggle-control-wrapper {
     padding-bottom: 12px;
 }
+#customize-control-responsive_last_item_floating .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+    padding-bottom: 0;
+}
