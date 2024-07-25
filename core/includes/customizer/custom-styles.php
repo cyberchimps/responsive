@@ -815,10 +815,10 @@ function responsive_customizer_styles() {
 	$inputs_radius       = esc_html( get_theme_mod( 'responsive_inputs_radius', 0 ) );
 	$inputs_border_width = esc_html( get_theme_mod( 'responsive_inputs_border_width', 1 ) );
 	// New Border width control start from here.
-	$input_border_top_width    = esc_html( get_theme_mod( 'responsive_inputs_border_width_top_border', 0 ) );
-	$input_border_right_width  = esc_html( get_theme_mod( 'responsive_inputs_border_width_right_border', 0 ) );
-	$input_border_bottom_width = esc_html( get_theme_mod( 'responsive_inputs_border_width_bottom_border', 0 ) );
-	$input_border_left_width   = esc_html( get_theme_mod( 'responsive_inputs_border_width_left_border', 0 ) );
+	$input_border_top_width    = esc_html( get_theme_mod( 'responsive_inputs_border_width_top_border', 1 ) );
+	$input_border_right_width  = esc_html( get_theme_mod( 'responsive_inputs_border_width_right_border', 1 ) );
+	$input_border_bottom_width = esc_html( get_theme_mod( 'responsive_inputs_border_width_bottom_border', 1 ) );
+	$input_border_left_width   = esc_html( get_theme_mod( 'responsive_inputs_border_width_left_border', 1 ) );
 
 	// New Border width control ends here.
 	$inputs_border_color     = esc_html( get_theme_mod( 'responsive_inputs_border_color', Responsive\Core\get_responsive_customizer_defaults( 'inputs_border' ) ) );
