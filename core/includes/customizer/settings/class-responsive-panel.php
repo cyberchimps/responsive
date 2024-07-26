@@ -75,18 +75,23 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			);
 			$general_tab_ids = array(
 				$tab_ids_prefix . 'res_breadcrumb',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_separator',				
 				$tab_ids_prefix . 'responsive_breadcrumb_position',
-				$tab_ids_prefix . 'responsive_breadcrumb_disable_home_page',
-				$tab_ids_prefix . 'responsive_breadcrumb_disable_blog_posts_page',
-				$tab_ids_prefix . 'responsive_breadcrumb_disable_search',
-				$tab_ids_prefix . 'responsive_breadcrumb_disable_archive',
-				$tab_ids_prefix . 'responsive_breadcrumb_disable_single_page',
-				$tab_ids_prefix . 'responsive_breadcrumb_disable_single_post',
-				$tab_ids_prefix . 'responsive_breadcrumb_disable_singular',
-				$tab_ids_prefix . 'responsive_breadcrumb_disable_404_page',
+				$tab_ids_prefix . 'responsive_breadcrumb_position_separator',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_home_page',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_blog_posts_page',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_search',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_archive',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_single_page',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_single_post',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_singular',
+				$tab_ids_prefix . 'responsive_breadcrumb_enable_404_page',
 				$tab_ids_prefix . 'responsive_breadcrumb_separator',
+				$tab_ids_prefix . 'responsive_breadcrumb_separator_separator',
 				$tab_ids_prefix . 'responsive_content_header_alignment',
+				$tab_ids_prefix . 'responsive_content_header_alignment_separator',
 				$tab_ids_prefix . 'responsive_content_header_padding',
+				$tab_ids_prefix . 'responsive_breadcrumb_display_settings_separator',
 			);
 
 			responsive_tabs_button_control( $wp_customize, 'breadcrumb_tabs', $tabs_label, 'responsive_breadcrumb', 10, '', 'responsive_breadcrumb_general_tab', 'responsive_breadcrumb_design_tab', $general_tab_ids, $design_tab_ids, null );

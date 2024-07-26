@@ -1,0 +1,168 @@
+.customize-control-responsive-toggle .responsive-toggle-control .components-flex {
+    flex-direction: row-reverse;
+}
+.customize-control-responsive-toggle .responsive-toggle-control {
+    margin-bottom: 0;
+}
+#customize-control-res_breadcrumb .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+.responsive-toggle-control-wrapper {
+    padding-bottom: 18px;
+}
+.customize-control-responsive-toggle .responsive-toggle-control .components-toggle-control__label {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.41px;
+    text-align: left;
+}
+.customize-control-responsive-toggle .components-form-toggle .components-form-toggle__track {
+    background-color: #D9D9D9;
+    border: none;
+    height: 20px;
+}
+.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__track {
+    background-color: #007CBA;
+}
+.customize-control-responsive-toggle .components-form-toggle .components-form-toggle__thumb {
+    background-color: #A5A5A5;
+    width: 14px;
+    height: 14px;
+}
+.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb {
+    background-color: #FFF;
+}
+.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb {
+   left: 1px;
+}
+#customize-control-responsive_enable_header_widget .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+#customize-control-responsive_disable_menu .responsive-toggle-control-wrapper,
+#customize-control-responsive_disable_mobile_menu .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+}
+#customize-control-responsive_sub_menu_divider .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+    padding-bottom: 0;
+}
+#customize-control-responsive_transparent_header .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+}
+#customize-control-responsive_disable_archive_transparent_header .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+}
+#customize-control-responsive_disable_woo_products_transparent_header .responsive-toggle-control-wrapper {
+    padding-bottom: 0;
+}
+#customize-control-res_blog_post_title_toggle .responsive-toggle-control-wrapper {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+#customize-control-responsive_date_box_toggle .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+    padding-bottom: 8px;
+}
+#customize-control-responsive_disable_author_meta .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+    padding-bottom: 8px;
+}
+#customize-control-responsive_single_blog_enable_related_posts .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 12px;
+}
+#customize-control-responsive_footer_full_width .responsive-toggle-control-wrapper {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+#customize-control-responsive_footer_widget_desktop_visibility .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+}
+#customize-control-responsive_footer_widget_mobile_visibility .responsive-toggle-control-wrapper {
+    padding-bottom: 0;
+}
+#customize-control-responsive_copyright .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+}
+#customize-control-responsive_scroll_to_top .responsive-toggle-control-wrapper {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+#customize-control-responsive_retina_logo .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 10px;
+}
+#customize-control-responsive_mobile_logo_option .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 10px;
+}
+#customize-control-responsive_hide_title .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+}
+#customize-control-res_front_page .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 8px;
+}
+#customize-control-responsive_disable_hero_area .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+    padding-bottom: 8px;
+}
+#customize-control-res_cta_button .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+    padding-bottom: 8px;
+}
+#customize-control-about .responsive-toggle-control-wrapper,
+#customize-control-feature_front_page .responsive-toggle-control-wrapper,
+#customize-control-testimonial_front_page .responsive-toggle-control-wrapper,
+#customize-control-team_front_page .responsive-toggle-control-wrapper,
+#customize-control-contact_front_page .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+    padding-bottom: 8px;
+}
+#customize-control-home-widgets .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+    padding-bottom: 0;
+}
+#customize-control-responsive_enable_off_canvas_close_btn .responsive-toggle-control-wrapper {
+    padding-bottom: 0;
+}
+#customize-control-responsive_enable_off_canvas_filter .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+}
+#customize-control-responsive_enable_crosssells_options .responsive-toggle-control-wrapper {
+    padding-top: 8px;
+}
+#customize-control-responsive_disable_cart_fragments .responsive-toggle-control-wrapper {
+    padding-bottom: 8px;
+}
+#customize-control-responsive_distraction_free_woocommerce .responsive-toggle-control-wrapper {
+    padding-top: 8px;
+}
+#customize-control-responsive_disable_product_tag_header_footer .responsive-toggle-control-wrapper {
+    padding-bottom: 12px;
+}
+#customize-control-breadcrumbs_options .responsive-toggle-control-wrapper {
+    padding-top: 8px;
+}
+#customize-control-toolbar_options .responsive-toggle-control-wrapper {
+    padding-bottom: 8px;
+}
+#customize-control-responsive_enable_native_cart_popup .responsive-toggle-control-wrapper {
+    padding-top: 24px;
+}
+#customize-control-responsive_native_cart_popup_display .responsive-toggle-control-wrapper {
+    padding-bottom: 8px;
+}
+#customize-control-responsive_cart_title .responsive-toggle-control-wrapper {
+    padding-top: 8px;
+}
+#customize-control-responsive_cart_count .responsive-toggle-control-wrapper {
+    padding-bottom: 12px;
+}
+#customize-control-responsive_last_item_floating .responsive-toggle-control-wrapper {
+    padding-top: 18px;
+    padding-bottom: 0;
+}

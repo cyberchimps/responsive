@@ -54,7 +54,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new Responsive_Customizer_Checkbox_Control(
+				new Responsive_Customizer_Toggle_Control(
 					$wp_customize,
 					'res_blog_post_title_toggle',
 					array(
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 
 			// Display Masonry.
 			$display_masonry_label = esc_html__( 'Enable Masonry Layout', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'blog_entry_display_masonry', $display_masonry_label, 'responsive_blog_layout', 50, 0, 'responsive_active_blog_entry_columns_multi_column' );
+			responsive_toggle_control( $wp_customize, 'blog_entry_display_masonry', $display_masonry_label, 'responsive_blog_layout', 50, 0, 'responsive_active_blog_entry_columns_multi_column' );
 
 			/**
 			 * Entry Elements.

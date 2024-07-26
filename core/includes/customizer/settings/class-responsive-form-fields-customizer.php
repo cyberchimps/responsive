@@ -51,7 +51,7 @@ if ( ! class_exists( 'Responsive_Form_Fields_Customizer' ) ) :
 			$tab_ids_prefix = 'customize-control-';
 			$design_tab_ids = array(
 				$tab_ids_prefix . 'responsive_inputs_radius',
-				$tab_ids_prefix . 'responsive_inputs_border_width',
+				$tab_ids_prefix . 'responsive_inputs_border_width_border',
 				$tab_ids_prefix . 'responsive_inputs_typography_separator',
 				$tab_ids_prefix . 'input_typography-font-family',
 				$tab_ids_prefix . 'input_typography-font-weight',
@@ -79,13 +79,14 @@ if ( ! class_exists( 'Responsive_Form_Fields_Customizer' ) ) :
 			$inputs_padding_label = __( 'Padding (px)', 'responsive' );
 			responsive_padding_control( $wp_customize, 'inputs', 'responsive_form_fields', 15, 3, 3, null, $inputs_padding_label );
 
-			// Inputs Radius.
-			$inputs_radius_label = __( 'Radius (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'inputs_radius', $inputs_radius_label, 'responsive_form_fields', 17, 0 );
-
 			// Inputs Border Width.
 			$inputs_border_width_label = __( 'Border Width (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'inputs_border_width', $inputs_border_width_label, 'responsive_form_fields', 19, 1 );
+			// responsive_number_control( $wp_customize, 'inputs_border_width', $inputs_border_width_label, 'responsive_form_fields', 19, 1 );
+			responsive_borderwidth_control( $wp_customize, 'inputs_border_width', 'responsive_form_fields', 17, 1, 1, null, $inputs_border_width_label );
+
+			// Inputs Radius.
+			$inputs_radius_label = __( 'Radius (px)', 'responsive' );
+			responsive_number_control( $wp_customize, 'inputs_radius', $inputs_radius_label, 'responsive_form_fields', 19, 0 );
 
 			// Input Fields Typography.
 			$inputs_typography_label = esc_html__( 'Form Fields Typography', 'responsive' );

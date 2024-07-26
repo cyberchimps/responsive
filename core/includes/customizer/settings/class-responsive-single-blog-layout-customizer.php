@@ -249,7 +249,7 @@ if ( ! class_exists( 'Responsive_Single_Blog_Layout_Customizer' ) ) :
 
 			// Enable Related Posts.
 			$enable_single_blog_related_posts_label = __( 'Enable Related Posts', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'single_blog_enable_related_posts', $enable_single_blog_related_posts_label, 'responsive_single_blog_layout', 200, 0, null );
+			responsive_toggle_control( $wp_customize, 'single_blog_enable_related_posts', $enable_single_blog_related_posts_label, 'responsive_single_blog_layout', 200, 0, null );
 
 			// Related Posts Section Title.
 			$wp_customize->add_setting(
