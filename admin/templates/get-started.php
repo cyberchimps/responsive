@@ -49,7 +49,7 @@ $nonce = add_query_arg(
 	network_admin_url( 'plugins.php' )
 );
 
-$admin_logo        = apply_filters( 'responsive_admin_menu_icon', esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-logo-colored.jpg' );
+$admin_logo        = apply_filters( 'responsive_admin_menu_icon', esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/responsive-theme-logo.png' );
 $admin_footer_logo = apply_filters( 'responsive_admin_menu_footer_icon', esc_url( RESPONSIVE_THEME_URI . 'admin/images/cyberchimps-logo.png' ) );
 ?>
 

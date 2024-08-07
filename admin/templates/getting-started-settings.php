@@ -31,7 +31,7 @@ $is_rst_active = class_exists( 'Responsive_Add_Ons' ) ? true : false;
 ?>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-2 responsive-theme-setting-left-container">
 			<div class="responsive-theme-setting-list">
 				<?php
 				do_action( 'responsive_theme_setting_item' );
@@ -67,7 +67,7 @@ $is_rst_active = class_exists( 'Responsive_Add_Ons' ) ? true : false;
 				</div>
 			</div>
 		</div>
-		<div class="col-md-10 responsive-theme-setting-border-left">
+		<div class="col-md-10 responsive-theme-setting-border-left responsive-theme-setting-container">
 		<?php
 		if ( 'activated' === $state ) {
 			$disabled               = '';

@@ -113,7 +113,7 @@ $accordions = array(
 							<?php
 							foreach ( $help_card as $card ) {
 								?>
-								<div class="col-md-6 gy-3">
+								<div class="col-md-6 gy-3 card-container">
 									<a href="<?php echo esc_url( $card['link'] ); ?>" target="_blank" class="card text-decoration-none h-100">
 										<div class="card-body" style="margin-top: 15px;">
 											<div class="text-center">
@@ -142,31 +142,27 @@ $accordions = array(
 					<p class="text-center responsive-theme-help-ticket-support-desc mb-5"><?php esc_html_e( 'We are here to help and guide you.', 'responsive' ); ?></p>
 					<div class="responsive-theme-help-card-section">
 						<div class="row">
-							<div class="col-md-10 offset-1">
-								<div class="row">
-									<?php
-									for ( $i = 0; $i < 2; $i++ ) {
-										?>
-										<div class="col-md-6 gy-3">
-											<a href="<?php echo esc_url( $help_card[ $i ]['link'] ); ?>" target="_blank" class="card text-decoration-none responsive-theme-ticket-card-body h-100">
-												<div class="card-body" style="margin-top: 15px;">
-													<div class="text-center">
-														<div class="responsive-theme-help-card-icon-section">
-															<div class="responsive-theme-help-card-icon-wrapper">
-																<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/' . esc_attr( $help_card[ $i ]['icon'] ) . '.svg'; ?>" alt="<?php echo esc_attr( $help_card[ $i ]['icon'] ); ?>">
-															</div>
-														</div>
-														<p class="fw-semibold responsive-theme-help-card-title"><?php echo esc_html( $help_card[ $i ]['title'] ); ?></p>
-														<p class="fw-normal mb-0 responsive-theme-help-card-desc"><?php echo esc_html( $help_card[ $i ]['desc'] ); ?></p>
+							<?php
+							for ( $i = 0; $i < 2; $i++ ) {
+								?>
+								<div class="col-md-6 gy-3 card-container">
+									<a href="<?php echo esc_url( $help_card[ $i ]['link'] ); ?>" target="_blank" class="card text-decoration-none responsive-theme-ticket-card-body h-100">
+										<div class="card-body" style="margin-top: 15px;">
+											<div class="text-center">
+												<div class="responsive-theme-help-card-icon-section">
+													<div class="responsive-theme-help-card-icon-wrapper">
+														<img src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/' . esc_attr( $help_card[ $i ]['icon'] ) . '.svg'; ?>" alt="<?php echo esc_attr( $help_card[ $i ]['icon'] ); ?>">
 													</div>
 												</div>
-											</a>
+												<p class="fw-semibold responsive-theme-help-card-title"><?php echo esc_html( $help_card[ $i ]['title'] ); ?></p>
+												<p class="fw-normal mb-0 responsive-theme-help-card-desc"><?php echo esc_html( $help_card[ $i ]['desc'] ); ?></p>
+											</div>
 										</div>
-										<?php
-									}
-									?>
+									</a>
 								</div>
-							</div>
+								<?php
+							}
+							?>
 						</div>
 					</div>
 
@@ -177,42 +173,38 @@ $accordions = array(
 					</div>
 
 					<div class="row">
-						<div class="col-md-10 offset-md-1">
-							<div class="responsive-theme-help-faq-section">
-								<div class="accordion" id="resp-faq-accordion">
-									<div class="row">
-									<?php
-									foreach ( $accordions as $index => $accordion ) {
-										?>
-										<div class="col-md-6 gy-3">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-												<button class="fw-semibold accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>" aria-expanded="true" aria-controls="resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>">
-												<?php echo esc_html( $accordion['title'] ); ?>
-												</button>
-												</h2>
-												<div id="resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>" class="accordion-collapse collapse" data-bs-parent="#resp-faq-accordion">
-													<div class="accordion-body responsive-help-accordion-body">
-													<?php echo wp_kses_post( $accordion['content'] ); ?>
-													</div>
+						<div class="responsive-theme-help-faq-section">
+							<div class="accordion" id="resp-faq-accordion">
+								<div class="row">
+								<?php
+								foreach ( $accordions as $index => $accordion ) {
+									?>
+									<div class="col-md-6 gy-3">
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+											<button class="fw-semibold accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>" aria-expanded="true" aria-controls="resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>">
+											<?php echo esc_html( $accordion['title'] ); ?>
+											</button>
+											</h2>
+											<div id="resp-help-accordion-<?php echo esc_attr( $index + 1 ); ?>" class="accordion-collapse collapse" data-bs-parent="#resp-faq-accordion">
+												<div class="accordion-body responsive-help-accordion-body">
+												<?php echo wp_kses_post( $accordion['content'] ); ?>
 												</div>
 											</div>
 										</div>
-										<?php
-									}
-									?>
 									</div>
+									<?php
+								}
+								?>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="row">
-						<div class="col-md-10 offset-md-1 text-center">
-							<div class="responsive-theme-help-open-ticket-section-box rounded">
-								<p class="responsive-theme-help-open-ticket-title"><?php esc_html_e( 'Still Have Questions?', 'responsive' ); ?></p>
-								<a href="<?php echo esc_url( 'https://cyberchimps.com/open-a-ticket/' ); ?>" target="_blank" class="btn responsive-theme-help-open-ticket-button"> <?php esc_html_e( 'Open a Ticket', 'responsive' ); ?></a>
-							</div>
+						<div class="responsive-theme-help-open-ticket-section-box rounded text-center">
+							<p class="responsive-theme-help-open-ticket-title"><?php esc_html_e( 'Still Have Questions?', 'responsive' ); ?></p>
+							<a href="<?php echo esc_url( 'https://cyberchimps.com/open-a-ticket/' ); ?>" target="_blank" class="btn responsive-theme-help-open-ticket-button"> <?php esc_html_e( 'Open a Ticket', 'responsive' ); ?></a>
 						</div>
 					</div>
 

@@ -384,11 +384,11 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 					?>
 				</div>
 			</div>
-			<div class="row gy-4">
+			<div class="row gy-4 responsive-plus-card-container">
 				<?php
 				foreach ( $getting_started_home_cards_content as $feature ) {
 					?>
-				<div class="col-xl-4 col-lg-6 col-md-6">
+				<div class="col-xl-4 col-lg-6 col-md-6 ">
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
 							<?php
