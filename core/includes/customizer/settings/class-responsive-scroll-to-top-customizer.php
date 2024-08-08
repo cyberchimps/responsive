@@ -44,6 +44,30 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 					'priority' => 203,
 				)
 			);
+
+			// Adding General and Design tabs
+			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
+			
+			$general_tab_ids_prefix = 'customize-control-';
+			$general_tab_ids        = array(
+				$general_tab_ids_prefix . 'responsive_scroll_to_top',
+				$general_tab_ids_prefix . 'responsive_scroll_to_top_on_devices',
+				$general_tab_ids_prefix . 'responsive_scroll_to_top_icon_position',
+				$general_tab_ids_prefix . 'responsive_scroll_to_top_icon_size',
+				$general_tab_ids_prefix . 'responsive_scroll_to_top_icon_radius',
+				
+			);
+			
+			$design_tab_ids_prefix = 'customize-control-';
+			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_color',
+				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_hover_color',
+				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_background_color',
+				$design_tab_ids_prefix . 'responsive_scroll_to_top_icon_background_hover_color',
+			);
+
+			responsive_tabs_button_control( $wp_customize, 'scrolltotop_section_tabs', $tabs_label, 'responsive_scrolltotop_section', 1, '', 'responsive_scrolltotop_section_general_tab', 'responsive_scrolltotop_section_design_tab', $general_tab_ids, $design_tab_ids, null );
+
 			// Enable Scroll to top.
 			$wp_customize->add_setting(
 				'responsive_scroll_to_top',
