@@ -42,7 +42,13 @@ const TabsComponent = props => {
 				element.style.display = 'none';
 			}
 		});
-
+		const logoWidthElement = document.getElementById('customize-control-responsive_logo_width');
+		const isCustomLogoPresent = document.getElementsByClassName('attachment-thumb').length > 0;
+		if ( showElements === 'general' && logoWidthElement || !isCustomLogoPresent ) {
+			logoWidthElement.style.display = 'none';
+		} else if( showElements === 'design' && logoWidthElement && isCustomLogoPresent ) {
+			logoWidthElement.style.display = 'block';
+		}
 		toggleSidebarPositionWidthControls( api('responsive_page_sidebar_toggle').get(), 'page' );
 		toggleSidebarPositionWidthControls( api('responsive_blog_sidebar_toggle').get(), 'blog' );
 		toggleSidebarPositionWidthControls( api('responsive_single_blog_sidebar_toggle').get(), 'single_blog' );
