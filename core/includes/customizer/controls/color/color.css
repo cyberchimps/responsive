@@ -3,7 +3,7 @@ body.wp-customizer .wp-color-result-text { background-color: rgba(0,0,0,.2); col
 body.wp-customizer .wp-picker-container { max-width: 255px; }
 body.wp-customizer .wp-picker-container .iris-picker { margin: 15px 0 0 0; border-bottom:none; }
 body.wp-customizer .wp-picker-container,
-body.wp-customizer .wp-picker-input-wrap { width: 100%; border-radius: 4px; overflow: hidden; }
+body.wp-customizer .wp-picker-input-wrap { width: 100%; border-radius: 4px;}
 body.wp-customizer .wp-picker-open + .wp-picker-input-wrap { width: 100%; }
 body.wp-customizer .wp-picker-container .wp-picker-input-wrap > label,
 body.wp-customizer.wp-core-ui .wp-picker-default,
@@ -567,4 +567,44 @@ body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-
 .responsive-color-control-main-wrap .components-base-control.components-number-control .components-text.components-spacer,
 .responsive-color-control-main-wrap .components-base-control.components-number-control input.components-input-control__input {
     font-size: 14px;
+}
+.tooltip-container {
+	position: relative;
+}
+.tooltip-container .tooltip-text {
+	visibility: hidden;
+	width: auto;
+    height: auto;
+	background-color: #3B3B3B;
+	color: #fff;
+	border-radius: 6px;
+	padding: 6px 11px;
+	position: absolute;
+	z-index: 1;
+	bottom: 128%;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: center;
+}
+
+.tooltip-container:hover .tooltip-text {
+	visibility: visible;
+	opacity: 1;
+}
+.tooltip-container .tooltip-text::after{
+    position: absolute;
+    top: 77%;
+    left: 43%;
+    height: 0;
+    width: 0;
+    border-top: 4px solid #3B3B3B;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    margin: 6px 0 0;
+    content: "";
 }

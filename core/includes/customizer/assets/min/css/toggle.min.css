@@ -59,20 +59,20 @@
     padding-bottom: 0;
 }
 #customize-control-res_blog_post_title_toggle .responsive-toggle-control-wrapper {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 22px;
+    padding-bottom: 0;
 }
 #customize-control-responsive_date_box_toggle .responsive-toggle-control-wrapper {
-    padding-top: 18px;
-    padding-bottom: 8px;
+    padding-top: 24px;
+    padding-bottom: 0;
 }
 #customize-control-responsive_disable_author_meta .responsive-toggle-control-wrapper {
     padding-top: 18px;
     padding-bottom: 8px;
 }
 #customize-control-responsive_single_blog_enable_related_posts .responsive-toggle-control-wrapper {
-    padding-top: 24px;
-    padding-bottom: 12px;
+    padding-top: 11px;
+    padding-bottom: 0;
 }
 #customize-control-responsive_footer_full_width .responsive-toggle-control-wrapper {
     padding-top: 8px;

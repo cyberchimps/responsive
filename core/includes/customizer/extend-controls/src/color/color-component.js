@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import ResponsiveColorPickerControl from './responsive-color-picker-control';
+import ResponsiveColorPickerWithHoverControl from './responsive-color-picker-with-hover-contorl';
 import {useState} from 'react';
 
 const ColorComponent = props => {
@@ -15,27 +16,43 @@ const ColorComponent = props => {
 			...prevState,
 			value: value
 		}));
-		props.control.setting.set(value);
+		if (props.control.params.is_hover_required) {
+            props.control.settings['normal'].set(value.normal);
+            props.control.settings['hover'].set(value.hover);
+        } else {
+            props.control.setting.set(value);
+        }
 	};
-	const handleChangeComplete = ( color ) => {
-		let value;
+	const handleChangeComplete = ( color, type ) => {
+		let colorValue;
 
 		if (typeof color === 'string' || color instanceof String) {
-			value = color;
+			colorValue = color;
 		} else if (undefined !== color.rgb && undefined !== color.rgb.a && 1 !== color.rgb.a) {
-			value = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
+			colorValue = 'rgba(' + color.rgb.r + ',' + color.rgb.g + ',' + color.rgb.b + ',' + color.rgb.a + ')';
 		} else {
-			value = color.hex;
+			colorValue = color.hex;
 		}
 
-		updateValues(value);
+		let updatedValue = { ...state.value };
+        if (type === 'normal') {
+            updatedValue.normal = colorValue;
+        } else if (type === 'hover') {
+            updatedValue.hover = colorValue;
+        }
+		if( props.control.params.is_hover_required ) {
+			updateValues(updatedValue);
+		} else {
+			updateValues(colorValue);
+		}
 	};
 
 	let labelHtml = null;
     let htmlDescription = null;
 	const {
 		label,
-        description
+        description,
+		is_hover_required
 	} = props.control.params;
 
 	if (label) {
@@ -49,11 +66,20 @@ const ColorComponent = props => {
 		<label className='responsive-color-control-main-wrap'>
 			{labelHtml}
             <div>
-                <ResponsiveColorPickerControl color={undefined !== state.value && state.value ? state.value : ''}
-                    onChangeComplete={(color) => handleChangeComplete(color)}
-                    backgroundType={'color'}
-                    inputattr={props.control.params}
-                />
+				{ is_hover_required && (
+					<ResponsiveColorPickerWithHoverControl color={undefined !== state.value.normal && state.value.normal ? state.value.normal : ''} hover_color={undefined !== state.value.hover && state.value.hover ? state.value.hover : ''}
+						onChangeComplete={(color, type) => handleChangeComplete(color, type)}
+						backgroundType={'color'}
+						inputattr={props.control.params}
+					/>
+				) }
+				{ ! is_hover_required && (
+					<ResponsiveColorPickerControl color={undefined !== state.value && state.value ? state.value : ''}
+						onChangeComplete={(color) => handleChangeComplete(color)}
+						backgroundType={'color'}
+						inputattr={props.control.params}
+					/>
+				)}
 
 		    </div>
 		</label>
