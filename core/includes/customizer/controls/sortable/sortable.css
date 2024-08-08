@@ -1,5 +1,48 @@
-.customize-control-responsive-sortable ul li { padding: 8px 10px; line-height: 20px; border: 1px solid #ccc; background: #fff; }
-.customize-control-responsive-sortable ul li .dashicons.dashicons-menu { float: right; }
-.customize-control-responsive-sortable ul li .dashicons.visibility { color: #49aed8; margin-right: 10px; }
-.customize-control-responsive-sortable ul li.invisible { color: #aaa; border: 1px dashed #aaa; }
-.customize-control-responsive-sortable ul li.invisible .dashicons.visibility { color: #aaa; }
+.customize-control-responsive-sortable ul li { 
+    padding: 9px 8px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0px 0px 8px -3px #00000040;
+    margin: 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.customize-control-responsive-sortable ul li .visibility { line-height: 0; float: right; }
+.responsive-sortable-items-wrapper {
+    padding: 18px;
+    border: 1px solid #D2D2D2;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.responsive-sortable .customize-control-title {
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+.responsive-sortable-eye-icon {
+    display: none;
+}
+.responsive-sortable-eye-icon.active {
+    display: inline;
+}
+.responsive-sortable-items-menu-choice-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.responsive-sortable-item-menu {
+    line-height: 0;
+}
+.responsive-sortable-item-choice {
+    line-height: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #50575E;
+}
