@@ -1,1 +1,24 @@
 body .select2-container{z-index:99999999}body .customize-control .select2-container{z-index:1}body .select2-container .select2-selection--single{height:33px}body .select2-container--default .select2-selection--single{height:33px;border-color:#ddd;border-radius:0}body .select2-container--default .select2-selection--single .select2-selection__rendered{color:#32373c;line-height:33px}body .select2-container--default .select2-selection--single .select2-selection__arrow{height:30px}
+#sub-accordion-section-responsive_typography .responsive-color-control-main-wrap {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+#sub-accordion-section-responsive_typography h4.responsive-customizer-heading {
+    padding-top: 24px;
+    padding-bottom: 0;
+}
+#customize-control-responsive_meta_text_color .responsive-color-control-main-wrap {
+    padding-bottom: 12px;
+}
+#customize-control-responsive_all_heading_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_h1_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_h2_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_h3_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_h4_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_h5_text_separator .responsive-horizontal-separator-control-wrapper
+ {
+    margin: 0;
+}
+#sub-accordion-section-responsive_typography .responsive-color-control-main-wrap .wp-picker-holder {
+    top: 58px;
+}

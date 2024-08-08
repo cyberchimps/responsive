@@ -3,7 +3,7 @@ body.wp-customizer .wp-color-result-text { background-color: rgba(0,0,0,.2); col
 body.wp-customizer .wp-picker-container { max-width: 255px; }
 body.wp-customizer .wp-picker-container .iris-picker { margin: 15px 0 0 0; border-bottom:none; }
 body.wp-customizer .wp-picker-container,
-body.wp-customizer .wp-picker-input-wrap { width: 100%; border-radius: 4px; overflow: hidden; }
+body.wp-customizer .wp-picker-input-wrap { width: 100%; border-radius: 4px;}
 body.wp-customizer .wp-picker-open + .wp-picker-input-wrap { width: 100%; }
 body.wp-customizer .wp-picker-container .wp-picker-input-wrap > label,
 body.wp-customizer.wp-core-ui .wp-picker-default,
@@ -34,7 +34,6 @@ label {
     cursor: default;
 }
 .wp-picker-holder{
-    margin-top: 10px;
     background-color: #fff;
     border-radius: 3px;
 }
@@ -464,4 +463,148 @@ element.style {
 			width: 15px;
 		}
 	}
+}
+.responsive-color-control-main-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.responsive-color-control-main-wrap .customize-control-title {
+    margin: 0;
+}
+.responsive-color-control-main-wrap .wp-picker-holder {
+    position: absolute;
+    top: 44px;
+    z-index: 9999;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 0px 20px 0px #00000040;
+    border-radius: 4px;
+}
+body.wp-customizer .responsive-color-control-main-wrap .wp-picker-container .wp-color-result.button {
+    padding: 0;
+    width: 30px;
+    border-radius: 50%;
+}
+.responsive-color-control-main-wrap .components-color-picker,
+.responsive-color-control-main-wrap .components-color-picker .react-colorful {
+    width: 100%;
+}
+.responsive-color-control-main-wrap .components-color-picker .react-colorful__saturation {
+    margin-bottom: 24px;
+}
+.responsive-color-control-main-wrap .components-color-picker .react-colorful__hue,
+.responsive-color-control-main-wrap .components-color-picker .react-colorful__alpha {
+    width: 80%;
+}
+.responsive-color-control-main-wrap .components-h-stack .components-base-control.css-qy3gpb {
+    width: 77px;
+    height: 34px;
+    background-color: #FFF;
+}
+.responsive-color-control-main-wrap .components-select-control__input {
+    text-transform: uppercase;
+}
+.responsive-color-control-main-wrap .components-select-control {
+    width: 100%;
+    margin-left: 0;
+    border: 1px solid #A5A5A5;
+    border-radius: 4px;
+}
+.responsive-color-control-main-wrap .components-h-stack .components-button {
+    border: none;
+    justify-content: flex-end;
+    flex: none;
+}
+.responsive-color-control-main-wrap .components-input-control .components-input-control__container {
+    width: 100%;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    gap: 4px;
+}
+.responsive-color-control-main-wrap .components-input-control .components-input-control__backdrop {
+    border: 1px solid #A5A5A5;
+}
+.responsive-color-control-main-wrap .components-input-control__container .components-input-control__input {
+    font-size: 14px;
+
+}
+.responsive-color-control-main-wrap .components-color-picker .components-input-base {
+    padding-left: 0;
+    padding-right: 0;
+}
+.responsive-clear-btn-inside-picker.components-button {
+    margin: 4px auto 24px 16px;
+    padding: 8px 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #007CBA;
+    border: 0.5px solid #007CBA;
+    border-radius: 4px;
+    width: auto;
+    height: auto;
+    background: #FFF;
+}
+.responsive-clear-btn-inside-picker.components-button:hover {
+    background: #FFF;
+    border: 0.5px solid #007CBA;
+    color: #007CBA;
+}
+.responsive-color-control-main-wrap .components-base-control.components-number-control .components-base-control__field .components-input-base{
+    width: 90px;
+    height: 36px;
+}
+.responsive-color-control-main-wrap .components-base-control.components-number-control .components-base-control__field .components-input-base .components-input-control__backdrop{
+    border-radius: 4px;
+    border: 1px solid #A5A5A5;
+}
+.responsive-color-control-main-wrap .components-base-control.components-number-control .components-text.components-spacer,
+.responsive-color-control-main-wrap .components-base-control.components-number-control input.components-input-control__input {
+    font-size: 14px;
+}
+.tooltip-container {
+	position: relative;
+}
+.tooltip-container .tooltip-text {
+	visibility: hidden;
+	width: auto;
+    height: auto;
+	background-color: #3B3B3B;
+	color: #fff;
+	border-radius: 6px;
+	padding: 6px 11px;
+	position: absolute;
+	z-index: 1;
+	bottom: 128%;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: center;
+}
+
+.tooltip-container:hover .tooltip-text {
+	visibility: visible;
+	opacity: 1;
+}
+.tooltip-container .tooltip-text::after{
+    position: absolute;
+    top: 77%;
+    left: 43%;
+    height: 0;
+    width: 0;
+    border-top: 4px solid #3B3B3B;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    margin: 6px 0 0;
+    content: "";
 }

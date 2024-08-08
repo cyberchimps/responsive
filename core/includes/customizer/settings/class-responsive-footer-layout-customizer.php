@@ -61,7 +61,6 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			);
 
 			// Adding General and Design tabs
-			// error_log('Debug - footer tabs button control');
 			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
@@ -195,7 +194,7 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 					'type' => 'option',
 					'sanitize_callback' => 'wp_kses_post',
 					'transport'   => 'refresh',
-				),
+				)
 			);
 			
 			$wp_customize->add_control(

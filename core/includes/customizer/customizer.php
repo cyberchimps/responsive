@@ -333,7 +333,7 @@ function responsive_custom_customize_enqueue() {
 			}
 		}
 		$localize_array = array(
-			'path' => get_stylesheet_directory_uri() . '/core/includes/customizer/assets/images/',
+			'path' => RESPONSIVE_THEME_URI . '/core/includes/customizer/assets/images/',
 		);
 		wp_localize_script( 'responsive-custom-control-react-script', 'localize', $localize_array );
 }
