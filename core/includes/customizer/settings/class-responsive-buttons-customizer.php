@@ -82,11 +82,11 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			// Buttons Radius.
 			$buttons_radius_label = __( 'Radius (px)', 'responsive' );
 			// responsive_number_control( $wp_customize, 'buttons_radius', $buttons_radius_label, 'responsive_button', 16, Responsive\Core\get_responsive_customizer_defaults( 'buttons_radius' ) );
-			responsive_radius_control( $wp_customize, 'buttons_radius', 'responsive_button', 16, 0, 0, null, $buttons_radius_label );
+			responsive_radius_control( $wp_customize, 'buttons_radius', 'responsive_button', 17, 0, 0, null, $buttons_radius_label );
 
 			// Buttons Border Width.
 			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 17, 1 );
+			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 16, 1 );
 			// responsive_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_button', 17, 0, 0, null, $buttons_border_width_label );
 
 			// Buttons Typography.
@@ -100,27 +100,27 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			// Button Color.
 			$button_color_label = __( 'Color', 'responsive' );
 
-			responsive_color_control( $wp_customize, 'button', $button_color_label, 'responsive_button', 130, Responsive\Core\get_responsive_customizer_defaults( 'button' ) );
+			responsive_color_control( $wp_customize, 'button', $button_color_label, 'responsive_button', 130, Responsive\Core\get_responsive_customizer_defaults( 'button' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ), 'button_hover' );
 
 			// Button Hover Color.
-			$button_hover_color_label = __( 'Hover Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_hover', $button_hover_color_label, 'responsive_button', 140, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ) );
+			// $button_hover_color_label = __( 'Hover Color', 'responsive' );
+			// responsive_color_control( $wp_customize, 'button_hover', $button_hover_color_label, 'responsive_button', 140, Responsive\Core\get_responsive_customizer_defaults( 'button_hover' ) );
 
 			// Button Text Color.
 			$button_text_color_label = __( 'Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_text', $button_text_color_label, 'responsive_button', 150, Responsive\Core\get_responsive_customizer_defaults( 'button_text' ) );
+			responsive_color_control( $wp_customize, 'button_text', $button_text_color_label, 'responsive_button', 150, Responsive\Core\get_responsive_customizer_defaults( 'button_text' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_text' ), 'button_hover_text' );
 
 			// Button Hover Text Color.
-			$button_hover_text_color_label = __( 'Hover Text Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_hover_text', $button_hover_text_color_label, 'responsive_button', 160, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_text' ) );
+			// $button_hover_text_color_label = __( 'Hover Text Color', 'responsive' );
+			// responsive_color_control( $wp_customize, 'button_hover_text', $button_hover_text_color_label, 'responsive_button', 160, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_text' ) );
 
 			// Button Border Color.
 			$button_border_color_label = __( 'Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_border', $button_border_color_label, 'responsive_button', 170, Responsive\Core\get_responsive_customizer_defaults( 'button_border' ) );
+			responsive_color_control( $wp_customize, 'button_border', $button_border_color_label, 'responsive_button', 170, Responsive\Core\get_responsive_customizer_defaults( 'button_border' ), null, '', true, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ), 'button_hover_border' );
 
 			// Button Hover Border Color.
-			$button_hover_border_color_label = __( 'Hover Border Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'button_hover_border', $button_hover_border_color_label, 'responsive_button', 180, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ) );
+			// $button_hover_border_color_label = __( 'Hover Border Color', 'responsive' );
+			// responsive_color_control( $wp_customize, 'button_hover_border', $button_hover_border_color_label, 'responsive_button', 180, Responsive\Core\get_responsive_customizer_defaults( 'button_hover_border' ) );
 
 		}
 

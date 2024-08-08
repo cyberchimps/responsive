@@ -1238,7 +1238,7 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
  * @param  string  $desc     [description].
  * @return void               [description].
  */
-function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '' ) {
+function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '', $is_hover_required = false, $hover_default = null, $hover_element = null ) {
 	// Menu Background Color.
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_color',
@@ -1249,6 +1249,18 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 			'transport'         => 'postMessage',
 		)
 	);
+	// Add Hover Setting
+	if( $is_hover_required ) {
+		$wp_customize->add_setting(
+			'responsive_' . $hover_element . '_color',
+			array(
+				'default'           => $hover_default,
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'responsive_sanitize_background',
+				'transport'         => 'postMessage',
+			)
+		);
+	}
 	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
 		$plugin_info            = get_plugin_data( $plugin_path );
@@ -1292,12 +1304,16 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 				$wp_customize,
 				'responsive_' . $element . '_color',
 				array(
-					'label'           => $label,
-					'section'         => $section,
-					'settings'        => 'responsive_' . $element . '_color',
-					'priority'        => $priority,
-					'active_callback' => $active_call,
-					'description'     => $desc,
+					'label'            => $label,
+					'section'          => $section,
+					'is_hover_required'=> $is_hover_required,
+        			'settings'         => $is_hover_required ? array(
+                            'normal'   => 'responsive_' . $element . '_color',
+                            'hover'    => 'responsive_' . $hover_element . '_color',
+                        ) : 'responsive_' . $element . '_color',
+					'priority'         => $priority,
+					'active_callback'  => $active_call,
+					'description'      => $desc,
 				)
 			)
 		);
@@ -1487,6 +1503,36 @@ function responsive_not_active_site_style_flat() {
 	$header_layout = get_theme_mod( 'responsive_style', 'contained' );
 
 	return ( 'flat' === $header_layout ) ? false : true;
+}
+
+/**
+ * [responsive_active_page_sidebar_toggle description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_page_sidebar_toggle() {
+
+	return ( 1 === get_theme_mod( 'responsive_page_sidebar_toggle', 0 ) ) ? true : false;
+}
+
+/**
+ * [responsive_active_blog_sidebar_toggle description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_blog_sidebar_toggle() {
+
+	return ( 1 === get_theme_mod( 'responsive_blog_sidebar_toggle', 0 ) ) ? true : false;
+}
+
+/**
+ * [responsive_active_single_blog_sidebar_toggle description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_single_blog_sidebar_toggle() {
+
+	return ( 1 === get_theme_mod( 'responsive_single_blog_sidebar_toggle', 0 ) ) ? true : false;
 }
 
 /**
@@ -2343,7 +2389,7 @@ function responsive_toggle_control( $wp_customize, $element, $label, $section, $
  *
  * @return void [description].
  */
-function responsive_horizontal_separator_control( $wp_customize, $element, $count, $section, $priority, $default, $active_call, $transport = 'refresh' ) {
+function responsive_horizontal_separator_control( $wp_customize, $element, $count, $section, $priority, $default, $active_call = null, $transport = 'refresh' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,

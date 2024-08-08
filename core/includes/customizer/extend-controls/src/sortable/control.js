@@ -32,10 +32,11 @@ export const responsiveSortable = wp.customize.responsiveControl.extend( {
 		}).disableSelection().find( 'li' ).each( function() {
 
 				// Enable/disable options when we click on the eye of Thundera.
-				jQuery( this ).find( 'i.visibility' ).click( function() {
+				jQuery( this ).find( 'span.visibility' ).click( function() {
 					jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).parents( 'li:eq(0)' ).toggleClass( 'invisible' );
+					jQuery( this ).find('.responsive-sortable-eye-icon').toggleClass('active');
 				});
-		}).click( function() {
+			}).click( function() {
 
 			// Update value on click.
 			control.updateValue();
@@ -44,7 +45,7 @@ export const responsiveSortable = wp.customize.responsiveControl.extend( {
 
 	/**
 	 * Updates the sorting list
-	 */
+	*/
 	updateValue: function() {
 
 		'use strict';
