@@ -246,6 +246,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		register_nav_menus(
 			array(
 				'header-menu' => __( 'Header Menu', 'responsive' ),
+				'secondary-menu' => __( 'Secondary Menu', 'responsive' ),
 				'footer-menu' => __( 'Footer Menu', 'responsive' ),
 			)
 		);
@@ -496,6 +497,7 @@ function responsive_enqueue_scrolltotop() {
  * @param int $new New Page.
  * @param int $orig Original Page.
  */
+
 function responsive_front_page_override( $new, $orig ) {
 	global $responsive_options;
 
@@ -737,6 +739,29 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'menu-item-hover-style-overline';
 		}
 	}
+	
+	//---------------------------------------------------------------------
+	//******************* Classes for secodary menu ***********************
+	//---------------------------------------------------------------------
+	
+	$elements = array('secondary-navigation');
+	
+	$classes[] = 'site-header-' . implode( '-', $elements );
+	
+	// Secondary Menu Item Hover Style Classes.
+	if ( get_theme_mod( 'responsive_secondary_menu_item_hover_style', 'none' ) ) {
+		$secondary_menu_item_hover_style_chosen_option = get_theme_mod( 'responsive_secondary_menu_item_hover_style', 'none' );
+		if ( 'none' === $secondary_menu_item_hover_style_chosen_option ) {
+			$classes[] = 'secondary-menu-item-hover-style-none';
+		} elseif ( 'zoom' === $secondary_menu_item_hover_style_chosen_option ) {
+			$classes[] = 'secondary-menu-item-hover-style-zoom';
+		} elseif ( 'underline' === $secondary_menu_item_hover_style_chosen_option ) {
+			$classes[] = 'secondary-menu-item-hover-style-underline';
+		} elseif ( 'overline' === $secondary_menu_item_hover_style_chosen_option ) {
+			$classes[] = 'secondary-menu-item-hover-style-overline';
+		}
+	}
+	
 	return $classes;
 }
 
@@ -1059,6 +1084,17 @@ function defaults() {
 			'header_sub_menu_link_hover'          => '#10659C',
 			'header_menu_toggle_background'       => 'transparent',
 			'header_menu_toggle'                  => '#333333',
+			'hamburger_secondary_menu_padding'    => 15,
+			'header_secondary_menu_background'    => '#ffffff',
+			'header_secondary_menu_border'        => '#eaeaea',
+			'header_active_secondary_menu_background'       => '#ffffff',
+			'header_secondary_menu_link'                    => '#333333',
+			'header_secondary_menu_link_hover'            	=> '#10659C',
+			'header_sub_secondary_menu_background'          => '#ffffff',
+			'header_sub_secondary_menu_link'                => '#333333',
+			'header_sub_secondary_menu_link_hover'          => '#10659C',
+			'header_secondary_menu_toggle_background'       => 'transparent',
+			'header_secondary_menu_toggle'                  => '#333333',
 			'mobile_menu_toggle_border_color'     => '#333333',
 			'menu_button_radius'                  => 0,
 			'box_background'                      => '#ffffff',
@@ -1088,6 +1124,7 @@ function defaults() {
 			'responsive_header_layout'            => 'horizontal',
 			'responsive_header_alignment'         => 'center',
 			'header_menu_full_width'              => 1,
+			'header_secondary_menu_full_width'    => 1,
 			'blog_content_width'                  => 66,
 			'res_breadcrumb'                      => 1,
 			'blog_sidebar_position'               => 'right',

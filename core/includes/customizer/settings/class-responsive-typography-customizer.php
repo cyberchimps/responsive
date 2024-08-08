@@ -239,6 +239,19 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						'line-height' => '1.75',
 					),
 				),
+				'header_secondary_menu'                => array(
+					'label'           => esc_html__( 'Typography', 'responsive' ),
+					'target'          => $selectorArray['header_secondary_menu'],
+					'section'         => 'responsive_header_secondary_menu_layout',
+					'exclude'         => array( 'font-color' ),
+					'priority'        => 160,
+					'active_callback' => 'responsive_disabled_secondary_menu',
+					'defaults'        => array(
+						'font-size'   => '16px',
+						'font-weight' => '600',
+						'line-height' => '1.75',
+					),
+				),
 				'sidebar'                    => array(
 					'label'    => esc_html__( 'Typography', 'responsive' ),
 					'target'   => $selectorArray['sidebar'],
@@ -351,6 +364,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 				'header_site_tagline'        => '.site-description',
 				'header_widgets'             => '.header-widgets',
 				'header_menu'                => '.main-navigation a',
+				'header_secondary_menu'      => '.secondary-navigation a',
 				'sidebar'                    => '.site-content .widget-area:not(.home-widgets) .widget-wrapper',
 				'content_header_heading'     => '.site-content-header .page-header .page-title,.site-content-header .page-title',
 				'content_header_description' => '.site-content-header .page-header .page-description',

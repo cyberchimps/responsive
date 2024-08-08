@@ -1429,6 +1429,15 @@ function responsive_active_vertical_header_and_main_menu() {
 }
 
 /**
+ * [responsive_active_vertical_header_and_secondary_menu description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_vertical_header_and_secondary_menu() {
+	return ( 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) && 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+}
+
+/**
  * [responsive_active_vertical_transparent_header description].
  *
  * @return [type] [description]
@@ -1469,6 +1478,16 @@ function responsive_has_custom_logo_callback() {
 function responsive_active_sidebar_menu() {
 
 	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 1 === get_theme_mod( 'responsive_disable_mobile_menu', 1 ) && 'sidebar' === get_theme_mod( 'responsive_mobile_menu_style', 'dropdown' ) ) ? true : false;
+}
+
+/**
+ * [responsive_active_sidebar_secondary_menu description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_sidebar_secondary_menu() {
+
+	return ( 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) ) ? true : false;
 }
 
 /**
@@ -2443,6 +2462,15 @@ function responsive_disabled_main_menu() {
 }
 
 /**
+ * [responsive_disable_secondary_menu description]
+ *
+ * @return [type] [description]
+ */
+function responsive_disabled_secondary_menu() {
+	return ( 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) ) ? true : false;
+}
+
+/**
  * [responsive_disabled_mobile_menu description]
  *
  * @return [type] [description]
@@ -2488,6 +2516,15 @@ function responsive_last_item_in_menu_active() {
 }
 
 /**
+ * [responsive_last_item_in_menu_active]
+ *
+ * @return [type] [description]
+ */
+function responsive_last_item_in_secondary_menu_active() {
+	return ( 'none' !== get_theme_mod( 'responsive_secondary_menu_last_item' ) && 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) ) ? true : false;
+}
+
+/**
  * [responsive_last_item_in_menu_and_mobile_menu_enabled description]
  *
  * @return [type] [description]
@@ -2506,12 +2543,30 @@ function responsive_menu_last_item_cta() {
 }
 
 /**
+ * [responsive_secondary_menu_last_item_cta description]
+ *
+ * @return [type] [description]
+ */
+function responsive_secondary_menu_last_item_cta() {
+	return ( 'button' === get_theme_mod( 'responsive_secondary_menu_last_item', 'none' ) ) ? true : false;
+}
+
+/**
  * [responsive_menu_last_item_text description]
  *
  * @return [type] [description]
  */
 function responsive_menu_last_item_text() {
 	return ( 'text-html' === get_theme_mod( 'responsive_menu_last_item', 'none' ) ) ? true : false;
+}
+
+/**
+ * [responsive_secondary_menu_last_item_text description]
+ *
+ * @return [type] [description]
+ */
+function responsive_secondary_menu_last_item_text() {
+	return ( 'text-html' === get_theme_mod( 'responsive_secondary_menu_last_item', 'none' ) ) ? true : false;
 }
 
 /**
