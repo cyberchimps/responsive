@@ -32,11 +32,17 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 		}
 	}
 
-    toggleNormalVisible() {
+    toggleNormalVisible() {		
 		this.setState(prevState => ({
 			isNormalVisible: !prevState.isNormalVisible,
 			isHoverVisible: false,
 		}));
+		const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
+		if( ! this.state.isNormalVisible ) {
+			document.getElementById(currentElementID).style.paddingBottom ='480px';
+		} else {
+			document.getElementById(currentElementID).style.paddingBottom ='0';
+		}
 	}
 
 	toggleHoverVisible() {
@@ -44,6 +50,12 @@ class ResponsiveColorPickerWithHoverControl extends Component {
 			isHoverVisible: !prevState.isHoverVisible,
 			isNormalVisible: false,
 		}));
+		const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
+		if( ! this.state.isHoverVisible ) {
+			document.getElementById(currentElementID).style.paddingBottom ='480px';
+		} else {
+			document.getElementById(currentElementID).style.paddingBottom ='0';
+		}
 	}
 
 	render() {
