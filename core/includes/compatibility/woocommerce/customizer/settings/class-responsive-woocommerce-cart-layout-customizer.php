@@ -74,6 +74,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$design_tab_ids_prefix . 'responsive_cart_checkout_button_text_color',
 				$design_tab_ids_prefix . 'responsive_cart_checkout_button_hover_color',
 				$design_tab_ids_prefix . 'responsive_cart_checkout_button_hover_text_color',
+				$design_tab_ids_prefix . 'responsive_cart_buttons_separator',
+				$design_tab_ids_prefix . 'responsive_cart_checkout_buttons_separator',
+				$design_tab_ids_prefix . 'responsive_checkout_buttons_separator',
 			
 			);
 

@@ -47,13 +47,18 @@ class ResponsiveColorPickerControl extends Component {
 				this.setState( { refresh: true } );
 			}
 			this.setState( { isVisible: true } );
-		};
 
+			const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
+			document.getElementById(currentElementID).style.paddingBottom ='480px';
+		};
+		
 		const toggleClose = () => {
 			if ( modalCanClose ) {
 				if ( isVisible === true ) {
 					this.setState( { isVisible: false } );
 				}
+				const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
+				document.getElementById(currentElementID).style.paddingBottom ='0';
 			}
 		};
 		let finalpaletteColors = [];
