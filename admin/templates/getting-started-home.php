@@ -800,7 +800,13 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			</div>
 			<hr>
 			<div class="row">
-				<a class="responsive-theme-no-focus" href="<?php echo esc_url( 'https://cyberchimps.com/wordpress-themes/christmas/' ); ?>" target="_blank"><img class="my-4 w-100" src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/banner-rst-template.jpg'; ?>" alt="banner-rst-template"></a>
+				<div class="responsive-theme-feature-cards upgrade-to-pro-card">
+				    <div class="responsive-theme-feature-cards-content">
+						<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Upgrade to PRO', 'responsive' ); ?></p>
+			            <p class="responsive-theme-home-desc-text "><?php esc_html_e('Upgrade to Cyberchimps Pro plan to unlock access to 150+ Premium Starter Templates and priority support.');?></p>
+						<button class="btn-upgrade" onclick="window.open('<?php echo esc_url('https://cyberchimps.com/pricing/?utm_source=theme_dashboard&utm_medium=responsive-theme&utm_campaign=responsive-paid&utm_content=upgrade_button'); ?>', '_blank')"><?php esc_html_e('Upgrade', 'responsive'); ?></button>
+					</div>
+				</div>
 			</div>
 			<hr>
 			<div class="row">

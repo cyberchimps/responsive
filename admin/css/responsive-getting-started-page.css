@@ -378,8 +378,27 @@ hr {
     color: #2271B1;
 }
 
-.responsive-theme-no-focus {
-    box-shadow: none !important;
+.upgrade-to-pro-card {
+    border: 1px solid #9AB2E2;
+    border-radius: 4px;
+    box-shadow: 0px 2px 10px 0px rgba(110, 136, 161, 0.25);
+}
+
+.btn-upgrade {
+    border: 1px solid #0A70B7;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    font-weight: 400;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    color: #0A70B7;
+}
+
+.btn-upgrade:hover {
+    background-color: #0A70B7;
+    color: #FFFFFF;
 }
 
 .responsive-theme-disabled-links {
