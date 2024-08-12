@@ -242,6 +242,10 @@ function responsive_gutenberg_customizer_css() {
 		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
     }
 
+	.wp-block-search__button{
+		padding: ' . responsive_spacing_css( $buttons_padding_top, $buttons_padding_right, $buttons_padding_bottom, $buttons_padding_left ) . ';
+    }
+
 	.responsive-block-editor-addons-buttons-repeater.responsive-block-editor-addons-button__wrapper > .not-inherited-from-theme {
 		color: ' . $button_text_color . ';
 	}
@@ -292,12 +296,18 @@ function responsive_gutenberg_customizer_css() {
 		.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button{
 			padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
 		}
+		.wp-block-search__button{
+			padding: ' . responsive_spacing_css( $buttons_tablet_padding_top, $buttons_tablet_padding_right, $buttons_tablet_padding_bottom, $buttons_tablet_padding_left ) . ';
+    	}
 	}
 	@media screen and ( max-width: 576px ) {
 		.edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,
 		.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button{
-			padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
+		    padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
 		}
+		.wp-block-search__button{
+			padding: ' . responsive_spacing_css( $buttons_mobile_padding_top, $buttons_mobile_padding_right, $buttons_mobile_padding_bottom, $buttons_mobile_padding_left ) . ';
+    	}
 	}
 	';
 
