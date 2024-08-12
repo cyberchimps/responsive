@@ -1143,3 +1143,12 @@ input:checked + .resp-megamenu-slider:before {
     margin-top: 20.75px;
     margin-right: 7.2px;
 }
+
+.responsive-theme-help-settings .responsive-theme-theme-settings-section{
+	margin-left: 43.5px;
+	margin-right: 43.5px;
+}
+
+.responsive-theme-help-setting-border-left .responsive-theme-theme-settings-section{
+	margin-bottom: 10px;
+}
