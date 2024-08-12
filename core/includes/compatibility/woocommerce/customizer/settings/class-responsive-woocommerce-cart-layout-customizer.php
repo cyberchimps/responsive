@@ -59,6 +59,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$general_tab_ids_prefix . 'responsive_disable_cart_fragments',
 				$general_tab_ids_prefix . 'responsive_cart_content_width',
 				$general_tab_ids_prefix . 'responsive_menu_cart_icon',
+				$general_tab_ids_prefix . 'responsive_cart_icon',
+				$general_tab_ids_prefix . 'responsive_cart_style',
+				$general_tab_ids_prefix . 'responsive_cart_title',
+				$general_tab_ids_prefix . 'responsive_cart_count',
 			);
 
 
@@ -77,6 +81,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 				$design_tab_ids_prefix . 'responsive_cart_buttons_separator',
 				$design_tab_ids_prefix . 'responsive_cart_checkout_buttons_separator',
 				$design_tab_ids_prefix . 'responsive_checkout_buttons_separator',
+				$design_tab_ids_prefix . 'responsive_cart_color',
 			
 			);
 
