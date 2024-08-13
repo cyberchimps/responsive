@@ -82,7 +82,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 				)
 			);
 
-			responsive_horizontal_separator_control($wp_customize, 'date_box_toggle_separator', 1, 'responsive_blog_layout', 37, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'date_box_toggle_separator', 1, 'responsive_blog_layout', 37, 1, 'responsive_date_box_toggle_callback' );
 
 			$wp_customize->add_control(
 				new Responsive_Customizer_Imageradio_Button_Control(
@@ -97,6 +97,7 @@ if ( ! class_exists( 'Responsive_Addons_Blog_Customizer' ) ) :
 							'square' => esc_html__( 'Square', 'responsive' ),
 							'round'  => esc_html__( 'Round', 'responsive' ),
 						),
+						'active_callback' => 'responsive_date_box_toggle_callback'
 					)
 				)
 			);
