@@ -1005,3 +1005,17 @@ body.mega-menu-header-menu button.menu-toggle {
         }
     }
 } // .secondary-navigation
+
+#header-secondary-menu {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+// Secondary menu hidden in mobile for the time being.
+@media (max-width: 700px) {
+    .secondary-container{
+        display: none !important;
+    }
+}
+

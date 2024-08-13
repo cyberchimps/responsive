@@ -2285,13 +2285,6 @@ function responsive_customizer_styles() {
 	//************* Secondary Menu Styles *************
 	//-------------------------------------------------
 
-	// Initital CSS
-	$custom_css .= " #header-secondary-menu {
-		display: flex;
-		width: 100vw;
-		gap: 5rem;
-	}";
-
 	// Sub Menu Animation Style
 	$responsive_submenu_animation_style                  = get_theme_mod( 'responsive_submenu_animation_style', 'none' );
 	
@@ -2445,8 +2438,8 @@ function responsive_customizer_styles() {
 	$secondary_menu_tablet_visibility = get_theme_mod( 'responsive_secondary_menu_tablet_visibility', 0 );
 	$secondary_menu_tablet_visibility = ( 1 === $secondary_menu_tablet_visibility ) ? 'none' : 'flex';
 
-	$secondary_menu_mobile_visibility = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 0 );
-	$secondary_menu_mobile_visibility = ( 1 === $secondary_menu_mobile_visibility ) ? 'none' : 'flex';
+	// $secondary_menu_mobile_visibility = get_theme_mod( 'responsive_secondary_menu_mobile_visibility', 0 );
+	// $secondary_menu_mobile_visibility = ( 1 === $secondary_menu_mobile_visibility ) ? 'none' : 'flex';
 
 	$custom_css .= ".secondary-navigation-wrapper {
 		display: {$secondary_menu_desktop_visibility};
@@ -2456,13 +2449,13 @@ function responsive_customizer_styles() {
 		.secondary-navigation-wrapper {
 			display: {$secondary_menu_tablet_visibility};
 		}
-	}
-
-	@media screen and ( max-width: 576px ) {
-		.secondary-navigation-wrapper{
-				display: {$secondary_menu_mobile_visibility};
-		}
 	}";
+
+	// @media screen and ( max-width: 576px ) {
+	// 	.secondary-navigation-wrapper{
+	// 			display: {$secondary_menu_mobile_visibility};
+	// 	}
+	// ";
 
 	// Secondary Menu Top Offset.
 	$secondary_menu_top_offset_value = esc_html( get_theme_mod( 'responsive_secondary_menu_top_offset', 0 ) );
@@ -2515,14 +2508,14 @@ function responsive_customizer_styles() {
 	    padding:  {$secondary_menu_padding_top}px {$secondary_menu_padding_right}px {$secondary_menu_padding_bottom}px {$secondary_menu_padding_left}px ; 
 
 	}
-	@media screen and ( max-width: 992px ) {
-	    $secondary_menu_css_selector{
-	        padding:  {$secondary_menu_padding_top}px {$secondary_menu_padding_right}px {$secondary_menu_padding_bottom}px {$secondary_menu_padding_left}px ; 
+	@media ( max-width: 992px ) {
+	    #header-secondary-menu>li{
+	        padding:  {$secondary_menu_tablet_padding_top}px {$secondary_menu_tablet_padding_right}px {$secondary_menu_tablet_padding_bottom}px {$secondary_menu_tablet_padding_left}px ; 
 	    }
 	}
-	@media screen and ( max-width: 576px ) {
-	    $secondary_menu_css_selector{
-	        padding:  {$secondary_menu_padding_top}px {$secondary_menu_padding_right}px {$secondary_menu_padding_bottom}px {$secondary_menu_padding_left}px ; 
+	@media ( max-width: 576px ) {
+	    #header-secondary-menu>li{
+	        padding:  {$secondary_menu_mobile_padding_top}px {$secondary_menu_mobile_padding_right}px {$secondary_menu_mobile_padding_bottom}px {$secondary_menu_mobile_padding_left}px ; 
 	    }
 	}";
 
@@ -2546,14 +2539,14 @@ function responsive_customizer_styles() {
 	    margin:  {$secondary_menu_margin_top}px {$secondary_menu_margin_right}px {$secondary_menu_margin_bottom}px {$secondary_menu_margin_left}px ; 
 
 	}
-	@media screen and ( max-width: 992px ) {
-	    $secondary_menu_css_selector{
-	        margin:  {$secondary_menu_margin_top}px {$secondary_menu_margin_right}px {$secondary_menu_margin_bottom}px {$secondary_menu_margin_left}px ; 
+	@media ( max-width: 992px ) {
+	    #header-secondary-menu>li{
+	        margin:  {$secondary_menu_tablet_margin_top}px {$secondary_menu_tablet_margin_right}px {$secondary_menu_tablet_margin_bottom}px {$secondary_menu_tablet_margin_left}px ; 
 	    }
 	}
-	@media screen and ( max-width: 576px ) {
-	    $secondary_menu_css_selector{
-	        margin:  {$secondary_menu_margin_top}px {$secondary_menu_margin_right}px {$secondary_menu_margin_bottom}px {$secondary_menu_margin_left}px ; 
+	@media ( max-width: 576px ) {
+	    #header-secondary-menu>li{
+	        margin:  {$secondary_menu_mobile_margin_top}px {$secondary_menu_mobile_margin_right}px {$secondary_menu_mobile_margin_bottom}px {$secondary_menu_mobile_margin_left}px ; 
 	    }
 	}";
 
@@ -2597,6 +2590,7 @@ function responsive_customizer_styles() {
 	}";
 	$custom_css .= ".secondary-navigation .menu-item-has-children > a {
 		display: flex;
+		align-items: center;
 	}";
 	$custom_css .= ".secondary-navigation .res-iconify.no-menu {
 			top: 16.3px;
