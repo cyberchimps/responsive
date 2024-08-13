@@ -82,6 +82,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 					'settings' => 'responsive_theme_options[blog_post_title_text]',
 					'type'     => 'text',
 					'priority' => 30,
+					'active_callback' => 'responsive_blog_post_title_toggle',
 				)
 			);
 
@@ -96,7 +97,7 @@ if ( ! class_exists( 'Responsive_Blog_Layout_Customizer' ) ) :
 			responsive_drag_number_control( $wp_customize, 'blog_entry_columns', $entry_columns_label, 'responsive_blog_layout', 15, Responsive\Core\get_responsive_customizer_defaults( 'entry_columns' ), null, 4 );
 			
 			responsive_horizontal_separator_control($wp_customize, 'blog_entry_columns_separator', 1, 'responsive_blog_layout', 17, 1, );
-			responsive_horizontal_separator_control($wp_customize, 'blog_post_title_toggle_separator', 1, 'responsive_blog_layout', 27, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'blog_post_title_toggle_separator', 1, 'responsive_blog_layout', 27, 1, 'responsive_blog_post_title_toggle' );
 			responsive_horizontal_separator_control($wp_customize, 'blog_post_title_text_separator', 1, 'responsive_blog_layout', 32, 1, );
 			
 			// Display Masonry.

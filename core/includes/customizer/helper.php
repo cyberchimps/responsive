@@ -2806,3 +2806,21 @@ if ( ! function_exists( 'responsive_footer_elements_positioning' ) ) {
 
 	}
 }
+/**
+ * [responsive_blog_post_title_toggle description].
+ *
+ * @return [type] [description]
+ */
+function responsive_blog_post_title_toggle() {
+
+	$responsive_options = get_option( 'responsive_theme_options' );
+	return ( $responsive_options['blog_post_title_toggle'] ) ? true : false;
+}
+/**
+ * [responsive_date_box_toggle_callback description].
+ *
+ * @return [type] [description]
+ */
+function responsive_date_box_toggle_callback() {
+	return get_theme_mod( 'responsive_date_box_toggle' ) ? true : false;
+}

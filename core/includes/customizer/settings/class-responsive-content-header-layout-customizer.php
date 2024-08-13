@@ -77,7 +77,7 @@ if ( ! class_exists( 'Responsive_Content_Header_Layout_Customizer' ) ) :
 			responsive_horizontal_separator_control( $wp_customize, 'breadcrumb_position_separator', 1, 'responsive_breadcrumb',20, 1, 'responsive_active_breadcrumb' );
 
 			// Breadcrumb separator.
-			$breadcrumb_separator_label   = esc_html__( 'Breadcrumb Seperator', 'responsive' );
+			$breadcrumb_separator_label   = esc_html__( 'Breadcrumb Separator', 'responsive' );
 			$breadcrumb_separator_choices = array(
 				'rsaquo' => esc_html__( '›', 'responsive' ),
 				'raquo' => esc_html__( '»', 'responsive' ),
