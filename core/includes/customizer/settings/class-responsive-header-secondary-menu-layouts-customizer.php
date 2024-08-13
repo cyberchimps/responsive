@@ -69,7 +69,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 				 $general_tab_ids_prefix . 'responsive_visibility_separator',
 				 $general_tab_ids_prefix . 'responsive_secondary_menu_desktop_visibility',
 				 $general_tab_ids_prefix . 'responsive_secondary_menu_tablet_visibility',
-				 $general_tab_ids_prefix . 'responsive_secondary_menu_mobile_visibility',
+				//  $general_tab_ids_prefix . 'responsive_secondary_menu_mobile_visibility',
 			 );
  
 			responsive_tabs_button_control( $wp_customize, 'secondary_menu_tabs', $tabs_label, 'responsive_header_secondary_menu_layout', 1, '', 'responsive_secondadry_menu_general_tab', 'responsive_secondary_menu_design_tab', $general_tab_ids, $design_tab_ids, null );
@@ -160,8 +160,8 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			responsive_checkbox_control( $wp_customize, 'secondary_menu_tablet_visibility', $secondary_menu_tablet_visibility, 'responsive_header_secondary_menu_layout', 80, 0, null );
 
 			// Hide on Mobile.
-			$secondary_menu_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
-			responsive_checkbox_control( $wp_customize, 'secondary_menu_mobile_visibility', $secondary_menu_mobile_visibility, 'responsive_header_secondary_menu_layout', 90, 0, null );
+			// $secondary_menu_mobile_visibility = __( 'Hide on Mobile', 'responsive' );
+			// responsive_checkbox_control( $wp_customize, 'secondary_menu_mobile_visibility', $secondary_menu_mobile_visibility, 'responsive_header_secondary_menu_layout', 90, 0, null );
 
 		}
 
