@@ -2320,10 +2320,11 @@ function responsive_select_button_control( $wp_customize, $element, $label, $sec
  * @param  [type]  $active_call  [description].
  * @param  [type]  $transport  [description].
  * @param  [type]  $description  [description].
- *
+ * @param  array   $control_tab_ids  [description].
+ * 
  * @return void               [description].
  */
-function responsive_tabs_button_control( $wp_customize, $element, $label, $section, $priority, $default, $general_id, $design_id, $general_tab_ids, $design_tab_ids, $active_call, $transport = 'refresh', $description = '' ) {
+function responsive_tabs_button_control( $wp_customize, $element, $label, $section, $priority, $default, $general_id, $design_id, $general_tab_ids, $design_tab_ids, $active_call, $transport = 'refresh', $description = '' ,$control_tab_ids = [] ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -2348,6 +2349,7 @@ function responsive_tabs_button_control( $wp_customize, $element, $label, $secti
 				'design_id'       => $design_id,
 				'general_tab_ids' => $general_tab_ids,
 				'design_tab_ids'  => $design_tab_ids,
+				'control_tab_ids'  => $control_tab_ids,
 			)
 		)
 	);

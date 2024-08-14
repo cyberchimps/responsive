@@ -60,6 +60,14 @@ if ( ! class_exists( 'Responsive_Customizer_Responsive_Tabs_Control' ) ) :
 		public $design_tab_ids;
 
 		/**
+		 * Ids that are controlled by some other element.
+		 * 
+		 * @access public
+		 * @var string
+		 */
+		public $control_tab_ids;
+
+		/**
 		 * Constructor for the custom control.
 		 *
 		 * This constructor initializes the custom control by setting custom arguments
@@ -87,6 +95,10 @@ if ( ! class_exists( 'Responsive_Customizer_Responsive_Tabs_Control' ) ) :
 
 			if ( isset( $args['design_tab_ids'] ) ) {
 				$this->design_tab_ids = $args['design_tab_ids'];
+			}
+
+			if ( isset( $args['control_tab_ids'] ) ) {
+				$this->control_tab_ids = $args['control_tab_ids'];
 			}
 
 			// Call parent constructor.
@@ -121,6 +133,7 @@ if ( ! class_exists( 'Responsive_Customizer_Responsive_Tabs_Control' ) ) :
 			$this->json['design_id']       = $this->design_id;
 			$this->json['general_tab_ids'] = $this->general_tab_ids;
 			$this->json['design_tab_ids']  = $this->design_tab_ids;
+			$this->json['control_tab_ids']  = $this->control_tab_ids;
 		}
 
 		/**

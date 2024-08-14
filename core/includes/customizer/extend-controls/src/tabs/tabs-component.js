@@ -21,12 +21,24 @@ const TabsComponent = props => {
 		general_id,
 		design_tab_ids,
 		general_tab_ids,
+		control_tab_ids
 	} = props.control.params;
 
 	const elementsToHide = {
 		design: general_tab_ids,
 		general: design_tab_ids,
 	};
+
+	// Registering conditionalControl function to call it whenever the contoller element value changes
+	control_tab_ids.forEach(element => {
+		const {controlId,controllerId,desiredValue,desiredTab} = element;
+	
+		api(`${controllerId}`, function( value ) {
+			value.bind( function( newval ) {
+				conditionalControl(newval,desiredValue,controlId,desiredTab);
+			});
+		});
+	});
 
 	useEffect(() => {
 		const showElements = tab === 'general' ? 'design' : 'general';
@@ -94,6 +106,12 @@ const TabsComponent = props => {
 				}
 			});
 		});
+
+		// Function to call on tab switch
+		control_tab_ids.forEach(element => {
+			const {controlId,controllerId,desiredValue,desiredTab} = element;
+			conditionalControl(api(`${controllerId}`).get(),desiredValue,controlId,desiredTab);
+		});
 	}, [tab]);
 
 	const toggleSidebarPositionWidthControls = (value, control) => {
@@ -116,6 +134,12 @@ const TabsComponent = props => {
 				document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'block';
 			}, 1000);
 		}
+	};
+
+	const conditionalControl = (value,desiredValue,control,desiredTab) => {
+		
+		document.getElementById(`customize-control-${control}`).style.display = (value == desiredValue && tab == desiredTab) ? 'block' : 'none';
+
 	};
 
 	return <>
