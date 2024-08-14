@@ -8,6 +8,15 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(14/08/2024) = Improvement - Version 5.1.0
+[+] = New = Support for Secondary Menu.
+[*] = Improvement = Improved UI of customizer color picker.
+[*] = Improvement = Restructured Page, Blog/Archive, Single Post and Sidebar customizer screens.
+[*] = Improvement = Restructured Site Identity, Site Title and Site Tagline customizer menus.
+[*] = Improvement = Restructured the cutomizer WooCommerce and Scroll To Top menu.
+[*] = Improvement = Minor UI changes.
+[!] = Fixed = Minor bug fixes.
+
 (25/07/2024) = Fix - Version 5.0.9
 [*] = Improvement = Replaced checkbox control with new toggle control in customizer.
 [*] = Improvement = Restructured the customizer footer settings.
