@@ -327,7 +327,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 						if ( check_is_responsive_pro_activated() ) {
 							esc_html_e( 'Responsive Pro Features', 'responsive' );
 						} elseif ( check_is_responsive_addons_installed() ) {
-							esc_html_e( 'Responsive Add-ons Features', 'responsive' );
+							esc_html_e( 'Responsive Plus Features', 'responsive' );
 						} else {
 							esc_html_e( 'Unlock More Features by Installing Responsive Plus', 'responsive' );
 						}
