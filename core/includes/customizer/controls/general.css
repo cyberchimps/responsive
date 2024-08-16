@@ -419,3 +419,237 @@ body.rtl .customize-control .responsive-switchers li {
 .wp-full-overlay-sidebar {
 	background-color: #ffffff;
 }
+.customize-control-text input {
+	padding: 12px;
+	color: #50575E;
+	border: 1px solid #D2D2D2;
+	line-height: 16px;
+}
+#customize-control-responsive_single_blog_content_width,
+#customize-control-responsive_single_blog_featured_image_alignment,
+#customize-control-responsive_blog_single_meta,
+#customize-control-responsive_single_blog_meta_separator_text,
+#customize-control-responsive_single_blog_meta_alignment {
+	padding-bottom: 24px;
+}
+#sub-accordion-section-responsive_single_blog_layout .responsive-customizer-heading {
+	padding-top: 24px;
+}
+#customize-control-responsive_single_blog_featured_image_separator .responsive-customizer-heading,
+#customize-control-responsive_single_blog_meta_control_separator .responsive-customizer-heading {
+	padding-bottom: 0;
+}
+#customize-control-responsive_single_blog_featured_image_width_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_single_blog_featured_image_style_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_responsive_disable_author_meta_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_responsive_blog_single_meta_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_responsive_single_blog_meta_separator_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_post_title_toggle_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_featured_image_width_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_entry_featured_image_style_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_entry_meta_separator_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_entry_meta_alignment_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_entry_content_type_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_entry_content_alignment_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_excerpt_length_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_read_more_text_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_date_box_toggle_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_blog_outside_container_separator .responsive-horizontal-separator-control-wrapper {
+	margin: 0;
+}
+#customize-control-responsive_single_blog_featured_image_width,
+#customize-control-responsive_single_blog_featured_image_style {
+	padding-bottom: 24px;
+}
+#sub-accordion-section-responsive_single_blog_layout .customize-control-title {
+	margin-top: 24px;
+}
+#customize-control-responsive_disable_author_meta {
+	padding-bottom: 16px;
+}
+#customize-control-responsive_single_blog_container_spacing {
+	margin-top: 24px;
+}
+#customize-control-responsive_single_blog_enable_related_posts_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_related_posts_title_alignment_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_related_posts_title_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_related_posts_count_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_related_posts_per_row_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_related_posts_taxonomy_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_related_post_structure_separator .responsive-horizontal-separator-control-wrapper {
+	padding-top: 24px;
+	margin: 0;
+}
+#_customize-input-responsive_single_blog_related_posts_title {
+	padding: 12px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16px;
+	text-align: left;
+	color: #50575E;
+}
+#customize-control-responsive_single_blog_container_spacing .responsive-customizer-heading {
+	padding-bottom: 0;
+}
+#customize-control-responsive_single_blog_padding_separator .responsive-horizontal-separator-control-wrapper {
+	margin: 0;
+	padding-top: 15px;
+}
+#customize-control-responsive_single_blog_content_width .customize-control-title {
+	margin-top: 12px;
+}
+#customize-control-responsive_page_sidebar_toggle .responsive-toggle-control-wrapper,
+#customize-control-responsive_blog_sidebar_toggle .responsive-toggle-control-wrapper {
+	padding-top: 24px;
+	padding-bottom: 0;
+}
+#customize-control-responsive_page_sidebar_controls_separator,
+#customize-control-responsive_blod_sidebar_controls_separator {
+	padding-top: 24px;
+}
+#customize-control-responsive_single_blog_sidebar_toggle .responsive-toggle-control-wrapper {
+	padding-top: 24px;
+	padding-bottom: 12px;
+}
+#sub-accordion-section-responsive_sidebar .customize-control-alpha-color .responsive-color-control-main-wrap {
+	padding-top: 24px;
+	padding-bottom: 22px;
+}
+#sub-accordion-section-responsive_sidebar .responsive-color-control-main-wrap .wp-picker-holder {
+	top: 60px;
+}
+#customize-control-responsive_page_sidebar_width,
+#customize-control-responsive_blog_sidebar_width,
+#customize-control-responsive_single_blog_sidebar_width {
+	padding-top: 24px;
+	border-top: 0.5px solid #D0D0D0;
+	margin-top: 24px;
+}
+#customize-control-responsive_page_sidebar_position .customize-control-title,
+#customize-control-responsive_blog_sidebar_position .customize-control-title {
+	margin-top: 24px;
+	margin-bottom: 12px;
+	line-height: 16px;
+}
+#customize-control-responsive_page_sidebar_width .customize-control-title,
+#customize-control-responsive_blog_sidebar_width .customize-control-title,
+#customize-control-responsive_single_blog_sidebar_width .customize-control-title {
+	margin-top: 0;
+	margin-bottom: 12px;
+	line-height: 16px;
+}
+#customize-control-responsive_single_blog_sidebar_position .customize-control-title {
+	margin-top: 12px;
+	margin-bottom: 12px;
+	line-height: 16px;
+}
+#customize-control-responsive_single_blog_sidebar_width {
+	padding-bottom: 12px;
+}
+#sub-accordion-section-responsive_page .customize-control-title {
+	margin-top: 24px;
+}
+#sub-accordion-section-responsive_page .responsive-horizontal-separator-control-wrapper {
+	padding-top: 24px;
+}
+#customize-control-responsive_page_featured_image_separator .responsive-customizer-heading,
+#customize-control-responsive_blog_entry_featured_image_separator .responsive-customizer-heading,
+#customize-control-responsive_blog_entry_meta_control_separator .responsive-customizer-heading,
+#customize-control-responsive_blog_entry_content_separator .responsive-customizer-heading,
+#customize-control-responsive_blog_container_spacing .responsive-customizer-heading {
+	padding-top: 24px;
+	padding-bottom: 0;
+	border: none;
+}
+#customize-control-responsive_page_featured_image_separator,
+#customize-control-responsive_blog_entry_featured_image_separator,
+#customize-control-responsive_blog_entry_meta_control_separator,
+#customize-control-responsive_blog_entry_content_separator,
+#customize-control-responsive_blog_container_spacing {
+	margin: 0;
+}
+#customize-control-responsive_page_featured_image_width_separator .responsive-horizontal-separator-control-wrapper,
+#customize-control-responsive_page_featured_image_style_separator .responsive-horizontal-separator-control-wrapper {
+	margin: 0;
+}
+#customize-control-responsive_page_content_alignment {
+	padding-bottom: 12px;
+}
+#sub-accordion-section-responsive_blog_layout .responsive-horizontal-separator-control-wrapper {
+	padding-top: 24px;
+}
+#sub-accordion-section-responsive_blog_layout .customize-control-title {
+	margin-top: 22px;
+}
+#customize-control-responsive_blog_layout_options .customize-control-title {
+	margin-top: 9px;
+	margin-bottom: 0;
+}
+.responsive-checkbox-control-description {
+	padding-top: 20px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 18px;
+	color: #A4A4A4;
+	margin: 0;
+}
+.responsive-checkbox-control-description span {
+	font-weight: 600;
+}
+#customize-control-exclude_post_cat label {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16px;
+	color: #50575E;
+}
+#customize-control-exclude_post_cat .customize-control-title {
+	margin-bottom: 16px;
+}
+
+#customize-control-responsive_date_box_style button:last-child {
+	border-radius: 50%;
+}
+#customize-control-responsive_date_box_style .customize-control-responsive-imageradiobtn__button {
+	width: 25%;
+	height: 77px;
+}
+#customize-control-responsive_date_box_style .customize-control-responsive-imageradiobtn__button.active {
+	width: 25%;
+}
+#sub-accordion-section-responsive_woocommerce_cart .responsive-horizontal-separator-control-wrapper {
+	padding-top: 22px;
+	padding-bottom: 22px;
+	margin: 0;
+}
+#sub-accordion-section-responsive_woocommerce_cart .responsive-color-control-main-wrap {
+	padding: 0;
+}
+#customize-control-responsive_cart_cart_button_separator,
+#customize-control-responsive_cart_checkout_button_separator {
+	margin-top: 0;
+}
+#customize-control-responsive_cart_cart_button_separator .responsive-customizer-heading,
+#customize-control-responsive_cart_checkout_button_separator .responsive-customizer-heading {
+	border: none;
+	padding-bottom: 24px;
+}
+#customize-control-responsive_cart_cart_button_separator .responsive-customizer-heading {
+	padding-top: 24px;
+}
+#customize-control-responsive_cart_checkout_button_separator .responsive-customizer-heading {
+	padding-top: 0;
+}
+#customize-control-responsive_cart_checkout_buttons_separator .responsive-horizontal-separator-control-wrapper {
+	margin-right: -12px;
+	margin-left: -12px;
+}
+#customize-control-responsive_cart_checkout_button_text_color .responsive-color-control-main-wrap {
+	padding-bottom: 12px;
+}
+#customize-control-responsive_cart_checkout_button_text_color .res-control-tooltip{
+	display: none;
+}

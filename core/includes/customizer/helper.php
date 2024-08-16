@@ -1238,7 +1238,7 @@ function responsive_borderwidth_control( $wp_customize, $element, $section, $pri
  * @param  string  $desc     [description].
  * @return void               [description].
  */
-function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '' ) {
+function responsive_color_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $desc = '', $is_hover_required = false, $hover_default = null, $hover_element = null ) {
 	// Menu Background Color.
 	$wp_customize->add_setting(
 		'responsive_' . $element . '_color',
@@ -1249,6 +1249,18 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 			'transport'         => 'postMessage',
 		)
 	);
+	// Add Hover Setting
+	if( $is_hover_required ) {
+		$wp_customize->add_setting(
+			'responsive_' . $hover_element . '_color',
+			array(
+				'default'           => $hover_default,
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'responsive_sanitize_background',
+				'transport'         => 'postMessage',
+			)
+		);
+	}
 	if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 		$plugin_path            = WP_PLUGIN_DIR . '/responsive-addons-pro/responsive-addons-pro.php';
 		$plugin_info            = get_plugin_data( $plugin_path );
@@ -1292,12 +1304,16 @@ function responsive_color_control( $wp_customize, $element, $label, $section, $p
 				$wp_customize,
 				'responsive_' . $element . '_color',
 				array(
-					'label'           => $label,
-					'section'         => $section,
-					'settings'        => 'responsive_' . $element . '_color',
-					'priority'        => $priority,
-					'active_callback' => $active_call,
-					'description'     => $desc,
+					'label'            => $label,
+					'section'          => $section,
+					'is_hover_required'=> $is_hover_required,
+        			'settings'         => $is_hover_required ? array(
+                            'normal'   => 'responsive_' . $element . '_color',
+                            'hover'    => 'responsive_' . $hover_element . '_color',
+                        ) : 'responsive_' . $element . '_color',
+					'priority'         => $priority,
+					'active_callback'  => $active_call,
+					'description'      => $desc,
 				)
 			)
 		);
@@ -1413,6 +1429,15 @@ function responsive_active_vertical_header_and_main_menu() {
 }
 
 /**
+ * [responsive_active_vertical_header_and_secondary_menu description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_vertical_header_and_secondary_menu() {
+	return ( 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) && 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+}
+
+/**
  * [responsive_active_vertical_transparent_header description].
  *
  * @return [type] [description]
@@ -1456,6 +1481,16 @@ function responsive_active_sidebar_menu() {
 }
 
 /**
+ * [responsive_active_sidebar_secondary_menu description].
+ *
+ * @return [type] [description]
+ */
+function responsive_active_sidebar_secondary_menu() {
+
+	return ( 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) ) ? true : false;
+}
+
+/**
  * [responsive_active_header_widget description].
  *
  * @return [type] [description]
@@ -1487,6 +1522,36 @@ function responsive_not_active_site_style_flat() {
 	$header_layout = get_theme_mod( 'responsive_style', 'contained' );
 
 	return ( 'flat' === $header_layout ) ? false : true;
+}
+
+/**
+ * [responsive_active_page_sidebar_toggle description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_page_sidebar_toggle() {
+
+	return ( 1 === get_theme_mod( 'responsive_page_sidebar_toggle', 0 ) ) ? true : false;
+}
+
+/**
+ * [responsive_active_blog_sidebar_toggle description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_blog_sidebar_toggle() {
+
+	return ( 1 === get_theme_mod( 'responsive_blog_sidebar_toggle', 0 ) ) ? true : false;
+}
+
+/**
+ * [responsive_active_single_blog_sidebar_toggle description]
+ *
+ * @return [type] [description]
+ */
+function responsive_active_single_blog_sidebar_toggle() {
+
+	return ( 1 === get_theme_mod( 'responsive_single_blog_sidebar_toggle', 0 ) ) ? true : false;
 }
 
 /**
@@ -1873,7 +1938,7 @@ function responsive_get_color_schemes_as_choices() {
 			array_walk(
 				$style_data['color_schemes'],
 				function( $data, $name ) use ( $design_style, &$color_schemes ) {
-					$color_schemes[ "${design_style}-${name}" ] = $data;
+					$color_schemes[ "{$design_style}-{$name}" ] = $data;
 				}
 			);
 		}
@@ -2343,7 +2408,7 @@ function responsive_toggle_control( $wp_customize, $element, $label, $section, $
  *
  * @return void [description].
  */
-function responsive_horizontal_separator_control( $wp_customize, $element, $count, $section, $priority, $default, $active_call, $transport = 'refresh' ) {
+function responsive_horizontal_separator_control( $wp_customize, $element, $count, $section, $priority, $default, $active_call = null, $transport = 'refresh' ) {
 
 	$wp_customize->add_setting(
 		'responsive_' . $element,
@@ -2397,6 +2462,15 @@ function responsive_disabled_main_menu() {
 }
 
 /**
+ * [responsive_disable_secondary_menu description]
+ *
+ * @return [type] [description]
+ */
+function responsive_disabled_secondary_menu() {
+	return ( 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) ) ? true : false;
+}
+
+/**
  * [responsive_disabled_mobile_menu description]
  *
  * @return [type] [description]
@@ -2442,6 +2516,15 @@ function responsive_last_item_in_menu_active() {
 }
 
 /**
+ * [responsive_last_item_in_menu_active]
+ *
+ * @return [type] [description]
+ */
+function responsive_last_item_in_secondary_menu_active() {
+	return ( 'none' !== get_theme_mod( 'responsive_secondary_menu_last_item' ) && 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) ) ? true : false;
+}
+
+/**
  * [responsive_last_item_in_menu_and_mobile_menu_enabled description]
  *
  * @return [type] [description]
@@ -2460,12 +2543,30 @@ function responsive_menu_last_item_cta() {
 }
 
 /**
+ * [responsive_secondary_menu_last_item_cta description]
+ *
+ * @return [type] [description]
+ */
+function responsive_secondary_menu_last_item_cta() {
+	return ( 'button' === get_theme_mod( 'responsive_secondary_menu_last_item', 'none' ) ) ? true : false;
+}
+
+/**
  * [responsive_menu_last_item_text description]
  *
  * @return [type] [description]
  */
 function responsive_menu_last_item_text() {
 	return ( 'text-html' === get_theme_mod( 'responsive_menu_last_item', 'none' ) ) ? true : false;
+}
+
+/**
+ * [responsive_secondary_menu_last_item_text description]
+ *
+ * @return [type] [description]
+ */
+function responsive_secondary_menu_last_item_text() {
+	return ( 'text-html' === get_theme_mod( 'responsive_secondary_menu_last_item', 'none' ) ) ? true : false;
 }
 
 /**
@@ -2704,4 +2805,22 @@ if ( ! function_exists( 'responsive_footer_elements_positioning' ) ) {
 		return $sections;
 
 	}
+}
+/**
+ * [responsive_blog_post_title_toggle description].
+ *
+ * @return [type] [description]
+ */
+function responsive_blog_post_title_toggle() {
+
+	$responsive_options = get_option( 'responsive_theme_options' );
+	return ( $responsive_options['blog_post_title_toggle'] ) ? true : false;
+}
+/**
+ * [responsive_date_box_toggle_callback description].
+ *
+ * @return [type] [description]
+ */
+function responsive_date_box_toggle_callback() {
+	return get_theme_mod( 'responsive_date_box_toggle' ) ? true : false;
 }

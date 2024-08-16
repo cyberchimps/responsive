@@ -47,13 +47,18 @@ class ResponsiveColorPickerControl extends Component {
 				this.setState( { refresh: true } );
 			}
 			this.setState( { isVisible: true } );
-		};
 
+			const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
+			document.getElementById(currentElementID).style.paddingBottom ='480px';
+		};
+		
 		const toggleClose = () => {
 			if ( modalCanClose ) {
 				if ( isVisible === true ) {
 					this.setState( { isVisible: false } );
 				}
+				const currentElementID = this.state.inputattr.content.match(/id="([^"]*)"/)[1];
+				document.getElementById(currentElementID).style.paddingBottom ='0';
 			}
 		};
 		let finalpaletteColors = [];
@@ -88,7 +93,6 @@ class ResponsiveColorPickerControl extends Component {
 					<Button className={ isVisible ? 'button wp-color-result wp-picker-open' : 'button wp-color-result ' } onClick={ () => { isVisible ? toggleClose() : toggleVisible() } }
 						aria-expanded='false' style={{backgroundColor:this.props.color}}
 					>
-						<span className="wp-color-result-text">Select Color</span>
 					</Button>
 					<div className="wp-picker-holder">
 						{ isVisible && (
@@ -111,14 +115,6 @@ class ResponsiveColorPickerControl extends Component {
 										</>
 									) }
 									
-									<ColorPalette
-										colors={ finalpaletteColors }
-										value={ this.props.color }
-										clearable={ false }
-										disableCustomColors={ true }
-										className="responsive-alpha-color-picker"
-										onChange={ ( color ) => this.onPaletteChangeComplete( color ) }
-									/>
 								<button type="button" onClick = { () => { this.onColorClearClick(defaultValue) } } className="responsive-clear-btn-inside-picker components-button components-circular-option-picker__clear is-secondary is-small">{ __( 'Default', 'responsive' ) }</button>
 					
 								

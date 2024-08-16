@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 
 const TabsComponent = props => {
 
+	var api = wp.customize;
+
 	const onTabClick = (value) => {
 		setTab(value)
 	};
@@ -40,8 +42,81 @@ const TabsComponent = props => {
 				element.style.display = 'none';
 			}
 		});
+		const logoWidthElement = document.getElementById('customize-control-responsive_logo_width');
+		const isCustomLogoPresent = document.getElementsByClassName('attachment-thumb').length > 0;
+		if ( showElements === 'general' && logoWidthElement || !isCustomLogoPresent ) {
+			logoWidthElement.style.display = 'none';
+		} else if( showElements === 'design' && logoWidthElement && isCustomLogoPresent ) {
+			logoWidthElement.style.display = 'block';
+		}
+		toggleSidebarPositionWidthControls( api('responsive_page_sidebar_toggle').get(), 'page' );
+		toggleSidebarPositionWidthControls( api('responsive_blog_sidebar_toggle').get(), 'blog' );
+		toggleSidebarPositionWidthControls( api('responsive_single_blog_sidebar_toggle').get(), 'single_blog' );
+
+		hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
+		hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
+		hideSidebarWidthControl( api('responsive_single_blog_sidebar_position').get(), 'single_blog' );
+		
+		api('responsive_page_sidebar_toggle', function( value ) {
+			value.bind( function( newval ) {
+				hideSidebarWidthControl( api('responsive_page_sidebar_position').get(), 'page' );
+			});
+		});
+		api('responsive_blog_sidebar_toggle', function( value ) {
+			value.bind( function( newval ) {
+				hideSidebarWidthControl( api('responsive_blog_sidebar_position').get(), 'blog' );
+			});
+		});
+		api('responsive_single_blog_sidebar_toggle', function( value ) {
+			value.bind( function( newval ) {
+				hideSidebarWidthControl( api('responsive_single_blog_sidebar_position').get(), 'single_blog' );
+			});
+		});
+
+		api('responsive_page_sidebar_position', function( value ) {
+			value.bind( function( newval ) {
+				if ( newval ) {
+					hideSidebarWidthControl(newval, 'page');
+				}
+			});
+		});
+		api('responsive_blog_sidebar_position', function( value ) {
+			value.bind( function( newval ) {
+				if ( newval ) {
+					hideSidebarWidthControl(newval, 'blog');
+				}
+			});
+		});
+		api('responsive_single_blog_sidebar_position', function( value ) {
+			value.bind( function( newval ) {
+				if ( newval ) {
+					hideSidebarWidthControl(newval, 'single_blog');
+				}
+			});
+		});
 	}, [tab]);
 
+	const toggleSidebarPositionWidthControls = (value, control) => {
+		if( value && tab === 'general' ) {
+			document.getElementById(`customize-control-responsive_${control}_sidebar_position`).style.display = 'block';
+			if( api(`responsive_${control}_sidebar_position`).get() !== 'no' ) {
+				document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'block';
+			}
+		} else {
+			document.getElementById(`customize-control-responsive_${control}_sidebar_position`).style.display = 'none';
+			document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'none';
+		}
+	};
+
+	const hideSidebarWidthControl = (value, control) => {
+		if( value == 'no' || ! api(`responsive_${control}_sidebar_toggle`).get() ) {
+			document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'none';
+		} else if( 'no' != value && tab === 'general' && api(`responsive_${control}_sidebar_toggle`).get() ) {
+			setTimeout(() => {
+				document.getElementById(`customize-control-responsive_${control}_sidebar_width`).style.display = 'block';
+			}, 1000);
+		}
+	};
 
 	return <>
 		<div className='responsive-component-tabs nav-tab-wrapper wp-clearfix' data-name={name}>

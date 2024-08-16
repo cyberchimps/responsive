@@ -34,8 +34,8 @@ body.toplevel_page_responsive #wpbody-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 40px 30px;
-    gap: 16px;
+    padding: 33px 40px 33px;
+    gap: 12px;
     background: #FFFFFF;
     border-bottom: 1px solid #E5E7EB;
 }
@@ -46,7 +46,7 @@ body.toplevel_page_responsive #wpbody-content {
     justify-content: center;
     align-items: center;
     padding: 0px;
-    gap: 20px;
+    gap: 16px;
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -59,17 +59,19 @@ body.toplevel_page_responsive #wpbody-content {
     align-items: center;
     padding: 4px 8px;
     gap: 8px;
-    width: 50px;
+    width: 41px;
     height: 24px;
     background: #E5E7EB;
     border-radius: 2px;
     flex: none;
     order: 1;
     flex-grow: 0;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
     color: #4B5563;
+    font-family: Libre Franklin;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.54px;
+    text-align: left;
 }
 
 .responsive-theme-brand-desc {
@@ -212,12 +214,13 @@ body.toplevel_page_responsive #wpbody-content {
     height: 35px;
 }
 .responsive-theme-logo{
-    height: 82px;
+    height: 62px;
+    width: 228px;
 }
 /* Home Tab Starts */
 
 .responsive-theme-home-line {
-    color: #F3F4F6;
+    color: #EAEAEA;
 }
 
 .responsive-theme-home-line .vr{
@@ -310,6 +313,7 @@ body.toplevel_page_responsive #wpbody-content {
 }
 
 .responsive-theme-feature-card-free {
+    margin-right: 9px;
     background-color: #DCFCE7;
 }
 
@@ -331,7 +335,7 @@ body.toplevel_page_responsive #wpbody-content {
 }
 
 hr {
-    border-top: 1px solid #F3F4F6;
+    border-top: 1px solid #EAEAEA;
     opacity: 1;
 }
 
@@ -374,8 +378,27 @@ hr {
     color: #2271B1;
 }
 
-.responsive-theme-no-focus {
-    box-shadow: none !important;
+.upgrade-to-pro-card {
+    border: 1px solid #9AB2E2;
+    border-radius: 4px;
+    box-shadow: 0px 2px 10px 0px rgba(110, 136, 161, 0.25);
+}
+
+.btn-upgrade {
+    border: 1px solid #0A70B7;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    font-weight: 400;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    color: #0A70B7;
+}
+
+.btn-upgrade:hover {
+    background-color: #0A70B7;
+    color: #FFFFFF;
 }
 
 .responsive-theme-disabled-links {
@@ -581,7 +604,7 @@ input:checked + .resp-megamenu-slider:before {
 }
 
 .responsive-theme-setting-border-left {
-    border-left: 1px solid #DEDEDE;
+    border-left: 1px solid #EAEAEA;
 }
 
 .responsive-theme-setting-hr {
@@ -771,6 +794,14 @@ input:checked + .resp-megamenu-slider:before {
 
 .responsive-theme-help-card-section .card {
     border-color: #DEDEDE;
+    background: #FAF5FF;
+    max-width: 100%;
+}
+
+.responsive-theme-help-card-section .card-container {
+   padding: 10px;
+   padding-top: 0px;
+   margin-top: 10px;
 }
 
 .responsive-theme-help-card-section .card-body {
@@ -846,7 +877,10 @@ input:checked + .resp-megamenu-slider:before {
 
 #responsive-theme-help-ticket-settings {
     display: none;
+    margin-left: 43.5px;
+    margin-right: 43.5px;
 }
+
 
 .responsive-theme-help-setting-icon-wrapper {
     width: 20px;
@@ -896,7 +930,7 @@ input:checked + .resp-megamenu-slider:before {
 }
 
 .responsive-theme-help-setting-border-left {
-    border-left: 1px solid #DEDEDE;
+    border-left: 1px solid #EAEAEA;
 }
 
 .responsive-theme-theme-settings-section {
@@ -911,7 +945,6 @@ input:checked + .resp-megamenu-slider:before {
     margin-top: 65px;
     padding: 26px 0;
     background-color: #7C29C4;
-    margin-bottom: 20px;
 }
 
 .responsive-theme-help-open-ticket-title {
@@ -1058,6 +1091,7 @@ input:checked + .resp-megamenu-slider:before {
 
     .responsive-theme-getting-started-header {
         padding: 20px 40px;
+        height: 159px;
     }
 
     .responsive-theme-tabs-section {
@@ -1102,11 +1136,38 @@ input:checked + .resp-megamenu-slider:before {
     }
 
     .responsive-theme-setting-border-left {
-        border-left: 1px solid #DEDEDE;
+        border-left: 1px solid #EAEAEA;
     }
 
     .responsive-theme-setting-form-control {
         width: 100%;
     }
 
+}
+
+
+.responsive-theme-getting-started-header {
+    height: 159px;
+}
+
+.responsive-theme-main-settings-section .responsive-theme-settings-tab-selection{
+    width: 260px;
+}
+ 
+.responsive-theme-main-settings-section .responsive-theme-help-settings{
+    flex: 1;
+}
+
+.responsive-plus-card-container .responsive-theme-feature-card-free{
+    margin-top: 20.75px;
+    margin-right: 7.2px;
+}
+
+.responsive-theme-help-settings .responsive-theme-theme-settings-section{
+	margin-left: 43.5px;
+	margin-right: 43.5px;
+}
+
+.responsive-theme-help-setting-border-left .responsive-theme-theme-settings-section{
+	margin-bottom: 10px;
 }

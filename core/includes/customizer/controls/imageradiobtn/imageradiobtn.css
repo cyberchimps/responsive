@@ -1,18 +1,20 @@
-.customize-control-responsive-imageradiobtn{display:flex;flex-wrap:wrap;width:100%;gap:12px}.customize-control-responsive-imageradiobtn__button{flex-grow:1;padding:8px;border:1px solid #d2d2d2;border-radius:4px;background-color:#fff;width: 100px;}.customize-control-responsive-imageradiobtn__button.active{color:#fff;background-color:#1e73be;width: 100px;border: 1px solid #007CBA;}.responsive-imageradiobtn-text{font-size:24px;line-height:18px;font-weight:300}
+.customize-control-responsive-imageradiobtn{display:flex;flex-wrap:wrap;width:100%;gap:12px}.customize-control-responsive-imageradiobtn__button{padding:8px;border:1px solid #d2d2d2;border-radius:4px;background-color:#fff;width: 48%; position: relative;}.customize-control-responsive-imageradiobtn__button.active{color:#fff;background-color:#1e73be;width: 48%;border: 1px solid #007CBA;}.responsive-imageradiobtn-text{font-size:24px;line-height:18px;font-weight:300}
  .tooltiptext {
     visibility: hidden;
     width: auto;
-    background-color: #3B3B3B;
+    background-color: #3b3b3b;
     color: #fff;
     text-align: center;
     border-radius: 6px;
     padding: 6px 11px;
     position: absolute;
     z-index: 1;
-    top: 10px;
+    top: -36px;
     font-size: 10px;
     line-height: 12px;
     font-family: 'open sans';
+    transform: translateX(-50%);
+    left: 48%;
   }
   
  .tooltiptext::after {

@@ -82,7 +82,19 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 
 				?>
 
-					<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
+				<header id="masthead" class="site-header" role="banner" <?php responsive_schema_markup( 'site-header' ); ?> >
+					<!-- Secondary Menu above header -->
+
+					<div class="secondary-container">
+							<div class="row">
+						
+								<?php
+									$secondary_menu_element = 'secondary-navigation';
+									get_template_part('partials/header/' . $secondary_menu_element);			
+								?>
+
+							</div>
+					</div>
 						<div class="container">
 							<div class="row">
 								<?php
@@ -103,9 +115,9 @@ if ( ! function_exists( 'check_is_responsive_addons_greater' ) ) {
 							</div>
 						</div>
 					</header>
-
 				<?php
 			}
 		}
 		Responsive\responsive_header_bottom();
+		
 		?>

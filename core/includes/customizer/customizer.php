@@ -186,6 +186,7 @@ function responsive_register_options() {
 		'class-responsive-header-transparent-customizer',
 		'class-responsive-header-scripts-customizer',
 		'class-responsive-header-menu-layouts-customizer',
+		'class-responsive-header-secondary-menu-layouts-customizer',
 		'class-responsive-content-header-colors-customizer',
 		'class-responsive-content-header-layout-customizer',
 		'class-responsive-content-header-typography-customizer',
@@ -333,7 +334,7 @@ function responsive_custom_customize_enqueue() {
 			}
 		}
 		$localize_array = array(
-			'path' => get_stylesheet_directory_uri() . '/core/includes/customizer/assets/images/',
+			'path' => RESPONSIVE_THEME_URI . '/core/includes/customizer/assets/images/',
 		);
 		wp_localize_script( 'responsive-custom-control-react-script', 'localize', $localize_array );
 }

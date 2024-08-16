@@ -277,6 +277,12 @@
             bottom: $base-line-height-px;
         }
     }
+    .secondary-navigation {
+        .menu-toggle {
+            top: auto;
+            bottom: $base-line-height-px;
+        }
+    }
 }
 
 .site-header-layout-vertical {
@@ -292,6 +298,26 @@
     }
 
     .main-navigation {
+        .menu {
+            & > li {
+                @media( min-width: map-get($screens, xxxl) ) {
+                    margin-right: 2px;
+                    margin-left: 0;
+                }
+
+                &.res-search-link,
+                &.res-cart-link {
+                    float: right;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        #searchform {
+            right: 0;
+        }
+    }
+    .secondary-navigation {
         .menu {
             & > li {
                 @media( min-width: map-get($screens, xxxl) ) {
@@ -399,6 +425,20 @@
 
 .site-mobile-header-layout-vertical {
     .main-navigation {
+        .menu-toggle {
+            position: relative;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            width: auto;
+            text-align: left;
+
+            i {
+                padding: $grid-gutter-width / 2;
+            }
+        }
+    }
+    .secondary-navigation {
         .menu-toggle {
             position: relative;
             top: auto;
@@ -721,6 +761,12 @@ body.mega-menu-header-menu button.menu-toggle {
   }
 }
 
+.secondary-navigation .menu {
+    li.focus>.children, li.focus>.sub-menu, .menu-item-has-children.focus>ul.sub-menu {
+    display: block;
+  }
+}
+
 .res-iconify {
   display: inline-block;
   position: absolute;
@@ -762,6 +808,11 @@ body.mega-menu-header-menu button.menu-toggle {
     display: block;
   }
 }
+.secondary-navigation .menu {
+  li.focus>.children, .page_item_has_children.focus>ul.children, li:focus>.children, .page_item_has_children:focus>ul.children {
+    display: block;
+  }
+}
 
 @media screen and (min-width: 768px) {
     .res-iconify-inner, 
@@ -778,6 +829,9 @@ body.mega-menu-header-menu button.menu-toggle {
         padding-right: 5px;
     }
     .main-navigation .menu.nav-menu > .page_item_has_children > a > .res-iconify.no-menu {
+        top: 4px;
+    }
+    .secondary-navigation .menu.nav-menu > .page_item_has_children > a > .res-iconify.no-menu {
         top: 4px;
     }
     .res-iconify {
@@ -802,3 +856,166 @@ body.mega-menu-header-menu button.menu-toggle {
         display: block;
     }
 }
+
+.secondary-navigation {
+    @extend .col-xs-12;
+    @include clear-floats();
+
+    @media( min-width: map-get($screens, xxxl) ) {
+        width: auto;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        position: relative;
+    }
+
+    a {
+        display: block;
+        padding: ( $input-padding-y * 4 ) 18px;
+        font-weight: 600;
+    }
+
+    .menu-toggle {
+        @extend .show-xs;
+        @extend .hide-xxxl;
+
+        position: absolute;
+        margin: auto;
+        top: $base-line-height-px * 0.875;
+        right: $grid-gutter-width / 2;
+        width: $base-line-height-px * 1.75;
+        height: $base-line-height-px * 1.75;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+        color: map-get($colors, dark-gray);
+        font-size: map-get($font-sizes, medium);
+        line-height: $base-line-height-px * 1.75;
+        text-align: center;
+        z-index: 9999;
+
+        &-cancel {
+            display: none;
+        }
+
+        i {
+            margin: 0;
+        }
+    }
+
+    .menu {
+        @extend .hide-xs;
+        @extend .show-xxxl;
+        @include clear-floats();
+
+        margin: 0;
+
+        li {
+            &.focus,
+            &:hover,
+            &:focus {
+                & > .children,
+                & > .sub-menu {
+                    left: 0;
+                }
+            }
+        }
+
+        & > li {
+            
+            @media( min-width: map-get($screens, xxxl) ) {
+                margin-left: 2px;
+                float: left;
+                border-bottom: 0;
+            }
+
+            &.menu-item-has-children > a,
+            &.page_item_has_children > a {
+                @media( min-width: map-get($screens, xxxl) ) {
+                    &:after {
+                        margin-left: 5px;
+                        font-family: $icon-font;
+                        content: '\f107';
+                    }
+                }
+            }
+        }
+    }
+
+    .children,
+    .sub-menu {
+        
+        position: absolute;
+        top: 100%;
+        left: -9999em;
+        width: 240px;
+        margin-left: 0;
+        background-color: map-get($colors, #fff);
+        box-shadow: 0 5px 10px map-get($colors, light-gray);
+        z-index: 9999;
+    
+
+        & > li {
+            &.focus,
+            &:hover {
+                @media( min-width: map-get($screens, xxxl) ) {
+                    & > .children,
+                    & > .sub-menu {
+                        top: 0;
+                        left: 100%;
+                    }
+                }
+            }
+
+            &:first-child {
+                @media( min-width: map-get($screens, xxxl) ) {
+                    border-top: 0;
+                }
+            }
+
+            &.menu-item-has-children > a,
+            &.page_item_has_children > a {
+                @media( min-width: map-get($screens, xxxl) ) {
+                    &:after {
+                        margin-left: 5px;
+                        float: right;
+                        font-family: $icon-font;
+                        content: '\f105';
+                    }
+                }
+            }
+        }
+      
+        a {
+            @media( min-width: map-get($screens, xxxl) ) {
+                padding: ( $input-padding-y * 2 ) ( $grid-gutter-width / 2 );
+            }
+        }
+    }
+
+    &.toggled {
+        .menu {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+} // .secondary-navigation
+
+#header-secondary-menu {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+// Secondary menu hidden in mobile for the time being.
+@media (max-width: 700px) {
+    .secondary-container{
+        display: none !important;
+    }
+}
+

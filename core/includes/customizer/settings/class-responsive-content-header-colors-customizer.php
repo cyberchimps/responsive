@@ -39,11 +39,11 @@ if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 
 			// Title Color.
 			$content_header_heading_color_label = __( 'Title Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'content_header_heading', $content_header_heading_color_label, 'responsive_content_header_layout', 50, Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ), null, 'This will apply to Blog Page Title which can be enabled from Blog/Archive > Blog/Archive > Enable Blog Page Title' );
+			responsive_color_control( $wp_customize, 'content_header_heading', $content_header_heading_color_label, 'responsive_content_header_layout', 50, Responsive\Core\get_responsive_customizer_defaults( 'content_header_heading' ), null, null );
 
 			// Header Description.
 			$content_header_description_color_label = __( 'Description Color', 'responsive' );
-			responsive_color_control( $wp_customize, 'content_header_description', $content_header_description_color_label, 'responsive_content_header_layout', 60, Responsive\Core\get_responsive_customizer_defaults( 'content_header_description' ), null, 'This feature is for author info of particular post. You can see this when you view all posts by an author.' );
+			responsive_color_control( $wp_customize, 'content_header_description', $content_header_description_color_label, 'responsive_content_header_layout', 60, Responsive\Core\get_responsive_customizer_defaults( 'content_header_description' ), null, null );
 
 			// Breadcrumb Color.
 			$breadcrumb_color_label = __( 'Breadcrumb Color', 'responsive' );

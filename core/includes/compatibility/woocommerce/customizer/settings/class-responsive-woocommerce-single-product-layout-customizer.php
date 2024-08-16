@@ -36,11 +36,80 @@ if ( ! class_exists( 'Responsive_Woocommerce_Single_Product_Layout_Customizer' )
 			$wp_customize->add_section(
 				'responsive_woocommerce_single_product_layout',
 				array(
-					'title'    => esc_html__( 'Layouts', 'responsive' ),
-					'panel'    => 'responsive-woocommerce-single-product',
-					'priority' => 10,
+					'title'    => esc_html__( 'Product  Options', 'responsive' ),
+					'panel'    => 'woocommerce',
+					'priority' => 115,
 				)
 			);
+
+			// Adding General and Design tabs
+			$tabs_label            = esc_html__( 'Tabs', 'responsive' );
+
+			$general_tab_ids_prefix = 'customize-control-';
+			$general_tab_ids        = array(
+				$general_tab_ids_prefix . 'responsive_single_product_layout_elements_separator',
+				$general_tab_ids_prefix . 'responsive_single_product_content_width',
+				$general_tab_ids_prefix . 'responsive_single_product_elements_separator',
+				$general_tab_ids_prefix . 'responsive_single_product_gallery_layout',
+				$general_tab_ids_prefix . 'responsive_woocommerce_product_elements_positioning',
+				$general_tab_ids_prefix . 'responsive_single_product_floating_bar_separator',
+				$general_tab_ids_prefix . 'responsive_single_product_floating_bar',
+				$general_tab_ids_prefix . 'responsive_single_product_image_width',
+			);
+
+
+			$design_tab_ids_prefix = 'customize-control-';
+			$design_tab_ids        = array(
+				$design_tab_ids_prefix . 'responsive_floatingb_background_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_title_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_price_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_qty_input_background_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_qty_input_font_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_qty_input_border_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_addtocart_background_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_addtocart_bghover_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_addtocart_font_color',
+				$design_tab_ids_prefix . 'responsive_floatingb_addtocart_fonthover_color',
+				$design_tab_ids_prefix . 'responsive_single_product_title_seperator',
+				$design_tab_ids_prefix . 'single_product_title_shop_typography-font-family',
+				$design_tab_ids_prefix . 'single_product_title_shop_typography-font-weight',
+				$design_tab_ids_prefix . 'single_product_title_shop_typography-font-style',
+				$design_tab_ids_prefix . 'single_product_title_shop_typography-text-transform',
+				$design_tab_ids_prefix . 'single_product_title_shop_typography-font-size',
+				$design_tab_ids_prefix . 'single_product_title_shop_typography-line-height',
+				$design_tab_ids_prefix . 'single_product_title_shop_typography-letter-spacing',
+				$design_tab_ids_prefix . 'single_product_title_shop_typography-color',
+				$design_tab_ids_prefix . 'responsive_single_product_price_seperator',
+				$design_tab_ids_prefix . 'single_product_price_shop_typography-font-family',
+				$design_tab_ids_prefix . 'single_product_price_shop_typography-font-weight',
+				$design_tab_ids_prefix . 'single_product_price_shop_typography-font-style',
+				$design_tab_ids_prefix . 'single_product_price_shop_typography-font-size',
+				$design_tab_ids_prefix . 'single_product_price_shop_typography-line-height',
+				$design_tab_ids_prefix . 'single_product_price_shop_typography-letter-spacing',
+				$design_tab_ids_prefix . 'single_product_price_shop_typography-color',
+				$design_tab_ids_prefix . 'responsive_single_product_content_seperator',
+				$design_tab_ids_prefix . 'single_product_content_shop_typography-font-family',
+				$design_tab_ids_prefix . 'single_product_content_shop_typography-font-weight',
+				$design_tab_ids_prefix . 'single_product_content_shop_typography-font-style',
+				$design_tab_ids_prefix . 'single_product_content_shop_typography-text-transform',
+				$design_tab_ids_prefix . 'single_product_content_shop_typography-font-size',
+				$design_tab_ids_prefix . 'single_product_content_shop_typography-line-height',
+				$design_tab_ids_prefix . 'single_product_content_shop_typography-letter-spacing',
+				$design_tab_ids_prefix . 'single_product_content_shop_typography-color',
+				$design_tab_ids_prefix . 'responsive_single_product_page_breadcrumb_seperator',
+				$design_tab_ids_prefix . 'single_product_page_breadcrumb_shop_typography-font-family',
+				$design_tab_ids_prefix . 'single_product_page_breadcrumb_shop_typography-font-weight',
+				$design_tab_ids_prefix . 'single_product_page_breadcrumb_shop_typography-font-style',
+				$design_tab_ids_prefix . 'single_product_page_breadcrumb_shop_typography-text-transform',
+				$design_tab_ids_prefix . 'single_product_page_breadcrumb_shop_typography-font-size',
+				$design_tab_ids_prefix . 'single_product_page_breadcrumb_shop_typography-line-height',
+				$design_tab_ids_prefix . 'single_product_page_breadcrumb_shop_typography-letter-spacing',
+				$design_tab_ids_prefix . 'single_product_page_breadcrumb_shop_typography-color',
+			);
+
+		
+			responsive_tabs_button_control( $wp_customize, 'woocommerce_single_product_tabs', $tabs_label, 'responsive_woocommerce_single_product_layout', 1, '', 'responsive_woocommerce_single_product_general_tab', 'responsive_woocommerce_single_product_design_tab', $general_tab_ids, $design_tab_ids, null );
+
 
 			// Layouts.
 			$single_product_layout_elements_label = esc_html__( 'Layouts', 'responsive' );

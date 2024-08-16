@@ -327,7 +327,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 						if ( check_is_responsive_pro_activated() ) {
 							esc_html_e( 'Responsive Pro Features', 'responsive' );
 						} elseif ( check_is_responsive_addons_installed() ) {
-							esc_html_e( 'Responsive Add-ons Features', 'responsive' );
+							esc_html_e( 'Responsive Plus Features', 'responsive' );
 						} else {
 							esc_html_e( 'Unlock More Features by Installing Responsive Plus', 'responsive' );
 						}
@@ -384,11 +384,11 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 					?>
 				</div>
 			</div>
-			<div class="row gy-4">
+			<div class="row gy-4 responsive-plus-card-container">
 				<?php
 				foreach ( $getting_started_home_cards_content as $feature ) {
 					?>
-				<div class="col-xl-4 col-lg-6 col-md-6">
+				<div class="col-xl-4 col-lg-6 col-md-6 ">
 					<div class="responsive-theme-feature-cards h-100">
 						<div class="responsive-theme-feature-cards-content">
 							<?php
@@ -800,7 +800,13 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			</div>
 			<hr>
 			<div class="row">
-				<a class="responsive-theme-no-focus" href="<?php echo esc_url( 'https://cyberchimps.com/wordpress-themes/christmas/' ); ?>" target="_blank"><img class="my-4 w-100" src="<?php echo esc_url( RESPONSIVE_THEME_URI ) . 'admin/images/banner-rst-template.jpg'; ?>" alt="banner-rst-template"></a>
+				<div class="responsive-theme-feature-cards upgrade-to-pro-card">
+				    <div class="responsive-theme-feature-cards-content">
+						<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Upgrade to PRO', 'responsive' ); ?></p>
+			            <p class="responsive-theme-home-desc-text "><?php esc_html_e('Upgrade to Cyberchimps Pro plan to unlock access to 150+ Premium Starter Templates and priority support.', 'responsive');?></p>
+						<button class="btn-upgrade" onclick="window.open('<?php echo esc_url('https://cyberchimps.com/pricing/?utm_source=wpdash&utm_medium=rtheme&utm_campaign=theme-home-tab&utm_content=upgrade'); ?>', '_blank')"><?php esc_html_e('Upgrade', 'responsive'); ?></button>
+					</div>
+				</div>
 			</div>
 			<hr>
 			<div class="row">

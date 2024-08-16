@@ -48,15 +48,15 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			$responsive_retina_logo_label = __( 'Enable Retina Logo ?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'title_tagline', 8, 0, null );
+			responsive_toggle_control( $wp_customize, 'retina_logo', $responsive_retina_logo_label, 'responsive_header_site_logo_title', 8, 0, null );
 
 			// Logo Width Controller.
 			$logo_width_label = __( 'Logo Width (px)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'logo_width', $logo_width_label, 'title_tagline', 9, null, 'responsive_has_custom_logo_callback', 1200, 20, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'logo_width', $logo_width_label, 'responsive_header_site_logo_title', 9, null, 'responsive_has_custom_logo_callback', 1200, 20, 'postMessage' );
 
 			// Different Logo For Mobile Device.
 			$mobile_logo_option_label = __( 'Different Logo For Mobile Devices?', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'title_tagline', 10, 0, null );
+			responsive_toggle_control( $wp_customize, 'mobile_logo_option', $mobile_logo_option_label, 'responsive_header_site_logo_title', 10, 0, null );
 
 			$wp_customize->add_setting(
 				'responsive_mobile_logo',
@@ -71,7 +71,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 					'responsive_mobile_logo',
 					array(
 						'label'           => esc_html__( 'Logo For Mobile Device', 'responsive' ),
-						'section'         => 'title_tagline',
+						'section'         => 'responsive_header_site_logo_title',
 						'flex-height'     => true,
 						'flex-width'      => true,
 						'height'          => 100, // pixels.
@@ -83,10 +83,10 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			);
 
 			$responsive_hide_title_label = __( 'Hide Site Title', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'title_tagline', 14, 0, null );
+			responsive_toggle_control( $wp_customize, 'hide_title', $responsive_hide_title_label, 'responsive_header_site_logo_title', 14, 0, null );
 
 			$responsive_hide_tagline_label = __( 'Hide Tagline', 'responsive' );
-			responsive_toggle_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'title_tagline', 15, 1, null );
+			responsive_toggle_control( $wp_customize, 'hide_tagline', $responsive_hide_tagline_label, 'responsive_header_site_logo_title', 15, 1, null );
 
 			// Add Custom Logo URL.
 			$wp_customize->add_setting(
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 					'responsive_custom_logo_url',
 					array(
 						'label'    => __( 'Site Title/Logo URL', 'responsive' ),
-						'section'  => 'title_tagline',
+						'section'  => 'responsive_header_site_logo_title',
 						'settings' => 'responsive_custom_logo_url',
 						'priority' => 16,
 					)

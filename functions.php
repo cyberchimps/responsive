@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '5.0.9' );
+define( 'RESPONSIVE_THEME_VERSION', '5.1.0' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -965,6 +965,55 @@ function responsive_add_sub_toggles_to_main_menu( $args, $item, $depth ) {
 
 add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_main_menu', 10, 3 );
 
+/**
+ * [responsive_nav_secondary_menu_link_attributes]
+ *
+ * @param array $atts Attribute.
+ * @param mixed $item Item.
+ * @param mixed $args Arguments.
+ * @param mixed $depth Depth.
+ * @return array $atts.
+ */
+function responsive_nav_secondary_menu_link_attributes( $atts, $item, $args, $depth ) {
+
+	// Add [aria-haspopup] and [aria-expanded] to menu items that have children.
+	$item_has_children = in_array( 'menu-item-has-children', $item->classes );
+	if ( $item_has_children ) {
+		$atts['aria-haspopup'] = 'true';
+		$atts['aria-expanded'] = 'false';
+	}
+
+	return $atts;
+}
+add_filter( 'nav_secondary_menu_link_attributes', 'responsive_secondary_nav_menu_link_attributes', 10, 4 );
+
+/**
+ * [responsive_add_sub_toggles_to_secondary_menu]
+ *
+ * @param mixed $args Arguments.
+ * @param mixed $item Item.
+ * @param mixed $depth Depth.
+ * @return $args.
+ */
+function responsive_add_sub_toggles_to_secondary_menu( $args, $item, $depth ) {
+	if ( 'secondary-menu' === $args->theme_location ) {
+		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
+			$args->after      = '<span class="res-iconify res-iconify-outer">
+				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+				</span>';
+			$args->link_after = '<span class="res-iconify res-iconify-inner">
+				<svg width="15" height="8" viewBox="-2.5 -5 75 60" preserveAspectRatio="none"><path d="M0,0 l35,50 l35,-50" fill="none" stroke-linecap="round" stroke-width="10" /></svg>
+				</span>';
+		} else {
+			$args->after      = '';
+			$args->link_after = '';
+		}
+	}
+	return $args;
+}
+
+add_filter( 'nav_menu_item_args', 'responsive_add_sub_toggles_to_secondary_menu', 10, 3 );
+
 if ( ! function_exists( 'responsive_display_date_box' ) ) {
 	/**
 	 * Display date box on blog/archive page.
@@ -1021,6 +1070,7 @@ if ( ! function_exists( 'responsive_fallback_menu' ) ) {
 		$prepend = '<div id="header-menu" class="menu">';
 		$append  = '</div>';
 		$output  = $prepend . $pages . $append;
+
 		echo wp_kses_post( $output );
 	}
 }
