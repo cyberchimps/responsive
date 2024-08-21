@@ -93,6 +93,29 @@ if ( ! function_exists( 'is_responsive_version_greater' ) ) {
 	}
 }
 
+/* To convert font size units */
+if ( ! function_exists( 'typography_unit_conversion' ) ) {
+	function typography_unit_conversion($font_size,$parent_font_size = 0,$root_font_size = 0)
+	{
+		if ( false !== strpos( $font_size, 'px' ) ) {
+			$font_size = str_replace( 'px', '', $font_size );
+		} else if ( false !== strpos( $font_size, 'rem' ) ) {
+			$font_size = str_replace( 'rem', '', $font_size );
+			$font_size = $font_size * $root_font_size;
+			
+		} else if ( false !== strpos( $font_size, 'em' ) ) {
+			$font_size = str_replace( "em", '', $font_size );
+			$font_size = $font_size * $parent_font_size;
+
+		} else if ( false !== strpos( $font_size, '%' ) ) {
+			$font_size = str_replace( '%', '', $font_size );
+			$font_size = ($font_size * $parent_font_size) / 100;
+		}
+
+		return $font_size;
+	}
+}
+
 /**
  * Outputs the custom styles for the theme.
  *
@@ -3483,22 +3506,26 @@ function responsive_customizer_styles() {
 		$responsive_date_box             = esc_html( get_theme_mod( 'responsive_date_box_toggle' ) );
 		$date_box_background_color       = esc_html( get_theme_mod( 'responsive_link_color', '#0066CC' ) );
 		$date_box_calculated_color_value = required_font_color_value( $date_box_background_color );
-			/* Taking body font size value for all views */
+
+		/* Taking body font size value for all views */
 		$body_font_val_desktop = ( isset( get_theme_mod( 'body_typography' )['font-size'] ) && '' !== get_theme_mod( 'body_typography' )['font-size'] ) ? get_theme_mod( 'body_typography' )['font-size'] : '16px';
-		$body_font_val_desktop = str_replace( 'px', '', $body_font_val_desktop );
+		$body_font_val_desktop = typography_unit_conversion($body_font_val_desktop, 16);
 		$body_font_val_tablet  = ( isset( get_theme_mod( 'body_tablet_typography' )['font-size'] ) && '' !== get_theme_mod( 'body_tablet_typography' )['font-size'] ) ? get_theme_mod( 'body_tablet_typography' )['font-size'] : '16px';
-		$body_font_val_tablet  = str_replace( 'px', '', $body_font_val_tablet );
+		$body_font_val_tablet = typography_unit_conversion($body_font_val_tablet, 16);
 		$body_font_val_mobile  = ( isset( get_theme_mod( 'body_mobile_typography' )['font-size'] ) && '' !== get_theme_mod( 'body_mobile_typography' )['font-size'] ) ? get_theme_mod( 'body_mobile_typography' )['font-size'] : '16px';
-		$body_font_val_mobile  = str_replace( 'px', '', $body_font_val_mobile );
-			/* Calculation for desktop view */
+		$body_font_val_mobile = typography_unit_conversion($body_font_val_mobile, 16);
+
+		/* Calculation for desktop view */
 		$datebox_month_year_font_desktop        = $body_font_val_desktop - 2.5;
 		$datebox_day_font_desktop               = $body_font_val_desktop * 2;
 		$datebox_container_width_height_desktop = ( $body_font_val_desktop * 2 ) + $datebox_day_font_desktop + 20;
-			/* Calculation for tablet view */
+
+		/* Calculation for tablet view */
 		$datebox_month_year_font_tablet        = $body_font_val_tablet - 2.5;
 		$datebox_day_font_tablet               = $body_font_val_tablet * 2;
 		$datebox_container_width_height_tablet = ( $body_font_val_tablet * 2 ) + $datebox_day_font_tablet + 20;
-			/* Calculation for mobile view */
+		
+		/* Calculation for mobile view */
 		$datebox_month_year_font_mobile        = $body_font_val_mobile - 2.5;
 		$datebox_day_font_mobile               = $body_font_val_mobile * 2;
 		$datebox_container_width_height_mobile = ( $body_font_val_mobile * 2 ) + $datebox_day_font_mobile + 20;
