@@ -62,7 +62,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			 );
 			
 			 
-			 $general_tab_ids_prefix = esc_html__('customize-control-');
+			 $general_tab_ids_prefix = 'customize-control-';
 			 $general_tab_ids        = array(
 				 $general_tab_ids_prefix . 'responsive_secondary_sub_menu_width',
 				 $general_tab_ids_prefix . 'responsive_secondary_sub_menu_divider',
