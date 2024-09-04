@@ -799,6 +799,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 				</div>
 			</div>
 			<hr>
+			<?php if(!responsive_is_user_pro()): ?>
 			<div class="row">
 				<div class="responsive-theme-feature-cards upgrade-to-pro-card">
 				    <div class="responsive-theme-feature-cards-content">
@@ -808,6 +809,7 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 					</div>
 				</div>
 			</div>
+			<?php endif;?>
 			<hr>
 			<div class="row">
 				<p class="responsive-theme-home-settings-text fw-bolder"><?php esc_html_e( 'Learn and Grow', 'responsive' ); ?></p>
