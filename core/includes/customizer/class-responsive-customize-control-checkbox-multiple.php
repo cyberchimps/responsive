@@ -73,7 +73,7 @@ class Responsive_Customize_Control_Checkbox_Multiple extends WP_Customize_Contro
 		</ul>
 
 		<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr( implode( ',', $multi_values ) ); ?>" />
-		<p class="responsive-checkbox-control-description"><span><?php esc_html_e( 'Note: ', 'responsive' ) ?></span><?php esc_html_e( $this->description, 'responsive' ); ?></p>
+		<p class="responsive-checkbox-control-description"><span><?php esc_html_e( 'Note: ', 'responsive' ) ?></span><?php echo esc_html( $this->description ); ?></p>
 		<?php
 	}
 }
