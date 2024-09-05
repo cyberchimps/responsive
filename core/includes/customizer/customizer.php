@@ -177,6 +177,7 @@ function responsive_register_options() {
 	$files = array(
 		'class-responsive-panel',
 		'class-responsive-site-layouts-customizer',
+		'class-responsive-site-scripts-customizer',
 		'class-responsive-site-color-palettes-scheme-customizer',
 		'class-responsive-site-colors-customizer',
 		'class-responsive-site-typography-customizer',
@@ -184,7 +185,6 @@ function responsive_register_options() {
 		'class-responsive-header-title-tagline-customizer',
 		'class-responsive-header-colors-customizer',
 		'class-responsive-header-transparent-customizer',
-		'class-responsive-header-scripts-customizer',
 		'class-responsive-header-menu-layouts-customizer',
 		'class-responsive-header-secondary-menu-layouts-customizer',
 		'class-responsive-content-header-colors-customizer',
@@ -194,7 +194,6 @@ function responsive_register_options() {
 		'class-responsive-single-blog-layout-customizer',
 		'class-responsive-page-content-customizer',
 		'class-responsive-footer-layout-customizer',
-		'class-responsive-footer-scripts-customizer',
 		'class-responsive-typography-customizer',
 		'class-responsive-theme-options-customizer',
 		'class-responsive-home-page-customizer',
