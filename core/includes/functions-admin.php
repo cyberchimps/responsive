@@ -39,7 +39,7 @@ function responsive_ask_for_review_notice() {
 	}
 
 	if ( false === get_option( 'responsive-theme-old-setup' ) ) {
-		set_transient( 'responsive_theme_ask_review_flag', true, 15 * 24 * 60 * 60 );
+		set_transient( 'responsive_theme_ask_review_flag', true, 7 * 24 * 60 * 60 );
 		update_option( 'responsive-theme-old-setup', true );
 	} elseif ( false === get_transient( 'responsive_theme_ask_review_flag' ) && false === get_option( 'responsive_theme_review_notice_dismissed' ) ) {
 

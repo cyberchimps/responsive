@@ -353,16 +353,16 @@ if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'
 			<div class="team_desc"><?php echo wp_kses_post( $responsive_team1_desc ); ?></div>
 			<div class="social">
 			<?php if ( ! empty( $team1_showcase_facebook ) ) { ?>
-						<a class="tw_showcase_facebook" href="<?php echo esc_url( $team1_showcase_facebook ); ?>" target="_blank"><i class="icon-facebook" aria-hidden="true"></i></a>
+						<a class="tw_showcase_facebook" href="<?php echo esc_url( $team1_showcase_facebook ); ?>" target="_blank"><i class="icon-facebook" alt="facebook" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team1_showcase_twitter ) ) { ?>
-						<a class="tw_showcase_twitter" href="<?php echo esc_url( $team1_showcase_twitter ); ?>" target="_blank"><i class="icon-twitter" aria-hidden="true"></i></a>
+						<a class="tw_showcase_twitter" href="<?php echo esc_url( $team1_showcase_twitter ); ?>" target="_blank"><i class="icon-twitter" alt="twitter" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team1_showcase_googleplus ) ) { ?>
-					<a class="tw_showcase_googleplus" href="<?php echo esc_url( $team1_showcase_googleplus ); ?>" target="_blank"><i class="icon-google-plus" aria-hidden="true"></i></a>
+					<a class="tw_showcase_googleplus" href="<?php echo esc_url( $team1_showcase_googleplus ); ?>" target="_blank"><i class="icon-google-plus" alt="google plus" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team1_showcase_linkedin ) ) { ?>
-					<a class="tw_showcase_linkedin" href="<?php echo esc_url( $team1_showcase_linkedin ); ?>" target="_blank"><i class="icon-linkedin" aria-hidden="true"></i></a>
+					<a class="tw_showcase_linkedin" href="<?php echo esc_url( $team1_showcase_linkedin ); ?>" target="_blank"><i class="icon-linkedin" alt="linkedin" aria-hidden="true"></i></a>
 			<?php } ?></div>
 		</div>
 		<?php } ?>
@@ -374,16 +374,16 @@ if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'
 			<div class="team_desc"><?php echo wp_kses_post( $responsive_team2_desc ); ?></div>
 			<div class="social">
 			<?php if ( ! empty( $team2_showcase_facebook ) ) { ?>
-						<a class="tw_showcase_facebook" href="<?php echo esc_url( $team2_showcase_facebook ); ?>" target="_blank"><i class="icon-facebook" aria-hidden="true"></i></a>
+						<a class="tw_showcase_facebook" href="<?php echo esc_url( $team2_showcase_facebook ); ?>" target="_blank"><i class="icon-facebook" alt="facebook" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team2_showcase_twitter ) ) { ?>
-						<a class="tw_showcase_twitter" href="<?php echo esc_url( $team2_showcase_twitter ); ?>" target="_blank"><i class="icon-twitter" aria-hidden="true"></i></a>
+						<a class="tw_showcase_twitter" href="<?php echo esc_url( $team2_showcase_twitter ); ?>" target="_blank"><i class="icon-twitter" alt="twitter" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team2_showcase_googleplus ) ) { ?>
-					<a class="tw_showcase_googleplus" href="<?php echo esc_url( $team2_showcase_googleplus ); ?>" target="_blank"><i class="icon-google-plus" aria-hidden="true"></i></a>
+					<a class="tw_showcase_googleplus" href="<?php echo esc_url( $team2_showcase_googleplus ); ?>" target="_blank"><i class="icon-google-plus" alt="goolge plus" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team2_showcase_linkedin ) ) { ?>
-					<a class="tw_showcase_linkedin" href="<?php echo esc_url( $team2_showcase_linkedin ); ?>" target="_blank"><i class="icon-linkedin" aria-hidden="true"></i></a>
+					<a class="tw_showcase_linkedin" href="<?php echo esc_url( $team2_showcase_linkedin ); ?>" target="_blank"><i class="icon-linkedin" alt="linkedin" aria-hidden="true"></i></a>
 			<?php } ?></div>
 		</div>
 		<?php } ?>
@@ -395,16 +395,16 @@ if ( isset( $responsive_options['about'] ) && '1' == $responsive_options['about'
 			<div class="team_desc"><?php echo wp_kses_post( $responsive_team3_desc ); ?></div>
 			<div class="social">
 			<?php if ( ! empty( $team3_showcase_facebook ) ) { ?>
-						<a class="tw_showcase_facebook" href="<?php echo esc_url( $team3_showcase_facebook ); ?>" target="_blank"><i class="icon-facebook" aria-hidden="true"></i></a>
+						<a class="tw_showcase_facebook" href="<?php echo esc_url( $team3_showcase_facebook ); ?>" target="_blank"><i class="icon-facebook" alt="facebook" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team3_showcase_twitter ) ) { ?>
-						<a class="tw_showcase_twitter" href="<?php echo esc_url( $team3_showcase_twitter ); ?>" target="_blank"><i class="icon-twitter" aria-hidden="true"></i></a>
+						<a class="tw_showcase_twitter" href="<?php echo esc_url( $team3_showcase_twitter ); ?>" target="_blank"><i class="icon-twitter" alt="twitter" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team3_showcase_googleplus ) ) { ?>
-					<a class="tw_showcase_googleplus" href="<?php echo esc_url( $team3_showcase_googleplus ); ?>" target="_blank"><i class="icon-google-plus" aria-hidden="true"></i></a>
+					<a class="tw_showcase_googleplus" href="<?php echo esc_url( $team3_showcase_googleplus ); ?>" target="_blank"><i class="icon-google-plus" alt="google plus" aria-hidden="true"></i></a>
 			<?php } ?>
 			<?php if ( ! empty( $team3_showcase_linkedin ) ) { ?>
-					<a class="tw_showcase_linkedin" href="<?php echo esc_url( $team3_showcase_linkedin ); ?>" target="_blank"><i class="icon-linkedin" aria-hidden="true"></i></a>
+					<a class="tw_showcase_linkedin" href="<?php echo esc_url( $team3_showcase_linkedin ); ?>" target="_blank"><i class="icon-linkedin" alt="linkedin" aria-hidden="true"></i></a>
 			<?php } ?></div>
 		</div>
 		<?php } ?>

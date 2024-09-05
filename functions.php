@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define constants.
  */
-define( 'RESPONSIVE_THEME_VERSION', '5.1.0' );
+define( 'RESPONSIVE_THEME_VERSION', '5.1.1' );
 define( 'RESPONSIVE_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'RESPONSIVE_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'RESPONSIVE_PRO_OLDER_VERSION_CHECK', '2.4.2' );
@@ -198,28 +198,30 @@ function responsive_free_setup() {
 		$small_font_sizes_default_value = 13;
 	}
 	if ( isset( $normal_sizes['font-size'] ) ) {
-		$normal_sizes_default_value = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? str_replace( 'px', '', $normal_sizes['font-size'] ) : '16';
+		$normal_sizes_default_value = ( $normal_sizes && isset( $normal_sizes['font-size'] ) ) ? typography_unit_conversion( $normal_sizes['font-size'], 16) : '16';
 	} else {
 		$normal_sizes_default_value = 16;
 	}
 	if ( isset( $larger_font_sizes['font-size'] ) ) {
 		if ( false === strpos( $larger_font_sizes['font-size'], 'px' ) ) {
-			$larger_font_sizes_default_value = ( $larger_font_sizes && isset( $larger_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $larger_font_sizes['font-size'] ) : '2.625';
-			$larger_font_sizes_default_value = $normal_sizes_default_value * $larger_font_sizes_default_value;
+			$larger_font_sizes_default_value = ( $larger_font_sizes && isset( $larger_font_sizes['font-size'] ) ) ?  $larger_font_sizes['font-size']  : '2.625em';
 		} else {
-			$larger_font_sizes_default_value = str_replace( 'px', '', $larger_font_sizes['font-size'] );
+			$larger_font_sizes_default_value = $larger_font_sizes['font-size'] ;
 		}
+		$larger_font_sizes_default_value = typography_unit_conversion($larger_font_sizes_default_value,$normal_sizes_default_value,$normal_sizes_default_value);
+
 	} else {
 		$larger_font_sizes_default_value = 33;
 	}
 
 	if ( isset( $large_font_sizes['font-size'] ) ) {
+	
 		if ( false === strpos( $large_font_sizes['font-size'], 'px' ) ) {
-			$large_font_sizes_default_value = ( $large_font_sizes && isset( $large_font_sizes['font-size'] ) ) ? str_replace( array( 'em', 'rem' ), '', $large_font_sizes['font-size'] ) : '2.250';
-			$large_font_sizes_default_value = $normal_sizes_default_value * $large_font_sizes_default_value;
+			$large_font_sizes_default_value = ( $large_font_sizes && isset( $large_font_sizes['font-size'] ) ) ?  $large_font_sizes['font-size'] : '2.250em';
 		} else {
-			$large_font_sizes_default_value = str_replace( 'px', '', $large_font_sizes['font-size'] );
+			$large_font_sizes_default_value = $large_font_sizes['font-size'] ;
 		}
+		$large_font_sizes_default_value = typography_unit_conversion($large_font_sizes_default_value,$normal_sizes_default_value,$normal_sizes_default_value);
 	} else {
 		$large_font_sizes_default_value = 26;
 	}

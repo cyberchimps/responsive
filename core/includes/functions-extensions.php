@@ -407,7 +407,7 @@ function responsive_get_social_icons() {
 							?>
 							<li>
 								<a aria-label="email" title="email" href="mailto:<?php echo esc_html( $responsive_options[ $key . '_uid' ] ); ?>" <?php responsive_schema_markup( 'url' ); ?>>
-									<i class="icon-envelope-o" aria-hidden="true"></i>
+									<i class="icon-envelope-o" alt="email" aria-hidden="true"></i>
 								</a>
 							</li>
 							<?php
@@ -415,7 +415,7 @@ function responsive_get_social_icons() {
 							?>
 							<li>
 								<a aria-label=<?php echo esc_attr( $key ); ?> title=<?php echo esc_attr( $key ); ?> href="<?php echo esc_url( $responsive_options[ $key . '_uid' ] ); ?>" target=<?php echo esc_attr( $target_social_link ); ?> <?php responsive_schema_markup( 'url' ); ?>>
-									<i class="icon-<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
+									<i class="icon-<?php echo esc_attr( $key ); ?>" alt="<?php echo esc_attr( $key ); ?>" aria-hidden="true"></i>
 								</a>
 							</li>
 							<?php
