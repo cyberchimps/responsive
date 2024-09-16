@@ -2305,6 +2305,26 @@ function responsive_select_button_control( $wp_customize, $element, $label, $sec
 }
 
 /**
+ * Check if the user has a pro plan or not.
+ *
+ * @return bool
+ */
+function responsive_is_user_pro() {
+	
+	$settings = get_option( 'reads_app_settings' , false);
+
+	if($settings){
+		$user_plan  = $settings['account']['plan'];
+		if($user_plan !== 'free')
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+/**
  * [responsive_select_button_control description].
  *
  * @param  [type]  $wp_customize [description].

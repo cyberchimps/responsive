@@ -49,7 +49,7 @@ function setup() {
 	add_filter( 'body_class', $n( 'responsive_add_custom_body_classes' ), 999 );
 	add_filter( 'get_custom_logo', $n( 'responsive_transparent_custom_logo', 10, 1 ) );
 
-	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) ) {
+	if ( ! class_exists( 'Responsive_Addons_Pro_Public' ) && !responsive_is_user_pro()) {
 		add_action( 'customize_controls_print_footer_scripts', $n( 'responsive_add_pro_button' ) );
 	}
 
