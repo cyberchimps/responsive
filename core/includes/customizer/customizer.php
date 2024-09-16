@@ -271,6 +271,8 @@ function responsive_custom_controls( $wp_customize ) {
 	require_once $dir . 'imageradiobtn/class-responsive-customizer-imageradio-button-control.php';
 	require_once $dir . 'toggle/class-responsive-customizer-responsive-toggle-control.php';
 	require_once $dir . 'horizontal-separator/class-responsive-customizer-responsive-horizontal-separator.php';
+	require_once $dir . 'backgroundimage/class-responsive-customizer-background-image-control.php';
+	// require_once $dir . 'typography_group/class-responsive-customizer-responsive-group-typography-control.php';
 
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-control-upsell.php';
 	require_once RESPONSIVE_THEME_DIR . 'core/includes/customizer/controls/upsell/class-responsive-generic-notice-section.php';
@@ -296,6 +298,8 @@ function responsive_custom_controls( $wp_customize ) {
 	$wp_customize->register_control_type( 'Responsive_Customizer_Imageradio_Button_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Toggle_Control' );
 	$wp_customize->register_control_type( 'Responsive_Customizer_Horizontal_Separator' );
+	$wp_customize->register_control_type( 'Responsive_Customizer_Background_Image_Control' );
+	// $wp_customize->register_control_type( 'Responsive_Customizer_Typography_Group_Control' );
 
 }
 

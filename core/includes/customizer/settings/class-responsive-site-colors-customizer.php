@@ -51,8 +51,6 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			$wp_customize->get_control( 'background_color' )->section  = 'responsive_colors';
 			$wp_customize->get_setting( 'background_color' )->default  = Responsive\Core\get_responsive_customizer_defaults( 'background_color' );
 			$wp_customize->get_control( 'background_color' )->priority = 11;
-			$wp_customize->get_control( 'background_image' )->section  = 'responsive_colors';
-			$wp_customize->get_control( 'background_image' )->priority = 20;
 			$wp_customize->remove_section( 'background_image' );
 
 			// Backgrounds.

@@ -33,6 +33,11 @@ function responsive_update_social_icon_options() {
 
 	add_action( 'after_setup_theme', 'responsive_update_social_icon_options' );
 	add_action( 'after_switch_theme', 'responsive_update_page_template_meta' );
+	add_action( 'switch_theme', 'responsive_delete_theme_data_on_switch' );
+
+function responsive_delete_theme_data_on_switch() {
+	delete_option( 'responsive_old_background_images_compatible_done' );
+}
 /**
  * Update page templete meta data
  *

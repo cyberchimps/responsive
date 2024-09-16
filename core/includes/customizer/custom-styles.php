@@ -455,14 +455,15 @@ function responsive_customizer_styles() {
 	}
 
 	if ( is_responsive_version_greater() ) {
-		$footer_background_image                    = esc_url( get_theme_mod( 'responsive_footer_background_image' ) );
-		$header_background_image                    = esc_url( get_theme_mod( 'responsive_header_background_image' ) );
-		$header_widget_background_image             = esc_url( get_theme_mod( 'responsive_header_widget_background_image' ) );
-		$transparent_header_widget_background_image = esc_url( get_theme_mod( 'responsive_transparent_header_widget_background_image' ) );
-		$sidebar_background_image                   = esc_url( get_theme_mod( 'responsive_sidebar_background_image' ) );
-		$box_background_image                       = esc_url( get_theme_mod( 'responsive_box_background_image' ) );
-		$button_background_image                    = esc_url( get_theme_mod( 'responsive_button_background_image' ) );
-		$inputs_background_image                    = esc_url( get_theme_mod( 'responsive_inputs_background_image' ) );
+		$site_background_image                      = get_theme_mod( 'responsive_site_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_site_background_image' ) ) : null ;
+		$footer_background_image                    = get_theme_mod( 'responsive_footer_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_footer_background_image' ) ) : null ;
+		$header_background_image                    = get_theme_mod( 'responsive_header_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_header_background_image' ) ) : null ;
+		$header_widget_background_image             = get_theme_mod( 'responsive_header_widget_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_header_widget_background_image' ) ) : null ;
+		$transparent_header_widget_background_image = get_theme_mod( 'responsive_transparent_header_widget_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_transparent_header_widget_background_image' ) ) : null ;
+		$sidebar_background_image                   = get_theme_mod( 'responsive_sidebar_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_sidebar_background_image' ) ) : null ;
+		$box_background_image                       = get_theme_mod( 'responsive_box_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_box_background_image' ) ) : null ;
+		$button_background_image                    = get_theme_mod( 'responsive_button_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_button_background_image' ) ) : null ;
+		$inputs_background_image                    = get_theme_mod( 'responsive_inputs_background_image_toggle' ) ? esc_url( get_theme_mod( 'responsive_inputs_background_image' ) ) : null ;
 
 		if ( $box_background_image ) {
 			if ( class_exists( 'Sensei_Main' ) ) {
@@ -677,6 +678,14 @@ function responsive_customizer_styles() {
 			$custom_css .= ".site-footer {
 				background-color: ' . $footer_background_color . ';
 				background-image: linear-gradient(to right, {$footer_background_color}, {$footer_background_color}), url({$footer_background_image});
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-attachment: scroll;
+			}";
+		}
+		if ( $site_background_image ) {
+			$custom_css .= "body.custom-background {
+				background-image: url({$site_background_image});
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-attachment: scroll;

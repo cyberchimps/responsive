@@ -327,6 +327,8 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 				update_option( 'responsive_theme_options', $responsive_options );
 			}
 		}
+
+		responsive_background_images_background_compatibility();
 	}
 
 endif;
@@ -761,6 +763,10 @@ function responsive_add_custom_body_classes( $classes ) {
 			$classes[] = 'secondary-menu-item-hover-style-overline';
 		}
 	}
+
+	if ( get_theme_mod( 'responsive_site_background_image_toggle' ) && get_theme_mod( 'responsive_site_background_image' ) ) {
+		$classes[] = 'custom-background';
+	}
 	
 	return $classes;
 }
@@ -1192,3 +1198,29 @@ function responsive_register_widgets() {
 		register_widget( $classname );
 	}
 }
+
+/**
+ * Function to make old background image control with new control.
+ * @since 5.2
+ */
+
+if ( ! function_exists( 'responsive_background_images_background_compatibility' ) ) :
+
+	function responsive_background_images_background_compatibility() {
+		if( ! get_option('responsive_old_background_images_compatible_done') ) {
+			$background_image_elements = array( 'footer_background', 'header_background', 'header_widget_background', 'transparent_header_widget_background', 'sidebar_background', 'box_background', 'button_background', 'inputs_background' );
+			
+			foreach( $background_image_elements as $element ) {
+				if( get_theme_mod( 'responsive_' . $element . '_image' ) ) {
+					set_theme_mod( 'responsive_' . $element . '_image_toggle', true ); 
+				}
+			}
+			
+			if( get_theme_mod( 'background_image' ) ) {
+				set_theme_mod( 'responsive_site_background_image', get_theme_mod( 'background_image' ) );
+				set_theme_mod( 'responsive_site_background_image_toggle', true );
+			}
+			update_option( 'responsive_old_background_images_compatible_done', true );
+		}
+	}
+endif;

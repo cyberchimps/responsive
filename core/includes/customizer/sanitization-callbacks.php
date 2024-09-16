@@ -103,6 +103,7 @@ function responsive_sanitize_image( $image, $setting ) {
 		'bmp'          => 'image/bmp',
 		'tif|tiff'     => 'image/tiff',
 		'ico'          => 'image/x-icon',
+		'webp'         => 'image/webp',
 	);
 	// Return an array with file extension and mime_type.
 	$file = wp_check_filetype( $image, $mimes );

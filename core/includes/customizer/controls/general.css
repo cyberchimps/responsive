@@ -653,3 +653,45 @@ body.rtl .customize-control .responsive-switchers li {
 #customize-control-responsive_cart_checkout_button_text_color .res-control-tooltip{
 	display: none;
 }
+.responsive-background-image-control .responsive-toggle-control {
+	margin-bottom: 16px;
+	margin-top: 20px;
+}
+.responsive-background-image-wrapper.not-selected {
+	width: 320px;
+	height: 140px;
+}
+.responsive-background-image-wrapper .responsive-bgimage-not-selected {
+	border-radius: 4px;
+	height: inherit;
+	background: #007CBA1A;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+.responsive-bgimage-selected {
+	position: relative;
+}
+.responsive-bgimage-selected img {
+	border-radius: 4px;
+}
+.responsive-bgimage-selected .bgimage-remove-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+.responsive-bgimage-description {
+	margin-top: 20px;
+	margin-bottom: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 18px;
+	color: #A4A4A4;
+}
+.responsive-bgimage-description span {
+	font-weight: 600;
+}
