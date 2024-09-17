@@ -8,6 +8,10 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(17/09/2024) = Improvement - Version 5.1.2
+[*] = Changed = Moved the header footer scripts to global settings.
+[*] = Changed = Moved to footer social links to global settings.
+
 (04/09/2024) = Improvement - Version 5.1.1
 [*] = Improvement = Added alt attribute to social icons.
 
