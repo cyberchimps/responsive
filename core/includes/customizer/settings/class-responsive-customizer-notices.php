@@ -62,8 +62,9 @@ class Responsive_Customizer_Notices extends Responsive_Register_Customizer_Contr
 		$this->register_types();
 		$this->add_docs_link_section();
 		$this->maybe_add_main_notice();
-		$this->add_upsell_section();
-
+		if(!responsive_is_user_pro()): 
+			$this->add_upsell_section();
+		endif;
 	}
 
 	/**
