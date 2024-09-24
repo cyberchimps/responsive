@@ -36,6 +36,7 @@ const RedirectComponent = props => {
 			onLinkClick();
 		}} className="customizer-link customizer-redirect-button" data-customizer-linked={linked} data-res-customizer-link-type={link_type}>
 			<h3 className="redirect-button-label">{label}</h3>
+			<span class="arrow-head"></span>
 		</a>;
 	}
 
