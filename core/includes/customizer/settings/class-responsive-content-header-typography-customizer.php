@@ -36,19 +36,22 @@ if ( ! class_exists( 'Responsive_Content_Header_Typography_Customizer' ) ) :
 			/**
 			 * Content Heading Title.
 			 */
-			$content_header_separator_label = esc_html__( 'Title', 'responsive' );
-			responsive_separator_control( $wp_customize, 'content_header_heading', $content_header_separator_label, 'responsive_content_header_layout', 85 );
+			$content_header_separator_label = esc_html__( 'Title Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'content_header_heading_typography_group', $content_header_separator_label, 'responsive_content_header_layout', 85, 'content_header_heading_typography' );
 			/**
 			 * Content Description.
 			 */
-			$description_separator_label = esc_html__( 'Description', 'responsive' );
-			responsive_separator_control( $wp_customize, 'description', $description_separator_label, 'responsive_content_header_layout', 95 );
+			$description_separator_label = esc_html__( 'Description Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'content_header_description_typography_group', $description_separator_label, 'responsive_content_header_layout', 95, 'content_header_description_typography' );
 
 			/**
 			* Content Breadcrumb.
 			*/
-			$breadcrumb_separator_label = esc_html__( 'Breadcrumb', 'responsive' );
-			responsive_separator_control( $wp_customize, 'breadcrumb', $breadcrumb_separator_label, 'responsive_breadcrumb', 105 );
+			$breadcrumb_separator_label = esc_html__( 'Breadcrumb Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'breadcrumb_typography_group', $breadcrumb_separator_label, 'responsive_breadcrumb', 105, 'breadcrumb_typography' );
+
+			responsive_horizontal_separator_control($wp_customize, 'content_header_heading_typography_group_separator', 2, 'responsive_content_header_layout', 83, 1, );
+			responsive_horizontal_separator_control($wp_customize, 'content_header_description_typography_group_separator', 1, 'responsive_content_header_layout', 93, 1, );
 
 		}
 

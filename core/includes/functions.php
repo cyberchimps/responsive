@@ -329,6 +329,7 @@ if ( ! function_exists( 'responsive_setup' ) ) :
 		}
 
 		responsive_background_images_background_compatibility();
+		responsive_font_sizes_background_compatibility();
 	}
 
 endif;
@@ -764,7 +765,7 @@ function responsive_add_custom_body_classes( $classes ) {
 		}
 	}
 
-	if ( get_theme_mod( 'responsive_site_background_image_toggle' ) && get_theme_mod( 'responsive_site_background_image' ) ) {
+	if ( get_theme_mod( 'responsive_site_background_image_toggle' ) && get_theme_mod( 'responsive_site_background_image' ) || get_theme_mod( 'responsive_site_background_color' ) ) {
 		$classes[] = 'custom-background';
 	}
 	
@@ -1053,7 +1054,7 @@ function defaults() {
 			'box_padding'                         => 30,
 			'logo_padding'                        => 28,
 			// Colors.
-			'background_color'                    => 'eaeaea',
+			'background_color'                    => '#eaeaea',
 			'scroll_to_top_icon'                  => '#ffffff',
 			'scroll_to_top_icon_hover'            => '#ffffff',
 			'scroll_to_top_icon_background'       => '#a8a6a6',
@@ -1207,20 +1208,95 @@ function responsive_register_widgets() {
 if ( ! function_exists( 'responsive_background_images_background_compatibility' ) ) :
 
 	function responsive_background_images_background_compatibility() {
-		if( ! get_option('responsive_old_background_images_compatible_done') ) {
+		if ( ! get_option( 'responsive_old_background_images_compatible_done' ) ) {
 			$background_image_elements = array( 'footer_background', 'header_background', 'header_widget_background', 'transparent_header_widget_background', 'sidebar_background', 'box_background', 'button_background', 'inputs_background' );
 			
 			foreach( $background_image_elements as $element ) {
-				if( get_theme_mod( 'responsive_' . $element . '_image' ) ) {
+				if ( get_theme_mod( 'responsive_' . $element . '_image' ) ) {
 					set_theme_mod( 'responsive_' . $element . '_image_toggle', true ); 
 				}
 			}
 			
-			if( get_theme_mod( 'background_image' ) ) {
+			if ( get_theme_mod( 'background_image' ) ) {
 				set_theme_mod( 'responsive_site_background_image', get_theme_mod( 'background_image' ) );
 				set_theme_mod( 'responsive_site_background_image_toggle', true );
+			}
+			if ( get_theme_mod( 'background_color' ) ) {
+				set_theme_mod( 'responsive_site_background_color', get_theme_mod( 'background_color' ) );
+			}
+			if ( get_theme_mod( 'responsive_inputs_border_width_top_border', 1 ) ) {
+				set_theme_mod( 'responsive_inputs_border_width_top_border', get_theme_mod( 'responsive_inputs_border_width' ) );
 			}
 			update_option( 'responsive_old_background_images_compatible_done', true );
 		}
 	}
 endif;
+
+/**
+ * Function to make old font sizes control with new control.
+ * @since 5.2
+ */
+
+if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
+
+	function responsive_font_sizes_background_compatibility() {
+		if ( ! get_option( 'responsive_old_font_sizes_compatible_done' ) ) {
+			$font_size_typo_elements = array(
+				'body',
+				'heading_h1',
+				'heading_h2',
+				'heading_h3',
+				'heading_h4',
+				'heading_h5',
+				'heading_h6',
+				'meta',
+				'button',
+				'input',
+				'header_site_title',
+				'header_site_tagline',
+				'header_widgets',
+				'header_menu',
+				'header_secondary_menu',
+				'sidebar',
+				'content_header_heading',
+				'content_header_description',
+				'breadcrumb',
+				'footer',
+				'page_title'
+			);
+			
+			foreach( $font_size_typo_elements as $element ) {
+
+				$desktop_typography = get_theme_mod( $element . '_typography' );
+				
+				if ( $desktop_typography && array_key_exists( 'font-size', $desktop_typography ) ) {
+					$font_size = responsive_extract_numeric_font_size( $desktop_typography['font-size'] );
+					set_theme_mod( $element . '_typography_font_size_value', $font_size ); 
+				}
+
+				$tablet_typography = get_theme_mod( $element . '_tablet_typography' );
+				
+				if ( $tablet_typography && array_key_exists( 'font-size', $tablet_typography ) ) {
+					$font_size = responsive_extract_numeric_font_size( $tablet_typography['font-size'] );
+					set_theme_mod( $element . '_tablet_typography_font_size_value', $font_size ); 
+				}
+
+				$mobile_typography = get_theme_mod( $element . '_mobile_typography' );
+
+				if ( $mobile_typography && array_key_exists( 'font-size', $mobile_typography ) ) {
+					$font_size = responsive_extract_numeric_font_size( $mobile_typography['font-size'] );
+					set_theme_mod( $element . '_mobile_typography_font_size_value', $font_size ); 
+				}
+
+			}
+			update_option( 'responsive_old_font_sizes_compatible_done', true );
+		}
+	}
+endif;
+
+function responsive_extract_numeric_font_size($value) {
+
+    preg_match('/[-+]?[0-9]+/', $value, $matches);
+
+    return isset($matches[0]) ? $matches[0] : '16';
+}

@@ -2860,28 +2860,29 @@ function responsive_date_box_toggle_callback() {
  *
  * @return void [description].
  */
-// function responsive_typography_group_control( $wp_customize, $element, $label, $section, $priority, $default, $active_call, $transport = 'refresh', $description = '' ) {
+function responsive_typography_group_control( $wp_customize, $element, $label, $section, $priority, $connected_control, $default = true, $active_call = null , $transport = 'refresh', $description = '' ) {
 
-// 	$wp_customize->add_setting(
-// 		'responsive_' . $element,
-// 		array(
-// 			'default'           => $default,
-// 			'sanitize_callback' => 'responsive_checkbox_validate',
-// 			'transport'         => $transport,
-// 		)
-// 	);
-// 	$wp_customize->add_control(
-// 		new Responsive_Customizer_Typography_Group_Control(
-// 			$wp_customize,
-// 			'responsive_' . $element,
-// 			array(
-// 				'label'           => $label,
-// 				'description'     => $description,
-// 				'section'         => $section,
-// 				'settings'        => 'responsive_' . $element,
-// 				'priority'        => $priority,
-// 				'active_callback' => $active_call,
-// 			)
-// 		)
-// 	);
-// }
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_checkbox_validate',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Typography_Group_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'             => $label,
+				'description'       => $description,
+				'section'           => $section,
+				'settings'          => 'responsive_' . $element,
+				'priority'          => $priority,
+				'active_callback'   => $active_call,
+				'connected_control' => $connected_control,
+			)
+		)
+	);
+}

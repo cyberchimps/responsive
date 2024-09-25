@@ -17,7 +17,6 @@
 					$('body.custom-background').css({'background-image': 'url(' + api('responsive_site_background_image').get() + ')' });
 				}
 			} else {
-				console.log('responsive_site_background_image_toggle else');
 				$('body').removeClass( 'custom-background' );
 				$('body').css('background-image', 'none');
 			}

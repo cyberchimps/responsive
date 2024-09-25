@@ -17,7 +17,7 @@ export const responsiveText = wp.customize.responsiveControl.extend( {
 				'change keyup paste',
 				'.desktop input',
 				function() {
-					control.settings['desktop'].set( jQuery( this ).val() );
+					control.settings['desktop_value'].set( jQuery( this ).val() );
 				}
 			);
 
@@ -25,7 +25,7 @@ export const responsiveText = wp.customize.responsiveControl.extend( {
 				'change keyup paste',
 				'.tablet input',
 				function() {
-					control.settings['tablet'].set( jQuery( this ).val() );
+					control.settings['tablet_value'].set( jQuery( this ).val() );
 				}
 			);
 
@@ -33,7 +33,7 @@ export const responsiveText = wp.customize.responsiveControl.extend( {
 				'change keyup paste',
 				'.mobile input',
 				function() {
-					control.settings['mobile'].set( jQuery( this ).val() );
+					control.settings['mobile_value'].set( jQuery( this ).val() );
 				}
 			);
 			control.container.on( 'click',

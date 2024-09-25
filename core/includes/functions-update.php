@@ -37,6 +37,7 @@ function responsive_update_social_icon_options() {
 
 function responsive_delete_theme_data_on_switch() {
 	delete_option( 'responsive_old_background_images_compatible_done' );
+	delete_option( 'responsive_old_font_sizes_compatible_done' );
 }
 /**
  * Update page templete meta data

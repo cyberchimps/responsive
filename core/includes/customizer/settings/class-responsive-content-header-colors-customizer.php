@@ -49,6 +49,8 @@ if ( ! class_exists( 'Responsive_Content_Header_Colors_Customizer' ) ) :
 			$breadcrumb_color_label = __( 'Breadcrumb Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'breadcrumb', $breadcrumb_color_label, 'responsive_breadcrumb', 70, Responsive\Core\get_responsive_customizer_defaults( 'breadcrumb' ) );
 
+			responsive_horizontal_separator_control($wp_customize, 'breadcrumb_typography_separator', 1, 'responsive_breadcrumb', 72, 1, );
+
 
 		}
 
