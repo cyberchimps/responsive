@@ -244,10 +244,9 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= $delimiter . sprintf( _x( 'Page %s', 'Text for a page Breadcrumb', 'responsive' ), $page_num );
 
 			}
-
-			$html_output .= '</div>';
-
 		}
+		
+		$html_output .= '</div>';
 
         echo $html_output; // phpcs:ignore
 	} // end responsive_breadcrumb_lists.
