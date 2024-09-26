@@ -48,12 +48,13 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			);
 
 			$wp_customize->remove_section( 'header_image' );
-			$wp_customize->get_control( 'background_color' )->section  = 'responsive_colors';
-			$wp_customize->get_setting( 'background_color' )->default  = Responsive\Core\get_responsive_customizer_defaults( 'background_color' );
-			$wp_customize->get_control( 'background_color' )->priority = 11;
-			$wp_customize->get_control( 'background_image' )->section  = 'responsive_colors';
-			$wp_customize->get_control( 'background_image' )->priority = 20;
+			$wp_customize->remove_section( 'background_color' );
 			$wp_customize->remove_section( 'background_image' );
+
+			// Site Background Color.
+			$site_background_color_label = __( 'Background Color', 'responsive' );
+
+			responsive_color_control( $wp_customize, 'site_background', $site_background_color_label, 'responsive_colors', 11, Responsive\Core\get_responsive_customizer_defaults( 'background_color' ) );
 
 			// Backgrounds.
 			$site_background_label = esc_html__( 'Backgrounds', 'responsive' );

@@ -8,6 +8,16 @@
 ( function( $ ) {
     var api = wp.customize;
 
+    api( 'responsive_site_background_color', function( value ) {
+		value.bind( function( newval ) {
+			// if( api( 'responsive_site_background_image_toggle' ).get() ) {
+			// 	$('body.custom-background').css({'background-color': newval });
+			// }
+			$('body').addClass( 'custom-background' );
+			$('body.custom-background').css({'background-color': newval });
+		} );
+	} );
+
     //Header section
     //Update header background color...
     api( 'responsive_header_background_color', function( value ) {

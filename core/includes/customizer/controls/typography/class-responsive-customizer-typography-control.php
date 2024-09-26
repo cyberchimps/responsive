@@ -69,15 +69,15 @@ if ( ! class_exists( 'Responsive_Customizer_Typography_Control' ) ) :
 			$this->resp_inherit    = __( 'Inherit', 'responsive' );
 			$this->all_font_weight = array(
 				''    => esc_html__( 'Default', 'responsive' ),
-				'100' => esc_html__( 'Thin: 100', 'responsive' ),
-				'200' => esc_html__( 'Light: 200', 'responsive' ),
-				'300' => esc_html__( 'Book: 300', 'responsive' ),
-				'400' => esc_html__( 'Normal: 400', 'responsive' ),
-				'500' => esc_html__( 'Medium: 500', 'responsive' ),
-				'600' => esc_html__( 'Semibold: 600', 'responsive' ),
-				'700' => esc_html__( 'Bold: 700', 'responsive' ),
-				'800' => esc_html__( 'Extra Bold: 800', 'responsive' ),
-				'900' => esc_html__( 'Black: 900', 'responsive' ),
+				'100' => esc_html__( 'Thin 100', 'responsive' ),
+				'200' => esc_html__( 'Light 200', 'responsive' ),
+				'300' => esc_html__( 'Book 300', 'responsive' ),
+				'400' => esc_html__( 'Normal 400', 'responsive' ),
+				'500' => esc_html__( 'Medium 500', 'responsive' ),
+				'600' => esc_html__( 'Semibold 600', 'responsive' ),
+				'700' => esc_html__( 'Bold 700', 'responsive' ),
+				'800' => esc_html__( 'Extra Bold 800', 'responsive' ),
+				'900' => esc_html__( 'Black 900', 'responsive' ),
 			);
 			parent::__construct( $manager, $id, $args );
 		}

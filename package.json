@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "google-fonts": "^1.0.0",
+    "lodash": "^4.17.21",
     "request": "^2.88.0",
     "sass": "^1.49.9"
   },

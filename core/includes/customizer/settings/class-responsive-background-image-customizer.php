@@ -45,15 +45,28 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 				)
 			);
 
+			$wp_customize->add_setting(
+				'responsive_' . $element . '_image_toggle',
+				array(
+					'default'           =>  false,
+					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
+					'sanitize_callback' => 'responsive_checkbox_validate',
+				)
+			);
+
 			$wp_customize->add_control(
-				new WP_Customize_Image_Control(
+				new Responsive_Customizer_Background_Image_Control(
 					$wp_customize,
 					'responsive_' . $element . '_image',
 					array(
 						'label'           => $label,
-						'description'     => __( 'Please reduce the opacity of background color to make the background image visible. You can change the opacity by using drag control in background color options. Set the value as per your requirements.', 'responsive' ),
 						'section'         => $section,
-						'settings'        => 'responsive_' . $element . '_image',
+						'settings'        => array(
+							'image_url'    => 'responsive_' . $element . '_image',
+							'enable' => 'responsive_' . $element . '_image_toggle',
+						),
+						'description'     => __( 'Please reduce the opacity of background color to make the background image visible. You can change the opacity by using drag control in background color options. Set the value as per your requirements.', 'responsive' ),
 						'priority'        => $priority,
 						'active_callback' => null,
 					)
@@ -78,6 +91,7 @@ if ( ! class_exists( 'Responsive_Background_Image_Customizer' ) ) :
 			*/
 			if ( 'Responsive' === $theme->name || 'Responsive' === $theme->parent_theme ) {
 				$background_label = __( 'Background Image', 'responsive' );
+				$this->background_image_control( $wp_customize, 'site_background', $background_label, 'responsive_colors', 15 );
 				$this->background_image_control( $wp_customize, 'footer_background', $background_label, 'responsive_footer_layout', 15 );
 				$this->background_image_control( $wp_customize, 'header_background', $background_label, 'responsive_header_colors', 15 );
 				$this->background_image_control( $wp_customize, 'header_widget_background', $background_label, 'responsive_header_widget', 145 );

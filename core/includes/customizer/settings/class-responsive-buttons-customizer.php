@@ -52,14 +52,7 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 			$design_tab_ids = array(
 				$tab_ids_prefix . 'responsive_border_buttons_radius',
 				$tab_ids_prefix . 'responsive_buttons_border_width',
-				$tab_ids_prefix . 'responsive_buttons_typography_separator',
-				$tab_ids_prefix . 'button_typography-font-family',
-				$tab_ids_prefix . 'button_typography-font-weight',
-				$tab_ids_prefix . 'button_typography-font-style',
-				$tab_ids_prefix . 'button_typography-text-transform',
-				$tab_ids_prefix . 'button_typography-font-size',
-				$tab_ids_prefix . 'button_typography-line-height',
-				$tab_ids_prefix . 'button_typography-letter-spacing',
+				$tab_ids_prefix . 'responsive_button_typography_group',
 				$tab_ids_prefix . 'responsive_responsive_general_buttons_separator',
 				$tab_ids_prefix . 'responsive_button_color',
 				$tab_ids_prefix . 'responsive_button_hover_color',
@@ -86,12 +79,12 @@ if ( ! class_exists( 'Responsive_Buttons_Customizer' ) ) :
 
 			// Buttons Border Width.
 			$buttons_border_width_label = __( 'Border Width (px)', 'responsive' );
-			responsive_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 16, 1 );
+			responsive_drag_number_control( $wp_customize, 'buttons_border_width', $buttons_border_width_label, 'responsive_button', 16, 1, null, 200,1, 'postMessage' );
 			// responsive_borderwidth_control( $wp_customize, 'buttons_border_width', 'responsive_button', 17, 0, 0, null, $buttons_border_width_label );
 
 			// Buttons Typography.
-			$buttons_typography_label = esc_html__( 'Buttons Typography', 'responsive' );
-			responsive_separator_control( $wp_customize, 'buttons_typography_separator', $buttons_typography_label, 'responsive_button', 19 );
+			$buttons_typography_label = esc_html__( 'Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'button_typography_group', $buttons_typography_label, 'responsive_button', 19, 'button_typography' );
 
 			// Buttons.
 			$general_buttons_label = esc_html__( 'Button Colors', 'responsive' );

@@ -57,10 +57,12 @@ const SelectButtonComponent = props => {
 	});
 
 	return <>
-		{htmlLabel}
-		{descriptionHtml}
-		<div className='customize-control-responsive-selectbtn' data-name={name} data-value={props_value} value={props_value}>
-			{optionsHtml}
+		<div class="responsive-selectbtn-control-wrapper">
+			{htmlLabel}
+			{descriptionHtml}
+			<div className={`customize-control-responsive-selectbtn ${id.includes('font-style') ? 'responsive-font-style-selectbtn-control' : '' }`} data-name={name} data-value={props_value} value={props_value}>
+				{optionsHtml}
+			</div>
 		</div>
 	</>;
 

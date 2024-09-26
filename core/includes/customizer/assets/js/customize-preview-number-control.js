@@ -5,6 +5,35 @@
 ( function( $ ) {
     var api = wp.customize;
 
+    function responsive_dynamic_radius(control, selector) {
+        var mobile_menu_breakpoint = api('responsive_mobile_menu_breakpoint').get();
+        if (0 == api('responsive_disable_mobile_menu').get()) {
+            mobile_menu_breakpoint = 0;
+        }
+
+        jQuery('style#responsive-' + control + '-radius').remove();
+        var desktopRadius = 'border-top-left-radius:' + api('responsive_' + control + '_radius_top_left_radius').get() + 'px; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_top_right_radius').get() + 'px; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_bottom_left_radius').get() + 'px; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_bottom_right_radius').get() + 'px;';
+        var tabletRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_tablet_top_left_radius').get() + 'px; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_tablet_top_right_radius').get() + 'px; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_tablet_bottom_left_radius').get() + 'px; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_tablet_bottom_right_radius').get() + 'px;';
+        var mobileRadius  = 'border-top-left-radius:' + api('responsive_' + control + '_radius_mobile_top_left_radius').get() + 'px; ' +
+                            'border-top-right-radius:' + api('responsive_' + control + '_radius_mobile_top_right_radius').get() + 'px; ' +
+                            'border-bottom-left-radius:' + api('responsive_' + control + '_radius_mobile_bottom_left_radius').get() + 'px; ' +
+                            'border-bottom-right-radius:' + api('responsive_' + control + '_radius_mobile_bottom_right_radius').get() + 'px;';
+
+        jQuery('head').append(
+            '<style id="responsive-' + control + '-radius">' +
+            selector + ' { ' + desktopRadius + ' }' +
+            '@media (max-width: ' + mobile_menu_breakpoint + 'px) {' + selector + ' { ' + tabletRadius + ' } }' +
+            '@media (max-width: 544px) {' + selector + ' { ' + mobileRadius + ' } }' +
+            '</style>'
+        );
+    }
+
     //Theme Options Layout
     //Box Radius
     api( 'responsive_border_box', function( value ) {
@@ -23,6 +52,34 @@
         } );
     } );
 
+    function applyBorderRadius(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = '.page.front-page .button,.blog.front-page .button,.read-more-button .hentry .read-more .more-link,input[type=button],input[type=submit],button,.button,.wp-block-button__link,div.wpforms-container-full .wpforms-form input[type=submit],body div.wpforms-container-full .wpforms-form button[type=submit],div.wpforms-container-full .wpforms-form .wpforms-page-button';
+                selector += ', .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button';
+                selector += ', .edit-post-visual-editor.editor-styles-wrapper .wp-block-button__link,.edit-post-visual-editor.editor-styles-wrapper .wp-block-file__button';
+    
+                responsive_dynamic_radius('buttons', selector);
+            } );
+        });
+    }
+    
+    // Call the function for each border radius
+    applyBorderRadius('responsive_buttons_radius_top_left_radius');
+    applyBorderRadius('responsive_buttons_radius_top_right_radius');
+    applyBorderRadius('responsive_buttons_radius_bottom_left_radius');
+    applyBorderRadius('responsive_buttons_radius_bottom_right_radius');
+
+    applyBorderRadius('responsive_buttons_radius_tablet_top_left_radius');
+    applyBorderRadius('responsive_buttons_radius_tablet_top_right_radius');
+    applyBorderRadius('responsive_buttons_radius_tablet_bottom_left_radius');
+    applyBorderRadius('responsive_buttons_radius_tablet_bottom_right_radius');
+
+    applyBorderRadius('responsive_buttons_radius_mobile_top_left_radius');
+    applyBorderRadius('responsive_buttons_radius_mobile_top_right_radius');
+    applyBorderRadius('responsive_buttons_radius_mobile_bottom_left_radius');
+    applyBorderRadius('responsive_buttons_radius_mobile_bottom_right_radius');
+
     //Buttons Border Width
     api( 'responsive_buttons_border_width', function( value ) {
         value.bind( function( newval ) {
@@ -34,13 +91,32 @@
         } );
     } );
 
-    //Form Inputs radius
-    api( 'responsive_inputs_radius', function( value ) {
-        value.bind( function( newval ) {
-            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('border-radius', newval+'px' );
-            $('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('border-radius', newval+'px' );
-        } );
-    } );
+    function applyInputsRadius(controlName) {
+        api(controlName, function(value) {
+            value.bind( function( newval ) {
+                let selector = 'select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea';
+                selector += ', #add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea';
+    
+                responsive_dynamic_radius('inputs', selector);
+            } );
+        });
+    }
+
+    // Call the function for each input radius
+    applyInputsRadius('responsive_inputs_radius_top_left_radius');
+    applyInputsRadius('responsive_inputs_radius_top_right_radius');
+    applyInputsRadius('responsive_inputs_radius_bottom_left_radius');
+    applyInputsRadius('responsive_inputs_radius_bottom_right_radius');
+
+    applyInputsRadius('responsive_inputs_radius_tablet_top_left_radius');
+    applyInputsRadius('responsive_inputs_radius_tablet_top_right_radius');
+    applyInputsRadius('responsive_inputs_radius_tablet_bottom_left_radius');
+    applyInputsRadius('responsive_inputs_radius_tablet_bottom_right_radius');
+
+    applyInputsRadius('responsive_inputs_radius_mobile_top_left_radius');
+    applyInputsRadius('responsive_inputs_radius_mobile_top_right_radius');
+    applyInputsRadius('responsive_inputs_radius_mobile_bottom_left_radius');
+    applyInputsRadius('responsive_inputs_radius_mobile_bottom_right_radius');
 
     //Form Inputs Border Width
     api( 'responsive_inputs_border_width', function( value ) {
@@ -48,41 +124,6 @@
             $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('border-width', newval+'px' );
             $('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('border-width', newval+'px' );
             $('div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid').css('border-width', newval+'px' );
-        } );
-    } );
-
-    //Form Inputs Border Top Width
-    api( 'responsive_inputs_border_width_top_border', function( value ) {
-        value.bind( function( newval ) {
-            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('border-top-width', newval+'px' );
-            $('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('border-top-width', newval+'px' );
-            $('div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid').css('border-top-width', newval+'px' );
-        } );
-    } );
-
-    //Footer Border Right width
-    api( 'responsive_inputs_border_width_right_border', function( value ) {
-        value.bind( function( newval ) {
-            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('border-right-width', newval+'px' );
-            $('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('border-right-width', newval+'px' );
-            $('div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid').css('border-right-width', newval+'px' );
-        } );
-    } );
-
-    //Footer Border Bottom width
-    api( 'responsive_inputs_border_width_bottom_border', function( value ) {
-        value.bind( function( newval ) {
-            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('border-bottom-width', newval+'px' );
-            $('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('border-bottom-width', newval+'px' );
-            $('div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid').css('border-bottom-width', newval+'px' );
-        } );
-    } );
-    //Footer Border Left width
-    api( 'responsive_inputs_border_width_left_border', function( value ) {
-        value.bind( function( newval ) {
-            $('select,textarea,input[type=tel],input[type=email],input[type=number],input[type=search],input[type=text],input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=password],input[type=range],input[type=time],input[type=url],input[type=week],div.wpforms-container-full .wpforms-form input[type=date],div.wpforms-container-full .wpforms-form input[type=datetime],div.wpforms-container-full .wpforms-form input[type=datetime-local],body div.wpforms-container-full .wpforms-form input[type=email],div.wpforms-container-full .wpforms-form input[type=month],div.wpforms-container-full .wpforms-form input[type=number],div.wpforms-container-full .wpforms-form input[type=password],div.wpforms-container-full .wpforms-form input[type=range],div.wpforms-container-full .wpforms-form input[type=search],div.wpforms-container-full .wpforms-form input[type=tel],div.wpforms-container-full .wpforms-form input[type=text],div.wpforms-container-full .wpforms-form input[type=time],div.wpforms-container-full .wpforms-form input[type=url],div.wpforms-container-full .wpforms-form input[type=week],div.wpforms-container-full .wpforms-form select,div.wpforms-container-full .wpforms-form textarea').css('border-left-width', newval+'px' );
-            $('#add_payment_method table.cart td.actions .coupon .input-text,.woocommerce-cart table.cart td.actions .coupon .input-text,.woocommerce-checkout table.cart td.actions .coupon .input-text,.woocommerce form .form-row input.input-text,.woocommerce form .form-row textarea').css('border-left-width', newval+'px' );
-            $('div.wpforms-container-full .wpforms-form .wpforms-field input.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field input.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field textarea.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field textarea.user-invalid,div.wpforms-container-full .wpforms-form .wpforms-field select.wpforms-error,div.wpforms-container-full .wpforms-form .wpforms-field select.user-invalid').css('border-left-width', newval+'px' );
         } );
     } );
 
