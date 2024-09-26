@@ -98,7 +98,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		if ( is_front_page() ) {
 			if ( 1 === $show['home'] ) {
-				$html_output .= '<div class="breadcrumb-list"><a itemprop="item" href="' . $home_link . '"><span itemprop="name">' . $text['home'] . '</span></a></div>';
+				$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) ;
 			}
 		} else {
 			$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
