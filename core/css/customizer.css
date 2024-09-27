@@ -95,6 +95,10 @@
    top: 1em;
    right: 0;
  }
+
+ #customize-control-responsive_single_product_floating_bar .res-control-tooltip {
+  top: 12px;
+ }
  
  .notice.notice-info h3,
  .accordion-section-title {
