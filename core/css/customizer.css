@@ -96,9 +96,6 @@
    right: 0;
  }
 
- #customize-control-responsive_single_product_floating_bar .res-control-tooltip {
-  top: 12px;
- }
  
  .notice.notice-info h3,
  .accordion-section-title {
@@ -112,5 +109,12 @@
 .customize-control-title {
   font-family: 'Roboto','sans-serif';
   color: #50575e;
-  line-height: 16px;
+}
+
+#customize-control-responsive_cart_color {
+  padding-top: 24px;
+}
+
+#customize-control-responsive_box_background_color{
+  margin-top: 14px;
 }
