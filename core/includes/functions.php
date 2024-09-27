@@ -1262,7 +1262,16 @@ if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
 				'content_header_description',
 				'breadcrumb',
 				'footer',
-				'page_title'
+				'page_title',
+				'product_title_shop',
+				'single_product_title_shop',
+				'product_price_shop',
+				'single_product_price_shop',
+				'product_content_shop',
+				'single_product_content_shop',
+				'shop_page_title_shop',
+				'single_product_page_breadcrumb_shop',
+
 			);
 			
 			foreach( $font_size_typo_elements as $element ) {
@@ -1274,6 +1283,16 @@ if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
 					set_theme_mod( $element . '_typography_font_size_value', $font_size ); 
 				}
 
+				if( ($element === 'product_title_shop') ||
+				($element === 'single_product_title_shop') ||
+				($element === 'product_price_shop') ||
+				($element === 'single_product_title_shop') ||
+				($element === 'product_content_shop') ||
+				($element === 'single_product_content_shop') ||
+				($element === 'shop_page_title_shop') ||
+				($element === 'single_product_page_breadcrumb_shop')){
+					$element = substr($element,  0 , strlen($element) - 5);
+				}
 				$tablet_typography = get_theme_mod( $element . '_tablet_typography' );
 				
 				if ( $tablet_typography && array_key_exists( 'font-size', $tablet_typography ) ) {

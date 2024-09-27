@@ -45,168 +45,13 @@ body .select2-container--default .select2-selection--single .select2-selection__
 .responsive-select-typo-group {
 	cursor: pointer;
 }
-#customize-control-body_typography-font-family,
-#customize-control-body_typography-font-weight,
-#customize-control-body_typography-font-style,
-#customize-control-body_typography-text-transform,
-#customize-control-body_typography-font-size,
-#customize-control-body_typography-line-height,
-#customize-control-body_typography-letter-spacing,
-#customize-control-responsive_paragraph_margin_bottom,
-#customize-control-headings_typography-font-family,
-#customize-control-headings_typography-font-weight,
-#customize-control-headings_typography-text-transform,
-#customize-control-headings_typography-line-height,
-#customize-control-headings_typography-letter-spacing,
-#customize-control-heading_h1_typography-font-family,
-#customize-control-heading_h1_typography-font-weight,
-#customize-control-heading_h1_typography-font-style,
-#customize-control-heading_h1_typography-text-transform,
-#customize-control-heading_h1_typography-font-size,
-#customize-control-heading_h1_typography-line-height,
-#customize-control-heading_h1_typography-letter-spacing,
-#customize-control-heading_h2_typography-font-family,
-#customize-control-heading_h2_typography-font-weight,
-#customize-control-heading_h2_typography-font-style,
-#customize-control-heading_h2_typography-text-transform,
-#customize-control-heading_h2_typography-font-size,
-#customize-control-heading_h2_typography-line-height,
-#customize-control-heading_h2_typography-letter-spacing,
-#customize-control-heading_h3_typography-font-family,
-#customize-control-heading_h3_typography-font-weight,
-#customize-control-heading_h3_typography-font-style,
-#customize-control-heading_h3_typography-text-transform,
-#customize-control-heading_h3_typography-font-size,
-#customize-control-heading_h3_typography-line-height,
-#customize-control-heading_h3_typography-letter-spacing,
-#customize-control-heading_h4_typography-font-family,
-#customize-control-heading_h4_typography-font-weight,
-#customize-control-heading_h4_typography-font-style,
-#customize-control-heading_h4_typography-text-transform,
-#customize-control-heading_h4_typography-font-size,
-#customize-control-heading_h4_typography-line-height,
-#customize-control-heading_h4_typography-letter-spacing,
-#customize-control-heading_h5_typography-font-family,
-#customize-control-heading_h5_typography-font-weight,
-#customize-control-heading_h5_typography-font-style,
-#customize-control-heading_h5_typography-text-transform,
-#customize-control-heading_h5_typography-font-size,
-#customize-control-heading_h5_typography-line-height,
-#customize-control-heading_h5_typography-letter-spacing,
-#customize-control-heading_h6_typography-font-family,
-#customize-control-heading_h6_typography-font-weight,
-#customize-control-heading_h6_typography-font-style,
-#customize-control-heading_h6_typography-text-transform,
-#customize-control-heading_h6_typography-font-size,
-#customize-control-heading_h6_typography-line-height,
-#customize-control-heading_h6_typography-letter-spacing,
-#customize-control-meta_typography-font-family,
-#customize-control-meta_typography-font-weight,
-#customize-control-meta_typography-font-style,
-#customize-control-meta_typography-text-transform,
-#customize-control-meta_typography-font-size,
-#customize-control-meta_typography-line-height,
-#customize-control-meta_typography-letter-spacing,
-#customize-control-button_typography-font-family,
-#customize-control-button_typography-font-weight,
-#customize-control-button_typography-font-style,
-#customize-control-button_typography-text-transform,
-#customize-control-button_typography-font-size,
-#customize-control-button_typography-line-height,
-#customize-control-button_typography-letter-spacing,
-#customize-control-input_typography-font-family,
-#customize-control-input_typography-font-weight,
-#customize-control-input_typography-font-style,
-#customize-control-input_typography-text-transform,
-#customize-control-input_typography-font-size,
-#customize-control-input_typography-line-height,
-#customize-control-input_typography-letter-spacing,
-#customize-control-header_site_title_typography-font-family,
-#customize-control-header_site_title_typography-font-weight,
-#customize-control-header_site_title_typography-font-style,
-#customize-control-header_site_title_typography-text-transform,
-#customize-control-header_site_title_typography-font-size,
-#customize-control-header_site_title_typography-line-height,
-#customize-control-header_site_title_typography-letter-spacing,
-#customize-control-header_site_tagline_typography-font-family,
-#customize-control-header_site_tagline_typography-font-weight,
-#customize-control-header_site_tagline_typography-font-style,
-#customize-control-header_site_tagline_typography-text-transform,
-#customize-control-header_site_tagline_typography-font-size,
-#customize-control-header_site_tagline_typography-line-height,
-#customize-control-header_site_tagline_typography-letter-spacing,
-#customize-control-header_widgets_typography-font-family,
-#customize-control-header_widgets_typography-font-weight,
-#customize-control-header_widgets_typography-font-style,
-#customize-control-header_widgets_typography-text-transform,
-#customize-control-header_widgets_typography-font-size,
-#customize-control-header_widgets_typography-line-height,
-#customize-control-header_widgets_typography-letter-spacing,
-#customize-control-content_header_heading_typography-font-family,
-#customize-control-content_header_heading_typography-font-weight,
-#customize-control-content_header_heading_typography-font-style,
-#customize-control-content_header_heading_typography-text-transform,
-#customize-control-content_header_heading_typography-font-size,
-#customize-control-content_header_heading_typography-line-height,
-#customize-control-content_header_heading_typography-letter-spacing,
-#customize-control-content_header_description_typography-font-family,
-#customize-control-content_header_description_typography-font-weight,
-#customize-control-content_header_description_typography-font-style,
-#customize-control-content_header_description_typography-text-transform,
-#customize-control-content_header_description_typography-font-size,
-#customize-control-content_header_description_typography-line-height,
-#customize-control-content_header_description_typography-letter-spacing,
-#customize-control-header_menu_typography-font-family,
-#customize-control-header_menu_typography-font-weight,
-#customize-control-header_menu_typography-font-style,
-#customize-control-header_menu_typography-text-transform,
-#customize-control-header_menu_typography-font-size,
-#customize-control-header_menu_typography-line-height,
-#customize-control-header_menu_typography-letter-spacing,
-#customize-control-header_secondary_menu_typography-font-family,
-#customize-control-header_secondary_menu_typography-font-weight,
-#customize-control-header_secondary_menu_typography-font-style,
-#customize-control-header_secondary_menu_typography-text-transform,
-#customize-control-header_secondary_menu_typography-font-size,
-#customize-control-header_secondary_menu_typography-line-height,
-#customize-control-header_secondary_menu_typography-letter-spacing,
-#customize-control-breadcrumb_typography-font-family,
-#customize-control-breadcrumb_typography-font-weight,
-#customize-control-breadcrumb_typography-font-style,
-#customize-control-breadcrumb_typography-text-transform,
-#customize-control-breadcrumb_typography-font-size,
-#customize-control-breadcrumb_typography-line-height,
-#customize-control-breadcrumb_typography-letter-spacing,
-#customize-control-page_title_typography-font-family,
-#customize-control-page_title_typography-font-weight,
-#customize-control-page_title_typography-font-style,
-#customize-control-page_title_typography-text-transform,
-#customize-control-page_title_typography-font-size,
-#customize-control-page_title_typography-line-height,
-#customize-control-page_title_typography-letter-spacing,
-#customize-control-page_title_typography-color,
-#customize-control-sidebar_typography-font-family,
-#customize-control-sidebar_typography-font-weight,
-#customize-control-sidebar_typography-font-style,
-#customize-control-sidebar_typography-text-transform,
-#customize-control-sidebar_typography-font-size,
-#customize-control-sidebar_typography-line-height,
-#customize-control-sidebar_typography-letter-spacing,
-#customize-control-footer_typography-font-family,
-#customize-control-footer_typography-font-weight,
-#customize-control-footer_typography-font-style,
-#customize-control-footer_typography-text-transform,
-#customize-control-footer_typography-font-size,
-#customize-control-footer_typography-line-height,
-#customize-control-footer_typography-letter-spacing
-{
-    display: none;
+
+.responsive-typography-settings-group li.customize-control {
+	display: none;
 	margin-left: -12px;
 	margin-right: -12px;
 	padding-left: 12px;
 	padding-right: 12px;
-}
-.responsive-typography-settings-group li.customize-control {
 	background: #F9F9F9;
 	padding-top: 20px;
 	padding-bottom: 20px !important;
@@ -360,7 +205,9 @@ label.responsive_font_weight select option:checked {
 #customize-control-responsive_body_typography_group {
 	padding-top: 24px;
 }
-#sub-accordion-section-responsive_typography .responsive-horizontal-separator-control-wrapper {
+#sub-accordion-section-responsive_typography .responsive-horizontal-separator-control-wrapper,
+#sub-accordion-section-responsive_woocommerce_shop .responsive-horizontal-separator-control-wrapper,
+#sub-accordion-section-responsive_woocommerce_single_product_layout .responsive-horizontal-separator-control-wrapper {
 	padding-top: 24px;
 	padding-bottom: 24px;
 	margin-left: 0;
@@ -378,7 +225,10 @@ label.responsive_font_weight select option:checked {
 #customize-control-responsive_meta_typography_group_separator .responsive-horizontal-separator-control-wrapper {
 	padding-bottom: 0;
 }
-#customize-control-responsive_meta_typography_group {
+#customize-control-responsive_meta_typography_group,
+#customize-control-responsive_product_content_shop_typography_group,
+#customize-control-responsive_single_product_page_breadcrumb_shop_typography_group
+{
 	padding-bottom: 12px;
 }
 #customize-control-responsive_breadcrumb_typography_separator .responsive-horizontal-separator-control-wrapper {
@@ -430,4 +280,15 @@ label.responsive_font_weight select option:checked {
 }
 #customize-control-responsive_header_secondary_menu_typography_group  {
 	padding-top: 14px;
+}
+
+.accordion-section .responsive-typography-settings-group-shop_page_title_shop_typography .wp-picker-holder,
+.accordion-section .responsive-typography-settings-group-product_title_shop_typography .wp-picker-holder,
+.accordion-section .responsive-typography-settings-group-single_product_title_shop_typography .wp-picker-holder,
+.accordion-section .responsive-typography-settings-group-product_price_shop_typography .wp-picker-holder,
+.accordion-section .responsive-typography-settings-group-product_price_shop_typography .wp-picker-holder,
+.accordion-section .responsive-typography-settings-group-single_product_price_shop_typography .wp-picker-holder,
+.accordion-section .responsive-typography-settings-group-product_content_shop_typography .wp-picker-holder,
+.accordion-section .responsive-typography-settings-group-single_product_content_shop_typography .wp-picker-holder {
+	top: 72px;
 }
