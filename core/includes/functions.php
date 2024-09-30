@@ -1202,7 +1202,7 @@ function responsive_register_widgets() {
 
 /**
  * Function to make old background image control with new control.
- * @since 5.2
+ * @since 6.0.0
  */
 
 if ( ! function_exists( 'responsive_background_images_background_compatibility' ) ) :
@@ -1234,7 +1234,7 @@ endif;
 
 /**
  * Function to make old font sizes control with new control.
- * @since 5.2
+ * @since 6.0.0
  */
 
 if ( ! function_exists( 'responsive_font_sizes_background_compatibility' ) ) :
