@@ -48,7 +48,7 @@ if ( ! class_exists( 'Responsive_Site_Colors_Customizer' ) ) :
 			);
 
 			$wp_customize->remove_section( 'header_image' );
-			$wp_customize->remove_section( 'background_color' );
+			$wp_customize->remove_section( 'colors' );
 			$wp_customize->remove_section( 'background_image' );
 
 			// Site Background Color.
