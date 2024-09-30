@@ -25,9 +25,10 @@ const TypographyComponent = props => {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
 	}
 
-    if (description) {
-        descriptionHtml = <i className="res-control-tooltip dashicons dashicons-editor-help" title={description}></i>;
-    }
+	let noteTitle = __('Note: ', 'responsive');
+	if (description) {
+		descriptionHtml = <p className="responsive-customize-control-note responsive-text-control-note"><span>{noteTitle}</span>{description}</p>;
+	}
 
     let linkNew = link;
     if (undefined !== linkNew) {
@@ -77,16 +78,16 @@ const TypographyComponent = props => {
                  return html;
             });
 
-            optgrpOfCustomFonts = <optgroup label={optgrpOfCustomFontsLabel}>
+            optgrpOfCustomFonts = <optgroup class="responsive-font-family-select-options" label={optgrpOfCustomFontsLabel}>
              {customFontsOptionsHtml}
             </optgroup>;
         }
 
-        optgrpOfStandardFonts = <optgroup label={optgrpOfStandardFontsLabel}>
+        optgrpOfStandardFonts = <optgroup class="responsive-font-family-select-options" label={optgrpOfStandardFontsLabel}>
             {standardFontsOptionsHtml}
         </optgroup>;
 
-        optgrpOfGoogleFonts = <optgroup label={optgrpOfGoogleFontsLabel}>
+        optgrpOfGoogleFonts = <optgroup class="responsive-font-family-select-options" label={optgrpOfGoogleFontsLabel}>
             {googleFontsOptionsHtml}
         </optgroup>;
 
@@ -98,7 +99,7 @@ const TypographyComponent = props => {
             {optgrpOfGoogleFonts}
         </select>;
         return <>
-            <label>
+            <label class={id}>
                 {htmlLabel}
                 {familyDescriptionHtml}
                 {selectHtml}
@@ -116,11 +117,11 @@ const TypographyComponent = props => {
 
         let selectHtml = <select data-customize-setting-link={linkNew} data-connected-control={connect} data-inherit={resp_inherit} data-value={value} data-name={name}>{optionsHtml}</select>;
         return <>
-            <label>
+            <label class={id}>
                 {htmlLabel}
-                {descriptionHtml}
                 {selectHtml}
             </label>
+            {descriptionHtml}
         </>;
     }
 
