@@ -116,8 +116,8 @@ if ( ! class_exists( 'Responsive_Header_Widgets_Customizer' ) ) :
 			/**
 			 * Header Widgets.
 			 */
-			$header_widgets_separator_label = esc_html__( 'Header Widgets Typography', 'responsive' );
-			responsive_separator_control( $wp_customize, 'header_widgets_separator', $header_widgets_separator_label, 'responsive_header_widget', 150 );
+			$header_widgets_separator_label = esc_html__( 'Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'header_widgets_typography_group', $header_widgets_separator_label, 'responsive_header_widget', 150, 'header_widgets_typography' );
 
 		}
 	}

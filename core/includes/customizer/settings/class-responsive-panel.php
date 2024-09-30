@@ -64,14 +64,8 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 			$tab_ids_prefix  = 'customize-control-';
 			$design_tab_ids  = array(
 				$tab_ids_prefix . 'responsive_breadcrumb_color',
-				$tab_ids_prefix . 'responsive_breadcrumb',
-				$tab_ids_prefix . 'breadcrumb_typography-font-family',
-				$tab_ids_prefix . 'breadcrumb_typography-font-weight',
-				$tab_ids_prefix . 'breadcrumb_typography-font-style',
-				$tab_ids_prefix . 'breadcrumb_typography-text-transform',
-				$tab_ids_prefix . 'breadcrumb_typography-font-size',
-				$tab_ids_prefix . 'breadcrumb_typography-line-height',
-				$tab_ids_prefix . 'breadcrumb_typography-letter-spacing',
+				$tab_ids_prefix . 'responsive_breadcrumb_typography_separator',
+				$tab_ids_prefix . 'responsive_breadcrumb_typography_group',
 			);
 			$general_tab_ids = array(
 				$tab_ids_prefix . 'res_breadcrumb',
@@ -147,25 +141,14 @@ if ( ! class_exists( 'Responsive_Panel' ) ) :
 				$tab_ids_prefix . 'responsive_header_site_title_hover',
 				$tab_ids_prefix . 'responsive_header_site_title_hover_color',
 				$tab_ids_prefix . 'responsive_header_site_title_separator',
-				$tab_ids_prefix . 'header_site_title_typography-font-family',
-				$tab_ids_prefix . 'header_site_title_typography-font-weight',
-				$tab_ids_prefix . 'header_site_title_typography-font-style',
-				$tab_ids_prefix . 'header_site_title_typography-text-transform',
-				$tab_ids_prefix . 'header_site_title_typography-font-size',
-				$tab_ids_prefix . 'header_site_title_typography-line-height',
-				$tab_ids_prefix . 'header_site_title_typography-letter-spacing',
-				
+				$tab_ids_prefix . 'responsive_header_site_title_typography_group',
+				$tab_ids_prefix . 'responsive_header_site_title_typo_separator',
+				$tab_ids_prefix . 'responsive_header_site_tagline_typo_separator',
 				$tab_ids_prefix . 'responsive_header_tagline_colors_separator',
 				$tab_ids_prefix . 'responsive_header_text',
 				$tab_ids_prefix . 'responsive_header_text_color',
 				$tab_ids_prefix . 'responsive_header_site_tagline_separator',
-				$tab_ids_prefix . 'header_site_tagline_typography-font-family',
-				$tab_ids_prefix . 'header_site_tagline_typography-font-weight',
-				$tab_ids_prefix . 'header_site_tagline_typography-font-style',
-				$tab_ids_prefix . 'header_site_tagline_typography-text-transform',
-				$tab_ids_prefix . 'header_site_tagline_typography-font-size',
-				$tab_ids_prefix . 'header_site_tagline_typography-line-height',
-				$tab_ids_prefix . 'header_site_tagline_typography-letter-spacing',
+				$tab_ids_prefix . 'responsive_header_site_tagline_typography_group',
 			);
 			$logo_general_tab_ids = array(
 				$tab_ids_prefix . 'custom_logo',

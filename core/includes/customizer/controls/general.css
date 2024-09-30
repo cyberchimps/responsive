@@ -250,7 +250,7 @@ select {
 	line-height: 18px
 }
 
-.customize-control.has-switchers>.control-wrap:not(.active) {
+.customize-control.has-switchers .control-wrap:not(.active) {
 	display: none;
 	width: 100%
 }
@@ -516,7 +516,9 @@ body.rtl .customize-control .responsive-switchers li {
 	padding-top: 24px;
 	padding-bottom: 22px;
 }
-#sub-accordion-section-responsive_sidebar .responsive-color-control-main-wrap .wp-picker-holder {
+#sub-accordion-section-responsive_sidebar .responsive-color-control-main-wrap .wp-picker-holder,
+#sub-accordion-section-responsive_breadcrumb .responsive-color-control-main-wrap .wp-picker-holder,
+#customize-control-page_title_typography-color .responsive-color-control-main-wrap .wp-picker-holder {
 	top: 60px;
 }
 #customize-control-responsive_page_sidebar_width,
@@ -652,4 +654,60 @@ body.rtl .customize-control .responsive-switchers li {
 }
 #customize-control-responsive_cart_checkout_button_text_color .res-control-tooltip{
 	display: none;
+}
+.responsive-background-image-control .responsive-toggle-control {
+	margin-bottom: 0;
+}
+.responsive-background-image-wrapper.not-selected {
+	height: 140px;
+}
+.responsive-background-image-wrapper .responsive-bgimage-not-selected {
+	border-radius: 4px;
+	height: inherit;
+	background: #007CBA1A;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+.responsive-bgimage-selected {
+	position: relative;
+}
+.responsive-bgimage-selected img {
+	border-radius: 4px;
+}
+.responsive-bgimage-selected .bgimage-remove-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+.responsive-bgimage-description {
+	margin-top: 20px;
+	margin-bottom: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: 400;
+	line-height: 18px;
+	color: #A4A4A4;
+}
+.responsive-bgimage-description span {
+	font-weight: 600;
+}
+#customize-control-responsive_breadcrumb_color .responsive-color-control-main-wrap {
+	padding-top: 24px;
+}
+#sub-accordion-section-responsive_sidebar .responsive-background-image-control .responsive-toggle-control {
+	margin-top: 0;
+}
+.responsive-background-image-control {
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+.customize-control-responsive-background-image .responsive-background-image-wrapper {
+	padding-top: 16px;
+}
+#customize-control-responsive_header_widget_background_image .responsive-background-image-control {
+	padding-top: 14px;
 }

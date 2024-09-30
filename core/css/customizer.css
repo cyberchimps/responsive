@@ -95,6 +95,7 @@
    top: 1em;
    right: 0;
  }
+
  
  .notice.notice-info h3,
  .accordion-section-title {
@@ -108,5 +109,12 @@
 .customize-control-title {
   font-family: 'Roboto','sans-serif';
   color: #50575e;
+}
 
+#customize-control-responsive_cart_color {
+  padding-top: 24px;
+}
+
+#customize-control-responsive_box_background_color{
+  margin-top: 14px;
 }
