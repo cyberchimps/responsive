@@ -98,7 +98,7 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 
 		if ( is_front_page() ) {
 			if ( 1 === $show['home'] ) {
-				$html_output .= '<div class="breadcrumb-list"><a itemprop="item" href="' . $home_link . '"><span itemprop="name">' . $text['home'] . '</span></a></div>';
+				$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) ;
 			}
 		} else {
 			$html_output .= '<div class="breadcrumb-list">' . sprintf( $link, $home_link, $text['home'] ) . $delimiter;
@@ -244,10 +244,9 @@ if ( ! function_exists( 'responsive_breadcrumb_lists' ) ) {
 				$html_output .= $delimiter . sprintf( _x( 'Page %s', 'Text for a page Breadcrumb', 'responsive' ), $page_num );
 
 			}
-
-			$html_output .= '</div>';
-
 		}
+		
+		$html_output .= '</div>';
 
         echo $html_output; // phpcs:ignore
 	} // end responsive_breadcrumb_lists.
