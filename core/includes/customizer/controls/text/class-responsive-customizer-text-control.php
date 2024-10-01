@@ -51,9 +51,15 @@ if ( ! class_exists( 'Responsive_Customizer_Text_Control' ) ) :
 
 			$this->json['id'] = $this->id;
 
-			$this->json['desktop'] = array();
-			$this->json['tablet']  = array();
-			$this->json['mobile']  = array();
+			$this->json['desktop']           = array();
+			$this->json['tablet']            = array();
+			$this->json['mobile']            = array();
+			$this->json['desktop_value']     = array();
+			$this->json['tablet_value']      = array();
+			$this->json['mobile_value']      = array();
+			$this->json['desktop_font_unit'] = array();
+			$this->json['tablet_font_unit']  = array();
+			$this->json['mobile_font_unit']  = array();
 
 			foreach ( $this->settings as $setting_key => $setting ) {
 				$this->json[ $setting_key ] = array(

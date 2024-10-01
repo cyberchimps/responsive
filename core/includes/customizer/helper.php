@@ -2844,3 +2844,45 @@ function responsive_blog_post_title_toggle() {
 function responsive_date_box_toggle_callback() {
 	return get_theme_mod( 'responsive_date_box_toggle' ) ? true : false;
 }
+
+/**
+ * [responsive_toggle_control description].
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call  [description].
+ * @param  [type] $transport    [description].
+ * @param  [type] $description  [description].
+ *
+ * @return void [description].
+ */
+function responsive_typography_group_control( $wp_customize, $element, $label, $section, $priority, $connected_control, $default = true, $active_call = null , $transport = 'refresh', $description = '' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_checkbox_validate',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Typography_Group_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'             => $label,
+				'description'       => $description,
+				'section'           => $section,
+				'settings'          => 'responsive_' . $element,
+				'priority'          => $priority,
+				'active_callback'   => $active_call,
+				'connected_control' => $connected_control,
+			)
+		)
+	);
+}

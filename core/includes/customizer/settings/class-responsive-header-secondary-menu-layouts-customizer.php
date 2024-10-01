@@ -48,14 +48,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 				 $design_tab_ids_prefix . 'responsive_spacing_separator',
 				 $design_tab_ids_prefix . 'responsive_secondary-menu-padding_padding',
 				 $design_tab_ids_prefix . 'responsive_secondary-menu-margin_padding',
-				 $design_tab_ids_prefix . 'responsive_typography_separator',
-				 $design_tab_ids_prefix . 'header_secondary_menu_typography-font-family',
-				 $design_tab_ids_prefix . 'header_secondary_menu_typography-font-weight',
-				 $design_tab_ids_prefix . 'header_secondary_menu_typography-font-style',
-				 $design_tab_ids_prefix . 'header_secondary_menu_typography-text-transform',
-				 $design_tab_ids_prefix . 'header_secondary_menu_typography-font-size',
-				 $design_tab_ids_prefix . 'header_secondary_menu_typography-line-height',
-				 $design_tab_ids_prefix . 'header_secondary_menu_typography-letter-spacing',
+				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_typography_group',
 				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_color_separator',
 				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_background_color',
 				 $design_tab_ids_prefix . 'responsive_header_secondary_menu_link_color',
@@ -131,8 +124,8 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			responsive_select_control( $wp_customize, 'submenu_animation_style', $submenu_animation_style_label, 'responsive_header_secondary_menu_layout', 110, $submenu_animation_choices, 'none', 'responsive_disabled_secondary_menu' );
 			
 			// Typography
-			$typography_separator_label = __( 'Typography', 'responsive' );
-			responsive_separator_control( $wp_customize, 'typography_separator', $typography_separator_label, 'responsive_header_secondary_menu_layout', 155 );
+			$typography_separator_label = __( 'Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'header_secondary_menu_typography_group', $typography_separator_label, 'responsive_header_secondary_menu_layout', 155, 'header_secondary_menu_typography' );
 			
 			// Menu spacing.
 			$spacing_separator_label = __( 'Spacing', 'responsive' );

@@ -54,14 +54,7 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 			$design_tab_ids_prefix = 'customize-control-';
 			$design_tab_ids        = array(
 				$design_tab_ids_prefix . 'responsive_page_typography_title_separator',
-				$design_tab_ids_prefix . 'page_title_typography-font-family',
-				$design_tab_ids_prefix . 'page_title_typography-font-weight',
-				$design_tab_ids_prefix . 'page_title_typography-font-style',
-				$design_tab_ids_prefix . 'page_title_typography-text-transform',
-				$design_tab_ids_prefix . 'page_title_typography-font-size',
-				$design_tab_ids_prefix . 'page_title_typography-line-height',
-				$design_tab_ids_prefix . 'page_title_typography-letter-spacing',
-				$design_tab_ids_prefix . 'page_title_typography-color',
+				$design_tab_ids_prefix . 'responsive_page_title_typography_group',
 			);
 
 			$general_tab_ids_prefix = 'customize-control-responsive_page_';
@@ -196,6 +189,10 @@ if ( ! class_exists( 'Responsive_Page_Content_Customizer' ) ) :
 				);
 			}
 			responsive_select_button_control( $wp_customize, 'page_content_alignment', $page_content_alignment_label, 'responsive_page', 90, $page_content_alignment_choices, 'left', null );
+
+			// Typography
+			$typography_label = __( 'Title Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'page_title_typography_group', $typography_label, 'responsive_page', 91, 'page_title_typography' );
 
 		}
 

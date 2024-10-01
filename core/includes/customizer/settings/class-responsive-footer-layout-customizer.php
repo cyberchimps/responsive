@@ -251,6 +251,10 @@ if ( ! class_exists( 'Responsive_Footer_Layout_Customizer' ) ) :
 			$footer_border_color_label = __( 'Border Color', 'responsive' );
 			responsive_color_control( $wp_customize, 'footer_border', $footer_border_color_label, 'responsive_footer_layout', 50, '#aaaaaa');
 
+			// Typography
+			$footer_typography_label = __( 'Footer Font', 'responsive' );
+			responsive_typography_group_control( $wp_customize, 'footer_typography_group', $footer_typography_label, 'responsive_typography_footer', 10, 'footer_typography' );
+
 		}
 	}
 

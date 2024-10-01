@@ -201,14 +201,15 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
+				new Responsive_Customizer_Color_Control(
 					$wp_customize,
 					'responsive_scroll_to_top_icon_color',
 					array(
-						'label'    => __( 'Icon Color', 'responsive' ),
-						'section'  => 'responsive_scrolltotop_section',
-						'settings' => 'responsive_scroll_to_top_icon_color',
-						'priority' => 10,
+						'label'            => __( 'Icon Color', 'responsive' ),
+						'section'          => 'responsive_scrolltotop_section',
+						'settings'         => 'responsive_scroll_to_top_icon_color',
+						'priority'         => 10,
+						'is_hover_required'=> false,
 					)
 				)
 			);
@@ -222,14 +223,15 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
+				new Responsive_Customizer_Color_Control(
 					$wp_customize,
 					'responsive_scroll_to_top_icon_hover_color',
 					array(
-						'label'    => __( 'Icon Hover Color', 'responsive' ),
-						'section'  => 'responsive_scrolltotop_section',
-						'settings' => 'responsive_scroll_to_top_icon_hover_color',
-						'priority' => 10,
+						'label'            => __( 'Icon Hover Color', 'responsive' ),
+						'section'          => 'responsive_scrolltotop_section',
+						'settings'         => 'responsive_scroll_to_top_icon_hover_color',
+						'priority'         => 15,
+						'is_hover_required'=> false,
 					)
 				)
 			);
@@ -243,14 +245,15 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
+				new Responsive_Customizer_Color_Control(
 					$wp_customize,
 					'responsive_scroll_to_top_icon_background_color',
 					array(
-						'label'    => __( 'Icon Background Color', 'responsive' ),
-						'section'  => 'responsive_scrolltotop_section',
-						'settings' => 'responsive_scroll_to_top_icon_background_color',
-						'priority' => 10,
+						'label'            => __( 'Icon Background Color', 'responsive' ),
+						'section'          => 'responsive_scrolltotop_section',
+						'settings'         => 'responsive_scroll_to_top_icon_background_color',
+						'priority'         => 20,
+						'is_hover_required'=> false,
 					)
 				)
 			);
@@ -264,14 +267,15 @@ if ( ! class_exists( 'Responsive_Scroll_To_Top_Customizer' ) ) :
 				)
 			);
 			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
+				new Responsive_Customizer_Color_Control(
 					$wp_customize,
 					'responsive_scroll_to_top_icon_background_hover_color',
 					array(
-						'label'    => __( 'Icon Background Hover Color', 'responsive' ),
-						'section'  => 'responsive_scrolltotop_section',
-						'settings' => 'responsive_scroll_to_top_icon_background_hover_color',
-						'priority' => 10,
+						'label'            => __( 'Icon Background Hover Color', 'responsive' ),
+						'section'          => 'responsive_scrolltotop_section',
+						'settings'         => 'responsive_scroll_to_top_icon_background_hover_color',
+						'priority'         => 25,
+						'is_hover_required'=> false,
 					)
 				)
 			);

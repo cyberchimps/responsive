@@ -39,14 +39,8 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
             $tabs_label            = esc_html__('Tabs', 'responsive');
             $design_tab_ids_prefix = 'customize-control-';
             $design_tab_ids        = array(
+                $design_tab_ids_prefix . 'responsive_sidebar_typography_group',
                 $design_tab_ids_prefix . 'responsive_sidebar_typography_separator',
-                $design_tab_ids_prefix . 'sidebar_typography-font-family',
-                $design_tab_ids_prefix . 'sidebar_typography-font-weight',
-                $design_tab_ids_prefix . 'sidebar_typography-font-style',
-                $design_tab_ids_prefix . 'sidebar_typography-text-transform',
-                $design_tab_ids_prefix . 'sidebar_typography-font-size',
-                $design_tab_ids_prefix . 'sidebar_typography-line-height',
-                $design_tab_ids_prefix . 'sidebar_typography-letter-spacing',
                 $design_tab_ids_prefix . 'responsive_sidebar_headings_color',
                 $design_tab_ids_prefix . 'responsive_sidebar_background_color',
                 $design_tab_ids_prefix . 'responsive_sidebar_text_color',
@@ -76,11 +70,13 @@ if (! class_exists('Responsive_Sidebar_Layout_Customizer')) :
 
             responsive_tabs_button_control($wp_customize, 'sidebar_tabs', $tabs_label, 'responsive_sidebar', 1, '', 'responsive_sidebar_general_tab', 'responsive_sidebar_design_tab', $general_tab_ids, $design_tab_ids, null);
 
+            responsive_horizontal_separator_control($wp_customize, 'sidebar_typography_separator', 1, 'responsive_sidebar', 58, 1, );
+
             /**
              * Entry Elements.
              */
-            $sidebar_typography_label = esc_html__('Typography', 'responsive');
-            responsive_separator_control($wp_customize, 'sidebar_typography_separator', $sidebar_typography_label, 'responsive_sidebar', 60);
+            $sidebar_typography_label = esc_html__('Sidebar Font', 'responsive');
+            responsive_typography_group_control($wp_customize, 'sidebar_typography_group', $sidebar_typography_label, 'responsive_sidebar', 60, 'sidebar_typography');
 
             // Page Sidebar Toggle
             $page_sidebar_toggle_label = esc_html__('Page Sidebar', 'responsive');

@@ -496,7 +496,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								$element . '_typography[font-family]',
 								array(
 									'name'            => $element . '_typography[font-family]',
-									'label'           => esc_html__( 'Font Family', 'responsive' ),
+									'label'           => esc_html__( 'Family', 'responsive' ),
 									'section'         => $section,
 									'responsive_setting_id' => 'responsive_font_family',
 									'settings'        => $element . '_typography[font-family]',
@@ -532,7 +532,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								array(
 									'name'            => $element . '_typography[font-weight]',
 									'label'           => esc_html__( 'Font Weight', 'responsive' ),
-									'description'     => esc_html__( 'Important: Not all fonts support every font-weight.', 'responsive' ),
+									'description'     => esc_html__( 'Not all fonts support every font-weight.', 'responsive' ),
 									'section'         => $section,
 									'responsive_setting_id' => 'responsive_font_weight',
 									'settings'        => $element . '_typography[font-weight]',
@@ -574,7 +574,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						);
 
 						$wp_customize->add_control(
-							new Responsive_Customizer_Select_Control(
+							new Responsive_Customizer_Select_Button_Control(
 								$wp_customize,
 								$element . '_typography[font-style]',
 								array(
@@ -584,8 +584,8 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'priority'        => $priority,
 									'active_callback' => $active_callback,
 									'choices'         => array(
-										'normal' => esc_html__( 'Normal', 'responsive' ),
-										'italic' => esc_html__( 'Italic', 'responsive' ),
+										'italic' => esc_html__( 'T', 'responsive' ),
+										'normal' => esc_html__( 'T', 'responsive' ),
 									),
 								)
 							)
@@ -608,7 +608,7 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 						);
 
 						$wp_customize->add_control(
-							new Responsive_Customizer_Select_Control(
+							new Responsive_Customizer_Select_Button_Control(
 								$wp_customize,
 								$element . '_typography[text-transform]',
 								array(
@@ -618,10 +618,9 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 									'priority'        => $priority,
 									'active_callback' => $active_callback,
 									'choices'         => array(
-										''           => esc_html__( 'Default', 'responsive' ),
-										'capitalize' => esc_html__( 'Capitalize', 'responsive' ),
-										'lowercase'  => esc_html__( 'Lowercase', 'responsive' ),
-										'uppercase'  => esc_html__( 'Uppercase', 'responsive' ),
+										'capitalize' => esc_html__( 'Aa', 'responsive' ),
+										'lowercase'  => esc_html__( 'aa', 'responsive' ),
+										'uppercase'  => esc_html__( 'AA', 'responsive' ),
 									),
 								)
 							)
@@ -661,19 +660,75 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 								'default'           => $default,
 							)
 						);
+						$wp_customize->add_setting(
+							$element . '_typography_font_size_value',
+							array(
+								'type'              => 'theme_mod',
+								'sanitize_callback' => 'responsive_sanitize_number',
+								'transport'         => $transport,
+								'default'           => '16',
+							)
+						);
+						$wp_customize->add_setting(
+							$element . '_tablet_typography_font_size_value',
+							array(
+								'sanitize_callback' => 'responsive_sanitize_number',
+								'transport'         => $transport,
+								'default'           => '16',
+							)
+						);
+						$wp_customize->add_setting(
+							$element . '_mobile_typography_font_size_value',
+							array(
+								'sanitize_callback' => 'responsive_sanitize_number',
+								'transport'         => $transport,
+								'default'           => '16',
+							)
+						);
+						$wp_customize->add_setting(
+							$element . '_typography_font_size_unit',
+							array(
+								'type'              => 'theme_mod',
+								'sanitize_callback' => 'sanitize_text_field',
+								'transport'         => $transport,
+								'default'           => 'px',
+							)
+						);
+						$wp_customize->add_setting(
+							$element . '_tablet_typography_font_size_unit',
+							array(
+								'sanitize_callback' => 'sanitize_text_field',
+								'transport'         => $transport,
+								'default'           => 'px',
+							)
+						);
+						$wp_customize->add_setting(
+							$element . '_mobile_typography_font_size_unit',
+							array(
+								'sanitize_callback' => 'sanitize_text_field',
+								'transport'         => $transport,
+								'default'           => 'px',
+							)
+						);
 
 						$wp_customize->add_control(
 							new Responsive_Customizer_Text_Control(
 								$wp_customize,
 								$element . '_typography[font-size]',
 								array(
-									'label'           => esc_html__( 'Font Size', 'responsive' ),
+									'label'           => esc_html__( 'Size', 'responsive' ),
 									'description'     => esc_html__( 'You can add: px-em-%', 'responsive' ),
 									'section'         => $section,
 									'settings'        => array(
-										'desktop' => $element . '_typography[font-size]',
-										'tablet'  => $element . '_tablet_typography[font-size]',
-										'mobile'  => $element . '_mobile_typography[font-size]',
+										'desktop'           => $element . '_typography[font-size]',
+										'tablet'            => $element . '_tablet_typography[font-size]',
+										'mobile'            => $element . '_mobile_typography[font-size]',
+										'desktop_value'     => $element . '_typography_font_size_value',
+										'tablet_value'      => $element . '_tablet_typography_font_size_value',
+										'mobile_value'      => $element . '_mobile_typography_font_size_value',
+										'desktop_font_unit' => $element . '_typography_font_size_unit',
+										'tablet_font_unit'  => $element . '_tablet_typography_font_size_unit',
+										'mobile_font_unit'  => $element . '_mobile_typography_font_size_unit',
 									),
 									'priority'        => $priority,
 									'active_callback' => $active_callback,
@@ -791,15 +846,16 @@ if ( ! class_exists( 'Responsive_Typography_Customizer' ) ) :
 							)
 						);
 						$wp_customize->add_control(
-							new WP_Customize_Color_Control(
+							new Responsive_Customizer_Color_Control(
 								$wp_customize,
 								$element . '_typography[color]',
 								array(
-									'label'           => esc_html__( 'Font Color', 'responsive' ),
-									'section'         => $section,
-									'settings'        => $element . '_typography[color]',
-									'priority'        => $priority,
-									'active_callback' => $active_callback,
+									'label'            => esc_html__( 'Font Color', 'responsive' ),
+									'section'          => $section,
+									'is_hover_required'=> false,
+									'settings'         => $element . '_typography[color]',
+									'priority'         => $priority,
+									'active_callback'  => $active_callback,
 								)
 							)
 						);

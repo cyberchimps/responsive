@@ -1,4 +1,5 @@
-.customize-control-responsive-toggle .responsive-toggle-control .components-flex {
+.customize-control-responsive-toggle .responsive-toggle-control .components-flex,
+.customize-control-responsive-background-image .responsive-toggle-control .components-flex {
     flex-direction: row-reverse;
 }
 .customize-control-responsive-toggle .responsive-toggle-control {
@@ -11,30 +12,36 @@
 .responsive-toggle-control-wrapper {
     padding-bottom: 18px;
 }
-.customize-control-responsive-toggle .responsive-toggle-control .components-toggle-control__label {
+.customize-control-responsive-toggle .responsive-toggle-control .components-toggle-control__label,
+.customize-control-responsive-background-image .responsive-toggle-control .components-toggle-control__label {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 600;
     line-height: 16.41px;
     text-align: left;
 }
-.customize-control-responsive-toggle .components-form-toggle .components-form-toggle__track {
+.customize-control-responsive-toggle .components-form-toggle .components-form-toggle__track,
+.customize-control-responsive-background-image .components-form-toggle .components-form-toggle__track {
     background-color: #D9D9D9;
     border: none;
     height: 20px;
 }
-.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__track {
+.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__track,
+.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__track {
     background-color: #007CBA;
 }
-.customize-control-responsive-toggle .components-form-toggle .components-form-toggle__thumb {
+.customize-control-responsive-toggle .components-form-toggle .components-form-toggle__thumb,
+.customize-control-responsive-background-image .components-form-toggle .components-form-toggle__thumb {
     background-color: #A5A5A5;
     width: 14px;
     height: 14px;
 }
-.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb {
+.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb,
+.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__thumb {
     background-color: #FFF;
 }
-.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb {
+.customize-control-responsive-toggle .components-form-toggle.is-checked .components-form-toggle__thumb,
+.customize-control-responsive-background-image .components-form-toggle.is-checked .components-form-toggle__thumb {
    left: 1px;
 }
 #customize-control-responsive_enable_header_widget .responsive-toggle-control-wrapper {
