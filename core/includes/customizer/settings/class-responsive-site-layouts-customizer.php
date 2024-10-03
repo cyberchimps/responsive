@@ -144,6 +144,10 @@ if ( ! class_exists( 'Responsive_Site_Layouts_Customizer' ) ) :
 			responsive_radius_control( $wp_customize, 'box', 'responsive_layout', 50, 0, 0, 'responsive_not_active_site_style_flat', $box_radius_label );
 
 			// responsive_number_control( $wp_customize, 'box_radius', $box_radius_label, 'responsive_layout', 50, 0, 'responsive_not_active_site_style_flat' );
+
+			// Redirect to site title and logo.
+			$site_title_and_logo_redirect_label = __( 'Site Title and Logo Settings', 'responsive' );
+			responsive_redirect_control( $wp_customize, 'redirect_to_site_title_and_logo', $site_title_and_logo_redirect_label, 'title_tagline', 60, 'section', 'responsive_header_site_logo_title');
 		}
 
 

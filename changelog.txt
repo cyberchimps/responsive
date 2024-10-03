@@ -8,10 +8,16 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(01/10/2024) = Improvement - Version 6.0.1
+[*] = Improvement = Added control to redirect to Site Title and Logo in Site Identity.
+[!] = Fix = Fixed Breadcrumbs itemListElement issue in Rich test results.
+
 (30/09/2024) = Improvement - Version 6.0.0
 [*] = Improvement = Improved UI of customizer Typography control and Background Image control.
 [*] = Improvement = Improved UI of customizer Form Fields border width and radius controls.
 [*] = Improvement = Minor UI changes.
+[!] = Fix = Fixed Breadcrumbs visible on Home page after disabling.
+[!] = Fix = Fixed View Pro features visible in customizer after upgrading to Pro.
 
 (18/09/2024) = Improvement - Version 5.1.2
 [*] = Changed = Moved the header footer scripts to global settings.
