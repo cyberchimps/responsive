@@ -23,6 +23,7 @@ import { responsiveTypographyGroup } from './typography_group/control';
 import { responsiveBuilderControl } from './builder-layout/control';
 import { responsiveMultiSelectControl } from './multi-select/control';
 import { responsiveRangeWithSwitcher } from './range-with-switchers/control';
+import './breadcrumb-toggle';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
