@@ -19,6 +19,7 @@ import { responsiveToggle } from './toggle/control';
 import { responsiveHorizontalSeparator } from './horizontal-separator/control';
 import { responsiveBackgroundImage } from './backgroundimage/control';
 import { responsiveTypographyGroup } from './typography_group/control';
+import './breadcrumb-toggle';
 
 wp.customize.controlConstructor['responsive-sortable'] = responsiveSortable;
 wp.customize.controlConstructor['responsive-range'] = responsiveSlider;
