@@ -17,19 +17,15 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-
-	$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
-	$search_screen = get_theme_mod( 'search_style', 'search' );
-	if ( 'search' === $search_icon && 'full-screen' === $search_screen ) {
-		?>
-		<div class="full-screen-search-wrapper" id="full-screen-search-wrapper">
-			<span id="search-close" class="search-close"></span>
-			<div class="full-screen-search-container">
-				<div class="container">
-		<?php
-	}
+$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
+$search_screen = get_theme_mod( 'search_style', 'search' );
+if ( 'search' === $search_icon && 'full-screen' === $search_screen ) {
+	?>
+	<div class="full-screen-search-wrapper" id="full-screen-search-wrapper">
+		<span id="search-close" class="search-close"></span>
+		<div class="full-screen-search-container">
+			<div class="container">
+	<?php
 }
 ?>
 <form method="get" id="searchform" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -40,15 +36,12 @@ if ( class_exists( 'Responsive_Addons_Pro' ) ) {
 </div>
 </form>
 <?php
-if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-
-	$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
-	$search_screen = get_theme_mod( 'search_style', 'search' );
-	if ( 'search' === $search_icon && 'full-screen' === $search_screen ) {
-		?>
-			</div>
+$search_icon   = get_theme_mod( 'responsive_menu_last_item', 'none' );
+$search_screen = get_theme_mod( 'search_style', 'search' );
+if ( 'search' === $search_icon && 'full-screen' === $search_screen ) {
+	?>
 		</div>
 	</div>
-		<?php
-	}
+</div>
+	<?php
 }
