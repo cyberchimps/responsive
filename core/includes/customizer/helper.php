@@ -2589,6 +2589,22 @@ function responsive_secondary_menu_last_item_text() {
 	return ( 'text-html' === get_theme_mod( 'responsive_secondary_menu_last_item', 'none' ) ) ? true : false;
 }
 
+if ( ! function_exists( 'responsive_menu_search_icon' ) ) {
+	/**
+	 * [responsive_menu_search_icon description]
+	 *
+	 * @return [type] [description]
+	 */
+	function responsive_menu_search_icon() {
+		$menu_last_item = get_theme_mod( 'responsive_menu_last_item', 'none' );
+		if ( 'search' === $menu_last_item ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
 /**
  * [responsive_checkbox_control description]
  *
