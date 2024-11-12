@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( isset( $responsive_options['home-widgets'] ) && '1' !== $responsive_options['home-widgets'] ) {
 	Responsive\responsive_widgets_before(); // above widgets container hook.
 	?>
-	<aside id="secondary" class="widget-area custom-home-widget-section home-widgets" role="complementary">
+	<aside id="secondary" class="widget-area custom-home-widget-section home-widgets">
 		<div class="home-widget-wrapper">
 			<div id="home_widget_1" class="home-widget-1 grid col-300">
 			<?php Responsive\responsive_widgets(); // above widgets hook. ?>
