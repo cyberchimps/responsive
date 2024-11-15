@@ -99,7 +99,7 @@ if ( ! $responsive_page_title && ! $responsive_page_description && ! $responsive
 ?>
 <div class="site-content-header">
 	<?php if ( $responsive_show_breadcrumbs && ( 'before' === get_theme_mod( 'responsive_breadcrumb_position', 'before' ) ) ) : ?>
-	<div class="breadcrumbs" <?php responsive_schema_markup( 'breadcrumb' ); ?>>
+		<div class="breadcrumbs" <?php responsive_check_yoast_enabled_breadcrumbs() ? '' : responsive_schema_markup( 'breadcrumb' ); ?>>
 		<?php responsive_get_breadcrumb_lists(); ?>
 	</div>
 		<?php
@@ -115,7 +115,7 @@ if ( ! $responsive_page_title && ! $responsive_page_description && ! $responsive
 		endif;
 	if ( $responsive_show_breadcrumbs && ( 'after' === get_theme_mod( 'responsive_breadcrumb_position', 'before' ) ) ) :
 		?>
-	<div class="breadcrumbs" <?php responsive_schema_markup( 'breadcrumb' ); ?>>
+	<div class="breadcrumbs" <?php responsive_check_yoast_enabled_breadcrumbs() ? : responsive_schema_markup( 'breadcrumb' ); ?>>
 		<?php responsive_get_breadcrumb_lists(); ?>
 	</div>
 <?php endif; ?>
