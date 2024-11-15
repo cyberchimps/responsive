@@ -122,7 +122,7 @@ if ( ! class_exists( 'Responsive_Sticky_Header_Customizer' ) ) :
 							'height'          => 100, // pixels.
 							'width'           => 300, // pixels.
 							'priority'        => 40,
-							'active_callback' => null,
+							'active_callback' => 'responsive_different_logo_sticky_header',
 						)
 					)
 				);

@@ -5,53 +5,53 @@
 
 ( function( $ ) {
 	var api = wp.customize;
-	api(
-		'responsive_header_layout',
-		function( $swipe ) {
-			$swipe.bind(
-				function( newval ) {
-					switch (newval) {
-						case 'horizontal':
-							api.control( 'responsive_header_alignment' ).toggle( false );
-							api.control( 'responsive_header_menu_full_width' ).toggle( false );
-							api.control( 'responsive_header_menu_background_color' ).toggle( false );
-							api.control( 'responsive_header_menu_border_color' ).toggle( false );
-							break;
-						/**
-						 * The select was switched to »show«.
-						 */
-						case 'vertical':
-							api.control( 'responsive_header_alignment' ).toggle( true );
-							api.control( 'responsive_header_menu_full_width' ).toggle( true );
-							api.control( 'responsive_header_menu_background_color' ).toggle( true );
-							api.control( 'responsive_header_menu_border_color' ).toggle( true );
-							break;
-					}
-				}
-			);
-		}
-	);
+	// api(
+	// 	'responsive_header_layout',
+	// 	function( $swipe ) {
+	// 		$swipe.bind(
+	// 			function( newval ) {
+	// 				switch (newval) {
+	// 					case 'horizontal':
+	// 						api.control( 'responsive_header_alignment' ).toggle( false );
+	// 						api.control( 'responsive_header_menu_full_width' ).toggle( false );
+	// 						api.control( 'responsive_header_menu_background_color' ).toggle( false );
+	// 						api.control( 'responsive_header_menu_border_color' ).toggle( false );
+	// 						break;
+	// 					/**
+	// 					 * The select was switched to »show«.
+	// 					 */
+	// 					case 'vertical':
+	// 						api.control( 'responsive_header_alignment' ).toggle( true );
+	// 						api.control( 'responsive_header_menu_full_width' ).toggle( true );
+	// 						api.control( 'responsive_header_menu_background_color' ).toggle( true );
+	// 						api.control( 'responsive_header_menu_border_color' ).toggle( true );
+	// 						break;
+	// 				}
+	// 			}
+	// 		);
+	// 	}
+	// );
 
-	api(
-		'responsive_mobile_header_layout',
-		function( $swipe ) {
-			$swipe.bind(
-				function( newval ) {
-					switch (newval) {
-						case 'horizontal':
-							api.control( 'responsive_mobile_header_alignment' ).toggle( false );
-							break;
-						/**
-						 * The select was switched to »show«.
-						 */
-						case 'vertical':
-							api.control( 'responsive_mobile_header_alignment' ).toggle( true );
-							break;
-					}
-				}
-			);
-		}
-	);
+	// api(
+	// 	'responsive_mobile_header_layout',
+	// 	function( $swipe ) {
+	// 		$swipe.bind(
+	// 			function( newval ) {
+	// 				switch (newval) {
+	// 					case 'horizontal':
+	// 						api.control( 'responsive_mobile_header_alignment' ).toggle( false );
+	// 						break;
+	// 					/**
+	// 					 * The select was switched to »show«.
+	// 					 */
+	// 					case 'vertical':
+	// 						api.control( 'responsive_mobile_header_alignment' ).toggle( true );
+	// 						break;
+	// 				}
+	// 			}
+	// 		);
+	// 	}
+	// );
 
 	api(
 		'responsive_width',
