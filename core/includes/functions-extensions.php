@@ -42,6 +42,22 @@ function responsive_get_breadcrumb_lists() {
 }
 
 /**
+ * Checks if Yoast breadcrumbs are enabled.
+ *
+ * Retrieves Yoast SEO options and verifies if breadcrumbs are enabled
+ * and the `yoast_breadcrumb` function exists.
+ *
+ * @return bool True if Yoast breadcrumbs are enabled, false otherwise.
+ */
+function responsive_check_yoast_enabled_breadcrumbs() {
+	$yoast_options = get_option( 'wpseo_titles' );
+	if ( function_exists( 'yoast_breadcrumb' ) && true === $yoast_options['breadcrumbs-enable'] ) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * Breadcrumb Lists
  * Allows visitors to quickly navigate back to a previous section or the root page.
  *
