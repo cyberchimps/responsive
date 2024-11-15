@@ -128,7 +128,7 @@ function responsive_meta_box( $post ) {
 	<div class="components-base-control ">
 		<div class="components-base-control__field" style="display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 10px;">
 			<label for="responsive_page_meta_content_width"><?php esc_html_e( 'Content Width in % Max 100 ', 'responsive' ); ?></label>
-			<input type="number" value="<?php echo esc_html( get_post_meta( get_the_ID(), 'responsive_page_meta_content_width', true ) ); ?>" name="responsive_page_meta_content_width" id="responsive_page_meta_content_width" class="components-select-control__input" max="100">
+			<input type="number" value="<?php echo esc_html( get_post_meta( get_the_ID(), 'responsive_page_meta_content_width', true ) ); ?>" name="responsive_page_meta_content_width" id="responsive_page_meta_content_width" class="components-select-control__input" min="0" max="100">
 		</div>
 	</div>
 
