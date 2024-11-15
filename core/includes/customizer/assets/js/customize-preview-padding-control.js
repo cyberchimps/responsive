@@ -25,6 +25,26 @@
 
     }
 
+    function responsive_dynamic_margin(control, selector) {
+        var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
+        if( 0 == api( 'responsive_disable_mobile_menu').get()) {
+            mobile_menu_breakpoint = 0;
+        }
+
+        jQuery( 'style#responsive-'+control+'-margin' ).remove();
+        var desktopMargin = 'margin-top:'+ api('responsive_'+control+'_top_padding').get()+'px; '+'margin-bottom:'+ api('responsive_'+control+'_bottom_padding').get()+'px; '+'margin-left:'+ api('responsive_'+control+'_left_padding').get()+'px; '+'margin-right:'+ api('responsive_'+control+'_right_padding').get()+'px;';
+        var tabletMargin = 'margin-top:'+ api('responsive_'+control+'_tablet_top_padding').get()+'px; '+'margin-bottom:'+ api('responsive_'+control+'_tablet_bottom_padding').get()+'px; '+'margin-left:'+ api('responsive_'+control+'_tablet_left_padding').get()+'px; '+'margin-right:'+ api('responsive_'+control+'_tablet_right_padding').get()+'px;';
+        var mobileMargin = 'margin-top:'+ api('responsive_'+control+'_mobile_top_padding').get()+'px; '+'margin-bottom:'+ api('responsive_'+control+'_mobile_bottom_padding').get()+'px; '+'margin-left:'+ api('responsive_'+control+'_mobile_left_padding').get()+'px; '+'margin-right:'+ api('responsive_'+control+'_mobile_right_padding').get()+'px;';
+        jQuery( 'head' ).append(
+            '<style id="responsive-'+control+'-margin">'
+            + selector + '	{ ' + desktopMargin +' }'
+            + '@media (max-width: ' + mobile_menu_breakpoint +'px) {' + selector + '	{ ' + tabletMargin + ' } }'
+            + '@media (max-width: 544px) {' + selector + '	{ ' + mobileMargin + ' } }'
+            + '</style>'
+        );
+
+    }
+
     function responsive_dynamic_box_padding( ) {
         var mobile_menu_breakpoint = api( 'responsive_mobile_menu_breakpoint' ).get();
         if( 0 == api( 'responsive_disable_mobile_menu').get()) {
@@ -1441,6 +1461,423 @@ api( 'responsive_product_card_inside_container_mobile_bottom_padding', function(
     api( 'responsive_single_blog_inside_container_mobile_right_padding', function( value ) {
         value.bind( function( newval ) {
             responsive_dynamic_padding('single_blog_inside_container', '.single.single-post.responsive-site-style-content-boxed .site-content .hentry, .single.single-post.responsive-site-style-boxed .site-content .hentry');
+        } );
+    } );
+
+    // Header Above Row Padding
+    api( 'responsive_header_above_row_padding_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_above_row_padding_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_above_row_padding_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_above_row_padding_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_padding_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_padding_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_padding_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_padding_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_padding_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_padding_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_padding_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_padding_mobile_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_above_row_padding', '.responsive-site-above-header-wrap');
+        } );
+    } );
+    // Header Above Row Margin
+    api( 'responsive_header_above_row_margin_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_above_row_margin_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_above_row_margin_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_above_row_margin_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_margin_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_margin_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_margin_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_margin_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_margin_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_margin_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_margin_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_above_row_margin_mobile_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_above_row_margin', '.responsive-site-above-header-wrap');
+        } );
+    } );
+
+    // Header Primary Row Padding
+    api( 'responsive_header_primary_row_padding_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_primary_row_padding_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_primary_row_padding_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_primary_row_padding_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_padding_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_padding_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_padding_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_padding_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_padding_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_padding_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_padding_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_padding_mobile_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_primary_row_padding', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+    // Header Primary Row Margin
+    api( 'responsive_header_primary_row_margin_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_primary_row_margin_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_primary_row_margin_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_primary_row_margin_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_margin_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_margin_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_margin_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_margin_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_margin_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_margin_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_margin_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_primary_row_margin_mobile_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_primary_row_margin', '.responsive-site-primary-header-wrap');
+        } );
+    } );
+
+    // Header Below Row Padding
+    api( 'responsive_header_below_row_padding_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_below_row_padding_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_below_row_padding_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_below_row_padding_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_padding_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_padding_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_padding_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_padding_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_padding_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_padding_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_padding_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_padding_mobile_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_padding('header_below_row_padding', '.responsive-site-below-header-wrap');
+        } );
+    } );
+    // Header Below Row Margin
+    api( 'responsive_header_below_row_margin_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_below_row_margin_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_below_row_margin_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+    api( 'responsive_header_below_row_margin_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_margin_tablet_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_margin_tablet_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_margin_tablet_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_margin_tablet_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_margin_mobile_top_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_margin_mobile_bottom_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_margin_mobile_left_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
+        } );
+    } );
+
+    api( 'responsive_header_below_row_margin_mobile_right_padding', function( value ) {
+        value.bind( function( newval ) {
+            responsive_dynamic_margin('header_below_row_margin', '.responsive-site-below-header-wrap');
         } );
     } );
 

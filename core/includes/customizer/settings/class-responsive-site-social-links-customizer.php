@@ -47,6 +47,13 @@ if ( ! class_exists( 'Responsive_Site_Social_Links_Customizer' ) ) :
 				)
 			);
 
+			// Option: Enalbe Social Icons in Header.
+			// $social_links_enable_header = __( 'Enable in Header', 'responsive' );
+			// responsive_toggle_control( $wp_customize, 'social_links_enable_header', $social_links_enable_header, 'responsive_social_links', 140, 0, null );
+
+			// Option: Enalbe Social Icons in Footer.
+			$social_links_enable_footer = __( 'Enable in Footer', 'responsive' );
+			responsive_toggle_control( $wp_customize, 'social_links_enable_footer', $social_links_enable_footer, 'responsive_social_links', 150, 1, null );
 			
 			// Social Link New Tab.
 			$social_link_new_label = esc_html__( 'Open Social Icons in a new tab', 'responsive' );

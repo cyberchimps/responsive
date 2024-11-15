@@ -1,0 +1,11 @@
+.customize-control-responsive-multiselect  {
+    display: flex;
+}
+.customize-control-responsive-multiselect .customize-control-responsive-selectbtn__button  {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.customize-control-title.customize-control-multi-select-title {
+    margin-top: 0;
+    margin-bottom: 12px;
+}

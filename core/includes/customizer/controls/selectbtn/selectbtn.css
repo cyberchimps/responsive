@@ -16,6 +16,8 @@
 .customize-control-responsive-selectbtn__button.active{
     color: white;
     background-color: rgb(30, 115, 190);
+    border-top-color: rgb(30, 115, 190);
+    border-bottom-color: rgb(30, 115, 190);
 }
 .responsive-selectbtn-text{
     font-size: 14px;

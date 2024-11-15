@@ -383,7 +383,7 @@ add_action( 'after_setup_theme', 'responsive_add_image_size' );
  *
  * @return void [description].
  */
-function responsive_get_social_icons() {
+function responsive_get_social_icons( $area ) {
 
 	$responsive_options = Responsive\Core\responsive_get_options();
 
@@ -409,7 +409,7 @@ function responsive_get_social_icons() {
 			$count++;
 		}
 	}
-	if ( $count > 0 ) {
+	if ( $count > 0 && $area === '_header' || $count > 0 && $area === '_footer' && get_theme_mod( 'responsive_social_links_enable_footer', true ) ) {
 		?>
 		<div class="footer-layouts social-icon">
 			<ul class="social-icons">

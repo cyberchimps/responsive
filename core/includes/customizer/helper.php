@@ -1372,6 +1372,76 @@ function responsive_drag_number_control( $wp_customize, $element, $label, $secti
 }
 
 /**
+ * [responsive_drag_number_control_with_switchers description]
+ *
+ * @param  [type]  $wp_customize [description].
+ * @param  [type]  $element      [description].
+ * @param  [type]  $label        [description].
+ * @param  [type]  $section      [description].
+ * @param  [type]  $priority     [description].
+ * @param  [type]  $default      [description].
+ * @param  [type]  $active_call  [description].
+ * @param  integer $max          [description].
+ * @param  integer $min          [description].
+ * @param  [type]  $transport  [description].
+ * @param  [type]  $step  [description].
+ * @return void                [description].
+ */
+function responsive_drag_number_control_with_switchers( $wp_customize, $element, $label, $section, $priority, $default, $active_call = null, $max = 4096, $min = 1, $transport = 'refresh', $step = 1 ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_tablet',
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'responsive_' . $element . '_mobile',
+		array(
+			'transport'         => $transport,
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_number',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Responsive_Customizer_Range_With_Switcher_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => array(
+					'desktop' => 'responsive_' . $element,
+					'tablet'  => 'responsive_' . $element . '_tablet',
+					'mobile'  => 'responsive_' . $element . '_mobile',
+				),
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'input_attrs'     => array(
+					'min'  => $min,
+					'max'  => $max,
+					'step' => $step,
+				),
+			)
+		)
+	);
+
+}
+
+/**
  * [responsive_separator_control description].
  *
  * @param  [type] $wp_customize [description].
@@ -1414,28 +1484,28 @@ function responsive_separator_control( $wp_customize, $element, $label, $section
  *
  * @return [type] [description]
  */
-function responsive_active_vertical_header() {
+// function responsive_active_vertical_header() {
 
-	return ( 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
-}
+// 	return ( 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+// }
 
 /**
  * [responsive_active_vertical_header_and_main_menu description].
  *
  * @return [type] [description]
  */
-function responsive_active_vertical_header_and_main_menu() {
-	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
-}
+// function responsive_active_vertical_header_and_main_menu() {
+// 	return ( 0 === get_theme_mod( 'responsive_disable_menu', 0 ) && 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+// }
 
 /**
  * [responsive_active_vertical_header_and_secondary_menu description].
  *
  * @return [type] [description]
  */
-function responsive_active_vertical_header_and_secondary_menu() {
-	return ( 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) && 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
-}
+// function responsive_active_vertical_header_and_secondary_menu() {
+// 	return ( 0 === get_theme_mod( 'responsive_disable_secondary_menu', 0 ) && 'vertical' === get_theme_mod( 'responsive_header_layout', 'horizontal' ) ) ? true : false;
+// }
 
 /**
  * [responsive_active_vertical_transparent_header description].
@@ -1615,9 +1685,9 @@ function responsive_breadcrumb_separator_unicode() {
 /**
  * [responsive_enable_header_bottom_border_check description].
  */
-function responsive_enable_header_bottom_border_check() {
-	return ( 1 === get_theme_mod( 'responsive_enable_header_bottom_border', 1 ) ) ? true : false;
-}
+// function responsive_enable_header_bottom_border_check() {
+// 	return ( 1 === get_theme_mod( 'responsive_enable_header_bottom_border', 1 ) ) ? true : false;
+// }
 
 /**
  * [responsive_enable_transparent_header_bottom_border_check description].
@@ -2901,4 +2971,64 @@ function responsive_typography_group_control( $wp_customize, $element, $label, $
 			)
 		)
 	);
+}
+
+/**
+ * [responsive_multi_select_button_control].
+ *
+ * @param  [type] $wp_customize [description].
+ * @param  [type] $element      [description].
+ * @param  [type] $label        [description].
+ * @param  [type] $section      [description].
+ * @param  [type] $priority     [description].
+ * @param  [type] $choices      [description].
+ * @param  [type] $default      [description].
+ * @param  [type] $active_call  [description].
+ * @param  [type] $transport    [description].
+ *
+ * @return void               [description].
+ */
+function responsive_multi_select_button_control( $wp_customize, $element, $label, $section, $priority, $choices, $default, $active_call, $transport = 'refresh' ) {
+
+	$wp_customize->add_setting(
+		'responsive_' . $element,
+		array(
+			'default'           => $default,
+			'sanitize_callback' => 'responsive_sanitize_multi_select',
+			'transport'         => $transport,
+		)
+	);
+	$wp_customize->add_control(
+		new Responsive_Customizer_Multi_Select_Control(
+			$wp_customize,
+			'responsive_' . $element,
+			array(
+				'label'           => $label,
+				'section'         => $section,
+				'settings'        => 'responsive_' . $element,
+				'priority'        => $priority,
+				'active_callback' => $active_call,
+				'choices'         => apply_filters( 'responsive_' . $element . '_choices', $choices ),
+			)
+		)
+	);
+}
+
+/**
+ * [responsive_different_logo_sticky_header description].
+ *
+ * @return [type] [description]
+ */
+function responsive_different_logo_sticky_header() {
+
+	return ( 1 === get_theme_mod( 'responsive_sticky_header_logo_option', 0 ) ) ? true : false;
+}
+/**
+ * [responsive_different_logo_transparent_header description].
+ *
+ * @return [type] [description]
+ */
+function responsive_different_logo_transparent_header() {
+
+	return ( 1 === get_theme_mod( 'responsive_transparent_header_logo_option', 0 ) ) ? true : false;
 }

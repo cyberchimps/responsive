@@ -48,97 +48,97 @@
 
     // Header -> Layout
     //Header Layout
-    api( 'responsive_header_layout', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
+    // api( 'responsive_header_layout', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
 
-                    $('body').removeClassRegEx('site-header-layout-');
-                    jQuery( 'body' ).addClass( 'site-header-layout-'+ newval );
-                }
-            );
-        }
-    );
+    //                 $('body').removeClassRegEx('site-header-layout-');
+    //                 jQuery( 'body' ).addClass( 'site-header-layout-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
 
 
     // Header -> Layout
     //Header Layout
-    api( 'responsive_mobile_header_layout', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
+    // api( 'responsive_mobile_header_layout', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
 
-                    $('body').removeClassRegEx('site-mobile-header-layout-');
-                    jQuery( 'body' ).addClass( 'site-mobile-header-layout-'+ newval );
-                }
-            );
-        }
-    );
-
-    // Header -> Layout
-    //Header Alignment
-    api( 'responsive_header_alignment', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
-
-                    $('body').removeClassRegEx('site-header-alignment-');
-                    jQuery( 'body' ).addClass( 'site-header-alignment-'+ newval );
-                }
-            );
-        }
-    );
-
+    //                 $('body').removeClassRegEx('site-mobile-header-layout-');
+    //                 jQuery( 'body' ).addClass( 'site-mobile-header-layout-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
 
     // Header -> Layout
     //Header Alignment
-    api( 'responsive_mobile_header_alignment', function( $swipe ) {
-            $swipe.bind(
-                function( newval ) {
-                    // remove class regex expression function
-                    $.fn.removeClassRegEx = function(regex) {
-                        var classes = $(this).attr('class');
-                        if (!classes || !regex) return false;
-                        var classArray = [];
-                        classes = classes.split(' ');
-                        for (var i = 0, len = classes.length; i < len; i++)
-                            if (!classes[i].match(regex)) classArray.push(classes[i]);
-                        $(this).attr('class', classArray.join(' '));
-                    };
+    // api( 'responsive_header_alignment', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
 
-                    $('body').removeClassRegEx('site-mobile-header-alignment-');
-                    jQuery( 'body' ).addClass( 'site-mobile-header-alignment-'+ newval );
-                }
-            );
-        }
-    );
+    //                 $('body').removeClassRegEx('site-header-alignment-');
+    //                 jQuery( 'body' ).addClass( 'site-header-alignment-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
+
+
+    // Header -> Layout
+    //Header Alignment
+    // api( 'responsive_mobile_header_alignment', function( $swipe ) {
+    //         $swipe.bind(
+    //             function( newval ) {
+    //                 // remove class regex expression function
+    //                 $.fn.removeClassRegEx = function(regex) {
+    //                     var classes = $(this).attr('class');
+    //                     if (!classes || !regex) return false;
+    //                     var classArray = [];
+    //                     classes = classes.split(' ');
+    //                     for (var i = 0, len = classes.length; i < len; i++)
+    //                         if (!classes[i].match(regex)) classArray.push(classes[i]);
+    //                     $(this).attr('class', classArray.join(' '));
+    //                 };
+
+    //                 $('body').removeClassRegEx('site-mobile-header-alignment-');
+    //                 jQuery( 'body' ).addClass( 'site-mobile-header-alignment-'+ newval );
+    //             }
+    //         );
+    //     }
+    // );
 
     // Header -> Layout
     //Header Widgets Position
