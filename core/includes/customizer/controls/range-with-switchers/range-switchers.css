@@ -1,0 +1,46 @@
+.customize-control-responsive-range-with-switchers .control-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    box-sizing: border-box;
+}
+.customize-control-responsive-range-with-switchers input[type=range] {
+    background-color: rgba(0, 0, 0, .1);
+    height: 5px;
+    width: 69%;
+    padding: 0;
+    cursor: pointer;
+    transition: background .5s;
+    -webkit-appearance: none;
+}
+.customize-control-responsive-range-with-switchers input.responsive-range-switchers-input {
+    width: 21%;
+    height: 32px;
+    text-align: left;
+    margin: 0;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #50575E;
+    border: 1px solid #D2D2D2;
+}
+.customize-control-responsive-range-with-switchers span.responsive-reset-slider {
+    display: inline-block;
+    position: relative;
+    width: 6%;
+    margin: 0 2%;
+    line-height: 1;
+    color: rgba(0, 0, 0, .2);
+    cursor: pointer;
+    text-align: center;
+}
+.customize-control-responsive-range-with-switchers span.responsive-reset-slider span {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 1;
+    color: #50575E;
+    opacity: 0.6;
+}

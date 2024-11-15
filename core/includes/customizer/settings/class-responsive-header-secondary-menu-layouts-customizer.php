@@ -57,6 +57,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			 
 			 $general_tab_ids_prefix = 'customize-control-';
 			 $general_tab_ids        = array(
+				 $general_tab_ids_prefix . 'responsive_redirect_to_secondary_menu_set_location',
 				 $general_tab_ids_prefix . 'responsive_secondary_sub_menu_width',
 				 $general_tab_ids_prefix . 'responsive_secondary_sub_menu_divider',
 				 $general_tab_ids_prefix . 'responsive_visibility_separator',
@@ -77,9 +78,12 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 				)
 			);
 			
+			// Redirect to Secondary Menu set location.
+			$configure_secondary_menu_redirect_label = __( 'Configure Secondary Menu', 'responsive' );
+			responsive_redirect_control( $wp_customize, 'redirect_to_secondary_menu_set_location', $configure_secondary_menu_redirect_label, 'responsive_header_secondary_menu_layout', 40, 'control', 'nav_menu_locations[secondary-menu]');
 			
 			$secondary_sub_menu_width_label = esc_html__( 'Sub Menu Width (%)', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'secondary_sub_menu_width', $secondary_sub_menu_width_label, 'responsive_header_secondary_menu_layout', 50, 30, 'responsive_disabled_secondary_menu', 100, 0, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'secondary_sub_menu_width', $secondary_sub_menu_width_label, 'responsive_header_secondary_menu_layout', 50, 30, 'responsive_disabled_secondary_menu', 100, 0, 'refresh' );
 
 			// Enable Item Divider
 			$secondary_sub_menu_divider_label = __( 'Item Divider', 'responsive' );
@@ -97,7 +101,7 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 
 			// Sub-menu Container Top Offset.
 			$secondary_menu_top_offset_label = esc_html__( 'Top Offset', 'responsive' );
-			responsive_drag_number_control( $wp_customize, 'secondary_menu_top_offset', $secondary_menu_top_offset_label, 'responsive_header_secondary_menu_layout', 105, 0, 'responsive_disabled_secondary_menu', 200, 0, 'postMessage' );
+			responsive_drag_number_control( $wp_customize, 'secondary_menu_top_offset', $secondary_menu_top_offset_label, 'responsive_header_secondary_menu_layout', 105, 0, 'responsive_disabled_secondary_menu', 200, 0, 'refresh' );
 
 			// Colors
 			
@@ -131,12 +135,12 @@ if ( ! class_exists( 'Responsive_Header_Secondary_Menu_Layouts_Customizer' ) ) :
 			$spacing_separator_label = __( 'Spacing', 'responsive' );
 			responsive_separator_control( $wp_customize, 'spacing_separator', $spacing_separator_label, 'responsive_header_secondary_menu_layout', 170 );
 			
-			$menu_spacing_label = esc_html__( 'Menu (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'secondary-menu-padding', 'responsive_header_secondary_menu_layout', 175, Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ), 'responsive_disabled_mobile_menu', $menu_spacing_label, 'refresh' );
+			$menu_spacing_label = esc_html__( 'Padding (px)', 'responsive' );
+			responsive_padding_control( $wp_customize, 'secondary-menu-padding', 'responsive_header_secondary_menu_layout', 175, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_padding' ), 'responsive_disabled_mobile_menu', $menu_spacing_label, 'refresh' );
 
 			// Menu margin
 			$margin_spacing_label = esc_html__( 'Margin (px)', 'responsive' );
-			responsive_padding_control( $wp_customize, 'secondary-menu-margin', 'responsive_header_secondary_menu_layout', 180, Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ), Responsive\Core\get_responsive_customizer_defaults( 'hamburger_menu_padding' ), 'responsive_disabled_mobile_menu', $margin_spacing_label, 'refresh' );
+			responsive_padding_control( $wp_customize, 'secondary-menu-margin', 'responsive_header_secondary_menu_layout', 180, Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_margin' ), Responsive\Core\get_responsive_customizer_defaults( 'secondary_menu_margin' ), 'responsive_disabled_mobile_menu', $margin_spacing_label, 'refresh' );
 
 			// Visibiliy controls
 			

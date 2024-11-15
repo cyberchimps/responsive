@@ -702,7 +702,6 @@ if ( ! get_option( 'responsive_version_410' ) ) {
 
 			$header_layout = array( 'above_header', 'below_header' );
 			if ( in_array( get_theme_mod( 'menu_position' ), $header_layout, true ) ) {
-				! get_theme_mod( 'responsive_header_layout' ) ? set_theme_mod( 'responsive_header_layout', 'vertical' ) : '';
 
 				if ( 'above_header' === get_theme_mod( 'menu_position' ) ) {
 					! get_theme_mod( 'responsive_header_elements' ) ? set_theme_mod( 'responsive_header_elements', array( 'main-navigation', 'site-branding' ) ) : '';
