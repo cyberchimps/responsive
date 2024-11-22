@@ -2772,13 +2772,14 @@ function responsive_customizer_styles() {
 		$page_content_width = esc_html( get_theme_mod( 'responsive_page_content_width', Responsive\Core\get_responsive_customizer_defaults( 'page_content_width' ) ) );
 	}
 
+	$page_priority = is_page() && get_post_meta( get_the_ID(), 'responsive_page_meta_content_width', true ) ? '!important' : '';
 	$custom_css .= "
 	@media (min-width:992px) {
 		.page:not(.page-template-gutenberg-fullwidth):not(.page-template-full-width-page):not(.woocommerce-cart):not(.woocommerce-checkout):not(.front-page) .content-area {
-			width:{$page_content_width}%;
+			width:{$page_content_width}%" . "{$page_priority};
 		}
 		.page aside.widget-area:not(.home-widgets) {
-			width: calc(100% - {$page_content_width}%);
+			width: calc(100% - {$page_content_width}%)" . "{$page_priority};
 		}
 	}";
 

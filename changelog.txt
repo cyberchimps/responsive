@@ -8,6 +8,16 @@ Changelog Legend:
 [x] = Deleted
 [!] = Bugs
 
+(21/11/2024) = Fix - Version 6.0.2
+[*] = Improvement = Uses ARIA roles on incompatible elements.
+[*] = Improvement = Added search template style setting.
+[!] = Fix = Fixed breadcrumbs itemListElement issue in Rich test results.
+[!] = Fix = Fixed breadcrumbs compatibility issue with yoast SEO.
+[!] = Fix = Fixed related settings visibility issue while navigating to the breadcrumbs option.
+[!] = Fix = Fixed responsive theme page option settings not working.
+[!] = Fix = Fixed the layout images in width from global settings.
+[!] = Fix = Fixed Activate button in notification not working.
+
 (01/10/2024) = Improvement - Version 6.0.1
 [*] = Improvement = Added control to redirect to Site Title and Logo in Site Identity.
 [!] = Fix = Fixed Breadcrumbs itemListElement issue in Rich test results.

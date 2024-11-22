@@ -275,16 +275,10 @@ function responsive_search_icon( $menu, $args ) {
 	// Only used for the main menu.
 	if ( 'header-menu' === $args->theme_location ) {
 		if ( 'search' === $search_icon ) {
-
-			if ( class_exists( 'Responsive_Addons_Pro' ) ) {
-				$search_screen = get_theme_mod( 'search_style', 'search' );
-				if ( 'full-screen' == $search_screen ) {
-					get_search_form();
-					$menu .= '<li class="res-last-item res-search-link" id="full-screen-res-search-link"><a class="full-screen res-search-icon" aria-label="Search icon link" href="#"><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
-				} else {
-					get_search_form();
-					$menu .= '<li class="res-last-item res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
-				}
+			$search_screen = get_theme_mod( 'search_style', 'search' );
+			if ( 'full-screen' == $search_screen ) {
+				get_search_form();
+				$menu .= '<li class="res-last-item res-search-link" id="full-screen-res-search-link"><a class="full-screen res-search-icon" aria-label="Search icon link" href="#"><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
 			} else {
 				get_search_form();
 				$menu .= '<li class="res-last-item res-search-link" id="res-search-link"><a><div class="res-search-icon-wrap"><span class="res-search-icon icon-search"></span></div></a></li>';
