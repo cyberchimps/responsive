@@ -3120,6 +3120,27 @@ function responsive_customizer_styles() {
 			grid-template-columns: repeat( 1 , 1fr );
 	    }
 	}";
+	// Apply Global Button colors for Elementor buttons when disable default colors is checked.
+	$disable_elementor_default_color_setting = 'yes' === get_option( 'elementor_disable_color_schemes' ) ? true : false;
+
+	if( $disable_elementor_default_color_setting ) {
+		$custom_css .= "
+			.elementor-button-wrapper .elementor-button {
+				background-color: {$button_color};
+				color: {$button_text_color};
+				fill: {$button_text_color};
+				border-color: {$button_border_color}
+			}
+			.elementor-button-wrapper .elementor-button:hover {
+				background-color: {$button_hover_color};
+				color: {$button_hover_text_color};
+				border-color: {$button_hover_border_color}
+			}
+			.elementor-button-wrapper .elementor-button:hover svg {
+				fill: {$button_hover_text_color};
+			}
+		";
+	}
 
 	if ( ! class_exists( 'Responsive_Addons_Pro' ) ) {
 		// Outside Container Spacing.
