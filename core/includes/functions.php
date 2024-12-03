@@ -1221,7 +1221,7 @@ if ( ! function_exists( 'responsive_background_images_background_compatibility' 
 			if ( get_theme_mod( 'background_color' ) ) {
 				set_theme_mod( 'responsive_site_background_color', get_theme_mod( 'background_color' ) );
 			}
-			if ( get_theme_mod( 'responsive_inputs_border_width_top_border', 1 ) ) {
+			if ( get_theme_mod( 'responsive_inputs_border_width' ) ) {
 				set_theme_mod( 'responsive_inputs_border_width_top_border', get_theme_mod( 'responsive_inputs_border_width' ) );
 			}
 			update_option( 'responsive_old_background_images_compatible_done', true );
