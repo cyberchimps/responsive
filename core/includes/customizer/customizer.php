@@ -155,6 +155,10 @@ function responsive_customize_preview_js() {
 	if ( is_responsive_version_greater() ) {
 		wp_enqueue_script( 'responsive_theme_customizer_image', get_template_directory_uri() . '/core/includes/customizer/assets/js/customize-preview-image-control.js', array( 'customize-preview' ), RESPONSIVE_THEME_VERSION, true );
 	}
+	$localize_array = array(
+		'isDisableElementorDefaultColors' => 'yes' === get_option( 'elementor_disable_color_schemes' ) ? true : false,
+	);
+	wp_localize_script( 'responsive_theme_customizer_color', 'responsiveSiteLocalOptions', $localize_array );
 }
 
 /**
