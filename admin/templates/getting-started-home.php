@@ -201,7 +201,6 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 
 	$responsive_addons_cards_content = array(
 		array(
-			'tag'   => 'free',
 			'title' => __( 'Starter Templates', 'responsive' ),
 			'desc'  => __( 'Unlock the library of 100+ Premium Starter Templates.', 'responsive' ),
 			'links' => array(
@@ -213,7 +212,6 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 			),
 		),
 		array(
-			'tag'   => 'free',
 			'title' => __( 'White Label', 'responsive' ),
 			'desc'  => __( 'White Label the theme name & settings with the Pro Plugin.', 'responsive' ),
 			'links' => array(
@@ -397,12 +395,6 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 								<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_html( $feature['tag'] ); ?>"><span><?php echo esc_html( $feature['tag'] ); ?></span></span>
 								<?php
 							}
-
-							if ( 'pro' !== $feature['tag'] ) {
-								?>
-								<span class="responsive-theme-feature-card responsive-theme-feature-card-<?php echo esc_html( $feature['tag'] ); ?>"><span><?php echo esc_html( $feature['tag'] ); ?></span></span>
-								<?php
-							}
 							?>
 							<div class="responsive-theme-feature-card-title mt-2 mb-2"><?php echo esc_html( $feature['title'] ); ?></div>
 							<div class="responsive-theme-feature-card-desc"><?php echo esc_html( $feature['desc'] ); ?></div>
@@ -475,10 +467,6 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							if ( check_is_responsive_pro_activated() ) {
 								?>
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
-								<?php
-							} else {
-								?>
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php esc_html_e( 'FREE', 'responsive' ); ?></span></span>
 								<?php
 							}
 							?>
@@ -671,10 +659,6 @@ $responsive_addons_state = Responsive_Plugin_Install_Helper::instance()->check_p
 							if ( check_is_responsive_pro_activated() ) {
 								?>
 							<span class="responsive-theme-feature-card responsive-theme-feature-card-pro"><span><?php esc_html_e( 'PRO', 'responsive' ); ?></span></span>
-								<?php
-							} else {
-								?>
-							<span class="responsive-theme-feature-card responsive-theme-feature-card-free"><span><?php esc_html_e( 'FREE', 'responsive' ); ?></span></span>
 								<?php
 							}
 							?>
